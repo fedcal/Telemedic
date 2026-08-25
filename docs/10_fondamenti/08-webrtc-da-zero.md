@@ -25,6 +25,11 @@ Ciò che non è stato verificato su fonte primaria è marcato `[NV]`. Tutti gli 
 contengono esclusivamente dati sintetici e indirizzi di documentazione; **nessun segreto
 reale compare in questa guida**, solo segnaposto di variabili d'ambiente.
 
+Il modello di minaccia complessivo del sistema, gli obblighi di tracciamento e la gestione
+dell'identità sono trattati nel [modulo sulla sicurezza](09-sicurezza-da-zero.md); ogni
+sigla e ogni termine introdotti qui sono ripresi nel
+[glossario](14-glossario.md).
+
 ---
 
 ## 1. Perché una videochiamata è un problema difficile
@@ -2131,6 +2136,759 @@ Questa è la parte in cui l'onestà architetturale costa qualcosa e la si paga v
 sarebbe più comodo dichiarare «cifrato da estremo a estremo» senza qualificazioni e
 registrare comunque. Sarebbe falso, e verificabile come tale da chiunque leggesse le
 statistiche di trasporto di una sessione registrata.
+
+---
+
+## 11. Il server di relay
+
+### 11.1 A che cosa serve, in una riga
+
+Il progetto usa **coturn**, un'implementazione open source di STUN e TURN. Fa due cose:
+risponde alle domande «che indirizzo vedi arrivare da me?» (STUN, §5.3) e presta un proprio
+indirizzo per instradare i pacchetti quando nessun percorso diretto funziona (TURN, §5.3).
+
+Il vincolo di sovranità del dato (V1) impone che sia **ospitato dal progetto o dal
+distributore, nell'Unione europea**. Nessun servizio gestito di terzi.
+
+### 11.2 Autenticazione a credenziali temporanee
+
+Un server di relay è, per definizione, **un proxy UDP autenticato che inoltra byte
+arbitrari verso un indirizzo scelto dal client**. Chi ne ottiene una credenziale può farci
+transitare traffico. Questo rende la gestione delle credenziali una questione di sicurezza,
+non di configurazione.
+
+**Perché le credenziali statiche sono inaccettabili.** Le credenziali del relay **devono
+essere consegnate al browser**, quindi al client, quindi all'utente. Una credenziale statica
+è, per costruzione, **pubblica**: chiunque apra gli strumenti di sviluppo la legge e la
+riusa per far transitare traffico arbitrario, con il costo di banda a carico
+dell'operatore e la responsabilità legale del traffico instradato.
+
+**La soluzione: credenziali a scadenza breve, derivate da un segreto condiviso.** Il
+meccanismo, verificato sulla documentazione del progetto upstream:
+
+- `username` = `<istante di scadenza>:<identificativo>`
+- `password` = `base64(hmac(username, segreto condiviso))`
+
+Il backend emette la credenziale, il server di relay la verifica ricalcolando l'HMAC con lo
+stesso segreto. **Nessun database di utenti, nessuno stato condiviso**: qualunque nodo può
+validare qualunque credenziale.
+
+Quattro regole non negoziabili su questo meccanismo:
+
+1. **L'endpoint che emette la credenziale è autenticato, autorizzato e limitato in
+   frequenza.** Deve verificare che il richiedente sia effettivamente parte di quel consulto.
+   Altrimenti è un distributore automatico di accessi al relay.
+2. **La durata è breve** — l'ordine di grandezza corretto è fra cinque minuti e un'ora.
+3. **L'identificativo dentro la credenziale è opaco.** Finisce nei registri del server di
+   relay in chiaro: **non deve mai essere un identificativo dell'assistito né del
+   professionista**, ma un identificativo di sessione non correlabile senza accesso alla base
+   dati del progetto. È un requisito di minimizzazione, non una preferenza.
+4. **Il segreto condiviso viene da un gestore di segreti**, mai dal sorgente. Negli esempi di
+   questa guida compare esclusivamente come segnaposto di variabile d'ambiente.
+
+Due precisazioni di onestà normativa, entrambe verificate:
+
+- **Questo meccanismo non è uno standard IETF.** Deriva da un Internet-Draft individuale
+  scaduto. Lo standard vero sarebbe RFC 7635 (autorizzazione di terza parte tramite token).
+  Il meccanismo qui descritto è però l'unico con supporto universale nei browser e nel
+  server: si adotta, e **lo si documenta per ciò che è — una convenzione di fatto**.
+- **L'algoritmo di hash sottostante all'HMAC** è genericamente indicato come `hmac(...)`
+  nella documentazione del server: `[NV]` che sia SHA-1. Il modo corretto di risolvere il
+  dubbio non è una citazione documentale ma **un test di integrazione**: emettere una
+  credenziale con l'implementazione del progetto, tentare un'allocazione reale contro il
+  server effettivamente distribuito, e far fallire la costruzione se l'autenticazione non
+  riesce. Verifica il comportamento della versione in produzione, che è ciò che conta.
+
+Capacità operativa rilevante, verificata: il server accetta **più segreti condivisi
+contemporaneamente**. È il meccanismo che permette di **ruotare il segreto senza
+interruzione di servizio**: si aggiunge il nuovo, si fa emettere al backend con il nuovo, si
+rimuove il vecchio dopo la scadenza della durata massima.
+
+### 11.3 La versione minima è 4.17.2, e non è negoziabile
+
+Dato verificato sul repository upstream al 25 agosto 2026: la versione corrente è **4.17.2**,
+pubblicata l'**8 agosto 2026**. Nei sette mesi precedenti sono state pubblicate **quattordici
+release**, cinque delle quali nel solo mese di agosto 2026.
+
+**La versione minima ammessa dal progetto è 4.17.2.** Non è una preferenza: versioni
+precedenti restano esposte a difetti corretti dopo, alcuni di gravità elevata — fra cui uno
+di gravità 9,8 su 10 nella decodifica di un token di autorizzazione, corretto in 4.10.0.
+
+Tre cambi di comportamento predefinito introdotti nella 4.17.0 vanno conosciuti, perché
+rompono configurazioni scritte per versioni precedenti:
+
+1. **I listener DTLS sono ora opzionali**: *«The server no longer starts DTLS listeners
+   unless `--dtls` is given.»* Per il progetto è la configurazione voluta — i browser usano
+   il relay su TCP con TLS, non su DTLS — e non attivarli elimina un'intera superficie
+   d'attacco.
+2. **Il nonce senza stato è attivo per impostazione predefinita**, con chiave di firma
+   **generata per processo**. In un'architettura a più nodi indipendenti questo significa che
+   ogni richiesta che atterra su un nodo diverso costa al client un giro supplementare di
+   riautenticazione. **Il segreto per il nonce senza stato va quindi configurato identico su
+   tutti i nodi**: è un requisito, non un'ottimizzazione.
+3. **Il formato dei registri è cambiato** (istante ISO-8601 al millisecondo, un record per
+   riga). Qualunque analizzatore scritto per versioni precedenti va aggiornato.
+
+**Regola permanente**: a ogni aggiornamento di versione minore, la configurazione e l'elenco
+dei difetti noti vanno ri-verificati sulle banche dati di vulnerabilità e sull'aiuto in linea
+della versione effettivamente distribuita, e l'esito va registrato nel fascicolo di
+sorveglianza post-commercializzazione. Il server di relay è un componente di terze parti
+censito formalmente ai sensi di IEC 62304 §8.1.2, non una dipendenza qualsiasi.
+
+### 11.4 La regola che conta: l'isolamento di rete in uscita è la difesa primaria
+
+Questa è la parte più importante del paragrafo, ed è quella che nella pratica viene
+sistematicamente sbagliata.
+
+**Il meccanismo dell'attacco.** Un server di relay inoltra byte verso un indirizzo **scelto
+dal client**. Se non si restringono le destinazioni, chiunque ottenga una credenziale valida
+— e nel progetto la ottiene **ogni assistito autenticato**, per costruzione — può:
+
+- raggiungere l'indirizzo di loopback del server stesso e parlare con servizi che si
+  credevano non esposti;
+- scansionare la rete interna dell'operatore;
+- raggiungere gli endpoint di metadati dei fornitori di infrastruttura, classica scala verso
+  credenziali di amministrazione;
+- usare l'infrastruttura come punto di rimbalzo verso terzi, con l'indirizzo del progetto in
+  testa ai registri della vittima.
+
+È **falsificazione di richieste lato server a livello di trasporto**, non applicativo.
+
+**Che cosa dice lo standard.** **RFC 8656 §21** tratta la sicurezza ma **non impone**
+restrizioni sul relay verso loopback o reti private. §7.2 si limita a dire che *«the TURN
+server application knows, through some means not specified here, that other applications
+running on the same host as the TURN server application will not be impacted»*; §21.2.2
+menziona le liste di indirizzi vietati come considerazione di firewall, **delegando
+all'operatore**. La difesa è responsabilità di chi distribuisce, non del protocollo.
+
+**Il dato verificato, che decide la strategia.** Il pattern non è teorico: ha **sei
+vulnerabilità distinte** censite in otto anni, **quattro delle quali negli ultimi otto
+mesi**:
+
+| Meccanismo del bypass | Corretto in |
+|---|---|
+| Configurazione predefinita che consentiva il relay verso loopback | 4.5.0.9 |
+| Indirizzo di destinazione `0.0.0.0` (e le forme IPv6 equivalenti) | 4.5.2 |
+| Forma IPv4 mappata in IPv6 che aggira **le regole esplicite** di divieto | 4.9.0 |
+| Forma IPv4 mappata in IPv6 che aggira **la protezione predefinita** del loopback | 4.13.0 |
+| Forme IPv6 alternative instradabili verso IPv4 (6to4, NAT64) non normalizzate | 4.13.1 |
+| Confronto degli indirizzi IPv6 byte per byte anziché numericamente: un intervallo **non allineato a un prefisso** viene aggirato | 4.16.0 |
+
+Sono **quattro aggiramenti in otto mesi**, tutti dovuti a difetti di normalizzazione o di
+confronto degli indirizzi IPv6.
+
+> **La conclusione operativa, che è la regola non negoziabile di questo modulo.**
+>
+> **La lista degli indirizzi vietati è una difesa in profondità, non la difesa primaria.**
+> È stata aggirata quattro volte in otto mesi. **L'unica difesa che ha retto a tutte e sei le
+> vulnerabilità è l'isolamento di rete in uscita**, perché non dipende dalla correttezza del
+> parsing del server.
+
+Le quattro misure che discendono da questo fatto, e che nessuna riga di configurazione può
+sostituire:
+
+1. **Isolamento di rete in uscita.** Il nodo di relay in zona demilitarizzata, **senza alcuna
+   rotta verso la rete interna**. Regole di uscita a livello di rete: consentito solo il
+   traffico verso Internet pubblico; negato tutto il resto, **incluso il traffico verso sé
+   stesso e verso il proprio indirizzo pubblico**.
+2. **Nessun servizio co-locato.** Nessuna base dati, nessun agente di gestione in ascolto su
+   loopback, nessun endpoint di metadati raggiungibile.
+3. **Test di sicurezza in integrazione continua.** Con una credenziale valida, tentare la
+   creazione di un permesso verso l'indirizzo di loopback, verso la sua forma IPv4 mappata in
+   IPv6, verso l'endpoint di metadati, verso indirizzi privati, **verso l'indirizzo pubblico
+   del nodo stesso** e **verso un indirizzo dentro un intervallo IPv6 non allineato a un
+   prefisso**; far fallire la costruzione se una qualunque di esse riceve risposta di
+   successo. È una misura di controllo del rischio tracciabile.
+4. **Allarmi sui registri, non sulle metriche.** Fatto verificato: **l'esportatore di
+   metriche del server non espone alcun contatore dei permessi negati**. Il segnale
+   d'attacco — un picco di richieste di permesso respinte, cioè una scansione della rete
+   interna — **va estratto dai registri applicativi**. Le metriche utili in affiancamento
+   sono il numero di allocazioni correnti (per la saturazione) e il contatore delle risposte
+   di autenticazione soppresse (per l'attività di riflessione).
+
+### 11.5 Le regole di configurazione, spiegate
+
+Non riproduciamo qui il file completo, che vive nella documentazione operativa. Interessano
+i **principi**, perché sono ciò che va capito prima di toccare quel file.
+
+**Primo principio: il comportamento predefinito è «consenti».** Testo verbatim della
+documentazione del server: *«If there is no rule for an address, then it is allowed»*. Non
+esiste un interruttore globale di «nega tutto per impostazione predefinita»: **il divieto
+predefinito va costruito enumerando gli intervalli**. Una riga dimenticata significa relay
+consentito.
+
+**Secondo principio: le regole permissive prevalgono sempre su quelle di divieto.** Sempre
+verbatim: *«If there is an 'allowed' rule that fits the address then it is allowed — no
+matter what»*. Ne consegue che **in un profilo sanitario non si usano affatto regole
+permissive**: una sola riga annullerebbe tutti i divieti.
+
+**Terzo principio: gli intervalli IPv6 vanno allineati a un prefisso.** È la mitigazione
+raccomandata dall'avviso di sicurezza sul confronto byte per byte: confini arbitrari fra un
+minimo e un massimo sono precisamente ciò che quel difetto sbagliava.
+
+Che cosa va vietato, per categoria: gli spazi privati e non instradabili IPv4; **l'indirizzo
+pubblico del nodo stesso** (altrimenti il relay raggiunge i propri servizi rientrando
+dall'esterno); la forma IPv4 mappata in IPv6; i prefissi IPv6 speciali, compresi 6to4 e
+NAT64 che si sono dimostrati vettori reali.
+
+Che cosa va **attivato**: il divieto dei peer multicast; il divieto del relay verso
+destinazioni TCP, che WebRTC non usa ed è esattamente il percorso su cui è avvenuto uno dei
+bypass; la limitazione di frequenza delle risposte di autenticazione non riuscita, che
+*«mitigates reflection and amplification attacks»*; il nonce a vita limitata.
+
+Che cosa **non va mai attivato**: il permesso ai peer di loopback, la cui documentazione dice
+testualmente *«Allow it only for testing in a development environment!»*; l'opzione di relay
+lato server, documentata come *«NON-STANDARD AND DANGEROUS OPTION»*; l'interfaccia web di
+amministrazione, che ha precedenti di iniezione di script e di iniezione SQL; la
+redirezione per la gestione automatica dei certificati, che ha un precedente di divulgazione
+di memoria **prima dell'autenticazione**; il meccanismo di mobilità della sessione, che ha
+raccolto tre vulnerabilità in due mesi e non porta alcun beneficio a un consulto a due.
+
+**Due trappole di unità e di ambiente:**
+
+- I limiti di banda del server hanno nomi che suggeriscono i bit ma sono espressi in **byte
+  al secondo**, e si applicano **per direzione**. Verificato verbatim: *«Max bytes-per-second
+  bandwidth a TURN session is allowed to handle (input and output network streams are treated
+  separately)»*. Chi legge «bps» come «bit per secondo» sbaglia il dimensionamento di un
+  fattore otto.
+- **L'intervallo di porte di relay non si può mappare porta per porta in un contenitore.**
+  Sono oltre sedicimila porte: la mappatura individuale è impraticabile. L'unica
+  configurazione sana è la modalità di rete condivisa con l'host, e va scritta nel file di
+  composizione con il commento che spiega perché.
+
+Esempio della sola parte che serve al codice applicativo — nessun segreto reale, solo
+segnaposto:
+
+```yaml
+# Frammento di configurazione dell'applicazione.
+# I due valori provengono dal gestore di segreti, mai dal sorgente
+# e mai dal repository.
+telemedic:
+  media:
+    turn:
+      urls:
+        - "turn:turn.telemedic.example:3478?transport=udp"
+        - "turns:turn.telemedic.example:5349?transport=tcp"   # per le reti che bloccano UDP
+      static-auth-secret: ${TURN_STATIC_AUTH_SECRET}
+      stateless-nonce-secret: ${TURN_STATELESS_NONCE_SECRET}
+      credential-ttl: PT10M
+```
+
+### 11.6 Alta disponibilità: la ridondanza la fa ICE
+
+Formulazione corretta e ancorabile, da usare al posto di affermazioni assolute: **la
+documentazione upstream offre tre soli schemi di scalabilità — risoluzione dei nomi con
+record di servizio, redirezione verso un server alternativo, bilanciatore di carico di rete
+— tutti di distribuzione delle nuove richieste; nessuna fonte documenta la replica dello
+stato delle allocazioni fra nodi.** Un'allocazione vive nel processo che l'ha creata e non è
+ricostruibile altrove.
+
+Ne discende l'architettura corretta, che è anche la più semplice: **N nodi indipendenti,
+stesso dominio di autenticazione, stesso segreto condiviso, stesso segreto per il nonce senza
+stato, tutti annunciati al client nell'elenco dei server**. ICE alloca in parallelo su più
+server e sceglie la coppia migliore: **la ridondanza la fa ICE, non il relay**. Nessun
+cluster, nessuna affinità di sessione, nessun indirizzamento anycast — che per un protocollo
+con stato su UDP è particolarmente sbagliato, perché un cambio di rotta sposta i pacchetti su
+un nodo che non ha l'allocazione.
+
+Il costo è che ogni client apre più allocazioni; si contiene con la quota per credenziale.
+
+---
+
+## 12. La registrazione
+
+### 12.1 Contenitore, codec, formato: tre cose diverse
+
+Confusione ricorrente. Un file video ha tre livelli indipendenti:
+
+- il **codec video** (VP8, VP9, H.264, AV1) e il **codec audio** (Opus, AAC) — come sono
+  compressi i due flussi;
+- il **contenitore** (MP4, WebM) — come i due flussi sono intrecciati in un unico file
+  insieme a indice, tempi e metadati;
+- la **cifratura a riposo** — che nel progetto è applicata **sopra** il file, con chiavi per
+  organizzazione.
+
+Il contenitore non implica il codec e viceversa. Il fatto che il browser sappia **decodificare**
+un formato non implica che sappia **produrlo**: sono percorsi software diversi.
+
+### 12.2 La trappola verificata: il contenitore diverge fra browser
+
+L'interfaccia che produce un file da un flusso è definita dalla specifica W3C *MediaStream
+Recording*. Il supporto dei contenitori è stato **verificato browser per browser**, e il
+quadro è meno rassicurante di quanto si assuma comunemente:
+
+| Motore | `video/mp4` in registrazione | `video/webm` in registrazione |
+|---|---|---|
+| Chrome, Edge e derivati (desktop e Android) | **Sì**, dalla versione 126, attivo per impostazione predefinita (H.264 + AAC) | Sì |
+| Chrome su iOS | **No** | `[NV]` |
+| Safari e Safari iOS | **Sì**, dall'introduzione dell'interfaccia (H.264 + AAC) | **Sì, ma solo dalla versione 18.4** |
+| Firefox e Firefox Android | **No.** Segnalazione aperta senza risoluzione; commento del produttore: *«We don't support an mp4 muxer.»* | Sì |
+
+> **Nessuno dei due contenitori è universale.** MP4 manca su Firefox; WebM manca sulle
+> versioni di Safari precedenti alla 18.4.
+
+**La regola del progetto discende direttamente da questo dato: il contenitore si negozia a
+runtime e non si assume mai.** Si interroga l'implementazione con la funzione di verifica del
+supporto, si sceglie il primo formato supportato da una lista di preferenza, e **si registra
+il contenitore effettivamente usato nei metadati della registrazione**, esattamente come si
+registra la suite di cifratura effettivamente negoziata per la sessione.
+
+```javascript
+/**
+ * Sceglie il contenitore di registrazione supportato dall'implementazione.
+ * Non assume MAI un formato: il supporto diverge fra motori (vedi tabella).
+ * Restituisce il tipo MIME scelto, da registrare nei metadati della sessione.
+ */
+function selezionaContenitoreRegistrazione() {
+  const preferenze = [
+    "video/mp4;codecs=avc1,mp4a.40.2",
+    "video/webm;codecs=vp9,opus",
+    "video/webm;codecs=vp8,opus",
+    "video/webm",
+    "video/mp4",
+  ];
+
+  const scelto = preferenze.find((tipo) => MediaRecorder.isTypeSupported(tipo));
+  if (!scelto) {
+    // Errore esplicito e comprensibile: mai un fallimento silenzioso.
+    throw new Error(
+      "Nessun contenitore di registrazione supportato da questo browser"
+    );
+  }
+  return scelto;
+}
+```
+
+**Conseguenza sulla comunicazione pubblica**: qualunque affermazione che dichiari un unico
+formato senza qualificazioni va corretta. La formulazione verificabile è *«registrazione in
+contenitore standard, MP4 o WebM secondo il browser, con il formato effettivo registrato nei
+metadati, cifrata a riposo»*.
+
+Va inoltre escluso il rimescolamento del contenitore lato server come rimedio: **non si può
+rimescolare un contenuto cifrato senza decifrarlo**, e reintrodurre una decifratura per
+convertire un formato vanificherebbe la ragione stessa della cifratura a riposo.
+
+### 12.3 Le altre insidie della registrazione
+
+Anche risolto il contenitore, restano quattro problemi che vanno affrontati in progettazione
+e non scoperti in produzione.
+
+1. **La composizione dei flussi.** L'interfaccia di registrazione registra **un** flusso. Per
+   catturare professionista e assistito insieme bisogna comporli, e la composizione costa
+   CPU **in aggiunta** alla codifica e decodifica della chiamata in corso. Su hardware
+   modesto è un rischio concreto di causare proprio il degrado che il sistema deve evitare.
+   Se la registrazione avviene sul dispositivo, va misurata su hardware di riferimento basso
+   e disattivata automaticamente — informando l'utente — quando la causa di limitazione della
+   qualità indica in modo persistente la CPU.
+2. **La sincronizzazione.** Registrando la composizione locale, il video remoto è già sfasato
+   rispetto all'audio locale della latenza di rete. Non è correggibile a valle senza i tempi
+   di riferimento del trasporto, che l'interfaccia di registrazione non espone. È uno dei
+   motivi per cui D23 sceglie la registrazione lato server.
+3. **L'affidabilità.** Se il browser si chiude o la scheda si blocca, la registrazione sul
+   dispositivo si perde. Il caricamento incrementale a blocchi limita il danno ma non lo
+   elimina; e se il professionista chiude il portatile a fine consulto prima che il
+   caricamento finisca, quella registrazione non esiste più.
+4. **La conservazione.** Cifratura a riposo con chiavi per organizzazione, periodo di
+   conservazione configurabile, e **cancellazione crittografica** — la distruzione della
+   chiave — come meccanismo di cancellazione effettiva.
+
+---
+
+## 13. Come si prova tutto questo in locale
+
+### 13.1 Sostituire telecamera e microfono con sorgenti deterministiche
+
+Testare una videochiamata con la webcam vera è impossibile in integrazione continua e
+inaffidabile sul portatile: l'inquadratura cambia, la luce cambia, il risultato non è
+riproducibile. I browser offrono modi per sostituire i dispositivi con sorgenti sintetiche.
+
+Opzioni **verificate sul codice sorgente del motore Chromium**, con i commenti originali:
+
+| Opzione | Effetto |
+|---|---|
+| `--use-fake-device-for-media-stream` | *«Use fake device for Media Stream to replace actual camera and microphone.»* |
+| `--use-file-for-fake-video-capture=<file>` | *«Use an .y4m file to play as the webcam.»* |
+| `--use-file-for-fake-audio-capture=<file>` | *«Play a .wav file as the microphone.»* Sintassi `<percorso>%noloop` per fermarsi a fine file |
+| `--auto-accept-camera-and-microphone-capture` | *«Bypasses the dialog prompting the user for permission to capture cameras and microphones… this flag does NOT affect screen-capture.»* |
+| `--use-fake-ui-for-media-stream` | Stessa cosa, **ma accetta anche la cattura dello schermo**. Il commento upstream stesso raccomanda di preferire l'opzione precedente |
+
+**Tre fatti operativi che si scoprono altrimenti solo perdendo una giornata:**
+
+1. **L'opzione corretta è quella che non tocca la cattura dello schermo.** L'altra
+   auto-accetterebbe anche la condivisione dello schermo, e un test che verifica il flusso di
+   consenso alla condivisione — «mostro il referto all'assistito» è un caso d'uso reale del
+   progetto — produrrebbe **falsi positivi**.
+2. **Formati: Y4M per il video, WAV per l'audio.** Non sono intercambiabili.
+3. **La riproduzione di un file audio richiede la disattivazione dell'elaborazione audio**
+   (eco, rumore, guadagno), altrimenti il file viene riprodotto distorto, e va combinata con
+   l'opzione di dispositivo sintetico. Entrambi i vincoli sono dichiarati nel commento
+   upstream.
+
+Su **Firefox**, le preferenze equivalenti verificate sono `media.navigator.streams.fake` e
+`media.navigator.permission.disabled`, entrambe booleane e predefinite a falso. Preferenze
+contigue utili al test di qualità: numero predefinito di fotogrammi al secondo, dimensione
+massima del fotogramma, frequenza del tono audio sintetico, attivazione della correzione
+d'errore audio.
+
+> **Asimmetria da conoscere prima di progettare la suite di test.** **Firefox non ha alcun
+> equivalente della riproduzione da file.** La preferenza di flusso sintetico produce un
+> segnale generato dal browser — barre colorate e un tono — non riproduce un file scelto
+> dallo sviluppatore. **Conseguenza concreta: la misura automatica della latenza dalla
+> telecamera al display basata su un file con un contatore di tempo impresso è realizzabile
+> solo sul motore Chromium.** Su Firefox serve una strategia alternativa — per esempio
+> disegnare il contatore su un elemento grafico e catturarne il flusso — oppure va dichiarata
+> una copertura ridotta.
+
+**L'idea del test di latenza, per completezza**: si prepara un file video contenente un
+contatore di tempo leggibile a schermo; il lato ricevente cattura i fotogrammi, ne legge il
+contatore e lo confronta con il proprio orologio. È l'unico modo di ottenere una misura
+**oggettiva** della latenza percepita, cioè esattamente il numero che il progetto dichiara e
+che senza questo esperimento non misurerebbe.
+
+### 13.2 Simulare reti degradate
+
+Lo strumento corretto su Linux è la disciplina di accodamento del kernel con l'emulatore di
+rete, applicabile anche dentro un contenitore:
+
+```bash
+# Aggiunge 80 ms di ritardo con 20 ms di variabilità, 3 % di perdita e riordino
+sudo tc qdisc add dev eth0 root netem \
+    delay 80ms 20ms distribution normal \
+    loss 3% \
+    reorder 1% 50%
+
+# Limite di banda: emulatore e limitatore in cascata
+sudo tc qdisc add dev eth0 root handle 1: tbf rate 1mbit burst 32kbit latency 400ms
+sudo tc qdisc add dev eth0 parent 1:1 handle 10: netem delay 80ms 20ms loss 3%
+
+# Rimozione
+sudo tc qdisc del dev eth0 root
+```
+
+Profili da definire **una volta sola** come costanti condivise e riusare in tutta la suite,
+così che i risultati siano confrontabili fra esecuzioni:
+
+| Profilo | Ritardo | Variabilità | Perdita | Banda | Scenario |
+|---|---|---|---|---|---|
+| `fibra` | 10 ms | 2 ms | 0,1 % | 100 Mbit/s | Fibra domestica |
+| `misto` | 25 ms | 8 ms | 0,5 % | 20/3 Mbit/s | Linea asimmetrica |
+| `mobile` | 50 ms | 25 ms | 2 % | 8/2 Mbit/s | Rete mobile in movimento |
+| `mobile_congestionato` | 120 ms | 60 ms | 6 % | 2/0,5 Mbit/s | Cella affollata |
+| `wifi_ospedaliero` | 30 ms | 40 ms | 3 % | 10/10 Mbit/s | Wi-Fi aziendale affollato |
+| `degradato` | 250 ms | 100 ms | 10 % | 1/0,3 Mbit/s | Caso peggiore accettabile |
+
+Il profilo `degradato` **non serve a verificare che il sistema funzioni bene**: serve a
+verificare che **degradi con grazia e lo dica all'utente** (§8.5, §9.6).
+
+> **Equivoco da smontare subito.** La limitazione di banda offerta dagli strumenti di
+> sviluppo del browser agisce sul livello HTTP e **non tocca il traffico UDP di WebRTC**.
+> Non è utilizzabile per questi test. Va scritto nella documentazione di collaudo, perché è
+> un errore che fa perdere tempo a chiunque lo commetta.
+
+### 13.3 Simulare il NAT
+
+Due approcci, complementari.
+
+**Il primo, veloce**: forzare l'uso del relay impostando la politica di trasporto ICE su
+`relay`. Il browser scarta tutti i candidati che non sono `relay`; se la sessione si
+stabilisce comunque, il percorso attraverso il relay funziona. Verifica da fare: **entrambi**
+i tipi di candidato della coppia selezionata devono valere `relay`. Gira su ogni proposta di
+modifica.
+
+**Il secondo, realistico**: in un ambiente a contenitori, si collocano i due client in reti
+separate e si bloccano i pacchetti UDP diretti fra loro, lasciando aperto solo il percorso
+verso il relay. Verifica il comportamento **reale** di ICE, non un percorso forzato. È un
+test di integrazione notturno, non da eseguire a ogni modifica.
+
+**Entrambi vanno implementati.** Il primo dice che il relay è raggiungibile e configurato;
+solo il secondo dice che ICE si comporta come atteso quando non ha scelta.
+
+### 13.4 Verificare il relay
+
+Tre verifiche distinte, che rispondono a tre domande diverse:
+
+1. **La credenziale funziona?** Emetterne una con il codice del progetto e tentare
+   un'allocazione reale contro il server distribuito. Fa fallire la costruzione se
+   l'autenticazione non riesce. Risolve anche il dubbio del §11.2 sull'algoritmo di hash, in
+   modo definitivo e senza citazioni.
+2. **Il percorso attraverso il relay funziona?** Il test del §13.3.
+3. **Il relay è confinato?** Il test di sicurezza del §11.4, punto 3. Con una credenziale
+   valida, tentare di creare permessi verso loopback, verso la sua forma IPv4 mappata in
+   IPv6, verso l'endpoint di metadati, verso indirizzi privati, verso l'indirizzo pubblico
+   del nodo e verso un indirizzo dentro un intervallo IPv6 non allineato a un prefisso.
+   **Ogni successo fa fallire la costruzione.** Questo test è collegato al file di gestione
+   dei rischi: non è un test come gli altri.
+
+### 13.5 Cosa guardare quando non funziona
+
+In ordine, dal più probabile al meno probabile:
+
+1. **La segnalazione arriva?** Se i messaggi non transitano, non c'è WebRTC di cui parlare.
+   Si guarda la connessione WebSocket prima di ogni altra cosa.
+2. **L'offerta contiene sezioni media?** Un'offerta senza sezioni significa che
+   l'acquisizione da telecamera e microfono è fallita — permessi negati, dispositivo
+   occupato, contesto non sicuro. **WebRTC richiede un contesto sicuro**: su HTTP semplice,
+   `getUserMedia()` non funziona, e in sviluppo locale l'unica origine trattata come sicura è
+   quella di loopback.
+3. **I candidati vengono prodotti?** Se ne compare solo uno di tipo `host`, il server STUN e
+   TURN non è raggiungibile o le credenziali sono scadute.
+4. **I candidati vengono consegnati all'altro lato, in ordine e una volta sola?** È il
+   requisito di RFC 8838 §9 (§4.5). Un difetto qui produce sessioni che si stabiliscono «a
+   volte».
+5. **Le impronte corrispondono?** Un handshake che fallisce con impronte discordi significa
+   che qualcosa ha alterato l'SDP lungo il percorso — o, molto più spesso, che il codice ha
+   applicato due descrizioni appartenenti a negoziazioni diverse.
+6. **Lo stato della connessione arriva a `connected` ma i byte restano a zero?** Firewall che
+   lascia passare il controllo e blocca i dati.
+7. **Gli strumenti diagnostici interni del browser** mostrano il resto: sono la fonte di
+   verità, non i registri applicativi.
+
+---
+
+## 14. Errori tipici di chi tocca questa area per la prima volta
+
+**1. Credere che il server di segnalazione «gestisca la chiamata».** Non la gestisce: mette
+in contatto due estremità e poi esce dal percorso. Se cade a chiamata avviata, il flusso
+prosegue; quello che si perde è la rinegoziazione, il riavvio di ICE e la chiusura ordinata.
+
+**2. Rivendicare il ripiego sul relay come funzionalità propria.** È il comportamento nativo
+di ICE, dovuto alla preferenza di tipo pari a zero (§5.5). Ciò che il progetto fa davvero è
+fornire credenziali valide per un relay affidabile.
+
+**3. Dire «peer-to-peer» quando si intende «cifrato da estremo a estremo».** Sono due
+proprietà indipendenti. Una sessione instradata dal relay non è punto a punto **ed è** cifrata
+da estremo a estremo (§6.7 caso B).
+
+**4. Credere che il relay possa vedere il contenuto.** Non può: non partecipa all'handshake e
+non ha le chiavi. Vede metadati, che sono comunque dati personali in ambito sanitario.
+
+**5. Confondere il riavvio di ICE con una rotazione delle chiavi.** Il primo cambia il
+percorso di rete, non le chiavi (§5.8). E la rotazione dentro la sessione **non esiste**
+(§6.8).
+
+**6. Considerare la lista degli indirizzi vietati sul relay come la difesa.** È difesa in
+profondità. È stata aggirata quattro volte in otto mesi. **La difesa è l'isolamento di rete
+in uscita** (§11.4).
+
+**7. Rappresentare graficamente i contatori cumulativi senza differenziarli.** `packetsLost`
+cresce sempre: rappresentarlo grezzo produce un grafico che dice sempre «peggiora» e non
+significa nulla (§9.3).
+
+**8. Cercare il tempo di andata e ritorno nelle statistiche del flusso in uscita.** Non è lì.
+È in `remote-inbound-rtp`, perché è ciò che l'altro osserva ricevendo il nostro flusso
+(§9.2).
+
+**9. Usare la limitazione di banda degli strumenti di sviluppo per simulare una rete
+scadente.** Agisce su HTTP, non sul traffico UDP di WebRTC (§13.2).
+
+**10. Assumere il contenitore della registrazione.** Diverge fra motori, e nessuno dei due
+contenitori principali è universale (§12.2). Va negoziato a runtime e registrato nei
+metadati.
+
+**11. Scrivere l'identificativo dell'assistito dentro la credenziale del relay.** Finisce nei
+registri del server in chiaro (§11.2). Serve un identificativo opaco di sessione.
+
+**12. Registrare l'SDP integrale nei log applicativi.** Contiene impronte, credenziali ICE e
+identificativi di flusso (§4.3). Nell'audit vanno l'esito e le impronte, non il blocco.
+
+**13. Trattare la latenza come un obiettivo rigido.** Il jitter buffer **cresce apposta**
+quando la rete peggiora, ed è il contributo maggiore (§8.2). Imporre una soglia fissa
+significa chiedere al sistema di scartare pacchetti.
+
+**14. Dedurre la latenza percepita dal tempo di andata e ritorno.** È una componente, e
+nemmeno la maggiore (§8.2). Misurarla richiede un esperimento dedicato.
+
+**15. Presentare le soglie di qualità come conformità normativa.** Sono specifica di
+prodotto (§9.6). Presentarle come obbligo è un'affermazione non sostenibile.
+
+**16. Dimenticare che WebRTC richiede un contesto sicuro.** Su HTTP semplice l'acquisizione
+dei dispositivi non funziona, e il messaggio d'errore non lo dice in modo evidente.
+
+**17. Provare a mappare l'intervallo di porte del relay in un contenitore, porta per
+porta.** Sono oltre sedicimila regole (§11.5).
+
+**18. Testare la sessione con due schede dello stesso browser sullo stesso computer e
+concludere che funziona.** Quel test non esercita né il NAT, né il relay, né la banda in
+salita, né la codifica su hardware modesto. Non dimostra quasi nulla.
+
+**19. Progettare l'interfaccia della stringa di autenticazione come un avviso ignorabile.**
+Se si può chiudere con un clic senza confrontarla, non è un controllo di rischio: è
+decorazione (§6.6).
+
+**20. Considerare la degradazione della qualità un problema di ottimizzazione.** È un
+problema di accessibilità e, quando riguarda l'intelligibilità dell'audio, di sicurezza
+dell'assistito (§8.5).
+
+---
+
+## Cosa devi ricordare
+
+1. **Il web presuppone un server raggiungibile; una videochiamata non ne ha nessuno.** Tutto
+   ciò che segue nasce da qui.
+2. **Il vincolo temporale viene dalla fisiologia, non dalla tecnica.** ITU-T G.114: entro
+   150 ms nessuno se ne accorge; oltre 400 ms la conversazione è compromessa, e le
+   applicazioni molto interattive soffrono già prima.
+3. **Un dato in ritardo è peggio di un dato perso.** È la ragione per cui si usa UDP e non
+   TCP: le garanzie di TCP sono dannose per il tempo reale.
+4. **Il NAT rende irraggiungibili entrambi gli estremi**, e quello a corrispondenza
+   dipendente da indirizzo e porta rende il percorso diretto **impossibile** se è su
+   entrambi i lati. Su rete mobile italiana, con doppio livello di traduzione
+   dell'operatore, è lo scenario ordinario.
+5. **Il consulto in cui i due sono nello stesso edificio è spesso il più difficile da
+   instradare**, per via dell'isolamento dei client sulle reti Wi-Fi gestite.
+6. **WebRTC è due corpi normativi**: l'interfaccia del W3C e i protocolli dell'IETF,
+   coordinati da RFC 8825.
+7. **La segnalazione non è nello standard, per scelta dichiarata** (RFC 8829 §1.1). È una
+   scelta del progetto — e, non essendo specificata, **non è nemmeno protetta**.
+8. **Il server di segnalazione è il punto di ancoraggio della fiducia dell'intera sessione**,
+   non un componente accessorio.
+9. **ICE non sceglie: raccoglie tutti i percorsi plausibili, li prova tutti e tiene il
+   migliore.** Il relay ha preferenza di tipo **zero**: viene usato solo se nient'altro
+   funziona.
+10. **Il ripiego sul relay non è codice del progetto**: è il comportamento nativo di ICE.
+11. **Trickle ICE fa partire l'offerta prima che la raccolta sia finita**, e impone al
+    trasporto la consegna **una volta sola e in ordine** (RFC 8838 §9). È un requisito diretto
+    sul server di segnalazione.
+12. **Il riavvio di ICE cambia il percorso, non le chiavi**, e richiede la segnalazione:
+    senza WebSocket non si recupera un cambio di rete.
+13. **DTLS-SRTP protegge il media, e l'impronta nell'SDP lega il certificato alla sessione
+    segnalata.** Garantisce che il flusso venga da chi ha prodotto quell'SDP — **non** che
+    quell'SDP sia autentico.
+14. **Il server di segnalazione può eseguire un attacco dell'intermediario** (RFC 8827 §9.1)
+    e nessun controllo automatico può accorgersene.
+15. **L'alternativa prevista dallo standard non esiste in pratica**: l'interfaccia di
+    verifica dell'identità è implementata da **un solo browser** e la sua specifica è ferma
+    alla Candidate Recommendation del **27 settembre 2018**, senza commit sostanziali dal
+    2021.
+16. **La stringa di autenticazione breve non è una fra due strade: è l'unica.** Per questo il
+    progetto la rende obbligatoria per impostazione predefinita, leggibile da screen reader,
+    mai veicolata dal solo colore, con una procedura definita in caso di mancata
+    corrispondenza.
+17. **Non esiste rotazione delle chiavi SRTP dentro una sessione.** Verificato:
+    l'`exporter_secret` di TLS 1.3 *«is static for the lifetime of the connection and is not
+    updated by a standard key update»*. Non è una debolezza — RFC 3711 §9.2 mostra che i
+    limiti di vita della chiave sono irraggiungibili in un consulto — ma **non va
+    rivendicata**.
+18. **Il relay non può decifrare nulla**, ma vede metadati che in ambito sanitario sono già
+    dati relativi alla salute.
+19. **I codec obbligatori sono Opus e G.711 per l'audio, VP8 e H.264 Constrained Baseline per
+    il video.** Nella versione 1.0 non si forza alcuna preferenza: si misura quale codec viene
+    realmente negoziato e si decide sui dati.
+20. **Il controllo della congestione non è codice del progetto**: sta nel browser, e poggia
+    su bozze mai standardizzate, una delle quali scaduta nel 2016. Il progetto lo configura e
+    lo osserva.
+21. **Il jitter buffer è il contributo maggiore alla latenza percepita e cresce apposta
+    quando la rete peggiora.** Un obiettivo rigido di latenza è in tensione diretta con la
+    qualità audio.
+22. **L'audio viene prima del video, ed è una scelta clinica.** L'intelligibilità della voce
+    è il veicolo della prestazione e un dosaggio capito male è un evento avverso.
+23. **Il tempo di andata e ritorno sta in `remote-inbound-rtp`**, non nelle statistiche del
+    flusso in uscita: è ciò che l'altro osserva, ed è l'unica misura che conti.
+24. **I contatori sono cumulativi e vanno differenziati.** È l'errore più comune di questa
+    area.
+25. **Nessuna soglia tecnica è imposta alla telemedicina dalla normativa italiana**, per
+    quanto emerso dalla ricerca. I valori obiettivo del progetto sono **specifica di
+    prodotto**, non conformità, e vanno presentati come tali. `[NV]` sull'eventuale esistenza
+    di requisiti minimi nelle indicazioni nazionali: se esistessero, prevarrebbero.
+26. **Registrare `srtpCipher`, `dtlsCipher`, `tlsVersion` e il tipo dei candidati per ogni
+    sessione** trasforma un'affermazione di sicurezza in un fatto auditabile.
+27. **Per due partecipanti la topologia diretta è l'unica sensata; per tre si usa la mesh, e
+    il limite di tre è dichiarato e applicato dal codice.**
+28. **Registrazione lato server e cifratura da estremo a estremo sono incompatibili.** Il
+    progetto lo risolve con **due modalità distinte**, dichiarate nel consenso e segnalate in
+    modo persistente e non occultabile nell'interfaccia.
+29. **La versione minima del server di relay è 4.17.2**, con quattordici release in sette
+    mesi alle spalle: la cadenza di aggiornamento è un obbligo quantificato, non una buona
+    pratica.
+30. **La lista degli indirizzi vietati sul relay è difesa in profondità, non la difesa
+    primaria.** È stata aggirata **quattro volte in otto mesi** per difetti di
+    canonicalizzazione IPv6. **L'unica difesa che ha retto a tutte e sei le vulnerabilità è
+    l'isolamento di rete in uscita.**
+31. **Il contenitore della registrazione diverge fra browser** e nessuno dei due è
+    universale: va negoziato a runtime e registrato nei metadati, mai assunto.
+32. **Il test con due schede dello stesso browser sullo stesso computer non dimostra quasi
+    nulla.** Servono dispositivi finti deterministici, reti degradate riproducibili e
+    verifica esplicita del percorso attraverso il relay.
+
+---
+
+## Termini introdotti in questo modulo
+
+| Termine | Definizione breve |
+|---|---|
+| **WebRTC** (*Web Real-Time Communication*) | Insieme di specifiche W3C e IETF che consentono a un browser di stabilire una sessione audio, video e dati in tempo reale con un altro estremo. |
+| **UDP** (*User Datagram Protocol*) | Protocollo di trasporto minimo: nessuna connessione, nessuna conferma, nessun ordine. È ciò che serve al tempo reale. |
+| **TCP** (*Transmission Control Protocol*) | Protocollo di trasporto affidabile e ordinato; le sue garanzie sono dannose per il media in tempo reale. |
+| **Blocco di testa coda** (*head-of-line blocking*) | Ritardo di tutti i dati successivi causato dall'attesa di un dato perso che precede. |
+| **Porta** | Numero da 0 a 65535 che identifica il programma destinatario su una macchina. |
+| **Cinquina** (*five-tuple*) | Protocollo, indirizzo e porta di origine, indirizzo e porta di destinazione: identifica una comunicazione. |
+| **NAT** (*Network Address Translation*) | Traduzione degli indirizzi che permette a più dispositivi di condividere un indirizzo pubblico; rende irraggiungibili gli host interni. |
+| **NAT simmetrico** | Traduzione con corrispondenza dipendente da indirizzo e porta di destinazione (RFC 4787): rende impossibile il percorso diretto se presente su entrambi i lati. |
+| **CGNAT** (*Carrier-Grade NAT*) | Secondo livello di traduzione dentro la rete dell'operatore; indirizzi nello spazio `100.64.0.0/10` (RFC 6598). |
+| **Isolamento dei client** | Politica dei punti di accesso Wi-Fi che impedisce a due dispositivi della stessa rete di parlarsi direttamente. |
+| **mDNS** (*multicast DNS*) | Risoluzione dei nomi sulla rete locale; usata dai browser per offuscare gli indirizzi privati nei candidati. |
+| **Segnalazione** (*signaling*) | Scambio preliminare fra i due estremi delle descrizioni di sessione e dei candidati. **Non è standardizzata da WebRTC.** |
+| **SDP** (*Session Description Protocol*) | Formato testuale che descrive una sessione media: codec, parametri, indirizzi, impronte (RFC 8866). |
+| **Offerta / risposta** (*offer/answer*) | Modello di negoziazione: uno propone tutto ciò che sa fare, l'altro accetta, restringe o rifiuta (RFC 3264). |
+| **JSEP** | *JavaScript Session Establishment Protocol* (RFC 8829): come offerta e risposta appaiono all'interfaccia del browser. |
+| **BUNDLE** | Meccanismo che fa condividere a audio, video e dati una sola connessione, un solo handshake, una sola allocazione di relay (RFC 8843). |
+| **Sezione media** (`m=`) | Blocco dell'SDP che descrive un flusso: tipo, codec offerti, direzione, attributi. |
+| **`a=fingerprint`** | Attributo SDP con l'impronta del certificato DTLS; lega il flusso cifrato alla sessione segnalata (RFC 8122). |
+| **`a=setup`** | Attributo SDP che assegna i ruoli client e server nell'handshake DTLS (RFC 8842). |
+| **Collisione delle offerte** (*glare*) | Due offerte simultanee; si risolve con i ruoli cortese e scortese. |
+| **Negoziazione perfetta** | Schema che risolve la collisione senza corse, usando `setLocalDescription()` senza argomenti. |
+| **ICE** (*Interactive Connectivity Establishment*) | Procedura che raccoglie tutti i percorsi plausibili, li prova e sceglie il migliore (RFC 8445). |
+| **Candidato** | Coppia indirizzo/porta a cui un estremo può essere raggiunto. |
+| **Candidato host** | Indirizzo di un'interfaccia locale del dispositivo. |
+| **Candidato server-reflexive** (`srflx`) | Indirizzo pubblico scoperto interrogando un server STUN. |
+| **Candidato peer-reflexive** (`prflx`) | Indirizzo scoperto durante i controlli, non annunciato in anticipo. |
+| **Candidato relayed** (`relay`) | Indirizzo prestato da un server TURN; preferenza di tipo **zero**. |
+| **Fondazione** (*foundation*) | Etichetta condivisa da candidati omogenei; regola l'ordine dei controlli. |
+| **Controllo di connettività** | Richiesta STUN autenticata inviata su una coppia di candidati per verificarne il funzionamento. |
+| **Nomina** | Designazione della coppia definitiva da parte dell'agente controllante, con l'attributo `USE-CANDIDATE`. |
+| **Controllo di consenso** | Verifica periodica che l'altro estremo sia ancora presente e consenziente. |
+| **STUN** (*Session Traversal Utilities for NAT*) | Protocollo per scoprire il proprio indirizzo pubblico (RFC 8489). |
+| **TURN** (*Traversal Using Relays around NAT*) | Protocollo per farsi prestare un indirizzo da un server che inoltra i pacchetti (RFC 8656). |
+| **Allocazione** | Indirizzo e porta riservati da un server di relay per un client, con scadenza. |
+| **Permesso** (*permission*) | Autorizzazione, per indirizzo, a inviare traffico verso un'allocazione; durata 5 minuti. |
+| **Legame di canale** (*channel bind*) | Associazione fra un numero di canale e un indirizzo, che riduce l'intestazione a 4 byte; durata 10 minuti. |
+| **Trickle ICE** | Invio dei candidati man mano che si scoprono, invece di attendere la fine della raccolta (RFC 8838). |
+| **Riavvio di ICE** | Nuova raccolta e selezione dei percorsi senza rifare la sessione; **non** rigenera le chiavi. |
+| **DTLS** (*Datagram Transport Layer Security*) | TLS adattato a un trasporto che perde e riordina i pacchetti (RFC 6347, RFC 9147). |
+| **SRTP** (*Secure Real-time Transport Protocol*) | Formato che cifra e autentica i pacchetti media (RFC 3711). |
+| **DTLS-SRTP** | Meccanismo che estrae le chiavi SRTP dal segreto DTLS con l'etichetta `EXTRACTOR-dtls_srtp` (RFC 5764). |
+| **Profilo di protezione** | Suite di cifratura SRTP negoziata; i profili `NULL` **non cifrano** e vanno rifiutati. |
+| **Attacco dell'intermediario** (*man in the middle*) | Sostituzione delle impronte da parte del server di segnalazione, che si inserisce fra i due estremi. |
+| **SAS** (*Short Authentication String*) | Codice breve derivato dalle due impronte, confrontato a voce dai partecipanti; unico meccanismo di verifica indipendente disponibile. |
+| **`KeyUpdate`** | Messaggio DTLS 1.3 che aggiorna le chiavi del livello record ma **non** il segreto di esportazione, quindi non le chiavi SRTP. |
+| **Codec** | Algoritmo di compressione e decompressione del segnale. |
+| **Opus** | Codec audio di riferimento per WebRTC (RFC 6716; trasporto RFC 7587). |
+| **Correzione d'errore incorporata** (`useinbandfec`) | Meccanismo di Opus che include nel pacchetto una copia a bassa fedeltà del precedente. |
+| **Trasmissione discontinua** (`usedtx`) | Sospensione dell'invio durante il silenzio; disattivata dal progetto per ragioni cliniche. |
+| **G.711** | Codec audio telefonico obbligatorio (`PCMU`, `PCMA`); serve all'interoperabilità con il mondo non-browser. |
+| **VP8 / VP9 / H.264 / AV1** | Codec video; VP8 e H.264 Constrained Baseline sono obbligatori (RFC 7742 §5). |
+| **Jitter** | Variabilità del ritardo fra pacchetti consecutivi. |
+| **Jitter buffer** | Coda in ricezione che assorbe la variabilità aggiungendo latenza; contributo dominante al ritardo percepito. |
+| **RTT** (*Round Trip Time*) | Tempo di andata e ritorno; si legge in `remote-inbound-rtp`, non nelle statistiche in uscita. |
+| **Controllo della congestione** | Adattamento del bitrate alle condizioni della rete; non è codice del progetto, sta nel browser. |
+| **Retroazione sul trasporto** (`transport-cc`) | Riscontro dei tempi d'arrivo per tutti i pacchetti della connessione; deriva da una bozza scaduta nel 2016. |
+| **Preferenza di degrado** | Scelta fra sacrificare risoluzione o fluidità; definita da *MediaStreamTrack Content Hints*, non dalla Recommendation WebRTC. |
+| **`NACK` / `RTX`** | Richiesta di ritrasmissione e flusso di ritrasmissione (RFC 4585, RFC 4588). |
+| **`PLI` / `FIR`** | Segnalazione di perdita d'immagine e richiesta di fotogramma completo (RFC 4585, RFC 5104). |
+| **Fotogramma completo** (*keyframe*) | Fotogramma autosufficiente, molto più pesante di uno differenziale; una raffica di richieste può innescare una spirale di congestione. |
+| **Correzione d'errore in avanti** (*FEC*) | Ridondanza inviata preventivamente: costa banda sempre, ma non costa un giro di rete (RFC 8854). |
+| **Mesh** | Topologia in cui ogni partecipante invia a ogni altro; preserva la cifratura da estremo a estremo, non scala oltre tre. |
+| **Inoltro selettivo** (*SFU*) | Server che riceve un flusso da ciascuno e lo inoltra; **termina la cifratura**. |
+| **Composizione** (*MCU*) | Server che decodifica, compone e ricodifica; massima latenza e massimo costo di CPU. |
+| **SFrame** | Cifratura autenticata dei fotogrammi sopra SRTP (RFC 9605); **non definisce la gestione delle chiavi**. |
+| **Contenitore** | Formato di file che intreccia i flussi audio e video (MP4, WebM); **il supporto diverge fra browser**. |
+| **Contesto sicuro** | Requisito del browser senza il quale l'acquisizione di telecamera e microfono non funziona. |
+| **Emulatore di rete** (*netem*) | Strumento del kernel Linux per introdurre ritardo, variabilità, perdita e riordino nei test. |
+| **Falsificazione di richieste a livello di trasporto** | Uso improprio del relay per raggiungere destinazioni interne; sei vulnerabilità note, quattro aggiramenti in otto mesi. |
+| **Isolamento di rete in uscita** | Assenza di rotte dal nodo di relay verso la rete interna e verso sé stesso: **la difesa primaria**, non le liste di indirizzi vietati. |
+| **Credenziale temporanea** | Credenziale del relay a scadenza breve derivata via HMAC da un segreto condiviso; sostituisce le credenziali statiche, che sono per costruzione pubbliche. |
+
+
 
 
 
