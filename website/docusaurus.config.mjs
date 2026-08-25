@@ -80,7 +80,7 @@ const config = {
         items: [
           {type: 'docSidebar', sidebarId: 'guidaSidebar', position: 'left', label: 'Fondamenti'},
           {type: 'docSidebar', sidebarId: 'progettoSidebar', position: 'left', label: 'Documentazione'},
-          {to: '/docs/adr/README', label: 'Decisioni', position: 'left'},
+          {to: '/docs/adr', label: 'Decisioni', position: 'left'},
           {type: 'localeDropdown', position: 'right'},
           {href: `https://github.com/${ORG}/${REPO}`, label: 'GitHub', position: 'right'},
         ],
@@ -91,10 +91,10 @@ const config = {
           {
             title: 'Documentazione',
             items: [
-              {label: 'Guida dei fondamenti', to: '/docs/10_fondamenti/00-come-usare-questa-guida'},
-              {label: 'Architettura', to: '/docs/02_architecture/00-indice'},
-              {label: 'Sicurezza', to: '/docs/06_security/00-indice'},
-              {label: 'Integrazione', to: '/docs/07_integration/00-indice'},
+              {label: 'Guida dei fondamenti', to: '/docs/fondamenti/come-usare-questa-guida'},
+              {label: 'Architettura', to: '/docs/architecture/indice'},
+              {label: 'Sicurezza', to: '/docs/security/indice'},
+              {label: 'Integrazione', to: '/docs/integration/indice'},
             ],
           },
           {

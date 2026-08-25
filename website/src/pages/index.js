@@ -42,11 +42,11 @@ export default function Home() {
         <div>
           <Link
             className="button button--primary button--lg"
-            to="/docs/10_fondamenti/00-come-usare-questa-guida">
+            to="/docs/fondamenti/come-usare-questa-guida">
             <Translate id="home.cta.primary">Comincia dai fondamenti</Translate>
           </Link>
           {'  '}
-          <Link className="button button--secondary button--lg" to="/docs/01_technical/00-indice">
+          <Link className="button button--secondary button--lg" to="/docs/technical/indice">
             <Translate id="home.cta.secondary">Vai alla documentazione</Translate>
           </Link>
         </div>
@@ -73,7 +73,7 @@ export default function Home() {
               message:
                 'Una guida che parte da zero: come funziona il sistema sanitario italiano, che cos’è un dato clinico, come si legge un parametro vitale, che cosa sono FHIR e il Fascicolo. Si legge prima di contribuire.',
             })}
-            to="/docs/10_fondamenti/00-come-usare-questa-guida"
+            to="/docs/fondamenti/come-usare-questa-guida"
             cta={translate({id: 'home.card.foundations.cta', message: 'Guida dei fondamenti'})}
           />
           <Card
@@ -83,7 +83,7 @@ export default function Home() {
               message:
                 'Quattro modalità di integrazione documentate, ciascuna con la sezione che dice quando è la scelta sbagliata. Una guida che non lo dice è materiale di vendita, non documentazione.',
             })}
-            to="/docs/07_integration/00-indice"
+            to="/docs/integration/indice"
             cta={translate({id: 'home.card.integration.cta', message: 'Integrare Telemedic'})}
           />
           <Card
@@ -93,7 +93,7 @@ export default function Home() {
               message:
                 'Ogni misura arriva dopo il bene che protegge, l’avversario da cui lo protegge e la conseguenza clinica se fallisce. I punti in cui il dato è in chiaro sono dichiarati, non taciuti.',
             })}
-            to="/docs/06_security/00-indice"
+            to="/docs/security/indice"
             cta={translate({id: 'home.card.security.cta', message: 'Modello di sicurezza'})}
           />
           <Card
@@ -103,7 +103,7 @@ export default function Home() {
               message:
                 'Ogni scelta strutturale è registrata con il contesto, le alternative scartate e il prezzo accettato. Una decisione senza le sue conseguenze è un’opinione.',
             })}
-            to="/docs/adr/README"
+            to="/docs/adr"
             cta={translate({id: 'home.card.decisions.cta', message: 'Registro delle decisioni'})}
           />
         </div>
