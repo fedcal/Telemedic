@@ -1681,6 +1681,15 @@ intervenire. Distinguerle è, in gran parte, un problema tecnico risolvibile.
 | **Abbandono** | il paziente ha smesso, per stanchezza, sfiducia, complessità o effetti collaterali | team clinico | per esclusione, ed è il motivo per cui l'esclusione va fatta |
 | **Peggioramento clinico** | la persona non riesce più a eseguire la misura | team clinico, **con urgenza** | **no**: è la categoria residua, ed è la ragione dell'intera sezione |
 
+> **«Errore d'uso» non significa «colpa dell'utente».** La riga qui sopra elenca *sintomi*, e il
+> nome della categoria è quello della norma sull'ingegneria dell'usabilità, dove significa
+> l'opposto di ciò che il linguaggio comune suggerisce: un errore d'uso è **un difetto di
+> progettazione dell'interfaccia** che si manifesta nel comportamento di chi la usa. Se una
+> persona non conferma la misura, la domanda corretta non è perché non l'abbia fatto, ma perché
+> l'interfaccia abbia reso possibile non farlo. Il modulo
+> [15 — Regolatorio da zero](./15-regolatorio-da-zero.md) tratta la nozione per esteso, ed è
+> quella che vale.
+
 L'ultima riga è il punto. **L'ultima categoria non è distinguibile con mezzi tecnici**, e quindi
 la strategia corretta è **eliminare tutte le altre**: più il sistema è capace di riconoscere le
 cause tecniche e dichiarate, più il silenzio residuo è informativo. Ogni causa tecnica che il
