@@ -1,23 +1,36 @@
 ---
 title: Percorso e calendario
 sidebar_position: 10
-description: "Il percorso completo dall'oggi alla marcatura CE: che cosa esattamente si deve ottenere, il calcolo all'indietro dai tempi reali dell'organismo notificato, i tre scenari temporali con i punti di decisione irreversibili, le attività retroattivamente irrecuperabili e la sequenza minima per non pregiudicarle, la ripartizione di responsabilità fra il progetto e chi certifica, i tempi non comprimibili e la struttura del costo."
+description: "Il calendario interno del progetto verso la marcatura CE: che cosa si deve ottenere, il calcolo all'indietro dai tempi reali degli organismi notificati, gli scenari temporali con i punti di decisione irreversibili, le attività retroattivamente irrecuperabili e la sequenza minima per non pregiudicarle, la ripartizione fra ciò che il progetto svolge e ciò che presuppone il ruolo di fabbricante ancora da costituire, i tempi non comprimibili e la struttura del costo."
 ---
 
 # Percorso e calendario
 
 > **Avvertenza che governa l'intero capitolo, e va letta prima di ogni data.**
-> Ai sensi di `D28` e `D49` il progetto **non costituisce un soggetto fabbricante, non ingaggia
-> organismi notificati, non conduce la valutazione clinica e non appone la marcatura CE**
-> (vincolo `V-06`). **Il calendario descritto qui è il calendario di chi certifica**, non un piano
-> di lavoro del progetto e non un impegno verso alcuno. Citare una di queste date come impegno del
-> progetto, o lasciare intendere che il prodotto sarà marcato entro una di esse, è precisamente
-> una delle formule vietate dal vincolo `V-171`
-> ([01 §11](./01-inquadramento-normativo.md)).
+> **Questo è il calendario interno del progetto** (`D57`). Le date sono **pianificazione
+> nostra**, non il percorso di un soggetto esterno e non un impegno verso alcuno.
 >
-> Il progetto ha **una sola colonna** in questo calendario, ed è il § 5: le attività
-> **retroattivamente irrecuperabili**, che vanno svolte ora perché la loro assenza renderebbe
-> impossibile a *chiunque* certificare in seguito.
+> Una pianificazione interna, però, **non diventa una promessa solo perché è nostra**. Resta
+> vietato — dal vincolo `V-171` e senza eccezioni — scrivere o lasciare intendere in qualunque
+> luogo, documentazione, comunicazione pubblica o materiale di presentazione, **che il prodotto
+> sarà marcato entro una data**. La distinzione non è formale: la destinazione d'uso di un
+> dispositivo si ricava anche dal materiale pubblicato, quindi una data presentata come impegno
+> produce un effetto regolatorio che una data presentata come pianificazione non produce.
+>
+> **Stato di fatto, invariato e da dichiarare ogni volta che serve.** Oggi il prodotto **non reca
+> marcatura CE** e non è coperto da alcuna dichiarazione di conformità. Chi lo installa o lo
+> immette sul mercato assume gli obblighi che ne derivano. `D57` ha cambiato **chi pianifica**,
+> non che cosa il prodotto è oggi.
+>
+> **Il ruolo di fabbricante non è ancora costituito.** Diversi passi di questo calendario lo
+> presuppongono formalmente — ingaggiare un organismo, firmare un rapporto di valutazione
+> clinica, apporre la marcatura. La costituzione e la formalizzazione di quel ruolo è quindi
+> essa stessa **un prerequisito interno con un proprio tempo**, ed è messa a calendario come
+> tale invece di essere data per scontata o attribuita altrove.
+>
+> Il § 5 conserva una priorità che nessun altro paragrafo ha: le attività **retroattivamente
+> irrecuperabili**, che vanno svolte ora perché la loro assenza renderebbe impossibile
+> certificare in seguito — a noi come a chiunque.
 
 ## 1. Che cosa esattamente si deve ottenere
 
@@ -325,9 +338,9 @@ soggetti che il progetto non controlla.
 
 ## 7. La ripartizione di responsabilità
 
-### 7.1 Che cosa fa il progetto, che cosa fa chi certifica
+### 7.1 Che cosa il progetto svolge oggi e che cosa presuppone il ruolo di fabbricante
 
-| Ambito | Progetto | Chi certifica |
+| Ambito | Il progetto, oggi | Presuppone il ruolo di fabbricante (da costituire) |
 |---|---|---|
 | Codice sorgente, architettura, prove, catena di costruzione | **Integrale** | Verifica sulla propria distribuzione |
 | Documentazione di ciclo di vita del software | **Integrale**, come ingresso | Adotta sotto il proprio controllo documentale |
@@ -336,15 +349,16 @@ soggetti che il progetto non controlla.
 | Valutazione clinica | Bozza tecnica, dossier dello stato dell'arte, evidenza tecnica citabile | **Redige, valuta e firma il rapporto** |
 | Fascicolo tecnico | Ingressi per la maggior parte delle sezioni | **Compone, mantiene e risponde** |
 | Sistema di gestione della qualità | Pratiche di ingegneria conformi, evidenze generate | **Istituisce, certifica, esercita** |
-| Organismo notificato | — | **Seleziona, contratta, risponde ai quesiti** |
-| Marcatura CE e dichiarazione di conformità | — | **Atto proprio ed esclusivo** |
+| Organismo notificato | Prepara la documentazione richiesta | **Selezione, contratto e risposta ai quesiti** |
+| Marcatura CE e dichiarazione di conformità | — | **Atto esclusivo del fabbricante**, non anticipabile né sostituibile |
 | Sorveglianza e vigilanza | Capacità di prodotto e canale a monte | **Titolare degli obblighi** ([08 §8](./08-sorveglianza-post-commercializzazione.md)) |
-| Responsabilità verso il paziente danneggiato | Nessuna assunta; **non escludibile per contratto** se mai sorgesse | Del fabbricante e dell'operatore economico |
+| Responsabilità verso il paziente danneggiato | Nessuna assunta oggi; **non escludibile per contratto** se mai sorgesse | Del fabbricante e dell'operatore economico |
 
-### 7.2 Come gli artefatti del progetto entrano nel sistema qualità di chi certifica
+### 7.2 Come gli artefatti entrano nel sistema di gestione della qualità
 
 > **`V-179`.** Gli artefatti prodotti dal progetto entrano nel sistema di gestione della qualità di
-> chi certifica come **ingressi identificati**, mai come documenti controllati: chi li acquisisce
+> un sistema di gestione della qualità come **ingressi identificati**, mai come documenti
+> controllati: chi li acquisisce
 > li **riemette sotto il proprio controllo documentale**, con proprio identificativo, propria
 > revisione e propria approvazione. Perché la riemissione sia possibile e tracciabile, il progetto
 > garantisce che ogni artefatto destinato al pacchetto regolatorio porti **versione, data e
@@ -385,7 +399,7 @@ sostituisce.
 
 | Attività | Tempo minimo | Perché non si comprime |
 |---|---|---|
-| Costituzione del soggetto fabbricante | 3–8 settimane | Procedimenti di terzi |
+| Costituzione del soggetto fabbricante | 3–8 settimane | Prerequisito interno: dipende da procedimenti amministrativi esterni, non da capacità di lavoro |
 | Esercizio del sistema qualità prima dell'audit di certificazione | **≥ 4 mesi**, preferibilmente 6 | Servono **registrazioni reali** di un ciclo completo: non si producono a posteriori |
 | Ricerca sistematica della letteratura | 12–14 settimane | Sequenza seriale con doppia selezione |
 | Rapporto di valutazione clinica | 12–14 settimane | Dipende dalla ricerca e dalle evidenze di verifica |

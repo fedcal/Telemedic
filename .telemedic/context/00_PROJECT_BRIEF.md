@@ -215,6 +215,60 @@ sono vincolanti per ogni area e vanno recepite senza reinterpretazione.
 > traduzione è pianificato, non bloccante.
 
 
+> **D57 — La roadmap e le date sono una pianificazione interna del progetto.**
+> Nessun documento deve presentare i traguardi o il calendario come «il percorso di un
+> soggetto terzo», «il calendario di chi certifica» o «traguardi di terzi». **Il titolare
+> della pianificazione è il progetto.** Dove un passo richiede formalmente il ruolo di
+> fabbricante, si scrive che quel ruolo **va costituito e formalizzato** — è un prerequisito
+> interno con un suo tempo — invece di attribuire il passo a un terzo indefinito.
+>
+> **Che cosa non cambia.** Resta vero, e va continuato a dire senza attenuazioni, che **oggi
+> il prodotto non reca marcatura CE** e che chi lo installa o lo immette sul mercato assume
+> gli obblighi che ne derivano. D57 cambia **l'attribuzione della pianificazione**, non lo
+> stato di fatto del prodotto.
+>
+> **Il limite che resta invalicabile.** Le date sono pianificazione interna e vanno dichiarate
+> come tali. **Non si scrive in nessun luogo che il prodotto sarà marcato entro una data**: è
+> precisamente l'affermazione che `V-171` vieta, e una pianificazione interna non diventa una
+> promessa solo perché è nostra. Chiude `Q-179` quanto all'attribuzione; resta aperta la forma
+> dell'avvertenza con cui il calendario viene pubblicato.
+
+
+> **D58 — Il ruolo di fabbricante sarà assunto dal progetto. Il soggetto va costituito.**
+> **Emenda D28, D45, D49 e il vincolo `V-06`** nella parte in cui attribuivano il percorso di
+> certificazione a un soggetto esterno indefinito. Non li sostituisce del tutto: ne cambia il
+> destinatario, non la sostanza tecnica.
+>
+> **Che cosa cambia.** Ovunque la documentazione dica «chi certifica» come terzo distinto dal
+> progetto, il soggetto diventa **il progetto nel ruolo di fabbricante, ruolo ancora da
+> costituire e formalizzare**. La costituzione di quel soggetto giuridico è un **prerequisito
+> interno con un proprio tempo**, ed entra a calendario come tale. Le attività che D45
+> attribuiva a «chi intende certificare» — costituzione del fabbricante, nomina della persona
+> responsabile del rispetto della normativa, richieste di informazioni agli organismi
+> notificati, avvio del piano di valutazione clinica — **sono nostre**.
+>
+> **Che cosa NON cambia, e va detto ogni volta che serve.**
+> 1. **Oggi il prodotto non reca marcatura CE** e non è coperto da alcuna dichiarazione di
+>    conformità. Questo è uno stato di fatto, non una posizione: resta vero finché non cambia,
+>    e va dichiarato con la stessa evidenza di prima.
+> 2. **Chi installa, integra o mette in servizio il software assume comunque gli obblighi che
+>    ne derivano.** Che il progetto intenda certificare in futuro non trasferisce nulla a chi
+>    installa una versione non certificata, e lasciarlo intendere sarebbe più dannoso del
+>    silenzio.
+> 3. **Il divieto di `V-171` resta intero.** Non si scrive in nessun luogo — documentazione,
+>    comunicazione pubblica, materiale di presentazione — che il prodotto **sarà marcato entro
+>    una data**. L'intenzione di certificare e la promessa di un esito datato sono due cose
+>    diverse, e la seconda produce un effetto regolatorio che la prima non produce.
+> 4. **La responsabilità verso il danneggiato non è escludibile per contratto** (Direttiva (UE)
+>    2024/2853, art. 15). Vale ora come prima, e con più forza da quando l'intenzione è nostra.
+>
+> **Che cosa va riscritto.** Le avvertenze pubbliche `NOT-A-MEDICAL-DEVICE.md` e
+> `DISTRIBUTION-POLICY.md`, il richiamo in evidenza del `README.md`, e i capitoli dell'area di
+> conformità costruiti sulla figura del terzo (00, 02, 03, 04). La riscrittura **non attenua
+> alcuna avvertenza**: cambia chi è il destinatario del percorso, non quanto il prodotto è
+> pronto oggi.
+
+
 ## 6. Archetipo dell'integratore target (RISERVATO — profilo anonimizzato)
 
 > **REGOLA DI RISERVATEZZA (R0) — VINCOLANTE PER OGNI AGENTE.**
