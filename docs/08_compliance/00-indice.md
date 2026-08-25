@@ -1,7 +1,7 @@
 ---
 title: Conformità — indice e orientamento
 sidebar_position: 1
-description: "Come è organizzata l'area di conformità di Telemedic, che cosa contiene e che cosa rinvia altrove. Percorsi di lettura per chi certifica, per chi installa e per chi contribuisce; confini rispetto alla sicurezza e alla guida dei fondamenti; vincoli recepiti e imposti; e ciò che quest'area deliberatamente non dice."
+description: "Come è organizzata l'area di conformità di Telemedic, che cosa contiene e che cosa rinvia altrove. Percorsi di lettura per chi intende certificare, per chi installa e per chi contribuisce; confini rispetto alla sicurezza e alla guida dei fondamenti; vincoli recepiti e imposti; ciò che quest'area deliberatamente non dice; e la nota su che cosa è cambiato con le decisioni D57 e D58 e su che cosa non è cambiato."
 ---
 
 # Conformità — indice e orientamento
@@ -20,12 +20,14 @@ diverse, e quasi tutte le fonti di quest'area si rivolgono alla seconda.
 
 Da qui discendono i tre fatti che nessun capitolo può contraddire.
 
-**Primo — il progetto non è fabbricante e non appone la marcatura CE** (`D28`, `D49`, vincolo
-`V-06`). Produce e pubblica il materiale regolatorio — fascicolo tecnico, ciclo di vita del
-software, gestione del rischio, ingegneria dell'usabilità — **come pacchetto per chi certifica**,
-e si ferma esattamente dove comincia un atto che presuppone un soggetto giuridico, una firma e una
-responsabilità. La ragione non è prudenza: è che una parte di quel materiale **non è recuperabile
-a posteriori** (`D45`), e la sua assenza renderebbe impossibile a chiunque certificare in seguito.
+**Primo — il prodotto non reca marcatura CE, e il progetto non è oggi fabbricante** (`D28`,
+`D49` e `V-06`, come emendati da `D58`). Il progetto **intende** assumere il ruolo di fabbricante,
+e **il soggetto giuridico che lo eserciterebbe non è ancora costituito**. Produce e pubblica il
+materiale regolatorio — fascicolo tecnico, ciclo di vita del software, gestione del rischio,
+ingegneria dell'usabilità — **per quel percorso**, e si ferma esattamente dove comincia un atto che
+presuppone un soggetto giuridico, una firma e una responsabilità che oggi non esistono. La ragione
+non è prudenza: è che una parte di quel materiale **non è recuperabile a posteriori** (`D45`), e la
+sua assenza renderebbe impossibile a chiunque certificare in seguito, **noi compresi**.
 
 **Secondo — la distinzione fra il repository e la distribuzione è sostanziale, non retorica**
 (`D17`). Il repository è codice sorgente e lo dichiara in
@@ -42,6 +44,65 @@ marcata **`[NV]`** con l'indicazione di che cosa va verificato e presso chi. Un 
 inventato in materia regolatoria non è un errore di stile: è un difetto che si propaga in un
 documento controllato e vi resta.
 
+### 1.1 Che cosa è cambiato con `D57` e `D58`, e che cosa no
+
+Questa sezione esiste per una ragione precisa: **chi ha letto la versione precedente di quest'area
+non deve dedurre il cambiamento da un mutamento di formulazioni.** Fino a `D58`, l'area era
+costruita sulla figura di un **soggetto terzo indefinito** che avrebbe intrapreso il percorso di
+certificazione, e a quel soggetto rinviava con l'espressione «chi certifica». Quella figura non
+esiste più.
+
+> **Prima di ogni altra riga, e in questa posizione perché è la sola che cambia le decisioni di
+> chi legge.** Il prodotto **non reca marcatura CE**, **non è coperto da alcuna dichiarazione di
+> conformità** e **non è utilizzabile per l'erogazione di prestazioni sanitarie su pazienti
+> reali**. Chi legge «il progetto intende certificare» e ne conclude «allora posso usarlo» trae
+> una conclusione **sbagliata**: l'intenzione non copre nessuno, non trasferisce alcun obbligo e
+> non rende utilizzabile una versione non certificata.
+
+**Che cosa è cambiato.**
+
+| | Prima | Ora |
+|---|---|---|
+| Chi intraprende il percorso di certificazione | Un soggetto terzo indefinito, «chi certifica» | **Il progetto nel ruolo di fabbricante**, ruolo che **intende** assumere e il cui soggetto giuridico **è ancora da costituire** (`D58`) |
+| Di chi sono la roadmap e le date | Presentate come percorso di terzi | **Pianificazione interna del progetto** (`D57`), mai il percorso di un soggetto esterno |
+| A chi gravano le attività retroattivamente irrecuperabili di `D45` | «Su chi intende certificare» | **Su di noi**, in modo diretto invece che ipotetico — il che le rende **più** urgenti, non meno |
+| Che cosa è il materiale regolatorio pubblicato | Un pacchetto per un terzo | Il materiale **del nostro percorso**, che resta utilizzabile anche da altri |
+
+**Che cosa non è cambiato**, e va letto con la stessa attenzione della tabella precedente, perché
+è la parte che si perde nelle riformulazioni.
+
+1. **La ripartizione tecnica delle responsabilità resta valida per intero.** Gli atti che la norma
+   riserva al ruolo di fabbricante — apporre la marcatura, firmare la dichiarazione di conformità,
+   comporre e mantenere il fascicolo, nominare la persona responsabile del rispetto della normativa
+   — **restano riservati a quel ruolo anche quando il ruolo sarà nostro**. La distinzione non è
+   stata cancellata perché è precisamente ciò che rende leggibile **perché quelle attività non si
+   possono anticipare**: l'intenzione non è il soggetto. L'elenco chiuso è in
+   [04 §12](./04-fascicolo-tecnico.md), e non si è accorciato di una riga.
+2. **Lo stato di fatto del prodotto è identico a ieri.** Nessuna marcatura, nessuna dichiarazione
+   di conformità, nessuna valutazione di un organismo notificato, nessuna certificazione del
+   sistema di gestione della qualità. Se dalla lettura di quest'area risultasse che il prodotto è
+   più vicino all'uso clinico di quanto fosse prima di `D58`, **la lettura sarebbe sbagliata e la
+   riformulazione un difetto da correggere**.
+3. **Chi installa, integra o mette in servizio assume comunque gli obblighi che ne derivano.**
+   L'intenzione del progetto di certificare **non gliene trasferisce alcuno**, e lasciarlo
+   intendere sarebbe più dannoso del silenzio.
+4. **Nessuna data di marcatura, da nessuna parte** (`V-171`). Non si scrive, e non si lascia
+   intendere, che il prodotto sarà marcato entro un termine: una pianificazione interna **non
+   diventa una promessa perché è nostra**. Nessuna data, nessuna finestra, nessun «entro» —
+   l'unica occorrenza ammessa di quella parola è dentro l'enunciato del divieto stesso.
+5. **La responsabilità verso il danneggiato non è escludibile per contratto** (Direttiva (UE)
+   2024/2853, art. 15). Vale ora come prima, e con più forza da quando l'intenzione è nostra.
+
+**Il registro che ne discende, e che vale per ogni capitolo di quest'area.** L'espressione «chi
+certifica» come soggetto terzo **non è più usata**. Al suo posto, a seconda di ciò di cui si parla:
+**il progetto nel ruolo di fabbricante** dove si parla di chi intende intraprendere il percorso;
+**il fabbricante** dove si parla di un atto che la norma riserva a quel ruolo formale, a prescindere
+da chi lo eserciti; **il soggetto fabbricante, da costituire** dove il passo presuppone l'esistenza
+giuridica che oggi manca; **chi installa** o **chi integra** dove il testo si riferisce a loro. Le
+regole di forma con cui l'intenzione va nominata — verbo «intende», assenza del soggetto ripetuta
+nella stessa frase, stato di fatto negativo in prima posizione, nessuna data — sono in
+[01 §11](./01-inquadramento-normativo.md) e sono parte di `V-171`.
+
 ## 2. I capitoli
 
 | # | Capitolo | A quale domanda risponde |
@@ -49,12 +110,12 @@ documento controllato e vi resta.
 | [01](./01-inquadramento-normativo.md) | **Inquadramento normativo** | Quali fonti toccano il progetto, su chi grava ciascun obbligo, da quando. Con la tabella artefatto → regime applicabile e le formule che nessun artefatto può usare |
 | [02](./02-qualificazione-e-classificazione.md) | **Qualificazione e classificazione** | Perché il progetto è software dispositivo medico di Classe IIa, quali due leve tengono la IIa e non la IIb, quali dodici richieste ragionevoli sposterebbero la qualificazione |
 | [03](./03-sistema-di-gestione-della-qualita.md) | **Sistema di gestione della qualità** | Che cosa significano ISO 13485 e IEC 62304 quando i contributori non sono dipendenti; le procedure realmente necessarie, i record di ogni rilascio, la tracciabilità, i componenti di terze parti |
-| [04](./04-fascicolo-tecnico.md) | **Fascicolo tecnico** | Che cosa contiene il fascicolo voce per voce, quale documento di questo repository alimenta ciascuna voce, che cosa manca oggi e che cosa solo chi certifica può aggiungere |
+| [04](./04-fascicolo-tecnico.md) | **Fascicolo tecnico** | Che cosa contiene il fascicolo voce per voce, quale documento di questo repository alimenta ciascuna voce, che cosa manca oggi e quali atti restano riservati al ruolo di fabbricante |
 | [05](./05-gestione-del-rischio.md) | **Gestione del rischio** | Come si applica ISO 14971 a questo sistema: criteri di accettabilità, registro con esempi reali del dominio, gerarchia delle misure, rischio residuo dichiarato, raccordo con il modello di minaccia |
 | [06](./06-usabilita-e-accessibilita.md) | **Usabilità e accessibilità** | L'ingegneria dell'usabilità come obbligo regolatorio, la valutazione formativa e quella sommativa, e il rapporto con l'accessibilità, che è un obbligo distinto sulla stessa interfaccia |
 | [07](./07-valutazione-clinica.md) | **Valutazione clinica** | Che cosa si deve dimostrare, con quali dati, in quanto tempo, e perché è il secondo percorso a tempo lungo dopo l'organismo notificato |
 | [08](./08-sorveglianza-post-commercializzazione.md) | **Sorveglianza post-commercializzazione** | I due processi distinti — sorveglianza e vigilanza —, i termini di segnalazione, le modifiche e quando richiedono l'intervento dell'organismo notificato |
-| [09](./09-percorso-e-calendario.md) | **Percorso e calendario** | Gli ottenimenti da conseguire, in quale ordine, con quali prerequisiti, e gli scenari temporali con i punti di decisione irreversibili. **È la sede unica delle date** |
+| [09](./09-percorso-e-calendario.md) | **Percorso e calendario** | Gli ottenimenti da conseguire, in quale ordine, con quali prerequisiti, e gli scenari temporali con i punti di decisione irreversibili. **È la sede unica delle date**, che sono **pianificazione interna del progetto** (`D57`) e mai una data di marcatura |
 
 **Una regola di collocazione che vale per tutta l'area: le date stanno solo nel capitolo 09.** Gli
 altri capitoli rinviano. Due calendari in due luoghi divergono al primo aggiornamento, e in
@@ -65,23 +126,30 @@ leggerà come impegno.
 
 ### 3.1 Chi intende certificare
 
-È il lettore per cui quest'area è stata scritta: il soggetto che assume il ruolo di fabbricante,
-integra il codice in un proprio prodotto e lo immette sul mercato. Per lui l'area è un **manuale
-operativo**, non un'informativa.
+È il lettore per cui quest'area è stata scritta: chi intende assumere il ruolo di fabbricante,
+comporre il fascicolo e immettere sul mercato una distribuzione identificata. **Da `D58` quel
+lettore è in primo luogo il progetto stesso**, che intende assumere quel ruolo e non ha ancora
+costituito il soggetto che lo eserciterebbe; resta valido anche per un integratore che assuma il
+ruolo sulla propria distribuzione, e le due letture non si escludono. Per entrambi l'area è un
+**manuale operativo**, non un'informativa — con la differenza, non piccola, che per il progetto è
+un elenco di adempimenti propri e non un servizio reso a un terzo.
 
 | Ordine | Capitolo | Perché in questa posizione |
 |:-:|---|---|
 | 1 | [02](./02-qualificazione-e-classificazione.md) | La qualificazione e la classe determinano tutto il resto. Leggere prima qualunque altra cosa significa leggerla senza sapere quale regime si applichi |
 | 2 | [01](./01-inquadramento-normativo.md) | La mappa delle fonti e l'attribuzione: quali obblighi diventano suoi nel momento in cui immette sul mercato |
-| 3 | [04](./04-fascicolo-tecnico.md) | L'inventario di ciò che riceve già fatto, di ciò che manca e di ciò che **solo lui** può produrre |
+| 3 | [04](./04-fascicolo-tecnico.md) | L'inventario di ciò che è già fatto, di ciò che manca e degli atti che **solo il fabbricante** può compiere |
 | 4 | [09](./09-percorso-e-calendario.md) | I tempi reali, prima di prendere impegni con chiunque |
 | 5 | [03](./03-sistema-di-gestione-della-qualita.md), [05](./05-gestione-del-rischio.md), [06](./06-usabilita-e-accessibilita.md), [07](./07-valutazione-clinica.md), [08](./08-sorveglianza-post-commercializzazione.md) | I cinque flussi di lavoro paralleli, ciascuno con i propri tempi |
 
 **Due avvertenze che gli risparmiano mesi, e che stanno in fondo ai capitoli invece che in
-apertura.** La prima: le attività dei primi trenta giorni — costituzione del soggetto,
+apertura.** La prima: le attività dei primi trenta giorni — costituzione del soggetto fabbricante,
 congelamento della destinazione d'uso, individuazione del responsabile del rispetto della
 normativa, primi contatti con gli organismi notificati, avvio del piano di valutazione clinica —
-**non sono delegabili allo sviluppo** e non si recuperano a valle. La seconda: la destinazione
+**non sono delegabili allo sviluppo** e non si recuperano a valle. Da `D58` queste attività
+**gravano sul progetto**: la costituzione del soggetto è un **prerequisito interno con un proprio
+tempo**, non un'attesa di un terzo, e ogni settimana in cui non si avvia è una settimana che il
+progetto sottrae al proprio percorso. La seconda: la destinazione
 d'uso è il documento più costoso da sbagliare, perché una singola formulazione sposta la classe di
 rischio e la classe di sicurezza del software insieme (`D46`), e cambiarla dopo aver ingaggiato un
 organismo comporta una rivalutazione.
@@ -166,7 +234,10 @@ di decidere al loro posto, e le questioni sono registrate in fondo a ciascun cap
 ## 5. Vincoli recepiti e vincoli imposti
 
 **Recepiti da altre aree**, e vincolanti per ogni capitolo di quest'area: `V-05` (il fornitore di
-servizi di identità è chi installa, non il progetto) · `V-06` (il progetto non appone marcatura CE)
+servizi di identità è chi installa, non il progetto) · `V-06`, **emendato da `D58`** (il prodotto
+non reca marcatura CE e il progetto non è oggi fabbricante; il ruolo di fabbricante è quello che il
+progetto **intende** assumere, con il soggetto giuridico ancora da costituire, e gli atti riservati
+a quel ruolo restano riservati)
 · `V-07` (dataset canonico, serializzazioni sostituibili) · `V-12` (nessuna soglia tecnica è
 imposta dalla normativa italiana: i valori sono specifica di prodotto, mai conformità) · `V-120`
 (identificativi di requisito congelati) · `V-144` (la formulazione della destinazione d'uso del
@@ -201,11 +272,16 @@ una risposta implicita. Quello che segue è ciò che non è stato scritto, e la 
    differenza è trattata in [04 §1](./04-fascicolo-tecnico.md) ed è la stessa che passa fra
    un'analisi e un documento approvato.
 4. **Non contiene le procedure del sistema di gestione della qualità.** Ne elenca l'insieme
-   necessario e ne spiega la ragione; scriverle è un atto di chi le esercita (`V-174`).
+   necessario e ne spiega la ragione; scriverle è un atto di chi le esercita, dentro un controllo
+   dei documenti che **non è in esercizio** (`V-174`). Che il ruolo di fabbricante sia quello che
+   il progetto intende assumere non cambia questo punto: cambia soltanto a chi tocca istituirlo.
 5. **Non stima costi e tariffe.** Le tariffe standard degli organismi notificati sono pubblicate
    per obbligo normativo: in presenza di una fonte primaria, stimare è un errore di metodo.
-6. **Non fissa la data della marcatura CE.** Non è del progetto, dipende da un terzo con code non
-   misurate, e inserirla in un documento pubblico la trasformerebbe in un impegno.
+6. **Non fissa la data della marcatura CE.** L'omissione resta intatta e la sua ragione è cambiata
+   con `D58`: non è più che la data «non è del progetto», ma che **un'intenzione non è una promessa
+   datata** e che l'esito dipende da organismi notificati con code non misurate. Una data
+   pubblicata verrebbe letta come previsione dell'esito, che è esattamente l'affermazione vietata
+   da `V-171`. La motivazione per esteso è in [01 §13](./01-inquadramento-normativo.md).
 7. **Non decide al posto del committente.** Le decisioni che richiedono una scelta imprenditoriale
    — monetizzazione, costituzione di un soggetto giuridico, periodo di supporto dichiarato, forma
    di pubblicazione della traccia di destinazione d'uso — restano aperte e sono marcate come tali.
@@ -224,6 +300,9 @@ versionamento della distribuzione identificata e rapporto con l'identificativo u
 se la presentazione di parametri costituisca funzione di misura · `Q-174` passaggio di revisione
 regolatoria dei testi pubblici prima della pubblicazione. Le prime tre e la quinta richiedono una
 decisione che non è di quest'area; la quarta richiede un fatto tecnico che quest'area non conosce.
+
+**Lo spazio `Q-270`…`Q-279` e `V-270`…`V-279` è riservato alle voci aperte dalla riformulazione
+imposta da `D57` e `D58`**, e le voci già aperte sono registrate in bacheca.
 
 ## 8. Come si mantiene quest'area
 

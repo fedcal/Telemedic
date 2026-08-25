@@ -1,7 +1,7 @@
 ---
 title: Sistema di gestione della qualità
 sidebar_position: 4
-description: Che cosa significa un sistema di gestione della qualità quando i contributori non sono dipendenti. ISO 13485 e IEC 62304 applicate a un progetto aperto, le procedure realmente necessarie, i record da produrre a ogni rilascio, la tracciabilità nelle due direzioni, la gestione dei componenti di terze parti e perché «latest» è vietato.
+description: "Che cosa significa un sistema di gestione della qualità quando i contributori non sono dipendenti. ISO 13485 e IEC 62304 applicate a un progetto aperto, le procedure realmente necessarie, i record da produrre a ogni rilascio, la tracciabilità nelle due direzioni, la gestione dei componenti di terze parti e perché «latest» è vietato. Il sistema che il progetto esercita su sé stesso e il sistema che il soggetto fabbricante, da costituire, dovrà istituire ed esercitare."
 ---
 
 # Sistema di gestione della qualità
@@ -12,12 +12,37 @@ description: Che cosa significa un sistema di gestione della qualità quando i c
 > **Qui non si ripete: si applica a un progetto aperto**, che è il caso su cui nessuna delle due
 > norme è stata scritta.
 >
-> **Avvertenza di perimetro.** Il progetto **non è fabbricante** e **non è certificato** (`D49`).
+> **Avvertenza di perimetro.** **Il prodotto non reca marcatura CE**, il progetto **non è oggi
+> fabbricante** e **nessun sistema di gestione della qualità è certificato né in esercizio**
+> (`D49`, come emendata da `D58`). È lo stato di fatto da cui il capitolo parte, e nessuna riga di
+> ciò che segue lo attenua.
+>
+> Il progetto **intende** assumere il ruolo di fabbricante, e **il soggetto giuridico che lo
+> eserciterebbe è ancora da costituire**.
+>
 > Ciò che descrive questo capitolo è: (a) il sistema che il progetto **esercita su sé stesso**,
-> perché senza di esso il materiale che produce non sarebbe utilizzabile da chi certifica;
-> (b) il sistema che **chi certifica dovrà istituire**, e che il progetto documenta come manuale.
-> Le due cose si sovrappongono largamente ma non coincidono, e ogni sezione dichiara di quale
-> delle due parla.
+> perché senza di esso il materiale che produce non sarebbe utilizzabile in alcun percorso di
+> certificazione, **il nostro compreso**; (b) il sistema che **il soggetto fabbricante, da
+> costituire, dovrà istituire, far certificare ed esercitare**, e che questo capitolo documenta
+> come manuale operativo. Le due cose si sovrappongono largamente ma non coincidono, e ogni
+> sezione dichiara di quale delle due parla.
+>
+> **Che cosa `D58` cambia qui, e che cosa no.** Cambia il **destinatario** del manuale: (b) non è
+> più il piano di un soggetto esterno indefinito ma **il nostro piano**, e questo lo rende
+> esigibile invece che illustrativo. **Non cambia la ripartizione tecnica**: istituire il sistema,
+> farlo certificare da un organismo accreditato ed esercitarlo restano atti che presuppongono il
+> **ruolo formale di fabbricante**, e non diventano anticipabili perché quel ruolo sarà nostro.
+> **Non cambia** neppure il limite posto da `D54`: alcune registrazioni — audit interno, riesame
+> del rilascio, verifica di configurazione eseguita da chi non ha scritto il codice — **richiedono
+> persone distinte**, e nessuna quantità di lavoro individuale le rende producibili internamente
+> (§ 4.1, prima avvertenza).
+>
+> **E il varco che questa avvertenza potrebbe aprire, chiuso qui.** Chi legge che il progetto
+> intende istituire un sistema di gestione della qualità e ne conclude che il software sia già
+> utilizzabile in un contesto clinico reale trae una conclusione **sbagliata**. Un sistema che
+> non è in esercizio non produce alcuna registrazione, non copre alcun rilascio e non trasferisce
+> alcun obbligo: chi installa o mette in servizio il software oggi li assume per intero, e
+> l'intenzione dichiarata in questa pagina **non gliene toglie nessuno**.
 
 ## 1. La domanda che nessuna delle due norme si pone
 
@@ -241,7 +266,11 @@ progettazione, almeno un'azione correttiva, almeno un rilascio controllato, un a
 tutti i processi e un riesame della direzione. Senza questi, la seconda fase dell'audit non è
 superabile — non perché l'auditor sia severo, ma perché **non c'è nulla da auditare**. Ne discende
 che la data di avvio dell'esercizio determina, con circa sei mesi di scarto, la prima data utile
-per la certificazione.
+per la certificazione. **Da `D58` discende che quella data di avvio è una decisione nostra, non
+un'attesa**: è un ritardo che il progetto si infligge da solo se non avvia l'esercizio. Ciò non
+autorizza a scrivere da nessuna parte una data di marcatura — `V-171` lo vieta senza eccezioni, e
+una pianificazione interna non diventa una promessa perché è nostra — ma sposta il costo del
+rinvio dal conto di un terzo al nostro.
 
 **Terza — e riguarda quest'area direttamente.** Le procedure sono **documenti controllati**; la
 documentazione pubblicata in queste pagine **non lo è**. È il vincolo `V-174`: nessun capitolo di
@@ -570,6 +599,15 @@ architettura, evidenze di verifica, distinta dei materiali firmata, dichiarazion
 supporto — **riduce in modo diretto e misurabile l'onere regolatorio di chi integra**. Non è un
 costo puro sostenuto per virtù: è la differenza fra essere un componente qualificabile e essere
 codice di provenienza ignota, che nel percorso di un fabbricante è una differenza di mesi.
+
+**`D58` aggiunge un secondo destinatario, e non è un dettaglio.** Il rovesciamento di prospettiva
+valeva finora verso l'esterno: chi integra, e assume il ruolo di fabbricante sulla propria
+distribuzione, deve produrre la scheda di questo progetto come componente di terze parti. Da
+`D58`, **la stessa scheda serve a noi**, perché il soggetto fabbricante da costituire dovrà
+qualificare come componenti di terze parti tutte le dipendenze della propria distribuzione, e la
+qualificazione **non si ricostruisce a posteriori**: è la seconda delle attività retroattivamente
+irrecuperabili ([09 §5](./09-percorso-e-calendario.md)). Ciò che era un servizio reso a un terzo è
+diventato **un adempimento nostro con una scadenza implicita**, e va trattato come tale.
 
 ## 10. Gli ingressi al file di rischio che quest'area registra
 

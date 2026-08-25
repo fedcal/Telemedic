@@ -1,7 +1,7 @@
 ---
 title: Qualificazione e classificazione
 sidebar_position: 3
-description: Perché la stessa base di codice può essere o non essere dispositivo medico a seconda di come è dichiarata. La Regola 11 applicata, la posizione attuale del progetto e perché è fattuale e non perpetua, e il confine oltre il quale una funzione fa scattare la qualificazione, con esempi presi dal dominio del progetto.
+description: "Perché la stessa base di codice può essere o non essere dispositivo medico a seconda di come è dichiarata. La Regola 11 applicata, la posizione attuale del progetto e perché è fattuale e non perpetua, il confine oltre il quale una funzione fa scattare la qualificazione con esempi presi dal dominio del progetto, e perché la destinazione d'uso resta una traccia e non una dichiarazione ora che il progetto intende assumere il ruolo di fabbricante, con il soggetto giuridico ancora da costituire."
 ---
 
 # Qualificazione e classificazione
@@ -16,8 +16,18 @@ description: Perché la stessa base di codice può essere o non essere dispositi
 > **Avvertenza.** Nulla di quanto segue costituisce una determinazione formale di qualificazione o
 > di classificazione. Una determinazione formale è un documento controllato, riferito a una
 > revisione esatta di una dichiarazione di destinazione d'uso, firmato da una persona responsabile
-> del rispetto della normativa presso un fabbricante. **Il progetto non ha né l'una né l'altra**
-> (`D49`): produce la traccia che chi certifica compilerà.
+> del rispetto della normativa presso un fabbricante. **Il progetto non ha oggi né l'una né
+> l'altra** (`D49`, come emendata da `D58`): produce la **traccia** che **il fabbricante**
+> compilerà e sottoscriverà.
+>
+> **Chi intende esercitare quel ruolo è cambiato; che cosa il ruolo comporta, no.** Il progetto
+> **intende** assumere il ruolo di fabbricante (`D58`), e **il soggetto giuridico che lo
+> eserciterebbe non è ancora costituito**: la determinazione formale non è quindi un atto
+> anticipabile, perché presuppone quel
+> soggetto, la persona responsabile del rispetto della normativa richiesta dall'art. 15 del
+> Regolamento (UE) 2017/745 e un controllo dei documenti in esercizio. Fino ad allora questo
+> capitolo resta una traccia — e **la ragione per cui lo resta non è più la stessa di prima**: è
+> spiegata per esteso al § 5.2.
 
 ## 1. La catena: che cosa determina che cosa
 
@@ -182,9 +192,15 @@ funzionalità apparentemente innocua**, ed è il tema del § 6.
 ## 5. La destinazione d'uso: che cosa il progetto produce, e che cosa deliberatamente non produce
 
 `D46` assegna al progetto la produzione della bozza di destinazione d'uso (`MDR-IU-001`) e della
-determinazione di qualificazione e classificazione (`MDR-CLS-001`). Vanno letti insieme a `D49`,
-che esclude che il progetto sia fabbricante. **La composizione delle due decisioni produce una
-tensione che va dichiarata invece di essere smussata**, perché è reale.
+determinazione di qualificazione e classificazione (`MDR-CLS-001`). Vanno letti insieme a `D49`
+**come emendata da `D58`**: il progetto **intende** assumere il ruolo di fabbricante, e il
+soggetto che lo eserciterebbe **è ancora da costituire**; finché non esiste quel soggetto non
+esiste nemmeno
+l'apparato — persona responsabile del rispetto della normativa, controllo dei documenti, sistema
+di gestione della qualità in esercizio — senza il quale una dichiarazione di destinazione d'uso
+non è una dichiarazione. **La composizione delle due decisioni produce una tensione che va
+dichiarata invece di essere smussata**, perché è reale, e `D58` **non la scioglie: ne cambia la
+natura**, come il § 5.2 argomenta.
 
 **La tensione.** L'art. 2, punto 12, dell'MDR ricava la destinazione d'uso dalle indicazioni
 fornite dal fabbricante «sull'etichetta, nelle istruzioni per l'uso o **nel materiale o nelle
@@ -194,23 +210,41 @@ destinazione d'uso si ricava**. Pubblicarlo senza cautele significa fornire a un
 che il progetto passa il resto della propria documentazione a negare, cioè l'esistenza di una
 destinazione d'uso dichiarata da chi pubblica il codice.
 
+**`D58` stringe questa tensione, non la allenta, e va detto senza attenuazioni.** Finché il
+percorso di certificazione era attribuito a un soggetto esterno, attribuire al progetto una
+destinazione d'uso dichiarata era una lettura scorretta, da respingere indicando il soggetto
+altrove. Da quando il progetto dichiara che **intende assumere** il ruolo di fabbricante — pur non
+avendo costituito il soggetto che lo eserciterebbe — la stessa lettura diventa **plausibile**: chi
+pubblica e chi intende dichiarare coincidono nell'intenzione, e l'unica cosa che li separa è che il
+soggetto formale non esiste. La distanza fra il
+materiale pubblicato e una destinazione d'uso dichiarata è quindi **più corta di prima**, e le
+cautele del paragrafo seguente vanno applicate con più rigore, non con meno.
+
 **La soluzione adottata, e i suoi limiti.** Il progetto produce e pubblica il documento con tre
 qualificazioni che ne cambiano la natura giuridica e che devono comparire nel documento stesso,
 non in una nota:
 
-1. **è una traccia strutturata, non una dichiarazione**: è redatta perché chi assume il ruolo di
-   fabbricante la compili, la modifichi e la sottoscriva, non perché valga come dichiarazione di
-   chi la pubblica;
+1. **è una traccia strutturata, non una dichiarazione**: è redatta perché **il fabbricante** la
+   compili, la modifichi e la sottoscriva — compilazione, modifica e sottoscrizione sono atti che
+   la norma riserva a quel ruolo, e restano riservati **anche quando il ruolo sarà il nostro** —
+   non perché valga come dichiarazione di chi la pubblica;
 2. **il soggetto della destinazione d'uso non è il repository**, ma la **distribuzione
-   identificata** che chi certifica produrrà, con un nome e un numero di versione che il progetto
-   non attribuisce;
+   identificata** che **il soggetto fabbricante, da costituire**, produrrà, con un nome e un
+   numero di versione che **oggi non esistono**, perché non esiste ancora il soggetto che possa
+   attribuirli;
 3. **il documento è privo di firma e di approvazione**: fuori dal controllo dei documenti di un
-   sistema di gestione della qualità di un fabbricante è, formalmente, materiale preparatorio.
+   sistema di gestione della qualità di un fabbricante è, formalmente, materiale preparatorio —
+   e **lo resta anche quando quel fabbricante sarà il progetto**, finché quel controllo dei
+   documenti non è in esercizio.
 
-**Il limite resta**, e va scritto: la distinzione fra «traccia per chi certifica» e
-«dichiarazione» è una distinzione che regge se il documento è letto, e non regge se è citato. Un
-terzo che estragga un paragrafo della traccia e lo presenti come destinazione d'uso del progetto
-compie una scorrettezza, ma il danno è comunque prodotto. **La questione `Q-170` porta questo
+**Il limite resta, e con `D58` si aggrava.** La distinzione fra **traccia** e **dichiarazione** è
+una distinzione che regge se il documento è letto per intero, e non regge se è citato per estratto.
+Un terzo che estragga un paragrafo della traccia e lo presenti come destinazione d'uso del progetto
+compie una scorrettezza, ma il danno è comunque prodotto — e ora l'estratto è **più difendibile
+dalla parte sbagliata**, perché il progetto ha dichiarato l'intenzione di assumere il ruolo di
+fabbricante e il lettore non è tenuto a distinguere fra intenzione e soggetto costituito. Il
+perché la traccia resti tale è al § 5.2; qui conta la conseguenza pratica, che non cambia:
+**nessun estratto di questa traccia può circolare da solo**. **La questione `Q-170` porta questo
 punto all'orchestrazione**: la scelta fra pubblicare la traccia integralmente, pubblicarla solo
 come struttura senza il testo delle sezioni sostanziali, o consegnarla su richiesta a chi dichiara
 di volerla usare, è una decisione del committente e non di quest'area.
@@ -218,8 +252,8 @@ di volerla usare, è una decisione del committente e non di quest'area.
 ### 5.1 Che cosa contiene la traccia
 
 Il contenuto sostanziale è nella ricerca di riferimento del progetto e non si duplica qui. Ciò che
-appartiene a questo capitolo è la **struttura minima** che chi certifica deve compilare, perché è
-la lista di controllo contro cui l'organismo notificato verifica la completezza:
+appartiene a questo capitolo è la **struttura minima** che **il fabbricante** deve compilare,
+perché è la lista di controllo contro cui l'organismo notificato verifica la completezza:
 
 | § | Sezione | Nota che l'organismo verifica |
 |---|---|---|
@@ -241,6 +275,67 @@ diventano **prestazioni dichiarate**, e il sistema deve comportarsi come dichiar
 una soglia che il prodotto non rispetta è più grave che non dichiararne alcuna. E le soglie non
 sono ancora state misurate: la questione `Q-115` di `TECH` è aperta proprio su questo, e finché è
 aperta **la sezione 10 non è compilabile**.
+
+### 5.2 Perché resta una traccia, ora che il progetto intende assumere il ruolo di fabbricante
+
+> **Prima di tutto il resto, e in questa posizione perché è la sola che conta per chi legge in
+> fretta.** Il prodotto **non reca marcatura CE**, **non è coperto da alcuna dichiarazione di
+> conformità** e **non è utilizzabile per l'erogazione di prestazioni sanitarie su pazienti
+> reali**. Nulla di ciò che segue attenua questa riga, e chi legge «il progetto intende
+> certificare» e ne conclude «allora posso usarlo» trae una conclusione **sbagliata**:
+> l'intenzione non copre nessuno, non trasferisce alcun obbligo e non rende utilizzabile una
+> versione non certificata. Le conseguenze di quella conclusione restano di chi la trae.
+
+Questo paragrafo esiste perché `D58` **cambia la ragione** per cui il documento non è una
+dichiarazione, e la ragione precedente, se lasciata scritta, sarebbe falsa. Non è un aggiustamento
+lessicale: è il punto su cui l'intero § 5 poggia.
+
+**La ragione vecchia, e perché non vale più.** Finché il percorso di certificazione era attribuito
+a un soggetto esterno, la traccia non era una dichiarazione **per assenza di soggetto**: mancava
+qualcuno che potesse dichiarare, il progetto non intendeva diventarlo, e il documento era
+letteralmente indirizzato a un destinatario ignoto. Era un argomento semplice e, finché reggeva,
+sufficiente. Con `D58` **non regge più**: il progetto intende costituire quel soggetto ed
+esercitare quel ruolo. Continuare a scrivere «manca il soggetto perché non ci riguarda»
+significherebbe scrivere una cosa che il committente ha appena smentito — ferma restando la
+constatazione, che vale oggi e va ripetuta ogni volta, che **il soggetto non è costituito**.
+
+**La ragione nuova, che è più esigente della vecchia.** Un documento non diventa una dichiarazione
+perché esiste qualcuno disposto a firmarlo. Diventa una dichiarazione quando è **prodotto dentro
+un sistema che ne garantisce l'identità nel tempo**: la clausola 4.2.4 di ISO 13485:2016 richiede
+che i documenti siano approvati prima dell'emissione, riesaminati e riapprovati quando modificati,
+identificati nello stato di revisione corrente, disponibili nei punti d'uso nella versione
+applicabile e protetti dall'uso involontario di versioni superate. La clausola 4.2.5 richiede
+l'equivalente per le registrazioni. Senza questi cinque attributi, ciò che si firma è una firma su
+un testo, non una dichiarazione: **non è dimostrabile a quale revisione si riferisca**, e una
+dichiarazione di destinazione d'uso che non si àncora a una revisione esatta è precisamente
+l'oggetto che l'organismo notificato non può accettare, perché non può verificarne la
+corrispondenza con il fascicolo tecnico e con il rapporto di valutazione clinica.
+
+**In una riga: prima mancava chi. Ora manca ancora il come, e il come è la parte costosa.**
+
+| | Prima di `D58` | Dopo `D58` |
+|---|---|---|
+| Perché non è una dichiarazione | Manca il **soggetto** che dichiara | Manca il **sistema di controllo dei documenti** che rende una dichiarazione tale |
+| Che cosa la renderebbe tale | L'ingresso di un fabbricante terzo | Il **soggetto fabbricante, da costituire**, **più** il controllo dei documenti in esercizio, **più** la persona responsabile del rispetto della normativa |
+| Chi deve produrlo | Un altro | **Noi**, una volta costituito il soggetto |
+| Quando può accadere | Fuori dal controllo del progetto | Dopo passi che il progetto deve compiere, ciascuno con un proprio tempo. **Nessuna data, nessuna finestra** (`V-171`) |
+| Il prodotto è più vicino all'uso clinico? | | **No.** Cambia chi intende percorrere la strada, non lo stato del prodotto |
+
+**Il corollario che non va perso di vista.** La condizione nuova è **verificabile e a nostro
+carico**, mentre quella vecchia era un'attesa. È una differenza che rende il documento *più*
+oneroso, non meno: prima l'assenza di dichiarazione era un fatto esterno da registrare, ora è una
+**lacuna nostra** che ha un rimedio noto — istituire il controllo dei documenti — e un costo di
+omissione già dichiarato, perché un documento nato fuori dal controllo documentale **va riemesso**
+e non semplicemente approvato dopo ([03 §4](./03-sistema-di-gestione-della-qualita.md), `V-174`;
+[09 §5](./09-percorso-e-calendario.md), attività irrecuperabile n. 3).
+
+**E la riga di apertura, ripetuta perché è quella che si perde.** Il prodotto **non reca marcatura
+CE** e non è coperto da alcuna dichiarazione di conformità. Chi lo installa, lo integra o lo mette
+in servizio assume per intero gli obblighi che ne derivano, **e il fatto che il progetto intenda
+certificare non gliene trasferisce alcuno**. Nessuna data è dichiarata qui, e nessuna può esserlo:
+`V-171` vieta di affermare o lasciare intendere che il prodotto sarà marcato entro un termine — è
+l'unica occorrenza ammessa di quella parola, dentro l'enunciato del divieto — e una pianificazione
+interna non diventa una promessa solo perché è nostra.
 
 ## 6. Il confine, con esempi presi da questo dominio
 
@@ -483,5 +578,6 @@ La determinazione item per item, con la sua motivazione e la sua avvertenza, è 
 | `Q-144` | Congelamento della formulazione della destinazione d'uso del telemonitoraggio, già aperta da `DOM` | → Committente |
 | `Q-145` | Conferma delle sei rinunce deliberate come scelte di prodotto sottoposte a controllo delle modifiche. **Quest'area le conferma come confini di conformità** e attende la conferma di prodotto | → Committente |
 | `Q-115` | Le soglie dell'ambiente operativo non sono state misurate: finché non lo sono, la sezione 10 della destinazione d'uso non è compilabile (§ 5.1) | Tecnica, prodotto |
+| `V-270` | **Il progetto intende assumere il ruolo di fabbricante (`D58`); il soggetto che lo eserciterebbe non è costituito.** Finché non lo è, e finché il controllo dei documenti non è in esercizio, la traccia di destinazione d'uso **non può** essere firmata né presentata come dichiarazione (§ 5.2) | Conformità, orchestrazione |
 | `[NV]` | Verifica letterale sul testo ufficiale in Gazzetta Ufficiale delle prescrizioni di certificazione del DM 21 settembre 2022 (§ 9) | Conformità |
 | `[NV]` | Numeri delle regole di applicazione dell'Allegato VIII, Capo II, citate al § 4.1 e § 6.1: vanno riletti sul testo consolidato prima di comparire in un documento di determinazione | Conformità |

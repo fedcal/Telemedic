@@ -1,7 +1,7 @@
 ---
 title: Fascicolo tecnico
 sidebar_position: 5
-description: "Che cosa contiene il fascicolo tecnico dell'Allegato II e dell'Allegato III, voce per voce, e quale documento di questo repository alimenta ciascuna voce. Che cosa manca oggi, che cosa solo chi assume il ruolo di fabbricante può aggiungere, e perché l'organismo notificato è il fattore che determina il calendario."
+description: "Che cosa contiene il fascicolo tecnico dell'Allegato II e dell'Allegato III, voce per voce, e quale documento di questo repository alimenta ciascuna voce. Che cosa manca oggi, quali atti restano riservati al ruolo di fabbricante anche quando quel ruolo sarà del progetto, e perché l'organismo notificato è il fattore che determina il calendario."
 ---
 
 # Fascicolo tecnico
@@ -13,12 +13,27 @@ description: "Che cosa contiene il fascicolo tecnico dell'Allegato II e dell'All
 > voce dell'Allegato II e dell'Allegato III: *quale documento la soddisfa, esiste già, e chi può
 > produrlo*.
 >
-> **Avvertenza di perimetro, che governa ogni riga.** Il progetto **non è fabbricante** (`D28`,
-> `D49`) e **non appone la marcatura CE**. Ciò che segue non è il fascicolo tecnico di un
-> dispositivo: è **la mappa del fascicolo che chi certifica dovrà comporre**, con l'indicazione di
-> quali tessere il progetto fornisce già, quali si impegna a produrre e quali **non può fornire in
-> nessun caso**, perché presuppongono un soggetto giuridico, una firma e una responsabilità che il
-> progetto non ha.
+> **Avvertenza di perimetro, che governa ogni riga.** Il progetto **non è oggi fabbricante**
+> (`D28` e `D49`, come emendate da `D58`) e **il prodotto non reca la marcatura CE**. Ciò che
+> segue non è il fascicolo tecnico di un dispositivo: è **la mappa del fascicolo che il
+> fabbricante dovrà comporre**, con l'indicazione di quali tessere il progetto fornisce già, quali
+> si impegna a produrre e quali **non può fornire oggi in nessun caso**, perché presuppongono un
+> soggetto giuridico, una firma e una responsabilità che oggi non esistono.
+>
+> **`D58` cambia chi intende comporre quel fascicolo, e nient'altro.** Il progetto **intende**
+> assumere il ruolo di fabbricante, e **il soggetto giuridico che lo eserciterebbe non è ancora
+> costituito**. Comporre il fascicolo,
+> firmare la dichiarazione di conformità e apporre la marcatura restano **atti riservati a quel
+> ruolo formale** — lo restano **anche quando il ruolo sarà il nostro**. È esattamente questa
+> distinzione che rende leggibile perché le voci del § 12 non si possono anticipare: non è
+> ritrosia, è che l'atto presuppone il soggetto. Ciò che `D58` cambia è che quelle voci **da oggi
+> gravano su di noi**, il che le rende più urgenti, non meno.
+>
+> **Il varco da chiudere subito.** Chi legge che il progetto intende certificare e ne conclude che
+> il software sia utilizzabile su pazienti reali trae una conclusione **sbagliata**. Un fascicolo
+> che non esiste non copre nulla, e l'intenzione di comporlo **non trasferisce alcun obbligo** a
+> chi installa oggi una versione non certificata: quegli obblighi restano interi in capo a chi
+> installa, integra o mette in servizio.
 >
 > **Avvertenza di metodo.** Questo capitolo è analisi tecnica di conformità, non consulenza
 > regolatoria. I numeri di sezione dell'Allegato II qui usati derivano dalla ricerca interna del
@@ -82,11 +97,11 @@ loro valutazione. È materiale che si produce **mentre** si sviluppa e che, come
 | **D** | Materiale che il progetto produce e che **non è** un documento del fascicolo, ma da cui i documenti del fascicolo si redigono | — | Progetto |
 
 L'insieme D è la ragione per cui questo capitolo esiste. Se il progetto pubblicasse solo codice,
-chi volesse certificare dovrebbe **ricostruire per inferenza** il ragionamento di progetto, di
-rischio e di verifica — operazione interpretativa che un organismo notificato non ha motivo di
-accettare. Se invece il progetto pubblica l'analisi, chi certifica **la riesamina, la corregge, la
-approva e la firma**: è un'operazione di ordini di grandezza più breve e, soprattutto, è
-un'operazione ammissibile.
+chi volesse certificare — noi compresi, una volta costituito il soggetto — dovrebbe **ricostruire
+per inferenza** il ragionamento di progetto, di rischio e di verifica: operazione interpretativa
+che un organismo notificato non ha motivo di accettare. Se invece il progetto pubblica l'analisi,
+**il fabbricante la riesamina, la corregge, la approva e la firma**: è un'operazione di ordini di
+grandezza più breve e, soprattutto, è un'operazione ammissibile.
 
 ## 3. Legenda della mappatura
 
@@ -105,7 +120,7 @@ reali di file esistenti.
 
 | Simbolo | Significato |
 |:-:|---|
-| **P** | Il **progetto** lo produce integralmente. Chi certifica lo riesamina e lo approva |
+| **P** | Il **progetto** lo produce integralmente. **Il fabbricante** lo riesamina e lo approva |
 | **P/F** | Il progetto produce il contenuto tecnico; **il fabbricante** lo compila con dati che solo lui possiede, lo approva e lo firma |
 | **F** | **Solo il fabbricante.** Il progetto non può produrlo, né in bozza, senza compiere un atto che non gli compete |
 
@@ -115,8 +130,11 @@ produrre.
 > **Una precisazione che evita un errore di lettura ricorrente.** Uno stato `☑` significa che il
 > **contenuto** esiste in forma verificabile, non che esista il documento controllato. Nessun
 > documento del fascicolo esiste oggi come documento controllato, per la ragione dichiarata al
-> § 1: il progetto non ha un sistema di controllo dei documenti di un fabbricante, e non può
-> averlo senza essere un fabbricante.
+> § 1: **il progetto non ha un sistema di controllo dei documenti in esercizio**, e non lo avrà
+> finché il soggetto fabbricante non sarà costituito e il sistema di gestione della qualità non
+> sarà istituito. È la stessa ragione, argomentata per esteso, del
+> [02 §5.2](./02-qualificazione-e-classificazione.md): la mancanza non è più di soggetto, è di
+> **sistema** — e il sistema è a nostro carico.
 
 ## 4. Allegato II, sezione 1 — Descrizione e specifica del dispositivo
 
@@ -184,9 +202,10 @@ delle norme armonizzate va verificata alla data d'uso.
 **Che cosa il progetto può e deve fare, pur non essendo fabbricante.** Predisporre lo **spazio**:
 la schermata esiste, è raggiungibile, è accessibile, e i campi che dovrà contenere sono
 configurabili per distribuzione invece che scritti nel codice. Un prodotto che non ha previsto
-quella schermata costringe chi certifica a una modifica dell'interfaccia in fase avanzata, quando
-ogni modifica dell'interfaccia riapre la valutazione dell'usabilità. È l'esempio più chiaro di un
-costo che il progetto può azzerare per chi certifica **oggi** e che diventa caro dopo.
+quella schermata costringe **il fabbricante** a una modifica dell'interfaccia in fase avanzata,
+quando ogni modifica dell'interfaccia riapre la valutazione dell'usabilità. È l'esempio più chiaro
+di un costo che il progetto può azzerare **oggi**, a costo quasi nullo, e che diventa caro dopo —
+e, da `D58`, è un costo che ricadrebbe **su di noi**.
 
 **La lingua non è una scelta editoriale.** Le istruzioni per l'uso destinate al mercato italiano
 devono essere in italiano `[NV]` — l'obbligo discende dal decreto legislativo di adeguamento
@@ -271,13 +290,14 @@ riletta sul testo consolidato prima di comparire nella matrice.
 presuppone documenti controllati, che il progetto non ha (`V-174`). Il progetto può quindi
 produrre la matrice fino alla penultima colonna: requisito, applicabilità con motivazione, metodo
 di dimostrazione, norma applicata, e **rinvio all'analisi** di questo repository. L'ultima colonna
-la compila chi certifica, sostituendo il rinvio all'analisi con il riferimento al proprio
+la compila **il fabbricante**, sostituendo il rinvio all'analisi con il riferimento al proprio
 documento approvato.
 
-Questa non è una limitazione secondaria: è **il punto di giunzione dell'intero modello di `D49`**.
-Il progetto costruisce l'impalcatura completa e verificabile di un fascicolo; l'atto che la
-trasforma in fascicolo è l'inserimento di ciascun rinvio dentro un sistema di controllo dei
-documenti, e quell'atto è un atto del fabbricante. Chi legge questa documentazione sperando di
+Questa non è una limitazione secondaria: è **il punto di giunzione dell'intero modello di `D49`**,
+e `D58` non la rimuove. Il progetto costruisce l'impalcatura completa e verificabile di un
+fascicolo; l'atto che la trasforma in fascicolo è l'inserimento di ciascun rinvio dentro un sistema
+di controllo dei documenti, e quell'atto **è un atto del fabbricante** — riservato al ruolo anche
+quando il ruolo sarà nostro, perché ciò che lo rende possibile non è la volontà ma il sistema. Chi legge questa documentazione sperando di
 trovarvi un fascicolo pronto all'uso troverà invece **tutto ciò che serve per scriverne uno in
 mesi invece che in anni**, che è una cosa diversa e va detta com'è.
 
@@ -412,15 +432,45 @@ esegue a posteriori su un'interfaccia già congelata; un inventario dei componen
 un progetto maturo è un'operazione archeologica; una matrice di tracciabilità ricostruita
 leggendo il codice è un'operazione **interpretativa**, e un organismo notificato non ha motivo di
 crederle. Sono precisamente le attività che `D45` colloca fra quelle da avviare subito **a
-prescindere da chi certificherà**, e la ragione per cui il progetto le assume pur non essendo
-fabbricante.
+prescindere da chi eserciterà il ruolo di fabbricante**, e la ragione per cui il progetto le
+assume pur non essendo oggi fabbricante.
 
-## 12. Che cosa solo chi certifica può aggiungere
+**`D58` le rende più urgenti, non meno, e il punto va detto senza addolcirlo.** Finché il percorso
+di certificazione era attribuito a un soggetto esterno, queste tre attività erano un investimento
+a favore di un terzo ipotetico: farle bene era diligenza, e il costo dell'omissione sarebbe
+ricaduto su qualcun altro. Da `D58` il soggetto siamo noi, quindi **il costo dell'omissione è
+interamente nostro**: una valutazione formativa non svolta, un inventario dei componenti non
+prodotto e una matrice di tracciabilità non generata sono, alla lettera, mesi che il progetto
+sottrae al **proprio** percorso, non a quello di un altro. Nessuna delle tre è recuperabile con
+denaro né con lavoro straordinario.
 
-L'elenco che segue è chiuso e va letto come tale: **nessuna di queste voci è ottenibile dal
-progetto**, in nessuna forma, nemmeno in bozza, nemmeno con l'aiuto di un consulente. Ciascuna
-presuppone un soggetto giuridico, un atto di volontà o una responsabilità che il progetto non ha e
-che ha deciso di non assumere (`D28`, `D49`, `V-06`).
+## 12. Che cosa solo il fabbricante può aggiungere
+
+L'elenco che segue è chiuso e va letto come tale: **nessuna di queste voci è ottenibile oggi**, in
+nessuna forma, nemmeno in bozza, nemmeno con l'aiuto di un consulente. Ciascuna presuppone un
+soggetto giuridico, un atto di volontà o una responsabilità che **oggi non esistono**.
+
+> **Perché questa sezione non si è accorciata con `D58`, e non poteva.** `D58` stabilisce che il
+> progetto **intende** assumere il ruolo di fabbricante — con il soggetto che lo eserciterebbe
+> **ancora da costituire** — ed emenda `D28`, `D49` e `V-06` **nel destinatario**, non nella
+> sostanza tecnica. Le quindici voci restano quindici, per una ragione
+> che non è formale: sono **atti che la norma riserva al ruolo di fabbricante**, e restano
+> riservati a quel ruolo **anche quando il ruolo sarà il nostro**. Apporre la marcatura, firmare
+> la dichiarazione di conformità, nominare la persona responsabile del rispetto della normativa,
+> presentare la domanda all'organismo: nessuno di questi atti diventa anticipabile perché
+> l'intenzione è stata dichiarata. **L'intenzione non è il soggetto**, e il soggetto — voce 1 — è
+> il vincolo più a monte di tutti gli altri.
+>
+> **Che cosa `D58` cambia davvero.** Cambia la colonna implicita «a chi tocca»: queste quindici
+> voci non sono più il manuale di un terzo, sono **il nostro elenco di adempimenti**. Diventano
+> quindi materia della pianificazione interna del progetto (`D57`), e la voce 1 — la costituzione
+> del soggetto — è un **prerequisito interno con un proprio tempo**, non un'attesa.
+>
+> **Che cosa `D58` non cambia.** Il prodotto oggi **non reca marcatura CE**, non è coperto da
+> alcuna dichiarazione di conformità e **chi lo installa, lo integra o lo mette in servizio assume
+> gli obblighi che ne derivano**: l'intenzione del progetto di certificare in futuro **non gliene
+> trasferisce alcuno**, e lasciarlo intendere sarebbe più dannoso del silenzio. Nessuna data
+> compare in questa sezione né può comparirvi (`V-171`).
 
 | # | Elemento | Perché è irriducibile |
 |---|---|---|
@@ -446,7 +496,33 @@ scrittura, come si autorizza un rilascio, chi firma gli artefatti, dove sono le 
 dimostra che la procedura scritta corrisponde alla prassi. Un progetto aperto può rendere questa
 verifica facile — pubblicando la catena di costruzione, i controlli bloccanti, le regole di
 revisione e la loro applicazione effettiva — ma non può sostituirvisi. **La differenza fra rendere
-facile e sostituirsi è l'intera distanza fra `D49` e la marcatura CE.**
+facile e sostituirsi è l'intera distanza fra ciò che il progetto è oggi e la marcatura CE**, e
+`D58` non accorcia quella distanza di un metro: dichiara soltanto chi intende percorrerla. Da cui
+una conseguenza operativa che ora riguarda noi e non un terzo: **l'organizzazione che l'organismo
+ispezionerà è quella che dobbiamo costituire**, e un'organizzazione non si improvvisa alla vigilia
+di un audit in sito.
+
+### 12.1 Ricostruire i sorgenti non riproduce il fascicolo, né il dispositivo
+
+Va detto qui perché è il punto in cui il capitolo è più esposto a un fraintendimento tecnico, e
+perché senza dirlo la distinzione fra repository e distribuzione identificata si legge come una
+formalità di denominazione.
+
+**La costruzione riproducibile è una proprietà preziosa e non è la marcatura.** Il progetto
+persegue costruzioni riproducibili e distinte dei materiali generate dalla catena, perché sono
+evidenza di conformità e perché senza di esse le voci 9 e 10 del § 11 non sarebbero recuperabili.
+Ma **ciò che fa di un artefatto *quel* dispositivo non è il contenuto dei sorgenti**: è la catena
+di costruzione controllata, il rilascio sotto il sistema di gestione della qualità del fabbricante
+e l'identificazione che ne consegue. Una marcatura copre **l'artefatto esatto valutato, nella
+versione esatta in cui è stato valutato**: non si estende ai sorgenti da cui è costruito, né ad
+alcuna costruzione eseguita da altri, né a una versione successiva non valutata.
+
+Ne discende, senza attenuazioni, che **chi ricompila i sorgenti produce un artefatto proprio, del
+quale il fabbricante è lui**, con tutti gli obblighi che il § 12 elenca — e li assume per intero
+anche il giorno in cui una distribuzione identificata fosse marcata. È la ragione tecnica per cui
+la voce 4 e la voce 15 del § 12 non sono sostituibili da alcuna proprietà del codice: nessuna
+riproducibilità della costruzione produce un controllo dei documenti, e nessun determinismo del
+compilatore sostituisce un'organizzazione ispezionabile.
 
 ## 13. L'organismo notificato: che cosa fa, e che cosa non fa
 

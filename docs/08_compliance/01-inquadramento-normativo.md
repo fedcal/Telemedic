@@ -540,7 +540,7 @@ d'uso, sicurezza o prestazioni è vietata **anche quando non esiste alcuna marca
 
 | Formula vietata | Perché | Formula ammessa |
 |---|---|---|
-| «dispositivo medico», riferito al repository o alla documentazione | Il repository è codice sorgente. Attribuirgli la qualifica è falso in entrambe le direzioni | «software progettato **perché sia certificabile** come dispositivo medico da chi intende certificarlo» |
+| «dispositivo medico», riferito al repository o alla documentazione | Il repository è codice sorgente. Attribuirgli la qualifica è falso in entrambe le direzioni | «codice sorgente progettato **perché sia certificabile** come dispositivo medico. **Il prodotto non reca marcatura CE**; il progetto **intende** costituire il soggetto fabbricante, che oggi **non è costituito**, e intraprendere il percorso di certificazione» |
 | «marcato CE», «certificato», «conforme all'MDR» | Non esiste marcatura, non esiste dichiarazione di conformità, non esiste valutazione di un organismo notificato | «non ancora marcato CE, **non utilizzabile per l'erogazione di prestazioni sanitarie su pazienti reali**» (`D16`) |
 | «certificato ISO 13485» | Il certificato non esiste. Un sistema di gestione della qualità **implementato** non è un sistema **certificato** | «sistema di gestione della qualità impostato secondo ISO 13485, **non certificato**» |
 | «classe IIa» usata come attributo del prodotto | La classe è l'esito di una determinazione formale riferita a una destinazione d'uso e a una revisione esatta. Fuori da quel contesto è un'affermazione priva di oggetto | «la determinazione di classificazione del progetto, riferita alla destinazione d'uso nella revisione *n*, conclude per la classe IIa» |
@@ -548,6 +548,26 @@ d'uso, sicurezza o prestazioni è vietata **anche quando non esiste alcuna marca
 | «qualità clinica», «adeguato alla diagnosi» riferito al canale | È una rivendicazione di prestazione clinica, e come tale va dimostrata nella valutazione clinica | enunciati tecnici verificabili su risoluzione, frequenza dei fotogrammi e continuità, **senza rivendicare adeguatezza diagnostica** (`D29`) |
 | «accreditato» riferito ai canali di identità nazionali | Il fornitore di servizi è chi eroga il servizio in rete, cioè chi installa (`V-05`) | «conforme e verificabile in integrazione continua, **non accreditato**» |
 | «monitoraggio in tempo reale», «sorveglianza continua» | Sposta la classificazione e contraddice `V-144` | «raccolta **differita** di parametri per la **revisione periodica** del professionista» |
+
+**Il registro con cui si nomina l'intenzione, e perché è vincolante quanto la tabella.** Da `D58`
+il progetto intende assumere il ruolo di fabbricante, e nominare quell'intenzione è la formulazione
+più facile da far scivolare in un'affermazione vietata. Valgono quindi, in ogni artefatto, quattro
+regole di forma:
+
+1. **l'intenzione si esprime con il verbo «intende»**, mai con un futuro indicativo: «il progetto
+   intende certificare», non «il progetto certificherà»;
+2. **l'assenza del soggetto giuridico si ripete nella stessa frase** in cui l'intenzione compare,
+   e non è rinviabile a una nota;
+3. **lo stato di fatto negativo sta in prima posizione**, in grassetto, prima di qualunque
+   menzione del percorso: nessuna marcatura CE, nessuna dichiarazione di conformità;
+4. **nessuna data, nessuna finestra temporale, nessun «entro»**. L'unica occorrenza ammessa di
+   quella parola è **dentro l'enunciato del divieto stesso**.
+
+**E il fraintendimento che le quattro regole servono a impedire**, nominato perché è già
+prevedibile: «stanno certificando, allora posso usarlo». È una conclusione **sbagliata**.
+L'intenzione di certificare **non copre nessuno**, non trasferisce alcun obbligo e non rende
+utilizzabile una versione non certificata: chi installa, integra o mette in servizio il software
+oggi assume per intero gli obblighi che ne derivano.
 
 **La verifica di questo vincolo non è documentale ma di processo.** Ogni testo pubblico —
 pagina, `README`, titolo di sezione, descrizione di interfaccia, messaggio di errore, annuncio —
@@ -594,10 +614,31 @@ fornirne l'evidenza.
 | **11 dicembre 2027** | Applicazione generale del regolamento sulla resilienza: requisiti essenziali, valutazione della conformità, marcatura | Fabbricante |
 | **26 marzo 2029** | Capo III del regolamento sullo spazio europeo dei dati sanitari — sistemi di cartella clinica elettronica. **`[NV]`** sulla mappatura esatta | Fabbricante del sistema |
 
-**Una data manca deliberatamente da questa tabella: quella della marcatura CE.** Non è del
-progetto (`D49`), dipende da un soggetto terzo con code non misurate, e inserirla qui la
-trasformerebbe in un impegno. Il calcolo all'indietro, gli scenari e i punti di non ritorno
-appartengono ai capitoli successivi di quest'area, redatti in parallelo.
+**Una data manca deliberatamente da questa tabella: quella della marcatura CE. L'omissione resta,
+e la sua ragione è cambiata.**
+
+Finché il percorso di certificazione era attribuito a un soggetto esterno, la ragione era semplice:
+la data non era del progetto. Da `D58` quella ragione **non è più vera** — il progetto intende
+assumere il ruolo di fabbricante, e il soggetto che lo eserciterebbe è ancora da costituire — ma
+**l'omissione non si attenua di un giorno**, perché la ragione che la sostiene è più forte della
+precedente:
+
+1. **Un'intenzione non è una promessa datata.** Dichiarare che si intende certificare e dichiarare
+   che si sarà marcati entro un termine sono due atti diversi, e solo il secondo produce un effetto
+   regolatorio: la destinazione d'uso di un dispositivo si ricava anche dal materiale pubblicato
+   (art. 2, punto 12) e le dichiarazioni fuorvianti sono vietate anche senza marcatura (art. 7).
+   Una data pubblicata **viene letta come previsione dell'esito**, e nessuna cautela redazionale
+   riesce a impedirlo.
+2. **L'esito non dipende solo da noi.** La valutazione della documentazione tecnica e la
+   certificazione del sistema di gestione della qualità hanno tempi di organismi notificati con
+   code non misurate: una data sarebbe un impegno su un esito che il progetto non determina.
+3. **`V-171` non ammette eccezioni per la pianificazione interna.** Una pianificazione nostra
+   **non diventa una promessa perché è nostra**, e non diventa pubblicabile come data perché è
+   sincera. Nessuna data, nessuna finestra, nessun «entro».
+
+Il calcolo all'indietro, gli scenari e i punti di non ritorno sono
+[pianificazione interna del progetto](./09-percorso-e-calendario.md) (`D57`), e vanno letti con
+l'avvertenza che apre quel capitolo.
 
 ## 14. Che cosa questo capitolo lascia aperto
 

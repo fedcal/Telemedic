@@ -105,3 +105,103 @@ Nessun vincolo altrui è stato contraddetto. Recepiti esplicitamente e citati ne
 | 2 | Collegamenti a `06`, `07`, `08`, `09`: presenti nei capitoli 00, 04 e 05, **bloccanti prima del primo deploy** ai sensi di `D52` | `COMP-B`, poi orchestrazione |
 | 3 | Traduzione inglese integrale (`D50`), con la struttura speculare e il controllo di divergenza | Sito e internazionalizzazione |
 | 4 | Riverifica dei `[NV]` sui testi consolidati **prima** che una qualunque di queste righe entri in un documento controllato | Chi certifica |
+
+---
+
+# Appendice — sessione COMP-R, riformulazione imposta da `D57` e `D58`
+
+**Agente**: `COMP-R`. **Data**: 25 agosto 2026. **Natura del lavoro**: **riformulazione**, non
+riscrittura. Nessun capitolo è stato rifatto; sono stati riformulati i luoghi costruiti sulla
+figura del **soggetto terzo indefinito** che il committente ha eliminato con `D58`.
+
+## R.1 Che cosa impongono le due decisioni
+
+- **`D57`** — la roadmap e le date sono **pianificazione interna del progetto**, mai il percorso
+  di un soggetto esterno.
+- **`D58`** — il ruolo di fabbricante **sarà assunto dal progetto**; il soggetto giuridico
+  **va costituito**. Emenda `D28`, `D45`, `D49` e `V-06` **nel destinatario, non nella sostanza
+  tecnica**.
+
+Il capitolo `09` era già stato riformulato ed è stato usato come riferimento del registro.
+
+## R.2 File toccati, in ordine di lavorazione
+
+| Ordine | File | Che cosa è stato riformulato |
+|:-:|---|---|
+| 1 | `02-qualificazione-e-classificazione.md` | Avvertenza di testa; apertura del § 5 e la «tensione», che **si stringe** e non si allenta; le tre qualificazioni della traccia; il paragrafo «Il limite resta»; **nuovo § 5.2**, sostanziale; riga `V-270` nel § 12; descrizione |
+| 2 | `03-sistema-di-gestione-della-qualita.md` | Avvertenza di perimetro, riscritta con lo stato di fatto in prima posizione e il varco chiuso; § 4.1 seconda avvertenza (la data di avvio dell'esercizio è **una decisione nostra**); § 9.7, che acquista un **secondo destinatario**; descrizione |
+| 3 | `04-fascicolo-tecnico.md` | Avvertenza di perimetro; § 2 insieme D; § 3 precisazione sullo stato e legenda `P`; § 5 schermata di informazioni; § 7 ultima colonna della matrice dei requisiti generali; § 11 chiusura sulle attività irrecuperabili; **§ 12 rititolato e con premessa nuova**; **nuovo § 12.1** sulla ricostruzione dei sorgenti; descrizione |
+| 4 | `00-indice.md` | Primo dei tre fatti; **nuovo § 1.1** con la dichiarazione del cambiamento e di ciò che non cambia; tabella dei capitoli; § 3.1 percorso di lettura; § 5 `V-06`; § 6 punti 4 e 6; § 7 spazio di numerazione; descrizione |
+| 5 | `01-inquadramento-normativo.md` (**aggiunto in corso d'opera dall'orchestrazione**) | § 11: formula ammessa nella tabella di `V-171`, **quattro regole di forma** del registro e chiusura esplicita del varco; § 13: **la motivazione dell'omissione della data di marcatura CE, riscritta senza toccare l'omissione** |
+
+Volumi dopo l'intervento: `00` 3.826 · `01` 8.341 · `02` 7.340 · `03` 7.387 · `04` 8.769 parole.
+
+## R.3 Il criterio di sostituzione, che è tutto il lavoro
+
+L'espressione «chi certifica» non è stata sostituita meccanicamente. Per ciascuna occorrenza:
+
+| Soggetto scelto | Quando |
+|---|---|
+| **il progetto nel ruolo di fabbricante** | Si parla di chi intende intraprendere il percorso |
+| **il fabbricante** | Si parla di un **atto che la norma riserva a quel ruolo formale** — apporre la marcatura, firmare la dichiarazione, comporre il fascicolo, compilare e sottoscrivere la destinazione d'uso, approvare l'ultima colonna della matrice dei requisiti generali. **Riservati anche quando il ruolo sarà nostro**, e la distinzione è stata conservata perché è ciò che rende leggibile perché quelle attività non si possono anticipare |
+| **il soggetto fabbricante, da costituire** | Il passo presuppone l'esistenza giuridica che oggi manca: produrre la distribuzione identificata, istituire e far certificare il sistema di gestione della qualità |
+| **chi installa** / **chi integra** | Il testo si riferiva a loro. Verificato caso per caso; in `04` § 5 e in `04` § 12.1 l'attribuzione precedente era impropria |
+
+## R.4 Che cosa non è stato attenuato — verificato riga per riga
+
+1. **La ripartizione tecnica è intatta.** Le quindici voci del § 12 di `04` restano quindici; la
+   premessa nuova spiega **perché non poteva accorciarsi**. La legenda `P` / `P/F` / `F` è
+   invariata nella sostanza.
+2. **Lo stato di fatto è dichiarato con la stessa evidenza, e in più luoghi di prima.** «Il
+   prodotto non reca marcatura CE» apre ora il § 5.2 di `02`, l'avvertenza di perimetro di `03`,
+   l'avvertenza di `04` e il § 1.1 di `00`.
+3. **`V-171` è intero.** Nessuna data, nessuna finestra, nessun «entro» è stato introdotto.
+   Verificato con ricerca testuale: le uniche occorrenze di «entro» nei testi riformulati sono
+   **dentro l'enunciato del divieto**.
+4. **Il varco «stanno certificando, allora posso usarlo» è nominato ed escluso** in `00` § 1.1,
+   `01` § 11, `02` § 5.2, `03` avvertenza di perimetro, `04` avvertenza di perimetro e § 12.
+5. **Le attività retroattivamente irrecuperabili sono dichiarate più urgenti**, in `03` § 9.7 e
+   in `04` § 11, con la ragione: il costo dell'omissione era di un terzo, ora è nostro.
+
+## R.5 Il punto sostanziale del lavoro: `02` § 5.2
+
+Richiesto esplicitamente e non riducibile a un aggiustamento lessicale. La ragione per cui la
+traccia di destinazione d'uso **non è** una dichiarazione è cambiata di natura:
+
+- **prima**: mancava il **soggetto** che potesse dichiarare. `D58` ha smentito questa
+  formulazione, che oggi sarebbe falsa;
+- **ora**: manca il **sistema di controllo documentale che rende una dichiarazione tale**. Senza
+  gli attributi della clausola 4.2.4 di ISO 13485:2016 — approvazione prima dell'emissione,
+  riesame e riapprovazione alle modifiche, identificazione dello stato di revisione, disponibilità
+  della versione applicabile, protezione dalle versioni superate — ciò che si firma è una firma su
+  un testo, non una dichiarazione, perché **non è dimostrabile a quale revisione si riferisca**.
+
+La condizione nuova è **verificabile e a nostro carico**: rende il documento **più** oneroso, non
+meno. È registrata come `V-272`.
+
+## R.6 Bacheca
+
+**Aggiornate perché `D57` e `D58` le rendono superate nel destinatario** — non nella sostanza:
+`Q-176` (il dossier dello stato dell'arte non è più un servizio a un terzo ma un anticipo sul
+nostro cammino critico), `Q-177` (i due obblighi dell'art. 86 e dell'Allegato III gravano su di
+noi, quindi la decisione sul canale va presa **prima** della prima distribuzione identificata),
+`Q-179` (parzialmente chiusa da `D57` quanto all'attribuzione; resta aperta la forma
+dell'avvertenza). Emendati nel destinatario `V-179` e `V-174`.
+
+**Aperte**: `V-270` registro obbligatorio con le quattro regole di forma · `V-271` chiusura
+obbligatoria del varco, con il corollario che **ricompilare i sorgenti non riproduce il
+dispositivo** · `V-272` la traccia non è una dichiarazione per assenza di sistema, non di soggetto
+· `Q-270` residui di «chi certifica» nei capitoli **06, 07 e 08**, fuori dal perimetro assegnato ·
+`Q-271` residui e un **refuso** nel capitolo 09, già riformulato ma non pulito del tutto ·
+`Q-272` nessuna area è titolare della **costituzione del soggetto fabbricante**, che è atto
+societario e non attività di documentazione.
+
+## R.7 Che cosa resta da fare, e da chi dipende
+
+| # | Attività | A chi |
+|---|---|---|
+| 1 | Riformulare `06`, `07`, `08` con il registro di `V-270` (`Q-270`). **L'area è internamente incoerente finché non è fatto** | `COMP-B` o assegnazione dell'orchestrazione |
+| 2 | Correggere i residui e il refuso di `09` § 7.2 (`Q-271`) | `ROAD` / orchestrazione |
+| 3 | Dichiarare chi conduce la costituzione del soggetto fabbricante e con quali risorse (`Q-272`) | → Committente |
+| 4 | Rigenerare la traduzione inglese delle sezioni riformulate: `00` § 1.1, `01` §§ 11 e 13, `02` § 5.2, `04` § 12.1 sono **nuove** e la versione inglese diverge | Sito e internazionalizzazione |
+| 5 | Riverifica dei `[NV]` sui testi consolidati prima che una riga entri in un documento controllato. La riga «a chi» dell'appendice precedente diceva «chi certifica»: **si legge il fabbricante**, e il fabbricante intendiamo essere noi | Conformità |

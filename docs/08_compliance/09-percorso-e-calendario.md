@@ -294,10 +294,17 @@ una procedura del sistema di gestione della qualità**, e nessuno può essere pr
 I capitoli sono **ingressi**: contengono l'analisi da cui una procedura si scrive, non la
 procedura. La regola perché quegli ingressi restino utilizzabili è al § 7.2.
 
-Le altre attività dei primi trenta giorni — costituzione del fabbricante, nomina del responsabile
-del rispetto della normativa, richieste di informazioni agli organismi, avvio del piano di
-valutazione clinica — **gravano su chi intende certificare**, e il progetto le documenta come
-manuale operativo senza assumerle.
+Le altre attività dei primi trenta giorni — costituzione del soggetto fabbricante, nomina del
+responsabile del rispetto della normativa, richieste di informazioni agli organismi, avvio del
+piano di valutazione clinica — **sono nostre** (`D58`), e questo le rende **più** urgenti di
+quanto fossero quando le si documentava soltanto.
+
+Una di esse merita di essere isolata perché non è dello stesso genere delle altre. La
+**costituzione del soggetto fabbricante non è attività di documentazione: è atto societario.**
+Non si accelera lavorando di più, dipende da procedimenti amministrativi con tempi propri, e
+finché non è avviata **ogni voce che presuppone il ruolo resta bloccata a monte** — non
+rallentata, bloccata. È la sola attività di questo calendario che non possiamo portare avanti
+scrivendo.
 
 ## 6. La sequenza minima per non pregiudicare nulla
 
@@ -438,7 +445,7 @@ regolatoria, dei §§ 5 e 7.
 |---|---|
 | **Cicli di risposta alle non conformità** | Due cicli o quattro sono la stessa pianificazione con costi diversi di un fattore due |
 | **Rilavorazione dopo la validazione sommativa** | Un errore d'uso grave può richiedere una riprogettazione e una nuova validazione parziale |
-| **Accesso alla documentazione per l'equivalenza** | Trattativa con un terzo che non ha interesse a concederla ([07 §6](./07-valutazione-clinica.md)) |
+| **Accesso alla documentazione per l'equivalenza** | Trattativa con il fabbricante del dispositivo di confronto, che non ha interesse a concederla ([07 §6](./07-valutazione-clinica.md)) |
 | **Tempo di attesa prima di essere accettati** da un organismo | Non è misurato da alcuna indagine pubblica: è la variabile più pericolosa dell'intero percorso |
 | **Copertura assicurativa** per responsabilità da prodotto | Premio determinato dal profilo di rischio e dal volume, per un dispositivo che non ha ancora né l'uno né l'altro |
 | **Modifiche sostanziali ricorrenti** | Dipende da quante modifiche ricadranno nel terzo regime di [08 §7](./08-sorveglianza-post-commercializzazione.md) |
