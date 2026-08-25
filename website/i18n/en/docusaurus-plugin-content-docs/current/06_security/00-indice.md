@@ -159,7 +159,7 @@ noticeboard, not ignore them.
 | **V-150** | The immutable audit trail and the application logs **contain no clinical content**; diagnostic logs carry no direct patient identifiers | [04 §3](./04-tracciamento.md) |
 | **V-151** | The external terminology service **receives no patient identifiers**; no cache persisted to disk | [03 §6](./03-protezione-dei-dati.md), [07 §7](./07-catena-di-fornitura.md) |
 | **V-152** | Retention: **24 months** for traceability logs, **12 months** for access and authentication data | [04 §5](./04-tracciamento.md) |
-| **V-153** | **Emergency access is a functional requirement**: mandatory free-text justification, limited window and perimeter, notification, review with the outcome recorded | [02 §8](./02-identita-e-accessi.md) |
+| **V-153** | **Emergency access is a functional requirement**: mandatory free-text justification, limited window and perimeter, notification, review with the outcome recorded | [02 §10](./02-identita-e-accessi.md) |
 | **V-154** | An authentication level **reported by an integrator** must be marked as such and does **not** satisfy the strong authentication requirements under Article 64 of the CAD (Codice dell'Amministrazione Digitale, the Italian Digital Administration Code) | [02 §4](./02-identita-e-accessi.md) |
 | **V-155** | No infrastructure metric of the relay may be labelled with the session identifier | [05 §7](./05-sicurezza-del-tempo-reale.md) |
 | **V-156** | The project **does not declare** protocol versions or negotiated cipher suites: it **measures them per session and records them** | [03 §2](./03-protezione-dei-dati.md), [05 §2](./05-sicurezza-del-tempo-reale.md) |

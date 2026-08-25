@@ -180,7 +180,7 @@ Le due tassonomie **non si sovrappongono**:
 | Teleassistenza | Teleassistenza | Coincidono |
 | Telerefertazione | *(assente)* | **Scompare come servizio autonomo**: diventa il micro-servizio trasversale «refertazione e firma digitale» |
 | Telemonitoraggio (modalità operativa) | Telemonitoraggio | **Promosso a servizio minimo** |
-| Telecontrollo (modalità operativa) | *(non elencato fra i minimi)* | Resta modalità operativa, ma è **prestazione tariffata** |
+| Telecontrollo medico (modalità operativa) | *(non elencato fra i minimi)* | Resta modalità operativa, ma è **prestazione tariffata** |
 
 **Il modello di dominio deve rappresentare entrambe le tassonomie e la loro mappatura.** Non
 è possibile sceglierne una: la prima determina la legittimità dell'atto e la refertazione, la
@@ -1406,7 +1406,7 @@ agganciata alla prenotazione.
 | **Teleassistenza** | Atto professionale di pertinenza delle professioni sanitarie non mediche, con paziente o caregiver, programmato e ripetibile |
 | **Teleconsulenza medico-sanitaria** | Supporto a distanza fra professionisti con responsabilità differenti, sempre programmato, mai in surroga del soccorso |
 | **Teleconsulto** | Atto medico fra due o più medici sulla situazione clinica di un paziente; sincrono o asincrono; non produce referto autonomo |
-| **Telecontrollo** | Serie cadenzata di contatti medici in videochiamata con condivisione di dati clinici; prestazione **tariffata** |
+| **Telecontrollo medico** | Serie cadenzata di contatti medici in videochiamata con condivisione di dati clinici; prestazione **tariffata**. La forma abbreviata «telecontrollo» compare nelle tabelle sinottiche per ragioni di larghezza: il nome corretto è quello esteso, e l'aggettivo non è ornamentale — dice di chi è la pertinenza |
 | **Telecooperazione sanitaria** | Assistenza a distanza a un operatore impegnato in un atto in corso; fuori perimetro nella versione corrente |
 | **Telemonitoraggio** | Rilevamento e trasmissione a distanza di parametri vitali e clinici tramite sensori, dentro un piano e con soglie configurate dal professionista |
 | **Telerefertazione** | Atto di refertare a distanza un esame già acquisito, con firma digitale validata; non è il trasporto del referto |

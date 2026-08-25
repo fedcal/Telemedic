@@ -2997,7 +2997,7 @@ evidenza, non con un'affermazione — che non è potuto accadere.
 
 | Termine (IT) | Inglese | Definizione operativa |
 |---|---|---|
-| Aggregato | Aggregate | Gruppo di entità e oggetti valore trattato come una sola unità di consistenza, con una radice come unico punto di accesso |
+| Aggregato | Aggregate | Gruppo di entità e oggetti valore trattato come una sola unità di consistenza, con una radice come unico punto di accesso. La formulazione canonica del progetto — «insieme di oggetti che devono cambiare **insieme** in una sola transazione per mantenere vera una regola» — è nel modulo [16](./16-architettura-del-progetto.md): dice la stessa cosa mettendo in primo piano la regola invece della struttura, ed è quella da citare |
 | Almeno una volta | At-least-once | Garanzia di consegna per cui un messaggio arriva una o più volte; richiede un ricevente idempotente |
 | Al più una volta | At-most-once | Garanzia di consegna senza ritentativi: il messaggio arriva zero o una volta |
 | Attesa esponenziale | Exponential backoff | Strategia di ritentativo in cui l'intervallo raddoppia a ogni tentativo fino a un tetto |

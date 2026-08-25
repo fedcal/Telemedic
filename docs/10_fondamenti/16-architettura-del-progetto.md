@@ -1741,6 +1741,24 @@ Le tabelle portano **comunque** l'identificativo di tenant e sono protette da po
 È ridondante rispetto alla separazione degli schemi, ed è **deliberato**: è la seconda barriera
 che regge quando la prima è stata aggirata da un errore.
 
+> **Tre affermazioni sulla sicurezza a livello di riga, che vanno lette insieme.** Sono sparse
+> in tre moduli, sono cumulative e nessuna delle tre da sola dà il quadro — motivo per cui vale
+> la pena riunirle qui.
+>
+> 1. È un **filtro applicato dal motore della base dati**, non dal codice applicativo, e questo
+>    è il suo valore: agisce anche su una query che il codice non avrebbe dovuto scrivere
+>    ([11 — Fondamenti informatici](./11-fondamenti-informatici.md)).
+> 2. È la **seconda barriera e non il meccanismo unico**: la separazione degli schemi resta la
+>    prima, e chi tratta le politiche di riga come unica difesa ha un solo strato dove ne
+>    servono due (questo paragrafo).
+> 3. **In assenza di contesto nega tutto**, e in fase di sviluppo il sintomo è un elenco vuoto
+>    senza alcun errore. È il guasto più disorientante dell'ambiente locale, perché somiglia a
+>    un problema di dati e non lo è
+>    ([17 — Ambiente di sviluppo](./17-ambiente-di-sviluppo.md)).
+>
+> La terza è conseguenza voluta della prima: un filtro che, non sapendo per chi filtrare,
+> lasciasse passare tutto sarebbe peggio che inutile.
+
 **Perché non le righe condivise**, in tre ragioni concrete:
 
 1. **Il ripristino selettivo diventa difficile.** Un cliente che chiede di riportare i propri dati

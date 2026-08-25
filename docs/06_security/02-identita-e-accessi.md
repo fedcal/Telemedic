@@ -280,7 +280,7 @@ flowchart TB
 | Sostituibilità | Chi installa ed è aggregato di un aggregatore sostituisce il broker senza modificare l'applicazione |
 
 Costi da dichiarare onestamente: un salto di reindirizzamento in più, irrilevante rispetto al
-tempo di autenticazione e **senza alcun effetto sul obiettivo di latenza del media**, che
+tempo di autenticazione e **senza alcun effetto sull'obiettivo di latenza del media**, che
 riguarda un percorso diverso; la propagazione del livello attraverso l'intermediazione **non è
 automatica** e va implementata e verificata (§5); un realm in più da amministrare, aggiornare e
 sottoporre a copia di sicurezza, che si governa con la configurazione trattata come codice e

@@ -63,10 +63,10 @@ prescriptions that bind the project:
 | **Token exchange** | RFC 8693 | Propagation of the identity of a user authenticated by the integrator | Server |
 | **Assertion grant** | RFC 7523 §2.1 | Alternative to the previous one, with an assertion signed by the integrator's issuer | Server |
 | **Asymmetric client authentication** | RFC 7523 §2.2 | Client authentication with no shared secret | Server |
-| **Authorisation in an IHE context** | rev. 2.5 | A tender specification that requires conformance with that profile | Documentary correspondence, §7 |
+| **Authorisation in an IHE context** | rev. 2.5 | A tender specification that requires conformance with that profile | Documentary correspondence, §10 |
 | **Dynamic registration** | RFC 7591 / 7592 | Automated onboarding, **authenticated only** | Server, with restrictions |
 | **Introspection and revocation** | RFC 7662 / RFC 7009 | Token verification and revocation | Server |
-| Certificate-based dynamic federation | — | **Out of scope for v1.0**, §8 | — |
+| Certificate-based dynamic federation | — | **Out of scope for v1.0**, §11 | — |
 
 ## 4. The authorisation scopes
 
@@ -112,7 +112,7 @@ Forcing the start of a session inside a write scope on the encounter would be a 
 would make it **impossible to revoke one without the other**.
 
 **Rule on the bulk export scope:** it is never granted by default, its granting is an audited
-administrative act, and its presence in a token triggers the mandatory introspection of §6.
+administrative act, and its presence in a token triggers the mandatory introspection of §8.3.
 
 ### 4.3 The scope returned may be narrower than the one requested
 

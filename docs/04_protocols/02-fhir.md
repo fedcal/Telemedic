@@ -382,7 +382,7 @@ restituirebbe tutto, e ometterlo è esattamente ciò che un client sbagliato fa.
 
 | Operazione | Livello | Stato in Telemedic | Nota |
 |---|---|---|---|
-| `$validate` | tipo, istanza | Esposta | Vedi §7 per la trappola del codice di stato |
+| `$validate` | tipo, istanza | Esposta | Vedi §6.1 per la trappola del codice di stato |
 | `$document` | istanza su `Composition` | Esposta | Genera il documento a partire dalla composizione |
 | `$status` su `Subscription` | sistema, istanza | Esposta, **obbligatoria** dalla guida di backport | Stato della sottoscrizione |
 | `$events` su `Subscription` | istanza | Esposta | Recupero delle notifiche per intervallo di numero d'evento |

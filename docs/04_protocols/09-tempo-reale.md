@@ -319,7 +319,7 @@ e non usarlo costa poco; aggiungerlo dopo, a protocollo pubblicato, costa una ve
 | Non è un'interfaccia pubblica versionata come le altre | È un protocollo di sessione fra il client del progetto e il proprio servizio | La sua stabilità è dichiarata a parte |
 | Non gestisce l'identità | L'identità arriva prima, con la credenziale di ingresso | Capitolo [08](./08-identita-e-autorizzazione.md) |
 
-L'ultima riga della quarta voce merita una regola esplicita, perché la tentazione è pratica e
+La quarta voce merita una regola esplicita, perché la tentazione è pratica e
 l'errore è clinico: **le immagini diagnostiche non transitano sul canale del media**. La
 condivisione dello schermo di un'immagine introduce una compressione con perdita non controllata,
 e ciò che il professionista remoto vede **non è** il dato diagnostico. Se il consulto richiede la

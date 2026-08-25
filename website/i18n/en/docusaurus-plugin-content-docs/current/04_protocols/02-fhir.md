@@ -375,7 +375,7 @@ faulty client does.
 
 | Operation | Level | Status in Telemedic | Note |
 |---|---|---|---|
-| `$validate` | type, instance | Exposed | See §7 for the status code trap |
+| `$validate` | type, instance | Exposed | See §6.1 for the status code trap |
 | `$document` | instance on `Composition` | Exposed | Generates the document from the composition |
 | `$status` on `Subscription` | system, instance | Exposed, **mandatory** per the backport guide | Subscription status |
 | `$events` on `Subscription` | instance | Exposed | Retrieval of notifications by event number range |

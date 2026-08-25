@@ -64,10 +64,10 @@ Le prescrizioni che vincolano il progetto:
 | **Scambio di token** | RFC 8693 | Propagazione dell'identità di un utente autenticato dall'integratore | Server |
 | **Concessione con asserzione** | RFC 7523 §2.1 | Alternativa alla precedente, con un'asserzione firmata dall'emittente dell'integratore | Server |
 | **Autenticazione asimmetrica del client** | RFC 7523 §2.2 | Autenticazione del client senza segreto condiviso | Server |
-| **Autorizzazione in contesto IHE** | rev. 2.5 | Capitolato che richiede conformità a quel profilo | Corrispondenza documentale, §7 |
+| **Autorizzazione in contesto IHE** | rev. 2.5 | Capitolato che richiede conformità a quel profilo | Corrispondenza documentale, §10 |
 | **Registrazione dinamica** | RFC 7591 / 7592 | Onboarding automatizzato, **solo autenticato** | Server, con restrizioni |
 | **Introspezione e revoca** | RFC 7662 / RFC 7009 | Verifica e revoca dei token | Server |
-| Federazione dinamica a certificati | — | **Fuori perimetro v1.0**, §8 | — |
+| Federazione dinamica a certificati | — | **Fuori perimetro v1.0**, §11 | — |
 
 ## 4. Gli ambiti di autorizzazione
 
@@ -114,7 +114,7 @@ un abuso semantico e renderebbe **impossibile revocare l'uno senza l'altro**.
 
 **Regola sull'ambito di esportazione massiva:** non è mai concesso in modo predefinito, la sua
 concessione è un atto amministrativo tracciato, e la sua presenza in un token attiva
-l'introspezione obbligatoria di §6.
+l'introspezione obbligatoria di §8.3.
 
 ### 4.3 Lo scopo restituito può essere più stretto di quello richiesto
 

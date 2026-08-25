@@ -66,7 +66,7 @@ information set. The declared date for full operation is **30 June 2026** (Artic
 | p) | **Specialist report for televisita** | 2.20 | **Yes — it is the principal document** |
 | q) | Collaborative report for teleconsulto or teleconsulenza | 2.21 | Yes |
 | r) | Concluding clinical and care report for teleassistenza and teleriabilitazione | 2.22 | Yes |
-| s) | Device card for telemonitoraggio | 2.23 | Yes, with the limit in §7 |
+| s) | Device card for telemonitoraggio | 2.23 | Yes, with the limit in §8.3 |
 | t) | Plan for telemonitoraggio, teleriabilitazione and teleassistenza | 2.24 | Yes |
 | u) | Telemonitoraggio measurement report | 2.25 | Yes |
 | v) | Weekly telemonitoraggio measurement report | 2.26 | Yes |

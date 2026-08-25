@@ -151,7 +151,7 @@ Semantics adopted:
   entry credential, sending an invitation, creating a destination for events, replaying a delivery;
 - key scope: the four-tuple **tenant, client, operation, key**. Two tenants using the same string do
   not collide;
-- **twenty-four-hour retention** (proposal P-01 of chapter [01 §5](./01-principi-di-interoperabilita.md));
+- **twenty-four-hour retention** (proposal P-04 of chapter [01 §5](./01-principi-di-interoperabilita.md));
 - **the digest of the request body** is stored together with the response produced;
 - same key and **same body**, request already completed → the stored response is replayed, **byte
   for byte**, with a project header that declares the replay;

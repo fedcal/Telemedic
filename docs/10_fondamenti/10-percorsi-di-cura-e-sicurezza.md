@@ -662,7 +662,7 @@ all'interfaccia; esiste un'alimentazione affidabile.
 la misura correttamente, di riconoscere i sintomi rilevanti, di usare l'interfaccia, di
 rispondere a una chiamata. Comprende la valutazione della capacità cognitiva, sensoriale e
 motoria, e l'alfabetizzazione digitale. Il **Modello orientativo AGENAS** per la televisita
-chiama questa dimensione *verifica della compliance digitale del paziente* e la colloca come
+chiama questa dimensione *verifica della compliance digitale dell'assistito* e la colloca come
 fase distinta dall'adesione informata e dal consenso al trattamento (modulo
 [02, § 4.1.4](02-prestazioni-di-telemedicina.md)).
 

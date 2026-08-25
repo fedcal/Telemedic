@@ -293,7 +293,7 @@ re-implementation**.
 ### 9.2 Business-to-business identity assertion in XML envelope form
 
 The profile that conveys claims about an authenticated principal across enterprise boundaries uses
-a web services security header with an assertion token. It has two relevant options — subject role,
+a web services security header with an assertion token. It has three relevant options — subject role,
 consent reference, purpose of use — and requires grouping with the audit profile.
 
 **It is out of scope.** It is needed in the world of web services based on XML envelopes, and

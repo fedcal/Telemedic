@@ -171,7 +171,7 @@ defences are four, and they are all product features:
   detecting abuse ([04 §7](./04-tracciamento.md));
 - **emergency access as a declared path**, with mandatory free-text justification and after-the-fact
   review: making the exception a traced function instead of leaving it as a silent privilege
-  ([02 §8](./02-identita-e-accessi.md), constraint V-153).
+  ([02 §10](./02-identita-e-accessi.md), constraint V-153).
 
 ### 3.2 The untargeted external attacker
 
@@ -374,6 +374,7 @@ not just a positive one.
 | M-05 | Test of absence of recording without consent; test of withdrawal with effective erasure |
 | M-06, M-07 | Verification of the version chain and of the signature; test of detection of the alteration |
 | M-08 | Escalation test with declared failure: a missing acknowledgement produces an event, not a silence |
+| M-09 | Verify that the service coverage hours shown to the patient are **read from runtime data** and not from a constant: alter the configured coverage and check that the interface changes accordingly. Coverage declared by a fixed string is true until someone changes the service, and that is precisely the moment it becomes dangerous |
 | M-10 | Identifier reconciliation test with an explicit assigning authority |
 | M-11 | **Negative cross-tenant test on every entry point**, without exceptions ([06 §5](./06-sicurezza-applicativa.md)) |
 | M-12 | Verification of the artefact's signature and provenance; reproducibility of the build |

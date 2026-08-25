@@ -66,7 +66,7 @@ paragrafi che definiscono ciascun set informativo. Il termine di messa a regime 
 | p) | **Referto di specialistica per la televisita** | 2.20 | **Sì — è il documento principale** |
 | q) | Relazione collaborativa per il teleconsulto o la teleconsulenza | 2.21 | Sì |
 | r) | Relazione clinico-assistenziale conclusiva per teleassistenza e teleriabilitazione | 2.22 | Sì |
-| s) | Tesserino dispositivi per il telemonitoraggio | 2.23 | Sì, con il limite di §7 |
+| s) | Tesserino dispositivi per il telemonitoraggio | 2.23 | Sì, con il limite di §8.3 |
 | t) | Piano di telemonitoraggio, teleriabilitazione e teleassistenza | 2.24 | Sì |
 | u) | Report rilevazioni telemonitoraggio | 2.25 | Sì |
 | v) | Report settimanale rilevazioni telemonitoraggio | 2.26 | Sì |

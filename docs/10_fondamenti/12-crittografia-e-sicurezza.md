@@ -216,6 +216,23 @@ che si vuole poter reggere**, non della comodità implementativa.
 
 ### 1.6 Tracciabilità
 
+> **Attenzione a una collisione di nomi che attraversa questa stessa guida.** «Tracciabilità»
+> ha **due significati distinti e non intercambiabili**, e usarli senza accorgersene è un modo
+> rapido per fraintendersi in una discussione tecnica.
+>
+> - **Tracciabilità degli accessi** — il significato di questa sezione: ricostruire *a
+>   posteriori* chi ha fatto cosa. È una proprietà di sicurezza, e il suo strumento è il
+>   registro degli accessi.
+> - **Tracciabilità dei requisiti** — il significato usato nei moduli
+>   [11](./11-fondamenti-informatici.md) e [17](./17-ambiente-di-sviluppo.md) e in tutta l'area
+>   di conformità: la catena che lega un requisito alla progettazione, alla realizzazione e alla
+>   prova che lo verifica. È una proprietà di processo, richiesta dalla norma sul ciclo di vita
+>   del software, e **non si ricostruisce a posteriori** — è questo che la rende una delle
+>   attività retroattivamente irrecuperabili.
+>
+> Quando il contesto non è ovvio, questa guida usa la forma estesa. Il
+> [glossario](./19-glossario.md) riporta entrambe le voci.
+
 **Definizione.** Ogni operazione rilevante è registrata in modo che si possa ricostruire, a
 posteriori, chi ha fatto cosa, quando, su quale dato e in quale contesto.
 

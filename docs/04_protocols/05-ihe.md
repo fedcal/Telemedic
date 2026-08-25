@@ -299,7 +299,7 @@ gateway, non la reimplementazione**.
 ### 9.2 L'asserzione di identità fra imprese in forma di busta XML
 
 Il profilo che comunica claim su un principale autenticato attraverso i confini di impresa usa
-un'intestazione di sicurezza dei servizi web con un token di asserzione. Ha due opzioni
+un'intestazione di sicurezza dei servizi web con un token di asserzione. Ha tre opzioni
 rilevanti — ruolo del soggetto, riferimento al consenso, finalità d'uso — e richiede il
 raggruppamento con il profilo di tracciamento.
 
