@@ -62,10 +62,13 @@ description:
 
       Il software non reca marcatura CE e non è coperto da alcuna dichiarazione di
       conformità come dispositivo medico. Chi lo immette sul mercato o lo mette in
-      servizio assume gli obblighi che ne derivano. Il progetto pubblica il materiale
-      regolatorio necessario a chi intraprende quel percorso, ma non lo percorre al
-      posto suo. La documentazione distingue, per ogni obbligo, se ricade sul progetto
-      o su chi lo installa.
+      servizio assume gli obblighi che ne derivano. Il progetto intende costituire il
+      soggetto fabbricante e intraprendere il percorso di certificazione, e produce il
+      materiale regolatorio per quel percorso: quel soggetto oggi non esiste, nessuna
+      data è dichiarata e l'intenzione non trasferisce alcun obbligo a chi installa oggi
+      una versione non certificata. Ciò che un giorno potrà essere certificato è una
+      distribuzione identificata, non il repository. La documentazione distingue, per
+      ogni obbligo, se ricade sul progetto o su chi lo installa.
     documentation: "https://fedcal.github.io/Telemedic/"
     features:
       - Televisita con referto
@@ -103,10 +106,13 @@ description:
 
       The software carries no CE marking and is covered by no declaration of conformity
       as a medical device. Whoever places it on the market or puts it into service takes
-      on the obligations that follow. The project publishes the regulatory material
-      needed by anyone taking that path, but does not walk it on their behalf. For every
-      obligation, the documentation states whether it falls on the project or on whoever
-      deploys it.
+      on the obligations that follow. The project intends to constitute the manufacturer
+      entity and to undertake the certification path, and produces the regulatory
+      material for that path: that entity does not exist today, no date is stated, and
+      the intention transfers no obligation to anyone deploying an uncertified version
+      today. What may one day be certified is an identified distribution, not the
+      repository. For every obligation, the documentation states whether it falls on the
+      project or on whoever deploys it.
     documentation: "https://fedcal.github.io/Telemedic/"
     features:
       - Remote consultation with clinical report

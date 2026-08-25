@@ -21,8 +21,16 @@
 > **Questo repository non è un dispositivo medico.** Non reca marcatura CE e non è coperto da
 > alcuna dichiarazione di conformità. Chi lo installa, integra o mette in servizio in un
 > contesto sanitario **deve verificarne il codice** e assume il ruolo di fabbricante ai sensi
-> del Regolamento (UE) 2017/745. Leggi
-> **[la dichiarazione di destinazione d'uso e dei limiti d'uso](NOT-A-MEDICAL-DEVICE.md)**
+> del Regolamento (UE) 2017/745.
+>
+> Il progetto **intende** costituire il soggetto fabbricante e intraprendere il percorso di
+> certificazione. Quel soggetto **oggi non esiste**, nessuna data è dichiarata, e
+> **l'intenzione non trasferisce nulla** a chi installa oggi una versione non certificata:
+> gli obblighi restano interi in capo a chi la mette in servizio. Ciò che un giorno potrà
+> essere certificato è una **distribuzione identificata**, non questo repository — vedi
+> **[la politica di distribuzione](DISTRIBUTION-POLICY.md)**.
+>
+> Leggi **[la dichiarazione di destinazione d'uso e dei limiti d'uso](NOT-A-MEDICAL-DEVICE.md)**
 > prima di procedere.
 
 ## Cos'è
@@ -144,8 +152,16 @@ Vedi anche [`GOVERNANCE.md`](GOVERNANCE.md), [`SECURITY.md`](SECURITY.md) e il
 > **This repository is not a medical device.** It bears no CE marking and is covered by no
 > declaration of conformity. Anyone deploying, integrating or putting it into service in a
 > healthcare setting **must review the code** and assumes the manufacturer role under
-> Regulation (EU) 2017/745. Read
-> **[the intended use and use limitations declaration](NOT-A-MEDICAL-DEVICE.md)** first.
+> Regulation (EU) 2017/745.
+>
+> The project **intends** to constitute the manufacturer entity and to undertake the
+> certification path. That entity **does not exist today**, no date is stated, and **the
+> intention transfers nothing** to anyone deploying an uncertified version today: the
+> obligations rest in full on whoever puts it into service. What may one day be certified is
+> an **identified distribution**, not this repository — see
+> **[the distribution policy](DISTRIBUTION-POLICY.md)**.
+>
+> Read **[the intended use and use limitations declaration](NOT-A-MEDICAL-DEVICE.md)** first.
 
 ## What it is
 
