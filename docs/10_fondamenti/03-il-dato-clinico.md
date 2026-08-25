@@ -823,7 +823,7 @@ Una volta entrato in un commit, il dato è di fatto permanente: la riscrittura d
 un repository pubblico non ne elimina le copie già distribuite.
 
 **Documentato.** Il generatore fa parte del progetto ed è descritto nel modulo
-[12 — L'ambiente di sviluppo](12-ambiente-di-sviluppo.md), insieme alle istruzioni per
+[17 — L'ambiente di sviluppo](17-ambiente-di-sviluppo.md), insieme alle istruzioni per
 popolare un ambiente completo.
 
 ### 10.5 E se un dato reale entra comunque

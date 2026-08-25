@@ -1008,7 +1008,7 @@ consista operativamente il Processo di Validazione non è pubblicamente document
 **4. Valutazione della conformità come dispositivo medico — autorità: un Organismo
 Notificato.** È tutt'altra cosa: riguarda la sicurezza e le prestazioni del dispositivo ai
 sensi del Regolamento (UE) 2017/745, non l'idoneità all'uso nella pubblica amministrazione. È
-trattata nel modulo [10](10-regolatorio-da-zero.md).
+trattata nel modulo [15](15-regolatorio-da-zero.md).
 
 > **Regola redazionale del progetto.** Nessun documento può usare «qualificato» senza dire
 > **da chi**, **per cosa** e **ai sensi di quale atto**. «Telemedic è qualificato» è
@@ -1044,7 +1044,7 @@ architetturale che ne è il presupposto: **nessuna dipendenza di esecuzione può
 profilo più restrittivo**. In concreto: nessun servizio gestito esterno obbligatorio, server
 di *relay* per il media installabile in proprio, base dati e archivio oggetti installabili
 localmente. È esattamente ciò che rende praticabile il modello di distribuzione
-containerizzato descritto nel modulo [12](12-ambiente-di-sviluppo.md).
+containerizzato descritto nel modulo [17](17-ambiente-di-sviluppo.md).
 
 ### 7.2 Le misure di sicurezza non sono generiche
 
@@ -1075,7 +1075,7 @@ d'uso e sull'architettura di sessione:
   contemporanei** utilizzando le proprie credenziali*» (Allegato 4, § 8). È un vincolo di
   sessione singola, che va progettato e non aggirato.
 
-Il modulo [09](09-sicurezza-da-zero.md) sviluppa il catalogo completo e la sua traduzione in
+Il modulo [12](12-crittografia-e-sicurezza.md) sviluppa il catalogo completo e la sua traduzione in
 requisiti verificabili.
 
 ### 7.3 Una nota sulla tracciabilità delle fonti
@@ -1219,7 +1219,7 @@ tecnica di adempiervi.**
 La prima: il progetto è **codice sorgente open source, non un dispositivo medico immesso sul
 mercato**, e lo dichiara in modo inequivocabile. Chi integra, distribuisce o mette in servizio
 verifica il codice e assume gli obblighi che ne derivano. Il modulo
-[10](10-regolatorio-da-zero.md) spiega perché questa distinzione non è una clausola di
+[15](15-regolatorio-da-zero.md) spiega perché questa distinzione non è una clausola di
 esonero, e quali limiti abbia.
 
 La seconda: **fino a quando la marcatura CE non è ottenuta**, ogni artefatto distribuito

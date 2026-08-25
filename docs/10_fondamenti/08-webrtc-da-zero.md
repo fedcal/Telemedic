@@ -26,9 +26,9 @@ contengono esclusivamente dati sintetici e indirizzi di documentazione; **nessun
 reale compare in questa guida**, solo segnaposto di variabili d'ambiente.
 
 Il modello di minaccia complessivo del sistema, gli obblighi di tracciamento e la gestione
-dell'identità sono trattati nel [modulo sulla sicurezza](09-sicurezza-da-zero.md); ogni
+dell'identità sono trattati nel [modulo su crittografia e sicurezza](12-crittografia-e-sicurezza.md); ogni
 sigla e ogni termine introdotti qui sono ripresi nel
-[glossario](14-glossario.md).
+[glossario](19-glossario.md).
 
 ---
 

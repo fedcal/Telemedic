@@ -107,7 +107,7 @@ A questi si aggiungono due corpi normativi **orizzontali e pienamente vincolanti
 Regolamento (UE) 2016/679 (GDPR), trattato nel modulo
 [03 — Il dato clinico](03-il-dato-clinico.md), e il Regolamento (UE) 2017/745 sui dispositivi
 medici (MDR), trattato nel modulo
-[10 — Il regolatorio da zero](10-regolatorio-da-zero.md).
+[15 — Il quadro regolatorio da zero](15-regolatorio-da-zero.md).
 
 ### 2.2 Cronologia essenziale
 
@@ -188,7 +188,7 @@ seconda determina l'ammissibilità in gara e la struttura dei micro-servizi.
 
 Esiste inoltre, dal 29 gennaio 2026, un **Glossario nazionale di Telemedicina** pubblicato da
 AGENAS nel Business Glossary della Piattaforma nazionale (v. 1.0.0). Il glossario del
-progetto — modulo [14](14-glossario.md) — deve allinearsi a quello, ove diverga.
+progetto — modulo [19](19-glossario.md) — deve allinearsi a quello, ove diverga.
 
 ---
 
@@ -1263,7 +1263,7 @@ inderogabile*» del teleconsulto istopatologico e radiologico.
 **Regola di igiene progettuale**: tre funzionalità del progetto sono «a una user story» dal
 cambio di classificazione — allerta su soglia, riproduzione con miglioramento dell'immagine,
 refertazione assistita. Vanno governate con controllo delle modifiche esplicito. Il modulo
-[10](10-regolatorio-da-zero.md) spiega il meccanismo.
+[15](15-regolatorio-da-zero.md) spiega il meccanismo.
 
 ---
 

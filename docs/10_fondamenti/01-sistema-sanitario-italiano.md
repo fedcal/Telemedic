@@ -272,7 +272,7 @@ attività assistenziale, specializzandi in formazione). Il **medico specializzan
 medico abilitato ma in formazione, che compie atti sotto tutoraggio: nel modello di
 autorizzazione non è un `CLINICIAN` pieno, e la firma del referto segue regole di
 controfirma. La documentazione del progetto tratta questo caso nella
-[matrice dei ruoli](11-architettura-del-progetto.md).
+[matrice dei ruoli](16-architettura-del-progetto.md).
 
 ### 4.3 IRCCS
 
@@ -1021,7 +1021,7 @@ qualunque, con la fonte di ciascun obbligo:
 | Essere qualificato come dispositivo medico quando il perimetro funzionale lo richiede | DM 21 settembre 2022, All. A, Sez. 2; Reg. (UE) 2017/745 |
 
 L'ultima riga è quella con l'impatto maggiore sul ciclo di sviluppo, ed è trattata nel modulo
-[10 — Il regolatorio da zero](10-regolatorio-da-zero.md).
+[15 — Il quadro regolatorio da zero](15-regolatorio-da-zero.md).
 
 ---
 
