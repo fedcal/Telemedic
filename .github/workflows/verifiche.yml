@@ -62,3 +62,18 @@ jobs:
           name: distinta-dei-materiali
           path: sbom-website.json
           retention-days: 90
+
+  divergenza-traduzioni:
+    name: Divergenza fra italiano e inglese
+    runs-on: ubuntu-latest
+    # Non bloccante finché le tre aree esigite da D56 — guida dei fondamenti,
+    # sicurezza, conformità — non sono tradotte per intero. Diventa bloccante
+    # nello stesso commit in cui l'ultima di quelle aree viene completata: un
+    # controllo che non può fallire è teatro, e lasciarlo permanentemente
+    # indulgente sarebbe il modo più rapido per abituarsi a ignorarlo.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # il controllo confronta le date registrate in git
+      - run: ./scripts/verifica-divergenza-traduzioni.sh
