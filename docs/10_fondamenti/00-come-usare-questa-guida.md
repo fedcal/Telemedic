@@ -105,7 +105,7 @@ verificare e i flussi su cui ricade la gestione del rischio.
 
 ## Prima di contribuire
 
-Questa guida è **prerequisito dichiarato** di [`CONTRIBUTING.md`](../../CONTRIBUTING.md).
+Questa guida è **prerequisito dichiarato** di [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md).
 Non è un adempimento burocratico: un sistema che tratta dati sanitari e che ricade nella
 disciplina dei dispositivi medici accumula danni silenziosi quando viene modificato da chi
 non conosce il contesto. Il modulo [18](18-come-contribuire-per-area.md) dice, area per

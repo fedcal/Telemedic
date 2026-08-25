@@ -1,0 +1,138 @@
+{
+  "version.label": {
+    "message": "Current",
+    "description": "The label for version current"
+  },
+  "sidebar.guidaSidebar.category.Guida dei fondamenti": {
+    "message": "Foundations guide",
+    "description": "The label for category 'Guida dei fondamenti' in sidebar 'guidaSidebar'"
+  },
+  "sidebar.guidaSidebar.category.Guida dei fondamenti.link.generated-index.title": {
+    "message": "Foundations guide",
+    "description": "The generated-index page title for category 'Guida dei fondamenti' in sidebar 'guidaSidebar'"
+  },
+  "sidebar.guidaSidebar.category.Guida dei fondamenti.link.generated-index.description": {
+    "message": "Everything you need to know before contributing, starting from zero: the health service, the clinical datum, interoperability standards, clinical foundations, computing foundations and the regulatory framework. It takes nothing for granted.",
+    "description": "The generated-index page description for category 'Guida dei fondamenti' in sidebar 'guidaSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Tecnica": {
+    "message": "Technical",
+    "description": "The label for category 'Tecnica' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Tecnica.link.generated-index.title": {
+    "message": "Technical",
+    "description": "The generated-index page title for category 'Tecnica' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Tecnica.link.generated-index.description": {
+    "message": "How the system is built: stack, backend, persistence, frontend, media, observability, quality and release.",
+    "description": "The generated-index page description for category 'Tecnica' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Architettura": {
+    "message": "Architecture",
+    "description": "The label for category 'Architettura' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Architettura.link.generated-index.title": {
+    "message": "Architecture",
+    "description": "The generated-index page title for category 'Architettura' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Architettura.link.generated-index.description": {
+    "message": "Bounded contexts, domain model, data model, multi-tenancy, events, audit trail and deployment views.",
+    "description": "The generated-index page description for category 'Architettura' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Funzionale": {
+    "message": "Functional",
+    "description": "The label for category 'Funzionale' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Funzionale.link.generated-index.title": {
+    "message": "Functional",
+    "description": "The generated-index page title for category 'Funzionale' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Funzionale.link.generated-index.description": {
+    "message": "Actors, requirements, use cases, business rules, alerts, accessibility, and what stays out of scope.",
+    "description": "The generated-index page description for category 'Funzionale' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Protocolli": {
+    "message": "Protocols",
+    "description": "The label for category 'Protocolli' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Protocolli.link.generated-index.title": {
+    "message": "Protocols",
+    "description": "The generated-index page title for category 'Protocolli' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Protocolli.link.generated-index.description": {
+    "message": "FHIR, clinical documents, HL7 v2, IHE, project APIs, events, identity, real time and conformance testing.",
+    "description": "The generated-index page description for category 'Protocolli' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Dominio": {
+    "message": "Domain",
+    "description": "The label for category 'Dominio' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Dominio.link.generated-index.title": {
+    "message": "Domain",
+    "description": "The generated-index page title for category 'Dominio' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Dominio.link.generated-index.description": {
+    "message": "The ubiquitous language and the model of the healthcare domain, before any code.",
+    "description": "The generated-index page description for category 'Dominio' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Sicurezza": {
+    "message": "Security",
+    "description": "The label for category 'Sicurezza' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Sicurezza.link.generated-index.title": {
+    "message": "Security",
+    "description": "The generated-index page title for category 'Sicurezza' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Sicurezza.link.generated-index.description": {
+    "message": "Threat model, identity and access, data protection, audit, supply chain and incident response.",
+    "description": "The generated-index page description for category 'Sicurezza' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Integrazione": {
+    "message": "Integration",
+    "description": "The label for category 'Integrazione' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Integrazione.link.generated-index.title": {
+    "message": "Integration",
+    "description": "The generated-index page title for category 'Integrazione' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Integrazione.link.generated-index.description": {
+    "message": "How a third-party system integrates with Telemedic, and when a given mode is the wrong choice.",
+    "description": "The generated-index page description for category 'Integrazione' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Conformità": {
+    "message": "Compliance",
+    "description": "The label for category 'Conformità' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Conformità.link.generated-index.title": {
+    "message": "Compliance",
+    "description": "The generated-index page title for category 'Conformità' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Conformità.link.generated-index.description": {
+    "message": "Regulatory framing, qualification, quality management system, risk management and the certification path.",
+    "description": "The generated-index page description for category 'Conformità' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Roadmap": {
+    "message": "Roadmap",
+    "description": "The label for category 'Roadmap' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Roadmap.link.generated-index.title": {
+    "message": "Roadmap",
+    "description": "The generated-index page title for category 'Roadmap' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Roadmap.link.generated-index.description": {
+    "message": "Dated milestones, verifiable completion criteria, first usable release and the programme risk register.",
+    "description": "The generated-index page description for category 'Roadmap' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Decisioni architetturali": {
+    "message": "Architecture decisions",
+    "description": "The label for category 'Decisioni architetturali' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Decisioni architetturali.link.generated-index.title": {
+    "message": "Architecture decisions",
+    "description": "The generated-index page title for category 'Decisioni architetturali' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Decisioni architetturali.link.generated-index.description": {
+    "message": "Every structural decision is recorded with the context it was taken in, the alternatives rejected and the consequences accepted. A decision without its consequences is an opinion.",
+    "description": "The generated-index page description for category 'Decisioni architetturali' in sidebar 'progettoSidebar'"
+  }
+}

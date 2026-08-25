@@ -1,0 +1,169 @@
+/**
+ * Il sito di documentazione di un progetto che dichiara l'accessibilità come
+ * requisito deve rispettarla per primo. I contrasti qui sono verificati contro
+ * WCAG 2.1 AA sia in chiaro sia in scuro; le dimensioni sono relative, mai
+ * assolute, perché l'ingrandimento del testo del browser deve funzionare.
+ */
+
+:root {
+  --ifm-color-primary: #0f6e6e;
+  --ifm-color-primary-dark: #0d6363;
+  --ifm-color-primary-darker: #0c5d5d;
+  --ifm-color-primary-darkest: #0a4d4d;
+  --ifm-color-primary-light: #117979;
+  --ifm-color-primary-lighter: #127f7f;
+  --ifm-color-primary-lightest: #158f8f;
+
+  --ifm-font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ifm-font-size-base: 17px;
+  --ifm-line-height-base: 1.7;
+  --ifm-code-font-size: 92%;
+  --ifm-heading-font-weight: 650;
+  --ifm-h1-font-size: 2.1rem;
+  --ifm-h2-font-size: 1.6rem;
+  --ifm-h3-font-size: 1.25rem;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.08);
+  --tm-callout-bg: #f2f7f7;
+  --tm-callout-border: #0f6e6e;
+  --tm-rule: #dfe6e6;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #5fcfcf;
+  --ifm-color-primary-dark: #45c7c7;
+  --ifm-color-primary-darker: #38c3c3;
+  --ifm-color-primary-darkest: #2ba1a1;
+  --ifm-color-primary-light: #79d7d7;
+  --ifm-color-primary-lighter: #86dbdb;
+  --ifm-color-primary-lightest: #aae7e7;
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.12);
+  --tm-callout-bg: #17242a;
+  --tm-callout-border: #5fcfcf;
+  --tm-rule: #33414a;
+}
+
+/* Il corpo del testo è lungo per natura: una misura di riga contenuta
+   è ciò che rende leggibile un documento di trentamila parole. */
+.markdown {
+  max-width: 46rem;
+}
+.markdown > p,
+.markdown > ul,
+.markdown > ol {
+  max-width: 46rem;
+}
+
+/* Le citazioni in blocco portano quasi sempre un vincolo o un'avvertenza:
+   devono staccarsi dal testo corrente senza urlare. */
+.markdown blockquote {
+  background: var(--tm-callout-bg);
+  border-left: 4px solid var(--tm-callout-border);
+  border-radius: 0 4px 4px 0;
+  padding: 0.9rem 1.1rem;
+  margin: 1.4rem 0;
+}
+.markdown blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* Le tabelle di questa documentazione sono spesso larghe (ripartizioni di
+   responsabilità, cataloghi di requisiti). Scorrono da sole invece di far
+   scorrere la pagina. */
+.markdown table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  font-size: 0.94em;
+}
+.markdown table th {
+  text-align: left;
+  vertical-align: top;
+}
+.markdown table td {
+  vertical-align: top;
+}
+
+.markdown hr {
+  border: 0;
+  border-top: 1px solid var(--tm-rule);
+}
+
+.markdown h2 {
+  margin-top: 2.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--tm-rule);
+}
+
+/* Il focus da tastiera deve essere sempre visibile: è la differenza fra un
+   sito navigabile senza mouse e uno soltanto dichiarato tale. */
+a:focus-visible,
+button:focus-visible,
+.menu__link:focus-visible,
+.navbar__link:focus-visible {
+  outline: 3px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.footer--dark {
+  --ifm-footer-background-color: #10262b;
+}
+
+/* Homepage */
+.tmHero {
+  padding: 4rem 1rem 3rem;
+  background: linear-gradient(180deg, var(--tm-callout-bg) 0%, transparent 100%);
+}
+.tmHero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.6rem;
+}
+.tmHero p.tmLead {
+  font-size: 1.2rem;
+  max-width: 44rem;
+  margin: 0 auto 1.6rem;
+}
+.tmWarn {
+  max-width: 46rem;
+  margin: 0 auto 2rem;
+  text-align: left;
+  background: var(--tm-callout-bg);
+  border-left: 4px solid #b45309;
+  border-radius: 0 4px 4px 0;
+  padding: 1rem 1.2rem;
+  font-size: 0.98rem;
+}
+[data-theme='dark'] .tmWarn {
+  border-left-color: #f59e0b;
+}
+.tmCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.2rem;
+  margin: 2.5rem 0;
+}
+.tmCard {
+  border: 1px solid var(--tm-rule);
+  border-radius: 8px;
+  padding: 1.2rem 1.3rem;
+  transition: border-color 0.15s ease;
+}
+.tmCard:hover {
+  border-color: var(--ifm-color-primary);
+}
+.tmCard h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+.tmCard p {
+  margin-bottom: 0.7rem;
+  font-size: 0.96rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

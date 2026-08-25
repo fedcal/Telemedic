@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Telemedic",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Telemedic",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Fondamenti": {
+    "message": "Foundations",
+    "description": "Navbar item with label Fondamenti"
+  },
+  "item.label.Documentazione": {
+    "message": "Documentation",
+    "description": "Navbar item with label Documentazione"
+  },
+  "item.label.Decisioni": {
+    "message": "Decisions",
+    "description": "Navbar item with label Decisioni"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

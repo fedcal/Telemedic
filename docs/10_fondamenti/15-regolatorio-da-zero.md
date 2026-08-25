@@ -643,7 +643,7 @@ Tre conseguenze operative, distinte e non intercambiabili:
 
 Le decisioni **D28**, **D49** e **D51** definiscono una posizione che va compresa nella sua
 logica, non memorizzata come formula. La spiega il documento
-[`NOT-A-MEDICAL-DEVICE.md`](../../NOT-A-MEDICAL-DEVICE.md), che va letto: qui si spiega **perché**
+[`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md), che va letto: qui si spiega **perché**
 dice quello che dice.
 
 **Il repository contiene codice sorgente e documentazione. Nient'altro.** Non è un prodotto

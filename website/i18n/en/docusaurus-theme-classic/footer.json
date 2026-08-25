@@ -1,0 +1,62 @@
+{
+  "link.title.Documentazione": {
+    "message": "Documentation",
+    "description": "The title of the footer links column with title=Documentazione in the footer"
+  },
+  "link.title.Progetto": {
+    "message": "Project",
+    "description": "The title of the footer links column with title=Progetto in the footer"
+  },
+  "link.title.Avvertenze": {
+    "message": "Notices",
+    "description": "The title of the footer links column with title=Avvertenze in the footer"
+  },
+  "link.item.label.Guida dei fondamenti": {
+    "message": "Foundations guide",
+    "description": "The label of footer link with label=Guida dei fondamenti linking to /docs/10_fondamenti/00-come-usare-questa-guida"
+  },
+  "link.item.label.Architettura": {
+    "message": "Architecture",
+    "description": "The label of footer link with label=Architettura linking to /docs/02_architecture/00-indice"
+  },
+  "link.item.label.Sicurezza": {
+    "message": "Security",
+    "description": "The label of footer link with label=Sicurezza linking to /docs/06_security/00-indice"
+  },
+  "link.item.label.Integrazione": {
+    "message": "Integration",
+    "description": "The label of footer link with label=Integrazione linking to /docs/07_integration/00-indice"
+  },
+  "link.item.label.Come contribuire": {
+    "message": "How to contribute",
+    "description": "The label of footer link with label=Come contribuire linking to https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md"
+  },
+  "link.item.label.Governance": {
+    "message": "Governance",
+    "description": "The label of footer link with label=Governance linking to https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md"
+  },
+  "link.item.label.Sicurezza e segnalazioni": {
+    "message": "Security and reporting",
+    "description": "The label of footer link with label=Sicurezza e segnalazioni linking to https://github.com/fedcal/Telemedic/blob/main/SECURITY.md"
+  },
+  "link.item.label.Codice di condotta": {
+    "message": "Code of conduct",
+    "description": "The label of footer link with label=Codice di condotta linking to https://github.com/fedcal/Telemedic/blob/main/CODE_OF_CONDUCT.md"
+  },
+  "link.item.label.Non è un dispositivo medico": {
+    "message": "Not a medical device",
+    "description": "The label of footer link with label=Non è un dispositivo medico linking to https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md"
+  },
+  "link.item.label.Terminologie di terze parti": {
+    "message": "Third-party terminologies",
+    "description": "The label of footer link with label=Terminologie di terze parti linking to https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md"
+  },
+  "link.item.label.Politica di distribuzione": {
+    "message": "Distribution policy",
+    "description": "The label of footer link with label=Politica di distribuzione linking to https://github.com/fedcal/Telemedic/blob/main/DISTRIBUTION-POLICY.md"
+  },
+  "copyright": {
+    "message": "Telemedic — Apache 2.0 licence. Documentation released with the code.<br/>This software is not a CE-marked medical device. Whoever places it on the market or puts it into service takes on the obligations that follow.",
+    "description": "The footer copyright"
+  }
+}

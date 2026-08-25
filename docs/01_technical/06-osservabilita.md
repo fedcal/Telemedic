@@ -1,7 +1,7 @@
 ---
 title: Osservabilità
 sidebar_position: 7
-description: Registri strutturati, metriche, tracce e loro correlazione — con la parte che conta davvero: che cosa non si può registrare quando i dati sono sanitari, quali sono i livelli di severità e come si conduce un'indagine post-incidente senza aver conservato ciò che non si poteva conservare.
+description: "Registri strutturati, metriche, tracce e loro correlazione — con la parte che conta davvero: che cosa non si può registrare quando i dati sono sanitari, quali sono i livelli di severità e come si conduce un'indagine post-incidente senza aver conservato ciò che non si poteva conservare."
 ---
 
 # Osservabilità
