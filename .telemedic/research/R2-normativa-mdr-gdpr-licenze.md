@@ -2432,3 +2432,362 @@ supply chain security dei clienti.
 | Dipendenza che cambia licenza in una nuova versione | Gate di licenza in CI su SBOM, con allowlist e blocco della build |
 | Contributo che altera la qualificazione regolatoria | Checklist obbligatoria nel PR template + review del maintainer + change control della qualificazione (§ 1.6.4) |
 
+### 5.6 Il nodo centrale: open source, responsabilità di fabbricante e responsabilità da prodotto
+
+Il mandato chiede di conciliare tre cose che tirano in direzioni opposte:
+
+- **l'apertura** (contributori esterni, codice pubblico, licenza permissiva);
+- **la responsabilità di fabbricante MDR**, che presuppone un soggetto identificato che controlla la
+  progettazione, la verifica e il rilascio;
+- **la responsabilità da prodotto** della Direttiva (UE) 2024/2853, che è oggettiva, inderogabile e
+  ora copre esplicitamente il software.
+
+Non si conciliano con una clausola di licenza. Si conciliano con una **architettura di ruoli**.
+
+#### 5.6.1 Il modello di ruoli che risolve il conflitto
+
+```mermaid
+flowchart LR
+    C["Contributori esterni<br/>(DCO)"] -->|proposta| P
+    P["Progetto Telemedic<br/>maintainer / entità<br/>= <b>open-source steward</b> (CRA art. 24)<br/>= autore di software, NON fabbricante MDR"]
+    P -->|"codice + regulatory pack<br/>(SOUP disclosure)"| I["Integratore / gestore SaaS<br/>= <b>fabbricante MDR</b> se aggiunge<br/>moduli con finalità medica<br/>= responsabile GDPR<br/>= operatore economico PLD"]
+    I -->|"prodotto o servizio"| H["Struttura sanitaria<br/>= <b>titolare</b> del trattamento"]
+    H -->|"prestazione"| PZ["Paziente<br/>= interessato · danneggiato"]
+    P -.->|"nessun rapporto diretto"| PZ
+```
+
+Le tre affermazioni che il progetto deve poter dimostrare, e che vanno documentate esplicitamente:
+
+1. **Il progetto non immette sul mercato un dispositivo medico.** Perché il prodotto non è un dispositivo
+   (§ 1.6) e perché, finché la distribuzione avviene fuori da un'attività commerciale, non c'è nemmeno
+   «messa a disposizione» ai sensi dell'art. 2(27) MDR.
+2. **Il controllo della progettazione resta in capo al maintainer.** I contributori propongono, il
+   maintainer decide, verifica e rilascia. È questo che consente a chiunque, a valle, di trattare
+   Telemedic come un SOUP *documentato* anziché come codice di provenienza ignota.
+3. **Il perimetro funzionale è delimitato e presidiato.** Le funzioni C1–C9 sono vietate per policy; la
+   qualificazione è soggetta a change control; il claim pubblico è disciplinato.
+
+#### 5.6.2 Le cinque azioni concrete di autoprotezione
+
+| # | Azione | Protegge da |
+|---|---|---|
+| A1 | **Costituire un veicolo societario** prima di qualsiasi ricavo (supporto, hosting, consulenza, sponsorizzazioni ricorrenti) | Responsabilità patrimoniale personale illimitata ex PLD e MDR art. 10(16) |
+| A2 | **Polizza RC prodotti + RC professionale tech** intestata al veicolo, con massimali adeguati al settore sanitario | Esposizione residua non eliminabile per contratto |
+| A3 | **Regulatory pack pubblico** (qualificazione, rischio, usabilità, sicurezza, SOUP, SBOM, tracciabilità) | Presunzioni sfavorevoli ex art. 10 PLD (§ 6.4); contestazioni sul difetto |
+| A4 | **Contrattualistica con l'integratore**: allocazione dei ruoli MDR (art. 16), DPA/sub-responsabile GDPR, divieto di riqualificazione unilaterale, manleva reciproca, obblighi di segnalazione incidenti bidirezionali | Trascinamento nella responsabilità di fabbricante altrui; contitolarità involontaria |
+| A5 | **Disciplina del claim** su sito, README, documentazione e UI + linting automatico | Riqualificazione MDR per effetto dell'art. 2(12); art. 7 MDR; pubblicità ingannevole |
+
+#### 5.6.3 Il punto in cui l'open source *aiuta* invece di ostacolare
+
+Va detto anche il rovescio positivo, perché è il vero argomento di vendita del progetto. La nuova
+disciplina della responsabilità da prodotto costruisce presunzioni contro il produttore che **non è in
+grado di esibire evidenze** (art. 9 sulla divulgazione delle prove e art. 10 sulle presunzioni: § 6.4).
+Un progetto open source con SBOM firmata, tracciabilità requisiti↔test, file di rischio pubblico,
+cronologia dei commit firmata e verificabile e processo di gestione delle vulnerabilità documentato è,
+sul piano probatorio, in una posizione **strutturalmente migliore** di un prodotto proprietario che deve
+ricostruire *a posteriori* le proprie evidenze in giudizio. **La trasparenza, in questo regime, è una
+difesa.**
+
+---
+
+## 6. Direttiva (UE) 2024/2853 sulla responsabilità per danno da prodotti difettosi
+
+### 6.1 Quadro e tempistiche
+
+Direttiva (UE) 2024/2853 del Parlamento europeo e del Consiglio, del 23 ottobre 2024, sulla
+responsabilità per danno da prodotti difettosi, che **abroga la Direttiva 85/374/CEE**. Pubblicata il
+18 novembre 2024, **in vigore dall'8 dicembre 2024**; **termine di recepimento: 9 dicembre 2026**; si
+applica ai prodotti immessi sul mercato o messi in servizio **dopo** tale data
+([EUR-Lex, ELI](https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng);
+[analisi IBA](https://www.ibanet.org/European-Product-Liability-Directive-liability-for-software)).
+La direttiva vecchia continua ad applicarsi ai prodotti immessi prima.
+
+**Rilevanza temporale per Telemedic:** una v1.0 rilasciata a novembre 2026 sarebbe immessa **poco prima**
+del termine di recepimento; ogni release successiva, e ogni aggiornamento sostanziale, ricadrebbe
+nel nuovo regime. In pratica: **il progetto nasce dentro la nuova direttiva.**
+
+### 6.2 Il software è un prodotto
+
+L'art. 4 include espressamente il **software** nella definizione di «prodotto», indipendentemente dalla
+modalità di fornitura o utilizzo (standalone, incorporato, in cloud, SaaS), e include anche i «servizi
+correlati» e i «componenti» integrati o interconnessi. Sono coperti sistemi operativi, firmware,
+applicazioni, sistemi di IA. Il **file sorgente in quanto tale** è invece considerato informazione e non
+prodotto. **[DA VERIFICARE]** la formulazione esatta dell'art. 4, punti 1–4, e dei considerando 12–17,
+non recuperata da fonte primaria in questa ricerca.
+
+### 6.3 L'esenzione per il software libero e open source, e i suoi limiti
+
+**Art. 2, paragrafo 2** (formulazione riportata da fonti secondarie concordanti): la direttiva non si
+applica al **software libero e open source sviluppato o fornito al di fuori di un'attività commerciale**
+(«free and open-source software that is developed or supplied outside the course of a commercial
+activity»). La ratio, esplicitata nei considerando, è di non ostacolare innovazione e ricerca.
+
+**I limiti dell'esenzione — è qui che il progetto deve stare attento:**
+
+1. **Il criterio è l'attività commerciale, non la licenza.** Apache-2.0 non conferisce alcuna immunità.
+2. **Il considerando 14 chiarisce che l'esenzione cade** quando il software è fornito nell'ambito di
+   un'attività commerciale: in particolare quando è fornito **a fronte di un prezzo** oppure **in cambio
+   di dati personali** utilizzati per finalità diverse dal miglioramento della sicurezza, compatibilità
+   o interoperabilità del software.
+3. **Casi che ragionevolmente fanno cadere l'esenzione per Telemedic:** offerta di un servizio SaaS a
+   pagamento; contratti di supporto o SLA a pagamento; consulenza di integrazione retribuita; vendita di
+   moduli proprietari complementari; hosting gestito; sponsorizzazioni strutturate. **Praticamente tutti
+   gli scenari di monetizzazione previsti dal progetto.**
+4. **Un ulteriore vettore, spesso sottovalutato:** anche restando il progetto fuori dall'ambito
+   commerciale, **l'integratore che incorpora il software nel proprio prodotto commerciale è il
+   fabbricante del prodotto finale** ai sensi dell'art. 8 ed è pienamente responsabile verso il
+   danneggiato. Il progetto potrebbe poi essere chiamato in rivalsa dall'integratore su base
+   **contrattuale** — e su quel piano le clausole §§ 7–8 di Apache-2.0 conservano efficacia fra le parti
+   della licenza, sebbene la loro tenuta dipenda dal diritto nazionale applicabile e dai limiti alla
+   limitazione di responsabilità per colpa grave (in Italia, art. 1229 c.c.: nullo il patto che esclude
+   o limita preventivamente la responsabilità per dolo o colpa grave).
+
+**Conclusione realistica: l'esenzione FOSS non va considerata come una protezione su cui fondare la
+strategia.** Va menzionata, va sfruttata finché il progetto è genuinamente non commerciale, ma il piano
+deve essere costruito assumendo che **la direttiva si applicherà**.
+
+### 6.4 Difettosità, onere della prova, esenzioni
+
+**Art. 7 — Difettosità.** Un prodotto è difettoso quando non offre la sicurezza che il pubblico può
+legittimamente attendersi o che è richiesta dal diritto dell'Unione o nazionale. Fra le circostanze da
+considerare la direttiva include elementi **nuovi e specificamente digitali**:
+
+- l'**effetto sul prodotto della capacità di continuare ad apprendere** o di acquisire nuove
+  funzionalità dopo l'immissione sul mercato;
+- l'effetto di **altri prodotti** ragionevolmente prevedibilmente usati insieme al prodotto (rilevante
+  per un componente destinato all'integrazione!);
+- il momento dell'immissione sul mercato o della messa in servizio **oppure, quando il fabbricante
+  mantiene il controllo del prodotto, il momento in cui il prodotto ha lasciato tale controllo**;
+- i **requisiti di cibersicurezza** rilevanti per il prodotto;
+- gli **interventi di autorità di regolamentazione** e i richiami.
+
+**Conseguenza dirompente: un prodotto sicuro alla data del rilascio può diventare difettoso in seguito**
+se il fabbricante mantiene il controllo (aggiornamenti, servizio cloud) e non fornisce gli aggiornamenti
+di sicurezza necessari. Per un SaaS il controllo è permanente. **La mancata patch di una vulnerabilità
+nota è, in questo regime, difettosità.**
+
+**Art. 6 — Danni risarcibili:** morte e lesioni personali, **compresi danni psicologici clinicamente
+riconosciuti**; distruzione o danneggiamento di beni; **distruzione o corruzione di dati** non usati a
+fini professionali (art. 6, par. 1, lett. c). Il risarcimento del danno immateriale resta regolato dal
+diritto nazionale.
+
+**Art. 9 — Divulgazione delle prove.** Il giudice può ordinare al convenuto di **divulgare le prove
+pertinenti** di cui dispone, quando l'attore ha presentato fatti e prove sufficienti a rendere
+**plausibile** la domanda. È un ribaltamento pratico dell'asimmetria informativa tipica del software.
+
+**Art. 10 — Onere della prova e presunzioni.** L'attore deve provare **difettosità, danno e nesso di
+causalità**. Ma la direttiva introduce presunzioni:
+
+- la difettosità **si presume** se il convenuto **non ottempera all'ordine di divulgazione** dell'art. 9;
+- la difettosità **si presume** se l'attore dimostra che il prodotto **non è conforme a requisiti
+  obbligatori di sicurezza** previsti dal diritto UE o nazionale destinati a proteggere dal rischio
+  verificatosi;
+- la difettosità **si presume** se il danno è stato causato da un **malfunzionamento manifesto** in
+  condizioni d'uso ragionevolmente prevedibili;
+- il **nesso causale si presume** quando è accertata la difettosità e il danno è di tipo tipicamente
+  compatibile con il difetto in questione;
+- una presunzione ulteriore opera quando l'attore incontra **difficoltà eccessive**, dovute a
+  **complessità tecnica o scientifica**, nel provare difettosità o nesso causale, ed è comunque
+  **probabile** che il prodotto fosse difettoso o che il nesso sussista.
+
+**Il secondo punto è il più insidioso per il settore sanitario.** «Requisiti obbligatori di sicurezza
+previsti dal diritto dell'Unione» include, a seconda dei casi, i GSPR dell'Allegato I MDR, i requisiti
+essenziali dell'Allegato I CRA, l'art. 32 GDPR. **Una non conformità regolatoria diventa quindi una
+presunzione di difettosità in sede civile.** È l'anello che collega la sezione 1, la sezione 3 e la
+sezione 4 di questo documento a una conseguenza patrimoniale concreta.
+
+**Art. 11 — Esenzioni da responsabilità.** L'operatore economico non è responsabile se dimostra, fra
+l'altro: di non aver immesso il prodotto sul mercato né messo in servizio; che il difetto non esisteva
+al momento dell'immissione/messa in servizio o è sorto successivamente; che il difetto è dovuto alla
+conformità a **requisiti giuridici obbligatori**; che lo **stato delle conoscenze scientifiche e
+tecniche** al momento dell'immissione non permetteva di scoprire il difetto (*development risk defence*,
+che gli Stati membri possono derogare); e, per il fabbricante di un componente, che il difetto è
+imputabile alla progettazione del prodotto in cui il componente è stato integrato o alle istruzioni del
+fabbricante di quel prodotto.
+
+**Limite espresso, ed è quello che conta qui:** l'esenzione per il difetto sorto successivamente **non
+opera** quando il difetto è dovuto a un **servizio correlato**, a un **software (compresi gli
+aggiornamenti o gli upgrade)** o alla **mancanza di aggiornamenti o upgrade di sicurezza** necessari a
+mantenere la sicurezza, quando tutto ciò rientra nel **controllo del fabbricante**.
+
+**L'esenzione del fabbricante di componente è la più rilevante per Telemedic.** Se il progetto è
+componente di un prodotto altrui, e il difetto deriva dal modo in cui l'integratore lo ha integrato o
+dalle istruzioni che ha impartito, l'esenzione opera. **Ma opera solo se le istruzioni del componente
+erano corrette e complete.** Ecco perché il documento «Requisiti dell'ambiente operativo e limiti d'uso»
+(§ 2.5) e la documentazione di integrazione non sono adempimenti formali: **sono la prova su cui poggia
+l'unica esenzione realisticamente invocabile dal progetto.**
+
+**Art. 15 — Divieto di esclusione o limitazione.** «Member States shall ensure that the liability of an
+economic operator pursuant to this Directive is not, in relation to the injured person, limited or
+excluded by a contractual provision or by national law.» (§ 5.1.1.)
+
+**Termini (artt. 16–17):** prescrizione **triennale** dalla conoscenza cumulativa di danno, difetto e
+identità dell'operatore responsabile; decadenza **decennale** dall'immissione sul mercato; **venticinque
+anni** nei casi di lesioni latenti. **Conseguenza documentale:** la documentazione tecnica e le evidenze
+di verifica vanno conservate per **almeno 10 anni** dall'ultima immissione (coincidente con l'art. 10,
+par. 8, MDR) e, prudenzialmente, più a lungo per gli artefatti che dimostrano lo stato dell'arte al
+momento del rilascio.
+
+---
+
+## 7. Sintesi dei rischi e raccomandazioni prioritarie
+
+### 7.1 Registro dei rischi normativi
+
+| ID | Rischio | Probabilità | Impatto | Mitigazione (§) |
+|---|---|---|---|---|
+| **RN-01** | La decisione D6 (marcatura CE Classe I) viene eseguita su un prodotto che non è un dispositivo → irregolarità autonoma ex artt. 7 e 20 MDR | **Alta** se D6 resta invariata | Alto | § 1.6.3, § 1.6.4 |
+| **RN-02** | Il claim pubblico («qualità clinica», specialità diagnostiche) determina la qualificazione come MDSW → Regola 11a → **Classe IIa con Organismo Notificato** | Media | **Molto alto** (tempi e costi incompatibili con la deadline) | § 1.7.4, § 1.5.3 |
+| **RN-03** | Una feature futura (alert, replay con enhancement, codifica automatica del referto, triage) fa scattare la riclassificazione | **Alta** su orizzonte 12–24 mesi | Alto | § 1.5.3 (C1–C9), change control |
+| **RN-04** | Capitolati pubblici italiani richiedono la certificazione come dispositivo medico in forza del DM 21/09/2022 | Media-alta per il canale ASL | Medio | § 1.5.4 |
+| **RN-05** | L'integratore in white-label diventa fabbricante ex art. 16 senza saperlo e retrocede il rischio sul progetto | Media | Alto | § 1.7.3, A4 |
+| **RN-06** | Fabbricante persona fisica → esposizione patrimoniale personale illimitata | Alta se non si costituisce un veicolo | **Molto alto** | § 1.7.5, A1 |
+| **RN-07** | Telemedic ricade nel capo III EHDS (sistema EHR) pur non essendo dispositivo medico | **Media-alta** | Medio (orizzonte 2029–2031) | § 4.1 |
+| **RN-08** | CRA applicabile dal dicembre 2027 proprio perché **non** dispositivo medico | **Alta** | Medio | § 4.3 |
+| **RN-09** | Dipendenza GPL/AGPL/EUPL introdotta per via transitiva → contaminazione della licenza | Media | Alto per l'integratore | § 5.2, gate CI |
+| **RN-10** | Presunzione di difettosità ex art. 10 PLD innescata da una non conformità regolatoria | Media | Alto | § 6.4, A3 |
+| **RN-11** | Contitolarità GDPR involontaria per accesso tecnico ai dati clinici (supporto, telemetria) | Media | Alto | § 3.3 |
+| **RN-12** | Mis-associazione paziente–sessione–referto (rischio S4 del file di rischio) | Bassa con controlli, **alta senza** | **Catastrofico** | § 2.3, § 2.4 (U1, U4) |
+| **RN-13** | Validazione sommativa di usabilità (IEC 62366-1) sacrificata dalla deadline di novembre 2026 | **Alta** | Medio | § 2.4 |
+| **RN-14** | Trasferimento verso paese terzo per accesso remoto di un fornitore (art. 3 + capo V) nonostante il posizionamento sovereign | Media | Alto | § 3.8 |
+| **RN-15** | Requisiti EN 301 549 clausola 6 (RTT, lingua dei segni) non coperti da un'analisi limitata a WCAG 2.1 AA | **Alta** | Medio | § 4.6 |
+
+### 7.2 Le sette azioni da compiere per prime
+
+1. **Riformulare D6** nel doppio binario A/B del § 1.6.4 e correggere «PMS/PSUR» in «PMS plan + PMS
+   report» (il PSUR non si applica alla Classe I).
+2. **Redigere l'*Intended Purpose Statement*** con l'elenco esplicito delle funzioni escluse (C1–C9) e
+   la dichiarazione di stato regolatorio, e propagarlo a sito, README, documentazione e UI.
+3. **Aprire il fascicolo di qualificazione** con l'albero decisionale MDCG 2019-11 Rev.1 motivato passo
+   per passo, e sottoporlo a change control.
+4. **Istituire i gate di CI** che rendono automatici i vincoli: DCO, licenze (allowlist), `reuse lint`,
+   SBOM firmata, matrice di tracciabilità requisiti↔test, *documentation linting* sui termini a rischio.
+5. **Costituire il veicolo societario** e attivare le coperture assicurative prima di qualsiasi ricavo.
+6. **Produrre il *regulatory pack* per l'integratore** (SOUP disclosure, requisiti dell'ambiente
+   operativo e limiti d'uso, file di rischio, UEF, security file, SBOM, tracciabilità) e la relativa
+   contrattualistica di allocazione dei ruoli.
+7. **Scrivere il runbook unico di incident response** che orchestra i quattro orologi normativi
+   (GDPR 72 h · NIS2 24/72 h/1 mese · MDR 2/10/15 giorni se applicabile · CRA 24 h dall'11 settembre 2026).
+
+---
+
+## 8. Questioni aperte, da verificare o da decidere
+
+| # | Questione | A chi compete |
+|---|---|---|
+| Q1 | **Conferma della qualificazione** (non-dispositivo) tramite consulente regolatorio e, se opportuno, *borderline determination* presso il Ministero della Salute | Committente + consulente regolatorio |
+| Q2 | Stato di armonizzazione sotto MDR di EN IEC 62304, EN IEC 62366-1, EN IEC 82304-1, EN ISO/IEC 81001-5-1 (§ 2.0) | Verifica sulla lista consolidata della Commissione |
+| Q3 | Testo ufficiale del DM 21/09/2022, Allegato A, sulle affermazioni relative alla certificazione come dispositivo medico (§ 1.5.4) | Verifica su GU |
+| Q4 | Definizione di «sistema EHR» nell'art. 2 del Regolamento (UE) 2025/327 e date precise del capo III (§ 4.1) | Verifica su EUR-Lex |
+| Q5 | Qualificazione del videoconsulto come «servizio di comunicazione interpersonale indipendente dal numero» ai fini EAA/CECE (§ 4.6) | Analisi legale dedicata |
+| Q6 | Riferimento normativo esatto che ha reso obbligatorio EUDAMED dal 28 maggio 2026 (§ 1.8.6) | Verifica su EUR-Lex |
+| Q7 | Testo letterale dell'Allegato IV MDR (dichiarazione di conformità) e dell'Allegato II punto 6 (§ 1.8.3, § 1.8.5) | Verifica su EUR-Lex |
+| Q8 | Estremi del provvedimento del Garante sulla Piattaforma nazionale di telemedicina e stato delle misure di garanzia ex art. 2-septies (§ 3.10) | Verifica su garanteprivacy.it |
+| Q9 | Contenuto del DM 11 novembre 2025 di modifica del decreto FSE 2.0 (§ 3.10) | Verifica su GU |
+| Q10 | Trattamento dei dispositivi medici nel Data Act (esclusioni/adattamenti) (§ 4.5) | Verifica su EUR-Lex |
+| Q11 | Testo dell'art. 4 e dei considerando 12–17 della Direttiva 2024/2853 sul software come prodotto (§ 6.2) | Verifica su EUR-Lex |
+| Q12 | Modalità di recepimento italiano della Direttiva 2024/2853 (termine 9 dicembre 2026) e impatto sul Codice del consumo | Monitoraggio legislativo |
+| Q13 | Stato della decisione di adeguatezza EU-US DPF e dei ricorsi pendenti (§ 3.8) | Monitoraggio |
+| Q14 | Versione di EN 301 549 citata in GUUE a supporto dell'EAA (§ 4.6) | Verifica su EUR-Lex |
+| Q15 | Se adottare il CCLA per i contributi corporate (decisione di governance, § 5.4.3) | Committente |
+| Q16 | Se registrare il marchio «Telemedic» presso EUIPO (§ 5.1, § 5.5.3) | Committente |
+
+---
+
+## 9. Fonti
+
+### Normativa dell'Unione europea
+
+- Regolamento (UE) 2017/745 (MDR) — artt. 2, 5, 7, 10, 15, 16, 19, 20, 27, 29, 31, 52, 61, 83–92;
+  Allegati I, II, III, IV, VIII, IX, XI, XIV.
+  Allegato VIII in italiano: <https://www.medicaldevicenews.eu/files/allegato-viii-5c11254db1c6110ab3b543a8.pdf>
+- Regolamento (UE) 2016/679 (GDPR) — artt. 4, 5, 6, 7, 9, 15–21, 25, 26, 28, 30, 32–36.
+- Regolamento (UE) 2025/327 (EHDS): <https://eur-lex.europa.eu/legal-content/IT/ALL/?uri=CELEX:32025R0327>
+- Regolamento (UE) 2024/2847 (Cyber Resilience Act): <https://www.cyberresilienceact.eu/regulation.html> ·
+  <https://digital-strategy.ec.europa.eu/en/policies/cra-summary>
+- Regolamento (UE) 2024/1689 (AI Act).
+- Regolamento (UE) 2023/2854 (Data Act).
+- Direttiva (UE) 2022/2555 (NIS2).
+- Direttiva (UE) 2024/2853 (responsabilità per danno da prodotti difettosi):
+  <https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng>
+- Direttiva (UE) 2019/882 (European Accessibility Act); Direttiva (UE) 2016/2102.
+- Decisione di esecuzione (UE) 2017/863 (EUPL v1.2): testo dell'EUPL su
+  <https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12>
+- Decisione di esecuzione (UE) 2021/1182 e successive modifiche (norme armonizzate MDR):
+  <https://health.ec.europa.eu/medical-devices-topics-interest/harmonised-standards_en>
+
+### Linee guida MDCG e documenti della Commissione
+
+- **MDCG 2019-11** (ottobre 2019): <https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2019_11_guidance_en_0.pdf>
+- **MDCG 2019-11 Rev.1** (giugno 2025): <https://health.ec.europa.eu/document/download/b45335c5-1679-4c71-a91c-fc7a4d37f12b_en?filename=mdcg_2019_11_en.pdf> ·
+  annuncio: <https://health.ec.europa.eu/latest-updates/update-mdcg-2019-11-rev1-qualification-and-classification-software-regulation-eu-2017745-and-2025-06-17_en>
+- **MDCG 2020-1** (valutazione clinica del MDSW): <https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2020_1_guidance_clinic_eva_md_software_en_0.pdf>
+- **MDCG 2019-16 Rev.1** (cibersicurezza): <https://health.ec.europa.eu/document/download/b23b362f-8a56-434c-922a-5b3ca4d0a7a1_en>
+- **MDCG 2018-1 Rev.4** (Basic UDI-DI): <https://health.ec.europa.eu/system/files/2021-04/md_mdcg_2018-1_guidance_udi-di_en_0.pdf>
+- **MDCG 2018-5** (UDI per il software): <https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2018_5_software_en_0.pdf>
+- **MDCG 2023-1** (esenzione istituzioni sanitarie, art. 5(5)); **MDCG 2023-3** (vigilanza);
+  **MDCG 2023-4** (combinazioni MDSW-hardware); **MDCG 2021-24** (classificazione).
+- EUDAMED: <https://health.ec.europa.eu/medical-devices-eudamed_en>
+
+### EDPB e Garante per la protezione dei dati personali
+
+- EDPB, **Guidelines 07/2020** su titolare e responsabile:
+  <https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-072020-concepts-controller-and-processor-gdpr_it>
+- EDPB, **Guidelines 05/2021** su art. 3 e capo V:
+  <https://www.edpb.europa.eu/system/files/2023-02/edpb_guidelines_05-2021_interplay_between_the_application_of_art3-chapter_v_of_the_gdpr_v2_en_0.pdf>
+- EDPB, Guidelines 3/2019 (dispositivi video); Guidelines 4/2019 (art. 25); Guidelines 9/2022 e
+  01/2021 (violazioni); Recommendations 01/2020 (misure supplementari).
+- Garante, **provv. n. 55 del 7 marzo 2019** [doc. web 9091942]:
+  <https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9091942>
+- Garante, **provv. n. 467 dell'11 ottobre 2018**, Allegato 1 (elenco DPIA) [doc. web 9058979]:
+  <https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979>
+- Garante, sezione telemedicina / Piattaforma nazionale:
+  <https://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/10215002>
+
+### Normativa italiana
+
+- **DM 21 settembre 2022**, linee guida per i servizi di telemedicina, GU n. 256 del 2 novembre 2022:
+  <https://www.gazzettaufficiale.it/eli/id/2022/11/02/22A06184/sg>
+- **DM 7 settembre 2023**, Fascicolo sanitario elettronico 2.0, GU del 24 ottobre 2023:
+  <https://www.gazzettaufficiale.it/eli/id/2023/10/24/23A05829/sg>
+- **d.lgs. 4 settembre 2024, n. 138** (recepimento NIS2); **d.lgs. 30 giugno 2003, n. 196** come
+  modificato (Codice privacy), artt. 2-sexies, 2-septies, 75; **d.lgs. 27 maggio 2022, n. 82** (EAA);
+  **legge 9 gennaio 2004, n. 4** (legge Stanca); **d.lgs. 6 settembre 2005, n. 206** (Codice del consumo),
+  artt. 114 ss.
+
+### Norme tecniche
+
+ISO 13485:2016 · ISO 14971:2019 · ISO/TR 24971:2020 · IEC 62304:2006+A1:2015 ·
+IEC 62366-1:2015+A1:2020 · IEC 82304-1:2016 · ISO/IEC 81001-5-1:2021 · IEC TR 60601-4-5:2021 ·
+ISO/IEC 27001:2022 · ISO 27799:2016 · EN 301 549 · ISO/IEC 5962:2021 (SPDX) · ECMA-424 (CycloneDX).
+*I testi normativi ISO/IEC sono a pagamento e non riproducibili: le descrizioni in questo documento sono
+sintesi funzionali basate su fonti pubbliche secondarie e vanno confermate sui testi acquistati.*
+
+### Licenze e governance open source
+
+- Apache License 2.0: <https://www.apache.org/licenses/LICENSE-2.0.txt>
+- ASF, compatibilità con la GPL: <https://www.apache.org/licenses/GPL-compatibility.html>
+- FSF, elenco delle licenze: <https://www.gnu.org/licenses/license-list.en.html>
+- EUPL v1.2: <https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12>
+- Developer Certificate of Origin 1.1: <https://developercertificate.org/>
+- REUSE: <https://reuse.software/>
+
+### Analisi secondarie consultate
+
+- Emergo by UL, sulla revisione MDCG 2019-11 Rev.1:
+  <https://www.emergobyul.com/news/european-revision-primary-software-guidance-mdcg-2019-11-revision-1-small-changes-meaningful>
+- Johner Institute, classi di sicurezza IEC 62304:
+  <https://blog.johner-institute.com/iec-62304-medical-software/safety-class-iec-62304/> e
+  norme armonizzate: <https://blog.johner-institute.com/regulatory-affairs/harmonized-standards/>
+- International Bar Association, sulla responsabilità per il software nella nuova PLD:
+  <https://www.ibanet.org/European-Product-Liability-Directive-liability-for-software>
+- Osborne Clarke, sull'obbligatorietà di EUDAMED:
+  <https://www.osborneclarke.com/insights/eu-triggers-mandatory-eudamed-use-diagnostics-and-medtech-may-2026>
+- Clariscience, sull'art. 16 MDR: <https://clariscience.com/blog/affari-regolatori/larticolo-16-del-regolamento-2017-745>
+
+---
+
+*Documento prodotto dall'agente R2 dell'orchestrazione Telemedic. Analisi tecnico-normativa, non
+consulenza legale. Le conclusioni relative alla qualificazione MDR devono essere confermate da un
+consulente regolatorio prima di qualsiasi decisione operativa o dichiarazione pubblica.*
+
