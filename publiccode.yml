@@ -1,0 +1,179 @@
+# Metadati di catalogo secondo lo standard publiccode.yml, adottato in Italia
+# da AgID per il riuso del software nella pubblica amministrazione.
+#
+# Questo file descrive il progetto a chi lo cerca in un catalogo. Non è una
+# dichiarazione di conformità e non attesta alcuna certificazione: quanto è
+# dichiarato qui va letto insieme a NOT-A-MEDICAL-DEVICE.md e a
+# DISTRIBUTION-POLICY.md, che dicono con precisione che cosa il progetto
+# pubblica e che cosa resta a carico di chi lo installa.
+publiccodeYmlVersion: "0.4"
+
+name: Telemedic
+url: "https://github.com/fedcal/Telemedic"
+landingURL: "https://fedcal.github.io/Telemedic/"
+
+softwareVersion: "0.1.0-dev"
+releaseDate: "2026-08-25"
+developmentStatus: development
+softwareType: standalone/web
+
+platforms:
+  - web
+  - linux
+
+categories:
+  - appointment-scheduling
+  - collaboration
+  - video-conferencing
+  - data-collection
+  - digital-citizenship
+
+usedBy: []
+
+intendedAudience:
+  scope:
+    - healthcare
+  countries:
+    - it
+
+description:
+  it:
+    localisedName: Telemedic
+    genericName: Piattaforma di telemedicina
+    shortDescription: >-
+      Piattaforma di telemedicina open source per televisita, teleconsulto,
+      teleassistenza e telemonitoraggio, costruita sugli standard italiani.
+    longDescription: >-
+      Telemedic è una piattaforma di telemedicina progettata per essere installata,
+      integrata e resa propria da chi eroga assistenza, non soltanto utilizzata.
+
+      Copre le quattro prestazioni definite dall'Accordo Stato-Regioni 215/CSR del 2020
+      e dai decreti successivi: televisita, teleconsulto, teleassistenza e
+      telemonitoraggio. È costruita sugli standard di interoperabilità adottati in
+      Italia — FHIR R4 con le guide di implementazione di HL7 Italia, HL7 v2, i profili
+      IHE — e sull'identità digitale nazionale, con l'obiettivo di alimentare il
+      Fascicolo Sanitario Elettronico secondo le tipologie documentali dedicate alla
+      telemedicina.
+
+      L'integrazione con i sistemi già in uso presso una struttura è trattata come
+      requisito di pari rango rispetto alle funzionalità: sono documentate quattro
+      modalità distinte, ciascuna con i propri limiti dichiarati e con l'indicazione
+      di quando è la scelta sbagliata.
+
+      Il software non reca marcatura CE e non è coperto da alcuna dichiarazione di
+      conformità come dispositivo medico. Chi lo immette sul mercato o lo mette in
+      servizio assume gli obblighi che ne derivano. Il progetto pubblica il materiale
+      regolatorio necessario a chi intraprende quel percorso, ma non lo percorre al
+      posto suo. La documentazione distingue, per ogni obbligo, se ricade sul progetto
+      o su chi lo installa.
+    documentation: "https://fedcal.github.io/Telemedic/"
+    features:
+      - Televisita con referto
+      - Teleconsulto sincrono e asincrono fra professionisti
+      - Teleassistenza
+      - Telemonitoraggio di parametri clinici
+      - Interoperabilità FHIR R4 profilata sulle guide italiane
+      - Alimentazione del Fascicolo Sanitario Elettronico
+      - Autenticazione con identità digitale nazionale
+      - Registro degli accessi immutabile a catena di hash
+      - Integrazione per interfacce applicative, eventi e componenti incorporabili
+      - Interfaccia accessibile e progettata prima per dispositivi mobili
+  en:
+    localisedName: Telemedic
+    genericName: Telemedicine platform
+    shortDescription: >-
+      Open source telemedicine platform for remote consultation, specialist
+      consultation, remote assistance and remote monitoring, built on Italian standards.
+    longDescription: >-
+      Telemedic is a telemedicine platform designed to be deployed, integrated and made
+      their own by care providers, not merely used.
+
+      It covers the four services defined by the Italian State-Regions Agreement 215/CSR
+      of 2020 and the decrees that followed: remote consultation with a patient, remote
+      consultation between professionals, remote assistance and remote monitoring. It is
+      built on the interoperability standards adopted in Italy — FHIR R4 with the HL7
+      Italia implementation guides, HL7 v2, IHE profiles — and on national digital
+      identity, with the goal of feeding the national electronic health record through
+      the document types dedicated to telemedicine.
+
+      Integration with the systems a provider already runs is treated as a first-class
+      requirement rather than an afterthought: four distinct integration modes are
+      documented, each with its limits stated and with guidance on when it is the wrong
+      choice.
+
+      The software carries no CE marking and is covered by no declaration of conformity
+      as a medical device. Whoever places it on the market or puts it into service takes
+      on the obligations that follow. The project publishes the regulatory material
+      needed by anyone taking that path, but does not walk it on their behalf. For every
+      obligation, the documentation states whether it falls on the project or on whoever
+      deploys it.
+    documentation: "https://fedcal.github.io/Telemedic/"
+    features:
+      - Remote consultation with clinical report
+      - Synchronous and asynchronous consultation between professionals
+      - Remote assistance
+      - Remote monitoring of clinical parameters
+      - FHIR R4 interoperability profiled on the Italian implementation guides
+      - Electronic health record feeding
+      - Authentication with national digital identity
+      - Hash-chained immutable access log
+      - Integration via APIs, events and embeddable components
+      - Accessible, mobile-first user interface
+
+legal:
+  license: Apache-2.0
+  mainCopyrightOwner: Federico Calò
+  repoOwner: Federico Calò
+
+maintenance:
+  type: community
+  contacts:
+    - name: Federico Calò
+
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - it
+    - en
+
+dependsOn:
+  open:
+    - name: PostgreSQL
+      optional: false
+    - name: Apache Kafka
+      optional: false
+    - name: Keycloak
+      optional: false
+    - name: coturn
+      optional: false
+
+it:
+  countryExtensionVersion: "0.2"
+
+  # Tutte le voci sono `false` deliberatamente, e resteranno tali finché non
+  # esisterà una verifica che possa fallire. Il progetto è in progettazione: una
+  # conformità dichiarata senza prova è esattamente la formula che la stessa
+  # documentazione di questo repository vieta di usare. Le voci si alzano a
+  # `true` una per volta, quando la prova corrispondente è pubblicata ed eseguita
+  # nella catena di integrazione continua — non prima.
+  #
+  # Va inoltre tenuto presente che alcune di queste conformità non sono
+  # dichiarabili da un progetto software: appartengono al soggetto che eroga il
+  # servizio. L'adempimento al regolamento generale sulla protezione dei dati è
+  # del titolare del trattamento, non del programma che quel titolare installa.
+  conforme:
+    lineeGuidaDesign: false
+    modelloInteroperabilita: false
+    misureMinimeSicurezza: false
+    gdpr: false
+
+  # Il progetto è progettato per l'identità digitale nazionale ed è verificabile
+  # su di essa, ma non è accreditato: il fornitore di servizi presso l'autorità è
+  # chi installa, mai il progetto. Le voci restano `false` finché l'integrazione
+  # non è realizzata e provata.
+  piattaforme:
+    spid: false
+    cie: false
+    anpr: false
+    pagopa: false
+    io: false

@@ -5,9 +5,11 @@
 **Piattaforma di telemedicina open source per televisita, teleconsulto, teleassistenza e telemonitoraggio.**
 
 [![Licenza: Apache 2.0](https://img.shields.io/badge/Licenza-Apache%202.0-blue.svg)](LICENSE)
-[![Documentazione](https://img.shields.io/badge/Documentazione-IT%20%7C%20EN-brightgreen.svg)](docs/)
+[![Documentazione](https://img.shields.io/badge/Documentazione-IT%20%7C%20EN-brightgreen.svg)](https://fedcal.github.io/Telemedic/)
 [![Stato](https://img.shields.io/badge/Stato-in%20progettazione-orange.svg)](#stato-del-progetto)
 [![FHIR](https://img.shields.io/badge/FHIR-R4%204.0.1-red.svg)](https://hl7.org/fhir/R4/)
+
+**📖 [Documentazione online — fedcal.github.io/Telemedic](https://fedcal.github.io/Telemedic/)**
 
 *[English version below](#telemedic-1)*
 

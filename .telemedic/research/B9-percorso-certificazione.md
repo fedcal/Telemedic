@@ -1248,3 +1248,1385 @@ dipendenze transitive**. Trattarle tutte con lo stesso rigore è impossibile e n
 > architettura, evidenze di verifica, SBOM firmata, dichiarazione di fine supporto — riduce
 > in modo diretto l'onere regolatorio del partner ed è un differenziale competitivo
 > misurabile, non un costo puro.
+
+---
+
+## 9-bis. Nota di rinumerazione delle sezioni 10 e seguenti
+
+Le sezioni 0–9 di questo documento, redatte per prime, rinviavano internamente a una
+numerazione provvisoria delle sezioni successive (`§ 10` valutazione clinica, `§ 11`
+usabilità, `§ 12` PRRC, `§ 13.3` adempimenti nazionali, `§ 14.3` modifiche sostanziali,
+`§ 15` *claim*, `§ 16` costi). Il completamento del documento adotta una sequenza diversa,
+che segue l'ordine logico norma → norma → evidenza → sorveglianza → risorse. **Le sezioni
+0–9 non sono state modificate**, per non riemettere un testo già citato altrove: vale invece
+questa tabella di corrispondenza.
+
+| Rinvio nelle sezioni 0–9 | Sezione effettiva |
+|---|---|
+| § 10 — valutazione clinica | **§ 13** |
+| § 11 — usabilità, valutazioni formative e sommativa | **§ 11** (invariato) |
+| § 12 — PRRC | **§ 15.2** |
+| § 13.3 — adempimenti nazionali italiani | **§ 14.8** |
+| § 14 / § 14.3 — modifiche e modifiche sostanziali | **§ 14.7** |
+| § 15 — *claim* non leciti prima della marcatura | **§ 15.7** |
+| § 16 — costi, base delle stime, richiesta di preventivi | **§ 15.4** e **§ 15.5** |
+| § 10.4 — equivalenza nella valutazione clinica | **§ 13.6** |
+
+Le sezioni aggiunte sono: **10** ISO 14971, **11** IEC 62366-1, **12** ISO/IEC 81001-5-1,
+**13** valutazione clinica, **14** sorveglianza post-commercializzazione e vigilanza,
+**15** costi, tempi e figure necessarie.
+
+---
+
+## 10. ISO 14971:2019 — la gestione del rischio
+
+### 10.1 Che cosa la norma chiede davvero, e che cosa non chiede
+
+**EN ISO 14971:2019** — *Dispositivi medici. Applicazione della gestione del rischio ai
+dispositivi medici* — è richiamata dall'**art. 10(2) MDR** («i fabbricanti istituiscono,
+documentano, applicano e mantengono un sistema di gestione del rischio») e dalla **sezione 3
+dell'Allegato I MDR**, che descrive il sistema di gestione del rischio come processo
+iterativo per l'intero ciclo di vita. Il riferimento è pubblicato fra le norme armonizzate
+sotto MDR con la stessa base della ISO 13485, cioè la **Decisione di esecuzione (UE)
+2021/1182** e le sue modifiche successive. **[FONTE SECONDARIA sulla versione esattamente
+citata nell'elenco — se sia `EN ISO 14971:2019` semplice o `EN ISO 14971:2019+A11:2021`: la
+distinzione non è nominalistica, perché è l'emendamento A11 a contenere gli allegati ZA/ZB
+con le deviazioni rispetto ai requisiti del regolamento. Verificare sull'elenco consolidato
+della Commissione prima di citare la norma nella matrice GSPR.]**
+
+**Che cosa chiede.** Un **processo**, non un documento, articolato in una sequenza che va
+percorsa nell'ordine e ripercorsa a ogni modifica:
+
+| Attività | Contenuto |
+|---|---|
+| **Piano di gestione del rischio** | Perimetro, ruoli e responsabilità, requisiti di riesame, **criteri di accettabilità del rischio**, metodo di valutazione del rischio residuo complessivo, attività di verifica, attività di raccolta di informazioni in produzione e post-produzione |
+| **Analisi del rischio** | Destinazione d'uso e uso improprio ragionevolmente prevedibile; identificazione delle **caratteristiche legate alla sicurezza**; identificazione dei pericoli e delle situazioni pericolose; **stima** del rischio per ciascuna situazione pericolosa |
+| **Ponderazione del rischio** | Confronto del rischio stimato con i criteri del piano, per decidere se sia richiesta una riduzione |
+| **Controllo del rischio** | Analisi delle opzioni, attuazione, **verifica dell'attuazione**, **verifica dell'efficacia**, valutazione del rischio residuo, analisi rischi/benefici ove il rischio residuo non sia accettabile, **valutazione dei rischi introdotti dalle misure di controllo stesse**, completezza del controllo |
+| **Valutazione del rischio residuo complessivo** | Attività **distinta** dalla somma dei rischi residui individuali, condotta sulla prospettiva del dispositivo nel suo insieme |
+| **Riesame della gestione del rischio** | Verifica che il piano sia stato attuato, che il rischio residuo complessivo sia accettabile e che siano predisposte le attività di produzione e post-produzione. È l'atto che **precede il rilascio** |
+| **Attività di produzione e post-produzione** | Raccolta e riesame delle informazioni dal campo, con retroazione sul file di rischio |
+
+**Che cosa non chiede.** Non chiede una matrice 5×5. Non chiede punteggi numerici. Non chiede
+una FMEA. Non prescrive nemmeno che i criteri di accettabilità siano espressi in forma
+tabellare. **La norma impone che i criteri esistano, siano definiti nel piano prima
+dell'analisi, e siano motivati.** Tutto il resto è metodo scelto dal fabbricante, e la scelta
+del metodo è a sua volta un atto documentale che l'Organismo Notificato valuta.
+
+Il vocabolario di base — pericolo, sequenza di eventi, situazione pericolosa, danno, gravità,
+probabilità, rischio, misura di controllo, rischio residuo — è spiegato da zero nel modulo
+[`10 — Percorsi di cura e sicurezza`](../../docs/10_fondamenti/10-percorsi-di-cura-e-sicurezza.md),
+§ 9.6, e nel modulo [`15 — Regolatorio da zero`](../../docs/10_fondamenti/15-regolatorio-da-zero.md),
+§ 5.5. **Qui non si ripete: si esegue.**
+
+### 10.2 Rischio e pericolo non sono la stessa cosa, e la confusione ha un costo misurabile
+
+La distinzione sembra pedanteria terminologica e non lo è. Un **pericolo** è una proprietà
+statica del sistema: la potenziale sorgente di danno. Un **rischio** è una grandezza calcolata
+su una **sequenza di eventi** che collega quel pericolo a un danno concreto in una situazione
+concreta. Fra i due sta la **situazione pericolosa**, cioè la circostanza in cui qualcuno è
+effettivamente esposto.
+
+Il costo della confusione è di due tipi, e l'Organismo Notificato li rileva entrambi.
+
+**Primo: il registro dei rischi scritto sui pericoli invece che sulle situazioni pericolose
+non è analizzabile.** Una riga che dica «pericolo: perdita di dati — gravità: alta —
+probabilità: bassa» non contiene alcuna informazione utilizzabile: non dice *quali* dati,
+*in quale circostanza*, *chi* è esposto, *quale decisione clinica* ne dipende, e quindi non
+consente né di stimare nulla né di progettare una misura. Il registro corretto ha una riga per
+**situazione pericolosa**, e lo stesso pericolo compare in più righe con gravità e probabilità
+diverse a seconda della sequenza che vi conduce.
+
+**Secondo: un pericolo non «si mitiga».** Si mitiga un rischio, agendo o sulla probabilità
+della sequenza o sulla gravità del danno. Una misura che non incide su nessuna delle due non è
+una misura di controllo del rischio, per quanto sia una buona pratica di ingegneria. Questa è
+la ragione per cui la colonna «misura di controllo» del registro deve dichiarare **su quale
+delle due grandezze agisce**: se non è dichiarabile, la misura è ornamentale.
+
+### 10.3 La probabilità nel software: il punto che la norma non risolve e che va dichiarato
+
+Per un guasto meccanico la probabilità è stimabile su base statistica. **Per un difetto
+software non lo è**: il difetto o c'è o non c'è, e se c'è si manifesta ogni volta che si
+verificano le condizioni di attivazione. Stimare «probabilità 10⁻⁵ per anno» che una funzione
+di confronto di soglia contenga un errore di segno è un esercizio privo di fondamento.
+
+**ISO/TR 24971**, il rapporto tecnico che accompagna ISO 14971 fornendo indicazioni sulla sua
+applicazione, tratta espressamente questa questione e indica come approccio praticabile
+l'assunzione che, per il software, **la probabilità di occorrenza del difetto sia posta pari
+a 1** (o comunque non stimata), lasciando che la valutazione del rischio sia governata dalla
+**gravità** del danno e dalla probabilità del *resto* della sequenza di eventi — cioè della
+parte che non dipende dal software: la probabilità che il difetto sia attivato in esercizio,
+che l'errore non venga intercettato da una misura esterna e che si traduca in una decisione
+clinica. **[FONTE SECONDARIA — il riferimento puntuale alla sezione di ISO/TR 24971 va
+verificato sul testo della norma, che è a pagamento e non è stato letto in questa ricerca.
+La sostanza dell'approccio è però prassi consolidata e coerente con l'impianto di IEC 62304,
+che a sua volta determina la classe di sicurezza sul **danno possibile** e non sulla
+probabilità del difetto.]**
+
+**Conseguenza operativa per questo progetto, e va scritta nel piano.** Il criterio di
+accettabilità non può essere costruito su una griglia probabilità×gravità applicata al
+software come se fosse hardware. La formulazione difendibile è:
+
+1. **la probabilità del difetto software non è stimata** e si assume conservativamente pari
+   a 1;
+2. **si stima invece la probabilità della sequenza di eventi a valle del difetto**: quante
+   volte la condizione di attivazione ricorre in esercizio, con quale probabilità le misure di
+   controllo esterne (revisione periodica programmata, Centro erogatore, verifica di identità
+   in apertura di sessione, istruzione al paziente sull'emergenza) intercettano l'errore, e
+   quale frazione dei casi arriva a una decisione clinica;
+3. **la gravità governa la ponderazione**, ed è l'unica grandezza su cui il progetto abbia
+   un'informazione difendibile;
+4. **il criterio di accettabilità è espresso per classi di gravità**, non per prodotto di due
+   numeri arbitrari.
+
+Questo è anche ciò che rende coerente il file di rischio con la determinazione della classe di
+sicurezza software del § 9.1: entrambe le valutazioni poggiano sul danno possibile dopo le
+misure esterne, ed entrambe cadono se una sola di quelle misure non è documentabile.
+
+### 10.4 La gerarchia delle misure di controllo, e perché non è negoziabile
+
+La clausola sul controllo del rischio impone un ordine di priorità che **non è un elenco di
+opzioni equivalenti**:
+
+1. **sicurezza intrinseca per progettazione** — eliminare il pericolo o renderlo
+   strutturalmente impossibile;
+2. **misure di protezione nel dispositivo o nel processo di fabbricazione** — barriere,
+   verifiche, allarmi, conferme;
+3. **informazioni per la sicurezza** — avvertenze, istruzioni per l'uso, addestramento.
+
+Il terzo livello è il più economico e il più debole, ed è quello a cui si tende a ricorrere
+sotto pressione di scadenza. **Un'avvertenza nel manuale che risolve un problema risolvibile
+per progetto è una non conformità**, non una scelta di compromesso: l'Organismo Notificato
+chiede, per ogni misura di terzo livello, la dimostrazione che i primi due non erano
+praticabili.
+
+Esempi presi da questo dominio, con il livello dichiarato:
+
+| Situazione pericolosa | Misura | Livello | Perché non si può salire di livello |
+|---|---|---|---|
+| Il professionista valuta i parametri di un altro assistito | Identificatore composito con ambito di tenant: un identificativo esterno **non è risolvibile** fuori dal proprio ambito di attribuzione | **1** | — |
+| *idem* | Doppio elemento identificativo mostrato in apertura di sessione, con conferma esplicita | **2** | Il primo livello non copre l'errore di selezione fatto a monte da un sistema terzo |
+| Il paziente crede di essere sorvegliato h24 | Dichiarazione persistente e non occultabile dello stato del servizio, con canale alternativo | **2** | La copertura oraria è un fatto organizzativo del cliente: non è eliminabile per progetto |
+| Il paziente crede di essere sorvegliato h24 | Istruzioni per l'uso che dichiarano che il dispositivo non sostituisce l'emergenza sanitaria | **3** | È il residuo dopo il livello 2, e va dichiarato come tale |
+| La sessione con registrazione non è cifrata fino agli estremi | Modalità distinta, consenso che lo dichiara, indicatore persistente non tematizzabile | **2** | È una proprietà del protocollo, non un difetto: il livello 1 richiederebbe rinunciare alla registrazione |
+
+**Nota di metodo che vale come regola redazionale del file di rischio.** Ogni riga dichiara il
+livello della misura. Un file in cui la maggioranza delle misure è di livello 3 è un file che
+dice, senza volerlo, che il prodotto non è stato progettato per la sicurezza ma documentato
+per la sicurezza. È una delle prime cose che un valutatore esperto conta.
+
+### 10.5 Rischio residuo individuale e rischio residuo complessivo: due valutazioni, non una
+
+È l'errore più frequente nei file di rischio dei fabbricanti piccoli, ed è una non conformità
+maggiore quasi automatica. La norma prevede **due valutazioni distinte**:
+
+- il **rischio residuo individuale**, valutato per ogni situazione pericolosa dopo
+  l'attuazione delle misure di controllo e confrontato con i criteri del piano;
+- il **rischio residuo complessivo**, valutato sul dispositivo **nel suo insieme**, con un
+  metodo dichiarato nel piano, **dopo** che tutti i rischi individuali sono stati portati entro
+  i criteri.
+
+La seconda valutazione non è la somma né la media della prima, e non è deducibile da essa.
+Serve a rispondere a una domanda che le righe del registro non pongono mai: **il dispositivo,
+considerato come oggetto unico che l'utilizzatore incontra, è accettabile?** Le situazioni che
+la fanno emergere sono tipicamente tre:
+
+1. **accumulo di rischi individualmente accettabili.** Dieci misure di livello 3 — dieci
+   avvertenze — sono individualmente accettabili e collettivamente producono un manuale che
+   nessuno legge, quindi un rischio residuo complessivo diverso dalla somma;
+2. **interazione fra misure di controllo.** L'allarme di assenza di misura riduce il rischio
+   di sorveglianza mancata e **aumenta** il carico di allarmi, contribuendo
+   all'affaticamento; il bilancio è una proprietà del sistema, non della singola riga;
+3. **rischi che non appartengono a nessuna situazione pericolosa specifica**: la complessità
+   dell'interfaccia nel suo insieme, la quantità di configurazione affidata al cliente, la
+   distanza fra ciò che il prodotto fa e ciò che l'utilizzatore crede che faccia.
+
+**Metodo proposto [PROPOSTA] per il documento `RM-REP-001`.** Dichiarare nel piano che la
+valutazione del rischio residuo complessivo è condotta con **tre ingressi indipendenti e
+verbalizzati**: (a) rassegna dell'insieme delle avvertenze e delle istruzioni per l'uso come
+oggetto unico, con verifica che siano leggibili e non contraddittorie; (b) esito della
+**validazione sommativa di usabilità** (§ 11), che è la sola evidenza sperimentale disponibile
+sul dispositivo come oggetto unico; (c) esito della **valutazione clinica** (§ 13), che
+fornisce il termine di paragone dei benefici. Il verbale conclude con una determinazione
+esplicita di accettabilità, firmata, con la data e la revisione esatta di ciascun ingresso.
+
+### 10.6 Il rapporto benefici/rischi, e chi lo può firmare
+
+L'**art. 2, punto 24, MDR** definisce il *rapporto benefici/rischi* come l'analisi di tutte le
+valutazioni dei benefici e dei rischi che possono essere rilevanti per l'uso del dispositivo
+conformemente alla destinazione d'uso indicata dal fabbricante. La **sezione 1 dell'Allegato I**
+impone che i dispositivi conseguano le prestazioni previste e siano progettati in modo che i
+rischi connessi siano accettabili in rapporto ai benefici per il paziente; la **sezione 8**
+richiede che tutti i rischi noti e prevedibili e gli effetti collaterali indesiderati siano
+ridotti al minimo e accettabili rispetto ai benefici.
+
+**Il punto che va compreso e che ha conseguenze organizzative.** Il beneficio è un fatto
+**clinico**, non tecnico. Il numeratore del rapporto non è «il sistema funziona bene»: è «un
+paziente ottiene un vantaggio sanitario misurabile». Ne discende che:
+
+1. **il rapporto benefici/rischi non è redigibile dal solo gruppo tecnico.** Richiede il dato
+   clinico che proviene dalla valutazione clinica (§ 13) e un giudizio clinico competente. È
+   il punto in cui il file di rischio e la valutazione clinica si toccano, e l'Organismo
+   Notificato verifica che si tocchino: un `RM-REP-001` che non cita `CE-REP-001` e un
+   `CE-REP-001` che non cita `RM-FILE-001` sono, insieme, un rilievo;
+2. **il beneficio dichiarato nella destinazione d'uso è il tetto del numeratore.** Ogni parola
+   aggiunta al punto 8 di `MDR-IU-001` è evidenza clinica in più da produrre (§ 4.3), e ogni
+   parola tolta abbassa il numeratore rendendo meno accettabili gli stessi rischi. È il motivo
+   per cui destinazione d'uso, file di rischio e valutazione clinica **non possono essere
+   redatti in sequenza da soggetti che non si parlano**;
+3. **la firma è del fabbricante**, con il concorso del PRRC. Nessun consulente e nessun
+   Organismo Notificato la sottoscrive.
+
+### 10.7 L'accettabilità del rischio non è delegabile a una tabella
+
+Questo paragrafo esiste perché è la più diffusa illusione di conformità che si incontra nei
+sistemi di gestione della qualità costruiti in fretta: si adotta una matrice a cinque livelli
+di gravità e cinque di probabilità, si colora di verde, giallo e rosso, e si dichiara che i
+rischi «gialli» sono accettabili. La matrice diventa così il soggetto della decisione, e nessun
+essere umano risulta averla presa.
+
+**Perché non regge, in ordine di gravità dell'obiezione.**
+
+**Primo — i criteri li stabilisce il fabbricante, quindi sono una scelta e non un dato.** La
+norma non fornisce alcuna soglia. Colorare di giallo una cella significa aver deciso che una
+certa combinazione di danno e frequenza è tollerabile: è un giudizio di valore che va
+motivato, non un calcolo. Un piano di gestione del rischio che presenti la matrice senza la
+**motivazione della collocazione delle soglie** è incompleto.
+
+**Secondo — nel software la probabilità è la dimensione debole** (§ 10.3). Una matrice
+bidimensionale usata su una grandezza che non si sa stimare produce numeri che sembrano dati e
+non lo sono, e sposta la decisione dove non c'è informazione.
+
+**Terzo — l'MDR impone una riduzione «per quanto possibile», non «fino alla cella verde».** La
+sezione 2 dell'Allegato I richiede l'eliminazione o la riduzione dei rischi **per quanto
+possibile** attraverso una progettazione e una fabbricazione sicure, e prescrive espressamente
+che, nella selezione delle soluzioni più opportune, il fabbricante **non consideri accettabile
+un rischio solo perché rientra in criteri di accettabilità che si è dato**. È esattamente il
+punto su cui gli allegati ZA/ZB dell'emendamento **A11:2021** alla EN ISO 14971:2019 segnalano
+una **deviazione** fra la norma e il regolamento: la norma consente al fabbricante di fermarsi
+ai propri criteri di accettabilità, il regolamento no.
+**[FONTE SECONDARIA sulla formulazione letterale e sulla numerazione della sezione
+dell'Allegato I: verificare sul testo consolidato EUR-Lex. La sostanza — riduzione «as far as
+possible» senza considerazioni economiche, e non «as low as reasonably practicable» — è
+pacifica e va recepita nel piano.]**
+
+**Conseguenza vincolante per il piano di gestione del rischio del progetto [PROPOSTA].** Il
+piano dichiara che:
+
+- la matrice, se adottata, è **strumento di comunicazione e di ordinamento delle priorità**,
+  non criterio di decisione;
+- **nessun rischio è dichiarato accettabile senza che risulti verbalizzato perché non era
+  ulteriormente riducibile per progetto**, e la verbalizzazione nomina le opzioni di livello 1
+  e 2 considerate e la ragione tecnica del loro scarto;
+- **le considerazioni economiche non entrano** nella determinazione di accettabilità: possono
+  entrare nella scelta fra due misure equivalenti per efficacia, e la distinzione va scritta;
+- l'accettabilità del rischio residuo complessivo è **firmata da una persona**, con nome e
+  data, sulla base dei tre ingressi del § 10.5.
+
+### 10.8 Come il file di rischio si collega agli altri file
+
+Il file di rischio ISO 14971 è il **nodo centrale** della documentazione regolatoria, e i suoi
+collegamenti sono bidirezionali e verificabili in automatico.
+
+```mermaid
+flowchart TB
+    IU["<b>MDR-IU-001</b><br/>Destinazione d'uso<br/>e uso improprio prevedibile"]
+    RM["<b>RM-FILE-001</b><br/>File di gestione del rischio<br/>ISO 14971"]
+    UE["<b>UEF-001</b><br/>Ingegneria dell'usabilita<br/>IEC 62366-1"]
+    SEC["<b>SEC-RMF-001</b><br/>File di rischio di sicurezza<br/>ISO/IEC 81001-5-1"]
+    SW["<b>SW-SRS-001</b><br/>Requisiti software<br/>derivati dalle misure di controllo"]
+    TR["<b>SW-TRACE-001</b><br/>Matrice di tracciabilita"]
+    VV["<b>SW-VVR-001</b><br/>Verifica di attuazione<br/>e di efficacia"]
+    CE["<b>CE-REP-001</b><br/>Rapporto di valutazione clinica"]
+    REP["<b>RM-REP-001</b><br/>Rischio residuo complessivo<br/>e rapporto benefici-rischi"]
+    PMS["<b>PMS-PLAN-001</b><br/>Sorveglianza<br/>post-commercializzazione"]
+
+    IU --> RM
+    IU --> UE
+    UE -->|"scenari d'uso pericolosi<br/>come sequenze di eventi"| RM
+    SEC -->|"minacce come sequenze<br/>di eventi con danno alla persona"| RM
+    RM --> SW --> TR --> VV
+    VV -->|"efficacia verificata"| RM
+    RM --> REP
+    CE -->|"benefici clinici"| REP
+    UE -->|"esito della sommativa"| REP
+    PMS -->|"informazioni di produzione<br/>e post-produzione"| RM
+    REP -->|"rischi residui da comunicare"| IU
+```
+
+Le tre frecce che i fabbricanti piccoli dimenticano più spesso, e che sono altrettanti rilievi:
+
+1. **`UEF-001` → `RM-FILE-001`.** Gli scenari d'uso pericolosi di IEC 62366-1 **non sono un
+   registro parallelo**: sono sequenze di eventi che entrano nel file di rischio ISO 14971.
+   Due registri separati divergono, e la divergenza si nota al primo confronto incrociato.
+2. **`SEC-RMF-001` → `RM-FILE-001`.** Il file di rischio di sicurezza è distinto — ha
+   avversari, non guasti, e valuta la sfruttabilità, non la probabilità di rottura — **ma le
+   sue minacce con conseguenza clinica devono comparire nel file di rischio del dispositivo**.
+   È il raccordo trattato al § 12.4.
+3. **`PMS-PLAN-001` → `RM-FILE-001`.** L'ultima clausola della norma non è decorativa: se dopo
+   dodici mesi di esercizio il file di rischio non è stato toccato, il processo non è in
+   funzione, e l'audit di sorveglianza lo rileva.
+
+### 10.9 Errori che l'Organismo Notificato rileva più spesso
+
+Elenco compilato per essere usato come lista di autocontrollo prima della sottomissione. Non è
+esaustivo ed è ordinato per frequenza attesa. **[FONTE SECONDARIA — deriva dalla letteratura di
+settore sui rilievi ricorrenti, non da un documento istituzionale.]**
+
+| # | Rilievo | Come si previene |
+|---|---|---|
+| 1 | Registro costruito sui pericoli invece che sulle situazioni pericolose | § 10.2: una riga per situazione pericolosa, con la sequenza di eventi esplicita |
+| 2 | Verifica dell'**efficacia** della misura assente (c'è solo la verifica dell'attuazione) | Ogni misura ha due prove distinte: che è stata implementata, e che riduce il rischio |
+| 3 | Rischi introdotti dalle misure di controllo non valutati | Colonna obbligatoria «nuovi rischi introdotti» nel registro, non facoltativa |
+| 4 | Rischio residuo complessivo assente o pari alla somma degli individuali | § 10.5: metodo dichiarato nel piano e verbale autonomo |
+| 5 | Criteri di accettabilità non motivati o introdotti **dopo** l'analisi | Il piano è approvato e datato **prima** della prima riga del registro |
+| 6 | File di rischio non aggiornato dopo la validazione sommativa di usabilità | La sommativa è un ingresso obbligatorio: se non produce righe nuove va scritto perché |
+| 7 | Rischi legati alla sicurezza informatica assenti dal file del dispositivo | § 12.4 |
+| 8 | Misure di controllo prevalentemente di livello 3 | § 10.4 |
+| 9 | Nessuna evidenza di riesame prima del rilascio | Il riesame è un atto verbalizzato, con data anteriore alla data di rilascio |
+| 10 | Il file di rischio non è tracciabile verso requisiti e prove | `SW-TRACE-001` come artefatto **generato**, non compilato a mano |
+
+---
+
+## 11. IEC 62366-1 — l'ingegneria dell'usabilità come requisito regolatorio
+
+### 11.1 Perché è un obbligo e non una buona pratica
+
+Chi arriva dallo sviluppo software tende a leggere «usabilità» come qualità del prodotto, cioè
+come qualcosa che si può fare meglio o peggio senza che nulla di formale ne dipenda. In un
+dispositivo medico non è così: l'usabilità è **un requisito di sicurezza con base normativa
+diretta**.
+
+- L'**Allegato I MDR, Capo I**, impone al fabbricante di eliminare o ridurre per quanto
+  possibile i rischi **connessi a possibili errori di utilizzazione (*use error*)**,
+  considerando le conoscenze tecniche, l'esperienza, l'istruzione, la formazione e, ove
+  applicabile, le condizioni mediche e fisiche degli utilizzatori previsti. **[FONTE SECONDARIA
+  sulla numerazione puntuale della sezione: verificare sul testo consolidato.]**
+- L'Allegato I richiede inoltre che i dispositivi siano progettati e fabbricati in modo da
+  **ridurre per quanto possibile i rischi derivanti dall'ergonomia** e dall'ambiente d'uso
+  previsto.
+- **EN 62366-1:2015** (con l'emendamento **A1:2020**) è la norma armonizzata che descrive il
+  processo con cui si soddisfa quel requisito. **[FONTE SECONDARIA sulla presenza e sulla
+  formulazione esatta del riferimento nell'elenco delle norme armonizzate sotto MDR: da
+  verificare, perché non tutte le norme di prodotto e di processo dell'era delle direttive sono
+  state ripubblicate sotto il regolamento.]**
+
+**La conseguenza operativa è netta.** Un'interfaccia non validata secondo un processo di
+ingegneria dell'usabilità non è un'interfaccia perfettibile: è un requisito generale di
+sicurezza non dimostrato, e come tale una lacuna del fascicolo tecnico. Non esiste modo di
+«recuperarla» con una revisione interna a valle: la validazione sommativa richiede
+un'interfaccia congelata, un protocollo approvato prima, utenti rappresentativi reali e un
+rapporto.
+
+### 11.2 Il processo, e i suoi otto prodotti
+
+La clausola 5 di IEC 62366-1 descrive un processo che produce artefatti in sequenza, ciascuno
+dei quali è ingresso del successivo. È utile vederli come otto documenti, perché è così che
+l'Organismo Notificato li chiede.
+
+| # | Artefatto | Contenuto | Documento **[PROPOSTA]** |
+|---|---|---|---|
+| 1 | **Specifica d'uso** | Indicazione medica, popolazione di pazienti, parte del corpo o tipo di tessuto interessato, **profilo di ciascun gruppo di utilizzatori**, ambiente d'uso, principio operativo | `UE-SPEC-001` |
+| 2 | **Caratteristiche dell'interfaccia legate alla sicurezza** | Quali elementi dell'interfaccia, se mal percepiti o mal azionati, contribuiscono a una situazione pericolosa | `UE-SPEC-001` § 2 |
+| 3 | **Pericoli e situazioni pericolose legati all'uso** | Identificazione, con rinvio al file di rischio | `UE-HAZ-001` |
+| 4 | **Scenari d'uso pericolosi** | Descrizione narrativa di ciascuno: chi, in quale contesto, quale azione o omissione, quale conseguenza | `UE-HAZ-001` § 3 |
+| 5 | **Selezione degli scenari da validare** | Sottoinsieme motivato, coerente con la gravità | `UE-PLAN-001` § 2 |
+| 6 | **Specifica dell'interfaccia utente** | Che cosa l'interfaccia deve fare, in termini verificabili | `UE-UIS-001` |
+| 7 | **Piano di validazione** | Protocollo, criteri di superamento, numero e profilo dei partecipanti, ambiente, compiti, modalità di raccolta | `UE-PLAN-001` |
+| 8 | **Valutazioni formative** e **validazione sommativa** | Le prime durante lo sviluppo, la seconda prima del rilascio | `UE-FORM-001`, `UE-SUM-001` |
+
+L'insieme, più le tracciature verso il file di rischio, costituisce il **fascicolo di
+ingegneria dell'usabilità** `UEF-001`.
+
+**Il punto in cui il progetto è in vantaggio e il punto in cui è in ritardo.** In vantaggio: la
+specifica d'uso è quasi interamente ricavabile da `MDR-IU-001` e dalla documentazione
+funzionale già prodotta, e gli scenari d'uso pericolosi esistono già in forma matura — sei
+scenari sulla sessione video e dieci sul telemonitoraggio sono già censiti nella guida dei
+fondamenti. In ritardo: **non esiste alcuna valutazione formativa condotta con utenti reali**,
+e la sommativa non è pianificabile finché l'interfaccia non è congelata. È la sequenza che
+determina la data del § 3.6.
+
+### 11.3 L'errore d'uso è un modo di guasto, non una colpa dell'utente
+
+La norma definisce l'errore d'uso come **azione o omissione dell'utilizzatore che produce un
+risultato diverso da quello inteso dal fabbricante o atteso dall'utilizzatore**, e la scelta
+lessicale — *use error*, non *user error* — è deliberata: sposta l'oggetto dall'utente
+all'interazione.
+
+**Perché questo è un fatto tecnico e non una posizione ideologica.** Nella catena di ISO 14971
+l'errore d'uso occupa esattamente il posto che in un sistema hardware occupa la rottura di un
+componente: è un **evento della sequenza** che porta dal pericolo alla situazione pericolosa.
+Un file di rischio che tratti l'errore d'uso come causa esterna non analizzabile ha un buco
+nella catena, perché elimina dall'analisi la classe di eventi statisticamente più frequente
+nei dispositivi che presentano informazione a un professionista.
+
+Ne discendono tre regole operative, che vanno scritte nella procedura `QMS-PRO-054`:
+
+1. **«L'utente ha sbagliato» non è la conclusione di un'analisi: ne è l'inizio.** La domanda
+   successiva obbligatoria è: che cosa, nell'interfaccia, ha reso quel comportamento
+   ragionevole?
+2. **Errore d'uso e uso anomalo vanno distinti e la distinzione va motivata.** L'uso anomalo —
+   violazione intenzionale e ingiustificabile dell'uso previsto — è fuori dal perimetro della
+   norma ma **non è fuori dalla gestione del rischio**: va trattato con misure organizzative, di
+   controllo degli accessi e informative. Classificare come «uso anomalo» un comportamento che
+   una parte significativa degli utilizzatori adotta spontaneamente è un modo di far sparire un
+   difetto, e viene contestato.
+3. **Il registro degli errori d'uso individuati alimenta il file di rischio in tempo reale**,
+   non a fine progetto. Ogni valutazione formativa che rilevi un errore d'uso non previsto
+   produce una riga nel file di rischio o la motivazione documentata del perché non ne produce.
+
+### 11.4 La valutazione sommativa: che cos'è, e perché è il vero vincolo di calendario
+
+La **valutazione sommativa** è la validazione finale dell'interfaccia condotta con utenti
+rappresentativi, su un'interfaccia in configurazione di rilascio, secondo un protocollo
+approvato prima dell'esecuzione, allo scopo di dimostrare che gli scenari d'uso pericolosi
+selezionati non si verificano o sono intercettati.
+
+**Le condizioni che la rendono valida — e che la rendono un vincolo di calendario:**
+
+| Condizione | Conseguenza pratica |
+|---|---|
+| L'interfaccia deve essere **congelata** nella configurazione che sarà rilasciata | Ogni modifica successiva all'interfaccia richiede una valutazione dell'impatto e, se tocca una funzione legata alla sicurezza, una ripetizione parziale |
+| Il **protocollo è approvato prima** dell'esecuzione | Non si possono scegliere i criteri di superamento dopo aver visto i risultati. È il punto di decisione del 31 marzo 2027 del § 3.6 |
+| I partecipanti sono **utilizzatori rappresentativi**, non sostituti | Sviluppatori, colleghi e conoscenti non sono utilizzatori rappresentativi. Una sommativa condotta su di essi non è una sommativa |
+| Ogni **gruppo distinto di utilizzatori** va coperto | Qui sono almeno quattro: medico, professionista sanitario non medico, paziente/caregiver come utilizzatore laico, operatore tecnico del Centro servizi. Quattro gruppi significano quattro coorti |
+| I partecipanti includono **anziani e persone con disabilità** | Per questo prodotto non sono un caso limite: sono la popolazione. Il reclutamento è più lento e va avviato con mesi di anticipo |
+| Il **fallimento va analizzato**, non riparato in corsa | Un partecipante che sbaglia produce un dato, e il dato va analizzato per causa radice. Aggiustare l'interfaccia durante la sessione invalida la sessione |
+
+**Il numero di partecipanti.** IEC 62366-1 **non prescrive un numero**. La cifra di quindici
+partecipanti per gruppo di utilizzatori distinto, ampiamente usata nell'industria, proviene
+dalla linea guida sui fattori umani dell'autorità regolatoria statunitense e **non è un
+requisito dell'Unione europea**. **[FONTE SECONDARIA — non va citata come obbligo. In sede di
+offerta e in sede di ON va chiesto quale numerosità l'organismo consideri adeguata per il
+profilo di rischio dichiarato: è una delle domande utili da porre nella *gap review*
+pre-sottomissione del § 7.5.]** Ciò che va invece motivato nel piano è il **criterio di
+sufficienza adottato**, tipicamente la saturazione degli errori d'uso osservati.
+
+**Ordine di grandezza dell'onere.** Con quattro gruppi di utilizzatori e una numerosità
+allineata alla prassi, la sommativa comporta reclutamento, consenso informato dei
+partecipanti, ambiente di esecuzione, conduzione, osservazione, analisi e stesura del rapporto,
+per un periodo di **dodici-quattordici settimane** già indicato nella tabella del § 5.4.
+**[ORDINE DI GRANDEZZA — il costo dipende in modo determinante dal reclutamento di
+partecipanti anziani e con disabilità, che è la voce più incerta dell'intero preventivo.]**
+
+### 11.5 Usabilità e accessibilità: due obblighi distinti, la stessa interfaccia
+
+È il paragrafo che il progetto deve avere ben chiaro, perché la sovrapposizione è parziale e
+trattare i due obblighi come uno solo produce un difetto in entrambe le direzioni.
+
+|  | **IEC 62366-1** | **EN 301 549 / WCAG 2.1 AA** |
+|---|---|---|
+| **Base** | MDR, Allegato I (rischi da errore d'uso) | Direttiva (UE) 2016/2102 e sua attuazione nazionale; Direttiva (UE) 2019/882 sull'accessibilità dei prodotti e servizi |
+| **Domanda** | Un uso ragionevole può produrre un **danno alla persona**? | Una persona con disabilità può **usare** il servizio in modo equivalente? |
+| **Metrica** | Scenari d'uso pericolosi non verificati nella sommativa | Criteri di successo verificati, automatici e manuali |
+| **Chi verifica** | Utilizzatori rappresentativi, con protocollo | Strumenti automatici **e** verifica con tecnologie assistive reali |
+| **Esito della non conformità** | Requisito generale di sicurezza non dimostrato | Non conformità di accessibilità, con obblighi dichiarativi propri |
+
+**Dove si incontrano, e dove no.**
+
+- **Si incontrano** su ogni controllo legato alla sicurezza. Un indicatore di registrazione in
+  corso che un utente con lettore di schermo non percepisce è **simultaneamente** una non
+  conformità di accessibilità e un errore d'uso con conseguenza sul consenso. La stringa breve
+  di verifica delle chiavi veicolata dal solo colore è **simultaneamente** una violazione del
+  criterio sull'uso del colore e la vanificazione di una misura di controllo del rischio.
+- **Non si incontrano** in due direzioni. Un'interfaccia perfettamente conforme ai criteri di
+  accessibilità può contenere errori d'uso gravissimi: un campo soglia precompilato è
+  accessibile e pericoloso. E un difetto di accessibilità può non avere alcuna conseguenza di
+  sicurezza: un'immagine decorativa priva di testo alternativo in una pagina informativa è una
+  non conformità che non produce danno.
+
+**Regola operativa che ne discende [PROPOSTA].** Il fascicolo di usabilità dichiara, per ogni
+caratteristica dell'interfaccia legata alla sicurezza, **quali criteri di accessibilità la
+rendono percepibile e azionabile**, e il rapporto di conformità all'accessibilità dichiara,
+per ogni criterio verificato su quelle caratteristiche, **che è anche misura di controllo del
+rischio**. Il collegamento è bidirezionale e verificabile: un criterio di accessibilità che
+copre una funzione legata alla sicurezza **non può essere oggetto di una non conformità
+dichiarata**.
+
+**Conseguenza sulla non conformità dichiarata di D24.** L'unica non conformità che il progetto
+dichiara — i sottotitoli in tempo reale — va verificata contro questa regola: se
+l'indisponibilità dei sottotitoli in tempo reale rendesse inaccessibile a una persona sorda una
+funzione legata alla sicurezza, la non conformità non sarebbe dichiarabile ma sarebbe un
+rischio d'uso da controllare. La misura alternativa prevista — l'interprete — è precisamente
+la misura di controllo che rende sostenibile la dichiarazione, e va documentata **anche** nel
+fascicolo di usabilità, non solo nella dichiarazione di accessibilità.
+
+### 11.6 Il punto debole, dichiarato in anticipo
+
+La validazione sommativa è l'attività che, sotto pressione di scadenza, viene sacrificata per
+prima: richiede tempo di calendario che non si comprime, partecipanti che non si trovano in una
+settimana e un'interfaccia che smette di cambiare. Le sue tre modalità di fallimento tipiche
+sono, nell'ordine:
+
+1. **si esegue troppo presto**, su un'interfaccia che poi cambia, e va rifatta;
+2. **si esegue su partecipanti sbagliati** perché il reclutamento non è partito in tempo, e il
+   rapporto non è difendibile;
+3. **si scopre un errore d'uso grave** che richiede una riprogettazione, e la riprogettazione
+   richiede una nuova sommativa parziale: è lo scenario che aggiunge un trimestre al piano ed è
+   il motivo per cui le valutazioni **formative** non sono facoltative. Ogni errore d'uso
+   scoperto in formativa è un trimestre risparmiato.
+
+**Regola di calendario che ne discende.** Le formative non sono una versione ridotta della
+sommativa: sono la sola assicurazione contro il terzo scenario, e vanno condotte su prototipi,
+anche non funzionanti, **prima** che l'implementazione sia completa.
+
+---
+
+## 12. ISO/IEC 81001-5-1 — la sicurezza informatica nel ciclo di vita
+
+### 12.1 Che cos'è e perché esiste
+
+**ISO/IEC 81001-5-1:2021** — *Health software and health IT systems safety, effectiveness and
+security. Part 5-1: Security — Activities in the product life cycle* — è la norma che
+introduce le attività di sicurezza informatica **dentro** il ciclo di vita del software
+sanitario. Non è una norma di controlli tecnici: non elenca cifrari né configurazioni. È una
+norma di **processo**, costruita per essere sovrapposta a IEC 62304 mantenendone la struttura.
+
+Il problema che risolve è concreto. IEC 62304 governa la sicurezza nel senso di *safety* — il
+danno accidentale — e non ha nulla da dire sull'avversario intenzionale. L'MDR, per parte sua,
+richiede nell'Allegato I misure di sicurezza informatica, requisiti minimi di hardware e di
+rete e protezione contro l'accesso non autorizzato, senza indicare un processo. ISO/IEC
+81001-5-1 riempie quello spazio.
+
+**Il suo status.** È lo standard di riferimento riconosciuto nella prassi di valutazione, ed è
+richiamato dalla guida **MDCG 2019-16 Rev.1** sulla sicurezza informatica dei dispositivi
+medici. **[NON VERIFICATO — se ISO/IEC 81001-5-1 figuri oggi nell'elenco delle norme
+armonizzate sotto MDR con presunzione di conformità, o se sia invece «stato dell'arte» non
+armonizzato. La distinzione ha un effetto pratico: nel secondo caso l'applicazione va motivata
+nella matrice GSPR come «altra soluzione», non invocata come presunzione. Verificare
+sull'elenco consolidato della Commissione prima di compilare `MDR-GSPR-001`.]**
+
+### 12.2 Come si innesta su IEC 62304
+
+La norma **ricalca la struttura di processi di IEC 62304** e vi aggiunge attività, invece di
+istituire un ciclo di vita parallelo. È la ragione per cui l'innesto costa relativamente poco a
+chi ha già IEC 62304 in ordine, e costa moltissimo a chi deve fare le due cose insieme.
+
+| Processo IEC 62304 | Attività aggiunte da ISO/IEC 81001-5-1 | Artefatto del progetto |
+|---|---|---|
+| Pianificazione dello sviluppo | Pianificazione delle attività di sicurezza, competenze, ruoli | `SEC-LC-001` |
+| Analisi dei requisiti | **Requisiti di sicurezza** derivati dal modello di minaccia; requisiti dell'ambiente operativo di sicurezza | `SW-SRS-001` §, `SEC-TM-001` |
+| Progettazione architetturale | **Progettazione sicura**: superficie di attacco, confini di fiducia, difesa in profondità, principio del privilegio minimo | `SW-SAD-001`, `SEC-TM-001` |
+| Progettazione dettagliata e implementazione | Regole di codifica sicura, **revisione del codice orientata alla sicurezza**, analisi statica | `SW-DEV-PLAN-001` |
+| Verifica di unità, integrazione, sistema | **Prove di sicurezza**: prove negative, *fuzzing*, scansione delle dipendenze, prova di penetrazione indipendente | `SEC-PT-001`, `SW-VVR-001` |
+| Rilascio | Dichiarazione della **distinta dei materiali software**, delle vulnerabilità note residue e della data di **fine del supporto alla sicurezza** | `SW-REL-001`, SBOM, `MDR-LIFE-001` |
+| Manutenzione | Sorveglianza delle vulnerabilità sui componenti di terze parti, valutazione dell'impatto, **finestre di rimedio dichiarate**, distribuzione degli aggiornamenti | `SW-MAINT-001` |
+| Gestione del rischio software | **File di rischio di sicurezza** distinto e collegato | `SEC-RMF-001` |
+| Gestione della configurazione | Integrità della catena di costruzione, firma degli artefatti, riproducibilità | `SW-CM-001`, `SW-BUILD-001` |
+| Risoluzione dei problemi | **Divulgazione coordinata delle vulnerabilità**, comunicazione agli utilizzatori | `SECURITY.md`, `SW-PROB-001` |
+
+**[FONTE SECONDARIA sulla corrispondenza puntuale delle clausole: la norma è a pagamento e non
+è stata letta riga per riga in questa ricerca. La mappa qui sopra è ricostruita sulla struttura
+dichiarata della norma e va verificata sul testo prima di essere usata come indice della
+procedura `QMS-PRO-055`.]**
+
+### 12.3 Il file di rischio di sicurezza è distinto, e il raccordo è obbligatorio
+
+I due file **non si fondono**, perché rispondono a domande diverse con metodi diversi:
+
+|  | **File di rischio ISO 14971** | **File di rischio di sicurezza** |
+|---|---|---|
+| Oggetto | Danno alla persona | Compromissione di riservatezza, integrità, disponibilità |
+| Origine dell'evento | Guasto, errore d'uso, condizione ambientale | **Avversario intenzionale** |
+| Grandezza stimata | Probabilità della sequenza | **Sfruttabilità**: capacità, accesso e motivazione richiesti |
+| Criterio | Accettabilità in rapporto ai benefici clinici | Riduzione del rischio a livelli gestibili con controlli documentati |
+| Effetto della mitigazione | Riduce probabilità o gravità | Aumenta il costo per l'attaccante |
+
+**Il raccordo obbligatorio.** Ogni minaccia il cui esito comprende una **conseguenza clinica**
+deve comparire **anche** nel file di rischio del dispositivo, come sequenza di eventi. Il
+progetto dispone già dello strumento che rende questo raccordo meccanico invece che
+discrezionale: la tabella «dalla minaccia alla conseguenza clinica» dell'area di sicurezza
+associa a ciascuna minaccia la conseguenza sulla persona, e **le righe con conseguenza clinica
+non vuota sono esattamente l'insieme che va trasferito**.
+
+Tre esempi del raccordo, presi dal materiale già prodotto:
+
+| Minaccia (file di sicurezza) | Sequenza di eventi (file ISO 14971) | Danno |
+|---|---|---|
+| Alterazione di un documento clinico firmato | Firma non verificata alla rilettura · il documento alterato è presentato come autentico · il professionista assume una decisione | Decisione terapeutica su dato falso |
+| Perdita di una notifica di superamento di soglia | Il messaggio non è consegnato · l'escalation non dichiara il fallimento · nessuno riesamina | Mancato intervento su un deterioramento |
+| Fuga di dati fra tenant | Contesto di tenant non risolto · l'interrogazione restituisce righe altrui · il professionista valuta dati non pertinenti | Decisione su persona sbagliata, e danno da divulgazione |
+
+**I tre difetti del prodotto di federazione** già trattati come rischi di gestione del rischio
+nell'area di sicurezza — alterazione degli attributi da parte dell'utente federato, modifica
+non verificata dell'indirizzo di posta, coesistenza di una credenziale locale — appartengono a
+questa categoria: sono difetti di un componente di terze parti con conseguenza sull'identità
+del firmatario di un documento clinico, quindi righe del file di rischio del dispositivo e non
+note di configurazione. Il raccordo è già scritto e **non va riformulato**: va **importato**
+nel file di rischio con i controlli e le prove di efficacia già definiti.
+
+### 12.4 La fine del supporto alla sicurezza, e perché è un dato di prodotto
+
+La norma richiede che il fabbricante dichiari la **data di fine del supporto alla sicurezza**
+del prodotto: il momento oltre il quale non saranno più rilasciati aggiornamenti correttivi di
+sicurezza. È una dichiarazione con tre destinatari e tre effetti diversi:
+
+1. **verso l'utilizzatore**, è l'informazione che gli consente di pianificare la sostituzione:
+   un software sanitario senza aggiornamenti di sicurezza in un'infrastruttura ospedaliera è
+   una vulnerabilità con una data di scadenza nota;
+2. **verso l'Organismo Notificato**, è parte dei requisiti dell'ambiente operativo e delle
+   informazioni fornite dal fabbricante;
+3. **verso il regolamento sulla resilienza informatica**, è il **periodo di supporto** che
+   determina la durata degli obblighi di aggiornamento, con il minimo di cinque anni.
+
+**Punto ancora aperto e da portare al committente.** La durata del periodo di supporto
+dichiarato non è una scelta tecnica: è un impegno pluriennale con costo ricorrente, e
+condiziona la politica di versionamento, il numero di rami mantenuti in parallelo e la
+sostenibilità della manutenzione. La questione è già registrata come aperta verso
+l'orchestratore nell'area di sicurezza e **non viene decisa qui**.
+
+### 12.5 Divulgazione coordinata delle vulnerabilità e finestre di rimedio
+
+La norma richiede un processo di **divulgazione coordinata**: un canale pubblico per ricevere
+segnalazioni, un impegno dichiarato sui tempi di riscontro, un processo di valutazione e
+correzione, e la comunicazione agli utilizzatori. La guida **MDCG 2019-16 Rev.1** ne tratta
+l'applicazione nel contesto MDR.
+
+**Le finestre di rimedio sono la parte con conseguenze contrattuali.** Un impegno espresso in
+mesi è privo di significato operativo per chi installa: il componente di relay del progetto ha
+avuto quattordici rilasci in poco più di sette mesi, cinque nel solo agosto 2026, con una
+vulnerabilità critica corretta a metà percorso. L'impegno va quindi espresso **in giorni dalla
+pubblicazione dell'avviso, differenziato per gravità**, e diventa simultaneamente:
+
+- un requisito di `SW-MAINT-001` ai sensi della clausola di manutenzione;
+- un elemento del **piano di sorveglianza post-commercializzazione** (§ 14);
+- un obbligo contrattuale verso chi installa, per effetto dei requisiti di sicurezza degli
+  approvvigionamenti resi obbligatori per le infrastrutture regionali;
+- un presupposto della capacità dell'integratore di rispettare i propri termini di segnalazione
+  ai sensi del regolamento sulla resilienza informatica, che decorrono dall'11 settembre 2026 e
+  si misurano in ore.
+
+**Il punto che va compreso e che non è intuitivo.** Il progetto **non ha** oggi obblighi di
+segnalazione propri, perché non immette un prodotto sul mercato nel corso di un'attività
+commerciale. Ma la capacità di segnalazione del progetto è un **requisito dell'integratore**:
+chi riceve la notizia di una vulnerabilità attivamente sfruttata ha ventiquattro ore, e non
+può rispettarle se il fornitore a monte non ha un canale funzionante e tempi dichiarati.
+L'onere è quindi reale anche in assenza di obbligo diretto, ed è opportuno assumerlo
+esplicitamente invece di subirlo in sede di trattativa.
+
+### 12.6 Il conflitto fra regimi, e come lo si tratta nel fascicolo
+
+Il prodotto marcato ai sensi dell'MDR è escluso dal regolamento sulla resilienza informatica
+per effetto dell'esclusione dei dispositivi medici; gli altri artefatti — kit di sviluppo,
+componente incorporabile, immagini e pacchetti di distribuzione non coperti dalla marcatura —
+**non lo sono**. La scelta del progetto di adottare integralmente l'impianto del regolamento
+assorbe l'incertezza, ma **non elimina la necessità della tabella artefatto → regime
+applicabile**, che serve alla matrice di conformità e alla documentazione verso l'integratore.
+La tabella è un'architettura di decisione ancora da produrre ed è registrata come questione
+aperta.
+
+Un secondo conflitto è già riconosciuto dall'autorità nazionale per la cybersicurezza:
+l'installazione di protezioni sugli apparati terminali su un dispositivo medico può invalidarne
+la certificazione, e la deroga esiste **a condizione che il fornitore produca misure
+compensative documentate**. Quelle misure sono un deliverable del pacchetto per l'utilizzatore,
+non un problema del cliente, e vanno prodotte come parte del materiale di accompagnamento.
+
+---
+
+## 13. La valutazione clinica
+
+### 13.1 Che cos'è, in termini esatti
+
+La **valutazione clinica** è definita dall'**art. 2, punto 44, MDR** come il processo
+sistematico e programmato inteso a produrre, raccogliere, analizzare e valutare in modo
+continuo i dati clinici relativi a un dispositivo, allo scopo di **verificarne la sicurezza e
+le prestazioni, compresi i benefici clinici**, quando è utilizzato conformemente alla
+destinazione d'uso indicata dal fabbricante. L'obbligo è nell'**art. 61** e la procedura è
+nell'**Allegato XIV, Parte A**. **[FONTE SECONDARIA sulla numerazione puntuale dei punti
+dell'art. 2: verificare sul testo consolidato prima della citazione nel fascicolo.]**
+
+Tre nozioni collegate, che vanno tenute distinte perché l'Organismo Notificato le distingue:
+
+| Nozione | Definizione | Effetto |
+|---|---|---|
+| **Dati clinici** | Informazioni su sicurezza o prestazioni provenienti dall'uso del dispositivo: indagini cliniche, studi su dispositivi equivalenti, letteratura scientifica sottoposta a revisione paritaria, esperienza clinica documentata | Sono la materia prima |
+| **Evidenza clinica** | I dati clinici **più** i risultati della loro valutazione, in quantità e qualità sufficienti a consentire una valutazione qualificata del conseguimento del beneficio clinico dichiarato e della sicurezza | È il prodotto |
+| **Beneficio clinico** | L'effetto positivo del dispositivo sulla salute della persona, espresso in **esiti clinici significativi e misurabili**, compresi quelli relativi alla diagnosi, o l'effetto positivo sulla gestione del paziente o sulla salute pubblica | È ciò che va dimostrato |
+
+**La definizione di beneficio clinico è il punto in cui molti progetti di sanità digitale si
+accorgono di avere un problema.** «Migliora l'efficienza organizzativa», «riduce i costi»,
+«è apprezzato dagli utenti» **non sono benefici clinici**. Sono argomenti commerciali. Il
+beneficio clinico dichiarato in `MDR-IU-001` — consentire l'accesso a prestazioni programmate a
+pazienti per i quali l'accesso in presenza è oneroso o non tempestivo, mantenendo la
+completezza e la tracciabilità dell'informazione clinica — è formulato per essere sostenibile,
+e va comunque sottoposto a verifica dal redattore clinico prima del congelamento: la
+formulazione «effetto positivo sulla **gestione del paziente**» è il ramo della definizione su
+cui poggia, ed è il ramo che va argomentato con dati.
+
+### 13.2 Perché è il collo di bottiglia reale
+
+Il fattore limitante dichiarato al § 0.4 è l'Organismo Notificato; il **secondo** è la
+valutazione clinica, e ha una proprietà che lo rende peggiore: **non è comprimibile con
+risorse**. Raddoppiare le persone non dimezza il tempo di una ricerca sistematica della
+letteratura, perché la sequenza — protocollo, interrogazione, selezione a due valutatori,
+recupero dei testi integrali, valutazione critica, estrazione, sintesi — è intrinsecamente
+seriale su una parte rilevante del percorso.
+
+Le cifre del § 5.5: piano di valutazione clinica 5–6 settimane; ricerca sistematica 12–14
+settimane; rapporto 12–14 settimane; piano di *follow-up* 4–6 settimane. **Sei-nove mesi in
+sequenza**, con dipendenze a monte (la destinazione d'uso congelata) e a valle (il rapporto
+benefici/rischi del § 10.6, che non si chiude prima).
+
+**Tre ragioni per cui questa attività viene sistematicamente sottostimata.**
+
+1. **Sembra documentale e non lo è.** Chi guarda l'elenco dei prodotti vede tre documenti e
+   stima tre settimane. La ricerca sistematica è un'attività di metodo con un protocollo
+   registrato, criteri di inclusione ed esclusione dichiarati prima, doppia selezione e
+   valutazione critica di ogni fonte inclusa. Un rapporto costruito su una rassegna informale
+   della letteratura è respinto.
+2. **Non parte se non è congelata la destinazione d'uso.** Il perimetro della ricerca è
+   determinato dalle affermazioni da dimostrare. Se la destinazione d'uso cambia, la ricerca va
+   rifatta — non integrata: rifatta, perché cambiano i criteri di inclusione. È la ragione per
+   cui il punto di decisione del **31 ottobre 2026** è irreversibile.
+3. **Richiede una competenza che il gruppo tecnico non ha e non può acquisire in fretta.** Il
+   redattore della valutazione clinica deve avere qualifica documentabile: la struttura della
+   qualifica del valutatore è essa stessa oggetto di verifica dell'Organismo Notificato, che
+   chiede curriculum e dichiarazione di assenza di conflitto di interessi.
+
+**Conseguenza sul calendario.** Nello scenario di riferimento la valutazione clinica parte il
+15 settembre 2026 e chiude il 15 giugno 2027. Se parte a marzo 2027, il rapporto non esiste
+prima dell'autunno 2027, e poiché è un allegato obbligatorio della domanda, **la sottomissione
+slitta con esso**, trascinando l'intero percorso di un trimestre pieno o più.
+
+### 13.3 MDCG 2020-1: le tre componenti dell'evidenza per un software
+
+**MDCG 2020-1** — *Guidance on clinical evaluation (MDR) / Performance evaluation (IVDR) of
+medical device software* — è il documento che traduce l'impianto generale dell'art. 61 nel
+caso specifico del software, e stabilisce che l'evidenza clinica di un software dispositivo
+medico si articola in **tre componenti distinte, tutte necessarie**:
+
+| Componente | Domanda a cui risponde | Come si dimostra |
+|---|---|---|
+| **Validità dell'associazione clinica** (*valid clinical association*) | Esiste un'associazione riconosciuta fra l'uscita del software e la condizione clinica o lo stato fisiologico a cui si riferisce? | Letteratura scientifica, linee guida, standard clinici, dati esistenti. È la componente **meno** dipendente dal prodotto |
+| **Validazione tecnica** (*technical validation*) | Il software genera l'uscita attesa a partire dagli ingressi, in modo accurato, affidabile e ripetibile? | **Verifica e validazione tecnica**: è la componente che il progetto già produce in massa con le proprie prove |
+| **Validazione clinica** (*clinical validation*) | L'uscita del software, usata nel contesto clinico previsto, produce l'effetto atteso sulla gestione del paziente o sull'esito? | Dati clinici: letteratura su dispositivi equivalenti, esperienza clinica documentata, eventuale indagine, dati di *follow-up* |
+
+**Perché questa struttura è la buona notizia di questa sezione.** La seconda componente — la
+validazione tecnica — è quella su cui il progetto ha già investito in modo sproporzionato
+rispetto alla media: copertura di prova elevata, prove di integrazione, prove end-to-end, prove
+di qualità del canale in tempo reale con simulazione di perdita e variazione del ritardo, prove
+di carico, tracciabilità requisiti↔prove. **Quelle evidenze sono direttamente riusabili come
+componente dell'evidenza clinica**, purché siano prodotte in forma citabile: rapporti datati,
+firmati, con versione esatta del software e ambiente dichiarato. È una ragione tecnica precisa
+per cui la tracciabilità va congelata subito e le prove vanno essere prodotte da una pipeline
+che ne conservi l'esito come artefatto immutabile.
+
+**La cattiva notizia** è la terza componente. La validazione clinica di un sistema di
+telemedicina richiede dati sull'**effetto sulla gestione del paziente**, e la letteratura
+disponibile riguarda la telemedicina come **modalità di erogazione**, non questo specifico
+prodotto. Il ponte fra i due livelli — dal «la televisita in cardiologia è efficace» al «questo
+software consente la televisita in cardiologia con completezza dell'informazione» — è
+precisamente ciò che il rapporto deve costruire, ed è l'argomento su cui l'Organismo Notificato
+solleva i quesiti.
+
+**[FONTE SECONDARIA sulla data e sulla revisione corrente di MDCG 2020-1: reperibile nella
+raccolta ufficiale MDCG della Commissione, da verificare al momento dell'uso perché i documenti
+MDCG vengono revisionati.]**
+
+### 13.4 Che cosa serve concretamente per un software di questa natura
+
+Elenco dei prodotti, con l'indicazione di che cosa il progetto può preparare ai sensi di **D49**
+e che cosa **solo chi certifica** può fare.
+
+| Prodotto | Contenuto | Chi lo può fare |
+|---|---|---|
+| **`CE-PLAN-001` Piano di valutazione clinica** | Destinazione d'uso e affermazioni da dimostrare; **stato dell'arte**; parametri clinici e criteri di accettabilità; strategia dell'evidenza per ciascuna delle tre componenti; protocollo della ricerca di letteratura; piano di *follow-up* | Il **fabbricante**, con il redattore clinico. Il progetto può produrne una **bozza tecnica** con la parte di validazione tecnica già compilata |
+| **Dossier dello stato dell'arte** | Quale è oggi la pratica clinica di riferimento per le prestazioni nel perimetro, con le fonti: accordi e atti nazionali, linee guida di società scientifiche, letteratura | **Il progetto può prepararlo integralmente.** Non è specifico del fabbricante, è specifico del dominio |
+| **Protocollo e risultati della ricerca sistematica** | Banche dati interrogate, stringhe, date, criteri di inclusione ed esclusione, diagramma di selezione, valutazione critica di ciascuna fonte inclusa | Il redattore clinico. Il progetto può **predisporre il protocollo** e l'infrastruttura documentale |
+| **Evidenza di validazione tecnica** | Rapporti di verifica e validazione citabili, con versione, ambiente, data, esecutore ed esito | **Il progetto, integralmente.** È il contributo più sostanzioso che può dare |
+| **Evidenza dall'ingegneria dell'usabilità** | Rapporto della validazione sommativa: è **dato clinico** ai fini della gestione del paziente da parte di un utilizzatore | Il fabbricante, ma la conduzione è delegabile |
+| **`CE-REP-001` Rapporto di valutazione clinica** | Sintesi e giudizio qualificato, con la determinazione che l'evidenza è sufficiente | **Solo il fabbricante**, firmato da un valutatore qualificato con dichiarazione di assenza di conflitto |
+| **`PMCF-PLAN-001` Piano di *follow-up* clinico** | Che cosa si raccoglierà dal campo per colmare i vuoti di evidenza, con metodi e scadenze | **Solo il fabbricante**: è un impegno, non un'analisi |
+
+**La riga più importante è la seconda.** Il dossier dello stato dell'arte è la parte più
+laboriosa della valutazione clinica che **non dipende dal fabbricante**, ed è quindi la parte
+che il progetto può produrre e pubblicare come contributo al pacchetto per chi certifica,
+riducendo in modo diretto e misurabile il tempo del percorso di chiunque lo intraprenda. È
+anche la parte che meglio si presta alla forma aperta, perché è costruita su fonti pubbliche.
+
+### 13.5 L'esenzione dell'art. 61(10) e perché non conviene invocarla
+
+L'**art. 61(10) MDR** prevede che, quando la dimostrazione della conformità ai requisiti
+generali di sicurezza e prestazione sulla base di dati clinici **non è considerata appropriata**,
+si fornisca un'adeguata giustificazione basata sui risultati della gestione del rischio e sulla
+considerazione delle specificità dell'interazione fra dispositivo e corpo umano, delle
+prestazioni cliniche previste e delle indicazioni del fabbricante. La disposizione non si
+applica ai dispositivi impiantabili e di Classe III. **[FONTE SECONDARIA sulla numerazione del
+paragrafo: verificare sul testo consolidato.]**
+
+**È una via d'uscita apparente.** Tre ragioni per non percorrerla:
+
+1. la giustificazione deve essere **accettata dall'Organismo Notificato**, e per un software
+   che presenta informazione clinica a un professionista l'accettazione è improbabile: la
+   presenza di un'interazione con la decisione clinica è precisamente ciò che fonda la
+   qualificazione ai sensi della Regola 11;
+2. anche se accettata, **non esonera dal *follow-up* clinico post-commercializzazione**, che
+   resta dovuto salvo motivazione autonoma;
+3. una giustificazione respinta al primo ciclo di quesiti costa più di una valutazione clinica
+   condotta bene, perché la valutazione va poi fatta comunque, partendo da zero, con il
+   fascicolo già in valutazione e l'orologio che corre.
+
+**[PROPOSTA]** Non invocare l'art. 61(10). Trattarlo come opzione da documentare nel piano
+insieme alla motivazione del suo scarto: è una domanda che l'Organismo Notificato pone, ed
+è meglio avere la risposta scritta.
+
+### 13.6 L'equivalenza, e i suoi limiti
+
+L'**Allegato XIV, Parte A**, consente di fondare la valutazione clinica sui dati clinici
+relativi a un dispositivo **di cui si dimostri l'equivalenza**, purché la dimostrazione copra
+**tre gruppi di caratteristiche**:
+
+| Gruppo | Che cosa richiede | Applicabilità a un software |
+|---|---|---|
+| **Tecniche** | Uso in condizioni analoghe, specifiche e proprietà simili, stessi principi operativi e requisiti prestazionali critici | Richiede di conoscere l'architettura e gli algoritmi del dispositivo di confronto |
+| **Biologiche** | Stessi materiali o sostanze a contatto con gli stessi tessuti o fluidi corporei | **Non applicabile** a un software senza parti applicate: va dichiarata la non applicabilità con motivazione |
+| **Cliniche** | Stessa condizione clinica, stessa gravità e stadio di malattia, stessa sede anatomica, stessa popolazione, stesso tipo di utilizzatore, prestazioni clinicamente rilevanti analoghe | Verificabile su documentazione pubblica se il dispositivo di confronto ha una destinazione d'uso pubblicata |
+
+**Il limite che rende l'equivalenza quasi inutilizzabile per un software, e va detto senza
+attenuazioni.** L'Allegato XIV richiede che il fabbricante disponga di un **livello di accesso
+sufficiente ai dati relativi al dispositivo con cui rivendica l'equivalenza**, per poter
+giustificare la rivendicazione. Per le caratteristiche tecniche di un software questo
+significa accesso all'architettura e agli algoritmi di un prodotto **di un concorrente**.
+
+Ne discendono tre conseguenze pratiche:
+
+1. **con un dispositivo di un terzo, serve un contratto** che dia accesso continuativo alla
+   documentazione tecnica. Nessun concorrente ha interesse a concederlo, e la trattativa —
+   quando esiste — richiede mesi e ha esito incerto. La tabella del § 5.5 lo registra come
+   attività di 6–10 settimane con costo «incerto», ed è l'unica riga del documento con quella
+   qualificazione;
+2. **l'equivalenza con un dispositivo dello stesso fabbricante** è praticabile ma qui non
+   esiste: si tratta della prima generazione;
+3. **una rivendicazione di equivalenza non sostenuta è peggio dell'assenza di equivalenza**,
+   perché produce un ciclo di non conformità su un punto centrale del rapporto, e la
+   riscrittura del rapporto senza l'equivalenza richiede la ricerca di letteratura che non si
+   era fatta.
+
+**Ciò che invece è utilizzabile e va usato.** La letteratura **non richiede equivalenza**. Uno
+studio sull'efficacia della televisita in una specialità è utilizzabile come dato clinico sulla
+**modalità di erogazione**, con l'argomentazione esplicita del legame fra ciò che lo studio
+dimostra e ciò che il dispositivo fa. È la strada normale per questo tipo di prodotto, ed è
+esattamente la strada che richiede i sei-nove mesi del § 13.2.
+
+**[PROPOSTA]** Costruire `CE-PLAN-001` **senza equivalenza**, e valutare l'equivalenza come
+opzione aggiuntiva solo se emergesse un candidato con documentazione tecnica accessibile. La
+riga corrispondente della tabella del § 5.5 va trattata come attività condizionata, non come
+attività pianificata.
+
+### 13.7 Il *follow-up* clinico post-commercializzazione
+
+L'**Allegato XIV, Parte B**, disciplina il *follow-up* clinico post-commercializzazione come
+processo continuo di aggiornamento della valutazione clinica, con un **piano** che specifica
+metodi, procedure, obiettivi, razionale, riferimento alle parti pertinenti del rapporto di
+valutazione clinica e ai requisiti generali di sicurezza e prestazione, e un **calendario**.
+L'esito è un **rapporto** che alimenta la valutazione clinica e la sorveglianza
+post-commercializzazione (§ 14).
+
+**Perché per questo prodotto il piano di *follow-up* è sostanziale e non formale.** La
+valutazione clinica iniziale poggerà in misura prevalente su letteratura relativa alla
+modalità di erogazione e su validazione tecnica. Il vuoto di evidenza è quindi sul terzo
+elemento — l'effetto sulla gestione del paziente **con questo dispositivo** — ed è precisamente
+il vuoto che il *follow-up* deve colmare. Un piano che dichiari il vuoto e definisca come
+colmarlo è difendibile; un piano generico che prometta «raccolta di riscontri degli
+utilizzatori» non lo è.
+
+**Conseguenza di prodotto, e va progettata ora e non dopo.** Le grandezze che il piano si
+impegna a raccogliere devono essere **misurabili dal sistema o raccoglibili con uno strumento
+definito**. Se il piano prevede di misurare la completezza dell'informazione clinica trasmessa,
+o la frazione di prestazioni concluse rispetto a quelle avviate, o la frequenza dei ripieghi in
+presenza, quelle grandezze devono esistere come dati, con definizione stabile e senza contenuto
+clinico identificabile. **Progettare la strumentazione del *follow-up* dopo aver scritto il
+piano significa scoprire che il dato non c'è.**
+
+---
+
+## 14. Sorveglianza post-commercializzazione e vigilanza
+
+### 14.1 I due processi, e perché non sono lo stesso processo
+
+Sono continuamente confusi e hanno logiche opposte.
+
+| | **Sorveglianza post-commercializzazione** | **Vigilanza** |
+|---|---|---|
+| Base | Artt. 83–86 MDR, Allegato III | Artt. 87–92 MDR |
+| Innesco | **Nessuno**: è un processo continuo e proattivo | Un **evento**: incidente grave o azione correttiva di sicurezza |
+| Logica | Raccogliere e analizzare sistematicamente l'esperienza sul campo | Segnalare all'autorità entro termini brevissimi |
+| Orizzonte | Continuo, con rapporti periodici | Ore e giorni |
+| Prodotto | Piano PMS, rapporto PMS o PSUR, aggiornamento del file di rischio e della valutazione clinica | Segnalazione di incidente, rapporto di andamento, notifica di sicurezza, azione correttiva |
+| Errore tipico | Il piano esiste e non produce dati | Il termine decorre e nessuno se ne accorge, perché manca il momento di «acquisizione dell'evidenza» |
+
+**Il collegamento fra i due.** La sorveglianza è il processo che *rileva*; la vigilanza è il
+processo che *segnala*. Un sistema di sorveglianza che non alimenta la vigilanza produce
+inadempimenti; una vigilanza senza sorveglianza a monte reagisce soltanto a ciò che qualcun
+altro le porta.
+
+### 14.2 Il sistema di sorveglianza: che cosa deve contenere
+
+L'**art. 83** impone al fabbricante di istituire, documentare e mantenere un sistema di
+sorveglianza post-commercializzazione **proporzionato alla classe di rischio e al tipo di
+dispositivo**, come parte del sistema di gestione della qualità. L'**art. 84** richiede che il
+sistema si fondi su un **piano** conforme all'**Allegato III**.
+
+Il contenuto minimo del piano, ripreso dalla lista dell'Allegato III già riportata al § 8.7,
+merita una lettura operativa perché ciascuna voce ha una conseguenza tecnica:
+
+| Voce del piano | Conseguenza tecnica per questo prodotto |
+|---|---|
+| Processo di raccolta dei dati | Definire le **fonti**: reclami, segnalazioni dell'utilizzatore, registri di assistenza, dati di disponibilità e qualità del servizio, segnalazioni di sicurezza, letteratura, banche dati pubbliche di dispositivi analoghi |
+| **Indicatori e valori soglia** per la rivalutazione del rischio | Sono numeri, e vanno scelti: frequenza di sessioni interrotte, frequenza di allarmi non riscontrati entro la finestra, frequenza di misure non pervenute, frequenza di errori di associazione segnalati. **Ogni soglia superata riapre il file di rischio** |
+| Metodi di indagine su reclami ed esperienza sul campo | Procedura di analisi della causa radice, con termine di riscontro |
+| Metodi e protocolli per gli eventi soggetti a **rapporto di andamento** | § 14.5 |
+| Metodi di comunicazione con utilizzatori e distributori | Canale di avvisi di sicurezza, elenco dei destinatari mantenuto aggiornato |
+| Rinvio alle procedure di conformità agli obblighi degli artt. 83–86 | Rimando alle procedure del sistema qualità |
+| Verifica sistematica delle azioni preventive e correttive | Registro delle azioni, con verifica dell'efficacia |
+| **Strumenti di tracciabilità** | UDI, registro delle versioni installate, capacità di sapere **chi ha quale versione** |
+| Piano di *follow-up* clinico o motivazione della non applicabilità | § 13.7 |
+
+**Le due righe in grassetto sono quelle che, per un software installato presso terzi, non si
+risolvono con una procedura: richiedono una capacità di prodotto e un obbligo contrattuale.**
+Le soglie di rivalutazione richiedono che i dati esistano e siano confrontabili fra
+installazioni; la tracciabilità delle versioni richiede di sapere quali installazioni esistono
+e a quale versione si trovano, il che in un modello di distribuzione aperta non è un dato
+disponibile per costruzione.
+
+### 14.3 Il rapporto periodico di aggiornamento sulla sicurezza
+
+Per la Classe IIa l'**art. 86** richiede un **PSUR** (*periodic safety update report*),
+aggiornato **almeno ogni due anni**. Il rapporto sintetizza i risultati e le conclusioni
+dell'analisi dei dati di sorveglianza, la motivazione e la descrizione delle azioni preventive
+e correttive intraprese, e riporta le **conclusioni della determinazione del rapporto
+benefici/rischi**, i **principali risultati del *follow-up* clinico** e il **volume di vendite**
+con la stima della popolazione che utilizza il dispositivo e la frequenza d'uso ove praticabile.
+
+**Due punti operativi.**
+
+1. **Il PSUR è parte della documentazione tecnica** e va messo a disposizione dell'Organismo
+   Notificato. Per le classi superiori il regolamento prevede la trasmissione tramite il
+   sistema elettronico europeo; per la Classe IIa la modalità e il destinatario vanno letti
+   sul testo dell'articolo. **[FONTE SECONDARIA sulla ripartizione fra i paragrafi dell'art. 86
+   in funzione della classe: verificare sul testo consolidato prima di scrivere la procedura
+   `QMS-PRO-034`.]**
+2. **Il «volume di vendite» e la «stima della popolazione utilizzatrice» sono un problema
+   strutturale del modello aperto.** Un fabbricante che distribuisce a titolo oneroso conosce i
+   propri clienti. Un fabbricante la cui distribuzione identificata è ottenibile da un
+   repository pubblico non li conosce, salvo che la distribuzione certificata sia resa
+   disponibile **solo** attraverso un canale che identifica il destinatario. **Questa è una
+   conseguenza regolatoria diretta sulla politica di distribuzione**, e va decisa presto: è una
+   delle ragioni sostanziali — non formali — per cui il dispositivo è una **distribuzione
+   identificata** e non il repository.
+
+### 14.4 La vigilanza: incidenti gravi e termini
+
+L'**art. 87** impone al fabbricante di segnalare alle autorità competenti **qualsiasi incidente
+grave** relativo a dispositivi messi a disposizione sul mercato dell'Unione, con i termini
+seguenti:
+
+| Fattispecie | Termine | Riferimento |
+|---|---|---|
+| Incidente grave in genere | **non oltre 15 giorni** dalla data in cui il fabbricante è venuto a conoscenza dell'incidente | art. 87, § 3 |
+| **Decesso** o **grave deterioramento imprevisto** dello stato di salute di una persona | **non oltre 10 giorni** | art. 87, § 4 |
+| **Minaccia grave per la salute pubblica** | **immediatamente**, e comunque **non oltre 2 giorni** | art. 87, § 5 |
+
+**[FONTE SECONDARIA sulla numerazione dei paragrafi: i termini sono verificati, la
+corrispondenza con i numeri di paragrafo va confermata sul testo consolidato.]**
+
+La definizione di **incidente grave** è nell'**art. 2, punto 65**: un incidente che ha
+direttamente o indirettamente causato, può aver causato o può causare il decesso di un
+paziente, di un utilizzatore o di altre persone, il grave deterioramento temporaneo o
+permanente del loro stato di salute, o una grave minaccia per la salute pubblica.
+**[FONTE SECONDARIA sul numero del punto.]**
+
+**Il punto operativo che determina tutto: quando decorre il termine.** Il termine decorre dalla
+**conoscenza** dell'evento e del suo possibile nesso con il dispositivo, non dalla certezza del
+nesso. La conseguenza è che il fabbricante non può attendere l'esito dell'indagine tecnica
+prima di segnalare: **la segnalazione iniziale si fa sull'ipotesi**, e si integra dopo. Un
+processo che preveda «prima capiamo, poi segnaliamo» produce inadempimenti sistematici.
+
+**Perché per questo prodotto la valutazione del nesso è particolarmente difficile.** Le
+conseguenze cliniche del prodotto sono quasi tutte **indirette**: non c'è un'azione fisica sul
+paziente, c'è un'informazione che arriva tardi, sbagliata o non arriva. Stabilire che una
+prestazione mancata, un allarme non riscontrato o un referto non trasmesso abbiano contribuito
+a un deterioramento richiede di ricostruire la sequenza tecnica **e** di ottenere
+l'informazione clinica sull'esito, che sta presso la struttura sanitaria e non presso il
+fabbricante. La procedura di vigilanza deve quindi prevedere un canale verso l'utilizzatore
+per ottenere quel dato, ed è una previsione contrattuale prima che tecnica.
+
+### 14.5 Rapporti di andamento e rapporti riassuntivi periodici
+
+Due istituti che si confondono facilmente e che servono a cose opposte.
+
+- Il **rapporto di andamento** (*trend report*) dell'**art. 88** riguarda **incidenti non
+  gravi** e **effetti collaterali indesiderati attesi** che, presi singolarmente, non sono
+  segnalabili, ma il cui **aumento statisticamente significativo di frequenza o gravità**
+  incide sul rapporto benefici/rischi. È il motivo per cui il piano di sorveglianza deve
+  contenere soglie numeriche: **senza soglie predefinite non esiste un «aumento
+  significativo»**, esiste solo un giudizio a posteriori.
+- Il **rapporto riassuntivo periodico** dell'art. 87 è invece una **modalità alternativa di
+  segnalazione** di incidenti gravi simili e ricorrenti, la cui causa radice sia stata
+  individuata e per i quali sia stata attuata un'azione correttiva o l'incidente sia comune e
+  ben documentato: si concorda con l'autorità competente la trasmissione in forma aggregata
+  invece che singola. **[FONTE SECONDARIA sul paragrafo dell'art. 87 che lo prevede e sulle
+  condizioni esatte: verificare sul testo consolidato.]**
+
+**Il primo è una capacità di prodotto, il secondo è un accordo con l'autorità.** Il rapporto di
+andamento richiede che gli eventi non gravi siano **contati** in modo confrontabile fra
+installazioni e nel tempo, il che significa una tassonomia stabile degli eventi definita ora e
+non riscritta a ogni versione.
+
+### 14.6 Azioni correttive di sicurezza sul campo
+
+Un'**azione correttiva di sicurezza sul campo** (*FSCA*) è l'azione intrapresa dal fabbricante
+per prevenire o ridurre il rischio di incidente grave connesso a un dispositivo messo a
+disposizione sul mercato. La comunicazione con cui la si porta a conoscenza degli utilizzatori
+è la **notifica di sicurezza sul campo** (*FSN*). Entrambe sono disciplinate dagli articoli
+sulla vigilanza, e la FSCA va **notificata all'autorità competente**, di norma **prima** della
+sua esecuzione salvo urgenza.
+
+**Che cosa è una FSCA per un software, in concreto.** È il punto che disorienta chi arriva dallo
+sviluppo, perché sembra che ogni correzione lo sia. Non è così, e la distinzione va scritta
+nella procedura:
+
+| Situazione | Regime |
+|---|---|
+| Correzione di un difetto **senza** impatto sulla sicurezza o sulle prestazioni cliniche | Manutenzione ordinaria: gestione delle modifiche e risoluzione dei problemi |
+| Correzione di un difetto **con** impatto potenziale sulla sicurezza, distribuita a tutte le installazioni | **FSCA**, con notifica all'autorità e notifica di sicurezza agli utilizzatori |
+| Modifica della configurazione consigliata o dei limiti d'uso per ridurre un rischio emerso | **FSCA** anche senza rilascio di software |
+| Ritiro di una versione dal canale di distribuzione | **FSCA** |
+| Avviso di sicurezza informatica con istruzione di aggiornamento | Valutare **entrambi** i regimi: può essere FSCA **e** segnalazione ai sensi dei regimi di sicurezza informatica |
+
+**L'ultima riga è quella con l'orologio più corto e va progettata prima di servire.** Una
+vulnerabilità sfruttabile in un componente che partecipa a una misura di controllo del rischio
+è simultaneamente un evento di sicurezza informatica, con termini in ore, e potenzialmente una
+FSCA, con termini in giorni. Il processo deve produrre **una sola valutazione con due uscite**,
+non due valutazioni parallele che divergono.
+
+### 14.7 Le modifiche, e quando richiedono l'intervento dell'Organismo Notificato
+
+Il conflitto strutturale fra il ritmo del software e il ritmo regolatorio si concentra qui.
+L'**Allegato IX** stabilisce che le modifiche al sistema di gestione della qualità approvato e
+le modifiche al dispositivo approvato che possano incidere sulla conformità, sulla sicurezza,
+sulle prestazioni o sulle condizioni d'uso richiedono la **approvazione preventiva**
+dell'Organismo Notificato.
+
+**Ciò che va costruito è quindi un processo decisionale documentato**, non un giudizio caso per
+caso. Per ogni modifica destinata a una versione certificata si decide, con criteri scritti e
+verbalizzazione, se la modifica:
+
+1. **non incide** su sicurezza, prestazioni o condizioni d'uso → si documenta e si rilascia;
+2. **incide** ma resta nell'ambito del certificato → si documenta, si aggiorna il fascicolo
+   tecnico e la si dichiara all'Organismo Notificato secondo le modalità concordate;
+3. **è sostanziale** → **approvazione preventiva** dell'Organismo Notificato prima del rilascio.
+
+**Avvertenza sul metodo che circola.** I diagrammi decisionali della guida **MDCG 2020-3** sulle
+modifiche significative sono ampiamente usati anche per i dispositivi certificati sotto MDR, ma
+il **loro ambito proprio è la disciplina transitoria dei dispositivi legacy**: applicarli per
+analogia è prassi diffusa e ragionevole, **non è un fondamento normativo**. Nel documento di
+progetto vanno presentati per ciò che sono — metodo adottato dal fabbricante, motivato — e le
+condizioni concrete vanno **concordate per iscritto con l'Organismo Notificato** in sede
+contrattuale. È una delle domande utili da porre in fase di offerta (§ 7.5).
+**[FONTE SECONDARIA sull'ambito dichiarato di MDCG 2020-3 e sulla sua revisione corrente.]**
+
+**Conseguenza sulla politica di rilascio.** Un prodotto certificato non può avere lo stesso
+ritmo di rilascio del repository. Ne discende un modello a due velocità, che va progettato ora
+perché condiziona il versionamento e la struttura dei rami:
+
+- il **repository** procede al proprio ritmo, sotto la propria licenza, senza vincoli
+  regolatori, con la dichiarazione permanente che non è un dispositivo;
+- la **distribuzione identificata** ha una cadenza di rilascio più lenta, un processo di
+  valutazione delle modifiche, un registro dello stato di configurazione per ogni versione, e
+  la capacità di distribuire **correzioni di sicurezza fuori cadenza** senza aprire la
+  procedura di modifica sostanziale — il che richiede che quelle correzioni siano, per
+  costruzione, prive di impatto funzionale.
+
+### 14.8 Chi è titolare degli obblighi quando il software è aperto
+
+È la domanda che il modello duale rende inevitabile, e la risposta va scritta in modo che non
+resti ambigua per nessuno dei soggetti coinvolti.
+
+**Il titolare degli obblighi di sorveglianza e di vigilanza è il fabbricante della
+distribuzione identificata marcata CE.** Non il repository, non il titolare del progetto, non i
+contributori, non l'autore di una copia derivata. Ai sensi di **D28** e **D49** il progetto non
+costituisce un soggetto fabbricante e non appone la marcatura: **gli obblighi di questa sezione
+non gravano oggi su di esso**.
+
+Ne discendono cinque conseguenze, tutte da documentare nel materiale per chi integra.
+
+1. **Chi prende il codice, lo modifica e lo mette in servizio diventa fabbricante.** L'MDR
+   attribuisce gli obblighi del fabbricante a chi modifica la destinazione d'uso di un
+   dispositivo o modifica un dispositivo in modo che possa incidere sulla conformità.
+   Nell'ipotesi di un codice sorgente non marcato, la questione non è nemmeno di modifica: chi
+   costruisce un dispositivo a partire da esso e lo immette sul mercato **è** il fabbricante
+   originario di quel dispositivo. La licenza Apache-2.0 concede il diritto d'uso e di
+   modifica; **non trasferisce né esclude alcun obbligo regolatorio**, che non è disponibile
+   per contratto.
+2. **Il fabbricante deve poter sapere che cosa succede nelle installazioni, e con questo
+   modello non lo sa per costruzione.** Va risolto con tre misure combinate: distribuzione
+   della versione certificata attraverso un **canale che identifica il destinatario**; obbligo
+   contrattuale dell'utilizzatore di segnalare gli incidenti al fabbricante entro un termine
+   compatibile con quelli dell'art. 87; capacità del prodotto di produrre l'evidenza tecnica
+   necessaria a ricostruire una sequenza a distanza di settimane.
+3. **La terza misura ha un requisito tecnico preciso e non ovvio.** La conservazione dei
+   segnali di diagnostica deve essere **almeno pari al tempo entro cui una segnalazione può
+   arrivare**. Se un incidente può emergere a distanza di settimane e i registri di diagnostica
+   durano giorni, l'obbligo di vigilanza non è materialmente soddisfacibile. Il termine di
+   conservazione della diagnostica è quindi un parametro **determinato dagli obblighi di
+   vigilanza**, ed è distinto dai termini di conservazione della tracciabilità degli accessi e
+   dei dati di autenticazione, che rispondono ad altra fonte.
+4. **La responsabilità civile non si esclude per contratto verso il danneggiato.** Le clausole
+   di esclusione di garanzia e di limitazione della responsabilità della licenza operano fra le
+   parti del rapporto di licenza; la disciplina della responsabilità per danno da prodotto
+   difettoso vieta l'esclusione contrattuale nei confronti del danneggiato e presume la
+   difettosità in caso di non conformità a requisiti obbligatori di sicurezza dell'Unione. **Il
+   fatto che il progetto non sia fabbricante è la tutela sostanziale; la clausola di licenza
+   non lo è.**
+5. **Il ruolo del progetto è di fornitore a monte, e ha obblighi propri di natura diversa.** Non
+   segnala incidenti gravi, ma deve rendere possibile a chi lo fa di rispettare i propri
+   termini: canale di segnalazione funzionante, politica di divulgazione con tempi dichiarati,
+   distinta dei materiali software firmata per ogni rilascio, comunicazione tempestiva delle
+   vulnerabilità nei componenti di terze parti, artefatti di ciclo di vita pubblicati. È
+   l'applicazione, in senso inverso, della nota di posizionamento del § 9.4: **Telemedic è SOUP
+   per l'integratore**, e un SOUP senza sorveglianza dichiarata è un SOUP che il suo utilizzatore
+   non può giustificare.
+
+### 14.9 Il raccordo con la risposta agli incidenti di sicurezza: cinque orologi diversi
+
+Uno stesso evento tecnico può innescare regimi diversi con termini diversi, calcolati da
+momenti diversi, verso destinatari diversi. L'area di sicurezza del progetto ne ha già censiti
+**cinque**: violazione di dati personali, incidenti dei soggetti obbligati alla sicurezza delle
+reti, obbligo delle aziende sanitarie ai sensi della legge nazionale, vigilanza sui dispositivi
+medici, resilienza informatica. **Non vanno riformulati qui.** Ciò che va aggiunto è la
+prospettiva del fabbricante:
+
+| Regime | Termine più stringente | Chi è obbligato | Innesco |
+|---|---|---|---|
+| Vigilanza sui dispositivi medici | **2 giorni** | Il **fabbricante** della distribuzione marcata | Conoscenza dell'incidente grave e del possibile nesso |
+| Resilienza informatica | **24 ore** | Il fabbricante del prodotto con elementi digitali | Vulnerabilità attivamente sfruttata o incidente grave |
+| Sicurezza delle reti | Termini brevi, decorrenti dalla conoscenza | Il **soggetto** che eroga il servizio | Incidente significativo |
+| Protezione dei dati personali | 72 ore | Il **titolare** del trattamento | Conoscenza della violazione |
+| Obblighi contrattuali verso il cliente | **Sotto le 24 ore** | Il fornitore | Rilevazione |
+
+**Tre proprietà di questa tabella che vanno comprese insieme.**
+
+**Primo: i soggetti obbligati sono diversi, e in un'installazione presso il cliente non
+coincidono.** Il fabbricante, il titolare del trattamento, il soggetto obbligato alla sicurezza
+delle reti e l'erogatore della prestazione sanitaria possono essere quattro persone giuridiche
+distinte. Una procedura di risposta che assuma un soggetto unico è inapplicabile.
+
+**Secondo: il termine più corto governa il processo, ma il termine più difficile è quello più
+lungo.** Le ventiquattro ore della resilienza informatica sono impegnative sul piano
+organizzativo; i **due giorni** della vigilanza sono impegnativi sul piano **valutativo**,
+perché richiedono di stabilire un nesso fra un evento tecnico e una conseguenza clinica. È il
+punto in cui la tabella delle conseguenze cliniche del modello di minaccia smette di essere un
+esercizio di modellazione e diventa uno strumento di triage: **è la sola struttura, in tutta la
+documentazione del progetto, che consenta di rispondere in poche ore alla domanda «questo
+evento può aver danneggiato una persona?».**
+
+**Terzo: il momento di decorrenza è un fatto documentabile, e va documentato.** Tutti i termini
+decorrono dalla conoscenza, e la conoscenza è un evento che va registrato con data, ora e
+contenuto: chi ha saputo che cosa e quando. In assenza di quella registrazione, la decorrenza
+è ricostruita da chi contesta, e sempre a sfavore.
+
+---
+
+## 15. Costi, tempi e figure necessarie
+
+### 15.1 Le figure, e quali sono realmente interne
+
+Il percorso richiede otto profili distinti. La domanda utile non è «quante persone servono» ma
+**«quali competenze devono essere permanentemente disponibili e quali si acquistano a
+progetto»**, perché è la disponibilità permanente a costare.
+
+| Profilo | Che cosa fa | Quando serve | Interno o esterno |
+|---|---|---|---|
+| **Fabbricante** (committente) | Assume gli obblighi, firma, decide | Dal giorno zero | Interno per definizione |
+| **PRRC** | § 15.2 | Prima del contatto con l'Organismo Notificato | **Interno o esterno**, con vincoli (§ 15.2) |
+| **Consulente di affari regolatori** | Qualificazione, classificazione, procedura, strategia, interlocuzione con l'organismo | Fase 0 e continuativo a intensità variabile | Esterno, quasi sempre |
+| **Responsabile qualità** | Sistema di gestione della qualità, procedure, audit interni, riesami, azioni correttive | Da settembre, continuativo | **Deve essere disponibile in modo permanente**; la redazione iniziale si può appaltare |
+| **Responsabile tecnico** | Ciclo di vita software, architettura, componenti di terze parti, verifica e validazione, tracciabilità | Continuativo | Interno |
+| **Specialista di fattori umani** | Ingegneria dell'usabilità, formative, sommativa | Da ottobre a giugno, a intensità variabile | Esterno, con conduzione della sommativa appaltata |
+| **Redattore clinico** | Piano e rapporto di valutazione clinica, *follow-up* | Da settembre a giugno | Esterno, con qualifica documentabile |
+| **Specialista di sicurezza** | Attività di sicurezza nel ciclo di vita, modello di minaccia, prova di penetrazione | Da gennaio ad aprile, più continuativo per la sorveglianza | Misto: sorveglianza interna, prova di penetrazione **necessariamente indipendente** |
+
+**Due avvertenze di indipendenza che hanno effetti organizzativi immediati.**
+
+L'**audit interno non può essere condotto da chi ha eseguito l'attività auditata**. In una
+struttura piccola questo significa, in pratica, **commissionare l'audit interno all'esterno**:
+non è un lusso, è una condizione di superabilità della fase 2.
+
+La **prova di penetrazione deve essere indipendente** da chi ha scritto il codice. Non è
+un requisito formale della norma quanto una condizione di credibilità dell'evidenza: un
+rapporto prodotto internamente non è, per un valutatore, un rapporto.
+
+### 15.2 La persona responsabile del rispetto della normativa
+
+L'**art. 15 MDR** impone al fabbricante di disporre, all'interno della propria organizzazione,
+di almeno una **persona responsabile del rispetto della normativa** con **competenza
+specialistica** in materia di dispositivi medici, dimostrata da una delle due qualifiche
+alternative:
+
+- **diploma, certificato o altro titolo** rilasciato al termine di un corso universitario o di
+  un corso di studi riconosciuto come equivalente, in **giurisprudenza, medicina, farmacia,
+  ingegneria o altra disciplina scientifica pertinente**, **più almeno un anno** di esperienza
+  professionale in materia di regolamentazione o di sistemi di gestione della qualità relativi
+  ai dispositivi medici; **oppure**
+- **quattro anni** di esperienza professionale in materia di regolamentazione o di sistemi di
+  gestione della qualità relativi ai dispositivi medici.
+
+**La deroga che rende praticabile il percorso per una struttura piccola.** Le **micro e piccole
+imprese** non sono tenute ad avere la persona responsabile all'interno della propria
+organizzazione, ma devono averla **permanentemente e continuamente a disposizione**. È una
+formulazione con due implicazioni: la disponibilità deve essere **contrattualizzata** e
+verificabile, e «permanentemente e continuamente» esclude il rapporto occasionale a chiamata.
+
+**Le responsabilità dell'art. 15** — verifica della conformità dei dispositivi prima del
+rilascio, redazione e aggiornamento della documentazione tecnica e della dichiarazione di
+conformità, adempimento degli obblighi di sorveglianza post-commercializzazione, adempimento
+degli obblighi di segnalazione degli artt. 87–92 — **rendono la persona il punto di
+compressione dell'intero processo**. Il regolamento stabilisce inoltre che essa **non subisca
+svantaggi** nell'organizzazione per il corretto adempimento dei propri compiti: è una tutela di
+indipendenza, e ha senso solo se la persona ha un'autonomia reale rispetto a chi ha interesse a
+rilasciare.
+
+**[FONTE SECONDARIA sulla numerazione dei paragrafi dell'art. 15: i requisiti di qualifica e la
+deroga per le micro e piccole imprese sono verificati nella sostanza, la corrispondenza con i
+numeri di paragrafo va confermata sul testo consolidato prima della citazione in
+`MDR-PRRC-001`.]**
+
+**Avvertenza sulla reperibilità.** Le persone in possesso della qualifica sono una risorsa
+scarsa, e la deroga per le piccole imprese ne aumenta la domanda perché consente a molte
+strutture di attingere allo stesso mercato esterno. È il motivo per cui l'identificazione del
+candidato è fra le azioni dei primi trenta giorni (§ 2, azione 4) e non fra quelle della fase
+di ingaggio dell'organismo.
+
+### 15.3 I tempi non comprimibili
+
+Sette attività hanno un tempo di calendario che **non si riduce aggiungendo risorse**. È
+l'elenco da tenere davanti quando si valuta una proposta di compressione del piano.
+
+| Attività | Tempo minimo | Perché non si comprime |
+|---|---|---|
+| Costituzione del soggetto fabbricante | 3–8 settimane | Procedimenti di terzi |
+| Esercizio del sistema qualità prima dell'audit di certificazione | **≥ 4 mesi**, preferibilmente 6 | Servono **registrazioni reali** di un ciclo completo: non si producono a posteriori |
+| Ricerca sistematica della letteratura | 12–14 settimane | Sequenza seriale con doppia selezione |
+| Rapporto di valutazione clinica | 12–14 settimane | Dipende dalla ricerca e dai dati di verifica |
+| Reclutamento dei partecipanti alla validazione sommativa | 6–10 settimane | Popolazione difficile da reclutare, consensi da raccogliere |
+| Valutazione della documentazione tecnica da parte dell'organismo | 12–18 settimane | Non dipende dal fabbricante |
+| Cicli di risposta alle non conformità | 2–4 cicli × 6–10 settimane | Ogni ciclo ha una coda dell'organismo |
+
+**Somma delle sole attività a monte della sottomissione, in sequenza dove la sequenza è
+obbligata: circa dieci mesi.** È la ragione aritmetica per cui lo scenario A del § 3.2 è
+qualificato come obiettivo di tensione: non perché manchi la volontà, ma perché richiederebbe
+che sei attività non comprimibili si svolgessero contemporaneamente senza dipendenze, e le
+dipendenze ci sono.
+
+### 15.4 La struttura del costo, e che cosa è realmente stimabile
+
+Il documento adotta una regola: **non si stima ciò che ha una fonte pubblica primaria**, e non
+si stima ciò che dipende da variabili non note. Ne risulta una tripartizione.
+
+**Blocco A — costi con fonte pubblica accessibile, da leggere invece che stimare.**
+
+| Voce | Dove si legge |
+|---|---|
+| Tariffe dell'Organismo Notificato | **Obbligo di pubblicazione** dell'Allegato VII, sezione 1.2.8; elenco dei collegamenti mantenuto dalla Commissione (§ 7.6) |
+| Numero di giornate dell'audit di certificazione del sistema qualità | Tabelle di **IAF MD 9**, documento pubblico; l'organismo è tenuto a esplicitare il calcolo nell'offerta (§ 6.6) |
+| Canone dell'ente di attribuzione degli identificativi univoci | Listino pubblico dell'ente prescelto **[NON VERIFICATO — nessun listino è stato letto in questa ricerca]** |
+| Diritti e oneri di costituzione del soggetto giuridico | Tariffe notarili e camerali, pubbliche |
+
+**Blocco B — costi stimabili solo come ordine di grandezza, da confermare con preventivo.**
+Sono quelli già indicati nelle tabelle del § 5, e sono esclusivamente prestazioni professionali:
+consulenza regolatoria, redazione delle procedure, audit interno commissionato, conduzione
+delle valutazioni di usabilità, redazione clinica, prova di penetrazione indipendente. Per
+ciascuno la variabile dominante non è la tariffa oraria ma la **quantità di lavoro**, che
+dipende da quanto materiale il progetto porta già pronto.
+
+**Blocco C — costi non stimabili, e va detto invece di inventare un numero.**
+
+| Voce | Perché non è stimabile |
+|---|---|
+| **Cicli di risposta alle non conformità** | Dipende dal numero e dalla gravità dei rilievi, che dipendono dalla qualità del fascicolo e dall'organismo. Due cicli o quattro sono la stessa pianificazione con costi diversi di un fattore due |
+| **Rilavorazione del prodotto** dopo la validazione sommativa | Un errore d'uso grave può richiedere una riprogettazione e una nuova validazione parziale (§ 11.6) |
+| **Accesso alla documentazione per l'equivalenza** | Trattativa con un terzo che non ha interesse a concederla (§ 13.6) |
+| **Tempo di attesa prima di essere accettati** da un organismo | Non è misurato da nessuna indagine pubblica, ed è la variabile più pericolosa dell'intero percorso (§ 7.5) |
+| **Copertura assicurativa** per la responsabilità da prodotto difettoso | Premio determinato dal profilo di rischio e dal volume, per un dispositivo che non ha ancora né l'uno né l'altro |
+| **Costo delle modifiche sostanziali** ricorrenti | Dipende da quante modifiche del ciclo di vita del software ricadranno nel terzo regime del § 14.7, che non è prevedibile a priori |
+
+**Il modo corretto di trattare il blocco C è metterlo a bilancio come riserva dichiarata**, non
+ometterlo. Un piano economico che non contenga una riserva per i cicli di non conformità è un
+piano che assume l'esito migliore come esito atteso.
+
+### 15.5 Come si chiedono i preventivi
+
+Cinque regole che riducono in modo misurabile l'incertezza del blocco B e limitano il blocco C.
+
+1. **Chiedere il calcolo, non il prezzo.** All'organismo di certificazione: le giornate e il
+   metodo di calcolo secondo IAF MD 9. All'Organismo Notificato: le giornate previste per
+   ciascuna attività e il riferimento alla propria tariffa pubblicata.
+2. **Chiedere impegni sui tempi delle singole fasi** — verifica di completezza, primo ciclo di
+   quesiti, tempo di risposta alle repliche — e i rimedi in caso di scostamento. Un'offerta
+   priva di impegni sui tempi è un'offerta su un solo asse.
+3. **Chiedere un riesame preliminare a pagamento**, quando offerto: riduce i cicli di non
+   conformità, che sono la voce non stimabile più pesante.
+4. **Chiedere l'audit combinato** sistema qualità certificato e valutazione dell'organismo,
+   quando lo stesso soggetto può rilasciare entrambi (§ 6.5). È la singola ottimizzazione più
+   efficace del percorso.
+5. **Confrontare il totale, non la tariffa.** L'organismo più economico per giornata può essere
+   il più costoso in totale se genera più cicli o ha code più lunghe (§ 7.6).
+
+### 15.6 I costi che non finiscono con il certificato
+
+L'errore di pianificazione economica più comune è trattare la marcatura CE come una spesa in
+conto capitale. Non lo è: apre un **flusso di costi ricorrenti** che dura quanto il prodotto.
+
+| Voce ricorrente | Cadenza |
+|---|---|
+| Audit di sorveglianza dell'Organismo Notificato | **Almeno annuale** |
+| Audit senza preavviso | Non pianificabile, **da mettere a budget** |
+| Audit di sorveglianza del sistema qualità certificato, e rinnovo | Annuale, con rinnovo triennale |
+| Canone di mantenimento dei certificati | Annuale |
+| Rinnovo del certificato dell'Organismo Notificato | Alla scadenza, **massimo cinque anni** |
+| Aggiornamento del rapporto periodico sulla sicurezza | **Almeno ogni due anni** |
+| Aggiornamento della valutazione clinica e del *follow-up* | Secondo il piano |
+| Valutazione delle modifiche del prodotto | **Ricorrente e strutturale per un software** |
+| Disponibilità permanente della persona responsabile della normativa | Continuativa |
+| Sorveglianza dei componenti di terze parti e finestre di rimedio | Continuativa |
+| Copertura assicurativa | Annuale |
+
+**La riga strutturalmente più pesante è la valutazione delle modifiche**, perché è l'unica il
+cui costo cresce con l'attività di sviluppo: più il prodotto è vivo, più genera valutazioni. È
+la ragione economica — oltre che regolatoria — del modello a due velocità del § 14.7.
+
+### 15.7 Ciò che non si può dire prima della marcatura
+
+Chiude il documento un punto che non è di costo ma il cui costo, se sbagliato, è il più alto di
+tutti.
+
+Fino al rilascio dei certificati e all'apposizione della marcatura, **nessun artefatto,
+messaggio, pagina, presentazione o materiale può lasciare intendere che il prodotto sia un
+dispositivo medico marcato**, né che sia utilizzabile per l'erogazione di prestazioni sanitarie
+su pazienti reali. La destinazione d'uso, ai sensi dell'art. 2, punto 12, è determinata anche
+dal **materiale promozionale e di vendita**: un'affermazione commerciale non allineata alla
+dichiarazione formale **modifica la destinazione d'uso** con effetti sulla qualificazione, e
+viene rilevata dall'Organismo Notificato al primo confronto fra il fascicolo e i canali
+pubblici.
+
+Le formule da evitare, e la loro versione ammissibile:
+
+| Da evitare | Ammissibile |
+|---|---|
+| «Certificato dispositivo medico» | «Progettato secondo i requisiti applicabili ai dispositivi medici; **non marcato CE**» |
+| «Conforme all'MDR» | «Il pacchetto regolatorio è prodotto secondo i requisiti dell'MDR; la conformità è dichiarata dal fabbricante che immette sul mercato» |
+| «Pronto per l'uso clinico» | «Non utilizzabile per l'erogazione di prestazioni sanitarie su pazienti reali fino alla marcatura» |
+| «Certificato ISO 13485» riferito al progetto | Il certificato, quando esisterà, sarà del **fabbricante**, non del repository |
+| «Qualità clinica» come attributo del video | Enunciato tecnico verificabile su risoluzione, frequenza dei fotogrammi e continuità, senza rivendicare adeguatezza diagnostica |
+
+**Il presidio non è redazionale ma di processo.** L'allineamento fra dichiarazione formale e
+comunicazione pubblica va verificato a ogni modifica del materiale pubblico, e la verifica va
+registrata: è parte della strategia di conformità regolamentare del sistema di gestione della
+qualità, non un controllo editoriale.
+
+---
+
+**Fine del documento.** Le sezioni 10–15 sono state redatte a completamento della ricerca
+troncata; le sezioni 0–9 non sono state modificate. La corrispondenza fra i rinvii interni
+delle sezioni 0–9 e la numerazione effettiva è nella tabella del § 9-bis.
