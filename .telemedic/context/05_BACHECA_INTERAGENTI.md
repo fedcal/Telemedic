@@ -72,4 +72,24 @@
 | Q-12 | `GUIDA` | `FUNZ` | 58 conseguenze progettuali su cronicità, allarmi e sicurezza del paziente attendono identificativi di requisito. Almeno sei aree risultano scoperte: piano di telemonitoraggio versionato, finestra di attesa, escalation con fallimento dichiarato, sorveglianza del volume atteso, copertura oraria dichiarata, tracciabilità del calcolo | APERTA |
 | Q-13 | `GUIDA` | `COMP` | Due scenari d'uso pericolosi individuati nel modulo sulla sicurezza del paziente vanno inseriti nel file di gestione del rischio con gravità da rivalutare | APERTA |
 | Q-14 | `GUIDA` | `PROD`, `FUNZ` | **La copertura oraria dichiarata è un requisito di sicurezza**: un servizio mal dichiarato è più pericoloso dell'assenza di servizio, perché produce falsa rassicurazione. Va trattato come requisito, non come parametro commerciale | APERTA |
+| Q-15 | `GUIDA` | `ARCH`, `PROTO` | Dieci scelte enunciate come proposta di progetto meritano un ADR: versione nel percorso, codice di precondizione richiesta sulle risorse cliniche, non trovato invece di vietato, ritenzione delle chiavi di idempotenza, doppia emissione delle intestazioni di limitazione, dodici mesi di preavviso di dismissione, payload magro nei webhook, politica di ritentativo, versionamento del tipo degli eventi, introspezione sulle operazioni ad alto impatto | APERTA |
+| Q-16 | `GUIDA` | `SEC`, `TECH` | La protezione contro le richieste indirizzate a risorse interne va implementata **una volta sola** in un componente condiviso, non ripetuta per ogni punto di uscita | APERTA |
+| Q-17 | `GUIDA` | `TECH`, `COMP` | La tabella riassuntiva dei protocolli è di fatto un **inventario di partenza dei componenti di terze parti**: va usata come base invece di ricostruirla | APERTA |
+
+---
+
+## Correzioni verificate da recepire in tutte le aree
+
+| # | Correzione | Vale per |
+|---|---|---|
+| C-01 | `Deprecation` è **RFC 9745**, Standards Track, marzo 2025 | `PROTO`, `INTEG` |
+| C-02 | `Idempotency-Key` è una bozza **scaduta e archiviata**: non è uno standard e non va presentata come tale | `PROTO`, `INTEG`, `TECH` |
+| C-03 | La forma a tre intestazioni `RateLimit-*` **non è mai stata standard ed è superata**: oggi `RateLimit` e `RateLimit-Policy` | `PROTO`, `INTEG` |
+| C-04 | `Problem Details` è **RFC 9457**, non 7807 | `PROTO`, `TECH` |
+| C-05 | TCP è **RFC 9293**; HTTP/1.1 è **RFC 9112** | `PROTO`, `TECH` |
+| C-06 | RFC 9421 *HTTP Message Signatures* **non** definisce `Content-Digest`, che è **RFC 9530** | `PROTO`, `SEC`, `INTEG` |
+| C-07 | In FHIR R4 non esistono `SubscriptionStatus` né l'estensione di backport dell'argomento | `PROTO`, `INTEG` |
+| C-08 | Bulk Data è **3.0.0**; attenzione a non citare la build continua come se fosse pubblicata | `PROTO`, `INTEG` |
+| C-09 | SSE non è una RFC e OpenAPI non è una RFC: non attribuire loro un numero | `PROTO`, `TECH` |
+| C-10 | La busta CloudEvents **vieta** l'attributo di tipo di contenuto in forma di intestazione dedicata | `PROTO`, `ARCH` |
 
