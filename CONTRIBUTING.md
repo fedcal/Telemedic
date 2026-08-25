@@ -13,7 +13,7 @@ quindi alcune regole che altrove sono buone pratiche qui sono vincoli.
 **La [guida dei fondamenti](docs/10_fondamenti/00-come-usare-questa-guida.md) è un
 prerequisito, non una lettura consigliata.** Parte da zero e copre il contesto sanitario, i
 protocolli, gli standard e il quadro regolatorio. Il modulo
-[«Cosa sapere per contribuire»](docs/10_fondamenti/18-come-contribuire-per-area.md) dice,
+[«Cosa sapere per contribuire»](docs/10_fondamenti/18-contribuire-per-area.md) dice,
 area per area, quali conoscenze servono prima di toccarla.
 
 Non è un adempimento burocratico. Un sistema clinico accumula danni silenziosi quando viene
@@ -165,7 +165,7 @@ so some rules that are good practice elsewhere are hard constraints here.
 **The [foundations guide](docs/10_fondamenti/00-come-usare-questa-guida.md) is a
 prerequisite, not recommended reading.** It starts from zero and covers the healthcare
 context, the protocols, the standards and the regulatory framework. The module
-[«What you need to know to contribute»](docs/10_fondamenti/18-come-contribuire-per-area.md)
+[«What you need to know to contribute»](docs/10_fondamenti/18-contribuire-per-area.md)
 states, area by area, what knowledge is required before touching it.
 
 This is not bureaucracy. Clinical systems accumulate silent damage when modified by people

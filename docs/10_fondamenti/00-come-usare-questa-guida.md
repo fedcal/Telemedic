@@ -57,7 +57,7 @@ Questa guida non dà per scontato **nulla** di nessuno dei due mondi.
 | [15 — Il quadro regolatorio da zero](15-regolatorio-da-zero.md) | Perché il codice di questo progetto ha vincoli che altrove non esistono |
 | [16 — L'architettura del progetto](16-architettura-del-progetto.md) | La mappa mentale: dove sta cosa e perché |
 | [17 — L'ambiente di sviluppo](17-ambiente-di-sviluppo.md) | Come si mette in piedi tutto, dati sintetici compresi |
-| [18 — Cosa sapere per contribuire](18-come-contribuire-per-area.md) | Matrice area del codice → conoscenze richieste |
+| [18 — Cosa sapere per contribuire](18-contribuire-per-area.md) | Matrice area del codice → conoscenze richieste |
 | [19 — Glossario](19-glossario.md) | Ogni sigla, ogni termine, in italiano e in inglese |
 | [20 — Fonti primarie](20-fonti-primarie.md) | Dove leggere i testi originali, non le sintesi |
 
@@ -108,5 +108,5 @@ verificare e i flussi su cui ricade la gestione del rischio.
 Questa guida è **prerequisito dichiarato** di [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md).
 Non è un adempimento burocratico: un sistema che tratta dati sanitari e che ricade nella
 disciplina dei dispositivi medici accumula danni silenziosi quando viene modificato da chi
-non conosce il contesto. Il modulo [18](18-come-contribuire-per-area.md) dice, area per
+non conosce il contesto. Il modulo [18](18-contribuire-per-area.md) dice, area per
 area, cosa devi sapere prima di toccarla.
