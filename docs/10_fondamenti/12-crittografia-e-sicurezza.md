@@ -255,7 +255,7 @@ verificabile **contro chi lo ospita**. È la decisione **D42**, ed è trattata a
 | **Disponibilità** | È accessibile quando serve? | Ridondanza, backup verificati, resilienza | La sessione non parte all'orario dell'appuntamento |
 | **Autenticità** | Chi lo dice è chi dice di essere? | Firma, certificati, verifica delle chiavi | Un terzo si sostituisce al medico nella sessione video |
 | **Non ripudio** | Si può provare a un terzo? | Firma digitale con chiave privata esclusiva, marca temporale | Il firmatario nega di aver validato un referto |
-| **Tracciabilità** | Chi ha fatto cosa, quando? | Registro append-only con catena di hash e conservazione separata | Nessuna evidenza di chi ha consultato un dossier |
+| **Tracciabilità** | Chi ha fatto cosa, quando? | Registro append-only con catena di impronte e conservazione separata | Nessuna evidenza di chi ha consultato un dossier |
 
 ### 1.8 Le proprietà che nessuna di queste copre
 
@@ -409,7 +409,7 @@ di configurazione, chiavi, log. È l'avversario che rende inutile gran parte del
 applicative e che obbliga a progettare la tracciabilità **contro il custode del sistema**. La
 figura è disciplinata anche sul piano giuridico — il modulo [03 § 3.4](03-il-dato-clinico.md)
 tratta la designazione individuale, il tracciamento e la verifica periodica degli
-amministratori di sistema. Contromisure tecniche: separazione dei compiti, catena di hash
+amministratori di sistema. Contromisure tecniche: separazione dei compiti, catena di impronte
 dell'audit con **conservazione presso un soggetto o un sistema distinto** (§ 9.4), cifratura a
 livello di campo con chiavi non accessibili all'amministratore della base dati (§ 7.4),
 controllo duale sulle operazioni più sensibili.
@@ -521,7 +521,7 @@ flowchart TB
     end
 
     subgraph AUDIT["Zona del registro — conservazione separata"]
-        LOG[("Registro degli accessi<br/>append-only, catena di hash")]
+        LOG[("Registro degli accessi<br/>append-only, catena di impronte")]
     end
 
     PZ -- "TLS, token utente" --> GW
@@ -1107,7 +1107,7 @@ firma asimmetrica.
   credenziali a scadenza generate dal servizio applicativo è basato su HMAC; la meccanica sta
   in [08 § 11.2](08-webrtc-da-zero.md).
 - **Derivazione di chiavi**, tramite HKDF (§ 3.6).
-- **Anelli della catena di hash del registro degli accessi**, quando si vuole che la catena
+- **Anelli della catena di impronte del registro degli accessi**, quando si vuole che la catena
   non sia semplicemente ricalcolabile da chi possiede i dati (§ 5.6).
 
 **Una regola implementativa che sembra pedanteria e non lo è.** Il confronto fra il MAC
@@ -1149,7 +1149,7 @@ riordina gli eventi produce impronte che non tornano.
 
 **Perché da sola non basta.** Chi ha pieni privilegi può alterare l'evento 2 **e ricalcolare
 tutti gli hash successivi**. La catena è internamente coerente e l'alterazione è invisibile.
-Questa è la ragione per cui una catena di hash conservata **soltanto** nel sistema che la
+Questa è la ragione per cui una catena di impronte conservata **soltanto** nel sistema che la
 genera non prova nulla contro il gestore di quel sistema — che è esattamente l'avversario A5
 del § 2.4.
 
@@ -1173,11 +1173,11 @@ del § 2.4.
 decisione **D42** stabilisce esplicitamente che il versionamento delle entità **non è** un
 registro immutabile, e che il vincolo **V5**, il requisito R30 delle linee guida AgID sul
 procurement ICT, la misura ABSC 3.5.1 della Circolare AgID 2/2017 e il requisito `PR.PS-04`
-delle specifiche di base ACN richiedono catena di hash **e** conservazione separata dal sistema
+delle specifiche di base ACN richiedono catena di impronte **e** conservazione separata dal sistema
 che genera gli eventi. La decisione lo qualifica come «lo sforzo maggiore dell'intero catalogo
 di sicurezza», da pianificare come tale e non come configurazione. Il § 9 lo tratta per esteso.
 
-**Nota terminologica, per sgombrare il campo.** Una catena di hash **non** è una blockchain.
+**Nota terminologica, per sgombrare il campo.** Una catena di impronte **non** è una blockchain.
 Una blockchain aggiunge a questa struttura un meccanismo di consenso distribuito fra parti che
 non si fidano l'una dell'altra, che qui non serve: le parti sono note, il custode è
 identificato, e il problema è la non alterabilità verso un terzo, non l'accordo fra pari.
@@ -1350,7 +1350,7 @@ Serve a due cose distinte:
    stata apposta quando il certificato era valido. Per la conservazione decennale è la
    differenza fra un documento verificabile e uno che non lo è più.
 
-Ed è anche il meccanismo che chiude la catena di hash del registro degli accessi (§ 5.6): il
+Ed è anche il meccanismo che chiude la catena di impronte del registro degli accessi (§ 5.6): il
 sigillo periodico non è soltanto firmato, è marcato temporalmente, perché ciò che si vuole
 dimostrare è che quella sequenza di eventi esisteva in quella forma **a quella data**.
 
@@ -1959,7 +1959,7 @@ Le fonti che impongono di andare oltre sono quattro e concordano: il vincolo **V
 progetto; il requisito **R30** delle linee guida AgID sulla sicurezza nel procurement ICT; la
 misura **ABSC 3.5.1** della Circolare AgID 18 aprile 2017, n. 2/2017; il requisito `PR.PS-04`
 delle specifiche di base ACN adottate con la **Determinazione ACN n. 379907 del 19 dicembre
-2025**. La decisione **D42** ne trae la conclusione operativa: servono **catena di hash e
+2025**. La decisione **D42** ne trae la conclusione operativa: servono **catena di impronte e
 conservazione separata dal sistema che genera gli eventi**, ed è «lo sforzo maggiore
 dell'intero catalogo di sicurezza», da pianificare come tale.
 
@@ -1969,7 +1969,7 @@ autonoma — sapere quale era il valore della soglia di allerta il giorno in cui
 scattata. Sono due funzioni diverse che convivono. Il difetto è **spacciare l'una per l'altra**
 nella documentazione di conformità.
 
-### 9.4 Come si costruisce: catena di hash e conservazione separata
+### 9.4 Come si costruisce: catena di impronte e conservazione separata
 
 L'architettura che soddisfa i quattro requisiti è composta da quattro elementi.
 
@@ -1978,7 +1978,7 @@ cancellazione. Non «non le usiamo»: **non esistono**, né nel codice né nei p
 all'utenza applicativa sulla persistenza. Un'utenza che possiede il permesso di modifica su una
 tabella di registro è una vulnerabilità, indipendentemente da come il codice si comporta.
 
-**Secondo: catena di hash.** Ogni evento contiene l'impronta del precedente, secondo la
+**Secondo: catena di impronte.** Ogni evento contiene l'impronta del precedente, secondo la
 costruzione del § 5.6. La catena è **per tenant**, con un'ancora iniziale nota, così che
 l'isolamento del vincolo V4 valga anche qui e la verifica di un tenant non richieda di leggere
 gli eventi di un altro.
@@ -2002,7 +2002,7 @@ riscrivere tutto coerentemente.
 ```mermaid
 flowchart LR
     subgraph GEN["Sistema che genera gli eventi"]
-        APP["Servizi applicativi"] -- "sola aggiunta" --> CH[("Registro locale<br/>catena di hash per tenant")]
+        APP["Servizi applicativi"] -- "sola aggiunta" --> CH[("Registro locale<br/>catena di impronte per tenant")]
     end
     subgraph SEP["Conservazione separata — altra autorità amministrativa"]
         COPY[("Copia in sola aggiunta<br/>credenziali di sola scrittura")]
@@ -2027,7 +2027,7 @@ flowchart LR
 ```
 
 **Un problema pratico che va risolto in fase di progettazione e non dopo: la concorrenza.** Una
-catena di hash è intrinsecamente sequenziale — per calcolare l'anello *n* serve l'anello *n−1* —
+catena di impronte è intrinsecamente sequenziale — per calcolare l'anello *n* serve l'anello *n−1* —
 mentre un sistema che serve molte richieste in parallelo produce eventi contemporaneamente.
 Le strategie sono tre, con compromessi diversi: **serializzare** la scrittura del registro
 attraverso un componente unico per tenant, il che è semplice e introduce un collo di bottiglia;
@@ -2099,7 +2099,7 @@ autorizzate della configurazione. La verifica è per induzione: si supera delibe
 ciascuna soglia e si constata l'emissione dell'allarme.
 
 **Un'osservazione sul valore probatorio dell'ordine temporale.** Il momento di ciascun evento è
-attestato dall'orologio del componente che lo produce, che è alterabile. La catena di hash
+attestato dall'orologio del componente che lo produce, che è alterabile. La catena di impronte
 attesta l'**ordine** degli eventi, che è una proprietà più forte e più difficile da falsificare;
 i sigilli marcati temporalmente ancorano quell'ordine a istanti certi. Le tre cose insieme —
 orologi sincronizzati, catena, sigilli — producono una cronologia difendibile; nessuna delle tre
@@ -2391,7 +2391,7 @@ documentazione di sicurezza un deliverable di prodotto e non un adempimento acce
 
 Un controllo di sicurezza applicato dopo che l'architettura è fissata può soltanto filtrare,
 non correggere. Se il modello di autorizzazione non prevede la relazione di cura, nessun
-apparato di rete la introdurrà; se il registro non ha una catena di hash dal primo evento
+apparato di rete la introdurrà; se il registro non ha una catena di impronte dal primo evento
 scritto, non gliela si aggiunge dopo per gli eventi già scritti; se le dipendenze non sono
 censite da subito, censirle a posteriori costa — secondo la decisione **D45** — **tre-cinque
 volte tanto**.
@@ -2763,7 +2763,7 @@ forma in cui si applicano mentre si scrive codice o si rivede una proposta di mo
    sopravvivere all'obsolescenza, minaccia quantistica compresa.
 9. **Le funzioni di hash veloci sono la scelta sbagliata per le password**, e il sale non
    sostituisce il costo: servono entrambi, contro avversari diversi.
-10. **Una catena di hash conservata solo nel sistema che la genera non prova nulla contro chi
+10. **Una catena di impronte conservata solo nel sistema che la genera non prova nulla contro chi
     gestisce quel sistema.** Servono conservazione separata e sigilli firmati e marcati
     temporalmente.
 11. **Solo la firma qualificata è equiparata per legge all'autografa** (art. 25, par. 2 eIDAS), e
@@ -2813,7 +2813,7 @@ forma in cui si applicano mentre si scrive codice o si rivede una proposta di mo
 | **Autorità di certificazione** | Entità che emette certificati attestando il legame fra una chiave pubblica e un'identità |
 | **Autorizzazione** | Determinazione di cosa un soggetto autenticato può fare su una risorsa specifica in un contesto |
 | **Catena di fiducia** | Sequenza di certificati che dal certificato finale risale a una radice presente nell'archivio fidato |
-| **Catena di hash** | Struttura in cui ogni elemento contiene l'impronta del precedente, così che ogni alterazione o rimozione sia rilevabile |
+| **Catena di impronte** | Struttura in cui ogni elemento contiene l'impronta del precedente, così che ogni alterazione o rimozione sia rilevabile |
 | **Certificato X.509** | Documento elettronico che lega una chiave pubblica a un'identità, firmato da un'autorità di certificazione (RFC 5280) |
 | **Cifrario a blocchi** | Algoritmo che trasforma blocchi di dimensione fissa sotto il controllo di una chiave |
 | **Cifrario a flusso** | Algoritmo che genera un flusso di chiave combinato bit a bit con il testo in chiaro |

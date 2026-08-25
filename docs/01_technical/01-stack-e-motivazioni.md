@@ -35,7 +35,7 @@ versione e con quale ripiego.
 
 **Vincolante per base architetturale.** `04_BASELINE_ARCHITETTURALE.md` aggiunge decisioni
 che questo capitolo recepisce senza rinegoziare: outbox transazionale su PostgreSQL come unica
-sorgente degli eventi in uscita (§5), registro immutabile a catena di hash separato dal sistema
+sorgente degli eventi in uscita (§5), registro immutabile a catena di impronte separato dal sistema
 che genera gli eventi (§6), uno schema per tenant con sicurezza a livello di riga come difesa
 in profondità (§4), gateway unico verso le terminologie (§7), server di relay in versione
 minima 4.17.2 (§9).

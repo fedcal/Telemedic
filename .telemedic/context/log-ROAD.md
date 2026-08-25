@@ -160,3 +160,162 @@ riscritta; le sole modifiche alla bacheca sono **aggiunte** in coda alle due tab
    non riscritto: la sequenza è la parte robusta del piano, le date sono la parte derivata.
 5. **Se `Q-180` viene chiusa su un'opzione diversa dalla prima**, cambiano `02` §4 e `04` §3, e
    `05` va rivisto su `R-03` e `R-16`, che sono i rischi che l'opzione 2 aggrava.
+
+---
+
+# Terza sessione — rilavorazione dopo `D53`…`D58` (25 agosto 2026)
+
+> **Il committente ha deciso.** L'area non è stata riscritta da zero: è stata **rilavorata** sulle
+> decisioni prese. Le questioni `Q-180`, `Q-181`, `Q-182` e `Q-144` sono chiuse e **non sono state
+> riaperte**; l'alternativa che l'orchestrazione aveva raccomandato su `Q-180` **non è stata
+> riproposta in alcuna forma**, e nessun testo dell'area contiene avvertenze che rimettano in
+> discussione `D53`.
+
+## 10. Le decisioni recepite
+
+| # | Decisione | Effetto sull'area |
+|---|---|---|
+| `D53` | Il 30 novembre 2026 resta il **primo rilascio installabile** | `T-10` datato e `[IMPEGNO]`; ambito ridotto; nuova sezione `03` §5 sui tagli e `03` §6 sull'ordine di sacrificio |
+| `D54` | **Contributore unico, a tempo parziale** | `H1`/`H2`/`H3` decadute; `R-01` **chiuso**; nuovi `R-28` e `R-29`; nuovo `V-281`; nuovo §9-bis di `01` |
+| `D55` | Destinazione d'uso del telemonitoraggio congelata sulla **raccolta differita** | Attività di classe `A` n. 5 di `01` §5.1 marcata **soddisfatta**; `OL-01` non è più lavoro a rischio di riscrittura; divieto permanente propagato in `03` §4.1 e `04` §§4 e 7 |
+| `D56` | Traduzione **assistita area per area** con controllo di divergenza; **emenda `D52`** | `T-06` ridotto alle aree prerequisito, resto in `T-09`; `T-03` criterio 3 differenzia il controllo fra bloccante e segnalante; `R-03` da `I4` a `I3`; `V-183` emendato in bacheca |
+| `D57` | La roadmap è **pianificazione interna del progetto** | Eliminata ogni attribuzione a «terzi» e a «chi certifica»; `T-13` rientra nella roadmap interna; `V-180` riformulato da `V-280` |
+| `D58` | Il **ruolo di fabbricante sarà assunto dal progetto**, soggetto da costituire | Nuovo traguardo `T-14` (classe `B`, 19 settembre 2026); nuovo rischio `R-30`; `R-06` e `R-07` diventano rischi del progetto con impatto ricalcolato; nuova questione `Q-280`; `01` §5.2 riscritto da «attività che il progetto non assume» ad «attività che il progetto assume» |
+
+**Che cosa non è stato attenuato, ed è verificabile sul testo.** In ogni capitolo compare, con la
+stessa evidenza di prima, che **oggi il prodotto non reca marcatura CE**, non è coperto da alcuna
+dichiarazione di conformità, non è utilizzabile su pazienti reali, e che **chi installa, integra o
+mette in servizio assume comunque gli obblighi che ne derivano**. **In nessun punto dell'area si
+scrive che il prodotto sarà marcato entro una data** (`V-171`): la verifica è testuale ed è stata
+eseguita su tutti e sei i file.
+
+## 11. La riduzione di ambito, e come è stata resa leggibile
+
+Il nucleo del lavoro è `03` §5, che non esisteva. Contiene **ventitré tagli** con designazione
+`TG-nn`, ciascuno con: che cos'era, perché è uscito, **se è reversibile**, che cosa comporta per chi
+installa.
+
+| Categoria | Voci | Nota |
+|---|---|---|
+| **Reversibili** | `TG-01`…`TG-19` | Diciannove. Rientrano in coda in `04` come `OL-15`…`OL-20` |
+| **Irreversibili** | `TG-20`…`TG-23` | Quattro, trattate una per una in prosa distesa e marcate in modo non equivocabile |
+
+I quattro irreversibili, che sono l'informazione centrale dell'intero documento:
+
+1. **`TG-20` — registrazioni a ruoli distinti** (riesame del rilascio, audit interno, verifica di
+   configurazione indipendente). Irreversibile perché una registrazione datata a un periodo non si
+   produce dopo. Discende direttamente da `D54`. → `R-29`, `Q-189`, `OL-22`.
+2. **`TG-21` — revisione esterna indipendente del codice di sicurezza critico** (`D18`).
+   **Irreversibile per il periodo**: recuperabile come attività, non come stato del rilascio.
+3. **`TG-22` — valutazione formativa di usabilità** durante lo sviluppo. Irreversibile perché è
+   contemporanea per definizione alle decisioni che valuta. Nota redazionale applicata: la verifica
+   manuale con tecnologia assistiva che `T-08` criterio 7 richiede **non va chiamata valutazione
+   formativa**, e il testo lo dice tre volte in tre file.
+4. **`TG-23` — ancoraggio periodico firmato del registro immutabile**. **Irreversibile per il
+   periodo**. La **copertura** del registro non è stata toccata: è nell'elenco del debito vietato.
+
+**Che cosa non si è potuto tagliare** è al §5.4 di `03`, ed è la metà mancante dell'informazione:
+copertura del registro degli accessi, verifica delle chiavi, avviso di qualità, consenso, isolamento
+fra tenant, assenza di contenuto clinico nelle uscite, convivenza di due versioni sulla stessa base
+dati, e i diciotto criteri di rilascio bloccanti in blocco.
+
+**L'ordine di sacrificio** (`03` §6) è la novità di metodo: sette righe `S-1`…`S-7`, eseguibili
+dall'alto, **solo tagli reversibili**, ogni esecuzione registrata. È il margine del piano, dato che
+il piano non ha margine di tempo, ed è la contromisura primaria di `R-28`.
+
+## 12. I traguardi ricostruiti
+
+Nove traguardi fino al 30 novembre 2026, ciascuno con **criterio binario, innesco e titolare**.
+
+| # | Traguardo | Classe | Data | Titolare |
+|---|---|:-:|---|---|
+| `T-01` | Artefatti retroattivamente irrecuperabili in esercizio | `A` | 12 set. 2026 | Contributore unico |
+| `T-14` | **Percorso di fabbricante avviato** (nuovo, `D58`) | `B` | 19 set. 2026 | Committente |
+| `T-03` | Catena di costruzione **minima bloccante** | `A` | 26 set. 2026 | Contributore unico |
+| `T-07` | Sito: controlli bloccanti attivi e verifica registrata | `D` | 26 set. 2026 | Contributore unico |
+| `T-04` | Verifiche empiriche **ridotte al perimetro effettivo** | `C` | 3 ott. 2026 | Contributore unico |
+| `T-05` | Decisioni con scadenza anteriore al codice | `C` | 3 ott. 2026 | Committente |
+| `T-02` | Corpo documentale **al minimo prerequisito** | `D` | 10 ott. 2026 | Contributore unico |
+| `T-08` | Scheletro e percorso verticale **ridotto** | `D` | 14 nov. 2026 | Contributore unico |
+| `T-06` | Traduzione delle **sole aree prerequisito** | `D` | 21 nov. 2026 | Contributore unico |
+| `T-10` | **`RU-1`, primo rilascio installabile** | `D` | **30 nov. 2026** | Contributore unico; **riesame senza titolare interno** |
+
+`T-09` è nuovo (traduzione integrale residua, 2027). `T-11`, `T-12` e `T-13` restano, con `T-13`
+riportato **dentro** la roadmap interna ai sensi di `D57`.
+
+**Nota di metodo sulle date.** Non sono stime e il documento lo dichiara: `[NV]` — «a tempo
+parziale» non è quantificato, e nessuna cifra è stata inventata. Sono **allocazioni del calendario
+residuo** a una sequenza vincolata, e ciò che protegge la data è l'ordine di sacrificio, non una
+previsione di sforzo (`01` §4.1, `V-282`).
+
+## 13. Il registro dei rischi
+
+Da ventisette a **trenta voci**, con una chiusa.
+
+| Voce | Variazione |
+|---|---|
+| `R-01` | **CHIUSO** da `D54`, con dichiarazione di ciò che **non** si chiude con esso |
+| `R-02` | Riformulato: da `Alta` ad **`Accertato`**, e ridotto alla sola **continuità**; la parte sui ruoli distinti è estratta in `R-29` |
+| `R-28` | **NUOVO — rischio dominante.** Data pubblica ravvicinata con capacità dichiarata bassa. `Alta` / `I4`. Indicatore anticipatore misurabile ogni settimana: **righe residue dell'ordine di sacrificio** |
+| `R-29` | **NUOVO.** Registrazioni a ruoli distinti non producibili, con perdita **che si ripete a ogni rilascio**. `Accertato` / `I5` |
+| `R-30` | **NUOVO.** Ruolo di fabbricante non ancora costituito. `Accertato` / `I3 crescente`, di classe `B` |
+| `R-03` | Da `I4` sul traguardo 2026 a `I3` sul piano 2027, per effetto di `D56` |
+| `R-06`, `R-07` | Titolare da «chi certifica» a **progetto**; impatto da `I0`/indiretto a `I3` sul nostro piano |
+| `R-22` | Esteso alla persona responsabile del rispetto della normativa; **non è più ammesso trasferire con dichiarazione** |
+| `R-17` | Quattro decisioni su sette chiuse; due nuove entrate (`Q-280`, `Q-281`) |
+| `R-19`, `R-23`, `R-25`, `R-27`, `R-20`, `R-15` | Riformulati sull'effetto della riduzione di ambito, dichiarando dove il rischio **è già materializzato** in un taglio |
+| `R-24`, `R-10` | Riformulati: sotto `D53` una deviazione **non ritarda, riduce**; sotto `D54` l'indicatore di `R-10` non può più dipendere dalla revisione fra pari e diventa automatico |
+
+**Nuova famiglia di dipendenze** in `05` §3: *funzioni che richiedono un soggetto distinto*, ed è
+**l'unica famiglia senza modalità degradata**. Il §3.1 lo dichiara senza attenuazioni: non esiste una
+versione degradata di un riesame.
+
+## 14. Voci di bacheca aperte da questa sessione
+
+L'intervallo `V-180`…`V-189` e `Q-180`…`Q-189` era esaurito: si è proseguito a `V-280`/`Q-280` come
+previsto. **Nessuna voce altrui è stata rinumerata o riscritta.**
+
+| # | A | Oggetto | Punto di decisione |
+|---|---|---|---|
+| `V-280` | tutte | La roadmap è pianificazione interna (`D57`, `D58`); una data interna **non è una promessa di esito** | — |
+| `V-281` | tutte, `COMP` | Nessun traguardo entra nel piano se richiede due soggetti distinti e il secondo non esiste | — |
+| `V-282` | tutte | L'ambito è l'unica variabile libera; ordine di sacrificio di soli tagli reversibili; se si esaurisce, data dichiarata mancata | — |
+| `Q-280` | → **ORCH** | Costituzione del soggetto fabbricante e persona responsabile del rispetto della normativa | **19 set. 2026** |
+| `Q-281` | `PROD`, → **ORCH** | Differenza fra ciò che il materiale pubblico dichiara e ciò che `RU-1` consegna | 31 ott. 2026 |
+| `Q-282` | `COMP` | **Forma** della dichiarazione delle lacune datate nel fascicolo (`Q-189` decide la ripartizione) | Prima di `T-10` |
+
+**Voci altrui aggiornate, non riscritte**: `V-183` (emendato da `D56`, con nota in coda alla riga);
+`Q-189` (stato arricchito con punto di decisione, esito predefinito e rinvii a `R-29`, `TG-20`,
+`OL-22`).
+
+## 15. Verifiche di mandato eseguite
+
+| Regola | Verifica |
+|---|---|
+| Non rilitigare `D53` | Nessuna occorrenza dell'alternativa «fondamenta e documentazione» in alcun file; nessun avvertimento che metta in discussione la data. `02` §2.2 espone la **conseguenza** — l'ambito è l'unica variabile libera — e non l'alternativa |
+| Ogni traguardo ha criterio binario, innesco e titolare | Tutti e quattordici i traguardi di `02` portano i tre campi. Dove il titolare non esiste è scritto che non esiste (`T-10`, riesame) |
+| Niente stime inventate | `[NV]` esplicito sulle ore settimanali; le durate sono dichiarate **allocazioni** e non stime; nessuna cifra nuova introdotta; la durata di `T-14` criterio 1 è dichiarata non stimabile |
+| Tagli irreversibili marcati come tali | Quattro voci in `03` §5.3, ciascuna con intestazione **IRREVERSIBILE** o **IRREVERSIBILE PER IL PERIODO**, riquadro d'apertura del §5.3, riga in `02` §4.2, limiti 2, 12, 23 e 24 in `03` §9, criterio bloccante 17 |
+| Ripartizione lasciata aperta in `Q-189` | Dichiarata aperta in `01` §9-bis, `02` §2.3, `03` §5.3, `04` `OL-22`, `05` `R-29`, `00` §10 — con l'**esito predefinito** dichiarato in anticipo |
+| `R0` | Nessun nome di azienda, marchio, prodotto o dominio. `R-10` descritto strutturalmente |
+| Frontmatter | Nessuna descrizione contiene la sequenza due punti più spazio: si usano trattini lunghi |
+| URL assoluti per i file alla radice | `NOT-A-MEDICAL-DEVICE.md` e `DISTRIBUTION-POLICY.md` citati con indirizzo assoluto in `00` e in `05` |
+| Voci `OL-nn` e `DS-nn` nella forma già adottata | `OL-01`…`OL-14` e `DS-01`…`DS-07` conservati; aggiunti `OL-15`…`OL-22`. **Nessuna rinumerazione**: `04` §1.1 dichiara esplicitamente che il numero non è la posizione in coda |
+
+## 16. Note per chi riprenderà quest'area
+
+1. **`03` §5 e §6 sono il cuore dell'area**: se l'ambito cambia ancora, si aggiornano quelli e poi si
+   propaga. Un taglio nuovo entra come `TG-24` e va classificato **prima** di essere eseguito.
+2. **Ogni esecuzione di una riga dell'ordine di sacrificio è un innesco di revisione fuori cadenza**
+   (`00` §8.2) e va registrata con data e causa. È il punto in cui l'area si degrada per prima se la
+   disciplina cede.
+3. **Dal 19 ottobre 2026 la revisione è settimanale**, con due soli numeri: righe residue
+   dell'ordine di sacrificio e criteri bloccanti soddisfatti.
+4. **La conclusione di `04` §6 si è capovolta** rispetto alla versione precedente: dopo i tagli,
+   dodici voci di coda su ventidue dipendono soltanto dalla capacità, quindi **aumentare la capacità
+   ora accorcia la coda**. Se la capacità cambia, quella osservazione va rifatta e non copiata.
+5. **`Q-280` è la voce con il rapporto più alto fra costo in ore e costo in mesi** di tutta l'area:
+   se una sola decisione va sollecitata, è quella.
+6. Restano da fare, e non sono di quest'area: la traduzione inglese dell'area
+   (`i18n/en/docs/09_roadmap/`), e il riallineamento a `D58` delle avvertenze pubbliche e dei
+   capitoli `00`, `02`, `03` e `04` dell'area di conformità, che `T-01` criterio 8 rende bloccante.

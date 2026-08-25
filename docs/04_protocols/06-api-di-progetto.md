@@ -156,7 +156,7 @@ Semantica adottata:
   destinazione per gli eventi, rigioco di una consegna;
 - ambito della chiave: la quaterna **tenant, client, operazione, chiave**. Due tenant che usano
   la stessa stringa non collidono;
-- **ritenzione ventiquattro ore** (proposta P-01 del capitolo [01 §5](./01-principi-di-interoperabilita.md));
+- **ritenzione ventiquattro ore** (proposta P-04 del capitolo [01 §5](./01-principi-di-interoperabilita.md));
 - si memorizza **l'impronta del corpo della richiesta** insieme alla risposta prodotta;
 - stessa chiave e **stesso corpo**, richiesta già conclusa → si rigioca la risposta memorizzata,
   **byte per byte**, con un'intestazione di progetto che dichiara il rigioco;

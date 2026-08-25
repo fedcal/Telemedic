@@ -159,14 +159,14 @@ non ignorarle.
 | **V-150** | Il registro immutabile e i log applicativi **non contengono contenuto clinico**; i log di diagnostica non portano identificativi diretti dell'assistito | [04 §3](./04-tracciamento.md) |
 | **V-151** | Il servizio esterno di terminologia **non riceve identificativi dell'assistito**; nessuna cache persistita su disco | [03 §6](./03-protezione-dei-dati.md), [07 §7](./07-catena-di-fornitura.md) |
 | **V-152** | Conservazione: **24 mesi** per i log di tracciabilità, **12 mesi** per i dati di accesso e autenticazione | [04 §5](./04-tracciamento.md) |
-| **V-153** | L'**accesso d'emergenza è requisito funzionale**: motivazione libera obbligatoria, finestra e perimetro limitati, notifica, riesame con esito registrato | [02 §8](./02-identita-e-accessi.md) |
+| **V-153** | L'**accesso d'emergenza è requisito funzionale**: motivazione libera obbligatoria, finestra e perimetro limitati, notifica, riesame con esito registrato | [02 §10](./02-identita-e-accessi.md) |
 | **V-154** | Un livello di autenticazione **riferito da un integratore** va marcato come tale e **non** soddisfa i requisiti di autenticazione forte ex art. 64 CAD | [02 §4](./02-identita-e-accessi.md) |
 | **V-155** | Nessuna metrica infrastrutturale del relay può essere etichettata con l'identificativo di sessione | [05 §7](./05-sicurezza-del-tempo-reale.md) |
 | **V-156** | Il progetto **non dichiara** versioni di protocollo né suite crittografiche negoziate: le **misura per sessione e le registra** | [03 §2](./03-protezione-dei-dati.md), [05 §2](./05-sicurezza-del-tempo-reale.md) |
 | **V-157** | **Mediatore unico di uscita**: nessun componente applicativo apre connessioni verso destinazioni derivate da un dato in ingresso; l'uscita è negata a livello di rete a tutti tranne che al mediatore | [06 §8](./06-sicurezza-applicativa.md) |
 
 E i vincoli altrui che quest'area recepisce senza discuterli: **V-04** (il registro immutabile
-è a catena di hash e conservazione separata; il versionamento delle entità non lo sostituisce),
+è a catena di impronte e conservazione separata; il versionamento delle entità non lo sostituisce),
 **V-05** (il progetto è conforme e verificabile, **non accreditato**), **V-06** (il progetto non
 appone marcatura CE), **V-10** (server di relay: versione minima 4.17.2 e isolamento di rete in
 uscita come difesa primaria), **V-11** (contenitore di registrazione negoziato a runtime),

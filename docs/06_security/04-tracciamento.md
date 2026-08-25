@@ -1,12 +1,12 @@
 ---
 title: Tracciamento
 sidebar_position: 5
-description: Il registro immutabile — perché il versionamento delle entità non lo è, catena di hash e conservazione separata, che cosa si registra e che cosa non si registra, conservazione a 24 e 12 mesi, esportazione con impronta entro il giorno successivo, orologio sincronizzato, accesso al registro stesso.
+description: Il registro immutabile — perché il versionamento delle entità non lo è, catena di impronte e conservazione separata, che cosa si registra e che cosa non si registra, conservazione a 24 e 12 mesi, esportazione con impronta entro il giorno successivo, orologio sincronizzato, accesso al registro stesso.
 ---
 
 # Tracciamento
 
-> **Presupposto di lettura.** Che cos'è una catena di hash, perché lega l'integrità di una
+> **Presupposto di lettura.** Che cos'è una catena di impronte, perché lega l'integrità di una
 > sequenza, che cos'è il non ripudio e in che cosa differisce dall'integrità, e perché un
 > registro alterabile non prova nulla:
 > [10 §12 — Crittografia e sicurezza, §§1.5, 5.6, 9](../10_fondamenti/12-crittografia-e-sicurezza.md).
@@ -143,7 +143,7 @@ confusione:
 | **Log di sicurezza** | Rilevare | Secondo la politica di chi installa, esportati verso il sistema di correlazione | Eventi di sicurezza, identificativi presenti |
 | **Log di diagnostica** | Capire un malfunzionamento | Breve | **Nessun identificativo diretto dell'assistito**, nessun contenuto |
 
-## 4. Come si costruisce: catena di hash e conservazione separata
+## 4. Come si costruisce: catena di impronte e conservazione separata
 
 ### 4.1 La catena
 
@@ -188,7 +188,7 @@ eventi**. Separatamente significa, come minimo:
   compromessa, il registro fino al momento della compromissione deve restare valido.
 
 **La forma tecnica concreta non è decisa da quest'area.** Le opzioni in campo sono almeno
-quattro: catena di hash applicativa su archivio dedicato; archiviazione a sola aggiunta imposta
+quattro: catena di impronte applicativa su archivio dedicato; archiviazione a sola aggiunta imposta
 dal supporto; scrittura singola su oggetto con blocco di ritenzione; firma periodica con marca
 temporale. Hanno costi, garanzie e dipendenze diversi. È la **questione Q-150** della bacheca,
 indirizzata all'architettura, e va chiusa con un documento di decisione architetturale.
@@ -346,7 +346,7 @@ Per simmetria con l'onestà richiesta al capitolo [03 §5](./03-protezione-dei-d
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| Q-150 | **Documento di decisione architetturale sul registro immutabile**: catena di hash applicativa, archiviazione a sola aggiunta, scrittura singola su oggetto, o firma periodica con marca temporale (§4.2) | Architettura |
+| Q-150 | **Documento di decisione architetturale sul registro immutabile**: catena di impronte applicativa, archiviazione a sola aggiunta, scrittura singola su oggetto, o firma periodica con marca temporale (§4.2) | Architettura |
 | Q-152 | Livelli di servizio attesi ai fini del monitoraggio continuo, distinti da quelli previsti dal decreto sulle infrastrutture regionali: la tipologia di incidente sui livelli di servizio dipende da valori che il cliente definisce, e il prodotto deve saperli misurare | Architettura, roadmap |
 | Q-158 | Punto e periodicità dell'ancoraggio esterno dell'impronta cumulativa (§4.1) | Architettura |
 | — | Soglie predefinite degli indicatori del §7: sono **specifica di prodotto, mai conformità** (V-12), e vanno tarate con chi installa | Funzionale |

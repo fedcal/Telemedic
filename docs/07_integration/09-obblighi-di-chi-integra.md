@@ -291,7 +291,7 @@ a dichiarare. Il progetto la fornisce per sé come deliverable; voi dovete produ
 > **Un meccanismo di versionamento delle entità versiona, non rende immutabile.** Chi ha accesso
 > in scrittura alla base dati può alterare anche le tabelle di versione.
 
-Ciò che serve — e che i requisiti applicabili richiedono — è una **catena di hash** con
+Ciò che serve — e che i requisiti applicabili richiedono — è una **catena di impronte** con
 **conservazione separata dal sistema che genera gli eventi**. Il progetto lo implementa; se
 sostituite la destinazione delle tracce ([08 §4](08-moduli-sostituibili.md)), **la proprietà di
 immutabilità diventa una vostra responsabilità**, e va dimostrata, non dichiarata.
@@ -457,7 +457,7 @@ Legenda: **P** progetto · **I** integratore o chi mette in servizio · **C** cl
 | 13 | Dati | Rispondere alle richieste degli interessati | | I | **C** |
 | 14 | Dati | Notificare le violazioni all'autorità e agli interessati | | I | **C** |
 | 15 | Dati | Fornire le funzioni tecniche che rendono esercitabili i diritti | **P** | | |
-| 16 | Sicurezza | Registro a catena di hash con conservazione separata | **P** | I se sostituito | |
+| 16 | Sicurezza | Registro a catena di impronte con conservazione separata | **P** | I se sostituito | |
 | 17 | Sicurezza | Determinare il proprio termine di adeguamento | | I | **C** |
 | 18 | Sicurezza | Dichiarare i fornitori rilevanti all'autorità | | | **C** |
 | 19 | Sicurezza | Fornire i dati che il cliente deve dichiarare | **P** | **I** | |
@@ -494,7 +494,7 @@ nessuno. Vanno assegnate nominativamente nel vostro contratto.
 | 4 | I termini di conservazione sono **configurati**, non ereditati dai valori predefiniti | ☐ |
 | 5 | L'informativa sulla registrazione dichiara che la sessione **non è più cifrata fino agli estremi** | ☐ |
 | 6 | La procedura di violazione copre **tutte e tre** le discipline, con i rispettivi termini | ☐ |
-| 7 | Il registro delle tracce ha catena di hash e conservazione separata, anche se ne abbiamo sostituito la destinazione | ☐ |
+| 7 | Il registro delle tracce ha catena di impronte e conservazione separata, anche se ne abbiamo sostituito la destinazione | ☐ |
 | 8 | Le licenze delle terminologie abilitate sono acquisite, **anche per gli ambienti non di produzione** | ☐ |
 | 9 | Nessun ambito, evento o modulo consente a un pagatore di ottenere contenuto clinico | ☐ |
 | 10 | La dichiarazione di accessibilità del servizio è pubblicata | ☐ |

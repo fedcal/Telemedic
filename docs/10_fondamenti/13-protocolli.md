@@ -524,7 +524,7 @@ D19), non elenchi copiati da guide di configurazione.
   presa consapevolmente, perché entrambe le risposte hanno un costo.
 - **Considerare TLS sufficiente per il non ripudio.** TLS protegge il canale; non produce
   alcuna prova opponibile a un terzo su chi ha inviato che cosa. Per quello servono firme sui
-  messaggi (§6.3) e una catena di hash sull'audit (decisione D42).
+  messaggi (§6.3) e una catena di impronte sull'audit (decisione D42).
 
 **Alternative scartate.** Cifrare a livello applicativo lasciando il trasporto in chiaro:
 scartato perché espone intestazioni e metadati e perché nessuno implementa correttamente una
@@ -3295,7 +3295,7 @@ emersa da una ricerca superficiale.
    comportamento in caso di perdita, duplicazione, disordine e controparte ostile è parte
    della specifica, non un dettaglio implementativo.
 3. **I livelli si presuppongono, non si sostituiscono.** TLS protegge il canale, non prova chi
-   ha scritto il contenuto: per quello servono la firma dei messaggi e la catena di hash
+   ha scritto il contenuto: per quello servono la firma dei messaggi e la catena di impronte
    sull'audit.
 4. **La distinzione fra `4xx` e `5xx` decide se un client ritenta.** È la riga di codice che
    più spesso viene sbagliata, e produce o cicli infiniti o operazioni abbandonate.

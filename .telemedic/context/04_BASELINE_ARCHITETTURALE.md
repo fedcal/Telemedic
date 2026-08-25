@@ -82,7 +82,7 @@ di un altro: si comunica per interfaccia sincrona o per evento.
 
 ## 6. Registro immutabile
 
-- Il tracciamento degli accessi e delle operazioni è **append-only con catena di hash**,
+- Il tracciamento degli accessi e delle operazioni è **append-only con catena di impronte**,
   conservato **separatamente** dal sistema che genera gli eventi.
 - Il versionamento delle entità **non è** un registro immutabile e non può sostituirlo.
 - Il registro non contiene contenuto clinico: contiene chi, cosa, quando, su quale soggetto,

@@ -1611,7 +1611,7 @@ irreversibile:
 
 Tutto questo ricade sotto il vincolo **V5** del progetto — auditabilità immutabile — con
 l'avvertenza registrata nella decisione **D42**: il versionamento delle entità **non è**
-immutabilità, e la non alterabilità richiede catena di hash e conservazione separata dal
+immutabilità, e la non alterabilità richiede catena di impronte e conservazione separata dal
 sistema che genera gli eventi.
 
 ---

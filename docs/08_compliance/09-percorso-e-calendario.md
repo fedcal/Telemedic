@@ -542,7 +542,7 @@ candidato appartiene ai primi trenta giorni e non alla fase di ingaggio dell'org
 | Riferimento | Questione | A chi |
 |---|---|---|
 | `Q-179` | **Se e come pubblicare questo calendario.** Il capitolo contiene date di certificazione riferite a un percorso di terzi. Pubblicarle senza un'avvertenza collocata **sopra** e non sotto è il modo più rapido di produrre esattamente l'affermazione vietata da `V-171`, cioè che il prodotto sarà marcato entro una data. Serve la decisione sulla forma di pubblicazione e sulla sua avvertenza, coerente con `Q-170` e `Q-174` | → Committente |
-| `Q-144` | La destinazione d'uso non è congelata: è il primo punto di decisione irreversibile del § 3.5 e il nodo da cui dipendono quattro rami (§ 1) | → Committente |
+| `Q-144` | **CHIUSA da `D55`.** La destinazione d'uso **è congelata** sulla raccolta differita. Il primo punto di decisione irreversibile del § 3.5 è quindi superato. **Resta però una condizione di `D46` non soddisfatta**: la revisione esterna della formulazione, che è l'unica prescrizione di quella decisione eseguibile **senza** il soggetto fabbricante costituito, e va quindi avviata subito (`Q-275`) | **RISOLTA, con una condizione residua** |
 | `[FONTI SECONDARIE]` | Tutte le cifre del § 2 provengono da indagini di settore non lette sulle pubblicazioni originali: non vanno citate come dati ufficiali | Conformità |
 | `[NV]` | Numerazione dei paragrafi dell'art. 15; obbligo di pubblicazione delle tariffe e collegamento all'elenco mantenuto dalla Commissione (§§ 8.2, 9.1) | Conformità |
 | — | **Nessuna delle date di questo capitolo è un impegno del progetto.** Il progetto ha una sola colonna nel calendario, ed è il § 5 | — |

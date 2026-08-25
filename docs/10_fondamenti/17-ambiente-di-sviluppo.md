@@ -2033,7 +2033,7 @@ decisione.
 
 ---
 
-**Prosegue in**: [18 — Cosa sapere per contribuire](18-come-contribuire-per-area.md), che dice,
+**Prosegue in**: [18 — Cosa sapere per contribuire](18-contribuire-per-area.md), che dice,
 area per area, quali conoscenze servono prima di toccarla. Per il dettaglio tecnico di ciò che
 questo modulo mette in pratica: [`docs/01_technical/08-qualita-e-test.md`](../01_technical/08-qualita-e-test.md)
 e [`docs/01_technical/09-integrazione-continua-e-rilascio.md`](../01_technical/09-integrazione-continua-e-rilascio.md).

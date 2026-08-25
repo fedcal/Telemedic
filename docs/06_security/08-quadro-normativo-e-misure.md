@@ -311,7 +311,7 @@ Sette controlli, se implementati una volta e documentati bene, soddisfano **cinq
 ciascuno**. Sono la priorità assoluta:
 
 1. **Distinta dei materiali firmata e dichiarazione di esposizione** ([07 §§2, 4](./07-catena-di-fornitura.md)).
-2. **Registro a sola aggiunta con catena di hash, conservazione a 24 mesi, esportazione firmata
+2. **Registro a sola aggiunta con catena di impronte, conservazione a 24 mesi, esportazione firmata
    in formato aperto** ([04](./04-tracciamento.md)). **È il singolo elemento di maggiore
    sforzo dell'intero catalogo** e va pianificato come tale.
 3. **Secondo fattore e federazione delle identità sui tre canali nazionali**

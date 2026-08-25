@@ -117,7 +117,7 @@ tipi di servizio che il professionista può erogare per un'organizzazione. Refer
 **Il tracciamento è esposto in sola lettura.** Un `AuditEvent` scrivibile da un client è un
 registro falsificabile. La sorgente degli eventi di tracciamento è interna; l'API li espone per
 la consultazione e l'esportazione, mai per la scrittura. Il registro immutabile in senso proprio
-— catena di hash e conservazione separata — è cosa diversa dalla risorsa FHIR e non è
+— catena di impronte e conservazione separata — è cosa diversa dalla risorsa FHIR e non è
 sostituito da essa: è il vincolo V-04, e appartiene all'area di sicurezza.
 
 ### 3.2 La classe del contatto assistenziale

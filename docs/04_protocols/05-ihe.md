@@ -174,7 +174,7 @@ l'esposizione in sola lettura sulla facciata, sia nel formato XML previsto dalla
 l'invio all'archivio del cliente.
 
 Va detto che **nessuna delle due serializzazioni è il registro immutabile**. Il registro
-immutabile richiesto dal vincolo V-04 è append-only con catena di hash e conservazione separata
+immutabile richiesto dal vincolo V-04 è append-only con catena di impronte e conservazione separata
 dal sistema che genera gli eventi. Queste sono forme di esportazione. Confonderle è l'errore che
 il vincolo V-04 esiste per impedire.
 

@@ -441,7 +441,7 @@ conoscere. La seconda è un atto clinico riservato (`BR-163`).
 
 Tutto questo ricade sotto il vincolo di auditabilità immutabile (**V-04**), con l'avvertenza già
 registrata dal progetto: **il versionamento delle entità non è immutabilità**. La non alterabilità
-richiede catena di hash e conservazione separata dal sistema che genera gli eventi.
+richiede catena di impronte e conservazione separata dal sistema che genera gli eventi.
 
 ## 14. Indicatori di sicurezza
 

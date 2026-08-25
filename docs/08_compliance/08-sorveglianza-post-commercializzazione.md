@@ -1,7 +1,7 @@
 ---
 title: Sorveglianza post-commercializzazione e vigilanza
 sidebar_position: 9
-description: "Due processi con logiche opposte: la sorveglianza che rileva e la vigilanza che segnala. Il piano dell'Allegato III tradotto in capacità di prodotto, gli indicatori e le soglie che riaprono il file di rischio, il rapporto periodico sulla sicurezza e il problema del modello aperto, incidenti gravi e termini, azioni correttive sul campo, il modello a due velocità delle modifiche, chi è titolare degli obblighi quando il software è aperto e il raccordo con la risposta agli incidenti di sicurezza, che ha orologi diversi."
+description: "Due processi con logiche opposte: la sorveglianza che rileva e la vigilanza che segnala. Il piano dell'Allegato III tradotto in capacità di prodotto, gli indicatori e le soglie che riaprono il file di rischio, il rapporto periodico sulla sicurezza e il problema del modello aperto, incidenti gravi e termini, azioni correttive sul campo, il modello a due velocità delle modifiche, chi è titolare degli obblighi quando il software è aperto ora che il progetto intende assumere il ruolo di fabbricante con il soggetto giuridico ancora da costituire, e il raccordo con la risposta agli incidenti di sicurezza, che ha orologi diversi."
 ---
 
 # Sorveglianza post-commercializzazione e vigilanza
@@ -13,9 +13,48 @@ description: "Due processi con logiche opposte: la sorveglianza che rileva e la 
 > il prodotto deve fornire. **Quel capitolo non va riformulato qui.** Il § 8 di questo capitolo vi
 > aggiunge la sola prospettiva mancante, che è quella del fabbricante di dispositivo.
 >
-> **Avvertenza di ripartizione.** Ai sensi di `D28` e `D49` il progetto **non è fabbricante**:
-> nessuno degli obblighi descritti dai §§ 2–6 grava oggi su di esso. Il § 7 dice chi ne è titolare
-> e che cosa il progetto deve comunque fare perché quel titolare possa adempiere.
+> **Avvertenza che governa l'intero capitolo, e va letta prima di ogni termine.** **Il prodotto
+> non reca marcatura CE**, **non è coperto da alcuna dichiarazione di conformità** e **non è
+> utilizzabile per l'erogazione di prestazioni sanitarie su pazienti reali**. **Non esiste alcuna
+> distribuzione identificata marcata**, quindi **non esiste alcun sistema di sorveglianza in
+> esercizio**: nessun piano dell'Allegato III è istituito, nessun rapporto periodico è stato
+> prodotto, nessun canale di segnalazione all'autorità è aperto. È lo stato di fatto da cui il
+> capitolo parte, e nessuna riga di ciò che segue lo attenua.
+>
+> **La titolarità degli obblighi non cambia; cambia chi sarà titolare.** Sorveglianza e vigilanza
+> gravano sul **fabbricante della distribuzione identificata marcata CE** — è il vincolo `V-06`, e
+> `D58` non lo tocca in questa parte. Ciò che `D58` cambia è che quel ruolo **il progetto intende
+> assumerlo**, e **il soggetto giuridico che lo eserciterebbe è ancora da costituire**: gli
+> obblighi dei §§ 2–7 non gravano oggi sul progetto perché non esiste né il soggetto né la
+> distribuzione marcata, non perché riguardino qualcun altro. Il § 8 dice chi ne è titolare e in
+> quale doppia veste il progetto vi si rapporta.
+>
+> **La conseguenza operativa è la sola ragione per cui questa avvertenza sta in testa.** Da quando
+> quegli obblighi saranno nostri, le **capacità di prodotto** che li rendono materialmente
+> soddisfacibili — tassonomia stabile degli eventi contati, conservazione della diagnostica pari
+> alla finestra di vigilanza, tracciabilità delle versioni installate, indicatori che chiudono su
+> righe del registro dei rischi — smettono di essere un servizio reso a un terzo e diventano
+> **infrastruttura del nostro percorso**. Vanno perciò **costruite, non soltanto documentate**, e
+> vanno costruite prima di servire: nessuna di esse è recuperabile a posteriori, perché contano
+> eventi che nel frattempo sono già accaduti o non accaduti (§ 5.2, `V-178`; § 3).
+>
+> **E il varco che questa avvertenza potrebbe aprire, chiuso qui.** Chi legge che il progetto
+> intende assumere il ruolo di fabbricante e ne conclude che esista una sorveglianza a coprirlo
+> trae una conclusione **sbagliata**, e in questo capitolo l'errore è particolarmente insidioso
+> perché la sorveglianza è precisamente il presidio che si suppone attivo quando non lo è.
+> **Nessuno sorveglia le installazioni odierne**: non esiste un canale verso l'autorità, non
+> esiste un rapporto periodico, non esiste un obbligo di notifica di sicurezza sul campo che
+> qualcuno stia adempiendo. Chi installa, integra o mette in servizio il software oggi assume per
+> intero gli obblighi che ne derivano — **e, se costruisce un dispositivo e lo immette sul
+> mercato, è il fabbricante di quel dispositivo** (§ 8.1), con gli obblighi dei §§ 2–7 addosso.
+> L'intenzione del progetto non gliene toglie nessuno.
+>
+> **Sui termini che questo capitolo contiene.** Sono **termini normativi del regime di vigilanza**
+> — ore e giorni dalla conoscenza di un evento — e obblighi contrattuali verso l'utilizzatore:
+> non sono date del progetto e non ne implicano alcuna. Il vincolo `V-171` vieta di affermare o
+> lasciare intendere che il prodotto sarà marcato entro un termine, e questa è l'unica occorrenza
+> ammessa di quella parola in tal senso. Le date del progetto stanno unicamente in
+> [09](./09-percorso-e-calendario.md) e sono pianificazione interna (`D57`).
 
 ## 1. Due processi con logiche opposte
 
@@ -80,7 +119,7 @@ rischio**.
 | Indicatore | Riga di rischio sorvegliata | Che cosa fa scattare il superamento |
 |---|---|---|
 | Frequenza di **sessioni interrotte** e di prestazioni non concluse per causa tecnica | `RM-02` | Riesame dei requisiti dell'ambiente operativo dichiarati nelle istruzioni per l'uso |
-| Frequenza di **allarmi non riscontrati** entro la finestra dichiarata | `RM-13`, `RM-12` | Riesame della copertura oraria dichiarata e della catena di escalation |
+| Frequenza di **allarmi non riscontrati** nella finestra dichiarata | `RM-13`, `RM-12` | Riesame della copertura oraria dichiarata e della catena di escalation |
 | Frequenza di **misure non pervenute** e durata del silenzio | `RM-01` | Riesame delle finestre di attesa e della tassonomia del silenzio |
 | **Valore predittivo per regola** e volume di allarmi per operatore | `RM-11` | Riesame delle soglie: l'affaticamento è esso stesso un rischio |
 | Frequenza di **errori di associazione** segnalati | `RM-03`, `RM-09` | Riesame del percorso di identificazione e del cambio di soggetto |
@@ -299,7 +338,24 @@ non resti ambigua per nessuno dei soggetti coinvolti.
 **Il titolare degli obblighi di sorveglianza e di vigilanza è il fabbricante della distribuzione
 identificata marcata CE.** Non il repository, non il titolare del progetto, non i contributori,
 non l'autore di una copia derivata che non immette nulla sul mercato. È il vincolo `V-06`, e i
-§§ 2–7 di questo capitolo descrivono obblighi che **oggi non gravano sul progetto**.
+§§ 2–7 di questo capitolo descrivono obblighi che **oggi non gravano sul progetto**, perché non
+esiste né una distribuzione marcata né il soggetto che potrebbe esserne fabbricante.
+
+**Che cosa `D58` cambia in questa frase, e che cosa deliberatamente no.** Non cambia il **criterio
+di imputazione**: gli obblighi seguono il ruolo, e il ruolo segue chi immette sul mercato una
+distribuzione identificata. Cambia che il progetto **intende** essere uno di quei soggetti — con
+il **soggetto giuridico ancora da costituire** — e che quindi **i §§ 2–7 descrivono obblighi che
+assumeremo**, non obblighi di terzi che il progetto illustra per cortesia. La differenza non è di
+tono: è che ogni riga di quei paragrafi che richiede una capacità di prodotto diventa un
+**requisito nostro con una scadenza logica anteriore** al momento in cui l'obbligo scatta, perché
+una capacità che conta eventi non si accende retroattivamente.
+
+**Il criterio resta però bidirezionale, e questa è la parte che non va persa.** Chiunque altro
+costruisca un dispositivo a partire da questo codice e lo immetta sul mercato è, per ciò stesso,
+fabbricante di quel dispositivo, con gli stessi obblighi e senza che la nostra intenzione di
+certificare gliene tolga alcuno (§ 8.1). Le due cose convivono: il progetto ha da un lato un
+percorso proprio da costruire, dall'altro una posizione di **fornitore a monte** verso chi integra
+(§ 8.4), e le due vesti hanno obblighi di natura diversa che non vanno confusi.
 
 Ne discendono cinque conseguenze, tutte da documentare nel materiale per chi integra
 ([07 §09 — Obblighi di chi integra](../07_integration/09-obblighi-di-chi-integra.md)).
@@ -335,26 +391,51 @@ difettosi vieta l'esclusione contrattuale nei confronti del **danneggiato** e pr
 difettosità in caso di non conformità a requisiti obbligatori di sicurezza dell'Unione
 ([01 §6](./01-inquadramento-normativo.md)).
 
-**La tutela sostanziale del progetto è il fatto di non essere fabbricante; la clausola di licenza
-non lo è.** È una distinzione che va tenuta ferma anche quando è scomoda, perché confidare nella
-seconda produce esattamente il comportamento che fa perdere la prima: pubblicare artefatti che
+**La clausola di licenza non è, e non è mai stata, una tutela verso il danneggiato.** Ciò che
+oggi tiene il progetto fuori da quella disciplina è un **fatto**: non esiste una distribuzione
+identificata immessa sul mercato sotto il suo nome, e non esiste un soggetto che ne sia
+fabbricante. È una distinzione da tenere ferma anche quando è scomoda, perché confidare nella
+clausola produce esattamente il comportamento che fa perdere il fatto: pubblicare artefatti che
 lasciano intendere un'immissione sul mercato.
 
-### 8.4 Il ruolo del progetto è di fornitore a monte, e ha obblighi propri di natura diversa
+**E `D58` va detto qui con particolare chiarezza, perché è il punto in cui conviene di meno
+tacerlo.** Quel fatto è **temporaneo per scelta nostra**: il progetto **intende** assumere il
+ruolo di fabbricante, e **il soggetto giuridico che lo eserciterebbe è ancora da costituire**.
+Quando lo sarà, la disciplina della responsabilità per danno da prodotti difettosi si applicherà
+a quel soggetto **per intero**, senza che alcuna clausola della licenza possa escluderla verso il
+danneggiato (Direttiva (UE) 2024/2853, art. 15). Ne discendono due conseguenze pratiche, e nessuna
+è rinviabile: le decisioni di sicurezza prese **oggi**, su un prodotto che non è ancora un
+dispositivo, sono le decisioni di cui quel soggetto risponderà domani; e la copertura assicurativa
+del futuro fabbricante è una voce da dimensionare in sede di costituzione, non dopo il primo
+incidente. Nel frattempo lo stato di fatto è invariato e va ripetuto: **il prodotto non reca
+marcatura CE**, e chi lo installa oggi assume gli obblighi che ne derivano.
 
-Il progetto **non segnala incidenti gravi**. Deve però rendere possibile a chi li segnala di
-rispettare i propri termini. È il rovescio esatto della nota di posizionamento sui componenti di
-terze parti: **il progetto è un componente di terze parti per chi lo integra**, e un componente
-privo di sorveglianza dichiarata è un componente che il suo utilizzatore **non può giustificare**
-nel proprio inventario ai sensi di IEC 62304.
+### 8.4 Due vesti: fornitore a monte oggi, e il ruolo di fabbricante che il progetto intende assumere con un soggetto ancora da costituire
 
-| Obbligo del progetto verso chi certifica | Perché esiste |
+Il progetto **non segnala incidenti gravi**, oggi, e non perché se ne astenga: non ha una
+distribuzione marcata su cui un incidente grave possa essere qualificato come tale, e non ha il
+soggetto che potrebbe segnalarlo. Deve però rendere possibile a chi li segnala di rispettare i
+propri termini. È il rovescio esatto della nota di posizionamento sui componenti di terze parti:
+**il progetto è un componente di terze parti per chi lo integra**, e un componente privo di
+sorveglianza dichiarata è un componente che il suo utilizzatore **non può giustificare** nel
+proprio inventario ai sensi di IEC 62304.
+
+**La colonna che segue è cambiata di natura, ed è il punto centrale di questo paragrafo.** Fino a
+`D58` elencava obblighi del progetto **verso un terzo** che avrebbe certificato: era, in
+sostanza, una cortesia motivata. Ora elenca **obblighi che assumiamo**, e li assumiamo due volte —
+una come fornitore a monte di chi integra, una come **futuro fabbricante di noi stessi**. La
+conseguenza è che nessuna di queste righe è soddisfatta scrivendola: sono **capacità che vanno
+costruite**, e la loro assenza si scopre nel momento in cui servono, quando è tardi per
+costruirle.
+
+| Obbligo che il progetto assume | Perché esiste, e verso chi |
 |---|---|
-| Canale di segnalazione funzionante, con destinatario e tempo di riscontro dichiarati | Senza di esso l'integratore non può rispettare il proprio termine di ventiquattro ore |
-| **Politica di divulgazione coordinata** con tempi dichiarati | È requisito dell'integratore prima che obbligo proprio ([06 §10 §2.5](../06_security/10-risposta-agli-incidenti.md)) |
-| **Distinta dei materiali software firmata** per ogni rilascio | È l'ingresso dell'inventario dei componenti di terze parti del fabbricante |
-| Comunicazione tempestiva delle vulnerabilità nei componenti di terze parti | Il fabbricante non sorveglia i componenti del progetto: sorveglia il progetto |
-| Artefatti di ciclo di vita pubblicati e identificabili per versione | Senza di essi il fabbricante deve ricostruirli, e ciò che è retroattivamente irrecuperabile non lo può ricostruire affatto |
+| Canale di segnalazione funzionante, con destinatario e tempo di riscontro dichiarati | Senza di esso **chi integra** non può rispettare il proprio termine di ventiquattro ore. È la stessa infrastruttura che servirà **a noi** quando il soggetto fabbricante sarà costituito: costruirla due volte non ha senso, costruirla dopo nemmeno |
+| **Politica di divulgazione coordinata** con tempi dichiarati | È requisito di **chi integra** prima che obbligo proprio ([06 §10 §2.5](../06_security/10-risposta-agli-incidenti.md)); diventa obbligo proprio con il ruolo di fabbricante, e la politica non si improvvisa alla prima segnalazione |
+| **Distinta dei materiali software firmata** per ogni rilascio | È l'ingresso dell'inventario dei componenti di terze parti del fabbricante — **di chi integra oggi, nostro poi** — ed è la seconda delle attività retroattivamente irrecuperabili di `D45` |
+| Comunicazione tempestiva delle vulnerabilità nei componenti di terze parti | Il fabbricante non sorveglia i componenti del progetto: **sorveglia il progetto**. La sorveglianza a monte resta un'attività a monte anche quando le due vesti coincidono nello stesso soggetto, e va tenuta distinta nelle registrazioni |
+| Artefatti di ciclo di vita pubblicati e identificabili per versione | Senza di essi il fabbricante deve ricostruirli, e ciò che è retroattivamente irrecuperabile **non lo può ricostruire affatto** (`D45`). Con `D58` il fabbricante che si troverebbe a doverlo fare **siamo noi**, il che rende l'omissione un danno diretto e non un'ipotesi |
+| **Capacità di prodotto del § 5.2** — tassonomia stabile degli eventi contati e conservazione della diagnostica pari alla finestra di vigilanza (`V-178`) | Riga aggiunta perché con `D58` non è più una fornitura ma un **prerequisito nostro**: sono capacità che **contano eventi**, quindi non si accendono retroattivamente. Non figurano fra le quattro attività irrecuperabili di `D45` e hanno la stessa proprietà — è la questione `Q-276` |
 
 ### 8.5 Il caso che nessuna delle misure precedenti copre
 
@@ -369,6 +450,15 @@ artefatti separati per nome, versione e ciclo di vita. Ciò che **non** può far
 terzo di immettere sul mercato un derivato non conforme — e la circostanza che quel terzo diventi
 per ciò stesso fabbricante, con tutti gli obblighi che ne discendono, è la sola risposta
 disponibile.
+
+**`D58` peggiora questo caso invece di migliorarlo, e va detto.** Un'intenzione di certificare
+dichiarata pubblicamente è **materiale rassicurante**: chi prende il codice e lo mette in servizio
+può leggerla come una copertura in formazione e concluderne che il rischio sia transitorio. Non lo
+è. **Chi installa oggi installa una versione non certificata**, sorvegliata da nessuno, e
+l'intenzione del progetto non gli trasferisce alcun obbligo, non gli fornisce alcuna sorveglianza
+e non gli attenua alcuna responsabilità. È la ragione per cui la dichiarazione permanente e la
+politica di distribuzione **non si alleggeriscono** ora che il percorso è nostro: si irrigidiscono,
+perché il malinteso disponibile è aumentato di uno.
 
 Resta aperta la questione simmetrica: **come il progetto viene a sapere** di un incidente occorso
 in un'installazione derivata di cui ignora l'esistenza. Non esiste un canale in ingresso, e la
@@ -385,7 +475,7 @@ capitolo non poteva assumere.
 
 | Regime | Termine più stringente | Chi è obbligato | Innesco |
 |---|---|---|---|
-| Vigilanza sui dispositivi medici | **2 giorni** | Il **fabbricante** della distribuzione marcata | Conoscenza dell'incidente grave e del **possibile** nesso |
+| Vigilanza sui dispositivi medici | **2 giorni** | Il **fabbricante** della distribuzione marcata — ruolo che il progetto **intende** assumere, con il soggetto **ancora da costituire** | Conoscenza dell'incidente grave e del **possibile** nesso |
 | Resilienza informatica | **24 ore** | Il fabbricante del prodotto con elementi digitali | Vulnerabilità attivamente sfruttata o incidente grave |
 | Sicurezza delle reti | Termini brevi dalla conoscenza | Il **soggetto** che eroga il servizio | Incidente significativo |
 | Protezione dei dati personali | 72 ore | Il **titolare** del trattamento | Conoscenza della violazione |
@@ -423,6 +513,7 @@ osservabilità.
 |---|---|---|
 | `Q-177` | **Se la distribuzione identificata marcata sia disponibile solo attraverso un canale che identifica il destinatario** (§ 4.1). Da questa decisione dipende la compilabilità di due voci obbligatorie del rapporto periodico e la soddisfacibilità della tracciabilità delle versioni. Non tocca l'apertura del repository, che resta invariata | → Committente |
 | `Q-178` | **Come il progetto viene a sapere di un incidente occorso in un'installazione derivata di cui ignora l'esistenza** (§ 8.5). Non esiste oggi un canale in ingresso, e la sua assenza non è neutra: un difetto che il progetto non conosce resta nel codice di chiunque lo usi | Sicurezza, → Committente |
+| `Q-276` | **Le capacità di prodotto della vigilanza sono retroattivamente irrecuperabili quanto le quattro attività di `D45`, e non figurano in quell'elenco** (§ 5.2, `V-178`; § 8.4, ultima riga). Tassonomia stabile degli eventi contati e conservazione della diagnostica pari alla finestra di vigilanza **contano eventi**: non si accendono a posteriori, e la serie storica mancante non si ricostruisce. Finché l'obbligo era di un terzo la lacuna era un problema suo; con `D58` è **nostra**, e va valutato se le due capacità vadano aggiunte all'elenco delle attività irrecuperabili del capitolo [09 §5](./09-percorso-e-calendario.md) | Tecnica, → **ORCH** |
 | `Q-155` | **Periodo di supporto dichiarato**, da cui dipendono le finestre di rimedio del § 6 | → Committente |
 | `Q-116` | **Riscontrata** al § 5.2: la conservazione della diagnostica è determinata dagli obblighi di vigilanza, con proposta di dodici mesi configurabili e determinazione finale del fabbricante | Tecnica |
 | `Q-113` | **Riscontrata parzialmente** al § 6: struttura dell'impegno fissata, valore rinviato al periodo di supporto dichiarato | Tecnica, roadmap |

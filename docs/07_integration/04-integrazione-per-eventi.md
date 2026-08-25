@@ -493,7 +493,7 @@ Che cosa vedete e che cosa no:
 
 La consultazione delle consegne è uno strumento operativo. Quando serve **prova** — una
 contestazione clinica, una verifica di un'autorità — la fonte è il **registro immutabile**, che
-è a catena di hash e conservato separatamente dal sistema che genera gli eventi. Il
+è a catena di impronte e conservato separatamente dal sistema che genera gli eventi. Il
 versionamento delle entità non è un registro immutabile e non lo sostituisce.
 
 Ciò che il registro contiene è chi, che cosa, quando, su quale soggetto, con quale esito e con

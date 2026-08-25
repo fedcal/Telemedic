@@ -1,7 +1,7 @@
 ---
 title: Persistenza
 sidebar_position: 4
-description: Organizzazione dello schema, isolamento per tenant applicato dal motore, migrazioni versionate e non bloccanti, serie temporali, indici e loro costo, registro immutabile a catena di hash, strategia di salvataggio e di ripristino con i limiti dichiarati.
+description: Organizzazione dello schema, isolamento per tenant applicato dal motore, migrazioni versionate e non bloccanti, serie temporali, indici e loro costo, registro immutabile a catena di impronte, strategia di salvataggio e di ripristino con i limiti dichiarati.
 ---
 
 # Persistenza

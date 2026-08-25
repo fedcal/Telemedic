@@ -175,7 +175,7 @@ difese efficaci sono quattro, e sono tutte funzionalità del prodotto:
   l'abuso ([04 §7](./04-tracciamento.md));
 - **accesso d'emergenza come percorso dichiarato**, con motivazione libera obbligatoria e
   riesame a posteriori: rendere l'eccezione una funzione tracciata invece di lasciarla come
-  privilegio silenzioso ([02 §8](./02-identita-e-accessi.md), vincolo V-153).
+  privilegio silenzioso ([02 §10](./02-identita-e-accessi.md), vincolo V-153).
 
 ### 3.2 L'attaccante esterno non mirato
 
@@ -378,6 +378,7 @@ solo positiva.
 | M-05 | Prova di assenza di registrazione senza consenso; prova di revoca con cancellazione effettiva |
 | M-06, M-07 | Verifica della catena di versioni e della firma; prova di rilevazione dell'alterazione |
 | M-08 | Prova di escalation con fallimento dichiarato: il mancato riscontro produce un evento, non un silenzio |
+| M-09 | Verifica che la copertura oraria esposta all'assistito sia **letta dal dato di esecuzione** e non da una costante: si altera la copertura configurata e si verifica che l'interfaccia cambi di conseguenza. Una copertura dichiarata da una stringa fissa è vera finché nessuno cambia il servizio, ed è quello il momento in cui diventa pericolosa |
 | M-10 | Prova di riconciliazione degli identificativi con dominio di attribuzione esplicito |
 | M-11 | **Prova negativa fra tenant su ogni punto di ingresso**, senza eccezioni ([06 §5](./06-sicurezza-applicativa.md)) |
 | M-12 | Verifica della firma e della provenienza dell'artefatto; riproducibilità della compilazione |

@@ -1,14 +1,14 @@
 ---
 title: Principi e metodo
 sidebar_position: 2
-description: Come si decide che cosa entra e che cosa esce — le quattro classi di attività, i criteri di priorità in ordine lessicografico, le attività retroattivamente irrecuperabili, il rapporto fra valore clinico e costo, il debito tecnico e il debito regolatorio, e la regola con cui una data si calcola invece di essere annunciata.
+description: Come si decide che cosa entra e che cosa esce — le quattro classi di attività, i criteri di priorità in ordine lessicografico, le attività retroattivamente irrecuperabili, il debito tecnico e il debito regolatorio, la capacità dichiarata di D54 e la regola con cui l'ambito si riduce invece di far scivolare la data.
 ---
 
 # Principi e metodo
 
 Questo capitolo esiste per una ragione precisa: **una priorità senza un criterio dichiarato è
-una preferenza travestita**, e in un progetto con una data fissa e una capacità non dichiarata
-le preferenze si accumulano fino a produrre un piano che nessuno può difendere. I criteri che
+una preferenza travestita**, e in un progetto con una data fissa e una capacità piccola le
+preferenze si accumulano fino a produrre un piano che nessuno può difendere. I criteri che
 seguono sono stati fissati **prima** delle decisioni del capitolo
 [02 — Traguardi](./02-traguardi.md), e sono applicati a tutte le voci allo stesso modo.
 
@@ -16,21 +16,35 @@ seguono sono stati fissati **prima** delle decisioni del capitolo
 
 ## 1. Il problema, formulato con precisione
 
-Telemedic ha, al 25 agosto 2026: una data di consegna dichiarata dal committente (30 novembre
-2026, `D5`, `D16`), un perimetro funzionale ampio e già catalogato, un obbligo di tracciabilità
-che non ammette scorciatoie, un obbligo di traduzione integrale, un obbligo di accessibilità che
-è criterio di accettazione di ogni schermata, e **nessuna dichiarazione di capacità**.
+Telemedic ha, al 25 agosto 2026, sei grandezze e **tutte e sei sono note**:
 
-Le prime cinque grandezze sono note. La sesta non lo è, ed è quella che determina tutte le date.
-Ne discende la regola che governa l'intero capitolo:
+1. Una **data di consegna decisa dal committente**: il 30 novembre 2026 è il **primo rilascio
+   installabile** (`D53`, che chiude `Q-180`).
+2. Una **capacità dichiarata**: **un contributore unico, a tempo parziale** (`D54`, che chiude
+   `Q-181`).
+3. Un perimetro funzionale ampio e già catalogato.
+4. Un obbligo di tracciabilità che non ammette scorciatoie.
+5. Un obbligo di traduzione integrale (`D50`), che `D56` rende **parallelo allo sviluppo** e non
+   più prerequisito di ogni riga di codice.
+6. Un obbligo di accessibilità che è criterio di accettazione di ogni schermata.
 
-> **Una data non si annuncia: si calcola da una capacità dichiarata e da una sequenza vincolata.**
-> Se la capacità non è dichiarata, la data si esprime come funzione di un'ipotesi, e l'ipotesi
-> si scrive accanto alla data.
+Fino alla terza tornata di decisioni la seconda grandezza mancava, e questo capitolo produceva
+date sotto ipotesi. **Ora la capacità è un dato**, e ne discende una regola diversa e più dura:
+
+> **Con la data fissa e la capacità dichiarata, l'unica variabile libera è l'ambito.**
+> Non si negozia la data, non si inventa capacità: **si riduce l'ambito e si dichiara che cosa
+> è stato tolto**, con l'indicazione di che cosa è recuperabile e che cosa no.
+
+È una regola aritmetica, non un giudizio. Tre grandezze legano un piano — data, capacità,
+ambito — e due sono fissate da una decisione del committente. La terza si determina di
+conseguenza. Un piano che lasciasse l'ambito invariato non produrrebbe più lavoro: produrrebbe
+**una data mancata in pubblico**, che è l'unico esito peggiore di un ambito ridotto.
 
 Chi legge una roadmap costruita in questo modo può fare due cose che una roadmap a date secche
-non consente: verificare se l'ipotesi regge, e **ricalcolare** la data da sé quando l'ipotesi
-cambia. È un trasferimento di potere dal pianificatore al lettore, ed è deliberato.
+non consente: verificare che il perimetro dichiarato sia effettivamente costruibile, e
+**vedere che cosa è stato sacrificato** invece di scoprirlo all'installazione. Il capitolo
+[03 §5](./03-primo-rilascio-utilizzabile.md) è dedicato interamente a questo, ed è la parte di
+quest'area che ha più valore per chi deve decidere se adottare il prodotto.
 
 ---
 
@@ -104,10 +118,26 @@ disclaimer.
 ### 4.1 Perché la stima non si può fare, e che cosa si fa al suo posto
 
 Una stima di costo richiede una capacità nota, una produttività osservata e un'unità di misura
-condivisa. Al 25 agosto 2026 il progetto non ha nessuna delle tre: non ha una capacità
-dichiarata (`Q-181`), non ha cronologia di consegna su cui calibrare, e non ha un'unità che
-attraversi lavori tanto diversi quanto la stesura di un capitolo, la traduzione di un corpus, la
-scrittura di un motore di validazione e una sessione di prova con utenti rappresentativi.
+condivisa. Al 25 agosto 2026 il progetto ha la prima — `D54` dichiara **un contributore unico a
+tempo parziale** — e **non ha le altre due**: non ha cronologia di consegna su cui calibrare, e
+non ha un'unità che attraversi lavori tanto diversi quanto la stesura di un capitolo, la
+traduzione di un corpus, la scrittura di un motore di validazione e una sessione di prova con
+utenti rappresentativi.
+
+Va aggiunto un fatto che `D54` dichiara e che nessuna aritmetica supera: **«a tempo parziale»
+non è quantificato**. `[NV]` — il numero di ore settimanali non è dichiarato, e quest'area non lo
+inventa. Ne discende che le durate del capitolo [02](./02-traguardi.md) **non sono stime**: sono
+**allocazioni del calendario residuo** a una sequenza vincolata. La differenza è sostanziale e va
+capita, perché determina che cosa protegge la data:
+
+> Una stima protegge la data prevedendo lo sforzo. Un'allocazione di calendario **non prevede
+> nulla**: protegge la data soltanto se esiste, dichiarato in anticipo, **l'ordine in cui
+> l'ambito viene sacrificato** quando l'allocazione si rivela insufficiente.
+
+Quell'ordine esiste, è dichiarato in [03 §6](./03-primo-rilascio-utilizzabile.md), ed è il
+meccanismo di protezione della data del 30 novembre 2026. Non è un piano di riserva: è **la parte
+del piano che si esegue per prima quando la realtà si discosta**, ed è scritta prima di
+discostarsi proprio perché scriverla dopo significherebbe scegliere sotto pressione.
 
 **Ciò che si fa al posto della stima** è dichiarare tre grandezze che sono osservabili anche
 senza cronologia:
@@ -225,27 +255,46 @@ artefatto privo della dichiarazione.
 parametri vitali» e «raccolta differita di parametri per la revisione periodica del
 professionista» sposta la classe di rischio, la classe di sicurezza del software, il perimetro
 della valutazione clinica e l'ordine di grandezza del costo (`D46`).
-*Stato*: il modello di dominio è scritto **interamente** sulla seconda formulazione (vincolo
-`V-144`), e nessun artefatto del progetto usa la prima. Manca la **conferma formale del
-committente** al congelamento: è la questione `Q-144`, aperta e indirizzata a `ORCH`.
-*Conseguenza per la roadmap*: finché `Q-144` è aperta, ogni lavoro sul contesto di
-telemonitoraggio è lavoro **a rischio di riscrittura**. È il motivo per cui il telemonitoraggio
-non è nel percorso verticale del primo rilascio (capitolo
-[03 §4](./03-primo-rilascio-utilizzabile.md)).
+*Stato*: **soddisfatta**. `D55` congela la formulazione su «**raccolta differita di parametri per
+la revisione periodica del professionista**», mantiene Classe IIa e classe di sicurezza software
+B, ed esclude la formulazione in tempo reale. Il modello di dominio era già scritto **interamente**
+su questa formulazione (vincolo `V-144`): la decisione lo conferma e non comporta riscritture.
+Chiude `Q-144`.
+*Conseguenza permanente, che sostituisce quella precedente*: non è più un rischio di riscrittura,
+è un **divieto**. Nessuna funzione può essere aggiunta se sposta il sistema verso il tempo reale
+clinico, e **la valutazione va fatta prima di scrivere la funzione, non dopo**. È il caso in cui
+il §6 di questo capitolo — come si dice di no — smette di essere una procedura e diventa un
+confine.
 
-### 5.2 Le attività di classe B che il progetto **non** assume
+### 5.2 Le attività di classe B che il progetto assume con `D58`
 
-Coerentemente con `D49` e con il vincolo `V-06`, il progetto **non** costituisce un soggetto
-fabbricante, **non** nomina una persona responsabile del rispetto della normativa, **non** invia
-richieste di informazioni agli organismi di valutazione della conformità e **non** avvia la
-valutazione clinica. Sono attività di classe B — durata determinata da terzi, non comprimibile —
-ma gravano su **chi intende certificare**, e la roadmap le riporta soltanto come traguardi di
-terzi in [02 §5](./02-traguardi.md), con la fonte e senza assumerle.
+`D58` **emenda `D28`, `D45`, `D49` e il vincolo `V-06` quanto al destinatario del percorso di
+certificazione**: il ruolo di fabbricante sarà assunto dal progetto, e il soggetto giuridico va
+costituito. Le attività che `D45` attribuiva a «chi intende certificare» diventano quindi
+**attività del progetto**, e sono quattro:
 
-La distinzione ha una conseguenza pratica che va scritta: **chi intende certificare deve avviare
-quelle attività adesso**, indipendentemente dalla roadmap del progetto, perché il loro tempo di
-attraversamento è maggiore del tempo residuo del progetto. Il manuale operativo che le descrive
-è il deliverable richiesto da `D20`, in `docs/08_compliance/`.
+1. **Costituzione e formalizzazione del soggetto fabbricante.**
+2. **Nomina della persona responsabile del rispetto della normativa**, con qualifica documentabile.
+3. **Richieste di informazioni agli organismi notificati.**
+4. **Avvio del piano di valutazione clinica.**
+
+Sono tutte e quattro di **classe B**: la loro durata è determinata da terzi — procedimenti
+amministrativi, code di organismi, disponibilità di competenza clinica documentabile — e **non si
+comprime dedicandovi più lavoro**. Ne discende la conseguenza di sequenza più importante di
+questo capitolo, e va enunciata senza attenuazioni:
+
+> **Le attività di `D58` costano poche ore e molti mesi. Vanno quindi avviate adesso, non dopo
+> il primo rilascio.** Sono l'unico blocco di lavoro che `D54` non penalizza — un contributore a
+> tempo parziale può inviare una richiesta di informazioni e attendere esattamente come potrebbe
+> farlo un ufficio — e ogni settimana in cui non partono si trasferisce **integralmente** in
+> fondo alla catena, dove nessun aumento di capacità la recupera.
+
+Sono a calendario in [02 §5](./02-traguardi.md), con il progetto come titolare, e con una
+avvertenza che accompagna ogni data di quel paragrafo e non si separa mai da essa: **sono date di
+pianificazione interna, non promesse di esito.** Il divieto di `V-171` resta intero — **in nessun
+luogo si scrive che il prodotto sarà marcato entro una data** — e resta intero lo stato di fatto:
+oggi il prodotto **non reca marcatura CE** e chi lo installa o lo mette in servizio assume
+comunque gli obblighi che ne derivano.
 
 ### 5.3 Le attività di classe C, e perché costano poco e valgono molto
 
@@ -253,16 +302,24 @@ Sono verifiche empiriche brevi che rimuovono un'incertezza da cui dipendono deci
 Il loro tratto comune è che **il costo della verifica è di ordini di grandezza inferiore al costo
 di aver documentato un comportamento inesistente**.
 
-| Verifica | Che cosa sblocca | Che cosa costa averla omessa |
-|---|---|---|
-| Scambio di token nel gateway con delega esplicita (`D18`) | L'intera modalità di identità federata verso l'integratore | Riprogettazione del confine di autorizzazione dopo che il codice esiste |
-| Inoltro del contesto di autenticazione richiesto attraverso l'intermediazione (`Q-160`, `B-8`) | La propagazione del livello di garanzia, e la sua descrizione pubblica | **Rettifica di documentazione pubblica su un meccanismo di sicurezza** |
-| Contenitore di registrazione negoziato a runtime (`V-11`, `V-115`, `C-3`) | La formulazione pubblica sulla registrazione | Un'affermazione falsa per una parte del parco installato |
-| Difetti noti del prodotto di federazione (`D37`) chiusi in configurazione e sorvegliati da prova | La postura di sicurezza dell'identità | Una via di scalata di privilegio che ritorna al primo aggiornamento |
-| Comportamento del broker in assetto a nodo singolo | Le garanzie dichiarabili nell'installazione presso il cliente | Requisiti funzionali che dipendono da garanzie non disponibili |
+| Verifica | Che cosa sblocca | Che cosa costa averla omessa | Nel perimetro ridotto |
+|---|---|---|---|
+| Scambio di token nel gateway con delega esplicita (`D18`) | L'intera modalità di identità federata verso l'integratore | Riprogettazione del confine di autorizzazione dopo che il codice esiste | **Sì** — è il percorso di ingresso di `RU-1` |
+| Ripiego a token d'ingresso a uso singolo, emesso su canale posteriore (`D18`) | L'avvio della sessione da parte dell'integratore **senza componente incorporabile** | L'assenza di ogni via di integrazione, una volta tagliato l'incorporamento | **Sì**, e con peso maggiore di prima: nel perimetro ridotto non è un ripiego, è **la** modalità |
+| Isolamento di rete in uscita del nodo di relay | La postura di sicurezza del componente più esposto | Una via di uscita verso le reti interne di chi installa | **Sì** — difesa primaria (`V-10`) |
+| Difetti noti del prodotto di federazione (`D37`) chiusi in configurazione e sorvegliati da prova | La postura di sicurezza dell'identità | Una via di scalata di privilegio che ritorna al primo aggiornamento | **Sì** |
+| Inoltro del contesto di autenticazione richiesto attraverso l'intermediazione (`Q-160`, `B-8`) | La propagazione del livello di garanzia, e la sua descrizione pubblica | **Rettifica di documentazione pubblica su un meccanismo di sicurezza** | **No** — segue la conformità sull'identità digitale nazionale, fuori dal perimetro ridotto. **La regola resta**: finché l'esito non è registrato, la documentazione pubblica non descrive il meccanismo |
+| Contenitore di registrazione negoziato a runtime (`V-11`, `V-115`, `C-3`) | La formulazione pubblica sulla registrazione | Un'affermazione falsa per una parte del parco installato | **No** — segue la registrazione della sessione, tagliata da `RU-1` |
+| Comportamento del broker in assetto a nodo singolo | Le garanzie dichiarabili nell'installazione presso il cliente | Requisiti funzionali che dipendono da garanzie non disponibili | **No** — il broker è tagliato da `RU-1` (taglio reversibile, [03 §5](./03-primo-rilascio-utilizzabile.md)) |
 
 `D18` è esplicita sulla collocazione della prima: **spike di verifica nella prima settimana di
 sviluppo, prima di ogni altra attività.** La roadmap la recepisce senza attenuazioni.
+
+**La regola che governa l'ultima colonna**, e che vale ogni volta che l'ambito si riduce: una
+verifica empirica serve a rimuovere un'incertezza da cui dipende una decisione costosa. Se la
+decisione è stata rinviata insieme alla funzione, **la verifica si rinvia con essa** — ma **la
+regola che essa presidiava resta in vigore**, e il documento lo dice riga per riga invece di
+lasciare che la verifica sparisca portandosi via il divieto.
 
 ---
 
@@ -384,19 +441,27 @@ Onestà minima: il progetto ne ha già. Elencarlo è la prima rata.
 |---|---|---|
 | Controllo dei documenti non istituito, con un corpo documentale già prodotto | Dall'inizio | `COMP`, con il traguardo `T-01` |
 | Nessun registro in sola aggiunta degli identificativi di requisito, benché gli intervalli siano congelati | Dall'inizio | `COMP` e `TECH`, con `T-01` |
-| Area di conformità assente; documento di ricerca sul percorso di certificazione **troncato** (`Q-25`) | Dalla fase di ricerca | `ORCH`, poi `COMP` |
-| Versione inglese assente per intero, con obbligo di integralità (`D50`) | Dall'inizio | `Q-182` → `ORCH` |
+| **Riemissione sotto controllo dei documenti già prodotti**: sotto `D54` non è eseguibile entro il 30 novembre 2026 ed è **dichiarata come lacuna**, non pianificata | Da `T-01` in avanti | `COMP`, dopo il primo rilascio. Il volume da riemettere **cresce ogni giorno**: è la lacuna con il costo di omissione più rapidamente crescente |
+| Versione inglese assente per la maggior parte del corpus, con obbligo di integralità (`D50`) | Dall'inizio | `D56`: traduzione assistita area per area, **parallela allo sviluppo**. Prerequisiti non rinviabili: avvertenze pubbliche, guida dei fondamenti, aree di conformità e sicurezza |
 | Numerosi `[NV]` aperti nelle aree già scritte, ciascuno con destinatario dichiarato | Progressivamente | Le aree destinatarie |
-| Destinazione d'uso non formalmente congelata (`Q-144`) | Dalla fase di dominio | → `ORCH` |
 | Pagina pubblica non allineata alle riformulazioni approvate (`D19`, `D29`) | Dall'approvazione di `D19` | `Q-185` → `PROD`, `ORCH` |
+| **Registrazioni a ruoli distinti non producibili** — audit interno, riesame del rilascio, verifica di configurazione eseguita da chi non ha scritto il codice | Da `D54` | **Nessuno internamente.** Non è un problema di ore: `Q-189` decide quale sottoinsieme si accetta come lacuna dichiarata e quale si copre acquisendo la funzione all'esterno |
+| **Ruolo di fabbricante non ancora costituito**, mentre `D58` lo attribuisce al progetto e più passi del calendario lo presuppongono formalmente | Da `D58` | Committente, con `Q-280`. È di classe `B`: la sua durata non dipende dalla capacità di lavoro |
+
+Le ultime due righe non sono come le altre, e la differenza va detta. Le prime cinque sono lacune
+che **il lavoro chiude**: qualcuno le paga in ore e spariscono. Le ultime due **non si chiudono
+lavorando di più**, perché una richiede una persona diversa e l'altra un procedimento
+amministrativo. Confonderle produce piani in cui una riga irrisolvibile viene messa in coda a
+righe risolvibili e sparisce dalla vista.
 
 ---
 
 ## 9. La capacità è una grandezza, e va sottratta prima di essere spesa
 
-Il calcolo delle date parte da una capacità **netta**, non lorda. Le voci seguenti sono capacità
-ricorrente: consumano tempo ogni mese, per sempre, e vanno sottratte prima di pianificare
-qualunque cosa.
+Il calcolo delle date parte da una capacità **netta**, non lorda. Sotto `D54` la capacità lorda è
+**un contributore unico a tempo parziale**, e la sottrazione che segue non è un raffinamento: è
+la differenza fra un piano e un annuncio. Le voci seguenti sono capacità ricorrente: consumano
+tempo ogni mese, per sempre, e vanno sottratte prima di pianificare qualunque cosa.
 
 | Voce ricorrente | Perché è ricorrente | Ordine di grandezza |
 |---|---|---|
@@ -409,9 +474,39 @@ qualunque cosa.
 Ne discende la formulazione che il capitolo [02](./02-traguardi.md) usa per tutte le date
 interne:
 
-> Capacità netta = capacità dichiarata − capacità ricorrente. **Le date si calcolano sulla
+> Capacità netta = capacità dichiarata − capacità ricorrente. **Le date si allocano sulla
 > netta.** Un piano costruito sulla capacità lorda è già in ritardo il giorno in cui viene
 > pubblicato.
+
+Sotto `D54` c'è una seconda sottrazione, che è nuova e che pesa più della prima: **la capacità
+di un contributore unico si divide fra scrivere e verificare**, e la verifica non è comprimibile
+perché è ciò che rende dimostrabile il lavoro. Quando la stessa persona scrive e verifica, non
+si guadagna tempo: si perde una proprietà, ed è precisamente quella che il §9-bis descrive.
+
+### 9-bis. Ciò che una persona sola non può fare, e non per mancanza di ore
+
+`D54` porta con sé una conseguenza che va accettata formalmente e non aggirata. Alcune
+registrazioni richieste dal sistema di gestione della qualità **presuppongono soggetti distinti**,
+e nessuna quantità di lavoro individuale le produce:
+
+| Registrazione | Perché richiede due soggetti | Che cosa vale se la produce una persona sola |
+|---|---|---|
+| **Audit interno** | L'auditor non può auditare la propria attività: è la definizione stessa dell'audit | Nulla. Non è un audit con un difetto: **non è un audit** |
+| **Riesame del rilascio** | Il riesame accerta che chi ha deciso non stia accertando sé stesso | Una registrazione formalmente presente e sostanzialmente vuota, ed è peggio dell'assenza perché è **falsamente rassicurante** |
+| **Verifica di configurazione eseguita da chi non ha scritto il codice** | La verifica serve a intercettare ciò che chi ha scritto non vede, per costruzione | Nulla, per la stessa ragione |
+| **Revisione esterna indipendente del codice di sicurezza critico** (`D18`) | La prescrizione dice **esterna e indipendente**, ed è una proprietà del revisore, non della revisione | Nulla |
+
+**Non è un problema di ore.** È la ragione per cui questo capitolo pone il vincolo `V-281`:
+
+> **Nessun traguardo entra nel piano se richiede due soggetti distinti e il secondo non esiste.**
+> La registrazione che ne deriverebbe si dichiara come **lacuna, con la data in cui nasce**, e
+> non si pianifica come attività. Pianificare un'attività non producibile è il modo più efficace
+> di farla sparire dalla vista.
+
+La ripartizione — quale sottoinsieme si accetta come lacuna dichiarata e quale si copre
+acquisendo la funzione all'esterno — è **decisione del committente** e resta aperta come `Q-189`.
+Il capitolo [03 §5](./03-primo-rilascio-utilizzabile.md) la elenca fra i tagli **irreversibili**,
+perché una registrazione datata a un periodo non si produce dopo che il periodo è passato.
 
 ---
 
@@ -420,48 +515,73 @@ interne:
 Ogni data interna di questa roadmap è costruita con tre elementi espliciti, e i tre compaiono
 sempre insieme.
 
-**1. Il piano di riferimento.** Una sequenza di traguardi con criteri binari, in ordine di
-dipendenza. La sequenza è la parte robusta del piano: cambia solo se cambiano le dipendenze, che
-sono poche e dichiarate.
+**1. Il piano.** Una sequenza di traguardi con criteri binari, in ordine di dipendenza, ciascuno
+con un **innesco** e un **titolare**. La sequenza è la parte robusta del piano: cambia solo se
+cambiano le dipendenze, che sono poche e dichiarate.
 
-**2. L'ipotesi di capacità dichiarata.** La data si ottiene applicando alla sequenza un'ipotesi
-di capacità netta, scritta accanto alla data. Le ipotesi sono al §11.
+**2. L'allocazione del calendario residuo.** Non una stima: la ripartizione dei giorni che
+restano fra i traguardi della sequenza, sotto la capacità dichiarata da `D54` e con
+`[NV]` sul numero di ore settimanali (§4.1).
 
-**3. La regola di ricalcolo.** Che cosa succede alla data se l'ipotesi cambia. La regola è
-dichiarata una volta e vale per tutte:
+**3. La regola di assorbimento degli scostamenti.** Che cosa succede quando un traguardo non
+chiude alla sua data. La regola è dichiarata una volta e vale per tutte, ed è cambiata rispetto
+alla versione precedente di questo capitolo perché è cambiato ciò che è fissato:
 
-> Se la capacità netta effettiva è una frazione `k` di quella ipotizzata, la durata delle
-> attività di **classe D** si divide per `k`. Le attività di **classe A, B e C non si comprimono
-> né si dilatano con la capacità**: A e C hanno una durata propria breve e vanno fatte comunque;
-> B ha una durata determinata da terzi. Ne discende la proprietà che rende utile questa regola:
-> **una riduzione di capacità sposta il primo rilascio, non i traguardi di classe A.** Se li
-> sposta, il piano è stato costruito male.
+> Con `D53` e `D54`, **data e capacità sono fissate**. Uno scostamento **non si assorbe spostando
+> la data e non si assorbe aumentando la capacità**: si assorbe **riducendo l'ambito**, secondo
+> l'ordine di sacrificio dichiarato in [03 §6](./03-primo-rilascio-utilizzabile.md), che si
+> esegue dall'alto e per intero. Restano fuori da quell'ordine, in ogni circostanza, i criteri di
+> rilascio bloccanti di [03 §8](./03-primo-rilascio-utilizzabile.md) e l'elenco del §7.3 di
+> questo capitolo, dove il debito non è ammesso in nessuna forma.
 
-**Che cosa questa disciplina rende impossibile**, ed è il suo scopo: annunciare una data e poi
-scoprire che dipendeva da un'assunzione che nessuno aveva scritto.
+Posta come vincolo **`V-282`**. Ne discendono due proprietà, e la seconda è quella che conta:
+
+- **Una data non si sposta in silenzio.** Se l'ambito non è più riducibile senza toccare un
+  criterio bloccante, la data **si dichiara mancata** con la causa registrata (§8.2 del capitolo
+  [00](./00-indice.md)). Non è un fallimento del metodo: è il metodo che funziona.
+- **La scelta di che cosa sacrificare resta leggibile e reversibile.** Ogni voce dell'ordine di
+  sacrificio porta scritto se il taglio è recuperabile e che cosa comporta per chi installa. Chi
+  legge il rilascio può quindi ricostruire **perché il prodotto ha quella forma**, che è
+  l'informazione che un elenco di funzioni consegnate non contiene.
+
+**Che cosa questa disciplina rende impossibile**, ed è il suo scopo: consegnare un ambito ridotto
+facendolo apparire come l'ambito previsto.
 
 ---
 
-## 11. Le tre ipotesi di capacità
+## 11. La capacità dichiarata
 
-La capacità del progetto **non è dichiarata** ed è la questione `Q-181`, indirizzata al
-committente. In sua assenza la roadmap non rinuncia a produrre date: le produce **sotto ipotesi
-dichiarata**, e dichiara quale ipotesi ha usato.
+`D54` chiude `Q-181`. La capacità **non è più un'ipotesi**: è il dato su cui ogni allocazione si
+costruisce.
 
-| Ipotesi | Contenuto | Che cosa comporta |
-|---|---|---|
-| **H1 — minima** | Una persona in continuità sul progetto, con competenze generaliste; competenze specialistiche (usabilità, sicurezza offensiva, redazione clinica, traduzione) **assenti** | Le attività di classe A e C sono comunque eseguibili. Il corpo documentale si chiude; la traduzione integrale **non** si chiude; il software non supera lo scheletro |
-| **H2 — di riferimento** | Una persona in continuità sullo sviluppo, più competenze specialistiche acquisite puntualmente all'esterno per usabilità, verifica di sicurezza indipendente e traduzione | Il corpo documentale e il sito si chiudono. Il software raggiunge un percorso verticale provato. Il primo rilascio installabile **non** cade entro il 30 novembre 2026 |
-| **H3 — estesa** | Più contributori in continuità, con separazione dei ruoli, e un responsabile qualità distinto da chi sviluppa | Diventa discutibile un primo rilascio installabile entro il 30 novembre 2026, **a condizione** che le attività di classe A siano già chiuse e che il perimetro sia quello del capitolo [03](./03-primo-rilascio-utilizzabile.md) |
+> **Capacità del progetto: un contributore unico, a tempo parziale.**
+> Le tre ipotesi `H1`, `H2` e `H3` che questo paragrafo conteneva sono **decadute**. Il piano di
+> riferimento del capitolo [02](./02-traguardi.md) non è più costruito su `H2`: è costruito su
+> questo dato.
 
-**Il piano di riferimento del capitolo [02](./02-traguardi.md) è costruito su `H2`**, ed è
-dichiarato. Sotto `H1` le date dei traguardi di classe D si spostano secondo la regola del §10;
-le date dei traguardi di classe A **non si spostano**, perché sotto `H1` restano comunque le
-attività prioritarie.
+### 11.1 Che cosa comporta, voce per voce
 
-Va detto con chiarezza che nessuna delle tre ipotesi è una previsione: sono tre scenari, e la
-scelta di quale sia vero è del committente, non del pianificatore. Finché `Q-181` è aperta,
-**ogni data interna di questa roadmap è condizionata e va letta come tale**.
+| Ambito | Conseguenza sotto `D54` |
+|---|---|
+| **Attività di classe `A`** (irrecuperabili) | **Si fanno comunque e per prime.** La capacità piccola non le rinvia: le rende più urgenti, perché il costo di ometterle non si paga in ritardo ma in impossibilità |
+| **Attività di classe `B`** (durata di terzi) | **Si avviano subito**, perché costano poche ore e molti mesi. È l'unico blocco che `D54` non penalizza. Vi rientrano per intero le attività di `D58` (§5.2) |
+| **Attività di classe `C`** (sbloccanti) | Ridotte al sottoinsieme che serve al perimetro effettivo del primo rilascio. Una verifica empirica su una funzione tagliata **è essa stessa una funzione tagliata** |
+| **Attività di classe `D`** (comprimibili) | È da qui che viene tutta la riduzione di ambito. L'ordine è dichiarato in [03 §6](./03-primo-rilascio-utilizzabile.md) |
+| **Competenze specialistiche** — usabilità, sicurezza offensiva, redazione clinica, traduzione | **Non presenti internamente.** Ciascuna è o acquisita all'esterno, o dichiarata come lacuna. Non esiste una terza possibilità, e in particolare non esiste quella di supplirvi con più ore |
+| **Registrazioni a ruoli distinti** | **Non producibili**, per il §9-bis. `Q-189` |
+
+### 11.2 La differenza fra questa formulazione e la precedente
+
+Va detta perché è la ragione per cui il capitolo [02](./02-traguardi.md) è stato rifatto e non
+corretto.
+
+La versione precedente produceva date **sotto ipotesi**, e affidava al lettore il ricalcolo. Era
+la scelta giusta finché la capacità era ignota: dichiarare un'incognita è meglio che nasconderla.
+Ora la capacità è nota e quella forma diventerebbe una scusa. **Con tutte le grandezze note, un
+piano che non chiuda su un ambito preciso non è prudente: è vago.**
+
+Il capitolo [02](./02-traguardi.md) chiude quindi su un ambito preciso, e il capitolo
+[03](./03-primo-rilascio-utilizzabile.md) dichiara che cosa è stato tolto per arrivarci.
 
 ---
 
@@ -485,11 +605,34 @@ Un traguardo è **fatto** quando:
 Un traguardo che soddisfa i criteri 1–4 e non il 5 non è fatto: è un problema che si manifesterà
 in un'altra area.
 
+### 12.1 Il criterio 2 sotto `D54`, e come va letto
+
+Il criterio 2 richiede che ciascun criterio sia **verificabile** da un terzo. Sotto `D54` va
+distinto con precisione da ciò che esso **non** richiede, perché la confusione fra le due cose
+produce o un piano impossibile o un piano compiacente.
+
+| Il criterio 2 richiede | Il criterio 2 **non** richiede |
+|---|---|
+| Che il criterio sia formulato in modo che **chiunque** possa accertarlo con la procedura descritta — eseguendo un comando, leggendo un artefatto pubblicato, provocando deliberatamente un fallimento | Che l'accertamento sia **stato eseguito** da una persona diversa da chi ha svolto il lavoro |
+
+La prima proprietà è **producibile** con un contributore unico e non è negoziabile: è ciò che
+rende la roadmap controllabile dall'esterno, e un criterio che non la soddisfa va riformulato.
+La seconda **non è producibile** (§9-bis) e non entra nei criteri di completamento: dove una
+fonte la richiede — riesame del rilascio, audit interno, verifica di configurazione da parte di
+chi non ha scritto il codice — la roadmap **non finge di soddisfarla**. La dichiara come lacuna,
+la marca come **irreversibile** in [03 §5](./03-primo-rilascio-utilizzabile.md), e ne rinvia la
+ripartizione a `Q-189`.
+
+È la distinzione che consente di dire con precisione che cosa `RU-1` è: un rilascio i cui
+criteri sono **tutti verificabili da chiunque**, e sul quale **nessuna verifica è stata eseguita
+da un secondo soggetto**. Le due affermazioni sono compatibili, entrambe vere, ed entrambe vanno
+scritte.
+
 ---
 
 ## 13. Le regole redazionali che quest'area si impone
 
-Sono cinque e sono verificabili sul testo.
+Sono sette e sono verificabili sul testo.
 
 1. **Ogni traguardo ha criteri di completamento verificabili.** Un traguardo senza criterio è un
    desiderio, e non entra. È il vincolo `V-181`.
@@ -504,8 +647,22 @@ Sono cinque e sono verificabili sul testo.
 5. **Nessun dato reale, nessun segreto, nessun nome commerciale** (`R0`). Nessuna soglia clinica.
    Il sistema resta pienamente funzionale senza le terminologie a licenza vincolata (`V-02`,
    `V-03`), e la roadmap non pianifica nulla che lo contraddica.
+6. **La roadmap è pianificazione interna del progetto** (`D57`). Nessun traguardo è attribuito a
+   «terzi», a «chi certifica» o a un soggetto indefinito. Dove un passo presuppone formalmente il
+   ruolo di fabbricante, il documento scrive che **quel ruolo va costituito e formalizzato**
+   (`D58`, `Q-280`), con il proprio tempo, invece di spostare il passo su qualcun altro.
+7. **Una data di pianificazione interna non è una promessa di esito** (`V-171`, `V-280`). In
+   nessun punto di quest'area si scrive che il prodotto **sarà marcato entro una data**; in ogni
+   punto in cui la marcatura è nominata si dichiara lo stato di fatto: **oggi il prodotto non
+   reca marcatura CE**, non è coperto da alcuna dichiarazione di conformità, e chi lo installa,
+   integra o mette in servizio assume comunque gli obblighi che ne derivano.
+
+Le regole 6 e 7 vanno lette insieme, perché separate producono i due errori opposti. La 6 senza
+la 7 trasforma un'intenzione in un impegno datato verso il mercato, che è precisamente l'effetto
+regolatorio che non si vuole. La 7 senza la 6 riporta la pianificazione su un terzo indefinito e
+fa sparire dal calendario attività che sono nostre e che hanno tempi di attraversamento lunghi.
 
 ---
 
 **Prosegue in**: [02 — Traguardi](./02-traguardi.md), dove questi criteri diventano una sequenza
-datata con criteri binari.
+datata con criteri binari, un innesco e un titolare per ciascun traguardo.
