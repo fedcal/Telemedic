@@ -154,6 +154,67 @@ Questo vincolo prevale su ogni scelta di comodità implementativa. Nessuna funzi
 9. **Criterio di accettazione operativo**: ogni requisito funzionale del catalogo deve poter essere completato da un paziente anziano su smartphone in rete mobile, e da un professionista con la sola tastiera e uno screen reader. Se non è possibile, il requisito non è soddisfatto.
 
 
+---
+
+## 5-ter. DECISIONI DEL COMMITTENTE — terza tornata (25 agosto 2026)
+
+Quattro questioni marcate `→ ORCH` sono state portate al committente e decise. Le risposte
+sono vincolanti per ogni area e vanno recepite senza reinterpretazione.
+
+> **D53 — Il traguardo del 30 novembre 2026 resta il primo rilascio installabile.**
+> Il committente ha scelto questa opzione **dopo** che l'orchestrazione aveva esposto la
+> tensione e raccomandato l'alternativa. La decisione è presa e non si rilitiga.
+>
+> **Ne discende un obbligo, non un'opzione: l'ambito del rilascio si riduce a ciò che una
+> persona a tempo parziale può costruire e verificare in tre mesi.** Non esiste una terza via.
+> L'area roadmap deve dichiarare esplicitamente che cosa entra, che cosa viene tagliato e
+> quali tagli sono reversibili. Un ambito non ridotto sotto questa decisione produce
+> semplicemente una data mancata in pubblico.
+>
+> **D52 va emendata di conseguenza** (vedi D56): la sequenza che collocava l'intera
+> documentazione e la traduzione integrale *prima* di ogni riga di codice non è compatibile
+> con questa data e con questa capacità.
+
+> **D54 — Capacità dichiarata: contributore unico, a tempo parziale.**
+> Non è più un'ipotesi: è il dato su cui ogni stima si costruisce. Ogni documento che
+> assumeva una capacità diversa va allineato.
+>
+> **Conseguenza da accettare formalmente e non da aggirare.** Alcune registrazioni richieste
+> dal sistema di gestione della qualità — audit interno, riesame del rilascio, verifica di
+> configurazione eseguita da chi non ha scritto il codice — **richiedono soggetti distinti e
+> non sono producibili internamente**. Non è un problema di ore disponibili: è un problema di
+> persone diverse, e nessuna quantità di lavoro individuale lo risolve. Va stabilito quale
+> sottoinsieme si accetta come rischio dichiarato e quale si copre acquisendo la funzione
+> all'esterno. Chiude `Q-181`, lascia aperta la ripartizione di `Q-189`.
+
+> **D55 — Destinazione d'uso del telemonitoraggio: congelata sulla raccolta differita.**
+> Formulazione vincolante: «**raccolta differita di parametri per la revisione periodica del
+> professionista**». Mantiene Classe IIa e classe di sicurezza software B.
+>
+> La formulazione alternativa — «monitoraggio in tempo reale dei parametri vitali» — è
+> **esclusa**: porterebbe in Classe IIb e classe C, con 12–18 mesi e un ordine di grandezza di
+> costo di differenza. Il congelamento va propagato a documentazione, interfaccia e
+> comunicazione pubblica, e sottoposto a revisione esterna **prima** di ingaggiare qualunque
+> Organismo Notificato. Chiude `Q-144`.
+>
+> Il modello di dominio era già scritto su questa formulazione: la decisione lo conferma e non
+> comporta riscritture. Comporta però un divieto permanente — **nessuna funzione può essere
+> aggiunta se sposta il sistema verso il tempo reale clinico**, e la valutazione va fatta prima
+> di scrivere la funzione, non dopo.
+
+> **D56 — Versione inglese: traduzione assistita, area per area, con controllo di divergenza.**
+> La traduzione integrale (`D50`) si produce con agenti dedicati, un'area alla volta, e un
+> controllo automatico che segnala la divergenza fra italiano e inglese quando uno dei due
+> cambia. È l'unica modalità compatibile con i volumi attuali — oltre 400.000 parole — e con
+> le date dichiarate. Chiude `Q-182`.
+>
+> **Emendamento a D52 imposto da D53.** La traduzione integrale **non è più un prerequisito di
+> ogni riga di codice**: procede in parallelo allo sviluppo. Restano prerequisiti non
+> negoziabili, perché il loro costo di omissione è irrecuperabile: le avvertenze pubbliche
+> obbligatorie, la guida dei fondamenti e le aree di conformità e sicurezza. Il resto della
+> traduzione è pianificato, non bloccante.
+
+
 ## 6. Archetipo dell'integratore target (RISERVATO — profilo anonimizzato)
 
 > **REGOLA DI RISERVATEZZA (R0) — VINCOLANTE PER OGNI AGENTE.**
