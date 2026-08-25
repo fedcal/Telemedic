@@ -1,0 +1,117 @@
+name: 🐛 Segnalazione di difetto / Bug report
+description: Segnala un comportamento non conforme a quanto documentato.
+title: "[bug]: "
+labels: ["type: bug", "status: triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per la segnalazione. Prima di procedere, due avvertenze importanti:
+
+        - ⚠️ **Non allegare mai dati sanitari reali**, nemmeno pseudonimizzati: né in log, né in screenshot, né in dump. Anonimizza tutto.
+        - 🔐 Se ritieni che il difetto abbia implicazioni di sicurezza, **non aprire questa issue**: segui la procedura in [SECURITY.md](../blob/main/SECURITY.md).
+
+        ---
+        *Thank you for the report. Never attach real health data, even pseudonymized. If the defect has security implications, follow SECURITY.md instead.*
+
+  - type: checkboxes
+    id: preliminari
+    attributes:
+      label: Verifiche preliminari
+      options:
+        - label: Ho cercato tra le issue esistenti e non ho trovato un duplicato.
+          required: true
+        - label: Ho verificato il comportamento sulla versione più recente disponibile.
+          required: true
+        - label: La segnalazione non contiene dati personali o sanitari di persone reali.
+          required: true
+
+  - type: textarea
+    id: descrizione
+    attributes:
+      label: Descrizione del difetto
+      description: Che cosa accade e in che cosa differisce da quanto documentato.
+    validations:
+      required: true
+
+  - type: textarea
+    id: riproduzione
+    attributes:
+      label: Passi per riprodurre
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: atteso
+    attributes:
+      label: Comportamento atteso
+    validations:
+      required: true
+
+  - type: dropdown
+    id: componente
+    attributes:
+      label: Componente interessato
+      multiple: true
+      options:
+        - Signaling server
+        - Sessione WebRTC / media
+        - TURN / NAT traversal
+        - API REST / FHIR
+        - Webhook
+        - Frontend Angular
+        - Embed white-label
+        - SDK Java
+        - SDK TypeScript
+        - Keycloak / identità (incluso SPID/CIE)
+        - Persistenza / migrazioni
+        - Audit log
+        - Telemetria di qualità
+        - Registrazione della sessione
+        - Notifiche
+        - Infrastruttura / deployment
+        - Documentazione
+        - Non so
+    validations:
+      required: true
+
+  - type: input
+    id: versione
+    attributes:
+      label: Versione di Telemedic
+      placeholder: "es. v0.5.0, oppure commit SHA"
+    validations:
+      required: true
+
+  - type: textarea
+    id: ambiente
+    attributes:
+      label: Ambiente
+      description: Sistema operativo, browser e versione, runtime Java, modalità di deployment (Docker Compose / Helm / on-premise / SaaS).
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log ed evidenze
+      description: Log pertinenti, già anonimizzati. Per i problemi WebRTC allega l'esportazione di `chrome://webrtc-internals` se disponibile.
+      render: shell
+
+  - type: dropdown
+    id: impatto
+    attributes:
+      label: Impatto clinico
+      description: Il difetto può compromettere l'erogazione di una prestazione sanitaria?
+      options:
+        - "No: difetto cosmetico o di comodità"
+        - "Sì, marginale: la prestazione si completa con un aggiramento"
+        - "Sì, rilevante: la prestazione si degrada o si interrompe"
+        - "Sì, critico: possibile perdita o esposizione di dati clinici"
+    validations:
+      required: true

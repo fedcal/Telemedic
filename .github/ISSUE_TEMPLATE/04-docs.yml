@@ -1,0 +1,44 @@
+name: 📖 Documentazione / Documentation
+description: Segnala documentazione mancante, errata o poco chiara.
+title: "[docs]: "
+labels: ["type: docs", "status: triage"]
+body:
+  - type: input
+    id: pagina
+    attributes:
+      label: Pagina interessata
+      placeholder: "URL o percorso del file, es. docs/04_protocols/fhir.md"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: lingua
+    attributes:
+      label: Lingua
+      options:
+        - Italiano
+        - English
+        - Entrambe / Both
+    validations:
+      required: true
+
+  - type: dropdown
+    id: natura
+    attributes:
+      label: Natura del problema
+      options:
+        - Informazione errata
+        - Informazione mancante
+        - Spiegazione poco chiara
+        - Esempio non funzionante
+        - Collegamento interrotto
+        - Traduzione non allineata all'originale
+    validations:
+      required: true
+
+  - type: textarea
+    id: dettaglio
+    attributes:
+      label: Dettaglio
+    validations:
+      required: true

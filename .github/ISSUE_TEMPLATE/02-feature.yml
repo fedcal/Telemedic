@@ -1,0 +1,67 @@
+name: ✨ Proposta di funzionalità / Feature request
+description: Proponi una nuova capacità o l'evoluzione di una esistente.
+title: "[feat]: "
+labels: ["type: feature", "status: triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Le proposte migliori partono dal problema, non dalla soluzione. Descrivi anzitutto
+        che cosa non riesci a fare oggi e perché conta.
+
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema da risolvere
+      description: Quale esigenza reale non è oggi soddisfatta? Chi ne è coinvolto?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Soluzione proposta
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternative
+    attributes:
+      label: Alternative considerate
+      description: Comprese quelle che hai scartato, e il motivo.
+
+  - type: dropdown
+    id: ambito
+    attributes:
+      label: Ambito
+      options:
+        - Funzionalità clinica
+        - Interoperabilità e integrazione
+        - Sicurezza e conformità
+        - Accessibilità
+        - Prestazioni e scalabilità
+        - Esperienza dello sviluppatore
+        - Operatività e deployment
+        - Documentazione
+    validations:
+      required: true
+
+  - type: textarea
+    id: accettazione
+    attributes:
+      label: Criteri di accettazione
+      description: In forma verificabile. Se puoi, usa la forma Dato/Quando/Allora.
+      value: |
+        - Dato che ...
+        - Quando ...
+        - Allora ...
+
+  - type: checkboxes
+    id: conformita
+    attributes:
+      label: Implicazioni da valutare
+      options:
+        - label: La proposta tratta dati sanitari o personali.
+        - label: La proposta potrebbe incidere sulla qualificazione del software ai sensi del Regolamento (UE) 2017/745.
+        - label: La proposta introduce una dipendenza verso un servizio esterno.
+        - label: La proposta modifica un contratto di API pubblico.

@@ -1,0 +1,55 @@
+name: 🔌 Richiesta di integrazione / Integration request
+description: Richiedi il supporto per l'integrazione con un sistema esterno o uno standard.
+title: "[integrazione]: "
+labels: ["type: integration", "status: triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Telemedic nasce per essere integrato. Usa questo modello per richiedere il supporto
+        di un sistema, di uno standard o di un profilo di interoperabilità.
+
+  - type: dropdown
+    id: modalita
+    attributes:
+      label: Modalità di integrazione interessata
+      multiple: true
+      options:
+        - REST API applicativa
+        - FHIR R4
+        - Webhook / notifiche di evento
+        - Embed white-label (iframe / Web Component)
+        - SDK Java
+        - SDK TypeScript
+        - HL7 v2 (MLLP)
+        - SMART on FHIR
+        - Profili IHE
+        - Identità federata (OIDC / SAML2 / SPID / CIE)
+        - Altro
+    validations:
+      required: true
+
+  - type: textarea
+    id: sistema
+    attributes:
+      label: Tipologia di sistema da integrare
+      description: |
+        Descrivi la **categoria** di sistema (gestionale di studio medico, CUP regionale, LIS, RIS/PACS,
+        piattaforma regionale di telemedicina, FSE, sistema di firma digitale...) e le sue caratteristiche
+        tecniche. Non è necessario indicare il nome commerciale del prodotto.
+    validations:
+      required: true
+
+  - type: textarea
+    id: flusso
+    attributes:
+      label: Flusso desiderato
+      description: Quali dati devono transitare, in quale direzione, con quale innesco e con quale frequenza.
+    validations:
+      required: true
+
+  - type: textarea
+    id: standard
+    attributes:
+      label: Standard e specifiche di riferimento
+      description: Versioni esatte, profili, eventuali documenti pubblici.

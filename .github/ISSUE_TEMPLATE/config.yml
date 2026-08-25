@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Domande e discussioni / Questions and discussions
+    url: https://github.com/fedcal/Telemedic/discussions
+    about: Per domande d'uso, idee e confronto con la comunità. Le issue sono riservate a difetti e proposte strutturate.
+  - name: 🔐 Segnalazione di vulnerabilità / Security vulnerability report
+    url: https://github.com/fedcal/Telemedic/security/advisories/new
+    about: NON aprire una issue pubblica per una vulnerabilità. Usa la segnalazione privata. Vedi SECURITY.md.
+  - name: 📖 Documentazione / Documentation
+    url: https://fedcal.github.io/Telemedic/
+    about: Consulta la documentazione prima di aprire una segnalazione.

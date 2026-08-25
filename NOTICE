@@ -1,0 +1,31 @@
+Telemedic
+Copyright 2026 Federico Calò
+
+Questo prodotto include software sviluppato nell'ambito del progetto Telemedic
+(https://github.com/fedcal/Telemedic).
+
+This product includes software developed as part of the Telemedic project
+(https://github.com/fedcal/Telemedic).
+
+---
+
+Il presente file NOTICE è richiesto dalla sezione 4(d) della Apache License 2.0.
+Chiunque ridistribuisca l'Opera o Opere Derivate deve includerne il contenuto.
+
+This NOTICE file is required by section 4(d) of the Apache License 2.0.
+Any redistribution of the Work or Derivative Works must include its contents.
+
+---
+
+AVVISO SULLA DESTINAZIONE D'USO / INTENDED USE NOTICE
+
+Telemedic è un'infrastruttura software per l'erogazione di prestazioni sanitarie
+a distanza. La qualificazione regolatoria del sistema (segnatamente ai sensi del
+Regolamento (UE) 2017/745 sui dispositivi medici) dipende dalla destinazione d'uso
+dichiarata da chi lo immette sul mercato o lo mette in servizio. Si veda
+docs/08_compliance/ per l'analisi completa.
+
+Telemedic is software infrastructure for remote healthcare delivery. The regulatory
+qualification of the system (notably under Regulation (EU) 2017/745 on medical
+devices) depends on the intended purpose declared by whoever places it on the market
+or puts it into service. See docs/08_compliance/ for the full analysis.
