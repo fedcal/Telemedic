@@ -458,7 +458,7 @@ regulate:
 - the **volume of the body's fluids**, and therefore indirectly arterial blood pressure;
 - the **concentration of the electrolytes** (sodium, potassium and others), whose imbalance has
   direct effects on the heart;
-- the **acid–base balance**;
+- the **acid-base balance**;
 - the **elimination of waste products** and of many medicines;
 - the production of hormones that regulate blood pressure and the formation of red blood cells.
 

@@ -687,7 +687,7 @@ comportamento in caso di violazione delle soglie.
 Il DM 21 settembre 2022 è esplicito:
 
 > «Si richiede altresì, in linea con quanto riportato all'interno della *«Guidance on
-> Qualification and Classification of Software in Regulation (EU) 2017/745 – MDR and
+> Qualification and Classification of Software in Regulation (EU) 2017/745 - MDR and
 > Regulation (EU) 2017/746»*, che **la Infrastruttura regionale di telemedicina per il
 > servizio minimo di telemonitoraggio debba essere certificata come dispositivo medico**.»
 

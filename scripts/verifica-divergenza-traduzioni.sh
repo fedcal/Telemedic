@@ -130,7 +130,15 @@ for src in $(find "$SORGENTE" -name '*.md' | sort); do
     # soltanto se la revisione nominata contiene già l'ultima modifica dell'originale: dichiarare
     # equivalenza rispetto a una revisione anteriore non dichiara nulla. Chi la scrive si assume
     # la responsabilità di aver letto entrambi i testi, ed è una responsabilità tracciabile.
-    verificata=$(grep -o 'TRAD-VERIFICATA: *[0-9a-f]\{7,40\}' "$dst" 2>/dev/null | tail -1 | sed 's/.*: *//')
+    # «|| true» NON e' una tolleranza: e' la correzione di un difetto che rendeva CODICE MORTO
+    # la riga successiva. Sotto «set -euo pipefail», quando il marcatore non c'e' la grep esce 1,
+    # pipefail propaga l'uno all'intera catena, l'assegnazione fallisce e set -e uccide lo script -
+    # PRIMA che «if [ -n "$verificata" ]» possa gestire il caso, che e' esattamente il caso per cui
+    # quel test esiste. Il controllo usciva quindi 1 senza stampare una sola riga, e la divergenza
+    # che aveva trovato restava invisibile: il peggior modo di fallire, perche' indistinguibile da
+    # un guasto dello script. Il caso normale - una traduzione senza marcatore - e' la maggioranza
+    # delle traduzioni, quindi il difetto si manifestava alla PRIMA divergenza reale e mai prima.
+    verificata=$(grep -o 'TRAD-VERIFICATA: *[0-9a-f]\{7,40\}' "$dst" 2>/dev/null | tail -1 | sed 's/.*: *//' || true)
     coperta=0
     if [ -n "$verificata" ]; then
       rev_src=$(git log -1 --format=%H -- "$src" 2>/dev/null)

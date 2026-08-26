@@ -19,7 +19,7 @@ Questo documento modella il dominio, non lo riassume. Tre criteri governano ogni
 
 **Identificatori stabili.** Gli identificatori `RF-nnn`, `RNF-nnn`, `BR-nnn`, `ATT-nn`, `PRM-…`, `BC-nn`, `KPI-nn` sono stabili e non verranno riassegnati. Le numerazioni hanno intervalli riservati per area, così che l'inserimento di nuovi elementi non costringa a rinumerare. Questi identificatori sono la chiave di join della matrice di tracciabilità requisito → progettazione → test richiesta da IEC 62304 §5.1.1 e §5.7 e dal fascicolo tecnico MDR.
 
-**Separazione fra fatto, fonte e proposta.** Il documento distingue tre registri: *fatto accertato* (con fonte citata), *decisione del context pack* (D1–D11, V1–V6), *proposta di modellazione di R6* (esplicitamente marcata come proposta). Nessuna affermazione normativa è inventata.
+**Separazione fra fatto, fonte e proposta.** Il documento distingue tre registri: *fatto accertato* (con fonte citata), *decisione del context pack* (D1-D11, V1-V6), *proposta di modellazione di R6* (esplicitamente marcata come proposta). Nessuna affermazione normativa è inventata.
 
 **Vincolo trasversale di classificazione (V2).** Il modello di dominio qui proposto tiene deliberatamente il sistema fuori dal perimetro del «software che fornisce informazioni usate per assumere decisioni a fini diagnostici o terapeutici» (Regola 11 MDR, allegato VIII Reg. UE 2017/745): il sistema **trasporta, struttura, firma e conserva** contenuto clinico redatto da un professionista, e **non lo genera né lo interpreta**. Ogni requisito che rischi di spostare questo confine è marcato `⚠ V2` e va sottoposto a R2.
 

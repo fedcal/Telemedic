@@ -1907,7 +1907,7 @@ decision it is.
 
 | Reference | What is not settled | Whose it is |
 |---|---|---|
-| §1.2, §2.4–§2.9 | Names and form of the commands for verifying the prerequisites, for migration, for data generation and for selective start-up of the services | Technical area (**Q-190**) |
+| §1.2, §2.4-§2.9 | Names and form of the commands for verifying the prerequisites, for migration, for data generation and for selective start-up of the services | Technical area (**Q-190**) |
 | §1.4 | Real memory and disk consumption of the local environment: **not measured** | Technical area (**Q-191**) |
 | §1.6 | Procedure adopted for the local certificate in the test between two devices | Technical area (**Q-190**) |
 | §2.5 | List and names of the variables of the local configuration | Defined by the example file, not yet written |

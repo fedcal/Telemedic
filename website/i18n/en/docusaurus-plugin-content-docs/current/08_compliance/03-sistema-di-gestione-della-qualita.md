@@ -632,3 +632,5 @@ the decision is, for the notified body, a decision never taken.
 | `Q-13`, `Q-114` | Severity and probability of the inputs recorded in § 10: determinable **only after** the risk management plan with the acceptability criteria | Compliance, at the production of the risk file |
 | `[NV]` | Harmonisation status of ISO 13485 and of the lifecycle security standard, to be verified against the consolidated list **at the date of use** (§ 2) | Compliance |
 | `[NV]` | Precise numbering of the clauses of IEC 62304 and of ISO 13485 cited in this chapter: they derive from the project's research and must be re-verified against the text of the standards before appearing in a controlled document | Compliance |
+
+<!--TRAD-VERIFICATA: 02b1ce0325c38f1cb79bd562bc72efd2cc41c1e8-->

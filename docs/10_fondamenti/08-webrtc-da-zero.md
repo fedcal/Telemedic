@@ -388,7 +388,7 @@ Le specifiche vengono da due organismi diversi che si presuppongono a vicenda.
 
 RFC 8825 non definisce alcun protocollo: **elenca quali altre specifiche un'implementazione
 deve rispettare** per potersi dire WebRTC. È un *applicability statement*, e la sua
-struttura (§1–§12) copre il trasporto dati (§4), il framing e la messa in sicurezza (§5), i
+struttura (§1-§12) copre il trasporto dati (§4), il framing e la messa in sicurezza (§5), i
 formati (§6) e la gestione della connessione (§7).
 
 La costellazione normativa IETF, con il ruolo di ciascun documento:
@@ -615,7 +615,7 @@ a=msid-semantic: WMS 6f1b2c3d-0000-4000-8000-000000000001
 > **Perché BUNDLE è un fatto architetturale e non un dettaglio.** BUNDLE **richiede** la
 > multiplazione di RTP e RTCP sulla stessa porta all'interno del gruppo (RFC 8843 §9.3) e
 > comporta **un solo trasporto ICE e una sola associazione DTLS** per l'intero gruppo
-> (§10–§11). In pratica: audio, video e canale dati condividono **una** porta, **un**
+> (§10-§11). In pratica: audio, video e canale dati condividono **una** porta, **un**
 > handshake di cifratura, **una** allocazione sul relay. Tutto il dimensionamento del server
 > di relay (§11.6) poggia su questo.
 
@@ -1944,8 +1944,8 @@ Il percorso di diagnosi, in ordine. Ogni passo esclude una classe di cause.
    `connected`, il problema è in ICE o nella segnalazione, non nel media. Si guardano i
    candidati raccolti dai due lati: se un lato non ha prodotto candidati `relay`, le
    credenziali del relay erano assenti, scadute o rifiutate.
-2. **Quale coppia è stata scelta?** Se è `relay`–`relay` e ci si aspettava una connessione
-   diretta, si indaga sulla rete. Se è `host`–`host` e la qualità è pessima, il problema non è
+2. **Quale coppia è stata scelta?** Se è `relay`-`relay` e ci si aspettava una connessione
+   diretta, si indaga sulla rete. Se è `host`-`host` e la qualità è pessima, il problema non è
    la rete: è il dispositivo.
 3. **I byte scorrono?** Uno stato `connected` con zero byte ricevuti significa che il
    percorso di controllo funziona e quello dati no: quasi sempre un firewall che lascia

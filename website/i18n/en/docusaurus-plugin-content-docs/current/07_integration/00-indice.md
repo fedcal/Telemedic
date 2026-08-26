@@ -160,8 +160,8 @@ Nobody reads this area in full. Here are the three paths that cover real cases.
 ### 5.1 "I need to have a first integration running by Friday"
 
 1. [02 - First startup](02-primo-avvio.md) - prerequisites, steps, points where you get stuck.
-2. [03 - Integration for application interfaces](03-integrazione-per-api.md) §1–§4 - authentication between systems and first call.
-3. [04 - Integration for events](04-integrazione-per-eventi.md) §1–§4 - receive and verify first notification.
+2. [03 - Integration for application interfaces](03-integrazione-per-api.md) §1-§4 - authentication between systems and first call.
+3. [04 - Integration for events](04-integrazione-per-eventi.md) §1-§4 - receive and verify first notification.
 4. [10 - FAQs and antipatterns](10-domande-frequenti-e-antipattern.md) - read it **before** opening an issue: it contains the errors we expect.
 
 ### 5.2 "I need to decide the integration architecture"

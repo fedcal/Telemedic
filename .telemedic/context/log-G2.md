@@ -15,7 +15,7 @@
 | Frontmatter | `title`, `sidebar_position: 11`, `description` - come da mandato |
 | Righe non vuote | 1.868 |
 | Righe di tabella | 208 (≈ 158 righe di contenuto su 25 tabelle) |
-| Titoli (`#`–`####`) | 88 |
+| Titoli (`#`-`####`) | 88 |
 | Diagrammi Mermaid | 4 |
 | **Parole (stima)** | **≈ 22.000–24.000** - ampiamente oltre il minimo di 8.000 richiesto |
 
@@ -38,7 +38,7 @@
 | 6 | Triage: definizione, cinque livelli, rivalutabilità, codice di triage ≠ codice di priorità; teletriage e V2; segnali d'allarme e loro 4 proprietà; **«questo non è il canale giusto»**; come si instrada senza fare diagnosi; 112 e 116117 | punto 5 |
 | 7 | Anatomia dell'allarme; sensibilità/specificità/**valore predittivo positivo** con esempio aritmetico dichiaratamente inventato; affaticamento da allarme; tecnico vs clinico; catena con escalation (Mermaid) e 6 punti di rottura; presa in carico e mancato riscontro; escalation; isteresi/persistenza/raggruppamento/soppressione; **soglie come configurazione clinica per paziente**; **perché un default «ragionevole» è sbagliato**; registro delle soglie | punto 6 |
 | 8 | Aderenza; **l'assenza di dato è un dato**; tassonomia del silenzio in 7 categorie; 6 tecniche per distinguere; guasto sistemico come caso peggiore; dato in ritardo/fuori ordine/duplicato/corretto; 5 affermazioni verificabili | punto 7 |
-| 9 | Rischio clinico; evento avverso, quasi evento, evento sentinella; condizioni latenti; analisi delle cause profonde e analisi prospettica; cultura giusta e 5 requisiti tecnici della segnalazione; **ISO 14971** con glossario completo e catena pericolo→danno (Mermaid); gerarchia dei controlli; separazione da art. 35 GDPR; **IEC 62366-1**, errore d'uso vs errore dell'utente vs uso anomalo; 10 scenari d'uso pericolosi propri del telemonitoraggio (T1–T10) | punto 8 |
+| 9 | Rischio clinico; evento avverso, quasi evento, evento sentinella; condizioni latenti; analisi delle cause profonde e analisi prospettica; cultura giusta e 5 requisiti tecnici della segnalazione; **ISO 14971** con glossario completo e catena pericolo→danno (Mermaid); gerarchia dei controlli; separazione da art. 35 GDPR; **IEC 62366-1**, errore d'uso vs errore dell'utente vs uso anomalo; 10 scenari d'uso pericolosi propri del telemonitoraggio (T1-T10) | punto 8 |
 | 10 | 58 conseguenze progettuali operative in 8 gruppi, con divieti assoluti in grassetto | punto 9 |
 | Chiusura | «Cosa devi ricordare» (15 punti) + «Termini introdotti in questo modulo» (44 voci) | requisito redazionale |
 
@@ -164,9 +164,9 @@ del calcolo dei punteggi.
 
 ### 3.7 Verso l'agente di `docs/08_compliance/`
 
-Gli scenari **T1–T10** del § 9.8 sono candidati diretti all'inserimento nel file di ingegneria
+Gli scenari **T1-T10** del § 9.8 sono candidati diretti all'inserimento nel file di ingegneria
 dell'usabilità (IEC 62366-1) e nel file di rischio (ISO 14971), a integrazione degli scenari
-U1–U6 già individuati in R2 § 2.4 per la sessione video. Vanno stimati per gravità e
+U1-U6 già individuati in R2 § 2.4 per la sessione video. Vanno stimati per gravità e
 probabilità con la matrice 5×5 proposta in R2 e collegati alle misure di controllo.
 
 Due scenari meritano attenzione perché sono probabilmente **S4** nella scala di R2:
@@ -198,7 +198,7 @@ di punteggio.
 | Convenzione - link relativi | rispettata |
 | Convenzione - Mermaid per i diagrammi | rispettata: 4 diagrammi (traiettoria della cronicità, modello→istanza, ciclo di presa in carico, catena dell'allarme, catena pericolo→danno - di cui uno `stateDiagram-v2` e tre `flowchart`) |
 | Vincoli citati e recepiti | V2 (§ 6.3, § 7.9), V3 (§ 10.8), V4 (§ 3.7, § 10.8), V5 (§ 7.11), V6/D25 (§ 9.7) |
-| Decisioni citate | D12/D26 (§ 5.7, § 9.6), D21 (§ 7.9), D31–D34 (§ 5.2), D42 (§ 7.11), D45 (§ 10.8), D46 (§ 5.7) |
+| Decisioni citate | D12/D26 (§ 5.7, § 9.6), D21 (§ 7.9), D31-D34 (§ 5.2), D42 (§ 7.11), D45 (§ 10.8), D46 (§ 5.7) |
 | Nessun dato reale | rispettata: nessun caso clinico, nessun dato di persona |
 | File `09-fondamenti-clinici.md` non toccato | rispettata: mai aperto né modificato |
 

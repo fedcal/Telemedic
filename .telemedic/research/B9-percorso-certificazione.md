@@ -226,11 +226,11 @@ più veloce (13 mesi) e non solleva non conformità maggiori. **Probabilità sti
 | Certificato ISO 13485 | **luglio 2027** |
 | Fascicolo tecnico completo e sottomesso all'ON | **30 giugno 2027** |
 | Verifica di completezza superata | **31 agosto 2027** |
-| Audit SGQ in sito | **settembre – ottobre 2027** |
-| Valutazione della documentazione tecnica | **settembre – dicembre 2027** |
-| Cicli di risposta alle non conformità | **gennaio – aprile 2028** |
+| Audit SGQ in sito | **settembre - ottobre 2027** |
+| Valutazione della documentazione tecnica | **settembre - dicembre 2027** |
+| Cicli di risposta alle non conformità | **gennaio - aprile 2028** |
 | Certificati Allegato IX | **giugno 2028** |
-| Dichiarazione di conformità, marcatura CE, EUDAMED | **luglio – agosto 2028** |
+| Dichiarazione di conformità, marcatura CE, EUDAMED | **luglio - agosto 2028** |
 
 Durata dalla firma del contratto al certificato: **18 mesi**, cioè il limite superiore della
 fascia maggioritaria. È il piano su cui è costruito il diagramma del § 3.5 e la tabella
@@ -1157,7 +1157,7 @@ determina l'esito:
 | Item software | Classe | Motivazione sintetica |
 |---|---|---|
 | Acquisizione, trasmissione, persistenza e presentazione dei parametri di telemonitoraggio; evidenziazione dei valori fuori intervallo | **B** | Le misure esterne (destinazione d'uso ristretta, revisione periodica programmata, Centro erogatore, istruzione al paziente sull'emergenza) riducono il danno possibile a **non grave**. **Se anche una sola di queste misure non fosse documentabile e verificabile, l'item passa a C** |
-| Associazione fra identità del paziente, sessione, dati e referto (multi-tenancy, identificatori esterni, *token exchange*) | **B**, con trattamento come rischio prioritario | La mis-associazione paziente–dato è la situazione pericolosa peggiore dell'architettura. Resta B solo perché il professionista verifica l'identità in apertura di sessione (misura esterna); la verifica va **imposta dall'interfaccia**, non lasciata all'abitudine |
+| Associazione fra identità del paziente, sessione, dati e referto (multi-tenancy, identificatori esterni, *token exchange*) | **B**, con trattamento come rischio prioritario | La mis-associazione paziente-dato è la situazione pericolosa peggiore dell'architettura. Resta B solo perché il professionista verifica l'identità in apertura di sessione (misura esterna); la verifica va **imposta dall'interfaccia**, non lasciata all'abitudine |
 | Trasporto media WebRTC, signaling, ICE/TURN, indicatori di qualità del collegamento | **B** | Guasto → interruzione o degrado; il professionista interrompe e riprogramma |
 | Redazione, firma e trasmissione del contenuto clinico (`Composition` in `Bundle`, D13) | **B** | Perdita o alterazione del referto ritarda decisioni; la firma digitale e la conferma esplicita sono controlli |
 | IAM, autorizzazioni, isolamento fra tenant, audit immutabile | **B** | Divulgazione non autorizzata; danno alla persona possibile ma non grave sul piano fisico |

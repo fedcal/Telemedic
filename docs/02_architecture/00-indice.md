@@ -32,7 +32,7 @@ Ne discende una regola di precedenza che vale per l'intera documentazione del pr
 
 Sopra quest'area sta soltanto la base architetturale vincolante
 (`.telemedic/context/04_BASELINE_ARCHITETTURALE.md`) e le decisioni approvate dal committente
-(D1–D52). Dove un documento di quest'area si discosta dalla base, lo dichiara esplicitamente e
+(D1-D52). Dove un documento di quest'area si discosta dalla base, lo dichiara esplicitamente e
 rinvia all'ADR che motiva lo scostamento: non esistono scostamenti taciti.
 
 ## 2. I documenti dell'area

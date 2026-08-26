@@ -18,9 +18,9 @@ binario ma soltanto scritto in forma binaria; e **la sequenza**, che è l'unica 
 piano governa davvero.
 
 Le date restano ciò che sono nella roadmap: **allocazioni del calendario residuo**, non stime. Il
-diagramma di `02-traguardi.md` §7 alloca a `T-02` la finestra **26 settembre – 10 ottobre 2026**.
+diagramma di `02-traguardi.md` §7 alloca a `T-02` la finestra **26 settembre - 10 ottobre 2026**.
 Questa finestra **non è esclusiva**: nello stesso periodo il diagramma alloca `T-04` (26 settembre
-– 3 ottobre), `T-05` (fino al 3 ottobre) e l'avvio di `T-08` (dal 3 ottobre), tutti al medesimo
+- 3 ottobre), `T-05` (fino al 3 ottobre) e l'avvio di `T-08` (dal 3 ottobre), tutti al medesimo
 contributore unico. Chi legge la finestra come se fosse dedicata a `T-02` legge male, e il piano lo
 dice qui perché è la prima causa per cui un traguardo di classe `D` scivola senza che nessuno se ne
 accorga: non è stato compresso, è stato sovrapposto.
@@ -417,7 +417,7 @@ che serve per decidere che cosa sacrificare se la finestra non tiene.
 | 2 - collegamenti | `D` | **La chiusura del criterio 2 di `T-03`**, a scarto nullo. Il residuo materiale è piccolo: tre ancore e quattro collegamenti non inglesi | No sul controllo, sì sulla lettura del perimetro (§2.2) |
 | 7 - rinvii conformità | `D` | Quanti dei 61 riscontri siano testo nudo. Ignoto prima della prima esecuzione | Sì |
 
-**Sulla finestra.** L'allocazione **26 settembre – 10 ottobre** è di quattordici giorni di
+**Sulla finestra.** L'allocazione **26 settembre - 10 ottobre** è di quattordici giorni di
 calendario, condivisi con `T-04`, `T-05` e l'avvio di `T-08`, sotto la capacità di `D62` - dieci-venti
 ore a settimana, contributore unico. Il piano **non dichiara che ci stanno**: dichiara che i due
 criteri di classe `A` e `D` più costosi, il 6 e il 3, **non dipendono dalla finestra** e possono
@@ -488,7 +488,7 @@ traguardo e non un'appendice.
 
 > **Contraddizione da non risolvere qui.** La riga «modulo delle fonti primarie» è **in conflitto
 > con lo stato di fatto**: `docs/10_fondamenti/20-fonti-primarie.md` **esiste** ed è tradotto in
-> inglese, e `00-indice.md` §4 dichiara la guida *«Completa: ventuno moduli, `00`–`20`, glossario e
+> inglese, e `00-indice.md` §4 dichiara la guida *«Completa: ventuno moduli, `00`-`20`, glossario e
 > fonti primarie compresi»*. La riga di `T-02` e il §1 di `02-traguardi.md` - *«della guida dei
 > fondamenti mancano due moduli su ventuno, il glossario e le fonti primarie»* - sono **residui di
 > una revisione precedente**. La correzione è di `ROAD` e va fatta con la procedura ordinaria; questo

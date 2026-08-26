@@ -30,7 +30,7 @@ Every statement in this area is explicitly classified:
 | Marker | Meaning |
 |---|---|
 | **[NORM]** | The regulation or administrative act establishes it. The exact source always follows: act, article, section, annex, paragraph |
-| **[BASE]** | It derives from `04_BASELINE_ARCHITETTURALE.md` or from a decision `D1`–`D52` of the brief. It is not negotiable in this area |
+| **[BASE]** | It derives from `04_BASELINE_ARCHITETTURALE.md` or from a decision `D1`-`D52` of the brief. It is not negotiable in this area |
 | **[MOD]** | It is a **modelling decision of this area**, identified with `DM-nn`. Adoptable or rejectable, but declared as a proposal and not as an obligation |
 | **[NV]** | Not verified. It always indicates who the verification should be asked from and what changes if the answer is different |
 

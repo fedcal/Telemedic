@@ -7,7 +7,7 @@ description: "Why artefacts are signed with a key derived from the identity of t
 # ADR-0031 - Signing of Artefacts With Ephemeral Identity of the Pipeline
 
 **Status**: accepted · **Date**: 26 August 2026 · **Area**: TECH
-**Reference constraints**: D54, Q-287 of the dashboard, criteria 7–8 of T–03
+**Reference constraints**: D54, Q-287 of the dashboard, criteria 7–8 of T-03
 
 ## Context
 
@@ -44,7 +44,7 @@ Technically: **OIDC + Sigstore/cosign**. GitHub Actions emits an OIDC token that
 - **Standardised form of signature.** Sigstore/cosign is the de facto standard for third-party pipelines, used by Google, Red Hat, GitHub, CNCF. The signature generated is verifiable with standard tools.
 
 *Trade-offs accepted*:
-- **Verifiability tied to an external register.** Who installs does not verify the signature offline. Verification requires Internet access and access to the Rekor transparency register (a public and free Sigstore service, part of the Linux Foundation). If Rekor is unreachable, verification is impossible. For a medical device the conservation horizon is long - years after the last specimen placed on the market - and this records a risk: **what happens if the Rekor service is unreachable at the moment of verification?** The verification procedure at the responsibility of who installs (criterion 8 of T–03) must state the answer, and it is a liability that is to be discharged when the manufacturer is established.
+- **Verifiability tied to an external register.** Who installs does not verify the signature offline. Verification requires Internet access and access to the Rekor transparency register (a public and free Sigstore service, part of the Linux Foundation). If Rekor is unreachable, verification is impossible. For a medical device the conservation horizon is long - years after the last specimen placed on the market - and this records a risk: **what happens if the Rekor service is unreachable at the moment of verification?** The verification procedure at the responsibility of who installs (criterion 8 of T-03) must state the answer, and it is a liability that is to be discharged when the manufacturer is established.
 - **Verifiability tied to a third-party platform.** If the project migrates to a pipeline different from GitHub Actions, the form of the signature changes. Historical signatures remain valid (Rekor preserves them), but new artefacts will not be able to be signed with the same mechanism. It is a known and manageable dependency: a pipeline migration is a rare and planned event.
 
 ## Decision

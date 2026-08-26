@@ -32,7 +32,7 @@ WebRTC non è *una* specifica. È la composizione di due corpi normativi che si 
 - **W3C** definisce **l'API JavaScript** esposta al browser: *WebRTC: Real-Time Communication in Browsers*, **W3C Recommendation del 13 marzo 2025** (verificato). È una Recommendation con "candidate amendments", cioè una raccomandazione stabile che continua a incorporare modifiche sostanziali - un dettaglio non banale: la superficie API non è congelata.
 - **IETF** definisce **i protocolli sul filo**, coordinati dall'applicability statement **RFC 8825** - *Overview: Real-Time Protocols for Browser-Based Applications*.
 
-RFC 8825 non definisce protocolli: elenca quali altre specifiche un'implementazione deve rispettare per potersi dire WebRTC. La sua struttura (§1–§12) copre trasporto dati (§4), framing e messa in sicurezza (§5), formati (§6), gestione della connessione (§7).
+RFC 8825 non definisce protocolli: elenca quali altre specifiche un'implementazione deve rispettare per potersi dire WebRTC. La sua struttura (§1-§12) copre trasporto dati (§4), framing e messa in sicurezza (§5), formati (§6), gestione della connessione (§7).
 
 La costellazione normativa IETF verificata:
 
@@ -114,7 +114,7 @@ a=ice-lite                   ; §5.3, solo session-level
 a=remote-candidates:<component-id> <addr> <port>  ; §5.2
 ```
 
-- **RFC 8843** - *Negotiating Media Multiplexing Using SDP* (BUNDLE). `a=group:BUNDLE <tag> <tag> ...` (§5); il primo identification-tag è l'**offerer BUNDLE-tag** e la sua `m=` section porta l'indirizzo/porta usati per tutto il gruppo (§2). BUNDLE **richiede** rtcp-mux all'interno del gruppo (§9.3) e comporta **un solo transport ICE e una sola associazione DTLS** per l'intero gruppo (§10–§11). Per Telemedic questo è un fatto architetturale, non un dettaglio: audio, video e data channel condividono **una** porta, **un** handshake DTLS, **una** allocazione TURN. Il dimensionamento del relay (§4.7) si basa su questo.
+- **RFC 8843** - *Negotiating Media Multiplexing Using SDP* (BUNDLE). `a=group:BUNDLE <tag> <tag> ...` (§5); il primo identification-tag è l'**offerer BUNDLE-tag** e la sua `m=` section porta l'indirizzo/porta usati per tutto il gruppo (§2). BUNDLE **richiede** rtcp-mux all'interno del gruppo (§9.3) e comporta **un solo transport ICE e una sola associazione DTLS** per l'intero gruppo (§10-§11). Per Telemedic questo è un fatto architetturale, non un dettaglio: audio, video e data channel condividono **una** porta, **un** handshake DTLS, **una** allocazione TURN. Il dimensionamento del relay (§4.7) si basa su questo.
 
 - **RFC 8842** - *SDP Offer/Answer Considerations for DTLS and DTLS-SRTP*: definisce `a=setup:actpass|active|passive|holdconn` e la semantica del ruolo DTLS client/server. Aggiorna RFC 5763.
 

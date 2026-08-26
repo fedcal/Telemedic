@@ -431,7 +431,7 @@ target dichiarate dal committente (§ 4 del brief: **dermatologia**; e la specia
 
 **Passo 4 - L'azione è a beneficio di singoli pazienti?** Per le funzioni cliniche: sì (ogni sessione è
 riferita a un paziente). Per le metriche di qualità di rete: **no** - sono a beneficio della gestione
-dell'infrastruttura, non del paziente individuale; l'esempio Annex II Figura 1 – Example 1 della Rev.1
+dell'infrastruttura, non del paziente individuale; l'esempio Annex II Figura 1 - Example 1 della Rev.1
 (modulo che traccia metriche operative di laboratorio) esce dal perimetro proprio al passo 4. Le
 metriche di Telemedic vanno documentate con questa stessa logica.
 
@@ -614,7 +614,7 @@ giuridica:
 Redigere e mantenere un **fascicolo di qualificazione** (*qualification determination file*) che:
 1. dichiari la destinazione d'uso in forma restrittiva e verificabile;
 2. applichi passo per passo l'albero di MDCG 2019-11 Rev.1 con motivazione scritta per ciascun passo;
-3. elenchi le **funzioni escluse** (le nove voci C1–C9 del § 1.5.3) come *design constraint* e non come
+3. elenchi le **funzioni escluse** (le nove voci C1-C9 del § 1.5.3) come *design constraint* e non come
    semplici assenze;
 4. mappi i moduli e le loro interfacce ai sensi della § 7 Rev.1;
 5. sia sottoscritto e datato, e sia soggetto a *change control* - ogni PR che tocchi il perimetro
@@ -701,7 +701,7 @@ Meccanismi che rendono la cosa governabile - tutti implementabili in repository:
 **Formulazione consigliata da inserire in `CONTRIBUTING.md`:** il progetto accetta contributi ma il
 maintainer, quale unico soggetto che rilascia le versioni, esercita il *design control*; il contributo
 accettato è considerato output di progettazione del progetto e non trasferisce alcuna responsabilità
-regolatoria al contributore; contributi che introducono funzionalità appartenenti alle categorie C1–C9
+regolatoria al contributore; contributi che introducono funzionalità appartenenti alle categorie C1-C9
 (§ 1.5.3) sono rifiutati per policy e non per merito tecnico.
 
 #### 1.7.3 L'integratore che incorpora Telemedic in white-label: l'art. 16 MDR
@@ -802,7 +802,7 @@ L'art. 5, paragrafo 5, MDR esclude dall'applicazione della maggior parte del reg
 condizione, fra le altre, che (lettera a) **i dispositivi non siano ceduti a un'altra persona
 giuridica**; (b) fabbricazione e uso avvengano nell'ambito di sistemi di gestione della qualità
 appropriati; (c) l'istituzione giustifichi che le esigenze specifiche del gruppo di pazienti non possono
-essere soddisfatte da un dispositivo equivalente disponibile sul mercato; (d)–(h) informazione
+essere soddisfatte da un dispositivo equivalente disponibile sul mercato; (d)-(h) informazione
 all'autorità competente, dichiarazione pubblica, documentazione, misure di conformità, riesame
 dell'esperienza clinica e azioni correttive
 ([testo art. 5](https://www.medicaldevicenews.eu/MDR/articolo-5-immissione-sul-mercato-e-messa-in-servizio-599da1c8b1c61141feeea266.html);
@@ -848,7 +848,7 @@ attenzione** se il software eseguisse misurazioni con soglie legalmente rilevant
 | 10(6) | **Dichiarazione di conformità UE** (art. 19) e **marcatura CE** (art. 20) | § 1.8.5 |
 | 10(7) | Obblighi **UDI** (art. 27) e di **registrazione** (artt. 29 e 31) | § 1.8.6 |
 | 10(8) | Conservazione della documentazione per almeno **10 anni** dall'immissione dell'ultimo dispositivo (15 per gli impiantabili) | Politica di retention documentale |
-| 10(9) | **Sistema di gestione della qualità** proporzionato alla classe di rischio, con gli elementi (a)–(m) | § 1.8.3 |
+| 10(9) | **Sistema di gestione della qualità** proporzionato alla classe di rischio, con gli elementi (a)-(m) | § 1.8.3 |
 | 10(10) | Attuazione del sistema di **sorveglianza post-commercializzazione** (art. 83) | § 1.8.7 |
 | 10(11) | Informazioni che accompagnano il dispositivo in una o più **lingue ufficiali dell'Unione** determinate dallo Stato membro | IFU in italiano e inglese; coerente con D3 |
 | 10(12) | Azioni correttive immediate in caso di non conformità; informazione a distributori, mandatario e autorità in caso di rischio grave | Procedura FSCA |
@@ -857,7 +857,7 @@ attenzione** se il software eseguisse misurazioni con soglie legalmente rilevant
 | 10(15) | Informazioni su progettisti/fabbricanti terzi ai sensi dell'art. 30(1) | Rilevante per i contributori |
 | 10(16) | **Copertura finanziaria sufficiente** per la potenziale responsabilità da prodotto | § 1.7.5 |
 
-**Elementi obbligatori del SGQ, art. 10, paragrafo 9, lettere (a)–(m):** (a) strategia per la conformità
+**Elementi obbligatori del SGQ, art. 10, paragrafo 9, lettere (a)-(m):** (a) strategia per la conformità
 regolamentare, comprese le procedure per la gestione delle modifiche; (b) identificazione dei requisiti
 generali di sicurezza e prestazione applicabili; (c) responsabilità della direzione; (d) gestione delle
 risorse, **compresa la selezione e il controllo dei fornitori e dei subfornitori**; (e) gestione del
@@ -876,7 +876,7 @@ misurazione dell'output, l'analisi dei dati e il miglioramento del prodotto.
 ([struttura](https://www.medical-device-regulation.eu/2019/07/25/annex-ii/)):
 
 1. **Descrizione e specifica del dispositivo, comprese varianti e accessori**
-   - 1.1 (a)–(l): nome/denominazione commerciale e descrizione generale con destinazione d'uso;
+   - 1.1 (a)-(l): nome/denominazione commerciale e descrizione generale con destinazione d'uso;
      **Basic UDI-DI** assegnato dal fabbricante o altro identificatore univoco; popolazione di pazienti
      e condizioni cliniche cui è destinato, con criteri di selezione e indicazioni/controindicazioni;
      principi di funzionamento e modo d'azione; **motivazione della qualificazione come dispositivo**;
@@ -1126,7 +1126,7 @@ Due conseguenze pratiche, spesso fraintese:
 |---|---|---|
 | Trasporto media WebRTC, signaling, ICE/TURN | **B** | Un guasto interrompe o degrada il consulto; il danno diretto non è grave perché il medico interrompe e riprogramma o richiama in presenza (misura esterna) |
 | Gestione del consenso e della registrazione | **B** | Un guasto può causare registrazione non consentita: danno alla riservatezza, non alla salute |
-| Persistenza `Encounter`/`DiagnosticReport` e integrazione FHIR | **B** | Perdita o mismatch di associazione paziente–referto è la situazione pericolosa peggiore del sistema; **l'associazione errata fra referto e paziente è il singolo rischio più grave dell'intera architettura** e va trattato con misure di controllo dedicate (doppio identificatore, checksum, conferma esplicita del professionista) |
+| Persistenza `Encounter`/`DiagnosticReport` e integrazione FHIR | **B** | Perdita o mismatch di associazione paziente-referto è la situazione pericolosa peggiore del sistema; **l'associazione errata fra referto e paziente è il singolo rischio più grave dell'intera architettura** e va trattato con misure di controllo dedicate (doppio identificatore, checksum, conferma esplicita del professionista) |
 | IAM/Keycloak, autorizzazioni, multi-tenancy/RLS | **B** | Divulgazione a terzi non autorizzati; cross-tenant leakage |
 | Metriche TimescaleDB, dashboard | **A** | Nessun contributo a situazione pericolosa clinica |
 | Frontend informativo, i18n, documentazione | **A** | - |
@@ -1255,9 +1255,9 @@ Proposta operativa per Telemedic (5 × 5 con severità clinicamente ancorata):
 | S4 critica | Decisione clinica presa su informazione errata o attribuita al paziente sbagliato |
 | S5 catastrofica | Danno permanente o decesso conseguente a S4 |
 
-Probabilità P1–P5 su scala per sessione/anno. Zona di accettabilità, ALARP e inaccettabilità definite nel
+Probabilità P1-P5 su scala per sessione/anno. Zona di accettabilità, ALARP e inaccettabilità definite nel
 piano. **I due scenari da tenere sotto controllo assoluto sono S4:** (a) mis-associazione
-paziente–sessione–referto; (b) cross-tenant data leakage.
+paziente-sessione-referto; (b) cross-tenant data leakage.
 
 ### 2.4 IEC 62366-1:2015+A1:2020 - Ingegneria dell'usabilità
 
@@ -1282,10 +1282,10 @@ Output: **Usability Engineering File (UEF)**, richiamato anche dal GSPR 5 dell'A
 |---|---|---|
 | U1 | Il medico avvia la sessione credendo di essere collegato al paziente A mentre è collegato al paziente B | S4 |
 | U2 | Il medico crede che la registrazione sia attiva quando non lo è (o viceversa: il paziente crede che non lo sia) | S3 + violazione del consenso |
-| U3 | Il medico non percepisce che la qualità video è degradata sotto la soglia utile a ciò che sta osservando | S3–S4 |
-| U4 | Il referto viene salvato come bozza e il medico crede sia stato trasmesso alla cartella clinica dell'integratore | S3–S4 |
+| U3 | Il medico non percepisce che la qualità video è degradata sotto la soglia utile a ciò che sta osservando | S3-S4 |
+| U4 | Il referto viene salvato come bozza e il medico crede sia stato trasmesso alla cartella clinica dell'integratore | S3-S4 |
 | U5 | Il paziente, utente laico, non riesce ad accedere (SPID/CIE) e la sessione decade senza che il medico lo sappia | S2 |
-| U6 | Utente con disabilità (screen reader) non individua il controllo di consenso o di fine sessione | S2–S3 + non conformità EAA |
+| U6 | Utente con disabilità (screen reader) non individua il controllo di consenso o di fine sessione | S2-S3 + non conformità EAA |
 
 **Punto di forza del progetto:** il requisito WCAG 2.1 AA (V6 del context pack) è, in questo quadro,
 anche una **misura di controllo del rischio d'uso** ai sensi di IEC 62366-1 e non solo un adempimento di
@@ -1813,7 +1813,7 @@ consultare integralmente in questa ricerca.
 ([analisi LCA](https://www.lcalex.it/direttiva-nis-2-e-d-lgs-138-2024-obblighi-in-materia-di-cybersicurezza-e-profili-di-compliance/)).
 
 **Chi vi rientra.** Il decreto distingue **soggetti essenziali** e **soggetti importanti**, sulla base
-del settore (Allegati I–IV) e delle dimensioni. Rilevano due voci distinte:
+del settore (Allegati I-IV) e delle dimensioni. Rilevano due voci distinte:
 
 - **Allegato I, settore «Sanità»**: prestatori di assistenza sanitaria (ai sensi della direttiva
   2011/24/UE), laboratori di riferimento dell'UE, soggetti che svolgono attività di ricerca e sviluppo
@@ -1938,7 +1938,7 @@ emozioni, triage assistito, analisi automatica dell'immagine dermatologica - all
 
 **Regola di governance consigliata:** inserire nel `CONTRIBUTING.md` e nella ADR di architettura un
 **divieto esplicito di introdurre componenti di IA nel perimetro di prodotto senza una revisione
-regolatoria preventiva**, con la stessa forza del divieto sulle funzioni C1–C9 (§ 1.5.3). Un modulo di
+regolatoria preventiva**, con la stessa forza del divieto sulle funzioni C1-C9 (§ 1.5.3). Un modulo di
 trascrizione automatica introdotto «per comodità» in una PR è, letteralmente, un cambio di regime
 normativo.
 
@@ -1951,7 +1951,7 @@ puntuali sull'art. 50 (disposizioni finali) del regolamento.
 
 **Cosa rileva per Telemedic:**
 
-1. **Capo I–III - dati generati dall'uso di prodotti connessi e servizi correlati.** Si applica ai
+1. **Capo I-III - dati generati dall'uso di prodotti connessi e servizi correlati.** Si applica ai
    «prodotti connessi» (oggetti che ottengono, generano o raccolgono dati sul loro uso o ambiente e
    possono comunicarli) e ai «servizi correlati». Un software di telemedicina puro **non è** un prodotto
    connesso; lo diventerebbe la combinazione con dispositivi di telemonitoraggio. **Nota:** i dispositivi
@@ -2173,7 +2173,7 @@ licenza, e va detto senza ambiguità.
 5. **In ambito sanitario il rischio non è teorico.** L'art. 6 della Direttiva 2024/2853 include fra i
    danni risarcibili morte e lesioni personali (compresi danni psicologici clinicamente riconosciuti) e
    la **distruzione o corruzione di dati** non usati a fini professionali. Un difetto che causi la
-   perdita di un referto o l'associazione errata paziente–documento è precisamente la fattispecie che la
+   perdita di un referto o l'associazione errata paziente-documento è precisamente la fattispecie che la
    direttiva ha inteso coprire.
 
 **Conclusione operativa.** Le clausole §§ 7–8 di Apache-2.0 sono efficaci fra le parti della licenza per
@@ -2353,7 +2353,7 @@ superano una soglia di rilevanza**, DCO per tutti gli altri.
 1. LICENSE                    → testo integrale Apache-2.0, invariato
 2. NOTICE                     → copyright del progetto + avvisi ereditati necessari
 3. CONTRIBUTING.md            → obbligo DCO, istruzioni `git commit -s`, policy sulle
-                                funzionalità vietate (C1–C9), processo di review
+                                funzionalità vietate (C1-C9), processo di review
 4. .github/workflows/dco.yml  → DCO bot che verifica `Signed-off-by` su ogni commit di
                                 ogni PR; check obbligatorio in branch protection
 5. .github/PULL_REQUEST_TEMPLATE.md
@@ -2464,7 +2464,7 @@ Le tre affermazioni che il progetto deve poter dimostrare, e che vanno documenta
 2. **Il controllo della progettazione resta in capo al maintainer.** I contributori propongono, il
    maintainer decide, verifica e rilascia. È questo che consente a chiunque, a valle, di trattare
    Telemedic come un SOUP *documentato* anziché come codice di provenienza ignota.
-3. **Il perimetro funzionale è delimitato e presidiato.** Le funzioni C1–C9 sono vietate per policy; la
+3. **Il perimetro funzionale è delimitato e presidiato.** Le funzioni C1-C9 sono vietate per policy; la
    qualificazione è soggetta a change control; il claim pubblico è disciplinato.
 
 #### 5.6.2 Le cinque azioni concrete di autoprotezione
@@ -2638,7 +2638,7 @@ momento del rilascio.
 |---|---|---|---|---|
 | **RN-01** | La decisione D6 (marcatura CE Classe I) viene eseguita su un prodotto che non è un dispositivo → irregolarità autonoma ex artt. 7 e 20 MDR | **Alta** se D6 resta invariata | Alto | § 1.6.3, § 1.6.4 |
 | **RN-02** | Il claim pubblico («qualità clinica», specialità diagnostiche) determina la qualificazione come MDSW → Regola 11a → **Classe IIa con Organismo Notificato** | Media | **Molto alto** (tempi e costi incompatibili con la deadline) | § 1.7.4, § 1.5.3 |
-| **RN-03** | Una feature futura (alert, replay con enhancement, codifica automatica del referto, triage) fa scattare la riclassificazione | **Alta** su orizzonte 12–24 mesi | Alto | § 1.5.3 (C1–C9), change control |
+| **RN-03** | Una feature futura (alert, replay con enhancement, codifica automatica del referto, triage) fa scattare la riclassificazione | **Alta** su orizzonte 12–24 mesi | Alto | § 1.5.3 (C1-C9), change control |
 | **RN-04** | Capitolati pubblici italiani richiedono la certificazione come dispositivo medico in forza del DM 21/09/2022 | Media-alta per il canale ASL | Medio | § 1.5.4 |
 | **RN-05** | L'integratore in white-label diventa fabbricante ex art. 16 senza saperlo e retrocede il rischio sul progetto | Media | Alto | § 1.7.3, A4 |
 | **RN-06** | Fabbricante persona fisica → esposizione patrimoniale personale illimitata | Alta se non si costituisce un veicolo | **Molto alto** | § 1.7.5, A1 |
@@ -2647,7 +2647,7 @@ momento del rilascio.
 | **RN-09** | Dipendenza GPL/AGPL/EUPL introdotta per via transitiva → contaminazione della licenza | Media | Alto per l'integratore | § 5.2, gate CI |
 | **RN-10** | Presunzione di difettosità ex art. 10 PLD innescata da una non conformità regolatoria | Media | Alto | § 6.4, A3 |
 | **RN-11** | Contitolarità GDPR involontaria per accesso tecnico ai dati clinici (supporto, telemetria) | Media | Alto | § 3.3 |
-| **RN-12** | Mis-associazione paziente–sessione–referto (rischio S4 del file di rischio) | Bassa con controlli, **alta senza** | **Catastrofico** | § 2.3, § 2.4 (U1, U4) |
+| **RN-12** | Mis-associazione paziente-sessione-referto (rischio S4 del file di rischio) | Bassa con controlli, **alta senza** | **Catastrofico** | § 2.3, § 2.4 (U1, U4) |
 | **RN-13** | Validazione sommativa di usabilità (IEC 62366-1) sacrificata dalla deadline di novembre 2026 | **Alta** | Medio | § 2.4 |
 | **RN-14** | Trasferimento verso paese terzo per accesso remoto di un fornitore (art. 3 + capo V) nonostante il posizionamento sovereign | Media | Alto | § 3.8 |
 | **RN-15** | Requisiti EN 301 549 clausola 6 (RTT, lingua dei segni) non coperti da un'analisi limitata a WCAG 2.1 AA | **Alta** | Medio | § 4.6 |
@@ -2656,7 +2656,7 @@ momento del rilascio.
 
 1. **Riformulare D6** nel doppio binario A/B del § 1.6.4 e correggere «PMS/PSUR» in «PMS plan + PMS
    report» (il PSUR non si applica alla Classe I).
-2. **Redigere l'*Intended Purpose Statement*** con l'elenco esplicito delle funzioni escluse (C1–C9) e
+2. **Redigere l'*Intended Purpose Statement*** con l'elenco esplicito delle funzioni escluse (C1-C9) e
    la dichiarazione di stato regolatorio, e propagarlo a sito, README, documentazione e UI.
 3. **Aprire il fascicolo di qualificazione** con l'albero decisionale MDCG 2019-11 Rev.1 motivato passo
    per passo, e sottoporlo a change control.

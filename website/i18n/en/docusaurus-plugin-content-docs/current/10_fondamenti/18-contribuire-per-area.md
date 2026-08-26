@@ -178,9 +178,9 @@ irreplaceable work, because taking stock of third-party components after the fac
 times as much.
 
 The second is the **interface**, where the acceptance criteria already exist in verifiable form
-(`M1`–`M8` for rendering on a small screen, `A1`–`A10` for accessibility) and the implementations
+(`M1`-`M8` for rendering on a small screen, `A1`-`A10` for accessibility) and the implementations
 are missing. It is the front with the lowest barrier to entry and the highest impact, because any
-screen that violates one of the `A1`–`A10` criteria is not completable in the sense of
+screen that violates one of the `A1`-`A10` criteria is not completable in the sense of
 [`01_technical/04-frontend.md`](/01_technical/04-frontend.md) §7.2, and therefore is not a
 finished screen.
 
@@ -218,7 +218,7 @@ accepts impossible values and rejects legitimate ones.
 
 ### 4.3 The first sensible contribution
 
-**Take a screen and bring it into conformity with criteria `A1`–`A10`, with the test that
+**Take a screen and bring it into conformity with criteria `A1`-`A10`, with the test that
 demonstrates it.** It is a small, self-contained contribution, verifiable by a third party and
 immediately useful. It also has the merit of taking you through the whole cycle: change, automated
 test, manual test with assistive technology, updating the Italian and English documentation,

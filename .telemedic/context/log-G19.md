@@ -12,7 +12,7 @@ dominio, o dal lessico esplicitamente introdotto da un'area di documentazione.
 
 | Elemento | Quantità |
 |---|---|
-| Voci nell'elenco alfabetico (A–Z) | **~715** |
+| Voci nell'elenco alfabetico (A-Z) | **~715** |
 | Sigle sciolte in italiano e in inglese (§ 5) | **~150**, in dieci raggruppamenti tematici |
 | Coppie di falsi sinonimi (§ 3) | **32** - le 14 dell'area dominio più 18 nuove |
 | Termini da non usare (§ 4) | **22** - gli 11 dell'area dominio più 11 nuovi |
@@ -79,7 +79,7 @@ stati verificati sull'elenco reale dei file.
 
 ### 2.4 Contesto di progetto
 
-`.telemedic/context/00_PROJECT_BRIEF.md` § 5-ter - decisioni **D53–D58**. Recepite in modo
+`.telemedic/context/00_PROJECT_BRIEF.md` § 5-ter - decisioni **D53-D58**. Recepite in modo
 puntuale:
 
 - **D57**: nessuna voce presenta la pianificazione come «percorso di un terzo». Le formule
@@ -102,7 +102,7 @@ puntuale:
 
 | Regola | Esito |
 |---|---|
-| Nessuna definizione normativa inventata; estremo puntuale dove esiste | Rispettata. Tutti gli estremi citati (MDR artt. 2, 8, 11, 15, 19, 20, 61, 83–86, 87–92 e Allegati I–XIV; GDPR artt. 9, 26, 28, 33, 35; CAD artt. 50-*ter*, 62, 62-*ter*, 64, 71; L. 833/1978; L. 219/2017; D.P.C.M. 12 gennaio 2017; DM 21 e 30 settembre 2022; DM 7 settembre 2023; DM 31 dicembre 2024; DM 19 novembre 2025; Accordi 215/CSR 2020 e 231/CSR 2021; Reg. (UE) 2024/2847, 2025/327, 910/2014, 2024/1183; RFC citate) provengono dai moduli o dal brief. **Nessun estremo è stato aggiunto, dedotto o completato.** |
+| Nessuna definizione normativa inventata; estremo puntuale dove esiste | Rispettata. Tutti gli estremi citati (MDR artt. 2, 8, 11, 15, 19, 20, 61, 83–86, 87–92 e Allegati I-XIV; GDPR artt. 9, 26, 28, 33, 35; CAD artt. 50-*ter*, 62, 62-*ter*, 64, 71; L. 833/1978; L. 219/2017; D.P.C.M. 12 gennaio 2017; DM 21 e 30 settembre 2022; DM 7 settembre 2023; DM 31 dicembre 2024; DM 19 novembre 2025; Accordi 215/CSR 2020 e 231/CSR 2021; Reg. (UE) 2024/2847, 2025/327, 910/2014, 2024/1183; RFC citate) provengono dai moduli o dal brief. **Nessun estremo è stato aggiunto, dedotto o completato.** |
 | Definizioni di progetto dichiarate come tali | Rispettata, tramite la colonna **Nat.** con il codice **P** |
 | `[NV]` sull'incerto | Applicato a due voci: **Triage** (cinque livelli) e **Processo di Validazione** (contenuto operativo non pubblicamente documentato) |
 | Il glossario rinvia, non ripete | Rispettata: ogni voce ha la colonna «Dove» con collegamento relativo |

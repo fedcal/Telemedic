@@ -70,7 +70,7 @@ Apache-2.0 non è una semplice autorizzazione all'uso: è una **concessione di d
 - **§2 (Grant of Copyright License)**: ciascun contributore concede una licenza *"perpetual, worldwide, non-exclusive, no-charge, royalty-free, **irrevocable** copyright license to reproduce, prepare **Derivative Works** of, publicly display, publicly perform, **sublicense**, and distribute the Work and such Derivative Works in Source or Object form"*.
 - **§3 (Grant of Patent License)**: concessione esplicita di brevetti, con clausola di ritorsione.
 - **§4 (Redistribution)**: *"You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, **with or without modifications**, and in Source or Object form"*, alle quattro condizioni (a) copia della licenza, (b) marcatura dei file modificati, (c) conservazione degli avvisi di attribuzione, (d) propagazione del file `NOTICE`.
-- **§7–§8**: esclusione di garanzia e limitazione di responsabilità.
+- **§7-§8**: esclusione di garanzia e limitazione di responsabilità.
 
 Fonte: <https://www.apache.org/licenses/LICENSE-2.0> **[V]**.
 

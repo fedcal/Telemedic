@@ -82,7 +82,7 @@ decision is derived from it.
 
 ### 1.3 Key to the pointers
 
-The codes `F00`–`F20` indicate the modules of this guide; the codes in letters indicate the areas
+The codes `F00`-`F20` indicate the modules of this guide; the codes in letters indicate the areas
 of documentation. In the entries the code is always a link.
 
 | Code | Destination |
@@ -543,7 +543,7 @@ given date.
 | **Isteresi** (*hysteresis*, of an alarm) | S | The use of different thresholds for the activation and for the return of an alarm, in order to avoid oscillation around the activation value | [F10](10-percorsi-di-cura-e-sicurezza.md) |
 | **IUA** (*Internet User Authorization*) | S | The IHE profile for authorisation based on OAuth | [F05](05-standard-di-interoperabilita.md) |
 
-### J–K
+### J-K
 
 | Term | Nat. | Definition | Where |
 |---|---|---|---|
@@ -752,7 +752,7 @@ given date.
 
 | Term | Nat. | Definition | Where |
 |---|---|---|---|
-| **QC1–QC4 / QI1–QI4** | N | The qualification levels of the Agenzia per la cybersicurezza nazionale, respectively for cloud services and for the infrastructures that host them | [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **QC1-QC4 / QI1-QI4** | N | The qualification levels of the Agenzia per la cybersicurezza nazionale, respectively for cloud services and for the infrastructures that host them | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Qualità del collegamento** (*connection quality*) | N | The evidence that the televisita report must carry, together with the confirmation of suitability for execution (Accordo 215/CSR 2020). **Trap:** it is a **mandatory content of the document**, not an internal product metric | [F02](02-prestazioni-di-telemedicina.md), [DOM](/05_domain/04-documenti-clinici.md) |
 | **`Quantity`** | S | FHIR data type: a measurement with a value, a unit readable by the human being and a **code** for the unit for the machine | [F06](06-fhir-da-zero.md) |
 | **Quasi evento** (*near miss*) | S | An event that could have caused harm and did not. **Trap:** it is the most valuable source of learning, and a system that does not record it wastes the only free information it receives | [F10](10-percorsi-di-cura-e-sicurezza.md) |
@@ -985,7 +985,7 @@ given date.
 | **VP8 / VP9 / H.264 / AV1** | S | Video codecs. **Trap:** only some of them are mandatory for interoperability (RFC 7742), and assuming the availability of the others produces sessions that do not establish on certain devices | [F08](08-webrtc-da-zero.md) |
 | **`VR`** | S | The FHIR encounter class code that denotes the non-co-present mode | [F06](06-fhir-da-zero.md) |
 
-### W–Z
+### W-Z
 
 | Term | Nat. | Definition | Where |
 |---|---|---|---|

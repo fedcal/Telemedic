@@ -160,9 +160,9 @@ the feeding obligation to the purely private sector:
 | k) | **The patient's personal notebook** (*taccuino*, Article 5) |
 | l) | Data from the cards for implant bearers |
 | m) | Screening invitation letter |
-| **n) – w)** | **The ten telemedicine document types** introduced by Article 7 of DM 19 novembre 2025 |
+| **n) - w)** | **The ten telemedicine document types** introduced by Article 7 of DM 19 novembre 2025 |
 
-Letters n)–w) are dealt with at length in module
+Letters n)-w) are dealt with at length in module
 [02](02-prestazioni-di-telemedicina.md), § 7, with the complete list and the information set
 of the remote consultation (televisita) report. **We do not repeat them here**: they are the
 raw material of the flow described in § 4 of this module, not its subject.
@@ -989,7 +989,7 @@ of 18 January 2022** (methodology for the **classification of the data and servi
 administrations into **strategic**, **critical** and **ordinary**), **ACN Determination no. 307
 of 18 January 2022** (qualification regulation) and **ACN Directorial Decree no. 21007/24 of 27
 June 2024**, the new unified regulation applicable from 1 August 2024. The levels are
-**QC1–QC4** for services and **QI1–QI4** for infrastructures; the level required follows from
+**QC1-QC4** for services and **QI1-QI4** for infrastructures; the level required follows from
 the classification of the data.
 
 This qualification **cannot be obtained by a software project**: it is obtained by a cloud
@@ -1418,7 +1418,7 @@ by means of a **configurable adapter** and documented as such.
 | **National FSE portal** | Component of the INI that exposes the health record *online* to patient and operators |
 | **Patient summary (*profilo sanitario sintetico*)** | Derived document, drafted and updated by the patient's own physician, summarising the patient's relevant clinical history |
 | **PSN (Polo Strategico Nazionale)** | PNRR infrastructure hosting critical and strategic data and services of public administrations on national *data centres* |
-| **QC1–QC4 / QI1–QI4** | ACN qualification levels, respectively for cloud services and for the infrastructures hosting them |
+| **QC1-QC4 / QI1-QI4** | ACN qualification levels, respectively for cloud services and for the infrastructures hosting them |
 | **RdA / RdE** | Region of entitlement (where the patient is registered) and Region of delivery (where the service is delivered); both must be represented |
 | **SBOM (*Software Bill of Materials*)** | Bill of materials of the software components, including third-party and open source libraries; imposed as a security measure by Annex 4 to DM 19 novembre 2025 |
 | **AGENAS technological solutions** | Components under paragraph 15-*quater* for formal and semantic checking, conversion into the standard formats and sending to the EDS; **without persistence of the data processed** |

@@ -684,7 +684,7 @@ threshold** and the **rules** describing the behaviour in the event of a thresho
 DM 21 settembre 2022 is explicit:
 
 > «It is also required, in line with what is set out within the *«Guidance on Qualification and
-> Classification of Software in Regulation (EU) 2017/745 – MDR and Regulation (EU) 2017/746»*,
+> Classification of Software in Regulation (EU) 2017/745 - MDR and Regulation (EU) 2017/746»*,
 > that **the regional telemedicine Infrastructure for the minimum service of remote monitoring
 > must be certified as a medical device**.»
 

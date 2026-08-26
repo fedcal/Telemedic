@@ -866,7 +866,7 @@ ed è esattamente il punto in cui il software che la calcola diventa un disposit
 | **Licenza** | molte scale sono opere protette, con condizioni d'uso | è un vincolo reale sul contenuto distribuibile nel repository: si veda la policy terminologica del progetto |
 
 L'ultima riga non è un dettaglio legale. Il progetto adotta una policy a regimi differenziati
-per le terminologie e i contenuti di terzi (decisioni D31–D34 del progetto): **una scala non
+per le terminologie e i contenuti di terzi (decisioni D31-D34 del progetto): **una scala non
 può essere inclusa nei sorgenti senza aver verificato la licenza primaria**, e alcune vanno
 trattate come contenuto acquisito da chi installa anziché distribuito. Chi implementa una scala
 apre una questione di licenza prima ancora che di codice.

@@ -95,7 +95,7 @@ Allegato 4 alla **Determinazione AgID DT 166** (2019), modello *pay per user*, I
 
 | Utenti unici/anno/IdP | Autenticazione L1-L2 | Registrazione L1-L2 | Autenticazione L3 | Registrazione L3 |
 |---|---|---|---|---|
-| 0 – 1000 | 0 € | 3,5 € | 0 € | 7 € |
+| 0 - 1000 | 0 € | 3,5 € | 0 € | 7 € |
 | > 1000 | 0,4 € | 3,5 € | 7 € | 7 € |
 
 Franchigia dei 1000 utenti **per coppia SP/IdP**. **Chiedere un solo attributo extra-anagrafica

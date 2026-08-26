@@ -537,7 +537,7 @@ because it makes concrete what otherwise remains abstract.
 | 10(6) | **EU declaration of conformity** and **CE marking** | Sections 4.6 and 4.7 |
 | 10(7) | **UDI** and **registration** obligations | Section 4.8 |
 | 10(8) | Retention of the documentation for at least **10 years** after the last device has been placed on the market | Document retention policy |
-| 10(9) | **Quality management system** proportionate to the class, with elements (a)–(m) | Section 5.3 |
+| 10(9) | **Quality management system** proportionate to the class, with elements (a)-(m) | Section 5.3 |
 | 10(10) | **Post-market surveillance** | Section 4.9 |
 | 10(11) | Information accompanying the device in the **official languages** determined by the Member State | Instructions for use in Italian |
 | 10(12) | Immediate corrective action in the event of non-conformity | Field safety corrective action procedure |
@@ -1382,7 +1382,7 @@ The requests in the contribution document should now look different.
 | Rule | What it looks like | What it is |
 |---|---|---|
 | «State the requirement covered» | Filling in a field | The link that makes completeness and the absence of unrequested functionality demonstrable |
-| «Declare the impact on regulatory qualification» | A bureaucratic question | The control that catches items C1–C9 before they enter the product |
+| «Declare the impact on regulatory qualification» | A bureaucratic question | The control that catches items C1-C9 before they enter the product |
 | «Update the SOUP record» | A tedious formality | Clause 8.1.2 of IEC 62304 and the basis of vulnerability management |
 | «Sign the commit and add `Signed-off-by`» | A formality | The chain of provenance and named traceability inside the configuration item |
 | «Add the tests first» | A methodological preference | The requirement-to-evidence link, which cannot be reconstructed after the fact |
@@ -1424,7 +1424,7 @@ unique identifiers, which distinguishes:
 | **Minor** | Bug fixes, usability enhancements not related to safety, security patches, operating efficiency | New UDI-PI |
 
 And then there is the category that is not a change to the device but a change of regime: any change
-that touches the **intended purpose** or that introduces one of the functions C1–C9 in section 2.8.
+that touches the **intended purpose** or that introduces one of the functions C1-C9 in section 2.8.
 That one is not «notified»: it obliges you to redo the qualification, the classification and - by
 cascade - the clinical evaluation, the risk file and the usability scenarios.
 
@@ -1927,7 +1927,7 @@ Area by area, the practical consequences.
 
 **If you touch the functional scope**
 
-- check whether what you are adding belongs to categories **C1–C9** in section 2.8; if it does, the
+- check whether what you are adding belongs to categories **C1-C9** in section 2.8; if it does, the
   answer is no as a matter of policy, not of technical merit;
 - no clinical threshold hard-coded, ever, not even as a «convenient» default value;
 - no clinical field derived, inferred, pre-filled or completed by the system: every clinically

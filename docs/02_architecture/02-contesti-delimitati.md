@@ -177,7 +177,7 @@ codici della ricerca.
 | CTX-07 Telemonitoraggio | *(nessuno)* | Il perimetro di telemonitoraggio è stato introdotto da **D21** dopo la ricerca di dominio: è contesto nuovo |
 | CTX-08 Notifiche e allarmi | BC-10 Notification | La ricerca non copriva l'allarme di telemonitoraggio, che qui rientra nel contesto |
 | CTX-09 Consenso | BC-06 Consent | Coincidenti |
-| CTX-10 Terminologie | *(nessuno)* | Deriva da **D31**–**D34**: è contesto nuovo |
+| CTX-10 Terminologie | *(nessuno)* | Deriva da **D31**-**D34**: è contesto nuovo |
 | CTX-11 Interoperabilità in uscita | BC-11 Integration & Interoperability | Coincidenti |
 | CTX-12 Tracciamento | BC-12 Audit & Compliance | Coincidenti |
 | CTX-13 Amministrazione tenant | BC-02 Tenant & Configuration | Coincidenti |

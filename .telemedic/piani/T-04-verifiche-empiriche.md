@@ -40,7 +40,7 @@ cancello; il §4 elenca che cosa si esegue dopo; il §5 dice come si dimostra ci
 > delle verifiche di `T-04`», cioè lo colloca **prima** di sé; `D18` prescrive lo spike nella
 > prima settimana di sviluppo, **prima di ogni altra attività**. Le tre affermazioni sono
 > conciliabili solo se «la prima settimana di sviluppo» è la settimana che segue la chiusura di
-> `T-03`, cioè 26 settembre – 3 ottobre 2026. La lettura è coerente con il calendario e con il
+> `T-03`, cioè 26 settembre - 3 ottobre 2026. La lettura è coerente con il calendario e con il
 > diagramma della roadmap, **ma non è scritta in alcun documento**. Questo piano la assume, la
 > dichiara come assunzione, e la porta al §9.
 
@@ -279,7 +279,7 @@ da poter essere lette come vincoli e non come note.
 ## 9. Assunzioni dichiarate, e contraddizioni trovate
 
 1. **Assunzione che il piano fa e che nessun documento scrive.** «La prima settimana di sviluppo»
-   di `D18` è la settimana successiva alla chiusura di `T-03`, cioè 26 settembre – 3 ottobre 2026.
+   di `D18` è la settimana successiva alla chiusura di `T-03`, cioè 26 settembre - 3 ottobre 2026.
    È l'unica lettura che concilia l'innesco di `T-04`, l'eccezione dichiarata da `T-03` a `V-182` e
    la prescrizione di `D18`. Va confermata dall'area competente; se fosse smentita, il codice
    usa-e-getta dei criteri 1 e 2 precederebbe la pipeline, e con esso la prima riga di codice

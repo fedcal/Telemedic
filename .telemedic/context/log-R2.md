@@ -96,7 +96,7 @@ MDCG, standard e URL. Include disclaimer (analisi tecnica, non consulenza legale
    **lossy** in teledermatologia è un argomento sostenibile in contraddittorio contro il progetto.
    **Non ritengo che sia la lettura corretta, ma non è una lettura frivola.**
 
-4. **Deriva funzionale.** Ho isolato nove funzionalità (C1–C9) che farebbero scattare la IIa o oltre.
+4. **Deriva funzionale.** Ho isolato nove funzionalità (C1-C9) che farebbero scattare la IIa o oltre.
    **Tre sono a una user story di distanza dal backlog dichiarato**: alert su soglia (la feature 7 già
    prevede «alert su soglia», seppur su metriche di rete: la distinzione va scritta), replay della
    registrazione con controlli di enhancement, refertazione assistita/codifica automatica.
@@ -134,7 +134,7 @@ MDCG, standard e URL. Include disclaimer (analisi tecnica, non consulenza legale
   MDR/IVDR e quali sotto altra legislazione (EHDS incluso). Serve un diagramma dei moduli con
   attributo di regime normativo.
 - **Invariante `DiagnosticReport` pass-through** da progettare come vincolo architetturale verificabile.
-- **Rischio S4 «mis-associazione paziente–sessione–referto»**: è il singolo rischio più grave
+- **Rischio S4 «mis-associazione paziente-sessione-referto»**: è il singolo rischio più grave
   dell'architettura. Richiede misure di controllo dedicate (doppio identificatore, checksum, conferma
   esplicita del professionista) e test dedicati.
 - **Se un giorno si introduce un SFU** per sessioni multiparte, la dichiarazione «nessuna decifratura

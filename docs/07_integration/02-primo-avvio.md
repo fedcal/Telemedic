@@ -598,7 +598,7 @@ distinte, origini distinte, tenant distinti. E fate girare la sequenza del §0 i
 | 8 | Il gettone di ingresso **non compare** in alcun indirizzo, registro o schermata | ☐ |
 | 9 | Recupero il documento clinico e lo lego all'appuntamento del mio dominio | ☐ |
 | 10 | Ho ruotato una chiave almeno una volta, in prova, senza interruzione | ☐ |
-| 11 | Le decisioni organizzative C1–C5 del §1.3 sono prese e scritte | ☐ |
+| 11 | Le decisioni organizzative C1-C5 del §1.3 sono prese e scritte | ☐ |
 
 Le voci 5, 6, 8 e 10 sono quelle che nessuno prova, e sono quelle che si presentano in
 produzione.

@@ -30,9 +30,9 @@ primaria.
 |---|---|
 | **Determinazione ACN n. 379907 del 19 dicembre 2025** (9 articoli) | ✅ letta integralmente |
 | **Determinazione ACN n. 127434 del 13 aprile 2026** (5 articoli) | ✅ letta integralmente |
-| **«Linee Guida NIS – Specifiche di base – Guida alla lettura», v. 2.1, aprile 2026** (26 pp., ACN) | ✅ letta integralmente |
+| **«Linee Guida NIS - Specifiche di base - Guida alla lettura», v. 2.1, aprile 2026** (26 pp., ACN) | ✅ letta integralmente |
 | **Circolare AgID 18 aprile 2017, n. 2/2017**, testo in GU n. 103 del 5 maggio 2017 | ✅ letta (tabelle ABSC 1–13) |
-| **AgID, «Linee guida sulla sicurezza nel procurement ICT», versione finale aprile 2020** (32 pp.) | ✅ letta (azioni AG1–AG7, AP1–AP4, A1–A13, cap. 5, Appendice A tabelle 8–11) |
+| **AgID, «Linee guida sulla sicurezza nel procurement ICT», versione finale aprile 2020** (32 pp.) | ✅ letta (azioni AG1-AG7, AP1-AP4, A1-A13, cap. 5, Appendice A tabelle 8–11) |
 
 **Non letto su fonte primaria - dichiarato esplicitamente:**
 
@@ -94,7 +94,7 @@ senza *export* forense e senza documentazione di sviluppo sicuro non è «meno c
 | **Art. 14 L. 90/2024 + DPCM 30 aprile 2025** | Stazioni appaltanti pubbliche e soggetti PSNC | Requisiti tecnici e criteri di premialità nelle gare ICT |
 | **Regolamento (UE) 2024/2847 (CRA)** | Fabbricanti, importatori, distributori di prodotti con elementi digitali; *open-source software steward* | **Escluso** per ciò che ricade sotto MDR (art. 2, par. 2); rilevante per componenti non-MDR e per gli integratori commerciali |
 | **Circolare AgID 2/2017 (ABSC)** | Pubbliche amministrazioni | Il cliente PA deve poter dimostrare gli ABSC *anche* sulla componente Telemedic |
-| **Linee guida AgID sul procurement ICT (aprile 2020)** | PA acquirenti e centrali di committenza; **rese obbligatorie per le IRT dal DM 21 settembre 2022** | Determinano il capitolato: le azioni AP2–AP4 e il cap. 5 producono requisiti contrattuali diretti |
+| **Linee guida AgID sul procurement ICT (aprile 2020)** | PA acquirenti e centrali di committenza; **rese obbligatorie per le IRT dal DM 21 settembre 2022** | Determinano il capitolato: le azioni AP2-AP4 e il cap. 5 producono requisiti contrattuali diretti |
 | **Regolamento (UE) 2016/679, art. 32** | Titolare e responsabile del trattamento | Telemedic è tipicamente **responsabile** ex art. 28: misure tecniche e organizzative adeguate |
 | **Regolamento (UE) 2017/745 (MDR), All. I §§ 17.2 e 17.4** + MDCG 2019-16 rev. 1 + EN IEC 81001-5-1:2022 | Fabbricante del dispositivo medico | **Diretto** su Telemedic per effetto della decisione D6 |
 | **D.L. 105/2019 conv. L. 133/2019 (PSNC)** | Soggetti puntualmente individuati con atto riservato | Solo eventuale; va verificato con il singolo cliente |
@@ -387,14 +387,14 @@ delle responsabilità di sicurezza, procedura di *disclosure*.
 
 - La Determinazione **n. 379887/2025** aggiorna e sostituisce la Determinazione **n. 333017/2025** ed
   è **applicabile dal 31 dicembre 2025**.
-- **Art. 11**: finestra annuale **1° gennaio – 28 febbraio** per la **registrazione** sulla
+- **Art. 11**: finestra annuale **1° gennaio - 28 febbraio** per la **registrazione** sulla
   piattaforma ACN e per la **dichiarazione** («NIS/Dichiarazione»). I soggetti già registrati
   confermano o aggiornano i dati; i nuovi completano la registrazione iniziale.
-- Finestra **15 aprile – 31 maggio**: **aggiornamento annuale delle informazioni**.
+- Finestra **15 aprile - 31 maggio**: **aggiornamento annuale delle informazioni**.
 - Nella funzionalità «Aggiornamento dati» è stata introdotta una sezione per i dati del **referente
   CSIRT** (codice fiscale e indirizzo email), che si affianca al **punto di contatto** (art. 7,
   c. 1, lett. c) del decreto NIS) e al **sostituto del punto di contatto** (art. 7, c. 4, lett. d).
-- Nel 2026 ACN ha inoltre previsto una **finestra di categorizzazione 1° maggio – 30 giugno 2026** e
+- Nel 2026 ACN ha inoltre previsto una **finestra di categorizzazione 1° maggio - 30 giugno 2026** e
   attività di *business impact analysis* nei mesi di maggio e giugno 2026, con guide semplificate
   per settore prodotte dai tavoli settoriali.
 
@@ -411,7 +411,7 @@ comunicazione istituzionale ACN del 13 aprile 2026]**
 La Determinazione ACN **n. 127437 del 13 aprile 2026** introduce nella disciplina del Portale un
 **art. 18, «elencazione dei fornitori rilevanti»**: ogni soggetto NIS deve **comunicare ad ACN,
 attraverso la piattaforma, l'elenco nominativo dei propri fornitori rilevanti**, nella finestra
-**15 aprile – 31 maggio** di ciascun anno. Prima scadenza: **31 maggio 2026**.
+**15 aprile - 31 maggio** di ciascun anno. Prima scadenza: **31 maggio 2026**.
 
 **Definizione.** Un fornitore è «rilevante» se fornisce servizi o prodotti a un soggetto NIS e
 soddisfa **almeno uno** dei due criteri:
@@ -572,7 +572,7 @@ testate**, non come sottoprodotto dei log applicativi:
 
 ### 6.4 Il processo di gestione degli incidenti secondo ACN
 
-ACN ha pubblicato il **31 dicembre 2025** le «**Linee guida NIS – Specifiche di base – Definizione
+ACN ha pubblicato il **31 dicembre 2025** le «**Linee guida NIS - Specifiche di base - Definizione
 del processo di gestione degli incidenti di sicurezza informatica**», che propongono un modello di
 processo e collegano ciascuna fase alle misure di sicurezza di base. Il documento contiene due
 appendici (specifiche di base e misure NIS rilevanti) ed è pubblicato nella sezione NIS del portale
@@ -821,7 +821,7 @@ personali") sono da ritenersi obbligatori**» **[TECNICO-VINCOLANTE]**.
 | Capitolo | Contenuto |
 |---|---|
 | 1 | Premessa, definizioni, acronimi, documenti di riferimento |
-| 2 | **Indicazioni per le amministrazioni**: AG1–AG7 (prima del *procurement*), **AP1–AP4** (durante), A1–A13 (dopo la stipula) |
+| 2 | **Indicazioni per le amministrazioni**: AG1-AG7 (prima del *procurement*), **AP1-AP4** (durante), A1-A13 (dopo la stipula) |
 | 3 | Indicazioni per AgID |
 | 4 | Indicazioni per le centrali di committenza |
 | **5** | **Protezione dei dati personali** (p. 30) |
@@ -903,7 +903,7 @@ tecnica del fornitore e - di conseguenza - alla valutazione soggettiva della com
 Quattro tabelle. Le più rilevanti per Telemedic, con i requisiti che **il prodotto** (non il
 processo aziendale del fornitore) deve poter soddisfare:
 
-**Tabella 8 - Requisiti generali (indipendenti dalla tipologia di fornitura), R1–R19.** Fra i più
+**Tabella 8 - Requisiti generali (indipendenti dalla tipologia di fornitura), R1-R19.** Fra i più
 significativi: **R2** certificazione **ISO/IEC 27001** mantenuta per tutta la durata della fornitura,
 o in alternativa **R3** un SGSI aggiornato nel tempo e/o un piano di qualità secondo **ISO 10005**;
 **R4** audit annuale sul proprio sistema di sicurezza a proprie spese, condotto da società
@@ -919,14 +919,14 @@ trasferimento e conservazione delle repliche dei dati **sempre all'interno del t
 **R18** NDA; **R19** aggiornamento tecnologico delle soluzioni di sicurezza **nel corso del
 contratto, senza oneri aggiuntivi**.
 
-**Tabella 9 - Forniture di servizi di sviluppo applicativo, R20–R23.** **R21** in fase di analisi il
+**Tabella 9 - Forniture di servizi di sviluppo applicativo, R20-R23.** **R21** in fase di analisi il
 fornitore definisce le **specifiche di sicurezza (non funzionali)** a partire dai requisiti espressi
 dall'amministrazione; **R22** in fase di progettazione e codifica implementa le specifiche di
 sicurezza **nel codice e nella struttura della base dati**; **R23** al termine del progetto rilascia
 tutta la documentazione necessaria a gestire correttamente quanto rilasciato **anche sotto l'aspetto
 della sicurezza**.
 
-**Tabella 10 - Forniture di oggetti connessi in rete, R24–R33.** **R24** supporto di protocolli
+**Tabella 10 - Forniture di oggetti connessi in rete, R24-R33.** **R24** supporto di protocolli
 sicuri e cifrati; **R26** supporto di protocolli di autenticazione (RADIUS, IEEE 802.1X); **R27**
 gestione di più profili con privilegi diversi; **R28** richiesta di creazione o cambio della password
 al primo accesso; **R29** blocco dell'utenza dopo un numero definito di tentativi falliti; **R30**
@@ -936,7 +936,7 @@ organizzative e strumenti dedicati alla gestione delle vulnerabilità scoperte s
 della fornitura; **R33** documentazione tecnica sulla corretta configurazione e gestione degli
 aspetti di sicurezza.
 
-**Tabella 11 - Forniture di servizi di gestione remota, R34–R45.** È la tabella che si applica al
+**Tabella 11 - Forniture di servizi di gestione remota, R34-R45.** È la tabella che si applica al
 modello SaaS. **R34** meccanismi di autenticazione basati su **crittografia asimmetrica a chiave
 pubblica**, con lunghezza delle chiavi «impostata sulla base della criticità della comunicazione da
 cifrare (ad esempio 256 bit per le meno critiche, 512 bit per le più critiche)»; **R35**
@@ -1252,9 +1252,9 @@ seguenti obblighi è del fornitore.** Il progetto non può adempierli né attest
 
 | Adempimento | Termine | Fonte |
 |---|---|---|
-| Registrazione e dichiarazione annuale sul Portale NIS | 1° gennaio – 28 febbraio di ogni anno | Det. ACN 379887/2025, art. 11 |
-| Aggiornamento annuale delle informazioni | 15 aprile – 31 maggio di ogni anno | Det. ACN 379887/2025 |
-| **Dichiarazione dei fornitori rilevanti** ad ACN | 15 aprile – 31 maggio; prima scadenza 31 maggio 2026 | Det. ACN 127437/2026, art. 18 |
+| Registrazione e dichiarazione annuale sul Portale NIS | 1° gennaio - 28 febbraio di ogni anno | Det. ACN 379887/2025, art. 11 |
+| Aggiornamento annuale delle informazioni | 15 aprile - 31 maggio di ogni anno | Det. ACN 379887/2025 |
+| **Dichiarazione dei fornitori rilevanti** ad ACN | 15 aprile - 31 maggio; prima scadenza 31 maggio 2026 | Det. ACN 127437/2026, art. 18 |
 | Designazione del punto di contatto, del sostituto e del referente CSIRT | secondo le finestre del Portale | Art. 7 d.lgs. 138/2024; Det. ACN 379887/2025 |
 | Nomina del referente per la cybersicurezza (per le PA e le ASL) | vigente | Art. 8 L. 90/2024 |
 | Approvazione degli **11 documenti** da parte degli organi di amministrazione e direttivi | entro il termine per le misure | Art. 23 d.lgs. 138/2024; Appendice C Guida ACN |
@@ -1359,7 +1359,7 @@ data di redazione):**
 
 - [ACN - Determinazione n. 379907 del 19 dicembre 2025 (specifiche di base)](https://www.acn.gov.it/portale/documents/d/guest/detacn_obblighi_2511-v3_signed)
 - [ACN - Determinazione n. 127434 del 13 aprile 2026 (termini per i soggetti inseriti nel 2026)](https://www.acn.gov.it/portale/documents/d/guest/detacn_misuresicurezza-v4_post)
-- [ACN - «Linee Guida NIS – Specifiche di base – Guida alla lettura», v. 2.1, aprile 2026](https://www.acn.gov.it/portale/documents/d/guest/guida-alla-lettura-specifiche-di-base)
+- [ACN - «Linee Guida NIS - Specifiche di base - Guida alla lettura», v. 2.1, aprile 2026](https://www.acn.gov.it/portale/documents/d/guest/guida-alla-lettura-specifiche-di-base)
 - [ACN - Determinazione n. 164179 del 14 aprile 2025 (sostituita)](https://www.acn.gov.it/portale/documents/d/guest/detacn_nis_specifiche_2025_164179_signed)
 - [Circolare AgID 18 aprile 2017, n. 2/2017 - testo in GU n. 103 del 5 maggio 2017](https://cert-agid.gov.it/download/CircolareAgID_170418_n_2_2017_Mis_minime_sicurezza_ICT_PA-GU-103-050517-2.pdf) · [scheda GU](https://www.gazzettaufficiale.it/eli/id/2017/05/05/17A03060/sg)
 - [AgID - «Linee guida - Sicurezza nel Procurement ICT», aprile 2020](https://trasparenza.agid.gov.it/download/4514.html)

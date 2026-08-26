@@ -44,12 +44,12 @@
 **Criterio redazionale applicato.** Il modulo è la versione **didattica e operativa** di
 `docs/01_technical/`, non un duplicato: dove il contenuto esiste già nell'area tecnica o in un
 altro modulo dei fondamenti, il modulo **rinvia e non ripete**. I rinvii sostanziali sono a
-`01-stack-e-motivazioni.md` (criteri C1–C7, versioni minime), `02-backend.md` (regole di
+`01-stack-e-motivazioni.md` (criteri C1-C7, versioni minime), `02-backend.md` (regole di
 dipendenza, struttura dei moduli), `03-persistenza.md` (schemi, migrazioni, sicurezza a livello
 di riga, outbox, registro immutabile), `05-media-e-tempo-reale.md` (relay, contenitore di
 registrazione, profili di rete), `08-qualita-e-test.md` (piramide, regole di scrittura, dati
 sintetici, copertura, tracciabilità), `09-integrazione-continua-e-rilascio.md` (controlli
-G1–G13, riproducibilità, ambienti), più i moduli `03` §10 (regola sui dati reali),
+G1-G13, riproducibilità, ambienti), più i moduli `03` §10 (regola sui dati reali),
 `08` §13 (prove media in locale), `09` §3 (parametri clinici), `11` (fondamenti informatici).
 
 ---

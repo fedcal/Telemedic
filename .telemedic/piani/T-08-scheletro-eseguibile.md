@@ -512,7 +512,7 @@ codice applicativo; tutte sono massa che altrimenti graverebbe sulle sette setti
 | **Blocco 1** | Ossatura dei tredici moduli di contesto, piattaforma, interfacce, assemblaggio; controllo delle regole di dipendenza visto fallire | Chiusura di `T-03`; chiusura dell'ambiguità del §9.2 voce 1 | 1 |
 | **Blocco 2** | Schema per tenant, sicurezza a livello di riga, contesto risolto dall'asserzione e impostato dentro la transazione, negazione predefinita | Blocco 1 | 2 |
 | **Blocco 3** | Prove di isolamento in condizioni avverse, due tenant e due integratori con configurazioni divergenti | Blocco 2 | 3 |
-| **Blocco 4** | Registro immutabile, nella sequenza del §5.4, passi secondo–quarto | Blocco 2; schema della voce prodotto prima del cancello | 4 |
+| **Blocco 4** | Registro immutabile, nella sequenza del §5.4, passi secondo-quarto | Blocco 2; schema della voce prodotto prima del cancello | 4 |
 | **Blocco 5** | Outbox transazionale, busta, relay per tenant, consegna per chiamata autenticata | Blocco 2; catalogo degli errori | 5 |
 | **Blocco 6** | Percorso verticale, atto per atto, nell'ordine del §7.4 | Blocchi 1, 2, 4, 5; esiti registrati di `T-04` | 6 |
 | **Blocco 7** | Copertura del registro per ciascun atto del percorso; §5.4 passo quinto | Blocco 4 e, atto per atto, Blocco 6 | 4 |
@@ -764,7 +764,7 @@ Registrate, non corrette. Ciascuna appartiene a un'area che questo piano non toc
    sovrastima di uno.
 3. **[02 §1 contro 00 §4] stato della guida dei fondamenti.** Il capitolo 02 dichiara che «della
    guida dei fondamenti mancano due moduli su ventuno, il glossario e le fonti primarie»; il
-   capitolo 00 la dichiara «Completa: ventuno moduli, `00`–`20`, glossario e fonti primarie
+   capitolo 00 la dichiara «Completa: ventuno moduli, `00`-`20`, glossario e fonti primarie
    compresi». Ne discende che il criterio 1 di `T-02` e il taglio `TG-16` insistono su artefatti
    che un altro documento dichiara esistenti.
 4. **[02 §1 contro 00 §4] stato della versione inglese.** Il capitolo 02 dichiara che «la versione
@@ -782,7 +782,7 @@ Registrate, non corrette. Ciascuna appartiene a un'area che questo piano non toc
    dichiarandolo eccezione a `V-182`; `D18` colloca la prima verifica nella prima settimana di
    sviluppo, prima di ogni altra attività. Le tre affermazioni sono conciliabili solo leggendo «la
    prima settimana di sviluppo» come la settimana successiva alla chiusura di `T-03`, che è
-   esattamente la finestra 26 settembre – 3 ottobre. La lettura funziona, ma **non è scritta da
+   esattamente la finestra 26 settembre - 3 ottobre. La lettura funziona, ma **non è scritta da
    nessuna parte**, ed è il presupposto su cui poggia il piano di `T-04`.
 
 ---

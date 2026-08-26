@@ -16,7 +16,7 @@ R3 li riportava da fonte secondaria. **Letti su fonte primaria (PDF firmati digi
 | Sostituisce «una versione dell'aprile 2025» | ✅ **CONFERMATO e precisato** - art. 9, c. 1: sostituisce la **Det. ACN n. 164179 del 14 aprile 2025** |
 | «da 37 a 43 misure» | ✅ **CONFERMATO su fonte ACN**: **37 misure / 87 requisiti** per i soggetti importanti (All. 1), **43 misure / 116 requisiti** per gli essenziali (All. 2) |
 | Det. ACN n. **379887/2025**, Portale NIS, dal 31 dicembre 2025 | ⚠️ **NON verificato sul testo** - coerente con tutte le fonti secondarie; sostituisce la Det. 333017/2025 |
-| Finestra di registrazione **1° gennaio – 28 febbraio** | ✅ confermata (art. 11 Det. 379887/2025) |
+| Finestra di registrazione **1° gennaio - 28 febbraio** | ✅ confermata (art. 11 Det. 379887/2025) |
 | «attuazione dimostrabile entro il 31 ottobre 2026» | ⚠️ **IMPRECISO come regola**. Vedi punto 1 sotto |
 
 ## FATTI CHE CAMBIANO LE DECISIONI DI PROGETTO
@@ -114,7 +114,7 @@ IS-3 violazione dei livelli di servizio) e **4 per gli essenziali** (+ IS-4 acce
 ### 8. L'Appendice A delle linee guida AgID sul procurement È il capitolato che Telemedic troverà davanti
 Il DM 21 settembre 2022 rende obbligatorie per le IRT le azioni **AP2, AP3, AP4** e il **cap. 5**.
 AgID **raccomanda alle amministrazioni di attingere dall'Appendice A** anziché scrivere requisiti
-*ex novo*. I 45 requisiti R1–R45 sono quindi il testo che finirà nei capitolati. I più pesanti:
+*ex novo*. I 45 requisiti R1-R45 sono quindi il testo che finirà nei capitolati. I più pesanti:
 - **R2/R3**: **ISO/IEC 27001** mantenuta per tutta la durata della fornitura, o in alternativa SGSI +
   piano di qualità ISO 10005;
 - **R4/R5**: **audit annuale di terza parte a spese del fornitore**, più audit su preavviso di 20 gg;

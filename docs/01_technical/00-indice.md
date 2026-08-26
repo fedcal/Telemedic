@@ -40,7 +40,7 @@ decisione non spetta a quest'area, è aperta in bacheca invece di essere inventa
 capitolo 3 §2 contengono le regole che una modifica non può violare senza far fallire la
 costruzione.
 
-**Chi deve contribuire all'interfaccia.** Capitoli 1 §6, 4, poi 8 §6. I criteri M1–M8 e A1–A10 del
+**Chi deve contribuire all'interfaccia.** Capitoli 1 §6, 4, poi 8 §6. I criteri M1-M8 e A1-A10 del
 capitolo 4 sono criteri di accettazione, non raccomandazioni.
 
 **Chi deve toccare il piano media.** Prima

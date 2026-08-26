@@ -1286,13 +1286,13 @@ PV1
 [PDA]
 ```
 
-Campi PID (1–30) **[V-sec]**: 1 Set ID; 2 Patient ID; **3 Patient Identifier List**; 4 Alternate Patient ID; **5 Patient Name**; 6 Mother's Maiden Name; **7 Date/Time of Birth**; **8 Administrative Sex**; 9 Patient Alias; 10 Race; **11 Patient Address**; 12 County Code; 13 Phone Number – Home; 14 Phone Number – Business; 15 Primary Language; 16 Marital Status; 17 Religion; 18 Patient Account Number; 19 SSN Number; 20 Driver's License Number; 21 Mother's Identifier; 22 Ethnic Group; 23 Birth Place; 24 Multiple Birth Indicator; 25 Birth Order; 26 Citizenship; 27 Veterans Military Status; 28 Nationality; 29 Patient Death Date and Time; 30 Patient Death Indicator.
+Campi PID (1–30) **[V-sec]**: 1 Set ID; 2 Patient ID; **3 Patient Identifier List**; 4 Alternate Patient ID; **5 Patient Name**; 6 Mother's Maiden Name; **7 Date/Time of Birth**; **8 Administrative Sex**; 9 Patient Alias; 10 Race; **11 Patient Address**; 12 County Code; 13 Phone Number - Home; 14 Phone Number - Business; 15 Primary Language; 16 Marital Status; 17 Religion; 18 Patient Account Number; 19 SSN Number; 20 Driver's License Number; 21 Mother's Identifier; 22 Ethnic Group; 23 Birth Place; 24 Multiple Birth Indicator; 25 Birth Order; 26 Citizenship; 27 Veterans Military Status; 28 Nationality; 29 Patient Death Date and Time; 30 Patient Death Indicator.
 
 Campi PV1 (1–20) **[V-sec]**: 1 Set ID; **2 Patient Class**; 3 Assigned Patient Location; 4 Admission Type; 5 Preadmit Number; 6 Prior Patient Location; **7 Attending Doctor**; 8 Referring Doctor; 9 Consulting Doctor; 10 Hospital Service; 11 Temporary Location; 12 Preadmit Test Indicator; 13 Re-Admission Indicator; 14 Admit Source; 15 Ambulatory Status; 16 VIP Indicator; **17 Admitting Doctor**; 18 Patient Type; **19 Visit Number**; 20 Financial Class.
 
 #### 5.5.2 SIU - schedulazione (il messaggio più rilevante per Telemedic)
 
-v2.4 cap. 10 **[V-sec]** (<https://www.hl7.eu/HL7v2x/v24/std24/ch10.htm>). Struttura `SIU_S12` (condivisa da S12–S24 e S26):
+v2.4 cap. 10 **[V-sec]** (<https://www.hl7.eu/HL7v2x/v24/std24/ch10.htm>). Struttura `SIU_S12` (condivisa da S12-S24 e S26):
 
 ```
 MSH
@@ -1323,7 +1323,7 @@ Trigger event **[V-sec]**:
 | **S15** | Notification of appointment cancellation |
 | S16 | Notification of appointment discontinuation |
 | S17 | Notification of appointment deletion (appuntamento erroneo) |
-| S18–S22 | Aggiunta / modifica / cancellazione / interruzione / eliminazione di servizio o risorsa |
+| S18-S22 | Aggiunta / modifica / cancellazione / interruzione / eliminazione di servizio o risorsa |
 | S23 | Notification of blocked schedule time slot(s) |
 | S24 | Notification of opened ("un-blocked") schedule time slot(s) |
 | **S26** | Notification that patient did not show up (no-show) |
@@ -1430,7 +1430,7 @@ Segmento TXA 1–23 **[V-sec]**:
 
 | Campo | Nome | Tipo |
 |---|---|---|
-| TXA-1 | Set ID – TXA | SI |
+| TXA-1 | Set ID - TXA | SI |
 | TXA-2 | Document Type | IS |
 | TXA-3 | Document Content Presentation | ID |
 | TXA-4 | Activity Date/Time | TS |
@@ -2240,4 +2240,4 @@ Motivazioni, ancorate ai vincoli del brief:
 
 | Fase | Agente | Output | Fatti chiave / questioni aperte |
 |---|---|---|---|
-| Ricerca | R1 | `.telemedic/research/R1_standard_terminologie.md` | **Fatti chiave**: (1) FHIR R4 = **4.0.1**, 2019-10-30. (2) La televisita si modella con `Encounter.class = VR` (`http://terminology.hl7.org/CodeSystem/v3-ActCode`); R4 non ha elementi per la sessione virtuale - `virtualService` esiste solo in R5. (3) **Esiste già l'IG HL7 Italia Televisita v0.2.0 su FHIR R4**, che modella il referto come `Composition` con LOINC **75496-0**, non come `DiagnosticReport`: il posizionamento pubblico va corretto. (4) **L'Italia non è Membro di SNOMED International** (53 Membri): nessun contenuto SNOMED va distribuito nel repository. (5) `Media` è rimossa in R5 → usare `DocumentReference` per le registrazioni. (6) `Encounter.participant.individual` non può referenziare `Patient`. (7) La televisita nel nomenclatore italiano usa **la stessa codifica della prestazione in presenza**: la modalità è un asse separato dalla prestazione. (8) IHE ITI TF rev. 20.2 (2025-11-11); MHD/PIXm/PDQm/IUA tutti su FHIR R4 ma in stato trial/ballot. **Questioni aperte**: A1–A5 (architettura), S1–S7 (sicurezza), Q1–Q5 (conformità), D1–D4 (documentazione), R1–R3 (roadmap); vedi §11. Tutti i punti marcati **[NV]** nel documento vanno verificati prima della pubblicazione. |
+| Ricerca | R1 | `.telemedic/research/R1_standard_terminologie.md` | **Fatti chiave**: (1) FHIR R4 = **4.0.1**, 2019-10-30. (2) La televisita si modella con `Encounter.class = VR` (`http://terminology.hl7.org/CodeSystem/v3-ActCode`); R4 non ha elementi per la sessione virtuale - `virtualService` esiste solo in R5. (3) **Esiste già l'IG HL7 Italia Televisita v0.2.0 su FHIR R4**, che modella il referto come `Composition` con LOINC **75496-0**, non come `DiagnosticReport`: il posizionamento pubblico va corretto. (4) **L'Italia non è Membro di SNOMED International** (53 Membri): nessun contenuto SNOMED va distribuito nel repository. (5) `Media` è rimossa in R5 → usare `DocumentReference` per le registrazioni. (6) `Encounter.participant.individual` non può referenziare `Patient`. (7) La televisita nel nomenclatore italiano usa **la stessa codifica della prestazione in presenza**: la modalità è un asse separato dalla prestazione. (8) IHE ITI TF rev. 20.2 (2025-11-11); MHD/PIXm/PDQm/IUA tutti su FHIR R4 ma in stato trial/ballot. **Questioni aperte**: A1-A5 (architettura), S1-S7 (sicurezza), Q1-Q5 (conformità), D1-D4 (documentazione), R1-R3 (roadmap); vedi §11. Tutti i punti marcati **[NV]** nel documento vanno verificati prima della pubblicazione. |

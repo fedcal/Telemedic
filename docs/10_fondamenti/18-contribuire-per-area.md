@@ -179,9 +179,9 @@ strutturalmente insostituibile, perché censire i componenti di terze parti a po
 diverse volte tanto.
 
 Il secondo è l'**interfaccia**, dove i criteri di accettazione esistono già in forma verificabile
-(`M1`–`M8` per la resa su schermo piccolo, `A1`–`A10` per l'accessibilità) e mancano le
+(`M1`-`M8` per la resa su schermo piccolo, `A1`-`A10` per l'accessibilità) e mancano le
 implementazioni. È il fronte con la barriera d'ingresso più bassa e l'impatto più alto, perché ogni
-schermata che viola uno dei criteri `A1`–`A10` non è completabile nel senso di
+schermata che viola uno dei criteri `A1`-`A10` non è completabile nel senso di
 [`01_technical/04-frontend.md`](../01_technical/04-frontend.md) §7.2, e quindi non è una
 schermata terminata.
 
@@ -219,7 +219,7 @@ impossibili e rifiuta valori legittimi.
 
 ### 4.3 Il primo contributo sensato
 
-**Prendi una schermata e portala a conformità sui criteri `A1`–`A10`, con la prova che lo
+**Prendi una schermata e portala a conformità sui criteri `A1`-`A10`, con la prova che lo
 dimostra.** È un contributo piccolo, autocontenuto, verificabile da un terzo e utile
 immediatamente. Ha inoltre il pregio di farti attraversare l'intero ciclo: modifica, prova
 automatica, prova manuale con tecnologia assistiva, aggiornamento della documentazione italiana e

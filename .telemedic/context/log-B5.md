@@ -89,7 +89,7 @@ Costi minori: esempi FHIR meno leggibili; separazione architetturale fra i18n e 
 - **§13** - tabella riassuntiva completa: terminologia · titolare · costo · ridistribuibilità · uso per riferimento · attribuzione · rischio residuo.
 - **§14** - testi **pronti all'uso**, in italiano e in inglese: file `NOTICE`, `THIRD-PARTY-TERMINOLOGY.md`, clausole per la documentazione di deployment, elemento `copyright` per i `ValueSet` LOINC, `LICENSE-NOTICE.md` per le directory in regime B, frase per la comunicazione pubblica.
 - **§15** - procedura operativa per il deployer in 6 fasi (perimetro, SNOMED, terminology server, terminologie gratuite, evidenze, configurazione), con destinatari e tempi indicativi.
-- **§16** - ripartizione degli obblighi: **11 obblighi del progetto** (P1–P11), **13 obblighi dell'utilizzatore** (U1–U13), **3 aree di responsabilità condivisa** da regolare contrattualmente.
+- **§16** - ripartizione degli obblighi: **11 obblighi del progetto** (P1-P11), **13 obblighi dell'utilizzatore** (U1-U13), **3 aree di responsabilità condivisa** da regolare contrattualmente.
 - **§12** - traduzione in architettura: struttura del repository, checklist di revisione dei value set, ***terminology guard* in CI**, politica di contribuzione.
 - **§17** - 9 rischi residui valutati, cadenze di manutenzione della policy, 11 questioni per gli altri agenti, **13 punti [NV] da chiudere prima del rilascio**.
 

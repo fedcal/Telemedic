@@ -152,7 +152,7 @@ Requisiti delle fabbriche:
 ### 4.3 Il vincolo terminologico
 
 Le prove **non possono includere contenuto di sistemi di codifica a licenza vincolata**. È il
-vincolo V-03 e la policy di D31–D33: nel repository non entrano concetti la cui licenza non lo
+vincolo V-03 e la policy di D31-D33: nel repository non entrano concetti la cui licenza non lo
 consenta, in nessuna forma, incluse le fixture di prova e le cache.
 
 Conseguenza operativa: la suite gira con il gateway delle terminologie in **modalità degradata per
@@ -222,7 +222,7 @@ Sono precisamente i difetti che rendono inutilizzabile un servizio a chi ne ha p
 
 ### 6.3 I criteri come prove
 
-I criteri M1–M8 e A1–A10 di [`04-frontend.md`](./04-frontend.md) §§6–7 **non sono una lista di
+I criteri M1-M8 e A1-A10 di [`04-frontend.md`](./04-frontend.md) §§6–7 **non sono una lista di
 buone intenzioni**: ciascuno ha, nella colonna di destra, il modo in cui se ne prova la
 violazione. Un criterio senza una prova che possa fallire è un criterio che nessuno rispetta.
 

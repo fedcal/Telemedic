@@ -22,8 +22,8 @@ La colonna **Natura** dichiara il livello della definizione secondo la regola di
 | **S** | **Standard**: definita dallo standard internazionale adottato; struttura, non significato clinico |
 | **P** | **Progetto**: definizione operativa di quest'area, ammessa perché i livelli superiori tacciono |
 
-La colonna **Rinvio** indica dove il termine è trattato: `01`–`08` sono i capitoli di quest'area,
-`F01`–`F13` i moduli di [`docs/10_fondamenti/`](../10_fondamenti/00-come-usare-questa-guida.md).
+La colonna **Rinvio** indica dove il termine è trattato: `01`-`08` sono i capitoli di quest'area,
+`F01`-`F13` i moduli di [`docs/10_fondamenti/`](../10_fondamenti/00-come-usare-questa-guida.md).
 
 Le voci di natura **N** riportano la fonte in forma sintetica; il testo integrale è nel modulo
 [F02](../10_fondamenti/02-prestazioni-di-telemedicina.md) per le prestazioni e nel modulo

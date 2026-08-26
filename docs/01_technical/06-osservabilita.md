@@ -32,7 +32,7 @@ L'elenco è tassativo e la sua violazione è un difetto, non un'imprecisione.
 | **Credenziali e materiale di sicurezza** | Token, intestazioni di autorizzazione, segreti, chiavi, credenziali di relay | Ovvio, ed è la fuga più frequente perché arriva da una registrazione della richiesta scritta «per debug» |
 | **Interrogazioni con parametri associati** | La forma dell'interrogazione con i valori sostituiti | La forma senza valori è utile alla diagnosi; con i valori è contenuto clinico |
 | **Messaggi di eccezione non filtrati** | Testo di un'eccezione del livello di persistenza che riporta i valori del vincolo violato | È la via classica per cui un identificativo finisce in un registro senza che nessuno l'abbia scritto |
-| **Metadati di sessione correlabili** | Coppia professionista–assistito in chiaro in una metrica o in una etichetta | Il solo fatto che due persone abbiano avuto un consulto è un dato relativo alla salute |
+| **Metadati di sessione correlabili** | Coppia professionista-assistito in chiaro in una metrica o in una etichetta | Il solo fatto che due persone abbiano avuto un consulto è un dato relativo alla salute |
 
 Il caso dei metadati merita una riga in più, perché è quello che sfugge. Il nodo di relay vede
 indirizzi, volumi, temporizzazione e durata; il server di segnalazione vede chi si collega a

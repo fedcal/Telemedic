@@ -187,7 +187,7 @@ ancorata avrebbe l'aspetto di un impegno senza esserlo. È debito dichiarato, no
 **Il modello delle minacce è tracciabile verso i requisiti e verso le prove**: ogni minaccia
 rilevante ha almeno un requisito e almeno una prova associata
 ([01 §7](./01-modello-di-minaccia.md)). È la stessa struttura richiesta dalla tracciabilità
-requisito–progettazione–codice–prova della disciplina del ciclo di vita: **un unico artefatto
+requisito-progettazione-codice-prova della disciplina del ciclo di vita: **un unico artefatto
 serve entrambi gli scopi**, ed è anche il formato che una commissione di gara sa leggere, perché
 le linee guida nazionali sugli approvvigionamenti raccomandano espressamente di scrivere i
 requisiti di sicurezza in forma «chiara, oggettiva e quanto più possibile chiusa», lasciando

@@ -527,7 +527,7 @@ This block translates into requirements the normative obligations governing the 
 
 ## 11. Additional non-functional requirements (`RNF-090` … `RNF-110`)
 
-The ranges `RNF-001` … `RNF-083` remain in force. Those that follow cover what blocks 5.Q–5.X make measurable and which before had no metric. Where a value depends on the individual plan, the requirement fixes the **method**, not the number: the number is clinical configuration.
+The ranges `RNF-001` … `RNF-083` remain in force. Those that follow cover what blocks 5.Q-5.X make measurable and which before had no metric. Where a value depends on the individual plan, the requirement fixes the **method**, not the number: the number is clinical configuration.
 
 ### 11.1 Timeliness of safety chain
 

@@ -17,7 +17,7 @@
 11. **MHD ITI-65** come transazione di restituzione del referto al sistema di origine. **XDS.b da evitare** come interfaccia primaria (SOAP/ebXML).
 12. **`Subscription` R4 non copre le cancellazioni né l'uscita dai criteri**: limite strutturale. Serve un canale di eventi proprietario affiancato, oppure l'IG Subscriptions R5 Backport 1.1.0.
 13. **`$validate` restituisce HTTP 200 con `OperationOutcome` di errore**: gli SDK devono gestirlo correttamente.
-14. **HL7 v2**: ingestione **ADT^A04/A08** (non A01, che è il ricovero), **SIU^S12–S26** per la schedulazione, emissione **MDM^T02** con `TXA-17 = LA`. **MLLP sempre su TLS** con mutua autenticazione X.509.
+14. **HL7 v2**: ingestione **ADT^A04/A08** (non A01, che è il ricovero), **SIU^S12-S26** per la schedulazione, emissione **MDM^T02** con `TXA-17 = LA`. **MLLP sempre su TLS** con mutua autenticazione X.509.
 15. **IHE ITI TF rev. 20.2** (2025-11-11). MHD, PIXm, PDQm, IUA sono tutti su FHIR R4 ma in stato trial implementation o ballot: serve una policy di pinning delle versioni.
 16. **SMART e IUA non sono equivalenti**: vanno supportati entrambi come profili alternativi su Keycloak, con matrice di decisione.
 

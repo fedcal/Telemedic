@@ -27,7 +27,7 @@ The list is exhaustive and its violation is a defect, not an imprecision.
 | **Credentials and security material** | Tokens, authorisation headers, secrets, keys, relay credentials | Obvious, and it is the most frequent leak because it comes from a request logging written "for debug" |
 | **Queries with associated parameters** | Query form with values substituted | The form without values is useful for diagnosis; with values it is clinical content |
 | **Unfiltered exception messages** | Text of a persistence layer exception that reports values of the violated constraint | This is the classic way an identifier ends up in a log without anyone having written it |
-| **Correlatable session metadata** | Professional–patient pair in cleartext in a metric or label | The mere fact that two people had a consultation is health-related data |
+| **Correlatable session metadata** | Professional-patient pair in cleartext in a metric or label | The mere fact that two people had a consultation is health-related data |
 
 The case of metadata deserves an extra line, because it is the one that escapes. The relay node sees addresses, volumes, timing and duration; the signalling server sees who connects to which session and when. Neither sees content, but both process personal data in healthcare context. **Minimised logs and brief retention are not best practices: they are requirements.**
 

@@ -33,7 +33,7 @@ The editorial criterion is a single one: **every choice is motivated and every l
 
 **Those who need to contribute to the service code.** Chapters 1, 2, 3, then 8. Chapter 2 §1 and Chapter 3 §2 contain the rules that a modification cannot violate without causing the build to fail.
 
-**Those who need to contribute to the interface.** Chapters 1 §6, 4, then 8 §6. Criteria M1–M8 and A1–A10 of Chapter 4 are acceptance criteria, not recommendations.
+**Those who need to contribute to the interface.** Chapters 1 §6, 4, then 8 §6. Criteria M1-M8 and A1-A10 of Chapter 4 are acceptance criteria, not recommendations.
 
 **Those who need to touch the media plane.** First [`docs/10_fondamenti/08-webrtc-da-zero.md`](../10_fondamenti/08-webrtc-da-zero.md) in full, then Chapter 5, then Chapter 7 §2. Chapter 5 §1 is the first thing to read: it distinguishes what the project realises from what belongs to the protocol and to the browser.
 

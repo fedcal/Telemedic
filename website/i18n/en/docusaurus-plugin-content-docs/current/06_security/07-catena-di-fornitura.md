@@ -183,7 +183,7 @@ is declared debt, not coverage.
 **The threat model is traceable to the requirements and to the tests**: every relevant threat has at
 least one requirement and at least one test associated with it
 ([01 §7](./01-modello-di-minaccia.md)). It is the same structure required by the
-requirement–design–code–test traceability of the life cycle rules: **a single artefact serves both
+requirement-design-code-test traceability of the life cycle rules: **a single artefact serves both
 purposes**, and it is also the format a tender committee knows how to read, because the national
 procurement guidelines expressly recommend writing security requirements in a form that is
 «clear, objective and as closed as possible», leaving as little room as possible for subjective

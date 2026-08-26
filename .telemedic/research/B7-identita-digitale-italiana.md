@@ -782,7 +782,7 @@ alla Determinazione AgID **DT 166**, richiamato dall'art. 7, c. 3 del Regolament
 Modello: **pay per user**. «All'interno di ciascun periodo di fatturazione, gli accessi
 effettuati da un utente unico saranno fatturati dal singolo Gestore dell'Identità **una sola
 volta per ogni Fornitore di Servizi**, indipendentemente dalla numerosità degli accessi.»
-Periodo di fatturazione: **1° gennaio – 31 dicembre**.
+Periodo di fatturazione: **1° gennaio - 31 dicembre**.
 
 Due modalità:
 
@@ -795,7 +795,7 @@ Tabella (IVA esclusa; pagamento entro 30 giorni dalla data fattura):
 
 | Utenti unici per anno / IdP | Login «Autenticazione» con credenziali di livello 1 o 2 | Login «Registrazione» con credenziali di livello 1 o 2 | Login «Autenticazione» con credenziali di livello 3 | Login «Registrazione» con credenziali di livello 3 |
 |---|---|---|---|---|
-| **0 – 1000** | **0 €** | **3,5 €** | **0 €** | **7 €** |
+| **0 - 1000** | **0 €** | **3,5 €** | **0 €** | **7 €** |
 | **> 1000** | **0,4 €** | **3,5 €** | **7 €** | **7 €** |
 
 Regole aggiuntive dichiarate nel documento:
@@ -1767,7 +1767,7 @@ con la decisione D1** e priva di attriti per la ridistribuzione, anche nel SaaS 
 partner. Entrambi dichiarano uso in produzione. La pagina wiki *Compliance tests results* del
 provider SPID riporta l'esito della validazione con **`spid_sp_test` 1.2.17** con **tutti i test
 superati**, su tre famiglie: metadata, `AuthnRequest`, e **111 casi di validazione della
-`Response`**, inclusa la resistenza agli attacchi di **XML Signature Wrapping (XSW1–XSW8)**.
+`Response`**, inclusa la resistenza agli attacchi di **XML Signature Wrapping (XSW1-XSW8)**.
 Quest'ultimo dato è il più significativo dal punto di vista della sicurezza: XSW è la classe di
 attacchi che storicamente ha compromesso le implementazioni SAML, e la sua copertura sistematica
 è un indicatore di maturità reale, non dichiarata.

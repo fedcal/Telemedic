@@ -1,4 +1,4 @@
-# Chiusura delle verifiche documentali V1–V10 + requisiti tecnici minimi
+# Chiusura delle verifiche documentali V1-V10 + requisiti tecnici minimi
 
 **Agente B1 - seconda ondata di ricerca - Telemedic**
 **Data: 25 agosto 2026**
@@ -100,7 +100,7 @@ E ancora: modelli strutturati di gestione delle chiavi crittografiche **anche ga
 **§ 6 - logging.** Sistema di logging per la tracciabilità delle operazioni di cui all'art. 14; log protetti; **registrazione delle operazioni di consultazione dei log da parte del personale autorizzato**; **log conservati per 24 mesi e cancellati alla scadenza**; trattamento dei log **in forma aggregata**, in forma non aggregata solo «laddove ciò risulti indispensabile ai fini della verifica della correttezza e legittimità delle singole operazioni effettuate»; funzioni di *detection*, monitoraggio dell'accesso, *auditing*.
 
 **§ 7 - misure di sicurezza IRT (il passaggio più importante per un fornitore).**
-> «Ferme restando le misure di sicurezza di cui al "**capitolo 5 dell'Allegato 1 – Capitolato Tecnico della procedura aperta, ai sensi dell'art. 60 del d.lgs. n. 50/2016, per la stipula di un accordo quadro per l'affidamento del servizio di infrastruttura regionale di telemedicina - `aria_2023_807`**" - adottate per tutte le IRT - ivi incluse quelle che non sono state parte della suddetta procedura, le Regioni/PPAA adottano strumenti e soluzioni per garantire il rispetto degli obblighi di cui agli articoli 24, 32 e 35 del Regolamento con particolare riguardo:
+> «Ferme restando le misure di sicurezza di cui al "**capitolo 5 dell'Allegato 1 - Capitolato Tecnico della procedura aperta, ai sensi dell'art. 60 del d.lgs. n. 50/2016, per la stipula di un accordo quadro per l'affidamento del servizio di infrastruttura regionale di telemedicina - `aria_2023_807`**" - adottate per tutte le IRT - ivi incluse quelle che non sono state parte della suddetta procedura, le Regioni/PPAA adottano strumenti e soluzioni per garantire il rispetto degli obblighi di cui agli articoli 24, 32 e 35 del Regolamento con particolare riguardo:
 > - alla **verifica regolare dell'efficacia delle misure tecniche e organizzative** adottate […];
 > - alla **conservazione dell'inventario delle componenti software in uso comprensive delle librerie di terzi e/o open source** in modo da poter rispondere più tempestivamente in caso di segnalazioni di vulnerabilità (**SBOM SW bill of materials**).»
 
@@ -180,14 +180,14 @@ Chiusura testuale: «Si precisa che l'elenco dei microservizi (core) è fornito 
 |---|:-:|:-:|:-:|:-:|:-:|:-:|
 | Dati identificativi e amministrativi | SÌ | SÌ | SÌ | SÌ | SÌ (solo amm.) | SÌ |
 | Prescrizione ed erogazione televisita/teleassistenza/telemonitoraggio | SÌ | SÌ | SÌ | SÌ | SÌ | SÌ |
-| Richiesta di teleconsulto | SÌ | – | | | – | SÌ |
-| **Referto di specialistica per la televisita** | SÌ | **–** | SÌ | SÌ | **–** | SÌ |
-| Relazione collaborativa teleconsulto/teleconsulenza | SÌ | SÌ | SÌ | SÌ | – | SÌ |
-| Relazione clinico-assistenziale conclusiva teleassistenza | SÌ | SÌ | SÌ | SÌ | – | SÌ |
-| Tesserino dispositivi telemonitoraggio/teleriabilitazione | SÌ | SÌ | | | – | SÌ |
-| Piano di telemonitoraggio/teleriabilitazione/teleassistenza | SÌ | SÌ | | | – | SÌ |
-| Report rilevazioni telemonitoraggio | SÌ | SÌ | | | – | SÌ |
-| Relazione finale telemonitoraggio/teleriabilitazione | SÌ | SÌ | | | – | SÌ |
+| Richiesta di teleconsulto | SÌ | - | | | - | SÌ |
+| **Referto di specialistica per la televisita** | SÌ | **-** | SÌ | SÌ | **-** | SÌ |
+| Relazione collaborativa teleconsulto/teleconsulenza | SÌ | SÌ | SÌ | SÌ | - | SÌ |
+| Relazione clinico-assistenziale conclusiva teleassistenza | SÌ | SÌ | SÌ | SÌ | - | SÌ |
+| Tesserino dispositivi telemonitoraggio/teleriabilitazione | SÌ | SÌ | | | - | SÌ |
+| Piano di telemonitoraggio/teleriabilitazione/teleassistenza | SÌ | SÌ | | | - | SÌ |
+| Report rilevazioni telemonitoraggio | SÌ | SÌ | | | - | SÌ |
+| Relazione finale telemonitoraggio/teleriabilitazione | SÌ | SÌ | | | - | SÌ |
 
 Nota testuale: «Il personale amministrativo accede limitatamente ai dati amministrativi.»
 
@@ -443,9 +443,9 @@ La pagina AGENAS dedicata alla telemedicina (`agenas.gov.it/view-article-id-2329
 **Dato accertato su fonte primaria** (dossier Camera AS0477, pag. 120):
 
 > «Le risorse previste per il citato investimento 1.2 della Missione 6 sono pari a **4.750 milioni di euro** e sono suddivise tra tre linee di intervento:
-> - presa in carico tramite assistenza domiciliare del 10% della popolazione di età superiore ai 65 anni (**Sub-I. 1.2.1 – 2.970 milioni di euro**);
-> - attivazione di almeno **480 Centrali operative territoriali** (**Sub-I. 1.2.2 – 280 milioni di euro**);
-> - **investimenti nel settore della telemedicina per il supporto dei pazienti cronici (Sub-I. 1.2.3 – 1.500 milioni di euro)**.»
+> - presa in carico tramite assistenza domiciliare del 10% della popolazione di età superiore ai 65 anni (**Sub-I. 1.2.1 - 2.970 milioni di euro**);
+> - attivazione di almeno **480 Centrali operative territoriali** (**Sub-I. 1.2.2 - 280 milioni di euro**);
+> - **investimenti nel settore della telemedicina per il supporto dei pazienti cronici (Sub-I. 1.2.3 - 1.500 milioni di euro)**.»
 
 **Il sub-investimento 1.2.3 è passato da 1.000 a 1.500 milioni di euro.** R3 riportava 1.000 M€ (250 per la piattaforma + 750 per i servizi), ricavati dal DM 1° aprile 2022 e confermati dall'Allegato B al DM 30 settembre 2022 (che infatti dice «A tale sub-investimento è destinato 1 miliardo di euro»). Il dato aggiornato **al febbraio 2026** è **1.500 M€**.
 
@@ -556,7 +556,7 @@ In continuità con i 32 requisiti di R3. Ciascuno con fonte e qualifica di cogen
 
 ### H. Contenuto documentale e FSE
 
-**REQ-44 - Produzione delle dieci tipologie documentali FSE di telemedicina.** Il sistema deve poter generare, secondo il set informativo dell'Allegato 1, i documenti di cui alle lettere **n)–w)** dell'art. 3, comma 1, del DM 7 settembre 2023, come introdotte dall'art. 7 del DM 19 novembre 2025. Per il perimetro televisita/teleconsulto sono obbligatori almeno: **prescrizione (lett. n)**, **richiesta teleconsulto (lett. o)**, **referto di specialistica per la televisita (lett. p)**, **relazione collaborativa per il teleconsulto/teleconsulenza (lett. q)**. *Fonte: DM 19 novembre 2025, art. 7 e All. 1. [VINCOLANTE]* - **Sostituisce il REQ-10 di R3** nella parte in cui assumeva il veicolo RSA.
+**REQ-44 - Produzione delle dieci tipologie documentali FSE di telemedicina.** Il sistema deve poter generare, secondo il set informativo dell'Allegato 1, i documenti di cui alle lettere **n)-w)** dell'art. 3, comma 1, del DM 7 settembre 2023, come introdotte dall'art. 7 del DM 19 novembre 2025. Per il perimetro televisita/teleconsulto sono obbligatori almeno: **prescrizione (lett. n)**, **richiesta teleconsulto (lett. o)**, **referto di specialistica per la televisita (lett. p)**, **relazione collaborativa per il teleconsulto/teleconsulenza (lett. q)**. *Fonte: DM 19 novembre 2025, art. 7 e All. 1. [VINCOLANTE]* - **Sostituisce il REQ-10 di R3** nella parte in cui assumeva il veicolo RSA.
 
 **REQ-45 - Set informativo del referto di televisita.** Modellare integralmente i campi dell'All. 1, § 2.20, incluse le distinzioni **medico refertante ≠ medico firmatario**, **altra figura tecnica coinvolta nell'esecuzione della procedura**, **medico prescrittore**, **Codice CUP**, **codici identificazione oggetti correlati (ID PACS, Accession number, Studio DICOM)**, **Tipologia Accesso**, **data e ora di inizio e di fine erogazione**, **Modalità esecuzione procedura operativa**, **Strumentazione utilizzata**, **Parametri descrittivi della procedura**. *Fonte: All. 1, § 2.20. [VINCOLANTE]*
 

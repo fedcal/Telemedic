@@ -4,7 +4,7 @@
 - **Data**: 25 agosto 2026
 - **Output**: `docs/01_technical/` - dieci file
 - **Mandato**: come il sistema è realizzato, non cosa fa. Minimo 25.000 parole.
-- **Letture obbligatorie eseguite**: `00_PROJECT_BRIEF.md` (D1–D52, regola R0),
+- **Letture obbligatorie eseguite**: `00_PROJECT_BRIEF.md` (D1-D52, regola R0),
   `04_BASELINE_ARCHITETTURALE.md`, `05_BACHECA_INTERAGENTI.md` (rilettura a fine lavoro per la
   verifica di non contraddizione), `R4-webrtc-media.md`, `B3-verifica-coturn-webrtc.md`,
   `R5-pattern-integrazione.md`, `docs/10_fondamenti/08-webrtc-da-zero.md` (indice e sezioni di
@@ -67,7 +67,7 @@ blocchi di codice dichiarano il linguaggio e sono marcati come illustrativi. Dia
 | **Q-112** | `COMP` | Regime di licenza dell'estensione per serie temporali, **`[NV]` da verificare sul testo primario**, e sua collocazione nei regimi di D31. Ripiego già progettato e provato in CI |
 | **Q-113** | `COMP`, `ROAD` | Livello di servizio di aggiornamento dei componenti di terze parti in **giorni per gravità**: quattordici rilasci del nodo di relay in poco più di sette mesi rendono privo di significato un impegno espresso in mesi. Si collega a Q-155 di `SEC` |
 | **Q-114** | `COMP` | Tre compromessi tecnici con conseguenza clinica per il file di gestione del rischio: soglie di qualità e avviso al professionista; obiettivo del buffer di jitter (latenza contro perdita udibile); preferenza di degrado (formulazione difendibile ai sensi di V2) |
-| **Q-115** | `PROD`, `FUNZ` | Dispositivo e viewport di riferimento per i criteri mobile first: senza, i criteri M1–M8 e le soglie di peso e tempo non sono verificabili. `[NV]` nessuna soglia numerica dichiarata perché nessuna misurata |
+| **Q-115** | `PROD`, `FUNZ` | Dispositivo e viewport di riferimento per i criteri mobile first: senza, i criteri M1-M8 e le soglie di peso e tempo non sono verificabili. `[NV]` nessuna soglia numerica dichiarata perché nessuna misurata |
 | **Q-116** | `COMP` | Conservazione dei segnali di osservabilità **almeno pari alla finestra entro cui una segnalazione può arrivare**, altrimenti l'obbligo di vigilanza non è soddisfacibile. Distinto dai termini di V-152 di `SEC` |
 
 ---

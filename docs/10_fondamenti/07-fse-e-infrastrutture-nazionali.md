@@ -156,9 +156,9 @@ che estende l'obbligo di alimentazione al privato puro:
 | k) | **Taccuino personale dell'assistito** (art. 5) |
 | l) | Dati delle tessere per i portatori di impianto |
 | m) | Lettera di invito per screening |
-| **n) – w)** | **Le dieci tipologie documentali di telemedicina** introdotte dall'art. 7 del DM 19 novembre 2025 |
+| **n) - w)** | **Le dieci tipologie documentali di telemedicina** introdotte dall'art. 7 del DM 19 novembre 2025 |
 
-Le lettere n)–w) sono trattate per esteso nel modulo
+Le lettere n)-w) sono trattate per esteso nel modulo
 [02](02-prestazioni-di-telemedicina.md), § 7, con l'elenco completo e il set informativo del
 referto di televisita. **Non le ripetiamo qui**: sono la materia prima del flusso descritto al
 § 4 di questo modulo, non il suo oggetto.
@@ -982,7 +982,7 @@ L'oggetto **non è il software applicativo**: sono i **servizi cloud** (SaaS, Pa
 in **strategici**, **critici** e **ordinari**), la **Determinazione ACN n. 307 del 18 gennaio
 2022** (regolamento di qualificazione) e il **Decreto direttoriale ACN n. 21007/24 del 27
 giugno 2024**, nuovo regolamento unificato applicabile dal 1° agosto 2024. I livelli sono
-**QC1–QC4** per i servizi e **QI1–QI4** per le infrastrutture; il livello richiesto discende
+**QC1-QC4** per i servizi e **QI1-QI4** per le infrastrutture; il livello richiesto discende
 dalla classificazione dei dati.
 
 Questa qualificazione **non è ottenibile da un progetto software**: la ottiene un fornitore di
@@ -1415,7 +1415,7 @@ un **adattatore configurabile** e documentata come tale.
 | **Portale nazionale FSE** | Componente dell'INI che espone il fascicolo *online* ad assistito e operatori |
 | **Profilo sanitario sintetico (*patient summary*)** | Documento derivato, redatto e aggiornato dal medico di fiducia, che riassume la storia clinica rilevante dell'assistito |
 | **PSN (Polo Strategico Nazionale)** | Infrastruttura PNRR che ospita dati e servizi critici e strategici delle PA su *data center* nazionali |
-| **QC1–QC4 / QI1–QI4** | Livelli di qualificazione ACN, rispettivamente dei servizi cloud e delle infrastrutture che li ospitano |
+| **QC1-QC4 / QI1-QI4** | Livelli di qualificazione ACN, rispettivamente dei servizi cloud e delle infrastrutture che li ospitano |
 | **RdA / RdE** | Regione di assistenza (dove l'assistito è iscritto) e Regione di erogazione (dove la prestazione è erogata); vanno rappresentate entrambe |
 | **SBOM (*Software Bill of Materials*)** | Distinta base delle componenti software, librerie di terzi e open source comprese; imposta come misura di sicurezza dall'Allegato 4 al DM 19 novembre 2025 |
 | **Soluzioni tecnologiche AGENAS** | Componenti ex comma 15-*quater* per il controllo formale e semantico, la conversione nei formati standard e l'invio all'EDS; **senza persistenza dei dati trattati** |

@@ -140,7 +140,7 @@ The domain research (`R6` §8.2) had proposed thirteen contexts with partly diff
 | CTX-07 Remote monitoring | *(none)* | Perimeter of remote monitoring introduced by **D21** after domain research: new context |
 | CTX-08 Notifications and alarms | BC-10 Notification | Research did not cover remote monitoring alarms, which here belong to the context |
 | CTX-09 Consent | BC-06 Consent | Coincident |
-| CTX-10 Terminologies | *(none)* | Derives from **D31**–**D34**: new context |
+| CTX-10 Terminologies | *(none)* | Derives from **D31**-**D34**: new context |
 | CTX-11 Interoperability outbound | BC-11 Integration & Interoperability | Coincident |
 | CTX-12 Tracing | BC-12 Audit & Compliance | Coincident |
 | CTX-13 Tenant administration | BC-02 Tenant & Configuration | Coincident |

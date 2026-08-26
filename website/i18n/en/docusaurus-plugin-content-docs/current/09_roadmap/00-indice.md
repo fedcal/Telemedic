@@ -112,7 +112,7 @@ This is the picture, and every line is verifiable by opening the repository.
 | Area | State ascertained as of 26 August 2026 |
 |---|---|
 | **Mandatory public declarations** (`D51`) | **Present**: declaration of non-medical device, distribution policy, licence, notice, contribution guide, governance, security policy, code of conduct. **To be realigned to `D58`** without attenuating any warning: it is criterion 8 of `T-01` |
-| **Foundations guide** (`D35`, twenty-one modules) | **Complete**: twenty-one modules, `00`–`20`, glossary and primary sources included |
+| **Foundations guide** (`D35`, twenty-one modules) | **Complete**: twenty-one modules, `00`-`20`, glossary and primary sources included |
 | **Technical area** | **Complete** |
 | **Architectural area** | **Complete** |
 | **Functional area** | **Complete** |

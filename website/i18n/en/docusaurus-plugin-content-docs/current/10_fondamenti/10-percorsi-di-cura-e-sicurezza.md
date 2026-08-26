@@ -863,7 +863,7 @@ the point at which the software that calculates it becomes a medical device (§ 
 | **Licence** | many scales are protected works, with conditions of use | it is a real constraint on the content distributable in the repository: see the project's terminology policy |
 
 The last row is not a legal detail. The project adopts a policy with differentiated regimes for
-third-party terminologies and content (project decisions D31–D34): **a scale cannot be included
+third-party terminologies and content (project decisions D31-D34): **a scale cannot be included
 in the sources without having verified the primary licence**, and some must be treated as
 content acquired by the deployer rather than distributed. Whoever implements a scale opens a
 licensing question before they open a coding one.

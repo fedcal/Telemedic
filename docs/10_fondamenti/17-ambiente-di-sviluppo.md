@@ -1940,7 +1940,7 @@ decisione.
 
 | Riferimento | Che cosa non è fissato | A chi spetta |
 |---|---|---|
-| §1.2, §2.4–§2.9 | Nomi e forma dei comandi di verifica dei prerequisiti, di migrazione, di generazione dei dati e di avvio selettivo dei servizi | Area tecnica (**Q-190**) |
+| §1.2, §2.4-§2.9 | Nomi e forma dei comandi di verifica dei prerequisiti, di migrazione, di generazione dei dati e di avvio selettivo dei servizi | Area tecnica (**Q-190**) |
 | §1.4 | Consumo reale di memoria e disco dell'ambiente locale: **non misurato** | Area tecnica (**Q-191**) |
 | §1.6 | Procedura adottata per il certificato locale nella prova fra due dispositivi | Area tecnica (**Q-190**) |
 | §2.5 | Elenco e nomi delle variabili della configurazione locale | Definiti dal file di esempio, non ancora scritto |

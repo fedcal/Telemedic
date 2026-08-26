@@ -103,7 +103,7 @@ l'esempio morfologico.
 
 ## 5. Regolatorio - valutazione clinica ed evidenza
 
-*Fonte: `TRAD-5b`, `08_compliance/07-valutazione-clinica.md` §4–§9.*
+*Fonte: `TRAD-5b`, `08_compliance/07-valutazione-clinica.md` §4-§9.*
 
 | Italiano | Inglese | Nota |
 |---|---|---|

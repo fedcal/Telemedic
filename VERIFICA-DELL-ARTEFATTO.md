@@ -1,4 +1,4 @@
-*[English version below](#verifying-artifacts--procedure-for-installers)*
+*[English version below](#verifying-artifacts---procedure-for-installers)*
 
 # Verifica degli artefatti - Procedura per chi installa
 
@@ -181,7 +181,7 @@ sempre.
 
 ---
 
-# Verifying Artifacts – Procedure for Installers
+# Verifying Artifacts - Procedure for Installers
 
 *[Versione italiana sopra](#verifica-degli-artefatti---procedura-per-chi-installa)*
 
@@ -203,9 +203,9 @@ This procedure allows anyone installing Telemedic to verify that a distributed a
 ## 1. Preparation
 
 Download the artifact from the official distribution. The artifact is accompanied by:
-- **`sbom.json`** – Software Bill of Materials in CycloneDX format
-- **`.sig`** – the artifact signature, registered in Rekor
-- **`.att`** – the provenance attestation in SLSA format
+- **`sbom.json`** - Software Bill of Materials in CycloneDX format
+- **`.sig`** - the artifact signature, registered in Rekor
+- **`.att`** - the provenance attestation in SLSA format
 
 Example for the documentation site (when distributed):
 ```bash
@@ -309,7 +309,7 @@ cosign verify-blob \
 ```
 
 **Known limitation**: offline verification does not consult Rekor, so it does not verify which exact 
-code revision produced the artifact – it only verifies that the signature is valid. Provenance is not 
+code revision produced the artifact - it only verifies that the signature is valid. Provenance is not 
 verifiable offline, but integrity is.
 
 ### Fallback procedure if certificate is unavailable
@@ -331,7 +331,7 @@ Document the result of this procedure in a report that includes:
 |---|---|
 | Artifact | Name, version, hash of downloaded artifact |
 | Verification date | When this procedure was executed |
-| Signature outcome | `✓ Verified` or `✗ Failed – [reason]` |
+| Signature outcome | `✓ Verified` or `✗ Failed - [reason]` |
 | Provenance | Branch, revision, build timestamp (if verifiable) |
 | Licenses | Number of components, number with incompatible license |
 | Result | `✓ Artifact suitable for installation` or `✗ Artifact rejected` |

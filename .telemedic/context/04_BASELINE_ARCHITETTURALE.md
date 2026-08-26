@@ -6,7 +6,7 @@
 > proprio log, motivandola, e la decisione viene presa a valle come ADR.
 >
 > Ciò che è scritto qui è **decisione presa**, derivata dalla ricerca in `.telemedic/research/`
-> e dalle decisioni D1–D52 di `00_PROJECT_BRIEF.md`. Ciò che non è scritto qui è **aperto**, e
+> e dalle decisioni D1-D52 di `00_PROJECT_BRIEF.md`. Ciò che non è scritto qui è **aperto**, e
 > va segnalato come tale invece di essere inventato.
 
 ## 1. Contesti delimitati

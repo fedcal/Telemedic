@@ -159,8 +159,8 @@ Nessuno legge quest'area per intero. Ecco i tre percorsi che coprono i casi real
 ### 5.1 «Devo far partire una prima integrazione entro venerdì»
 
 1. [02 - Primo avvio](02-primo-avvio.md) - prerequisiti, passi, punti in cui ci si blocca.
-2. [03 - Integrazione per interfacce applicative](03-integrazione-per-api.md) §1–§4 - autenticazione fra sistemi e prima chiamata.
-3. [04 - Integrazione per eventi](04-integrazione-per-eventi.md) §1–§4 - ricevere e verificare la prima notifica.
+2. [03 - Integrazione per interfacce applicative](03-integrazione-per-api.md) §1-§4 - autenticazione fra sistemi e prima chiamata.
+3. [04 - Integrazione per eventi](04-integrazione-per-eventi.md) §1-§4 - ricevere e verificare la prima notifica.
 4. [10 - Domande frequenti e antipattern](10-domande-frequenti-e-antipattern.md) - leggetelo **prima** di aprire una segnalazione: contiene gli errori che ci aspettiamo.
 
 ### 5.2 «Devo decidere l'architettura di integrazione»

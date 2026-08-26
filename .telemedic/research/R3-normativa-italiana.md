@@ -284,7 +284,7 @@ Anche l'Accordo 2020 prevede un «centro di coordinamento tecnico che gestisca l
 
 E per il telemonitoraggio:
 
-> «Si richiede altresì, in linea con quanto riportato all'interno della *«Guidance on Qualification and Classification of Software in Regulation (EU) 2017/745 – MDR and Regulation (EU) 2017/746»*, che **la Infrastruttura regionale di telemedicina per il servizio minimo di telemonitoraggio debba essere certificata come dispositivo medico**.»
+> «Si richiede altresì, in linea con quanto riportato all'interno della *«Guidance on Qualification and Classification of Software in Regulation (EU) 2017/745 - MDR and Regulation (EU) 2017/746»*, che **la Infrastruttura regionale di telemedicina per il servizio minimo di telemonitoraggio debba essere certificata come dispositivo medico**.»
 
 E per il telemonitoraggio avanzato (livello 2): «la certificazione dovrebbe essere relativa alla soluzione di telemonitoraggio "esterna", questa configurazione del servizio **potrebbe essere richiesta una classe di rischio superiore alla IIa**».
 
@@ -377,7 +377,7 @@ La **Missione 6 «Salute»** si articola in due componenti:
   - **1.2.3.1 «Piattaforma di telemedicina» - 250.000.000 euro**;
   - **1.2.3.2 «Servizi di telemedicina» - 750.000.000 euro**.
 - **DM 6 agosto 2021** nomina AGENAS soggetto attuatore.
-- **Accordo di collaborazione AGENAS – Ministero della salute – PCM/DTD** sottoscritto il **31 dicembre 2021**.
+- **Accordo di collaborazione AGENAS - Ministero della salute - PCM/DTD** sottoscritto il **31 dicembre 2021**.
 - **Regioni capofila per il *procurement*: Lombardia e Puglia** (designate su proposta del Ministro per gli affari regionali del 2 marzo 2022, con concerto formale del 4 marzo 2022).
 - **Commissione tecnica di valutazione** (art. 2 DM 30 settembre 2022): presieduta da un dirigente AGENAS in qualità di soggetto attuatore; sette componenti con diritto di voto (2 Ministero della salute, 2 PCM/struttura per l'innovazione, 3 AGENAS), più un rappresentante per ciascuna Regione capofila senza diritto di voto; valuta i piani entro **30 giorni** dalla ricezione.
 - **Vincolo territoriale**: almeno il **40%** delle risorse allocabili territorialmente destinato alle Regioni del Mezzogiorno (art. 2, c. 6‑*bis*, D.L. 77/2021).
@@ -586,7 +586,7 @@ La IG **Televisita v0.2.0** ([www.hl7.it/fhir/televisita/](https://www.hl7.it/fh
   - **Determinazione ACN n. 307 del 18 gennaio 2022** - **Regolamento di qualificazione** dei servizi cloud e delle infrastrutture cloud per la PA;
   - **Decreto direttoriale ACN n. 21007/24 del 27 giugno 2024** - **nuovo Regolamento unificato** per infrastrutture e servizi cloud per la PA, che definisce misure tecnico‑organizzative e procedure di qualificazione e adeguamento. **[Questo è l'atto vigente da verificare per primo in ogni analisi di conformità cloud.]**
   - Le **Circolari AgID n. 2 e n. 3 del 9 aprile 2018** (qualificazione SaaS e qualificazione CSP), superate dal regime ACN; le qualificazioni AgID rilasciate prima del 18 gennaio 2023 sono confluite nel nuovo modello e nel **Marketplace Cloud**.
-- **Livelli di qualificazione**: **QC1–QC4** per i **servizi** cloud (SaaS, PaaS, IaaS) e **QI1–QI4** per le **infrastrutture** dei servizi cloud. Il livello richiesto discende dalla classificazione dei dati e servizi ex Determinazione 306/2022.
+- **Livelli di qualificazione**: **QC1-QC4** per i **servizi** cloud (SaaS, PaaS, IaaS) e **QI1-QI4** per le **infrastrutture** dei servizi cloud. Il livello richiesto discende dalla classificazione dei dati e servizi ex Determinazione 306/2022.
 - **Classificazione dei dati e servizi** (Determinazione 306/2022): tre classi - **strategici** (compromissione con impatto sulla sicurezza nazionale), **critici** (compromissione con pregiudizio a funzioni rilevanti per la società, la salute, la sicurezza e il benessere economico e sociale), **ordinari**.
 
 **Conclusione operativa: i dati sanitari trattati da una piattaforma di telemedicina di una ASL ricadono con altissima probabilità nella classe «critici».** Ne discende: obbligo di ricorso a **servizi cloud qualificati** al livello corrispondente, con vincoli di **residenza dei dati sul territorio nazionale** o comunque nel perimetro del **Polo Strategico Nazionale**.
@@ -657,7 +657,7 @@ Il DM 21 settembre 2022 rende **obbligatorie** per le infrastrutture regionali d
 - **Determinazioni ACN rilevanti** ([NIS2 in Italia](https://nis2-directive.it/), [ICT Security Magazine](https://www.ictsecuritymagazine.com/articoli/nis2-e-d-lgs-138-2024/)):
   - **Determinazione ACN n. 379907/2025**, efficace dal **15 gennaio 2026** - sostituisce la versione dell'aprile 2025; stabilisce le **specifiche di base delle misure di sicurezza** e la gestione degli incidenti;
   - **Determinazione ACN n. 379887/2025**, efficace dal **31 dicembre 2025** - aggiorna le regole del Portale NIS.
-  - **Finestra annuale di registrazione**: **1° gennaio – 28 febbraio**.
+  - **Finestra annuale di registrazione**: **1° gennaio - 28 febbraio**.
   - **Misure di base da implementare in modo dimostrabile entro il 31 ottobre 2026**; da 37 a 43 misure a seconda della classificazione (soggetto importante / essenziale), su gestione del rischio, risposta agli incidenti, continuità operativa, sicurezza della catena di fornitura, **crittografia**, controllo degli accessi, formazione.
   - **Sanzioni**: fino a 10 M€ o 2% del fatturato mondiale annuo per i soggetti essenziali; fino a 7 M€ o 1,4% per gli importanti.
 - **[NON VERIFICATO nel dettaglio]** Il numero esatto delle misure e i contenuti puntuali della Determinazione 379907/2025 provengono da fonte secondaria: vanno letti sul testo ACN.

@@ -83,9 +83,29 @@ prima e dopo. Ne discendono due corollari che questo progetto ha pagato per impa
 scritta e non presidiata da un controllo non è una regola**, e **un cancello prescritto in un piano
 e non eseguito da uno script non è un cancello**.
 
-**Si usa sempre il trattino corto, mai quello lungo.** Vale in ogni file e in ogni risposta. Nei
-titoli ha una conseguenza tecnica da conoscere: un separatore isolato fra due spazi produce **più
-trattini consecutivi** nell'àncora della sezione, e `scripts/verifica-ancore.sh` lo verifica.
+**Si usa sempre il trattino corto. I caratteri in gioco sono tre, non due.**
+
+| Nome | Punto di codice | Regola |
+|---|---|---|
+| trattino corto `-` | U+002D | **Sempre**, in ogni ruolo: separatore, incisi, sigle, parole composte, intervalli non numerici |
+| trattino medio | U+2013 | **Solo fra due cifre**, in un intervallo numerico, senza spazi attorno |
+| trattino lungo | U+2014 | **Mai**, in nessun ruolo e in nessun file |
+
+«Fra due cifre» ha il senso stretto: il carattere immediatamente precedente **e** quello
+immediatamente seguente sono cifre. Quindi il medio va bene in `5.5–5.7` e in `§§ 7–8`, perché a
+ridosso stanno `5`/`5` e `7`/`8`. Non va bene in nessuno di questi, che vanno tutti scritti con il
+trattino corto: `gennaio-marzo` e `Roma-Milano` (lettere a ridosso), `26 settembre - 10 ottobre`
+(spazi a ridosso), `D1-D52` e `§4-§9` (a ridosso una lettera e un segno di paragrafo).
+
+Questa sezione, e il controllo che la presidia, sono scritti senza mai contenere in forma
+letterale i caratteri che vietano: il medio compare solo nei due esempi ammessi, il lungo mai.
+Chi li modifica deve mantenere la proprietà, altrimenti la regola non passa il proprio controllo.
+
+La regola vale in ogni file e in ogni risposta, e la presidia `scripts/verifica-trattini.sh`.
+Nei titoli ha una conseguenza tecnica da conoscere: il trattino medio e quello lungo vengono
+**rimossi** dall'algoritmo dell'àncora, mentre quello corto **resta**, per cui correggere un
+titolo ne cambia l'àncora; e un separatore corto isolato fra due spazi produce **più trattini
+consecutivi** nell'àncora della sezione. `scripts/verifica-ancore.sh` verifica entrambe le cose.
 
 ## Come si scrive la documentazione qui
 

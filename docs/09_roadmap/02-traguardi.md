@@ -730,7 +730,7 @@ pianificazione**. Cambia l'attribuzione, non lo stato di fatto del prodotto.
 | Firma del contratto con un organismo notificato | Dicembre 2026 nello scenario di riferimento | `D44`, scenario B della ricerca sul percorso di certificazione |
 | Certificato del sistema di gestione della qualità | Luglio 2027 nello scenario di riferimento | *ibidem* |
 | Fascicolo tecnico completo e sottomesso | Giugno 2027 nello scenario di riferimento | *ibidem* |
-| Certificati e conclusione della procedura di valutazione della conformità | **Giugno–agosto 2028** nello scenario di riferimento | `D44`: il 51 % degli organismi impiega 13–18 mesi dall'accordo al certificato, il 31 % impiega 19–24 mesi; l'organico degli organismi è in contrazione |
+| Certificati e conclusione della procedura di valutazione della conformità | **Giugno-agosto 2028** nello scenario di riferimento | `D44`: il 51 % degli organismi impiega 13–18 mesi dall'accordo al certificato, il 31 % impiega 19–24 mesi; l'organico degli organismi è in contrazione |
 
 **Tre avvertenze che accompagnano questa tabella e non si separano da essa.**
 

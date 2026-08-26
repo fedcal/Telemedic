@@ -2073,7 +2073,7 @@ The values in the schedule, **exclusive of value added tax**:
 
 | Unique users per year and per provider | Authentication, level 1 or 2 credentials | Registration, level 1 or 2 credentials | Authentication, level 3 | Registration, level 3 |
 |---|---|---|---|---|
-| **0 – 1000** | **€0** | **€3.50** | **€0** | **€7** |
+| **0 - 1000** | **€0** | **€3.50** | **€0** | **€7** |
 | **over 1000** | **€0.40** | **€3.50** | **€7** | **€7** |
 
 Additional rules declared in the document: if in the same period a user accesses the same provider

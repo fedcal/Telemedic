@@ -5,10 +5,10 @@
 > rispetto ai vincoli altrui.
 >
 > **Nota di continuità.** L'area è stata prodotta in **due sessioni**. La prima ha consegnato i
-> file `00`–`03` e si è interrotta per esaurimento di sessione senza scrivere questo registro. La
+> file `00`-`03` e si è interrotta per esaurimento di sessione senza scrivere questo registro. La
 > seconda ha consegnato `04` e `05`, ha registrato in bacheca l'intero blocco di voci dell'area
 > (`V-180`…`V-189`, `Q-180`…`Q-189`) e ha scritto questo registro **per entrambe**. I file
-> `00`–`03` non sono stati modificati dalla seconda sessione.
+> `00`-`03` non sono stati modificati dalla seconda sessione.
 
 ## 1. File prodotti
 

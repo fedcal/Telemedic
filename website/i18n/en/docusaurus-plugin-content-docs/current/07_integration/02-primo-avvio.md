@@ -580,7 +580,7 @@ to users, not after.
 | 8 | The entry token **does not appear** in any address, log or screenshot | ☐ |
 | 9 | I retrieve the clinical document and link it to the appointment in my domain | ☐ |
 | 10 | I rotated a key at least once, in testing, without disruption | ☐ |
-| 11 | Organisational decisions C1–C5 from §1.3 are made and written | ☐ |
+| 11 | Organisational decisions C1-C5 from §1.3 are made and written | ☐ |
 
 Items 5, 6, 8 and 10 are the ones nobody tests, and they are the ones that show up in production.
 

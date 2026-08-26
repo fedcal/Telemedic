@@ -18,7 +18,7 @@ This gives rise to a precedence rule that holds for the entire documentation of 
 
 > In case of divergence between a document in this area and a document in another area on an architectural fact, **this area prevails**; whoever identifies the divergence does not resolve it on their own, but brings it to the inter-agent noticeboard.
 
-Above this area stands only the binding architectural baseline (`.telemedic/context/04_BASELINE_ARCHITETTURALE.md`) and decisions approved by the client (D1–D52). Where a document in this area departs from the baseline, it declares this explicitly and refers to the ADR that justifies the departure: there are no silent departures.
+Above this area stands only the binding architectural baseline (`.telemedic/context/04_BASELINE_ARCHITETTURALE.md`) and decisions approved by the client (D1-D52). Where a document in this area departs from the baseline, it declares this explicitly and refers to the ADR that justifies the departure: there are no silent departures.
 
 ## 2. The documents of the area
 

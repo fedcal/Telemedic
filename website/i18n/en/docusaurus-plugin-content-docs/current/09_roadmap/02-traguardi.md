@@ -640,7 +640,7 @@ planning**. Attribution changes, not the factual state of the product.
 | Signing of contract with a notified body | December 2026 in the reference scenario | `D44`, scenario B of the research on the certification pathway |
 | Certificate of quality management system | July 2027 in the reference scenario | *ibidem* |
 | Complete technical dossier and submitted | June 2027 in the reference scenario | *ibidem* |
-| Certificates and conclusion of conformity assessment procedure | **June–August 2028** in the reference scenario | `D44`: 51% of bodies take 13–18 months from agreement to certificate, 31% take 19–24 months; the staffing of bodies is in contraction |
+| Certificates and conclusion of conformity assessment procedure | **June-August 2028** in the reference scenario | `D44`: 51% of bodies take 13–18 months from agreement to certificate, 31% take 19–24 months; the staffing of bodies is in contraction |
 
 **Three warnings that accompany this table and are never separated from it.**
 

@@ -32,7 +32,7 @@ Ogni enunciato di quest'area è classificato in modo esplicito:
 | Marcatura | Significato |
 |---|---|
 | **[NORM]** | La norma o l'atto amministrativo lo stabilisce. Segue sempre la fonte esatta: atto, articolo, comma, allegato, paragrafo |
-| **[BASE]** | Discende da `04_BASELINE_ARCHITETTURALE.md` o da una decisione `D1`–`D52` del brief. Non è negoziabile in quest'area |
+| **[BASE]** | Discende da `04_BASELINE_ARCHITETTURALE.md` o da una decisione `D1`-`D52` del brief. Non è negoziabile in quest'area |
 | **[MOD]** | È una **decisione di modellazione di quest'area**, identificata con `DM-nn`. Adottabile o rigettabile, ma dichiarata come proposta e non come obbligo |
 | **[NV]** | Non verificato. Indica sempre a chi va chiesta la verifica e che cosa cambia se la risposta è diversa |
 

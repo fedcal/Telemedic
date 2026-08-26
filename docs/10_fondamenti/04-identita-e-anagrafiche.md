@@ -2122,7 +2122,7 @@ I valori della tabella, **al netto dell'imposta sul valore aggiunto**:
 
 | Utenti unici per anno e per gestore | Autenticazione, credenziali di livello 1 o 2 | Registrazione, credenziali di livello 1 o 2 | Autenticazione, livello 3 | Registrazione, livello 3 |
 |---|---|---|---|---|
-| **0 – 1000** | **0 €** | **3,5 €** | **0 €** | **7 €** |
+| **0 - 1000** | **0 €** | **3,5 €** | **0 €** | **7 €** |
 | **oltre 1000** | **0,4 €** | **3,5 €** | **7 €** | **7 €** |
 
 Regole aggiuntive dichiarate nel documento: se nello stesso periodo un utente accede allo

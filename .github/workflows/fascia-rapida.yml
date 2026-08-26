@@ -141,6 +141,43 @@ jobs:
           echo "Intervallo esaminato: $INTERVALLO"
           INTERVALLO="$INTERVALLO" ./scripts/verifica-dco.sh
 
+  trattini:
+    name: Convenzione dei trattini (CV-C1)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # La convenzione tipografica dichiarata in CLAUDE.md: il trattino corto sempre, il medio solo
+    # fra due cifre in un intervallo numerico, il lungo mai. Fino al 26 agosto 2026 nessun
+    # controllo ne guardava nemmeno uno - la regola scritta nominava due caratteri su tre e taceva
+    # sul medio, che nel frattempo era arrivato a novecentoventi occorrenze in centotrentotto file,
+    # duecentosettanta delle quali fuori da un intervallo numerico.
+    #
+    # PERCHE' NELLA FASCIA RAPIDA. Non per irrecuperabilita': un trattino sbagliato si corregge, e
+    # la cronologia di git non ne conserva alcun danno. Non e' quindi il metro con cui il criterio
+    # 2 di T-03 colloca qui G1, G10 e G11. La ragione e' quella di G9, il lavoro «ancore» qui
+    # sopra, e sta in un legame tecnico fra i due: il trattino medio e quello lungo vengono RIMOSSI
+    # dall'algoritmo dell'ancora, mentre quello corto RESTA. Correggere un trattino dentro un
+    # titolo ne cambia percio' l'ancora, e ogni rinvio a quel titolo va ricalcolato in entrambe le
+    # lingue. I due controlli devono girare nella stessa corsia e nello stesso momento, perche' la
+    # correzione richiesta dal primo e' precisamente l'input del secondo: separarli significherebbe
+    # scoprire l'ancora rotta minuti dopo, in un'altra fascia, senza il rilievo che l'ha causata
+    # sotto gli occhi. Il costo lo consente: Python puro, nessuna dipendenza da installare, un
+    # secondo e quattro decimi su quattrocentocinquanta file di testo, misurato il 26 agosto 2026.
+    #
+    # BLOCCANTE DAL PRIMO GIORNO, SENZA «continue-on-error» E SENZA DATA DI RIDUZIONE. Il corpus e'
+    # a zero violazioni nel momento in cui questo lavoro entra: le duecentosettanta occorrenze
+    # illegittime sono state corrette in entrambe le lingue prima di collocarlo. Un controllo che
+    # nasce su un corpus gia' pulito non ha alcuna ragione per nascere indulgente, e una riduzione
+    # senza necessita' e' esattamente cio' che il criterio 4 di T-03 vieta di lasciar diventare
+    # permanente.
+    #
+    # CHE COSA QUESTO PASSO NON ESAMINA. La cartella scripts/prove, esclusa dal controllo perche'
+    # le sue tenute contengono materiale deliberatamente scorretto - fra cui un trattino lungo
+    # necessario al collaudo di verifica-ancore.sh. E' un limite dichiarato, non una copertura: un
+    # trattino sbagliato scritto dentro una tenuta non viene visto.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-trattini.sh
+
   termini-vietati:
     name: Regola di riservatezza R0 (G11) - in sola segnalazione fino al 2026-09-26
     runs-on: ubuntu-latest

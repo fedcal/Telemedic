@@ -18,7 +18,7 @@ Ogni file è stato salvato prima di passare al successivo.
 
 ## 2. Il fatto che ha cambiato il lavoro a metà percorso
 
-Le decisioni **`D53`–`D58`** (terza tornata del committente, 25 agosto 2026) sono state depositate
+Le decisioni **`D53`-`D58`** (terza tornata del committente, 25 agosto 2026) sono state depositate
 nel brief **dopo** la mia lettura iniziale e **durante** la stesura. Le ho recepite riscrivendo le
 parti già prodotte. Le più incisive:
 
@@ -39,7 +39,7 @@ parti già prodotte. Le più incisive:
 **Scelta redazionale conseguente, dichiarata perché è discutibile.** `V-06` e `V-180` portano
 ancora la formulazione anteriore a `D58` e `D57`, e gli indici di `08_compliance`, `07_integration`
 e `09_roadmap` sono costruiti sulla figura del fabbricante come soggetto terzo. Ho scritto la
-panoramica su `D53`–`D58` - che sono decisioni del committente e prevalgono - e ho **dichiarato la
+panoramica su `D53`-`D58` - che sono decisioni del committente e prevalgono - e ho **dichiarato la
 divergenza in due note di allineamento** (`00-indice.md` §3.5, `01-visione-e-obiettivi.md` §5.1)
 invece di nasconderla o di correggere d'ufficio le aree altrui. La questione `Q-200` la porta ai
 titolari.

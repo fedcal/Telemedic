@@ -379,7 +379,7 @@ The specifications come from two different bodies that presuppose one another.
 
 RFC 8825 does not define any protocol: **it lists which other specifications an implementation
 must comply with** in order to be able to call itself WebRTC. It is an *applicability
-statement*, and its structure (§1–§12) covers data transport (§4), framing and securing (§5),
+statement*, and its structure (§1-§12) covers data transport (§4), framing and securing (§5),
 formats (§6) and connection management (§7).
 
 The IETF constellation of rules, with the role of each document:
@@ -602,7 +602,7 @@ a=msid-semantic: WMS 6f1b2c3d-0000-4000-8000-000000000001
 
 > **Why BUNDLE is an architectural fact and not a detail.** BUNDLE **requires** the
 > multiplexing of RTP and RTCP on the same port within the group (RFC 8843 §9.3) and entails
-> **a single ICE transport and a single DTLS association** for the whole group (§10–§11). In
+> **a single ICE transport and a single DTLS association** for the whole group (§10-§11). In
 > practice: audio, video and data channel share **one** port, **one** encryption handshake,
 > **one** allocation on the relay. The whole sizing of the relay server (§11.6) rests on this.
 
@@ -1911,8 +1911,8 @@ The diagnostic path, in order. Each step rules out a class of causes.
    is in ICE or in the signalling, not in the media. Look at the candidates gathered by the two
    sides: if one side produced no `relay` candidates, the relay credentials were absent, expired
    or refused.
-2. **Which pair was chosen?** If it is `relay`–`relay` and a direct connection was expected,
-   investigate the network. If it is `host`–`host` and the quality is terrible, the problem is
+2. **Which pair was chosen?** If it is `relay`-`relay` and a direct connection was expected,
+   investigate the network. If it is `host`-`host` and the quality is terrible, the problem is
    not the network: it is the device.
 3. **Are bytes flowing?** A `connected` state with zero bytes received means that the control
    path works and the data path does not: almost always a firewall that lets the control packets

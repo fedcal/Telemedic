@@ -113,7 +113,7 @@ Questa è la fotografia, e ogni riga è verificabile aprendo il repository.
 | Ambito | Stato accertato al 26 agosto 2026 |
 |---|---|
 | **Dichiarazioni pubbliche obbligatorie** (`D51`) | **Presenti**: dichiarazione di non dispositivo medico, politica di distribuzione, licenza, avviso, guida ai contributi, governance, politica di sicurezza, codice di condotta. **Da riallineare a `D58`** senza attenuare alcuna avvertenza: è il criterio 8 di `T-01` |
-| **Guida dei fondamenti** (`D35`, ventuno moduli) | **Completa**: ventuno moduli, `00`–`20`, glossario e fonti primarie compresi |
+| **Guida dei fondamenti** (`D35`, ventuno moduli) | **Completa**: ventuno moduli, `00`-`20`, glossario e fonti primarie compresi |
 | **Area tecnica** | **Completa** |
 | **Area architetturale** | **Completa** |
 | **Area funzionale** | **Completa** |

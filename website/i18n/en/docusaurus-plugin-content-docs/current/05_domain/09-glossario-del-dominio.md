@@ -22,8 +22,8 @@ The **Nature** column declares the level of the definition according to the prec
 | **S** | **Standard**: defined by the adopted international standard; structure, not clinical meaning |
 | **P** | **Project**: operative definition of this area, permitted because higher levels are silent |
 
-The **Reference** column indicates where the term is treated: `01`–`08` are chapters of this area,
-`F01`–`F13` are modules of [`docs/10_fondamenti/`](../10_fondamenti/00-come-usare-questa-guida.md).
+The **Reference** column indicates where the term is treated: `01`-`08` are chapters of this area,
+`F01`-`F13` are modules of [`docs/10_fondamenti/`](../10_fondamenti/00-come-usare-questa-guida.md).
 
 Entries of nature **N** report the source in brief form; full text is in module
 [F02](../10_fondamenti/02-prestazioni-di-telemedicina.md) for services and module

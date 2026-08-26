@@ -549,7 +549,7 @@ leggerlo, perché rende concreto ciò che altrimenti resta astratto.
 | 10(6) | **Dichiarazione di conformità UE** e **marcatura CE** | Sezioni 4.6 e 4.7 |
 | 10(7) | Obblighi **UDI** e di **registrazione** | Sezione 4.8 |
 | 10(8) | Conservazione della documentazione per almeno **10 anni** dall'immissione dell'ultimo dispositivo | Politica di conservazione documentale |
-| 10(9) | **Sistema di gestione della qualità** proporzionato alla classe, con gli elementi (a)–(m) | Sezione 5.3 |
+| 10(9) | **Sistema di gestione della qualità** proporzionato alla classe, con gli elementi (a)-(m) | Sezione 5.3 |
 | 10(10) | **Sorveglianza post-commercializzazione** | Sezione 4.9 |
 | 10(11) | Informazioni che accompagnano il dispositivo nelle **lingue ufficiali** determinate dallo Stato membro | Istruzioni per l'uso in italiano |
 | 10(12) | Azioni correttive immediate in caso di non conformità | Procedura di azione correttiva di sicurezza sul campo |
@@ -1412,7 +1412,7 @@ Ora le richieste del documento di contribuzione dovrebbero apparire diverse.
 | Regola | Cosa sembra | Cosa è |
 |---|---|---|
 | «Indica il requisito coperto» | Compilazione di un campo | L'anello che rende dimostrabile la completezza e l'assenza di funzionalità non richieste |
-| «Dichiara l'impatto sulla qualificazione regolatoria» | Domanda burocratica | Il controllo che intercetta le voci C1–C9 prima che entrino nel prodotto |
+| «Dichiara l'impatto sulla qualificazione regolatoria» | Domanda burocratica | Il controllo che intercetta le voci C1-C9 prima che entrino nel prodotto |
 | «Aggiorna la scheda del SOUP» | Adempimento noioso | La clausola 8.1.2 di IEC 62304 e la base della gestione delle vulnerabilità |
 | «Firma il commit e aggiungi `Signed-off-by`» | Formalità | La catena di provenienza e la tracciabilità nominativa dentro l'elemento di configurazione |
 | «Aggiungi i test prima» | Preferenza metodologica | Il legame requisito-prova, che a posteriori non si ricostruisce |
@@ -1454,7 +1454,7 @@ identificativi unici, che distingue:
 | **Minore** | Correzione di difetti, miglioramenti di usabilità non legati alla sicurezza, patch di sicurezza, efficienza operativa | Nuovo UDI-PI |
 
 E poi c'è la categoria che non è una modifica al dispositivo ma un cambio di regime: qualunque
-modifica che tocchi la **destinazione d'uso** o che introduca una delle funzioni C1–C9 della
+modifica che tocchi la **destinazione d'uso** o che introduca una delle funzioni C1-C9 della
 sezione 2.8. Quella non si «notifica»: obbliga a rifare la qualificazione, la classificazione e -
 a cascata - la valutazione clinica, il file di rischio e gli scenari di usabilità.
 
@@ -1961,7 +1961,7 @@ Area per area, le conseguenze pratiche.
 
 **Se tocchi il perimetro funzionale**
 
-- verifica se ciò che stai aggiungendo appartiene alle categorie **C1–C9** della sezione 2.8; se
+- verifica se ciò che stai aggiungendo appartiene alle categorie **C1-C9** della sezione 2.8; se
   sì, la risposta è no per politica, non per merito tecnico;
 - nessuna soglia clinica cablata nel codice, mai, nemmeno come valore predefinito «di comodo»;
 - nessun campo clinico derivato, dedotto, precompilato o completato dal sistema: ogni campo

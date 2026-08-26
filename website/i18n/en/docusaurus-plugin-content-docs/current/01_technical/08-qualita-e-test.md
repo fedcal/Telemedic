@@ -94,7 +94,7 @@ Factory requirements:
 
 ### 4.3 The terminology constraint
 
-Tests **cannot include content from licensed coding systems**. It is constraint V-03 and the policy of D31–D33: the repository does not receive concepts whose licence does not permit it, in any form, including test fixtures and caches.
+Tests **cannot include content from licensed coding systems**. It is constraint V-03 and the policy of D31-D33: the repository does not receive concepts whose licence does not permit it, in any form, including test fixtures and caches.
 
 Operational consequence: the suite runs with the terminology gateway in **degraded mode for non-enabled systems**, and this is the default configuration of tests. A beneficial collateral follows: **the main path is continuously tested** in the configuration without licensed terminology, which is exactly what constraint V-03 requires to guarantee. A degraded mode that runs at every suite execution is a mode that actually works.
 
@@ -132,7 +132,7 @@ These are precisely the defects that render a service unusable for those who nee
 
 ### 6.3 Criteria as tests
 
-Criteria M1–M8 and A1–A10 of [`04-frontend.md`](./04-frontend.md) §§6–7 **are not a list of good intentions**: each has, in the right column, the way violation is tested. A criterion without a test that can fail is a criterion nobody respects.
+Criteria M1-M8 and A1-A10 of [`04-frontend.md`](./04-frontend.md) §§6–7 **are not a list of good intentions**: each has, in the right column, the way violation is tested. A criterion without a test that can fail is a criterion nobody respects.
 
 Two tests merit separate mention because they verify a prohibition instead of a capability: the test that attempts to **conceal the recording indicator** by every means provided by configuration and must fail in all; and the test that attempts to **save a theme configuration that degrades contrast** and must be rejected at save, not accepted with a warning (constraint V-16 of `INTEG`).
 

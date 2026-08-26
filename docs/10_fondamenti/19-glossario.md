@@ -81,7 +81,7 @@ decisione.
 
 ### 1.3 Legenda dei rinvii
 
-I codici `F00`–`F20` indicano i moduli di questa guida; i codici in lettere indicano le aree di
+I codici `F00`-`F20` indicano i moduli di questa guida; i codici in lettere indicano le aree di
 documentazione. Nelle voci il codice è sempre un collegamento.
 
 | Codice | Destinazione |
@@ -541,7 +541,7 @@ e nessun altro documento del progetto - afferma che il prodotto sarà marcato en
 | **Isteresi** (*hysteresis*, di un allarme) | S | Uso di soglie diverse per l'attivazione e per il rientro di un allarme, per evitare l'oscillazione attorno al valore di attivazione | [F10](10-percorsi-di-cura-e-sicurezza.md) |
 | **IUA** (*Internet User Authorization*) | S | Profilo IHE per l'autorizzazione basata su OAuth | [F05](05-standard-di-interoperabilita.md) |
 
-### J–K
+### J-K
 
 | Termine | Nat. | Definizione | Dove |
 |---|---|---|---|
@@ -750,7 +750,7 @@ e nessun altro documento del progetto - afferma che il prodotto sarà marcato en
 
 | Termine | Nat. | Definizione | Dove |
 |---|---|---|---|
-| **QC1–QC4 / QI1–QI4** | N | Livelli di qualificazione dell'Agenzia per la cybersicurezza nazionale, rispettivamente dei servizi cloud e delle infrastrutture che li ospitano | [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **QC1-QC4 / QI1-QI4** | N | Livelli di qualificazione dell'Agenzia per la cybersicurezza nazionale, rispettivamente dei servizi cloud e delle infrastrutture che li ospitano | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Qualità del collegamento** (*connection quality*) | N | Evidenza che il referto di televisita deve riportare, insieme alla conferma di idoneità all'esecuzione (Accordo 215/CSR 2020). **Trappola:** è un contenuto **obbligatorio del documento**, non una metrica interna di prodotto | [F02](02-prestazioni-di-telemedicina.md), [DOM](../05_domain/04-documenti-clinici.md) |
 | **`Quantity`** | S | Tipo di dato FHIR: misura con valore, unità leggibile dall'essere umano e **codice** dell'unità per la macchina | [F06](06-fhir-da-zero.md) |
 | **Quasi evento** (*near miss*) | S | Evento che avrebbe potuto causare un danno e non lo ha causato. **Trappola:** è la fonte di apprendimento più preziosa, e un sistema che non lo registra spreca l'unica informazione gratuita che riceve | [F10](10-percorsi-di-cura-e-sicurezza.md) |
@@ -983,7 +983,7 @@ e nessun altro documento del progetto - afferma che il prodotto sarà marcato en
 | **VP8 / VP9 / H.264 / AV1** | S | Codec video. **Trappola:** solo alcuni sono obbligatori per l'interoperabilità (RFC 7742), e assumere la disponibilità degli altri produce sessioni che non si stabiliscono su alcuni dispositivi | [F08](08-webrtc-da-zero.md) |
 | **`VR`** | S | Codice della classe di contatto FHIR che denota la modalità non compresente | [F06](06-fhir-da-zero.md) |
 
-### W–Z
+### W-Z
 
 | Termine | Nat. | Definizione | Dove |
 |---|---|---|---|

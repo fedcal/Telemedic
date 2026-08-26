@@ -28,7 +28,7 @@ Coerente con la convenzione dei moduli adiacenti (11 → `sidebar_position: 12`,
 | § | Contenuto | Punto del mandato |
 |---|---|---|
 | 1 | Sei proprietà (riservatezza, integrità, disponibilità, autenticità, non ripudio, tracciabilità) + tre esigenze che nessuna copre | 1 |
-| 2 | Modello di minaccia, STRIDE, attore/capacità/motivazione, **nove avversari realistici A1–A9**, superficie di attacco, confini di fiducia, catena minaccia→requisito→test | 2 |
+| 2 | Modello di minaccia, STRIDE, attore/capacità/motivazione, **nove avversari realistici A1-A9**, superficie di attacco, confini di fiducia, catena minaccia→requisito→test | 2 |
 | 3 | Simmetrica: Kerckhoffs, blocchi/flusso, modalità, AEAD, nonce e riuso, gestione delle chiavi | 3 |
 | 4 | Asimmetrica: cifrare vs firmare, cifratura ibrida, scambio di chiavi e segretezza in avanti, curve ellittiche, obsolescenza, minaccia quantistica | 4 |
 | 5 | Hash: proprietà, collisioni, password, sale/pepe, HMAC, **catene di hash** | 5 |
