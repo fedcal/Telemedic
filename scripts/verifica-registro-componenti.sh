@@ -154,6 +154,7 @@ fi
 #   2. Controlla che la licenza sia segnata come compatibile (non indeterminabile o incompatibile)
 #
 rilievi=0
+indeterminati=0
 
 while IFS=' ' read -r nome versione licenza_distinta; do
   chiave="${nome}@${versione}"
@@ -215,6 +216,54 @@ con la licenza vera, poi rivedi la compatibilita': puo' essere cambiata insieme 
     continue
   fi
 
+  # «indeterminabile» SEGNALA, «incompatibile» BLOCCA. Sono due cose diverse e fino al 26 agosto
+  # 2026 questo controllo le trattava allo stesso modo, contro cio' che pipeline/README-COMPONENTI.md
+  # dichiara: «in questo caso il componente resta in segnalazione (non bloccante) finche' qualcuno
+  # che ne ha l'autorita' non lo esamina». Era una divergenza fra il formato dichiarato e il
+  # controllo che lo fa rispettare, ed e' il formato a vincere: e' la fonte.
+  #
+  # La distinzione ha una ragione, non e' una comodita'. «incompatibile» e' un giudizio ACCERTATO:
+  # qualcuno ha guardato la licenza e ha concluso che i termini non si conciliano, quindi il
+  # componente non puo' entrare e la costruzione deve fermarsi. «indeterminabile» e' l'assenza di
+  # un giudizio: il componente non dichiara una licenza, o la dichiara in forma non standard, o
+  # nessuno con l'autorita' per farlo l'ha ancora esaminata. Fermare la costruzione su un'assenza
+  # di giudizio significa fermarla su qualcosa che chi la subisce non puo' risolvere - serve un
+  # parere legale, non una modifica al codice - e un cancello che nessuno puo' aprire e' un
+  # cancello che qualcuno finira' per aggirare.
+  #
+  # Ma un'indeterminatezza senza scadenza e' una rinuncia non dichiarata, esattamente come la sola
+  # segnalazione senza data della regola 2 di pipeline/README.md. La data e' quindi obbligatoria,
+  # ed e' la stessa per tutti perche' l'ancora e' un fatto e non una preferenza: T-10, il primo
+  # rilascio installabile del 30 novembre 2026. Prima di quel giorno il progetto non distribuisce
+  # nulla, e una licenza vincola quando si distribuisce; da quel giorno un'indeterminatezza
+  # residua diventa un problema di chi installa, che e' precisamente cio' che G2 esiste per
+  # impedire.
+  INDETERMINABILE_ESIGIBILE_DAL="${INDETERMINABILE_ESIGIBILE_DAL:-2026-11-30}"
+  oggi="${OGGI:-$(date +%F)}"
+
+  if [ "$compatibilita" = "indeterminabile" ]; then
+    if [ "$INDETERMINABILE_ESIGIBILE_DAL" \> "$oggi" ]; then
+      printf '\033[33m· Compatibilita indeterminabile (segnalazione fino al %s): %s@%s, licenza «%s»\033[0m\n' \
+        "$INDETERMINABILE_ESIGIBILE_DAL" "$nome" "$versione" "$licenza_distinta"
+      indeterminati=$((indeterminati+1))
+      continue
+    fi
+    segnala "Compatibilita ancora indeterminabile, e la data e' arrivata" \
+"Componente: $nome
+Versione: $versione
+Licenza: $licenza_distinta
+Riga: $REGISTRO
+
+Dal $INDETERMINABILE_ESIGIBILE_DAL l'indeterminatezza non e' piu' tollerata: e' la data di T-10,
+il primo rilascio installabile. Prima di quel giorno il progetto non distribuisce nulla e una
+licenza vincola quando si distribuisce; da quel giorno un'indeterminatezza residua diventa un
+problema di chi installa. Serve un esame da parte di chi ne ha l'autorita', che concluda
+«compatibile» o «incompatibile»: questa casella non si chiude scrivendo una delle due senza
+averlo fatto."
+    rilievi=$((rilievi+1))
+    continue
+  fi
+
   if [ "$compatibilita" != "compatibile" ]; then
     segnala "Licenza non compatibile o indeterminabile" \
 "Componente: $nome
@@ -239,7 +288,12 @@ done <<< "$componenti_distinta"
 n_componenti=$(printf '%s\n' "$componenti_distinta" | wc -l)
 
 if [ "$esito" -eq 0 ]; then
+if [ "$indeterminati" -gt 0 ]; then
+  printf '\033[32m✓ %d componente/i nella distinta, tutti annotati; %d con compatibilita indeterminabile,\033[0m\n' "$n_componenti" "$indeterminati"
+  printf '\033[33m  in sola segnalazione fino al %s, data di T-10 (primo rilascio installabile): da quel giorno bloccano.\033[0m\n' "${INDETERMINABILE_ESIGIBILE_DAL:-2026-11-30}"
+else
   printf '\033[32m✓ %d componente/i nella distinta, tutti annotati e con licenza compatibile.\033[0m\n' "$n_componenti"
+fi
 else
   printf '\n\033[31m✗ Rilievi: %d\033[0m\n' "$rilievi"
 fi

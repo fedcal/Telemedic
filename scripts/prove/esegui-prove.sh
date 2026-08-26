@@ -773,6 +773,77 @@ esegui_caso "collocazione: un controllo che vive in due luoghi con la prima met�
   env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-due-luoghi.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
+printf '\n== Controllo 6bis - G1, ricerca di segreti (gitleaks) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. G1 e' l'unico controllo obbligatorio eseguito da un'AZIONE DI
+# TERZE PARTI, gitleaks/gitleaks-action. Per questo la sua riga in
+# pipeline/collocazione-dei-controlli.tsv aveva la colonna «prova_negativa» VUOTA, e faceva
+# fallire da sola il controllo di collocazione: la regola 3 esige che ogni controllo bloccante sia
+# provato, e non ammette eccezioni. Era l'unico errore rimasto in quella tabella, ed era
+# strutturale solo finche' nessuno provava a chiuderlo.
+#
+# Si chiude cosi': il collaudo non guasta l'azione - non si puo' - ma guasta il REPOSITORY, che e'
+# cio' che il controllo deve vedere. Un repository sintetico con un segreto dentro deve far uscire
+# gitleaks diverso da zero; lo stesso repository senza deve farlo uscire zero. E' la stessa
+# tecnica dei Controlli 3-6, applicata a un binario invece che a uno script.
+#
+# LA CHIAVE SINTETICA SI COMPONE PER FRAMMENTI e non compare mai per intero in questo file.
+# Scritta intera, gitleaks la troverebbe in questo stesso banco e il controllo vero fallirebbe sul
+# repository a causa della propria tenuta di collaudo: e' il difetto D-15 del runbook, gia'
+# pagato una volta con la tenuta delle terminologie. Il valore usato e' quello che la
+# documentazione pubblica di AWS impiega da anni come esempio: non e' una credenziale, e non lo e'
+# mai stata.
+GITLEAKS="${GITLEAKS:-$(command -v gitleaks || true)}"
+
+_repo_con_segreto() {
+  local dir="$1" con_segreto="$2" prefisso corpo
+  git -C "$dir" init -q -b main
+  git -C "$dir" config user.name "Collaudo Sintetico"
+  git -C "$dir" config user.email "collaudo@example.invalid"
+  printf 'contenuto innocuo\n' > "$dir/nota.txt"
+  if [ "$con_segreto" = "si" ]; then
+    # Il marcatore di chiave privata si compone per frammenti: scritto intero, gitleaks lo
+    # troverebbe in QUESTO file e il controllo vero fallirebbe sul repository a causa della
+    # propria tenuta - difetto D-15. Il corpo dice da se' di essere finto, e non e' una chiave:
+    # non deriva da alcuna coppia, non apre nulla, e non e' mai esistita.
+    local apri chiudi
+    apri="-----BEGIN RSA PRIVATE"" KEY-----"
+    chiudi="-----END RSA PRIVATE"" KEY-----"
+    {
+      printf '%s\n' "$apri"
+      printf 'QUESTAxNONxExUNAxCHIAVExMAxSOLOxUNAxTENUTAxDIxCOLLAUDOxSINTETICAxxxxxxxx\n'
+      printf 'NONxDERIVAxDAxALCUNAxCOPPIAxNONxAPRExNULLAxNONxExMAIxESISTITAxxxxxxxxxx\n'
+      printf '%s\n' "$chiudi"
+    } > "$dir/chiave-fittizia.pem"
+  fi
+  git -C "$dir" add -A
+  git -C "$dir" commit -q -m "chore: tenuta sintetica" --no-gpg-sign
+}
+
+_gitleaks_su_repo() {
+  local con_segreto="$1" d uscita
+  d=$(mktemp -d) || return 1
+  _repo_con_segreto "$d" "$con_segreto" >/dev/null 2>&1
+  "$GITLEAKS" detect --source "$d" --no-banner --redact >/dev/null 2>&1
+  uscita=$?
+  rm -rf "$d"
+  return "$uscita"
+}
+
+g1_repo_con_segreto_fallisce() { set +e; trap 'set -e' RETURN; _gitleaks_su_repo si; }
+g1_repo_pulito_passa()        { set +e; trap 'set -e' RETURN; _gitleaks_su_repo no; }
+
+if [ -n "$GITLEAKS" ] && [ -x "$GITLEAKS" ]; then
+  esegui_caso "segreti: un repository con una credenziale sintetica fa uscire gitleaks diverso da zero" fallisce \
+    g1_repo_con_segreto_fallisce
+  esegui_caso "segreti: lo stesso repository senza la credenziale fa uscire gitleaks zero" passa \
+    g1_repo_pulito_passa
+else
+  printf '\033[33m· gitleaks non disponibile: i due casi di G1 sono SALTATI, non superati.\n'
+  printf '  Indica il binario con GITLEAKS, oppure installalo. In pipeline il lavoro che esegue\n'
+  printf '  questo banco lo installa, quindi i due casi girano davvero.\033[0m\n'
+fi
+
 printf '\n== Controllo 7bis - verifica-dco.sh (Developer Certificate of Origin su ogni commit) ==\n\n'
 
 # Il controllo legge la CRONOLOGIA git, non file: le tenute sono quindi repository sintetici
@@ -1368,13 +1439,25 @@ esegui_caso "registro componenti: componente nella distinta non annotato" fallis
   env RADICE_SORGENTI="$REGISTRO_COMPONENTI_TENUTE/componente-non-annotato" \
       SBOM_FILE="$REGISTRO_COMPONENTI_TENUTE/componente-non-annotato/sbom.json" \
   "$SCRIPT_REGISTRO_COMPONENTI"
-# Nota di collaudo che vale accanto ai due casi sotto: indeterminabile e incompatibile sono
-# strutturalmente la stessa riga di codice nello script collaudato (un solo
-# "if [ \"$compatibilita\" != \"compatibile\" ]"), quindi una mutazione che disattiva quel
-# controllo li fa cadere INSIEME, mai uno alla volta. Non e' un difetto delle tenute: e' un
-# fatto sulla forma del codice, e va scritto qui invece di essere nascosto.
-esegui_caso "registro componenti: licenza indeterminabile nel registro" fallisce \
-  env RADICE_SORGENTI="$REGISTRO_COMPONENTI_TENUTE/licenza-indeterminabile" \
+# La nota che stava qui dichiarava che «indeterminabile» e «incompatibile» erano strutturalmente
+# la stessa riga di codice, e che una mutazione li faceva cadere insieme. Dal 26 agosto 2026 non
+# e' piu' vero, ed e' un miglioramento: sono due rami distinti perche' sono due cose distinte.
+# «incompatibile» e' un giudizio ACCERTATO e blocca sempre; «indeterminabile» e' l'ASSENZA di un
+# giudizio e segnala fino al 30 novembre 2026, data di T-10, il primo rilascio installabile -
+# perche' una licenza vincola quando si distribuisce, e prima di quel giorno il progetto non
+# distribuisce nulla. E' cio' che pipeline/README-COMPONENTI.md gia' dichiarava e che il
+# controllo non faceva: una divergenza fra il formato dichiarato e il controllo che lo fa
+# rispettare, chiusa a favore del formato.
+#
+# OGGI e' fissato su entrambi i casi, per la ragione di sempre: un caso che passa oggi e fallisce
+# fra tre mesi non e' un caso, e' una bomba a orologeria.
+esegui_caso "registro componenti: licenza indeterminabile prima della data, segnala e non blocca" passa \
+  env OGGI=2026-08-26 RADICE_SORGENTI="$REGISTRO_COMPONENTI_TENUTE/licenza-indeterminabile" \
+      SBOM_FILE="$REGISTRO_COMPONENTI_TENUTE/licenza-indeterminabile/sbom.json" \
+  "$SCRIPT_REGISTRO_COMPONENTI"
+
+esegui_caso "registro componenti: licenza indeterminabile dopo la data, blocca" fallisce \
+  env OGGI=2026-12-01 RADICE_SORGENTI="$REGISTRO_COMPONENTI_TENUTE/licenza-indeterminabile" \
       SBOM_FILE="$REGISTRO_COMPONENTI_TENUTE/licenza-indeterminabile/sbom.json" \
   "$SCRIPT_REGISTRO_COMPONENTI"
 esegui_caso "registro componenti: licenza incompatibile nel registro" fallisce \
@@ -2333,6 +2416,92 @@ termini_insieme_vuoto() {
 
 esegui_caso "termini vietati: nessun file di testo sotto la radice, insieme vuoto, deve passare" passa \
   termini_insieme_vuoto
+
+# --- Convenzione tipografica dei trattini: scripts/verifica-trattini.sh. ---
+#
+# Tre caratteri, due dei quali sorvegliati: il medio (U+2013) e' ammesso SOLO fra due cifre, il
+# lungo (U+2014) e' vietato sempre. Fino al 26 agosto 2026 nessun controllo ne guardava nemmeno
+# uno, e il medio era arrivato a 920 occorrenze in 138 file.
+#
+# Le tenute stanno sotto scripts/prove/tenute/trattini/ e ciascuna isola UN SOLO ramo del
+# controllo: la tenuta del medio non contiene alcun lungo, e quella del lungo non contiene alcun
+# medio. E' la condizione che rende utile la prova di mutazione della voce D-9 - si neutralizza
+# la chiamata che produce il rilievo in un ramo e deve cadere quel caso soltanto.
+#
+# La tenuta del medio contiene DUE forme in un solo file - lettere a ridosso e spazi a ridosso -
+# di proposito: sono le due vie con cui il carattere entra nel corpus, quasi sempre per
+# copia-e-incolla da un PDF normativo, e tenerle in un caso solo mantiene l'isolamento del ramo.
+
+TRATTINI_TENUTE="$TENUTE/trattini"
+TRATTINI_CONTROLLO="$RADICE_REPO/scripts/verifica-trattini.sh"
+
+esegui_caso "trattini: tenuta valida, ogni trattino al posto giusto, deve passare" passa \
+  env RADICE_SORGENTI="$TRATTINI_TENUTE/valida" "$TRATTINI_CONTROLLO"
+
+# Il complemento del caso negativo, e vale quanto lui: un controllo che segnalasse OGNI trattino
+# medio sarebbe rumore, e verrebbe spento entro la settimana. Questa tenuta contiene solo
+# intervalli numerici legittimi - clausole, articoli, paragrafi, pagine - e il controllo deve
+# tacere su tutti.
+esegui_caso "trattini: trattino medio fra cifre in un intervallo numerico, deve passare" passa \
+  env RADICE_SORGENTI="$TRATTINI_TENUTE/medio-fra-cifre" "$TRATTINI_CONTROLLO"
+
+esegui_caso "trattini: trattino medio fuori da un intervallo fra cifre" fallisce \
+  env RADICE_SORGENTI="$TRATTINI_TENUTE/medio-fuori-intervallo" "$TRATTINI_CONTROLLO"
+
+esegui_caso "trattini: trattino lungo, vietato in ogni ruolo" fallisce \
+  env RADICE_SORGENTI="$TRATTINI_TENUTE/lungo" "$TRATTINI_CONTROLLO"
+
+# Un'asserzione sul solo codice di uscita non basterebbe: il controllo usa 1 per il RILIEVO e 2 per
+# l'ERRORE D'USO, e sono cose diverse. Una radice inesistente che uscisse 1 dichiarerebbe una
+# violazione che nessuno ha commesso; che uscisse 0 sarebbe un verde privo di significato, ed e' il
+# modo piu' silenzioso in cui un controllo smette di controllare. Stesso schema gia' in uso per
+# verifica-termini-vietati.sh.
+trattini_uscita_due_con_messaggio() {   # $1 = frammento atteso; il resto = assegnazioni d'ambiente
+  local atteso="$1" uscita testo
+  shift
+  set +e
+  trap 'set -e' RETURN
+  testo=$(env "$@" "$TRATTINI_CONTROLLO" 2>&1)
+  uscita=$?
+  [ "$uscita" -eq 2 ] || return 1
+  printf '%s' "$testo" | grep -qF "$atteso"
+}
+
+esegui_caso "trattini: radice inesistente, uscita 2 e messaggio specifico" passa \
+  trattini_uscita_due_con_messaggio "Radice da esaminare inesistente" \
+  RADICE_SORGENTI="$TRATTINI_TENUTE/questa-radice-non-esiste"
+
+trattini_argomento_rifiutato() {
+  local uscita testo
+  set +e
+  trap 'set -e' RETURN
+  testo=$("$TRATTINI_CONTROLLO" --questo-argomento-non-esiste 2>&1)
+  uscita=$?
+  [ "$uscita" -eq 2 ] || return 1
+  printf '%s' "$testo" | grep -qF 'non accetta argomenti'
+}
+
+esegui_caso "trattini: argomento sulla riga di comando, uscita 2 e messaggio specifico" passa \
+  trattini_argomento_rifiutato
+
+# Insieme vuoto: nessun file di testo sotto la radice indicata. E' un esito CORRETTO e non un
+# guasto, ma va provato, perche' la via piu' silenziosa con cui un controllo smette di controllare
+# e' che l'insieme dei file esaminati si svuoti senza che nessuno lo noti. La tenuta non puo'
+# essere statica: git non versiona una directory vuota, e un file segnaposto la renderebbe non
+# vuota. Si costruisce percio' al momento dell'esecuzione, fuori dall'albero versionato.
+trattini_insieme_vuoto() {
+  local sandbox uscita
+  set +e
+  trap 'set -e' RETURN
+  sandbox=$(mktemp -d) || return 1
+  env RADICE_SORGENTI="$sandbox" "$TRATTINI_CONTROLLO" >/dev/null 2>&1
+  uscita=$?
+  rm -rf "$sandbox"
+  return "$uscita"
+}
+
+esegui_caso "trattini: nessun file di testo sotto la radice, insieme vuoto, deve passare" passa \
+  trattini_insieme_vuoto
 
 printf "\n%d/%d casi con esito conforme all'atteso.\n" "$attese_rispettate" "$totale"
 

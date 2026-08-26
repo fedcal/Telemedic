@@ -158,6 +158,21 @@ jobs:
       - run: ./scripts/verifica-identificativi-requisiti.sh
       # Il banco di prova del controllo: dimostra che i casi deliberatamente errati lo fanno
       # davvero fallire, non soltanto che il caso valido passa.
+      # gitleaks serve al banco, non a questo lavoro: i due casi di G1 provano che un repository
+      # sintetico con una credenziale dentro fa uscire il binario diverso da zero e che lo stesso
+      # senza lo fa uscire zero. Senza il binario quei due casi si dichiarano SALTATI - e un caso
+      # saltato non e' un caso superato, che e' il motivo per cui si installa qui invece di
+      # lasciarli tacere. La versione e' fissata: un binario che cambia sotto i piedi rende il
+      # banco non riproducibile, e la stessa scelta vale per ogni strumento di terze parti che il
+      # collaudo esegue.
+      - name: Installazione di gitleaks per la prova negativa di G1
+        run: |
+          VERSIONE=8.30.1
+          curl -sSfL -o /tmp/gitleaks.tgz \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${VERSIONE}/gitleaks_${VERSIONE}_linux_x64.tar.gz"
+          mkdir -p /tmp/gitleaks && tar xzf /tmp/gitleaks.tgz -C /tmp/gitleaks
+          /tmp/gitleaks/gitleaks version
+          echo "GITLEAKS=/tmp/gitleaks/gitleaks" >> "$GITHUB_ENV"
       - run: ./scripts/prove/esegui-prove.sh
 
   registro-dei-difetti:
