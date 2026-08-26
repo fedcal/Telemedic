@@ -659,6 +659,90 @@ esamina anche `scripts/`: è il controllo a presidiare la propria tenuta, purch�
 
 ---
 
+### D-16. Una tenuta modellata sul controllo, e non sulla realtà, collauda il controllo contro sé stesso
+
+**Che cosa è successo.** `scripts/verifica-registro-componenti.sh` attua `G2` e `G5`: legge la
+distinta dei materiali e verifica che ogni componente sia annotato e che la licenza sia
+compatibile. Sulla distinta vera falliva in tre modi contemporaneamente, e nessuno si vedeva.
+Leggeva `.name` senza `.group`, quindi i 412 componenti con spazio dei nomi npm non potevano
+combaciare con il registro - e due componenti diversi collassavano sulla stessa chiave. Cercava la
+licenza in `.license.name`, mentre il generatore la scrive in `.license.id` o in `.expression`:
+**tutti e 1236 i componenti si leggevano `NOLICENSE`**, e il controllo sulle licenze non ne aveva
+mai confrontata una in vita sua. E la licenza letta veniva **buttata via**: estratta e mai
+confrontata con quella dichiarata nel registro, sicché una riga poteva dire «MIT, compatibile» per
+un componente che spedisce GPL-3.0.
+
+**Perché il banco non se n'era accorto.** Le tenute erano scritte nella forma che il controllo si
+aspettava - `license.name`, nessun `group` - invece che nella forma che il generatore produce. Il
+banco collaudava il controllo contro **una finzione fatta a sua immagine**, e passava. È il difetto
+più insidioso di tutta questa famiglia, perché produce esattamente i segnali del funzionamento: un
+banco verde, un cancello verde, e una copertura che non esiste.
+
+**La regola.** Una tenuta si modella sulla **realtà che il controllo incontrerà**, mai sul codice
+del controllo. Quando la realtà è prodotta da uno strumento di terze parti - un generatore di
+distinta, un formatore, un compilatore - la tenuta si ricava **da un artefatto vero**, non si
+scrive a mano leggendo che cosa il controllo si aspetta. E quando una variabile viene estratta e
+mai usata, la domanda giusta non è «serve?» ma «che cosa doveva verificare, e chi lo verifica al
+posto suo?».
+
+**Il presidio.** Le tenute portate alla forma reale, più tre casi nuovi: lo spazio dei nomi npm,
+la licenza in forma di espressione composta, e il registro che dichiara una licenza diversa da
+quella del componente. La mutazione che neutralizza la lettura della licenza, che prima non faceva
+cadere nulla, ora isola.
+
+---
+
+### D-17. Un controllo che forza la propria radice non è collaudabile da nessuna tenuta
+
+**Che cosa è successo.** `scripts/verifica-dco.sh` legge la cronologia git e comincia con
+`cd "$(dirname "$0")/.."`, che è la cosa giusta in esercizio: deve verificare **questo**
+repository. Il primo caso del banco costruiva un repository sintetico con un commit privo del
+marcatore e si aspettava che il controllo fallisse. Passava. Il controllo stava esaminando
+Telemedic, non la tenuta, e in Telemedic quel commit aveva il marcatore.
+
+**Perché è insidioso.** Il caso non era rotto in un modo visibile: era **verde**, e verde per la
+ragione sbagliata. La stessa mutazione che avrebbe dovuto smascherarlo faceva cadere un altro caso,
+il che sembrava un fatto sulla forma del codice - e sarebbe stato archiviato come tale se non si
+fosse guardato *quale* caso cadeva.
+
+**La regola.** Un controllo che stabilisce da sé il proprio oggetto - la radice del repository, la
+directory di lavoro, il ramo di riferimento - espone una variabile d'ambiente per sostituirlo,
+**che esiste per il collaudo e mai come sorgente alternativa in esercizio**. È la stessa disciplina
+di `D-10` applicata alla radice invece che ai dati. E quando una mutazione fa cadere un caso
+diverso da quello atteso, non si conclude nulla prima di aver letto **quale** caso è caduto.
+
+**Il presidio.** La variabile `REPO`, e i quattro casi del banco che senza di essa passavano tutti
+per la ragione sbagliata.
+
+---
+
+### D-18. Una regola scritta nel documento che la impone, e non osservata da chi l'ha scritta
+
+**Che cosa è successo.** `CONTRIBUTING.md` §147 prescrive il *Developer Certificate of Origin* per
+**ogni** commit. Al 26 agosto 2026, dei **36 commit** della cronologia, ne portavano il marcatore
+**cinque** - tutti scritti quel giorno, tutti successivi alla misura che ha scoperto la lacuna.
+Nello stesso momento `docs/09_roadmap/00-indice.md` dichiarava il DCO «**attivo e obbligatorio**».
+Nessun controllo lo verificava.
+
+**Perché è insidioso.** La regola non era dimenticata: era **scritta, pubblicata e citata** come
+soddisfatta in un capitolo di roadmap. Chi legge il repository dall'esterno trova la prescrizione,
+trova l'affermazione che è in vigore, e non ha modo di sapere che la cronologia dice il contrario -
+a meno di contare, che è precisamente ciò che nessuno fa. È la forma pubblica del difetto che
+`CLAUDE.md` enuncia in astratto: **una regola scritta e non presidiata da un controllo non è una
+regola**.
+
+**La regola.** Una prescrizione che riguarda **ogni** unità di lavoro - ogni commit, ogni proposta,
+ogni file - va misurata sull'intera popolazione prima di dichiararla in vigore, e il numero va
+scritto. «È obbligatorio» non è un'affermazione sullo stato: è un'affermazione sulla norma. Lo stato
+si dice contando.
+
+**Il presidio.** `scripts/verifica-dco.sh`, riga `RD-C2` della tabella, lavoro `dco` in fascia
+rapida. Il controllo esamina l'intervallo non ancora spinto e non tutta la cronologia: pretendere il
+marcatore da commit scritti prima che il controllo esistesse renderebbe il cancello impossibile da
+soddisfare, e **un cancello impossibile non è un cancello, è un cancello che qualcuno aggirerà**.
+
+---
+
 ## Voci senza presidio, in un elenco solo
 
 Sono il debito di questo runbook. Chi scrive un controllo per una di queste voci aggiorni la
