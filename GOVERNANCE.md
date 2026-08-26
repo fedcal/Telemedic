@@ -17,21 +17,21 @@ l'obbligo di motivarle pubblicamente nelle issue o negli ADR.
 
 ## Ruoli
 
-**Utilizzatore** — chi installa o integra Telemedic. Non ha obblighi verso il progetto, ma
+**Utilizzatore** - chi installa o integra Telemedic. Non ha obblighi verso il progetto, ma
 le sue segnalazioni sono la fonte principale delle priorità.
 
-**Contributore** — chiunque abbia una modifica accolta, di codice, documentazione,
+**Contributore** - chiunque abbia una modifica accolta, di codice, documentazione,
 traduzione, test o revisione. Non serve alcuna formalità.
 
-**Manutentore** — ha diritto di scrittura sul repository e responsabilità di revisione su
+**Manutentore** - ha diritto di scrittura sul repository e responsabilità di revisione su
 una o più aree. Si diventa manutentori per invito dei manutentori esistenti, sulla base di
 contributi continuativi e di qualità, non di un conteggio.
 
-**Responsabile di area** — un manutentore con competenza riconosciuta su un'area (media in
+**Responsabile di area** - un manutentore con competenza riconosciuta su un'area (media in
 tempo reale, interoperabilità, sicurezza, conformità, interfaccia). La sua revisione è
 richiesta per le modifiche a quell'area.
 
-**Responsabile della conformità** — figura distinta, non necessariamente uno sviluppatore.
+**Responsabile della conformità** - figura distinta, non necessariamente uno sviluppatore.
 Presidia il materiale regolatorio, la gestione del rischio e la tracciabilità dei requisiti.
 Ha diritto di veto motivato sulle modifiche che incidono sulla qualificazione del prodotto.
 
@@ -44,9 +44,9 @@ Le decisioni architetturali si registrano come **ADR** in `docs/adr/`. Un ADR di
 contesto, le alternative considerate, la decisione e le conseguenze. Le decisioni non
 scritte non esistono: sei mesi dopo nessuno ricorda perché.
 
-Le decisioni che incidono sulla **qualificazione regolatoria** — logica di soglia e allarmi,
+Le decisioni che incidono sulla **qualificazione regolatoria** - logica di soglia e allarmi,
 contenuto dei documenti clinici, consenso e identificazione, tracciamento degli accessi,
-cifratura del media — seguono il controllo delle modifiche descritto in
+cifratura del media - seguono il controllo delle modifiche descritto in
 `docs/08_compliance/`. Non possono essere prese solo su base tecnica.
 
 ### Disaccordi
@@ -69,8 +69,8 @@ cifratura del media — seguono il controllo delle modifiche descritto in
 ## Rilasci
 
 Versionamento semantico. Ogni rilascio pubblica: note di rilascio, distinta dei materiali
-software, esito dei test, dichiarazione del periodo di supporto e — quando la modifica
-tocca aree qualificanti — la documentazione di gestione delle modifiche.
+software, esito dei test, dichiarazione del periodo di supporto e - quando la modifica
+tocca aree qualificanti - la documentazione di gestione delle modifiche.
 
 Il progetto **non appone marcatura CE e non sottoscrive dichiarazioni di conformità**. Chi
 immette sul mercato o mette in servizio assume il ruolo di fabbricante e le relative
@@ -114,21 +114,21 @@ obligation to justify them publicly in issues or ADRs.
 
 ## Roles
 
-**User** — anyone deploying or integrating Telemedic. No obligations towards the project,
+**User** - anyone deploying or integrating Telemedic. No obligations towards the project,
 but their reports are the primary source of priorities.
 
-**Contributor** — anyone with an accepted change: code, documentation, translation, tests or
+**Contributor** - anyone with an accepted change: code, documentation, translation, tests or
 review. No formality required.
 
-**Maintainer** — holds write access and review responsibility over one or more areas.
+**Maintainer** - holds write access and review responsibility over one or more areas.
 Maintainership comes by invitation from existing maintainers, based on sustained
 high-quality contribution, not on a count.
 
-**Area owner** — a maintainer with recognised expertise in an area (real-time media,
+**Area owner** - a maintainer with recognised expertise in an area (real-time media,
 interoperability, security, compliance, user interface). Their review is required for
 changes in that area.
 
-**Compliance owner** — a distinct role, not necessarily a developer. Owns the regulatory
+**Compliance owner** - a distinct role, not necessarily a developer. Owns the regulatory
 material, risk management and requirements traceability. Holds a reasoned veto over changes
 affecting the product's qualification.
 
@@ -141,8 +141,8 @@ Architectural decisions are recorded as **ADRs** in `docs/adr/`, stating context
 alternatives considered, decision and consequences. Unwritten decisions do not exist: six
 months later nobody remembers why.
 
-Decisions affecting **regulatory qualification** — threshold and alarm logic, clinical
-document content, consent and identification, access logging, media encryption — follow the
+Decisions affecting **regulatory qualification** - threshold and alarm logic, clinical
+document content, consent and identification, access logging, media encryption - follow the
 change control described in `docs/08_compliance/`. They cannot be taken on technical grounds
 alone.
 
@@ -166,7 +166,7 @@ alone.
 ## Releases
 
 Semantic versioning. Every release publishes: release notes, software bill of materials,
-test results, declared support period and — where the change touches qualifying areas —
+test results, declared support period and - where the change touches qualifying areas -
 change management documentation.
 
 The project **affixes no CE marking and signs no declaration of conformity**. Whoever places

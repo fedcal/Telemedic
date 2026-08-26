@@ -9,7 +9,7 @@
 [![Stato](https://img.shields.io/badge/Stato-in%20progettazione-orange.svg)](#stato-del-progetto)
 [![FHIR](https://img.shields.io/badge/FHIR-R4%204.0.1-red.svg)](https://hl7.org/fhir/R4/)
 
-**📖 [Documentazione online — fedcal.github.io/Telemedic](https://fedcal.github.io/Telemedic/)**
+**📖 [Documentazione online - fedcal.github.io/Telemedic](https://fedcal.github.io/Telemedic/)**
 
 *[English version below](#telemedic-1)*
 
@@ -27,7 +27,7 @@
 > certificazione. Quel soggetto **oggi non esiste**, nessuna data è dichiarata, e
 > **l'intenzione non trasferisce nulla** a chi installa oggi una versione non certificata:
 > gli obblighi restano interi in capo a chi la mette in servizio. Ciò che un giorno potrà
-> essere certificato è una **distribuzione identificata**, non questo repository — vedi
+> essere certificato è una **distribuzione identificata**, non questo repository - vedi
 > **[la politica di distribuzione](DISTRIBUTION-POLICY.md)**.
 >
 > Leggi **[la dichiarazione di destinazione d'uso e dei limiti d'uso](NOT-A-MEDICAL-DEVICE.md)**
@@ -38,7 +38,7 @@
 Telemedic è una piattaforma di telemedicina progettata per essere **installata, integrata e
 resa propria**, non solo utilizzata. Nasce da una constatazione: le prestazioni di
 telemedicina in Italia hanno definizioni normative precise, un'infrastruttura nazionale a cui
-rispondere e obblighi documentali specifici — e quasi nessuna soluzione open source li tratta
+rispondere e obblighi documentali specifici - e quasi nessuna soluzione open source li tratta
 sul serio.
 
 Il progetto copre le quattro prestazioni definite dall'Accordo Stato-Regioni 215/CSR del 2020
@@ -63,8 +63,8 @@ che sappia farlo.
 
 **Perché l'integrazione viene prima delle funzionalità.** Un sistema di telemedicina che non
 dialoga con il gestionale già in uso non viene adottato. Telemedic è progettato per essere
-integrato in quattro modi — servizio autonomo, interfacce applicative, componente
-incorporabile, moduli sostituibili — e la documentazione dell'integrazione è un deliverable
+integrato in quattro modi - servizio autonomo, interfacce applicative, componente
+incorporabile, moduli sostituibili - e la documentazione dell'integrazione è un deliverable
 di pari rango rispetto al codice.
 
 **Perché la documentazione è parte del prodotto.** In sanità un software non documentato non è
@@ -87,7 +87,7 @@ con sede fuori dall'Unione europea.
 
 La documentazione è **bilingue e integrale** in italiano e inglese.
 
-> **[Guida dei fondamenti](docs/10_fondamenti/00-come-usare-questa-guida.md)** — ventuno moduli
+> **[Guida dei fondamenti](docs/10_fondamenti/00-come-usare-questa-guida.md)** - ventuno moduli
 > che partono da zero. Contesto sanitario, standard, protocolli, teoria clinica e informatica,
 > quadro regolatorio, glossario. È il **prerequisito per contribuire**, ed è pensata sia per
 > chi arriva dall'informatica senza background sanitario sia per il contrario.
@@ -118,7 +118,10 @@ sono **obiettivi di progetto e specifiche verificabili**, non attestazioni di co
 
 ## Licenza
 
-**Apache License 2.0** — vedi [`LICENSE`](LICENSE) e [`NOTICE`](NOTICE).
+**Apache License 2.0** - vedi [`LICENSE`](LICENSE) e [`NOTICE`](NOTICE). Il file
+[`publiccode.yml`](publiccode.yml) descrive il progetto nel formato del catalogo del riuso della
+pubblica amministrazione: **tutte le voci di conformità vi restano `false`**, e si alzano una per
+volta soltanto quando la prova corrispondente è pubblicata ed eseguita.
 
 La licenza consente l'uso commerciale, la modifica e la distribuzione, anche in prodotti
 proprietari. È una scelta deliberata: il progetto esiste per essere integrato.
@@ -144,6 +147,13 @@ Vedi anche [`GOVERNANCE.md`](GOVERNANCE.md), [`SECURITY.md`](SECURITY.md) e il
 
 **Open source telemedicine platform for remote consultation, professional teleconsultation, tele-assistance and remote monitoring.**
 
+[![Licence: Apache 2.0](https://img.shields.io/badge/Licence-Apache%202.0-blue.svg)](LICENSE)
+[![Documentation](https://img.shields.io/badge/Documentation-IT%20%7C%20EN-brightgreen.svg)](https://fedcal.github.io/Telemedic/en/)
+[![Status](https://img.shields.io/badge/Status-in%20design-orange.svg)](#project-status)
+[![FHIR](https://img.shields.io/badge/FHIR-R4%204.0.1-red.svg)](https://hl7.org/fhir/R4/)
+
+**📖 [Online documentation - fedcal.github.io/Telemedic](https://fedcal.github.io/Telemedic/en/)**
+
 </div>
 
 ---
@@ -158,7 +168,7 @@ Vedi anche [`GOVERNANCE.md`](GOVERNANCE.md), [`SECURITY.md`](SECURITY.md) e il
 > certification path. That entity **does not exist today**, no date is stated, and **the
 > intention transfers nothing** to anyone deploying an uncertified version today: the
 > obligations rest in full on whoever puts it into service. What may one day be certified is
-> an **identified distribution**, not this repository — see
+> an **identified distribution**, not this repository - see
 > **[the distribution policy](DISTRIBUTION-POLICY.md)**.
 >
 > Read **[the intended use and use limitations declaration](NOT-A-MEDICAL-DEVICE.md)** first.
@@ -168,7 +178,7 @@ Vedi anche [`GOVERNANCE.md`](GOVERNANCE.md), [`SECURITY.md`](SECURITY.md) e il
 Telemedic is a telemedicine platform designed to be **deployed, integrated and made your
 own**, not merely used. It starts from an observation: telemedicine services in Italy have
 precise legal definitions, a national infrastructure to answer to and specific documentary
-obligations — and almost no open source solution takes them seriously.
+obligations - and almost no open source solution takes them seriously.
 
 The project covers the four services defined by the 2020 State-Regions Agreement 215/CSR and
 subsequent decrees: remote consultation with a patient, professional-to-professional
@@ -185,8 +195,8 @@ software built for it.
 
 **Because integration comes before features.** A telemedicine system that does not talk to
 the practice management software already in use does not get adopted. Telemedic is designed
-for four integration modes — standalone service, application interfaces, embeddable
-component, replaceable modules — and integration documentation ranks equally with code.
+for four integration modes - standalone service, application interfaces, embeddable
+component, replaceable modules - and integration documentation ranks equally with code.
 
 **Because documentation is part of the product.** In healthcare, undocumented software is not
 deployable: compliance requires traceability, risk management and evidence. The project treats
@@ -209,7 +219,7 @@ established outside the European Union.
 
 Documentation is **complete and bilingual**, Italian and English.
 
-> **[Foundations guide](docs/10_fondamenti/00-come-usare-questa-guida.md)** — twenty-one
+> **[Foundations guide](docs/10_fondamenti/00-come-usare-questa-guida.md)** - twenty-one
 > modules starting from zero: healthcare context, standards, protocols, clinical and computing
 > theory, regulatory framework, glossary. It is the **prerequisite for contributing**, written
 > both for people arriving from software without healthcare background and for the reverse.
@@ -228,7 +238,10 @@ verifiable specifications**, not attestations of conformity.
 
 ## Licence
 
-**Apache License 2.0** — see [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
+**Apache License 2.0** - see [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE). The file
+[`publiccode.yml`](publiccode.yml) describes the project in the format of the public administration
+reuse catalogue: **all conformity entries there remain `false`**, and each is raised only when the
+corresponding proof is published and executed.
 
 The licence permits commercial use, modification and distribution, including in proprietary
 products. This is deliberate: the project exists to be integrated.

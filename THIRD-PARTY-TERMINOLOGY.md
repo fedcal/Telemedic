@@ -33,7 +33,7 @@ Telemedic fa riferimento a queste terminologie **soltanto** tramite:
 
 ### Obblighi a carico di chi installa ed esercisce il sistema
 
-Chi installa, configura, esercisce, distribuisce o commercializza Telemedic — o un prodotto che lo incorpora — è **l'unico responsabile** dell'ottenimento e del mantenimento delle licenze necessarie per le terminologie cliniche che intende utilizzare, secondo la giurisdizione in cui opera.
+Chi installa, configura, esercisce, distribuisce o commercializza Telemedic - o un prodotto che lo incorpora - è **l'unico responsabile** dell'ottenimento e del mantenimento delle licenze necessarie per le terminologie cliniche che intende utilizzare, secondo la giurisdizione in cui opera.
 
 **In particolare, per SNOMED CT**: l'**Italia non è un paese Membro di SNOMED International**. Non esiste una licenza nazionale italiana gratuita. Ogni utilizzatore in Italia deve procurarsi autonomamente una **Affiliate License** a titolo oneroso, tramite il *Member Licensing & Distribution Service* (<https://mlds.ihtsdotools.org/>), con rinnovo e dichiarazione d'uso annuali. **Il fatto di interrogare un servizio terminologico esterno gestito da terzi non esonera dall'obbligo di licenza**, perché un sistema che crea o analizza dati codificati con SNOMED CT è un *Data Processing System* ai sensi dell'accordo di licenza.
 
@@ -60,23 +60,23 @@ Legenda della colonna "Ridistribuibile nel repository": **Sì** = regime A; **Co
 
 | Terminologia | Titolare dei diritti | Costo | Ridistribuibile nel repository | Uso per riferimento URI + codice | Obblighi di attribuzione | Rischio residuo |
 |---|---|---|---|---|---|---|
-| **SNOMED CT** | SNOMED International (IHTSDO), Londra | **A pagamento in Italia** (non-Membro): baseline USD 1.954/anno per Hospital in Banda A, USD 652 per Practice; gratuito nei paesi Membri **[V]** | **No (runtime)** — cl. 2.7 esclude il repository pubblico | **Sì**, cl. 2.2.5 (identificativi + descrizioni nei messaggi clinici) — **ma solo per chi ha la licenza** | A carico del **deployer**: avviso cl. 8.3.1 su tutti i media di distribuzione + versione e data della release (cl. 8.3.2) | **Alto se violato** (risoluzione della licenza, fee arretrate, danno reputazionale). **Basso se la disciplina §2.4 è rispettata** |
+| **SNOMED CT** | SNOMED International (IHTSDO), Londra | **A pagamento in Italia** (non-Membro): baseline USD 1.954/anno per Hospital in Banda A, USD 652 per Practice; gratuito nei paesi Membri **[V]** | **No (runtime)** - cl. 2.7 esclude il repository pubblico | **Sì**, cl. 2.2.5 (identificativi + descrizioni nei messaggi clinici) - **ma solo per chi ha la licenza** | A carico del **deployer**: avviso cl. 8.3.1 su tutti i media di distribuzione + versione e data della release (cl. 8.3.2) | **Alto se violato** (risoluzione della licenza, fee arretrate, danno reputazionale). **Basso se la disciplina §2.4 è rispettata** |
 | **LOINC** | Regenstrief Institute, Inc. + LOINC Committee | **Gratuito**, commerciale e non commerciale, in perpetuo **[V-sec]**. Registrazione gratuita per il download | **Sì** (regime A) | Sì | **Sì**: notice §3.3 in `NOTICE` e nell'elemento `copyright` di ogni ValueSet/CodeSystem | **Basso**. Attenzione a: traduzioni (derivati assegnati a Regenstrief) e codici con copyright di terzi |
 | **ICD-9-CM versione italiana 2007** | Traduzione: Ministero della salute / IPZS. A monte: NCHS-CMS (USA), OMS | **Gratuito**; download dal portale ministeriale | **Condizionata** (regime B, `third-party/icd9cm-it/`) | Sì | Citazione del DM 18 dicembre 2008 e del Ministero della salute; data di estrazione | **Basso**: art. 5 L. 633/1941 + art. 52 CAD. Non nullo sulla catena a monte (OMS/NCHS) **[NV]** |
-| **ICD-10** | Organizzazione Mondiale della Sanità | Regime **[NV]** — da accertare con `licensing@who.int` | **No** | Sì, `http://hl7.org/fhir/sid/icd-10` | Citazione OMS | **Medio** finché il regime non è accertato |
-| **ICD-11 MMS** | Organizzazione Mondiale della Sanità | **Gratuito** sotto CC BY-ND 3.0 IGO **[V]** | **No** — ND vieta i derivati; §4.5 impone manleva | Sì, **`http://id.who.int/icd/release/11/mms`** (mai `hl7.org/fhir/sid/icd-11`) | Citazione §1.3; in trasmissione e storage: **codice + titolo + URI** (§1.2.3) | **Medio**: mapping e traduzioni richiedono accordo scritto separato con OMS (§1.2.4) |
-| **ATC / DDD** | WHO Collaborating Centre for Drug Statistics Methodology, Oslo (`atcddd.fhi.no`) | Indice online gratuito; **file elettronici a pagamento**, ~200 EUR **[V-sec]** | **No** — *"Copying and distribution for commercial purposes is not allowed"* **[V]** | Sì (**[NV]** — non confermato dal titolare) | *"Use of all or parts of the material requires reference to the WHO Collaborating Centre for Drug Statistics Methodology"* **[V]** | **Alto se ridistribuito**; **basso** se si adotta AIC come codifica primaria (§6.6) |
+| **ICD-10** | Organizzazione Mondiale della Sanità | Regime **[NV]** - da accertare con `licensing@who.int` | **No** | Sì, `http://hl7.org/fhir/sid/icd-10` | Citazione OMS | **Medio** finché il regime non è accertato |
+| **ICD-11 MMS** | Organizzazione Mondiale della Sanità | **Gratuito** sotto CC BY-ND 3.0 IGO **[V]** | **No** - ND vieta i derivati; §4.5 impone manleva | Sì, **`http://id.who.int/icd/release/11/mms`** (mai `hl7.org/fhir/sid/icd-11`) | Citazione §1.3; in trasmissione e storage: **codice + titolo + URI** (§1.2.3) | **Medio**: mapping e traduzioni richiedono accordo scritto separato con OMS (§1.2.4) |
+| **ATC / DDD** | WHO Collaborating Centre for Drug Statistics Methodology, Oslo (`atcddd.fhi.no`) | Indice online gratuito; **file elettronici a pagamento**, ~200 EUR **[V-sec]** | **No** - *"Copying and distribution for commercial purposes is not allowed"* **[V]** | Sì (**[NV]** - non confermato dal titolare) | *"Use of all or parts of the material requires reference to the WHO Collaborating Centre for Drug Statistics Methodology"* **[V]** | **Alto se ridistribuito**; **basso** se si adotta AIC come codifica primaria (§6.6) |
 | **Nomenclatore / catalogo nazionale prestazioni** | Repubblica Italiana (DM 23 giugno 2023, DM 26 novembre 2024) | **Gratuito** | **Condizionata** (regime B, `third-party/nomenclatore-it/`) | Sì | Citazione del decreto, della GU e della data di estrazione | **Molto basso** |
-| **Cataloghi regionali** | Regioni (delibere di giunta, BUR) | **Gratuito** | **Sconsigliata** — accettare per riferimento dal tenant | Sì | Citazione della delibera | **Molto basso** (giuridico); **alto** in manutenzione: 21 cicli indipendenti |
-| **UCUM** | Regenstrief Institute + UCUM Organization | **Gratuito** **[V]** | **Condizionata** (regime B) — o dipendenza esterna, preferibile | Sì | Copyright notice + riferimento alla licenza + disclaimer + testo o URL della licenza **[V]** | **Basso**. Da notare: licenza **revocabile** e derivati vietati |
-| **HL7 Terminology (THO)** | HL7 International | **Gratuito** | **Sì** (regime A) — **CC0** **[V]** | Sì | Nessuno (CC0) | **Molto basso**. Verificare l'origine dei concetti veicolati (§9.4) |
-| **Code system FHIR core** | HL7 International | **Gratuito** | **Sì** (regime A) — **CC0** **[V]** | Sì | Nessuno. **Vincoli di marchio** su FHIR®/HL7® **[V]** | **Molto basso**. Rischio marchio se usato nel naming |
-| **CVX** | CDC / NCIRD (USA) | Presumibilmente gratuito | **No** in v1.0 — licenza **[NV]** | n/a in v1.0 | **[NV]** | **Indeterminato**; azzerato escludendolo dal perimetro v1.0 |
-| **DICOM controlled terminology** | NEMA | Standard pubblicato gratuitamente | **No** — solo i codici usati per riferimento | Sì, `http://dicom.nema.org/resources/ontology/DCM` | Marchio DICOM® di NEMA **[V]** | **Basso** con uso per riferimento |
-| **Specifica FHIR (core)** | HL7 International | **Gratuito** | **Sì** — **CC0** **[V]** | n/a | Vincoli di marchio (§10.1) | **Molto basso** |
-| **Standard HL7 v2.x** | HL7 International | Gratuito con registrazione | **No** — *"You may not... copy or distribute HL7's publication Product"* **[V-sec]** | n/a | — | **Basso** se si usano le tabelle v2 da THO |
-| **Technical Framework IHE** | IHE International | **Gratuito** | **No** — licenza `non-sublicensable` **[V]** | n/a | Citazione per URL e revisione | **Basso** con citazione per URL |
-| **IG e pacchetti HL7 Italia** | HL7 Italia (publisher segnaposto su *Televisita*) | **Gratuito** | **No (runtime)** — dipendenza risolta a build time | Sì (canonical URL) | Da definire con HL7 Italia (§9.3) | **Medio**: licenza non pienamente attribuibile + contenuti di terzi ricompresi |
+| **Cataloghi regionali** | Regioni (delibere di giunta, BUR) | **Gratuito** | **Sconsigliata** - accettare per riferimento dal tenant | Sì | Citazione della delibera | **Molto basso** (giuridico); **alto** in manutenzione: 21 cicli indipendenti |
+| **UCUM** | Regenstrief Institute + UCUM Organization | **Gratuito** **[V]** | **Condizionata** (regime B) - o dipendenza esterna, preferibile | Sì | Copyright notice + riferimento alla licenza + disclaimer + testo o URL della licenza **[V]** | **Basso**. Da notare: licenza **revocabile** e derivati vietati |
+| **HL7 Terminology (THO)** | HL7 International | **Gratuito** | **Sì** (regime A) - **CC0** **[V]** | Sì | Nessuno (CC0) | **Molto basso**. Verificare l'origine dei concetti veicolati (§9.4) |
+| **Code system FHIR core** | HL7 International | **Gratuito** | **Sì** (regime A) - **CC0** **[V]** | Sì | Nessuno. **Vincoli di marchio** su FHIR®/HL7® **[V]** | **Molto basso**. Rischio marchio se usato nel naming |
+| **CVX** | CDC / NCIRD (USA) | Presumibilmente gratuito | **No** in v1.0 - licenza **[NV]** | n/a in v1.0 | **[NV]** | **Indeterminato**; azzerato escludendolo dal perimetro v1.0 |
+| **DICOM controlled terminology** | NEMA | Standard pubblicato gratuitamente | **No** - solo i codici usati per riferimento | Sì, `http://dicom.nema.org/resources/ontology/DCM` | Marchio DICOM® di NEMA **[V]** | **Basso** con uso per riferimento |
+| **Specifica FHIR (core)** | HL7 International | **Gratuito** | **Sì** - **CC0** **[V]** | n/a | Vincoli di marchio (§10.1) | **Molto basso** |
+| **Standard HL7 v2.x** | HL7 International | Gratuito con registrazione | **No** - *"You may not... copy or distribute HL7's publication Product"* **[V-sec]** | n/a | - | **Basso** se si usano le tabelle v2 da THO |
+| **Technical Framework IHE** | IHE International | **Gratuito** | **No** - licenza `non-sublicensable` **[V]** | n/a | Citazione per URL e revisione | **Basso** con citazione per URL |
+| **IG e pacchetti HL7 Italia** | HL7 Italia (publisher segnaposto su *Televisita*) | **Gratuito** | **No (runtime)** - dipendenza risolta a build time | Sì (canonical URL) | Da definire con HL7 Italia (§9.3) | **Medio**: licenza non pienamente attribuibile + contenuti di terzi ricompresi |
 
 ---
 
@@ -104,7 +104,7 @@ Sono vincolanti e verificate da un controllo automatico in integrazione continua
 ## Se il controllo blocca la tua pull request
 
 Non è un errore di configurazione da disattivare. Significa che il contributo introduce
-contenuto la cui provenienza contraddice la licenza dichiarata dal progetto — la cosa esatta
+contenuto la cui provenienza contraddice la licenza dichiarata dal progetto - la cosa esatta
 che un integratore commerciale verifica in fase di *due diligence*, e che se trovata fa
 saltare l'adozione. Il costo di rimuoverlo ora è una modifica; il costo di rimuoverlo dopo è
 una riscrittura della cronologia e una comunicazione a chi ha già installato.
@@ -139,7 +139,7 @@ Telemedic references these terminologies **only** through:
 
 ### Obligations of the party installing and operating the system
 
-Any party that installs, configures, operates, distributes or commercialises Telemedic — or a product incorporating it — is **solely responsible** for obtaining and maintaining the licences required for the clinical terminologies it intends to use, according to the jurisdiction in which it operates.
+Any party that installs, configures, operates, distributes or commercialises Telemedic - or a product incorporating it - is **solely responsible** for obtaining and maintaining the licences required for the clinical terminologies it intends to use, according to the jurisdiction in which it operates.
 
 **For SNOMED CT in particular**: **Italy is not a Member country of SNOMED International.** No free Italian national licence exists. Every user in Italy must independently obtain a paid **Affiliate License** through the *Member Licensing & Distribution Service* (<https://mlds.ihtsdotools.org/>), with annual renewal and usage reporting. **Querying an externally operated terminology service does not remove the licensing obligation**, because a system that creates or analyses data encoded using SNOMED CT is a *Data Processing System* within the meaning of the licence agreement.
 

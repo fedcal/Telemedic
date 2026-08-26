@@ -1,12 +1,10 @@
-# Codice di Condotta / Code of Conduct
+# Codice di condotta
 
-> 🇮🇹 [Italiano](#italiano) · 🇬🇧 [English](#english)
-
----
+*[English version below](#english)*
 
 <a id="italiano"></a>
 
-## 🇮🇹 Patto dei collaboratori
+## Patto dei collaboratori
 
 ### Il nostro impegno
 
@@ -37,8 +35,8 @@ Esempi di comportamenti inaccettabili:
   qualsiasi tipo;
 * commenti provocatori, offensivi o denigratori e attacchi personali o politici;
 * molestie pubbliche o private;
-* la pubblicazione di informazioni private altrui — come un indirizzo fisico o di posta
-  elettronica — senza esplicito permesso;
+* la pubblicazione di informazioni private altrui - come un indirizzo fisico o di posta
+  elettronica - senza esplicito permesso;
 * **la divulgazione di dati sanitari, anche parziali o pseudonimizzati, di persone reali
   in issue, pull request, log, screenshot o dataset di test**;
 * altri comportamenti che potrebbero ragionevolmente essere considerati inappropriati
@@ -75,18 +73,18 @@ sicurezza di chi segnala un incidente.
 I responsabili seguiranno queste linee guida nel determinare le conseguenze di
 un'azione che violi questo Codice di Condotta:
 
-1. **Correzione** — *Impatto sulla comunità*: uso di linguaggio inappropriato o altro
+1. **Correzione** - *Impatto sulla comunità*: uso di linguaggio inappropriato o altro
    comportamento ritenuto non professionale o sgradito. *Conseguenza*: un avvertimento
    scritto e privato, con chiarimento sulla natura della violazione e sul perché il
    comportamento era inappropriato. Può essere richiesta una scusa pubblica.
-2. **Ammonizione** — *Impatto sulla comunità*: una violazione attraverso un singolo
+2. **Ammonizione** - *Impatto sulla comunità*: una violazione attraverso un singolo
    episodio o una serie di azioni. *Conseguenza*: un'ammonizione con conseguenze per
    comportamenti continuativi. Nessuna interazione con le persone coinvolte per un
    periodo determinato.
-3. **Sospensione temporanea** — *Impatto sulla comunità*: una grave violazione degli
+3. **Sospensione temporanea** - *Impatto sulla comunità*: una grave violazione degli
    standard della comunità. *Conseguenza*: sospensione temporanea da qualsiasi tipo di
    interazione o comunicazione pubblica con la comunità.
-4. **Sospensione permanente** — *Impatto sulla comunità*: dimostrazione di un modello
+4. **Sospensione permanente** - *Impatto sulla comunità*: dimostrazione di un modello
    sistematico di violazione degli standard della comunità. *Conseguenza*: sospensione
    permanente da qualsiasi tipo di interazione pubblica all'interno della comunità.
 
@@ -105,7 +103,7 @@ Le Linee guida di applicazione si ispirano al
 
 <a id="english"></a>
 
-## 🇬🇧 Contributor Covenant
+## Contributor Covenant
 
 ### Our Pledge
 
@@ -136,7 +134,7 @@ Examples of unacceptable behavior:
 * Public or private harassment
 * Publishing others' private information, such as a physical or email address, without
   their explicit permission
-* **Disclosing health data of real individuals — even partial or pseudonymized — in
+* **Disclosing health data of real individuals - even partial or pseudonymized - in
   issues, pull requests, logs, screenshots, or test datasets**
 * Other conduct which could reasonably be considered inappropriate in a professional
   setting
@@ -170,17 +168,17 @@ of any incident.
 Community leaders will follow these Community Impact Guidelines in determining the
 consequences for any action they deem in violation of this Code of Conduct:
 
-1. **Correction** — *Community Impact*: Use of inappropriate language or other behavior
+1. **Correction** - *Community Impact*: Use of inappropriate language or other behavior
    deemed unprofessional or unwelcome. *Consequence*: A private, written warning,
    providing clarity around the nature of the violation and an explanation of why the
    behavior was inappropriate. A public apology may be requested.
-2. **Warning** — *Community Impact*: A violation through a single incident or series of
+2. **Warning** - *Community Impact*: A violation through a single incident or series of
    actions. *Consequence*: A warning with consequences for continued behavior. No
    interaction with the people involved for a specified period of time.
-3. **Temporary Ban** — *Community Impact*: A serious violation of community standards.
+3. **Temporary Ban** - *Community Impact*: A serious violation of community standards.
    *Consequence*: A temporary ban from any sort of interaction or public communication
    with the community for a specified period of time.
-4. **Permanent Ban** — *Community Impact*: Demonstrating a pattern of violation of
+4. **Permanent Ban** - *Community Impact*: Demonstrating a pattern of violation of
    community standards. *Consequence*: A permanent ban from any sort of public
    interaction within the community.
 

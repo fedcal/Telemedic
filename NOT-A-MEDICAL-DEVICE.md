@@ -11,8 +11,8 @@
 Telemedic non è un prodotto immesso sul mercato, **non reca marcatura CE**, non è coperto da
 alcuna dichiarazione di conformità e non è stato sottoposto alla valutazione di un Organismo
 Notificato. Nessuna procedura di valutazione della conformità è stata conclusa, e il soggetto
-che potrebbe sottoscrivere una dichiarazione — il fabbricante ai sensi del Regolamento (UE)
-2017/745 — **non è ancora costituito**.
+che potrebbe sottoscrivere una dichiarazione - il fabbricante ai sensi del Regolamento (UE)
+2017/745 - **non è ancora costituito**.
 
 Questo è uno **stato di fatto**, non una posizione: vale finché non cambia, e cambia soltanto
 quando i certificati esistono. Il progetto **intende** costituire il soggetto fabbricante e
@@ -20,7 +20,7 @@ intraprendere il percorso di certificazione; che cosa questo comporta, e sopratt
 **non** comporta per chi installa oggi, è detto al
 [§ Il percorso di certificazione](#il-percorso-di-certificazione-chi-lo-intraprende-e-che-cosa-non-cambia).
 
-## Destinazione d'uso — dichiarazione
+## Destinazione d'uso - dichiarazione
 
 Telemedic è **software di supporto all'erogazione di prestazioni sanitarie a distanza**. Le
 sue funzioni sono:
@@ -34,7 +34,7 @@ sue funzioni sono:
   segnalare il superamento di soglie **configurate dal professionista** per il singolo
   assistito.
 
-## Limiti d'uso — dichiarazione
+## Limiti d'uso - dichiarazione
 
 Telemedic **non**:
 
@@ -60,14 +60,14 @@ reale:
 1. **Deve verificare il codice.** Non è una formula di stile: è la condizione a cui il
    progetto rende disponibile il proprio lavoro.
 2. **Assume il ruolo di fabbricante** ai sensi del Regolamento (UE) 2017/745, con tutti gli
-   obblighi che ne discendono — qualificazione, classificazione, valutazione della
+   obblighi che ne discendono - qualificazione, classificazione, valutazione della
    conformità, valutazione clinica, sorveglianza post-commercializzazione, vigilanza.
 3. **Assume il ruolo di titolare del trattamento** dei dati sanitari, con la valutazione
    d'impatto, le basi giuridiche, le informative e gli obblighi di notifica.
 4. **Assume gli obblighi di sicurezza** applicabili alla propria organizzazione.
 
-Il progetto produce il materiale regolatorio — documentazione di ciclo di vita, gestione del
-rischio, ingegneria dell'usabilità, distinta dei materiali software — **per il percorso di
+Il progetto produce il materiale regolatorio - documentazione di ciclo di vita, gestione del
+rischio, ingegneria dell'usabilità, distinta dei materiali software - **per il percorso di
 certificazione che intende intraprendere**, e lo pubblica. Materiale pubblicato non è materiale
 sottoscritto: **non è il fascicolo tecnico di un fabbricante e non solleva chi installa da
 nessuno dei quattro obblighi elencati qui sopra**. Vedi
@@ -132,8 +132,8 @@ né chi installa.
 
 Telemedic is not a product placed on the market, **bears no CE marking**, is covered by no
 declaration of conformity, and has not undergone Notified Body assessment. No conformity
-assessment procedure has been completed, and the entity that could sign a declaration — the
-manufacturer within the meaning of Regulation (EU) 2017/745 — **has not yet been constituted**.
+assessment procedure has been completed, and the entity that could sign a declaration - the
+manufacturer within the meaning of Regulation (EU) 2017/745 - **has not yet been constituted**.
 
 This is a **statement of fact**, not a position: it holds until it changes, and it changes only
 when the certificates exist. The project **intends** to constitute the manufacturer entity and
@@ -141,7 +141,7 @@ to undertake the certification path; what that entails, and above all what it do
 entail for anyone deploying today, is set out under
 [§ The certification path](#the-certification-path-who-undertakes-it-and-what-does-not-change).
 
-## Intended use — declaration
+## Intended use - declaration
 
 Telemedic is **software supporting the delivery of healthcare services at a distance**. Its
 functions are:
@@ -154,7 +154,7 @@ functions are:
 - to collect parameters for **deferred review by the professional**, and to signal breaches
   of thresholds **configured by the professional** for the individual patient.
 
-## Use limitations — declaration
+## Use limitations - declaration
 
 Telemedic does **not**:
 
@@ -180,14 +180,14 @@ healthcare setting:
 1. **Must review the code.** This is not boilerplate: it is the condition under which the
    project makes its work available.
 2. **Assumes the manufacturer role** under Regulation (EU) 2017/745, with all resulting
-   obligations — qualification, classification, conformity assessment, clinical evaluation,
+   obligations - qualification, classification, conformity assessment, clinical evaluation,
    post-market surveillance, vigilance.
 3. **Assumes the controller role** for health data processing, with impact assessment, legal
    bases, privacy notices and notification duties.
 4. **Assumes the security obligations** applicable to their organisation.
 
-The project produces the regulatory material — lifecycle documentation, risk management,
-usability engineering, software bill of materials — **for the certification path it intends to
+The project produces the regulatory material - lifecycle documentation, risk management,
+usability engineering, software bill of materials - **for the certification path it intends to
 undertake**, and publishes it. Published material is not signed material: **it is not a
 manufacturer's technical file, and it relieves deployers of none of the four obligations listed
 above**. See [`docs/08_compliance/`](docs/08_compliance/).

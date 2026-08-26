@@ -1,4 +1,4 @@
-# Telemedic — istruzioni per chi lavora su questo repository
+# Telemedic - istruzioni per chi lavora su questo repository
 
 Questo file è letto automaticamente da Claude Code all'inizio di ogni sessione. Vale anche
 come guida rapida per una persona: dice dove sono le cose e quali regole non si negoziano.
@@ -7,19 +7,24 @@ come guida rapida per una persona: dice dove sono le cose e quali regole non si 
 
 Piattaforma di telemedicina open source (Apache-2.0) per il contesto sanitario italiano:
 televisita, teleconsulto, teleassistenza, telemonitoraggio. Costruita sugli standard italiani
-— FHIR R4 con le guide HL7 Italia, Fascicolo Sanitario Elettronico, identità digitale
-nazionale — invece che adattata ad essi a posteriori.
+- FHIR R4 con le guide HL7 Italia, Fascicolo Sanitario Elettronico, identità digitale
+nazionale - invece che adattata ad essi a posteriori.
 
 **Stato attuale: progettazione.** Esiste la documentazione, non ancora il codice. Chi scrive
 codice qui lo fa per primo, non dentro un impianto già esistente.
 
 ## Prima di scrivere qualsiasi cosa
 
-1. **Leggi la guida dei fondamenti** — `docs/10_fondamenti/`. Non è cortesia: la maggior parte
+1. **Leggi la guida dei fondamenti** - `docs/10_fondamenti/`. Non è cortesia: la maggior parte
    degli errori in questo dominio nasce da presupposti impliciti sbagliati sul sistema
    sanitario, sul dato clinico o su cosa la normativa impone davvero. La guida parte da zero.
-2. **Leggi `CONTRIBUTING.md`** — le cinque regole non negoziabili.
-3. **Leggi l'area pertinente** in `docs/`, e in particolare il suo `00-indice.md`, che dice
+2. **Leggi `CONTRIBUTING.md`** - le cinque regole non negoziabili.
+3. **Leggi `.telemedic/context/RUNBOOK-ERRORI-E-TRAPPOLE.md`** - l'elenco degli errori già
+   commessi in questo repository, ciascuno con la causa, la regola che lo previene e il controllo
+   che la fa rispettare. Non è un diario: è il file che esiste perché lo stesso errore non si
+   ripeta. **Va aggiornato dopo il lavoro**, non solo consultato prima - un errore risolto una
+   volta e non codificato torna.
+4. **Leggi l'area pertinente** in `docs/`, e in particolare il suo `00-indice.md`, che dice
    che cosa quell'area **non** copre.
 
 ## Dove sono le cose
@@ -40,6 +45,9 @@ codice qui lo fa per primo, non dentro un impianto già esistente.
 | `docs/adr/` | Decisioni architetturali, ciascuna con le conseguenze accettate |
 | `website/` | Sito Docusaurus (italiano e inglese) pubblicato su GitHub Pages |
 | `.telemedic/` | Contesto di lavoro interno: brief, baseline, bacheca inter-agenti, ricerche |
+| `.telemedic/context/RUNBOOK-ERRORI-E-TRAPPOLE.md` | Errori già commessi: causa, regola, presidio |
+| `pipeline/` | Collocazione dei controlli e annotazioni dei componenti di terze parti |
+| `scripts/` | I controlli, e `scripts/prove/` il banco di prova che li vede fallire |
 
 ## Regole che non si negoziano
 
@@ -68,11 +76,22 @@ e distingue sempre l'obbligo del progetto da quello di chi installa. Vedi
 
 **L'assenza di dato è informazione clinica.** Il silenzio non si tratta mai come normalità.
 
+**Un controllo che nessuno ha visto fallire non è un controllo.** Ogni controllo ha un caso in
+`scripts/prove/esegui-prove.sh` che lo vede fallire, provato per mutazione: si guasta la regola, si
+verifica che **solo** il caso corrispondente cada, si ripristina, si confronta l'impronta SHA-256
+prima e dopo. Ne discendono due corollari che questo progetto ha pagato per imparare: **una regola
+scritta e non presidiata da un controllo non è una regola**, e **un cancello prescritto in un piano
+e non eseguito da uno script non è un cancello**.
+
+**Si usa sempre il trattino corto, mai quello lungo.** Vale in ogni file e in ogni risposta. Nei
+titoli ha una conseguenza tecnica da conoscere: un separatore isolato fra due spazi produce **più
+trattini consecutivi** nell'àncora della sezione, e `scripts/verifica-ancore.sh` lo verifica.
+
 ## Come si scrive la documentazione qui
 
 Prosa italiana piena, non elenchi puntati incollati. Ogni affermazione normativa porta una
 fonte puntuale: norma, articolo, comma, data. Ciò che non è verificabile con certezza si marca
-`[NV]` e si dichiara — **non si inventa mai** un numero di articolo, una data o un termine.
+`[NV]` e si dichiara - **non si inventa mai** un numero di articolo, una data o un termine.
 
 Ciò che è oneroso, incerto o irrisolto si dice. Le tensioni non si smussano: si dichiarano.
 

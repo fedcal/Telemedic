@@ -13,7 +13,7 @@ quindi alcune regole che altrove sono buone pratiche qui sono vincoli.
 **La [guida dei fondamenti](docs/10_fondamenti/00-come-usare-questa-guida.md) è un
 prerequisito, non una lettura consigliata.** Parte da zero e copre il contesto sanitario, i
 protocolli, gli standard e il quadro regolatorio. Il modulo
-[«Cosa sapere per contribuire»](docs/10_fondamenti/18-contribuire-per-area.md) dice,
+[«Contribuire, area per area»](docs/10_fondamenti/18-contribuire-per-area.md) dice,
 area per area, quali conoscenze servono prima di toccarla.
 
 Non è un adempimento burocratico. Un sistema clinico accumula danni silenziosi quando viene
@@ -25,12 +25,32 @@ non conforme, un valore predefinito «ragionevole» può essere clinicamente sba
 
 ### 1. Nessun dato reale. Mai.
 
-Non devono comparire dati di persone reali — nemmeno parziali, nemmeno pseudonimizzati —
+Non devono comparire dati di persone reali - nemmeno parziali, nemmeno pseudonimizzati -
 in issue, pull request, log, screenshot, dataset di test, messaggi di commit o esempi di
 documentazione. Vale anche per i tuoi dati.
 
-Usa i generatori di dati sintetici del progetto. Se hai bisogno di un caso realistico che
-non sappiamo generare, apri una issue e lo costruiamo insieme: non incollarne uno vero.
+Un dato sintetico non basta che sia inventato: deve essere **non valido per costruzione**, cioè
+riconoscibile come finto da una verifica, non solo dall'occhio di chi lo legge. Le tre regole,
+verificate da `scripts/verifica-dati-sintetici.sh` a ogni invio:
+
+- **Codice fiscale, tessera sanitaria, partita IVA, IBAN**: il carattere o la cifra di controllo
+  dev'essere **deliberatamente errato**. `RSSMRA80A01H501Z` va bene perché la verifica lo scarta;
+  lo stesso codice con il carattere corretto no, perché è attribuibile a una persona reale anche
+  se nessuno l'ha copiato da un archivio.
+- **Indirizzi di posta elettronica**: solo domini riservati - `.invalid`, `.test`, `.example`,
+  `example.com`. Mai un dominio registrabile, e mai una casella su un servizio di posta al
+  consumo, che appartiene sempre a una persona fisica.
+- **Numeri di telefono**: l'Italia non ha un intervallo riservato alla documentazione, quindi la
+  convenzione è debole e va rispettata con più attenzione, non meno: cifre di utente tutte uguali
+  o in progressione.
+
+Il progetto **non ha ancora generatori automatici**: finché non esistono, le tre regole qui sopra
+sono la convenzione, e il controllo è ciò che la fa rispettare. Se hai bisogno di un caso
+realistico che non sai costruire, apri una issue e lo costruiamo insieme: non incollarne uno vero.
+
+Un recapito reale che il progetto pubblica per obbligo - l'intestazione della chiave di firma, per
+esempio - si dichiara sulla riga stessa con `dato-reale-consentito: <motivo>`. Vale solo per posta
+e telefono, **mai** per codice fiscale, tessera, partita IVA e IBAN.
 
 Se ti accorgi di aver pubblicato un dato reale, **non limitarti a modificare il messaggio**:
 la cronologia resta. Segui subito la procedura di [SECURITY.md](SECURITY.md): va gestito come un incidente.
@@ -96,12 +116,12 @@ manuale con tecnologie assistive.
 ### Segnalare un problema
 
 Usa i modelli di issue. Scegli quello giusto: bug, richiesta di funzionalità, integrazione,
-documentazione. Le vulnerabilità di sicurezza **non** si segnalano con una issue pubblica —
+documentazione. Le vulnerabilità di sicurezza **non** si segnalano con una issue pubblica -
 vedi [SECURITY.md](SECURITY.md).
 
 Una buona segnalazione contiene: cosa ti aspettavi, cosa è successo, come riprodurlo,
 versione e ambiente. Per i problemi di comunicazione audio-video aggiungi il tipo di rete,
-il browser e — se disponibili — le statistiche della sessione, private dei dati identificativi.
+il browser e - se disponibili - le statistiche della sessione, private dei dati identificativi.
 
 ### Proporre una modifica
 
@@ -165,7 +185,7 @@ so some rules that are good practice elsewhere are hard constraints here.
 **The [foundations guide](docs/10_fondamenti/00-come-usare-questa-guida.md) is a
 prerequisite, not recommended reading.** It starts from zero and covers the healthcare
 context, the protocols, the standards and the regulatory framework. The module
-[«What you need to know to contribute»](docs/10_fondamenti/18-contribuire-per-area.md)
+[«Contributing, area by area»](docs/10_fondamenti/18-contribuire-per-area.md)
 states, area by area, what knowledge is required before touching it.
 
 This is not bureaucracy. Clinical systems accumulate silent damage when modified by people
@@ -177,12 +197,31 @@ clinically wrong.
 
 ### 1. No real data. Ever.
 
-No data about real people — not partial, not pseudonymised — may appear in issues, pull
+No data about real people - not partial, not pseudonymised - may appear in issues, pull
 requests, logs, screenshots, test datasets, commit messages or documentation examples. This
 includes your own data.
 
-Use the project's synthetic data generators. If you need a realistic case we cannot
-generate, open an issue and we will build it together — do not paste a real one.
+Synthetic data must not merely be made up: it must be **invalid by construction**, that is,
+recognisable as fake by a check, not only by the eye of whoever reads it. The three rules, enforced
+by `scripts/verifica-dati-sintetici.sh` on every push:
+
+- **Italian tax code, health card number, VAT number, IBAN**: the check character or digit must be
+  **deliberately wrong**. `RSSMRA80A01H501Z` is acceptable because verification rejects it; the same
+  code with the correct character is not, because it is attributable to a real person even if
+  nobody copied it from a record.
+- **Email addresses**: reserved domains only - `.invalid`, `.test`, `.example`, `example.com`.
+  Never a registrable domain, and never a mailbox on a consumer mail service, which always belongs
+  to a natural person.
+- **Telephone numbers**: Italy has no range reserved for documentation, so the convention is weak
+  and must be respected with more care, not less: subscriber digits all identical or in sequence.
+
+The project **does not yet have automated generators**: until it does, the three rules above are the
+convention, and the check is what enforces them. If you need a realistic case you cannot build, open
+an issue and we will build it together - do not paste a real one.
+
+A real contact detail the project publishes out of obligation - the signing key identity, for
+instance - is declared on the line itself with `dato-reale-consentito: <reason>`. This applies to
+email and telephone only, **never** to tax code, health card, VAT number or IBAN.
 
 If you realise you have published real data, **do not simply edit the message**: history
 persists. Follow the [SECURITY.md](SECURITY.md) procedure immediately: it is handled as an incident.
@@ -248,12 +287,12 @@ is also required.
 ### Reporting a problem
 
 Use the issue templates and pick the right one: bug, feature request, integration,
-documentation. Security vulnerabilities are **not** reported through public issues — see
+documentation. Security vulnerabilities are **not** reported through public issues - see
 [SECURITY.md](SECURITY.md).
 
 A good report states what you expected, what happened, how to reproduce it, the version and
-the environment. For audio-video problems, add the network type, the browser and — if
-available — the session statistics, stripped of identifying data.
+the environment. For audio-video problems, add the network type, the browser and - if
+available - the session statistics, stripped of identifying data.
 
 ### Proposing a change
 

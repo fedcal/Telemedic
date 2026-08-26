@@ -50,8 +50,8 @@ description:
       Copre le quattro prestazioni definite dall'Accordo Stato-Regioni 215/CSR del 2020
       e dai decreti successivi: televisita, teleconsulto, teleassistenza e
       telemonitoraggio. È costruita sugli standard di interoperabilità adottati in
-      Italia — FHIR R4 con le guide di implementazione di HL7 Italia, HL7 v2, i profili
-      IHE — e sull'identità digitale nazionale, con l'obiettivo di alimentare il
+      Italia - FHIR R4 con le guide di implementazione di HL7 Italia, HL7 v2, i profili
+      IHE - e sull'identità digitale nazionale, con l'obiettivo di alimentare il
       Fascicolo Sanitario Elettronico secondo le tipologie documentali dedicate alla
       telemedicina.
 
@@ -94,8 +94,8 @@ description:
       It covers the four services defined by the Italian State-Regions Agreement 215/CSR
       of 2020 and the decrees that followed: remote consultation with a patient, remote
       consultation between professionals, remote assistance and remote monitoring. It is
-      built on the interoperability standards adopted in Italy — FHIR R4 with the HL7
-      Italia implementation guides, HL7 v2, IHE profiles — and on national digital
+      built on the interoperability standards adopted in Italy - FHIR R4 with the HL7
+      Italia implementation guides, HL7 v2, IHE profiles - and on national digital
       identity, with the goal of feeding the national electronic health record through
       the document types dedicated to telemedicine.
 
@@ -161,7 +161,7 @@ it:
   # conformità dichiarata senza prova è esattamente la formula che la stessa
   # documentazione di questo repository vieta di usare. Le voci si alzano a
   # `true` una per volta, quando la prova corrispondente è pubblicata ed eseguita
-  # nella catena di integrazione continua — non prima.
+  # nella catena di integrazione continua - non prima.
   #
   # Va inoltre tenuto presente che alcune di queste conformità non sono
   # dichiarabili da un progetto software: appartengono al soggetto che eroga il

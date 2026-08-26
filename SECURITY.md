@@ -20,7 +20,7 @@ canale riservato, senza alcun dettaglio tecnico.
 ### Cosa includere
 
 - Il componente interessato e la versione.
-- Cosa consente di fare la vulnerabilità, in termini di impatto — accesso a dati altrui,
+- Cosa consente di fare la vulnerabilità, in termini di impatto - accesso a dati altrui,
   elevazione di privilegio, alterazione di un documento clinico, interruzione del servizio.
 - Come riprodurla, con il minimo indispensabile.
 - Se hai una proposta di correzione, indicala: non è richiesta.
@@ -55,6 +55,30 @@ Non abbiamo un programma di ricompense. Non intraprendiamo azioni legali verso c
 in buona fede, si limita a quanto necessario per dimostrare il problema, non accede a dati
 di terzi e non li divulga.
 
+### Avviso agli integratori di una vulnerabilità attivamente sfruttata
+
+Questo è un termine **diverso** dai due precedenti, e non va confuso con essi. La presa in carico
+di tre giorni lavorativi è un impegno verso **chi segnala**. Il termine che segue è un impegno
+verso **chi integra Telemedic in un proprio prodotto**, e riguarda l'avviso in uscita.
+
+> **Avvisiamo i nostri integratori entro 24 ore dal momento in cui acquisiamo l'evidenza** che una
+> vulnerabilità del progetto è attivamente sfruttata, e **immediatamente** quando l'evidenza indica
+> che lo sfruttamento è in corso su installazioni in esercizio. L'avviso è dovuto
+> **indipendentemente dalla disponibilità di una correzione**.
+
+L'avviso porta l'**istante in cui abbiamo acquisito l'evidenza**, il componente e le versioni
+interessate, se lo sfruttamento è confermato, le mitigazioni temporanee disponibili e lo stato
+della correzione. Non porta ciò che serve a riprodurre l'attacco.
+
+Il termine esiste per una ragione precisa: dall'**11 settembre 2026** si applicano gli obblighi di
+segnalazione dell'art. 14 del Regolamento (UE) 2024/2847 - segnalazione iniziale entro **24 ore**,
+notifica entro 72 ore - per le vulnerabilità attivamente sfruttate e gli incidenti gravi; la
+decorrenza è fissata dall'art. 71. Quell'obbligo **non sorge in capo al progetto**, che non è un
+prodotto immesso sul mercato nel corso di un'attività commerciale, ma sorge in capo a chi lo
+integra, e senza un avviso tempestivo da parte nostra è inadempibile. Il termine dichiarato sopra
+è quindi un impegno di politica del progetto, non un obbligo di legge. Il quadro completo, con i
+cinque orologi e le loro fonti, è in `docs/06_security/10-risposta-agli-incidenti.md`.
+
 ## Versioni supportate
 
 Le versioni con supporto di sicurezza sono elencate nella pagina delle release. Il periodo
@@ -71,8 +95,8 @@ in servizio assume obblighi propri che il progetto non può assolvere al posto s
   (art. 33 GDPR), comunicazione agli interessati quando il rischio è elevato (art. 34).
 - **Incidenti su soggetti NIS2**: notifica preliminare entro **24 ore**, notifica entro
   **72 ore**, relazione finale entro **un mese** (D.lgs. 138/2024). Il termine per
-  l'adeguamento alle misure di sicurezza è **soggettivo** — diciotto mesi dalla ricezione
-  della comunicazione di inserimento — non una data uguale per tutti.
+  l'adeguamento alle misure di sicurezza è **soggettivo** - diciotto mesi dalla ricezione
+  della comunicazione di inserimento - non una data uguale per tutti.
 - **Vigilanza sui dispositivi medici**: gli obblighi di segnalazione degli incidenti gravi
   gravano sul fabbricante ai sensi del Regolamento (UE) 2017/745.
 - **Fornitori rilevanti**: i soggetti NIS devono dichiarare nominativamente all'Agenzia per
@@ -84,15 +108,28 @@ fa il progetto e cosa resta in capo a chi installa.
 
 ## Sicurezza nel ciclo di sviluppo
 
-- Distinta dei materiali software (SBOM) pubblicata a ogni release: è un obbligo normativo,
-  non una buona pratica.
-- Analisi delle dipendenze e delle vulnerabilità note in integrazione continua.
-- Analisi statica e verifica dei segreti su ogni pull request.
-- Componenti di terze parti classificati come SOUP ai sensi della IEC 62304, con versione
-  minima motivata. Per il server di relay la versione minima non è negoziabile ed è
-  documentata insieme alla ragione.
-- Registro degli accessi con catena di hash e conservazione separata dal sistema che genera
-  gli eventi: il versionamento delle entità non è un registro immutabile.
+Il progetto è in fase di progettazione e **non esiste ancora codice applicativo**. Le voci
+seguenti descrivono il ciclo di sviluppo, e per ciascuna è dichiarato se è già in esercizio: un
+elenco scritto al presente indicativo, in un file che chi valuta legge come dichiarazione di
+fatto, sarebbe una conformità affermata senza prova. I controlli realmente eseguiti, ciascuno con
+la propria fascia e la propria prova che lo vede fallire, sono elencati in
+[`pipeline/collocazione-dei-controlli.tsv`](pipeline/collocazione-dei-controlli.tsv).
+
+- **In esercizio.** Verifica dei segreti su ogni proposta di modifica.
+- **In esercizio, sul solo sito di documentazione.** Distinta dei materiali software (SBOM)
+  generata dalla costruzione. Sarà pubblicata a ogni rilascio - è un obbligo normativo, non una
+  buona pratica - ma non esistono ancora rilasci di prodotto.
+- **In esercizio.** Componenti di terze parti classificati con licenza verificata sul testo
+  primario, in un registro generato dalla distinta.
+- **Non in esercizio, e senza data dichiarata.** Analisi delle dipendenze contro banche dati di
+  vulnerabilità note, e analisi statica del codice. Nessuna delle due gira oggi in integrazione
+  continua.
+- **Impegno di progetto, non ancora realizzato.** Classificazione dei componenti di terze parti
+  come SOUP ai sensi della IEC 62304, con versione minima motivata. Per il server di relay la
+  versione minima non è negoziabile ed è documentata insieme alla ragione.
+- **Impegno di progetto, non ancora realizzato.** Registro degli accessi con catena di hash e
+  conservazione separata dal sistema che genera gli eventi: il versionamento delle entità non è
+  un registro immutabile.
 
 ---
 
@@ -116,7 +153,7 @@ channel, with no technical detail.
 ### What to include
 
 - Affected component and version.
-- What the vulnerability allows, in impact terms — access to other people's data, privilege
+- What the vulnerability allows, in impact terms - access to other people's data, privilege
   escalation, alteration of a clinical document, denial of service.
 - How to reproduce it, with the minimum necessary.
 - A proposed fix if you have one; not required.
@@ -148,6 +185,31 @@ There is no bounty programme. We take no legal action against anyone reporting i
 faith who stays within what is needed to demonstrate the issue, does not access third party
 data and does not disclose it.
 
+### Notice to integrators of an actively exploited vulnerability
+
+This is a **different** period from the two above, and must not be confused with them. The
+three-working-day acknowledgement is a commitment towards **whoever reports**. The period below is
+a commitment towards **whoever integrates Telemedic into a product of their own**, and concerns the
+outbound notice.
+
+> **We notify our integrators within 24 hours of the moment we acquire the evidence** that a
+> vulnerability of the project is being actively exploited, and **immediately** when the evidence
+> indicates that the exploitation is under way on installations in service. The notice is due
+> **irrespective of the availability of a fix**.
+
+The notice carries the **instant at which we acquired the evidence**, the affected component and
+versions, whether the exploitation is confirmed, the temporary mitigations available and the status
+of the fix. It does not carry what is needed to reproduce the attack.
+
+The period exists for a precise reason: from **11 September 2026** the reporting obligations of
+Article 14 of Regulation (EU) 2024/2847 apply - initial report within **24 hours**, notification
+within 72 hours - for actively exploited vulnerabilities and serious incidents; the date of
+application is set by Article 71. That obligation **does not arise for the project**, which is not
+a product placed on the market in the course of a commercial activity, but it does arise for
+whoever integrates it, and without a timely notice from us it cannot be met. The period declared
+above is therefore a project policy commitment, not a legal obligation. The full picture, with the
+five clocks and their sources, is in `docs/06_security/10-risposta-agli-incidenti.md`.
+
 ## Supported versions
 
 Security-supported versions are listed on the releases page. The support period is stated
@@ -164,8 +226,8 @@ assumes obligations the project cannot discharge on their behalf.
   (Article 34).
 - **Incidents affecting NIS2 entities**: early warning within **24 hours**, notification
   within **72 hours**, final report within **one month** (Italian Legislative Decree
-  138/2024). The deadline for implementing security measures is **entity-specific** —
-  eighteen months from receipt of the inclusion notice — not a single date for everyone.
+  138/2024). The deadline for implementing security measures is **entity-specific** -
+  eighteen months from receipt of the inclusion notice - not a single date for everyone.
 - **Medical device vigilance**: serious incident reporting obligations fall on the
   manufacturer under Regulation (EU) 2017/745.
 - **Relevant suppliers**: NIS entities must declare their relevant suppliers by name to the
@@ -177,12 +239,23 @@ project does and what remains with the deployer.
 
 ## Security in the development lifecycle
 
-- Software bill of materials published with every release: a legal obligation, not a good
-  practice.
-- Dependency and known-vulnerability analysis in continuous integration.
-- Static analysis and secret scanning on every pull request.
-- Third party components classified as SOUP under IEC 62304, with a justified minimum
-  version. For the relay server the minimum version is non-negotiable and documented
-  together with its rationale.
-- Audit log with hash chaining and retention separate from the system generating the events:
-  entity versioning is not an immutable audit trail.
+The project is in the design phase and **no application code exists yet**. The entries below
+describe the development lifecycle, and for each one it is stated whether it is already
+operating: a list written in the present indicative, in a file that an assessor reads as a
+statement of fact, would be conformity asserted without proof. The controls that actually run,
+each with its lane and its proof that sees it fail, are listed in
+[`pipeline/collocazione-dei-controlli.tsv`](pipeline/collocazione-dei-controlli.tsv).
+
+- **Operating.** Secret scanning on every pull request.
+- **Operating, on the documentation site only.** Software bill of materials generated by the
+  build. It will be published with every release - a legal obligation, not a good practice - but
+  no product releases exist yet.
+- **Operating.** Third party components classified with their licence verified against the
+  primary text, in a register generated from the bill of materials.
+- **Not operating, and with no declared date.** Dependency analysis against known-vulnerability
+  databases, and static code analysis. Neither runs in continuous integration today.
+- **Project commitment, not yet built.** Classification of third party components as SOUP under
+  IEC 62304, with a justified minimum version. For the relay server the minimum version is
+  non-negotiable and documented together with its rationale.
+- **Project commitment, not yet built.** Audit log with hash chaining and retention separate from
+  the system generating the events: entity versioning is not an immutable audit trail.

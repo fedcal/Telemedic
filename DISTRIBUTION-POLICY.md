@@ -9,7 +9,7 @@
 > Ne esiste una seconda, trattata al [§ I due artefatti](#i-due-artefatti-il-repository-aperto-e-la-distribuzione-identificata):
 > il **repository aperto** e la **distribuzione identificata** sono due artefatti distinti, e
 > il primo **non diventa** il secondo. Chi prende il codice dal repository e lo installa non
-> installa un dispositivo certificato — oggi, che nessuna distribuzione certificata esiste, né
+> installa un dispositivo certificato - oggi, che nessuna distribuzione certificata esiste, né
 > il giorno in cui esisterà.
 
 ## 1. Che cosa il progetto pubblica
@@ -51,7 +51,7 @@ offre come servizio compie un atto di natura diversa. Da quel momento:
 2. **Assume il ruolo di titolare del trattamento** dei dati sanitari.
 3. **Assume gli obblighi di sicurezza** applicabili alla propria organizzazione, compresi quelli
    di segnalazione, con i loro termini.
-4. **Assume la responsabilità delle licenze terminologiche** che intende usare — vedi
+4. **Assume la responsabilità delle licenze terminologiche** che intende usare - vedi
    [`THIRD-PARTY-TERMINOLOGY.md`](THIRD-PARTY-TERMINOLOGY.md).
 5. **Deve verificare il codice.** Non è una formula di stile: è la condizione a cui il progetto
    rende disponibile il proprio lavoro.
@@ -99,7 +99,7 @@ valutazione della conformità.
 - **Versionamento semantico.** Una versione con numero maggiore diverso può rompere i contratti
   pubblici; una minore no.
 - **Ogni release pubblica**: note di rilascio, distinta dei materiali, esito dei test, periodo di
-  supporto dichiarato e — dove la modifica tocca aree qualificanti — la documentazione di
+  supporto dichiarato e - dove la modifica tocca aree qualificanti - la documentazione di
   gestione delle modifiche.
 - **Le versioni prive di release non esistono.** Un ramo, un commit o una build intermedia non
   sono una versione distribuita e non ricevono supporto di sicurezza.
@@ -140,7 +140,7 @@ correttezza, non condizioni di licenza.
 > [§ The two artefacts](#the-two-artefacts-the-open-repository-and-the-identified-distribution):
 > the **open repository** and the **identified distribution** are two distinct artefacts, and
 > the first **does not become** the second. Whoever takes the code from the repository and
-> deploys it is not deploying a certified device — not today, when no certified distribution
+> deploys it is not deploying a certified device - not today, when no certified distribution
 > exists, and not on the day one does.
 
 ## 1. What the project publishes
@@ -181,7 +181,7 @@ offers it as a service performs an act of a different nature. From that moment t
 2. **Assume the controller role** for health data processing.
 3. **Assume the security obligations** applicable to their organisation, including reporting
    duties and their deadlines.
-4. **Assume responsibility for the terminology licences** they intend to use — see
+4. **Assume responsibility for the terminology licences** they intend to use - see
    [`THIRD-PARTY-TERMINOLOGY.md`](THIRD-PARTY-TERMINOLOGY.md).
 5. **Must review the code.** Not boilerplate: it is the condition under which the project makes
    its work available.
@@ -229,7 +229,7 @@ assessment works.
 - **Semantic versioning.** A different major version may break public contracts; a minor one may
   not.
 - **Every release publishes**: release notes, software bill of materials, test results, declared
-  support period and — where the change touches qualifying areas — change management
+  support period and - where the change touches qualifying areas - change management
   documentation.
 - **Unreleased versions do not exist.** A branch, a commit or an intermediate build is not a
   distributed version and receives no security support.
