@@ -1,0 +1,19 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "components": [
+    {
+      "type": "library",
+      "name": "pacchetto-annotato-collaudo",
+      "version": "1.0.0",
+      "licenses": [{"license": {"name": "MIT"}}]
+    },
+    {
+      "type": "library",
+      "name": "pacchetto-sintetico-assente",
+      "version": "1.0.0",
+      "licenses": [{"license": {"name": "MIT"}}]
+    }
+  ]
+}

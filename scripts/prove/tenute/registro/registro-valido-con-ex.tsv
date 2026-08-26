@@ -1,0 +1,7 @@
+# Registro sintetico di collaudo - non è il registro del progetto. Copre la famiglia EX-*, la
+# sola con grammatica alfanumerica (segmenti maiuscoli separati da trattino, non cifre).
+data	identificativo	evento	fonte	nota
+2026-01-01	RF-9001	introdotto	collaudo	identificativo numerico sintetico in vigore, per contrasto
+2026-01-01	EX-COLLAUDO-VALIDO	introdotto	collaudo	esito sintetico in vigore
+2026-01-02	EX-COLLAUDO-SCADUTO	introdotto	collaudo	esito sintetico poi ritirato
+2026-01-03	EX-COLLAUDO-SCADUTO	ritirato	collaudo	ritirato per collaudo del caso EX ritirato

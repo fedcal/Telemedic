@@ -1,0 +1,2 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Fascia senza flusso	estesa	bloccante		T-09/1	scripts/finto.sh	caso sintetico citato nella tabella	Riga sintetica: la fascia estesa non ha un flusso nella tenuta delle corsie.

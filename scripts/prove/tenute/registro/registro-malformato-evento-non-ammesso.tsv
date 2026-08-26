@@ -1,0 +1,3 @@
+# Registro sintetico di collaudo - deliberatamente malformato: evento fuori dal dominio ammesso.
+data	identificativo	evento	fonte	nota
+2026-01-01	RF-9102	modificato	collaudo	evento non ammesso, deve far fallire il controllo

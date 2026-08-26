@@ -1,0 +1,643 @@
+# Registro degli identificativi di requisito - Telemedic
+#
+# Risponde ai criteri 3 e 4 del traguardo T-01 della roadmap
+# (docs/09_roadmap/02-traguardi.md). È un giornale di eventi in SOLA AGGIUNTA,
+# non una tabella di stati: non si modifica né si cancella mai una riga
+# esistente, si aggiunge un nuovo evento. Il formato completo, la regola di
+# sola aggiunta, il calcolo dello stato e il divieto di riuso sono descritti
+# in registro/README.md, che ogni lettore - umano o automatico - deve leggere
+# prima di usare questo file.
+#
+# Formato: TSV (separatore TAB), prima riga di intestazione con i nomi delle
+# colonne. Le righe che iniziano con '#' sono commenti e vanno ignorate da
+# ogni lettore automatico.
+#
+# Colonne, in quest'ordine esatto:
+#   data            ISO AAAA-MM-GG
+#   identificativo  forma esatta usata nel corpus, es. RF-001 (non normalizzata)
+#   evento          "introdotto" oppure "ritirato"
+#   fonte           percorso, dalla radice del repository, del file in cui
+#                   l'identificativo è definito; se la definizione non è
+#                   individuabile, il file con più occorrenze (vedi nota)
+#   nota            testo libero, può essere vuoto; mai un carattere TAB
+#
+# Popolato per la prima volta il 2026-08-26. Per tutti gli identificativi già
+# esistenti a quella data, l'evento "introdotto" porta la data 2026-08-26,
+# che è la data di istituzione del registro e non la data reale di
+# assegnazione (sconosciuta per gli identificativi della fase di ricerca:
+# vedi registro/README.md, § difetti).
+data	identificativo	evento	fonte	nota
+2026-08-26	ATT-01	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-02	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-03	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-04	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-05	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-06	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-07	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-08	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-09	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-10	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-11	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-12	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-13	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-14	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-15	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-16	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-17	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-18	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-19	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-20	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-21	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-22	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-23	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-24	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-25	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	ATT-26	introdotto	docs/03_functional/01-attori-e-ruoli.md	
+2026-08-26	BR-001	introdotto	docs/03_functional/00-indice.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 4 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-002	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-003	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-004	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-006	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-007	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-008	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-010	introdotto	docs/03_functional/04-regole-di-business.md	identificativo assegnato nella fase di ricerca; non ridefinito per intero in docs/, qui solo richiamato testualmente come regola cardine su cui si fonda l'area
+2026-08-26	BR-011	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-012	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-013	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-014	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-015	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-017	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-018	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-020	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-021	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-023	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-024	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-025	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-026	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-028	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-029	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-030	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-031	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-032	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-033	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-034	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-038	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-039	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-040	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-041	introdotto	docs/05_domain/01-linguaggio-ubiquo.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-042	introdotto	docs/05_domain/01-linguaggio-ubiquo.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-043	introdotto	docs/05_domain/04-documenti-clinici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-044	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-047	introdotto	docs/05_domain/01-linguaggio-ubiquo.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-048	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-049	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-050	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-051	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-052	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-056	introdotto	docs/05_domain/04-documenti-clinici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-060	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-061	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-062	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 6 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-063	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-064	introdotto	docs/05_domain/04-documenti-clinici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-065	introdotto	docs/05_domain/04-documenti-clinici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-066	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-067	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-068	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-069	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-070	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-071	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-072	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	BR-075	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-076	introdotto	docs/03_functional/07-fuori-perimetro.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-081	introdotto	docs/05_domain/01-linguaggio-ubiquo.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-086	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-090	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-091	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-094	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	BR-096	introdotto	docs/03_functional/04-regole-di-business.md	identificativo assegnato nella fase di ricerca; non ridefinito per intero in docs/, qui solo richiamato testualmente come regola cardine su cui si fonda l'area
+2026-08-26	BR-100	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-101	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-102	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-103	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-104	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-105	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-106	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-107	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-108	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-109	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-110	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-111	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-112	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-113	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-114	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-115	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-116	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-117	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-118	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-119	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-120	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-121	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-122	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-123	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-124	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-125	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-126	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-127	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-130	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-131	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-132	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-133	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-134	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-135	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-136	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-137	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-138	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-139	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-140	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-141	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-142	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-143	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-144	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-145	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-150	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-151	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-152	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-153	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-154	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-155	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-156	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-157	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-158	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-160	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-161	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-162	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-163	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-164	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-165	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-166	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-167	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-168	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-170	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-171	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-172	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-173	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-174	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-175	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-176	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-177	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-178	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-179	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-180	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-181	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-182	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-183	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-184	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	BR-185	introdotto	docs/03_functional/04-regole-di-business.md	
+2026-08-26	DM-01	introdotto	docs/05_domain/01-linguaggio-ubiquo.md	
+2026-08-26	DM-02	introdotto	docs/05_domain/01-linguaggio-ubiquo.md	
+2026-08-26	DM-03	introdotto	docs/05_domain/01-linguaggio-ubiquo.md	
+2026-08-26	DM-04	introdotto	docs/05_domain/01-linguaggio-ubiquo.md	
+2026-08-26	DM-05	introdotto	docs/05_domain/01-linguaggio-ubiquo.md	
+2026-08-26	DM-06	introdotto	docs/05_domain/01-linguaggio-ubiquo.md	
+2026-08-26	DM-10	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-11	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-12	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-13	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-14	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-15	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-16	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-17	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-18	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-19	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-20	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-21	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-22	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-23	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-24	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-25	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	DM-30	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	
+2026-08-26	DM-31	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	
+2026-08-26	DM-32	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	
+2026-08-26	DM-33	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	
+2026-08-26	DM-34	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	
+2026-08-26	DM-35	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	
+2026-08-26	DM-36	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	
+2026-08-26	DM-37	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	
+2026-08-26	DM-38	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	
+2026-08-26	DM-39	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	
+2026-08-26	DM-40	introdotto	docs/05_domain/04-documenti-clinici.md	
+2026-08-26	DM-41	introdotto	docs/05_domain/04-documenti-clinici.md	
+2026-08-26	DM-42	introdotto	docs/05_domain/04-documenti-clinici.md	
+2026-08-26	DM-43	introdotto	docs/05_domain/04-documenti-clinici.md	
+2026-08-26	DM-44	introdotto	docs/05_domain/04-documenti-clinici.md	
+2026-08-26	DM-45	introdotto	docs/05_domain/04-documenti-clinici.md	
+2026-08-26	DM-46	introdotto	docs/05_domain/04-documenti-clinici.md	
+2026-08-26	DM-47	introdotto	docs/05_domain/04-documenti-clinici.md	
+2026-08-26	DM-48	introdotto	docs/05_domain/04-documenti-clinici.md	
+2026-08-26	DM-50	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-51	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-52	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-53	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-54	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-55	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-56	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-57	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-58	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-59	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-60	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-61	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-62	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-63	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-64	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-65	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-66	introdotto	docs/05_domain/05-parametri-e-osservazioni.md	
+2026-08-26	DM-70	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	
+2026-08-26	DM-71	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	
+2026-08-26	DM-72	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	
+2026-08-26	DM-73	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	
+2026-08-26	DM-74	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	
+2026-08-26	DM-75	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	
+2026-08-26	DM-76	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	
+2026-08-26	DM-77	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	
+2026-08-26	DM-80	introdotto	docs/05_domain/07-terminologie-nel-dominio.md	
+2026-08-26	DM-81	introdotto	docs/05_domain/07-terminologie-nel-dominio.md	
+2026-08-26	DM-82	introdotto	docs/05_domain/07-terminologie-nel-dominio.md	
+2026-08-26	DM-83	introdotto	docs/05_domain/07-terminologie-nel-dominio.md	
+2026-08-26	DM-84	introdotto	docs/05_domain/07-terminologie-nel-dominio.md	
+2026-08-26	DM-85	introdotto	docs/05_domain/07-terminologie-nel-dominio.md	
+2026-08-26	DM-86	introdotto	docs/05_domain/07-terminologie-nel-dominio.md	
+2026-08-26	DM-87	introdotto	docs/05_domain/07-terminologie-nel-dominio.md	
+2026-08-26	DM-90	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	DM-91	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	DM-92	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	DM-93	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	DM-94	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	DM-95	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	DM-96	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	DM-97	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	DM-98	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	DM-99	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	DM-100	introdotto	docs/05_domain/08-percorsi-e-piani-di-cura.md	
+2026-08-26	EX-ABUSE	introdotto	docs/03_functional/03-casi-d-uso.md	difetto: citato nell'elenco dei "codici di esito già congelati" della prestazione sincrona insieme agli altri undici, ma privo di una propria riga di definizione in qualunque tabella del corpus; la tabella che definisce i codici sincroni (docs/05_domain/02-le-prestazioni-modellate.md) ne elenca dodici, con `EX-COMPLETE` al posto di `EX-ABUSE`. Non è stato possibile stabilire se `EX-ABUSE` sia un tredicesimo codice la cui definizione manca, o un refuso per uno degli altri undici; fonte = unico file in cui compare
+2026-08-26	EX-CAPACITY	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-CLIN-STOP	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-COMPLETE	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-EMERGENCY	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-ESCALATE	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-IDENT-FAIL	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-NOSHOW	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-QOS	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-TECH-DROP	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-TECH-FAIL	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-TECH-PATIENT	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-THIRD-PARTY	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	
+2026-08-26	EX-TM-ADMIN	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-CORRECTED	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-DECLARED	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-DEVICE	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-DROPOUT	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-ESCFAIL	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-EXIT	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-IMPLAUS	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-INGEST	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-LATE	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-LINK	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-NOACK	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-NOSIGNAL	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-OUTOFHOURS	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-PLANSTALE	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-UNEXPLAINED	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	EX-TM-USEERR	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	OUT-01	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-02	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-03	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-04	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-05	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-06	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-07	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-08	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-09	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-10	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-11	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-12	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-13	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-14	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-15	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-16	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-17	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-18	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-19	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-20	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-21	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-22	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-23	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	OUT-24	introdotto	docs/03_functional/07-fuori-perimetro.md	
+2026-08-26	RF-001	introdotto	docs/03_functional/00-indice.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-011	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-014	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-015	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-017	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-018	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-019	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-020	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-021	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-023	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-025	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-026	introdotto	docs/03_functional/07-fuori-perimetro.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-028	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-030	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-031	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-032	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-035	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-038	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-039	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-040	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-041	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-042	introdotto	docs/10_fondamenti/15-regolatorio-da-zero.md	caso dubbio: l'unica occorrenza nel corpus è dentro un diagramma generico e puramente didattico sulla tracciabilità IEC 62304, accanto a identificativi chiaramente non reali e fuori da ogni famiglia di questo registro (`SRS-118`, `RM-017`); non è collegata al contenuto sostanziale del blocco 5.C (agende e slot) a cui `RF-042` appartiene per numerazione; registrato comunque perché la stringa compare testualmente nel corpus
+2026-08-26	RF-048	introdotto	docs/05_domain/04-documenti-clinici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-049	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-051	introdotto	docs/05_domain/03-assistito-professionista-organizzazione.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-052	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-055	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-057	introdotto	docs/05_domain/02-le-prestazioni-modellate.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-058	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-060	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-061	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-062	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-063	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-064	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-067	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-071	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-072	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-073	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-074	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-075	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-076	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-077	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-078	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-080	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-081	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-082	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-083	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-084	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-085	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-086	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-089	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-097	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-100	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-107	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-110	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-111	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-113	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-114	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-115	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-116	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-117	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-118	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-120	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-121	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-124	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-125	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-126	introdotto	docs/03_functional/07-fuori-perimetro.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-127	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-128	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-129	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-130	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-131	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-132	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-133	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-134	introdotto	docs/05_domain/04-documenti-clinici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-135	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-136	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 3 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-139	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-141	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-0142	introdotto	docs/01_technical/08-qualita-e-test.md	caso dubbio: compare solo nell'annotazione `@Requisito` di un esempio di codice esplicitamente marcato "// Illustrativo." in due file identici; forma a 4 cifre, distinta da `RF-142` (3 cifre), che è invece un identificativo reale citato altrove nel corpus. Non è chiaro se sia un refuso per RF-142 o un valore di fantasia scelto per l'esempio; registrato così com'è, senza correggerlo
+2026-08-26	RF-142	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-146	introdotto	docs/05_domain/06-consenso-e-riservatezza.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-147	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-150	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-156	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-158	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-161	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-162	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-165	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-166	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-167	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-168	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-172	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-175	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-178	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-183	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-186	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-188	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-193	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-196	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-201	introdotto	docs/03_functional/01-attori-e-ruoli.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-205	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-208	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-215	introdotto	docs/03_functional/03-casi-d-uso.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RF-223	introdotto	docs/03_functional/00-indice.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RF-230	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-231	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-232	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-233	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-234	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-235	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-236	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-237	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-238	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-239	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-240	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-241	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-242	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-243	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-244	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-245	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-246	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-247	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-248	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-251	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-252	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-253	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-254	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-255	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-256	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-257	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-258	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-259	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-260	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-261	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-262	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-263	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-264	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-265	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-266	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-269	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-270	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-271	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-272	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-273	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-274	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-275	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-276	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-277	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-278	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-279	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-280	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-281	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-282	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-283	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-284	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-285	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-286	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-287	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-288	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-289	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-290	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-293	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-294	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-295	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-296	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-297	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-298	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-299	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-300	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-301	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-302	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-303	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-304	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-305	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-306	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-309	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-310	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-311	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-312	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-313	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-314	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-315	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-316	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-317	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-318	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-319	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-320	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-323	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-324	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-325	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-326	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-327	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-328	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-329	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-330	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-331	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-332	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-335	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-336	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-337	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-338	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-339	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-340	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-343	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-344	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-345	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-346	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-347	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-348	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-349	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-350	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-351	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RF-352	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-001	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-002	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-003	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-005	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-006	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RNF-007	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-008	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-009	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RNF-010	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-011	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-013	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-014	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-016	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-021	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-022	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-025	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-027	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-0031	introdotto	docs/01_technical/08-qualita-e-test.md	caso dubbio: compare solo nell'annotazione `@Requisito` dello stesso esempio di codice marcato "// Illustrativo." in due file identici; forma a 4 cifre, mai altrimenti attestata nel corpus (non esiste una forma `RNF-031` a 3 cifre corrispondente); registrato così com'è, senza correggerlo
+2026-08-26	RNF-037	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-038	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-042	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-043	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-044	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-045	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-046	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RNF-047	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-048	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-049	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-050	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-051	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-052	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-053	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; parità di occorrenze fra 2 file, scelto il primo in ordine alfabetico
+2026-08-26	RNF-054	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-055	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-057	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-058	introdotto	docs/03_functional/06-accessibilita-e-usabilita.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-059	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-063	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-064	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-065	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-069	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-070	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-071	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-072	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-073	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-074	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-075	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-076	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-077	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-078	introdotto	docs/10_fondamenti/11-fondamenti-informatici.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-083	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	definizione non individuabile in docs/: identificativo assegnato nella fase di ricerca, citato ma non ridefinito in quest'area; fonte = file con più occorrenze
+2026-08-26	RNF-090	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-091	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-092	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-093	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-094	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-095	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-096	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-097	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-098	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-099	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-102	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-103	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-104	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-105	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-106	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-107	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-108	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-109	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	RNF-110	introdotto	docs/03_functional/02-catalogo-dei-requisiti.md	
+2026-08-26	UC-01	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-02	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-03	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-04	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-05	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-06	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-07	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-08	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-09	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-10	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-11	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-12	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-13	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-14	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-15	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-16	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-17	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-18	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-19	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-20	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-21	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-22	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-23	introdotto	docs/03_functional/03-casi-d-uso.md	
+2026-08-26	UC-24	introdotto	docs/03_functional/03-casi-d-uso.md	

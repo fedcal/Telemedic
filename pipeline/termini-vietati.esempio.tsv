@@ -1,0 +1,95 @@
+# STRUTTURA della lista dei termini vietati del controllo G11 - regola R0.
+#
+# QUESTO FILE E' UN ESEMPIO E NON E' LA LISTA. Contiene soltanto segnaposto sintetici, dichiarati
+# tali, e un sale di esempio scritto in chiaro qui sotto: serve a mostrare il formato e a far
+# girare il banco di prova, non a proteggere nulla. Il controllo NON lo carica per difetto. Chi
+# lo caricasse in esercizio avrebbe un controllo che gira, esce verde e non cerca nulla di reale:
+# per questo il file porta «esempio» nel nome e il sale dichiara se stesso.
+#
+# --- DOVE VIVE LA LISTA VERA, E PERCHE' NON QUI ---
+#
+# Fuori da questo repository, e fuori da qualunque repository pubblico. La ragione non e' la
+# prudenza generica: e' che la storia di git non dimentica. Un termine scritto qui - in chiaro,
+# per impronta o cifrato - ci resta per sempre, in ogni copia clonata, in ogni specchio, in ogni
+# archivio; e R0 protegge una proprieta' che, una volta persa, non si recupera («un periodo di
+# pubblicazione non si annulla»). Una protezione che dipende da un segreto che deve reggere per
+# sempre, e retroattivamente su ogni voce mai inserita - comprese quelle tolte perche' il
+# rapporto e' finito - e' della forma sbagliata per un divieto irreversibile.
+#
+# Il controllo riceve il percorso della lista vera nella variabile d'ambiente
+# ${TERMINI_VIETATI_ELENCO}. Se la variabile non e' impostata, lo strato specifico non gira e il
+# controllo lo DICHIARA nella sua uscita: un controllo che si degrada in silenzio e' peggio di un
+# controllo assente, perche' rassicura.
+#
+# --- PERCHE' IMPRONTE E NON TERMINI IN CHIARO, SE IL FILE E' GIA' RISERVATO ---
+#
+# Perche' il file viene montato dentro un esecutore di catena di costruzione, aperto in un
+# editor, copiato su una chiavetta e - prima o poi - aggiunto per sbaglio a un commit. Se
+# contiene termini in chiaro, l'incidente e' istantaneo e definitivo: il diff e' leggibile, la
+# vista di colpa lo conserva, gli specchi lo indicizzano. Se contiene impronte con sale, lo
+# stesso incidente lascia il tempo di accorgersene e di cambiare il sale.
+#
+# Questo e' un RITARDO, non riservatezza, e va detto senza attenuazioni: il sale sta in questo
+# stesso file, quindi chi ottiene il file ottiene anche il sale. Le impronte non proteggono
+# contro la perdita del file. Proteggono contro la sua perdita PARZIALE - un frammento incollato,
+# una riga finita in un registro, un blocco copiato senza intestazione - e contro l'indicizzazione
+# automatica. Tenere sale e lista separati proteggerebbe di piu' e costerebbe due segreti da
+# custodire e ruotare insieme: e' un onere ricorrente, e il progetto ha gia' deciso una volta
+# (Q-287) di non assumerne quando la capacita' dichiarata e' di un contributore a tempo parziale.
+#
+# --- FORMATO ---
+#
+# Valori separati da tabulazione, righe di commento con «#». Due specie di riga.
+#
+#   sale      <valore>                      esattamente una, obbligatoria, prima delle impronte
+#   impronta  <esadecimale>  <data>  <classe>
+#
+# L'impronta e' SHA-256 di «<sale>\n<forma normalizzata>», in esadecimale minuscolo.
+# La forma normalizzata si ottiene cosi', e allo stesso modo su entrambi i lati del confronto:
+# si scartano i byte non ASCII, si passa a minuscole, ogni sequenza di caratteri che non siano
+# lettere o cifre diventa un solo spazio, si tolgono gli spazi ai bordi. «Alfa-Beta_02»
+# diventa «alfa beta 02»; «Società Fittizia» diventa «societ fittizia»; una forma societaria
+# abbreviata con i punti si riduce alle sue iniziali separate da spazi.
+# NON CALCOLARE L'IMPRONTA A MANO e non incollare il termine su un servizio in rete. Si usa:
+#
+#     printf '%s' 'il termine' | TERMINI_VIETATI_ELENCO=... scripts/verifica-termini-vietati.sh --impronta
+#
+# che legge il termine dallo standard input - non dagli argomenti, che finirebbero nella storia
+# della shell e nella tabella dei processi - e stampa la sola impronta.
+#
+# La <classe> e' una fra: azienda, marchio, prodotto, dominio, persona. Non descrive il termine,
+# lo raggruppa: serve a chi tiene la lista, non al controllo. Nessuna nota libera, mai: una nota
+# libera su un termine vietato e' il termine vietato scritto in un altro modo.
+#
+# --- IL CANARINO ---
+#
+# La prima impronta e' obbligatoria e sempre la stessa: quella della stringa pubblica
+# «CANARIO-G11». Una lista di impronte non e' ispezionabile - non si puo' guardarla e dire se e'
+# giusta - quindi deve portare la propria prova di coerenza. Il controllo calcola l'impronta del
+# canarino con il sale che ha letto e la cerca nella lista: se non la trova, il file e il sale non
+# si corrispondono - lista troncata, sale cambiato senza ricalcolare, file sbagliato - e il
+# controllo esce con errore di configurazione invece che con un verde che non significa nulla.
+#
+# --- CHI LA COMPILA E COME SI AGGIORNA ---
+#
+# Scritto per esteso in .telemedic/piani/G11-regola-di-riservatezza.md, sezione 6. In breve:
+# la compila il committente e nessun altro, perche' il criterio di inserimento e' la conoscenza
+# di un rapporto che non e' di chi contribuisce; si aggiunge una voce nel momento in cui il
+# rapporto nasce, non quando si teme che qualcuno lo nomini; non si toglie mai una voce prima di
+# aver cambiato il sale e ricalcolato tutte le altre, perche' toglierla e basta lascia
+# l'impronta nelle copie precedenti.
+sale	sale-di-esempio-non-usare-in-esercizio
+#
+# --- Canarino di coerenza (obbligatorio, stringa pubblica «CANARIO-G11»). ---
+impronta	05ec55a2b12fdac60b7a3617ae56f774f5629788a801136450b7d6a838cd8131	2026-08-26	canarino
+#
+# --- Segnaposto sintetici. Nessuno di questi nomi appartiene a un soggetto reale: ---
+# «Fornitore Fittizio Alfa», «Cartella Fittizia Beta», «Piattaforma Fittizia Gamma»,
+# «Segnaposto», «fornitorefittiziodelta». Sono scritti in chiaro in questo commento apposta:
+# in un file di esempio l'unico modo di mostrare che il meccanismo funziona e' che il lettore
+# possa verificarlo, e questi termini non proteggono nessuno.
+impronta	e51118a87a9aee814484f486113b94f4eba2ce6ed70586a6dde51e9d90ea844f	2026-08-26	azienda
+impronta	6eb0db36e2c0a10a271252df16627d61504cea2ccb91702b9f1d47abdf8c3a54	2026-08-26	prodotto
+impronta	7a58ae7b7af7463b88c783928d231622ff29f1900992cf2ec7d4ee1f6937faf1	2026-08-26	marchio
+impronta	ae2c6279c4e63de13821daeb016146d8bacb4ed4ec293eb3d7020131a99525ca	2026-08-26	azienda
+impronta	2f21a3d5d240e65589d657c4a5bae687b6b52e38dec291b756b74d39ca1ed027	2026-08-26	azienda

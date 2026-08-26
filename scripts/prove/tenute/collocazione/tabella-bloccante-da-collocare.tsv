@@ -1,0 +1,2 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Bloccante senza luogo in cui girare	completa	bloccante		T-09/1	da collocare	caso sintetico citato nella tabella	Riga sintetica: dichiara di bloccare senza una corsia che lo esegua.

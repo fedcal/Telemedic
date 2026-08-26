@@ -1,0 +1,10 @@
+# Banco FITTIZIO - non è scripts/prove/esegui-prove.sh reale.
+#
+# Serve solo come bersaglio statico della regola 4 di
+# scripts/verifica-collocazione-dei-controlli.sh («ogni caso citato in
+# prova_negativa deve esistere nel banco»), quando il collaudo punta la
+# variabile d'ambiente BANCO qui invece che sul banco vero. La corrispondenza
+# è testuale (grep -qF): basta che la frase compaia, non serve che sia
+# eseguibile.
+esegui_caso "caso sintetico citato nella tabella" passa true
+esegui_caso "caso sintetico di regressione lettura per posizione" passa true

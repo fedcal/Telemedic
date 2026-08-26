@@ -1,0 +1,5 @@
+# Tenuta sintetica di collaudo: configurazione di esempio priva di nomi commerciali.
+estremo:
+  base: https://api.example.org/fhir
+  registro: https://registry.npmjs.org/
+tenant: struttura-di-esempio

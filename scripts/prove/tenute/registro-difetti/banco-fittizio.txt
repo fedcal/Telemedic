@@ -1,0 +1,3 @@
+# Banco fittizio: bersaglio testuale della regola 2 (caso_banco deve esistere nel banco).
+# Contiene UN SOLO caso, apposta, cosi' un caso_banco che cita altro non lo trova per costruzione.
+difetti-registro: caso sintetico che esiste nel banco fittizio

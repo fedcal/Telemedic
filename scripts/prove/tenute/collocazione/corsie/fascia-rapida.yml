@@ -1,0 +1,11 @@
+# Corsia SINTETICA - vedi il commento in fascia-completa.yml di questa stessa tenuta.
+# Esiste per il caso in cui una riga dichiara una fascia diversa da quella del proprio eseguibile.
+name: Corsia sintetica rapida
+on:
+  workflow_dispatch:
+jobs:
+  altro-lavoro:
+    name: Altro lavoro sintetico
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'true'

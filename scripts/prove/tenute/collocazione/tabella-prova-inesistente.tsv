@@ -1,0 +1,4 @@
+# Viola la regola 4: il caso citato non esiste nel BANCO fittizio
+# (banco-fittizio.txt), quindi la colonna dice il vero solo in apparenza.
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Controllo sintetico con prova negativa inventata	completa	bloccante		T-09/1	scripts/finto.sh	questo caso non esiste nel banco fittizio, di proposito	Riga sintetica: la colonna cita un caso assente dal banco.

@@ -1,0 +1,8 @@
+# Registro sintetico di collaudo - deliberatamente malformato, e apposta scritto FUORI ordine
+# cronologico nell'ordine fisico delle righe (esattamente come fa il registro reale, che ordina
+# per famiglia e non per data - vedi registro/README.md, "Come si calcola lo stato"). Prova che il
+# controllo rileva il riuso vietato guardando la colonna data, non la posizione fisica della riga.
+data	identificativo	evento	fonte	nota
+2026-01-03	RF-9105	introdotto	collaudo	fisicamente prima nel file, ma data più recente: è il riuso
+2026-01-01	RF-9105	introdotto	collaudo	fisicamente dopo, ma data più vecchia: è la prima introduzione
+2026-01-02	RF-9105	ritirato	collaudo	ritiro, cronologicamente fra le due introduzioni

@@ -1,0 +1,19 @@
+# Annotazioni dei componenti di terze parti - traguardo T-03, criterio 5.
+#
+# Formato dichiarato in pipeline/README-COMPONENTI.md. Dati separati da tabulazione, righe di
+# commento con «#». Il controllo scripts/verifica-registro-componenti.sh confronta questo file con
+# la distinta generata e FA FALLIRE la costruzione quando un componente è presente nella distinta
+# e assente da qui, oppure quando un componente ha licenza segnata come incompatibile o
+# indeterminabile. Modificare questo file senza leggere il README produce quasi sempre un errore
+# che il README avrebbe evitato.
+#
+componente	versione	licenza_dichiarata	compatibilita_apache_2_0	motivo_inclusione	canale_di_avviso
+@docusaurus/core	3.10.2	MIT	compatibile	Motore di generazione della documentazione Docusaurus. Costruisce il sito statico di Telemedic dalla guida dei fondamenti e dalla documentazione delle nove aree: panoramica, technical, architecture, functional, protocols, domain, integration, compliance, roadmap.	https://github.com/facebook/docusaurus/releases
+@docusaurus/preset-classic	3.10.2	MIT	compatibile	Preset classico di Docusaurus: fornisce layout, tema, navigazione e struttura standard per il sito. È la spina dorsale dell'esperienza di lettura della documentazione.	https://github.com/facebook/docusaurus/releases
+@docusaurus/theme-mermaid	3.10.2	MIT	compatibile	Tema per integrazione di diagrammi Mermaid nella documentazione. Abilita la rappresentazione visuale di architetture, flussi e relazioni documentate in prosa.	https://github.com/facebook/docusaurus/releases
+@easyops-cn/docusaurus-search-local	0.54.1	MIT	compatibile	Ricerca locale per il sito, senza alcun servizio esterno di indicizzazione (criterio 2 di T-07). Costruisce un indice separato per ciascuna locale (italiano e inglese) alla costruzione del sito stesso: nessuna candidatura, nessuna coda di indicizzazione, nessun invio dei contenuti a un terzo. Licenza verificata sul file LICENSE del repository sorgente (non sulla sola dichiarazione di package.json) il 26 agosto 2026.	https://github.com/easyops-cn/docusaurus-search-local/releases
+@mdx-js/react	3.1.1	MIT	compatibile	Parser MDX (Markdown eXtended) per React. Estende il markdown con componenti React, abilitando la documentazione interattiva e i componenti personalizzati all'interno del corpus.	https://github.com/mdx-js/mdx/releases
+clsx	2.1.1	MIT	compatibile	Utility per composizione condizionale di classi CSS nei componenti React. Usato nei componenti Docusaurus per la logica di stile condizionale.	https://github.com/lukeed/clsx/releases
+prism-react-renderer	2.4.1	MIT	compatibile	Evidenziazione sintattica per blocchi di codice nella documentazione. Fornisce syntax highlighting per linguaggi di programmazione citati negli esempi e nella guida tecnica.	https://github.com/FormidableLabs/prism-react-renderer/releases
+react	18.3.1	MIT	compatibile	Libreria JavaScript per costruzione di interfacce utente. Base di Docusaurus e di tutti i componenti React utilizzati nel sito.	https://github.com/facebook/react/releases
+react-dom	18.3.1	MIT	compatibile	Binding React per il DOM del browser. Consente a React di renderizzare componenti nel browser per il sito statico Docusaurus.	https://github.com/facebook/react/releases

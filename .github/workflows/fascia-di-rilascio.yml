@@ -1,0 +1,86 @@
+# Fascia di rilascio - su procedura esplicita (docs/01_technical/09-integrazione-continua-e-rilascio.md
+# §2).
+#
+# Vi appartengono la costruzione riproducibile, la distinta dei materiali generata per ogni
+# artefatto, la firma con identità effimera della pipeline, le attestazioni di provenienza e il
+# rapporto di tracciabilità (§§6-8 di quel capitolo).
+#
+# Oggi il solo artefatto pubblicato è il sito di documentazione, e la sua distinta è generata nel
+# lavoro «distinta-dei-materiali» di fascia-completa.yml - perché è così che la colloca, oggi,
+# pipeline/collocazione-dei-controlli.tsv (riga G5, fascia «completa», stato «segnalazione»):
+# questo flusso non duplica quel lavoro.
+#
+# Innesco: manuale ed esplicito, mai automatico. La procedura di rilascio è documentata in
+# docs/01_technical/09-integrazione-continua-e-rilascio.md §10.
+
+name: Fascia di rilascio
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  costruzione-e-firma-artefatti:
+    name: Costruzione, firma e attestazione degli artefatti
+    runs-on: ubuntu-latest
+    steps:
+      - name: Controllo del codice
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+          cache: 'npm'
+          cache-dependency-path: website/package-lock.json
+
+      - name: Costruzione del sito di documentazione (italiano e inglese)
+        run: |
+          cd website
+          npm ci
+          npm run build
+
+      - name: Installazione di cosign (Sigstore)
+        uses: sigstore/cosign-installer@v4
+
+      - name: Firma del sito italiano
+        run: |
+          bash scripts/firma-artefatto.sh \
+            website/build \
+            website/build.sig \
+            website/build.att
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Firma del sito inglese
+        run: |
+          bash scripts/firma-artefatto.sh \
+            website/build/en \
+            website/build-en.sig \
+            website/build-en.att
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Visualizzazione degli artefatti firmati
+        run: |
+          echo "Artefatti della fascia di rilascio:"
+          ls -lh website/build.* website/build/en 2>/dev/null | head -20
+          echo
+          echo "Firma del sito italiano:"
+          cat website/build.sig | head -c 80
+          echo "..."
+          echo
+          echo "Attestazione di provenienza (sito italiano):"
+          cat website/build.att | jq '.predicate.invocation.parameters' 2>/dev/null || echo "Attestazione generata"
+
+      - name: Controllo di firma e provenienza
+        run: |
+          bash scripts/verifica-firma-e-provenienza.sh
+        env:
+          WORKFLOW_FILE: .github/workflows/fascia-di-rilascio.yml
+          REPO: ${{ github.repository }}

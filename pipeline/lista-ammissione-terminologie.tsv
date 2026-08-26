@@ -1,0 +1,17 @@
+# Lista di ammissione delle terminologie - traguardo T-03, criterio 2.
+#
+# Formato dichiarato in pipeline/README-TERMINOLOGIE.md. Dati separati da tabulazione, righe
+# di commento con «#». Il controllo scripts/verifica-terminologie.sh legge questo file per
+# sapere QUALI sistemi di codifica sorveglia, CON QUALE riconoscitore e QUALE profondità: la
+# conoscenza non vive più soltanto dentro l'eseguibile. Modificare questo file senza leggere
+# il README produce quasi sempre un riconoscitore che non fa quello che sembra.
+#
+# QUESTO FILE NON CONTIENE CONTENUTO DI TERMINOLOGIE. Dichiara la FORMA con cui un contenuto
+# sospetto si riconosce (un'espressione regolare, un'estensione di file, un dominio), non un
+# concetto, un codice o un frammento di terminologia reale. Vedi la nota del README su questo
+# confine.
+#
+id	sistema	profondita_riconoscimento	forma_ammessa	pattern_ere	modalita_grep	estensioni	titolo_rilievo	motivo
+G3-1	SNOMED CT	identificatore	Il nome del sistema, le sue edizioni citate in prosa e i riferimenti bibliografici restano ammessi; non è ammesso alcun identificativo di concetto reale (conceptId o SCTID) abbinato a un numero, nella forma tipica con cui compare nei file di rilascio.	\b(conceptId|SCTID|sctid)\b[^A-Za-z0-9]{0,4}[0-9]{6,18}	righe	*.md,*.json,*.java,*.ts,*.sql,*.csv,*.txt	Possibile contenuto SNOMED CT nel repository.	Il progetto non versiona contenuti di terminologie sotto licenza e deve restare\npienamente funzionale senza di esse. Se questo è un falso positivo, spiegalo\nnella proposta di modifica invece di allargare il controllo.
+G3-2	Formato di rilascio tabellare (RF2 e affini)	intestazione_file	Nessuna riga nel formato di rilascio tabellare delle terminologie è ammessa, in alcuna forma e nemmeno parziale: il solo fatto di avere l'intestazione canonica del formato è già la prova che un file di rilascio (o un suo estratto) è stato versionato.	^id[[:space:]]+effectiveTime[[:space:]]+active	nomefile		File in formato di rilascio di una terminologia.	Le tabelle di rilascio non vanno versionate in alcuna forma, nemmeno parziale\ne nemmeno a scopo di prova. I dati di prova si generano sintetici.
+G3-3	Domini di scaricamento (SNOMED CT, UMLS)	comando_di_rete	Nessun comando che scarichi contenuto da un dominio di terminologie a licenza vincolata è ammesso, indipendentemente da chi lo scrive o da quando verrebbe davvero eseguito.	(curl|wget|fetch)[^\n]{0,200}(snomed|SnomedCT|umls|uts\.nlm\.nih\.gov)	righe	*.sh,*.yml,*.yaml,*.java,*.ts,*.js,Dockerfile*,Makefile	Scaricamento automatico di una terminologia sotto licenza.	Nessun componente del progetto può scaricare terminologie sotto licenza, in\nnessuna circostanza e per nessuno.

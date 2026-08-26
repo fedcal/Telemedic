@@ -1,0 +1,2 @@
+data	voce	famiglia	fonte	evento	stato	controllo	caso_banco	bloccante_dal	diventa_in_sviluppo	motivazione
+2026-08-26	A-90	A	fonte-sintetica.md	registrata	presidiata	controlli-fittizi/verifica-sintetica.sh	difetti-registro: caso sintetico che esiste nel banco fittizio		diventa un controllo di costruzione	voce sintetica di collaudo

@@ -1,0 +1,6 @@
+# Tabella sintetica valida, usata come caso "passa" del banco che collauda
+# scripts/verifica-collocazione-dei-controlli.sh (Compito A). "G-TEST" e
+# "T-09/1" sono placeholder fuori dalla numerazione reale della pipeline,
+# scelti apposta per non collidere mai con un controllo vero.
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Controllo sintetico valido	completa	bloccante		T-09/1	scripts/finto.sh	caso sintetico citato nella tabella	Riga sintetica di collaudo: tutte le regole del README sono rispettate.

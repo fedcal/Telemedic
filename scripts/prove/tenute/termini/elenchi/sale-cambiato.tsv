@@ -1,0 +1,8 @@
+# Tenuta sintetica: elenco di impronte con un sale DIVERSO da quello con cui le impronte sono
+# state calcolate. E' l'incidente piu' probabile della vita di questo file - il sale cambiato
+# senza ricalcolare - e il canarino esiste per renderlo visibile: l'impronta di «CANARIO-G11»
+# calcolata con questo sale non compare fra quelle elencate, quindi l'elenco non troverebbe mai
+# nulla e il controllo uscirebbe verde per sempre.
+sale	sale-di-collaudo-diverso-da-quello-delle-impronte
+impronta	05ec55a2b12fdac60b7a3617ae56f774f5629788a801136450b7d6a838cd8131	2026-08-26	canarino
+impronta	e51118a87a9aee814484f486113b94f4eba2ce6ed70586a6dde51e9d90ea844f	2026-08-26	azienda

@@ -1,0 +1,5 @@
+# Tenuta sintetica di collaudo: il valore che segue e' un termine dichiarato inventato in
+# pipeline/termini-vietati.esempio.tsv, scritto come valore di configurazione e non come prosa.
+adattatore:
+  identificativo: fornitorefittiziodelta
+  scadenza: 30s

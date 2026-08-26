@@ -1,7 +1,7 @@
 name: ✨ Proposta di funzionalità / Feature request
 description: Proponi una nuova capacità o l'evoluzione di una esistente.
 title: "[feat]: "
-labels: ["type: feature", "status: triage"]
+labels: ["enhancement"]
 body:
   - type: markdown
     attributes:

@@ -1,0 +1,4 @@
+# Viola la regola 3: un controllo che nessuno ha visto fallire non è un
+# controllo. Ogni altro campo è corretto, per isolare la sola regola 3.
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Controllo sintetico senza prova negativa	completa	bloccante		T-09/1	scripts/finto.sh		Riga sintetica: la colonna prova_negativa è vuota.

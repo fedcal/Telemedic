@@ -1,0 +1,5 @@
+# Tenuta sintetica: elenco di impronte PRIVO della riga del sale.
+# Senza sale l'impronta del canarino non e' calcolabile e il controllo non puo' sapere se
+# l'elenco che ha in mano corrisponde a quello con cui le impronte sono state calcolate: deve
+# uscire con errore di configurazione, non con un verde.
+impronta	05ec55a2b12fdac60b7a3617ae56f774f5629788a801136450b7d6a838cd8131	2026-08-26	canarino

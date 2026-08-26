@@ -1,0 +1,5 @@
+# Registro sintetico di collaudo - deliberatamente malformato: stesso identificativo, stesso
+# evento, stessa data, due volte.
+data	identificativo	evento	fonte	nota
+2026-01-01	RF-9103	introdotto	collaudo	prima riga
+2026-01-01	RF-9103	introdotto	collaudo	riga duplicata, deve far fallire il controllo

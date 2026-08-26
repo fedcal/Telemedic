@@ -1,0 +1,2 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Lavoro inesistente nella corsia	completa	bloccante		T-09/1	.github/workflows/fascia-completa.yml#lavoro-che-non-esiste	caso sintetico citato nella tabella	Riga sintetica: il flusso esiste, il lavoro no.

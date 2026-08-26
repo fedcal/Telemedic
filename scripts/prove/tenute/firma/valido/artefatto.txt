@@ -1,0 +1,3 @@
+Questo è un artefatto sintetico di prova per il collaudo della firma e della provenienza.
+Contiene testo identificabile come test e non come contenuto reale.
+Prodotto per verificare che il controllo di firma funziona correttamente.

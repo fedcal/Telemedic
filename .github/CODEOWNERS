@@ -1,0 +1,62 @@
+# Proprietari del codice, per area - GOVERNANCE.md descrive i ruoli (manutentore,
+# responsabile di area, responsabile della conformità); questo file li rende operativi per
+# GitHub: suggerisce il revisore giusto su ogni proposta di modifica.
+#
+# STATO ATTUALE, e perché la protezione del ramo non lo applica come obbligo. Il progetto ha
+# un solo manutentore (GOVERNANCE.md, «Stato attuale»): ogni riga sotto assegna quindi la
+# stessa persona. La protezione del ramo `main` (verificata con
+# `gh api repos/fedcal/Telemedic/branches/main/protection` il 26 agosto 2026) ha
+# deliberatamente `require_code_owner_reviews: false` - se fosse `true`, ogni proposta
+# richiederebbe l'approvazione di un proprietario diverso dall'autore, e con un solo
+# manutentore nessuna proposta si potrebbe mai unire senza il bypass da amministratore. Questo
+# file resta quindi informativo: assegna il revisore suggerito e documenta chi si occupa di
+# che cosa, senza bloccare nulla. Quando i manutentori saranno almeno due, la voce
+# `require_code_owner_reviews` va riconsiderata insieme a questo file - non prima.
+#
+# La sintassi: l'ultima corrispondenza vince, come in .gitignore. Le voci più specifiche vanno
+# quindi dopo quelle generali.
+
+# Proprietario di riserva per tutto ciò che le righe sotto non coprono.
+*                                   @fedcal
+
+# Materiale regolatorio e di conformità - responsabile della conformità (GOVERNANCE.md).
+/docs/08_compliance/                @fedcal
+/NOT-A-MEDICAL-DEVICE.md            @fedcal
+/DISTRIBUTION-POLICY.md             @fedcal
+/THIRD-PARTY-TERMINOLOGY.md         @fedcal
+/publiccode.yml                     @fedcal
+
+# Sicurezza - modello di minaccia, identità, protezione dei dati, incidenti.
+/docs/06_security/                  @fedcal
+/SECURITY.md                        @fedcal
+
+# Architettura e dominio - contesti delimitati, modello dati, eventi, multi-tenancy.
+/docs/02_architecture/               @fedcal
+/docs/05_domain/                     @fedcal
+/docs/adr/                           @fedcal
+
+# Protocolli e integrazione - FHIR, documenti clinici, HL7 v2, IHE, interfacce di progetto.
+/docs/04_protocols/                  @fedcal
+/docs/07_integration/                @fedcal
+
+# Requisiti funzionali - attori, casi d'uso, regole di business, allarmi.
+/docs/03_functional/                 @fedcal
+
+# Stack tecnico, rilascio e catena di costruzione.
+/docs/01_technical/                  @fedcal
+/pipeline/                           @fedcal
+/scripts/                            @fedcal
+/.github/workflows/                  @fedcal
+
+# Roadmap e fondamenti - traguardi, rischi di programma, guida da zero.
+/docs/09_roadmap/                    @fedcal
+/docs/10_fondamenti/                 @fedcal
+
+# Sito di documentazione (italiano e inglese).
+/website/                            @fedcal
+
+# Governo del progetto stesso.
+/GOVERNANCE.md                       @fedcal
+/CONTRIBUTING.md                     @fedcal
+/CODE_OF_CONDUCT.md                  @fedcal
+/.github/CODEOWNERS                  @fedcal

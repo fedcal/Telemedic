@@ -1,7 +1,7 @@
 name: 📖 Documentazione / Documentation
 description: Segnala documentazione mancante, errata o poco chiara.
 title: "[docs]: "
-labels: ["type: docs", "status: triage"]
+labels: ["documentation"]
 body:
   - type: input
     id: pagina

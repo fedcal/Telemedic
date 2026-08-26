@@ -1,0 +1,406 @@
+# Fascia completa - a ogni proposta di modifica (docs/01_technical/09-integrazione-continua-e-rilascio.md
+# §2). I lavori di questo file sono controlli obbligatori del §3, o condizioni di ammissibilità dei
+# criteri 5 e 7 di T-01: restano nella fascia completa a prescindere dal costo, perché sono
+# condizioni di ammissibilità e non verifiche di qualità.
+#
+# La collocazione di ciascun lavoro, con la forza che porta, è dichiarata in
+# pipeline/collocazione-dei-controlli.tsv. Quella tabella è la fonte: questo file le si adegua, non
+# il contrario. Un lavoro spostato qui senza la riga corrispondente nella tabella, o con una fascia
+# diversa da quella scritta in tabella, è un difetto da segnalare, non da correggere in silenzio.
+name: Fascia completa
+
+on:
+  pull_request:
+  # Oltre alla proposta di modifica: la protezione del ramo principale è attiva dal 26 agosto
+  # 2026 (`Q-283`, .telemedic/context/05_BACHECA_INTERAGENTI.md), quindi il flusso passa ora per
+  # le proposte di modifica anche per il committente. Ma una proposta di modifica verifica il
+  # risultato *previsto* dell'unione, non necessariamente ciò che finisce davvero su `main`:
+  # un'altra proposta unita nel frattempo, un'unione forzata, o una modifica diretta fatta prima
+  # che la protezione fosse attiva possono produrre uno stato mai controllato. Un controllo
+  # obbligatorio che non ha mai visto lo stato reale del ramo principale presidia un'ipotesi, non
+  # il ramo. Per questo si esegue anche sul push a `main`.
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  collocazione-dei-controlli:
+    name: Collocazione dei controlli della pipeline
+    runs-on: ubuntu-latest
+    # Sorveglia pipeline/collocazione-dei-controlli.tsv (criterio 4 di T-03): una riga in sola
+    # segnalazione senza «bloccante_dal», una riga senza prova negativa, o una prova negativa che
+    # cita un caso assente dal banco, fa fallire la costruzione. Non è continue-on-error: un
+    # controllo che «per ora» accetta una riduzione non dichiarata è esattamente ciò che il
+    # criterio 4 vieta - un controllo aggiunto temporaneamente indulgente non sarebbe un controllo.
+    # Oggi fallisce: quattro righe su sette non hanno ancora la loro prova negativa nel banco. È
+    # atteso finché quelle prove non vengono scritte, e nel frattempo la costruzione lo segnala e
+    # resta bloccata, non silenziata.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-collocazione-dei-controlli.sh
+
+  terminologie:
+    name: Terminologie sotto licenza
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-terminologie.sh
+
+  redazionale:
+    name: Conformità redazionale
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-conformita-redazionale.sh
+
+  distinta-dei-materiali:
+    name: Distinta dei materiali del sito
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - name: Installazione
+        working-directory: website
+        run: npm ci
+      # La distinta si genera dalla risoluzione effettiva delle dipendenze, mai a mano: un
+      # inventario compilato a mano mente entro tre mesi. Non e' pero' un vincolo a rileggere quella
+      # risoluzione ogni volta con «npm ls»: il file di blocco versionato E' la risoluzione
+      # effettiva, gia' fissata (09-integrazione-continua-e-rilascio.md §6.2: «versioni esatte, mai
+      # intervalli [...] fissata da un file di blocco versionato nel repository»).
+      #
+      # --package-lock-only, e perche'. Senza questo flag il comando fallisce oggi: cyclonedx-npm
+      # richiama «npm ls» su website/, e con npm 11.6.3 su node 24 quella chiamata va in errore
+      # dentro @npmcli/arborist («Cannot read properties of undefined (reading 'ruleset')») quando
+      # il campo «overrides» di website/package.json punta a dipendenze TRANSITIVE (qui:
+      # serialize-javascript e uuid, non dirette). E' stato isolato togliendo e rimettendo una voce
+      # per volta. Due vie erano possibili, e questa e' quella scelta:
+      #   (a) fissare la versione di npm nel lavoro - toppa sul sintomo: lega la costruzione a un
+      #       numero di patch che qualcun altro dovra' sapere sbloccare quando servira' aggiornare
+      #       npm per una ragione di sicurezza, e non e' detto che l'arborist bug non torni con la
+      #       prossima versione che tocca la stessa risoluzione dei transitivi con overrides;
+      #   (b) generare la distinta dal solo file di blocco (--package-lock-only) - bypassa
+      #       interamente la camminata dell'albero via npm ls, quindi il difetto di arborist non ha
+      #       piu' modo di manifestarsi, ed E' la via scelta: non aggira il sintomo, toglie di mezzo
+      #       il codice che lo produce, e lo fa leggendo esattamente il file che la costruzione
+      #       riproducibile gia' tratta come fonte di verita' per le versioni installate.
+      # Collaudato dal coordinatore prima di questo commento: con --package-lock-only il comando
+      # genera la distinta correttamente nello stesso ambiente in cui falliva senza.
+      - name: Generazione della distinta
+        working-directory: website
+        run: npx --yes @cyclonedx/cyclonedx-npm@latest --output-file ../sbom-website.json --omit dev --package-lock-only
+      - name: Verifica del registro dei componenti
+        # G2 e G5 (docs/10_fondamenti/17-ambiente-di-sviluppo.md §9.2): confronta la distinta appena
+        # generata con pipeline/annotazioni-componenti.tsv e fa fallire la costruzione quando un
+        # componente e' nella distinta e non nelle annotazioni (G5), o quando la compatibilita' con
+        # Apache-2.0 e' «indeterminabile», «incompatibile» o vuota (G2). Nessun continue-on-error:
+        # le otto voci gia' annotate coprono le dipendenze dirette dichiarate oggi da
+        # website/package.json (--omit dev le esclude), quindi il controllo ha un oggetto reale e
+        # non c'e' ragione di attenuarlo. Legge SBOM_FILE dalla posizione di default
+        # (sbom-website.json alla radice del repository), coerente con --output-file ../sbom-website.json
+        # del passo precedente.
+        run: ./scripts/verifica-registro-componenti.sh
+      - uses: actions/upload-artifact@v4
+        # if: always() e non il default: se la verifica sopra fallisce, l'artefatto che ha fatto
+        # fallire il controllo resta comunque scaricabile per l'indagine. Non pesa sull'esito del
+        # lavoro, che resta rosso per il passo precedente.
+        if: always()
+        with:
+          name: distinta-dei-materiali
+          path: sbom-website.json
+          retention-days: 90
+
+  divergenza-traduzioni:
+    name: Divergenza fra italiano e inglese
+    runs-on: ubuntu-latest
+    # G8: bloccante. Le due divergenze redazionali che ne rinviavano la bloccanza sono state
+    # chiuse (145 documenti allineati, zero divergenti, zero assenti sulle aree esigite, zero
+    # pagine orfane); la scadenza dichiarata in pipeline/collocazione-dei-controlli.tsv è quindi
+    # superata e non più aperta. Da qui in avanti è il controllo di
+    # scripts/verifica-collocazione-dei-controlli.sh (lavoro «collocazione-dei-controlli», sopra,
+    # in questa stessa fascia), che legge quella tabella, a sorvegliare che una futura riduzione
+    # non diventi permanente senza una data dichiarata - non più un commento in questo file.
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # il controllo confronta le date registrate in git
+      - run: ./scripts/verifica-divergenza-traduzioni.sh
+
+  identificativi-requisiti:
+    name: Identificativi di requisito citati nelle prove (T-01 criterio 5)
+    runs-on: ubuntu-latest
+    # Criterio 5 di T-01: fa fallire la costruzione quando una prova cita un identificativo
+    # assente dal registro, o il cui ultimo evento è "ritirato", o quando il registro stesso è
+    # malformato. Non è continue-on-error: è il senso stesso del criterio.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-identificativi-requisiti.sh
+      # Il banco di prova del controllo: dimostra che i casi deliberatamente errati lo fanno
+      # davvero fallire, non soltanto che il caso valido passa.
+      - run: ./scripts/prove/esegui-prove.sh
+
+  registro-dei-difetti:
+    name: Registro dei difetti (RD-C1)
+    runs-on: ubuntu-latest
+    # Sorveglia registro/difetti.tsv, che lega ogni voce del runbook degli errori a un presidio, a
+    # una data di esigibilita' e a cio' che la voce diventera' quando esistera' codice. Sta in
+    # fascia completa e blocca da subito, come T01-C5 e T03-C4: l'oggetto e' un registro di
+    # governo, non un artefatto costruito, quindi non c'e' nulla da attendere.
+    #
+    # Questo lavoro e' nato tardi rispetto al controllo che esegue, e la distanza fra i due e' il
+    # difetto che ha fatto scrivere la regola 5 di verifica-collocazione-dei-controlli.sh: la
+    # tabella dichiarava «fascia completa, bloccante» mentre nessuna corsia invocava lo script, e
+    # nulla se ne accorgeva. Da oggi la tabella e la corsia si sorvegliano a vicenda.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-registro-dei-difetti.sh
+
+  dichiarazione-non-marcatura:
+    name: Costruzione del sito - non marcatura (T-01/7) e criteri 1, 2 e 3 di T-07
+    runs-on: ubuntu-latest
+    # CINQUE responsabilita' dichiarate sullo stesso lavoro, non una che vive nascosta dentro
+    # l'altra:
+    #
+    # 1. Criterio 7 di T-01: impedisce la pubblicazione di un artefatto privo della dichiarazione
+    #    di non marcatura CE. E' la responsabilita' originaria di questo lavoro.
+    #
+    # 2. Criterio 1 di T-07 e meta' collegamenti di G9 (l'altra meta', le ANCORE, e' il lavoro
+    #    «ancore» di fascia-rapida.yml). website/docusaurus.config.mjs porta oggi onBrokenLinks,
+    #    onBrokenAnchors e onBrokenMarkdownLinks a «throw» (prima erano «warn»: un avviso che non
+    #    ferma nulla non e' un controllo, ed e' stato provato al contrario - un collegamento rotto
+    #    introdotto di proposito fa fallire «npm run build» con codice diverso da zero, rimosso
+    #    torna a passare). Da soli, quei tre valori sono CONFIGURAZIONE: diventano un cancello solo
+    #    quando un lavoro di pipeline esegue la costruzione senza attenuarla, ed e' esattamente
+    #    quello che il passo «Costruzione del sito» sotto fa gia' da quando questo lavoro esiste -
+    #    nessun continue-on-error, su ogni proposta di modifica e su ogni invio a main.
+    #
+    # 3. Criterio 1 di T-07, SECONDA META': le voci di menu. Il cancello del punto 2 verifica i
+    #    rinvii scritti nella PROSA dei documenti; le voci di navigazione della barra e del pie' di
+    #    pagina sono dati di configurazione del tema, che il plugin dei documenti non attraversa,
+    #    quindi un «to:» scritto male non fa fallire la costruzione e produce un collegamento
+    #    silenziosamente rotto in produzione. scripts/verifica-voci-di-menu.sh confronta ogni «to:»
+    #    con le rotte davvero pubblicate in website/build/sitemap.xml - la mappa generata dalla
+    #    costruzione, non un elenco calcolato a parte che potrebbe divergere.
+    #
+    # 4. Criterio 2 di T-07: la ricerca funziona nella lingua attiva.
+    #    scripts/verifica-ricerca.sh accerta che la barra sia raggiungibile da ogni pagina, che
+    #    l'indice locale esista e non sia vuoto in entrambe le lingue, e che non ci sia
+    #    contaminazione fra i due indici. Legge i due search-index.json prodotti dalla costruzione.
+    #
+    # 5. Criterio 3 di T-07: l'avviso di traduzione in corso.
+    #    scripts/verifica-avviso-traduzione.sh calcola dai SORGENTI quali documenti non hanno il
+    #    gemello inglese e verifica sull'artefatto costruito che l'avviso compaia su quelle pagine
+    #    e SOLO su quelle. Al 26 agosto 2026 i documenti non tradotti sono zero: oggi il controllo
+    #    esercita quindi la sola meta' che vieta il falso positivo, e serve dal giorno in cui un
+    #    documento nuovo entrera' in docs/ senza traduzione - il giorno in cui nessuno si
+    #    ricorderebbe di verificarlo a mano.
+    #
+    # I tre controlli aggiunti (3, 4, 5) hanno la loro riga in
+    # pipeline/collocazione-dei-controlli.tsv come T07-C1, T07-C2 e T07-C3, dichiarati in fascia
+    # completa e bloccanti; la regola 5 di scripts/verifica-collocazione-dei-controlli.sh verifica
+    # che questo file li invochi davvero, quindi la tabella e la corsia non possono piu' divergere
+    # in silenzio.
+    #
+    # PERCHE' NESSUN LAVORO NUOVO. Un lavoro che ricostruisse solo per il cancello duplicherebbe
+    # minuti di esecuzione senza guadagnare nulla: la costruzione avviene gia' qui, allo stesso
+    # costo, per l'altro criterio. Ricostruire dentro docs.yml sarebbe stato peggio, non solo
+    # ridondante: quel flusso costruisce e pubblica, quindi presidierebbe il momento sbagliato -
+    # dopo l'unione, non prima - e in piu' e' filtrato per percorso (docs/**, website/**), quindi
+    # non gira su ogni proposta di modifica come impone il §2 per un controllo obbligatorio.
+    # Questo lavoro invece non ha filtro di percorso e gira su ogni pull_request e su ogni push a
+    # main (vedi l'innesco dichiarato in testa al file), quindi presidia sia il momento giusto sia
+    # l'ambito giusto. Il costo dichiarato, non nascosto: se in futuro le responsabilita' dovessero
+    # divergere - un cambiamento che serve solo all'una e non alle altre - resteranno comunque
+    # accoppiate finche' qualcuno non le separa di proposito.
+    #
+    # Lo stesso ragionamento vale, e con piu' forza, per i tre controlli di T-07 aggiunti qui. Una
+    # costruzione del sito costa minuti; i tre controlli, misurati sul sito reale gia' costruito,
+    # costano frazioni di secondo l'uno. Dar loro un lavoro proprio avrebbe significato pagare tre
+    # volte, o una volta di piu', il solo costo che conta in questa fascia - e la fascia rapida non
+    # poteva ospitarli affatto, perche' non costruisce nulla e nessuno dei tre ha un oggetto senza
+    # costruzione. La fascia estesa, pianificata al lunedi', li avrebbe resi inutili nel modo
+    # peggiore: un menu rotto, una ricerca che risponde nella lingua sbagliata o un avviso di
+    # traduzione mancante sarebbero rimasti pubblicati fino a sette giorni, mentre sono criteri di
+    # completamento di un traguardo con data al 26 settembre 2026, non verifiche di qualita'
+    # differibili.
+    #
+    # ORDINE DEI PASSI, e non e' indifferente. La costruzione viene prima perche' tutti e cinque i
+    # controlli leggono l'artefatto; i due sulla non marcatura restano dove erano; i tre di T-07
+    # seguono. Nessuno di essi ha continue-on-error: sono dichiarati bloccanti in tabella, e un
+    # passo attenuato qui renderebbe falsa quella colonna.
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - name: Installazione
+        working-directory: website
+        run: npm ci
+      - name: Costruzione del sito (entrambe le lingue)
+        working-directory: website
+        run: npm run build
+      - run: ./scripts/verifica-dichiarazione-non-marcatura.sh website/build
+      - run: ./scripts/verifica-dichiarazione-non-marcatura.sh website/build/en
+      - name: Voci di menu con una pagina pubblicata (T-07/1, T07-C1)
+        run: ./scripts/verifica-voci-di-menu.sh
+      - name: Ricerca funzionante nella lingua attiva (T-07/2, T07-C2)
+        # Il controllo usa jq per leggere i due indici. L'immagine ubuntu-latest dei runner
+        # ospitati lo porta, ma questa riga NON e' stata verificata eseguendola su un runner: e'
+        # una attesa, non un fatto misurato. Il rischio che ne discende e' pero' innocuo, ed e' il
+        # motivo per cui non si aggiunge un passo di installazione a titolo cautelativo: lo script
+        # si rifiuta di girare con uscita 2 quando jq manca - non degrada a un confronto testuale,
+        # che direbbe il falso - quindi l'assenza si manifesterebbe come un lavoro rosso alla prima
+        # esecuzione, non come un cancello silenziosamente disattivato.
+        run: ./scripts/verifica-ricerca.sh
+      - name: Avviso di traduzione in corso sulle sole pagine non tradotte (T-07/3, T07-C3)
+        run: ./scripts/verifica-avviso-traduzione.sh
+
+  # ---------------------------------------------------------------------------------------------
+  # I cinque lavori seguenti attuano il criterio 4 di T-03 per i controlli obbligatori G4, G6, G7,
+  # G12, G13 (tabella di docs/10_fondamenti/17-ambiente-di-sviluppo.md §9.2 - quella è la fonte
+  # dichiarata; la tabella equivalente di docs/01_technical/09-integrazione-continua-e-rilascio.md
+  # §3 è coerente ma non è la fonte primaria). Tutti e cinque presuppongono codice applicativo, e
+  # V-182 vieta ogni riga di codice applicativo prima della chiusura di T-03 (26 settembre 2026):
+  # oggi nessuno dei cinque ha un oggetto su cui girare, e nessuno di essi finge di verificarlo.
+  # Ciascuno esiste in SOLA SEGNALAZIONE - dichiara lo stato, non blocca - con la data dichiarata
+  # in cui diventa bloccante, come il criterio 4 impone: «un controllo senza quella data non è
+  # ammesso: è il modo in cui una riduzione temporanea diventa permanente».
+  #
+  # Restano in fascia completa e non in fascia estesa: il §2 di 09-integrazione-continua-e-rilascio
+  # dichiara che i controlli obbligatori del §3 restano nella fascia completa a prescindere dal
+  # costo, perché sono condizioni di ammissibilità e non verifiche di qualità - lo stesso ne farà
+  # il costo quando questi cinque avranno un oggetto vero da esaminare.
+  # ---------------------------------------------------------------------------------------------
+
+  accessibilita:
+    name: Accessibilità automatica (G4) - in sola segnalazione fino al 2026-10-03
+    runs-on: ubuntu-latest
+    # G4 fa fallire su una violazione delle regole di accessibilità automatizzabili su qualunque
+    # schermata E STATO. Non ha oggetto oggi: non esiste nessuna schermata (V-182).
+    #
+    # DIVENTA BLOCCANTE IL 3 OTTOBRE 2026 - non il 14 novembre 2026 (chiusura di T-08), a differenza
+    # dei quattro lavori successivi di questo file. La ragione della differenza: il criterio 2 di
+    # T-03 (docs/09_roadmap/02-traguardi.md) individua il sottoinsieme bloccante da subito con lo
+    # stesso metro con cui G10 sta in fascia rapida - «ogni controllo che presidi una proprietà
+    # irrecuperabile o un divieto pubblico» - e la tabella di 10_fondamenti/17 §9.2 dichiara,
+    # colonna «perché esiste», che «l'accessibilità è un requisito funzionale del prodotto, non una
+    # rifinitura». Una schermata inaccessibile corretta prima che qualcuno la usi è recuperabile;
+    # una vista da un utente reale con tecnologia assistiva, molto meno - ed è esattamente la
+    # differenza fra le due date di questo file. Il 3 ottobre 2026 è la data reale più vicina a
+    # «appena esiste la prima schermata»: è l'inizio dichiarato di T-08 nel diagramma di Gantt di
+    # 02-traguardi.md §3 («Scheletro e percorso verticale ridotto», 2026-10-03 → 2026-11-14), il
+    # primo giorno in cui V-182 permette che una schermata esista. Legarlo a quel giorno non ha
+    # costo quando non c'è ancora nessuna schermata da esaminare, e chiude la finestra fra «la prima
+    # schermata esiste» e «il controllo comincia a guardarla» a zero, invece che alle sei settimane
+    # che separano l'inizio dalla chiusura di T-08.
+    steps:
+      - name: Nessun codice applicativo - controllo in sola segnalazione
+        run: |
+          echo "G4 - Accessibilità: nessun oggetto oggi (V-182 vieta il codice applicativo prima di T-03, 26 settembre 2026)."
+          echo "Diventa bloccante il 2026-10-03 - inizio di T-08 - per la proprietà irrecuperabile che presidia (criterio 2 di T-03), non alla chiusura del traguardo."
+
+  regole-di-dipendenza:
+    name: Regole di dipendenza (G13) - in sola segnalazione fino al 2026-10-03
+    runs-on: ubuntu-latest
+    # G13 fa fallire su una violazione dei confini fra moduli del servizio e dell'interfaccia
+    # (regole di §1 di 01_technical/02-backend.md e §2.1 di 01_technical/04-frontend.md). Non ha
+    # oggetto oggi: non esiste nessuna struttura di moduli (V-182).
+    #
+    # DIVENTA BLOCCANTE IL 3 OTTOBRE 2026 - inizio di T-08 (docs/09_roadmap/02-traguardi.md §3,
+    # diagramma di Gantt: 2026-10-03 → 2026-11-14), non la sua chiusura. È la PRIMA proprietà
+    # strutturale che l'obiettivo di T-08 nomina, prima del confine di autorizzazione, del contesto
+    # di tenant e dell'outbox, ed è testualmente il criterio 1 di completamento del traguardo: «la
+    # struttura dei moduli esiste e le regole di dipendenza sono verificate automaticamente [...]
+    # Provato con una violazione deliberata che deve far fallire la costruzione». Non ha senso
+    # costruire i moduli successivi sopra una struttura di dipendenze non ancora verificata: la
+    # tabella di 10_fondamenti/17 §9.2 lo dice con la stessa parola usata per G10 - «i confini fra
+    # contesti sono la struttura del sistema: se si erodono, si erodono IN SILENZIO» - cioè senza
+    # che nessuno lo veda finché non costa una riscrittura. Legarlo al primo giorno di codice, come
+    # G4, non ha costo quando i moduli non esistono ancora.
+    steps:
+      - name: Nessun codice applicativo - controllo in sola segnalazione
+        run: |
+          echo "G13 - Regole di dipendenza: nessun oggetto oggi (V-182 vieta il codice applicativo prima di T-03, 26 settembre 2026)."
+          echo "Diventa bloccante il 2026-10-03 - inizio di T-08, criterio 1 del traguardo - non alla sua chiusura."
+
+  copertura:
+    name: Copertura differenziata (G7) - in sola segnalazione fino al 2026-11-14
+    runs-on: ubuntu-latest
+    # G7 fa fallire sotto la soglia dell'ambito. La soglia è differenziata, non uniforme
+    # (10_fondamenti/17-ambiente-di-sviluppo.md §8, richiamato dalla colonna «perché esiste» di
+    # G7 in §9.2: «vedi §8.8: necessaria, non sufficiente»): sostanzialmente totale sul percorso di
+    # decisione del confine di autorizzazione, alta e con copertura dei rami sul dominio clinico,
+    # generale altrove. Non ha oggetto oggi: nessuno di questi ambiti esiste (V-182).
+    #
+    # DIVENTA BLOCCANTE IL 14 NOVEMBRE 2026 - chiusura di T-08 (docs/09_roadmap/02-traguardi.md
+    # §3), non il suo inizio. La differenza rispetto a G4 e G13 è deliberata: la soglia differenziata
+    # misura ambiti - confine di autorizzazione, contesto di tenant, dominio clinico - che sono
+    # ESATTAMENTE i criteri 1-4 di completamento di T-08 (struttura dei moduli, confine di
+    # autorizzazione, contesto di tenant, registro immutabile), e quel traguardo li dichiara
+    # completi solo alla sua chiusura, non a un punto intermedio del suo intervallo
+    # (2026-10-03 → 2026-11-14). Una soglia di copertura non è misurabile su un ambito ancora in
+    # costruzione: bloccare prima vorrebbe dire far fallire la costruzione su codice che T-08 stesso
+    # non dichiara ancora completo.
+    steps:
+      - name: Nessun codice applicativo - controllo in sola segnalazione
+        run: |
+          echo "G7 - Copertura: nessun oggetto oggi (V-182 vieta il codice applicativo prima di T-03, 26 settembre 2026)."
+          echo "Diventa bloccante il 2026-11-14 - chiusura di T-08, criteri 1-4 del traguardo."
+
+  profilo-di-esercizio:
+    name: Profilo di esercizio (G12) - in sola segnalazione fino al 2026-11-14
+    runs-on: ubuntu-latest
+    # G12 fa fallire su una configurazione dell'immagine che attivi una scorciatoia di sviluppo -
+    # origini permissive, endpoint di diagnostica senza autenticazione, livello di registro a
+    # diagnostica, segreto risolto da un valore letterale (01_technical/02-backend.md §9). Non ha
+    # oggetto oggi: non esiste nessun profilo di avvio (V-182).
+    #
+    # DIVENTA BLOCCANTE IL 14 NOVEMBRE 2026 - chiusura di T-08 (docs/09_roadmap/02-traguardi.md
+    # §3). T-08 è, testualmente, lo «scheletro ESEGUIBILE»: il primo punto in cui esiste un
+    # artefatto avviabile a cui applicare i profili di ambiente (dev · test · staging · prod di
+    # 01_technical/02-backend.md §9). Il controllo verifica un comportamento di AVVIO - non una
+    # singola unità di dominio come G13, né una singola schermata come G4 - e un comportamento di
+    # avvio non è osservabile prima che l'applicazione sia avviabile. Alla chiusura di T-08 nessuna
+    # scorciatoia di sviluppo può sopravvivere nel profilo di esercizio: è la stessa regola
+    # vincolante dichiarata in 02-backend.md §9 - «il profilo di esercizio non ammette scorciatoie
+    # di sviluppo» - applicata da quel giorno in poi.
+    steps:
+      - name: Nessun codice applicativo - controllo in sola segnalazione
+        run: |
+          echo "G12 - Profilo di esercizio: nessun oggetto oggi (V-182 vieta il codice applicativo prima di T-03, 26 settembre 2026)."
+          echo "Diventa bloccante il 2026-11-14 - chiusura di T-08, il primo scheletro eseguibile."
+
+  compatibilita-di-contratto:
+    name: Compatibilità di contratto (G6) - in sola segnalazione fino al 2026-11-30
+    runs-on: ubuntu-latest
+    # G6 fa fallire su una modifica non additiva a un elemento del perimetro contrattuale senza
+    # nuova versione maggiore. La colonna «perché esiste» di 10_fondamenti/17 §9.2 lo dice così:
+    # «una modifica che rompe un consumatore va dichiarata, non scoperta da lui». Non ha oggetto
+    # oggi: non esiste nessuna interfaccia applicativa (V-182).
+    #
+    # DIVENTA BLOCCANTE IL 30 NOVEMBRE 2026 - chiusura di T-10 (docs/09_roadmap/02-traguardi.md
+    # §3), non la chiusura di T-08 (14 novembre 2026) come per G7 e G12. La differenza è deliberata,
+    # non un margine di comodo: 09-roadmap/03-primo-rilascio-utilizzabile.md §3.7 elenca
+    # l'«interfaccia applicativa di progetto descritta e versionata, con prove a contratto in
+    # entrambe le direzioni» come parte del perimetro di RU-1 - «l'UNICA superficie di
+    # integrazione» - e l'obiettivo di T-10 è testualmente «il primo artefatto che una struttura
+    # può installare, configurare e usare in esercizio di prova, formazione e INTEGRAZIONE»: è lì
+    # che compare il primo consumatore reale dell'interfaccia. Prima di allora il percorso
+    # verticale di T-08 è interno alla squadra che lo costruisce, e la garanzia che G6 presidia -
+    # «un cliente resta fissato alla versione della prima chiamata» (01_technical/09
+    # §5.1) - non fissa ancora nessuno. Bloccare la compatibilità già alla chiusura di T-08
+    # irrigidirebbe un'interfaccia che nessun consumatore esterno sta ancora usando, senza il
+    # beneficio per cui il controllo esiste.
+    steps:
+      - name: Nessun codice applicativo - controllo in sola segnalazione
+        run: |
+          echo "G6 - Compatibilità di contratto: nessun oggetto oggi (V-182 vieta il codice applicativo prima di T-03, 26 settembre 2026)."
+          echo "Diventa bloccante il 2026-11-30 - chiusura di T-10 (RU-1), primo consumatore reale dell'interfaccia."

@@ -1,0 +1,6 @@
+# Riga bloccante ORDINARIA: bloccante_dal (campo 5) vuoto, come ogni riga bloccante corretta
+# della tabella reale. Serve a rilevare la regressione «read» al posto di «cut»: vedi il
+# commento sopra al caso "regressione lettura per posizione" in esegui-prove.sh. Letta per
+# POSIZIONE (cut, il codice attuale) è pienamente valida e deve PASSARE.
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Controllo sintetico per la regressione lettura/cut	completa	bloccante		T-09/2	scripts/finto.sh	caso sintetico di regressione lettura per posizione	Riga sintetica: la tabulazione vuota al campo 5 fa collassare read; con cut resta valida.

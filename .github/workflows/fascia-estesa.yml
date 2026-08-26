@@ -1,0 +1,32 @@
+# Fascia estesa - pianificata (docs/01_technical/09-integrazione-continua-e-rilascio.md §2).
+#
+# Vi appartengono, quando esisteranno, le prove da estremo a estremo, la media su rete simulata,
+# l'analisi dinamica, la copertura per mutazione e il ricontrollo delle dipendenze - tutte cose che
+# presuppongono codice applicativo o un artefatto in esercizio. V-182 vieta ogni riga di codice
+# applicativo prima della chiusura di T-03: oggi questa fascia non ha nulla da eseguire.
+#
+# Il flusso esiste comunque, con il proprio innesco, e lo dichiara. Un flusso che non esiste non si
+# può popolare quando servirà; un flusso che esiste e dice «nulla da verificare» è onesto e pronto
+# (.telemedic/piani/T-03-catena-di-costruzione.md §5.3, lavoro L-05).
+name: Fascia estesa
+
+on:
+  schedule:
+    # Nessuna cadenza è dichiarata in docs/01_technical/09 §2, che fissa solo «pianificata». La
+    # settimanale è una scelta prudente in assenza di un'indicazione più precisa, e va rivista
+    # quando la fascia avrà controlli reali da eseguire e un costo da misurare.
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  nulla-da-verificare:
+    name: Nessun codice applicativo - nulla da verificare
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dichiarazione esplicita dello stato
+        run: |
+          echo "Fascia estesa: nessun codice applicativo esiste ancora nel repository (V-182)."
+          echo "Nulla da verificare in questa esecuzione."

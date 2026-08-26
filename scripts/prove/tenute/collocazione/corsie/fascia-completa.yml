@@ -1,0 +1,15 @@
+# Corsia SINTETICA, non una corsia reale della pipeline.
+#
+# Serve come bersaglio statico della regola 5 di
+# scripts/verifica-collocazione-dei-controlli.sh («la corsia dichiarata esegue davvero il
+# controllo»), quando il collaudo punta la variabile d'ambiente CORSIE qui invece che su
+# .github/workflows. Nulla di ciò che sta qui viene eseguito: la verifica è testuale.
+name: Corsia sintetica di collaudo
+on:
+  workflow_dispatch:
+jobs:
+  lavoro-sintetico:
+    name: Lavoro sintetico
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./scripts/finto.sh

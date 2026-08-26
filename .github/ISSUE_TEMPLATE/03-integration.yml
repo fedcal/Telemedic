@@ -1,7 +1,7 @@
 name: 🔌 Richiesta di integrazione / Integration request
 description: Richiedi il supporto per l'integrazione con un sistema esterno o uno standard.
 title: "[integrazione]: "
-labels: ["type: integration", "status: triage"]
+labels: ["area: integrazione", "enhancement"]
 body:
   - type: markdown
     attributes:

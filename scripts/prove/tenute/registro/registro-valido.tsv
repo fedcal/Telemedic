@@ -1,0 +1,7 @@
+# Registro sintetico di collaudo - non è il registro del progetto (registro/identificativi-requisiti.tsv).
+# Identificativi nell'intervallo 9000-9999, riservato per convenzione a questo banco di prova, per
+# non collidere mai con gli identificativi reali del catalogo dei requisiti.
+data	identificativo	evento	fonte	nota
+2026-01-01	RF-9001	introdotto	collaudo	identificativo sintetico in vigore
+2026-01-02	RF-9002	introdotto	collaudo	identificativo sintetico poi ritirato
+2026-01-03	RF-9002	ritirato	collaudo	ritirato per collaudo del criterio 2

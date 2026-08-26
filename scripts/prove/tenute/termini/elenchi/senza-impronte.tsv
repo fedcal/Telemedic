@@ -1,0 +1,5 @@
+# Tenuta sintetica: elenco che dichiara un sale e NON contiene alcuna impronta ben formata.
+# Un elenco vuoto farebbe girare lo strato specifico senza cercare nulla: il controllo deve
+# rifiutarsi di girare a vuoto.
+sale	sale-di-esempio-non-usare-in-esercizio
+# impronta	(nessuna)

@@ -1,0 +1,2 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Corsia che non esegue lo script	completa	bloccante		T-09/1	scripts/mai-invocato.sh	caso sintetico citato nella tabella	Riga sintetica: dichiara la fascia completa ma la corsia non nomina lo script.

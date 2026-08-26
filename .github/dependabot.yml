@@ -1,0 +1,60 @@
+## Dependabot - aggiornamenti di sicurezza e di versione.
+##
+## Ecosistemi realmente presenti nel repository, verificati prima di scrivere questo file:
+## - npm in website/ (website/package.json, website/package-lock.json - il sito di documentazione,
+##   unico codice installabile oggi: il progetto è in fase di progettazione, CLAUDE.md).
+## - github-actions in .github/workflows/ (le corsie della catena di costruzione).
+## Nessun altro ecosistema esiste: nessun Dockerfile, nessun requirements.txt, nessun altro
+## package.json nel repository.
+##
+## Cadenza settimanale e raggruppamento degli aggiornamenti minori/di patch: sobria per un
+## progetto con un solo manutentore, che altrimenti si troverebbe una proposta di aggiornamento
+## al giorno da rivedere una per una.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/website"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "area: tecnica"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    groups:
+      # Aggiornamenti minori e di patch raggruppati in un'unica proposta: riduce il numero di
+      # proposte da rivedere senza nascondere gli aggiornamenti maggiori, che restano separati e
+      # vanno guardati uno per uno perché possono rompere la compatibilità.
+      aggiornamenti-minori:
+        update-types:
+          - "minor"
+          - "patch"
+    # ATTENZIONE - website/package.json dichiara un campo "overrides" che punta a due dipendenze
+    # TRANSITIVE (serialize-javascript, uuid), non dirette. È la causa isolata in C-3 del runbook
+    # (.telemedic/context/RUNBOOK-ERRORI-E-TRAPPOLE.md): con npm 11.6.3 e node 24.11.0, qualunque
+    # comando che risolve il grafo delle dipendenze con quell'"overrides" in campo - "npm ls" in
+    # testa, quindi anche "npm install" nella variante che Dependabot esegue per calcolare
+    # l'aggiornamento - può fallire dentro l'arborist di npm con l'errore
+    # "Cannot read properties of undefined (reading 'ruleset')". Una proposta di Dependabot che
+    # tocchi "serialize-javascript", "uuid" o il campo "overrides" stesso può quindi ripresentare
+    # lo stesso guasto, o far fallire il lavoro "Distinta dei materiali del sito" della catena di
+    # costruzione, che oggi genera la distinta con "npm ls" pieno (senza "--package-lock-only").
+    # Non è una regola che Dependabot possa rispettare da solo, e non la si traduce qui in un
+    # "ignore": bloccare in automatico gli aggiornamenti di sicurezza di questi due pacchetti
+    # sarebbe un rimedio peggiore del difetto. Va verificato a mano, prima di unire, ogni volta
+    # che una proposta tocca "serialize-javascript", "uuid" o "overrides" - non fra un mese,
+    # quando qualcuno lo scopre di nuovo per esclusione.
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "area: tecnica"
+    commit-message:
+      prefix: "ci"
+      include: "scope"

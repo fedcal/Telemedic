@@ -1,0 +1,3 @@
+# Registro sintetico di collaudo - deliberatamente malformato: una riga con 4 colonne invece di 5.
+data	identificativo	evento	fonte	nota
+2026-01-01	RF-9101	introdotto	collaudo

@@ -1,0 +1,3 @@
+# Registro sintetico di collaudo - non e' il registro reale del progetto.
+componente	versione	licenza_dichiarata	compatibilita_apache_2_0	motivo_inclusione	canale_di_avviso
+pacchetto-annotato-collaudo	1.0.0	MIT	compatibile	Componente sintetico usato solo dal banco di prova automatico.	https://esempio.invalid/releases

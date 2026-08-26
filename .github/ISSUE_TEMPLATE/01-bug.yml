@@ -1,7 +1,7 @@
 name: 🐛 Segnalazione di difetto / Bug report
 description: Segnala un comportamento non conforme a quanto documentato.
 title: "[bug]: "
-labels: ["type: bug", "status: triage"]
+labels: ["tipo: difetto"]
 body:
   - type: markdown
     attributes:

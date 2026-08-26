@@ -1,0 +1,6 @@
+# Registro sintetico di collaudo - deliberatamente malformato: un "introdotto" che segue un
+# "ritirato" per lo stesso identificativo. Il riuso è vietato dal criterio 3 di T-01.
+data	identificativo	evento	fonte	nota
+2026-01-01	RF-9104	introdotto	collaudo	prima introduzione
+2026-01-02	RF-9104	ritirato	collaudo	ritiro
+2026-01-03	RF-9104	introdotto	collaudo	riuso vietato, deve far fallire il controllo

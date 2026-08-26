@@ -1,0 +1,2 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Controllo che vive in due luoghi	completa	bloccante		T-09/1	scripts/finto.sh + .github/workflows/fascia-completa.yml#lavoro-sintetico	caso sintetico citato nella tabella	Riga sintetica: due meta diverse, la prima nella corsia dichiarata.

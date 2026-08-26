@@ -1,0 +1,2 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Fascia diversa dal luogo delleseguibile	completa	bloccante		T-09/1	.github/workflows/fascia-rapida.yml#altro-lavoro	caso sintetico citato nella tabella	Riga sintetica: dichiara completa ma il lavoro vive nella rapida.

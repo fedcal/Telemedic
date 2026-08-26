@@ -1,0 +1,141 @@
+# Fascia rapida - a ogni invio (docs/01_technical/09-integrazione-continua-e-rilascio.md §2).
+#
+# Sta qui ciò che deve intercettare un problema prima che la proposta di modifica esista: un
+# segreto committato è già nella cronologia di un repository pubblico nel momento in cui arriva a
+# GitHub, non quando qualcuno apre una pull request su di esso. Per questo l'innesco è il push, su
+# qualunque ramo, e non la sola pull request - è il motivo di collocazione dichiarato per G1 in
+# pipeline/collocazione-dei-controlli.tsv.
+name: Fascia rapida
+
+on:
+  push:
+  # Il push da solo non basta, e il motivo e' il fork. Un contributore esterno spinge sul PROPRIO
+  # repository: quel push non innesca nulla qui, e senza «pull_request» la sua proposta arriverebbe
+  # senza che la ricerca di segreti, i dati sintetici e le ancore l'abbiano mai vista. Peggio: se
+  # uno di questi controlli fosse fra quelli obbligatori della protezione del ramo, la proposta
+  # resterebbe bloccata per sempre in attesa di un controllo che non parte. I due inneschi non si
+  # sostituiscono - il push presidia la cronologia di questo repository, la pull request presidia
+  # il contributo che arriva da fuori - e per un progetto aperto servono entrambi.
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  segreti:
+    name: Ricerca di segreti
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  dati-sintetici:
+    name: Dati non sintetici (G10)
+    runs-on: ubuntu-latest
+    # G10 (tabella di 10_fondamenti/17-ambiente-di-sviluppo.md §9.2) - forme riconoscibili di
+    # identificativo reale nei sorgenti, nelle fixture e negli esempi. È l'automazione della prima
+    # regola non negoziabile del progetto: nessun dato reale di paziente, mai (CONTRIBUTING.md,
+    # CLAUDE.md). Sta nella fascia rapida e non nella completa per la stessa ragione di G1, non per
+    # il costo - che pure è di sei decimi di secondo sull'intero repository
+    # (scripts/verifica-dati-sintetici.sh): la proprietà che presidia è IRRECUPERABILE. Un dato
+    # reale committato resta nella cronologia del repository anche dopo che il file è stato
+    # corretto - è esattamente il criterio con cui il criterio 2 di T-03
+    # (docs/09_roadmap/02-traguardi.md) individua il sottoinsieme bloccante da subito: proprietà
+    # irrecuperabile o divieto pubblico, non comodità.
+    #
+    # OGGI QUESTO CONTROLLO FALLISCE, DELIBERATAMENTE NON ATTENUATO. Al momento in cui questo
+    # lavoro è stato scritto (26 agosto 2026) sono presenti sul ramo principale trentasette codici
+    # fiscali con carattere di controllo valido (DM 23 dicembre 1976): il controllo li segnala, e
+    # la correzione è in corso da parte di un altro agente e del coordinatore. Il lavoro resta
+    # bloccante e senza continue-on-error: un controllo "per ora" indulgente sulla regola non
+    # negoziabile numero uno del progetto sarebbe esattamente la riduzione temporanea che il
+    # criterio 4 di T-03 vieta di lasciar diventare permanente. Che la costruzione resti rossa
+    # finché i trentasette casi non sono corretti è il comportamento CORRETTO di questo lavoro, non
+    # un suo difetto.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-dati-sintetici.sh
+
+  ancore:
+    name: Riferimenti interni - ancore (G9, meta')
+    runs-on: ubuntu-latest
+    # G9 (docs/10_fondamenti/17-ambiente-di-sviluppo.md §9.2) fa fallire su un collegamento interno
+    # rotto. Questo lavoro copre solo la META' di G9: le ANCORE (#frammento), non i collegamenti fra
+    # documenti. Ogni rinvio con ancora deve trovare, nel documento bersaglio, un titolo che genera
+    # quell'ancora - su entrambe le lingue, verificate separatamente, perche' tradurre un titolo
+    # cambia l'ancora che genera e un rinvio non aggiornato punta a un ancoraggio che nella pagina
+    # tradotta non esiste piu'.
+    #
+    # PERCHE' ESISTE NONOSTANTE LA COSTRUZIONE DEL SITO SEGNALI GIA' LE ANCORE ROTTE. Le segnala e
+    # basta: la costruzione ESCE CON SUCCESSO lo stesso, perche' i tre criteri onBroken* di
+    # Docusaurus sono impostati a «warn». Un avviso che non ferma nulla non e' un controllo, e' una
+    # riga di log che nessuno legge finche' non serve. Portare quei criteri a «throw» e' il criterio
+    # 1 di T-07, non di questo lavoro: fino a quel momento, il sito costruito puo' pubblicare
+    # un'ancora rotta senza che nulla lo impedisca, ed e' esattamente il buco che questo controllo
+    # chiude nel frattempo.
+    #
+    # PERCHE' NELLA FASCIA RAPIDA E NON IN QUELLA COMPLETA. Costo contro beneficio, non comodita': lo
+    # script (Python puro, nessuna dipendenza da installare) impiega meno di un secondo a esaminare
+    # l'intero corpus, contro i minuti della costruzione del sito nel lavoro
+    # «dichiarazione-non-marcatura» di fascia-completa.yml. E' bloccante e senza continue-on-error
+    # dal primo giorno: non presuppone codice applicativo (V-182 non lo tocca, e' documentazione),
+    # quindi non c'e' ragione per farlo aspettare.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-ancore.sh
+
+  termini-vietati:
+    name: Regola di riservatezza R0 (G11) - in sola segnalazione fino al 2026-09-26
+    runs-on: ubuntu-latest
+    # G11 (tabella di docs/01_technical/09-integrazione-continua-e-rilascio.md §3 e di
+    # docs/10_fondamenti/17-ambiente-di-sviluppo.md §9.2) traduce in controllo la regola R0: nessun
+    # nome di azienda, marchio, prodotto commerciale o dominio di un potenziale partner compare in
+    # alcun artefatto del progetto, e si scrive sempre la categoria generica. La riservatezza
+    # protetta non e' del progetto: e' di un terzo, e il progetto la custodisce per conto suo.
+    #
+    # PERCHE' NELLA FASCIA RAPIDA, E NON NELLA COMPLETA. Non per il costo, che pure e' basso: un
+    # secondo e quattro decimi sull'intero repository, misurato il 26 agosto 2026 su
+    # quattrocentoquarantaquattro file di testo. La fascia la decide IL MOMENTO IN CUI IL DANNO SI PRODUCE, ed
+    # e' l'invio, non la proposta di modifica. Un nome protetto spinto su un repository pubblico e'
+    # pubblicato in quell'istante: viene clonato, indicizzato e archiviato prima che chiunque possa
+    # accorgersene, e la cronologia di git lo conserva anche dopo che il file e' stato corretto.
+    # La proprieta' che R0 presidia e' quindi IRRECUPERABILE - il piano di G11 la enuncia cosi',
+    # «un periodo di pubblicazione non si annulla» - ed e' lo stesso metro con cui il criterio 2 di
+    # T-03 colloca G1 e G10 in questa fascia. Un controllo di riservatezza che girasse solo alla
+    # proposta di modifica arriverebbe sempre dopo il fatto che doveva impedire.
+    #
+    # PERCHE' «continue-on-error» E CON UNA DATA. Il controllo oggi ESCE ROSSO, e non per un
+    # difetto: segnala centoventiquattro rilievi, di cui centodiciotto negli appunti di ricerca
+    # sotto .telemedic/, che sono citazioni di fonti - fra cui studi legali e societa' di
+    # consulenza regolatoria. Se R0 li riguardi non e' una decisione di chi contribuisce ne' di chi
+    # ha scritto il controllo: e' del committente, ed e' la questione aperta al §7 e §10 del piano
+    # .telemedic/piani/G11-regola-di-riservatezza.md. Renderlo bloccante prima di quella decisione
+    # produrrebbe un cancello sempre rosso, cioe' un cancello che nessuno legge piu' - il rischio
+    # gia' registrato in Q-288. La riduzione ha percio' una data e non e' a tempo indeterminato: il
+    # 26 settembre 2026, termine del criterio 2 di T-03, che e' anche il termine entro cui quella
+    # decisione va presa. La data e' dichiarata in pipeline/collocazione-dei-controlli.tsv, dove
+    # scripts/verifica-collocazione-dei-controlli.sh la sorveglia da se': dal giorno indicato,
+    # lasciare qui «continue-on-error» senza aggiornare quella riga fa fallire la fascia completa.
+    #
+    # CHE COSA QUESTO PASSO NON ESEGUE, DETTO PERCHE' UN VERDE NON VALGA PIU' DI QUANTO VALE.
+    # Lo strato SPECIFICO - l'elenco dei termini per impronta - resta spento: vive fuori dal
+    # repository per la ragione scritta nel piano (la storia di git non dimentica, e un elenco
+    # versionato sarebbe la violazione che il controllo esiste per impedire), e si accende
+    # impostando TERMINI_VIETATI_ELENCO su un file materializzato da un segreto della piattaforma.
+    # Finche' il committente non dichiara se quella lista esista, non c'e' nulla da montare. Il
+    # controllo lo dichiara da se' a ogni esecuzione, verde o rosso che sia.
+    # Restano inoltre non esaminati i MESSAGGI DI COMMIT, che R0 nomina esplicitamente: il
+    # controllo li esamina solo sull'intervallo indicato in TERMINI_VIETATI_COMMIT, e l'espressione
+    # che calcola quell'intervallo e' diversa per l'invio e per la proposta di modifica. Non e'
+    # scritta qui perche' nessuno l'ha ancora eseguita sulla piattaforma, e un'espressione non
+    # provata che finisse in errore di configurazione darebbe un rosso che non riguarda R0. E'
+    # debito dichiarato, non copertura.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-termini-vietati.sh

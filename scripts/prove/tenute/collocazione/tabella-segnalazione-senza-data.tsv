@@ -1,0 +1,4 @@
+# Viola la regola 2: una riga in sola segnalazione senza data di scadenza
+# è, per il README, una rinuncia non dichiarata.
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Controllo sintetico in segnalazione senza scadenza	completa	segnalazione		T-09/1	scripts/finto.sh	caso sintetico citato nella tabella	Riga sintetica: manca bloccante_dal mentre stato è segnalazione.

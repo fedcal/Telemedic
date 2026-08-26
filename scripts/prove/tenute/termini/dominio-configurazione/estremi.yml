@@ -1,0 +1,5 @@
+# Tenuta sintetica: un nome di host inventato dentro un file di configurazione di esempio.
+# Il nome non appartiene ad alcun soggetto reale.
+estremo:
+  base: https://portale-fittizio-beta.cloud/api/v1
+  scadenza: 30s

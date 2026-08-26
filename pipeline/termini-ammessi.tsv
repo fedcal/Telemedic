@@ -1,0 +1,230 @@
+# Elenco di ammissione del controllo G11 - regola di riservatezza R0.
+#
+# QUESTO FILE E' IL COMPLEMENTO DELLA LISTA DEI TERMINI VIETATI, ED E' IL MOTIVO PER CUI QUELLA
+# LISTA NON STA IN QUESTO REPOSITORIO. Un elenco di cio' che e' vietato, pubblicato, e' la
+# violazione che il controllo esiste per impedire: pubblica i nomi che R0 protegge, e li pubblica
+# con l'etichetta che li rende interessanti. Un elenco di cio' che e' AMMESSO non ha questo
+# difetto: contiene soltanto nomi gia' presenti in chiaro nel corpus - organismi di normazione,
+# istituzioni pubbliche, domini riservati dalle RFC, infrastruttura tecnica del progetto - e non
+# dice nulla su nessun rapporto commerciale. Il ragionamento per esteso e' in
+# .telemedic/piani/G11-regola-di-riservatezza.md.
+#
+# QUI VIVONO ANCHE LE ECCEZIONI. Il controllo non ha marcatore da riga: chi ha bisogno di citare
+# un dominio o un nome commerciale aggiunge una riga qui, con il motivo, e la riga passa in
+# revisione insieme alla modifica. Un marcatore sparso nei file sarebbe invisibile a chi rivede;
+# una riga in questo file no. E' una divergenza deliberata da scripts/verifica-dati-sintetici.sh,
+# che il marcatore da riga lo ammette: li' l'ammissione riguarda un recapito che il progetto
+# pubblica per obbligo, qui riguarda una riservatezza altrui.
+#
+# Formato: valori separati da tabulazione, righe di commento con «#», prima riga non commentata
+# di intestazione. Tre colonne.
+#
+#   tipo    dominio | nome | coordinata
+#   valore  per «dominio»: nome di host esatto, oppure «*.suffisso» che vale per il suffisso
+#           stesso e per ogni host che vi termina. Per «nome»: la forma normalizzata (minuscole,
+#           tutto cio' che non e' lettera o cifra ridotto a uno spazio) del nome ammesso accanto a
+#           un marcatore di marchio o a una forma societaria. Per «coordinata»: il segmento di
+#           fornitore ammesso in un identificativo a dominio inverso o in un ambito di pacchetto.
+#   motivo  perche' e' ammesso. Non e' decorazione: e' il campo che permette di rivedere questo
+#           file fra un anno senza ricostruire a memoria chi ha aggiunto che cosa.
+#
+# CHE COSA NON VA MESSO QUI. Il nome di un'azienda con cui il progetto ha, ha avuto o potrebbe
+# avere un rapporto. Se serve nominarla, la risposta non e' questo file: e' la riformulazione in
+# categoria generica - «un gestionale sanitario cloud», «l'integratore», «un organismo notificato».
+#
+# STATO DELLA COMPILAZIONE AL 26 AGOSTO 2026. Le sezioni 1-4 sono compilate con cio' che e'
+# evidentemente non commerciale. La sezione 5 e' una PROPOSTA e va confermata dal committente:
+# sono soggetti commerciali, citati nel corpus come infrastruttura tecnica o come fonte, e la
+# decisione se R0 li riguardi non spetta a chi ha scritto questo controllo. Finche' non e'
+# confermata, resta attiva: toglierla produrrebbe oltre centocinquanta rilievi e un controllo che
+# grida sempre non viene letto.
+tipo	valore	motivo
+#
+# --- 1. Domini riservati: non sono assegnabili a nessuno, quindi non nominano nessuno. ---
+# RFC 2606 e RFC 6761. Stessa scelta gia' fatta da scripts/verifica-dati-sintetici.sh.
+dominio	*.example	RFC 2606: dominio riservato alla documentazione, non assegnabile
+dominio	*.invalid	RFC 2606: marca riservata, non risolvibile per costruzione
+dominio	*.test	RFC 2606: marca riservata alle prove
+dominio	*.localhost	RFC 6761: nome riservato all'host locale
+dominio	example.com	RFC 2606: dominio riservato alla documentazione
+dominio	*.example.com	RFC 2606: sottodomini del dominio riservato
+dominio	*.example.net	RFC 2606: sottodomini del dominio riservato
+dominio	*.example.org	RFC 2606: sottodomini del dominio riservato
+dominio	example.net	RFC 2606: dominio riservato alla documentazione
+dominio	example.org	RFC 2606: dominio riservato alla documentazione
+dominio	127.0.0.1	Indirizzo di anello locale, RFC 5735: non e' un nome
+dominio	169.254.169.254	Indirizzo di servizio dei metadati di istanza, citato nel modello di minaccia
+#
+# --- 2. Organismi di normazione e specifiche aperte. ---
+dominio	*.hl7.org	Organismo di normazione: specifiche FHIR e HL7 v2
+dominio	*.hl7.it	Affiliata nazionale dell'organismo di normazione: guide di implementazione italiane
+dominio	*.hl7.eu	Affiliata europea dell'organismo di normazione
+dominio	hl7.org	Organismo di normazione
+dominio	hl7.it	Affiliata nazionale dell'organismo di normazione
+dominio	build.fhir.org	Costruzione continua delle specifiche FHIR
+dominio	*.fhir.org	Specifiche FHIR
+dominio	loinc.org	Sistema di codifica aperto, citato per identificatore
+dominio	*.loinc.org	Sistema di codifica aperto
+dominio	snomed.info	Spazio dei nomi degli identificatori di sistema, citato senza contenuto
+dominio	*.snomed.org	Ente della terminologia, citato per licenza e non per contenuto
+dominio	mlds.ihtsdotools.org	Servizio di distribuzione della terminologia, citato per la procedura di licenza
+dominio	*.ihtsdotools.org	Ente della terminologia
+dominio	ucum.org	Specifica aperta delle unita' di misura
+dominio	unitsofmeasure.org	Specifica aperta delle unita' di misura
+dominio	dicom.nema.org	Organismo di normazione dell'imaging
+dominio	*.dicomstandard.org	Organismo di normazione dell'imaging
+dominio	*.ihe.net	Iniziativa di profili di integrazione
+dominio	*.openehr.org	Specifica aperta di cartella clinica
+dominio	openehr.org	Specifica aperta di cartella clinica
+dominio	*.w3.org	Organismo di normazione del web
+dominio	*.ietf.org	Organismo di normazione di Internet
+dominio	*.rfc-editor.org	Archivio ufficiale delle RFC
+dominio	iana.org	Autorita' di assegnazione dei numeri di Internet
+dominio	*.iana.org	Autorita' di assegnazione dei numeri di Internet
+dominio	json-schema.org	Specifica aperta
+dominio	*.openapis.org	Specifica aperta di descrizione delle interfacce
+dominio	ndjson.org	Specifica aperta del formato a oggetti JSON delimitati da riga
+dominio	*.unicode.org	Organismo di normazione della codifica dei caratteri
+dominio	*.itu.int	Agenzia delle Nazioni Unite per le telecomunicazioni
+dominio	uri.etsi.org	Spazio dei nomi dell'istituto europeo di normazione delle telecomunicazioni
+dominio	*.iso.org	Organizzazione internazionale per la normazione
+dominio	editorconfig.org	Specifica aperta di configurazione degli editor
+dominio	developercertificate.org	Testo del Developer Certificate of Origin, richiesto da CONTRIBUTING.md
+dominio	reuse.software	Specifica aperta di dichiarazione delle licenze
+dominio	*.apache.org	Fondazione che pubblica la licenza del progetto
+dominio	*.gnu.org	Fondazione che pubblica i testi di licenza citati
+dominio	*.contributor-covenant.org	Testo del codice di condotta adottato
+dominio	*.spdx.org	Specifica aperta degli identificatori di licenza
+dominio	schema.org	Vocabolario aperto di dati strutturati, usato dal generatore del sito
+dominio	*.sitemaps.org	Specifica aperta della mappa del sito
+dominio	opensource.org	Open Source Initiative: testi delle licenze approvate
+#
+# --- 3. Istituzioni pubbliche e autorita'. ---
+dominio	*.gov.it	Pubblica amministrazione italiana
+dominio	*.europa.eu	Istituzioni dell'Unione europea
+dominio	*.eu.int	Istituzioni dell'Unione europea, forma storica
+dominio	*.who.int	Organizzazione mondiale della sanita'
+dominio	*.nih.gov	Istituti nazionali della sanita' statunitensi
+dominio	*.nlm.nih.gov	Biblioteca nazionale di medicina statunitense
+dominio	*.nist.gov	Istituto nazionale di normazione statunitense
+dominio	*.cdc.gov	Centri per il controllo delle malattie statunitensi
+dominio	*.bfarm.de	Autorita' federale tedesca per i dispositivi medici
+dominio	*.fhi.no	Istituto nazionale norvegese di sanita' pubblica, centro collaboratore ATC/DDD
+dominio	*.whocc.no	Centro collaboratore dell'Organizzazione mondiale della sanita' per l'ATC/DDD
+dominio	publ.iss.it	Istituto superiore di sanita'
+dominio	*.iss.it	Istituto superiore di sanita'
+dominio	*.accredia.it	Ente unico nazionale di accreditamento
+dominio	*.normattiva.it	Banca dati ufficiale della normativa italiana
+dominio	*.gazzettaufficiale.it	Gazzetta ufficiale della Repubblica italiana
+dominio	*.garanteprivacy.it	Autorita' garante per la protezione dei dati personali
+dominio	*.statoregioni.it	Conferenza permanente Stato-Regioni
+dominio	*.regione.emilia-romagna.it	Bollettino ufficiale regionale, citato come fonte normativa
+dominio	*.fnomceo.it	Federazione nazionale degli ordini dei medici
+dominio	*.genenames.org	Comitato di nomenclatura dei geni, ente accademico
+dominio	*.edpb.europa.eu	Comitato europeo per la protezione dei dati
+dominio	*.italia.it	Portali della pubblica amministrazione italiana per la trasformazione digitale
+#
+# --- 4. Infrastruttura del progetto stesso. ---
+dominio	fedcal.github.io	Sito di documentazione pubblicato dal progetto
+dominio	federicocalo.dev	Dominio del manutentore, gia' dichiarato in publiccode.yml
+#
+# --- 4bis. Fornitori di posta al consumo. ---
+# Sono soggetti commerciali, e stanno qui per una ragione funzionale: scripts/verifica-dati-sintetici.sh
+# li elenca in chiaro perche' e' su quella distinzione che il controllo G10 riconosce il recapito
+# di una persona fisica, e la documentazione li cita per lo stesso motivo. Nessuno di essi e' un
+# rapporto del progetto. L'accoppiamento fra i due controlli e' deliberato: chi allunga l'elenco
+# dentro G10 deve dichiarare qui il dominio che ha aggiunto, e quella dichiarazione passa in
+# revisione. E' l'unico punto del repository in cui un elenco di domini reali puo' crescere senza
+# che nessuno se ne accorga, e ora non puo' piu'.
+dominio	gmail.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	googlemail.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	hotmail.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	hotmail.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	outlook.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	outlook.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	live.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	live.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	msn.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	yahoo.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	yahoo.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	ymail.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	icloud.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	me.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	aol.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	gmx.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	gmx.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	proton.me	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	protonmail.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	tutanota.com	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	libero.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	virgilio.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	alice.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	tin.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	tiscali.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	inwind.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	iol.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	fastwebnet.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	email.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	teletu.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+dominio	poste.it	Fornitore di posta al consumo, elencato da G10 per ragione funzionale
+#
+# --- 5. PROPOSTA da confermare: soggetti commerciali citati come infrastruttura o come fonte. ---
+# Non sono partner: sono la piattaforma su cui il progetto e' ospitato, il registro da cui si
+# scaricano le dipendenze, e le fonti tecniche dei fornitori di navigatore. La decisione se R0 li
+# riguardi appartiene al committente. Vedi la questione aperta in coda al documento di
+# progettazione: se la risposta e' che R0 li riguarda, queste righe si tolgono e le citazioni si
+# riformulano.
+dominio	*.github.com	Piattaforma su cui il repository e' ospitato: e' infrastruttura, non un rapporto commerciale
+dominio	*.githubusercontent.com	Contenuti serviti dalla stessa piattaforma
+dominio	*.github.io	Servizio di pubblicazione delle pagine della stessa piattaforma
+dominio	*.npmjs.org	Registro pubblico dei pacchetti da cui si scaricano le dipendenze dichiarate
+dominio	*.npmjs.com	Registro pubblico dei pacchetti
+dominio	*.shields.io	Servizio di generazione dei distintivi del README
+dominio	*.mozilla.org	Documentazione tecnica del web, citata come fonte
+dominio	*.chromium.org	Documentazione tecnica del motore di navigazione, citata come fonte su WebRTC
+dominio	chromestatus.com	Registro pubblico dello stato delle funzionalita' del navigatore
+dominio	*.googlesource.com	Codice sorgente della libreria crittografica citata come fonte
+dominio	groups.google.com	Archivio pubblico delle liste di discussione degli organismi di normazione
+dominio	webkit.org	Documentazione tecnica del motore di navigazione, citata come fonte
+dominio	*.webkit.org	Documentazione tecnica del motore di navigazione
+dominio	*.wikipedia.org	Enciclopedia libera, citata come fonte divulgativa
+dominio	packages.simplifier.net	Registro pubblico dei pacchetti di profili FHIR
+dominio	opencollective.com	Piattaforma di finanziamento dichiarata dai componenti a monte e dal progetto
+dominio	tidelift.com	Piattaforma di finanziamento dichiarata dai componenti a monte
+dominio	ko-fi.com	Piattaforma di finanziamento citata fra le opzioni di sostegno
+dominio	liberapay.com	Piattaforma di finanziamento citata fra le opzioni di sostegno
+dominio	*.patreon.com	Piattaforma di finanziamento citata fra le opzioni di sostegno
+dominio	docusaurus.io	Generatore del sito di documentazione, componente gia annotato nel registro
+dominio	*.docusaurus.io	Generatore del sito di documentazione
+#
+# --- 6. Nomi ammessi accanto a un marcatore di marchio o a una forma societaria. ---
+# Il marcatore di marchio registrato accanto a questi nomi non e' una citazione commerciale: e'
+# un OBBLIGO di attribuzione imposto dalle rispettive politiche di marchio, e toglierlo sarebbe
+# un difetto. Le forme sono normalizzate: minuscole, tutto cio' che non e' lettera o cifra
+# ridotto a uno spazio.
+nome	hl7	Attribuzione di marchio obbligatoria dell'organismo di normazione
+nome	fhir	Attribuzione di marchio obbligatoria dell'organismo di normazione
+nome	snomed	Attribuzione di marchio obbligatoria dell'ente della terminologia
+nome	snomed ct	Attribuzione di marchio obbligatoria dell'ente della terminologia
+nome	loinc	Attribuzione di marchio obbligatoria dell'ente della terminologia
+nome	ucum	Attribuzione di marchio obbligatoria dell'ente della terminologia
+nome	dicom	Attribuzione di marchio obbligatoria dell'organismo di normazione
+nome	ihe	Attribuzione di marchio obbligatoria dell'iniziativa di profili
+nome	openehr	Attribuzione di marchio obbligatoria della fondazione
+nome	rxnorm	Attribuzione di marchio della biblioteca nazionale di medicina statunitense
+nome	snomed clinical terms	Forma estesa del marchio dell'ente della terminologia
+nome	health level seven	Forma estesa del nome dell'organismo di normazione
+nome	cda	Marchio dell'organismo di normazione: architettura dei documenti clinici
+nome	ccd	Marchio dell'organismo di normazione: sommario di continuita' assistenziale
+#
+# --- 7. Segmenti di fornitore ammessi nelle coordinate a dominio inverso. ---
+# La regola per aggiungerne uno: un segmento entra qui solo se il componente corrispondente e'
+# gia' annotato in pipeline/annotazioni-componenti.tsv, cioe' solo se e' gia' stato valutato.
+# Oggi ci sono soltanto il progetto stesso, gli organismi di normazione e i segnaposto generici
+# usati negli esempi: non esiste ancora codice applicativo, e la sezione crescera' con T-08.
+coordinata	telemedic	Spazio dei nomi degli eventi del progetto stesso
+coordinata	hl7	Spazio dei nomi delle risorse dell'organismo di normazione (org.hl7.fhir)
+coordinata	riuso	Chiavi del formato publiccode.yml della pubblica amministrazione italiana
+coordinata	conforme	Chiavi del formato publiccode.yml della pubblica amministrazione italiana
+coordinata	example	Segnaposto degli esempi, sotto dominio riservato dalla RFC 2606
+coordinata	fornitore	Segnaposto generico degli esempi: e' la categoria, non un nome

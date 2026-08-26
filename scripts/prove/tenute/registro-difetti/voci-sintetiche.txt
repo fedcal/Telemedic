@@ -1,0 +1,5 @@
+# Elenco sintetico di collaudo per scripts/verifica-registro-dei-difetti.sh (VOCI_CANONICHE_FILE).
+# Due voci fittizie, nella famiglia reale A ma con numerazione fuori dall'intervallo reale
+# (A-1..A-4, A-1bis) per non collidere mai con le voci vere del runbook.
+A-90
+A-91
