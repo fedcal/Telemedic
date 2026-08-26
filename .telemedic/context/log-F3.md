@@ -1,4 +1,4 @@
-# Log agente F3 — modulo 08 «WebRTC da zero»
+# Log agente F3 - modulo 08 «WebRTC da zero»
 
 **Data**: 25 agosto 2026
 **Deliverable prodotto**: `docs/10_fondamenti/08-webrtc-da-zero.md` (unico file)
@@ -14,9 +14,9 @@
 | Dato | Valore |
 |---|---|
 | Righe non vuote | **2 326** |
-| Parole (stima su densità media del file, prosa + tabelle + codice) | **~15 000–17 000** — ampiamente sopra il minimo di 9 000 richiesto |
+| Parole (stima su densità media del file, prosa + tabelle + codice) | **~15 000–17 000** - ampiamente sopra il minimo di 9 000 richiesto |
 | Sezioni numerate | 14, più «Cosa devi ricordare» (32 punti) e «Termini introdotti» (78 voci) |
-| Diagrammi Mermaid | 5 — sequenza offerta/risposta, raccolta dei candidati, handshake DTLS, attacco dell'intermediario, topologie |
+| Diagrammi Mermaid | 5 - sequenza offerta/risposta, raccolta dei candidati, handshake DTLS, attacco dell'intermediario, topologie |
 | Blocchi di codice | 12 (SDP commentato in 6 blocchi, JavaScript, YAML, bash, sdp candidati) |
 | Frontmatter | `title: WebRTC da zero`, `sidebar_position: 9`, `description` completa |
 
@@ -88,11 +88,11 @@ al posto di 5245/5389/5766; RFC 8839 per il profilo SDP di ICE.
 | NV-4 | Sovraccarico di bitrate della correzione d'errore Opus (10–30 %) | §7.2 | Agente Testing |
 | NV-5 | Efficienza relativa di VP9 rispetto a VP8 | §7.3 | Non citare cifre finché non misurate |
 | NV-6 | Stato di AV1 in WebRTC su Safari e iOS | §7.3 | Agente Frontend |
-| NV-7 | Intero bilancio del ritardo dalla telecamera al display (tabella per stadio) | §8.2 | Agente Testing — è il numero che rende verificabile D19 |
+| NV-7 | Intero bilancio del ritardo dalla telecamera al display (tabella per stadio) | §8.2 | Agente Testing - è il numero che rende verificabile D19 |
 | NV-8 | Costo relativo del fotogramma completo (5–10× un differenziale) | §8.4 | Agente Testing |
 | NV-9 | Presenza di coefficienti di degrado per Opus in ITU-T G.113 App. I e copertura di Opus in G.107.2 | §9.5 | Agente Compliance / QoE |
-| NV-10 | **Esistenza di requisiti tecnici minimi (risoluzione, fps, latenza) nelle indicazioni nazionali italiane per la telemedicina** | §9.6 e punto 25 di «Cosa devi ricordare» | **Agente Compliance — prioritario: se esistessero, prevarrebbero sulle soglie proposte** |
-| NV-11 | Algoritmo di hash sottostante all'HMAC delle credenziali temporanee del relay | §11.2 | Agente Testing — da chiudere con un test di integrazione, non con una citazione |
+| NV-10 | **Esistenza di requisiti tecnici minimi (risoluzione, fps, latenza) nelle indicazioni nazionali italiane per la telemedicina** | §9.6 e punto 25 di «Cosa devi ricordare» | **Agente Compliance - prioritario: se esistessero, prevarrebbero sulle soglie proposte** |
+| NV-11 | Algoritmo di hash sottostante all'HMAC delle credenziali temporanee del relay | §11.2 | Agente Testing - da chiudere con un test di integrazione, non con una citazione |
 | NV-12 | Supporto di `video/webm` in registrazione su Chrome iOS | §12.2 | Agente Frontend |
 
 Voci dell'Appendice B di R4 che restano fuori dal perimetro di questo modulo e non sono
@@ -163,7 +163,7 @@ esatto del field trial per forzare DTLS 1.3.
 
 ### Agente Accessibilità
 
-18. **SAS accessibile** — vincoli D22 già enunciati nel modulo (screen reader, mai solo
+18. **SAS accessibile** - vincoli D22 già enunciati nel modulo (screen reader, mai solo
     colore, comprensibile a paziente anziano, procedura in caso di discordanza): servono il
     design e i test con tecnologie assistive reali.
 19. **Indicatore di registrazione persistente e non occultabile** su entrambi i lati, con
@@ -175,7 +175,7 @@ esatto del field trial per forzare DTLS 1.3.
 
 21. **Fixture Y4M con contatore di tempo impresso** e infrastruttura di lettura per la misura
     automatica della latenza; con il vincolo che è realizzabile **solo su Chromium**
-    (§13.1) — serve una strategia alternativa dichiarata per Firefox.
+    (§13.1) - serve una strategia alternativa dichiarata per Firefox.
 22. **Profili `netem` come costanti condivise** (§13.2), applicati in composizione di
     contenitori.
 23. **Tre test del relay**: credenziale reale, percorso forzato + percorso realistico,
@@ -206,30 +206,30 @@ esatto del field trial per forzare DTLS 1.3.
 Estratti dalla tabella di chiusura del modulo. Sono 78; qui sono raggruppati per area per
 facilitare l'inserimento nel glossario bilingue del modulo 14.
 
-**Rete di base** — WebRTC; UDP; TCP; blocco di testa coda (*head-of-line blocking*); porta;
+**Rete di base** - WebRTC; UDP; TCP; blocco di testa coda (*head-of-line blocking*); porta;
 cinquina (*five-tuple*); NAT; NAT simmetrico; CGNAT; isolamento dei client; mDNS; contesto
 sicuro; emulatore di rete (*netem*).
 
-**Segnalazione** — segnalazione (*signaling*); SDP; offerta/risposta; JSEP; BUNDLE; sezione
+**Segnalazione** - segnalazione (*signaling*); SDP; offerta/risposta; JSEP; BUNDLE; sezione
 media (`m=`); `a=fingerprint`; `a=setup`; collisione delle offerte (*glare*); negoziazione
 perfetta.
 
-**Attraversamento del NAT** — ICE; candidato; candidato host; candidato server-reflexive;
+**Attraversamento del NAT** - ICE; candidato; candidato host; candidato server-reflexive;
 candidato peer-reflexive; candidato relayed; fondazione (*foundation*); controllo di
 connettività; nomina; controllo di consenso; STUN; TURN; allocazione; permesso; legame di
 canale; Trickle ICE; riavvio di ICE; credenziale temporanea.
 
-**Sicurezza del media** — DTLS; SRTP; DTLS-SRTP; profilo di protezione; attacco
+**Sicurezza del media** - DTLS; SRTP; DTLS-SRTP; profilo di protezione; attacco
 dell'intermediario; SAS (*Short Authentication String*); `KeyUpdate`; SFrame; falsificazione
 di richieste a livello di trasporto; isolamento di rete in uscita.
 
-**Codec e qualità** — codec; Opus; correzione d'errore incorporata (`useinbandfec`);
+**Codec e qualità** - codec; Opus; correzione d'errore incorporata (`useinbandfec`);
 trasmissione discontinua (`usedtx`); G.711; VP8 / VP9 / H.264 / AV1; jitter; jitter buffer;
 RTT; controllo della congestione; retroazione sul trasporto (`transport-cc`); preferenza di
 degrado; `NACK` / `RTX`; `PLI` / `FIR`; fotogramma completo (*keyframe*); correzione d'errore
 in avanti (FEC).
 
-**Topologie e registrazione** — mesh; inoltro selettivo (SFU); composizione (MCU);
+**Topologie e registrazione** - mesh; inoltro selettivo (SFU); composizione (MCU);
 contenitore.
 
 Le definizioni brevi complete sono già scritte, verbatim, nella tabella «Termini introdotti

@@ -1,27 +1,27 @@
-# Log agente B4 — Cybersecurity normativa (NIS2, ACN, L. 90/2024, CRA, AgID)
+# Log agente B4 - Cybersecurity normativa (NIS2, ACN, L. 90/2024, CRA, AgID)
 
-**Output**: `.telemedic/research/B4-cybersecurity-normativa.md` — 16 sezioni.
+**Output**: `.telemedic/research/B4-cybersecurity-normativa.md` - 16 sezioni.
 Contiene **58 requisiti verificabili numerati SEC-001…SEC-058**, la **matrice di sovrapposizione**
 fra 9 fonti normative, e il piano operativo «Che cosa deve fare il progetto entro il 31 ottobre 2026».
 Risponde alla **questione Q10** di R3.
 
-## ESITO DELLA VERIFICA RICHIESTA — gli estremi delle determinazioni ACN
+## ESITO DELLA VERIFICA RICHIESTA - gli estremi delle determinazioni ACN
 
 R3 li riportava da fonte secondaria. **Letti su fonte primaria (PDF firmati digitalmente, sito ACN).**
 
 | Dato R3 | Esito |
 |---|---|
 | Det. ACN n. **379907/2025**, specifiche di base | ✅ **CONFERMATO**. Integrazione: la data è **19 dicembre 2025** (firma 18.12.2025, pubblicazione 24.12.2025) |
-| Efficace dal **15 gennaio 2026** | ✅ **CONFERMATO** — art. 9, c. 3 |
-| Sostituisce «una versione dell'aprile 2025» | ✅ **CONFERMATO e precisato** — art. 9, c. 1: sostituisce la **Det. ACN n. 164179 del 14 aprile 2025** |
+| Efficace dal **15 gennaio 2026** | ✅ **CONFERMATO** - art. 9, c. 3 |
+| Sostituisce «una versione dell'aprile 2025» | ✅ **CONFERMATO e precisato** - art. 9, c. 1: sostituisce la **Det. ACN n. 164179 del 14 aprile 2025** |
 | «da 37 a 43 misure» | ✅ **CONFERMATO su fonte ACN**: **37 misure / 87 requisiti** per i soggetti importanti (All. 1), **43 misure / 116 requisiti** per gli essenziali (All. 2) |
-| Det. ACN n. **379887/2025**, Portale NIS, dal 31 dicembre 2025 | ⚠️ **NON verificato sul testo** — coerente con tutte le fonti secondarie; sostituisce la Det. 333017/2025 |
+| Det. ACN n. **379887/2025**, Portale NIS, dal 31 dicembre 2025 | ⚠️ **NON verificato sul testo** - coerente con tutte le fonti secondarie; sostituisce la Det. 333017/2025 |
 | Finestra di registrazione **1° gennaio – 28 febbraio** | ✅ confermata (art. 11 Det. 379887/2025) |
 | «attuazione dimostrabile entro il 31 ottobre 2026» | ⚠️ **IMPRECISO come regola**. Vedi punto 1 sotto |
 
 ## FATTI CHE CAMBIANO LE DECISIONI DI PROGETTO
 
-### 1. Il «31 ottobre 2026» non è scritto in nessun atto — ed esistono due determinazioni che R3 non poteva conoscere
+### 1. Il «31 ottobre 2026» non è scritto in nessun atto - ed esistono due determinazioni che R3 non poteva conoscere
 La regola è **«18 mesi dalla ricezione della comunicazione di inserimento nell'elenco»** (art. 3,
 c. 1, Det. 379907/2025). ACN ha iniziato a inviare le comunicazioni il **12 aprile 2025**: per la
 prima ondata i 18 mesi maturano **entro il 31 ottobre 2026**. **Il termine è soggettivo: ogni cliente
@@ -34,7 +34,7 @@ ha la propria data.** Per la notifica degli incidenti il termine è **9 mesi** (
 - **Det. ACN n. 127437 del 13 aprile 2026**: introduce l'**art. 18 sui «fornitori rilevanti»**
   (punto 2).
 
-### 2. L'obbligo che tocca Telemedic più da vicino: l'elenco dei fornitori rilevanti — CRITICO
+### 2. L'obbligo che tocca Telemedic più da vicino: l'elenco dei fornitori rilevanti - CRITICO
 L'**art. 18 della Det. ACN 127437/2026** obbliga ogni soggetto NIS a **dichiarare nominativamente ad
 ACN**, fra il **15 aprile e il 31 maggio** di ogni anno, i propri fornitori rilevanti, con cinque
 dati: ragione sociale, codice fiscale, **Paese della sede legale**, **codici CPV**, criterio di
@@ -53,7 +53,7 @@ Tre conseguenze immediate:
 - ogni dipendenza *runtime* di Telemedic (TURN gestito, push, CDN, firma remota) diventa fornitore
   rilevante di secondo livello per il cliente: **V1 riduce la superficie dichiarativa del cliente**.
 
-### 3. ACN riconosce esplicitamente il conflitto MDR/NIS2 — e ci lascia una porta
+### 3. ACN riconosce esplicitamente il conflitto MDR/NIS2 - e ci lascia una porta
 La *Guida alla lettura* ACN, § 2.3.3, illustra la clausola «fatte salve motivate e documentate
 ragioni normative o tecniche» proprio con il caso dei dispositivi medici: l'installazione di sistemi
 di protezione degli *endpoint* (misura `DE.CM-09`) «ne potrebbe invalidare la certificazione».
@@ -61,7 +61,7 @@ La deroga è ammessa ma richiede **misure compensative documentate nel piano di 
 rischio**. → **Telemedic deve fornire una dichiarazione tecnica di deroga** (SEC-010) che il cliente
 possa allegare. Senza, il cliente non può chiudere la misura.
 
-### 4. Il Cyber Resilience Act NON si applica a Telemedic marcato CE — ma si applica ai suoi pezzi
+### 4. Il Cyber Resilience Act NON si applica a Telemedic marcato CE - ma si applica ai suoi pezzi
 **Art. 2, par. 2 del Reg. (UE) 2024/2847: il CRA non si applica ai prodotti cui si applica l'MDR
 2017/745.** La decisione D6 (marcatura CE Classe I) **esclude** il prodotto dal CRA.
 **Ma l'esclusione è per prodotto, non per progetto.** SDK Java, SDK TypeScript, Web Component
@@ -84,10 +84,10 @@ no.
   cibersicurezza documentata, cooperazione con le autorità, art. 14 nei limiti dello sviluppo.
   **Nessuna sanzione, nessuna marcatura CE.**
 - **Chi monetizza diventa fabbricante**; **chi integra Telemedic in un prodotto commerciale è
-  fabbricante del prodotto risultante**. **Apache-2.0 non trasferisce obblighi regolatori** — va
+  fabbricante del prodotto risultante**. **Apache-2.0 non trasferisce obblighi regolatori** - va
   scritto esplicitamente nella documentazione, perché è la prima domanda dell'integratore.
 
-### 6. L'audit log immutabile NON è Hibernate Envers — decisione architetturale da prendere subito
+### 6. L'audit log immutabile NON è Hibernate Envers - decisione architetturale da prendere subito
 Envers **versiona**, non rende immutabile: le tabelle `_aud` sono modificabili da chiunque abbia
 privilegi sulla base dati. Il vincolo **V5**, il requisito **R30** delle linee guida AgID sul
 procurement («log non cancellabile con il reset»), l'ABSC 3.5.1 e la misura `PR.PS-04` richiedono
@@ -104,7 +104,7 @@ IS-3 violazione dei livelli di servizio) e **4 per gli essenziali** (+ IS-4 acce
   di **disponibilità per tenant e per servizio**, distinta dalle metriche di qualità della sessione
   già previste su TimescaleDB (SEC-037).
 - **IS-4 è, letteralmente, l'accesso indebito alla cartella clinica da parte di personale
-  autorizzato** — il caso più frequente nei provvedimenti del Garante. Richiede «parametri
+  autorizzato** - il caso più frequente nei provvedimenti del Garante. Richiede «parametri
   quali-quantitativi» (es. soglia di interrogazioni per utente; accesso di un amministratore fuori
   orario). → l'audit log deve essere **interrogabile per soglie e pattern**, non solo consultabile
   (SEC-020, SEC-031).
@@ -125,8 +125,8 @@ AgID **raccomanda alle amministrazioni di attingere dall'Appendice A** anziché 
   «la **sequenza temporale degli eventi**»; **log in CSV o TXT entro il giorno successivo alla
   richiesta**. → sono la specifica funzionale di SEC-035, SEC-036, SEC-039.
 
-Ulteriore effetto di **AP2**: per le acquisizioni di **alta criticità** — e un sistema di
-telemedicina lo è per definizione (il DM lo qualifica *ex ante* «fornitura critica per la PA») —
+Ulteriore effetto di **AP2**: per le acquisizioni di **alta criticità** - e un sistema di
+telemedicina lo è per definizione (il DM lo qualifica *ex ante* «fornitura critica per la PA») -
 l'amministrazione deve **scartare gli accordi quadro** privi di requisiti adeguati. Si va a **gara
 dedicata con capitolato specifico**.
 Effetto di **AP4**: i requisiti vanno scritti «in maniera chiara, oggettiva e quanto più possibile
@@ -178,7 +178,7 @@ misure**». Il termine della prima ondata è il **31 ottobre 2026**; la v1.0 esc
 6. Misurazione della disponibilità per tenant e per servizio, con soglie e allarmi
 7. *Baseline* di *hardening*, immagini firmate, sicurezza per impostazione predefinita
 
-## PRIORITÀ 1 — deve esistere prima della v1.0, altrimenti il prodotto non è vendibile a un soggetto NIS
+## PRIORITÀ 1 - deve esistere prima della v1.0, altrimenti il prodotto non è vendibile a un soggetto NIS
 SBOM CycloneDX in CI · `SECURITY.md` con *disclosure* coordinata · **audit log immutabile con
 *export* firmato (sforzo alto)** · matrice RACI delle 43 misure · fascicolo di conformità NIS
 (flussi di rete con i 5 attributi, sistemi accessibili da remoto, configurazioni di riferimento) ·

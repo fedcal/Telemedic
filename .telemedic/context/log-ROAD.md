@@ -1,4 +1,4 @@
-# log-ROAD — Area roadmap
+# log-ROAD - Area roadmap
 
 > Registro del lavoro dell'agente `ROAD`. Contiene: file prodotti con conteggi, voci di bacheca
 > risolte e aperte, vincoli posti, dichiarazioni `[NV]`, e le verifiche di non contraddizione
@@ -20,13 +20,13 @@
 | `docs/09_roadmap/03-primo-rilascio-utilizzabile.md` | 379 | ~4.500 | perimetro esatto di `RU-1`; il limite non rimovibile per configurazione; criterio del **percorso verticale più stretto**; contenuto per contesto delimitato; **quattro categorie di esclusione** con conseguenze diverse; presupposti di installazione; quattordici limiti dichiarati; **diciotto criteri di rilascio bloccanti**; procedura di verifica lato deployer; impegno del progetto contro impegno di chi installa, riga per riga |
 | `docs/09_roadmap/04-oltre-il-primo-rilascio.md` | 612 | ~7.000 | partizione **pianificato / desiderabile** con la regola che la governa (`V-187`); criteri di ordinamento della coda e le tre regole aggiuntive; regola del sorpasso; **quattordici voci pianificate `OL-01`…`OL-14`** con motivo dell'esclusione da `RU-1`, criteri di completamento binari, innesco e titolare; **sette voci desiderabili `DS-01`…`DS-07`** con che cosa manca perché diventino pianificate; rinvio alle esclusioni definitive; transizioni di categoria; che cosa il capitolo non promette |
 | `docs/09_roadmap/05-rischi-e-dipendenze.md` | 667 | ~7.600 | confine con la gestione del rischio clinico; scale di **probabilità** (cinque classi operative, nessuna percentuale) e di **impatto sul calendario** (`I1`…`I5`); quattro risposte ammesse con il limite sul trasferimento; **registro di ventisette rischi `R-01`…`R-27`** in sei gruppi, ciascuno con probabilità, impatto, indicatore anticipatore, risposta e titolare; **sette famiglie di dipendenze esterne** con la regola comune del punto di estensione e della modalità degradata provata; **rischio di dipendenza da un solo integratore** descritto strutturalmente in cinque passi con sei contromisure verificabili; procedura di sorveglianza; che cosa non è nel registro; bacheca |
-| **Totale area** | **2.860** | **~33.500** | — |
-| **Sottototale seconda sessione** (`04` + `05`) | **1.279** | **~14.600** | requisito di mandato per i due file: ≥ 7.000 parole — **soddisfatto con ampio margine** |
+| **Totale area** | **2.860** | **~33.500** | - |
+| **Sottototale seconda sessione** (`04` + `05`) | **1.279** | **~14.600** | requisito di mandato per i due file: ≥ 7.000 parole - **soddisfatto con ampio margine** |
 
 **Metodo di conteggio.** I conteggi di riga sono esatti (righe non vuote, misurate con ricerca su
 espressione regolare). I conteggi di parola sono **stime** ricavate dalle righe non vuote e dalla
 densità media del testo: nell'ambiente di redazione non è disponibile uno strumento di conteggio.
-Sono dichiarati come stime e non come misure — coerentemente con l'`[NV]` che l'area stessa pone
+Sono dichiarati come stime e non come misure - coerentemente con l'`[NV]` che l'area stessa pone
 in `00-indice.md` §4 sul volume complessivo del corpus e con il criterio 6 di `T-02`, che fa del
 **conteggio esatto** un criterio di completamento e non un'attività opzionale.
 
@@ -69,14 +69,14 @@ Registrati nella tabella «Vincoli in vigore» di `05_BACHECA_INTERAGENTI.md`.
 | # | A | Oggetto | Punto di decisione irreversibile |
 |---|---|---|---|
 | `Q-180` | → **ORCH** | Riformulazione del traguardo del 30 novembre 2026, tre opzioni argomentate | 15 ottobre 2026 |
-| `Q-181` | → **ORCH** | **Dichiarazione della capacità** — la variabile senza la quale nessuna data è calcolabile | 15 settembre 2026 |
+| `Q-181` | → **ORCH** | **Dichiarazione della capacità** - la variabile senza la quale nessuna data è calcolabile | 15 settembre 2026 |
 | `Q-182` | → **ORCH** | Modello di produzione della versione inglese integrale | 30 settembre 2026 |
-| `Q-183` | `COMP` | Evidenze del pacchetto regolatorio consegnabili al 30 novembre 2026 | — |
+| `Q-183` | `COMP` | Evidenze del pacchetto regolatorio consegnabili al 30 novembre 2026 | - |
 | `Q-184` | `SEC`, `ARCH` | Capacità di misura come requisito del primo rilascio; valori prima del primo esercizio | Prima dell'esercizio |
 | `Q-185` | `PROD`, → **ORCH** | Materiale pubblico non allineato a `D19` e `D29`; l'impatto è **irrecuperabile** | 31 ottobre 2026 |
 | `Q-186` | `COMP`, `TECH` | Periodo di supporto dichiarato; prerequisito della prima distribuzione | Prima della prima distribuzione |
 | `Q-187` | → **ORCH** | Concentrazione ammessa su un solo integratore e momento della seconda controparte di prova | Prima del secondo integratore |
-| `Q-188` | `COMP`, → **ORCH** | Riserva dichiarata per le voci non stimabili; chi la mette a bilancio | — |
+| `Q-188` | `COMP`, → **ORCH** | Riserva dichiarata per le voci non stimabili; chi la mette a bilancio | - |
 | `Q-189` | → **ORCH** | Continuità dei contributori e registrazioni a **ruoli distinti** non producibili internamente | Prima del primo audit interno |
 
 **`Q-180`, `Q-181` e `Q-182` non sono separabili**: sono una sola decisione in tre parti, perché
@@ -88,7 +88,7 @@ la risposta alla prima dipende dalle altre due.
 |---|---|---|---|
 | `Q-09` | `ORCH` → `ROAD` | **RISOLTA.** Non si parametrizza una data: si smette di dichiarare date e si dichiara la **disponibilità delle evidenze**. Tre elementi verificabili; formulazione ammessa che sostituisce ogni data. Posta come `V-186` | `00` §9.1 |
 | `Q-113` | `TECH` → `COMP`, `ROAD` | **Parte `ROAD` evasa, resta aperta verso `COMP`.** Confermata la forma (giorni per gravità, misurata), **non fissati i numeri**, che appartengono al piano di sorveglianza post-commercializzazione. Aggiunta la conseguenza di pianificazione: è **capacità ricorrente**, da sottrarre prima di calcolare qualunque data. Posta come `V-185`; quantificazione in `05` §2, rischio `R-12` | `00` §9.2 |
-| `Q-152` / `B-6` | `SEC` → `ARCH`, `ROAD` | **Parte `ROAD` dichiarata.** Nessun valore proposto — sarebbe il difetto che `V-12` vieta. Dichiarati: **quando** serve la soglia (prima del primo esercizio con un tenant reale, non prima del primo rilascio), che cosa la roadmap chiede in cambio (**capacità di misura** come requisito di `RU-1`), e che cosa resta a `SEC` e ad `ARCH`. Coordinamento temporale aperto come `Q-184` | `00` §9.3; `03` §3.1 |
+| `Q-152` / `B-6` | `SEC` → `ARCH`, `ROAD` | **Parte `ROAD` dichiarata.** Nessun valore proposto - sarebbe il difetto che `V-12` vieta. Dichiarati: **quando** serve la soglia (prima del primo esercizio con un tenant reale, non prima del primo rilascio), che cosa la roadmap chiede in cambio (**capacità di misura** come requisito di `RU-1`), e che cosa resta a `SEC` e ad `ARCH`. Coordinamento temporale aperto come `Q-184` | `00` §9.3; `03` §3.1 |
 | `Q-191` | `GUIDA` → `TECH`, `ROAD` | **Parte `ROAD` evasa, resta aperta verso `TECH`.** L'area non produce la misura e non sceglie la macchina di riferimento; dichiara la **collocazione**: profilo minimo praticabile come criterio della catena di costruzione (`T-03`), non attività successiva. Motivo di programma: senza di esso la dipendenza «contributori» non ha condizione verificabile e il rischio `R-02` resta privo di indicatore anticipatore, in violazione di `V-189` | `05` §7.3 |
 
 ## 6. Dichiarazioni `[NV]` di quest'area
@@ -138,7 +138,7 @@ riscritta; le sole modifiche alla bacheca sono **aggiunte** in coda alle due tab
 | Si dichiara ciò che non entra, e perché | `03` §4 (quattro categorie di esclusione); `04` §§4 e 5 (motivo dell'esclusione da `RU-1` per ogni voce, e che cosa manca per ogni desiderabile); `04` §7 (rinvio alle esclusioni definitive) |
 | Niente stime inventate | Nessuna percentuale nel registro dei rischi: cinque classi con definizione operativa. Nessuna data per le voci di coda. Sei `[NV]` dichiarati al §6 con il destinatario |
 | Distinzione fra impegno del progetto e impegno di chi installa | `00` §3; `03` §9 riga per riga; colonna «titolare» di ogni rischio; §1.4 di `05` sul limite del trasferimento |
-| Nessun dato reale, nessun segreto, nessun nome commerciale (`R0`) | Nessun nome di azienda, marchio, prodotto o dominio in tutta l'area. Il rischio di dipendenza da un solo integratore (`R-10`, `05` §4) è descritto **strutturalmente** — cinque passi, tre effetti, sei contromisure — e la regola redazionale è ribadita nel testo al §4.4 |
+| Nessun dato reale, nessun segreto, nessun nome commerciale (`R0`) | Nessun nome di azienda, marchio, prodotto o dominio in tutta l'area. Il rischio di dipendenza da un solo integratore (`R-10`, `05` §4) è descritto **strutturalmente** - cinque passi, tre effetti, sei contromisure - e la regola redazionale è ribadita nel testo al §4.4 |
 | Frontmatter con valori contenenti due punti seguiti da spazio racchiusi fra virgolette | Evitato alla radice: nessuna descrizione dei due file nuovi contiene la sequenza; si usano trattini lunghi |
 | Rinvii ai file alla radice del repository come URL assoluti | `05`, avvertenza finale: `NOT-A-MEDICAL-DEVICE.md` e `DISTRIBUTION-POLICY.md` citati con indirizzo assoluto verso il repository |
 
@@ -163,7 +163,7 @@ riscritta; le sole modifiche alla bacheca sono **aggiunte** in coda alle due tab
 
 ---
 
-# Terza sessione — rilavorazione dopo `D53`…`D58` (25 agosto 2026)
+# Terza sessione - rilavorazione dopo `D53`…`D58` (25 agosto 2026)
 
 > **Il committente ha deciso.** L'area non è stata riscritta da zero: è stata **rilavorata** sulle
 > decisioni prese. Le questioni `Q-180`, `Q-181`, `Q-182` e `Q-144` sono chiuse e **non sono state
@@ -202,16 +202,16 @@ installa.
 
 I quattro irreversibili, che sono l'informazione centrale dell'intero documento:
 
-1. **`TG-20` — registrazioni a ruoli distinti** (riesame del rilascio, audit interno, verifica di
+1. **`TG-20` - registrazioni a ruoli distinti** (riesame del rilascio, audit interno, verifica di
    configurazione indipendente). Irreversibile perché una registrazione datata a un periodo non si
    produce dopo. Discende direttamente da `D54`. → `R-29`, `Q-189`, `OL-22`.
-2. **`TG-21` — revisione esterna indipendente del codice di sicurezza critico** (`D18`).
+2. **`TG-21` - revisione esterna indipendente del codice di sicurezza critico** (`D18`).
    **Irreversibile per il periodo**: recuperabile come attività, non come stato del rilascio.
-3. **`TG-22` — valutazione formativa di usabilità** durante lo sviluppo. Irreversibile perché è
+3. **`TG-22` - valutazione formativa di usabilità** durante lo sviluppo. Irreversibile perché è
    contemporanea per definizione alle decisioni che valuta. Nota redazionale applicata: la verifica
    manuale con tecnologia assistiva che `T-08` criterio 7 richiede **non va chiamata valutazione
    formativa**, e il testo lo dice tre volte in tre file.
-4. **`TG-23` — ancoraggio periodico firmato del registro immutabile**. **Irreversibile per il
+4. **`TG-23` - ancoraggio periodico firmato del registro immutabile**. **Irreversibile per il
    periodo**. La **copertura** del registro non è stata toccata: è nell'elenco del debito vietato.
 
 **Che cosa non si è potuto tagliare** è al §5.4 di `03`, ed è la metà mancante dell'informazione:
@@ -243,7 +243,7 @@ Nove traguardi fino al 30 novembre 2026, ciascuno con **criterio binario, innesc
 `T-09` è nuovo (traduzione integrale residua, 2027). `T-11`, `T-12` e `T-13` restano, con `T-13`
 riportato **dentro** la roadmap interna ai sensi di `D57`.
 
-**Nota di metodo sulle date.** Non sono stime e il documento lo dichiara: `[NV]` — «a tempo
+**Nota di metodo sulle date.** Non sono stime e il documento lo dichiara: `[NV]` - «a tempo
 parziale» non è quantificato, e nessuna cifra è stata inventata. Sono **allocazioni del calendario
 residuo** a una sequenza vincolata, e ciò che protegge la data è l'ordine di sacrificio, non una
 previsione di sforzo (`01` §4.1, `V-282`).
@@ -256,7 +256,7 @@ Da ventisette a **trenta voci**, con una chiusa.
 |---|---|
 | `R-01` | **CHIUSO** da `D54`, con dichiarazione di ciò che **non** si chiude con esso |
 | `R-02` | Riformulato: da `Alta` ad **`Accertato`**, e ridotto alla sola **continuità**; la parte sui ruoli distinti è estratta in `R-29` |
-| `R-28` | **NUOVO — rischio dominante.** Data pubblica ravvicinata con capacità dichiarata bassa. `Alta` / `I4`. Indicatore anticipatore misurabile ogni settimana: **righe residue dell'ordine di sacrificio** |
+| `R-28` | **NUOVO - rischio dominante.** Data pubblica ravvicinata con capacità dichiarata bassa. `Alta` / `I4`. Indicatore anticipatore misurabile ogni settimana: **righe residue dell'ordine di sacrificio** |
 | `R-29` | **NUOVO.** Registrazioni a ruoli distinti non producibili, con perdita **che si ripete a ogni rilascio**. `Accertato` / `I5` |
 | `R-30` | **NUOVO.** Ruolo di fabbricante non ancora costituito. `Accertato` / `I3 crescente`, di classe `B` |
 | `R-03` | Da `I4` sul traguardo 2026 a `I3` sul piano 2027, per effetto di `D56` |
@@ -277,9 +277,9 @@ previsto. **Nessuna voce altrui è stata rinumerata o riscritta.**
 
 | # | A | Oggetto | Punto di decisione |
 |---|---|---|---|
-| `V-280` | tutte | La roadmap è pianificazione interna (`D57`, `D58`); una data interna **non è una promessa di esito** | — |
-| `V-281` | tutte, `COMP` | Nessun traguardo entra nel piano se richiede due soggetti distinti e il secondo non esiste | — |
-| `V-282` | tutte | L'ambito è l'unica variabile libera; ordine di sacrificio di soli tagli reversibili; se si esaurisce, data dichiarata mancata | — |
+| `V-280` | tutte | La roadmap è pianificazione interna (`D57`, `D58`); una data interna **non è una promessa di esito** | - |
+| `V-281` | tutte, `COMP` | Nessun traguardo entra nel piano se richiede due soggetti distinti e il secondo non esiste | - |
+| `V-282` | tutte | L'ambito è l'unica variabile libera; ordine di sacrificio di soli tagli reversibili; se si esaurisce, data dichiarata mancata | - |
 | `Q-280` | → **ORCH** | Costituzione del soggetto fabbricante e persona responsabile del rispetto della normativa | **19 set. 2026** |
 | `Q-281` | `PROD`, → **ORCH** | Differenza fra ciò che il materiale pubblico dichiara e ciò che `RU-1` consegna | 31 ott. 2026 |
 | `Q-282` | `COMP` | **Forma** della dichiarazione delle lacune datate nel fascicolo (`Q-189` decide la ripartizione) | Prima di `T-10` |
@@ -292,11 +292,11 @@ previsto. **Nessuna voce altrui è stata rinumerata o riscritta.**
 
 | Regola | Verifica |
 |---|---|
-| Non rilitigare `D53` | Nessuna occorrenza dell'alternativa «fondamenta e documentazione» in alcun file; nessun avvertimento che metta in discussione la data. `02` §2.2 espone la **conseguenza** — l'ambito è l'unica variabile libera — e non l'alternativa |
+| Non rilitigare `D53` | Nessuna occorrenza dell'alternativa «fondamenta e documentazione» in alcun file; nessun avvertimento che metta in discussione la data. `02` §2.2 espone la **conseguenza** - l'ambito è l'unica variabile libera - e non l'alternativa |
 | Ogni traguardo ha criterio binario, innesco e titolare | Tutti e quattordici i traguardi di `02` portano i tre campi. Dove il titolare non esiste è scritto che non esiste (`T-10`, riesame) |
 | Niente stime inventate | `[NV]` esplicito sulle ore settimanali; le durate sono dichiarate **allocazioni** e non stime; nessuna cifra nuova introdotta; la durata di `T-14` criterio 1 è dichiarata non stimabile |
 | Tagli irreversibili marcati come tali | Quattro voci in `03` §5.3, ciascuna con intestazione **IRREVERSIBILE** o **IRREVERSIBILE PER IL PERIODO**, riquadro d'apertura del §5.3, riga in `02` §4.2, limiti 2, 12, 23 e 24 in `03` §9, criterio bloccante 17 |
-| Ripartizione lasciata aperta in `Q-189` | Dichiarata aperta in `01` §9-bis, `02` §2.3, `03` §5.3, `04` `OL-22`, `05` `R-29`, `00` §10 — con l'**esito predefinito** dichiarato in anticipo |
+| Ripartizione lasciata aperta in `Q-189` | Dichiarata aperta in `01` §9-bis, `02` §2.3, `03` §5.3, `04` `OL-22`, `05` `R-29`, `00` §10 - con l'**esito predefinito** dichiarato in anticipo |
 | `R0` | Nessun nome di azienda, marchio, prodotto o dominio. `R-10` descritto strutturalmente |
 | Frontmatter | Nessuna descrizione contiene la sequenza due punti più spazio: si usano trattini lunghi |
 | URL assoluti per i file alla radice | `NOT-A-MEDICAL-DEVICE.md` e `DISTRIBUTION-POLICY.md` citati con indirizzo assoluto in `00` e in `05` |

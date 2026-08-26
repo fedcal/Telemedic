@@ -1,4 +1,4 @@
-# log-INTEG — Area 07, integrazione verso sistemi terzi
+# log-INTEG - Area 07, integrazione verso sistemi terzi
 
 > **Agente**: `INTEG` · **Data**: 25 agosto 2026 · **Decisioni di riferimento**: D4 (tutte e
 > quattro le modalità), D14 (moduli propri disattivabili e sostituibili), D18 (identity chaining
@@ -42,11 +42,11 @@ Altri conteggi:
 
 ---
 
-## 2. Bacheca inter-agenti — che cosa è stato fatto
+## 2. Bacheca inter-agenti - che cosa è stato fatto
 
 ### 2.1 Questione risolta
 
-**Q-05** (`GUIDA` → `INTEG`) — *due istanze di fornitore di identità per ciascun fornitore SPID
+**Q-05** (`GUIDA` → `INTEG`) - *due istanze di fornitore di identità per ciascun fornitore SPID
 se il contesto richiesto è statico*: **RISOLTA**. Sintesi della risposta scritta in bacheca:
 
 - **Confermato**: il connettore configura `authnContextClassRefs` e
@@ -54,7 +54,7 @@ se il contesto richiesto è statico*: **RISOLTA**. Sintesi della risposta scritt
   Un livello variabile per operazione richiede un'istanza per coppia (fornitore × livello).
 - Quattro impatti accertati sull'architettura di federazione: cardinalità variabile nel tempo
   perché il numero di fornitori si legge dal registro nazionale; **un indirizzo di consumo
-  dell'asserzione per istanza nel metadata depositato presso l'autorità** — quindi il raddoppio
+  dell'asserzione per istanza nel metadata depositato presso l'autorità** - quindi il raddoppio
   è **costo di procedura**, non di codice; i dati di organizzazione provengono dalla **prima
   istanza in ordine alfabetico**, quindi la convenzione di alias è vincolo di correttezza;
   con comparazione «almeno», una credenziale superiore soddisfa già la richiesta inferiore.
@@ -66,23 +66,23 @@ Documentato in `docs/07_integration/06-identita-e-delega.md` §5.3 e §5.5.
 
 ### 2.2 Vincolo ricevuto e recepito
 
-**V-08** (`ORCH` → `PROD`, `FUNZ`, `INTEG`) — *le assicurazioni sono sempre escluse dall'accesso
+**V-08** (`ORCH` → `PROD`, `FUNZ`, `INTEG`) - *le assicurazioni sono sempre escluse dall'accesso
 al fascicolo; il pagatore non è un consultatore*. Recepito **in modo esplicito e ripetuto**, in
 quattro punti dell'area:
 
-1. `00-indice.md` §6.3 — fra le tre avvertenze non rinviabili, in apertura;
-2. `04-integrazione-per-eventi.md` §2.5 — il dominio amministrativo del catalogo eventi, con
+1. `00-indice.md` §6.3 - fra le tre avvertenze non rinviabili, in apertura;
+2. `04-integrazione-per-eventi.md` §2.5 - il dominio amministrativo del catalogo eventi, con
    **limite invalicabile** sul contenuto dell'evento e divieto di arricchimento per
    configurazione;
-3. `08-moduli-sostituibili.md` §3.3 — il modulo di fatturazione sostitutivo non può arricchire
+3. `08-moduli-sostituibili.md` §3.3 - il modulo di fatturazione sostitutivo non può arricchire
    l'evento;
-4. `09-obblighi-di-chi-integra.md` §5 — **sezione dedicata**, con la tabella dei cinque percorsi
+4. `09-obblighi-di-chi-integra.md` §5 - **sezione dedicata**, con la tabella dei cinque percorsi
    non consentiti («nemmeno se…»), il chiarimento sul professionista che accede per conto del
    pagatore, l'elenco di ciò che il pagatore **può** legittimamente ottenere, e l'istruzione di
    correggere il materiale commerciale che presenti il caso d'uso come accesso alla
    documentazione clinica.
 
-**V-154** (`SEC` → `INTEG`) — *un livello riferito da un integratore va marcato come tale e non
+**V-154** (`SEC` → `INTEG`) - *un livello riferito da un integratore va marcato come tale e non
 soddisfa l'autenticazione forte ex art. 64 CAD*: recepito integralmente in
 `06-identita-e-delega.md` §5.2 e §5.4, e riformulato come vincolo verso le altre aree in V-165.
 **Nessuna contraddizione.**
@@ -135,11 +135,11 @@ attribuito a TCP, HTTP/1.1, agli eventi inviati dal server o al documento di int
 
 Recepite inoltre, da `B6`, tre correzioni non elencate nella sezione ma pertinenti:
 
-- **divergenza verificata degli identificatori canonici del codice fiscale** fra guide italiane —
+- **divergenza verificata degli identificatori canonici del codice fiscale** fra guide italiane -
   `07` §2.3, con la conseguenza operativa per l'integratore (un consumatore allineato all'altra
   guida non riconosce l'identificatore, la traduzione al confine va prevista);
 - **il codice di tipo identificatore generico non esiste** nella tabella standard, e nessun
-  profilo italiano fissa il valore per il codice fiscale — `07` §2.3, con la conseguenza che la
+  profilo italiano fissa il valore per il codice fiscale - `07` §2.3, con la conseguenza che la
   scelta resta contrattuale e va scritta nel profilo di interfaccia;
 - **stato di manutenzione delle librerie clienti**: nessuna libreria archiviata o deprecata è
   citata come dipendenza candidata in quest'area.
@@ -169,7 +169,7 @@ dichiarate, perché il silenzio verrebbe letto come garanzia).
 | `00_PROJECT_BRIEF.md` | D4, D13, D14, D16, D17, D21, D22, D23, D24, D25, D26, D28, D30, D31, D32, D33, D34, D36, D37, D38, D39, D40, D41, D42, D43, D44, D45, D46, D48, D49, D51; vincoli V1–V6; **profilo dell'integratore §6.1–6.2 come base di tutte le scelte di forma**; regola R0 |
 | `04_BASELINE_ARCHITETTURALE.md` | Contesti delimitati e loro confini; aggregati e invarianti (documento firmato immutabile, misura immutabile, consenso come fatto temporale, ruolo come relazione temporale); modello canonico e identificatori esterni; multi-tenancy; outbox e semantica di consegna; registro immutabile; terminologie; identità e autorizzazione; **§10 «Interfacce», che fissa le quattro modalità e i loro contratti** |
 | `R5-pattern-integrazione.md` | Fonte principale. Due piani e regola di partizione; profilo asimmetrico per l'autenticazione fra sistemi e trattamento del materiale di chiave; ambiti e loro sintassi; delega contro impersonificazione con l'ancora di fiducia per tenant; contromisure verso risorse interne sugli indirizzi forniti; ritentativi con fattore casuale, interruttore di protezione, coda degli scarti e recupero con stesso identificativo; regola delle due condizioni sui permessi della cornice; restrizioni e la loro inversione; direttiva degli antenati generata per sessione; consegna del gettone in quattro passi; **analisi delle tre strategie sui cookie con la scelta motivata**; involucro come elemento personalizzato; tassonomia dei punti di estensione; policy di dismissione; matrice decisionale per scenario |
-| `B6-verifica-fhir.md` — **prevale** | Stato normativo di deprecazione, chiave di idempotenza e limitazione del traffico; intestazioni della busta di evento e divieto verificato; Subscriptions backport 1.1.0 con le due correzioni; Bulk Data 3.0.0 con l'avvertenza sulla costruzione continua; divergenza degli identificatori del codice fiscale; inesistenza del codice di tipo identificatore generico; stato delle librerie clienti |
+| `B6-verifica-fhir.md` - **prevale** | Stato normativo di deprecazione, chiave di idempotenza e limitazione del traffico; intestazioni della busta di evento e divieto verificato; Subscriptions backport 1.1.0 con le due correzioni; Bulk Data 3.0.0 con l'avvertenza sulla costruzione continua; divergenza degli identificatori del codice fiscale; inesistenza del codice di tipo identificatore generico; stato delle librerie clienti |
 | `B7-identita-digitale-italiana.md` | **Risposta a Q-05** (configurazione statica per istanza, indirizzi di consumo nel metadata, dati di organizzazione dalla prima istanza in ordine alfabetico, comparazione «almeno»); livelli e corrispondenza internazionale; **livello richiesto contro asserito**; rappresentazione con marcatore e origine dell'autenticazione; il progetto non è accreditato e non può esserlo, con l'elenco degli obblighi di chi installa; tempi non dichiarati da alcuna fonte; costo per accesso e attributo aggiuntivo |
 | `docs/10_fondamenti/13-protocolli.md` | **Allineamento delle convenzioni pubblicate**: domini degli esempi, forma del tipo di evento, indirizzo base del catalogo dei problemi, codice di precondizione richiesta, ritenzione della chiave di idempotenza, doppia emissione delle intestazioni di limitazione, dodici mesi di preavviso, payload magro, firma asimmetrica come regola e non come opzione. **Rinviato, non ripetuto** |
 | `docs/10_fondamenti/04`, `05`, `06`, `07` | Rinviati puntualmente per identità e anagrafiche, standard di interoperabilità, modello clinico, fascicolo e infrastrutture nazionali. **Nessun fondamento riscritto** |
@@ -281,7 +281,7 @@ guida dei fondamenti, che sono stati letti e rinviati senza essere riscritti.
 
 ---
 
-## 9. Regola R0 — verifica
+## 9. Regola R0 - verifica
 
 **Rispettata.** Nessuna azienda, marchio, prodotto commerciale o dominio di potenziale partner
 compare nei file prodotti. Le formule usate sono sempre generiche: «l'integratore», «il vostro

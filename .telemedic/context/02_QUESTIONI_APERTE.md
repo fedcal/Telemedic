@@ -1,4 +1,4 @@
-# Questioni aperte consolidate — fase di ricerca
+# Questioni aperte consolidate - fase di ricerca
 
 > Estrazione delle sezioni «questioni aperte» dai documenti di ricerca. Alimenta la tornata decisionale con il committente.
 
@@ -63,7 +63,7 @@
 
 ---
 
-## [R2-normativa-mdr-gdpr-licenze.md] — nessuna sezione (agente ancora in corso?)
+## [R2-normativa-mdr-gdpr-licenze.md] - nessuna sezione (agente ancora in corso?)
 
 
 ---
@@ -74,37 +74,37 @@
 
 ### Per l'agente MDR / compliance
 
-**Q1 — Il confine di classe I è più stretto di quanto il *context pack* assuma.** Il DM 21 settembre 2022 impone espressamente la certificazione come dispositivo medico per: (a) il micro‑servizio `viewer dati clinici` unitamente a quello di refertazione, nei teleconsulti radiologico e istopatologico; (b) il software e l'hardware della **televisita**, «ove nel servizio vengano usati dispositivi medici»; (c) l'infrastruttura per il **telemonitoraggio**, con classe potenzialmente superiore alla IIa per il livello 2. La domanda: **la v1.0 di Telemedic include un `viewer` di dati clinici o un percorso di telemonitoraggio?** Se sì, la strategia Classe I non regge nel mercato italiano. Serve un ADR che delimiti la destinazione d'uso e un'analisi della regola 11 MDR alla luce di questo testo.
+**Q1 - Il confine di classe I è più stretto di quanto il *context pack* assuma.** Il DM 21 settembre 2022 impone espressamente la certificazione come dispositivo medico per: (a) il micro‑servizio `viewer dati clinici` unitamente a quello di refertazione, nei teleconsulti radiologico e istopatologico; (b) il software e l'hardware della **televisita**, «ove nel servizio vengano usati dispositivi medici»; (c) l'infrastruttura per il **telemonitoraggio**, con classe potenzialmente superiore alla IIa per il livello 2. La domanda: **la v1.0 di Telemedic include un `viewer` di dati clinici o un percorso di telemonitoraggio?** Se sì, la strategia Classe I non regge nel mercato italiano. Serve un ADR che delimiti la destinazione d'uso e un'analisi della regola 11 MDR alla luce di questo testo.
 
-**Q2 — La produzione di `DiagnosticReport` va riconsiderata.** La IG nazionale HL7 Italia «Televisita» usa `Composition` + `Bundle` (`CompositionRefertoTelevisita`, `RefertoDiTelevisita`), non `DiagnosticReport`. Va verificato se `DiagnosticReport` sia comunque utilizzato nelle IG nazionali e, in caso contrario, se la scelta dichiarata sul sito pubblico vada rivista o affiancata.
+**Q2 - La produzione di `DiagnosticReport` va riconsiderata.** La IG nazionale HL7 Italia «Televisita» usa `Composition` + `Bundle` (`CompositionRefertoTelevisita`, `RefertoDiTelevisita`), non `DiagnosticReport`. Va verificato se `DiagnosticReport` sia comunque utilizzato nelle IG nazionali e, in caso contrario, se la scelta dichiarata sul sito pubblico vada rivista o affiancata.
 
 ### Per l'agente architetturale
 
-**Q3 — Conformità alle IG di HL7 Italia.** Il progetto dichiara «FHIR R4». La conformità richiesta in Italia è alle **Implementation Guide nazionali** (`Televisita` v0.2.0, `Teleconsulto` v0.2.0, `Teleassistenza` v0.2.0, `Telemonitoraggio` v0.2.0, `IT-Core` v0.2.0). Serve una decisione: (a) conformità piena alle IG italiane come profilo di default per il mercato IT; (b) FHIR R4 base con *profile pack* italiano opzionale. Impatta il modello dati, la validazione, i test di conformità e il *packaging*.
+**Q3 - Conformità alle IG di HL7 Italia.** Il progetto dichiara «FHIR R4». La conformità richiesta in Italia è alle **Implementation Guide nazionali** (`Televisita` v0.2.0, `Teleconsulto` v0.2.0, `Teleassistenza` v0.2.0, `Telemonitoraggio` v0.2.0, `IT-Core` v0.2.0). Serve una decisione: (a) conformità piena alle IG italiane come profilo di default per il mercato IT; (b) FHIR R4 base con *profile pack* italiano opzionale. Impatta il modello dati, la validazione, i test di conformità e il *packaging*.
 
-**Q4 — Gateway FHIR e ruolo di Telemedic nell'architettura nazionale.** Nell'architettura del DM 21 settembre 2022 la piattaforma di telemedicina è **una IRT o una componente di IRT**, e comunica con l'esterno **attraverso il Gateway FHIR del FSE 2.0**, non direttamente. Va deciso se Telemedic implementa un client verso il Gateway, se espone un adattatore, o se lascia l'integrazione all'integratore. Ha impatti su D4 (integrazioni) e sul confine di responsabilità.
+**Q4 - Gateway FHIR e ruolo di Telemedic nell'architettura nazionale.** Nell'architettura del DM 21 settembre 2022 la piattaforma di telemedicina è **una IRT o una componente di IRT**, e comunica con l'esterno **attraverso il Gateway FHIR del FSE 2.0**, non direttamente. Va deciso se Telemedic implementa un client verso il Gateway, se espone un adattatore, o se lascia l'integrazione all'integratore. Ha impatti su D4 (integrazioni) e sul confine di responsabilità.
 
-**Q5 — Micro‑servizi trasversali: integrare, non reimplementare.** Il DM è esplicito nel vietare la reimplementazione *ad hoc* di refertazione/firma digitale e nel prescrivere l'integrazione con il modulo regionale. Va rivisto il perimetro funzionale: `refertazione e firma digitale`, `viewer dati clinici`, `booking`, `billing` sono **punti di integrazione**, non funzionalità da costruire.
+**Q5 - Micro‑servizi trasversali: integrare, non reimplementare.** Il DM è esplicito nel vietare la reimplementazione *ad hoc* di refertazione/firma digitale e nel prescrivere l'integrazione con il modulo regionale. Va rivisto il perimetro funzionale: `refertazione e firma digitale`, `viewer dati clinici`, `booking`, `billing` sono **punti di integrazione**, non funzionalità da costruire.
 
-**Q6 — Multi‑tenancy e territorialità.** Il DM prescrive «*multi‑tenant application in Cloud*» con segregazione e isolamento a livello applicativo, e i tre modelli di deployment tutti «su territorio nazionale». La decisione D8 va documentata come **conforme per costruzione**, con evidenze: RLS/schema‑per‑tenant, mappatura dei *grant*, assenza di dipendenze extra‑nazionali.
+**Q6 - Multi‑tenancy e territorialità.** Il DM prescrive «*multi‑tenant application in Cloud*» con segregazione e isolamento a livello applicativo, e i tre modelli di deployment tutti «su territorio nazionale». La decisione D8 va documentata come **conforme per costruzione**, con evidenze: RLS/schema‑per‑tenant, mappatura dei *grant*, assenza di dipendenze extra‑nazionali.
 
-**Q7 — Event broker.** Il DM prescrive un'architettura *event‑driven* con *event broker* e condivisione *near real‑time*. Lo stack dichiarato (Spring Boot + TimescaleDB) non include un broker. Va deciso quale (Kafka? RabbitMQ? NATS?) e come si concilia con il vincolo «Docker Compose» per l'on‑premise.
+**Q7 - Event broker.** Il DM prescrive un'architettura *event‑driven* con *event broker* e condivisione *near real‑time*. Lo stack dichiarato (Spring Boot + TimescaleDB) non include un broker. Va deciso quale (Kafka? RabbitMQ? NATS?) e come si concilia con il vincolo «Docker Compose» per l'on‑premise.
 
 ### Per l'agente sicurezza
 
-**Q8 — Log retention.** 24 mesi per i log, 12 mesi per i dati di accesso/autenticazione (DM 19 novembre 2025), 30 anni dal decesso per i documenti FSE (DM 7 settembre 2023, art. 10). Serve una policy di retention differenziata per classe di dato, configurabile per tenant, con evidenza di cancellazione.
+**Q8 - Log retention.** 24 mesi per i log, 12 mesi per i dati di accesso/autenticazione (DM 19 novembre 2025), 30 anni dal decesso per i documenti FSE (DM 7 settembre 2023, art. 10). Serve una policy di retention differenziata per classe di dato, configurabile per tenant, con evidenza di cancellazione.
 
-**Q9 — Verifica del testo integrale del DM 19 novembre 2025.** L'Allegato 4 (misure di sicurezza) e l'Allegato 2 (integrazione con l'EDS) non sono stati letti su fonte primaria. Vanno reperiti in GU e tradotti in requisiti verificabili.
+**Q9 - Verifica del testo integrale del DM 19 novembre 2025.** L'Allegato 4 (misure di sicurezza) e l'Allegato 2 (integrazione con l'EDS) non sono stati letti su fonte primaria. Vanno reperiti in GU e tradotti in requisiti verificabili.
 
-**Q10 — Determinazione ACN 379907/2025.** Le specifiche di base delle misure di sicurezza NIS2, efficaci dal 15 gennaio 2026 con obbligo di attuazione dimostrabile entro il 31 ottobre 2026, vanno lette sul testo ACN e mappate sul threat model STRIDE previsto da D10.
+**Q10 - Determinazione ACN 379907/2025.** Le specifiche di base delle misure di sicurezza NIS2, efficaci dal 15 gennaio 2026 con obbligo di attuazione dimostrabile entro il 31 ottobre 2026, vanno lette sul testo ACN e mappate sul threat model STRIDE previsto da D10.
 
 ### Per l'agente prodotto/documentazione
 
-**Q11 — Il vincolo sulla prima visita va spiegato con precisione, non semplificato.** Il testo nazionale contiene due affermazioni di diversa intensità (§ 3.1) e le aperture in prima visita sono **regionali**. Una documentazione che affermi «la televisita non può mai sostituire la prima visita» è imprecisa; una che affermi «la televisita è ammessa in prima visita dopo teleconsulto» è imprecisa in senso opposto. Va usata la formulazione stratificata proposta nel § 3.1.
+**Q11 - Il vincolo sulla prima visita va spiegato con precisione, non semplificato.** Il testo nazionale contiene due affermazioni di diversa intensità (§ 3.1) e le aperture in prima visita sono **regionali**. Una documentazione che affermi «la televisita non può mai sostituire la prima visita» è imprecisa; una che affermi «la televisita è ammessa in prima visita dopo teleconsulto» è imprecisa in senso opposto. Va usata la formulazione stratificata proposta nel § 3.1.
 
-**Q12 — Onestà sul modello economico.** Non esiste tariffa nazionale per la telemedicina; il teleconsulto non è remunerato; il nuovo nomenclatore non contiene voci di telemedicina. La documentazione commerciale non deve suggerire il contrario.
+**Q12 - Onestà sul modello economico.** Non esiste tariffa nazionale per la telemedicina; il teleconsulto non è remunerato; il nuovo nomenclatore non contiene voci di telemedicina. La documentazione commerciale non deve suggerire il contrario.
 
-**Q13 — Terminologia: «servizi minimi» ≠ «prestazioni».** Le due tassonomie (Accordo 2020 e DM 21 settembre 2022) non coincidono. Il glossario di `docs/00_overview/` deve rappresentarle entrambe con la mappatura esplicita.
+**Q13 - Terminologia: «servizi minimi» ≠ «prestazioni».** Le due tassonomie (Accordo 2020 e DM 21 settembre 2022) non coincidono. Il glossario di `docs/00_overview/` deve rappresentarle entrambe con la mappatura esplicita.
 
 ### Verifiche documentali ancora da compiere
 
@@ -132,7 +132,7 @@
 
 ### Per l'agente Architettura (`docs/02_architecture/`, `docs/adr/`)
 
-1. **Scalabilità del signaling**: routing deterministico per `sessionId` (raccomandato) o sticky session? Serve un **ADR** con la strategia di uscita se si sceglie la seconda. Vincolo tecnico da rispettare: RFC 8838 §9 richiede consegna dei candidati **esattamente una volta e in ordine** — Redis Pub/Sub semplice non lo garantisce.
+1. **Scalabilità del signaling**: routing deterministico per `sessionId` (raccomandato) o sticky session? Serve un **ADR** con la strategia di uscita se si sceglie la seconda. Vincolo tecnico da rispettare: RFC 8838 §9 richiede consegna dei candidati **esattamente una volta e in ordine** - Redis Pub/Sub semplice non lo garantisce.
 2. **Topologia mesh a 3**: dove vive la logica di orchestrazione delle N-1 PeerConnection? Come si assegnano deterministicamente i ruoli polite/impolite? Come si divide il budget di upload fra i peer?
 3. **Boundary architetturale del recording**: se client-side (R7), come si gestisce il fallimento dell'upload a chiamata conclusa? Serve una coda di upload resiliente lato browser?
 4. **Numero e collocazione dei nodi TURN**: quanti, in quali regioni UE, con quale strategia di annuncio al client? Il dimensionamento di §3.6 va convertito in una capacity plan.
@@ -164,7 +164,7 @@
 
 19. **Verifica del supporto `MediaRecorder` per `video/mp4`** sui browser target (T8) e decisione sul contenitore.
 20. **Misura del carico CPU della registrazione client-side** su hardware di riferimento basso (T9), con la soglia di disattivazione automatica.
-21. **Implementazione di `getStats()` con differenziazione corretta dei contatori cumulativi** (§8.3) — errore comune che produce grafici privi di senso.
+21. **Implementazione di `getStats()` con differenziazione corretta dei contatori cumulativi** (§8.3) - errore comune che produce grafici privi di senso.
 22. **Esposizione controllata della `RTCPeerConnection` alle build di test** (§11.3) senza esporla in produzione.
 
 ### Per l'agente Accessibilità
@@ -176,9 +176,9 @@
 
 ### Per l'agente Testing (`docs/01_technical/`, CI)
 
-27. **Produzione delle fixture Y4M con timecode** e dell'infrastruttura OCR per la misura automatica della latenza glass-to-glass (R14) — è ciò che rende verificabile il target di §9.
+27. **Produzione delle fixture Y4M con timecode** e dell'infrastruttura OCR per la misura automatica della latenza glass-to-glass (R14) - è ciò che rende verificabile il target di §9.
 28. **Profili `netem` come costanti condivise** (§11.2) e loro applicazione in Docker Compose di test.
-29. **Implementazione dei tre test TURN**: fallback forzato, fallback realistico, e il test di sicurezza sul relay verso indirizzi interni (§11.4) — quest'ultimo va collegato al file di gestione rischi.
+29. **Implementazione dei tre test TURN**: fallback forzato, fallback realistico, e il test di sicurezza sul relay verso indirizzi interni (§11.4) - quest'ultimo va collegato al file di gestione rischi.
 30. **Verifica dei flag Chrome non confermati** (`--use-file-for-fake-audio-capture` e altri, §11.1) sulla versione in uso in CI.
 
 ---
@@ -197,15 +197,15 @@ agenti dell'orchestrazione.
 |---|---|---|
 | Q1 | Versione di Keycloak adottata e disponibilità effettiva dello scambio *external-to-internal* di RFC 8693 e dello stato GA del JWT Authorization Grant (§3.3.7). Blocca la modalità primaria dello scenario A | Architettura, roadmap |
 | Q2 | Token opachi + phantom token al gateway, oppure JWT autoportanti? Impatto su latenza e topologia (§3.9) | Architettura |
-| Q3 | `system` canonico per il codice fiscale nei profili FHIR italiani (§5.3) — **non verificato** | Dominio sanitario |
-| Q4 | Mappatura dei valori `acr` per i livelli SPID L1/L2/L3 (§3.10) — **non verificata** | Identità digitale |
+| Q3 | `system` canonico per il codice fiscale nei profili FHIR italiani (§5.3) - **non verificato** | Dominio sanitario |
+| Q4 | Mappatura dei valori `acr` per i livelli SPID L1/L2/L3 (§3.10) - **non verificata** | Identità digitale |
 | Q5 | Dettagli esatti di FHIR Bulk Data `$export` (parametri e campi del manifest): recupero fallito in questa ricerca (§5.11) | Chi implementa l'export |
-| Q6 | Conformità del messaggio `SIU^S12` di esempio alla struttura v2.5.1 (§8.3) — **non verificata** | Chi implementa l'adapter v2 |
-| Q7 | Header `Deprecation`: è diventato RFC o è ancora Internet-Draft? (§5.4) — **non verificato** | Chi scrive la policy di deprecazione |
-| Q8 | Nomi esatti degli header `ce-*` del binding HTTP CloudEvents in modalità binary (§4.6.1) — **non verificati** | Chi implementa il dispatcher |
-| Q9 | `scratchpad.read` è un `messageType` valido nella versione corrente di SMART Web Messaging? (§2.7.2) — **non verificato** | Chi implementa Web Messaging |
-| Q10 | Stato di manutenzione di `fhir.js` (§7.4.1) — **non verificato** | Chi progetta l'SDK TypeScript |
-| Q11 | Pattern BALP (Basic Audit Log Patterns) per gli audit RESTful (§9.4) — **non verificati** | Sicurezza / audit |
+| Q6 | Conformità del messaggio `SIU^S12` di esempio alla struttura v2.5.1 (§8.3) - **non verificata** | Chi implementa l'adapter v2 |
+| Q7 | Header `Deprecation`: è diventato RFC o è ancora Internet-Draft? (§5.4) - **non verificato** | Chi scrive la policy di deprecazione |
+| Q8 | Nomi esatti degli header `ce-*` del binding HTTP CloudEvents in modalità binary (§4.6.1) - **non verificati** | Chi implementa il dispatcher |
+| Q9 | `scratchpad.read` è un `messageType` valido nella versione corrente di SMART Web Messaging? (§2.7.2) - **non verificato** | Chi implementa Web Messaging |
+| Q10 | Stato di manutenzione di `fhir.js` (§7.4.1) - **non verificato** | Chi progetta l'SDK TypeScript |
+| Q11 | Pattern BALP (Basic Audit Log Patterns) per gli audit RESTful (§9.4) - **non verificati** | Sicurezza / audit |
 | Q12 | Il modello «senza cookie» per l'embed (§6.5.3, strategia A) è compatibile con tutti i requisiti di sessione previsti dalla UI? Va confermato con chi progetta il frontend | Frontend, architettura |
 | Q13 | Versione esatta dell'IG Subscriptions Backport da citare nei profili (§4.7.2) | Chi implementa le Subscription |
 

@@ -1,6 +1,6 @@
-# B6 — Verifica su fonte primaria dei punti `[NV]` di R1 e delle questioni aperte di R5
+# B6 - Verifica su fonte primaria dei punti `[NV]` di R1 e delle questioni aperte di R5
 
-> **Agente**: B6 (seconda ondata di ricerca — chiusura dei non verificati)
+> **Agente**: B6 (seconda ondata di ricerca - chiusura dei non verificati)
 > **Data**: 25 agosto 2026
 > **Regola R0 applicata**: nessun nome di azienda, prodotto commerciale o dominio di potenziale partner. Dove uno standard include codici il cui identificatore coincide con un marchio commerciale di videoconferenza, si segue la disciplina già adottata da R1: il fatto è riportato, gli identificatori-marchio non sono trascritti.
 > **Legenda esiti**: `VERIFICATA` = confermata su fonte primaria; `SMENTITA` = la fonte primaria contraddice quanto scritto in R1/R5; `PARZIALE` = confermata solo in parte, con residui espressamente delimitati; `NON VERIFICABILE` = la fonte primaria non espone il dato (assenza accertata) o non è stata raggiungibile.
@@ -9,7 +9,7 @@
 
 ## 1. URL canonico della cross-version extension per `VirtualServiceDetail`
 
-**Esito: VERIFICATA** (l'URL ipotizzato da R1 è corretto) — **con due correzioni collaterali**.
+**Esito: VERIFICATA** (l'URL ipotizzato da R1 è corretto) - **con due correzioni collaterali**.
 
 ### 1.1 Il pacchetto e la sua versione
 
@@ -17,7 +17,7 @@
 |---|---|
 | Titolo IG | *Extensions for Using Data Elements from FHIR R5 in FHIR R4* |
 | Versione | **0.1.0** |
-| Stato | STU — *maturity level 0* |
+| Stato | STU - *maturity level 0* |
 | Package id | `hl7.fhir.uv.xver-r5.r4` |
 | Canonical dell'IG | `http://hl7.org/fhir/uv/xver/ImplementationGuide/hl7.fhir.uv.xver-r5.r4` |
 | Home | <http://hl7.org/fhir/uv/xver-r5.r4/0.1.0/> |
@@ -51,12 +51,12 @@ Sotto-estensioni definite dall'estensione `extension-Encounter.virtualService`:
 
 | Sotto-estensione | Card. | Tipo | Note |
 |---|---|---|---|
-| `_datatype` | 1..1 | `string` | valore fisso `VirtualServiceDetail` — **marcatore obbligatorio**, assente nell'esempio di R1 |
-| `channelType` | 0..1 | `Coding` | — |
+| `_datatype` | 1..1 | `string` | valore fisso `VirtualServiceDetail` - **marcatore obbligatorio**, assente nell'esempio di R1 |
+| `channelType` | 0..1 | `Coding` | - |
 | `address` | 0..1 | complessa | contiene a sua volta `_datatype` = `ExtendedContactDetail` e le sotto-estensioni `purpose`, `name`, `telecom`, `address`, `organization`, `period` |
-| `additionalInfo` | 0..* | `url` | — |
-| `maxParticipants` | 0..1 | `positiveInt` | — |
-| `sessionKey` | 0..1 | `string` | — |
+| `additionalInfo` | 0..* | `url` | - |
+| `maxParticipants` | 0..1 | `positiveInt` | - |
+| `sessionKey` | 0..1 | `string` | - |
 
 **Rilievo sull'esempio JSON di R1 §2.10.4**: manca la sotto-estensione obbligatoria `_datatype` (1..1); inoltre la forma `{ "url": "address", "valueUrl": "…" }` non è stata riscontrata nella `StructureDefinition` pubblicata, che presenta `address` come **estensione complessa** su `ExtendedContactDetail`. Prima di pubblicare quell'esempio va risolto il pacchetto `hl7.fhir.uv.xver-r5.r4#0.1.0` e validata l'istanza. **Questo punto specifico resta `PARZIALE`.**
 
@@ -64,7 +64,7 @@ Sotto-estensioni definite dall'estensione `extension-Encounter.virtualService`:
 
 Sì: l'estensione è definita **per il contesto R4** (l'IG si intitola letteralmente «for Using Data Elements from FHIR R5 in FHIR R4») e ha come contesto d'uso l'elemento `Encounter` di R4. Una risorsa che la usa resta un `Encounter` R4 valido, purché il validatore disponga del pacchetto. Il vincolo pratico è il *maturity level 0*: va pinnata la versione e va documentato che l'estensione può cambiare.
 
-### 1.5 Struttura reale di `VirtualServiceDetail` in R5 — **R1 contiene tre errori**
+### 1.5 Struttura reale di `VirtualServiceDetail` in R5 - **R1 contiene tre errori**
 
 Fonte: <https://hl7.org/fhir/R5/metadatatypes-definitions.html> e <https://hl7.org/fhir/R5/valueset-virtual-service-type.html>.
 
@@ -122,10 +122,10 @@ Espansione: **12 concetti**, che includono `PPRF`, `SPRF`, `ATND`, `CON`, `REF`,
 
 **Esito: VERIFICATA per le due tabelle; PARZIALE per il segmento `ERR`.**
 
-### 3.1 Tabella 0004 — Patient Class
+### 3.1 Tabella 0004 - Patient Class
 
 Fonte: <https://terminology.hl7.org/6.0.2/CodeSystem-v2-0004.html>.
-Canonical: `http://terminology.hl7.org/CodeSystem/v2-0004` — OID `2.16.840.1.113883.18.5`.
+Canonical: `http://terminology.hl7.org/CodeSystem/v2-0004` - OID `2.16.840.1.113883.18.5`.
 Descrizione: *"concepts used by systems to categorize patients by site in HL7 Version 2.x interfaces in the PV1 segment"*.
 
 | Code | Display |
@@ -142,10 +142,10 @@ Descrizione: *"concepts used by systems to categorize patients by site in HL7 Ve
 
 → **`PV1-2 = O` è corretto** per una prestazione ambulatoriale/televisita. Il `[NV]` di R1 riga 1352 si chiude come **VERIFICATA**.
 
-### 3.2 Tabella 0357 — Message Error Condition Codes
+### 3.2 Tabella 0357 - Message Error Condition Codes
 
 Fonte: <https://terminology.hl7.org/6.0.2/CodeSystem-v2-0357.html>.
-Canonical: `http://terminology.hl7.org/CodeSystem/v2-0357` — OID `2.16.840.1.113883.18.217`.
+Canonical: `http://terminology.hl7.org/CodeSystem/v2-0357` - OID `2.16.840.1.113883.18.217`.
 
 | Code | Display | Definizione |
 |---|---|---|
@@ -186,28 +186,28 @@ Fonte: <https://www.hl7.eu/HL7v2x/v25/std25/ch02.html>, sezione *ERR - error seg
 
 | SEQ | DT | ITEM# | Element name | Tabella referenziata |
 |---|---|---|---|---|
-| ERR-1 | `ELD` | 00024 | Error Code and Location | — (campo **mantenuto per retro-compatibilità**) |
-| ERR-2 | `ERL` | 01812 | Error Location | — |
+| ERR-1 | `ELD` | 00024 | Error Code and Location | - (campo **mantenuto per retro-compatibilità**) |
+| ERR-2 | `ERL` | 01812 | Error Location | - |
 | ERR-3 | `CWE` | 01813 | HL7 Error Code | **0357** |
 | ERR-4 | `ID` | 01814 | Severity | **0516** |
 | ERR-5 | `CWE` | 01815 | Application Error Code | tabella user-defined, numero **non verificato** |
-| ERR-6 | `ST` | 01816 | Application Error Parameter | — |
-| ERR-7 | `TX` | 01817 | Diagnostic Information | — |
-| ERR-8 | `TX` | 01818 | User Message | — |
+| ERR-6 | `ST` | 01816 | Application Error Parameter | - |
+| ERR-7 | `TX` | 01817 | Diagnostic Information | - |
+| ERR-8 | `TX` | 01818 | User Message | - |
 | ERR-9 | `IS` | 01819 | Inform Person Indicator | **0517** |
 | ERR-10 | `CWE` | 01820 | Override Type | **0518** |
 | ERR-11 | `CWE` | 01821 | Override Reason Code | 0519 (*dedotto per esclusione, tabella non raggiunta*) |
-| ERR-12 | `XTN` | 01822 | Help Desk Contact Point | — |
+| ERR-12 | `XTN` | 01822 | Help Desk Contact Point | - |
 
-**Residuo non verificabile con questo strumento**: le colonne **LEN** e **OPT** (obbligatorietà `R`/`O`/`B`) e **RP/#** (ripetibilità). Tre estrazioni della stessa pagina hanno prodotto valori LEN e OPT mutuamente incompatibili (per ERR-1: 250 / 256; per ERR-3 e ERR-4: `O` in un caso e non riportato negli altri). **Non sono pubblicabili.** Vanno letti sul PDF normativo HL7 v2.5, capitolo 2, tabella attributi ERR, oppure sul database ufficiale delle tabelle HL7. Il fatto rilevante per l'implementazione — che ERR in v2.5 **differisce radicalmente da v2.3**, dove `ERR-1` di tipo `CM` era l'unico campo — è **confermato**: in v2.5 `ERR-1` è marcato come mantenuto per retro-compatibilità e i campi utili sono `ERR-2` (`ERL`, posizione strutturata) e `ERR-3` (`CWE` su tabella 0357).
+**Residuo non verificabile con questo strumento**: le colonne **LEN** e **OPT** (obbligatorietà `R`/`O`/`B`) e **RP/#** (ripetibilità). Tre estrazioni della stessa pagina hanno prodotto valori LEN e OPT mutuamente incompatibili (per ERR-1: 250 / 256; per ERR-3 e ERR-4: `O` in un caso e non riportato negli altri). **Non sono pubblicabili.** Vanno letti sul PDF normativo HL7 v2.5, capitolo 2, tabella attributi ERR, oppure sul database ufficiale delle tabelle HL7. Il fatto rilevante per l'implementazione - che ERR in v2.5 **differisce radicalmente da v2.3**, dove `ERR-1` di tipo `CM` era l'unico campo - è **confermato**: in v2.5 `ERR-1` è marcato come mantenuto per retro-compatibilità e i campi utili sono `ERR-2` (`ERL`, posizione strutturata) e `ERR-3` (`CWE` su tabella 0357).
 
 ---
 
 ## 4. Codice fiscale: identifier type in PID-3 e `system` canonico nei profili FHIR italiani
 
-### 4.1 PID-3 — identifier type code — **Esito: SMENTITA (il codice `NN` non esiste) + NON VERIFICABILE (nessuna convenzione italiana normativa)**
+### 4.1 PID-3 - identifier type code - **Esito: SMENTITA (il codice `NN` non esiste) + NON VERIFICABILE (nessuna convenzione italiana normativa)**
 
-Fonte: <https://terminology.hl7.org/6.0.2/CodeSystem-v2-0203.html> (HL7 Table 0203 — Identifier Type).
+Fonte: <https://terminology.hl7.org/6.0.2/CodeSystem-v2-0203.html> (HL7 Table 0203 - Identifier Type).
 
 Il concetto realmente presente ha come codice, carattere per carattere:
 
@@ -223,7 +223,7 @@ Conseguenze:
 3. Altri codici della tabella astrattamente candidabili e verificati come esistenti: `TAX` ("Tax ID number"), `SS` ("Social Security number"), `NI` ("National unique individual identifier"), `PI`, `PN`, `MR`, `PPN`, `NPI`.
 4. **Nessun profilo HL7 Italia pubblicato fissa il valore per il codice fiscale.** Il ValueSet `http://hl7.it/fhir/itcore/ValueSet/vs-tipoIdentificatore` (IT-Core 0.2.0) **include l'intero code system `v2-0203` con 147 concetti** e non ne seleziona alcuno come "codice fiscale". La scelta resta quindi **contrattuale con l'integratore**, esattamente come R1 aveva prudentemente scritto. Raccomandazione: `NNITA` (conforme alla regola di formazione di 0203), documentato nel profilo d'interfaccia; `TAX` è la seconda scelta più diffusa ma semanticamente più debole.
 
-### 4.2 `system` canonico del codice fiscale in FHIR — **Esito: VERIFICATA, ma con una divergenza fra IG italiane che R5 non aveva rilevato**
+### 4.2 `system` canonico del codice fiscale in FHIR - **Esito: VERIFICATA, ma con una divergenza fra IG italiane che R5 non aveva rilevato**
 
 Esistono **due** URI canonici diversi in uso, entrambi su fonte primaria hl7.it:
 
@@ -264,7 +264,7 @@ Esempio reale, verbatim da IT Base:
       }
     ],
     "system": "http://hl7.it/sid/codiceFiscale",
-    "value": "TSTPSN80A01D612A"
+    "value": "TSTPSN80A01D612Z"
   }
 ]
 ```
@@ -294,19 +294,19 @@ Altri slice verificati (`PatientTelevisita`): `anpr` → `http://hl7.it/sid/anpr
 
 | Capitolo | Messaggio | Descrizione |
 |---|---|---|
-| 3 — Patient Administration | `ADT_A01` | Admit/Visit Notification |
+| 3 - Patient Administration | `ADT_A01` | Admit/Visit Notification |
 | 3 | `ADT_A02` | Transfer a Patient |
 | 3 | `ADT_A05` | Pre-Admit a Patient |
 | 3 | `ADT_A06` | Change an Outpatient to an Inpatient |
 | 3 | `ADT_A09` | Patient Departing - Tracking |
 | 3 | `ADT_A11` | Cancel Admit / Visit Notification |
 | 3 | `ADT_A17` | Swap Patients |
-| 4 — Order Entry | `OML_O21` | Laboratory order |
+| 4 - Order Entry | `OML_O21` | Laboratory order |
 | 4 | `ORM_O01` | General Order Message |
 | 4 | `VXU_V04` | Vaccine Record Update |
-| 7 — Observation Reporting | `ORU_R01` | Unsolicited Report |
-| 9 — Medical Records / IM | `MDM_T02` | Document status change notification and content |
-| 10 — Scheduling | **`SIU_S12`** | SIU/ACK |
+| 7 - Observation Reporting | `ORU_R01` | Unsolicited Report |
+| 9 - Medical Records / IM | `MDM_T02` | Document status change notification and content |
+| 10 - Scheduling | **`SIU_S12`** | SIU/ACK |
 
 Ogni mappa è pubblicata come `ConceptMap`, con nomenclatura di file `ConceptMap-message-<msg>-to-bundle.html` (es. `ConceptMap-message-siu-s12-to-bundle.html`).
 
@@ -337,7 +337,7 @@ Sono definite **77 segment map**, tutte *Informative*. Quelle pertinenti al caso
 
 ## 6. Subscriptions R5 Backport IG
 
-**Esito: VERIFICATA** — con **due errori sostanziali in R1 §6** da correggere.
+**Esito: VERIFICATA** - con **due errori sostanziali in R1 §6** da correggere.
 
 ### 6.1 Identità della versione
 
@@ -350,7 +350,7 @@ Sono definite **77 segment map**, tutte *Informative*. Quelle pertinenti al caso
 | Package id | `hl7.fhir.uv.subscriptions-backport#1.1.0` |
 | Canonical | `http://hl7.org/fhir/uv/subscriptions-backport/ImplementationGuide/hl7.fhir.uv.subscriptions-backport` |
 
-### 6.2 Estensioni definite — elenco completo e canonical verificati uno per uno
+### 6.2 Estensioni definite - elenco completo e canonical verificati uno per uno
 
 | Titolo | Canonical URL | Contesto | Tipo valore |
 |---|---|---|---|
@@ -362,7 +362,7 @@ Sono definite **77 segment map**, tutte *Informative*. Quelle pertinenti al caso
 | Backport R5 Subscription Timeout | `http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-timeout` | `Subscription.channel` | `unsignedInt` |
 | CapabilityStatement SubscriptionTopic Canonical | `http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/capabilitystatement-subscriptiontopic-canonical` | `CapabilityStatement.rest.resource` | `canonical` |
 
-**Correzione a R1 riga 1030**: R1 ipotizzava un'estensione `backport-topic`. **Non esiste.** Il collegamento al `SubscriptionTopic` **non** avviene tramite estensione: in R4 il canonical del topic si scrive **direttamente in `Subscription.criteria`** (fonte: pagina *Topic-Based Subscription Components* dell'IG — *"the link to a `SubscriptionTopic` is specified in the `Subscription.criteria` field"*). R1 non menzionava invece `backport-channel-type`, che esiste.
+**Correzione a R1 riga 1030**: R1 ipotizzava un'estensione `backport-topic`. **Non esiste.** Il collegamento al `SubscriptionTopic` **non** avviene tramite estensione: in R4 il canonical del topic si scrive **direttamente in `Subscription.criteria`** (fonte: pagina *Topic-Based Subscription Components* dell'IG - *"the link to a `SubscriptionTopic` is specified in the `Subscription.criteria` field"*). R1 non menzionava invece `backport-channel-type`, che esiste.
 
 ### 6.3 Valori ammessi di `payload-content`
 
@@ -429,9 +429,9 @@ Per un server **R4B** l'URL da mettere in `instantiates` è invece `http://hl7.o
 
 **Esito: VERIFICATA.**
 
-### 7.1 PDQm — Mobile Patient Demographics Query [ITI-78]
+### 7.1 PDQm - Mobile Patient Demographics Query [ITI-78]
 
-Fonte: <https://profiles.ihe.net/ITI/PDQm/ITI-78.html>. **PDQm 3.2.0 — Trial-Implementation, generata 2025-11-04.**
+Fonte: <https://profiles.ihe.net/ITI/PDQm/ITI-78.html>. **PDQm 3.2.0 - Trial-Implementation, generata 2025-11-04.**
 
 Search parameter su `Patient` (elenco esatto, 14):
 
@@ -454,11 +454,11 @@ Search parameter su `Patient` (elenco esatto, 14):
 
 Regola di conformità: il *Patient Demographics Consumer* **MAY** fornire i parametri; il *Patient Demographics Supplier* **SHALL** essere capace di processarli tutti. Il Supplier deve inoltre supportare almeno le combinazioni `family` + `gender` e `birthdate` + `family`.
 
-> Nota: `mothersMaidenName` è scritto in camelCase — è l'unico parametro non in kebab-case dell'elenco. Va copiato esattamente.
+> Nota: `mothersMaidenName` è scritto in camelCase - è l'unico parametro non in kebab-case dell'elenco. Va copiato esattamente.
 
-### 7.2 PIXm — Mobile Patient Identifier Cross-reference Query [ITI-83]
+### 7.2 PIXm - Mobile Patient Identifier Cross-reference Query [ITI-83]
 
-Fonte: <https://profiles.ihe.net/ITI/PIXm/ITI-83.html>. **PIXm 3.1.0 — Trial-Implementation, generata 2025-11-04.**
+Fonte: <https://profiles.ihe.net/ITI/PIXm/ITI-83.html>. **PIXm 3.1.0 - Trial-Implementation, generata 2025-11-04.**
 
 Operazione: **`$ihe-pix`**, endpoint `[base]/Patient/$ihe-pix`.
 
@@ -474,7 +474,7 @@ Operazione: **`$ihe-pix`**, endpoint `[base]/Patient/$ihe-pix`.
 
 ## 8. Edizione di ICD-9-CM del code system italiano e contenuto di `vs-tipo-ricetta`
 
-### 8.1 ICD-9-CM — **Esito: NON VERIFICABILE (assenza accertata)**
+### 8.1 ICD-9-CM - **Esito: NON VERIFICABILE (assenza accertata)**
 
 Fonte: <https://www.hl7.it/fhir/televisita/CodeSystem-diagnosi-icd9cm.html>.
 
@@ -490,7 +490,7 @@ Fonte: <https://www.hl7.it/fhir/televisita/CodeSystem-diagnosi-icd9cm.html>.
 
 L'assenza è **accertata**, non presunta: la pagina del CodeSystem non contiene alcun riferimento a un anno di edizione, a un decreto ministeriale di adozione o a una versione della classificazione. Poiché in Italia la SDO adotta l'edizione ICD-9-CM **2007** recepita con decreto, e poiché il code system enumera concetti (`content` enumerativo, ordine di 1.400+ codici verificato dall'ispezione della pagina) senza dichiarare la fonte, **il code system non è tracciabile a un'edizione**. Questa è una lacuna reale dell'IG, da segnalare formalmente a HL7 Italia. **Non dichiarare un'edizione nella documentazione di Telemedic.**
 
-### 8.2 `vs-tipo-ricetta` — **Esito: VERIFICATA, con un rilievo di coerenza**
+### 8.2 `vs-tipo-ricetta` - **Esito: VERIFICATA, con un rilievo di coerenza**
 
 Fonte: <https://www.hl7.it/fhir/televisita/ValueSet-vs-tipo-ricetta.html>.
 
@@ -519,7 +519,7 @@ Espansione completa (7 concetti):
 
 ## 9. `Encounter.class` nel profilo `EncounterTelevisita`
 
-**Esito: VERIFICATA — R1 aveva ragione, il profilo non fissa `class`.**
+**Esito: VERIFICATA - R1 aveva ragione, il profilo non fissa `class`.**
 
 Fonte: <https://www.hl7.it/fhir/televisita/StructureDefinition-EncounterTelevisita.html>.
 
@@ -533,13 +533,13 @@ Fonte: <https://www.hl7.it/fhir/televisita/StructureDefinition-EncounterTelevisi
 
 Elementi resi obbligatori dal profilo: `identifier:codiceNosologico` (1..1), `status` (1..1), `class` (1..1). Lo slice `identifier:codiceNosologico.system` ha valore fisso `http://hl7.it/fhir/televisita/sid/codiceNosologico`.
 
-**Conclusione operativa sulla questione D3 di R1**: il profilo italiano **non impone `VR`**. Poiché il binding è *extensible* verso `v3-ActEncounterCode` e `VR` è l'unico codice di quel value set che denoti la modalità non-compresente, `VR` è la scelta conforme e difendibile — ma è una **decisione di progetto di Telemedic**, non una prescrizione dell'IG. Va formalizzata in un ADR e, se si desidera certezza, sollevata come issue verso HL7 Italia. La frase di R1 §2.10.3 («`class` è valorizzato a `VR`, che il profilo italiano lascia libero») è **corretta**.
+**Conclusione operativa sulla questione D3 di R1**: il profilo italiano **non impone `VR`**. Poiché il binding è *extensible* verso `v3-ActEncounterCode` e `VR` è l'unico codice di quel value set che denoti la modalità non-compresente, `VR` è la scelta conforme e difendibile - ma è una **decisione di progetto di Telemedic**, non una prescrizione dell'IG. Va formalizzata in un ADR e, se si desidera certezza, sollevata come issue verso HL7 Italia. La frase di R1 §2.10.3 («`class` è valorizzato a `VR`, che il profilo italiano lascia libero») è **corretta**.
 
 ---
 
-## 10. FHIR Bulk Data Access — operazione `$export`
+## 10. FHIR Bulk Data Access - operazione `$export`
 
-**Esito: VERIFICATA** — e la versione da citare **non è quella indicata da R1**.
+**Esito: VERIFICATA** - e la versione da citare **non è quella indicata da R1**.
 
 ### 10.1 Identità della versione
 
@@ -567,7 +567,7 @@ R1 (Appendice A) cita ancora `https://hl7.org/fhir/uv/bulkdata/STU2/export.html`
 
 | Header | Valore |
 |---|---|
-| `Accept` | `application/fhir+json` — specifica il formato della `OperationOutcome` opzionale di risposta al kick-off |
+| `Accept` | `application/fhir+json` - specifica il formato della `OperationOutcome` opzionale di risposta al kick-off |
 | `Prefer` | **`respond-async`**; in STU3 è ammesso il secondo valore `separate-export-status`, nella forma `Prefer: respond-async,separate-export-status` |
 
 In STU2 il testo è tassativo: *"Currently, only a value of `respond-async` is supported."*
@@ -578,14 +578,14 @@ In STU2 il testo è tassativo: *"Currently, only a value of `respond-async` is s
 |---|---|---|---|---|---|
 | `_outputFormat` | required | optional | 0..1 | string | formato dei file generati; default `application/fhir+ndjson` |
 | `_since` | required | optional | 0..1 | instant | risorse il cui stato è cambiato dopo l'istante indicato, su `Resource.meta.lastUpdated` |
-| `_until` | optional | optional | 0..1 | instant | **nuovo in STU3** — risorse modificate prima dell'istante indicato |
+| `_until` | optional | optional | 0..1 | instant | **nuovo in STU3** - risorse modificate prima dell'istante indicato |
 | `_type` | optional | optional | 0..* | string (lista separata da virgole) | *"The response SHALL be filtered to only include resources of the specified resource types"* |
 | `_elements` | optional, **experimental** | optional | 0..* | string | il server SHOULD omettere gli elementi non obbligatori non elencati |
 | `patient` | optional | optional | 0..* | Reference | **solo POST**; il server SHALL NOT restituire risorse di pazienti fuori dall'elenco |
 | `includeAssociatedData` | optional, **experimental** | optional | 0..* | string | insiemi predefiniti di risorse associate |
 | `_typeFilter` | optional | optional | 0..* | string (query REST FHIR) | filtro fine sui tipi referenziati |
-| `organizeOutputBy` | optional | optional | 0..1 | string (resource type) | **nuovo in STU3** — organizza i file per istanze del tipo indicato |
-| `allowPartialManifests` | optional | optional | 0..1 | boolean | **nuovo in STU3** — abilita manifest parziali e paginati |
+| `organizeOutputBy` | optional | optional | 0..1 | string (resource type) | **nuovo in STU3** - organizza i file per istanze del tipo indicato |
+| `allowPartialManifests` | optional | optional | 0..1 | boolean | **nuovo in STU3** - abilita manifest parziali e paginati |
 
 In **STU2** i parametri erano: `_outputFormat`, `_since`, `_type`, `_elements` (experimental), `patient` (POST), `includeAssociatedData` (experimental), `_typeFilter` (experimental). Non esistevano `_until`, `organizeOutputBy`, `allowPartialManifests`.
 
@@ -605,10 +605,10 @@ In **STU2** i parametri erano: `_outputFormat`, `_since`, `_type`, `_elements` (
 | `X-Progress` (risposta) | opzionale, descrizione testuale sotto i 100 caratteri (percentuale o stato generico) |
 | `202 Accepted` | export in corso (comportamento base) |
 | `200 OK` + `X-Export-Status: 202 Accepted` | export in corso, **solo** quando è stato negoziato `separate-export-status` (STU3) |
-| `200 OK` | export completato — il body è il manifest |
+| `200 OK` | export completato - il body è il manifest |
 | `4XX` / `5XX` | errore |
 
-### 10.7 Manifest di completamento — **versione pubblicata STU3 (3.0.0)**
+### 10.7 Manifest di completamento - **versione pubblicata STU3 (3.0.0)**
 
 | Campo | Optionality | Tipo | Descrizione |
 |---|---|---|---|
@@ -626,7 +626,7 @@ Campi degli item di `output` (e, con la stessa struttura, di `deleted` ed `error
 
 | Campo | Contenuto |
 |---|---|
-| `type` | tipo di risorsa FHIR contenuto nel file — **omesso quando è stato usato `organizeOutputBy`** |
+| `type` | tipo di risorsa FHIR contenuto nel file - **omesso quando è stato usato `organizeOutputBy`** |
 | `url` | percorso assoluto del file |
 | `count` | numero di risorse nel file (opzionale, JSON number) |
 | `continuesInFile` | URL del file di continuazione, quando un blocco si estende su più file (solo `output`, solo con `organizeOutputBy`) |
@@ -672,7 +672,7 @@ Il *continuous build* dell'IG (<https://build.fhir.org/ig/HL7/bulk-data/en/expor
 
 ### 11.1 SAML2 (SPID)
 
-Fonte primaria: *Regole tecniche SPID*, sezione **Single Sign-On**, sottosezione *AuthnRequest* — <https://docs.italia.it/italia/spid/spid-regole-tecniche/it/stabile/single-sign-on.html>.
+Fonte primaria: *Regole tecniche SPID*, sezione **Single Sign-On**, sottosezione *AuthnRequest* - <https://docs.italia.it/italia/spid/spid-regole-tecniche/it/stabile/single-sign-on.html>.
 
 I valori vanno in `<saml:AuthnContextClassRef>` dentro `<samlp:RequestedAuthnContext>`:
 
@@ -686,7 +686,7 @@ Le *authentication context class* sono presentate come livelli di robustezza del
 
 ### 11.2 OIDC (SPID)
 
-Fonte: *Linee Guida OpenID Connect in SPID*, sezione 5 *Authorization Endpoint (Authentication Request)* — <https://docs.italia.it/AgID/documenti-in-consultazione/lg-openidconnect-spid-docs/it/bozza/authorization-endpoint-authentication-request.html>.
+Fonte: *Linee Guida OpenID Connect in SPID*, sezione 5 *Authorization Endpoint (Authentication Request)* - <https://docs.italia.it/AgID/documenti-in-consultazione/lg-openidconnect-spid-docs/it/bozza/authorization-endpoint-authentication-request.html>.
 
 Il parametro è **`acr_values`** e assume **gli stessi identici URI** del profilo SAML (`https://www.spid.gov.it/SpidL1|SpidL2|SpidL3`). Testo verbatim sulla sintassi:
 
@@ -694,7 +694,7 @@ Il parametro è **`acr_values`** e assume **gli stessi identici URI** del profil
 
 Quindi: **valori separati da spazio, in ordine di preferenza decrescente**.
 
-### 11.3 CIE id — non chiuso
+### 11.3 CIE id - non chiuso
 
 Le *Regole tecniche SPID/CIE OpenID Connect* (<https://docs.italia.it/italia/spid/spid-cie-oidc-docs/it/versione-corrente/>) descrivono `acr_values` come *"Valori di riferimento della classe di contesto dell'Authentication Request. DEVE essere una stringa separata da uno spazio, che specifica i valori "acr" richiesti in ordine di preferenza"* e **rimandano al parametro `acr_values_supported` dei metadata dell'OP** per l'elenco effettivo. La pagina *Differenze SPID e CIE id* non contiene una sezione di confronto sugli `acr`.
 
@@ -770,7 +770,7 @@ Il messaggio è coperto dall'IG v2-to-FHIR come `SIU_S12` (`ConceptMap-message-s
 
 ## 13. Stato normativo degli header `Deprecation`, `Idempotency-Key`, `RateLimit-*`
 
-### 13.1 `Deprecation` — **Esito: VERIFICATA — è diventato RFC**
+### 13.1 `Deprecation` - **Esito: VERIFICATA - è diventato RFC**
 
 | Dato | Valore |
 |---|---|
@@ -799,7 +799,7 @@ Link: <https://developer.example.com/deprecation>;
 
 Fonte: <https://www.rfc-editor.org/rfc/rfc9745.html>.
 
-### 13.2 `Idempotency-Key` — **Esito: VERIFICATA — NON è un RFC, ed è un draft scaduto**
+### 13.2 `Idempotency-Key` - **Esito: VERIFICATA - NON è un RFC, ed è un draft scaduto**
 
 | Dato | Valore |
 |---|---|
@@ -814,7 +814,7 @@ Fonte: <https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-head
 
 **Implicazione per Telemedic**: `Idempotency-Key` è una **convenzione di settore**, non uno standard. Se lo si adotta (ed è opportuno per i webhook e per le POST verso l'integratore), va documentato come *convenzione di progetto ispirata all'Internet-Draft scaduto*, non come conformità a uno standard IETF.
 
-### 13.3 `RateLimit-*` — **Esito: VERIFICATA — non è RFC, e la forma a tre header è superata**
+### 13.3 `RateLimit-*` - **Esito: VERIFICATA - non è RFC, e la forma a tre header è superata**
 
 | Dato | Valore |
 |---|---|
@@ -836,7 +836,7 @@ Fonte: <https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers/>.
 
 **Esito: VERIFICATA.**
 
-Fonte primaria: *HTTP Protocol Binding for CloudEvents* v1.0.2 — <https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/http-protocol-binding.md>.
+Fonte primaria: *HTTP Protocol Binding for CloudEvents* v1.0.2 - <https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/http-protocol-binding.md>.
 
 Regola di formazione verbatim:
 
@@ -851,7 +851,7 @@ Regola di formazione verbatim:
 | `subject` | `ce-subject` |
 | `time` | `ce-time` |
 | `dataschema` | `ce-dataschema` |
-| `datacontenttype` | **nessun header `ce-`** — vedi sotto |
+| `datacontenttype` | **nessun header `ce-`** - vedi sotto |
 
 Trattamento speciale di `datacontenttype`, verbatim:
 
@@ -881,15 +881,15 @@ Content-Length: nnnn
 
 ## 15. `scratchpad.read` e i `messageType` di SMART Web Messaging
 
-**Esito: VERIFICATA — `scratchpad.read` esiste ed è un `messageType` valido.**
+**Esito: VERIFICATA - `scratchpad.read` esiste ed è un `messageType` valido.**
 
 | Dato | Valore |
 |---|---|
 | IG | *SMART Web Messaging* |
-| Versione | **1.0.0 — STU1** |
+| Versione | **1.0.0 - STU1** |
 | Data | **2022-05-06** |
 | Base | FHIR R4 |
-| Publisher | HL7 International — FHIR Infrastructure WG |
+| Publisher | HL7 International - FHIR Infrastructure WG |
 
 Pagine: `index.html`, `activity-catalog.html`, **`smart-web-messaging.html`** (pagina tecnica normativa), `artifacts.html`, `CodeSystem-launch-status-code-system.html`.
 
@@ -942,9 +942,9 @@ Da non confondere con i `messageType`: l'*Activity Catalog* definisce **tre** at
 
 | `activityType` | Parametro REQUIRED |
 |---|---|
-| `appointment-book` | `appointmentLocations` — *"FHIR Bundle of FHIR Appointment resource locations in draft status"* |
-| `order-review` | `draftOrderLocations` — *"array of draft order locations (references to) already existing in the scratchpad"* |
-| `problem-review` | `problemLocation` — riferimento a una `Condition` preesistente usata dall'EHR per precompilare la maschera |
+| `appointment-book` | `appointmentLocations` - *"FHIR Bundle of FHIR Appointment resource locations in draft status"* |
+| `order-review` | `draftOrderLocations` - *"array of draft order locations (references to) already existing in the scratchpad"* |
+| `problem-review` | `problemLocation` - riferimento a una `Condition` preesistente usata dall'EHR per precompilare la maschera |
 
 Fonti: <https://hl7.org/fhir/uv/smart-web-messaging/smart-web-messaging.html>, <https://hl7.org/fhir/uv/smart-web-messaging/activity-catalog.html>.
 
@@ -969,10 +969,10 @@ Fonti: <https://hl7.org/fhir/uv/smart-web-messaging/smart-web-messaging.html>, <
 
 | Pacchetto npm | Versione corrente | Licenza | Repository | Stato | Ruolo |
 |---|---|---|---|---|---|
-| `fhirclient` | **2.6.3** | Apache-2.0 | `smart-on-fhir/client-js` — **non archiviato** | attivo (release recenti fino a v2.6.3) | Client **SMART on FHIR** per browser e Node. Descritto dal README come *"a JavaScript library for connecting SMART apps to Fhir servers"*. **Prima scelta** per il launch SMART. |
-| `fhir-kit-client` | **2.0.3** | MIT | `Vermonster/fhir-kit-client` — **non archiviato** | attivo | Client FHIR generico. v2 richiede Node 18+, usa `fetch`/`AbortController`/`URLSearchParams` nativi; **CommonJS (`require`) non supportato**. |
+| `fhirclient` | **2.6.3** | Apache-2.0 | `smart-on-fhir/client-js` - **non archiviato** | attivo (release recenti fino a v2.6.3) | Client **SMART on FHIR** per browser e Node. Descritto dal README come *"a JavaScript library for connecting SMART apps to Fhir servers"*. **Prima scelta** per il launch SMART. |
+| `fhir-kit-client` | **2.0.3** | MIT | `Vermonster/fhir-kit-client` - **non archiviato** | attivo | Client FHIR generico. v2 richiede Node 18+, usa `fetch`/`AbortController`/`URLSearchParams` nativi; **CommonJS (`require`) non supportato**. |
 | `@types/fhir` | **0.0.44** | MIT | DefinitelyTyped | attivo | Definizioni TypeScript delle risorse FHIR (namespace per release). Solo tipi, zero runtime: **opzione a rischio nullo** per l'SDK TypeScript. |
-| `fhirpath` | **5.1.1** | vedi `LICENSE.md` | `HL7/fhirpath.js` — **repository HL7 ufficiale** | attivo | Motore FHIRPath. Necessario per valutare invarianti e `_typeFilter`/filtri di subscription lato client. |
+| `fhirpath` | **5.1.1** | vedi `LICENSE.md` | `HL7/fhirpath.js` - **repository HL7 ufficiale** | attivo | Motore FHIRPath. Necessario per valutare invarianti e `_typeFilter`/filtri di subscription lato client. |
 | `@medplum/fhirtypes` | **5.1.31** | Apache-2.0 | `medplum/medplum` | attivo | Tipi FHIR generati; parte di una piattaforma più ampia. Utile se si vuole tipizzazione aggiornata con cadenza rapida. |
 | `fhir` | 4.12.0 | ISC | `lantanagroup/FHIR.js` | **DEPRECATO su npm** | Campo `deprecated` presente: *"This package has been renamed to fhir-tool. Please install and use fhir-tool instead."* Serializzazione JSON↔XML, validazione, FHIRPath. **Se serve, installare `fhir-tool`.** |
 
@@ -982,9 +982,9 @@ Fonti: <https://hl7.org/fhir/uv/smart-web-messaging/smart-web-messaging.html>, <
 
 ---
 
-## 17. BALP — Basic Audit Log Patterns
+## 17. BALP - Basic Audit Log Patterns
 
-**Esito: VERIFICATA — esiste come Implementation Guide IHE.**
+**Esito: VERIFICATA - esiste come Implementation Guide IHE.**
 
 | Dato | Valore |
 |---|---|
@@ -1002,7 +1002,7 @@ Fonti: <https://hl7.org/fhir/uv/smart-web-messaging/smart-web-messaging.html>, <
 
 ### 17.1 Profili `AuditEvent` definiti (elenco completo verificato)
 
-**Pattern RESTful** — per ciascuna operazione esistono **due** varianti, una senza paziente e una con paziente identificato:
+**Pattern RESTful** - per ciascuna operazione esistono **due** varianti, una senza paziente e una con paziente identificato:
 
 | # | Profilo |
 |---|---|
@@ -1027,8 +1027,8 @@ Fonti: <https://hl7.org/fhir/uv/smart-web-messaging/smart-web-messaging.html>, <
 | 14 | Basic AuditEvent pattern for oAuth Opaque (variante minimale) |
 | 15 | Basic AuditEvent pattern for when an Authorization permit is decided |
 | 16 | Basic AuditEvent pattern for when an activity was authorized by an IUA access token |
-| 17 | Basic AuditEvent pattern for when an activity was authorized by an SAML access token — Comprehensive |
-| 18 | Basic AuditEvent pattern for when an activity was authorized by an SAML access token — Minimal |
+| 17 | Basic AuditEvent pattern for when an activity was authorized by an SAML access token - Comprehensive |
+| 18 | Basic AuditEvent pattern for when an activity was authorized by an SAML access token - Minimal |
 | 19 | IHE IUA ITI-71 AuditEvent for a successful Get Access Token |
 
 ### 17.2 Altri artefatti
@@ -1046,7 +1046,7 @@ Fonti: <https://hl7.org/fhir/uv/smart-web-messaging/smart-web-messaging.html>, <
 
 ## Correzioni da apportare alle ricerche R1 e R5
 
-### R1 — `.telemedic/research/R1-standard-sanitari.md`
+### R1 - `.telemedic/research/R1-standard-sanitari.md`
 
 | # | Sezione | Correzione |
 |---|---|---|
@@ -1062,17 +1062,17 @@ Fonti: <https://hl7.org/fhir/uv/smart-web-messaging/smart-web-messaging.html>, <
 | C10 | riga 1470 | Sostituire il `[NV]` con l'elenco verificato: **13 message map** nell'IG *HL7 Version 2 to FHIR* **v1.0.0** (trial-use, generata 2025-10-07): `ADT_A01`, `ADT_A02`, `ADT_A05`, `ADT_A06`, `ADT_A09`, `ADT_A11`, `ADT_A17`, `OML_O21`, `ORM_O01`, `VXU_V04`, `ORU_R01`, `MDM_T02`, `SIU_S12`. **Tutte con standards status `Informative`.** Aggiungere che esistono 77 segment map, anch'esse *Informative*, e che **non esiste una segment map `ERR`**. |
 | C11 | riga 1030 | Sostituire il `[NV]`. **L'estensione `backport-topic` NON esiste**: in R4 il canonical del `SubscriptionTopic` va in `Subscription.criteria`. Le estensioni realmente definite sono sette (`backport-channel-type`, `backport-filter-criteria`, `backport-heartbeat-period`, `backport-max-count`, `backport-payload-content`, `backport-timeout`, `capabilitystatement-subscriptiontopic-canonical`), tutte sotto `http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/`. Le operazioni sono **tre**: `$status` (obbligatoria), `$events`, `$get-ws-binding-token`. L'IG è alla **1.1.0 del 2023-01-11**. |
 | C12 | riga 1585 | Rimuovere il `[NV]` sui search parameter di ITI-78: elenco verificato di 14 parametri su PDQm **3.2.0 Trial-Implementation (2025-11-04)**, con `mothersMaidenName` in camelCase e l'obbligo per il Supplier di supportare le combinazioni `family`+`gender` e `birthdate`+`family`. (L'operazione `$match` di ITI-119 resta non verificata: fuori dal mandato B6.) |
-| C13 | riga 1917 | Il `[NV]` si chiude in senso negativo: **è accertato che il CodeSystem `http://hl7.it/fhir/televisita/CodeSystem/diagnosi-icd9cm` (v0.2.0) non dichiara alcuna edizione di ICD-9-CM**, né copyright, né fonte. Riformulare da «non verificato» a «assenza accertata — lacuna dell'IG da segnalare a HL7 Italia». |
+| C13 | riga 1917 | Il `[NV]` si chiude in senso negativo: **è accertato che il CodeSystem `http://hl7.it/fhir/televisita/CodeSystem/diagnosi-icd9cm` (v0.2.0) non dichiara alcuna edizione di ICD-9-CM**, né copyright, né fonte. Riformulare da «non verificato» a «assenza accertata - lacuna dell'IG da segnalare a HL7 Italia». |
 | C14 | riga 1970 | Sostituire il `[NV]` con il contenuto verificato di `vs-tipo-ricetta` (7 codici: `EE`, `UE`, `NA`, `ND`, `NE`, `NX`, `ST`) e **segnalare la discrepanza nome/contenuto**: il ValueSet è intitolato «Codici Assistenza Stranieri» e non contiene tipologie di ricetta. |
 | C15 | §11.4 D3 | La questione si chiude: **verificato che `EncounterTelevisita` non fissa `Encounter.class`** (1..1, binding *extensible* a `v3-ActEncounterCode`, nessun fixed/pattern). Riformulare D3 da «va chiarito con HL7 Italia se `VR` è il valore atteso» a «il profilo lascia la scelta all'implementatore; `VR` è la sola opzione semanticamente corretta nel value set e va formalizzata in ADR; resta opportuno un chiarimento con HL7 Italia». |
 | C16 | Appendice A | Aggiornare il riferimento Bulk Data da `https://hl7.org/fhir/uv/bulkdata/STU2/export.html` a **`https://hl7.org/fhir/uv/bulkdata/STU3/`** (v3.0.0, trial-use attiva dal 2025-12-11). |
 | C17 | Appendice A / §5 | Aggiungere alle fonti primarie: `https://hl7.org/fhir/uv/xver-r5.r4/0.1.0/`, `https://profiles.ihe.net/ITI/BALP/`, `https://terminology.hl7.org/6.0.2/CodeSystem-v2-0004|0203|0357|0516|0517|0518.html`, `https://www.hl7.eu/HL7v2x/v251/std251/ch10.html`, `https://www.hl7.it/fhir/core/0.2.0/`. |
 
-### R5 — questioni non verificate
+### R5 - questioni non verificate
 
 | # | Questione | Correzione / chiusura |
 |---|---|---|
-| C18 | **Q3 — `system` del codice fiscale** | Chiusa. Il valore da usare per la famiglia *Televisita* è **`http://hl7.it/sid/codiceFiscale`** (identico in IT Base 0.1.0 e in `PatientTelevisita` 0.2.0). **Va però documentato che IT-Core 0.2.0 usa un URI diverso**, `http://hl7.it/fhir/itcore/CodeSystem/cs-codicefiscale`: la divergenza è reale e va gestita nel mapping verso consumatori IT-Core. Aggiungere questa divergenza all'elenco delle questioni aperte verso HL7 Italia, accanto a D3. |
+| C18 | **Q3 - `system` del codice fiscale** | Chiusa. Il valore da usare per la famiglia *Televisita* è **`http://hl7.it/sid/codiceFiscale`** (identico in IT Base 0.1.0 e in `PatientTelevisita` 0.2.0). **Va però documentato che IT-Core 0.2.0 usa un URI diverso**, `http://hl7.it/fhir/itcore/CodeSystem/cs-codicefiscale`: la divergenza è reale e va gestita nel mapping verso consumatori IT-Core. Aggiungere questa divergenza all'elenco delle questioni aperte verso HL7 Italia, accanto a D3. |
 | C19 | **Bulk Data `$export`** | Chiusa integralmente (voce 10). Se R5 cita STU2, aggiornare a **v3.0.0**; se cita l'insieme di parametri `{_outputFormat, _since, _type, _typeFilter, _elements}` come completo, **aggiungere `_until`, `patient`, `includeAssociatedData`, `organizeOutputBy`, `allowPartialManifests`**. Se descrive il manifest, aggiungere `outputOrganizedBy` e `link` e i campi `continuesInFile` degli item. **Non usare i nomi del continuous build** (`outcome`, `manifestType`, `fileSize`, `countSeverity`): non sono pubblicati. |
 | C20 | **`acr` SPID** | Chiusa per SAML e OIDC SPID: `https://www.spid.gov.it/SpidL1|SpidL2|SpidL3`, in `AuthnContextClassRef` (SAML) e in `acr_values` separati da spazio e in ordine di preferenza (OIDC). **Non chiusa per CIE id**: le regole tecniche rinviano a `acr_values_supported` dei metadata dell'OP. Se R5 elenca valori `acr` per CIE, vanno rimossi o marcati come da confermare col gestore d'identità. |
 | C21 | **`SIU^S12` in v2.5.1** | Chiusa (voce 12). Se R5 descrive la struttura, verificare che riporti: `TQ1` presente in 2.5.1, gruppo `PATIENT` **opzionale**, gruppo `RESOURCES` **obbligatorio e ripetibile** con `RGS` in testa, `NTE` in cinque posizioni distinte, e che la stessa struttura copre S12–S24 e S26. |
@@ -1086,7 +1086,7 @@ Fonti: <https://hl7.org/fhir/uv/smart-web-messaging/smart-web-messaging.html>, <
 
 ---
 
-## Appendice — Fonti primarie consultate in questa verifica
+## Appendice - Fonti primarie consultate in questa verifica
 
 | Ambito | URL |
 |---|---|
@@ -1110,4 +1110,4 @@ Fonti: <https://hl7.org/fhir/uv/smart-web-messaging/smart-web-messaging.html>, <
 
 **File di riferimento del progetto** (non modificati da questo agente, che non ha permesso di scrittura):
 - `/home/federicocalo/Scrivania/prj/Telemedic/.telemedic/context/00_PROJECT_BRIEF.md`
-- `/home/federicocalo/Scrivania/prj/Telemedic/.telemedic/research/R1-standard-sanitari.md` — le correzioni C1–C17 vanno applicate a questo file, in particolare alle righe 396, 612–626, 776–778, 786–813, 1030, 1351–1353, 1370, 1470, 1585, 1917, 1970, 2205–2208, 2224–2235.
+- `/home/federicocalo/Scrivania/prj/Telemedic/.telemedic/research/R1-standard-sanitari.md` - le correzioni C1–C17 vanno applicate a questo file, in particolare alle righe 396, 612–626, 776–778, 786–813, 1030, 1351–1353, 1370, 1470, 1585, 1917, 1970, 2205–2208, 2224–2235.

@@ -1,4 +1,4 @@
-# Log agente G8 — modulo 17 «L'ambiente di sviluppo»
+# Log agente G8 - modulo 17 «L'ambiente di sviluppo»
 
 **Data:** 25 agosto 2026
 **Deliverable:** `docs/10_fondamenti/17-ambiente-di-sviluppo.md` (blocco E, decisione D35)
@@ -38,8 +38,8 @@
 | 9 | Controlli che devono passare: che cosa verificano, perché esistono, che cosa fare, **perché non si aggirano** | 9.1–9.5 |
 | 10 | Diagnosi: albero decisionale e i cinque guasti frequenti richiesti dal mandato | 10.1–10.7 |
 | 11 | Igiene: segreti, ambienti separati, pulizia, cosa non committare, perché la cronologia non si ripulisce | 11.1–11.5 |
-| — | Chiusura con «Cosa devi ricordare» (15 punti) e tabella dei termini | Presenti |
-| — | Tabella riepilogativa dei punti `[NV]` | Sezione 12 |
+| - | Chiusura con «Cosa devi ricordare» (15 punti) e tabella dei termini | Presenti |
+| - | Tabella riepilogativa dei punti `[NV]` | Sezione 12 |
 
 **Criterio redazionale applicato.** Il modulo è la versione **didattica e operativa** di
 `docs/01_technical/`, non un duplicato: dove il contenuto esiste già nell'area tecnica o in un
@@ -60,26 +60,26 @@ Sono raccolti anche nella sezione 12 del modulo, così che il lettore non debba 
 
 | # | Oggetto | Sezione | A chi spetta |
 |---|---|---|---|
-| NV-1 | Nome e forma dello script di verifica dei prerequisiti | 1.2, 2.4 | `TECH` — **Q-190** |
-| NV-2 | Gruppi di avvio selettivo dei servizi in composizione e loro nomi | 1.5, 2.6 | `TECH` — **Q-190** |
-| NV-3 | Consumo reale di memoria e disco dell'ambiente locale: **non misurato**, nessuna cifra pubblicata | 1.4 | `TECH`, `ROAD` — **Q-191** |
+| NV-1 | Nome e forma dello script di verifica dei prerequisiti | 1.2, 2.4 | `TECH` - **Q-190** |
+| NV-2 | Gruppi di avvio selettivo dei servizi in composizione e loro nomi | 1.5, 2.6 | `TECH` - **Q-190** |
+| NV-3 | Consumo reale di memoria e disco dell'ambiente locale: **non misurato**, nessuna cifra pubblicata | 1.4 | `TECH`, `ROAD` - **Q-191** |
 | NV-4 | Versione dell'ambiente di esecuzione dell'interfaccia (dichiarata dal file di blocco, non ancora scritto) | 1.2 | `TECH` |
-| NV-5 | Procedura per il certificato dell'origine locale nella prova fra due dispositivi | 1.6 | `TECH` — **Q-190** |
+| NV-5 | Procedura per il certificato dell'origine locale nella prova fra due dispositivi | 1.6 | `TECH` - **Q-190** |
 | NV-6 | Elenco e nomi delle variabili della configurazione locale | 2.5 | Definiti dal file di esempio, non ancora scritto |
-| NV-7 | Invocazione dello strumento di migrazione e del generatore di dati sintetici | 2.7, 5.8 | `TECH` — **Q-190** |
+| NV-7 | Invocazione dello strumento di migrazione e del generatore di dati sintetici | 2.7, 5.8 | `TECH` - **Q-190** |
 | NV-8 | Forma definitiva dell'invocazione del costruttore e profilo attivato in locale | 2.8 | `TECH` |
 | NV-9 | Porte e percorsi esatti degli endpoint di prontezza e vivacità | 2.8 | Configurazione dell'applicazione |
 | NV-10 | Directory delle migrazioni e modulo del generatore, nella tabella «dove cerco che cosa» | 3.5 | `TECH` |
-| NV-11 | Compatibilità fra identificativi sintatticamente validi e regola di rilevamento del controllo G10 | 5.4 | `TECH`, `SEC`, `COMP` — **Q-194** |
-| NV-12 | Intervalli di indirizzi vietati per la prova di confinamento del nodo di relay | 6.6 | `SEC` — **Q-196** |
-| NV-13 | Nome, versione e invocazione degli strumenti di validazione dei profili clinici | 7.1 | `PROTO`, `TECH` — **Q-193** (riprende Q-163) |
+| NV-11 | Compatibilità fra identificativi sintatticamente validi e regola di rilevamento del controllo G10 | 5.4 | `TECH`, `SEC`, `COMP` - **Q-194** |
+| NV-12 | Intervalli di indirizzi vietati per la prova di confinamento del nodo di relay | 6.6 | `SEC` - **Q-196** |
+| NV-13 | Nome, versione e invocazione degli strumenti di validazione dei profili clinici | 7.1 | `PROTO`, `TECH` - **Q-193** (riprende Q-163) |
 | NV-14 | Limiti da misurare: tenant per installazione, intervallo di partizionamento delle serie temporali | 8.7 | Prove di capacità, non eseguite |
-| NV-15 | Comando aggregato per eseguire in locale i controlli obbligatori | 9.5 | `TECH` — **Q-190** |
+| NV-15 | Comando aggregato per eseguire in locale i controlli obbligatori | 9.5 | `TECH` - **Q-190** |
 
 **Nota di metodo.** Il mandato chiedeva comandi realistici e coerenti con l'area tecnica. Il
-modulo usa nomi reali **solo** per strumenti che non dipendono da una decisione del progetto —
+modulo usa nomi reali **solo** per strumenti che non dipendono da una decisione del progetto -
 sistema di controllo di versione, motore di contenitori e sua orchestrazione, client della base
-dati, disciplina di coda del kernel, generatore di casualità del sistema — e marca `[NV]`
+dati, disciplina di coda del kernel, generatore di casualità del sistema - e marca `[NV]`
 **ogni** nome di script, variabile, servizio o profilo del progetto non ancora fissato. Non è
 stato inventato alcun nome di comando di progetto.
 
@@ -99,7 +99,7 @@ stato inventato alcun nome di comando di progetto.
 
 | # | A | Questione, in sintesi |
 |---|---|---|
-| **Q-190** | `TECH` | I **sei nomi che un contributore digita il primo giorno** — verifica prerequisiti, gruppi di avvio selettivo, migrazione, generatore, controlli obbligatori in locale, certificato dell'origine locale — non esistono e non vanno inventati |
+| **Q-190** | `TECH` | I **sei nomi che un contributore digita il primo giorno** - verifica prerequisiti, gruppi di avvio selettivo, migrazione, generatore, controlli obbligatori in locale, certificato dell'origine locale - non esistono e non vanno inventati |
 | **Q-191** | `TECH`, `ROAD` | Consumo di memoria e disco **non misurato**: serve la misura su macchina di riferimento e la dichiarazione del profilo minimo praticabile, altrimenti l'obiettivo di D35 (contribuibilità da chi parte da zero) non è verificabile |
 | **Q-193** | `PROTO`, `TECH` | Strumenti di validazione dei profili clinici **eseguibili in locale**: senza, la richiesta di `CONTRIBUTING.md` di validare prima di proporre non è eseguibile. Riprende Q-163 dal lato del contributore |
 | **Q-194** | `TECH`, `SEC`, `COMP` | Regola di generazione degli identificativi sintetici e regola di rilevamento di G10 **vanno progettate insieme**: scritte separatamente, o il controllo blocca ogni fixture o non blocca nulla |
@@ -107,10 +107,10 @@ stato inventato alcun nome di comando di progetto.
 
 ### 4.3 Risposta data a una voce indirizzata a `GUIDA`
 
-**Q-26** (`COMP` → `ORCH`, `GUIDA`) — collegamenti che escono da `docs/`. Aggiunta nota di
+**Q-26** (`COMP` → `ORCH`, `GUIDA`) - collegamenti che escono da `docs/`. Aggiunta nota di
 `GUIDA` senza cambiare stato, perché la decisione è di `ORCH`: il problema non riguarda un solo
 collegamento, ma almeno quattro documenti di regole verso cui la guida rinvia in modo
-**sostanziale** — il modulo 00 dichiara la guida prerequisito di `CONTRIBUTING.md` e il modulo
+**sostanziale** - il modulo 00 dichiara la guida prerequisito di `CONTRIBUTING.md` e il modulo
 17 §2.2 impone la lettura dei tre documenti di regole come passo zero del primo avvio. La
 **duplicazione dentro `docs/` va esclusa**: due copie di un documento che dichiara destinazione
 d'uso e limiti d'uso sono due documenti che divergeranno, e la divergenza documentale è un
@@ -126,14 +126,14 @@ riguardano aree diverse da questa e **non sono state toccate**.
 
 | Vincolo | Dove è recepito |
 |---|---|
-| **V-03** — sistema pienamente funzionale senza SNOMED CT | §7.2, §7.3: la configurazione predefinita delle prove è quella senza, ed è ciò che tiene viva la modalità degradata |
-| **V-09** — l'assenza di dato è informazione | §4.6, §5.5: lo stato «attesa, non pervenuta» è una riga; il generatore deve produrre aderenza incompleta |
-| **V-10** — relay 4.17.2, isolamento di rete in uscita come difesa **primaria** | §6.6 |
-| **V-11** e **V-115** — contenitore di registrazione negoziato a runtime | §6.7, con la conseguenza operativa: **nessuna prova può asserire un formato fisso** |
-| **V-12** — nessuna soglia tecnica imposta dalla normativa | §6.8, §8.7: i limiti sono da misurare e dichiarare, non da citare |
-| **V-111** (`TECH`) — espandi e contrai su ogni migrazione | §4.3 |
-| **V-112** (`TECH`) — contesto di tenant con `SET LOCAL` dentro la transazione | §4.6, §4.7, §10.3, e punto 4 di «Cosa devi ricordare» |
-| **R0** — riservatezza | Nessun nome di azienda, marchio, prodotto commerciale o dominio di potenziale partner. I soli nomi propri usati sono strumenti generali e sistemi operativi, coerentemente con i moduli 08 e 13 e con l'area tecnica |
+| **V-03** - sistema pienamente funzionale senza SNOMED CT | §7.2, §7.3: la configurazione predefinita delle prove è quella senza, ed è ciò che tiene viva la modalità degradata |
+| **V-09** - l'assenza di dato è informazione | §4.6, §5.5: lo stato «attesa, non pervenuta» è una riga; il generatore deve produrre aderenza incompleta |
+| **V-10** - relay 4.17.2, isolamento di rete in uscita come difesa **primaria** | §6.6 |
+| **V-11** e **V-115** - contenitore di registrazione negoziato a runtime | §6.7, con la conseguenza operativa: **nessuna prova può asserire un formato fisso** |
+| **V-12** - nessuna soglia tecnica imposta dalla normativa | §6.8, §8.7: i limiti sono da misurare e dichiarare, non da citare |
+| **V-111** (`TECH`) - espandi e contrai su ogni migrazione | §4.3 |
+| **V-112** (`TECH`) - contesto di tenant con `SET LOCAL` dentro la transazione | §4.6, §4.7, §10.3, e punto 4 di «Cosa devi ricordare» |
+| **R0** - riservatezza | Nessun nome di azienda, marchio, prodotto commerciale o dominio di potenziale partner. I soli nomi propri usati sono strumenti generali e sistemi operativi, coerentemente con i moduli 08 e 13 e con l'area tecnica |
 
 Nessun vincolo altrui risulta contraddetto.
 
@@ -158,7 +158,7 @@ Seme del generatore · Sicurezza a livello di riga · Sorgente sintetica di medi
 di verifica delle chiavi · Tracciabilità requisito → prova
 
 **Nota per chi cura il modulo 19**: sette di queste voci hanno un corrispondente inglese
-consolidato che **non va tradotto letteralmente** — *expand and contract*, *bill of materials*,
+consolidato che **non va tradotto letteralmente** - *expand and contract*, *bill of materials*,
 *test double*, *mutation coverage*, *row level security*, *liveness / readiness*, *contract
 test*. Le altre vanno tradotte con la definizione, non con il calco.
 

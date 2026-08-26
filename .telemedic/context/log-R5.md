@@ -1,4 +1,4 @@
-# log-R5 — Pattern di integrazione
+# log-R5 - Pattern di integrazione
 
 **Agente**: R5
 **Data**: 2026-08-25

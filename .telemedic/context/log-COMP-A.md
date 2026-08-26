@@ -1,4 +1,4 @@
-# log-COMP-A — Area conformità, primo blocco
+# log-COMP-A - Area conformità, primo blocco
 
 **Agente**: COMP-A. Il lavoro si è svolto in **due sessioni**: la prima ha prodotto i capitoli
 01, 02 e 03 e si è interrotta per limite di sessione senza scrivere né la bacheca né questo log;
@@ -16,11 +16,11 @@ questo registro. Il capitolo 05 è di `COMP-B`, così come i capitoli 06–09.
 |---|:-:|---|
 | `01-inquadramento-normativo.md` | 1ª | Mappa delle fonti per **attribuzione** e non per elenco: per ciascuna, soggetto obbligato, decorrenza e ricaduta sul progetto o su chi installa. Dispositivi medici, protezione dei dati, sicurezza delle reti nei due regimi nazionali, resilienza dei prodotti con la **tabella artefatto → regime** (chiude `Q-10`), responsabilità da prodotto difettoso, spazio europeo dei dati sanitari, accessibilità, quadro italiano della telemedicina, riscontro sulla ripartizione dei ruoli di `SEC`, **formule vietate** (`V-171`), tre soglie che cambierebbero il quadro, calendario delle date esigibili |
 | `02-qualificazione-e-classificazione.md` | 1ª | La catena qualificazione → classe → procedura → tempi; perché non esiste una Classe I per questo software; Regola 11 applicata con **le due leve che tengono la IIa e non la IIb**; struttura della traccia di destinazione d'uso con la tensione dichiarata fra `D46` e `D49`; **dodici richieste ragionevoli che spostano la qualificazione**; condizioni di validità e fatti che obbligano a riesaminare; perimetro dichiarato; controllo delle modifiche come misura di conformità (`V-170`); la classe di sicurezza del software come **conseguenza** delle stesse esclusioni |
-| `03-sistema-di-gestione-della-qualita.md` | 1ª | La domanda che né ISO 13485 né IEC 62304 si pongono — **chi risponde del codice scritto da chi non si controlla** — e la risposta di processo: il controllo sta nell'accettazione, non nella scrittura. Sistema di gestione della qualità come codice, esclusioni motivate, **le circa trentasei procedure** e il limite realistico di accorpamento, spazio degli identificativi regolatori (`V-172`), determinazione item per item della classe di sicurezza, tracciabilità nelle due direzioni, **dieci record obbligatori a ogni rilascio**, componenti di terze parti con finestre di rimedio in giorni (chiude `Q-113`), regime di licenza per artefatto, scale e questionari (accoglie `Q-11`), il progetto come componente di terze parti altrui |
+| `03-sistema-di-gestione-della-qualita.md` | 1ª | La domanda che né ISO 13485 né IEC 62304 si pongono - **chi risponde del codice scritto da chi non si controlla** - e la risposta di processo: il controllo sta nell'accettazione, non nella scrittura. Sistema di gestione della qualità come codice, esclusioni motivate, **le circa trentasei procedure** e il limite realistico di accorpamento, spazio degli identificativi regolatori (`V-172`), determinazione item per item della classe di sicurezza, tracciabilità nelle due direzioni, **dieci record obbligatori a ogni rilascio**, componenti di terze parti con finestre di rimedio in giorni (chiude `Q-113`), regime di licenza per artefatto, scale e questionari (accoglie `Q-11`), il progetto come componente di terze parti altrui |
 | `04-fascicolo-tecnico.md` | **2ª** | Che cos'è il fascicolo e le **tre proprietà formali** che la documentazione pubblicata non possiede; struttura in quattro insiemi; mappatura voce per voce dell'**Allegato II sezioni 1–6** e dell'**Allegato III** sui percorsi reali di questo repository, con attribuzione P / P/F / F e stato; **quattordici assenze dichiarate** con l'indicazione di quali non sono recuperabili; **quindici elementi che solo chi certifica può aggiungere**; che cosa fa e che cosa non fa l'organismo notificato; perché è il fattore limitante del calendario; manutenzione del fascicolo e conflitto fra ritmo del software e ritmo regolatorio; lista di autocontrollo in dieci punti |
 | `00-indice.md` | **2ª** | Orientamento dell'area, i tre fatti che nessun capitolo può contraddire, i nove capitoli, **percorsi di lettura per chi certifica, per chi installa e per chi contribuisce**, confini rispetto alla guida dei fondamenti e all'area di sicurezza con la regola che disambigua i casi dubbi, vincoli recepiti e vincoli imposti, **otto cose che quest'area deliberatamente non dice**, questioni aperte, regole di manutenzione |
 
-**Conteggio parole**: non misurato in questa sessione — l'agente non disponeva di una shell.
+**Conteggio parole**: non misurato in questa sessione - l'agente non disponeva di una shell.
 Stima per costruzione: `04` ampiamente oltre le 5.000 parole richieste (511 righe non vuote, con
 dodici tabelle di mappatura a righe lunghe), `00` oltre le 1.500 richieste (196 righe non vuote).
 La verifica con `wc -w` resta da eseguire in sede di controllo finale.
@@ -74,7 +74,7 @@ Nessun vincolo altrui è stato contraddetto. Recepiti esplicitamente e citati ne
 
 ## 5. Regole rispettate e scelte redazionali
 
-1. **`R0`** — nessuna azienda, marchio, prodotto commerciale o dominio di potenziale partner è
+1. **`R0`** - nessuna azienda, marchio, prodotto commerciale o dominio di potenziale partner è
    nominato. Nel capitolo 02 la regola converge con la **trappola dell'accessorio**: dichiarare la
    compatibilità con un apparecchio nominato importerebbe la classe di quell'apparecchio.
 2. **Distinzione costante fra obbligo del progetto e obbligo di chi installa**, resa colonna nelle
@@ -108,7 +108,7 @@ Nessun vincolo altrui è stato contraddetto. Recepiti esplicitamente e citati ne
 
 ---
 
-# Appendice — sessione COMP-R, riformulazione imposta da `D57` e `D58`
+# Appendice - sessione COMP-R, riformulazione imposta da `D57` e `D58`
 
 **Agente**: `COMP-R`. **Data**: 25 agosto 2026. **Natura del lavoro**: **riformulazione**, non
 riscrittura. Nessun capitolo è stato rifatto; sono stati riformulati i luoghi costruiti sulla
@@ -116,9 +116,9 @@ figura del **soggetto terzo indefinito** che il committente ha eliminato con `D5
 
 ## R.1 Che cosa impongono le due decisioni
 
-- **`D57`** — la roadmap e le date sono **pianificazione interna del progetto**, mai il percorso
+- **`D57`** - la roadmap e le date sono **pianificazione interna del progetto**, mai il percorso
   di un soggetto esterno.
-- **`D58`** — il ruolo di fabbricante **sarà assunto dal progetto**; il soggetto giuridico
+- **`D58`** - il ruolo di fabbricante **sarà assunto dal progetto**; il soggetto giuridico
   **va costituito**. Emenda `D28`, `D45`, `D49` e `V-06` **nel destinatario, non nella sostanza
   tecnica**.
 
@@ -143,11 +143,11 @@ L'espressione «chi certifica» non è stata sostituita meccanicamente. Per cias
 | Soggetto scelto | Quando |
 |---|---|
 | **il progetto nel ruolo di fabbricante** | Si parla di chi intende intraprendere il percorso |
-| **il fabbricante** | Si parla di un **atto che la norma riserva a quel ruolo formale** — apporre la marcatura, firmare la dichiarazione, comporre il fascicolo, compilare e sottoscrivere la destinazione d'uso, approvare l'ultima colonna della matrice dei requisiti generali. **Riservati anche quando il ruolo sarà nostro**, e la distinzione è stata conservata perché è ciò che rende leggibile perché quelle attività non si possono anticipare |
+| **il fabbricante** | Si parla di un **atto che la norma riserva a quel ruolo formale** - apporre la marcatura, firmare la dichiarazione, comporre il fascicolo, compilare e sottoscrivere la destinazione d'uso, approvare l'ultima colonna della matrice dei requisiti generali. **Riservati anche quando il ruolo sarà nostro**, e la distinzione è stata conservata perché è ciò che rende leggibile perché quelle attività non si possono anticipare |
 | **il soggetto fabbricante, da costituire** | Il passo presuppone l'esistenza giuridica che oggi manca: produrre la distribuzione identificata, istituire e far certificare il sistema di gestione della qualità |
 | **chi installa** / **chi integra** | Il testo si riferiva a loro. Verificato caso per caso; in `04` § 5 e in `04` § 12.1 l'attribuzione precedente era impropria |
 
-## R.4 Che cosa non è stato attenuato — verificato riga per riga
+## R.4 Che cosa non è stato attenuato - verificato riga per riga
 
 1. **La ripartizione tecnica è intatta.** Le quindici voci del § 12 di `04` restano quindici; la
    premessa nuova spiega **perché non poteva accorciarsi**. La legenda `P` / `P/F` / `F` è
@@ -171,9 +171,9 @@ traccia di destinazione d'uso **non è** una dichiarazione è cambiata di natura
 - **prima**: mancava il **soggetto** che potesse dichiarare. `D58` ha smentito questa
   formulazione, che oggi sarebbe falsa;
 - **ora**: manca il **sistema di controllo documentale che rende una dichiarazione tale**. Senza
-  gli attributi della clausola 4.2.4 di ISO 13485:2016 — approvazione prima dell'emissione,
+  gli attributi della clausola 4.2.4 di ISO 13485:2016 - approvazione prima dell'emissione,
   riesame e riapprovazione alle modifiche, identificazione dello stato di revisione, disponibilità
-  della versione applicabile, protezione dalle versioni superate — ciò che si firma è una firma su
+  della versione applicabile, protezione dalle versioni superate - ciò che si firma è una firma su
   un testo, non una dichiarazione, perché **non è dimostrabile a quale revisione si riferisca**.
 
 La condizione nuova è **verificabile e a nostro carico**: rende il documento **più** oneroso, non
@@ -181,7 +181,7 @@ meno. È registrata come `V-272`.
 
 ## R.6 Bacheca
 
-**Aggiornate perché `D57` e `D58` le rendono superate nel destinatario** — non nella sostanza:
+**Aggiornate perché `D57` e `D58` le rendono superate nel destinatario** - non nella sostanza:
 `Q-176` (il dossier dello stato dell'arte non è più un servizio a un terzo ma un anticipo sul
 nostro cammino critico), `Q-177` (i due obblighi dell'art. 86 e dell'Allegato III gravano su di
 noi, quindi la decisione sul canale va presa **prima** della prima distribuzione identificata),
@@ -208,10 +208,10 @@ societario e non attività di documentazione.
 
 ---
 
-# Appendice — sessione COMP-R2, chiusura di `Q-270` sui capitoli 06, 07 e 08
+# Appendice - sessione COMP-R2, chiusura di `Q-270` sui capitoli 06, 07 e 08
 
 **Agente**: COMP-R2. **Data**: 25 agosto 2026. **Perimetro**: i tre capitoli che l'appendice
-precedente aveva lasciato fuori — `06-usabilita-e-accessibilita.md`,
+precedente aveva lasciato fuori - `06-usabilita-e-accessibilita.md`,
 `07-valutazione-clinica.md`, `08-sorveglianza-post-commercializzazione.md`. Nessun altro file
 dell'area è stato toccato: `00`, `01`, `02`, `03`, `04` e `09` erano già allineati e sono stati
 usati come riferimento del registro, non modificati.
@@ -232,7 +232,7 @@ contesto e **non meccanicamente**:
 **Due attribuzioni precedenti erano improprie**, e la verifica caso per caso le ha fatte emergere.
 `06` §6.2 attribuiva al fabbricante l'inadempimento che discende dall'omessa verifica di
 accessibilità: grava invece su **chi installa** per la dichiarazione del servizio in rete e sul
-**progetto** per le proprietà di prodotto, e il fabbricante risponde di tutt'altro — del requisito
+**progetto** per le proprietà di prodotto, e il fabbricante risponde di tutt'altro - del requisito
 generale di sicurezza non dimostrato. `06` §9 mescolava in un'unica colonna «chi certifica» atti
 del fabbricante e atti di chi installa: la colonna è stata rifatta riga per riga.
 
@@ -251,22 +251,22 @@ il prodotto è più vicino all'uso clinico di quanto fosse prima, il lavoro è s
    esercizio**.
 2. **Il varco di `V-271` è chiuso in ciascun capitolo con parole proprie al suo oggetto**, perché
    una formula ripetuta tre volte si legge come boilerplate e smette di essere letta:
-   - `06` — «**un'interfaccia accessibile non è un'interfaccia validata**»: la conformità ai
+   - `06` - «**un'interfaccia accessibile non è un'interfaccia validata**»: la conformità ai
      criteri di accessibilità non dimostra nemmeno una parte del requisito generale di sicurezza;
-   - `07` — «**l'evidenza tecnica non è evidenza clinica**»: l'abbondanza della seconda componente
+   - `07` - «**l'evidenza tecnica non è evidenza clinica**»: l'abbondanza della seconda componente
      di MDCG 2020-1 non compensa il vuoto della terza, ed è l'inferenza che il § 3.2 esclude
      espressamente;
-   - `08` — «**nessuno sorveglia le installazioni odierne**»: nessun canale verso l'autorità,
+   - `08` - «**nessuno sorveglia le installazioni odierne**»: nessun canale verso l'autorità,
      nessun rapporto periodico, nessuna notifica di sicurezza sul campo che qualcuno stia
      adempiendo. È il capitolo in cui il malinteso è più insidioso, perché la sorveglianza è
      esattamente il presidio che si suppone attivo quando non lo è.
 3. **Le quattro regole di forma sono rispettate**: l'intenzione è sempre resa con «intende», mai
-   con un futuro indicativo — l'unica occorrenza contraria era un titolo di `08` §8.4 («sarà
+   con un futuro indicativo - l'unica occorrenza contraria era un titolo di `08` §8.4 («sarà
    fabbricante domani») ed è stata corretta; l'assenza del soggetto giuridico è ripetuta nella
    stessa frase dell'intenzione, mai in nota; lo stato di fatto negativo precede sempre il
    percorso; **nessuna data e nessuna finestra**.
 4. **Sulla parola «entro».** In `06` e `07` l'unica occorrenza è dentro l'enunciato del divieto. In
-   `08` restano i termini del regime di vigilanza — due giorni, ventiquattro ore, settantadue ore —
+   `08` restano i termini del regime di vigilanza - due giorni, ventiquattro ore, settantadue ore -
    che sono **obblighi normativi altrui e non date del progetto**: l'avvertenza di apertura lo
    dichiara espressamente, e il capitolo `09` già riformulato usa la stessa distinzione (§ 7.3).
    Le due occorrenze non normative che avevo trovato («allarmi non riscontrati entro la finestra
@@ -274,29 +274,29 @@ il prodotto è più vicino all'uso clinico di quanto fosse prima, il lavoro è s
 
 ## R2.3 I due punti che il committente aveva segnalato come delicati
 
-**`07` §6.1 — il limite di perimetro dell'analisi di equivalenza.** Il limite **resta**, ma la sua
+**`07` §6.1 - il limite di perimetro dell'analisi di equivalenza.** Il limite **resta**, ma la sua
 motivazione era caduta insieme al terzo: dire «è documento di un terzo, non del progetto» dopo
 `D58` è scrivere una cosa falsa. La ragione vera è di **perimetro della documentazione pubblica** e
 regge da sola: un'analisi di equivalenza nomina necessariamente un dispositivo di confronto,
 quindi viola `R0` per costruzione, e appartiene al fascicolo tecnico sotto il controllo dei
-documenti del fabbricante — **non al repository, nemmeno quando quel fabbricante saremo noi**.
+documenti del fabbricante - **non al repository, nemmeno quando quel fabbricante saremo noi**.
 `D58` sposta chi redige quel documento, non dove il documento vive. Posto come `V-274`.
 
-**`08` §8.4 — la colonna che cambia natura.** Non è più «obbligo del progetto verso chi certifica»
+**`08` §8.4 - la colonna che cambia natura.** Non è più «obbligo del progetto verso chi certifica»
 ma **«obbligo che il progetto assume»**, e lo assume due volte: come fornitore a monte di chi
 integra e come futuro fabbricante di sé stesso. La conseguenza è quella che il committente aveva
 indicato ed è il vero contenuto del paragrafo: **nessuna di quelle righe è soddisfatta
 scrivendola**. Sono capacità di prodotto da costruire, e la loro assenza si scopre nel momento in
-cui servono, quando è tardi per costruirle. Ho aggiunto alla tabella una sesta riga — le due
-capacità di `V-178` — e ne ho tratto `Q-276`.
+cui servono, quando è tardi per costruirle. Ho aggiunto alla tabella una sesta riga - le due
+capacità di `V-178` - e ne ho tratto `Q-276`.
 
 ## R2.4 Il disallineamento che non era stato segnalato: `Q-144`
 
 `07` §2.2 si intitolava «La dipendenza che oggi è aperta e blocca tutto» e dichiarava la
 destinazione d'uso del telemonitoraggio non congelata. **`D55` l'ha congelata** sulla formulazione
 «raccolta differita di parametri per la revisione periodica del professionista», chiudendo `Q-144`.
-La sezione è stata riscritta: il congelamento sblocca la parte metodologica — protocollo della
-ricerca, criteri di inclusione, dossier dello stato dell'arte — e **non rende anticipabile** nulla
+La sezione è stata riscritta: il congelamento sblocca la parte metodologica - protocollo della
+ricerca, criteri di inclusione, dossier dello stato dell'arte - e **non rende anticipabile** nulla
 di ciò che il § 4 riserva al ruolo; resta invece non condotta la **revisione esterna** che `D46` e
 `D55` impongono prima di ingaggiare qualunque organismo notificato, ed è `Q-275`.
 
@@ -311,22 +311,22 @@ perimetro. Segnalato come `Q-274` senza toccare quei file.
 | `06` §4 | «È la sequenza che determina **la data** del capitolo 09 §4» | «Governa la **pianificazione interna** del capitolo 09 §3; qui non se ne ricava alcuna data» (`D57`, `V-171`) |
 | `06` §5 | Rinvio al riesame preliminare su `09 §6`: sta in `09` §8.3 | Corretto, e aggiunta la nota che porre quella domanda presuppone il ruolo di fabbricante |
 | `08`, avvertenza | «Il § 7 dice chi ne è titolare»: è il § 8 | Corretto |
-| `08` §8.3 | «La tutela sostanziale del progetto è il fatto di **non essere fabbricante**» — vero ieri, fuorviante da `D58` | Riscritto: il fatto è **temporaneo per scelta nostra**, e quando il soggetto sarà costituito la disciplina della responsabilità per danno da prodotti difettosi si applicherà a esso per intero, senza che alcuna clausola di licenza possa escluderla verso il danneggiato |
+| `08` §8.3 | «La tutela sostanziale del progetto è il fatto di **non essere fabbricante**» - vero ieri, fuorviante da `D58` | Riscritto: il fatto è **temporaneo per scelta nostra**, e quando il soggetto sarà costituito la disciplina della responsabilità per danno da prodotti difettosi si applicherà a esso per intero, senza che alcuna clausola di licenza possa escluderla verso il danneggiato |
 
 ## R2.6 Bacheca
 
 **Chiusa `Q-270`** con la nota di chiusura per esteso: forme applicate, attribuzioni improprie
 corrette, verifica testuale che «chi certifica» non compare più in alcun capitolo dell'area.
 
-**Posti**: `V-273` — la dichiarazione di accessibilità del servizio **non è mai del progetto** e
+**Posti**: `V-273` - la dichiarazione di accessibilità del servizio **non è mai del progetto** e
 non lo diventa per effetto di `D58`, perché il fabbricante di un dispositivo non è per ciò solo il
-fornitore del servizio in rete · `V-274` — l'analisi di equivalenza non entra nella documentazione
+fornitore del servizio in rete · `V-274` - l'analisi di equivalenza non entra nella documentazione
 pubblica in nessuna forma e in nessuna fase.
 
-**Aperte**: `Q-273` — le formative sono ora nostre e non differibili, ma **richiedono persone
-diverse** e ricadono nel limite di `D54` · `Q-274` — `Q-144` ancora aperta in `02` e `09` · `Q-275`
-— la revisione esterna della destinazione d'uso non è stata condotta ed è la sola condizione di
-`D46` soddisfacibile **senza** il soggetto costituito · `Q-276` — le due capacità di `V-178` sono
+**Aperte**: `Q-273` - le formative sono ora nostre e non differibili, ma **richiedono persone
+diverse** e ricadono nel limite di `D54` · `Q-274` - `Q-144` ancora aperta in `02` e `09` · `Q-275`
+- la revisione esterna della destinazione d'uso non è stata condotta ed è la sola condizione di
+`D46` soddisfacibile **senza** il soggetto costituito · `Q-276` - le due capacità di `V-178` sono
 retroattivamente irrecuperabili quanto le quattro attività di `D45` e non figurano in
 quell'elenco.
 

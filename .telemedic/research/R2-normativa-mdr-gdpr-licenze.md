@@ -1,10 +1,10 @@
 ---
-title: "R2 — Ricerca normativa: MDR, GDPR, licenze open source"
+title: "R2 - Ricerca normativa: MDR, GDPR, licenze open source"
 sidebar_position: 2
 description: "Analisi normativa di riferimento per Telemedic: qualificazione MDR del software, norme tecniche armonizzate, GDPR e dati sanitari, regolamenti UE collegati, licenza Apache-2.0 e responsabilità da prodotto difettoso."
 ---
 
-# R2 — Ricerca normativa: MDR, GDPR, licenze open source
+# R2 - Ricerca normativa: MDR, GDPR, licenze open source
 
 > **DISCLAIMER VINCOLANTE.** Questo documento è un'**analisi tecnico-normativa** condotta su fonti
 > primarie pubbliche. **Non è una consulenza legale** e non costituisce un parere regolatorio.
@@ -32,17 +32,17 @@ ufficiale degli allegati; questi punti sono segnalati.
 
 ### 1.1 La definizione di dispositivo medico e le definizioni che governano il perimetro
 
-#### 1.1.1 Art. 2, punto 1 — «dispositivo medico»
+#### 1.1.1 Art. 2, punto 1 - «dispositivo medico»
 
 Il testo (versione italiana, art. 2, punto 1, MDR) definisce dispositivo medico
 
 > «qualunque strumento, apparecchio, apparecchiatura, **software**, impianto, reagente, materiale o
 > altro articolo, destinato dal fabbricante a essere impiegato sull'uomo, da solo o in combinazione,
 > per una o più delle seguenti destinazioni d'uso mediche specifiche:
-> — diagnosi, prevenzione, monitoraggio, previsione, prognosi, trattamento o attenuazione di malattie,
-> — diagnosi, monitoraggio, trattamento, attenuazione o compensazione di una lesione o di una disabilità,
-> — studio, sostituzione o modifica dell'anatomia oppure di un processo o stato fisiologico o patologico,
-> — fornire informazioni attraverso l'esame in vitro di campioni provenienti dal corpo umano […]
+> - diagnosi, prevenzione, monitoraggio, previsione, prognosi, trattamento o attenuazione di malattie,
+> - diagnosi, monitoraggio, trattamento, attenuazione o compensazione di una lesione o di una disabilità,
+> - studio, sostituzione o modifica dell'anatomia oppure di un processo o stato fisiologico o patologico,
+> - fornire informazioni attraverso l'esame in vitro di campioni provenienti dal corpo umano […]
 > e che non esercita nel o sul corpo umano l'azione principale cui è destinato mediante mezzi
 > farmacologici, immunologici o metabolici, ma la cui funzione può essere coadiuvata da tali mezzi.»
 
@@ -79,7 +79,7 @@ Tre elementi sono decisivi e vanno tenuti separati:
 | art. 2(30) | «fabbricante»: «la persona fisica o giuridica che fabbrica o rimette a nuovo un dispositivo oppure lo fa progettare, fabbricare o rimettere a nuovo, **e lo commercializza apponendovi il suo nome o marchio**» | Nodo centrale del progetto open source (§ 1.7) |
 | art. 2(65)/(68) | «incidente» / «incidente grave» | Rilevanti per gli obblighi di vigilanza (§ 1.8.7) |
 
-### 1.2 Regola 11 dell'Allegato VIII — testo integrale e analisi clausola per clausola
+### 1.2 Regola 11 dell'Allegato VIII - testo integrale e analisi clausola per clausola
 
 #### 1.2.1 Testo ufficiale (versione italiana, Allegato VIII, capo III, punto 6.3)
 
@@ -88,10 +88,10 @@ Tre elementi sono decisivi e vanno tenuti separati:
 > Il software destinato a fornire informazioni utilizzate per prendere decisioni a fini diagnostici o
 > terapeutici rientra nella classe IIa, a meno che tali decisioni abbiano effetti tali da poter causare:
 >
-> — il decesso o un deterioramento irreversibile delle condizioni di salute di una persona, nel qual
+> - il decesso o un deterioramento irreversibile delle condizioni di salute di una persona, nel qual
 > caso rientra nella classe III, o
 >
-> — un grave deterioramento delle condizioni di salute di una persona o un intervento chirurgico, nel
+> - un grave deterioramento delle condizioni di salute di una persona o un intervento chirurgico, nel
 > qual caso rientra nella classe IIb.
 >
 > Il software destinato a monitorare i processi fisiologici rientra nella classe IIa, a meno che sia
@@ -107,10 +107,10 @@ Tre elementi sono decisivi e vanno tenuti separati:
 
 MDCG scompone la regola in tre sotto-regole:
 
-- **11a** — primi tre capoversi: software «intended to provide information which is used to take
+- **11a** - primi tre capoversi: software «intended to provide information which is used to take
   decisions with diagnostic or therapeutic purposes»;
-- **11b** — quarto capoverso: software destinato al monitoraggio di processi o parametri fisiologici;
-- **11c** — quinto capoverso: «all other uses».
+- **11b** - quarto capoverso: software destinato al monitoraggio di processi o parametri fisiologici;
+- **11c** - quinto capoverso: «all other uses».
 
 **Analisi della sotto-regola 11a.** MDCG avverte che la formulazione «descrive, in termini molto
 generali, il "modo d'azione" caratteristico di **tutti** i MDSW» e che pertanto «questa sotto-regola
@@ -149,8 +149,8 @@ dell'art. 2(1). Non è una scorciatoia per «software sanitario a basso rischio�
 risulta per MDSW dotati di finalità medica che **non** forniscono informazioni per decisioni
 diagnostico-terapeutiche e **non** monitorano processi fisiologici.
 
-I due unici esempi di Classe I forniti dall'MDCG (Rev.1, Annex IV, p. 35 — uno dei quali **aggiunto
-proprio con la Rev.1**: «Annex IV — Inclusion of a new Class I example») sono:
+I due unici esempi di Classe I forniti dall'MDCG (Rev.1, Annex IV, p. 35 - uno dei quali **aggiunto
+proprio con la Rev.1**: «Annex IV - Inclusion of a new Class I example») sono:
 
 1. una app che calcola lo stato di fertilità dell'utente da temperatura basale e giorni di mestruazione
    e lo restituisce con un semaforo rosso/verde/giallo → **classe I per Regola 11c**;
@@ -167,14 +167,14 @@ teleconsulto non riesce a replicare (§ 1.6).
 
 Dal testo italiano dell'Allegato VIII, capo II (stessa fonte):
 
-- **3.1** — «L'applicazione delle regole di classificazione si basa sulla destinazione d'uso dei dispositivi.»
-- **3.3** — «Il software destinato a far funzionare un dispositivo o a influenzarne l'uso rientra nella
+- **3.1** - «L'applicazione delle regole di classificazione si basa sulla destinazione d'uso dei dispositivi.»
+- **3.3** - «Il software destinato a far funzionare un dispositivo o a influenzarne l'uso rientra nella
   stessa classe del dispositivo. **Se il software non è connesso con nessun altro dispositivo, è
   classificato separatamente.**»
-- **3.5** — «Se diverse regole o, nell'ambito della stessa regola, più sottoregole si applicano allo
+- **3.5** - «Se diverse regole o, nell'ambito della stessa regola, più sottoregole si applicano allo
   stesso dispositivo in base alla sua destinazione d'uso, **si applicano la regola e sottoregola più
   rigorose che comportano la classificazione più elevata**.»
-- **3.7** — «Si ritiene che un dispositivo consenta una diagnosi diretta quando fornisce esso stesso la
+- **3.7** - «Si ritiene che un dispositivo consenta una diagnosi diretta quando fornisce esso stesso la
   diagnosi della malattia o della condizione clinica in questione **o quando fornisce informazioni
   decisive per la diagnosi**.»
 
@@ -205,9 +205,9 @@ la sezione 1.
 
 #### 1.3.1 Storia del documento
 
-- **MDCG 2019-11**, ottobre 2019, 28 pagine —
+- **MDCG 2019-11**, ottobre 2019, 28 pagine -
   [PDF](https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2019_11_guidance_en_0.pdf).
-- **MDCG 2019-11 Rev.1**, giugno 2025, 35 pagine, pubblicata il **17 giugno 2025** —
+- **MDCG 2019-11 Rev.1**, giugno 2025, 35 pagine, pubblicata il **17 giugno 2025** -
   [pagina di annuncio della Commissione](https://health.ec.europa.eu/latest-updates/update-mdcg-2019-11-rev1-qualification-and-classification-software-regulation-eu-2017745-and-2025-06-17_en) ·
   [PDF](https://health.ec.europa.eu/document/download/b45335c5-1679-4c71-a91c-fc7a4d37f12b_en?filename=mdcg_2019_11_en.pdf).
 
@@ -241,22 +241,22 @@ flowchart TD
 
 Testo letterale dei passi (Rev.1, pp. 12–13):
 
-- **Decision step 1** — se il prodotto è software secondo la § 2 della linea guida, può essere MDSW;
+- **Decision step 1** - se il prodotto è software secondo la § 2 della linea guida, può essere MDSW;
   si passa al passo 2. La definizione di software (§ 2) è: «a set of instructions that processes input
   data and creates output data».
-- **Decision step 2** — se è dispositivo dell'Allegato XVI, accessorio ai sensi dell'art. 2(2) MDR o
+- **Decision step 2** - se è dispositivo dell'Allegato XVI, accessorio ai sensi dell'art. 2(2) MDR o
   art. 2(4) IVDR, o software che pilota/influenza l'uso di un dispositivo, va considerato parte di quel
   dispositivo nel suo processo regolatorio, o indipendentemente se accessorio. Altrimenti passo 3.
-- **Decision step 3** — «if the software does perform an action on data, or performs an action **beyond
+- **Decision step 3** - «if the software does perform an action on data, or performs an action **beyond
   storage, archival, communication, simple search, lossless compression** (i.e. using a compression
   procedure that allows the exact reconstruction of the original data) then it may be a MDSW […]
   proceed to step 4». La nota 25 definisce «communication» richiamando IEEE 610.10-1994:
   «The flow of information from one point, known as the source, to another, the receiver.»
-- **Decision step 4** — «is the action for the benefit of individual patients?» Non lo sono i software
+- **Decision step 4** - «is the action for the benefit of individual patients?» Non lo sono i software
   destinati solo ad aggregare dati di popolazione, fornire percorsi diagnostici o terapeutici generici
   non diretti a singoli pazienti, letteratura scientifica, atlanti, modelli, template, software per
   studi epidemiologici o registri.
-- **Decision step 5** — «Is the software medical device software (MDSW) according to the definition of
+- **Decision step 5** - «Is the software medical device software (MDSW) according to the definition of
   this guidance?» Definizione (§ 3.2, p. 9): «MDSW is software that is intended to be used, alone or in
   combination, for a purpose as specified in the definition of a "medical device" or "in vitro
   diagnostic medical device" in the MDR or IVDR, regardless of whether the software is independent or
@@ -292,7 +292,7 @@ moduli integrati o affiancati possono qualificarsi. La Rev.1 aggiunge il raccord
 > *A software module generating alarms based on the monitoring and analysis of patient specific
 > physiological parameters is qualified as a medical device (MDSW).*»
 
-**d.1) Telemedicine systems** (Rev.1, p. 27) — **il passaggio decisivo per questo progetto**, e
+**d.1) Telemedicine systems** (Rev.1, p. 27) - **il passaggio decisivo per questo progetto**, e
 **riscritto proprio con la Rev.1**:
 
 > «Telemedicine Systems are intended to allow monitoring and/or delivery of healthcare to patients at
@@ -317,8 +317,8 @@ Passaggi testuali:
 > «It is the responsibility of the manufacturer to clearly delineate the boundaries and interfaces of
 > the various modules. Modules subject to MDR or IVDR must be explicitly identified […]. This
 > delineation must be communicated in a manner that ensures clarity for users, including:
-> — Exactly which modules constitute the product;
-> — Whether the product or any of its modules are subject to the MDR/IVDR or under other applicable
+> - Exactly which modules constitute the product;
+> - Whether the product or any of its modules are subject to the MDR/IVDR or under other applicable
 > legislation (e.g. European Health Data Space Regulation).»
 
 > «Manufacturers must assess the entire MDSW's architecture and functionality, including its boundary
@@ -371,10 +371,10 @@ audit Envers, registrazione cifrata opzionale, metriche TimescaleDB, frontend WC
 
 #### 1.5.1 Passo per passo
 
-**Passo 1 — È software?** Sì. Insieme di istruzioni che elabora dati in ingresso e produce dati in
+**Passo 1 - È software?** Sì. Insieme di istruzioni che elabora dati in ingresso e produce dati in
 uscita. Si prosegue.
 
-**Passo 2 — È dispositivo dell'Allegato XVI, accessorio, o software che pilota/influenza un dispositivo
+**Passo 2 - È dispositivo dell'Allegato XVI, accessorio, o software che pilota/influenza un dispositivo
 hardware?**
 
 - Allegato XVI: no (nessun prodotto senza destinazione medica dell'elenco: lenti cosmetiche,
@@ -392,7 +392,7 @@ hardware?**
 
 Si prosegue al passo 3.
 
-**Passo 3 — Il software compie un'azione sui dati diversa da archiviazione, conservazione,
+**Passo 3 - Il software compie un'azione sui dati diversa da archiviazione, conservazione,
 comunicazione, ricerca semplice, compressione lossless?**
 
 È **il passo che decide tutto**. Analizzo funzione per funzione.
@@ -429,13 +429,13 @@ generica di qualunque sistema di videocomunicazione, che l'Annex I d) qualifica 
 target dichiarate dal committente (§ 4 del brief: **dermatologia**; e la specialità dichiarata
 «qualità clinica» del video). Su questo torno al § 1.6.2.
 
-**Passo 4 — L'azione è a beneficio di singoli pazienti?** Per le funzioni cliniche: sì (ogni sessione è
-riferita a un paziente). Per le metriche di qualità di rete: **no** — sono a beneficio della gestione
+**Passo 4 - L'azione è a beneficio di singoli pazienti?** Per le funzioni cliniche: sì (ogni sessione è
+riferita a un paziente). Per le metriche di qualità di rete: **no** - sono a beneficio della gestione
 dell'infrastruttura, non del paziente individuale; l'esempio Annex II Figura 1 – Example 1 della Rev.1
 (modulo che traccia metriche operative di laboratorio) esce dal perimetro proprio al passo 4. Le
 metriche di Telemedic vanno documentate con questa stessa logica.
 
-**Passo 5 — È MDSW secondo la definizione?** Cioè: **ha di per sé una destinazione medica ai sensi
+**Passo 5 - È MDSW secondo la definizione?** Cioè: **ha di per sé una destinazione medica ai sensi
 dell'art. 2(1)?** No, se la destinazione d'uso dichiarata è: *abilitare la comunicazione audio-video
 sicura e la trasmissione/archiviazione di documentazione clinica redatta da un professionista
 sanitario, senza interpretare, elaborare, arricchire o generare informazione clinica*. La finalità
@@ -451,7 +451,7 @@ La risposta corretta si articola in tre proposizioni.
    dall'art. 2(12) MDR, non dal *resource type*.
 2. **Ciò che conta è chi produce il contenuto e cosa fa il software con esso.** Se il software si limita
    a: (a) raccogliere testo/campi immessi dal professionista; (b) applicare firma e marcatura temporale;
-   (c) serializzare in FHIR; (d) trasmettere e archiviare — allora l'azione ricade integralmente in
+   (c) serializzare in FHIR; (d) trasmettere e archiviare - allora l'azione ricade integralmente in
    «convert, format, archive, communicate» e il software **non** è MDSW. È l'equivalente digitale della
    carta intestata: MDCG dice che «an electronic patient record that simply replaces a patient's paper
    file does not meet the definition of a medical device» (Rev.1, Annex I c.1, p. 25).
@@ -499,7 +499,7 @@ Elenco puntuale delle funzionalità che farebbero scattare la IIa (o oltre):
 | C9 | Dichiarazione di idoneità del canale video a fini di **telepatologia o teleradiologia** | DM 21/09/2022, All. A; Rev.1 Annex I | Certificazione come dispositivo, classe da valutare |
 
 **Tre di queste nove voci sono a distanza di una singola user story dal backlog dichiarato**: C2 (alert
-su soglia — la funzione 7 del brief già prevede «alert su soglia», seppure su metriche di rete: la
+su soglia - la funzione 7 del brief già prevede «alert su soglia», seppure su metriche di rete: la
 distinzione va scritta nero su bianco), C3 (replay della registrazione con controlli video), C5
 (automazione della refertazione, richiesta tipica degli integratori). Questo è il vero rischio di
 programma: **non la qualificazione di oggi, ma la deriva della destinazione d'uso**.
@@ -507,7 +507,7 @@ programma: **non la qualificazione di oggi, ma la deriva della destinazione d'us
 #### 1.5.4 Il fattore aggravante italiano: il DM 21 settembre 2022
 
 Il decreto interministeriale 21 settembre 2022 «Approvazione delle linee guida per i servizi di
-telemedicina — Requisiti funzionali e livelli di servizio», in GU n. 256 del 2 novembre 2022
+telemedicina - Requisiti funzionali e livelli di servizio», in GU n. 256 del 2 novembre 2022
 ([Gazzetta Ufficiale](https://www.gazzettaufficiale.it/eli/id/2022/11/02/22A06184/sg)), Allegato A,
 contiene affermazioni che **incidono direttamente** sulla strategia regolatoria italiana:
 
@@ -527,7 +527,7 @@ determinante.)
 
 Il decreto definisce inoltre la **televisita** come «atto medico in cui il professionista interagisce a
 distanza in tempo reale con il paziente» e la limita ad «attività di controllo di pazienti la cui
-diagnosi sia già stata formulata nel corso di visita in presenza» — vincolo che, se rispettato, riduce
+diagnosi sia già stata formulata nel corso di visita in presenza» - vincolo che, se rispettato, riduce
 significativamente l'esposizione alla regola 3.7 (informazione decisiva per la diagnosi), perché la
 diagnosi è già stata posta in presenza.
 
@@ -556,13 +556,13 @@ La catena logica è ineludibile:
 3. Se Telemedic dichiara una destinazione medica propria, la sotto-regola 11a si applica «generalmente
    a tutti i MDSW» (Rev.1, § 4.2.1, p. 17) e la matrice IMDRF dell'Annex III **non contiene alcuna
    cella di Classe I**. Il risultato minimo è **IIa, con Organismo Notificato**.
-4. Se Telemedic **non** dichiara una destinazione medica propria — che è la posizione corretta secondo
-   Annex I d) e d.1) della Rev.1 — allora **non è un dispositivo affatto** e non esiste alcuna Classe I
+4. Se Telemedic **non** dichiara una destinazione medica propria - che è la posizione corretta secondo
+   Annex I d) e d.1) della Rev.1 - allora **non è un dispositivo affatto** e non esiste alcuna Classe I
    da autocertificare.
 
 **Non esiste, in mezzo, una casella «Classe I» comoda per una piattaforma di teleconsulto.** La Classe I
 per Regola 11c esiste ma è popolata da MDSW con finalità medica *non decisionale e non di monitoraggio*
-(app di fertilità, ausilio alla comunicazione per disabilità — gli unici due esempi che MDCG offre nella
+(app di fertilità, ausilio alla comunicazione per disabilità - gli unici due esempi che MDCG offre nella
 Rev.1). Un canale audio-video sicuro non appartiene a quella famiglia.
 
 #### 1.6.2 Il punto in cui la mia analisi è meno solida (onestà intellettuale)
@@ -577,9 +577,9 @@ Esiste una lettura opposta, che va presa sul serio:
 - combinandolo con la regola di applicazione 3.7 («fornisce informazioni **decisive** per la diagnosi»),
   un'autorità competente potrebbe qualificare la piattaforma come MDSW e classificarla IIa per 11a.
 
-Non ritengo che questa lettura sia quella corretta — perché la compressione ha finalità di
+Non ritengo che questa lettura sia quella corretta - perché la compressione ha finalità di
 compatibilità/trasmissione e perché l'Annex I d) esclude in modo esplicito i sistemi di comunicazione
-video — ma **ritengo che sia una lettura sostenibile in contraddittorio**, e che diventi progressivamente
+video - ma **ritengo che sia una lettura sostenibile in contraddittorio**, e che diventi progressivamente
 più forte man mano che il marketing enfatizza la qualità diagnostica del canale. È un rischio da gestire
 con la disciplina del claim (§ 1.7.4), non da ignorare.
 
@@ -610,29 +610,29 @@ Propongo di riformulare la decisione D6 nei termini seguenti, mantenendone integ
 il carico di lavoro (quindi senza tagli allo scope della v1.0), ma correggendone la qualificazione
 giuridica:
 
-**Binario A — Determinazione di non-qualificazione documentata (percorso primario).**
+**Binario A - Determinazione di non-qualificazione documentata (percorso primario).**
 Redigere e mantenere un **fascicolo di qualificazione** (*qualification determination file*) che:
 1. dichiari la destinazione d'uso in forma restrittiva e verificabile;
 2. applichi passo per passo l'albero di MDCG 2019-11 Rev.1 con motivazione scritta per ciascun passo;
 3. elenchi le **funzioni escluse** (le nove voci C1–C9 del § 1.5.3) come *design constraint* e non come
    semplici assenze;
 4. mappi i moduli e le loro interfacce ai sensi della § 7 Rev.1;
-5. sia sottoscritto e datato, e sia soggetto a *change control* — ogni PR che tocchi il perimetro
+5. sia sottoscritto e datato, e sia soggetto a *change control* - ogni PR che tocchi il perimetro
    funzionale deve dichiarare l'impatto sulla qualificazione (§ 8 Rev.1: «Consideration of changes to
    an MDSW»).
 
-**Binario B — Conformità volontaria «MDR-ready» e regulatory pack per l'integratore.**
+**Binario B - Conformità volontaria «MDR-ready» e regulatory pack per l'integratore.**
 Costruire comunque ISO 13485, IEC 62304, ISO 14971, IEC 62366-1, IEC 82304-1, ISO/IEC 81001-5-1,
-tracciabilità requisiti↔test, SBOM, gestione SOUP, PMS-like e vigilanza-like — **non** per marcare CE
+tracciabilità requisiti↔test, SBOM, gestione SOUP, PMS-like e vigilanza-like - **non** per marcare CE
 il proprio prodotto, ma per consegnare all'integratore-fabbricante un dossier direttamente
 incorporabile nella *sua* documentazione tecnica (§ 1.7.3). Questo è, con ogni probabilità, il
 deliverable commercialmente più prezioso del progetto e trasforma un vincolo in un vantaggio
 competitivo.
 
-**Binario C — Attivabile solo su decisione esplicita: certificazione IIa.**
+**Binario C - Attivabile solo su decisione esplicita: certificazione IIa.**
 Se il committente volesse un giorno vendere una funzione clinica (telemonitoraggio, triage, refertazione
-assistita), il percorso è **IIa con Organismo Notificato** — allegato IX capo I e III, oppure allegato XI
-parte A — con tempi e costi di ordine di grandezza superiore. Va pianificato come progetto a sé, non
+assistita), il percorso è **IIa con Organismo Notificato** - allegato IX capo I e III, oppure allegato XI
+parte A - con tempi e costi di ordine di grandezza superiore. Va pianificato come progetto a sé, non
 come estensione della v1.0.
 
 ---
@@ -674,7 +674,7 @@ Ne derivano tre conclusioni operative, distinte e non intercambiabili:
    regolatorio: non risultano linee guida MDCG specificamente dedicate alla distribuzione open source
    di software sanitario, e questa è una lacuna reale del quadro europeo.
 
-#### 1.7.2 I contributori esterni non sono fabbricanti — ma il progetto deve dimostrarlo
+#### 1.7.2 I contributori esterni non sono fabbricanti - ma il progetto deve dimostrarlo
 
 L'art. 2(30) individua **una sola** figura: chi commercializza apponendo il proprio nome o marchio.
 Un contributore che apre una pull request non commercializza nulla e non appone alcun marchio: **non è
@@ -687,7 +687,7 @@ selezione e il controllo dei fornitori e dei subfornitori», e la lettera g) la 
 prodotto, compresi pianificazione, progettazione, sviluppo, produzione e prestazione del servizio».
 Un contributore esterno non è formalmente un fornitore, ma il codice che immette entra nel prodotto.
 
-Meccanismi che rendono la cosa governabile — tutti implementabili in repository:
+Meccanismi che rendono la cosa governabile - tutti implementabili in repository:
 
 | Meccanismo | Funzione regolatoria | Riferimento |
 |---|---|---|
@@ -726,7 +726,7 @@ analisi in [Clariscience, «L'articolo 16 del Regolamento 2017/745»](https://cl
 - se il prodotto **non** è un dispositivo, l'art. 16 semplicemente non si applica e l'integratore è
   libero di fare white-label;
 - se l'integratore costruisce **sopra** Telemedic un modulo con finalità medica (triage, refertazione
-  assistita, telemonitoraggio), **l'integratore è il fabbricante** di quel dispositivo, non Telemedic —
+  assistita, telemonitoraggio), **l'integratore è il fabbricante** di quel dispositivo, non Telemedic -
   e la § 7 della Rev.1 gli impone di valutare anche l'interfaccia e il modulo host, cioè Telemedic;
 - perciò **il deliverable giusto verso l'integratore non è un marchio CE, è un dossier**: elenco SOUP,
   file di rischio, file di ingegneria dell'usabilità, architettura e interfacce dei moduli, evidenze di
@@ -735,7 +735,7 @@ analisi in [Clariscience, «L'articolo 16 del Regolamento 2017/745»](https://cl
   la valutazione nel proprio fascicolo tecnico.
 
 **Documenti contrattuali da produrre nel repository** (bozze non vincolanti, con disclaimer):
-1. *Regulatory Roles & Responsibilities Statement* — chi è chi (fabbricante, integratore, titolare/
+1. *Regulatory Roles & Responsibilities Statement* - chi è chi (fabbricante, integratore, titolare/
    responsabile ex GDPR, PRRC ove applicabile);
 2. *Intended Purpose Statement* con l'elenco delle funzioni escluse;
 3. *SOUP disclosure pack* per l'integratore;
@@ -811,7 +811,7 @@ guida applicativa **MDCG 2023-1**, «Guidance on the health institution exemptio
 **Perché non si applica al modello di Telemedic:** l'esenzione richiede che il dispositivo sia
 *fabbricato* dall'istituzione sanitaria che lo usa. Un'ASL che installa on-premise un prodotto
 sviluppato e distribuito da un soggetto terzo **non** lo ha fabbricato; e la lettera (c) impone di
-giustificare che nessun dispositivo equivalente sia disponibile sul mercato — condizione difficilmente
+giustificare che nessun dispositivo equivalente sia disponibile sul mercato - condizione difficilmente
 sostenibile per la telemedicina. L'art. 5(5) è quindi **una via d'uscita apparente**: va menzionata nella
 documentazione solo per escluderla, evitando che un cliente pubblico la invochi impropriamente.
 (Nota: l'art. 5, paragrafo 4, chiarisce che «i dispositivi fabbricati e utilizzati all'interno di
@@ -830,7 +830,7 @@ volontaria). Fonte primaria per l'art. 10: riproduzione su
 Per i dispositivi di **Classe I** diversi da quelli su misura e da quelli oggetto di indagine clinica,
 il fabbricante dichiara la conformità **emettendo la dichiarazione di conformità UE di cui all'art. 19,
 dopo aver redatto la documentazione tecnica di cui agli Allegati II e III**. Nessun Organismo Notificato
-è coinvolto — **salvo** che il dispositivo sia immesso in condizioni sterili (**Is**), abbia funzione di
+è coinvolto - **salvo** che il dispositivo sia immesso in condizioni sterili (**Is**), abbia funzione di
 misura (**Im**) o sia uno strumento chirurgico riutilizzabile (**Ir**), nel qual caso si applicano
 l'Allegato IX capi I e III o l'Allegato XI parte A
 ([art. 52 MDR](https://www.medical-device-regulation.eu/2019/07/11/mdr-article-52-conformity-assessment-procedures/)).
@@ -841,7 +841,7 @@ attenzione** se il software eseguisse misurazioni con soglie legalmente rilevant
 
 | Par. | Obbligo | Traduzione operativa per un software |
 |---|---|---|
-| 10(1) | Conformità al regolamento | — |
+| 10(1) | Conformità al regolamento | - |
 | 10(2) | Istituire, documentare, attuare e mantenere un **sistema di gestione del rischio** ai sensi dell'Allegato I, sezione 3 | ISO 14971:2019 (§ 2.3) |
 | 10(3) | **Valutazione clinica** ai sensi dell'art. 61 e dell'Allegato XIV, incluso il **PMCF** | § 1.8.4 |
 | 10(4) | **Documentazione tecnica** ai sensi degli **Allegati II e III**, mantenuta aggiornata | § 1.8.3 |
@@ -853,7 +853,7 @@ attenzione** se il software eseguisse misurazioni con soglie legalmente rilevant
 | 10(11) | Informazioni che accompagnano il dispositivo in una o più **lingue ufficiali dell'Unione** determinate dallo Stato membro | IFU in italiano e inglese; coerente con D3 |
 | 10(12) | Azioni correttive immediate in caso di non conformità; informazione a distributori, mandatario e autorità in caso di rischio grave | Procedura FSCA |
 | 10(13) | Sistema di registrazione e segnalazione degli incidenti (artt. 87–88) | § 1.8.7 |
-| 10(14) | Fornitura all'autorità, su richiesta, di tutte le informazioni e la documentazione necessarie a dimostrare la conformità | — |
+| 10(14) | Fornitura all'autorità, su richiesta, di tutte le informazioni e la documentazione necessarie a dimostrare la conformità | - |
 | 10(15) | Informazioni su progettisti/fabbricanti terzi ai sensi dell'art. 30(1) | Rilevante per i contributori |
 | 10(16) | **Copertura finanziaria sufficiente** per la potenziale responsabilità da prodotto | § 1.7.5 |
 
@@ -872,7 +872,7 @@ misurazione dell'output, l'analisi dei dati e il miglioramento del prodotto.
 
 #### 1.8.3 Documentazione tecnica: Allegati II e III
 
-**Allegato II — Documentazione tecnica**
+**Allegato II - Documentazione tecnica**
 ([struttura](https://www.medical-device-regulation.eu/2019/07/25/annex-ii/)):
 
 1. **Descrizione e specifica del dispositivo, comprese varianti e accessori**
@@ -903,7 +903,7 @@ misurazione dell'output, l'analisi dei dati e il miglioramento del prodotto.
    non è stata recuperata da fonte primaria in questa ricerca; il contenuto è quello universalmente
    riportato in letteratura regolatoria ma va confermato sul testo ufficiale.
 
-**Allegato III — Documentazione tecnica sulla sorveglianza post-commercializzazione:**
+**Allegato III - Documentazione tecnica sulla sorveglianza post-commercializzazione:**
 punto 1.1 (a) **piano di sorveglianza post-commercializzazione** redatto ai sensi dell'art. 84;
 punto 1.1 (b) **PSUR** ai sensi dell'art. 86 (non applicabile alla Classe I) e **rapporto sulla
 sorveglianza post-commercializzazione** ai sensi dell'art. 85 (applicabile alla Classe I).
@@ -929,9 +929,9 @@ gestione della configurazione IEC 62304 § 8).
   documentazione tecnica ex Allegato II.
 - **PMCF:** l'Allegato XIV, parte B, disciplina il follow-up clinico post-commercializzazione; il piano
   PMCF (o la giustificazione della sua non applicabilità) fa parte della documentazione.
-- **MDCG 2020-1** — *Guidance on Clinical Evaluation (MDR) / Performance Evaluation (IVDR) of Medical
+- **MDCG 2020-1** - *Guidance on Clinical Evaluation (MDR) / Performance Evaluation (IVDR) of Medical
   Device Software* (marzo 2020),
-  [PDF](https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2020_1_guidance_clinic_eva_md_software_en_0.pdf) —
+  [PDF](https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2020_1_guidance_clinic_eva_md_software_en_0.pdf) -
   articola l'evidenza clinica del MDSW in tre elementi: **validità dell'associazione scientifica**
   (validità scientifica dell'output rispetto alla condizione clinica o allo stato fisiologico),
   **prestazione tecnica/analitica** e **prestazione clinica**; e richiede che **ogni indicazione e ogni
@@ -968,9 +968,9 @@ ed è la chiave di accesso per la documentazione tecnica, la dichiarazione di co
 registrazioni; non compare sull'etichetta. Il **UDI-DI** identifica la versione/modello e il **UDI-PI**
 l'unità di produzione (per il software: la versione).
 
-**MDCG 2018-1 Rev.4** — *Guidance on Basic UDI-DI and changes to UDI-DI*,
+**MDCG 2018-1 Rev.4** - *Guidance on Basic UDI-DI and changes to UDI-DI*,
 [PDF](https://health.ec.europa.eu/system/files/2021-04/md_mdcg_2018-1_guidance_udi-di_en_0.pdf).
-**MDCG 2018-5** — *UDI assignment to Medical Device Software*,
+**MDCG 2018-5** - *UDI assignment to Medical Device Software*,
 [PDF](https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2018_5_software_en_0.pdf). Principio
 operativo: una **revisione maggiore** del software (modifica delle prestazioni originali, della
 sicurezza o dell'interpretazione dei dati; modifica di nome/denominazione commerciale, versione o numero
@@ -979,7 +979,7 @@ UDI-DI**; una **revisione minore** (bug fix, miglioramenti di usabilità non leg
 patch di sicurezza, efficienza operativa) richiede solo un **nuovo UDI-PI**.
 
 **Conseguenza per il versionamento:** la politica SemVer del progetto deve essere mappata
-esplicitamente sulla dicotomia maggiore/minore di MDCG 2018-5 — la corrispondenza *non* è automatica
+esplicitamente sulla dicotomia maggiore/minore di MDCG 2018-5 - la corrispondenza *non* è automatica
 (una patch di sicurezza è «minore» per MDCG anche se cambia il comportamento).
 
 **EUDAMED.** I primi quattro moduli (registrazione degli attori; registrazione UDI/dispositivi;
@@ -996,27 +996,27 @@ ufficiale.
 
 #### 1.8.7 Sorveglianza post-commercializzazione (artt. 83–86) e vigilanza (artt. 87–92)
 
-- **Art. 83** — sistema di sorveglianza post-commercializzazione proporzionato alla classe di rischio e
+- **Art. 83** - sistema di sorveglianza post-commercializzazione proporzionato alla classe di rischio e
   al tipo di dispositivo, parte integrante del SGQ; raccolta, registrazione e analisi attiva e
   sistematica dei dati sulla qualità, prestazione e sicurezza per tutta la vita del dispositivo.
-- **Art. 84** — il sistema è basato su un **piano di sorveglianza post-commercializzazione** (PMS plan),
+- **Art. 84** - il sistema è basato su un **piano di sorveglianza post-commercializzazione** (PMS plan),
   che è parte della documentazione tecnica dell'Allegato III.
-- **Art. 85** — per i dispositivi di **Classe I** il fabbricante redige un **PMS report** che sintetizza
+- **Art. 85** - per i dispositivi di **Classe I** il fabbricante redige un **PMS report** che sintetizza
   risultati e conclusioni delle analisi previste dal piano, con la motivazione e la descrizione delle
   eventuali azioni preventive e correttive intraprese; il rapporto è aggiornato quando necessario ed è
   messo a disposizione dell'autorità competente su richiesta. **Non è previsto un obbligo di cadenza
   periodica fissa né di trasmissione automatica.**
-- **Art. 86** — il **PSUR** riguarda le classi IIa, IIb e III (IIa: aggiornamento almeno **ogni due
+- **Art. 86** - il **PSUR** riguarda le classi IIa, IIb e III (IIa: aggiornamento almeno **ogni due
   anni**). **Non si applica alla Classe I**: la decisione D6 del context pack menziona «PMS/PSUR», ma
-  per un dispositivo di Classe I il PSUR **non è dovuto** — va corretto in «PMS plan + PMS report».
-- **Art. 87 — segnalazione di incidenti gravi e azioni correttive di sicurezza.** Termini graduati sulla
+  per un dispositivo di Classe I il PSUR **non è dovuto** - va corretto in «PMS plan + PMS report».
+- **Art. 87 - segnalazione di incidenti gravi e azioni correttive di sicurezza.** Termini graduati sulla
   gravità: **15 giorni** dalla conoscenza dell'incidente grave in via ordinaria; **2 giorni** in caso di
   **grave minaccia per la salute pubblica**; **10 giorni** in caso di **decesso o grave deterioramento
   imprevisto** delle condizioni di salute di una persona
   ([art. 87](https://www.medicaldevicenews.eu/MDR/articolo-87-segnalazione-di-incidenti-gravi-e-azioni-correttive-di-sicurezza-5a58edddb1c6113ee1b97859.html)).
-- **Artt. 88–92** — segnalazione di tendenze (*trend reporting*), analisi degli incidenti gravi e delle
+- **Artt. 88–92** - segnalazione di tendenze (*trend reporting*), analisi degli incidenti gravi e delle
   FSCA, analisi dei dati di vigilanza, atti di esecuzione.
-- **MDCG 2023-3** — *Questions and Answers on vigilance terms and concepts as outlined in the MDR*,
+- **MDCG 2023-3** - *Questions and Answers on vigilance terms and concepts as outlined in the MDR*,
   utile per la definizione operativa di «incidente grave» e per il raccordo PMS/vigilanza.
 
 **Applicazione al Binario B (conformità volontaria).** Anche non essendo fabbricante di un dispositivo,
@@ -1045,12 +1045,12 @@ del 16 luglio 2021, successivamente modificata da: 2022/6, 2022/757, 2023/1410, 
 liste consolidate su
 [single-market-economy.ec.europa.eu](https://single-market-economy.ec.europa.eu/single-market/goods/european-standards/harmonised-standards/medical-devices_en)).
 
-**[DA VERIFICARE — punto rilevante e in evoluzione]** Lo stato di armonizzazione sotto MDR di
+**[DA VERIFICARE - punto rilevante e in evoluzione]** Lo stato di armonizzazione sotto MDR di
 **EN IEC 62304**, **EN IEC 62366-1**, **EN IEC 82304-1** e **EN ISO/IEC 81001-5-1** non è stato
 accertato in modo univoco in questa ricerca: le fonti secondarie sono discordanti (alcune riportano
 EN 62304:2006+A1:2015 come armonizzata sotto MDR; altre indicano che i lavori CENELEC sugli allegati Z
 sono in corso, il che implicherebbe che l'armonizzazione **non** sia ancora avvenuta, e riferiscono che
-IEC 62366-1 «is not harmonized in the context of MDR» — cfr.
+IEC 62366-1 «is not harmonized in the context of MDR» - cfr.
 [Johner Institute, Harmonized standards](https://blog.johner-institute.com/regulatory-affairs/harmonized-standards/)).
 Risultano invece pacificamente armonizzate **EN ISO 13485:2016** (con A11:2021) e **EN ISO 14971:2019**
 (con A11:2021), incluse nell'allegato della Decisione 2021/1182. **Prima di dichiarare l'applicazione
@@ -1058,7 +1058,7 @@ di una norma armonizzata nella documentazione tecnica, va consultata la lista co
 pubblicata dalla Commissione.** Nel frattempo la formulazione corretta nella documentazione è
 «applicata come stato dell'arte» e non «norma armonizzata», salvo verifica.
 
-### 2.1 ISO 13485:2016 — Sistema di gestione della qualità dei dispositivi medici
+### 2.1 ISO 13485:2016 - Sistema di gestione della qualità dei dispositivi medici
 
 **Cosa richiede.** Un SGQ specifico per il settore, costruito sull'impianto ISO 9001 ma con enfasi su
 efficacia regolatoria anziché su miglioramento continuo generico, e con requisiti aggiuntivi di
@@ -1068,7 +1068,7 @@ documentazione, tracciabilità e controllo del rischio lungo tutti i processi.
 
 | Clausola | Contenuto | Realizzazione in Telemedic |
 |---|---|---|
-| 4.1.6 | **Validazione del software usato nel SGQ** (non del prodotto): strumenti che influenzano la qualità — CI/CD, tracker delle issue, sistema di gestione documentale, strumenti di test | Serve una procedura di *tool validation* per GitHub Actions, il sistema di tracciabilità, gli strumenti di analisi statica |
+| 4.1.6 | **Validazione del software usato nel SGQ** (non del prodotto): strumenti che influenzano la qualità - CI/CD, tracker delle issue, sistema di gestione documentale, strumenti di test | Serve una procedura di *tool validation* per GitHub Actions, il sistema di tracciabilità, gli strumenti di analisi statica |
 | 4.2.3 | **Medical Device File**: fascicolo per ciascun tipo/famiglia di dispositivo | Directory `docs/08_compliance/` come *device file* versionato |
 | 4.2.4 / 4.2.5 | Controllo dei documenti e delle registrazioni | Docs-as-code + protezione dei branch + firme dei commit |
 | 5.6 | Riesame della direzione | Verbale periodico del maintainer/steering, pubblicabile |
@@ -1090,18 +1090,18 @@ credibilità verso l'integratore, la scelta razionale è: costruire il sistema c
 flusso di ricavi che lo giustifichino (ordine di grandezza tipico: audit iniziale in due fasi + audit
 di sorveglianza annuali).
 
-### 2.2 IEC 62304:2006+A1:2015 — Ciclo di vita del software dei dispositivi medici
+### 2.2 IEC 62304:2006+A1:2015 - Ciclo di vita del software dei dispositivi medici
 
 #### 2.2.1 Classi di sicurezza e criteri di assegnazione (clausola 4.3)
 
 Nella versione emendata dall'**Amendment 1 (2015)** le classi sono definite così:
 
-- **Classe A** — il sistema software **non può contribuire a una situazione pericolosa**, **oppure** può
+- **Classe A** - il sistema software **non può contribuire a una situazione pericolosa**, **oppure** può
   contribuirvi ma il rischio risultante è accettabile **dopo** l'applicazione di misure di controllo del
   rischio **esterne al sistema software**;
-- **Classe B** — il sistema software può portare a una situazione pericolosa anche dopo le misure di
+- **Classe B** - il sistema software può portare a una situazione pericolosa anche dopo le misure di
   controllo del rischio, ma il danno possibile **non è grave**;
-- **Classe C** — il sistema software può portare a una situazione pericolosa anche dopo le misure di
+- **Classe C** - il sistema software può portare a una situazione pericolosa anche dopo le misure di
   controllo del rischio, e il danno possibile **è grave o mortale**.
 
 (Sintesi da [Johner Institute, *Safety classes according to IEC 62304*](https://blog.johner-institute.com/iec-62304-medical-software/safety-class-iec-62304/);
@@ -1129,12 +1129,12 @@ Due conseguenze pratiche, spesso fraintese:
 | Persistenza `Encounter`/`DiagnosticReport` e integrazione FHIR | **B** | Perdita o mismatch di associazione paziente–referto è la situazione pericolosa peggiore del sistema; **l'associazione errata fra referto e paziente è il singolo rischio più grave dell'intera architettura** e va trattato con misure di controllo dedicate (doppio identificatore, checksum, conferma esplicita del professionista) |
 | IAM/Keycloak, autorizzazioni, multi-tenancy/RLS | **B** | Divulgazione a terzi non autorizzati; cross-tenant leakage |
 | Metriche TimescaleDB, dashboard | **A** | Nessun contributo a situazione pericolosa clinica |
-| Frontend informativo, i18n, documentazione | **A** | — |
+| Frontend informativo, i18n, documentazione | **A** | - |
 
 Assegnare **B** all'intero prodotto e **A** ai soli item chiaramente isolati è la strategia più
 difendibile: la classe C richiederebbe di dimostrare la possibilità di danno grave, che è argomentabile
 solo se si accetta che il software fornisca informazione clinica (il che riporterebbe alla Classe IIa
-MDR — le due questioni sono correlate).
+MDR - le due questioni sono correlate).
 
 #### 2.2.2 Processi richiesti per ciascuna classe (clausola 5 e seguenti)
 
@@ -1142,11 +1142,11 @@ MDR — le due questioni sono correlate).
 |---|---|---|---|
 | 5.1 Pianificazione dello sviluppo software | ✔ | ✔ | ✔ |
 | 5.2 Analisi dei requisiti software | ✔ | ✔ | ✔ |
-| 5.3 Progettazione architetturale | — | ✔ | ✔ |
-| 5.4 Progettazione dettagliata | — | — | ✔ |
-| 5.5 Implementazione e verifica delle unità | — | ✔ | ✔ |
-| 5.6 Integrazione e test di integrazione | — | ✔ | ✔ |
-| 5.7 Test del sistema software | — | ✔ | ✔ |
+| 5.3 Progettazione architetturale | - | ✔ | ✔ |
+| 5.4 Progettazione dettagliata | - | - | ✔ |
+| 5.5 Implementazione e verifica delle unità | - | ✔ | ✔ |
+| 5.6 Integrazione e test di integrazione | - | ✔ | ✔ |
+| 5.7 Test del sistema software | - | ✔ | ✔ |
 | 5.8 Rilascio del software | ✔ | ✔ | ✔ |
 | 6 Manutenzione | ✔ (ridotto) | ✔ | ✔ |
 | 7 Gestione del rischio software | ✔ (ridotto, esteso da A1:2015) | ✔ | ✔ |
@@ -1180,7 +1180,7 @@ IEC 62304 richiede tracciabilità bidirezionale che colleghi: requisiti di siste
 Questo trasforma un requisito documentale in un *gate* automatico, che è l'unico modo per mantenerlo
 vivo su 14 settimane di sviluppo intenso.
 
-#### 2.2.4 SOUP — *Software Of Unknown Provenance*: il punto centrale per un progetto open source
+#### 2.2.4 SOUP - *Software Of Unknown Provenance*: il punto centrale per un progetto open source
 
 **Definizione (IEC 62304 § 3.29):** elemento software già sviluppato e generalmente disponibile, non
 sviluppato per essere integrato nel dispositivo medico (*off-the-shelf*), oppure elemento software
@@ -1216,10 +1216,10 @@ processi di sviluppo** (piano, requisiti, verifica), non alla visibilità del co
 sviluppo, requisiti, architettura, evidenze di verifica) è precisamente ciò che riduce l'onere del
 partner e costituisce un differenziale competitivo misurabile.
 
-### 2.3 ISO 14971:2019 e ISO/TR 24971:2020 — Gestione del rischio
+### 2.3 ISO 14971:2019 e ISO/TR 24971:2020 - Gestione del rischio
 
 **ISO 14971:2019** definisce il processo: (4) requisiti generali del sistema di gestione del rischio;
-(5) **analisi del rischio** — destinazione d'uso e uso ragionevolmente prevedibile, identificazione di
+(5) **analisi del rischio** - destinazione d'uso e uso ragionevolmente prevedibile, identificazione di
 caratteristiche relative alla sicurezza, identificazione dei pericoli e delle situazioni pericolose,
 stima del rischio; (6) **ponderazione del rischio**; (7) **controllo del rischio** con la gerarchia
 obbligatoria: (a) **sicurezza intrinseca per progettazione**, (b) **misure di protezione nel dispositivo
@@ -1259,13 +1259,13 @@ Probabilità P1–P5 su scala per sessione/anno. Zona di accettabilità, ALARP e
 piano. **I due scenari da tenere sotto controllo assoluto sono S4:** (a) mis-associazione
 paziente–sessione–referto; (b) cross-tenant data leakage.
 
-### 2.4 IEC 62366-1:2015+A1:2020 — Ingegneria dell'usabilità
+### 2.4 IEC 62366-1:2015+A1:2020 - Ingegneria dell'usabilità
 
 **Cosa richiede.** Un processo di *usability engineering* che identifichi e mitighi i rischi legati
 all'uso (*use-related risks*), distinguendo fra **errori d'uso** (*use errors*) e uso anomalo
 (*abnormal use*, escluso dal perimetro della norma ma non dalla gestione del rischio).
 
-Struttura del processo (clausola 5): (5.1) preparazione della **specifica d'uso** — profili degli
+Struttura del processo (clausola 5): (5.1) preparazione della **specifica d'uso** - profili degli
 utenti, ambiente d'uso, caratteristiche del paziente; (5.2) identificazione delle **funzioni correlate
 alla sicurezza** e delle caratteristiche dell'interfaccia utente; (5.3) identificazione dei **pericoli
 noti o prevedibili** e delle situazioni pericolose legate all'uso; (5.4) identificazione e descrizione
@@ -1276,7 +1276,7 @@ progettazione, implementazione e **valutazione formativa**; (5.9) **validazione 
 Output: **Usability Engineering File (UEF)**, richiamato anche dal GSPR 5 dell'Allegato I MDR
 (riduzione dei rischi legati all'errore d'uso) e dal GSPR 22 per i dispositivi destinati a laici.
 
-**Applicazione a Telemedic — scenari d'uso pericolosi da validare:**
+**Applicazione a Telemedic - scenari d'uso pericolosi da validare:**
 
 | # | Scenario | Rischio |
 |---|---|---|
@@ -1295,7 +1295,7 @@ accessibilità. Va documentato come tale nel UEF, con collegamento incrociato al
 pazienti reali, non sviluppatori), con numerosità e protocollo definiti. Su 14 settimane è l'attività
 più a rischio di essere sacrificata. Va pianificata subito o dichiarata esplicitamente come non svolta.
 
-### 2.5 IEC 82304-1:2016 — Prodotti software sanitari (*health software*)
+### 2.5 IEC 82304-1:2016 - Prodotti software sanitari (*health software*)
 
 **Cosa richiede.** È la norma «di prodotto» per il software sanitario **standalone**, complementare a
 IEC 62304 (che è «di processo»). Copre: (4) requisiti del prodotto software sanitario; (5)
@@ -1307,7 +1307,7 @@ sicurezza e di gestione del ciclo di vita.
 
 **Perché è particolarmente pertinente a Telemedic:** IEC 82304-1 si applica al **software sanitario**,
 non solo ai dispositivi medici. È lo standard che consente di costruire un impianto normativo coerente
-**anche nell'ipotesi (corretta) che il prodotto non sia un dispositivo medico** — cioè è la norma che
+**anche nell'ipotesi (corretta) che il prodotto non sia un dispositivo medico** - cioè è la norma che
 sostiene tecnicamente il Binario A/B del § 1.6.4. In particolare la clausola 7 impone di dichiarare in
 modo esplicito **l'ambiente operativo richiesto** (browser, sistema operativo, banda minima, latenza
 massima, configurazione TURN, requisiti di rete): esattamente ciò che una piattaforma WebRTC deve
@@ -1319,10 +1319,10 @@ la degradazione e sconsiglia la prosecuzione). Questo documento è al tempo stes
 IEC 82304-1 § 7, misura di controllo del rischio U3, e argomento a sostegno della non-qualificazione
 MDR (perché sposta esplicitamente sul professionista la valutazione dell'adeguatezza del canale).
 
-### 2.6 ISO/IEC 81001-5-1:2021 e IEC TR 60601-4-5 — Sicurezza informatica nel ciclo di vita
+### 2.6 ISO/IEC 81001-5-1:2021 e IEC TR 60601-4-5 - Sicurezza informatica nel ciclo di vita
 
-**ISO/IEC 81001-5-1:2021** — *Health software and health IT systems safety, effectiveness and security —
-Part 5-1: Security — Activities in the product life cycle*. È il complemento «security» di IEC 62304:
+**ISO/IEC 81001-5-1:2021** - *Health software and health IT systems safety, effectiveness and security -
+Part 5-1: Security - Activities in the product life cycle*. È il complemento «security» di IEC 62304:
 mantiene la stessa struttura di processi (sviluppo, manutenzione, gestione della configurazione,
 risoluzione dei problemi) e vi innesta attività di sicurezza: modellazione delle minacce, requisiti di
 sicurezza, progettazione sicura, revisione del codice orientata alla sicurezza, test di sicurezza
@@ -1331,14 +1331,14 @@ sicurezza, progettazione sicura, revisione del codice orientata alla sicurezza, 
 sicurezza e comunicazione con gli utilizzatori. Include il concetto di **fine del supporto alla
 sicurezza** che va dichiarato all'utente.
 
-**IEC TR 60601-4-5:2021** — *Safety-related technical security specifications for medical devices*.
+**IEC TR 60601-4-5:2021** - *Safety-related technical security specifications for medical devices*.
 Rapporto tecnico che fornisce specifiche tecniche di sicurezza correlate alla sicurezza (*safety*),
 allineate ai livelli di capacità di sicurezza della serie **IEC 62443** (in particolare 62443-4-2). È
 usato per dedurre requisiti tecnici concreti (autenticazione, controllo degli accessi, integrità dei
 dati, riservatezza, disponibilità, *auditability*) a partire dal livello di sicurezza target.
 
-**MDCG 2019-16 Rev.1** — *Guidance on Cybersecurity for medical devices* (47 pagine) —
-[PDF](https://health.ec.europa.eu/document/download/b23b362f-8a56-434c-922a-5b3ca4d0a7a1_en) — spiega
+**MDCG 2019-16 Rev.1** - *Guidance on Cybersecurity for medical devices* (47 pagine) -
+[PDF](https://health.ec.europa.eu/document/download/b23b362f-8a56-434c-922a-5b3ca4d0a7a1_en) - spiega
 come soddisfare i GSPR dell'Allegato I MDR in materia di sicurezza informatica: processo di gestione del
 rischio di sicurezza, approccio *security-by-design* e *security-by-default*, sicurezza lungo tutto il
 ciclo di vita, sorveglianza post-commercializzazione e risposta agli incidenti, procedura di risoluzione
@@ -1364,7 +1364,7 @@ aggiunto esplicitamente:
 
 ### 2.7 ISO/IEC 27001:2022 e ISO 27799:2016
 
-**ISO/IEC 27001:2022** — sistema di gestione della sicurezza delle informazioni (SGSI). La revisione
+**ISO/IEC 27001:2022** - sistema di gestione della sicurezza delle informazioni (SGSI). La revisione
 2022 ha ristrutturato l'Annex A in **93 controlli** su **4 temi** (organizzativi 37, persone 8, fisici
 14, tecnologici 34) e ha introdotto 11 controlli nuovi, fra cui: *threat intelligence* (5.7), sicurezza
 per l'uso di servizi cloud (5.23), *ICT readiness for business continuity* (5.30), monitoraggio della
@@ -1378,7 +1378,7 @@ del SGSI di un progetto come Telemedic riguarda in primo luogo la **catena di fo
 (chiavi di firma, credenziali CI, integrità del repository, gestione degli accessi dei maintainer) e,
 per il modello SaaS, l'esercizio dell'infrastruttura.
 
-**ISO 27799:2016** — *Health informatics — Information security management in health using ISO/IEC 27002*.
+**ISO 27799:2016** - *Health informatics - Information security management in health using ISO/IEC 27002*.
 Fornisce l'interpretazione settoriale sanitaria dei controlli, con requisiti specifici su: dati sanitari
 personali, identificazione univoca dei soggetti di cura, gestione degli accessi in emergenza
 (*break-glass*), audit trail sanitario, conservazione e cancellazione dei dati sanitari, gestione delle
@@ -1411,7 +1411,7 @@ Le deroghe del paragrafo 2 realisticamente utilizzabili:
 | **(h)** | Finalità di **medicina preventiva, diagnosi, assistenza o terapia sanitaria o sociale**, gestione dei sistemi e servizi sanitari, sulla base del diritto UE/nazionale o di un contratto con un professionista della sanità, **fatte salve le condizioni del paragrafo 3** (trattamento da o sotto la responsabilità di un professionista soggetto al segreto professionale) | **È la base ordinaria per il trattamento di cura.** In Italia si combina con l'**art. 9 del d.lgs. 196/2003** e con l'**art. 75 del Codice** («Il trattamento dei dati personali effettuato per finalità di tutela della salute e incolumità fisica dell'interessato o di terzi o della collettività deve essere effettuato ai sensi dell'articolo 9, paragrafi 2, lettere h) e i), e 3 del Regolamento […]») |
 | (i) | **Sanità pubblica** (minacce transfrontaliere, qualità e sicurezza dell'assistenza e dei medicinali) | Rilevante per FSE, PNT, sorveglianza epidemiologica |
 | (g) | **Interesse pubblico rilevante** sulla base del diritto UE/nazionale | Base tipica per i servizi sanitari pubblici; in Italia richiede il rispetto dell'**art. 2-sexies** del Codice |
-| **(a)** | **Consenso esplicito** | **Non è la base per la cura.** Serve invece per: trattamenti ulteriori non necessari alla cura (marketing, ricerca non coperta da altre basi), accesso da parte di soggetti non tenuti al segreto professionale, e — nel modello italiano — per **la registrazione della sessione**, il **FSE** e le modalità di consegna del referto |
+| **(a)** | **Consenso esplicito** | **Non è la base per la cura.** Serve invece per: trattamenti ulteriori non necessari alla cura (marketing, ricerca non coperta da altre basi), accesso da parte di soggetti non tenuti al segreto professionale, e - nel modello italiano - per **la registrazione della sessione**, il **FSE** e le modalità di consegna del referto |
 
 **Provvedimento chiarificatore fondamentale.** Il Garante, con **provvedimento n. 55 del 7 marzo 2019**,
 «Chiarimenti sull'applicazione della disciplina per il trattamento dei dati relativi alla salute in
@@ -1428,8 +1428,8 @@ ambito sanitario» [doc. web n. 9091942]
 - il **RPD/DPO** è obbligatorio per le aziende sanitarie del SSN e per ospedali privati, case di cura e
   RSA; non lo è per il singolo professionista, il medico di medicina generale, il pediatra, la farmacia.
 
-**Conseguenza di progetto n. 1.** Il consenso non va usato come base per la cura. **Ma va usato — ed è
-indispensabile — per la registrazione video** (feature 6 del brief): la registrazione non è necessaria
+**Conseguenza di progetto n. 1.** Il consenso non va usato come base per la cura. **Ma va usato - ed è
+indispensabile - per la registrazione video** (feature 6 del brief): la registrazione non è necessaria
 alla prestazione sanitaria (il consulto si svolge comunque), è un trattamento ulteriore, e il consenso
 deve essere libero, specifico, informato, inequivocabile, **esplicito** (art. 9.2.a), **revocabile con
 la stessa facilità con cui è stato prestato** (art. 7, par. 3) e **separato** dall'accettazione del
@@ -1474,7 +1474,7 @@ vi accede, chi sono i destinatari)
 | **On-premise presso la struttura sanitaria** (Docker Compose/Helm, nessun accesso del progetto ai dati) | La struttura sanitaria | **Nessuno**: il progetto è un mero **fornitore di software**, non tratta dati per conto altrui | È lo scenario giuridicamente più semplice e va incoraggiato. Il progetto resta comunque tenuto all'art. 25 (v. § 3.5) come *produttore* |
 | **SaaS multi-tenant gestito dal progetto o da un suo veicolo** | La struttura sanitaria cliente | Il gestore del SaaS | Serve DPA ex art. 28, elenco dei sub-responsabili, istruzioni documentate, misure ex art. 32, assistenza per artt. 32–36 e per i diritti |
 | **Integratore che incorpora Telemedic nel proprio gestionale cloud e lo offre alle strutture** | La struttura sanitaria (o il singolo professionista) | L'**integratore** come responsabile; il progetto/gestore come **sub-responsabile** (art. 28, par. 2 e 4) | Occorre autorizzazione scritta specifica o generale del titolare e catena contrattuale coerente |
-| Telemedic usa dati per finalità proprie (telemetria di prodotto, miglioramento del servizio, statistiche) | **Il progetto diventa titolare autonomo** per quel trattamento | — | **Da evitare per default.** Se necessario, va isolato, aggregato/anonimizzato, e documentato con base giuridica propria |
+| Telemedic usa dati per finalità proprie (telemetria di prodotto, miglioramento del servizio, statistiche) | **Il progetto diventa titolare autonomo** per quel trattamento | - | **Da evitare per default.** Se necessario, va isolato, aggregato/anonimizzato, e documentato con base giuridica propria |
 
 **Il caso limite pericoloso.** Se l'integratore adotta il white-label e *anche* il progetto ha accesso
 tecnico ai dati (per supporto, telemetria, diagnostica), si può configurare una **contitolarità** (art.
@@ -1494,7 +1494,7 @@ matrice RACI privacy, informative-tipo per paziente e professionista, modello di
 **La DPIA è obbligatoria.** Convergono tre elementi:
 
 1. **Art. 35, par. 3, lett. b)**: trattamento su larga scala di categorie particolari di dati (art. 9).
-2. **Elenco del Garante — provvedimento n. 467 dell'11 ottobre 2018** (pubblicato in GU n. 269 del
+2. **Elenco del Garante - provvedimento n. 467 dell'11 ottobre 2018** (pubblicato in GU n. 269 del
    19 novembre 2018), Allegato 1, «Elenco delle tipologie di trattamenti soggetti al requisito di una
    valutazione d'impatto sulla protezione dei dati ai sensi dell'art. 35, comma 4»
    ([Garante, doc. web n. 9058979](https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979)).
@@ -1509,7 +1509,7 @@ matrice RACI privacy, informative-tipo per paziente e professionista, modello di
    **uso innovativo della tecnologia**; **dati trattati su larga scala relativi a soggetti in stato di
    dipendenza**; e, se la registrazione è attiva, **monitoraggio sistematico**.
 
-**Impostazione consigliata — DPIA modulare e riusabile.** Poiché il titolare sarà quasi sempre il
+**Impostazione consigliata - DPIA modulare e riusabile.** Poiché il titolare sarà quasi sempre il
 cliente (§ 3.3), il progetto non è tenuto a *fare* la DPIA, ma ha un interesse commerciale enorme a
 **fornire il 90 % del materiale**. Struttura proposta di un artefatto pubblicato nel repository
 (`docs/08_compliance/dpia-template/`):
@@ -1542,7 +1542,7 @@ limitazioni. **Da escludere per progettazione**, documentando l'esclusione. (Cfr
 3/2019** sul trattamento di dati personali attraverso dispositivi video, che tratta le condizioni del
 video-trattamento e del riconoscimento biometrico.)
 
-### 3.5 Art. 25 — Protezione dei dati fin dalla progettazione e per impostazione predefinita
+### 3.5 Art. 25 - Protezione dei dati fin dalla progettazione e per impostazione predefinita
 
 L'art. 25 si rivolge formalmente al **titolare**, non al produttore di software. Ma il **considerando
 78** afferma che i produttori di prodotti, servizi e applicazioni dovrebbero essere incoraggiati a
@@ -1565,7 +1565,7 @@ Il vero valore competitivo qui è la **documentabilità**: un *Data Protection E
 mappi ciascun requisito su un test automatico è ciò che consente al cliente di completare la propria
 DPIA in giorni anziché in mesi.
 
-### 3.6 Art. 32 — Misure di sicurezza
+### 3.6 Art. 32 - Misure di sicurezza
 
 L'art. 32, par. 1, cita esplicitamente: (a) **pseudonimizzazione e cifratura**; (b) capacità di
 assicurare su base permanente **riservatezza, integrità, disponibilità e resilienza** dei sistemi e dei
@@ -1595,7 +1595,7 @@ Punti di attenzione specifici per WebRTC:
   tensione retorica con il posizionamento «sovereign». Il riferimento europeo appropriato è lo stato
   dell'arte ENISA/SOG-IS/BSI TR-02102 e le raccomandazioni AgID.
 
-### 3.7 Artt. 33–34 — Violazione dei dati personali
+### 3.7 Artt. 33–34 - Violazione dei dati personali
 
 - **Art. 33, par. 1:** notifica all'autorità di controllo **senza ingiustificato ritardo e, ove
   possibile, entro 72 ore** dal momento in cui il titolare ne è venuto a conoscenza, salvo che sia
@@ -1622,7 +1622,7 @@ gli obblighi CRA di segnalazione delle vulnerabilità attivamente sfruttate (**2
 **Serve un unico runbook di incident response che orchestri i quattro orologi**: è un deliverable
 concreto e differenziante da produrre in `docs/06_security/`.
 
-### 3.8 Capo V — Trasferimenti internazionali e perché la scelta «sovereign» è rilevante
+### 3.8 Capo V - Trasferimenti internazionali e perché la scelta «sovereign» è rilevante
 
 **Cos'è un trasferimento.** Il GDPR non lo definisce. Le **Linee guida EDPB 05/2021**
 sull'interazione fra art. 3 e capo V (versione finale adottata il **14 febbraio 2023**) individuano
@@ -1658,7 +1658,7 @@ un trasferimento.
 
 **Implicazioni operative da verificare nel progetto (elenco di controllo):**
 STUN/TURN self-hosted in UE (non server STUN pubblici extra-UE, nemmeno per fallback);
-registry delle immagini container in UE; provider CI/CD e code hosting (nota: GitHub è statunitense —
+registry delle immagini container in UE; provider CI/CD e code hosting (nota: GitHub è statunitense -
 per il *codice* non c'è trattamento di dati sanitari, ma va evitato che dump, log o dati di test reali
 finiscano in issue o artefatti); monitoraggio/APM in UE; font, CDN e librerie servite localmente e non da
 CDN extra-UE (rilevante anche per il precedente tedesco sui Google Fonts); e-mail transazionali,
@@ -1704,15 +1704,15 @@ di cancellazione, cancellato) per rendere i diritti eseguibili via API. Il vinco
 
 ### 3.10 Il contesto italiano: FSE 2.0, Piattaforma nazionale di telemedicina, EDS
 
-- **FSE 2.0** — **DM Salute 7 settembre 2023**, «Fascicolo sanitario elettronico 2.0», in GU del
+- **FSE 2.0** - **DM Salute 7 settembre 2023**, «Fascicolo sanitario elettronico 2.0», in GU del
   24 ottobre 2023 ([Gazzetta Ufficiale](https://www.gazzettaufficiale.it/eli/id/2023/10/24/23A05829/sg)),
   che aggiorna il quadro già definito dal **DPCM 29 settembre 2015, n. 178**. Il decreto definisce
   contenuti del FSE, limiti di responsabilità e compiti dei soggetti coinvolti, garanzie e misure di
-  sicurezza. È stato preceduto dai pareri del Garante — **provv. n. 294 del 22 agosto 2022** (parere
+  sicurezza. È stato preceduto dai pareri del Garante - **provv. n. 294 del 22 agosto 2022** (parere
   sfavorevole sullo schema iniziale) e **provv. n. 256 dell'8 giugno 2023**. Il decreto è stato
   successivamente modificato dal **DM 11 novembre 2025**. **[DA VERIFICARE]** contenuto e portata delle
   modifiche del DM 11 novembre 2025, non esaminato in questa ricerca.
-- **Piattaforma nazionale di telemedicina (PNT)** — il Garante ha espresso via libera allo schema di
+- **Piattaforma nazionale di telemedicina (PNT)** - il Garante ha espresso via libera allo schema di
   decreto del Ministero della Salute sulla disciplina del trattamento dei dati personali nella PNT,
   dopo aver ottenuto maggiori garanzie: obbligo di valutazione d'impatto preliminare, specificazione
   dei dati trattati, delle operazioni eseguibili, dei motivi di interesse pubblico rilevante e delle
@@ -1720,25 +1720,25 @@ di cancellazione, cancellato) per rendere i diritti eseguibili via API. Il vinco
   ([Garante, sezione telemedicina](https://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/10215002)).
   **[DA VERIFICARE]** estremi esatti (numero e data) del provvedimento e del decreto: non recuperati
   con certezza in questa ricerca.
-- **Ecosistema Dati Sanitari (EDS) e Gateway FSE 2.0** — le linee guida del DM 21 settembre 2022
+- **Ecosistema Dati Sanitari (EDS) e Gateway FSE 2.0** - le linee guida del DM 21 settembre 2022
   richiedono che i servizi regionali di telemedicina condividano eventi, dati e link ai documenti verso
   l'EDS «tramite il Gateway (di cui FSE 2.0)», con modellazione delle informazioni **basata su FHIR** e
   con integrazione del portale dei servizi di telemedicina «all'interno del portale FSE».
   **Implicazione diretta per Telemedic:** la scelta FHIR R4 è allineata al quadro nazionale; l'obiettivo
   di interoperabilità concreta è il **Gateway FSE 2.0**, e questo va inserito nella roadmap di
   integrazione (D4) come profilo di conformità distinto dalle API generiche.
-- **Art. 2-septies del d.lgs. 196/2003** — misure di garanzia per il trattamento di dati genetici,
+- **Art. 2-septies del d.lgs. 196/2003** - misure di garanzia per il trattamento di dati genetici,
   biometrici e relativi alla salute, adottate dal Garante. Il provv. 55/2019 annunciava l'adozione di
   tali misure; **[DA VERIFICARE]** lo stato di adozione delle misure di garanzia per i dati sanitari
   alla data d'uso del documento.
-- **Art. 2-sexies** — trattamenti necessari per motivi di interesse pubblico rilevante: base per i
+- **Art. 2-sexies** - trattamenti necessari per motivi di interesse pubblico rilevante: base per i
   trattamenti dei soggetti pubblici del SSN.
 
 ---
 
 ## 4. Altri regolamenti UE applicabili
 
-### 4.1 EHDS — Regolamento (UE) 2025/327 sullo spazio europeo dei dati sanitari
+### 4.1 EHDS - Regolamento (UE) 2025/327 sullo spazio europeo dei dati sanitari
 
 **Stato.** Pubblicato in GUUE, **entrato in vigore il 26 marzo 2025**, **applicabile in via generale dal
 26 marzo 2027**, con applicazione differita di numerose disposizioni
@@ -1759,7 +1759,7 @@ servizio e tenerla aggiornata, emettere una **dichiarazione di conformità UE** 
 CE**, con un regime che ricalca la logica del nuovo quadro legislativo ma **senza organismo notificato**
 per la generalità dei casi.
 
-**Il raccordo con MDR — passaggio testuale della MDCG 2019-11 Rev.1 (Annex I c.1, p. 26):**
+**Il raccordo con MDR - passaggio testuale della MDCG 2019-11 Rev.1 (Annex I c.1, p. 26):**
 
 > «If interoperability between an MDSW and an EHR system is claimed under the European Health Data Space
 > (EHDS) Regulation, manufacturers must ensure compliance with the requirements of both the Medical
@@ -1778,12 +1778,12 @@ stesso un dispositivo medico/IVD/sistema di IA ad alto rischio; (ii) un modulo d
 (iii) un dispositivo medico/IVD/sistema di IA ad alto rischio **dichiara interoperabilità** con un
 sistema EHR, con conseguente necessità di conformità sia MDR/IVDR sia EHDS.
 
-**Applicazione a Telemedic — analisi.** La domanda decisiva è: **Telemedic è un «sistema EHR» ai sensi
+**Applicazione a Telemedic - analisi.** La domanda decisiva è: **Telemedic è un «sistema EHR» ai sensi
 dell'EHDS?** L'EHDS definisce il sistema EHR in funzione della finalità di **archiviare, intermediare,
 esportare, importare, convertire, modificare o visualizzare dati sanitari elettronici personali
 appartenenti alle categorie prioritarie**. Telemedic:
 
-- **archivia** `Encounter`, `DiagnosticReport`, `Observation` — che sono riconducibili alle categorie
+- **archivia** `Encounter`, `DiagnosticReport`, `Observation` - che sono riconducibili alle categorie
   prioritarie (referti, risultati di esami, note di dimissione, patient summary);
 - **esporta e importa** dati verso il sistema dell'integratore;
 - **converte** in FHIR.
@@ -1806,7 +1806,7 @@ consultare integralmente in questa ricerca.
 3. È una **opportunità commerciale**: essere fra i primi sistemi progettati EHDS-ready è un
    differenziale verso gli integratori, che dovranno affrontare lo stesso problema.
 
-### 4.2 NIS2 — Direttiva (UE) 2022/2555 e d.lgs. 4 settembre 2024, n. 138
+### 4.2 NIS2 - Direttiva (UE) 2022/2555 e d.lgs. 4 settembre 2024, n. 138
 
 **Recepimento italiano.** Il d.lgs. 138/2024 è stato pubblicato in GU il **1° ottobre 2024** ed è
 **entrato in vigore il 16 ottobre 2024**
@@ -1841,7 +1841,7 @@ una volta soddisfa tre regimi.
 **24 ore**, notifica dell'incidente entro **72 ore**, relazione finale entro **un mese**. Vanno inseriti
 nel runbook unico di incident response (§ 3.7).
 
-### 4.3 Cyber Resilience Act — Regolamento (UE) 2024/2847
+### 4.3 Cyber Resilience Act - Regolamento (UE) 2024/2847
 
 **Stato e date.** Entrato in vigore il **10 dicembre 2024**. Applicazione scaglionata: obblighi di
 **segnalazione delle vulnerabilità attivamente sfruttate e degli incidenti gravi (art. 14)** dall'**11
@@ -1852,7 +1852,7 @@ dall'11 dicembre 2027** ([testo consolidato](https://www.cyberresilienceact.eu/r
 
 **Esclusione per i dispositivi medici.** L'**art. 2, paragrafo 2**, esclude dall'ambito del CRA i
 prodotti con elementi digitali già coperti dai Regolamenti **(UE) 2017/745** e **(UE) 2017/746** (oltre
-al Regolamento (UE) 2019/2144 sui veicoli a motore) — perché i requisiti di cibersicurezza sono già
+al Regolamento (UE) 2019/2144 sui veicoli a motore) - perché i requisiti di cibersicurezza sono già
 imposti dalla legislazione settoriale.
 
 **Conseguenza paradossale e importante per Telemedic.** Se Telemedic **non** è un dispositivo medico
@@ -1863,11 +1863,11 @@ dal dicembre 2027.**
 
 **Il regime per il software libero e open source.** Il CRA distingue tre posizioni:
 
-1. **FOSS sviluppato o fornito al di fuori di un'attività commerciale** — fuori dall'ambito degli
+1. **FOSS sviluppato o fornito al di fuori di un'attività commerciale** - fuori dall'ambito degli
    obblighi di fabbricante. I considerando del regolamento chiariscono che la mera accettazione di
    donazioni occasionali, la pubblicazione su repository pubblici, la collaborazione allo sviluppo e la
    fornitura senza monetizzazione non costituiscono di per sé attività commerciale.
-2. **Open-source software steward** (art. 3, punto 14 — definizione): «a legal person, other than a
+2. **Open-source software steward** (art. 3, punto 14 - definizione): «a legal person, other than a
    manufacturer, that has the purpose or objective of systematically providing support on a sustained
    basis for the development of specific products with digital elements, qualifying as free and
    open-source software and intended for commercial activities, and that ensures the viability of those
@@ -1876,10 +1876,10 @@ dal dicembre 2027.**
    incoraggiare la segnalazione volontaria delle vulnerabilità, cooperare con le autorità di vigilanza
    del mercato su richiesta. Gli steward **non sono soggetti alle sanzioni amministrative** del
    regolamento.
-3. **Fabbricante** — chi immette sul mercato il prodotto nel corso di un'attività commerciale: obblighi
+3. **Fabbricante** - chi immette sul mercato il prodotto nel corso di un'attività commerciale: obblighi
    pieni (requisiti essenziali dell'Allegato I, valutazione della conformità, marcatura CE,
-   documentazione tecnica, **SBOM**, gestione delle vulnerabilità per il periodo di supporto —
-   di norma almeno 5 anni —, segnalazioni ex art. 14).
+   documentazione tecnica, **SBOM**, gestione delle vulnerabilità per il periodo di supporto -
+   di norma almeno 5 anni -, segnalazioni ex art. 14).
 
 **Requisiti dell'Allegato I rilevanti.** L'Allegato I si articola in **Parte I** (proprietà di
 cibersicurezza del prodotto: assenza di vulnerabilità note sfruttabili al momento dell'immissione,
@@ -1904,7 +1904,7 @@ distribuzione sicura degli aggiornamenti; aggiornamenti di sicurezza gratuiti e 
   preallarme e successive notifiche: **anche se l'obbligo diretto non ricade sul progetto oggi, l'assenza
   di questa capacità è un blocco commerciale verso integratori che invece vi sono soggetti.**
 
-### 4.4 AI Act — Regolamento (UE) 2024/1689: dove passa il confine
+### 4.4 AI Act - Regolamento (UE) 2024/1689: dove passa il confine
 
 **Il confine è netto e va scritto.** L'AI Act si applica ai **sistemi di IA** come definiti dall'art. 3,
 punto 1. **Nessuna funzione dichiarata nella v1.0 di Telemedic è un sistema di IA**: WebRTC, codec,
@@ -1914,7 +1914,7 @@ adattività nel senso della definizione).
 
 **Cosa cambierebbe con l'IA.** Se il progetto aggiungesse: trascrizione automatica del consulto,
 sintesi automatica del referto, traduzione automatica, riconoscimento del parlato, rilevamento di
-emozioni, triage assistito, analisi automatica dell'immagine dermatologica — allora:
+emozioni, triage assistito, analisi automatica dell'immagine dermatologica - allora:
 
 - **Art. 6, paragrafo 1:** un sistema di IA è **ad alto rischio** se (a) è destinato a essere usato come
   **componente di sicurezza** di un prodotto, o è esso stesso un prodotto, disciplinato dalla
@@ -1924,8 +1924,8 @@ emozioni, triage assistito, analisi automatica dell'immagine dermatologica — a
   incorporato in un dispositivo di Classe I non sarebbe ad alto rischio per questa via; dalla **Classe
   IIa in su sì**, perché interviene l'organismo notificato.
 - **Se il prodotto non è un dispositivo medico**, l'art. 6, par. 1, non si applica; occorre verificare
-  l'**Allegato III** (aree ad alto rischio) — dove la sanità compare in modo mirato (per esempio
-  triage in emergenza, accesso a servizi essenziali) — e gli obblighi di trasparenza dell'**art. 50**
+  l'**Allegato III** (aree ad alto rischio) - dove la sanità compare in modo mirato (per esempio
+  triage in emergenza, accesso a servizi essenziali) - e gli obblighi di trasparenza dell'**art. 50**
   per i sistemi che interagiscono con persone fisiche o generano contenuti sintetici.
 - **Date di applicazione:** entrata in vigore 1° agosto 2024; divieti e alfabetizzazione dal 2 febbraio
   2025; GPAI e governance dal 2 agosto 2025; **regime generale dal 2 agosto 2026**; **obblighi per i
@@ -1942,7 +1942,7 @@ regolatoria preventiva**, con la stessa forza del divieto sulle funzioni C1–C9
 trascrizione automatica introdotto «per comodità» in una PR è, letteralmente, un cambio di regime
 normativo.
 
-### 4.5 Data Act — Regolamento (UE) 2023/2854
+### 4.5 Data Act - Regolamento (UE) 2023/2854
 
 **Stato.** Entrato in vigore l'11 gennaio 2024, **applicabile dal 12 settembre 2025**; alcune
 disposizioni (in particolare l'art. 3, par. 1, sui requisiti di progettazione dei prodotti connessi)
@@ -1951,19 +1951,19 @@ puntuali sull'art. 50 (disposizioni finali) del regolamento.
 
 **Cosa rileva per Telemedic:**
 
-1. **Capo I–III — dati generati dall'uso di prodotti connessi e servizi correlati.** Si applica ai
+1. **Capo I–III - dati generati dall'uso di prodotti connessi e servizi correlati.** Si applica ai
    «prodotti connessi» (oggetti che ottengono, generano o raccolgono dati sul loro uso o ambiente e
    possono comunicarli) e ai «servizi correlati». Un software di telemedicina puro **non è** un prodotto
    connesso; lo diventerebbe la combinazione con dispositivi di telemonitoraggio. **Nota:** i dispositivi
    medici hanno un trattamento specifico nel Data Act, che **[DA VERIFICARE]** prevede esclusioni o
    adattamenti per i dispositivi la cui sicurezza sarebbe compromessa dalla condivisione dei dati.
-2. **Capo VI — cambio di fornitore di servizi di trattamento dati (*cloud switching*).** Questo è il
+2. **Capo VI - cambio di fornitore di servizi di trattamento dati (*cloud switching*).** Questo è il
    capo **direttamente rilevante** per il modello SaaS (D8): obblighi di rimozione degli ostacoli
    contrattuali, commerciali, tecnici e organizzativi al cambio di fornitore; **eliminazione graduale
    dei costi di uscita** (i *switching charges* sono azzerati a partire dal 12 gennaio 2027); obbligo di
    assistenza alla migrazione; termini contrattuali minimi; **portabilità dei dati e degli asset
    digitali** in formato strutturato e di uso comune.
-3. **Capo VIII — interoperabilità**: requisiti per gli spazi di dati e per i servizi di trattamento dati.
+3. **Capo VIII - interoperabilità**: requisiti per gli spazi di dati e per i servizi di trattamento dati.
 
 **Conseguenza di progetto, ed è positiva.** Il Data Act premia esattamente ciò che Telemedic già
 promette: **exit senza lock-in** (deployment on-premise alternativo al SaaS, formati standard FHIR,
@@ -1977,16 +1977,16 @@ insieme conformità Data Act, requisito GDPR (art. 20) e leva commerciale.
 27 maggio 2022, n. 82**, applicabile ai prodotti e servizi immessi sul mercato **dal 28 giugno 2025**
 ([Baldi Prati & Partners](https://www.baldiandpartners.it/comunicazioni-legali/entrata-in-vigore-della-european-accessibility-act-il-28-giugno-2025-direttiva-n-2019-882-d-lgs-n-82-2022/)).
 **Esenzione per le microimprese** (< 10 addetti e fatturato o bilancio ≤ 2 M€) limitatamente ai
-**servizi** — l'esenzione per i prodotti è più circoscritta. **[DA VERIFICARE]** perimetro esatto
+**servizi** - l'esenzione per i prodotti è più circoscritta. **[DA VERIFICARE]** perimetro esatto
 dell'esenzione microimprese nel d.lgs. 82/2022.
 
-**Ambito soggettivo — la parte delicata.** L'EAA copre categorie definite di prodotti e servizi:
+**Ambito soggettivo - la parte delicata.** L'EAA copre categorie definite di prodotti e servizi:
 computer e sistemi operativi, terminali self-service, terminali di pagamento, apparecchiature terminali
 per servizi di comunicazione elettronica e per servizi di media audiovisivi, **e-book**, **servizi di
 commercio elettronico**, servizi di comunicazione elettronica, servizi di trasporto passeggeri, servizi
 bancari per i consumatori. **La telemedicina non è nominata.** Telemedic vi ricadrebbe:
 (a) indirettamente, se venduto tramite un canale di **commercio elettronico** rivolto ai consumatori;
-(b) come componente di un servizio di comunicazione elettronica **[DA VERIFICARE]** — la qualificazione
+(b) come componente di un servizio di comunicazione elettronica **[DA VERIFICARE]** - la qualificazione
 di un servizio di videoconsulto come «servizio di comunicazione interpersonale indipendente dal numero»
 ai sensi del Codice europeo delle comunicazioni elettroniche è controversa e merita analisi specifica;
 (c) **direttamente**, quando il cliente è una pubblica amministrazione, per il tramite della **Direttiva
@@ -2005,15 +2005,15 @@ d.lgs. 82/2022 · legge 4/2004 (Italia)      ─┘        (clausole 9, 10, 11 d
 **EN 301 549** è la norma europea «Requisiti di accessibilità per prodotti e servizi TIC», elaborata da
 ETSI/CEN/CENELEC. La versione **V3.2.1 (2021-03)** è quella armonizzata sotto la Direttiva 2016/2102 e
 incorpora **WCAG 2.1 livello AA** nelle clausole 9 (contenuti web), 10 (documenti non web) e 11
-(software non web). È in circolazione la versione **V4.1.1 (2025)** — **[DA VERIFICARE]** se e da quando
+(software non web). È in circolazione la versione **V4.1.1 (2025)** - **[DA VERIFICARE]** se e da quando
 sia citata nella GUUE come armonizzata a supporto dell'EAA: fino a quel momento, il riferimento
 giuridicamente efficace resta la versione citata in GUUE.
 
 **Perché V6 del context pack va oltre WCAG 2.1 AA.** EN 301 549 contiene requisiti che **non** derivano
 da WCAG e che sono direttamente pertinenti a una piattaforma di videocomunicazione, in particolare la
 **clausola 6 «Comunicazione bidirezionale vocale»**: qualità audio, **comunicazione in tempo reale con
-testo (RTT)** quando è supportata la voce, identificazione del chiamante, e — per la videocomunicazione
-— **risoluzione, frame rate e sincronizzazione labiale sufficienti per la lingua dei segni**. Questi
+testo (RTT)** quando è supportata la voce, identificazione del chiamante, e - per la videocomunicazione
+- **risoluzione, frame rate e sincronizzazione labiale sufficienti per la lingua dei segni**. Questi
 requisiti sono cruciali per un servizio sanitario destinato anche a persone sorde e non sono coperti da
 un'analisi WCAG.
 
@@ -2034,7 +2034,7 @@ Testo di riferimento: [apache.org/licenses/LICENSE-2.0.txt](https://www.apache.o
 (identificatore SPDX: `Apache-2.0`; approvata OSI e classificata dalla FSF come licenza di software
 libero).
 
-#### § 2 — Grant of Copyright License
+#### § 2 - Grant of Copyright License
 
 Ogni *Contributor* concede a *You* una licenza di copyright «perpetual, worldwide, non-exclusive,
 no-charge, royalty-free, **irrevocable**» per riprodurre, preparare opere derivate, esporre ed eseguire
@@ -2048,7 +2048,7 @@ Tre elementi rilevanti per il progetto:
 - il grant è concesso da **ciascun** contributore, non solo dal maintainer: la catena di titolarità è
   distribuita, ed è esattamente ciò che DCO o CLA devono documentare (§ 5.4).
 
-#### § 3 — Grant of Patent License e clausola di ritorsione
+#### § 3 - Grant of Patent License e clausola di ritorsione
 
 Ogni Contributor concede una licenza di brevetto «perpetual, worldwide, non-exclusive, no-charge,
 royalty-free, irrevocable» per «make, have made, use, offer to sell, sell, import, and otherwise
@@ -2079,7 +2079,7 @@ royalty-free) e documentare che l'uso di H.264/H.265 resta a carico e responsabi
 dell'implementatore. Va scritto nel `NOTICE`/documentazione, perché è un rischio reale e non teorico per
 l'integratore.
 
-#### § 4 — Redistribution e il ruolo del file NOTICE
+#### § 4 - Redistribution e il ruolo del file NOTICE
 
 Chi ridistribuisce l'Opera o opere derivate, in qualunque supporto, con o senza modifiche, in forma
 sorgente o oggetto, deve:
@@ -2100,14 +2100,14 @@ sorgente o oggetto, deve:
 necessario** (attribuzione del copyright del progetto, avvisi ereditati da componenti Apache-2.0
 upstream che ne dispongano). Non va usato come *changelog* né come vetrina: ogni riga aggiunta al
 `NOTICE` diventa un obbligo di riproduzione per **tutti** i ridistributori a valle, incluso
-l'integratore — un attrito da evitare.
+l'integratore - un attrito da evitare.
 
 **Interazione con l'embed white-label:** l'obbligo (d) è soddisfacibile in un prodotto white-label
 tramite una schermata «Informazioni / Licenze open source» raggiungibile dall'applicazione. Il progetto
 dovrebbe **fornire il componente pronto** (una pagina/dialog `about` generata automaticamente dalla
 SBOM): piccolo deliverable, alto valore di riduzione dell'attrito per il partner.
 
-#### § 5 — Submission of Contributions
+#### § 5 - Submission of Contributions
 
 > «Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the
 > Work by You to the Licensor shall be under the terms and conditions of this License, without any
@@ -2120,21 +2120,21 @@ di copyright e di brevetto). Il § 5 è la ragione per cui, con Apache-2.0, un C
 per l'igiene licenziale di base; e la seconda frase è la clausola che consente di sovrapporre un CLA
 quando serve (§ 5.4).
 
-#### § 6 — Trademarks
+#### § 6 - Trademarks
 
 La licenza **non** concede diritti sull'uso di nomi commerciali, marchi, marchi di servizio o nomi di
 prodotto del Licensor, salvo l'uso ragionevole e consueto necessario a descrivere l'origine dell'Opera e
 a riprodurre il contenuto del `NOTICE`. È l'unico appiglio di controllo residuo sul nome «Telemedic»:
 senza **marchio registrato**, il § 6 protegge poco.
 
-#### § 7 — Disclaimer of Warranty
+#### § 7 - Disclaimer of Warranty
 
 > «Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each
 > Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
 > KIND, either express or implied, including, without limitation, any warranties or conditions of
 > TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE.»
 
-#### § 8 — Limitation of Liability
+#### § 8 - Limitation of Liability
 
 > «In no event and under no legal theory, whether in tort (including negligence), contract, or
 > otherwise, **unless required by applicable law** (such as deliberate and grossly negligent acts) or
@@ -2142,7 +2142,7 @@ senza **marchio registrato**, il § 6 protegge poco.
 > indirect, special, incidental, or consequential damages of any character arising as a result of this
 > License or out of the use or inability to use the Work…»
 
-#### § 9 — Accepting Warranty or Additional Liability
+#### § 9 - Accepting Warranty or Additional Liability
 
 Chi ridistribuisce può offrire (e far pagare) garanzia, supporto, indennizzo o altri obblighi di
 responsabilità, **ma solo per proprio conto e sotto la propria esclusiva responsabilità**, e a
@@ -2164,7 +2164,7 @@ licenza, e va detto senza ambiguità.
    esclusione o limitazione preventiva della responsabilità nei confronti del danneggiato.
    **[DA VERIFICARE]** la numerazione dopo il recepimento della nuova direttiva (termine: 9 dicembre 2026).
 3. **La responsabilità da prodotto è extracontrattuale** e opera **verso il danneggiato**, che nella
-   telemedicina è tipicamente **il paziente** — soggetto che non ha mai accettato la licenza. Una
+   telemedicina è tipicamente **il paziente** - soggetto che non ha mai accettato la licenza. Una
    clausola di licenza non può, per definizione, opporsi a chi non è parte del rapporto.
 4. **L'EUPL lo dice esplicitamente**, e la formulazione illumina anche l'interpretazione di Apache-2.0.
    EUPL v1.2, art. 8, ultimo periodo: «However, the Licensor will be **liable under statutory product
@@ -2183,7 +2183,7 @@ regolatoria (MDR, GDPR, CRA); responsabilità per dolo o colpa grave. La protezi
 altrove: **(i)** restando fuori dall'attività commerciale finché possibile; **(ii)** costituendo un
 veicolo societario a responsabilità limitata prima di qualsiasi attività commerciale; **(iii)**
 stipulando una **polizza RC prodotti e RC professionale tech**; **(iv)** allocando i ruoli con
-l'integratore per contratto; **(v)** e — la misura più efficace — **realizzando un prodotto
+l'integratore per contratto; **(v)** e - la misura più efficace - **realizzando un prodotto
 verificabilmente sicuro e documentandolo**, perché la direttiva costruisce presunzioni contro chi non è
 in grado di esibire evidenze (§ 6.4).
 
@@ -2195,10 +2195,10 @@ progetto licenziato Y?». Le risposte non sono simmetriche.
 | Licenza della dipendenza | Posso includerla in Telemedic (Apache-2.0)? | Base |
 |---|---|---|
 | **MIT, BSD-2/3, ISC, Zlib** (permissive) | **Sì**, conservando avvisi e testo di licenza | Permissive senza copyleft |
-| **Apache-2.0** | Sì | — |
+| **Apache-2.0** | Sì | - |
 | **MPL-2.0** (*file-level copyleft*) | **Sì, con cautela.** I file MPL restano MPL e le modifiche a quei file vanno rilasciate sotto MPL; il resto del *Larger Work* può restare Apache-2.0 (MPL-2.0 § 3.3) | [FSF license list](https://www.gnu.org/licenses/license-list.en.html) |
 | **LGPL-2.1 / LGPL-3.0** | **Sì se usata come libreria collegata dinamicamente**, con obbligo di consentire la sostituzione della libreria e di fornire quanto necessario al re-linking. Da evitare il *static linking* | LGPL §§ 4–6 |
-| **EPL-2.0** | **Attenzione**: copyleft debole a livello di file; incompatibile con GPL salvo opzione di licenza secondaria. Utilizzabile come dipendenza separata | — |
+| **EPL-2.0** | **Attenzione**: copyleft debole a livello di file; incompatibile con GPL salvo opzione di licenza secondaria. Utilizzabile come dipendenza separata | - |
 | **GPL-2.0** (senza «or later») | **NO.** L'inclusione renderebbe l'insieme distribuibile solo sotto GPL-2.0, incompatibile con Apache-2.0 | ASF: «the FSF has never considered the Apache License to be compatible with GPL version 2, citing the patent termination and indemnification provisions» ([apache.org](https://www.apache.org/licenses/GPL-compatibility.html)); FSF: «This license is not compatible with GPL version 2, because it has some requirements that are not in that GPL version» |
 | **GPL-3.0 / AGPL-3.0** | **NO in ingresso.** Apache-2.0 è compatibile con GPLv3 **in una sola direzione**: «Apache 2 software can therefore be included in GPLv3 projects», ma «**GPLv3 software cannot be included in Apache projects**» ([apache.org](https://www.apache.org/licenses/GPL-compatibility.html)) | Idem |
 | **EUPL-1.2** | **NO come dipendenza incorporata.** EUPL-1.2 è copyleft e la sua *Compatibility clause* (art. 5) opera tramite l'**Appendice** delle «Compatible Licences», che elenca GPL v2/v3, AGPL v3, OSL v2.1/3.0, EPL v1.0, CeCILL v2.0/2.1, MPL v2, LGPL v2.1/v3, CC BY-SA 3.0, EUPL v1.1/1.2, LiLiQ-R/R+. **Apache-2.0 non è nell'elenco.** Un'opera derivata da software EUPL non può essere distribuita sotto Apache-2.0 | [EUPL v1.2, art. 5 e Appendice](https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12) |
@@ -2223,7 +2223,7 @@ la correttezza della decisione; la ragione precisa è la seguente.
 > «If the Licensee **Distributes or Communicates** copies of the Original Works or Derivative Works, this
 > Distribution or Communication will be done **under the terms of this Licence** or of a later version of
 > this Licence unless the Original Work is expressly distributed only under this version of the Licence
-> — for example by communicating "EUPL v. 1.2 only". The Licensee (becoming Licensor) cannot offer or
+> - for example by communicating "EUPL v. 1.2 only". The Licensee (becoming Licensor) cannot offer or
 > impose any additional terms or conditions on the Work or Derivative Work that alter or restrict the
 > terms of the Licence.»
 
@@ -2233,7 +2233,7 @@ la correttezza della decisione; la ragione precisa è la seguente.
 > making available, **online or offline**, copies of the Work **or providing access to its essential
 > functionalities at the disposal of any other natural or legal person**.»
 
-**È questa definizione — non l'art. 5 in sé — la radice del problema.** Le parole «**providing access to
+**È questa definizione - non l'art. 5 in sé - la radice del problema.** Le parole «**providing access to
 its essential functionalities**» estendono il fatto generatore dell'obbligo copyleft ben oltre la
 distribuzione di copie: **rendere accessibili le funzionalità essenziali dell'opera a un terzo tramite la
 rete è "Communication"**. È una clausola concettualmente analoga alla *network clause* dell'AGPL, benché
@@ -2258,11 +2258,11 @@ formulata diversamente.
 6. **Nessuna via d'uscita tramite la Compatibility clause**, perché l'Appendice contiene solo licenze
    *share alike*: si può passare da EUPL a GPL, non a una licenza permissiva.
 
-**Aggravante specifica del progetto:** l'intero modello di integrazione descritto nel context pack —
-embed white-label, SDK, iframe/Web Component, API — è **precisamente** «providing access to its essential
+**Aggravante specifica del progetto:** l'intero modello di integrazione descritto nel context pack -
+embed white-label, SDK, iframe/Web Component, API - è **precisamente** «providing access to its essential
 functionalities». Con EUPL, l'integratore proprietario avrebbe avuto due sole opzioni: aprire il proprio
 prodotto, oppure rinunciare. **Apache-2.0 elimina il problema alla radice** e in più aggiunge il grant
-brevettuale esplicito (§ 3) che né MIT né BSD offrono — motivo per cui è la scelta corretta anche
+brevettuale esplicito (§ 3) che né MIT né BSD offrono - motivo per cui è la scelta corretta anche
 rispetto alle alternative permissive.
 
 **Contro-argomento onesto (per completezza).** Esiste una lettura più restrittiva secondo cui il SaaS
@@ -2276,7 +2276,7 @@ nessun ufficio legale approva un'integrazione fondata su un'interpretazione cont
 
 #### 5.4.1 Cosa sono
 
-**DCO — Developer Certificate of Origin 1.1** ([developercertificate.org](https://developercertificate.org/),
+**DCO - Developer Certificate of Origin 1.1** ([developercertificate.org](https://developercertificate.org/),
 © Linux Foundation 2004, 2006). È una **attestazione unilaterale** del contributore, espressa aggiungendo
 al messaggio di commit la riga `Signed-off-by: Nome Cognome <email>`. Il contributore certifica, in
 sintesi:
@@ -2288,12 +2288,12 @@ sintesi:
 - **(c)** che il contributo gli è stato fornito da altri che hanno a loro volta certificato (a), (b) o
   (c), e che non lo ha modificato;
 - **(d)** di comprendere che il progetto e il contributo sono **pubblici** e che la registrazione del
-  contributo — inclusi tutti i dati personali sottoposti, `Signed-off-by` compreso — è mantenuta
+  contributo - inclusi tutti i dati personali sottoposti, `Signed-off-by` compreso - è mantenuta
   **indefinitamente** e può essere ridistribuita.
 
-**CLA — Contributor License Agreement.** È un **contratto** fra contributore e project owner. Due
+**CLA - Contributor License Agreement.** È un **contratto** fra contributore e project owner. Due
 famiglie: **CLA di licenza** (il contributore concede al project owner una licenza ampia, perpetua,
-irrevocabile, sublicenziabile — modello Apache ICLA/CCLA) e **cessione del copyright** (modello FSF).
+irrevocabile, sublicenziabile - modello Apache ICLA/CCLA) e **cessione del copyright** (modello FSF).
 Contengono tipicamente dichiarazioni e garanzie di titolarità, grant brevettuale esplicito, dichiarazione
 sull'assenza di vincoli datoriali e, nella variante *corporate*, l'elenco dei dipendenti autorizzati.
 
@@ -2330,7 +2330,7 @@ il vincolo:
 
 1. **Apache-2.0 rende il dual licensing largamente superfluo.** La licenza permette già l'incorporazione
    in prodotti proprietari, il sublicenziamento e l'uso commerciale senza reciprocità. La ragione
-   classica del dual licensing — vendere un'esenzione dal copyleft — **non esiste** con una licenza
+   classica del dual licensing - vendere un'esenzione dal copyleft - **non esiste** con una licenza
    permissiva. Il dual licensing servirebbe solo per vendere garanzie, indennizzi e supporto: e per
    quelli **non serve cambiare licenza**, serve un contratto commerciale separato, espressamente
    consentito dal § 9 di Apache-2.0.
@@ -2522,7 +2522,7 @@ applica al **software libero e open source sviluppato o fornito al di fuori di u
 («free and open-source software that is developed or supplied outside the course of a commercial
 activity»). La ratio, esplicitata nei considerando, è di non ostacolare innovazione e ricerca.
 
-**I limiti dell'esenzione — è qui che il progetto deve stare attento:**
+**I limiti dell'esenzione - è qui che il progetto deve stare attento:**
 
 1. **Il criterio è l'attività commerciale, non la licenza.** Apache-2.0 non conferisce alcuna immunità.
 2. **Il considerando 14 chiarisce che l'esenzione cade** quando il software è fornito nell'ambito di
@@ -2537,7 +2537,7 @@ activity»). La ratio, esplicitata nei considerando, è di non ostacolare innova
    commerciale, **l'integratore che incorpora il software nel proprio prodotto commerciale è il
    fabbricante del prodotto finale** ai sensi dell'art. 8 ed è pienamente responsabile verso il
    danneggiato. Il progetto potrebbe poi essere chiamato in rivalsa dall'integratore su base
-   **contrattuale** — e su quel piano le clausole §§ 7–8 di Apache-2.0 conservano efficacia fra le parti
+   **contrattuale** - e su quel piano le clausole §§ 7–8 di Apache-2.0 conservano efficacia fra le parti
    della licenza, sebbene la loro tenuta dipenda dal diritto nazionale applicabile e dai limiti alla
    limitazione di responsabilità per colpa grave (in Italia, art. 1229 c.c.: nullo il patto che esclude
    o limita preventivamente la responsabilità per dolo o colpa grave).
@@ -2548,7 +2548,7 @@ deve essere costruito assumendo che **la direttiva si applicherà**.
 
 ### 6.4 Difettosità, onere della prova, esenzioni
 
-**Art. 7 — Difettosità.** Un prodotto è difettoso quando non offre la sicurezza che il pubblico può
+**Art. 7 - Difettosità.** Un prodotto è difettoso quando non offre la sicurezza che il pubblico può
 legittimamente attendersi o che è richiesta dal diritto dell'Unione o nazionale. Fra le circostanze da
 considerare la direttiva include elementi **nuovi e specificamente digitali**:
 
@@ -2566,16 +2566,16 @@ se il fabbricante mantiene il controllo (aggiornamenti, servizio cloud) e non fo
 di sicurezza necessari. Per un SaaS il controllo è permanente. **La mancata patch di una vulnerabilità
 nota è, in questo regime, difettosità.**
 
-**Art. 6 — Danni risarcibili:** morte e lesioni personali, **compresi danni psicologici clinicamente
+**Art. 6 - Danni risarcibili:** morte e lesioni personali, **compresi danni psicologici clinicamente
 riconosciuti**; distruzione o danneggiamento di beni; **distruzione o corruzione di dati** non usati a
 fini professionali (art. 6, par. 1, lett. c). Il risarcimento del danno immateriale resta regolato dal
 diritto nazionale.
 
-**Art. 9 — Divulgazione delle prove.** Il giudice può ordinare al convenuto di **divulgare le prove
+**Art. 9 - Divulgazione delle prove.** Il giudice può ordinare al convenuto di **divulgare le prove
 pertinenti** di cui dispone, quando l'attore ha presentato fatti e prove sufficienti a rendere
 **plausibile** la domanda. È un ribaltamento pratico dell'asimmetria informativa tipica del software.
 
-**Art. 10 — Onere della prova e presunzioni.** L'attore deve provare **difettosità, danno e nesso di
+**Art. 10 - Onere della prova e presunzioni.** L'attore deve provare **difettosità, danno e nesso di
 causalità**. Ma la direttiva introduce presunzioni:
 
 - la difettosità **si presume** se il convenuto **non ottempera all'ordine di divulgazione** dell'art. 9;
@@ -2596,7 +2596,7 @@ essenziali dell'Allegato I CRA, l'art. 32 GDPR. **Una non conformità regolatori
 presunzione di difettosità in sede civile.** È l'anello che collega la sezione 1, la sezione 3 e la
 sezione 4 di questo documento a una conseguenza patrimoniale concreta.
 
-**Art. 11 — Esenzioni da responsabilità.** L'operatore economico non è responsabile se dimostra, fra
+**Art. 11 - Esenzioni da responsabilità.** L'operatore economico non è responsabile se dimostra, fra
 l'altro: di non aver immesso il prodotto sul mercato né messo in servizio; che il difetto non esisteva
 al momento dell'immissione/messa in servizio o è sorto successivamente; che il difetto è dovuto alla
 conformità a **requisiti giuridici obbligatori**; che lo **stato delle conoscenze scientifiche e
@@ -2617,7 +2617,7 @@ erano corrette e complete.** Ecco perché il documento «Requisiti dell'ambiente
 (§ 2.5) e la documentazione di integrazione non sono adempimenti formali: **sono la prova su cui poggia
 l'unica esenzione realisticamente invocabile dal progetto.**
 
-**Art. 15 — Divieto di esclusione o limitazione.** «Member States shall ensure that the liability of an
+**Art. 15 - Divieto di esclusione o limitazione.** «Member States shall ensure that the liability of an
 economic operator pursuant to this Directive is not, in relation to the injured person, limited or
 excluded by a contractual provision or by national law.» (§ 5.1.1.)
 
@@ -2698,10 +2698,10 @@ momento del rilascio.
 
 ### Normativa dell'Unione europea
 
-- Regolamento (UE) 2017/745 (MDR) — artt. 2, 5, 7, 10, 15, 16, 19, 20, 27, 29, 31, 52, 61, 83–92;
+- Regolamento (UE) 2017/745 (MDR) - artt. 2, 5, 7, 10, 15, 16, 19, 20, 27, 29, 31, 52, 61, 83–92;
   Allegati I, II, III, IV, VIII, IX, XI, XIV.
   Allegato VIII in italiano: <https://www.medicaldevicenews.eu/files/allegato-viii-5c11254db1c6110ab3b543a8.pdf>
-- Regolamento (UE) 2016/679 (GDPR) — artt. 4, 5, 6, 7, 9, 15–21, 25, 26, 28, 30, 32–36.
+- Regolamento (UE) 2016/679 (GDPR) - artt. 4, 5, 6, 7, 9, 15–21, 25, 26, 28, 30, 32–36.
 - Regolamento (UE) 2025/327 (EHDS): <https://eur-lex.europa.eu/legal-content/IT/ALL/?uri=CELEX:32025R0327>
 - Regolamento (UE) 2024/2847 (Cyber Resilience Act): <https://www.cyberresilienceact.eu/regulation.html> ·
   <https://digital-strategy.ec.europa.eu/en/policies/cra-summary>

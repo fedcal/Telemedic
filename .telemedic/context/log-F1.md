@@ -1,6 +1,6 @@
-# log-F1 — Guida dei fondamenti, primo blocco (moduli 01-03 + 07)
+# log-F1 - Guida dei fondamenti, primo blocco (moduli 01-03 + 07)
 
-**Agente F1 / F1-bis — Telemedic — 25 agosto 2026**
+**Agente F1 / F1-bis - Telemedic - 25 agosto 2026**
 **Decisione di riferimento: D35 («non dare nulla per scontato»). Collocazione: `docs/10_fondamenti/`.**
 
 > **Nota di continuità.** I moduli 01, 02 e 03 sono stati redatti dall'agente F1, che si è
@@ -24,7 +24,7 @@
 > **Onestà sul conteggio.** I valori in parole sono **stime** ricavate dal numero di righe e
 > dalla densità media del testo: l'ambiente di redazione non disponeva di uno strumento di
 > conteggio. Il vincolo di mandato («almeno 6.500 parole» per il modulo 07) è superato con
-> ampio margine — il modulo 07 ha una lunghezza comparabile al modulo 02, che è il più esteso
+> ampio margine - il modulo 07 ha una lunghezza comparabile al modulo 02, che è il più esteso
 > del blocco. **Prima di pubblicare metriche, eseguire `wc -w` sui file.**
 
 ### 1.1 Struttura del modulo 07 (per chi deve rivederlo)
@@ -42,7 +42,7 @@
 | 9 | **Tabella a due colonne**: cosa fa il progetto / cosa resta a chi installa |
 | 10 | EHDS: Reg. (UE) 2025/327, uso primario e secondario, capo III, raccordo con MDR, conseguenze di progetto |
 | 11 | Riepilogo dei 14 punti `[NV]` con destinatario della richiesta |
-| — | «Cosa devi ricordare» (11 punti) + «Termini introdotti in questo modulo» (36 voci) |
+| - | «Cosa devi ricordare» (11 punti) + «Termini introdotti in questo modulo» (36 voci) |
 
 ### 1.2 Vincoli redazionali rispettati
 
@@ -84,12 +84,12 @@
 
 Elencati per completezza del blocco; la titolarità resta ai moduli che li hanno sollevati.
 
-- **Modulo 02, § 6.2** — Processo di Validazione AGENAS: coincide con NV-07-07, **stessa voce**.
-- **Modulo 02, § 7.1** — stato di attuazione del termine del 30 giugno 2026 per la messa a
+- **Modulo 02, § 6.2** - Processo di Validazione AGENAS: coincide con NV-07-07, **stessa voce**.
+- **Modulo 02, § 7.1** - stato di attuazione del termine del 30 giugno 2026 per la messa a
   regime dell'integrazione dei contenuti FSE (art. 7, c. 3, DM 19/11/2025).
-- **Modulo 02, § 7.3** — template CDA2 e metadati IHE: coincide con NV-07-01 e NV-07-02.
-- **Modulo 02, § 9.3** — estremi di pubblicazione in GU del nuovo decreto tariffe.
-- **Modulo 02, § 4.8** — assenza di una definizione normativa nazionale autonoma della
+- **Modulo 02, § 7.3** - template CDA2 e metadati IHE: coincide con NV-07-01 e NV-07-02.
+- **Modulo 02, § 9.3** - estremi di pubblicazione in GU del nuovo decreto tariffe.
+- **Modulo 02, § 4.8** - assenza di una definizione normativa nazionale autonoma della
   telecooperazione sanitaria.
 
 **Osservazione**: tre `[NV]` sono condivisi fra il modulo 02 e il modulo 07. Vanno tracciati
@@ -170,8 +170,8 @@ i punti di consumo, per evitare che vengano chiusi due volte o mai.
     **sempre** compagnie di assicurazione, periti e datori di lavoro dall'accesso al FSE. Il
     modulo 07, § 2.5, lo dichiara. La documentazione commerciale deve distinguere «prestazione
     erogata da professionisti convenzionati» da «consultazione del fascicolo», che è preclusa.
-17. **Il taccuino personale dell'assistito** introduce una distinzione di qualità del dato —
-    dato inserito dal cittadino ≠ dato certificato da un professionista — che va rappresentata
+17. **Il taccuino personale dell'assistito** introduce una distinzione di qualità del dato -
+    dato inserito dal cittadino ≠ dato certificato da un professionista - che va rappresentata
     nel modello dati e nel modulo 06. Segnalata al § 2.3 del modulo 07.
 
 ### 3.6 Ai futuri autori dei moduli 04, 05, 06, 09, 10, 12
@@ -189,41 +189,41 @@ i punti di consumo, per evitare che vengano chiusi due volte o mai.
 
 ---
 
-## 4. Termini per il glossario — **solo modulo 07**
+## 4. Termini per il glossario - **solo modulo 07**
 
 Da riversare nel modulo `14-glossario.md` in forma bilingue. I moduli 01, 02 e 03 hanno già la
 propria tabella dei termini in coda al file e non sono ripetuti qui.
 
 | Termine (IT) | Resa inglese suggerita | Definizione breve |
 |---|---|---|
-| ACN — Agenzia per la cybersicurezza nazionale | National Cybersecurity Agency | Autorità che dal 19 gennaio 2023 qualifica servizi e infrastrutture cloud per la PA ed emana le misure di sicurezza NIS2; ospita il CSIRT Italia |
+| ACN - Agenzia per la cybersicurezza nazionale | National Cybersecurity Agency | Autorità che dal 19 gennaio 2023 qualifica servizi e infrastrutture cloud per la PA ed emana le misure di sicurezza NIS2; ospita il CSIRT Italia |
 | Affinity Domain Italia | Italian Affinity Domain | Specifiche tecniche nazionali per l'interoperabilità fra i sistemi regionali di FSE; versione dichiarata pubblicata: 2.6.4 |
-| AgID — Agenzia per l'Italia digitale | Agency for Digital Italy | Autorità delle regole tecniche trasversali ex art. 71 CAD: ModI, PDND, accessibilità, riuso; gestisce federazione e Registro SPID |
+| AgID - Agenzia per l'Italia digitale | Agency for Digital Italy | Autorità delle regole tecniche trasversali ex art. 71 CAD: ModI, PDND, accessibilità, riuso; gestisce federazione e Registro SPID |
 | AGENAS | National Agency for Regional Healthcare Services | Anche Agenzia nazionale per la sanità digitale; gestisce INT ed EDS, fornisce le soluzioni di controllo e conversione, svolge il Processo di Validazione |
 | Anagrafe consensi e revoche | Consent and revocation registry | Componente dell'INI che registra i consensi alla consultazione del FSE e le loro revoche |
-| ANA — Anagrafe nazionale degli assistiti | National registry of assisted persons | Anagrafe ex art. 62-*ter* CAD da cui il FSE rileva i dati identificativi e amministrativi |
-| CAD — Codice dell'amministrazione digitale | Digital Administration Code | D.lgs. 82/2005; artt. 50-*ter* (PDND), 64 (identità digitale), 68-69 (riuso), 71 (regole tecniche) |
-| CDA2 — HL7 Clinical Document Architecture Rel. 2 | — | Standard documentale nazionale del FSE, veicolato dentro un PDF firmato digitalmente |
+| ANA - Anagrafe nazionale degli assistiti | National registry of assisted persons | Anagrafe ex art. 62-*ter* CAD da cui il FSE rileva i dati identificativi e amministrativi |
+| CAD - Codice dell'amministrazione digitale | Digital Administration Code | D.lgs. 82/2005; artt. 50-*ter* (PDND), 64 (identità digitale), 68-69 (riuso), 71 (regole tecniche) |
+| CDA2 - HL7 Clinical Document Architecture Rel. 2 | - | Standard documentale nazionale del FSE, veicolato dentro un PDF firmato digitalmente |
 | Categorie prioritarie (EHDS) | Priority categories | Insiemi di dati sanitari che devono circolare nell'EHDS: profilo sanitario sintetico, prescrizione elettronica, referti di laboratorio e di imaging, lettere di dimissione |
-| CIE — Carta d'identità elettronica | Electronic identity card | Canale di identità digitale ex art. 64 CAD; gestore l'Interno; disponibile in SAML2 **e** OIDC |
+| CIE - Carta d'identità elettronica | Electronic identity card | Canale di identità digitale ex art. 64 CAD; gestore l'Interno; disponibile in SAML2 **e** OIDC |
 | Dati a maggiore tutela dell'anonimato | Data subject to enhanced anonymity protection | Categoria dell'art. 6 DM 7 settembre 2023; visibili a terzi solo con consenso esplicito reso all'erogante |
 | E-service | E-service | Servizio applicativo basato su API pubblicato sul catalogo PDND da un ente erogatore |
-| EDS — Ecosistema dati sanitari | Health Data Ecosystem | Repository centrale (DM 31 dicembre 2024); titolare il Ministero della salute, gestione AGENAS; opera su pseudonimi, aggiornato ogni 24 ore |
-| EHDS — Spazio europeo dei dati sanitari | European Health Data Space | Reg. (UE) 2025/327; uso primario e secondario; il capo III disciplina i sistemi di cartelle cliniche elettroniche |
+| EDS - Ecosistema dati sanitari | Health Data Ecosystem | Repository centrale (DM 31 dicembre 2024); titolare il Ministero della salute, gestione AGENAS; opera su pseudonimi, aggiornato ogni 24 ore |
+| EHDS - Spazio europeo dei dati sanitari | European Health Data Space | Reg. (UE) 2025/327; uso primario e secondario; il capo III disciplina i sistemi di cartelle cliniche elettroniche |
 | Ente erogatore / ente fruitore | Provider / consumer entity | Nella PDND, chi pubblica un e-service e chi ne chiede la fruizione: **soggetti giuridici**, non software |
 | Finalità (PDND) | Purpose | Ragione dichiarata di accesso a un e-service; base dell'approvazione e della verificabilità a posteriori |
-| FSE — Fascicolo sanitario elettronico | Electronic Health Record (national) | Insieme dei dati e documenti digitali sanitari generati da eventi clinici riguardanti l'assistito, ex art. 12 D.L. 179/2012 |
-| FSE 2.0 | — | Riforma introdotta dall'art. 21 D.L. 4/2022: alimentazione per legge, finalità distinte, componenti nazionali, EDS, soluzioni AGENAS |
+| FSE - Fascicolo sanitario elettronico | Electronic Health Record (national) | Insieme dei dati e documenti digitali sanitari generati da eventi clinici riguardanti l'assistito, ex art. 12 D.L. 179/2012 |
+| FSE 2.0 | - | Riforma introdotta dall'art. 21 D.L. 4/2022: alimentazione per legge, finalità distinte, componenti nazionali, EDS, soluzioni AGENAS |
 | Indice nazionale FSE | National EHR index | Componente dell'INI che indicizza i metadati; trasferisce l'indice a quello della RdA quando questa viene associata |
-| INI — Infrastruttura nazionale per l'interoperabilità | National Interoperability Infrastructure | Componente nazionale del sistema FSE, realizzata dal MEF attraverso il Sistema Tessera Sanitaria |
-| ModI — Modello di Interoperabilità | Interoperability Model | Regole tecniche AgID (Det. 547/2021) sui pattern di interazione, sicurezza e tracciatura delle API della PA |
-| PDND — Piattaforma Digitale Nazionale Dati | National Digital Data Platform | Catalogo di e-service e autorità di autorizzazione ex art. 50-*ter* CAD; rilascia voucher, **non trasporta i dati** |
+| INI - Infrastruttura nazionale per l'interoperabilità | National Interoperability Infrastructure | Componente nazionale del sistema FSE, realizzata dal MEF attraverso il Sistema Tessera Sanitaria |
+| ModI - Modello di Interoperabilità | Interoperability Model | Regole tecniche AgID (Det. 547/2021) sui pattern di interazione, sicurezza e tracciatura delle API della PA |
+| PDND - Piattaforma Digitale Nazionale Dati | National Digital Data Platform | Catalogo di e-service e autorità di autorizzazione ex art. 50-*ter* CAD; rilascia voucher, **non trasporta i dati** |
 | Portale nazionale FSE | National EHR portal | Componente dell'INI che espone il fascicolo *online* ad assistito e operatori |
 | Profilo sanitario sintetico | Patient summary | Documento derivato, redatto e aggiornato dal medico di fiducia, che riassume la storia clinica rilevante |
-| PSN — Polo Strategico Nazionale | National Strategic Hub | Infrastruttura PNRR che ospita dati e servizi critici e strategici delle PA su *data center* nazionali |
-| QC1-QC4 / QI1-QI4 | — | Livelli di qualificazione ACN, rispettivamente dei servizi cloud e delle infrastrutture che li ospitano |
+| PSN - Polo Strategico Nazionale | National Strategic Hub | Infrastruttura PNRR che ospita dati e servizi critici e strategici delle PA su *data center* nazionali |
+| QC1-QC4 / QI1-QI4 | - | Livelli di qualificazione ACN, rispettivamente dei servizi cloud e delle infrastrutture che li ospitano |
 | RdA / RdE | Region of assistance / Region of delivery | Regione di iscrizione dell'assistito e Regione di erogazione della prestazione; vanno rappresentate entrambe |
-| SBOM — Distinta base del software | Software Bill of Materials | Inventario delle componenti software, librerie di terzi e open source comprese; **imposto** dall'All. 4 al DM 19 novembre 2025 |
+| SBOM - Distinta base del software | Software Bill of Materials | Inventario delle componenti software, librerie di terzi e open source comprese; **imposto** dall'All. 4 al DM 19 novembre 2025 |
 | Soluzioni tecnologiche AGENAS | AGENAS technological solutions | Componenti ex comma 15-*quater*: controllo formale e semantico, conversione nei formati standard, invio all'EDS; **senza persistenza** |
 | SPID | Public Digital Identity System | Federazione di gestori di identità accreditati da AgID; in produzione utilizzabile in **SAML2** |
 | Sistema Tessera Sanitaria | Health Insurance Card System | Infrastruttura del MEF ex art. 50 D.L. 269/2003 su cui è realizzata l'INI |

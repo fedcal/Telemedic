@@ -6,8 +6,8 @@ description: "Determinazioni ACN 379907/2025, 379887/2025, 127434/2026, 127437/2
 
 # Cybersecurity normativa applicabile a Telemedic
 
-**Ricerca di riferimento — agente B4, seconda ondata**
-**Data di redazione: 25 agosto 2026 — stato normativo accertato alla data**
+**Ricerca di riferimento - agente B4, seconda ondata**
+**Data di redazione: 25 agosto 2026 - stato normativo accertato alla data**
 
 > **Disclaimer.** Questo documento è un'**analisi tecnica di conformità** redatta per orientare scelte
 > di architettura e di prodotto. **Non è un parere legale** e non sostituisce la consulenza di un
@@ -34,7 +34,7 @@ primaria.
 | **Circolare AgID 18 aprile 2017, n. 2/2017**, testo in GU n. 103 del 5 maggio 2017 | ✅ letta (tabelle ABSC 1–13) |
 | **AgID, «Linee guida sulla sicurezza nel procurement ICT», versione finale aprile 2020** (32 pp.) | ✅ letta (azioni AG1–AG7, AP1–AP4, A1–A13, cap. 5, Appendice A tabelle 8–11) |
 
-**Non letto su fonte primaria — dichiarato esplicitamente:**
+**Non letto su fonte primaria - dichiarato esplicitamente:**
 
 1. **Allegati 1, 2, 3 e 4 alla Determinazione ACN n. 379907/2025** (le *specifiche di base* vere e
    proprie: 43 misure e 116 requisiti). Il contenuto è qui ricostruito dalla **Guida alla lettura**
@@ -63,18 +63,18 @@ come in `R3-normativa-italiana.md` § 0.
 
 ## 1. Il problema in una riga
 
-**Telemedic quasi certamente non è soggetto NIS2 in proprio.** Lo sono i suoi utilizzatori — ASL,
-aziende ospedaliere, cliniche accreditate di dimensioni medie, gestionali sanitari cloud — e questi
+**Telemedic quasi certamente non è soggetto NIS2 in proprio.** Lo sono i suoi utilizzatori - ASL,
+aziende ospedaliere, cliniche accreditate di dimensioni medie, gestionali sanitari cloud - e questi
 **riversano contrattualmente sul fornitore** una parte consistente dei propri obblighi, per effetto
 di tre meccanismi distinti e cumulativi:
 
-1. **art. 24, comma 2, lett. d) e comma 3 del d.lgs. 138/2024** — la sicurezza della catena di
+1. **art. 24, comma 2, lett. d) e comma 3 del d.lgs. 138/2024** - la sicurezza della catena di
    approvvigionamento è una misura obbligatoria del *cliente*, che deve valutare «le specifiche
    vulnerabilità di ciascun fornitore diretto» e «la qualità complessiva dei prodotti e le pratiche
    di cybersicurezza dei fornitori, comprese le procedure di sviluppo sicuro»;
-2. **misure GV.SC-01, GV.SC-02, GV.SC-04, GV.SC-05, GV.SC-07 delle specifiche di base ACN** — che
+2. **misure GV.SC-01, GV.SC-02, GV.SC-04, GV.SC-05, GV.SC-07 delle specifiche di base ACN** - che
    traducono quell'obbligo in requisiti documentali e contrattuali verificabili;
-3. **art. 18 della Determinazione ACN n. 127437/2026** — che obbliga il soggetto NIS a **dichiarare
+3. **art. 18 della Determinazione ACN n. 127437/2026** - che obbliga il soggetto NIS a **dichiarare
    nominativamente ad ACN i propri «fornitori rilevanti»**, con ragione sociale, codice fiscale,
    **Paese della sede legale**, codici CPV e criterio di rilevanza applicato.
 
@@ -114,7 +114,7 @@ modifica del regolamento (UE) n. 910/2014 e della direttiva (UE) 2018/1972 e che
 ### 3.1 Ambito soggettivo: la sanità
 
 L'**Allegato I** («settori ad alta criticità») include il **settore sanitario**, insieme a
-**infrastrutture digitali** (punto 8) e **gestione dei servizi TIC — *business-to-business***
+**infrastrutture digitali** (punto 8) e **gestione dei servizi TIC - *business-to-business***
 (punto 9). Nel settore sanitario rientrano, fra gli altri, i **prestatori di assistenza sanitaria**
 ai sensi della direttiva 2011/24/UE, i laboratori di riferimento UE, i soggetti che svolgono
 attività di ricerca e sviluppo di medicinali, i fabbricanti di dispositivi medici considerati
@@ -122,10 +122,10 @@ critici durante un'emergenza sanitaria pubblica.
 
 **Tre implicazioni pratiche per Telemedic:**
 
-1. **L'ASL o l'azienda ospedaliera cliente è soggetto NIS** — quasi sempre **essenziale**, sia come
+1. **L'ASL o l'azienda ospedaliera cliente è soggetto NIS** - quasi sempre **essenziale**, sia come
    prestatore di assistenza sanitaria di grandi dimensioni sia, cumulativamente, come pubblica
    amministrazione. Le strutture private accreditate rientrano se superano le soglie dimensionali.
-2. **L'integratore — il gestionale sanitario cloud — è a sua volta candidato soggetto NIS**, non come
+2. **L'integratore - il gestionale sanitario cloud - è a sua volta candidato soggetto NIS**, non come
    sanità ma come **fornitore di servizi di cloud computing** (Allegato I, punto 8, «infrastrutture
    digitali») o come **fornitore di servizi TIC gestiti B2B** (punto 9), se raggiunge la soglia della
    media impresa (≥ 50 addetti *oppure* fatturato e bilancio annuo > 10 M€). Un gestionale con
@@ -143,8 +143,8 @@ soggetto** e dal **dimensionamento**. Le conseguenze pratiche rilevanti:
 
 | | Soggetti **importanti** | Soggetti **essenziali** |
 |---|---|---|
-| Misure di sicurezza di base | **Allegato 1** Det. 379907/2025 — **37 misure, 87 requisiti** | **Allegato 2** Det. 379907/2025 — **43 misure, 116 requisiti** |
-| Incidenti significativi di base | **Allegato 3** — 3 tipologie (IS-1, IS-2, IS-3) | **Allegato 4** — 4 tipologie (IS-1, IS-2, IS-3, **IS-4**) |
+| Misure di sicurezza di base | **Allegato 1** Det. 379907/2025 - **37 misure, 87 requisiti** | **Allegato 2** Det. 379907/2025 - **43 misure, 116 requisiti** |
+| Incidenti significativi di base | **Allegato 3** - 3 tipologie (IS-1, IS-2, IS-3) | **Allegato 4** - 4 tipologie (IS-1, IS-2, IS-3, **IS-4**) |
 | Vigilanza | *ex post* | *ex ante* ed *ex post* |
 | Sanzioni | fino a **7 M€ o 1,4%** del fatturato mondiale annuo | fino a **10 M€ o 2%** del fatturato mondiale annuo |
 
@@ -155,14 +155,14 @@ importanti e **43** misure di sicurezza con **116** requisiti per i soggetti ess
 
 ### 3.3 Gli obblighi sostanziali: artt. 23, 24, 25
 
-- **Art. 23** — obblighi in capo agli **organi di amministrazione e direttivi**: approvazione delle
+- **Art. 23** - obblighi in capo agli **organi di amministrazione e direttivi**: approvazione delle
   misure, vigilanza sull'attuazione, formazione obbligatoria, responsabilità per le violazioni.
-- **Art. 24** — **misure di gestione dei rischi**. Il comma 2 elenca **dieci elementi** che le misure
+- **Art. 24** - **misure di gestione dei rischi**. Il comma 2 elenca **dieci elementi** che le misure
   devono coprire (riportati testualmente al § 4.3 di questo documento). Il comma 3 impone di tenere
   conto, nella valutazione dell'adeguatezza, delle **specifiche vulnerabilità di ciascun fornitore
   diretto** e della **qualità complessiva dei prodotti e delle pratiche di cybersicurezza dei
   fornitori, comprese le procedure di sviluppo sicuro**.
-- **Art. 25** — **notifica di incidente significativo** al **CSIRT Italia**: pre-notifica entro
+- **Art. 25** - **notifica di incidente significativo** al **CSIRT Italia**: pre-notifica entro
   **24 ore**, notifica entro **72 ore**, relazione finale entro **un mese**.
 
 ### 3.4 La catena di fornitura: che cosa ricade su Telemedic
@@ -175,7 +175,7 @@ Le specifiche di base ACN declinano questo elemento in **cinque misure**: `GV.SC
 `GV.SC-04`, `GV.SC-05`, `GV.SC-07`. Tre di esse (`GV.SC-01` punto 1, `GV.SC-04` punto 1, `GV.SC-05`
 punto 1) sono le uniche a portare la clausola risk-based «**forniture con potenziali impatti sulla
 sicurezza dei sistemi informativi e di rete**», il che significa che il soggetto NIS può limitarne
-l'ambito alle forniture la cui compromissione può determinare effetti sulla sicurezza — categoria
+l'ambito alle forniture la cui compromissione può determinare effetti sulla sicurezza - categoria
 in cui una piattaforma di televisita ricade con certezza.
 
 Secondo le **FAQ ufficiali ACN**, il processo di sicurezza della catena di approvvigionamento si
@@ -201,9 +201,9 @@ tornata di rinnovi.
 |---|---|---|---|
 | **n. 164179 del 14 aprile 2025** | Prima versione delle *specifiche di base* per gli obblighi di cui agli artt. 23, 24, 25, 29 e 32 | 14 aprile 2025 | **Sostituita** dalla 379907/2025 |
 | **n. 379907 del 19 dicembre 2025** | Firmata digitalmente il 18 dicembre 2025, protocollo 19 dicembre 2025, pubblicata il 24 dicembre 2025. Titolo: determinazione ex art. 31, commi 1 e 2, d.lgs. 138/2024, adottata ex art. 40, comma 5, lett. l), che ai sensi dell'art. 42, comma 1, lett. c), **in fase di prima applicazione stabilisce le modalità e le specifiche di base per l'adempimento agli obblighi di cui agli articoli 23, 24, 25, 29 e 32** | **15 gennaio 2026** (art. 9, c. 3) | Art. 9, c. 1: «**aggiorna e sostituisce la determinazione ACN n. 164179 del 14 aprile 2025**» |
-| **n. 379887/2025** «Portale ACN e Servizi NIS» | **[NON VERIFICATO sul testo]** — estremi da fonte secondaria; sostituisce la Det. ACN n. 333017/2025 | **31 dicembre 2025** | Modificata dalla 127437/2026 |
+| **n. 379887/2025** «Portale ACN e Servizi NIS» | **[NON VERIFICATO sul testo]** - estremi da fonte secondaria; sostituisce la Det. ACN n. 333017/2025 | **31 dicembre 2025** | Modificata dalla 127437/2026 |
 | **n. 127434 del 13 aprile 2026** | Firmata digitalmente il 13 aprile 2026, ore 12:12. Stabilisce i **termini** per l'adempimento agli obblighi di cui agli artt. 23, 24, 25, 29 e 32 **per i soggetti inseriti per la prima volta nell'elenco nell'anno solare 2026** | **30 aprile 2026** (art. 5, c. 2) | Integra la 379907/2025, che resta la fonte sostanziale (art. 5, c. 1) |
-| **n. 127437 del 13 aprile 2026** | **[NON VERIFICATO sul testo]** — aggiorna la disciplina del Portale ACN e Servizi NIS; introduce l'**art. 18, «elencazione dei fornitori rilevanti»** | aprile 2026 | Modifica la 379887/2025 |
+| **n. 127437 del 13 aprile 2026** | **[NON VERIFICATO sul testo]** - aggiorna la disciplina del Portale ACN e Servizi NIS; introduce l'**art. 18, «elencazione dei fornitori rilevanti»** | aprile 2026 | Modifica la 379887/2025 |
 
 **Esito della verifica richiesta dal mandato:**
 
@@ -242,7 +242,7 @@ composta da:
 
 Esempio testuale riportato dalla Guida alla lettura ACN (misura `PR.DS-11`, «I backup dei dati sono
 creati, protetti, mantenuti e verificati»): 2 requisiti per i soggetti importanti, **5 requisiti per
-i soggetti essenziali**, di cui 3 riservati ai soli essenziali — fra questi «è assicurata la
+i soggetti essenziali**, di cui 3 riservati ai soli essenziali - fra questi «è assicurata la
 riservatezza e l'integrità delle informazioni contenute nei backup mediante adeguata protezione
 fisica dei supporti ovvero mediante cifratura» e «è verificata periodicamente l'utilizzabilità dei
 backup effettuati mediante test di ripristino».
@@ -250,9 +250,9 @@ backup effettuati mediante test di ripristino».
 **Aritmetica interna verificata** (Guida alla lettura, § 2.1 e nota 20):
 
 - **27 misure** hanno requisiti identici per entrambe le tipologie di soggetto;
-- **10 misure** hanno requisiti aggiuntivi per i soli essenziali — `GV.RR-04`, `GV.PO-02`,
+- **10 misure** hanno requisiti aggiuntivi per i soli essenziali - `GV.RR-04`, `GV.PO-02`,
   `GV.SC-01`, `ID.RA-01`, `ID.RA-05`, `ID.RA-08`, `ID.IM-01`, `PR.DS-11`, `PR.PS-02`, `DE.CM-01`;
-- **6 misure** sono previste **per i soli soggetti essenziali** — `ID.AM-03`, `PR.AT-02`, `PR.PS-01`,
+- **6 misure** sono previste **per i soli soggetti essenziali** - `ID.AM-03`, `PR.AT-02`, `PR.PS-01`,
   `PR.PS-03`, `PR.IR-03`, `RC.CO-03`.
 
 27 + 10 + 6 = **43** misure per gli essenziali; 43 − 6 = **37** per gli importanti. Dei 29 requisiti
@@ -278,8 +278,8 @@ elementi misure»). Le lettere degli elementi seguono la numerazione italiana (a
 | **l)** Uso di soluzioni di autenticazione a più fattori o di autenticazione continua, di comunicazioni vocali, video e testuali protette, e di sistemi di comunicazione di emergenza protetti da parte del soggetto al proprio interno, ove opportuno | `PR.AA-03`, `PR.DS-02`, `PR.IR-03` |
 
 > **La lettera l) merita attenzione particolare.** È l'unica che nomina espressamente le
-> «**comunicazioni vocali, video e testuali protette**». Telemedic — piattaforma di consulto video
-> con DTLS-SRTP e chat — è, per un soggetto NIS sanitario, **il mezzo con cui quella misura viene
+> «**comunicazioni vocali, video e testuali protette**». Telemedic - piattaforma di consulto video
+> con DTLS-SRTP e chat - è, per un soggetto NIS sanitario, **il mezzo con cui quella misura viene
 > attuata**. La misura `PR.IR-03`, riservata ai soli soggetti essenziali, è quella su cui la
 > proposta di valore del progetto è più direttamente agganciabile a un obbligo di legge.
 
@@ -307,8 +307,8 @@ una metodologia specifica.**
 
 > **Assunzione di lavoro per Telemedic**: una piattaforma che eroga televisita e teleconsulto per un
 > soggetto sanitario essenziale **sarà classificata come sistema rilevante**. La documentazione di
-> prodotto deve quindi presumere l'applicazione del profilo più severo — MFA, cifratura dei backup,
-> test di ripristino, monitoraggio di rete, protezione degli *endpoint* — e non del profilo minimo.
+> prodotto deve quindi presumere l'applicazione del profilo più severo - MFA, cifratura dei backup,
+> test di ripristino, monitoraggio di rete, protezione degli *endpoint* - e non del profilo minimo.
 
 ### 4.5 Il conflitto MDR/NIS2 riconosciuto da ACN
 
@@ -322,15 +322,15 @@ rilevamento del codice malevolo), ACN scrive:
 > invalidare la certificazione**.»
 
 **Questo è il punto di raccordo esplicito fra i due regimi.** Un soggetto NIS che utilizza Telemedic
-come dispositivo medico marcato CE (decisione D6) può derogare a `DE.CM-09` — ma deve
+come dispositivo medico marcato CE (decisione D6) può derogare a `DE.CM-09` - ma deve
 **motivare e documentare** la ragione normativa e adottare **misure compensative** iscritte nel
 piano di trattamento del rischio.
 
 **Requisito di prodotto che ne discende**: Telemedic deve fornire al deployer una **dichiarazione
 tecnica** che (a) individui i componenti la cui alterazione invaliderebbe la marcatura CE,
-(b) elenchi le misure compensative disponibili nativamente — *hardening* del container, *read-only
+(b) elenchi le misure compensative disponibili nativamente - *hardening* del container, *read-only
 filesystem*, verifica dell'integrità delle immagini, monitoraggio esterno del comportamento del
-processo, segmentazione di rete — e (c) definisca la configurazione supportata di
+processo, segmentazione di rete - e (c) definisca la configurazione supportata di
 anti-malware/EDR sull'host. Senza questo documento il cliente non può chiudere la deroga.
 
 ### 4.6 Evidenze documentali: il modello di «dimostrabilità»
@@ -369,7 +369,7 @@ distribuire i contenuti fra più documenti.
 | Piano di formazione | `PR.AT-01` punto 2 |
 | Piano per la gestione degli incidenti di sicurezza informatica | `RS.MA-01` punto 2 |
 
-**Traduzione per Telemedic**: il fornitore non approva nulla di tutto questo — è il consiglio di
+**Traduzione per Telemedic**: il fornitore non approva nulla di tutto questo - è il consiglio di
 amministrazione del cliente a farlo. Ma **due di quegli undici documenti non sono redigibili senza
 il fornitore**: l'inventario dei servizi erogati dai fornitori e il piano di gestione delle
 vulnerabilità (che deve tenere conto delle vulnerabilità delle dipendenze del prodotto). Il
@@ -383,7 +383,7 @@ delle responsabilità di sicurezza, procedura di *disclosure*.
 
 ### 5.1 Registrazione e finestre annuali (Det. 379887/2025)
 
-**[NON VERIFICATO sul testo — ricostruito da fonti secondarie qualificate e comunicazione ACN]**
+**[NON VERIFICATO sul testo - ricostruito da fonti secondarie qualificate e comunicazione ACN]**
 
 - La Determinazione **n. 379887/2025** aggiorna e sostituisce la Determinazione **n. 333017/2025** ed
   è **applicabile dal 31 dicembre 2025**.
@@ -403,7 +403,7 @@ scadenza rilevante per i soggetti della prima ondata è il **31 ottobre 2026**.
 
 ### 5.2 L'art. 18 della Det. 127437/2026: l'elenco dei fornitori rilevanti
 
-**[NON VERIFICATO sul testo — ricostruito da fonti secondarie qualificate concordanti e dalla
+**[NON VERIFICATO sul testo - ricostruito da fonti secondarie qualificate concordanti e dalla
 comunicazione istituzionale ACN del 13 aprile 2026]**
 
 **Questa è la disposizione che tocca Telemedic più da vicino di qualsiasi altra.**
@@ -416,11 +416,11 @@ attraverso la piattaforma, l'elenco nominativo dei propri fornitori rilevanti**,
 **Definizione.** Un fornitore è «rilevante» se fornisce servizi o prodotti a un soggetto NIS e
 soddisfa **almeno uno** dei due criteri:
 
-- **Criterio A — fornitura TIC**: la fornitura è riconducibile alle attività o ai servizi di cui
+- **Criterio A - fornitura TIC**: la fornitura è riconducibile alle attività o ai servizi di cui
   all'**Allegato I, punti 8 e 9**, del decreto NIS (infrastrutture digitali; gestione dei servizi TIC
   *business-to-business*). Esempi indicati: servizi cloud, *data center*, servizi DNS, CDN, servizi
   di sicurezza gestiti (MSSP), prestatori di servizi fiduciari.
-- **Criterio B — fornitura non fungibile**: l'interruzione o la compromissione della fornitura ha un
+- **Criterio B - fornitura non fungibile**: l'interruzione o la compromissione della fornitura ha un
   impatto significativo sulla capacità del soggetto NIS di erogare le attività o i servizi per cui
   rientra nell'ambito del decreto, in assenza di alternative prontamente disponibili. Esempi
   indicati: connettività dati/voce non ridondata, fornitura di energia elettrica.
@@ -460,7 +460,7 @@ L'inadempimento espone il soggetto NIS alle sanzioni amministrative dell'**art. 
    conformità, i codici CPV pertinenti alla fornitura, per evitare che ogni cliente li ricostruisca
    in modo diverso. Riferimento: Regolamento (CE) n. 2195/2002 e successive modifiche; le famiglie
    pertinenti sono quelle 48xxxxxx (pacchetti software e sistemi di informazione), 72xxxxxx (servizi
-   informatici) e 85xxxxxx (servizi sanitari) — **la selezione puntuale va concordata con un
+   informatici) e 85xxxxxx (servizi sanitari) - **la selezione puntuale va concordata con un
    consulente di appalti e verificata sul vocabolario vigente**.
 4. **La catena di fornitura di Telemedic diventa visibile.** Se Telemedic si appoggia a un provider
    TURN gestito, a un servizio di *push notification*, a un fornitore di firma digitale remota o a
@@ -474,13 +474,13 @@ L'inadempimento espone il soggetto NIS alle sanzioni amministrative dell'**art. 
 
 ### 6.1 I due regimi e le loro tempistiche
 
-| | **NIS2 — art. 25 d.lgs. 138/2024** | **Legge 28 giugno 2024, n. 90 — art. 1** |
+| | **NIS2 - art. 25 d.lgs. 138/2024** | **Legge 28 giugno 2024, n. 90 - art. 1** |
 |---|---|---|
 | Destinatario dell'obbligo | Soggetti NIS essenziali e importanti | PA centrali, Regioni, PA, Città metropolitane, Comuni > 100.000 ab. o capoluogo, **aziende sanitarie locali**, società di trasporto pubblico |
 | Destinatario della notifica | **CSIRT Italia** presso ACN | **ACN** |
 | Primo adempimento | **Pre-notifica entro 24 ore** dalla conoscenza dell'incidente significativo | **Segnalazione** «senza ritardo e comunque entro il termine massimo di **ventiquattro ore**» dalla conoscenza |
 | Secondo adempimento | **Notifica entro 72 ore** | **Notifica completa entro 72 ore** |
-| Terzo adempimento | **Relazione finale entro un mese** | — |
+| Terzo adempimento | **Relazione finale entro un mese** | - |
 | Tassonomia | **IS-1…IS-4** (allegati 3 e 4 Det. 379907/2025) | Tassonomia degli incidenti definita da ACN ai sensi della normativa PSNC/L. 90 |
 | Sanzione | artt. 37-38 d.lgs. 138/2024 | Reiterazione entro cinque anni: sanzione amministrativa **25.000–125.000 €** e responsabilità disciplinare |
 
@@ -507,7 +507,7 @@ Modello a tre elementi: **condizione** (circostanza che determina l'obbligo), **
 | **IS-1** | Il soggetto ha evidenza | Perdita di riservatezza, verso l'esterno | Dati digitali | ● | ● |
 | **IS-2** | Il soggetto ha evidenza | Perdita di integrità, con impatto verso l'esterno | Dati digitali | ● | ● |
 | **IS-3** | Il soggetto ha evidenza | Violazione dei livelli di servizio attesi | Servizi e/o attività | ● | ● |
-| **IS-4** | Il soggetto ha evidenza | Accesso non autorizzato o con abuso dei privilegi concessi | Dati digitali | — | ● |
+| **IS-4** | Il soggetto ha evidenza | Accesso non autorizzato o con abuso dei privilegi concessi | Dati digitali | - | ● |
 
 **Quattro punti tecnici decisivi che discendono dal modello:**
 
@@ -534,8 +534,8 @@ Modello a tre elementi: **condizione** (circostanza che determina l'obbligo), **
    > sono necessarie ma non sufficienti: serve un indicatore di **disponibilità del servizio**,
    > distinto dalla qualità della singola sessione.
 4. **IS-4 richiede «parametri quali-quantitativi» definiti ai sensi di `DE.CM-01`.** ACN ne dà due
-   esempi: indicatore quantitativo — «il superamento di una soglia per le interrogazioni di una banca
-   dati da parte di un singolo utente»; indicatore qualitativo — «l'accesso di un amministratore di
+   esempi: indicatore quantitativo - «il superamento di una soglia per le interrogazioni di una banca
+   dati da parte di un singolo utente»; indicatore qualitativo - «l'accesso di un amministratore di
    sistema al di fuori dell'orario di servizio».
    > **Conseguenza per Telemedic**: l'audit log Envers (vincolo V5) deve essere **interrogabile per
    > soglie e pattern**, non solo consultabile. Servono contatori per attore e per unità di tempo
@@ -546,7 +546,7 @@ Modello a tre elementi: **condizione** (circostanza che determina l'obbligo), **
 l'autorizzazione tecnica (disponibilità di credenziali che sono configurate per accedere ai dati)
 per accedere a determinati dati ma utilizza tale accesso in modo illecito», in violazione delle
 politiche o per scopi estranei alle necessità funzionali. **È esattamente lo scenario dell'accesso
-indebito alla cartella clinica da parte di personale autorizzato** — il caso più frequente nei
+indebito alla cartella clinica da parte di personale autorizzato** - il caso più frequente nei
 provvedimenti del Garante in ambito sanitario. Il prodotto deve renderlo rilevabile.
 
 ### 6.3 Le capacità tecniche che il prodotto deve fornire
@@ -584,7 +584,7 @@ approvato dagli organi direttivi), `RS.CO-02` (comunicazione), `RC.RP-01` (ripri
 
 ---
 
-## 7. Cyber Resilience Act — Regolamento (UE) 2024/2847
+## 7. Cyber Resilience Act - Regolamento (UE) 2024/2847
 
 **Estremi**: Regolamento (UE) 2024/2847 del Parlamento europeo e del Consiglio del 23 ottobre 2024
 relativo a requisiti orizzontali di cibersicurezza per i prodotti con elementi digitali e che
@@ -598,9 +598,9 @@ sulla ciberresilienza»). Pubblicato in **GU UE L, 2024/2847, del 20 novembre 20
 | Data | Che cosa si applica | Stato al 25 agosto 2026 |
 |---|---|---|
 | **10 dicembre 2024** | Entrata in vigore | vigente |
-| **11 giugno 2026** | **Capo IV (artt. 35–51)** — notifica degli organismi di valutazione della conformità | **già applicabile** |
-| **11 settembre 2026** | **Art. 14** — obblighi di **segnalazione delle vulnerabilità attivamente sfruttate e degli incidenti gravi** | **fra 17 giorni** |
-| **11 dicembre 2027** | **Il resto del regolamento** — requisiti essenziali, valutazione della conformità, marcatura CE, obblighi degli operatori economici | futuro |
+| **11 giugno 2026** | **Capo IV (artt. 35–51)** - notifica degli organismi di valutazione della conformità | **già applicabile** |
+| **11 settembre 2026** | **Art. 14** - obblighi di **segnalazione delle vulnerabilità attivamente sfruttate e degli incidenti gravi** | **fra 17 giorni** |
+| **11 dicembre 2027** | **Il resto del regolamento** - requisiti essenziali, valutazione della conformità, marcatura CE, obblighi degli operatori economici | futuro |
 
 > ⚠️ **L'11 settembre 2026 cade prima del rilascio della v1.0 di Telemedic (30 novembre 2026).**
 > L'obbligo di segnalazione dell'art. 14 riguarda i **fabbricanti** e, nei limiti dell'art. 24,
@@ -609,7 +609,7 @@ sulla ciberresilienza»). Pubblicato in **GU UE L, 2024/2847, del 20 novembre 20
 > sul mercato prima dell'11 dicembre 2027: il testo dell'art. 71 è però univoco nel fissare la
 > decorrenza al **11 settembre 2026**.
 
-### 7.2 L'esclusione dei dispositivi medici (art. 2, par. 2) — il punto decisivo
+### 7.2 L'esclusione dei dispositivi medici (art. 2, par. 2) - il punto decisivo
 
 L'**art. 2, par. 2** stabilisce che il regolamento **non si applica** ai prodotti con elementi
 digitali cui si applicano i seguenti atti:
@@ -627,7 +627,7 @@ marittimo).
 | Caso | CRA si applica? | Perché |
 |---|---|---|
 | **Telemedic come dispositivo medico Classe I marcato CE** (decisione D6), immesso sul mercato come tale | **No** | Art. 2, par. 2: si applica l'MDR. I requisiti di cibersicurezza arrivano dall'**Allegato I, §§ 17.2 e 17.4 MDR** |
-| **Componenti distribuiti separatamente e non coperti dalla marcatura CE** — SDK Java, SDK TypeScript, Web Component white-label, chart Helm, immagini container | **Potenzialmente sì** dall'11 dicembre 2027, **se** immessi sul mercato nel corso di un'attività commerciale | L'esclusione è **per prodotto**, non per progetto. Un SDK che non è il dispositivo medico non è coperto dall'esclusione |
+| **Componenti distribuiti separatamente e non coperti dalla marcatura CE** - SDK Java, SDK TypeScript, Web Component white-label, chart Helm, immagini container | **Potenzialmente sì** dall'11 dicembre 2027, **se** immessi sul mercato nel corso di un'attività commerciale | L'esclusione è **per prodotto**, non per progetto. Un SDK che non è il dispositivo medico non è coperto dall'esclusione |
 | **Il prodotto commerciale dell'integratore che incorpora Telemedic** | **Sì**, salvo che sia esso stesso un dispositivo medico | L'integratore è **fabbricante** ai sensi del CRA per ciò che immette sul mercato |
 
 > **Questa asimmetria va documentata esplicitamente.** Il confine MDR/CRA passa dentro il perimetro
@@ -704,7 +704,7 @@ Apache-2.0, nessun corrispettivo):
 > commerciale è fabbricante *ex lege*, indipendentemente da quanto scritto nella licenza. La
 > documentazione deve dirlo con chiarezza, perché è la domanda che ogni integratore porrà.
 
-**Strategia raccomandata — «essere un buon componente».** Anche in assenza di obbligo, il progetto
+**Strategia raccomandata - «essere un buon componente».** Anche in assenza di obbligo, il progetto
 dovrebbe adottare volontariamente il *set* minimo che l'integratore-fabbricante gli chiederà comunque
 per adempiere alla propria *due diligence*, e che coincide in larga parte con quanto già richiesto da
 NIS2, dagli ABSC e dall'MDR:
@@ -712,7 +712,7 @@ NIS2, dagli ABSC e dall'MDR:
 1. **SBOM** in formato **CycloneDX** (già previsto dalla decisione D10), pubblicata per ogni rilascio
    e firmata;
 2. **VEX** (*Vulnerability Exploitability eXchange*) per dichiarare quali CVE delle dipendenze sono
-   effettivamente sfruttabili nel contesto del prodotto — è ciò che evita all'integratore di dover
+   effettivamente sfruttabili nel contesto del prodotto - è ciò che evita all'integratore di dover
    rimediare vulnerabilità irrilevanti;
 3. **`SECURITY.md`** con **politica di divulgazione coordinata** delle vulnerabilità, canale di
    contatto, tempi di riscontro e di rimedio dichiarati;
@@ -770,7 +770,7 @@ generale n. 103 del 5 maggio 2017**. Termine di adeguamento originario: **31 dic
 
 ### 8.1 Struttura
 
-Gli **ABSC — *AgID Basic Security Control(s)*** derivano dai **CIS Critical Security Controls**
+Gli **ABSC - *AgID Basic Security Control(s)*** derivano dai **CIS Critical Security Controls**
 versione 6.0 (ottobre 2015), confrontata con la 5.1. Ogni ABSC è identificato da un codice
 gerarchico a tre livelli `x.y.z`, dove `x` è la famiglia (che corrisponde al CSC), `y` il controllo
 di secondo livello, `z` il controllo di terzo livello. Ogni riga della tabella riporta la
@@ -802,7 +802,7 @@ cliente non può chiudere i controlli. Sono quindi requisiti di prodotto, non di
 
 ## 9. Linee guida AgID sulla sicurezza nel procurement ICT
 
-**Estremi**: AgID, «Linee guida — Sicurezza nel *Procurement* ICT», versione finale **aprile 2020**
+**Estremi**: AgID, «Linee guida - Sicurezza nel *Procurement* ICT», versione finale **aprile 2020**
 (prima versione luglio 2019). Prodotto finale di un tavolo di lavoro promosso dal **Nucleo per la
 Sicurezza Cibernetica (NSC)** del DIS presso la Presidenza del Consiglio, operativo da novembre 2018
 a febbraio 2019, con DIS, Protezione Civile, MAECI, Interno, Giustizia, Difesa, MEF, MISE, AgID e
@@ -825,7 +825,7 @@ personali") sono da ritenersi obbligatori**» **[TECNICO-VINCOLANTE]**.
 | 3 | Indicazioni per AgID |
 | 4 | Indicazioni per le centrali di committenza |
 | **5** | **Protezione dei dati personali** (p. 30) |
-| **Appendice A** | **Requisiti di sicurezza eleggibili** (p. 31) — tabelle 8, 9, 10, 11 |
+| **Appendice A** | **Requisiti di sicurezza eleggibili** (p. 31) - tabelle 8, 9, 10, 11 |
 
 ### 9.2 AP1: il presupposto (la Tabella 3 «Calcolo criticità dell'acquisizione»)
 
@@ -846,7 +846,7 @@ settembre 2022 riprende come «Tabella 4» per il calcolo della criticità del s
 > sanitari), e il DM lo qualifica *ex ante* come «fornitura critica per la PA». **Il LCC sarà quindi
 > sistematicamente alto**, e ne discendono le conseguenze di AP2.
 
-### 9.3 AP2 — «Scegliere lo strumento di acquisizione più adeguato, tenendo conto della sicurezza»
+### 9.3 AP2 - «Scegliere lo strumento di acquisizione più adeguato, tenendo conto della sicurezza»
 
 L'amministrazione sceglie lo strumento di acquisizione (MEPA, accordo quadro, gara autonoma) sulla
 base del LCC. Il testo è esplicito sulla conseguenza per le acquisizioni di **alta criticità**:
@@ -861,7 +861,7 @@ tende a **gara dedicata con capitolato specifico**, non ad adesione a strumenti 
 significa che il capitolato conterrà requisiti scritti *ad hoc*, e che il fornitore che sa quali
 sono li anticipa.
 
-### 9.4 AP3 — «Scegliere i requisiti di sicurezza da inserire nel capitolato»
+### 9.4 AP3 - «Scegliere i requisiti di sicurezza da inserire nel capitolato»
 
 L'amministrazione inserisce nel capitolato i requisiti di sicurezza, **distinguendo i mandatori dagli
 opzionali** (questi ultimi «determinano eventualmente un premio nel punteggio tecnico»), e deve
@@ -883,14 +883,14 @@ capitolati pubblici e favorire un lessico comune tra committenti e fornitori».
 > **Questa è l'informazione operativamente più preziosa dell'intero capitolo.** L'Appendice A è, di
 > fatto, **il capitolato di sicurezza che Telemedic si troverà davanti**. Il § 9.6 la analizza.
 
-### 9.5 AP4 — «Garantire competenze di sicurezza nella commissione di valutazione»
+### 9.5 AP4 - «Garantire competenze di sicurezza nella commissione di valutazione»
 
 Almeno un commissario deve avere competenze in materia di sicurezza, «soprattutto» per le
 acquisizioni classificate critiche. Il documento aggiunge un'osservazione che ha un effetto diretto
 sulla forma dei requisiti: «la necessità che la commissione abbia competenze specifiche sulla
 sicurezza, comunque, può essere mitigata **scrivendo i requisiti di sicurezza in maniera chiara,
 oggettiva e quanto più possibile "chiusa"**, vale a dire lasciando meno spazio possibile all'offerta
-tecnica del fornitore e — di conseguenza — alla valutazione soggettiva della commissione».
+tecnica del fornitore e - di conseguenza - alla valutazione soggettiva della commissione».
 
 > **Conseguenza per Telemedic**: le risposte del fornitore saranno valutate contro requisiti
 > **chiusi** (sì/no, con evidenza), non contro narrazioni. La documentazione di conformità deve
@@ -898,12 +898,12 @@ tecnica del fornitore e — di conseguenza — alla valutazione soggettiva della
 > prosa descrittiva. È lo stesso formato richiesto dalla tracciabilità requisiti↔test di IEC 62304
 > (decisione D10): un unico artefatto può servire entrambi gli scopi.
 
-### 9.6 Appendice A — i requisiti che finiranno nel capitolato
+### 9.6 Appendice A - i requisiti che finiranno nel capitolato
 
 Quattro tabelle. Le più rilevanti per Telemedic, con i requisiti che **il prodotto** (non il
 processo aziendale del fornitore) deve poter soddisfare:
 
-**Tabella 8 — Requisiti generali (indipendenti dalla tipologia di fornitura), R1–R19.** Fra i più
+**Tabella 8 - Requisiti generali (indipendenti dalla tipologia di fornitura), R1–R19.** Fra i più
 significativi: **R2** certificazione **ISO/IEC 27001** mantenuta per tutta la durata della fornitura,
 o in alternativa **R3** un SGSI aggiornato nel tempo e/o un piano di qualità secondo **ISO 10005**;
 **R4** audit annuale sul proprio sistema di sicurezza a proprie spese, condotto da società
@@ -919,14 +919,14 @@ trasferimento e conservazione delle repliche dei dati **sempre all'interno del t
 **R18** NDA; **R19** aggiornamento tecnologico delle soluzioni di sicurezza **nel corso del
 contratto, senza oneri aggiuntivi**.
 
-**Tabella 9 — Forniture di servizi di sviluppo applicativo, R20–R23.** **R21** in fase di analisi il
+**Tabella 9 - Forniture di servizi di sviluppo applicativo, R20–R23.** **R21** in fase di analisi il
 fornitore definisce le **specifiche di sicurezza (non funzionali)** a partire dai requisiti espressi
 dall'amministrazione; **R22** in fase di progettazione e codifica implementa le specifiche di
 sicurezza **nel codice e nella struttura della base dati**; **R23** al termine del progetto rilascia
 tutta la documentazione necessaria a gestire correttamente quanto rilasciato **anche sotto l'aspetto
 della sicurezza**.
 
-**Tabella 10 — Forniture di oggetti connessi in rete, R24–R33.** **R24** supporto di protocolli
+**Tabella 10 - Forniture di oggetti connessi in rete, R24–R33.** **R24** supporto di protocolli
 sicuri e cifrati; **R26** supporto di protocolli di autenticazione (RADIUS, IEEE 802.1X); **R27**
 gestione di più profili con privilegi diversi; **R28** richiesta di creazione o cambio della password
 al primo accesso; **R29** blocco dell'utenza dopo un numero definito di tentativi falliti; **R30**
@@ -936,7 +936,7 @@ organizzative e strumenti dedicati alla gestione delle vulnerabilità scoperte s
 della fornitura; **R33** documentazione tecnica sulla corretta configurazione e gestione degli
 aspetti di sicurezza.
 
-**Tabella 11 — Forniture di servizi di gestione remota, R34–R45.** È la tabella che si applica al
+**Tabella 11 - Forniture di servizi di gestione remota, R34–R45.** È la tabella che si applica al
 modello SaaS. **R34** meccanismi di autenticazione basati su **crittografia asimmetrica a chiave
 pubblica**, con lunghezza delle chiavi «impostata sulla base della criticità della comunicazione da
 cifrare (ad esempio 256 bit per le meno critiche, 512 bit per le più critiche)»; **R35**
@@ -956,12 +956,12 @@ entro il giorno successivo a quello della richiesta; **R45** monitoraggio della 
 propedeutica all'installazione.
 
 > **R42, R43 e R44 sono, letteralmente, la specifica funzionale delle capacità di notifica descritte
-> al § 6.3.** Un'amministrazione che attinga all'Appendice A — come AgID le raccomanda di fare —
+> al § 6.3.** Un'amministrazione che attinga all'Appendice A - come AgID le raccomanda di fare -
 > scriverà nel capitolato «sequenza temporale degli eventi» ed «export dei log in CSV o TXT entro il
 > giorno successivo». Telemedic deve poterlo fare **da API**, non con un intervento manuale del
 > supporto.
 
-### 9.7 Capitolo 5 — Protezione dei dati personali
+### 9.7 Capitolo 5 - Protezione dei dati personali
 
 Il capitolo è breve ma prescrittivo. Contenuti verificati sul testo:
 
@@ -995,7 +995,7 @@ Il capitolo è breve ma prescrittivo. Contenuti verificati sul testo:
 
 ## 10. Contratti pubblici ICT: art. 14 L. 90/2024 e DPCM 30 aprile 2025
 
-**[NON VERIFICATO sul testo dei DPCM — ricostruito da fonte secondaria qualificata]**
+**[NON VERIFICATO sul testo dei DPCM - ricostruito da fonte secondaria qualificata]**
 
 L'**art. 14 della legge 28 giugno 2024, n. 90** disciplina i contratti pubblici di beni e servizi
 informatici «impiegati in un contesto connesso alla tutela degli interessi nazionali strategici»,
@@ -1005,9 +1005,9 @@ imponendo di tenere conto degli **elementi essenziali di cybersicurezza**. Il **
 | Elemento | Contenuto |
 |---|---|
 | **Ambito** | Contratti pubblici per beni e servizi informatici essenziali in settori sensibili; si applica sia ai soggetti della PA sia agli operatori privati nel **PSNC** |
-| **Allegato 1 — elementi essenziali di cybersicurezza** | Progettazione sicura e priva di vulnerabilità note; aggiornamenti di sicurezza automatici; autenticazione e controllo degli accessi; cifratura per la protezione dei dati; **gestione trasparente delle vulnerabilità da parte dei fornitori**; **valutazione della catena di approvvigionamento** |
-| **Allegato 2 — categorie tecnologiche** | Sistemi di gestione identità e accessi, antivirus/antimalware, VPN, SIEM, infrastrutture PKI, router, firewall, dispositivi biometrici, smart card, storage e backup, videosorveglianza, **servizi cloud**, componenti SCADA, software per droni |
-| **Art. 4 — criteri di premialità** | Punteggio aggiuntivo per tecnologie di operatori stabiliti in Italia, UE, NATO e sei Paesi terzi (Australia, Svizzera, Corea del Sud, Giappone, Israele, Nuova Zelanda) |
+| **Allegato 1 - elementi essenziali di cybersicurezza** | Progettazione sicura e priva di vulnerabilità note; aggiornamenti di sicurezza automatici; autenticazione e controllo degli accessi; cifratura per la protezione dei dati; **gestione trasparente delle vulnerabilità da parte dei fornitori**; **valutazione della catena di approvvigionamento** |
+| **Allegato 2 - categorie tecnologiche** | Sistemi di gestione identità e accessi, antivirus/antimalware, VPN, SIEM, infrastrutture PKI, router, firewall, dispositivi biometrici, smart card, storage e backup, videosorveglianza, **servizi cloud**, componenti SCADA, software per droni |
+| **Art. 4 - criteri di premialità** | Punteggio aggiuntivo per tecnologie di operatori stabiliti in Italia, UE, NATO e sei Paesi terzi (Australia, Svizzera, Corea del Sud, Giappone, Israele, Nuova Zelanda) |
 
 ACN ha adottato **Linee guida per l'applicazione dei criteri di premialità di cui all'articolo 14
 della legge 90/2024**
@@ -1017,7 +1017,7 @@ della legge 90/2024**
 > **Rilevanza per Telemedic.** L'elenco delle categorie tecnologiche dell'Allegato 2 **non nomina il
 > software sanitario**, ma comprende i **servizi cloud**: un'offerta SaaS può quindi ricadervi. Gli
 > elementi essenziali dell'Allegato 1 coincidono in larga misura con i requisiti dell'Allegato I
-> del CRA — **un unico insieme di controlli tecnici li soddisfa entrambi**. Il criterio di premialità
+> del CRA - **un unico insieme di controlli tecnici li soddisfa entrambi**. Il criterio di premialità
 > geografica è un ulteriore argomento a favore del vincolo V1: un fornitore stabilito in Italia
 > ottiene punteggio aggiuntivo, un componente *runtime* US-based non lo ottiene.
 
@@ -1026,8 +1026,8 @@ della legge 90/2024**
 ## 11. Cybersecurity nel regime MDR
 
 Poiché la decisione **D6** impone il percorso MDR Classe I completo, i requisiti di cibersicurezza
-arrivano a Telemedic **anche** — e per il prodotto marcato CE, **esclusivamente** (art. 2, par. 2
-CRA) — dal regime dei dispositivi medici.
+arrivano a Telemedic **anche** - e per il prodotto marcato CE, **esclusivamente** (art. 2, par. 2
+CRA) - dal regime dei dispositivi medici.
 
 ### 11.1 Le fonti
 
@@ -1035,13 +1035,13 @@ CRA) — dal regime dei dispositivi medici.
 |---|---|---|
 | **Reg. (UE) 2017/745, Allegato I, § 17.2** | **[VINCOLANTE]** | Il software è sviluppato e fabbricato **conformemente allo stato dell'arte**, tenendo conto dei principi del ciclo di vita dello sviluppo, della gestione dei rischi, **compresa la sicurezza delle informazioni**, della verifica e della convalida |
 | **Reg. (UE) 2017/745, Allegato I, § 17.4** | **[VINCOLANTE]** | I fabbricanti stabiliscono **requisiti minimi relativi all'hardware, alle caratteristiche delle reti informatiche e alle misure di sicurezza informatica**, compresa la protezione contro l'accesso non autorizzato, necessari per far funzionare il software come previsto |
-| **MDCG 2019-16**, «Guidance on Cybersecurity for medical devices», **rev. 1** | **[RACCOMANDATO]** — *soft law* MDCG | Pubblicata nel dicembre 2019, revisione 1 nel luglio 2020. Copre aspetti *pre-market* e *post-market*; impone un processo di gestione del rischio di cibersicurezza distinto ma raccordato con ISO 14971; richiede *security by design* e *security by default*; distingue IT-security, *operation security* e *information security*. [Testo, Commissione europea](https://health.ec.europa.eu/system/files/2022-01/md_cybersecurity_en.pdf) |
-| **EN IEC 81001-5-1:2022** | Norma tecnica | «*Health software and health IT systems safety, effectiveness and security — Part 5-1: Security — Activities in the product life cycle*». Trasposizione europea di IEC 81001-5-1:2021. **Orientata al processo**: non prescrive soluzioni tecniche, richiede un **ciclo di vita di sviluppo sicuro (SDLC)** integrato nel sistema di gestione della qualità. Nel dicembre 2025 IEC ha pubblicato l'*Interpretation Sheet* **ISH1:2025**, che chiarisce la gestione dei componenti software e il trasferimento del rischio |
+| **MDCG 2019-16**, «Guidance on Cybersecurity for medical devices», **rev. 1** | **[RACCOMANDATO]** - *soft law* MDCG | Pubblicata nel dicembre 2019, revisione 1 nel luglio 2020. Copre aspetti *pre-market* e *post-market*; impone un processo di gestione del rischio di cibersicurezza distinto ma raccordato con ISO 14971; richiede *security by design* e *security by default*; distingue IT-security, *operation security* e *information security*. [Testo, Commissione europea](https://health.ec.europa.eu/system/files/2022-01/md_cybersecurity_en.pdf) |
+| **EN IEC 81001-5-1:2022** | Norma tecnica | «*Health software and health IT systems safety, effectiveness and security - Part 5-1: Security - Activities in the product life cycle*». Trasposizione europea di IEC 81001-5-1:2021. **Orientata al processo**: non prescrive soluzioni tecniche, richiede un **ciclo di vita di sviluppo sicuro (SDLC)** integrato nel sistema di gestione della qualità. Nel dicembre 2025 IEC ha pubblicato l'*Interpretation Sheet* **ISH1:2025**, che chiarisce la gestione dei componenti software e il trasferimento del rischio |
 
 > ⚠️ **Verifica aperta (V-B4-1).** Lo **stato di armonizzazione di EN IEC 81001-5-1:2022 sotto MDR**
 > non è stato accertato su fonte primaria. La norma figura dal 14 aprile 2021 nell'elenco degli
 > standard destinati all'armonizzazione; la Decisione di esecuzione (UE) 2021/1182 è stata modificata
-> più volte, da ultimo — secondo fonte secondaria — dalla **Decisione di esecuzione (UE) 2026/193 del
+> più volte, da ultimo - secondo fonte secondaria - dalla **Decisione di esecuzione (UE) 2026/193 del
 > 30 gennaio 2026**. **Prima di dichiarare presunzione di conformità occorre verificare la
 > pubblicazione del riferimento nella Gazzetta ufficiale dell'Unione europea.** Se la norma non è
 > armonizzata, resta comunque il riferimento tecnico di elezione per dimostrare lo «stato dell'arte»
@@ -1065,32 +1065,32 @@ la matrice del § 12 serve a evitare.
 ## 12. Matrice di sovrapposizione fra le fonti
 
 Legenda: **●** obbligo diretto; **○** obbligo indiretto (ricade sul progetto per via contrattuale);
-**—** non applicabile.
+**-** non applicabile.
 
 | Controllo tecnico | NIS2 / Det. ACN 379907 | L. 90/2024 | CRA 2024/2847 | GDPR art. 32 | MDR + 81001-5-1 | ABSC 2/2017 | AgID procurement | DM 21 set. 2022 / DM 19 nov. 2025 | Destinatario primario |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| **Inventario asset e software / SBOM** | ● `ID.AM-01/02/03/04` | — | ● All. I P. II.1 | ○ | ● SOUP | ● ABSC 1, 2 | ● R33 | — | **Progetto** produce, deployer mantiene |
+| **Inventario asset e software / SBOM** | ● `ID.AM-01/02/03/04` | - | ● All. I P. II.1 | ○ | ● SOUP | ● ABSC 1, 2 | ● R33 | - | **Progetto** produce, deployer mantiene |
 | **Configurazioni sicure di riferimento (*hardening*)** | ● `PR.PS-01` (ess.) | ● DPCM All. 1 | ● All. I P. I «*secure by default*» | ● | ● | ● ABSC 3 | ● R38 | ● | **Progetto** documenta, deployer applica |
-| **Gestione e divulgazione delle vulnerabilità** | ● `ID.RA-08`, `PR.PS-02` | ● DPCM All. 1 | ● All. I P. II.2/3/4/5 + art. 14 | ○ | ● | ● ABSC 4 | ● R32, R45 | — | **Entrambi** |
+| **Gestione e divulgazione delle vulnerabilità** | ● `ID.RA-08`, `PR.PS-02` | ● DPCM All. 1 | ● All. I P. II.2/3/4/5 + art. 14 | ○ | ● | ● ABSC 4 | ● R32, R45 | - | **Entrambi** |
 | **Aggiornamenti di sicurezza e patch** | ● `PR.PS-02`, `PR.PS-06` | ● DPCM All. 1 | ● All. I P. I e II.7/8 | ● | ● | ● ABSC 4 | ● R19, R45 | ● | **Progetto** rilascia, deployer applica |
 | **Controllo degli accessi e privilegi amministrativi** | ● `PR.AA-01/05/06`, `ID.AM-03` | ● DPCM All. 1 | ● All. I P. I | ● | ● | ● ABSC 5 | ● R27, R35, R40 | ● | **Entrambi** |
 | **Autenticazione a più fattori** | ● `PR.AA-03` p. 2 (rilevanti) | ● DPCM All. 1 | ● All. I P. I | ● | ● | ● ABSC 5.6.1 | ● R26 | ● art. 64 CAD (SPID/CIE/TS-CNS) | **Progetto** abilita, deployer configura |
 | **Cifratura in transito** | ● `PR.DS-02` | ● DPCM All. 1 | ● All. I P. I | ● | ● | ● ABSC 13 | ● R13, R24, R36 | ● (Accordo 215/CSR: tutti i trasferimenti) | **Progetto** |
 | **Cifratura a riposo** | ● `PR.DS-01` | ● DPCM All. 1 | ● All. I P. I | ● | ● | ● ABSC 13 | ● R13 | ● | **Progetto** abilita, deployer gestisce chiavi |
-| **Backup cifrati, offline, con test di ripristino** | ● `PR.DS-11` (5 req. per essenziali) | — | — | ● | ● | ● ABSC 10 | — | ● | **Deployer**, con supporto documentale del progetto |
-| **Continuità operativa e *disaster recovery*** | ● `ID.IM-04` | — | — | ● | ● | ● ABSC 10 | — | ● art. 51 CAD | **Deployer** |
+| **Backup cifrati, offline, con test di ripristino** | ● `PR.DS-11` (5 req. per essenziali) | - | - | ● | ● | ● ABSC 10 | - | ● | **Deployer**, con supporto documentale del progetto |
+| **Continuità operativa e *disaster recovery*** | ● `ID.IM-04` | - | - | ● | ● | ● ABSC 10 | - | ● art. 51 CAD | **Deployer** |
 | **Log immutabili e tracciabilità** | ● `DE.CM-01`, `PR.PS-04` | ● | ● All. I P. I | ● | ● | ● ABSC 8.3, 5.5 | ● R30, R31, R44 | ● 24 mesi (DM 19 nov. 2025) | **Progetto** |
 | **Rilevazione e monitoraggio (SIEM/IPS)** | ● `DE.CM-01`, `DE.CM-09` | ● | ● | ● | ● | ● ABSC 8 | ● R12 | ● IPS + SIEM/SOAR | **Deployer**, con integrazione fornita dal progetto |
-| **Notifica incidenti 24 h / 72 h** | ● art. 25 | ● art. 1 | ● art. 14 (24 h/72 h/14 gg) | ● art. 33 (72 h al Garante) | ● PMS/vigilanza | — | ● R42, R43 | ● | **Deployer** notifica; **progetto** fornisce l'evidenza |
-| ***Export* forense e cronologia degli eventi** | ○ (presupposto di art. 25) | ○ | ○ | ○ | ○ | — | ● R43, R44 | — | **Progetto** |
-| **Sicurezza della catena di fornitura** | ● `GV.SC-01/02/04/05/07` | ● DPCM All. 1 | ● *due diligence* del fabbricante | ● art. 28 | ● SOUP | — | ● AG6, R2/R3/R4 | — | **Deployer** obbligato; **progetto** oggetto della verifica |
-| **Dichiarazione dei fornitori rilevanti ad ACN** | ● art. 18 Det. 127437/2026 | — | — | — | — | — | — | — | **Deployer**; il progetto ne è il soggetto dichiarato |
-| **Ciclo di vita di sviluppo sicuro (SDLC)** | ● art. 24 c. 3 (in capo al cliente, verso il fornitore) | ● DPCM All. 1 | ● All. I P. I e II | ● art. 25 | ● **EN IEC 81001-5-1** | — | ● R21, R22 | — | **Progetto** |
-| **Formazione del personale** | ● `PR.AT-01`, `PR.AT-02` | ● | — | ● | ● | — | ● AG1 | ● | **Deployer** |
-| **Governance e approvazione dei piani** | ● art. 23, 11 documenti | ● referente cyber | — | ● accountability | ● SGQ ISO 13485 | — | ● AG3 | — | **Deployer**; progetto per il proprio SGQ |
-| **Comunicazioni video/vocali/testuali protette** | ● `PR.IR-03` (essenziali) | — | ● All. I P. I | ● | ● | — | ● R36 | ● | **Progetto** |
-| **Residenza dei dati** | ○ (dichiarazione del Paese del fornitore) | ● criteri di premialità | — | ● Capo V | — | — | ● **R15 (UE)** | ● territorio nazionale + qualificazione ACN | **Entrambi** |
-| **Certificazione ISO/IEC 27001 o SGSI equivalente** | ○ | — | — | ○ | ○ | — | ● **R2 / R3** | — | **Progetto** (organizzazione) |
+| **Notifica incidenti 24 h / 72 h** | ● art. 25 | ● art. 1 | ● art. 14 (24 h/72 h/14 gg) | ● art. 33 (72 h al Garante) | ● PMS/vigilanza | - | ● R42, R43 | ● | **Deployer** notifica; **progetto** fornisce l'evidenza |
+| ***Export* forense e cronologia degli eventi** | ○ (presupposto di art. 25) | ○ | ○ | ○ | ○ | - | ● R43, R44 | - | **Progetto** |
+| **Sicurezza della catena di fornitura** | ● `GV.SC-01/02/04/05/07` | ● DPCM All. 1 | ● *due diligence* del fabbricante | ● art. 28 | ● SOUP | - | ● AG6, R2/R3/R4 | - | **Deployer** obbligato; **progetto** oggetto della verifica |
+| **Dichiarazione dei fornitori rilevanti ad ACN** | ● art. 18 Det. 127437/2026 | - | - | - | - | - | - | - | **Deployer**; il progetto ne è il soggetto dichiarato |
+| **Ciclo di vita di sviluppo sicuro (SDLC)** | ● art. 24 c. 3 (in capo al cliente, verso il fornitore) | ● DPCM All. 1 | ● All. I P. I e II | ● art. 25 | ● **EN IEC 81001-5-1** | - | ● R21, R22 | - | **Progetto** |
+| **Formazione del personale** | ● `PR.AT-01`, `PR.AT-02` | ● | - | ● | ● | - | ● AG1 | ● | **Deployer** |
+| **Governance e approvazione dei piani** | ● art. 23, 11 documenti | ● referente cyber | - | ● accountability | ● SGQ ISO 13485 | - | ● AG3 | - | **Deployer**; progetto per il proprio SGQ |
+| **Comunicazioni video/vocali/testuali protette** | ● `PR.IR-03` (essenziali) | - | ● All. I P. I | ● | ● | - | ● R36 | ● | **Progetto** |
+| **Residenza dei dati** | ○ (dichiarazione del Paese del fornitore) | ● criteri di premialità | - | ● Capo V | - | - | ● **R15 (UE)** | ● territorio nazionale + qualificazione ACN | **Entrambi** |
+| **Certificazione ISO/IEC 27001 o SGSI equivalente** | ○ | - | - | ○ | ○ | - | ● **R2 / R3** | - | **Progetto** (organizzazione) |
 
 ### 12.1 I sette controlli a massimo rendimento
 
@@ -1227,7 +1227,7 @@ Destinatario: **P** = progetto (Telemedic, come fornitore/fabbricante); **D** = 
    fissato in **nove mesi** dalla stessa data.
 2. **ACN ha iniziato a inviare le comunicazioni di inserimento il 12 aprile 2025** (Guida alla
    lettura, nota 6) e nelle settimane successive. Per i soggetti che l'hanno ricevuta entro il
-   30 aprile 2025 — la larga maggioranza della prima ondata — i diciotto mesi maturano **entro il
+   30 aprile 2025 - la larga maggioranza della prima ondata - i diciotto mesi maturano **entro il
    31 ottobre 2026**.
 
 **Il termine è quindi soggettivo, non generale.** Ciascun cliente ha la propria data. Il 31 ottobre
@@ -1245,7 +1245,7 @@ accompagnamento a quella ispettiva e sanzionatoria.
 > **imprecisa come regola**: la regola è «18 mesi dalla ricezione della comunicazione», e per la
 > seconda ondata la data è il 31 luglio 2027.
 
-### 14.2 Obblighi dell'**utilizzatore** (deployer) — non del progetto
+### 14.2 Obblighi dell'**utilizzatore** (deployer) - non del progetto
 
 Va detto con chiarezza, perché è la fonte più frequente di confusione commerciale: **nessuno dei
 seguenti obblighi è del fornitore.** Il progetto non può adempierli né attestarli.
@@ -1266,14 +1266,14 @@ seguenti obblighi è del fornitore.** Il progetto non può adempierli né attest
 documentali che il deployer deve incorporare nei propri piani. È il contenuto di `SEC-001` e
 `SEC-002`.
 
-### 14.3 Obblighi e opportunità del **fornitore** — che cosa deve fare Telemedic
+### 14.3 Obblighi e opportunità del **fornitore** - che cosa deve fare Telemedic
 
 **Nessuno degli obblighi NIS2 è, oggi, in capo al progetto Telemedic.** Ma tre effetti sono
 ineludibili e cadono tutti nella finestra che precede il rilascio della v1.0:
 
 - dal **31 ottobre 2026** i clienti della prima ondata inseriranno requisiti di sicurezza nei
   **contratti nuovi, rinnovati o prorogati** (FAQ ACN);
-- dal **31 maggio 2026** — già trascorso — i clienti dichiarano nominativamente i fornitori
+- dal **31 maggio 2026** - già trascorso - i clienti dichiarano nominativamente i fornitori
   rilevanti ad ACN;
 - dall'**11 settembre 2026** gli obblighi di segnalazione dell'art. 14 CRA sono applicabili ai
   fabbricanti; gli integratori commerciali di Telemedic ne sono destinatari.
@@ -1281,19 +1281,19 @@ ineludibili e cadono tutti nella finestra che precede il rilascio della v1.0:
 **Piano di lavoro, ordinato per priorità e con l'orizzonte del 31 ottobre 2026 (≈ 10 settimane dalla
 data di redazione):**
 
-#### Priorità 1 — deve esistere prima della v1.0, altrimenti il prodotto non è vendibile a un soggetto NIS
+#### Priorità 1 - deve esistere prima della v1.0, altrimenti il prodotto non è vendibile a un soggetto NIS
 
 | # | Deliverable | Requisiti coperti | Sforzo |
 |---|---|---|---|
-| 1 | **SBOM CycloneDX** generata in CI, firmata, pubblicata con ogni *release* | SEC-043, SEC-050, SEC-051 | Basso — è già nella decisione D10 |
+| 1 | **SBOM CycloneDX** generata in CI, firmata, pubblicata con ogni *release* | SEC-043, SEC-050, SEC-051 | Basso - è già nella decisione D10 |
 | 2 | **`SECURITY.md`** con politica di *disclosure* coordinata, canale di contatto e tempi dichiarati | SEC-045, SEC-046 | Basso |
-| 3 | **Audit log append-only con catena di *hash* ed *export* firmato in CSV/JSON** | SEC-033, SEC-034, SEC-035, SEC-036 | **Alto** — richiede una scelta architetturale che Hibernate Envers da solo non risolve: Envers versiona, non rende immutabile |
-| 4 | **Matrice RACI delle 43 misure** fornitore/deployer | SEC-002 | Medio — richiede la lettura riga per riga degli allegati 1 e 2 |
+| 3 | **Audit log append-only con catena di *hash* ed *export* firmato in CSV/JSON** | SEC-033, SEC-034, SEC-035, SEC-036 | **Alto** - richiede una scelta architetturale che Hibernate Envers da solo non risolve: Envers versiona, non rende immutabile |
+| 4 | **Matrice RACI delle 43 misure** fornitore/deployer | SEC-002 | Medio - richiede la lettura riga per riga degli allegati 1 e 2 |
 | 5 | **Fascicolo di conformità NIS**: inventario dei flussi di rete con i cinque attributi, elenco dei sistemi accessibili da remoto, configurazioni di riferimento | SEC-001, SEC-055 | Medio |
-| 6 | **MFA obbligatoria sulle utenze amministrative** e federazione SPID/CIE/TS-CNS | SEC-012, SEC-013 | Medio — Keycloak la fornisce; va imposta per default |
-| 7 | **Misurazione della disponibilità per tenant e servizio**, con soglie e allarmi | SEC-037 | Medio — estensione dello schema TimescaleDB già previsto |
+| 6 | **MFA obbligatoria sulle utenze amministrative** e federazione SPID/CIE/TS-CNS | SEC-012, SEC-013 | Medio - Keycloak la fornisce; va imposta per default |
+| 7 | **Misurazione della disponibilità per tenant e servizio**, con soglie e allarmi | SEC-037 | Medio - estensione dello schema TimescaleDB già previsto |
 
-#### Priorità 2 — deve esistere entro la v1.0
+#### Priorità 2 - deve esistere entro la v1.0
 
 | # | Deliverable | Requisiti coperti |
 |---|---|---|
@@ -1308,7 +1308,7 @@ data di redazione):**
 | 16 | **Codici CPV e Paese della sede legale** pubblicati | SEC-007 |
 | 17 | **Modello di *report* di incidente** conforme a R43, con sequenza temporale | SEC-039 |
 
-#### Priorità 3 — dopo la v1.0, ma con impegno pubblico datato
+#### Priorità 3 - dopo la v1.0, ma con impegno pubblico datato
 
 | # | Deliverable | Requisiti coperti |
 |---|---|---|
@@ -1332,7 +1332,7 @@ data di redazione):**
    una valutazione esplicita di questo effetto.**
 3. **La monetizzazione attiva il CRA.** Il momento in cui il progetto vende supporto con SLA o una
    edizione *enterprise* è il momento in cui il venditore diventa **fabbricante** ai sensi del CRA per
-   ciò che immette sul mercato — salvo che quel prodotto sia coperto dalla marcatura CE MDR. Va
+   ciò che immette sul mercato - salvo che quel prodotto sia coperto dalla marcatura CE MDR. Va
    deciso prima, non dopo, perché determina la documentazione tecnica da costruire.
 
 ---
@@ -1343,7 +1343,7 @@ data di redazione):**
 |---|---|---|
 | **QB4-1** | Scaricare e leggere riga per riga gli **allegati 1 e 2 alla Det. ACN 379907/2025** (formato `.xlsx`) e completare la matrice RACI delle 43 misure con il testo dei 116 requisiti. **Nessun requisito puntuale delle misure va citato in documentazione pubblica prima di questa lettura.** | Agente sicurezza / documentazione |
 | **QB4-2** | Verificare sul testo la **Determinazione ACN n. 379887/2025** e la **n. 127437/2026**, in particolare l'art. 18 e i codici CPV richiesti. | Agente conformità |
-| **QB4-3** | Verificare lo **stato di armonizzazione di EN IEC 81001-5-1:2022 sotto MDR** nella Gazzetta ufficiale dell'Unione europea (Decisione di esecuzione (UE) 2021/1182 e successive modifiche, da ultimo — da confermare — 2026/193). | Agente MDR |
+| **QB4-3** | Verificare lo **stato di armonizzazione di EN IEC 81001-5-1:2022 sotto MDR** nella Gazzetta ufficiale dell'Unione europea (Decisione di esecuzione (UE) 2021/1182 e successive modifiche, da ultimo - da confermare - 2026/193). | Agente MDR |
 | **QB4-4** | Acquisire le **Linee guida NIS ACN sul processo di gestione degli incidenti** (31 dicembre 2025) e allinearvi la procedura di risposta agli incidenti di Telemedic. | Agente sicurezza |
 | **QB4-5** | Verificare il **DPCM 30 aprile 2025** e il **DPCM 2 ottobre 2025** sul testo in GU e accertare se la fornitura di una piattaforma di telemedicina ricade in una delle categorie tecnologiche dell'Allegato 2. | Agente conformità / appalti |
 | **QB4-6** | **ADR sull'audit log immutabile**: valutare catena di *hash* applicativa, *append-only* a livello di storage, *write-once* su oggetto, o firma periodica con marca temporale. Envers da solo non soddisfa V5. | Agente architettura |
@@ -1357,35 +1357,35 @@ data di redazione):**
 
 **Fonti primarie lette integralmente**
 
-- [ACN — Determinazione n. 379907 del 19 dicembre 2025 (specifiche di base)](https://www.acn.gov.it/portale/documents/d/guest/detacn_obblighi_2511-v3_signed)
-- [ACN — Determinazione n. 127434 del 13 aprile 2026 (termini per i soggetti inseriti nel 2026)](https://www.acn.gov.it/portale/documents/d/guest/detacn_misuresicurezza-v4_post)
-- [ACN — «Linee Guida NIS – Specifiche di base – Guida alla lettura», v. 2.1, aprile 2026](https://www.acn.gov.it/portale/documents/d/guest/guida-alla-lettura-specifiche-di-base)
-- [ACN — Determinazione n. 164179 del 14 aprile 2025 (sostituita)](https://www.acn.gov.it/portale/documents/d/guest/detacn_nis_specifiche_2025_164179_signed)
-- [Circolare AgID 18 aprile 2017, n. 2/2017 — testo in GU n. 103 del 5 maggio 2017](https://cert-agid.gov.it/download/CircolareAgID_170418_n_2_2017_Mis_minime_sicurezza_ICT_PA-GU-103-050517-2.pdf) · [scheda GU](https://www.gazzettaufficiale.it/eli/id/2017/05/05/17A03060/sg)
-- [AgID — «Linee guida — Sicurezza nel Procurement ICT», aprile 2020](https://trasparenza.agid.gov.it/download/4514.html)
+- [ACN - Determinazione n. 379907 del 19 dicembre 2025 (specifiche di base)](https://www.acn.gov.it/portale/documents/d/guest/detacn_obblighi_2511-v3_signed)
+- [ACN - Determinazione n. 127434 del 13 aprile 2026 (termini per i soggetti inseriti nel 2026)](https://www.acn.gov.it/portale/documents/d/guest/detacn_misuresicurezza-v4_post)
+- [ACN - «Linee Guida NIS – Specifiche di base – Guida alla lettura», v. 2.1, aprile 2026](https://www.acn.gov.it/portale/documents/d/guest/guida-alla-lettura-specifiche-di-base)
+- [ACN - Determinazione n. 164179 del 14 aprile 2025 (sostituita)](https://www.acn.gov.it/portale/documents/d/guest/detacn_nis_specifiche_2025_164179_signed)
+- [Circolare AgID 18 aprile 2017, n. 2/2017 - testo in GU n. 103 del 5 maggio 2017](https://cert-agid.gov.it/download/CircolareAgID_170418_n_2_2017_Mis_minime_sicurezza_ICT_PA-GU-103-050517-2.pdf) · [scheda GU](https://www.gazzettaufficiale.it/eli/id/2017/05/05/17A03060/sg)
+- [AgID - «Linee guida - Sicurezza nel Procurement ICT», aprile 2020](https://trasparenza.agid.gov.it/download/4514.html)
 
 **Fonti primarie consultate parzialmente**
 
-- [D.lgs. 4 settembre 2024, n. 138 — GU n. 230 del 1° ottobre 2024](https://www.gazzettaufficiale.it/eli/id/2024/10/01/24G00155/sg) · [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2024-09-04;138)
-- [Legge 28 giugno 2024, n. 90 — Normattiva](https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2024-07-02&atto.codiceRedazionale=24G00108)
-- [Regolamento (UE) 2024/2847 (Cyber Resilience Act) — EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/2847/oj)
-- [MDCG 2019-16 rev. 1 — Guidance on Cybersecurity for medical devices](https://health.ec.europa.eu/system/files/2022-01/md_cybersecurity_en.pdf)
-- [ACN — FAQ NIS, «Misure di sicurezza e notifica di incidenti»](https://www.acn.gov.it/portale/en/faq/nis/misure-di-sicurezza-e-notifica-di-incidenti)
-- [ACN — sezione NIS, modalità e specifiche di base](https://www.acn.gov.it/portale/nis/modalita-specifiche-base)
-- [ACN — «NIS: online le determine sugli adempimenti per i nuovi soggetti e sulle modalità di accesso alla piattaforma»](https://www.acn.gov.it/portale/w/nis-online-le-determine-sugli-adempimenti-per-i-nuovi-soggetti-e-sulle-modalita-di-accesso-alla-piattaforma-acn)
-- [ACN — «NIS2, Linee Guida sul processo di gestione degli incidenti di sicurezza informatica»](https://www.acn.gov.it/portale/en/w/nis2-linee-guida-sul-processo-di-gestione-degli-incidenti-di-sicurezza-informatica)
-- [ACN — Linee guida sui criteri di premialità ex art. 14 L. 90/2024](https://www.acn.gov.it/portale/documents/20119/1067494/Linee+guida_Criteri_Premialita%CC%80.pdf)
+- [D.lgs. 4 settembre 2024, n. 138 - GU n. 230 del 1° ottobre 2024](https://www.gazzettaufficiale.it/eli/id/2024/10/01/24G00155/sg) · [Normattiva](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2024-09-04;138)
+- [Legge 28 giugno 2024, n. 90 - Normattiva](https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2024-07-02&atto.codiceRedazionale=24G00108)
+- [Regolamento (UE) 2024/2847 (Cyber Resilience Act) - EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/2847/oj)
+- [MDCG 2019-16 rev. 1 - Guidance on Cybersecurity for medical devices](https://health.ec.europa.eu/system/files/2022-01/md_cybersecurity_en.pdf)
+- [ACN - FAQ NIS, «Misure di sicurezza e notifica di incidenti»](https://www.acn.gov.it/portale/en/faq/nis/misure-di-sicurezza-e-notifica-di-incidenti)
+- [ACN - sezione NIS, modalità e specifiche di base](https://www.acn.gov.it/portale/nis/modalita-specifiche-base)
+- [ACN - «NIS: online le determine sugli adempimenti per i nuovi soggetti e sulle modalità di accesso alla piattaforma»](https://www.acn.gov.it/portale/w/nis-online-le-determine-sugli-adempimenti-per-i-nuovi-soggetti-e-sulle-modalita-di-accesso-alla-piattaforma-acn)
+- [ACN - «NIS2, Linee Guida sul processo di gestione degli incidenti di sicurezza informatica»](https://www.acn.gov.it/portale/en/w/nis2-linee-guida-sul-processo-di-gestione-degli-incidenti-di-sicurezza-informatica)
+- [ACN - Linee guida sui criteri di premialità ex art. 14 L. 90/2024](https://www.acn.gov.it/portale/documents/20119/1067494/Linee+guida_Criteri_Premialita%CC%80.pdf)
 - [Framework Nazionale per la Cybersecurity e la Data Protection](https://www.cybersecurityframework.it/)
 
 **Fonti secondarie qualificate (usate per gli elementi marcati [NON VERIFICATO])**
 
-- [CMS — «ACN pubblica le nuove Determinazioni n. 379907/2025 e n. 379887/2025»](https://cms.law/it/ita/publication/acn-pubblica-le-nuove-determinazioni-n.-379907-2025-obblighi-di-base-e-n.-379887-2025-portale-acn-e-servizi-nis)
-- [Assolombarda — «ACN pubblica due nuove Determinazioni NIS2»](https://www.assolombarda.it/servizi/industria-innovazione-e-qualita/informazioni/direttiva-nis2-acn-pubblica-le-determinazioni-379887-e-379907)
-- [ICT Security Magazine — «NIS2: la mappa completa degli adempimenti da qui a ottobre 2026»](https://www.ictsecuritymagazine.com/notizie/nis2-adempimenti/)
-- [Cyberness — «NIS 2, supply chain: la Determinazione ACN 127437/2026 introduce l'obbligo di elencare i fornitori rilevanti»](https://www.cyberness.it/nis2-fornitori-rilevanti-determinazione-acn-127437-2026/)
-- [iSimply — «Fornitori rilevanti NIS2: tutti i chiarimenti ACN»](https://www.isimply.it/news/fornitori-rilevanti-nis2-tutti-i-chiarimenti-acn/)
-- [Piselli & Partners — «Elementi essenziali di cybersicurezza nei contratti pubblici: il DPCM 30 aprile 2025 e l'art. 14 della L. 90/2024»](https://www.piselliandpartners.com/innovation/elementi-essenziali-di-cybersicurezza-nei-contratti-pubblici-il-dpcm-30-aprile-2025-e-lart-14-della-l-90-2024/)
-- [Cybersecurity360 — «ACN aggiorna le "specifiche di base" NIS2»](https://www.cybersecurity360.it/legal/acn-aggiorna-le-specifiche-di-base-nis2-cosa-devono-fare-i-soggetti-interessati/)
+- [CMS - «ACN pubblica le nuove Determinazioni n. 379907/2025 e n. 379887/2025»](https://cms.law/it/ita/publication/acn-pubblica-le-nuove-determinazioni-n.-379907-2025-obblighi-di-base-e-n.-379887-2025-portale-acn-e-servizi-nis)
+- [Assolombarda - «ACN pubblica due nuove Determinazioni NIS2»](https://www.assolombarda.it/servizi/industria-innovazione-e-qualita/informazioni/direttiva-nis2-acn-pubblica-le-determinazioni-379887-e-379907)
+- [ICT Security Magazine - «NIS2: la mappa completa degli adempimenti da qui a ottobre 2026»](https://www.ictsecuritymagazine.com/notizie/nis2-adempimenti/)
+- [Cyberness - «NIS 2, supply chain: la Determinazione ACN 127437/2026 introduce l'obbligo di elencare i fornitori rilevanti»](https://www.cyberness.it/nis2-fornitori-rilevanti-determinazione-acn-127437-2026/)
+- [iSimply - «Fornitori rilevanti NIS2: tutti i chiarimenti ACN»](https://www.isimply.it/news/fornitori-rilevanti-nis2-tutti-i-chiarimenti-acn/)
+- [Piselli & Partners - «Elementi essenziali di cybersicurezza nei contratti pubblici: il DPCM 30 aprile 2025 e l'art. 14 della L. 90/2024»](https://www.piselliandpartners.com/innovation/elementi-essenziali-di-cybersicurezza-nei-contratti-pubblici-il-dpcm-30-aprile-2025-e-lart-14-della-l-90-2024/)
+- [Cybersecurity360 - «ACN aggiorna le "specifiche di base" NIS2»](https://www.cybersecurity360.it/legal/acn-aggiorna-le-specifiche-di-base-nis2-cosa-devono-fare-i-soggetti-interessati/)
 
 ---
 

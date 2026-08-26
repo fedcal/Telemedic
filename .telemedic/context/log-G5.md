@@ -1,4 +1,4 @@
-# log-G5 — Modulo 04 «Identità e anagrafiche»
+# log-G5 - Modulo 04 «Identità e anagrafiche»
 
 > **Agente**: G5 · **Data**: 25 agosto 2026 · **Decisione di riferimento**: D35, blocco A della
 > guida dei fondamenti; decisioni D36, D37, D38.
@@ -13,9 +13,9 @@
 |---|---|
 | Righe totali | **2.398** |
 | Righe non vuote | **1.948** |
-| Parole (stima) | **≈ 21.000** — ampiamente oltre il minimo di 8.000 richiesto dal mandato |
+| Parole (stima) | **≈ 21.000** - ampiamente oltre il minimo di 8.000 richiesto dal mandato |
 | Sezioni numerate | 12, più «Cosa devi ricordare» e «Termini introdotti» |
-| Diagrammi Mermaid | **6** — i due errori di identità (`flowchart`); modello persona/ruolo/organizzazione (`erDiagram`); catena di riconciliazione con soglie e coda umana (`flowchart`); flusso di autenticazione federata (`sequenceDiagram`); macchina a stati dell'identificazione a distanza (`stateDiagram-v2`); catena di delega con verifica per singolo atto (`flowchart`) |
+| Diagrammi Mermaid | **6** - i due errori di identità (`flowchart`); modello persona/ruolo/organizzazione (`erDiagram`); catena di riconciliazione con soglie e coda umana (`flowchart`); flusso di autenticazione federata (`sequenceDiagram`); macchina a stati dell'identificazione a distanza (`stateDiagram-v2`); catena di delega con verifica per singolo atto (`flowchart`) |
 | Tabelle | **34** |
 | Marcature `[NV]` | **11**, tutte raccolte nel § 12 con il destinatario della richiesta |
 | Marcature `[V]` | 7, sui valori di `system` FHIR e sui codici di tipo identificatore verificati in B6 |
@@ -30,40 +30,40 @@
 
 | § | Contenuto |
 |---|---|
-| — | Intro: le quattro domande del modulo, rapporto con i moduli 07 (§ 8 — sintesi operativa), 02 (§ 10.2), 01 (§ 5), 13; convenzione `[NV]`; distinzione «la norma stabilisce» / «è prassi» / «il progetto propone» |
+| - | Intro: le quattro domande del modulo, rapporto con i moduli 07 (§ 8 - sintesi operativa), 02 (§ 10.2), 01 (§ 5), 13; convenzione `[NV]`; distinzione «la norma stabilisce» / «è prassi» / «il progetto propone» |
 | 1 | **Il problema dell'identità in sanità**: perché la stessa persona esiste sette volte; i due errori simmetrici (duplicato → danno per omissione; sovrapposizione → danno per commissione + violazione di dati); **perché la fusione errata è un evento avverso** (ISO 14971, gravità del danno possibile; funzioni legate alla sicurezza ai sensi di IEC 62366-1); vocabolario a sei voci; le cinque proprietà di un identificatore |
 | 2 | **Gli identificatori dell'assistito**: codice fiscale (D.P.R. 605/1973, D.M. 23 dicembre 1976; struttura carattere per carattere); omocodia con la tabella di sostituzione e i quattro difetti che genera; sei casi patologici (neonato, rettifica, cambio di cognome, rettificazione di sesso ex L. 164/1982, straniero non iscritto, decesso); STP ed ENI; tessera sanitaria e TEAM; codice ANA e identificativi regionali; identificativo interno dell'erogatore; **due tabelle riassuntive** e le cinque regole di modellazione |
 | 3 | **Il codice fiscale nei sistemi informativi**: il dominio di attribuzione; **la divergenza verificata degli URI di sistema** fra *IT Base*/*Televisita* e *IT-Core*, con la raccomandazione operativa in quattro punti; il codice di tipo identificatore (`NNxxx`, non `NN`); i tre divieti («non è un segreto, non è una password, non è uno pseudonimo») |
 | 4 | **Le anagrafiche**: ANPR (art. 62 CAD, D.P.C.M. 194/2014), ANA (art. 62-*ter* CAD), anagrafiche aziendali; **allineamento a precedenza per campo** con tre regole; **riconciliazione** deterministica e probabilistica con diagramma e cinque scelte di progetto; domicilio ≠ residenza; **quattro sopravvenienze** (decesso, trasferimento, cambio del medico, maggiore età) con la regola «nessun diritto memorizzato come permesso»; **identità pseudonimizzata** e i suoi quattro limiti |
 | 5 | **L'identità del professionista**: ordini e albi (d.lgs.C.p.S. 233/1946, D.P.R. 221/1950, L. 3/2018); iscrizione **territoriale** e non nazionale; stato dell'iscrizione; albi e sezioni; atti riservati e art. 348 c.p.; **modello persona/ruolo/organizzazione** con `erDiagram`; **l'errore della specialità come attributo**, con tabella delle cinque domande a cui l'attributo non risponde; ciclo di vita del ruolo e **autorizzazione a tre livelli** (titolo / veste / relazione di cura); attori non clinici e principali applicativi |
-| 6 | **L'identità digitale**: art. 64 CAD comma per comma; **chi è obbligato a cosa** per scenario di installazione; SPID (federazione, ordine casuale, assenza di sessione condivisa in L2/L3, codici di anomalia); CIE (gestore unico, tre livelli, **solo quattro attributi**, vantaggi operativi); TS-CNS (nessuna federazione, elenco di fiducia, due avvertenze di prodotto, la trappola dell'iniezione di intestazioni); tabella «chi rilascia / chi verifica / cosa costa»; **§ 6.6 — il progetto non può essere accreditato**, con la ragione giuridica in cinque passaggi, la formula pubblica e la ripartizione delle attività |
-| 7 | **I livelli di garanzia**: che cosa misurano davvero; `SpidL1|L2|L3` ↔ ISO/IEC 29115 LoA2/3/4 **con l'avvertenza sullo scarto di numerazione**; correlazione eIDAS e art. 64 c. 2-*duodecies*; **quale livello serve e perché la risposta è scomoda** (appendice esemplificativa vs prassi FSE, con cinque argomenti); **§ 7.4 — la trappola verificata sull'asserzione CIE**; **§ 7.5 — due valori (richiesto e dichiarato)**, il livello asseribile per TS-CNS come stima di progetto, e la regola «il canale più debole determina la sicurezza dell'account» |
+| 6 | **L'identità digitale**: art. 64 CAD comma per comma; **chi è obbligato a cosa** per scenario di installazione; SPID (federazione, ordine casuale, assenza di sessione condivisa in L2/L3, codici di anomalia); CIE (gestore unico, tre livelli, **solo quattro attributi**, vantaggi operativi); TS-CNS (nessuna federazione, elenco di fiducia, due avvertenze di prodotto, la trappola dell'iniezione di intestazioni); tabella «chi rilascia / chi verifica / cosa costa»; **§ 6.6 - il progetto non può essere accreditato**, con la ragione giuridica in cinque passaggi, la formula pubblica e la ripartizione delle attività |
+| 7 | **I livelli di garanzia**: che cosa misurano davvero; `SpidL1|L2|L3` ↔ ISO/IEC 29115 LoA2/3/4 **con l'avvertenza sullo scarto di numerazione**; correlazione eIDAS e art. 64 c. 2-*duodecies*; **quale livello serve e perché la risposta è scomoda** (appendice esemplificativa vs prassi FSE, con cinque argomenti); **§ 7.4 - la trappola verificata sull'asserzione CIE**; **§ 7.5 - due valori (richiesto e dichiarato)**, il livello asseribile per TS-CNS come stima di progetto, e la regola «il canale più debole determina la sicurezza dell'account» |
 | 8 | **I protocolli spiegati da zero**: il problema comune (il messaggio viaggia attraverso un intermediario ostile); SAML 2.0 con vocabolario, `sequenceDiagram` e sei deviazioni esemplificative del profilo italiano; OpenID Connect e perché è disponibile solo per CIE; autenticazione con certificato e le quattro verifiche, con il compromesso liste di revoca / interrogazione in linea e il **fallimento chiuso**; tabella comparativa; rinvio esplicito al modulo 13 |
 | 9 | **Identificazione a distanza**: tabella autenticazione vs identificazione su sei dimensioni; i tre livelli di prescrizione normativa; **cinque cose che non bastano**; **cosa si registra come prova** (sei elementi, metodo come valore e non booleano, divieto di conservare l'immagine del documento); `stateDiagram-v2`; rapporto con i quattro atti di consenso |
-| 10 | **Delega e rappresentanza**: assistere ≠ rappresentare; **cinque figure** con la trappola di ciascuna (amministratore di sostegno ≠ tutore); **sei proprietà di una delega sicura** più due comportamenti automatici; `flowchart` della catena di delega con il rombo **V2** (ambito dei poteri) che quasi tutti omettono; **§ 10.4 — autenticazione eseguita contro autenticazione riferita**, i due percorsi di identità, le tre regole di autorizzazione, delega mai impersonificazione (RFC 8693 § 4.1) |
-| 11 | **Costi e conseguenze per chi installa**: tabella dei corrispettivi con le **tre letture non ovvie** (0,4 € → 3,5 € per attributo extra-anagrafica; 7 € per il livello 3; franchigia per coppia fornitore/gestore); **obblighi ricorrenti** in otto righe con la conseguenza tecnica di ciascuno; **§ 11.3 — i tre difetti del prodotto di federazione come rischi ISO 14971**, con cinque contromisure obbligatorie e tre test automatici; otto decisioni che chi installa deve prendere prima di iniziare |
+| 10 | **Delega e rappresentanza**: assistere ≠ rappresentare; **cinque figure** con la trappola di ciascuna (amministratore di sostegno ≠ tutore); **sei proprietà di una delega sicura** più due comportamenti automatici; `flowchart` della catena di delega con il rombo **V2** (ambito dei poteri) che quasi tutti omettono; **§ 10.4 - autenticazione eseguita contro autenticazione riferita**, i due percorsi di identità, le tre regole di autorizzazione, delega mai impersonificazione (RFC 8693 § 4.1) |
+| 11 | **Costi e conseguenze per chi installa**: tabella dei corrispettivi con le **tre letture non ovvie** (0,4 € → 3,5 € per attributo extra-anagrafica; 7 € per il livello 3; franchigia per coppia fornitore/gestore); **obblighi ricorrenti** in otto righe con la conseguenza tecnica di ciascuno; **§ 11.3 - i tre difetti del prodotto di federazione come rischi ISO 14971**, con cinque contromisure obbligatorie e tre test automatici; otto decisioni che chi installa deve prendere prima di iniziare |
 | 12 | Riepilogo degli 11 punti `[NV]` con il destinatario |
-| — | «Cosa devi ricordare» (14 punti) e «Termini introdotti in questo modulo» (37 voci) |
+| - | «Cosa devi ricordare» (14 punti) e «Termini introdotti in questo modulo» (37 voci) |
 
 ---
 
-## 3. Vincoli del mandato — verifica di adempimento
+## 3. Vincoli del mandato - verifica di adempimento
 
 | Vincolo | Esito |
 |---|---|
 | Un solo file, frontmatter YAML con `title`, `sidebar_position: 5`, `description` | Rispettato |
 | ≥ 8.000 parole | Rispettato con ampio margine (≈ 21.000) |
-| Punto 1 — problema dell'identità, doppio errore, fusione come evento avverso | § 1, con il collegamento esplicito a ISO 14971 e IEC 62366-1 e la frase-chiave «l'anagrafica non è un modulo di supporto, è un componente critico per la sicurezza» |
-| Punto 2 — identificatori dell'assistito, con «cosa identifica davvero / quando cambia / quando manca / perché non è chiave primaria» | § 2, con le due tabelle finali (§ 2.8 e § 2.9) costruite proprio su quelle domande |
-| Punto 3 — divergenza dell'URI di sistema, verificata, con raccomandazione | § 3.2, con la tabella a tre righe e i quattro punti operativi; § 3.1 fonda il principio generale del dominio di attribuzione |
-| Punto 4 — anagrafi, allineamento, riconciliazione, sopravvenienze, identità pseudonimizzata e limiti | § 4 per intero |
-| Punto 5 — identità del professionista, persona ≠ veste, ruolo come relazione | § 5, con `erDiagram` e la tabella delle cinque domande |
-| Punto 6 — SPID/CIE/TS-CNS, chi rilascia, chi verifica, costi; **il progetto non può essere accreditato**, con ragione giuridica | § 6, con § 6.6 dedicata e la citazione testuale del D.P.C.M. 24 ottobre 2014, art. 1, c. 1, lett. i) e dello schema di convenzione, art. 2, c. 1, lett. a) e c) |
-| Punto 7 — livelli di garanzia, corrispondenza internazionale, quando serve ciascuno, trappola CIE | § 7, con l'avvertenza sullo scarto di numerazione L1↔LoA2 |
-| Punto 8 — protocolli spiegati a chi non li ha mai visti, con rinvii al modulo 13 | § 8, con riquadro di perimetro in apertura e rinvio finale |
-| Punto 9 — identificazione a distanza, cosa non basta, cosa si registra, rapporto con il consenso | § 9 |
-| Punto 10 — delega e rappresentanza, come modellarla, autenticazione eseguita vs riferita | § 10 |
-| Punto 11 — costi per accesso, effetto degli attributi, difetti dei prodotti di federazione come rischi | § 11 |
+| Punto 1 - problema dell'identità, doppio errore, fusione come evento avverso | § 1, con il collegamento esplicito a ISO 14971 e IEC 62366-1 e la frase-chiave «l'anagrafica non è un modulo di supporto, è un componente critico per la sicurezza» |
+| Punto 2 - identificatori dell'assistito, con «cosa identifica davvero / quando cambia / quando manca / perché non è chiave primaria» | § 2, con le due tabelle finali (§ 2.8 e § 2.9) costruite proprio su quelle domande |
+| Punto 3 - divergenza dell'URI di sistema, verificata, con raccomandazione | § 3.2, con la tabella a tre righe e i quattro punti operativi; § 3.1 fonda il principio generale del dominio di attribuzione |
+| Punto 4 - anagrafi, allineamento, riconciliazione, sopravvenienze, identità pseudonimizzata e limiti | § 4 per intero |
+| Punto 5 - identità del professionista, persona ≠ veste, ruolo come relazione | § 5, con `erDiagram` e la tabella delle cinque domande |
+| Punto 6 - SPID/CIE/TS-CNS, chi rilascia, chi verifica, costi; **il progetto non può essere accreditato**, con ragione giuridica | § 6, con § 6.6 dedicata e la citazione testuale del D.P.C.M. 24 ottobre 2014, art. 1, c. 1, lett. i) e dello schema di convenzione, art. 2, c. 1, lett. a) e c) |
+| Punto 7 - livelli di garanzia, corrispondenza internazionale, quando serve ciascuno, trappola CIE | § 7, con l'avvertenza sullo scarto di numerazione L1↔LoA2 |
+| Punto 8 - protocolli spiegati a chi non li ha mai visti, con rinvii al modulo 13 | § 8, con riquadro di perimetro in apertura e rinvio finale |
+| Punto 9 - identificazione a distanza, cosa non basta, cosa si registra, rapporto con il consenso | § 9 |
+| Punto 10 - delega e rappresentanza, come modellarla, autenticazione eseguita vs riferita | § 10 |
+| Punto 11 - costi per accesso, effetto degli attributi, difetti dei prodotti di federazione come rischi | § 11 |
 | «Sviluppa, non ripetere» rispetto al modulo 07 § 8 | Il modulo 07 è stato letto integralmente nelle sezioni 8 e 9. Qui non sono ripetuti: la tabella dei tre canali in sintesi, la ripartizione «progetto / chi installa» del § 9 di 07, il quadro FSE. Sono invece sviluppati: profili, attributi, livelli, protocolli, costi, difetti, delega. La formula pubblica di D36 è ripresa **verbatim** perché il mandato di 07 la dichiara da usare «tale e quale» |
 | Rinvii a 01, 02, 03, 05, 06, 07, 10, 12, 13 | Presenti e puntuali (sezione citata, non solo il modulo) |
 | Distinzione «la norma stabilisce» / «è prassi» / «proposta del progetto» | Applicata sistematicamente; le proposte sono sempre marcate come tali |
@@ -80,12 +80,12 @@
 | Fonte | Che cosa è stato preso |
 |---|---|
 | `00_PROJECT_BRIEF.md` | D1, D8, D13, D18, D25, D28, D35, **D36**, **D37**, **D38**, D42, D48, D50, D51, D52; vincoli V1, V4, V5, V6; profilo dell'integratore § 6.1–6.2 (lettura della tessera sanitaria da lettore, nessuna duplicazione di anagrafica, nessuna imposizione di IAM); **regola R0** |
-| `B7-identita-digitale-italiana.md` | Fonte principale. Art. 64 CAD; chi è obbligato a cosa; § 1.4 sul Service Provider; profilo SPID e le deviazioni da SAML2; codici di anomalia e la loro natura non-di-errore; art. 28 del regolamento attuativo (niente sessione condivisa in L2/L3); livelli e mappatura ISO/IEC 29115; appendice A e la tensione con la prassi FSE L2; CIE (decreto 8 settembre 2022, manuale operativo, minimum eIDAS dataset, tre livelli, portale, referente tecnico esterno, semplificazione per chi è già SP SPID); **§ 4.3 — asserzione sempre `SpidL3`**; TS-CNS (elenco di fiducia con tipo di servizio «verifica dell'identità», host virtuale dedicato, iniezione di intestazioni, CRL contro OCSP e fallimento chiuso, TS-CNS per il professionista e non per il paziente); § 7.1 — i tre difetti del prodotto di federazione; § 7.7.3 — `acr` autoritativo contro riferito; § 3.9.5 — tabella dei corrispettivi e le tre letture; § 3.8 — obblighi ricorrenti, UTC(IEN) ± 1 minuto, 24 mesi; aggregatori |
+| `B7-identita-digitale-italiana.md` | Fonte principale. Art. 64 CAD; chi è obbligato a cosa; § 1.4 sul Service Provider; profilo SPID e le deviazioni da SAML2; codici di anomalia e la loro natura non-di-errore; art. 28 del regolamento attuativo (niente sessione condivisa in L2/L3); livelli e mappatura ISO/IEC 29115; appendice A e la tensione con la prassi FSE L2; CIE (decreto 8 settembre 2022, manuale operativo, minimum eIDAS dataset, tre livelli, portale, referente tecnico esterno, semplificazione per chi è già SP SPID); **§ 4.3 - asserzione sempre `SpidL3`**; TS-CNS (elenco di fiducia con tipo di servizio «verifica dell'identità», host virtuale dedicato, iniezione di intestazioni, CRL contro OCSP e fallimento chiuso, TS-CNS per il professionista e non per il paziente); § 7.1 - i tre difetti del prodotto di federazione; § 7.7.3 - `acr` autoritativo contro riferito; § 3.9.5 - tabella dei corrispettivi e le tre letture; § 3.8 - obblighi ricorrenti, UTC(IEN) ± 1 minuto, 24 mesi; aggregatori |
 | `B6-verifica-fhir.md` § 4 | **Divergenza degli URI di sistema del codice fiscale** (tabella a tre righe, verificata due volte sulla fonte); `NNxxx` e l'inesistenza di `NN`; nessun profilo italiano fissa il codice di tipo; sistemi degli slice `anpr`, `codiceANA`, `tesseraTEAM` |
 | `R6-dominio-funzionale.md` | Attori e trappole: caregiver ≠ rappresentante (BR-062); amministratore di sostegno con poteri delimitati (BR-063); delega con scadenza obbligatoria; maggiore età (RF-118); identificazione non riuscita e metodi alternativi (RF-080); registrazione degli estremi di iscrizione all'albo; «nessuna operazione clinica senza contesto utente delegante» (BR-017); invarianti sull'unicità `system` + `value` per tenant |
 | `R3-normativa-italiana.md` § 9.5 | Misure dell'Allegato 4 al DM 19 novembre 2025: identità digitale ex art. 64 CAD, log 24 mesi, dati di accesso e autenticazione 12 mesi |
-| `docs/10_fondamenti/07-fse-e-infrastrutture-nazionali.md` | §§ 2.5, 2.6, 3.1, 3.2, 8, 9 — **letti per non ripetere**. Ripresi solo come rinvio: art. 15 e la dichiarazione ex art. 47 D.P.R. 445/2000; art. 10 (trent'anni dal decesso); art. 24 (trasferimento dell'indice alla nuova RdA); pseudonimizzazione eseguita dall'EDS |
-| `docs/10_fondamenti/01-sistema-sanitario-italiano.md` §§ 5.1–5.3 | Atti riservati; catalogo dei professionisti; MMG/PLS e la transizione; personale amministrativo; «il professionista non è l'utente» — **sviluppato, non ripetuto** |
+| `docs/10_fondamenti/07-fse-e-infrastrutture-nazionali.md` | §§ 2.5, 2.6, 3.1, 3.2, 8, 9 - **letti per non ripetere**. Ripresi solo come rinvio: art. 15 e la dichiarazione ex art. 47 D.P.R. 445/2000; art. 10 (trent'anni dal decesso); art. 24 (trasferimento dell'indice alla nuova RdA); pseudonimizzazione eseguita dall'EDS |
+| `docs/10_fondamenti/01-sistema-sanitario-italiano.md` §§ 5.1–5.3 | Atti riservati; catalogo dei professionisti; MMG/PLS e la transizione; personale amministrativo; «il professionista non è l'utente» - **sviluppato, non ripetuto** |
 | `docs/10_fondamenti/02-prestazioni-di-telemedicina.md` § 10 | Identificazione ≠ autenticazione (tre righe, **qui trasformate in un modello**); i tre consensi; caregiver e rappresentanza; DM 30 settembre 2022, Allegato B, indicazioni per fascia |
 | `docs/10_fondamenti/06-fhir-da-zero.md` | Trattamento della divergenza degli URI dal punto di vista del profilo: **rinviato, non duplicato** |
 | `docs/10_fondamenti/00-come-usare-questa-guida.md` | Convenzioni redazionali, elenco dei moduli, collegamenti relativi, regola dei dati sintetici |
@@ -105,7 +105,7 @@
 | NV-7 | Equivalenza dichiarata fra CNS e livelli SPID | § 7.5 | AgID. In assenza resta una **stima di progetto**, configurabile |
 | NV-8 | Stato reale del supporto a OpenID Connect da parte dei gestori SPID in produzione | § 8.2 | AgID; canale pubblico presidiato dal team SPID. Fonte attuale: pubblica ma **non normativa**, consultata il 25 agosto 2026 |
 | NV-9 | Vigenza della tabella dei corrispettivi del 2019 dopo il rinnovo delle convenzioni dell'8 ottobre 2025 | § 11.1 | AgID. **Bloccante per qualunque stima economica pubblica** |
-| NV-10 | Esistenza di corrispettivi per la federazione CIE | § 11.1 | Ministero dell'Interno — Direzione centrale servizi demografici |
+| NV-10 | Esistenza di corrispettivi per la federazione CIE | § 11.1 | Ministero dell'Interno - Direzione centrale servizi demografici |
 | NV-11 | Disciplina puntuale della manifestazione di volontà in caso di affidamento condiviso del minore | § 10.2 | Approfondimento giuridico dedicato. Ereditato dalla questione Q9 di R6 |
 
 ---
@@ -127,7 +127,7 @@
 
 - Questo modulo **dà per acquisita** la teoria di certificati, PKI, firma e catena di fiducia,
   e rinvia a 12 (§ 8.4). Se 12 tratta la revoca (liste contro interrogazione in linea) in modo
-  sostanziale, il rinvio da § 8.4 va reso puntuale — qui resta la **scelta di progetto**
+  sostanziale, il rinvio da § 8.4 va reso puntuale - qui resta la **scelta di progetto**
   (liste come predefinito, fallimento chiuso, valutazione d'impatto sull'interrogazione in
   linea), che non va duplicata.
 - **Da coordinare**: l'elenco di fiducia nazionale e il filtro sul tipo di servizio «verifica
@@ -186,7 +186,7 @@ perché diventano contratto verso gli integratori e verso chi installa:
 6. **Nessun diritto di accesso memorizzato come permesso**: sempre calcolato da un titolo con
    durata.
 7. **Doppia registrazione del livello di garanzia** (richiesto e dichiarato) e marcatore
-   «eseguita / riferita» sulla fonte dell'autenticazione — **è la traduzione operativa di
+   «eseguita / riferita» sulla fonte dell'autenticazione - **è la traduzione operativa di
    D38**, che va coordinata con l'ADR sull'identity chaining di D18.
 8. **Livello di garanzia asserito per TS-CNS** e sua configurabilità.
 9. **Configurabilità per tenant** di canali ammessi, livello minimo per operazione e
@@ -250,19 +250,19 @@ perché diventano contratto verso gli integratori e verso chi installa:
 
 37 voci, tutte definite nella tabella «Termini introdotti in questo modulo».
 
-**Identificatori e anagrafiche** — entità · identità · identificatore · dominio di attribuzione ·
+**Identificatori e anagrafiche** - entità · identità · identificatore · dominio di attribuzione ·
 attributo · codice fiscale · omocodia · codice Belfiore (codice catastale) · STP · ENI ·
 tessera sanitaria · TEAM · codice ANA · ANPR · ANA · RdA / RdE · indice principale del paziente ·
 corrispondenza deterministica / corrispondenza probabilistica · pseudonimo (identità).
 
-**Professionista** — `Practitioner` / `PractitionerRole` / `Organization`.
+**Professionista** - `Practitioner` / `PractitionerRole` / `Organization`.
 
-**Identità digitale** — autenticazione · identificazione (clinica) · SPID · CIE · TS-CNS ·
+**Identità digitale** - autenticazione · identificazione (clinica) · SPID · CIE · TS-CNS ·
 livello di garanzia (LoA) · ISO/IEC 29115 · livello richiesto / livello dichiarato · asserzione ·
 metadata (federazione) · SAML 2.0 · OpenID Connect · autenticazione bilaterale TLS ·
 elenco di fiducia · verifica della revoca · soggetto aggregatore / soggetto aggregato.
 
-### Voci in collisione con altri moduli — da consolidare nel glossario
+### Voci in collisione con altri moduli - da consolidare nel glossario
 
 | Voce | Collide con | Nota per il glossario |
 |---|---|---|

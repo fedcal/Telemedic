@@ -1,4 +1,4 @@
-# Log G3 — Modulo 11 «Fondamenti informatici»
+# Log G3 - Modulo 11 «Fondamenti informatici»
 
 **Agente**: G3
 **Mandato**: decisione `D35`, blocco D della guida dei fondamenti.
@@ -15,7 +15,7 @@
 | Righe totali del file | 3.075 |
 | Righe non vuote | 2.418 |
 | **Parole (stima)** | **≈ 26.000** |
-| Requisito di mandato | ≥ 9.000 parole — **soddisfatto con ampio margine** |
+| Requisito di mandato | ≥ 9.000 parole - **soddisfatto con ampio margine** |
 | Sezioni di primo livello | 14 tematiche + «Cosa devi ricordare» + «Termini introdotti» + «Dove continuare» |
 | Diagrammi Mermaid | 4 (saga di chiusura con compensazione; outbox transazionale; mappa dei contesti ridotta; piramide dei test) |
 | Blocchi di codice con linguaggio dichiarato | 8 (`sql` ×3, `java` ×2, `http`, `json`, testo per formule) |
@@ -45,9 +45,9 @@
 | 12 | Osservabilità | 2341 |
 | 13 | Affidabilità | 2522 |
 | 14 | Qualità del software | 2689 |
-| — | Cosa devi ricordare (17 punti) | 2942 |
-| — | Termini introdotti in questo modulo (62 voci) | 2996 |
-| — | Dove continuare | 3064 |
+| - | Cosa devi ricordare (17 punti) | 2942 |
+| - | Termini introdotti in questo modulo (62 voci) | 2996 |
+| - | Dove continuare | 3064 |
 
 Tutti e quattordici i punti del mandato sono coperti, uno per sezione, nello stesso ordine
 richiesto.
@@ -113,7 +113,7 @@ dati negli esempi sono sintetici (`tenant-demo`, `enc-77213`, `ext:pz-000117`, `
 
 ---
 
-## 3. Punti `[NV]` — da verificare prima di trasformarli in requisito o in codice
+## 3. Punti `[NV]` - da verificare prima di trasformarli in requisito o in codice
 
 ### 3.1 Attribuzioni bibliografiche (basso rischio, alta visibilità)
 
@@ -122,12 +122,12 @@ dati negli esempi sono sintetici (`tenant-demo`, `enc-77213`, `ext:pz-000117`, `
 | NV-01 | 1.2 | 83 | Paternità e data delle «otto fallacie del calcolo distribuito» (Peter Deutsch, Sun Microsystems, fine anni Novanta; ottava aggiunta da James Gosling) | agente bibliografia / modulo 20 |
 | NV-02 | 2.2 | 222 | Teorema CAP: congettura di Eric Brewer (2000), dimostrazione di Gilbert e Lynch (2002) | agente bibliografia / modulo 20 |
 | NV-03 | 2.2 | 243 | PACELC: formulazione di Daniel Abadi | agente bibliografia / modulo 20 |
-| NV-04 | 3.4 | 440 | Saga: Garcia-Molina e Salem, 1987 — riferimento bibliografico esatto | agente bibliografia / modulo 20 |
-| NV-05 | 7 | 1193 | Domain-Driven Design: Eric Evans, 2003 — riferimento esatto | agente bibliografia / modulo 20 |
-| NV-06 | 8.6 | 1707 | Contatore di Lamport: Leslie Lamport, 1978 — riferimento esatto | agente bibliografia / modulo 20 |
-| NV-07 | 11.3 | 2193 | Legge di Little: John Little, 1961 — riferimento esatto | agente bibliografia / modulo 20 |
+| NV-04 | 3.4 | 440 | Saga: Garcia-Molina e Salem, 1987 - riferimento bibliografico esatto | agente bibliografia / modulo 20 |
+| NV-05 | 7 | 1193 | Domain-Driven Design: Eric Evans, 2003 - riferimento esatto | agente bibliografia / modulo 20 |
+| NV-06 | 8.6 | 1707 | Contatore di Lamport: Leslie Lamport, 1978 - riferimento esatto | agente bibliografia / modulo 20 |
+| NV-07 | 11.3 | 2193 | Legge di Little: John Little, 1961 - riferimento esatto | agente bibliografia / modulo 20 |
 
-> Il modulo [20 — Fonti primarie](../../docs/10_fondamenti/20-fonti-primarie.md) prescrive
+> Il modulo [20 - Fonti primarie](../../docs/10_fondamenti/20-fonti-primarie.md) prescrive
 > «sole fonti primarie»: questi sette riferimenti vanno risolti su articolo o libro originale,
 > non su enciclopedie o sintesi.
 
@@ -135,7 +135,7 @@ dati negli esempi sono sintetici (`tenant-demo`, `enc-77213`, `ext:pz-000117`, `
 
 | # | § | Riga | Cosa verificare | Impatto se sbagliato |
 |---|---|---|---|---|
-| NV-08 | 3.2 | 359 | Comportamento di `repeatable read` in PostgreSQL (snapshot isolation): esclude i fantasmi ma ammette la scrittura obliqua — sulla versione effettivamente adottata | Un requisito di isolamento scritto sull'assunzione sbagliata lascia aperto l'overbooking |
+| NV-08 | 3.2 | 359 | Comportamento di `repeatable read` in PostgreSQL (snapshot isolation): esclude i fantasmi ma ammette la scrittura obliqua - sulla versione effettivamente adottata | Un requisito di isolamento scritto sull'assunzione sbagliata lascia aperto l'overbooking |
 | NV-09 | 4.4 | 654 | Comportamento del riassegnamento delle partizioni Kafka in caso di **aumento** del numero di partizioni: la funzione di assegnazione cambia e può spezzare l'ordine per aggregato | Un ridimensionamento in esercizio produrrebbe eventi fuori ordine su contatti attivi |
 | NV-10 | 6.1 | 938 | Limiti reali della garanzia «exactly-once» di Kafka nell'assetto **KRaft a nodo singolo** previsto da `D15` | Affidarsi a una garanzia non disponibile nell'assetto on-premise |
 | NV-11 | 8.5 | 1671 | Comportamento della libreria di date adottata sugli istanti inesistenti e doppi al cambio di ora legale (02:30 delle due domeniche) | Slot di agenda inesistenti o doppi due volte l'anno |
@@ -227,7 +227,7 @@ del modulo 11 (§9.1) è coerente con quella di `R6` §1.5 e con `V4`, ma va uni
 |---|---|---|---|
 | **Log** | Sequenza ordinata immutabile di record (§4.3) | File di diagnostica (§12.2) | «Log degli eventi» contro «registro di diagnostica» |
 | **Sessione** | Sessione media, connessione tecnica | Atto clinico; unità rendicontabile | Già trattata in `R6` §8.1 come frattura di linguaggio; il modulo 11 la riprende in §7.2 |
-| **Consistenza** | Tre accezioni distinte (§2.1) | — | Il modulo le separa esplicitamente: transazionale, di replica, di visibilità |
+| **Consistenza** | Tre accezioni distinte (§2.1) | - | Il modulo le separa esplicitamente: transazionale, di replica, di visibilità |
 | **Latenza** | Tempo di risposta di un'operazione | Latenza percepita nella conversazione clinica | Il modulo le collega in §11.6 |
 | **Compensazione** | Transazione che contrasta un effetto | Rettifica documentale | Il modulo dichiara che non coincidono (§3.5) |
 

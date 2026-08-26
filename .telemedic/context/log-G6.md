@@ -1,4 +1,4 @@
-# Log agente G6 — modulo 12 «Crittografia e sicurezza»
+# Log agente G6 - modulo 12 «Crittografia e sicurezza»
 
 **Data**: 25 agosto 2026
 **Deliverable**: `docs/10_fondamenti/12-crittografia-e-sicurezza.md`
@@ -10,7 +10,7 @@
 
 | Metrica | Valore |
 |---|---|
-| Parole | **28.964** (mandato: ≥ 9.000 — superato di 3,2×) |
+| Parole | **28.964** (mandato: ≥ 9.000 - superato di 3,2×) |
 | Byte | 195.765 |
 | Righe | 2.869 |
 | Sezioni di primo livello | 12 + «Cosa devi ricordare» + «Termini introdotti» |
@@ -46,18 +46,18 @@ Coerente con la convenzione dei moduli adiacenti (11 → `sidebar_position: 12`,
 
 Rispettato il vincolo di non ripetere ciò che altri moduli coprono:
 
-- **[03 — Il dato clinico]** — rinvio esplicito in premessa e in 6 punti nel corpo: art. 9 GDPR e
+- **[03 - Il dato clinico]** - rinvio esplicito in premessa e in 6 punti nel corpo: art. 9 GDPR e
   categoria particolare, base giuridica/consenso, ruoli privacy, amministratore di sistema
   (§ 3.4), regola sui log (§ 4.4), tabella FES/FEA/FEQ (§ 7.1), firma/validazione/marca
   temporale (§ 7.2), conservazione (§ 7.3), oscuramento e oscuramento dell'oscuramento (§ 8),
   regola sui dati sintetici (§ 10). **Nulla è ripetuto: solo richiamato con la conseguenza
   tecnica.**
-- **[08 — WebRTC da zero]** — DTLS-SRTP, handshake, impronta del certificato, SAS, rotazione
+- **[08 - WebRTC da zero]** - DTLS-SRTP, handshake, impronta del certificato, SAS, rotazione
   delle chiavi, credenziali temporanee TURN, formulazione onesta del claim E2E (§ 6.9),
   conflitto registrazione/E2E (§ 10.4). Trattati **solo come esempio applicativo**.
-- **[13 — I protocolli]** — TLS/mTLS, OAuth/OIDC/SAML2, RFC di trasporto. Il modulo 13 dichiara
+- **[13 - I protocolli]** - TLS/mTLS, OAuth/OIDC/SAML2, RFC di trasporto. Il modulo 13 dichiara
   già in § 0.3 che la teoria crittografica sta qui: il rinvio è reciproco e coerente.
-- **[04 — Identità e anagrafiche]** — un rinvio, per l'anagrafica dell'identità.
+- **[04 - Identità e anagrafiche]** - un rinvio, per l'anagrafica dell'identità.
 
 ---
 
@@ -73,7 +73,7 @@ Rispettato il vincolo di non ripetere ciò che altri moduli coprono:
 | 6 | 1390 | **Livello di firma richiesto dall'ordinamento per ciascuna tipologia documentale sanitaria** | Ereditato da 03 § 7.1, che già lo marca `[NV]` | Agente regolatorio / FSE |
 | 7 | 2236 | **Estremi dell'art. 18 della Det. ACN n. 127437/2026** (fornitori rilevanti) | B4 § 5.2 lo dichiara ricostruito da fonti secondarie, non letto sul testo | Agente conformità |
 | 8 | 2313 | **Numerazione 17.1–17.4 dell'Allegato I MDR** | R2 § 2.6 la dichiara non confermata su testo primario | Agente MDR |
-| 9 | 31 | (metodologico) Dichiarazione che il modulo non pubblica ricette crittografiche e che i parametri seguono ETSI TS 119 312 / SOG-IS / AgID-ACN | — | — |
+| 9 | 31 | (metodologico) Dichiarazione che il modulo non pubblica ricette crittografiche e che i parametri seguono ETSI TS 119 312 / SOG-IS / AgID-ACN | - | - |
 
 **Nessun numero di CVE è citato nel modulo.** La scelta è esplicitata in una nota di metodo
 (§ 11.3): gli identificativi di vulnerabilità vivono negli advisory e nel VEX, non in una guida
@@ -87,7 +87,7 @@ ETSI TS 119 312, SOG-IS, AgID-ACN per parametri e dimensioni, ai sensi di D19).
 
 ## 4. Rispetto dei vincoli
 
-- **R0** — verificato per grep: **nessun nome di azienda, marchio, prodotto commerciale o
+- **R0** - verificato per grep: **nessun nome di azienda, marchio, prodotto commerciale o
   dominio**. Anche le tecnologie dello stack sono nominate per categoria («componente di
   gestione delle identità adottato», «sistema EHR di terze parti», «custode delle chiavi»,
   «sistema di gestione degli eventi di sicurezza»). Il difetto noto di Keycloak citato da D37 è
@@ -101,7 +101,7 @@ ETSI TS 119 312, SOG-IS, AgID-ACN per parametri e dimensioni, ai sensi di D19).
   blocchi `classDef` sono stati rimossi dai diagrammi per uniformità con gli altri moduli (che
   non li usano) e per non forzare colori incompatibili con il tema scuro; caratteri Unicode
   esotici (`‖`, pedici) rimossi dai label Mermaid.
-- **Diagrammi**: 5 Mermaid — confini di fiducia (§ 2.6), catena di hash (§ 5.6), catena di
+- **Diagrammi**: 5 Mermaid - confini di fiducia (§ 2.6), catena di hash (§ 5.6), catena di
   certificazione con i sei controlli di validazione (§ 6.3), flusso di rottura del vetro
   (§ 8.7), architettura del registro con conservazione separata (§ 9.4).
 
@@ -120,58 +120,58 @@ D41, D42, D43, D45, D49, D51.
 
 ## 6. Questioni per gli altri agenti
 
-**Q-G6-1 — Il collegamento a `04-identita-e-anagrafiche.md` punta a un modulo non ancora
+**Q-G6-1 - Il collegamento a `04-identita-e-anagrafiche.md` punta a un modulo non ancora
 scritto.** Ammesso durante la stesura, **bloccante prima del primo deploy** (D52). Il rinvio è
 in § 8.2, sull'anagrafica dell'identità digitale. → agente che scrive il modulo 04.
 
-**Q-G6-2 — Il registro immutabile va tradotto in ADR e in requisiti implementativi.** Il § 9.4
+**Q-G6-2 - Il registro immutabile va tradotto in ADR e in requisiti implementativi.** Il § 9.4
 descrive quattro elementi (sola aggiunta, catena per tenant, conservazione separata, sigillo
 firmato e marcato) e tre strategie alternative per la **concorrenza** delle scritture
 (serializzazione, partizionamento, incatenamento a lotti). **La scelta non è fatta e va fatta
 in un ADR**, perché ha effetti su prestazioni e granularità della rilevazione. → agente
 architettura / `docs/adr/`.
 
-**Q-G6-3 — Chi custodisce le ancore e i sigilli?** Il § 9.5 chiarisce che una catena
+**Q-G6-3 - Chi custodisce le ancore e i sigilli?** Il § 9.5 chiarisce che una catena
 tecnicamente perfetta le cui ancore sono custodite dallo stesso amministratore che potrebbe
 alterare i dati **non dimostra nulla**. Serve definire il modello organizzativo per i tre
 profili di deployment di D24 (UE, territorio italiano, cloud qualificato). → agente sicurezza /
 conformità.
 
-**Q-G6-4 — La rottura del vetro va coordinata con l'oscuramento e con i dati a maggiore tutela
+**Q-G6-4 - La rottura del vetro va coordinata con l'oscuramento e con i dati a maggiore tutela
 dell'anonimato.** Il § 8.7, requisito 7, rinvia a 03 § 8.3, ma **non esiste ancora una regola
 esplicita** su quali categorie di dati siano invocabili in rottura del vetro e quali no. È una
 decisione con rilevanza sia clinica sia giuridica. → agente dominio sanitario + regolatorio.
 
-**Q-G6-5 — Il modulo 15 (regolatorio da zero) e il § 10 di questo modulo si sovrappongono.**
+**Q-G6-5 - Il modulo 15 (regolatorio da zero) e il § 10 di questo modulo si sovrappongono.**
 Qui il taglio è «quale norma impone quale misura tecnica e a chi»; là dovrebbe essere «perché
 esiste questo quadro e come si legge una norma». **Verificare che non si duplichino** GDPR
 art. 32, NIS2 e CRA. Proposta: il modulo 15 rinvia a 12 § 10 per le misure di sicurezza. →
 agente modulo 15.
 
-**Q-G6-6 — Il § 12 (36 regole per chi contribuisce) è candidato a diventare una checklist di
+**Q-G6-6 - Il § 12 (36 regole per chi contribuisce) è candidato a diventare una checklist di
 `CONTRIBUTING.md` e un template di pull request.** Le regole 14, 15, 21, 24 e 34 sono
 verificabili automaticamente. → agente `CONTRIBUTING.md` / agente CI.
 
-**Q-G6-7 — Serve un ADR sulla tabella artefatto → regime CRA/MDR** (D41, requisito SEC-006). Il
+**Q-G6-7 - Serve un ADR sulla tabella artefatto → regime CRA/MDR** (D41, requisito SEC-006). Il
 § 10.3 la richiama e ne dà la forma, ma la compilazione richiede l'elenco definitivo degli
 artefatti distribuiti. → agente conformità.
 
-**Q-G6-8 — La politica crittografica del progetto non esiste ancora.** Il modulo rinvia
+**Q-G6-8 - La politica crittografica del progetto non esiste ancora.** Il modulo rinvia
 sistematicamente a ETSI TS 119 312 / SOG-IS / AgID-ACN (D19) e **rifiuta deliberatamente di
 pubblicare parametri**. Serve però un documento operativo, in `docs/06_security/`, che fissi le
 scelte con data e orizzonte, e che chiuda i punti `[NV]` 2, 3, 4 e 5 di questa tabella. →
 agente sicurezza.
 
-**Q-G6-9 — Verificare che il modulo 08 non contraddica il § 7.5.** Qui si afferma che nella
+**Q-G6-9 - Verificare che il modulo 08 non contraddica il § 7.5.** Qui si afferma che nella
 modalità con registrazione la sessione **non è da estremo a estremo**, coerentemente con D23 e
 con 08 § 10.4. Se il modulo 08 evolve, i due testi vanno riallineati nella stessa PR.
 
-**Q-G6-10 — Il § 11.8 elenca dodici deliverable di sicurezza.** Vanno agganciati alla roadmap
+**Q-G6-10 - Il § 11.8 elenca dodici deliverable di sicurezza.** Vanno agganciati alla roadmap
 con una data e un responsabile, altrimenti restano un elenco. → agente roadmap.
 
 ---
 
-## 7. Termini introdotti — per il glossario (modulo 19)
+## 7. Termini introdotti - per il glossario (modulo 19)
 
 Cinquantacinque voci, tutte definite in tabella a fine modulo. Elenco per l'aggregazione
 bilingue:
@@ -206,7 +206,7 @@ CA, FES, FEA, FEQ, CAD, SBOM, VEX, SOUP, STRIDE, RBAC, ABAC, CRA, NIS2, OCSP, MD
 - Il modulo è scritto per essere leggibile **sia da uno sviluppatore sia da un clinico**: ogni
   concetto crittografico ha un esempio del dominio, e ogni concetto sanitario (relazione di
   cura, rottura del vetro, oscuramento, referto) è spiegato a chi non l'ha mai visto.
-- La tesi portante — **in sanità integrità e tracciabilità pesano quanto la riservatezza** — è
+- La tesi portante - **in sanità integrità e tracciabilità pesano quanto la riservatezza** - è
   argomentata al § 1.2 con l'ancoraggio alla severità ISO 14971 (scenario S4 «decisione clinica
   presa su informazione errata») e ripresa al § 1.6 e al § 9.
 - Il § 10.6 («chi ha quale obbligo») è la tabella che il mandato chiedeva esplicitamente e che

@@ -1,10 +1,10 @@
 ---
-title: "R6 — Dominio funzionale e di business della telemedicina"
+title: "R6 - Dominio funzionale e di business della telemedicina"
 sidebar_position: 6
 description: "Ubiquitous language, attori e autorizzazioni, processi di dominio, regole di business, catalogo requisiti funzionali e non funzionali, modello DDD, KPI e sostenibilità del progetto Telemedic."
 ---
 
-# R6 — Dominio funzionale e di business
+# R6 - Dominio funzionale e di business
 
 > **Documento di ricerca.** Alimenta `docs/03_functional/`, `docs/05_domain/` e `docs/00_overview/glossario`.
 > **Regola R0 rispettata**: nessun riferimento ad aziende, marchi, prodotti commerciali o domini.
@@ -29,13 +29,13 @@ Questo documento modella il dominio, non lo riassume. Tre criteri governano ogni
 
 Il glossario è la fondazione dell'ubiquitous language: nomi di aggregati, eventi, endpoint, colonne e messaggi UI devono derivare da qui e non da traduzioni improvvisate. Le colonne «Trappola semantica» sono la parte operativamente più importante: ogni riga descrive un errore di modellazione realmente possibile.
 
-Legenda colonna FHIR: la corrispondenza indicata è quella **canonica in FHIR R4**; `—` significa che il concetto non ha risorsa dedicata e va rappresentato con estensione, `CodeableConcept` o combinazione.
+Legenda colonna FHIR: la corrispondenza indicata è quella **canonica in FHIR R4**; `-` significa che il concetto non ha risorsa dedicata e va rappresentato con estensione, `CodeableConcept` o combinazione.
 
 ### 1.1 Prestazioni e atti di telemedicina
 
 | Termine (IT) | Inglese | FHIR R4 | Definizione operativa | Usato da | Trappola semantica |
 |---|---|---|---|---|---|
-| **Telemedicina** | Telemedicine | — | Modalità di erogazione di prestazioni sanitarie e sociosanitarie a distanza abilitata dalle tecnologie dell'informazione e della comunicazione. Non è una specialità, è un **canale di erogazione**. | tutti | Non è sinonimo di «videochiamata»: comprende atti asincroni (telerefertazione) e senza interazione umana in tempo reale (telemonitoraggio). |
+| **Telemedicina** | Telemedicine | - | Modalità di erogazione di prestazioni sanitarie e sociosanitarie a distanza abilitata dalle tecnologie dell'informazione e della comunicazione. Non è una specialità, è un **canale di erogazione**. | tutti | Non è sinonimo di «videochiamata»: comprende atti asincroni (telerefertazione) e senza interazione umana in tempo reale (telemonitoraggio). |
 | **Televisita** | Video visit / remote consultation | `Encounter` con `class = VR` (v3-ActCode «virtual») | Atto medico in cui il professionista interagisce a distanza **in tempo reale** con il paziente, eventualmente assistito da caregiver o altro professionista. Le indicazioni nazionali la circoscrivono al controllo di pazienti con diagnosi già formulata e ne escludono la sostituzione automatica della prima visita in presenza `[da confermare con R3]`. | medico, paziente | Non è «una visita fatta in video»: è una prestazione **distinta e tariffata separatamente**, con propri prerequisiti di eleggibilità. Confonderla con la visita in presenza porta a modellare un solo tipo di `Encounter` e a perdere la rendicontazione. |
 | **Teleconsulto (medico)** | Physician-to-physician teleconsultation | `Encounter` + `ServiceRequest` verso il consulente | Atto medico in cui **due o più medici** interagiscono a distanza sulla situazione clinica di un paziente, condividendo dati, referti e immagini. Può essere sincrono o asincrono. | medici | Il paziente **non è necessariamente presente**: modellarlo come «televisita a tre» è un errore, perché cambia il soggetto della prestazione, la responsabilità e la tariffazione. |
 | **Teleconsulenza medico-sanitaria** | Tele-advice / clinical guidance | `Encounter` + `ServiceRequest` | Attività di consulenza o supporto a distanza fra professionisti **con responsabilità differenti**, richiesta da chi ha in carico il paziente per guidare l'esecuzione di un'attività. | medico, infermiere, altre professioni sanitarie | Distinta dal teleconsulto: qui c'è un **rapporto asimmetrico** richiedente/consulente ed è ammessa fra professioni diverse, non solo fra medici. |
@@ -43,7 +43,7 @@ Legenda colonna FHIR: la corrispondenza indicata è quella **canonica in FHIR R4
 | **Telemonitoraggio** | Remote patient monitoring (RPM) | `Observation`, `Device`, `DeviceMetric`, `CarePlan` | Rilevamento e trasmissione a distanza, continua o periodica, di parametri vitali e clinici mediante sensori, con integrazione dei dati nel sistema informativo. | paziente, infermiere, medico | È il ramo del dominio a **più alto rischio di classificazione MDR** (`⚠ V2`): appena si introducono soglie e alert clinici si esce dal «veicolo di comunicazione». `[da confermare con R2]` |
 | **Teleriabilitazione** | Telerehabilitation | `Encounter` + `CarePlan` + `Procedure` | Erogazione a distanza di interventi riabilitativi, individuali o di gruppo, con misurazione dell'aderenza al programma. | fisioterapista, logopedista, paziente | Ha durata **pluri-sessione**: modellarla come singolo `Encounter` perde il ciclo. Richiede `EpisodeOfCare` o `CarePlan` come contenitore. |
 | **Telerefertazione** | Tele-reporting | `DiagnosticReport` (+ `ImagingStudy` in ambito radiologico) | Relazione **asincrona** redatta e trasmessa mediante sistemi digitali, validata con firma digitale del medico responsabile, su un esame già acquisito. Il contenuto è quello tipico della refertazione in presenza. | medico refertante | Non implica alcuna interazione col paziente: non genera una televisita. Confonderla con «invio del referto via e-mail» è un errore grave (la telerefertazione è l'**atto**, non il trasporto). |
-| **Telesalute** | Telehealth | — | Insieme più ampio che comprende, oltre agli atti clinici, promozione della salute, educazione terapeutica e servizi non clinici. | policy, direzione sanitaria | Iperonimo di «telemedicina»: usarli come sinonimi produce un dominio senza confini. |
+| **Telesalute** | Telehealth | - | Insieme più ampio che comprende, oltre agli atti clinici, promozione della salute, educazione terapeutica e servizi non clinici. | policy, direzione sanitaria | Iperonimo di «telemedicina»: usarli come sinonimi produce un dominio senza confini. |
 | **Secondo parere** | Second opinion | `ServiceRequest` + `DiagnosticReport` | Valutazione indipendente richiesta a un professionista diverso da quello che ha in carico il paziente, di norma asincrona su documentazione. | paziente, medico | Non è un teleconsulto: **il richiedente può essere il paziente stesso** e il consulente non entra nella presa in carico. |
 | **Teletriage** | Tele-triage | `Encounter` + `Observation` (codice di priorità) | Valutazione a distanza dell'urgenza e dell'appropriatezza del canale di erogazione, con esito di instradamento. | infermiere, operatore di centrale | Se il sistema *calcola* la priorità anziché registrarla, entra nel perimetro `⚠ V2`. Telemedic deve registrare l'esito deciso dal professionista. |
 | **Telecooperazione sanitaria** | Health tele-cooperation | `Encounter` + `Communication` | Assistenza fornita da un medico a distanza a un altro operatore impegnato **in un atto in corso**, tipicamente in emergenza-urgenza. | emergenza territoriale | La sincronia è vincolante e la latenza tollerabile è molto più bassa che in televisita: non riusare gli stessi SLO. |
@@ -84,7 +84,7 @@ Legenda colonna FHIR: la corrispondenza indicata è quella **canonica in FHIR R4
 | **Slot** | Slot | `Slot` | Intervallo temporale elementare di un'agenda, con stato (libero, occupato, sospeso). | front-office | Uno slot occupato **non è** un appuntamento: è la sua proiezione sull'agenda. Fonderli rende impossibile l'overbooking e la doppia prenotazione controllata. |
 | **Disponibilità** | Availability | `Schedule.planningHorizon`, `Slot.status` | Insieme di slot pubblicati e prenotabili in un orizzonte temporale. | front-office, integratore | «Disponibile» ha tre significati distinti: *pubblicato*, *prenotabile dal canale X*, *non ancora occupato*. Servono tre attributi. |
 | **Prenotazione / Appuntamento** | Appointment | `Appointment` | Impegno reciproco fra paziente e struttura per una prestazione in un momento definito. | tutti | Nel modello di integrazione (context pack §6.2.4) l'appuntamento **nasce nel sistema del partner**: Telemedic lo riceve per riferimento e non ne è il master. |
-| **Centro unico di prenotazione** | Central booking service | — | Servizio che centralizza le prenotazioni per più eroganti. | pubblico | È un *canale*, non un'agenda: la stessa agenda può essere alimentata da più canali con regole diverse. |
+| **Centro unico di prenotazione** | Central booking service | - | Servizio che centralizza le prenotazioni per più eroganti. | pubblico | È un *canale*, non un'agenda: la stessa agenda può essere alimentata da più canali con regole diverse. |
 | **Lista d'attesa** | Waiting list | `Appointment.status = waitlist` | Coda ordinata di richieste in attesa di uno slot compatibile. | front-office | Non è la coda della sala d'attesa virtuale del giorno. Due concetti a scala temporale diversa (settimane vs minuti). |
 | **Overbooking** | Overbooking | `Slot` con capienza > 1 | Assegnazione controllata di più appuntamenti allo stesso slot, in base alla probabilità di mancata presentazione. | direzione | Va autorizzato per configurazione: se emerge come effetto collaterale di una race condition è un difetto, non una funzione (BR-023). |
 | **Mancata presentazione (no-show)** | No-show | `Appointment.status = noshow` | Assenza del paziente all'appuntamento senza disdetta entro la finestra prevista. | front-office | In telemedicina il no-show è **ambiguo**: il paziente può aver tentato senza riuscire tecnicamente. Registrare l'esito come no-show senza evidenza telemetrica di mancato tentativo è scorretto (BR-024). |
@@ -105,13 +105,13 @@ Legenda colonna FHIR: la corrispondenza indicata è quella **canonica in FHIR R4
 | **Consenso alla consultazione** | Consent to access | `Consent` con `provision.type = permit` | Autorizzazione all'accesso ai documenti già presenti nel fascicolo o dossier da parte di professionisti diversi dall'autore. | paziente, medico | Distinto dal consenso all'alimentazione: si può alimentare senza poter consultare il pregresso. `[da confermare con R3]` |
 | **Oscuramento** | Data suppression / masking | `Consent.provision` di tipo `deny` su risorsa | Diritto del paziente a rendere invisibili determinati documenti a determinati soggetti. | paziente | L'oscuramento deve essere **anche dell'oscuramento**: l'esistenza del documento oscurato non deve essere inferibile da buchi nella numerazione o da conteggi (BR-064). |
 | **Informativa** | Privacy notice | `Consent.sourceReference` | Documento informativo che precede e fonda il consenso. | DPO | Il consenso è valido solo rispetto alla **versione dell'informativa vigente al momento**: senza versionamento dell'informativa il consenso è indimostrabile (BR-061). |
-| **Base giuridica** | Legal basis | — | Fondamento di liceità del trattamento. | DPO | Non è un attributo del paziente né del documento: è un attributo del **trattamento** (finalità + categoria di dato + soggetto). |
+| **Base giuridica** | Legal basis | - | Fondamento di liceità del trattamento. | DPO | Non è un attributo del paziente né del documento: è un attributo del **trattamento** (finalità + categoria di dato + soggetto). |
 | **Titolare del trattamento** | Data controller | `Organization` | Soggetto che determina finalità e mezzi del trattamento. | DPO, legale | In un SaaS multi-tenant ogni tenant è tipicamente titolare autonomo e il gestore della piattaforma è responsabile: il modello dati deve poter rappresentare **titolari diversi sulla stessa installazione** (V4). `[da confermare con R2]` |
 | **Responsabile del trattamento** | Data processor | `Organization` | Soggetto che tratta per conto del titolare. | DPO | Il fornitore TURN, l'SMS gateway e il servizio di conservazione sono **sub-responsabili**: vanno censiti nel registro e nella catena contrattuale. |
 | **Responsabile della protezione dei dati (RPD/DPO)** | Data protection officer | `PractitionerRole` / `Organization.contact` | Figura di sorveglianza e punto di contatto. | tutti | Il DPO **non è un amministratore di sistema**: deve poter leggere audit e registri senza poter accedere al contenuto clinico (PRM-AUD-*). |
-| **Valutazione d'impatto (DPIA)** | Data protection impact assessment | — | Analisi preventiva dei rischi del trattamento. | DPO | È un artefatto di progetto, non un documento di runtime: ma alcune sue misure diventano requisiti (RNF) e vanno tracciate. `[da confermare con R2]` |
-| **Minimizzazione** | Data minimisation | — | Principio per cui si trattano solo i dati necessari alla finalità. | progettisti | In telemetria è vincolante: le metriche di qualità devono essere **utili senza essere identificanti** (§9.3). |
-| **Dato particolare** | Special category data | — | Dato relativo alla salute, alla vita sessuale, all'origine, alle convinzioni. | tutti | Anche **il fatto stesso** di avere un appuntamento con una certa branca specialistica è dato sulla salute: gli oggetti «amministrativi» non sono neutri. |
+| **Valutazione d'impatto (DPIA)** | Data protection impact assessment | - | Analisi preventiva dei rischi del trattamento. | DPO | È un artefatto di progetto, non un documento di runtime: ma alcune sue misure diventano requisiti (RNF) e vanno tracciate. `[da confermare con R2]` |
+| **Minimizzazione** | Data minimisation | - | Principio per cui si trattano solo i dati necessari alla finalità. | progettisti | In telemetria è vincolante: le metriche di qualità devono essere **utili senza essere identificanti** (§9.3). |
+| **Dato particolare** | Special category data | - | Dato relativo alla salute, alla vita sessuale, all'origine, alle convinzioni. | tutti | Anche **il fatto stesso** di avere un appuntamento con una certa branca specialistica è dato sulla salute: gli oggetti «amministrativi» non sono neutri. |
 | **Dato a maggior tutela dell'anonimato** | Highly sensitive health data | `Consent` + label di sensibilità | Categoria di informazioni cliniche a cui l'ordinamento riserva protezioni rafforzate. `[da confermare con R3]` | DPO, medico | Non basta cifrare: serve un **livello di riservatezza per documento** che governi visibilità e notifiche (BR-065). |
 
 ### 1.5 Soggetti, professioni e organizzazioni
@@ -133,13 +133,13 @@ Legenda colonna FHIR: la corrispondenza indicata è quella **canonica in FHIR R4
 | **Psicologo / psicoterapeuta** | Psychologist / psychotherapist | `PractitionerRole` | Professionista dell'area psicologica. | tutti | La seduta psicoterapeutica ha requisiti di **riservatezza e non registrabilità** più stringenti (BR-071) e un modello di continuità (setting stabile) diverso dalla visita specialistica. |
 | **Fisioterapista** | Physiotherapist | `PractitionerRole` | Professionista della riabilitazione. | tutti | Le sessioni sono **seriali**: il dominio deve supportare cicli e aderenza. |
 | **Operatore di front-office** | Front-office operator | `PractitionerRole` non clinico | Personale amministrativo che gestisce agende, accoglienza, documenti e pagamenti. | struttura | Accede a dati amministrativi e **non deve accedere al contenuto clinico** (PRM). È l'attore più esposto agli errori di autorizzazione. |
-| **Amministratore di struttura** | Tenant administrator | — | Configura la propria organizzazione: utenti, agende, cataloghi, branding. | tenant | Non deve poter leggere i dati clinici del proprio tenant per il solo fatto di amministrarlo (BR-013). |
-| **Amministratore di sistema** | System administrator | — | Gestisce l'installazione. | gestore piattaforma | Va progettato come ruolo **senza accesso in chiaro al contenuto clinico**, con azioni sempre tracciate e, per operazioni critiche, doppio controllo. |
+| **Amministratore di struttura** | Tenant administrator | - | Configura la propria organizzazione: utenti, agende, cataloghi, branding. | tenant | Non deve poter leggere i dati clinici del proprio tenant per il solo fatto di amministrarlo (BR-013). |
+| **Amministratore di sistema** | System administrator | - | Gestisce l'installazione. | gestore piattaforma | Va progettato come ruolo **senza accesso in chiaro al contenuto clinico**, con azioni sempre tracciate e, per operazioni critiche, doppio controllo. |
 | **Struttura erogante / Centro erogatore** | Delivering organisation | `Organization` | Soggetto giuridico responsabile dell'erogazione della prestazione. | tutti | Non coincide col tenant tecnico: un tenant può contenere più strutture eroganti. |
 | **Centro servizi** | Service centre | `Organization` con ruolo tecnico | Struttura che assicura gestione tecnica, manutenzione e help desk della piattaforma di telemedicina. | gestore | Ruolo **tecnico**, non clinico: la separazione centro servizi / centro erogatore è esplicita nelle linee guida nazionali `[da confermare con R3]` e va riflessa nei permessi. |
 | **Punto di erogazione** | Point of delivery | `Location` | Luogo fisico o virtuale in cui si eroga. | amministrazione | In telemedicina il `Location` va comunque valorizzato (`Location.mode = kind`, virtuale) perché la rendicontazione lo richiede. |
 | **Branca specialistica** | Clinical specialty | `PractitionerRole.specialty`, `HealthcareService` | Area disciplinare della prestazione. | tutti | È attributo del **servizio offerto**, non del professionista in assoluto. |
-| **Tenant** | Tenant | — | Confine di isolamento logico dei dati e della configurazione (V4). | piattaforma | Tenant ≠ organizzazione ≠ struttura erogante ≠ integratore: quattro concetti che spesso coincidono nei casi semplici e divergono in quelli reali. |
+| **Tenant** | Tenant | - | Confine di isolamento logico dei dati e della configurazione (V4). | piattaforma | Tenant ≠ organizzazione ≠ struttura erogante ≠ integratore: quattro concetti che spesso coincidono nei casi semplici e divergono in quelli reali. |
 | **Integratore** | Integrator | `Organization` + credenziali applicative | Soggetto terzo che incorpora Telemedic nel proprio sistema. | piattaforma | Non è un utente: è un **principal applicativo** con proprie chiavi, webhook, rate limit e branding (context pack §6.2.6). |
 
 ### 1.6 Documentazione, identità e interoperabilità
@@ -149,21 +149,21 @@ Legenda colonna FHIR: la corrispondenza indicata è quella **canonica in FHIR R4
 | **Identificazione del paziente** | Patient identification | `Encounter` + `Provenance` dell'atto di identificazione | Accertamento, prima dell'atto, che la persona collegata sia effettivamente il paziente atteso. | medico, front-office | Autenticazione ≠ identificazione: l'accesso con credenziali certifica **chi ha il credenziale**, non chi sta davanti alla telecamera. Il modello deve registrare entrambi (BR-031). |
 | **Riconoscimento a vista** | Visual identification | `Provenance` con metodo | Modalità di identificazione basata sul confronto visivo con documento. | medico | È una **decisione del professionista** da registrare, non un controllo automatico. Introdurre riconoscimento biometrico automatico cambia il profilo di rischio privacy e va valutato a parte. `[da confermare con R2]` |
 | **Firma elettronica qualificata (FEQ)** | Qualified electronic signature | `Provenance.signature` / `Bundle.signature` | Firma con valore probatorio equivalente all'autografa, basata su certificato qualificato. | medico refertante | Non tutte le firme sono equivalenti: FEQ, FEA e firma «con OTP» hanno effetti diversi. Il referto sanitario richiede il livello previsto dall'ordinamento `[da confermare con R3]`. |
-| **Firma grafometrica** | Handwritten biometric signature | — | Firma autografa acquisita con rilevazione di parametri biometrici. | front-office | È dato biometrico: richiede tutele proprie e non è utilizzabile a distanza. `[da confermare con R2]` |
+| **Firma grafometrica** | Handwritten biometric signature | - | Firma autografa acquisita con rilevazione di parametri biometrici. | front-office | È dato biometrico: richiede tutele proprie e non è utilizzabile a distanza. `[da confermare con R2]` |
 | **Marca temporale** | Trusted timestamp | `Signature.when` + token TSA | Attestazione opponibile della data di formazione del documento. | conservazione | La data di sistema **non è** una marca temporale. |
-| **Conservazione a norma** | Compliant digital preservation | — | Processo che garantisce integrità, leggibilità e reperibilità nel tempo dei documenti informatici. `[da confermare con R3]` | conservazione | Backup ≠ conservazione: il backup protegge dalla perdita, la conservazione dalla contestazione. |
+| **Conservazione a norma** | Compliant digital preservation | - | Processo che garantisce integrità, leggibilità e reperibilità nel tempo dei documenti informatici. `[da confermare con R3]` | conservazione | Backup ≠ conservazione: il backup protegge dalla perdita, la conservazione dalla contestazione. |
 | **Fascicolo sanitario elettronico (FSE)** | National EHR | `DocumentReference` + `Bundle` (CDA/FHIR) | Insieme dei dati e documenti digitali sanitari relativi all'assistito, alimentato dalle strutture. `[da confermare con R3]` | tutti | Non è la cartella clinica della struttura: è **nazionale/regionale**, sotto il controllo dell'assistito, con proprie regole di alimentazione e oscuramento. |
-| **Dossier sanitario** | Organisational health record | — | Insieme dei dati del paziente presso **una singola struttura**. | struttura | Confonderlo con l'FSE porta a regole di accesso sbagliate: il dossier ha ambito organizzativo, l'FSE ambito sistemico. |
-| **Cartella clinica elettronica** | Electronic health record (local) | — | Repository clinico del singolo erogante. | medico | Nel modello di integrazione la cartella **resta al partner** (context pack §6.2.5): Telemedic non deve diventarne il master. |
+| **Dossier sanitario** | Organisational health record | - | Insieme dei dati del paziente presso **una singola struttura**. | struttura | Confonderlo con l'FSE porta a regole di accesso sbagliate: il dossier ha ambito organizzativo, l'FSE ambito sistemico. |
+| **Cartella clinica elettronica** | Electronic health record (local) | - | Repository clinico del singolo erogante. | medico | Nel modello di integrazione la cartella **resta al partner** (context pack §6.2.5): Telemedic non deve diventarne il master. |
 | **Documento strutturato (CDA)** | Clinical Document Architecture | `Composition` + `Bundle` document | Documento clinico con struttura semantica standard. | interoperabilità | «PDF firmato» non è documento strutturato: la coesistenza dei due formati va progettata (payload PDF + metadati). |
 | **Identificativo esterno** | External identifier | `Patient.identifier` con `system` proprietario | Chiave con cui il sistema del partner identifica il soggetto. | integrazione | È la **chiave di lavoro** del modello «per riferimento» (context pack §6.2.3). Un identificativo senza `system` è ambiguo e produce collisioni fra tenant. |
 | **Codice fiscale** | National tax/health code | `Patient.identifier` con system nazionale | Identificativo della persona fisica ampiamente usato in sanità. | tutti | Non è universale (STP/ENI, neonati, stranieri) e **non è un segreto**: non usarlo come fattore di autenticazione. |
-| **Master patient index** | MPI | — | Servizio di riconciliazione delle identità fra sistemi. | integrazione | Telemedic non deve implementarne uno proprio (§6.2.3): deve **consumare** l'identità del partner. |
+| **Master patient index** | MPI | - | Servizio di riconciliazione delle identità fra sistemi. | integrazione | Telemedic non deve implementarne uno proprio (§6.2.3): deve **consumare** l'identità del partner. |
 | **Fallback telefonico** | Telephone fallback | `Encounter` con `Communication` di tipo voce | Prosecuzione del contatto in fonia quando il canale video fallisce. | medico, paziente | Non è la stessa prestazione: la degradazione del canale può cambiare l'ammissibilità e la refertabilità dell'atto (BR-034). `[da confermare con R3]` |
 | **Escalation in presenza** | Escalation to in-person care | `ServiceRequest` di follow-up | Decisione clinica di interrompere il canale remoto e convocare il paziente. | medico | È un **esito clinico legittimo**, non un fallimento del sistema: va misurato come KPI, non nascosto. |
 | **Interprete** | Interpreter | `Encounter.participant` con ruolo `translator` | Terzo ammesso alla sessione per mediazione linguistica. | front-office | È un terzo che accede a dati sanitari: serve base giuridica, vincolo di riservatezza e tracciamento della presenza (BR-066). |
-| **Qualità dell'esperienza (QoE)** | Quality of experience | — | Percezione dell'utente della qualità della sessione. | prodotto | Diversa dalla QoS misurata (RTT, jitter, loss): una sessione tecnicamente buona può essere clinicamente inutilizzabile e viceversa. Servono entrambe (KPI-05). |
-| **Soglia clinicamente accettabile** | Clinically acceptable threshold | — | Livello minimo di qualità del canale sotto il quale l'atto non può essere svolto in sicurezza. | medico | Non è una soglia tecnica generica: **dipende dalla prestazione** (una valutazione dermatologica richiede risoluzione diversa da un colloquio psicologico) (BR-033). |
+| **Qualità dell'esperienza (QoE)** | Quality of experience | - | Percezione dell'utente della qualità della sessione. | prodotto | Diversa dalla QoS misurata (RTT, jitter, loss): una sessione tecnicamente buona può essere clinicamente inutilizzabile e viceversa. Servono entrambe (KPI-05). |
+| **Soglia clinicamente accettabile** | Clinically acceptable threshold | - | Livello minimo di qualità del canale sotto il quale l'atto non può essere svolto in sicurezza. | medico | Non è una soglia tecnica generica: **dipende dalla prestazione** (una valutazione dermatologica richiede risoluzione diversa da un colloquio psicologico) (BR-033). |
 | **Registrazione** | Recording | `DocumentReference` / `Media` con contenuto cifrato | Cattura persistente dell'audio/video della sessione. | paziente, medico | Registrare è **eccezione, non regola**: è un trattamento ulteriore, con consenso proprio, retention propria e regole di accesso proprie (BR-070…074). |
 
 ---
@@ -214,7 +214,7 @@ DECISIONE = f(
 
 **Attributi di risorsa**: `tenant_id`, `patient_id`, `owning_organization`, `author_id`, `sensitivity_label` ∈ {`normal`, `restricted`, `very_restricted`}, `lifecycle_state`, `created_at`.
 
-**Attributi di relazione** — il cuore del modello:
+**Attributi di relazione** - il cuore del modello:
 
 | Relazione | Condizione di esistenza | Durata proposta | Effetto |
 |---|---|---|---|
@@ -297,7 +297,7 @@ I ruoli sono **composizioni di permessi**, non entità primitive: un tenant può
 ---
 ## 3. Processi di dominio
 
-### 3.1 Ciclo di vita della televisita — macchina a stati
+### 3.1 Ciclo di vita della televisita - macchina a stati
 
 Il ciclo di vita è modellato su **due macchine a stati distinte e sincronizzate**: quella del *contatto* (`Encounter`, semantica clinica e amministrativa, allineata a FHIR) e quella della *sessione media* (semantica tecnica). Tenerle separate è la decisione di modellazione più importante di questa sezione: una caduta di rete non deve alterare lo stato clinico del contatto (BR-030).
 
@@ -350,7 +350,7 @@ stateDiagram-v2
     NonPresentato --> [*]
 ```
 
-**Mappatura su FHIR R4 `Encounter.status`** — proposta di R6:
+**Mappatura su FHIR R4 `Encounter.status`** - proposta di R6:
 
 | Stato di dominio | `Encounter.status` | Note |
 |---|---|---|
@@ -416,13 +416,13 @@ sequenceDiagram
     actor M as Medico
     participant FSE as Repository documentale esterno
 
-    Note over EXT,TM: Fase 1 — Richiesta e prenotazione
+    Note over EXT,TM: Fase 1 - Richiesta e prenotazione
     EXT->>TM: crea appuntamento di televisita (riferimento esterno paziente e prestazione)
     TM->>TM: valida catalogo, agenda e ammissibilità del canale
     TM-->>EXT: identificativo contatto e collegamento di accesso
     TM->>P: notifica di conferma con istruzioni e collegamento
 
-    Note over P,TM: Fase 2 — Prerequisiti tecnici e consenso
+    Note over P,TM: Fase 2 - Prerequisiti tecnici e consenso
     P->>TM: apre il collegamento di verifica
     TM->>P: test camera, microfono, banda, browser
     TM->>TURN: verifica raggiungibilità e credenziali effimere
@@ -431,7 +431,7 @@ sequenceDiagram
     TM->>P: presenta informativa e richiede consensi pertinenti
     P-->>TM: manifestazione di volontà con evidenza (versione, timestamp, canale)
 
-    Note over P,M: Fase 3 — Accesso e identificazione
+    Note over P,M: Fase 3 - Accesso e identificazione
     P->>KC: autenticazione (identità digitale o credenziale del partner)
     KC-->>TM: asserzione con livello di garanzia
     P->>TM: ingresso in sala d'attesa virtuale
@@ -442,12 +442,12 @@ sequenceDiagram
     M->>P: identificazione del paziente (dichiarazione e documento)
     M->>TM: registra esito identificazione e metodo
 
-    Note over P,M: Fase 4 — Svolgimento
+    Note over P,M: Fase 4 - Svolgimento
     P-->>M: flusso media cifrato punto-punto
     M->>TM: annota, condivide documenti, richiede allegati
     TM->>TM: campiona metriche di qualità a intervallo fisso
 
-    Note over M,FSE: Fase 5 — Chiusura, refertazione, consegna
+    Note over M,FSE: Fase 5 - Chiusura, refertazione, consegna
     M->>TM: chiude la sessione con esito clinico
     TM->>TM: chiude il contatto e calcola la durata effettiva
     M->>TM: redige la bozza di referto
@@ -710,7 +710,7 @@ stateDiagram-v2
     NoShow --> [*]
 ```
 
-**Finestre temporali proposte** (configurabili per tenant e per tipo di prestazione — i valori sono default proposti da R6, non prescrizioni normative):
+**Finestre temporali proposte** (configurabili per tenant e per tipo di prestazione - i valori sono default proposti da R6, non prescrizioni normative):
 
 | Parametro | Default proposto | Razionale |
 |---|---|---|
@@ -752,7 +752,7 @@ Ogni regola è **verificabile**: esiste un test che, violando la regola, deve fa
 | **BR-012** | Nessun ruolo amministrativo (front-office, amministratore di struttura, amministratore di sistema) può includere permessi di lettura del contenuto clinico. Il tentativo di comporre un ruolo che li includa è rifiutato con errore di validazione. | Separazione strutturale, non affidata alla disciplina di configurazione. | R6 |
 | **BR-013** | L'assegnazione a sé stessi di un ruolo clinico da parte di un amministratore genera un evento di audit di severità critica e una notifica al DPO entro 15 minuti. | Mitiga l'escalation di privilegio più ovvia. | R6 |
 | **BR-014** | L'ambito di accesso del consulente in teleconsulto è limitato ai documenti esplicitamente allegati al quesito e decade automaticamente 15 giorni dopo la risposta o il rifiuto. | Minimizzazione: il consulente non ha titolo sull'intero dossier. | R6 + NORM `[da confermare con R2]` |
-| **BR-015** | L'accesso in deroga (break-glass) richiede motivazione testuale obbligatoria di almeno 20 caratteri, dura al massimo 60 minuti, non è rinnovabile automaticamente ed è notificato al DPO e — salvo diversa configurazione motivata — all'interessato. | L'accesso eccezionale deve restare eccezionale e costoso. | R6 |
+| **BR-015** | L'accesso in deroga (break-glass) richiede motivazione testuale obbligatoria di almeno 20 caratteri, dura al massimo 60 minuti, non è rinnovabile automaticamente ed è notificato al DPO e - salvo diversa configurazione motivata - all'interessato. | L'accesso eccezionale deve restare eccezionale e costoso. | R6 |
 | **BR-016** | Ogni accesso in lettura a un dato sanitario è registrato con soggetto, risorsa, finalità dichiarata, esito e istante, in forma non alterabile. | Auditabilità immutabile. | CTX (V5) |
 | **BR-017** | Le credenziali applicative di un integratore non conferiscono da sole accesso a dati clinici: ogni operazione clinica richiede un contesto utente delegante verificabile. | Evita che una chiave compromessa diventi accesso indiscriminato. | R6 + CTX (§6.2.2) |
 | **BR-018** | Il paziente può accedere in autonomia ai propri documenti solo con identità digitale di livello di garanzia almeno pari a quello configurato dal tenant per la categoria di documento. | La sensibilità del contenuto determina il livello di autenticazione richiesto. | NORM `[da confermare con R3]` |
@@ -872,7 +872,7 @@ Ogni regola è **verificabile**: esiste un test che, violando la regola, deve fa
 
 **Convenzioni di lettura.** Ogni requisito è espresso nel formato:
 
-> **RF-nnn · Titolo** — *Attore* · *MoSCoW* · *Dipende da*
+> **RF-nnn · Titolo** - *Attore* · *MoSCoW* · *Dipende da*
 > Enunciato verificabile.
 > › **Dato** … **Quando** … **Allora** …
 
@@ -880,813 +880,813 @@ MoSCoW: `M` = Must (v1.0 non rilasciabile senza), `S` = Should (v1.0 con degrado
 
 ### 5.A Identità e accesso (RF-001 … RF-019)
 
-> **RF-001 · Autenticazione con identità digitale nazionale** — *Paziente* · *M* · *Dip.: —*
+> **RF-001 · Autenticazione con identità digitale nazionale** - *Paziente* · *M* · *Dip.: -*
 > Il sistema deve consentire l'autenticazione del paziente tramite gli schemi di identità digitale nazionali configurati per il tenant, delegando la verifica al provider di identità e ricevendo il livello di garanzia dell'asserzione.
 > › **Dato** un tenant con schema di identità digitale abilitato · **Quando** il paziente sceglie tale schema · **Allora** il sistema lo reindirizza al provider, riceve un'asserzione firmata contenente il livello di garanzia e crea la sessione applicativa senza chiedere ulteriori credenziali.
 
-> **RF-002 · Registrazione del livello di garanzia** — *Sistema* · *M* · *Dip.: RF-001*
+> **RF-002 · Registrazione del livello di garanzia** - *Sistema* · *M* · *Dip.: RF-001*
 > Il sistema deve conservare, per ogni sessione applicativa, il livello di garanzia dell'identità con cui è stata creata e renderlo disponibile al motore di autorizzazione.
 > › **Dato** una sessione creata con livello di garanzia L · **Quando** viene richiesta una risorsa che esige livello superiore a L · **Allora** l'accesso è rifiutato con codice specifico e proposta di elevazione dell'autenticazione.
 
-> **RF-003 · Federazione OIDC in ingresso da sistemi terzi** — *Integratore* · *M* · *Dip.: —*
+> **RF-003 · Federazione OIDC in ingresso da sistemi terzi** - *Integratore* · *M* · *Dip.: -*
 > Il sistema deve accettare token OIDC emessi da provider registrati per il tenant e stabilire una sessione applicativa senza secondo login, entro 2 s al p95.
 > › **Dato** un provider federato registrato per il tenant T · **Quando** un client presenta un token valido con audience del client di T e firma verificabile tramite le chiavi pubblicate · **Allora** il sistema emette una sessione con i ruoli mappati e registra l'evento `auth.federated.login`.
 
-> **RF-004 · Federazione SAML2 in ingresso** — *Integratore* · *S* · *Dip.: —*
+> **RF-004 · Federazione SAML2 in ingresso** - *Integratore* · *S* · *Dip.: -*
 > Il sistema deve accettare asserzioni SAML2 da identity provider registrati, con verifica di firma, destinatario, finestra di validità e anti-replay.
 > › **Dato** un'asserzione SAML2 già consumata · **Quando** viene ripresentata · **Allora** il sistema la rifiuta e registra un evento di sicurezza `auth.saml.replay`.
 
-> **RF-005 · Token exchange per delega applicativa** — *Integratore* · *M* · *Dip.: RF-003*
+> **RF-005 · Token exchange per delega applicativa** - *Integratore* · *M* · *Dip.: RF-003*
 > Il sistema deve supportare lo scambio di token che consenta a un client applicativo di agire per conto di un utente identificato, mantenendo nel contesto sia il principal applicativo sia l'utente delegante.
 > › **Dato** un client applicativo autorizzato · **Quando** presenta un token utente valido e richiede uno scambio con scope ammessi dal contratto · **Allora** riceve un token il cui contesto contiene entrambi i soggetti e l'audit registra entrambi.
 
-> **RF-006 · Mappatura ruoli dal provider esterno** — *Amministratore di struttura* · *M* · *Dip.: RF-003*
+> **RF-006 · Mappatura ruoli dal provider esterno** - *Amministratore di struttura* · *M* · *Dip.: RF-003*
 > Il sistema deve consentire di configurare, per tenant, la mappatura fra attributi dell'asserzione esterna e ruoli interni, con default deny per attributi non mappati.
 > › **Dato** un'asserzione con attributo di ruolo non mappato · **Quando** l'utente accede · **Allora** ottiene una sessione senza permessi operativi e viene generato un avviso di configurazione.
 
-> **RF-007 · Autenticazione a più fattori per ruoli clinici** — *Medico* · *M* · *Dip.: —*
+> **RF-007 · Autenticazione a più fattori per ruoli clinici** - *Medico* · *M* · *Dip.: -*
 > Il sistema deve imporre un secondo fattore per tutti i ruoli con permessi `doc.*` o `rec.*` quando l'autenticazione non proviene da un'identità digitale di livello elevato.
 > › **Dato** un utente con ruolo clinico autenticato con sola password · **Quando** tenta un'operazione con permesso `doc.report:sign` · **Allora** il sistema richiede il secondo fattore prima di procedere.
 
-> **RF-008 · Accesso paziente senza registrazione (accesso ospite)** — *Paziente* · *S* · *Dip.: RF-052*
+> **RF-008 · Accesso paziente senza registrazione (accesso ospite)** - *Paziente* · *S* · *Dip.: RF-052*
 > Il sistema deve consentire l'ingresso del paziente alla sola sessione prenotata tramite collegamento monouso e verifica di un secondo elemento (data di nascita o codice inviato su canale distinto), senza creazione di account.
 > › **Dato** un collegamento valido e non scaduto · **Quando** il paziente inserisce correttamente il secondo elemento · **Allora** ottiene una sessione con i soli permessi della lobby e della sessione relativa a quell'appuntamento.
 
-> **RF-009 · Limitazione dei tentativi** — *Sistema* · *M* · *Dip.: RF-008*
+> **RF-009 · Limitazione dei tentativi** - *Sistema* · *M* · *Dip.: RF-008*
 > Il sistema deve limitare i tentativi di verifica del secondo elemento a 5 per collegamento e 20 per indirizzo IP in 15 minuti, con ritardo progressivo.
 > › **Dato** 5 tentativi falliti sullo stesso collegamento · **Quando** avviene il sesto · **Allora** il collegamento è invalidato e viene proposto il contatto con il front-office.
 
-> **RF-010 · Gestione delle sessioni attive** — *Utente* · *S* · *Dip.: —*
+> **RF-010 · Gestione delle sessioni attive** - *Utente* · *S* · *Dip.: -*
 > Il sistema deve elencare le sessioni attive dell'utente con dispositivo, luogo approssimato e ultimo accesso, e consentirne la revoca singola o totale.
 > › **Dato** un utente con 3 sessioni attive · **Quando** revoca una sessione · **Allora** entro 60 s quella sessione non può più effettuare alcuna chiamata autenticata.
 
-> **RF-011 · Revoca immediata alla disattivazione** — *Amministratore di struttura* · *M* · *Dip.: RF-010, BR-019*
+> **RF-011 · Revoca immediata alla disattivazione** - *Amministratore di struttura* · *M* · *Dip.: RF-010, BR-019*
 > La disattivazione di un utente deve invalidare tutte le sue sessioni, inclusa l'eventuale sessione media in corso, entro 60 s.
 > › **Dato** un medico con sessione media in corso · **Quando** l'amministratore lo disattiva · **Allora** la sessione media viene terminata, i partecipanti ricevono una notifica di interruzione amministrativa e il contatto resta in stato sospeso.
 
-> **RF-012 · Scadenza e rinnovo della sessione** — *Sistema* · *M* · *Dip.: —*
+> **RF-012 · Scadenza e rinnovo della sessione** - *Sistema* · *M* · *Dip.: -*
 > Le sessioni applicative devono scadere per inattività secondo il ruolo (default proposto: 15 min per ruoli clinici e amministrativi, 60 min per il paziente durante un appuntamento attivo) e comunque entro una durata massima assoluta di 12 ore.
 > › **Dato** un medico inattivo da 15 minuti · **Quando** effettua una chiamata · **Allora** riceve un errore di sessione scaduta e viene riportato all'autenticazione preservando il contesto di ritorno.
 
-> **RF-013 · Nessuna scadenza durante una sessione media attiva** — *Medico, Paziente* · *M* · *Dip.: RF-012*
+> **RF-013 · Nessuna scadenza durante una sessione media attiva** - *Medico, Paziente* · *M* · *Dip.: RF-012*
 > La scadenza per inattività non deve interrompere una sessione media in corso: la presenza di flusso media attivo costituisce attività.
 > › **Dato** una televisita in corso da 40 minuti senza interazioni con l'interfaccia · **Quando** scade il timer di inattività nominale · **Allora** la sessione non viene invalidata e nessun partecipante viene disconnesso.
 
-> **RF-014 · Cambio di contesto fra organizzazioni** — *Medico* · *S* · *Dip.: —*
+> **RF-014 · Cambio di contesto fra organizzazioni** - *Medico* · *S* · *Dip.: -*
 > Un professionista associato a più organizzazioni nello stesso tenant deve poter selezionare il contesto operativo; i permessi e le agende visibili derivano dal contesto selezionato.
 > › **Dato** un medico con ruoli in due organizzazioni · **Quando** seleziona l'organizzazione A · **Allora** vede solo le agende, i pazienti e i contatti di A e l'audit registra il contesto attivo di ogni operazione.
 
-> **RF-015 · Impersonificazione vietata sui dati clinici** — *Amministratore di sistema* · *M* · *Dip.: —*
+> **RF-015 · Impersonificazione vietata sui dati clinici** - *Amministratore di sistema* · *M* · *Dip.: -*
 > Il sistema non deve offrire alcuna funzione di impersonificazione che consenta a un ruolo amministrativo di operare come utente clinico.
 > › **Dato** un amministratore di sistema · **Quando** cerca una funzione di impersonificazione · **Allora** essa non esiste in alcuna interfaccia né API, e ogni tentativo di forgiare un contesto utente è rifiutato dalla verifica di firma.
 
-> **RF-016 · Sessione di assistenza consentita dall'utente** — *Service desk* · *C* · *Dip.: RF-015*
+> **RF-016 · Sessione di assistenza consentita dall'utente** - *Service desk* · *C* · *Dip.: RF-015*
 > Il sistema può consentire a un operatore di assistenza di osservare l'interfaccia dell'utente previa autorizzazione esplicita dell'utente stesso, per una durata massima di 30 minuti, con contenuto clinico oscurato.
 > › **Dato** un ticket aperto · **Quando** l'operatore richiede l'osservazione e l'utente accetta · **Allora** l'operatore vede l'interfaccia con i campi clinici mascherati, un indicatore permanente è visibile a entrambi e la sessione termina automaticamente allo scadere.
 
-> **RF-017 · Registrazione autonoma del professionista vietata** — *Sistema* · *M* · *Dip.: —*
+> **RF-017 · Registrazione autonoma del professionista vietata** - *Sistema* · *M* · *Dip.: -*
 > Il sistema non deve consentire l'auto-registrazione con ruoli clinici: ogni profilo clinico è creato o approvato da un amministratore del tenant con registrazione dell'atto di abilitazione.
 > › **Dato** un utente non ancora presente · **Quando** tenta di crearsi un profilo con ruolo clinico · **Allora** l'operazione è rifiutata e viene proposta la richiesta di abilitazione all'amministratore.
 
-> **RF-018 · Verifica dell'abilitazione professionale** — *Amministratore di struttura* · *S* · *Dip.: RF-017*
+> **RF-018 · Verifica dell'abilitazione professionale** - *Amministratore di struttura* · *S* · *Dip.: RF-017*
 > Il sistema deve consentire di registrare gli estremi di iscrizione all'albo del professionista, con data di verifica e responsabile della verifica, e segnalare i profili privi di verifica.
 > › **Dato** un profilo clinico senza estremi di iscrizione · **Quando** l'amministratore consulta l'elenco dei professionisti · **Allora** il profilo è evidenziato come non verificato e il sistema può, se configurato, impedirne l'assegnazione alle agende.
 
-> **RF-019 · Accesso di emergenza (break-glass)** — *Medico* · *M* · *Dip.: BR-015*
+> **RF-019 · Accesso di emergenza (break-glass)** - *Medico* · *M* · *Dip.: BR-015*
 > Il sistema deve consentire a un professionista di accedere a dati di un paziente con cui non ha relazione di cura, previa dichiarazione di motivazione, per 60 minuti, con notifica al DPO.
 > › **Dato** un medico senza relazione di cura con il paziente P · **Quando** invoca l'accesso di emergenza con motivazione di almeno 20 caratteri · **Allora** ottiene accesso in lettura per 60 minuti, il DPO riceve notifica entro 15 minuti e ogni risorsa letta è registrata singolarmente.
 
 ### 5.B Anagrafiche e riferimenti esterni (RF-020 … RF-032)
 
-> **RF-020 · Paziente per riferimento esterno** — *Integratore* · *M* · *Dip.: —*
+> **RF-020 · Paziente per riferimento esterno** - *Integratore* · *M* · *Dip.: -*
 > Il sistema deve poter creare e recuperare un paziente identificandolo esclusivamente tramite `identifier` con `system` proprietario dell'integratore, senza richiedere identificativi nazionali.
 > › **Dato** un integratore con system `urn:partner:A:patient` · **Quando** invia un riferimento con valore `12345` non ancora noto · **Allora** il sistema crea il paziente locale, restituisce l'identificativo interno e mantiene stabile l'associazione.
 
-> **RF-021 · Idempotenza della creazione anagrafica** — *Integratore* · *M* · *Dip.: RF-020*
+> **RF-021 · Idempotenza della creazione anagrafica** - *Integratore* · *M* · *Dip.: RF-020*
 > La creazione ripetuta con lo stesso `system` e `value` non deve generare duplicati.
 > › **Dato** un paziente già associato a `urn:partner:A:patient|12345` · **Quando** l'integratore ripete la creazione con gli stessi dati · **Allora** il sistema restituisce la risorsa esistente con esito `200` e non ne crea una seconda.
 
-> **RF-022 · Dati anagrafici minimi** — *Sistema* · *M* · *Dip.: RF-020*
+> **RF-022 · Dati anagrafici minimi** - *Sistema* · *M* · *Dip.: RF-020*
 > Il sistema deve richiedere e conservare solo i dati anagrafici necessari all'erogazione: nome, cognome, data di nascita, sesso amministrativo, almeno un recapito, e gli identificativi esterni. Ogni campo aggiuntivo deve essere motivato nella configurazione.
 > › **Dato** una richiesta di creazione con campi non previsti dal profilo del tenant · **Quando** viene elaborata · **Allora** i campi non previsti sono rifiutati con errore esplicito e non vengono conservati.
 
-> **RF-023 · Nessun indice paziente globale** — *Sistema* · *M* · *Dip.: BR-091*
+> **RF-023 · Nessun indice paziente globale** - *Sistema* · *M* · *Dip.: BR-091*
 > La stessa persona fisica presente in tenant diversi deve essere rappresentata da entità distinte e non correlabili tramite alcuna interrogazione della piattaforma.
 > › **Dato** lo stesso codice identificativo presente in due tenant · **Quando** un utente del tenant A esegue qualsiasi ricerca · **Allora** non ottiene alcuna informazione sull'esistenza del soggetto nel tenant B.
 
-> **RF-024 · Ricerca del paziente vincolata** — *Front-office, Medico* · *M* · *Dip.: BR-010*
+> **RF-024 · Ricerca del paziente vincolata** - *Front-office, Medico* · *M* · *Dip.: BR-010*
 > La ricerca anagrafica deve richiedere almeno due criteri discriminanti e non deve restituire più di 50 risultati; ogni ricerca è registrata con i criteri usati.
 > › **Dato** un operatore che cerca per solo cognome · **Quando** invia la ricerca · **Allora** il sistema rifiuta con richiesta di un secondo criterio, e la ricerca tentata è comunque registrata.
 
-> **RF-025 · Riconciliazione e fusione controllata** — *Amministratore di struttura* · *S* · *Dip.: RF-020*
+> **RF-025 · Riconciliazione e fusione controllata** - *Amministratore di struttura* · *S* · *Dip.: RF-020*
 > Il sistema deve consentire la fusione di due anagrafiche duplicate all'interno dello stesso tenant, conservando entrambi gli identificativi esterni, mantenendo la storia e generando audit.
 > › **Dato** due pazienti duplicati con contatti su entrambi · **Quando** l'amministratore esegue la fusione · **Allora** i contatti confluiscono sull'anagrafica sopravvivente, l'anagrafica assorbita resta come riferimento inattivo e nessun documento clinico viene perduto.
 
-> **RF-026 · Nessuna fusione automatica** — *Sistema* · *M* · *Dip.: RF-025*
+> **RF-026 · Nessuna fusione automatica** - *Sistema* · *M* · *Dip.: RF-025*
 > Il sistema non deve mai fondere anagrafiche automaticamente sulla base di somiglianza dei dati.
 > › **Dato** due anagrafiche con nome, cognome e data di nascita identici · **Quando** vengono create · **Allora** restano distinte e viene generata una segnalazione di possibile duplicato da valutare manualmente.
 
-> **RF-027 · Gestione dei recapiti e delle preferenze** — *Paziente, Front-office* · *M* · *Dip.: —*
+> **RF-027 · Gestione dei recapiti e delle preferenze** - *Paziente, Front-office* · *M* · *Dip.: -*
 > Il sistema deve gestire più recapiti per paziente con tipo, verifica e preferenza di canale, e marcare i recapiti non verificati.
 > › **Dato** un recapito e-mail non verificato · **Quando** il sistema deve inviare un promemoria · **Allora** utilizza un canale verificato disponibile oppure segnala l'impossibilità al front-office, senza inviare a recapiti non verificati.
 
-> **RF-028 · Persone collegate e deleghe** — *Paziente* · *M* · *Dip.: BR-062*
+> **RF-028 · Persone collegate e deleghe** - *Paziente* · *M* · *Dip.: BR-062*
 > Il sistema deve consentire di registrare caregiver, rappresentanti legali e delegati, con tipo di relazione, ambito, data di inizio e data di scadenza obbligatoria per le deleghe volontarie.
 > › **Dato** una delega con scadenza al 31/12 · **Quando** il delegato accede il 01/01 · **Allora** l'accesso è negato e la delega risulta scaduta senza necessità di intervento manuale.
 
-> **RF-029 · Professionisti e ruoli organizzativi** — *Amministratore di struttura* · *M* · *Dip.: —*
+> **RF-029 · Professionisti e ruoli organizzativi** - *Amministratore di struttura* · *M* · *Dip.: -*
 > Il sistema deve modellare il professionista distinto dai suoi ruoli organizzativi, ciascuno con organizzazione, specialità, prestazioni erogabili e periodo di validità.
 > › **Dato** un medico con ruolo cessato in A e attivo in B · **Quando** accede · **Allora** può operare solo nel contesto B e i contatti storici di A restano leggibili in sola lettura sui propri atti.
 
-> **RF-030 · Catalogo delle prestazioni** — *Amministratore di struttura* · *M* · *Dip.: BR-001*
+> **RF-030 · Catalogo delle prestazioni** - *Amministratore di struttura* · *M* · *Dip.: BR-001*
 > Il sistema deve gestire un catalogo di prestazioni per tenant con codice, descrizione, durata standard, canali ammessi, professioni abilitate, soglie di qualità richieste e validità temporale.
 > › **Dato** una prestazione senza canale «televisita» fra quelli ammessi · **Quando** si tenta di prenotarla in televisita · **Allora** l'operazione è rifiutata con messaggio che indica i canali ammessi.
 
-> **RF-031 · Sedi e punti di erogazione virtuali** — *Amministratore di struttura* · *S* · *Dip.: —*
+> **RF-031 · Sedi e punti di erogazione virtuali** - *Amministratore di struttura* · *S* · *Dip.: -*
 > Il sistema deve consentire la definizione di punti di erogazione, inclusi punti virtuali, associabili alle agende e riportati nel referto.
 > › **Dato** un contatto in televisita · **Quando** viene generato il referto · **Allora** il documento riporta la struttura erogante e il punto di erogazione virtuale configurato.
 
-> **RF-032 · Importazione massiva delle anagrafiche di riferimento** — *Integratore* · *C* · *Dip.: RF-020*
+> **RF-032 · Importazione massiva delle anagrafiche di riferimento** - *Integratore* · *C* · *Dip.: RF-020*
 > Il sistema deve consentire l'importazione massiva di riferimenti anagrafici e professionali con esito per riga e possibilità di ripresa dopo errore.
 > › **Dato** un lotto di 10 000 righe con 12 righe non valide · **Quando** l'importazione termina · **Allora** le righe valide sono importate, le non valide sono elencate con motivo, e la ripetizione del lotto non duplica nulla.
 
 ### 5.C Agenda e prenotazione (RF-035 … RF-052)
 
-> **RF-035 · Definizione delle agende** — *Front-office* · *M* · *Dip.: RF-029, RF-030*
+> **RF-035 · Definizione delle agende** - *Front-office* · *M* · *Dip.: RF-029, RF-030*
 > Il sistema deve consentire di definire agende associate a un ruolo professionale, a un'organizzazione e a un insieme di prestazioni, con regole di ricorrenza.
 > › **Dato** una regola «lunedì 9-13, slot da 20 minuti, prestazioni X e Y» · **Quando** viene applicata all'orizzonte di 8 settimane · **Allora** vengono generati gli slot corrispondenti, escludendo le date marcate come chiusura.
 
-> **RF-036 · Generazione e pubblicazione degli slot** — *Front-office* · *M* · *Dip.: RF-035*
+> **RF-036 · Generazione e pubblicazione degli slot** - *Front-office* · *M* · *Dip.: RF-035*
 > Il sistema deve distinguere fra slot generato, pubblicato e prenotabile per canale, con visibilità configurabile per canale di prenotazione.
 > › **Dato** uno slot pubblicato solo per il canale front-office · **Quando** il paziente consulta le disponibilità · **Allora** non lo vede fra le opzioni prenotabili.
 
-> **RF-037 · Blocco e sblocco degli slot** — *Front-office* · *M* · *Dip.: RF-036*
+> **RF-037 · Blocco e sblocco degli slot** - *Front-office* · *M* · *Dip.: RF-036*
 > Il sistema deve consentire il blocco di slot singoli o di intervalli con motivazione, e segnalare gli appuntamenti già presenti nell'intervallo.
 > › **Dato** un intervallo con 3 appuntamenti confermati · **Quando** l'operatore blocca l'intervallo · **Allora** il sistema richiede la conferma esplicita, elenca i 3 appuntamenti e avvia il percorso di cancellazione da parte della struttura.
 
-> **RF-038 · Prenotazione con controllo di concorrenza** — *Front-office, Paziente, Integratore* · *M* · *Dip.: BR-020*
+> **RF-038 · Prenotazione con controllo di concorrenza** - *Front-office, Paziente, Integratore* · *M* · *Dip.: BR-020*
 > La prenotazione di uno slot deve essere atomica: due richieste concorrenti sullo stesso slot di capienza 1 producono una conferma e un rifiuto esplicito, mai due conferme.
 > › **Dato** due richieste simultanee sullo slot S · **Quando** vengono elaborate · **Allora** una restituisce conferma, l'altra restituisce conflitto con l'indicazione di slot alternativi.
 
-> **RF-039 · Prenotazione da sistema esterno** — *Integratore* · *M* · *Dip.: RF-038*
+> **RF-039 · Prenotazione da sistema esterno** - *Integratore* · *M* · *Dip.: RF-038*
 > Il sistema deve accettare la creazione di un appuntamento di televisita da un sistema esterno, con riferimenti a paziente, professionista e prestazione, restituendo l'identificativo del contatto e i collegamenti di accesso.
 > › **Dato** una richiesta valida da un integratore autorizzato · **Quando** viene elaborata · **Allora** il sistema restituisce entro 1 s al p95 l'identificativo del contatto, il collegamento paziente e il collegamento professionista.
 
-> **RF-040 · Appuntamento con sistema esterno master** — *Integratore* · *M* · *Dip.: BR-028*
+> **RF-040 · Appuntamento con sistema esterno master** - *Integratore* · *M* · *Dip.: BR-028*
 > Quando l'agenda è dichiarata di proprietà del sistema esterno, il sistema deve rifiutare modifiche locali all'appuntamento indicando il sistema autoritativo.
 > › **Dato** un appuntamento con `sourceSystem` esterno e agenda non master locale · **Quando** un operatore tenta di spostarlo in Telemedic · **Allora** l'operazione è rifiutata con messaggio che indica dove effettuare la modifica.
 
-> **RF-041 · Verifica di ammissibilità in prenotazione** — *Sistema* · *M* · *Dip.: BR-001, BR-002*
-> Alla creazione di un appuntamento in televisita, il sistema deve verificare canale ammesso, professione abilitata, e — se la prestazione lo richiede — l'esistenza di una presa in carico o di una deroga registrata.
+> **RF-041 · Verifica di ammissibilità in prenotazione** - *Sistema* · *M* · *Dip.: BR-001, BR-002*
+> Alla creazione di un appuntamento in televisita, il sistema deve verificare canale ammesso, professione abilitata, e - se la prestazione lo richiede - l'esistenza di una presa in carico o di una deroga registrata.
 > › **Dato** una prestazione marcata «richiede diagnosi già formulata» e un paziente senza episodio di cura attivo · **Quando** si prenota la televisita · **Allora** il sistema richiede una deroga motivata da parte di un professionista, altrimenti rifiuta.
 
-> **RF-042 · Riprogrammazione con catena di sostituzione** — *Front-office, Paziente* · *M* · *Dip.: BR-022*
+> **RF-042 · Riprogrammazione con catena di sostituzione** - *Front-office, Paziente* · *M* · *Dip.: BR-022*
 > Il sistema deve riprogrammare un appuntamento creando un nuovo appuntamento collegato a quello sostituito, conservando la data della richiesta originaria.
 > › **Dato** un appuntamento derivante da una richiesta del 1° marzo · **Quando** viene riprogrammato due volte · **Allora** la catena è ricostruibile e il calcolo del tempo di attesa parte dal 1° marzo.
 
-> **RF-043 · Riprogrammazione autonoma del paziente** — *Paziente* · *S* · *Dip.: RF-042*
+> **RF-043 · Riprogrammazione autonoma del paziente** - *Paziente* · *S* · *Dip.: RF-042*
 > Il paziente deve poter riprogrammare autonomamente entro la finestra configurata e per un numero massimo di volte, scegliendo fra gli slot disponibili compatibili.
 > › **Dato** un appuntamento fra 30 ore e finestra di 24 ore · **Quando** il paziente richiede lo spostamento · **Allora** vede gli slot compatibili e può confermare senza intervento del front-office.
 
-> **RF-044 · Disdetta con finestra** — *Paziente* · *M* · *Dip.: BR-025*
+> **RF-044 · Disdetta con finestra** - *Paziente* · *M* · *Dip.: BR-025*
 > Il sistema deve consentire la disdetta indicando chiaramente, prima della conferma, se essa ricade nella finestra gratuita o tardiva e quali conseguenze comporta.
 > › **Dato** una disdetta a 12 ore dall'appuntamento con finestra gratuita di 48 ore · **Quando** il paziente avvia la disdetta · **Allora** il sistema mostra l'avviso di disdetta tardiva e le conseguenze configurate, e richiede una conferma esplicita.
 
-> **RF-045 · Cancellazione da parte della struttura** — *Front-office* · *M* · *Dip.: BR-026*
+> **RF-045 · Cancellazione da parte della struttura** - *Front-office* · *M* · *Dip.: BR-026*
 > La cancellazione da parte della struttura deve richiedere una motivazione da elenco codificato e generare automaticamente la proposta di slot alternativi al paziente.
 > › **Dato** la cancellazione per indisponibilità del professionista · **Quando** viene confermata · **Allora** il paziente riceve la notifica con almeno tre slot alternativi e nessun effetto amministrativo negativo è registrato a suo carico.
 
-> **RF-046 · Lista d'attesa** — *Front-office* · *S* · *Dip.: BR-027*
+> **RF-046 · Lista d'attesa** - *Front-office* · *S* · *Dip.: BR-027*
 > Il sistema deve gestire una lista d'attesa per prestazione, ordinata per priorità e data, con proposta automatica al liberarsi di uno slot compatibile.
 > › **Dato** uno slot liberato da una disdetta · **Quando** esiste una lista d'attesa compatibile · **Allora** il sistema propone lo slot al primo in lista con una finestra di accettazione configurata, e alla scadenza passa al successivo.
 
-> **RF-047 · Overbooking configurabile** — *Amministratore di struttura* · *C* · *Dip.: BR-023*
+> **RF-047 · Overbooking configurabile** - *Amministratore di struttura* · *C* · *Dip.: BR-023*
 > Il sistema deve consentire l'overbooking per agenda con fattore massimo e marcatura degli appuntamenti in eccedenza.
 > › **Dato** un'agenda con fattore 1,2 · **Quando** si supera il fattore · **Allora** la prenotazione è rifiutata anche se l'overbooking è abilitato.
 
-> **RF-048 · Durata pianificata e durata effettiva** — *Sistema* · *M* · *Dip.: —*
+> **RF-048 · Durata pianificata e durata effettiva** - *Sistema* · *M* · *Dip.: -*
 > Il sistema deve registrare separatamente la durata pianificata dell'appuntamento e la durata effettiva della sessione, e segnalare gli scostamenti oltre soglia.
 > › **Dato** un appuntamento da 20 minuti concluso in 45 · **Quando** il contatto viene chiuso · **Allora** entrambe le durate sono registrate e lo scostamento è disponibile per la reportistica.
 
-> **RF-049 · Prenotazione multi-partecipante** — *Front-office* · *S* · *Dip.: RF-038*
+> **RF-049 · Prenotazione multi-partecipante** - *Front-office* · *S* · *Dip.: RF-038*
 > Il sistema deve consentire di prenotare un contatto con più professionisti (teleconsulto) verificando la disponibilità simultanea di tutte le agende coinvolte.
 > › **Dato** due professionisti con sovrapposizione di 30 minuti · **Quando** si cerca uno slot comune · **Allora** il sistema propone solo gli intervalli disponibili per entrambi.
 
-> **RF-050 · Preparazione della sessione: attività preliminari** — *Front-office* · *S* · *Dip.: —*
+> **RF-050 · Preparazione della sessione: attività preliminari** - *Front-office* · *S* · *Dip.: -*
 > Il sistema deve poter associare al tipo di prestazione una lista di attività preliminari obbligatorie (questionario, caricamento di esami, pagamento, consenso) e mostrarne lo stato di completamento.
-> › **Dato** una prestazione con questionario obbligatorio non compilato · **Quando** si avvicina l'orario · **Allora** il sistema segnala al front-office e al paziente l'attività mancante, e — se configurato come bloccante — impedisce l'ingresso in lobby con messaggio esplicativo.
+> › **Dato** una prestazione con questionario obbligatorio non compilato · **Quando** si avvicina l'orario · **Allora** il sistema segnala al front-office e al paziente l'attività mancante, e - se configurato come bloccante - impedisce l'ingresso in lobby con messaggio esplicativo.
 
-> **RF-051 · Calendario esportabile** — *Medico, Paziente* · *C* · *Dip.: —*
+> **RF-051 · Calendario esportabile** - *Medico, Paziente* · *C* · *Dip.: -*
 > Il sistema deve poter esportare gli appuntamenti in formato calendario standard, senza dato clinico nel titolo dell'evento.
 > › **Dato** un appuntamento di cardiologia · **Quando** viene esportato al calendario · **Allora** il titolo dell'evento riporta solo la struttura e la dicitura generica, mai la branca specialistica.
 
-> **RF-052 · Collegamento di accesso monouso e a scadenza** — *Sistema* · *M* · *Dip.: BR-052*
+> **RF-052 · Collegamento di accesso monouso e a scadenza** - *Sistema* · *M* · *Dip.: BR-052*
 > Il sistema deve generare per ogni partecipante un collegamento con entropia ≥ 128 bit, valido nella sola finestra della lobby, revocabile e rigenerabile.
 > › **Dato** un collegamento generato · **Quando** l'appuntamento viene riprogrammato · **Allora** il collegamento precedente è invalidato e ne viene generato uno nuovo, comunicato al partecipante.
 
 ### 5.D Sala d'attesa virtuale (RF-055 … RF-064)
 
-> **RF-055 · Ingresso in lobby con verifica dei prerequisiti** — *Paziente* · *M* · *Dip.: RF-161*
+> **RF-055 · Ingresso in lobby con verifica dei prerequisiti** - *Paziente* · *M* · *Dip.: RF-161*
 > L'ingresso in lobby deve essere preceduto dall'esecuzione automatica del controllo di dispositivo, banda e raggiungibilità del relay, con esito mostrato in forma comprensibile.
 > › **Dato** un paziente che apre il collegamento · **Quando** il controllo rileva microfono non disponibile · **Allora** il sistema mostra istruzioni specifiche per il browser e il sistema operativo rilevati e offre il canale alternativo, senza limitarsi a un messaggio di errore generico.
 
-> **RF-056 · Coda di attesa visibile al professionista** — *Medico* · *M* · *Dip.: RF-055*
+> **RF-056 · Coda di attesa visibile al professionista** - *Medico* · *M* · *Dip.: RF-055*
 > Il professionista deve vedere l'elenco dei pazienti in attesa con orario previsto, ora di arrivo, esito del controllo tecnico e presenza di terzi dichiarati.
 > › **Dato** tre pazienti in lobby · **Quando** il medico apre la vista · **Allora** vede per ciascuno orario, attesa in minuti, semaforo tecnico e icona di eventuale caregiver presente.
 
-> **RF-057 · Ammissione esplicita** — *Medico* · *M* · *Dip.: RF-056*
+> **RF-057 · Ammissione esplicita** - *Medico* · *M* · *Dip.: RF-056*
 > Il paziente entra in sessione solo per ammissione esplicita del professionista o di un operatore autorizzato: non esiste ingresso automatico.
 > › **Dato** un paziente in lobby all'orario previsto · **Quando** nessuno lo ammette · **Allora** il paziente resta in lobby con indicazione dell'attesa e non accede ad alcun flusso media.
 
-> **RF-058 · Comunicazione al paziente in attesa** — *Front-office, Medico* · *M* · *Dip.: RF-056*
+> **RF-058 · Comunicazione al paziente in attesa** - *Front-office, Medico* · *M* · *Dip.: RF-056*
 > Il sistema deve consentire l'invio di messaggi al paziente in lobby, inclusa la comunicazione automatica del ritardo stimato.
 > › **Dato** un ritardo superiore a 10 minuti sull'orario previsto · **Quando** la soglia viene superata · **Allora** il paziente riceve automaticamente in lobby un messaggio con il ritardo stimato aggiornato.
 
-> **RF-059 · Attesa senza consumo di banda inutile** — *Sistema* · *S* · *Dip.: —*
+> **RF-059 · Attesa senza consumo di banda inutile** - *Sistema* · *S* · *Dip.: -*
 > Durante l'attesa il sistema non deve mantenere flussi media attivi verso il server, limitandosi alla verifica periodica di stato.
 > › **Dato** un paziente in lobby da 20 minuti · **Quando** si misura il traffico · **Allora** il consumo è inferiore a 1 MB complessivi esclusi i test tecnici.
 
-> **RF-060 · Riesecuzione del test tecnico** — *Paziente* · *M* · *Dip.: RF-055*
+> **RF-060 · Riesecuzione del test tecnico** - *Paziente* · *M* · *Dip.: RF-055*
 > Il paziente deve poter rieseguire il test tecnico dalla lobby dopo aver corretto un problema, senza perdere la posizione in coda.
 > › **Dato** un paziente con test fallito che concede il permesso al microfono · **Quando** riesegue il test · **Allora** l'esito si aggiorna e la sua ora di arrivo in coda resta invariata.
 
-> **RF-061 · Uscita e rientro in lobby** — *Paziente* · *S* · *Dip.: RF-060*
+> **RF-061 · Uscita e rientro in lobby** - *Paziente* · *S* · *Dip.: RF-060*
 > Il paziente deve poter chiudere e riaprire la pagina della lobby entro la finestra senza perdere la posizione né dover rifare l'autenticazione, se la sessione applicativa è ancora valida.
 > › **Dato** un paziente che chiude il browser e rientra dopo 3 minuti · **Quando** riapre il collegamento · **Allora** rientra in lobby nella stessa posizione con lo stesso esito tecnico.
 
-> **RF-062 · Rilevazione dell'abbandono** — *Sistema* · *M* · *Dip.: BR-024*
+> **RF-062 · Rilevazione dell'abbandono** - *Sistema* · *M* · *Dip.: BR-024*
 > Il sistema deve distinguere fra paziente mai connesso, paziente connesso e ancora presente, paziente connesso e uscito, registrando gli istanti.
 > › **Dato** un paziente entrato in lobby alle 10:02 e uscito alle 10:20 senza essere ammesso · **Quando** il contatto viene valutato · **Allora** l'esito non è mancata presentazione ma abbandono in attesa, con i tempi registrati.
 
-> **RF-063 · Lobby professionale separata** — *Medico consulente* · *S* · *Dip.: RF-057*
+> **RF-063 · Lobby professionale separata** - *Medico consulente* · *S* · *Dip.: RF-057*
 > Nei contatti multi-professionista il sistema deve prevedere un'area di attesa per i professionisti distinta da quella del paziente.
 > › **Dato** un consulente collegato prima del paziente · **Quando** entra · **Allora** si trova in area professionale, può conferire con il curante e non è visibile al paziente finché non inizia la sessione condivisa.
 
-> **RF-064 · Chiusura automatica della lobby** — *Sistema* · *M* · *Dip.: BR-029*
+> **RF-064 · Chiusura automatica della lobby** - *Sistema* · *M* · *Dip.: BR-029*
 > Alla scadenza della finestra la lobby si chiude, i partecipanti ancora presenti ricevono un messaggio esplicativo con le opzioni disponibili e il contatto assume l'esito appropriato.
 > › **Dato** una lobby che si chiude alle 10:30 · **Quando** il paziente è ancora presente · **Allora** riceve il messaggio con il riferimento del front-office e la proposta di riprogrammazione, non una disconnessione muta.
 
 ### 5.E Sessione di consulto (RF-067 … RF-086)
 
-> **RF-067 · Instaurazione della sessione media** — *Sistema* · *M* · *Dip.: RF-057*
+> **RF-067 · Instaurazione della sessione media** - *Sistema* · *M* · *Dip.: RF-057*
 > Il sistema deve stabilire la sessione audio-video fra i partecipanti entro 5 s al p95 e 10 s al p99 dall'ammissione, misurati dall'ammissione al primo fotogramma renderizzato.
 > › **Dato** due partecipanti con esito tecnico positivo · **Quando** il medico ammette il paziente · **Allora** il primo fotogramma è visibile entro 5 s nel 95 % delle sessioni misurate sull'ultimo mese.
 
-> **RF-068 · Negoziazione punto-punto con ripiego su relay** — *Sistema* · *M* · *Dip.: RF-067*
+> **RF-068 · Negoziazione punto-punto con ripiego su relay** - *Sistema* · *M* · *Dip.: RF-067*
 > Il sistema deve tentare la connessione diretta e ripiegare automaticamente sul relay quando la connessione diretta non si stabilisce entro 3 s.
 > › **Dato** due partecipanti dietro NAT simmetrico · **Quando** la connessione diretta fallisce · **Allora** entro 3 s viene attivato il percorso via relay e l'evento è registrato nella telemetria della sessione.
 
-> **RF-069 · Cifratura del flusso media** — *Sistema* · *M* · *Dip.: BR-035*
+> **RF-069 · Cifratura del flusso media** - *Sistema* · *M* · *Dip.: BR-035*
 > Il flusso media deve essere cifrato fra i peer con materiale crittografico per sessione; nessun componente della piattaforma deve poter decifrare il contenuto.
 > › **Dato** una sessione via relay · **Quando** si ispeziona il traffico sul relay · **Allora** i pacchetti risultano cifrati e il relay non dispone del materiale per decifrarli.
 
-> **RF-070 · Selezione dei dispositivi** — *Utente* · *M* · *Dip.: —*
+> **RF-070 · Selezione dei dispositivi** - *Utente* · *M* · *Dip.: -*
 > L'utente deve poter selezionare telecamera, microfono e altoparlante prima e durante la sessione, con anteprima e prova audio.
 > › **Dato** due telecamere disponibili · **Quando** l'utente cambia selezione in sessione · **Allora** il flusso cambia senza rinegoziare l'intera sessione e senza interruzione dell'audio.
 
-> **RF-071 · Controlli essenziali sempre raggiungibili** — *Utente* · *M* · *Dip.: —*
+> **RF-071 · Controlli essenziali sempre raggiungibili** - *Utente* · *M* · *Dip.: -*
 > I controlli di disattivazione microfono, disattivazione video, riaggancio e richiesta di aiuto devono essere sempre visibili, raggiungibili da tastiera e annunciati agli screen reader.
 > › **Dato** un utente che naviga solo da tastiera · **Quando** percorre l'ordine di tabulazione della sessione · **Allora** raggiunge i quattro controlli entro i primi cinque elementi focalizzabili, con etichette accessibili.
 
-> **RF-072 · Bitrate adattivo** — *Sistema* · *M* · *Dip.: RF-167*
+> **RF-072 · Bitrate adattivo** - *Sistema* · *M* · *Dip.: RF-167*
 > Il sistema deve adattare risoluzione e bitrate alle condizioni di rete, con priorità all'audio, e registrare ogni cambio di profilo.
 > › **Dato** un calo di banda disponibile sotto 300 kbit/s · **Quando** persiste per 5 s · **Allora** il video viene ridotto o sospeso mantenendo l'audio intelligibile, e il cambio è registrato.
 
-> **RF-073 · Priorità dell'audio sul video** — *Sistema* · *M* · *Dip.: RF-072*
+> **RF-073 · Priorità dell'audio sul video** - *Sistema* · *M* · *Dip.: RF-072*
 > In condizioni di banda insufficiente il sistema deve preservare l'audio anche a costo della sospensione totale del video.
 > › **Dato** banda sufficiente solo per l'audio · **Quando** la condizione si verifica · **Allora** il video è sospeso, entrambi i partecipanti sono avvisati e l'audio prosegue senza interruzioni superiori a 500 ms.
 
-> **RF-074 · Riconnessione automatica** — *Sistema* · *M* · *Dip.: BR-030*
+> **RF-074 · Riconnessione automatica** - *Sistema* · *M* · *Dip.: BR-030*
 > In caso di perdita di connettività il sistema deve tentare automaticamente la riconnessione per la finestra configurata, mantenendo il contatto in corso.
 > › **Dato** una caduta di rete di 40 s · **Quando** la connettività ritorna entro la finestra di 10 minuti · **Allora** la sessione riprende con lo stesso contesto clinico e l'interruzione è annotata nel contatto.
 
-> **RF-075 · Informazione durante la riconnessione** — *Utente* · *M* · *Dip.: RF-074*
+> **RF-075 · Informazione durante la riconnessione** - *Utente* · *M* · *Dip.: RF-074*
 > Durante la riconnessione entrambi i partecipanti devono vedere lo stato, il tempo residuo e le azioni disponibili.
 > › **Dato** una riconnessione in corso · **Quando** il paziente osserva lo schermo · **Allora** vede un messaggio comprensibile, un conto alla rovescia e i pulsanti «riprova» e «chiama assistenza», non una schermata bloccata.
 
-> **RF-076 · Fallback su canale fonia** — *Medico, Paziente* · *S* · *Dip.: BR-006*
+> **RF-076 · Fallback su canale fonia** - *Medico, Paziente* · *S* · *Dip.: BR-006*
 > Il sistema deve consentire di passare a un canale di sola fonia registrando il cambio di canale e la sua motivazione, e riportandolo nel contatto.
 > › **Dato** un fallimento persistente del video · **Quando** il medico attiva il ripiego in fonia · **Allora** il contatto registra il canale effettivamente usato e la motivazione, e il referto ne dà atto.
 
-> **RF-077 · Identificazione del paziente registrata** — *Medico* · *M* · *Dip.: BR-031*
+> **RF-077 · Identificazione del paziente registrata** - *Medico* · *M* · *Dip.: BR-031*
 > Il sistema deve richiedere al professionista, prima dell'avvio dell'atto, la registrazione dell'avvenuta identificazione con il metodo usato.
 > › **Dato** una sessione appena avviata · **Quando** il medico tenta di aprire la bozza di referto senza aver registrato l'identificazione · **Allora** il sistema richiede prima la registrazione dell'identificazione.
 
-> **RF-078 · Ruolo di conduttore della sessione** — *Medico* · *M* · *Dip.: —*
+> **RF-078 · Ruolo di conduttore della sessione** - *Medico* · *M* · *Dip.: -*
 > Ogni sessione deve avere un conduttore identificato, con i poteri di ammettere, rimuovere, disattivare l'audio altrui e chiudere la sessione; il ruolo è trasferibile.
 > › **Dato** un teleconsulto con due medici · **Quando** il conduttore abbandona la sessione · **Allora** il sistema richiede il trasferimento del ruolo prima di consentirgli l'uscita, oppure lo assegna automaticamente all'altro professionista registrando l'evento.
 
-> **RF-079 · Elenco dei partecipanti sempre visibile** — *Utente* · *M* · *Dip.: BR-038*
+> **RF-079 · Elenco dei partecipanti sempre visibile** - *Utente* · *M* · *Dip.: BR-038*
 > Il sistema deve mostrare a tutti i partecipanti l'elenco aggiornato con nome, qualifica e stato del microfono, senza possibilità di partecipazione occulta.
 > › **Dato** l'ingresso di un terzo partecipante · **Quando** avviene · **Allora** tutti i presenti ricevono una notifica visiva e l'elenco si aggiorna entro 1 s.
 
-> **RF-080 · Percorso di identificazione alternativa** — *Medico* · *S* · *Dip.: RF-077*
+> **RF-080 · Percorso di identificazione alternativa** - *Medico* · *S* · *Dip.: RF-077*
 > Il sistema deve offrire metodi alternativi di identificazione configurati dal tenant e registrare quale metodo è stato effettivamente usato.
 > › **Dato** un paziente senza documento leggibile · **Quando** il medico seleziona il metodo alternativo configurato · **Allora** il metodo usato è registrato nominativamente nel contatto e riportato nel referto.
 
-> **RF-081 · Conferma del luogo di svolgimento** — *Paziente* · *M* · *Dip.: BR-039*
+> **RF-081 · Conferma del luogo di svolgimento** - *Paziente* · *M* · *Dip.: BR-039*
 > All'avvio della sessione il sistema deve chiedere al paziente di confermare o correggere l'indirizzo in cui si trova, e conservarlo per la durata del contatto.
 > › **Dato** un paziente che si trova in un luogo diverso dalla residenza · **Quando** conferma il luogo effettivo · **Allora** l'indirizzo indicato è immediatamente visibile al professionista nel pannello di emergenza.
 
-> **RF-082 · Procedura di emergenza a un comando** — *Medico* · *M* · *Dip.: RF-081*
+> **RF-082 · Procedura di emergenza a un comando** - *Medico* · *M* · *Dip.: RF-081*
 > Il sistema deve offrire un comando sempre visibile che presenti immediatamente luogo dichiarato, recapiti telefonici del paziente e contatto di emergenza, e allerti il front-office.
 > › **Dato** una sessione in corso · **Quando** il medico attiva la procedura di emergenza · **Allora** entro 2 s vede le informazioni logistiche complete e il front-office riceve un'allerta prioritaria.
 
-> **RF-083 · Nessuna valutazione clinica automatica** — *Sistema* · *M* · *Dip.: CTX V2*
+> **RF-083 · Nessuna valutazione clinica automatica** - *Sistema* · *M* · *Dip.: CTX V2*
 > Il sistema non deve produrre punteggi, allarmi clinici, suggerimenti diagnostici o classificazioni di gravità.
 > › **Dato** una sessione con qualunque dato disponibile · **Quando** si ispezionano tutte le interfacce · **Allora** non esiste alcun elemento che proponga interpretazione clinica, e i test di conformità architetturale falliscono se un modulo tenta di introdurla.
 
-> **RF-084 · Chiusura della sessione con esito** — *Medico* · *M* · *Dip.: BR-032*
+> **RF-084 · Chiusura della sessione con esito** - *Medico* · *M* · *Dip.: BR-032*
 > La chiusura della sessione deve richiedere la selezione di un esito da elenco codificato (§3.3.1) e, per gli esiti anomali, una motivazione testuale.
 > › **Dato** una sessione interrotta per decisione clinica · **Quando** il medico la chiude · **Allora** il sistema richiede la motivazione e non consente la chiusura senza di essa.
 
-> **RF-085 · Estensione della sessione oltre la durata pianificata** — *Medico* · *S* · *Dip.: RF-048*
+> **RF-085 · Estensione della sessione oltre la durata pianificata** - *Medico* · *S* · *Dip.: RF-048*
 > Il sistema deve avvisare all'approssimarsi della fine della durata pianificata e consentire l'estensione, con impatto visibile sull'agenda successiva.
 > › **Dato** una sessione a 3 minuti dalla scadenza con appuntamento successivo · **Quando** il medico estende · **Allora** il sistema mostra il ritardo indotto e informa automaticamente il paziente successivo in lobby.
 
-> **RF-086 · Trasferimento della sessione a un altro professionista** — *Medico* · *C* · *Dip.: RF-078*
+> **RF-086 · Trasferimento della sessione a un altro professionista** - *Medico* · *C* · *Dip.: RF-078*
 > Il sistema deve consentire il trasferimento del contatto in corso a un altro professionista abilitato, con registrazione del passaggio e informazione al paziente.
 > › **Dato** un medico che deve interrompere · **Quando** trasferisce a un collega abilitato · **Allora** il paziente è informato del cambio con nome e qualifica del subentrante, e il contatto registra entrambi i professionisti con i rispettivi intervalli.
 
 ### 5.F Condivisione di contenuti durante la sessione (RF-089 … RF-097)
 
-> **RF-089 · Condivisione dello schermo** — *Medico, Paziente* · *S* · *Dip.: RF-067*
+> **RF-089 · Condivisione dello schermo** - *Medico, Paziente* · *S* · *Dip.: RF-067*
 > Il sistema deve consentire la condivisione dello schermo o di una singola finestra, con indicazione permanente e visibile di cosa si sta condividendo.
 > › **Dato** una condivisione attiva · **Quando** l'utente osserva la propria interfaccia · **Allora** vede l'anteprima di ciò che sta condividendo e un controllo di interruzione immediata.
 
-> **RF-090 · Condivisione di documenti in sessione** — *Medico* · *M* · *Dip.: BR-010*
+> **RF-090 · Condivisione di documenti in sessione** - *Medico* · *M* · *Dip.: BR-010*
 > Il sistema deve consentire di rendere visibile al paziente un documento del suo dossier per la durata della sessione, con revoca immediata.
 > › **Dato** un documento condiviso · **Quando** la sessione termina · **Allora** l'accesso temporaneo del paziente a quel documento cessa, salvo che il documento sia fra quelli a lui destinati in via ordinaria.
 
-> **RF-091 · Caricamento di file da parte del paziente** — *Paziente* · *M* · *Dip.: —*
+> **RF-091 · Caricamento di file da parte del paziente** - *Paziente* · *M* · *Dip.: -*
 > Il paziente deve poter caricare documenti prima o durante la sessione, con limiti di formato e dimensione dichiarati e verifica antimalware.
 > › **Dato** un file di formato non ammesso · **Quando** il paziente tenta il caricamento · **Allora** riceve un messaggio che indica i formati ammessi e la dimensione massima, e il file non viene conservato.
 
-> **RF-092 · Verifica antimalware bloccante** — *Sistema* · *M* · *Dip.: RF-091*
+> **RF-092 · Verifica antimalware bloccante** - *Sistema* · *M* · *Dip.: RF-091*
 > Nessun file caricato deve essere reso disponibile prima dell'esito positivo della verifica antimalware.
 > › **Dato** un file in attesa di verifica · **Quando** il medico apre l'elenco allegati · **Allora** il file compare come «in verifica» e non è scaricabile finché la verifica non è completata.
 
-> **RF-093 · Acquisizione di immagini dalla sessione** — *Medico* · *C* · *Dip.: BR-070*
+> **RF-093 · Acquisizione di immagini dalla sessione** - *Medico* · *C* · *Dip.: BR-070*
 > Il sistema può consentire la cattura di fotogrammi dalla sessione solo previo consenso specifico del paziente, con indicazione visiva e registrazione dell'atto.
 > › **Dato** un paziente che non ha prestato il consenso alla cattura · **Quando** il medico tenta la cattura · **Allora** la funzione è disabilitata con indicazione del consenso mancante.
 
-> **RF-094 · Annotazione su immagine condivisa** — *Medico* · *C* · *Dip.: RF-089*
+> **RF-094 · Annotazione su immagine condivisa** - *Medico* · *C* · *Dip.: RF-089*
 > Il sistema può consentire l'annotazione grafica su un'immagine condivisa; le annotazioni sono contenuto prodotto dal professionista e non modificano l'immagine originale.
 > › **Dato** un'immagine annotata · **Quando** viene salvata · **Allora** l'originale resta immutato e l'annotazione è conservata come livello separato con autore e istante.
 
-> **RF-095 · Revoca dell'accesso a un file condiviso** — *Medico* · *M* · *Dip.: RF-090*
+> **RF-095 · Revoca dell'accesso a un file condiviso** - *Medico* · *M* · *Dip.: RF-090*
 > Il sistema deve consentire la revoca immediata della condivisione di un file, con effetto entro 5 s sui client collegati.
 > › **Dato** un file erroneamente condiviso · **Quando** il medico revoca · **Allora** entro 5 s il file scompare dall'interfaccia del paziente e ogni richiesta successiva di download è rifiutata.
 
-> **RF-096 · Tracciamento degli accessi ai contenuti condivisi** — *Sistema* · *M* · *Dip.: BR-016*
+> **RF-096 · Tracciamento degli accessi ai contenuti condivisi** - *Sistema* · *M* · *Dip.: BR-016*
 > Ogni visualizzazione e ogni scaricamento di un contenuto condiviso deve essere registrato con soggetto, risorsa e istante.
 > › **Dato** un paziente che scarica il proprio referto · **Quando** l'azione avviene · **Allora** l'audit registra l'evento e il professionista può verificare se e quando il documento è stato consultato.
 
-> **RF-097 · Lavagna condivisa** — *Medico* · *W* · *Dip.: RF-089*
+> **RF-097 · Lavagna condivisa** - *Medico* · *W* · *Dip.: RF-089*
 > Il sistema potrà offrire una lavagna condivisa per spiegazioni al paziente; il contenuto non è documentazione clinica salvo esplicita acquisizione al contatto.
 > › **Dato** una lavagna usata durante la sessione · **Quando** la sessione termina senza acquisizione esplicita · **Allora** il contenuto non è conservato.
 
 ### 5.G Chat e messaggistica (RF-100 … RF-107)
 
-> **RF-100 · Chat di sessione** — *Utente* · *M* · *Dip.: RF-067*
+> **RF-100 · Chat di sessione** - *Utente* · *M* · *Dip.: RF-067*
 > Il sistema deve offrire una chat testuale fra i partecipanti alla sessione, utilizzabile anche in assenza di audio funzionante.
 > › **Dato** un paziente con microfono non funzionante · **Quando** entra in sessione · **Allora** può comunicare in chat e il medico riceve un avviso che il canale audio del paziente non è disponibile.
 
-> **RF-101 · Destino del contenuto della chat** — *Sistema* · *M* · *Dip.: BR-056*
+> **RF-101 · Destino del contenuto della chat** - *Sistema* · *M* · *Dip.: BR-056*
 > Alla chiusura della sessione il contenuto della chat deve essere acquisito al contatto come documento oppure eliminato, secondo la configurazione del tenant, senza stati intermedi persistenti.
 > › **Dato** un tenant configurato per l'acquisizione · **Quando** la sessione si chiude · **Allora** la trascrizione è allegata al contatto con autore, istante e partecipanti, e non resta copia nel canale effimero.
 
-> **RF-102 · Chat pre-sessione con il front-office** — *Paziente* · *S* · *Dip.: RF-058*
+> **RF-102 · Chat pre-sessione con il front-office** - *Paziente* · *S* · *Dip.: RF-058*
 > Il paziente in lobby deve poter comunicare in chat con il front-office per problemi tecnici o organizzativi.
 > › **Dato** un paziente con problema tecnico in lobby · **Quando** apre la chat di assistenza · **Allora** raggiunge il front-office e non il professionista, e la conversazione non è acquisita come documentazione clinica.
 
-> **RF-103 · Messaggistica asincrona post-sessione** — *Paziente, Medico* · *C* · *Dip.: BR-057*
+> **RF-103 · Messaggistica asincrona post-sessione** - *Paziente, Medico* · *C* · *Dip.: BR-057*
 > Il sistema può offrire uno scambio asincrono limitato dopo la sessione, con finestra temporale configurata e dichiarazione persistente dei tempi di risposta e della non idoneità all'emergenza.
 > › **Dato** un canale asincrono aperto · **Quando** il paziente lo apre · **Allora** vede in modo persistente e non chiudibile l'indicazione dei tempi di risposta e l'avviso che non è un canale di emergenza.
 
-> **RF-104 · Nessun contenuto clinico su canali non autenticati** — *Sistema* · *M* · *Dip.: BR-050*
+> **RF-104 · Nessun contenuto clinico su canali non autenticati** - *Sistema* · *M* · *Dip.: BR-050*
 > Il sistema non deve inviare contenuti di chat o messaggistica su canali non autenticati: le notifiche esterne contengono solo l'avviso della presenza di un messaggio.
 > › **Dato** un messaggio clinico ricevuto · **Quando** viene generata la notifica e-mail · **Allora** l'e-mail contiene solo «hai un nuovo messaggio dalla struttura X» e il collegamento all'area autenticata.
 
-> **RF-105 · Indicatori di stato del messaggio** — *Utente* · *C* · *Dip.: RF-100*
+> **RF-105 · Indicatori di stato del messaggio** - *Utente* · *C* · *Dip.: RF-100*
 > Il sistema deve indicare l'avvenuta consegna e l'avvenuta lettura dei messaggi ai soli partecipanti alla conversazione.
 > › **Dato** un messaggio letto dal destinatario · **Quando** il mittente osserva la conversazione · **Allora** vede lo stato di lettura con l'istante, e nessun terzo può ricavare questa informazione.
 
-> **RF-106 · Esportazione della conversazione** — *Medico* · *C* · *Dip.: RF-101*
+> **RF-106 · Esportazione della conversazione** - *Medico* · *C* · *Dip.: RF-101*
 > Il sistema deve consentire l'esportazione della conversazione acquisita al contatto in formato leggibile e firmabile.
 > › **Dato** una conversazione acquisita · **Quando** il medico la esporta · **Allora** ottiene un documento con partecipanti, istanti e testo integrale, e l'esportazione è registrata nell'audit.
 
-> **RF-107 · Blocco della messaggistica per prestazioni non idonee** — *Amministratore di struttura* · *S* · *Dip.: BR-096*
+> **RF-107 · Blocco della messaggistica per prestazioni non idonee** - *Amministratore di struttura* · *S* · *Dip.: BR-096*
 > Il tenant deve poter disabilitare la messaggistica asincrona per tipi di prestazione specifici, e la disabilitazione non deve essere aggirabile da alcun ruolo.
 > › **Dato** una prestazione con messaggistica disabilitata · **Quando** un professionista tenta di aprire il canale · **Allora** la funzione è assente e ogni chiamata API diretta è rifiutata.
 
 ### 5.H Consenso (RF-110 … RF-121)
 
-> **RF-110 · Consensi distinti e separati** — *Sistema* · *M* · *Dip.: BR-060*
+> **RF-110 · Consensi distinti e separati** - *Sistema* · *M* · *Dip.: BR-060*
 > Il sistema deve gestire come oggetti distinti almeno: consenso all'atto sanitario, consenso al trattamento dei dati ove applicabile, consenso alla registrazione, consenso alla presenza di terzi, consenso alla trasmissione a sistemi esterni.
 > › **Dato** un paziente che revoca il consenso alla registrazione · **Quando** la revoca viene registrata · **Allora** gli altri consensi restano vigenti e l'erogazione della prestazione non è impedita.
 
-> **RF-111 · Versionamento dell'informativa** — *Amministratore di struttura* · *M* · *Dip.: BR-061*
+> **RF-111 · Versionamento dell'informativa** - *Amministratore di struttura* · *M* · *Dip.: BR-061*
 > Ogni testo informativo o di consenso deve essere versionato, con data di entrata in vigore e conservazione delle versioni precedenti.
 > › **Dato** un consenso raccolto sulla versione 3 · **Quando** viene pubblicata la versione 4 · **Allora** il consenso già raccolto resta associato alla versione 3, che rimane consultabile integralmente.
 
-> **RF-112 · Evidenza della manifestazione di volontà** — *Sistema* · *M* · *Dip.: RF-111*
-> Ogni consenso deve registrare: identità del dichiarante, identità dell'interessato, versione del testo, istante, canale, esito e — se applicabile — titolo di rappresentanza.
+> **RF-112 · Evidenza della manifestazione di volontà** - *Sistema* · *M* · *Dip.: RF-111*
+> Ogni consenso deve registrare: identità del dichiarante, identità dell'interessato, versione del testo, istante, canale, esito e - se applicabile - titolo di rappresentanza.
 > › **Dato** un consenso prestato da un tutore · **Quando** viene consultata l'evidenza · **Allora** risultano entrambe le identità, il titolo, gli estremi del provvedimento e la versione del testo presentata.
 
-> **RF-113 · Raccolta del consenso in sessione** — *Medico* · *M* · *Dip.: RF-112*
+> **RF-113 · Raccolta del consenso in sessione** - *Medico* · *M* · *Dip.: RF-112*
 > Il sistema deve consentire la raccolta del consenso durante la sessione, con lettura del testo e manifestazione esplicita del paziente, senza spuntature preimpostate.
 > › **Dato** un modulo di consenso presentato in sessione · **Quando** viene visualizzato · **Allora** nessuna opzione risulta preselezionata e il pulsante di conferma è abilitato solo dopo lo scorrimento completo del testo.
 
-> **RF-114 · Verifica dei consensi prima dell'atto** — *Sistema* · *M* · *Dip.: RF-110*
+> **RF-114 · Verifica dei consensi prima dell'atto** - *Sistema* · *M* · *Dip.: RF-110*
 > Prima dell'avvio della sessione il sistema deve verificare la presenza dei consensi obbligatori per il tipo di prestazione e segnalarne l'assenza al professionista.
 > › **Dato** un consenso obbligatorio mancante · **Quando** il medico ammette il paziente · **Allora** il sistema segnala l'assenza e propone la raccolta immediata prima dell'inizio dell'atto.
 
-> **RF-115 · Revoca immediata ed effettiva** — *Paziente* · *M* · *Dip.: BR-069*
+> **RF-115 · Revoca immediata ed effettiva** - *Paziente* · *M* · *Dip.: BR-069*
 > Il paziente deve poter revocare un consenso in qualunque momento, con effetto immediato sui trattamenti futuri e senza obbligo di motivazione.
 > › **Dato** una registrazione in corso · **Quando** il paziente revoca il consenso alla registrazione · **Allora** la registrazione si interrompe entro 3 s, il frammento già acquisito segue la regola configurata di cancellazione o conservazione, e l'evento è registrato.
 
-> **RF-116 · Consulto dello storico dei consensi** — *Paziente, DPO* · *M* · *Dip.: RF-112*
+> **RF-116 · Consulto dello storico dei consensi** - *Paziente, DPO* · *M* · *Dip.: RF-112*
 > Il paziente e il DPO devono poter consultare lo storico completo dei consensi con stato attuale e cronologia delle variazioni.
 > › **Dato** un paziente con 6 consensi e 2 revoche · **Quando** consulta lo storico · **Allora** vede tutti gli eventi in ordine cronologico con testo di riferimento consultabile.
 
-> **RF-117 · Consenso per conto di terzi con verifica dell'ambito** — *Rappresentante legale* · *M* · *Dip.: BR-063*
+> **RF-117 · Consenso per conto di terzi con verifica dell'ambito** - *Rappresentante legale* · *M* · *Dip.: BR-063*
 > Il sistema deve verificare che l'ambito dei poteri registrati copra l'atto per cui si presta il consenso.
 > › **Dato** un amministratore di sostegno con poteri limitati alla sfera patrimoniale · **Quando** tenta di prestare consenso a un atto sanitario · **Allora** il sistema rifiuta e segnala l'incompetenza al front-office.
 
-> **RF-118 · Transizione alla maggiore età** — *Sistema* · *M* · *Dip.: RF-028*
+> **RF-118 · Transizione alla maggiore età** - *Sistema* · *M* · *Dip.: RF-028*
 > Al compimento della maggiore età dell'assistito il sistema deve sospendere automaticamente gli accessi dei rappresentanti e richiedere una nuova configurazione delle deleghe.
 > › **Dato** un assistito che compie 18 anni · **Quando** il genitore accede il giorno successivo · **Allora** l'accesso è negato con messaggio esplicativo e il paziente riceve la comunicazione della nuova titolarità.
 
-> **RF-119 · Oscuramento di documenti** — *Paziente* · *S* · *Dip.: BR-064*
+> **RF-119 · Oscuramento di documenti** - *Paziente* · *S* · *Dip.: BR-064*
 > Il paziente deve poter richiedere l'oscuramento di documenti verso categorie di destinatari; l'oscuramento non deve lasciare traccia inferibile.
 > › **Dato** un documento oscurato verso i professionisti esterni alla struttura autrice · **Quando** un professionista esterno consulta l'elenco documenti · **Allora** non vede il documento né alcun indizio della sua esistenza, inclusi conteggi e numerazioni.
 
-> **RF-120 · Consenso alla trasmissione verso sistemi esterni** — *Paziente* · *M* · *Dip.: BR-048*
+> **RF-120 · Consenso alla trasmissione verso sistemi esterni** - *Paziente* · *M* · *Dip.: BR-048*
 > La trasmissione di documenti verso repository esterni deve essere subordinata alla verifica del consenso applicabile e la sua assenza deve essere segnalata come condizione bloccante gestita, non come errore tecnico.
 > › **Dato** un consenso alla trasmissione assente · **Quando** il referto viene firmato · **Allora** la trasmissione non parte, il fatto è registrato come condizione nota e il professionista ne è informato.
 
-> **RF-121 · Modelli di consenso configurabili per tenant** — *Amministratore di struttura* · *S* · *Dip.: RF-111*
+> **RF-121 · Modelli di consenso configurabili per tenant** - *Amministratore di struttura* · *S* · *Dip.: RF-111*
 > Il tenant deve poter definire i propri modelli di consenso per tipo di prestazione, entro i tipi di consenso previsti dal dominio, senza poterne eliminare gli obbligatori.
 > › **Dato** un tentativo di rimuovere il consenso all'atto sanitario da un modello · **Quando** viene salvato · **Allora** l'operazione è rifiutata con indicazione dell'obbligatorietà.
 
 ### 5.I Refertazione e documentazione clinica (RF-124 … RF-136)
 
-> **RF-124 · Bozza di referto** — *Medico* · *M* · *Dip.: BR-041*
+> **RF-124 · Bozza di referto** - *Medico* · *M* · *Dip.: BR-041*
 > Il sistema deve consentire la redazione di una bozza salvabile, modificabile e non visibile al paziente né trasmissibile.
 > › **Dato** una bozza salvata · **Quando** il paziente consulta i propri documenti · **Allora** la bozza non compare in alcuna forma, nemmeno come documento «in lavorazione».
 
-> **RF-125 · Modelli di referto per prestazione** — *Amministratore di struttura* · *S* · *Dip.: RF-030*
+> **RF-125 · Modelli di referto per prestazione** - *Amministratore di struttura* · *S* · *Dip.: RF-030*
 > Il sistema deve consentire di associare a ciascun tipo di prestazione un modello di referto con sezioni predefinite e campi obbligatori.
 > › **Dato** un modello con sezione «conclusioni» obbligatoria · **Quando** il medico tenta di firmare senza compilarla · **Allora** la firma è impedita con indicazione della sezione mancante.
 
-> **RF-126 · Nessuna generazione automatica di contenuto clinico** — *Sistema* · *M* · *Dip.: BR-040*
+> **RF-126 · Nessuna generazione automatica di contenuto clinico** - *Sistema* · *M* · *Dip.: BR-040*
 > Il sistema non deve precompilare, dedurre o suggerire contenuto clinico interpretativo; può solo riportare dati amministrativi e dati precedentemente inseriti dal professionista.
 > › **Dato** un modello di referto · **Quando** viene aperto · **Allora** i soli campi precompilati sono anagrafici, amministrativi e temporali, e nessun campo di valutazione clinica contiene testo generato.
 
-> **RF-127 · Firma del referto** — *Medico* · *M* · *Dip.: BR-043*
+> **RF-127 · Firma del referto** - *Medico* · *M* · *Dip.: BR-043*
 > La firma del referto deve avvenire con il livello di firma configurato per il tenant; il sistema deve verificare validità del certificato e rifiutare la firma con certificato scaduto o revocato.
 > › **Dato** un certificato revocato · **Quando** il medico tenta la firma · **Allora** l'operazione è rifiutata con messaggio specifico e il referto resta bozza.
 
-> **RF-128 · Immodificabilità dopo la firma** — *Sistema* · *M* · *Dip.: BR-044*
+> **RF-128 · Immodificabilità dopo la firma** - *Sistema* · *M* · *Dip.: BR-044*
 > Dopo la firma il documento non è modificabile; è possibile emettere una versione successiva che annulla e sostituisce, con motivazione della rettifica.
 > › **Dato** un referto firmato · **Quando** il medico emette una rettifica · **Allora** entrambe le versioni restano consultabili, la precedente è marcata come annullata e la nuova riporta il riferimento e la motivazione.
 
-> **RF-129 · Contenuti obbligatori del referto** — *Sistema* · *M* · *Dip.: BR-045*
+> **RF-129 · Contenuti obbligatori del referto** - *Sistema* · *M* · *Dip.: BR-045*
 > Il referto deve riportare automaticamente: identità e qualifica del refertante, struttura, punto di erogazione, data e ora dell'atto, tipo di prestazione, canale di erogazione, metodo di identificazione del paziente ed eventuali limitazioni tecniche occorse.
 > › **Dato** un contatto degradato a sola fonia · **Quando** viene generato il referto · **Allora** il documento riporta il canale effettivamente usato e l'annotazione della limitazione, senza intervento manuale.
 
-> **RF-130 · Finestra di refertazione e sollecito** — *Sistema* · *M* · *Dip.: BR-042*
+> **RF-130 · Finestra di refertazione e sollecito** - *Sistema* · *M* · *Dip.: BR-042*
 > Il sistema deve monitorare il tempo intercorso fra conclusione del contatto e firma, sollecitare il professionista e segnalare al responsabile del servizio il superamento della soglia.
 > › **Dato** una soglia di 5 giorni lavorativi · **Quando** un referto non è firmato al quinto giorno · **Allora** il professionista riceve un sollecito e il responsabile del servizio vede il contatto nella lista degli inadempimenti.
 
-> **RF-131 · Messa a disposizione del referto al paziente** — *Paziente* · *M* · *Dip.: BR-046*
+> **RF-131 · Messa a disposizione del referto al paziente** - *Paziente* · *M* · *Dip.: BR-046*
 > Il referto firmato deve essere reso disponibile al paziente in area autenticata, con notifica su canale preferito priva di contenuto clinico.
 > › **Dato** un referto firmato · **Quando** viene pubblicato · **Allora** il paziente riceve una notifica generica e, accedendo con il livello di autenticazione richiesto, può consultarlo e scaricarlo.
 
-> **RF-132 · Consegna differita motivata** — *Medico* · *S* · *Dip.: BR-047*
+> **RF-132 · Consegna differita motivata** - *Medico* · *S* · *Dip.: BR-047*
 > Il sistema deve consentire di differire la messa a disposizione del referto, registrando motivazione e data prevista di consegna.
 > › **Dato** un referto con consegna differita al colloquio · **Quando** il paziente accede · **Allora** vede l'indicazione che il referto sarà illustrato in un colloquio programmato, senza accedere al contenuto, e il differimento è registrato con l'identità di chi lo ha disposto.
 
-> **RF-133 · Documenti multipli nel teleconsulto** — *Medico* · *M* · *Dip.: BR-049*
+> **RF-133 · Documenti multipli nel teleconsulto** - *Medico* · *M* · *Dip.: BR-049*
 > Il sistema deve supportare, su un unico contatto, sia più documenti con autori distinti sia un documento unico controfirmato, secondo la configurazione della prestazione.
 > › **Dato** un teleconsulto con relazione del consulente e referto del curante · **Quando** entrambi firmano · **Allora** i due documenti restano distinti, ciascuno con il proprio autore, e sono entrambi collegati allo stesso contatto.
 
-> **RF-134 · Allegati al referto** — *Medico* · *S* · *Dip.: RF-091*
+> **RF-134 · Allegati al referto** - *Medico* · *S* · *Dip.: RF-091*
 > Il sistema deve consentire di allegare al referto documenti e immagini, che seguono lo stesso regime di firma, conservazione e accesso del referto.
 > › **Dato** un referto con due allegati · **Quando** viene firmato · **Allora** la firma copre l'insieme documento più allegati e l'alterazione di un allegato rende la verifica di integrità negativa.
 
-> **RF-135 · Livello di riservatezza del documento** — *Medico* · *M* · *Dip.: BR-065*
+> **RF-135 · Livello di riservatezza del documento** - *Medico* · *M* · *Dip.: BR-065*
 > Il professionista deve poter assegnare un livello di riservatezza rafforzato a un documento, che ne esclude la condivisione automatica e le notifiche esterne.
 > › **Dato** un documento a riservatezza rafforzata · **Quando** viene firmato · **Allora** non viene trasmesso automaticamente ad alcun sistema esterno e la trasmissione richiede un'azione esplicita motivata.
 
-> **RF-136 · Note interne non destinate al paziente** — *Medico* · *M* · *Dip.: §1.2*
+> **RF-136 · Note interne non destinate al paziente** - *Medico* · *M* · *Dip.: §1.2*
 > Il sistema deve distinguere le note di diario clinico dal referto: le note non sono consegnate al paziente né trasmesse ai sistemi esterni salvo richiesta esplicita.
 > › **Dato** una nota di diario · **Quando** il paziente consulta i propri documenti · **Allora** la nota non compare, e la sua eventuale trasmissione richiede un'azione distinta e tracciata.
 
 ### 5.J Registrazione della sessione (RF-139 … RF-147)
 
-> **RF-139 · Abilitazione a cascata** — *Amministratore di sistema, Amministratore di struttura* · *M* · *Dip.: BR-070*
+> **RF-139 · Abilitazione a cascata** - *Amministratore di sistema, Amministratore di struttura* · *M* · *Dip.: BR-070*
 > La registrazione deve essere abilitabile solo se abilitata a tutti i livelli superiori: installazione, tenant, tipo di prestazione, sessione.
 > › **Dato** un'installazione con registrazione disabilitata · **Quando** un amministratore di struttura tenta di abilitarla · **Allora** l'opzione è visibile ma non attivabile, con indicazione del livello che la blocca.
 
-> **RF-140 · Consenso specifico e preventivo** — *Paziente* · *M* · *Dip.: BR-071*
+> **RF-140 · Consenso specifico e preventivo** - *Paziente* · *M* · *Dip.: BR-071*
 > La registrazione non può iniziare senza consenso specifico registrato per quella sessione.
 > › **Dato** una sessione senza consenso alla registrazione · **Quando** il medico attiva la registrazione · **Allora** il sistema presenta al paziente la richiesta di consenso e la registrazione parte solo dopo la manifestazione esplicita.
 
-> **RF-141 · Indicatore permanente** — *Utente* · *M* · *Dip.: BR-072*
+> **RF-141 · Indicatore permanente** - *Utente* · *M* · *Dip.: BR-072*
 > Durante la registrazione un indicatore visivo non occultabile deve essere presente per tutti i partecipanti, accompagnato da annuncio accessibile all'avvio.
 > › **Dato** una registrazione avviata · **Quando** un utente con screen reader è in sessione · **Allora** riceve un annuncio esplicito dell'avvio e l'indicatore è esposto come regione di stato.
 
-> **RF-142 · Interruzione alla revoca** — *Paziente* · *M* · *Dip.: RF-115*
+> **RF-142 · Interruzione alla revoca** - *Paziente* · *M* · *Dip.: RF-115*
 > La revoca del consenso deve interrompere la registrazione entro 3 s.
 > › **Dato** una registrazione in corso · **Quando** il paziente revoca · **Allora** la registrazione si interrompe entro 3 s e l'evento è registrato con l'istante esatto.
 
-> **RF-143 · Cifratura a riposo e chiavi per tenant** — *Sistema* · *M* · *Dip.: BR-073*
+> **RF-143 · Cifratura a riposo e chiavi per tenant** - *Sistema* · *M* · *Dip.: BR-073*
 > Le registrazioni devono essere cifrate a riposo con chiave specifica per tenant, con rotazione documentata.
 > › **Dato** un accesso diretto allo storage · **Quando** si tenta la lettura del file · **Allora** il contenuto non è intelligibile senza la chiave del tenant, custodita separatamente.
 
-> **RF-144 · Accesso alla registrazione** — *Medico* · *M* · *Dip.: BR-073*
+> **RF-144 · Accesso alla registrazione** - *Medico* · *M* · *Dip.: BR-073*
 > La riproduzione di una registrazione richiede un permesso clinico specifico, genera audit di severità alta e notifica al DPO se effettuata oltre una soglia configurata di accessi.
 > › **Dato** un medico che riproduce una registrazione · **Quando** l'azione avviene · **Allora** l'audit registra l'evento e, al superamento della soglia mensile configurata, il DPO riceve una segnalazione.
 
-> **RF-145 · Retention e cancellazione verificabile** — *Sistema* · *M* · *Dip.: BR-074*
+> **RF-145 · Retention e cancellazione verificabile** - *Sistema* · *M* · *Dip.: BR-074*
 > Il sistema deve applicare automaticamente la retention configurata, non superiore al massimo codificato, producendo evidenza dell'avvenuta cancellazione.
 > › **Dato** una registrazione con retention di 30 giorni · **Quando** trascorrono 31 giorni · **Allora** il file non è più recuperabile, l'audit riporta l'avvenuta cancellazione e la ricerca restituisce l'assenza motivata.
 
-> **RF-146 · Prestazioni non registrabili** — *Sistema* · *M* · *Dip.: BR-075*
+> **RF-146 · Prestazioni non registrabili** - *Sistema* · *M* · *Dip.: BR-075*
 > Per i tipi di prestazione marcati non registrabili la funzione deve essere assente e ogni chiamata API di attivazione rifiutata.
 > › **Dato** una prestazione marcata non registrabile · **Quando** un client applicativo chiama l'avvio registrazione · **Allora** riceve un rifiuto esplicito e l'evento è registrato come tentativo non conforme.
 
-> **RF-147 · Esportazione della registrazione** — *Medico* · *C* · *Dip.: RF-144*
+> **RF-147 · Esportazione della registrazione** - *Medico* · *C* · *Dip.: RF-144*
 > L'esportazione di una registrazione deve richiedere motivazione, produrre un file cifrato e registrare destinatario e finalità.
 > › **Dato** una richiesta di esportazione · **Quando** viene eseguita · **Allora** il file prodotto è cifrato con chiave consegnata separatamente e l'operazione compare nel registro degli accessi del paziente.
 
 ### 5.K Notifiche (RF-150 … RF-158)
 
-> **RF-150 · Motore di notifica multicanale** — *Sistema* · *M* · *Dip.: —*
+> **RF-150 · Motore di notifica multicanale** - *Sistema* · *M* · *Dip.: -*
 > Il sistema deve inviare notifiche su almeno tre canali configurabili (posta elettronica, messaggio breve, notifica in area autenticata), con selezione per tipo di evento e preferenza del destinatario.
 > › **Dato** un paziente con preferenza «solo area autenticata» · **Quando** viene generata una notifica non essenziale · **Allora** essa compare solo in area autenticata e nessun messaggio esterno viene inviato.
 
-> **RF-151 · Contenuto minimo delle notifiche esterne** — *Sistema* · *M* · *Dip.: BR-050*
+> **RF-151 · Contenuto minimo delle notifiche esterne** - *Sistema* · *M* · *Dip.: BR-050*
 > Le notifiche su canali non autenticati non devono contenere dato clinico, branca specialistica, nome dello specialista o titolo di documento.
 > › **Dato** un promemoria per una visita psichiatrica · **Quando** viene inviato per messaggio breve · **Allora** il testo riporta solo struttura, data, ora e collegamento, senza alcun riferimento alla specialità.
 
-> **RF-152 · Promemoria multipli con richiamo al test tecnico** — *Sistema* · *M* · *Dip.: BR-055*
+> **RF-152 · Promemoria multipli con richiamo al test tecnico** - *Sistema* · *M* · *Dip.: BR-055*
 > Il sistema deve inviare almeno due promemoria configurabili prima della televisita, ciascuno con il richiamo alla verifica tecnica preventiva.
 > › **Dato** un appuntamento fra 24 ore · **Quando** parte il primo promemoria · **Allora** esso contiene il collegamento alla verifica tecnica e l'indicazione del tempo necessario a eseguirla.
 
-> **RF-153 · Notifica di variazione** — *Sistema* · *M* · *Dip.: RF-045*
+> **RF-153 · Notifica di variazione** - *Sistema* · *M* · *Dip.: RF-045*
 > Ogni variazione dell'appuntamento (spostamento, cancellazione, cambio professionista) deve generare una notifica immediata a tutti i partecipanti interessati.
 > › **Dato** una cancellazione da parte della struttura · **Quando** viene confermata · **Allora** il paziente riceve la notifica entro 60 s sul canale preferito verificato.
 
-> **RF-154 · Registro delle notifiche** — *Front-office, DPO* · *M* · *Dip.: BR-054*
+> **RF-154 · Registro delle notifiche** - *Front-office, DPO* · *M* · *Dip.: BR-054*
 > Il sistema deve conservare l'esito di consegna di ogni notifica, senza conservare il corpo se contiene dati personali eccedenti i riferimenti minimi.
 > › **Dato** una notifica non consegnata · **Quando** il front-office consulta il registro · **Allora** vede canale, istante, esito e motivo del fallimento, e può rilanciare l'invio.
 
-> **RF-155 · Escalation su mancata consegna** — *Sistema* · *S* · *Dip.: RF-154*
+> **RF-155 · Escalation su mancata consegna** - *Sistema* · *S* · *Dip.: RF-154*
 > In caso di fallimento su un canale il sistema deve tentare il canale alternativo verificato e, in assenza, segnalare al front-office.
 > › **Dato** un indirizzo di posta non valido · **Quando** l'invio fallisce · **Allora** il sistema tenta il canale alternativo e, se assente, inserisce il caso nella coda di intervento del front-office.
 
-> **RF-156 · Notifica di emergenza al front-office** — *Sistema* · *M* · *Dip.: RF-082*
+> **RF-156 · Notifica di emergenza al front-office** - *Sistema* · *M* · *Dip.: RF-082*
 > L'attivazione della procedura di emergenza deve generare un'allerta prioritaria che scavalca le preferenze di notifica e i raggruppamenti.
 > › **Dato** una procedura di emergenza attivata · **Quando** l'evento è generato · **Allora** il front-office riceve l'allerta entro 10 s su tutti i canali configurati per le emergenze.
 
-> **RF-157 · Preferenze e disiscrizione** — *Paziente* · *M* · *Dip.: BR-053*
+> **RF-157 · Preferenze e disiscrizione** - *Paziente* · *M* · *Dip.: BR-053*
 > Il paziente deve poter gestire le preferenze di notifica e rifiutare canali; il rifiuto non deve impedire le comunicazioni essenziali disponibili in area autenticata.
 > › **Dato** un paziente che rifiuta tutti i canali esterni · **Quando** un referto viene pubblicato · **Allora** nessun messaggio esterno è inviato e la notifica resta disponibile in area autenticata.
 
-> **RF-158 · Modelli di notifica multilingua** — *Amministratore di struttura* · *S* · *Dip.: RNF-055*
+> **RF-158 · Modelli di notifica multilingua** - *Amministratore di struttura* · *S* · *Dip.: RNF-055*
 > I modelli devono essere disponibili in almeno italiano e inglese e selezionati in base alla lingua preferita del destinatario, con ricaduta sulla lingua predefinita del tenant.
 > › **Dato** un paziente con lingua preferita inglese · **Quando** riceve un promemoria · **Allora** il testo è in inglese se il modello esiste, altrimenti nella lingua predefinita del tenant con indicazione esplicita.
 
 ### 5.L Qualità e diagnostica tecnica (RF-161 … RF-172)
 
-> **RF-161 · Verifica tecnica preventiva autonoma** — *Paziente* · *M* · *Dip.: —*
+> **RF-161 · Verifica tecnica preventiva autonoma** - *Paziente* · *M* · *Dip.: -*
 > Il sistema deve offrire una pagina di verifica eseguibile in autonomia in qualsiasi momento prima dell'appuntamento, che testi telecamera, microfono, altoparlante, banda, latenza e raggiungibilità del relay, e produca un esito comprensibile a un utente non tecnico.
 > › **Dato** un paziente che apre la verifica 3 giorni prima · **Quando** il test si conclude · **Allora** riceve un esito con semaforo, spiegazione in linguaggio comune e istruzioni specifiche per il proprio browser e sistema operativo, e l'esito è visibile al front-office.
 
-> **RF-162 · Conservazione dell'esito del test** — *Sistema* · *M* · *Dip.: RF-161*
+> **RF-162 · Conservazione dell'esito del test** - *Sistema* · *M* · *Dip.: RF-161*
 > L'esito del test preventivo deve essere associato all'appuntamento e reso disponibile al front-office per intervento proattivo.
 > › **Dato** un test con esito negativo 48 ore prima · **Quando** il front-office consulta la lista degli appuntamenti a rischio · **Allora** vede il caso in evidenza con la causa del fallimento e può contattare il paziente.
 
-> **RF-163 · Campionamento delle metriche in sessione** — *Sistema* · *M* · *Dip.: —*
+> **RF-163 · Campionamento delle metriche in sessione** - *Sistema* · *M* · *Dip.: -*
 > Il sistema deve campionare per ogni sessione, con periodo non superiore a 5 s: tempo di andata e ritorno, perdita di pacchetti, variazione del ritardo, bitrate in ingresso e in uscita, risoluzione, fotogrammi al secondo e tipo di percorso (diretto o relay).
 > › **Dato** una sessione di 20 minuti · **Quando** termina · **Allora** la serie temporale contiene almeno 240 campioni per ciascuna metrica e per ciascun partecipante.
 
-> **RF-164 · Serie temporali interrogabili** — *Amministratore di sistema* · *M* · *Dip.: RF-163*
+> **RF-164 · Serie temporali interrogabili** - *Amministratore di sistema* · *M* · *Dip.: RF-163*
 > Le metriche devono essere conservate in forma di serie temporali interrogabili per sessione, tenant, professionista, periodo e tipo di prestazione.
 > › **Dato** un mese di dati · **Quando** si interroga la distribuzione della perdita di pacchetti per tenant · **Allora** la risposta arriva entro 3 s al p95 su un volume di 10 000 sessioni.
 
-> **RF-165 · Metriche non identificanti** — *Sistema* · *M* · *Dip.: BR-082*
+> **RF-165 · Metriche non identificanti** - *Sistema* · *M* · *Dip.: BR-082*
 > Le metriche non devono contenere identificatori diretti del paziente; la correlazione con il contatto deve richiedere un passaggio autorizzato e tracciato.
 > › **Dato** l'archivio delle metriche · **Quando** viene ispezionato da un amministratore di sistema · **Allora** non è possibile risalire all'identità del paziente senza un'operazione di correlazione autorizzata e registrata.
 
-> **RF-166 · Soglie per tipo di prestazione** — *Amministratore di struttura* · *M* · *Dip.: BR-033*
+> **RF-166 · Soglie per tipo di prestazione** - *Amministratore di struttura* · *M* · *Dip.: BR-033*
 > Il sistema deve consentire di configurare le soglie di qualità per tipo di prestazione entro intervalli di sicurezza codificati.
 > › **Dato** un tentativo di impostare una soglia di perdita pacchetti al 30 % · **Quando** viene salvata · **Allora** l'operazione è rifiutata perché fuori dall'intervallo ammesso, con indicazione dei limiti.
 
-> **RF-167 · Avviso di degrado ai partecipanti** — *Utente* · *M* · *Dip.: BR-034*
+> **RF-167 · Avviso di degrado ai partecipanti** - *Utente* · *M* · *Dip.: BR-034*
 > Al superamento della soglia il sistema deve avvisare entrambi i partecipanti con un messaggio che indica il problema probabile e le azioni suggerite, senza formulare valutazioni cliniche.
 > › **Dato** una perdita di pacchetti sopra soglia per 15 s · **Quando** la condizione persiste · **Allora** entrambi vedono l'avviso con causa probabile e azioni, e la decisione su come procedere resta al professionista.
 
-> **RF-168 · Diagnostica assistita dal front-office** — *Front-office* · *S* · *Dip.: RF-161*
+> **RF-168 · Diagnostica assistita dal front-office** - *Front-office* · *S* · *Dip.: RF-161*
 > Il front-office deve poter avviare da remoto, previo consenso dell'utente, una diagnostica sul dispositivo del paziente che restituisca solo informazioni tecniche.
 > › **Dato** un paziente che acconsente · **Quando** l'operatore avvia la diagnostica · **Allora** riceve browser, versione, permessi dispositivi, banda e raggiungibilità del relay, e nessun dato personale ulteriore.
 
-> **RF-169 · Cruscotto operativo** — *Amministratore di sistema* · *S* · *Dip.: RF-164*
+> **RF-169 · Cruscotto operativo** - *Amministratore di sistema* · *S* · *Dip.: RF-164*
 > Il sistema deve esporre un cruscotto con sessioni attive, tasso di ripiego su relay, distribuzione della qualità e incidenti in corso, aggiornato con ritardo non superiore a 60 s.
 > › **Dato** un picco di ripiego su relay · **Quando** supera la soglia configurata · **Allora** il cruscotto lo evidenzia entro 60 s e viene generato un avviso.
 
-> **RF-170 · Allarmi su soglia** — *Amministratore di sistema* · *S* · *Dip.: RF-169*
+> **RF-170 · Allarmi su soglia** - *Amministratore di sistema* · *S* · *Dip.: RF-169*
 > Il sistema deve consentire di configurare allarmi su metriche aggregate con soglia, finestra e destinatario.
 > › **Dato** un allarme su tasso di fallimento di instaurazione superiore al 5 % su 15 minuti · **Quando** la condizione si verifica · **Allora** l'allarme viene emesso una sola volta per episodio, con richiamo alla risoluzione.
 
-> **RF-171 · Esportazione delle metriche** — *Amministratore di sistema* · *C* · *Dip.: RF-164*
+> **RF-171 · Esportazione delle metriche** - *Amministratore di sistema* · *C* · *Dip.: RF-164*
 > Il sistema deve consentire l'esportazione delle metriche in formato aperto e l'esposizione di un endpoint di monitoraggio privo di identificatori clinici.
 > › **Dato** un sistema di monitoraggio esterno · **Quando** interroga l'endpoint · **Allora** ottiene metriche aggregate senza alcun identificatore di paziente o di contatto.
 
-> **RF-172 · Rapporto tecnico di sessione** — *Medico, Front-office* · *S* · *Dip.: RF-163*
+> **RF-172 · Rapporto tecnico di sessione** - *Medico, Front-office* · *S* · *Dip.: RF-163*
 > Al termine di ogni sessione deve essere disponibile un rapporto tecnico sintetico con qualità media, interruzioni, ripieghi e cambi di canale, riutilizzabile nel referto e nella gestione dei reclami.
 > › **Dato** una sessione con due interruzioni e un ripiego in fonia · **Quando** si apre il rapporto · **Allora** sono elencati gli eventi con istanti e durate, ed è disponibile l'inserimento dell'annotazione nel referto.
 
 ### 5.M Amministrazione e configurazione (RF-175 … RF-183)
 
-> **RF-175 · Configurazione per tenant** — *Amministratore di struttura* · *M* · *Dip.: BR-096*
+> **RF-175 · Configurazione per tenant** - *Amministratore di struttura* · *M* · *Dip.: BR-096*
 > Il sistema deve esporre un insieme di parametri configurabili per tenant (finestre temporali, soglie, canali, modelli, retention) con validazione dei limiti codificati.
 > › **Dato** un valore fuori dai limiti · **Quando** viene salvato · **Allora** l'operazione è rifiutata con indicazione del limite, e la configurazione precedente resta attiva.
 
-> **RF-176 · Storico e ripristino della configurazione** — *Amministratore di struttura* · *S* · *Dip.: RF-175*
+> **RF-176 · Storico e ripristino della configurazione** - *Amministratore di struttura* · *S* · *Dip.: RF-175*
 > Ogni modifica di configurazione deve essere versionata con autore, istante e valore precedente, e deve essere possibile ripristinare una versione precedente.
 > › **Dato** una modifica errata delle soglie · **Quando** l'amministratore ripristina la versione precedente · **Allora** la configurazione torna al valore precedente e l'operazione di ripristino è a sua volta registrata.
 
-> **RF-177 · Personalizzazione dell'aspetto (white-label)** — *Integratore* · *M* · *Dip.: CTX §6.2.1*
+> **RF-177 · Personalizzazione dell'aspetto (white-label)** - *Integratore* · *M* · *Dip.: CTX §6.2.1*
 > Il sistema deve consentire per tenant la configurazione di logo, colori, denominazione, testi legali e dominio di erogazione dell'interfaccia incorporabile, senza esporre marchi della piattaforma.
 > › **Dato** un tenant con personalizzazione completa · **Quando** il paziente accede all'interfaccia incorporata · **Allora** non compare alcun elemento identificativo della piattaforma, e il contrasto dei colori scelti viene validato rispetto ai requisiti di accessibilità.
 
-> **RF-178 · Validazione dell'accessibilità della personalizzazione** — *Sistema* · *M* · *Dip.: RF-177, RNF-040*
+> **RF-178 · Validazione dell'accessibilità della personalizzazione** - *Sistema* · *M* · *Dip.: RF-177, RNF-040*
 > Il sistema deve rifiutare combinazioni cromatiche che violino i rapporti di contrasto richiesti.
 > › **Dato** una combinazione con rapporto di contrasto 3:1 sul testo normale · **Quando** viene salvata · **Allora** è rifiutata con indicazione del rapporto minimo richiesto e suggerimento di correzione.
 
-> **RF-179 · Gestione delle chiusure e delle festività** — *Front-office* · *S* · *Dip.: RF-035*
+> **RF-179 · Gestione delle chiusure e delle festività** - *Front-office* · *S* · *Dip.: RF-035*
 > Il sistema deve gestire calendari di chiusura per organizzazione, con effetto sulla generazione degli slot e sulla disponibilità.
 > › **Dato** una giornata di chiusura configurata · **Quando** vengono generati gli slot · **Allora** nessuno slot è creato per quella giornata e gli eventuali appuntamenti esistenti sono segnalati.
 
-> **RF-180 · Gestione delle manutenzioni programmate** — *Amministratore di sistema* · *S* · *Dip.: —*
+> **RF-180 · Gestione delle manutenzioni programmate** - *Amministratore di sistema* · *S* · *Dip.: -*
 > Il sistema deve consentire di pianificare finestre di manutenzione, avvisare gli utenti in anticipo e impedire la prenotazione di sessioni nella finestra.
 > › **Dato** una manutenzione pianificata · **Quando** un utente tenta di prenotare in quella finestra · **Allora** la prenotazione è impedita con motivazione, e i partecipanti agli appuntamenti già presenti sono avvisati.
 
-> **RF-181 · Gestione dei flag di funzionalità** — *Amministratore di sistema* · *C* · *Dip.: —*
+> **RF-181 · Gestione dei flag di funzionalità** - *Amministratore di sistema* · *C* · *Dip.: -*
 > Il sistema deve consentire l'abilitazione selettiva di funzionalità per tenant, con registrazione delle variazioni.
 > › **Dato** una funzionalità disabilitata per il tenant · **Quando** un client applicativo ne invoca l'API · **Allora** riceve un rifiuto che indica la funzionalità non abilitata, non un errore generico.
 
-> **RF-182 · Configurazione dei relay** — *Amministratore di sistema* · *M* · *Dip.: BR-021*
+> **RF-182 · Configurazione dei relay** - *Amministratore di sistema* · *M* · *Dip.: BR-021*
 > Il sistema deve consentire la configurazione di più relay per area geografica, con verifica periodica della raggiungibilità e segnalazione dell'indisponibilità.
 > › **Dato** un relay non raggiungibile · **Quando** la verifica periodica fallisce due volte consecutive · **Allora** viene generato un allarme e le nuove sessioni sono instradate sui relay alternativi della stessa area.
 
-> **RF-183 · Catalogo delle motivazioni codificate** — *Amministratore di struttura* · *S* · *Dip.: RF-084*
+> **RF-183 · Catalogo delle motivazioni codificate** - *Amministratore di struttura* · *S* · *Dip.: RF-084*
 > Il sistema deve consentire di estendere gli elenchi di motivazioni codificate (cancellazione, interruzione, esito) senza poter rimuovere quelli previsti dal dominio.
 > › **Dato** un tentativo di rimuovere un esito di dominio · **Quando** viene salvato · **Allora** l'operazione è rifiutata e la voce resta disponibile.
 
 ### 5.N Multi-tenancy (RF-186 … RF-193)
 
-> **RF-186 · Isolamento dei dati per tenant** — *Sistema* · *M* · *Dip.: BR-092*
+> **RF-186 · Isolamento dei dati per tenant** - *Sistema* · *M* · *Dip.: BR-092*
 > Nessuna interrogazione, funzione amministrativa o processo asincrono deve poter restituire o elaborare dati appartenenti a tenant diversi da quello del contesto.
 > › **Dato** un contesto di tenant A · **Quando** si tenta l'accesso a un identificativo appartenente al tenant B · **Allora** la risposta è indistinguibile da quella per una risorsa inesistente e l'evento è registrato come tentativo di accesso incrociato.
 
-> **RF-187 · Provisioning di un tenant** — *Amministratore di sistema* · *M* · *Dip.: —*
+> **RF-187 · Provisioning di un tenant** - *Amministratore di sistema* · *M* · *Dip.: -*
 > Il sistema deve consentire la creazione di un nuovo tenant con configurazione iniziale, area geografica dei dati, amministratore iniziale e chiavi crittografiche proprie.
 > › **Dato** una richiesta di provisioning · **Quando** viene completata · **Allora** il tenant è operativo con isolamento verificabile, chiave propria e nessun dato precaricato di altri tenant.
 
-> **RF-188 · Chiavi crittografiche per tenant** — *Sistema* · *M* · *Dip.: BR-073*
+> **RF-188 · Chiavi crittografiche per tenant** - *Sistema* · *M* · *Dip.: BR-073*
 > Ogni tenant deve avere chiavi proprie per la cifratura dei dati a riposo sensibili, con rotazione indipendente.
 > › **Dato** la compromissione della chiave del tenant A · **Quando** si valuta l'impatto · **Allora** i dati del tenant B restano protetti e la rotazione di A non richiede fermi per gli altri tenant.
 
-> **RF-189 · Residenza geografica dei dati** — *Amministratore di sistema* · *M* · *Dip.: BR-085*
+> **RF-189 · Residenza geografica dei dati** - *Amministratore di sistema* · *M* · *Dip.: BR-085*
 > Il sistema deve consentire di dichiarare l'area geografica di trattamento per tenant e impedire la scrittura di dati clinici fuori da tale area, inclusi backup, code e log.
 > › **Dato** un tenant vincolato a un'area · **Quando** un componente tenta la scrittura fuori area · **Allora** l'operazione fallisce con errore esplicito e viene generato un allarme di conformità.
 
-> **RF-190 · Quote e limiti per tenant** — *Amministratore di sistema* · *S* · *Dip.: —*
+> **RF-190 · Quote e limiti per tenant** - *Amministratore di sistema* · *S* · *Dip.: -*
 > Il sistema deve consentire di configurare quote per tenant (sessioni concorrenti, spazio, chiamate API al minuto) con degrado controllato al superamento.
 > › **Dato** un tenant al limite delle sessioni concorrenti · **Quando** viene richiesta una sessione ulteriore · **Allora** la richiesta è rifiutata con messaggio specifico e nessun altro tenant subisce degrado.
 
-> **RF-191 · Isolamento delle prestazioni** — *Sistema* · *M* · *Dip.: RF-190*
+> **RF-191 · Isolamento delle prestazioni** - *Sistema* · *M* · *Dip.: RF-190*
 > Il carico anomalo di un tenant non deve degradare gli obiettivi di servizio degli altri tenant oltre il 10 % rispetto alla linea di base.
 > › **Dato** un tenant che satura la propria quota · **Quando** si misura la latenza di un altro tenant · **Allora** l'aumento rispetto alla linea di base è inferiore al 10 % al p95.
 
-> **RF-192 · Esportazione completa dei dati di tenant** — *Amministratore di struttura* · *M* · *Dip.: BR-084*
+> **RF-192 · Esportazione completa dei dati di tenant** - *Amministratore di struttura* · *M* · *Dip.: BR-084*
 > Il sistema deve consentire l'esportazione completa dei dati di un tenant in formati aperti e documentati, inclusi documenti e metadati.
 > › **Dato** una richiesta di esportazione · **Quando** si completa · **Allora** l'archivio contiene risorse in formato interoperabile, documenti firmati con le rispettive firme verificabili e un manifesto con conteggi e impronte.
 
-> **RF-193 · Chiusura e cancellazione del tenant** — *Amministratore di sistema* · *M* · *Dip.: RF-192*
+> **RF-193 · Chiusura e cancellazione del tenant** - *Amministratore di sistema* · *M* · *Dip.: RF-192*
 > La chiusura di un tenant deve prevedere esportazione preventiva, periodo di grazia configurabile e cancellazione attestata e irreversibile.
 > › **Dato** un tenant chiuso e trascorso il periodo di grazia · **Quando** viene eseguita la cancellazione · **Allora** viene prodotta un'attestazione con inventario di ciò che è stato cancellato e i dati non sono più recuperabili in alcun ambiente.
 
 ### 5.O Audit e reportistica (RF-196 … RF-205)
 
-> **RF-196 · Registrazione degli accessi ai dati sanitari** — *Sistema* · *M* · *Dip.: BR-016*
+> **RF-196 · Registrazione degli accessi ai dati sanitari** - *Sistema* · *M* · *Dip.: BR-016*
 > Ogni operazione di lettura, scrittura, esportazione e stampa su dato sanitario deve generare una voce di audit con soggetto, ruolo, tenant, risorsa, operazione, finalità dichiarata, esito e istante.
 > › **Dato** la lettura di un referto · **Quando** avviene · **Allora** entro 1 s è disponibile una voce di audit completa, e la mancata scrittura dell'audit fa fallire l'operazione applicativa.
 
-> **RF-197 · Immutabilità dell'audit** — *Sistema* · *M* · *Dip.: BR-093*
+> **RF-197 · Immutabilità dell'audit** - *Sistema* · *M* · *Dip.: BR-093*
 > Le voci di audit devono essere append-only e protette da alterazione, con verifica di integrità della catena.
 > › **Dato** un tentativo di modifica diretta sul supporto di persistenza · **Quando** si esegue la verifica di integrità · **Allora** l'alterazione viene rilevata e segnalata.
 
-> **RF-198 · Registro degli accessi consultabile dal paziente** — *Paziente* · *S* · *Dip.: RF-196*
+> **RF-198 · Registro degli accessi consultabile dal paziente** - *Paziente* · *S* · *Dip.: RF-196*
 > Il paziente deve poter consultare chi ha avuto accesso ai propri dati, con qualifica, struttura, data e finalità, esclusi i dettagli che rivelerebbero informazioni su terzi.
 > › **Dato** tre accessi al proprio dossier · **Quando** il paziente consulta il registro · **Allora** vede per ciascuno qualifica, struttura, data e finalità, e il fatto della consultazione è a sua volta registrato.
 
-> **RF-199 · Revisione degli accessi in deroga** — *DPO* · *M* · *Dip.: BR-015*
+> **RF-199 · Revisione degli accessi in deroga** - *DPO* · *M* · *Dip.: BR-015*
 > Il sistema deve fornire al DPO un elenco degli accessi in deroga con motivazione, risorse consultate ed esito della revisione.
 > › **Dato** un accesso in deroga della settimana precedente · **Quando** il DPO apre la coda di revisione · **Allora** vede la motivazione, l'elenco puntuale delle risorse consultate e può registrare l'esito della valutazione.
 
-> **RF-200 · Reportistica operativa** — *Direzione sanitaria* · *S* · *Dip.: BR-090*
+> **RF-200 · Reportistica operativa** - *Direzione sanitaria* · *S* · *Dip.: BR-090*
 > Il sistema deve fornire report su volumi, esiti, durate, tassi di fallimento e tempi di refertazione, aggregati e con soglia minima di cardinalità.
 > › **Dato** un filtro che produce un gruppo di 3 elementi · **Quando** il report viene eseguito · **Allora** il valore non è mostrato e viene indicata la soppressione per soglia di aggregazione.
 
-> **RF-201 · Protezione dalla reidentificazione per differenza** — *Sistema* · *M* · *Dip.: RF-200*
+> **RF-201 · Protezione dalla reidentificazione per differenza** - *Sistema* · *M* · *Dip.: RF-200*
 > Il sistema deve impedire di dedurre valori soppressi tramite combinazioni di interrogazioni successive, applicando soppressione complementare.
 > › **Dato** due interrogazioni che differiscono per un solo criterio · **Quando** una differenza rivelerebbe un gruppo sotto soglia · **Allora** anche la seconda interrogazione applica la soppressione.
 
-> **RF-202 · Report programmati** — *Direzione sanitaria* · *C* · *Dip.: RF-200*
+> **RF-202 · Report programmati** - *Direzione sanitaria* · *C* · *Dip.: RF-200*
 > Il sistema deve consentire la pianificazione di report ricorrenti con consegna in area autenticata.
 > › **Dato** un report mensile pianificato · **Quando** viene generato · **Allora** è disponibile in area autenticata e la notifica esterna non contiene alcun dato del report.
 
-> **RF-203 · Esportazione delle evidenze per audit esterno** — *Auditor* · *S* · *Dip.: RF-197*
+> **RF-203 · Esportazione delle evidenze per audit esterno** - *Auditor* · *S* · *Dip.: RF-197*
 > Il sistema deve consentire l'esportazione firmata di un insieme di evidenze di audit per un periodo e un ambito definiti, in forma pseudonimizzata quando sufficiente.
 > › **Dato** un mandato di audit su un trimestre · **Quando** l'auditor esporta · **Allora** ottiene un archivio firmato con impronta verificabile e l'esportazione è registrata.
 
-> **RF-204 · Report di conformità della retention** — *DPO* · *S* · *Dip.: BR-080*
+> **RF-204 · Report di conformità della retention** - *DPO* · *S* · *Dip.: BR-080*
 > Il sistema deve produrre un report che dimostri, per categoria di dato, il rispetto dei periodi di conservazione e le cancellazioni effettuate.
 > › **Dato** una categoria con retention di 90 giorni · **Quando** viene generato il report · **Allora** esso riporta il numero di elementi cancellati, gli eventuali elementi in eccedenza e la causa della loro permanenza.
 
-> **RF-205 · Tracciabilità requisiti-test** — *Responsabile qualità* · *M* · *Dip.: D10*
+> **RF-205 · Tracciabilità requisiti-test** - *Responsabile qualità* · *M* · *Dip.: D10*
 > Il sistema di sviluppo deve mantenere una matrice che colleghi ogni requisito identificato in questo catalogo al progetto e ai casi di test, con verifica automatica di copertura in integrazione continua.
 > › **Dato** un requisito senza test collegato · **Quando** viene eseguita la verifica in continua · **Allora** la costruzione fallisce con l'elenco dei requisiti scoperti.
 
 ### 5.P Integrazione e interoperabilità (RF-208 … RF-223)
 
-> **RF-208 · API REST completa** — *Integratore* · *M* · *Dip.: CTX V3*
+> **RF-208 · API REST completa** - *Integratore* · *M* · *Dip.: CTX V3*
 > Ogni capacità disponibile nell'interfaccia utente deve essere accessibile tramite API documentata; nessuna funzione deve essere esclusiva della UI.
 > › **Dato** una funzione presente nell'interfaccia · **Quando** si consulta la specifica API · **Allora** esiste l'operazione corrispondente, e un test di conformità verifica l'assenza di funzioni non esposte.
 
-> **RF-209 · Specifica pubblicata e versionata** — *Integratore* · *M* · *Dip.: RF-208*
+> **RF-209 · Specifica pubblicata e versionata** - *Integratore* · *M* · *Dip.: RF-208*
 > Il sistema deve pubblicare la specifica delle API in formato standard, versionata, con politica di compatibilità dichiarata e periodo minimo di deprecazione.
 > › **Dato** una versione deprecata · **Quando** un client la usa · **Allora** riceve la risposta corretta più un'intestazione di deprecazione con la data di rimozione.
 
-> **RF-210 · Risorse FHIR in ingresso** — *Integratore* · *M* · *Dip.: —*
+> **RF-210 · Risorse FHIR in ingresso** - *Integratore* · *M* · *Dip.: -*
 > Il sistema deve accettare `Patient`, `Practitioner`, `PractitionerRole`, `Organization`, `Appointment`, `ServiceRequest` e `Consent` conformi ai profili pubblicati.
 > › **Dato** un `Appointment` non conforme al profilo · **Quando** viene inviato · **Allora** il sistema risponde con un `OperationOutcome` che indica gli elementi non conformi e non crea alcuna risorsa parziale.
 
-> **RF-211 · Risorse FHIR in uscita** — *Integratore* · *M* · *Dip.: RF-210*
+> **RF-211 · Risorse FHIR in uscita** - *Integratore* · *M* · *Dip.: RF-210*
 > Il sistema deve esporre `Encounter`, `DiagnosticReport`, `DocumentReference`, `Consent`, `Observation` (metriche cliniche registrate dal professionista) e `Provenance` conformi ai profili pubblicati.
 > › **Dato** un contatto concluso e refertato · **Quando** l'integratore lo recupera · **Allora** ottiene un `Encounter` con classe virtuale, periodo, partecipanti e riferimento al `DiagnosticReport` firmato.
 
-> **RF-212 · Profili e capability statement** — *Integratore* · *S* · *Dip.: RF-211*
+> **RF-212 · Profili e capability statement** - *Integratore* · *S* · *Dip.: RF-211*
 > Il sistema deve esporre il proprio `CapabilityStatement` e i profili `StructureDefinition` utilizzati, con esempi validi.
 > › **Dato** uno strumento di validazione esterno · **Quando** valida gli esempi pubblicati contro i profili · **Allora** tutti gli esempi risultano conformi.
 
-> **RF-213 · Webhook per eventi di dominio** — *Integratore* · *M* · *Dip.: BR-095*
+> **RF-213 · Webhook per eventi di dominio** - *Integratore* · *M* · *Dip.: BR-095*
 > Il sistema deve notificare gli eventi di dominio a endpoint registrati per tenant, con firma del payload, identificativo univoco e semantica almeno-una-volta.
 > › **Dato** un endpoint che restituisce errore · **Quando** l'evento viene emesso · **Allora** il sistema ritenta con attesa esponenziale fino al limite configurato e l'evento resta disponibile per il recupero manuale.
 
-> **RF-214 · Riproduzione degli eventi** — *Integratore* · *S* · *Dip.: RF-213*
+> **RF-214 · Riproduzione degli eventi** - *Integratore* · *S* · *Dip.: RF-213*
 > Il sistema deve consentire di richiedere la riproduzione degli eventi di un intervallo temporale, con garanzia di ordinamento per contatto.
 > › **Dato** un consumatore fermo per 4 ore · **Quando** richiede la riproduzione · **Allora** riceve tutti gli eventi mancanti nell'ordine corretto per ciascun contatto e riconosce i duplicati tramite l'identificativo univoco.
 
-> **RF-215 · Restituzione del contenuto clinico al sistema di origine** — *Integratore* · *M* · *Dip.: BR-048*
+> **RF-215 · Restituzione del contenuto clinico al sistema di origine** - *Integratore* · *M* · *Dip.: BR-048*
 > Al termine del ciclo il sistema deve trasmettere al sistema di origine referto, allegati e metadati del contatto, con conferma di ricezione e coda di riconciliazione in caso di fallimento.
 > › **Dato** un fallimento della trasmissione · **Quando** si consulta la coda di riconciliazione · **Allora** il caso è elencato con causa, numero di tentativi e possibilità di rilancio manuale, e il fatto è visibile anche al front-office.
 
-> **RF-216 · Incorporamento white-label** — *Integratore* · *M* · *Dip.: RF-177*
+> **RF-216 · Incorporamento white-label** - *Integratore* · *M* · *Dip.: RF-177*
 > Il sistema deve fornire un componente incorporabile che, ricevuto un token di contesto, presenti la sessione dentro l'interfaccia del partner senza secondo login.
 > › **Dato** un token di incorporamento valido con contesto utente e appuntamento · **Quando** il componente viene caricato nella pagina del partner · **Allora** l'utente accede direttamente alla lobby, e origini non autorizzate sono rifiutate dalla politica di incorporamento.
 
-> **RF-217 · Token di incorporamento a vita breve** — *Sistema* · *M* · *Dip.: RF-216*
+> **RF-217 · Token di incorporamento a vita breve** - *Sistema* · *M* · *Dip.: RF-216*
 > I token di incorporamento devono avere durata non superiore a 5 minuti per il primo utilizzo, essere legati all'origine e all'appuntamento, e non essere riutilizzabili.
 > › **Dato** un token già utilizzato · **Quando** viene ripresentato · **Allora** è rifiutato e l'evento è registrato come possibile riuso.
 
-> **RF-218 · SDK client** — *Integratore* · *S* · *Dip.: RF-209*
+> **RF-218 · SDK client** - *Integratore* · *S* · *Dip.: RF-209*
 > Devono essere disponibili librerie client per almeno due ecosistemi, allineate alla specifica pubblicata e verificate da test di contratto.
 > › **Dato** una modifica alla specifica · **Quando** viene rilasciata · **Allora** i test di contratto dell'SDK falliscono se non aggiornato, impedendo la pubblicazione di versioni disallineate.
 
-> **RF-219 · Interoperabilità con messaggistica sanitaria di seconda generazione** — *Integratore* · *C* · *Dip.: —*
+> **RF-219 · Interoperabilità con messaggistica sanitaria di seconda generazione** - *Integratore* · *C* · *Dip.: -*
 > Il sistema deve poter ricevere ed emettere messaggi nel formato di messaggistica sanitaria diffuso presso i sistemi ospedalieri, tramite adattatore isolato dal nucleo di dominio.
 > › **Dato** un messaggio di pianificazione appuntamento in formato legacy · **Quando** viene ricevuto dall'adattatore · **Allora** viene tradotto in risorse di dominio e il nucleo non contiene alcun riferimento al formato legacy.
 
-> **RF-220 · Autorizzazione delegata secondo il profilo sanitario** — *Integratore* · *S* · *Dip.: RF-005*
+> **RF-220 · Autorizzazione delegata secondo il profilo sanitario** - *Integratore* · *S* · *Dip.: RF-005*
 > Il sistema deve supportare il lancio di applicazioni con contesto clinico e scope granulari secondo il profilo di autorizzazione sanitario diffuso.
 > › **Dato** un lancio con contesto paziente · **Quando** l'applicazione richiede uno scope non concesso · **Allora** riceve un rifiuto esplicito e l'utente non è indotto a concedere permessi non necessari.
 
-> **RF-221 · Limitazione di frequenza per integratore** — *Sistema* · *M* · *Dip.: RF-190*
+> **RF-221 · Limitazione di frequenza per integratore** - *Sistema* · *M* · *Dip.: RF-190*
 > Il sistema deve applicare limiti di frequenza per credenziale e per tenant, con intestazioni informative sui limiti residui.
 > › **Dato** un client che supera il limite · **Quando** effettua una chiamata ulteriore · **Allora** riceve il codice di stato appropriato con l'indicazione del tempo di attesa e nessun altro client è penalizzato.
 
-> **RF-222 · Ambiente di prova con dati sintetici** — *Integratore* · *S* · *Dip.: —*
+> **RF-222 · Ambiente di prova con dati sintetici** - *Integratore* · *S* · *Dip.: -*
 > Deve essere disponibile un ambiente di prova con dati sintetici, isolato da quello di esercizio, che consenta il ciclo completo senza dati reali.
 > › **Dato** un integratore in fase di sviluppo · **Quando** esegue il ciclo completo in prova · **Allora** completa prenotazione, sessione, refertazione e restituzione senza mai accedere a dati reali.
 
-> **RF-223 · Registro delle integrazioni attive** — *Amministratore di struttura* · *S* · *Dip.: RF-213*
+> **RF-223 · Registro delle integrazioni attive** - *Amministratore di struttura* · *S* · *Dip.: RF-213*
 > Il tenant deve poter consultare quali integrazioni sono attive, con quali scope, con quale volume di chiamate e con quali eventi sottoscritti, e revocarle.
 > › **Dato** un'integrazione da revocare · **Quando** l'amministratore la revoca · **Allora** entro 60 s le credenziali non sono più valide, i webhook cessano e l'operazione è registrata.
 
@@ -1928,7 +1928,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 
 ### 8.2 Contesti delimitati
 
-#### BC-01 — Identity & Access
+#### BC-01 - Identity & Access
 
 *Responsabilità*: identità dei soggetti, credenziali federate, ruoli, valutazione delle policy di autorizzazione.
 
@@ -1938,7 +1938,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `UtenteAutenticato`, `SessioneRevocata`, `RuoloAssegnato`, `AccessoInDerogaInvocato`, `AccessoNegato`, `IdentitàFederataCollegata`.
 - **Invarianti**: (i) nessun ruolo può contenere permessi clinici e amministrativi insieme (BR-012); (ii) ogni decisione di autorizzazione è deterministica e riproducibile dati gli stessi attributi; (iii) l'accesso in deroga ha durata finita e non rinnovabile automaticamente.
 
-#### BC-02 — Tenant & Configuration
+#### BC-02 - Tenant & Configuration
 
 *Responsabilità*: confini di isolamento, configurazione, cataloghi, personalizzazione, quote.
 
@@ -1947,7 +1947,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `TenantCreato`, `ConfigurazioneModificata`, `PrestazioneAbilitataAlCanale`, `TenantSospeso`, `TenantChiuso`.
 - **Invarianti**: (i) ogni configurazione è validata contro i limiti codificati (BR-096); (ii) l'area geografica di un tenant non è modificabile senza migrazione esplicita; (iii) nessuna configurazione può rimuovere un vincolo di dominio.
 
-#### BC-03 — Patient & Practitioner Directory
+#### BC-03 - Patient & Practitioner Directory
 
 *Responsabilità*: anagrafiche **per riferimento**, relazioni fra persone, ruoli professionali.
 
@@ -1956,7 +1956,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `PazienteRegistratoPerRiferimento`, `IdentificativoEsternoCollegato`, `AnagraficheFuse`, `DelegaConcessa`, `DelegaScaduta`, `MaggioreEtàRaggiunta`.
 - **Invarianti**: (i) unicità della coppia `system` + `value` per tenant (RF-021); (ii) nessuna correlazione fra tenant (RF-023); (iii) ogni delega volontaria ha una scadenza.
 
-#### BC-04 — Scheduling
+#### BC-04 - Scheduling
 
 *Responsabilità*: agende, slot, appuntamenti, liste d'attesa, cancellazioni.
 
@@ -1965,7 +1965,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `AppuntamentoCreato`, `AppuntamentoRiprogrammato`, `AppuntamentoDisdetto`, `AppuntamentoCancellatoDallaStruttura`, `SlotLiberato`, `PosizioneInListaOfferta`.
 - **Invarianti**: (i) la somma delle prenotazioni su uno slot non supera la capienza (BR-020); (ii) uno slot bloccato non è prenotabile; (iii) la catena di riprogrammazione conserva la data della richiesta originaria (BR-022); (iv) un appuntamento in televisita esiste solo se la prestazione è abilitata a quel canale (BR-001).
 
-#### BC-05 — Consultation & Session
+#### BC-05 - Consultation & Session
 
 *Responsabilità*: ciclo di vita del contatto clinico, lobby, partecipanti, sessione media, esiti.
 
@@ -1977,7 +1977,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 
 > **Nota di modellazione.** `Encounter` e `MediaSession` sono due radici di aggregato distinte, collegate solo per identificativo. È la scelta che rende il sistema resiliente: la sessione media è volatile, il contatto è documentazione.
 
-#### BC-06 — Consent
+#### BC-06 - Consent
 
 *Responsabilità*: informative versionate, manifestazioni di volontà, revoche, verifiche.
 
@@ -1986,7 +1986,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `ConsensoPrestato`, `ConsensoRevocato`, `ConsensoScaduto`, `InformativaPubblicata`, `VerificaConsensoFallita`.
 - **Invarianti**: (i) un consenso è sempre riferito a una versione immutabile di testo (BR-061); (ii) i tipi di consenso sono indipendenti (BR-060); (iii) la revoca ha effetto immediato ed è irreversibile come atto (se ne può prestare uno nuovo, non annullare la revoca).
 
-#### BC-07 — Clinical Documentation
+#### BC-07 - Clinical Documentation
 
 *Responsabilità*: bozze, referti, relazioni, note, firma, versioni, consegna.
 
@@ -1995,7 +1995,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `BozzaCreata`, `RefertoFirmato`, `RefertoRettificato`, `RefertoMessoADisposizione`, `ConsegnaDifferita`, `DocumentoTrasmessoAlSistemaDiOrigine`, `TermineDiRefertazioneSuperato`.
 - **Invarianti**: (i) un documento firmato è immutabile (BR-044); (ii) una bozza non è visibile né trasmissibile (BR-041); (iii) la firma richiede il livello configurato e un certificato valido (BR-043); (iv) nessun contenuto clinico è generato dal sistema (BR-040, `⚠ V2`).
 
-#### BC-08 — Media & Recording
+#### BC-08 - Media & Recording
 
 *Responsabilità*: signaling, negoziazione, credenziali di relay, registrazione, cifratura a riposo, retention dei media.
 
@@ -2004,7 +2004,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `NegoziazioneCompletata`, `RipiegoSuRelay`, `RegistrazioneAvviata`, `RegistrazioneInterrotta`, `RegistrazioneCancellataPerScadenza`, `RegistrazioneRiprodotta`.
 - **Invarianti**: (i) nessuna registrazione senza riferimento a un consenso vigente (BR-071); (ii) chiavi per tenant, mai condivise (RF-188); (iii) la scadenza di retention è sempre valorizzata e applicata (BR-074).
 
-#### BC-09 — Quality Telemetry
+#### BC-09 - Quality Telemetry
 
 *Responsabilità*: campionamento, serie temporali, soglie, allarmi, rapporti tecnici.
 
@@ -2013,7 +2013,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `SogliaSuperata`, `SogliaRientrata`, `ProfiloMediaCambiato`, `RapportoTecnicoDisponibile`.
 - **Invarianti**: (i) i campioni non contengono identificatori diretti del paziente (RF-165); (ii) le soglie sono definite per tipo di prestazione entro limiti codificati (BR-033); (iii) la telemetria non produce valutazioni cliniche (`⚠ V2`).
 
-#### BC-10 — Notification
+#### BC-10 - Notification
 
 *Responsabilità*: modelli, canali, preferenze, invio, esiti, escalation.
 
@@ -2022,7 +2022,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `NotificaAccodata`, `NotificaConsegnata`, `NotificaFallita`, `EscalationInviata`.
 - **Invarianti**: (i) nessun contenuto clinico su canali non autenticati (BR-050); (ii) nessun invio verso recapiti non verificati (RF-027); (iii) le comunicazioni essenziali restano sempre disponibili in area autenticata (BR-053).
 
-#### BC-11 — Integration & Interoperability
+#### BC-11 - Integration & Interoperability
 
 *Responsabilità*: traduzione da e verso i formati esterni, webhook, chiavi degli integratori, riconciliazione.
 
@@ -2031,7 +2031,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `EventoPubblicato`, `ConsegnaFallita`, `ConsegnaRiconciliata`, `RisorsaEsternaRicevuta`, `TraduzioneFallita`.
 - **Invarianti**: (i) nessuna struttura di formati esterni entra nei contesti di dominio (livello anticorruzione); (ii) ogni evento in uscita è idempotente e identificato (BR-095); (iii) nessuna operazione clinica senza contesto utente delegante (BR-017).
 
-#### BC-12 — Audit & Compliance
+#### BC-12 - Audit & Compliance
 
 *Responsabilità*: registro non alterabile, revisione delle deroghe, retention, reportistica di conformità.
 
@@ -2040,7 +2040,7 @@ I contesti delimitati proposti derivano da **tre linee di frattura** osservabili
 - **Eventi**: `AccessoRegistrato`, `DerogaDaRivedere`, `CatenaDiIntegritàVerificata`, `RetentionApplicata`.
 - **Invarianti**: (i) append-only, nessuna modifica né cancellazione (BR-093); (ii) il fallimento della scrittura di audit fa fallire l'operazione applicativa (RF-196); (iii) la lettura di audit è a sua volta registrata (BR-094).
 
-#### BC-13 — Billing & Reporting *(supporto)*
+#### BC-13 - Billing & Reporting *(supporto)*
 
 *Responsabilità*: eventi rendicontabili, aggregazioni, esposizione verso il sistema amministrativo del partner.
 
@@ -2318,12 +2318,12 @@ Ripartizione MoSCoW dei requisiti funzionali (proposta): **Must 133, Should 46, 
 
 Le fonti sotto elencate sono state consultate per la costruzione del glossario e delle regole di dominio marcate `NORM`. La verifica puntuale e l'interpretazione giuridica competono a R3 e R2.
 
-- Ministero della Salute — Linee di indirizzo nazionali sulla telemedicina: <https://www.salute.gov.it/new/it/tema/telemedicina/linee-di-indirizzo-nazionali-sulla-telemedicina/>
-- Conferenza Stato-Regioni — «Indicazioni nazionali per l'erogazione di prestazioni in telemedicina», Rep. atti n. 215/CSR del 17 dicembre 2020: <https://www.statoregioni.it/media/3221/p-3-csr-rep-n-215-17dic2020.pdf>
-- AGENAS — Appendice alle indicazioni nazionali per l'erogazione di prestazioni in telemedicina: <https://www.agenas.gov.it/component/k2/appendice-indicazioni-nazionali-per-l%E2%80%99erogazione-di-prestazioni-in-telemedicina>
-- Decreto del Ministero della Salute 21 settembre 2022, «Approvazione delle linee guida per i servizi di telemedicina — Requisiti funzionali e livelli di servizio», in Gazzetta Ufficiale n. 256 del 2 novembre 2022: <https://www.gazzettaufficiale.it/eli/id/2022/11/02/22A06184/sg>
+- Ministero della Salute - Linee di indirizzo nazionali sulla telemedicina: <https://www.salute.gov.it/new/it/tema/telemedicina/linee-di-indirizzo-nazionali-sulla-telemedicina/>
+- Conferenza Stato-Regioni - «Indicazioni nazionali per l'erogazione di prestazioni in telemedicina», Rep. atti n. 215/CSR del 17 dicembre 2020: <https://www.statoregioni.it/media/3221/p-3-csr-rep-n-215-17dic2020.pdf>
+- AGENAS - Appendice alle indicazioni nazionali per l'erogazione di prestazioni in telemedicina: <https://www.agenas.gov.it/component/k2/appendice-indicazioni-nazionali-per-l%E2%80%99erogazione-di-prestazioni-in-telemedicina>
+- Decreto del Ministero della Salute 21 settembre 2022, «Approvazione delle linee guida per i servizi di telemedicina - Requisiti funzionali e livelli di servizio», in Gazzetta Ufficiale n. 256 del 2 novembre 2022: <https://www.gazzettaufficiale.it/eli/id/2022/11/02/22A06184/sg>
 - Testo dell'allegato A del medesimo decreto: <https://www.medicoeleggi.com/argomenti000/italia2022/414755-a.htm>
-- HL7 FHIR R4 — risorsa `Encounter` e vocabolario `v3-ActCode` (valore `VR` per il contatto virtuale): <https://hl7.org/fhir/R4/encounter.html>
+- HL7 FHIR R4 - risorsa `Encounter` e vocabolario `v3-ActCode` (valore `VR` per il contatto virtuale): <https://hl7.org/fhir/R4/encounter.html>
 
 
 

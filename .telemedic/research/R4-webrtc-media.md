@@ -4,7 +4,7 @@ sidebar_position: 4
 description: "WebRTC, JSEP, ICE/STUN/TURN, coturn, DTLS-SRTP, topologie, codec, congestion control, getStats, latenza, registrazione e testing."
 ---
 
-# WebRTC e trasporto media real-time — ricerca tecnica di riferimento (R4)
+# WebRTC e trasporto media real-time - ricerca tecnica di riferimento (R4)
 
 > **Stato del documento**: output della fase di ricerca. Ogni affermazione normativa è ancorata a un RFC (con numero e sezione) o a una specifica W3C citata con il titolo esatto. Dove la verifica non è stata possibile entro i limiti di questa ricerca, il testo riporta esplicitamente **`[non verificato]`**. Le stime numeriche di dimensionamento sono marcate come **`[ordine di grandezza]`** e devono essere validate con misure proprie prima di finire in documentazione pubblica.
 >
@@ -15,8 +15,8 @@ description: "WebRTC, JSEP, ICE/STUN/TURN, coturn, DTLS-SRTP, topologie, codec, 
 Due correzioni preliminari, perché gli agenti a valle non propaghino errori:
 
 1. **RFC 8826 e RFC 8827 sono invertiti nel mandato.** La numerazione corretta, verificata su datatracker:
-   - **RFC 8826** — *Security Considerations for WebRTC* (analisi delle minacce).
-   - **RFC 8827** — *WebRTC Security Architecture* (architettura, requisiti crittografici, identity provider).
+   - **RFC 8826** - *Security Considerations for WebRTC* (analisi delle minacce).
+   - **RFC 8827** - *WebRTC Security Architecture* (architettura, requisiti crittografici, identity provider).
 2. **`RFC 5245` e `RFC 5389` non vanno più citati come riferimento vivo.** ICE è oggi **RFC 8445**, STUN è **RFC 8489**, TURN è **RFC 8656** (che obsoleta RFC 5766 e RFC 6156, cfr. RFC 8656 §24 e §25). Il profilo SDP per ICE è stato scorporato in **RFC 8839**, che obsoleta RFC 5245 e RFC 6336.
 
 Nel testo, "il sito dichiara" indica un'affermazione pubblica del progetto Telemedic ripresa dal context pack; "verificato" indica un fatto controllato su fonte primaria in questa ricerca.
@@ -29,8 +29,8 @@ Nel testo, "il sito dichiara" indica un'affermazione pubblica del progetto Telem
 
 WebRTC non è *una* specifica. È la composizione di due corpi normativi che si presuppongono a vicenda:
 
-- **W3C** definisce **l'API JavaScript** esposta al browser: *WebRTC: Real-Time Communication in Browsers*, **W3C Recommendation del 13 marzo 2025** (verificato). È una Recommendation con "candidate amendments", cioè una raccomandazione stabile che continua a incorporare modifiche sostanziali — un dettaglio non banale: la superficie API non è congelata.
-- **IETF** definisce **i protocolli sul filo**, coordinati dall'applicability statement **RFC 8825** — *Overview: Real-Time Protocols for Browser-Based Applications*.
+- **W3C** definisce **l'API JavaScript** esposta al browser: *WebRTC: Real-Time Communication in Browsers*, **W3C Recommendation del 13 marzo 2025** (verificato). È una Recommendation con "candidate amendments", cioè una raccomandazione stabile che continua a incorporare modifiche sostanziali - un dettaglio non banale: la superficie API non è congelata.
+- **IETF** definisce **i protocolli sul filo**, coordinati dall'applicability statement **RFC 8825** - *Overview: Real-Time Protocols for Browser-Based Applications*.
 
 RFC 8825 non definisce protocolli: elenca quali altre specifiche un'implementazione deve rispettare per potersi dire WebRTC. La sua struttura (§1–§12) copre trasporto dati (§4), framing e messa in sicurezza (§5), formati (§6), gestione della connessione (§7).
 
@@ -75,7 +75,7 @@ Due implicazioni operative immediate per Telemedic:
 - **`iceTransportPolicy: "relay"`** è il modo canonico per forzare il percorso TURN. È lo strumento che rende testabile in CI il "fallback relay" dichiarato nella feature 1 del sito (vedi §11.4).
 - **`certificates`** consente di riusare un `RTCCertificate` generato con `RTCPeerConnection.generateCertificate()`. Rilevante se si vuole controllare l'algoritmo della chiave (ECDSA P-256 vs RSA) e la durata; per default il browser genera un certificato self-signed effimero per PeerConnection.
 
-Il `RTCDataChannel` gira su **SCTP over DTLS over ICE** (RFC 8835 §3.5: *"WebRTC endpoints MUST support SCTP over DTLS over ICE"*, con l'estensione I-DATA di RFC 8260 obbligatoria). Per Telemedic è il canale naturale per: segnali di controllo in-band (mute, richiesta di ripetizione, "sto scrivendo"), scambio di piccoli artefatti clinici, e — punto importante — **eventuali metadati di sessione che non devono transitare per il server di signaling**.
+Il `RTCDataChannel` gira su **SCTP over DTLS over ICE** (RFC 8835 §3.5: *"WebRTC endpoints MUST support SCTP over DTLS over ICE"*, con l'estensione I-DATA di RFC 8260 obbligatoria). Per Telemedic è il canale naturale per: segnali di controllo in-band (mute, richiesta di ripetizione, "sto scrivendo"), scambio di piccoli artefatti clinici, e - punto importante - **eventuali metadati di sessione che non devono transitare per il server di signaling**.
 
 ### 1.3 Il modello JSEP e perché il signaling non è standardizzato
 
@@ -91,7 +91,7 @@ Che cosa significa in pratica:
 - Il browser **produce** e **consuma** blob SDP tramite `createOffer()` (§4.1.8), `createAnswer()` (§4.1.9), `setLocalDescription()` (§4.1.11), `setRemoteDescription()` (§4.1.12), con rollback in §4.1.10.2 e trickling ICE in §3.5.2.
 - **Il trasporto di quei blob è interamente responsabilità dell'applicazione.**
 
-**Conseguenza per il modello di sicurezza — e questo è il punto che gli agenti sulla sicurezza devono assorbire**: poiché il signaling non è standardizzato, non è nemmeno *protetto* dal protocollo. La catena di fiducia dell'intera cifratura media dipende dall'integrità di un canale che WebRTC non specifica. Se ne riparla in §5.4.
+**Conseguenza per il modello di sicurezza - e questo è il punto che gli agenti sulla sicurezza devono assorbire**: poiché il signaling non è standardizzato, non è nemmeno *protetto* dal protocollo. La catena di fiducia dell'intera cifratura media dipende dall'integrità di un canale che WebRTC non specifica. Se ne riparla in §5.4.
 
 **Conseguenza per Telemedic**: il backend Spring Boot che fa signaling non è "un componente accessorio". È **il Trust Anchor de facto** dell'intera sessione media. Va progettato, documentato e minacciato (threat model) come tale.
 
@@ -101,9 +101,9 @@ Che cosa significa in pratica:
 
 ### 2.1 SDP e offer/answer
 
-- **RFC 8866** — *SDP: Session Description Protocol*, obsoleta RFC 4566. È la grammatica.
-- **RFC 3264** — *An Offer/Answer Model with the Session Description Protocol*. È il modello di negoziazione: un lato propone un insieme di `m=` section con le proprie capacità, l'altro risponde accettando, rifiutando (porta 0) o restringendo.
-- **RFC 8839** — *SDP Offer/Answer Procedures for ICE*. Definisce gli attributi ICE in SDP (sintassi verificata):
+- **RFC 8866** - *SDP: Session Description Protocol*, obsoleta RFC 4566. È la grammatica.
+- **RFC 3264** - *An Offer/Answer Model with the Session Description Protocol*. È il modello di negoziazione: un lato propone un insieme di `m=` section con le proprie capacità, l'altro risponde accettando, rifiutando (porta 0) o restringendo.
+- **RFC 8839** - *SDP Offer/Answer Procedures for ICE*. Definisce gli attributi ICE in SDP (sintassi verificata):
 
 ```
 a=candidate:<foundation> <component-id> <transport> <priority> <connection-address> <port> typ <cand-type> [raddr <rel-addr>] [rport <rel-port>]   ; §5.1, media-level
@@ -114,9 +114,9 @@ a=ice-lite                   ; §5.3, solo session-level
 a=remote-candidates:<component-id> <addr> <port>  ; §5.2
 ```
 
-- **RFC 8843** — *Negotiating Media Multiplexing Using SDP* (BUNDLE). `a=group:BUNDLE <tag> <tag> ...` (§5); il primo identification-tag è l'**offerer BUNDLE-tag** e la sua `m=` section porta l'indirizzo/porta usati per tutto il gruppo (§2). BUNDLE **richiede** rtcp-mux all'interno del gruppo (§9.3) e comporta **un solo transport ICE e una sola associazione DTLS** per l'intero gruppo (§10–§11). Per Telemedic questo è un fatto architetturale, non un dettaglio: audio, video e data channel condividono **una** porta, **un** handshake DTLS, **una** allocazione TURN. Il dimensionamento del relay (§4.7) si basa su questo.
+- **RFC 8843** - *Negotiating Media Multiplexing Using SDP* (BUNDLE). `a=group:BUNDLE <tag> <tag> ...` (§5); il primo identification-tag è l'**offerer BUNDLE-tag** e la sua `m=` section porta l'indirizzo/porta usati per tutto il gruppo (§2). BUNDLE **richiede** rtcp-mux all'interno del gruppo (§9.3) e comporta **un solo transport ICE e una sola associazione DTLS** per l'intero gruppo (§10–§11). Per Telemedic questo è un fatto architetturale, non un dettaglio: audio, video e data channel condividono **una** porta, **un** handshake DTLS, **una** allocazione TURN. Il dimensionamento del relay (§4.7) si basa su questo.
 
-- **RFC 8842** — *SDP Offer/Answer Considerations for DTLS and DTLS-SRTP*: definisce `a=setup:actpass|active|passive|holdconn` e la semantica del ruolo DTLS client/server. Aggiorna RFC 5763.
+- **RFC 8842** - *SDP Offer/Answer Considerations for DTLS and DTLS-SRTP*: definisce `a=setup:actpass|active|passive|holdconn` e la semantica del ruolo DTLS client/server. Aggiorna RFC 5763.
 
 ### 2.2 Trickle ICE (RFC 8838)
 
@@ -124,11 +124,11 @@ a=remote-candidates:<component-id> <addr> <port>  ; §5.2
 
 Regole verificate:
 
-- §9 — dopo aver scoperto un candidato, l'agente verifica la ridondanza e lo invia; il protocollo di trasporto **deve** consegnare i candidati *"exactly once and in the same order it was conveyed"*. **Questo è un requisito diretto sul signaling di Telemedic**: la coda dei candidati deve essere ordinata e affidabile per-sessione. Un fan-out Redis pub/sub naïve non garantisce l'ordine.
-- §10 — *"A Trickle ICE agent MUST NOT pair a local candidate until it has been trickled to the remote party"*.
-- §13 — indicazione di **end-of-candidates**, che **deve** specificare la generazione (coppia ufrag/pwd). Dopo averla inviata, non si possono inviare altri candidati.
-- §16 — **half-trickle**: l'iniziatore raccoglie una generazione completa prima dell'offer iniziale, il rispondente può usare trickle. Fallback per interoperare con agenti non-trickle.
-- §3 — la segnalazione della capacità avviene con l'ICE option `trickle` (registrata in §19). L'encoding SDP è delegato ad altri documenti.
+- §9 - dopo aver scoperto un candidato, l'agente verifica la ridondanza e lo invia; il protocollo di trasporto **deve** consegnare i candidati *"exactly once and in the same order it was conveyed"*. **Questo è un requisito diretto sul signaling di Telemedic**: la coda dei candidati deve essere ordinata e affidabile per-sessione. Un fan-out Redis pub/sub naïve non garantisce l'ordine.
+- §10 - *"A Trickle ICE agent MUST NOT pair a local candidate until it has been trickled to the remote party"*.
+- §13 - indicazione di **end-of-candidates**, che **deve** specificare la generazione (coppia ufrag/pwd). Dopo averla inviata, non si possono inviare altri candidati.
+- §16 - **half-trickle**: l'iniziatore raccoglie una generazione completa prima dell'offer iniziale, il rispondente può usare trickle. Fallback per interoperare con agenti non-trickle.
+- §3 - la segnalazione della capacità avviene con l'ICE option `trickle` (registrata in §19). L'encoding SDP è delegato ad altri documenti.
 
 Nota onesta: nel browser, `onicecandidate` con `candidate === null` (o `pc.iceGatheringState === "complete"`) è il segnale di fine raccolta. La mappatura verso `a=end-of-candidates` è a carico dell'applicazione.
 
@@ -195,7 +195,7 @@ Punti che l'agente frontend deve interiorizzare:
 - Si usa `setLocalDescription()` **senza argomenti**: è la forma che sceglie automaticamente offer o answer in base a `signalingState` e che abilita il rollback implicito.
 - Si testa `makingOffer`, **non** `signalingState`, perché `signalingState` è aggiornato in modo asincrono e la finestra di race esiste davvero.
 
-La rinegoziazione (`negotiationneeded`) si scatena in scenari clinicamente reali: attivazione dello screen sharing per mostrare un referto, sostituzione della traccia video (`RTCRtpSender.replaceTrack()`, che **non** scatena rinegoziazione se il codec è compatibile — via preferibile), aggiunta di un transceiver per un terzo partecipante.
+La rinegoziazione (`negotiationneeded`) si scatena in scenari clinicamente reali: attivazione dello screen sharing per mostrare un referto, sostituzione della traccia video (`RTCRtpSender.replaceTrack()`, che **non** scatena rinegoziazione se il codec è compatibile - via preferibile), aggiunta di un transceiver per un terzo partecipante.
 
 ### 2.4 Opzioni di trasporto per il signaling
 
@@ -211,7 +211,7 @@ La rinegoziazione (`negotiationneeded`) si scatena in scenari clinicamente reali
 
 1. Il signaling WebRTC è **point-to-point per sessione**, non pub/sub broadcast. Il modello STOMP a destinazioni non aggiunge valore in 1:1 e introduce un broker nel percorso critico.
 2. SockJS impone sticky session, che è precisamente il vincolo di scalabilità che si vuole evitare (§2.5).
-3. Un protocollo proprio, versionato e documentato con JSON Schema, è validabile ai confini di sistema — requisito di input validation della codebase.
+3. Un protocollo proprio, versionato e documentato con JSON Schema, è validabile ai confini di sistema - requisito di input validation della codebase.
 
 Se la compatibilità con reti aziendali ostili risultasse un problema misurato (non ipotizzato), il fallback corretto non è SockJS ma **WebSocket su HTTP/2 (RFC 8441)** o long-polling *specifico* implementato ad hoc.
 
@@ -238,7 +238,7 @@ Il `sessionId` del consulto determina il nodo proprietario tramite hashing consi
 
 ## 3. ICE, STUN, TURN
 
-### 3.1 STUN — RFC 8489
+### 3.1 STUN - RFC 8489
 
 *Session Traversal Utilities for NAT*, obsoleta RFC 5389. Fornisce il meccanismo di **Binding Request/Response** con cui un client scopre l'indirizzo pubblico che il NAT gli ha assegnato, e il meccanismo di autenticazione (short-term e **long-term credential**) riusato da TURN.
 
@@ -246,7 +246,7 @@ Elementi rilevanti: attributo `XOR-MAPPED-ADDRESS`, `MESSAGE-INTEGRITY` (HMAC-SH
 
 Il `FINGERPRINT` è ciò che rende possibile il **demultiplexing su porta singola** fra STUN, DTLS, SRTP e (storicamente) ZRTP/TURN ChannelData: la disciplina è codificata in **RFC 7983** (*Multiplexing Scheme Updates for SRTP Extension for DTLS*), aggiornato da **RFC 9443**. È il motivo per cui BUNDLE + rtcp-mux funzionano su una sola porta UDP.
 
-### 3.2 ICE — RFC 8445
+### 3.2 ICE - RFC 8445
 
 **Tipi di candidato** (§2.1, §4), definizioni verbatim verificate:
 
@@ -285,13 +285,13 @@ con G = priorità del candidato del *controlling agent*, D = quella del *control
 
 Stati della coppia (§6.1.2.6): `Frozen`, `Waiting`, `In-Progress`, `Succeeded`, `Failed`. Stati della checklist (§6.1.2.1): `Running`, `Completed`, `Failed`.
 
-**Nomination** (§2.3, §4): RFC 8445 specifica la sola **regular nomination** — il controlling agent invia una STUN request con l'attributo `USE-CANDIDATE`. La **aggressive nomination** di RFC 5245 è **deprecata**. Da segnalare: alcune implementazioni legacy la usano ancora; se in interop si osserva un cambio di coppia selezionata a metà negoziazione, è probabilmente quello.
+**Nomination** (§2.3, §4): RFC 8445 specifica la sola **regular nomination** - il controlling agent invia una STUN request con l'attributo `USE-CANDIDATE`. La **aggressive nomination** di RFC 5245 è **deprecata**. Da segnalare: alcune implementazioni legacy la usano ancora; se in interop si osserva un cambio di coppia selezionata a metà negoziazione, è probabilmente quello.
 
 **Ruoli** (§6.1.1): full/full → l'iniziatore è controlling; full/lite → il full è controlling; lite/lite → l'iniziatore è controlling. La risoluzione dei conflitti di ruolo è in §7.3.1.1 tramite risposte d'errore STUN.
 
 **ICE-lite** (§2.5, §5.2): *"Lite agents only use host candidates and do not generate connectivity checks or run state machines, though they need to be able to respond to connectivity checks."* È il modello tipico di un **SFU con IP pubblico**. **RFC 8835 §3.4 vieta esplicitamente ICE-lite ai browser**: *"The implementation MUST be a full ICE implementation, not ICE-Lite."*
 
-### 3.3 TURN — RFC 8656
+### 3.3 TURN - RFC 8656
 
 Obsoleta RFC 5766 (§24) e RFC 6156 (§25). Struttura verificata:
 
@@ -304,9 +304,9 @@ Obsoleta RFC 5766 (§24) e RFC 6156 (§25). Struttura verificata:
 
 Estensioni collegate:
 
-- **RFC 6062** — TURN Extensions for TCP Allocations: permette il relay **verso peer TCP**. In coturn si disabilita con `no-tcp-relay`. Per WebRTC **non serve**: disabilitarlo riduce la superficie d'attacco.
-- **RFC 6544** — ICE-TCP: consente candidati ICE su TCP (`tcptype active|passive|so`). Utile dietro firewall che bloccano UDP.
-- **RFC 7635** — STUN Extension for Third-Party Authorization: autorizzazione TURN via token OAuth. È **lo standard**, in contrapposizione al de-facto "TURN REST API" (§4.3).
+- **RFC 6062** - TURN Extensions for TCP Allocations: permette il relay **verso peer TCP**. In coturn si disabilita con `no-tcp-relay`. Per WebRTC **non serve**: disabilitarlo riduce la superficie d'attacco.
+- **RFC 6544** - ICE-TCP: consente candidati ICE su TCP (`tcptype active|passive|so`). Utile dietro firewall che bloccano UDP.
+- **RFC 7635** - STUN Extension for Third-Party Authorization: autorizzazione TURN via token OAuth. È **lo standard**, in contrapposizione al de-facto "TURN REST API" (§4.3).
 
 ### 3.4 Comportamento dietro NAT simmetrico
 
@@ -316,15 +316,15 @@ Se **entrambi** i peer sono dietro NAT endpoint-dependent, **nessuna coppia dire
 
 Scenari clinicamente rilevanti in cui questo accade con alta probabilità: reti aziendali/ospedaliere con NAT di carrier-grade a monte, connessioni mobili su **CGNAT** (molto comune sugli operatori italiani), reti Wi-Fi pubbliche.
 
-**Implicazione onesta per il claim "peer-to-peer"**: una quota non trascurabile dei consulti **non sarà** peer-to-peer nel senso topologico. Sarà cifrata end-to-end (§5.5) ma instradata attraverso il TURN. Il materiale di comunicazione deve dire "media cifrato end-to-end, instradato peer-to-peer quando la rete lo consente, altrimenti tramite relay che non ha accesso al contenuto" — e non "peer-to-peer".
+**Implicazione onesta per il claim "peer-to-peer"**: una quota non trascurabile dei consulti **non sarà** peer-to-peer nel senso topologico. Sarà cifrata end-to-end (§5.5) ma instradata attraverso il TURN. Il materiale di comunicazione deve dire "media cifrato end-to-end, instradato peer-to-peer quando la rete lo consente, altrimenti tramite relay che non ha accesso al contenuto" - e non "peer-to-peer".
 
-**Stima della quota di sessioni relayed**: le cifre di settore comunemente riportate oscillano fra il 5% e il 20% a seconda del mix di reti. **`[non verificato]`** — Telemedic deve misurarla sul proprio traffico tramite `RTCIceCandidatePairStats` (§8.4) e non citare numeri di terzi.
+**Stima della quota di sessioni relayed**: le cifre di settore comunemente riportate oscillano fra il 5% e il 20% a seconda del mix di reti. **`[non verificato]`** - Telemedic deve misurarla sul proprio traffico tramite `RTCIceCandidatePairStats` (§8.4) e non citare numeri di terzi.
 
 ### 3.5 mDNS candidate obfuscation
 
 Per impedire alle pagine web di raccogliere gli indirizzi IP privati degli utenti (un vettore di fingerprinting reale), i browser sostituiscono l'IP dei candidati **host** con un nome `<UUIDv4>.local` registrato via mDNS.
 
-Fonte: `draft-ietf-mmusic-mdns-ice-candidates`. **Stato verificato: Internet-Draft SCADUTO** (pubblicato 5 dicembre 2021, scaduto 8 giugno 2022), **mai pubblicato come RFC**. È un caso in cui il comportamento è universale nei browser ma il documento non è normativo — va detto con precisione nella documentazione di Telemedic.
+Fonte: `draft-ietf-mmusic-mdns-ice-candidates`. **Stato verificato: Internet-Draft SCADUTO** (pubblicato 5 dicembre 2021, scaduto 8 giugno 2022), **mai pubblicato come RFC**. È un caso in cui il comportamento è universale nei browser ma il documento non è normativo - va detto con precisione nella documentazione di Telemedic.
 
 Procedura (dal draft): generare un nome unico che *"MUST consist of a version 4 UUID as defined in RFC4122, followed by '.local'"*, registrarlo via mDNS (tipicamente saltando il probing), memorizzare il mapping, sostituire l'IP nel candidato.
 
@@ -332,7 +332,7 @@ Procedura (dal draft): generare un nome unico che *"MUST consist of a version 4 
 
 **Conseguenze concrete per Telemedic:**
 
-1. **Il consulto "in corsia"** — medico e paziente sulla stessa LAN ospedaliera — è lo scenario più penalizzato: senza risoluzione mDNS non si forma la coppia host-host, e si finisce sul relay per una connessione che poteva restare su switch locale. mDNS su UDP 5353 multicast è spesso **bloccato dagli AP Wi-Fi enterprise** (client isolation).
+1. **Il consulto "in corsia"** - medico e paziente sulla stessa LAN ospedaliera - è lo scenario più penalizzato: senza risoluzione mDNS non si forma la coppia host-host, e si finisce sul relay per una connessione che poteva restare su switch locale. mDNS su UDP 5353 multicast è spesso **bloccato dagli AP Wi-Fi enterprise** (client isolation).
 2. **Il logging lato server dei candidati** vedrà nomi `.local` e non IP. Qualunque analitica di rete basata sui candidati host è inutile. Le metriche vanno prese da `getStats()` lato client (§8), non dai candidati nel SDP.
 3. **Effetto collaterale positivo sulla privacy**: gli indirizzi IP privati dei dispositivi clinici non finiscono nei log del server di signaling. Questo va **valorizzato** nella DPIA: riduce la quantità di dati personali trattati.
 
@@ -359,10 +359,10 @@ Con un video 720p30 a ~1.5 Mbit/s per direzione più audio Opus a ~40 kbit/s, e 
 Dimensionamento derivato **`[ordine di grandezza]`**:
 
 - **100 sessioni 720p concorrenti tutte relayed** ≈ 680 Mbit/s aggregati → **una NIC 1 GbE è al limite**; serve 10 GbE o più nodi.
-- Se solo il 15% delle sessioni è relayed, 100 sessioni concorrenti ≈ 100 Mbit/s. Molto più gestibile — ma il picco va dimensionato sul caso avverso, non sulla media.
+- Se solo il 15% delle sessioni è relayed, 100 sessioni concorrenti ≈ 100 Mbit/s. Molto più gestibile - ma il picco va dimensionato sul caso avverso, non sulla media.
 - **Range di porte relay**: default coturn 49152–65535, cioè **16 384 porte**. Con BUNDLE + rtcp-mux, una porta per allocazione: il limite teorico è ~16k allocazioni per IP di relay. Non è il collo di bottiglia; la banda lo è.
 
-**CPU**: coturn nel percorso dati esegue essenzialmente parsing dell'header STUN/ChannelData e `sendto()`. È **I/O-bound, non CPU-bound**, salvo TURN over TLS dove si aggiunge la cifratura del tunnel (che è *aggiuntiva* rispetto a DTLS-SRTP: doppia cifratura). L'opzione `relay-threads` va tarata sul numero di core. Numeri specifici di throughput per core: **`[non verificato]` — richiede load test proprio (D10 prevede k6/Gatling; questo è un caso d'uso per un test dedicato al piano media, che k6 non copre nativamente).**
+**CPU**: coturn nel percorso dati esegue essenzialmente parsing dell'header STUN/ChannelData e `sendto()`. È **I/O-bound, non CPU-bound**, salvo TURN over TLS dove si aggiunge la cifratura del tunnel (che è *aggiuntiva* rispetto a DTLS-SRTP: doppia cifratura). L'opzione `relay-threads` va tarata sul numero di core. Numeri specifici di throughput per core: **`[non verificato]` - richiede load test proprio (D10 prevede k6/Gatling; questo è un caso d'uso per un test dedicato al piano media, che k6 non copre nativamente).**
 
 ---
 
@@ -391,7 +391,7 @@ Formato verificato:
 - `username` = `<unix-timestamp-di-scadenza>:<userid>`
 - `password` = `base64(HMAC-SHA1(static-auth-secret, username))`
 
-**Onestà normativa**: questo meccanismo **non è uno standard IETF**. Deriva da `draft-uberti-behave-turn-rest-00`, un Internet-Draft individuale scaduto. Lo standard vero è **RFC 7635** (autorizzazione di terza parte via token). Il "TURN REST API" è però l'unico meccanismo con supporto universale nei browser e in coturn, quindi è la scelta corretta — ma va documentato per quello che è: **una convenzione de-facto**, non uno standard.
+**Onestà normativa**: questo meccanismo **non è uno standard IETF**. Deriva da `draft-uberti-behave-turn-rest-00`, un Internet-Draft individuale scaduto. Lo standard vero è **RFC 7635** (autorizzazione di terza parte via token). Il "TURN REST API" è però l'unico meccanismo con supporto universale nei browser e in coturn, quindi è la scelta corretta - ma va documentato per quello che è: **una convenzione de-facto**, non uno standard.
 
 Implementazione lato Spring Boot (Java 21):
 
@@ -456,7 +456,7 @@ Note critiche su questo codice, da riportare nella documentazione di sicurezza:
 ### 4.3 Configurazione di riferimento
 
 ```ini
-# /etc/turnserver.conf — Telemedic, profilo produzione
+# /etc/turnserver.conf - Telemedic, profilo produzione
 # Tutte le direttive sono verificate sulla man page turnserver(1) upstream.
 
 # ---------------------------------------------------------------------------
@@ -477,7 +477,7 @@ min-port=49152
 max-port=65535
 
 # ---------------------------------------------------------------------------
-# Autenticazione — credenziali effimere HMAC (nessun utente statico)
+# Autenticazione - credenziali effimere HMAC (nessun utente statico)
 # ---------------------------------------------------------------------------
 realm=turn.telemedic.example
 use-auth-secret
@@ -497,7 +497,7 @@ pkey=/etc/coturn/certs/privkey.pem
 cipher-list="ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384"
 
 # ---------------------------------------------------------------------------
-# HARDENING DEL RELAY — la parte che conta davvero (vedi 4.5)
+# HARDENING DEL RELAY - la parte che conta davvero (vedi 4.5)
 # ---------------------------------------------------------------------------
 # Default-deny: si vieta tutto, poi si permette solo l'instradamento pubblico.
 denied-peer-ip=0.0.0.0-0.255.255.255
@@ -566,7 +566,7 @@ Due errori ricorrenti:
 
 Questo è il rischio di sicurezza **più grave e più sottovalutato** dell'intera architettura.
 
-**Il meccanismo dell'attacco.** Un TURN server è, per definizione, *un proxy UDP autenticato che inoltra byte arbitrari verso un indirizzo scelto dal client*. Se non si restringono le destinazioni, chiunque ottenga una credenziale TURN valida — e in Telemedic la ottiene **ogni paziente autenticato**, per progetto — può:
+**Il meccanismo dell'attacco.** Un TURN server è, per definizione, *un proxy UDP autenticato che inoltra byte arbitrari verso un indirizzo scelto dal client*. Se non si restringono le destinazioni, chiunque ottenga una credenziale TURN valida - e in Telemedic la ottiene **ogni paziente autenticato**, per progetto - può:
 
 - raggiungere `127.0.0.1` sul TURN server stesso e parlare con servizi che si credevano non esposti;
 - scansionare la rete interna dell'operatore (10.0.0.0/8, 192.168.0.0/16);
@@ -577,8 +577,8 @@ Questo è il rischio di sicurezza **più grave e più sottovalutato** dell'inter
 
 **Precedenti reali verificati:**
 
-- **CVE-2020-26262** — inviando una richiesta CONNECT con `XOR-PEER-ADDRESS` pari a `0.0.0.0`, coturn rispondeva con successo e relayava verso l'interfaccia di loopback. Affette le versioni fino a 4.5.1.3, corretto in 4.5.2.
-- Bypass tramite **indirizzi IPv4-mapped IPv6**: inviando `::ffff:127.0.0.1` in una `CreatePermission` o `ChannelBind`, il controllo `denied-peer-ip` su `127.0.0.0/8` veniva aggirato per insufficiente canonicalizzazione. Fonti secondarie riportano CVE del 2026 su questo tema con versioni corrette specifiche. **`[i numeri di CVE e le versioni esatte riportati dalle fonti secondarie non sono stati confermati su NVD/GitHub Security Advisories in questa ricerca — la ricerca deve essere ripetuta prima di citarli in documentazione pubblica]`**. **Il pattern d'attacco, però, è confermato e va mitigato a prescindere dal numero di CVE.**
+- **CVE-2020-26262** - inviando una richiesta CONNECT con `XOR-PEER-ADDRESS` pari a `0.0.0.0`, coturn rispondeva con successo e relayava verso l'interfaccia di loopback. Affette le versioni fino a 4.5.1.3, corretto in 4.5.2.
+- Bypass tramite **indirizzi IPv4-mapped IPv6**: inviando `::ffff:127.0.0.1` in una `CreatePermission` o `ChannelBind`, il controllo `denied-peer-ip` su `127.0.0.0/8` veniva aggirato per insufficiente canonicalizzazione. Fonti secondarie riportano CVE del 2026 su questo tema con versioni corrette specifiche. **`[i numeri di CVE e le versioni esatte riportati dalle fonti secondarie non sono stati confermati su NVD/GitHub Security Advisories in questa ricerca - la ricerca deve essere ripetuta prima di citarli in documentazione pubblica]`**. **Il pattern d'attacco, però, è confermato e va mitigato a prescindere dal numero di CVE.**
 
 **Cosa dice RFC 8656.** La §21 tratta la sicurezza, ma il documento **non impone** restrizioni esplicite sul relay verso loopback o reti RFC 1918. §7.2 si limita a dire che *"the TURN server application knows, through some means not specified here, that other applications running on the same host as the TURN server application will not be impacted by allocating ports"*. §21.2.2 menziona gli indirizzi in blacklist come considerazione di firewall, delegando all'operatore. **La difesa è responsabilità dell'operatore, non del protocollo.**
 
@@ -650,11 +650,11 @@ Queste alimentano TimescaleDB accanto alle metriche di qualità lato client (§8
 Due osservazioni doverose:
 
 - I profili **`SRTP_NULL_*` non cifrano**: autenticano soltanto. Un endpoint che li negozia trasmette media in chiaro. Devono essere **rifiutati** e la loro assenza va **verificata a runtime** leggendo `RTCTransportStats.srtpCipher` (§8.5). Un test automatico che fallisce se `srtpCipher` contiene `NULL` è un controllo di rischio ISO 14971 concreto e a costo zero.
-- **AES-GCM (RFC 7714) va preferito ad AES-CM+HMAC-SHA1**: è AEAD, ha tag a 16 ottetti, ed elimina SHA-1 dal percorso media. La preferenza si esprime tramite la configurazione della libreria, non tramite l'API W3C — nel browser non è direttamente controllabile, ma è **osservabile** via `srtpCipher`.
+- **AES-GCM (RFC 7714) va preferito ad AES-CM+HMAC-SHA1**: è AEAD, ha tag a 16 ottetti, ed elimina SHA-1 dal percorso media. La preferenza si esprime tramite la configurazione della libreria, non tramite l'API W3C - nel browser non è direttamente controllabile, ma è **osservabile** via `srtpCipher`.
 
 **DTLS 1.3 (RFC 9147, aprile 2022)**: le fonti indicano che gli ecosistemi Firefox (NSS) e Chromium (BoringSSL) hanno introdotto DTLS 1.3 e che il default di libwebrtc sarebbe cambiato **`[versioni e date non confermate su fonte primaria in questa ricerca]`**. Telemedic deve **misurare** la versione effettivamente negoziata via `RTCTransportStats.tlsVersion` invece di dichiararla.
 
-### 5.3 Fingerprint e catena di fiducia — RFC 8122
+### 5.3 Fingerprint e catena di fiducia - RFC 8122
 
 **RFC 8122** (obsoleta RFC 4572) definisce l'attributo SDP che lega il certificato DTLS alla sessione. Sintassi verificata (§5):
 
@@ -669,7 +669,7 @@ fingerprint           = 2UHEX *(":" 2UHEX)
 
 **Il meccanismo.** Il peer A inserisce nell'SDP `a=fingerprint:sha-256 <hash del proprio certificato>`. Il peer B, completato l'handshake DTLS, calcola l'hash del certificato ricevuto e lo confronta con quello segnalato. Se coincidono, B ha la certezza che il DTLS è stato negoziato **con l'entità che ha prodotto quell'SDP**. Il certificato è self-signed: non esiste PKI, non esiste CA, non esiste revoca.
 
-**La fragilità, dichiarata dalla specifica.** RFC 8122 §7: *"It is the responsibility of the encapsulating protocol to ensure the integrity of the SDP security descriptions"*, e la specifica precisa che senza protezione dell'integrità dell'SDP il meccanismo è equivalente a SSH — vulnerabile a un MITM al primo contatto.
+**La fragilità, dichiarata dalla specifica.** RFC 8122 §7: *"It is the responsibility of the encapsulating protocol to ensure the integrity of the SDP security descriptions"*, e la specifica precisa che senza protezione dell'integrità dell'SDP il meccanismo è equivalente a SSH - vulnerabile a un MITM al primo contatto.
 
 RFC 8827 §9.1 è ancora più esplicito: *"Even if HTTPS is used, the signaling server can potentially mount a man-in-the-middle attack unless implementations have some mechanism for independently verifying keys."*
 
@@ -677,7 +677,7 @@ RFC 8827 §9.1 è ancora più esplicito: *"Even if HTTPS is used, the signaling 
 
 **Le contromisure esistenti:**
 
-1. **RFC 8827 §7 — Identity Provider.** WebRTC definisce l'attributo SDP `a=identity` che porta un'asserzione firmata da un IdP terzo, legata crittograficamente al fingerprint (§7.4). Il browser verifica l'asserzione **fuori dal controllo del servizio di chiamata**. **`[il supporto browser dell'API IdP è stato storicamente scarso e in parte rimosso — va verificato prima di progettarci sopra]`**.
+1. **RFC 8827 §7 - Identity Provider.** WebRTC definisce l'attributo SDP `a=identity` che porta un'asserzione firmata da un IdP terzo, legata crittograficamente al fingerprint (§7.4). Il browser verifica l'asserzione **fuori dal controllo del servizio di chiamata**. **`[il supporto browser dell'API IdP è stato storicamente scarso e in parte rimosso - va verificato prima di progettarci sopra]`**.
 2. **Short Authentication String (SAS) fuori banda.** Derivare dalle due fingerprint una stringa breve (o un pattern visivo) mostrata a entrambi i lati, che i partecipanti confrontano **a voce**. È il modello ZRTP. Per una televisita è **particolarmente adatto**: i due partecipanti sono già in comunicazione audio-video e possono leggersi quattro parole. Costo di implementazione basso, guadagno di sicurezza reale e dimostrabile.
 3. **Fingerprint pinning per il professionista.** Se il certificato del lato clinico è persistente (via `RTCPeerConnection.generateCertificate()` con chiave conservata in `IndexedDB`), può essere registrato lato server e verificato dal client paziente in modo indipendente. Attenua ma non elimina il problema (il server resta nella catena).
 
@@ -702,34 +702,34 @@ Il sito dichiara **"key rotation per sessione"**. Analizziamo cosa è vero.
 
 Questa è la sezione che gli agenti di sicurezza e di marketing tecnico devono leggere per intero.
 
-**Caso A — P2P diretto (coppia host/srflx).**
+**Caso A - P2P diretto (coppia host/srflx).**
 Il media viaggia direttamente. Le chiavi SRTP esistono solo nei due browser. **Nessun terzo può decifrare.** L'affermazione "end-to-end encrypted" è corretta, **condizionata all'integrità del signaling** (§5.3).
 
-**Caso B — Attraverso il relay TURN.**
+**Caso B - Attraverso il relay TURN.**
 Questo è il punto su cui c'è più confusione, quindi va detto con chiarezza:
 
 > **Il TURN server inoltra il payload UDP senza interpretarlo. Non partecipa all'handshake DTLS, non possiede il materiale di chiave, non può decifrare SRTP.** Il TURN vede: gli indirizzi IP dei due peer, il volume e la temporizzazione dei pacchetti, la dimensione dei pacchetti, la durata della sessione. **Non vede** audio, video, né dati del data channel.
 
 Quindi: **passare dal TURN NON rompe l'end-to-end encryption.** Il claim del sito ("nessuna decifratura intermedia") è **corretto** anche in modalità relay.
 
-Ma il TURN vede **metadati**, e i metadati di una televisita sono dati personali ai sensi del GDPR: chi ha parlato con chi, quando, per quanto, da quale indirizzo IP (quindi approssimativamente da dove). In un contesto sanitario, il solo fatto che un paziente abbia avuto un consulto con uno specialista di una determinata clinica **è già un dato relativo alla salute**. Il TURN va trattato come sistema che tratta dati personali: logging minimizzato, retention breve, registro dei trattamenti, e — vincolo V1 — **collocazione UE**.
+Ma il TURN vede **metadati**, e i metadati di una televisita sono dati personali ai sensi del GDPR: chi ha parlato con chi, quando, per quanto, da quale indirizzo IP (quindi approssimativamente da dove). In un contesto sanitario, il solo fatto che un paziente abbia avuto un consulto con uno specialista di una determinata clinica **è già un dato relativo alla salute**. Il TURN va trattato come sistema che tratta dati personali: logging minimizzato, retention breve, registro dei trattamenti, e - vincolo V1 - **collocazione UE**.
 
-**Caso C — Attraverso un SFU.**
+**Caso C - Attraverso un SFU.**
 Un SFU **termina DTLS-SRTP**. Esegue un handshake con ciascun partecipante, decifra i pacchetti in arrivo, li ricifra con le chiavi della sessione uscente. **Ha accesso al media in chiaro.** Qualunque architettura che introduca un SFU **distrugge** la proprietà end-to-end, a meno di aggiungere un livello di cifratura *sopra* SRTP (§5.6).
 
-**Caso D — Endpoint compromesso.**
+**Caso D - Endpoint compromesso.**
 Fuori dalla portata di qualunque protocollo. Il browser ha il media in chiaro per definizione (deve renderizzarlo). Un'estensione malevola, un keylogger o uno screen recorder sul dispositivo vanificano tutto. Va scritto nella threat model STRIDE prevista da D10, non nascosto.
 
-**Caso E — Signaling compromesso.**
+**Caso E - Signaling compromesso.**
 MITM come da §5.3. **È il rischio residuo più alto dell'intera architettura** ed è quello con la mitigazione più economica (SAS).
 
 ### 5.6 Cifratura oltre l'hop: SFrame e Double SRTP
 
 Se un giorno Telemedic introducesse un SFU (§6), l'end-to-end si recupera solo con un livello aggiuntivo.
 
-**RFC 9605 — Secure Frame (SFrame)**, verificato: *"Lightweight Authenticated Encryption for Real-Time Media"*, **Standards Track, agosto 2024**, dal WG `sframe`. Fornisce *"end-to-end encryption and authentication mechanism for media frames in a multiparty conference call"* dove i server media centrali possono accedere ai metadati ma non al contenuto. È **indipendente da RTP** e opera su **frame media interi**, il che lo rende più efficiente in banda di una cifratura per-pacchetto.
+**RFC 9605 - Secure Frame (SFrame)**, verificato: *"Lightweight Authenticated Encryption for Real-Time Media"*, **Standards Track, agosto 2024**, dal WG `sframe`. Fornisce *"end-to-end encryption and authentication mechanism for media frames in a multiparty conference call"* dove i server media centrali possono accedere ai metadati ma non al contenuto. È **indipendente da RTP** e opera su **frame media interi**, il che lo rende più efficiente in banda di una cifratura per-pacchetto.
 
-- **Cipher suite** (§4.5): cinque suite — AES-CTR con HMAC-SHA256 (tag 80, 64, 32 bit) e AES-GCM con SHA256/SHA512 (tag pieni a 128 bit). La costruzione AES-CTR è in §4.5.1.
+- **Cipher suite** (§4.5): cinque suite - AES-CTR con HMAC-SHA256 (tag 80, 64, 32 bit) e AES-GCM con SHA256/SHA512 (tag pieni a 128 bit). La costruzione AES-CTR è in §4.5.1.
 - **Header** (§4.3): header a lunghezza variabile con **KID** (key identifier) e **CTR** (contatore per il nonce).
 - **Cifratura/decifratura** (§4.4.3, §4.4.4): AEAD con header SFrame + metadati opzionali come associated data.
 - **Gestione delle chiavi** (§5): SFrame **non definisce lo scambio delle chiavi**. Due modelli: *Sender Keys* (§5.1) e derivazione da **MLS** (§5.2) via HKDF exporter. *"Applications bear responsibility for provisioning keys and managing rotation."*
@@ -750,9 +750,9 @@ self.onrtctransform = (event) => {
 };
 ```
 
-**Il punto onesto**: la specifica *"explicitly provides no key management functionality"*. Il problema difficile dell'E2EE non è cifrare i frame — è **distribuire e ruotare le chiavi senza fidarsi del server**. Chi dice "abbiamo l'E2EE perché usiamo Insertable Streams" ha risolto il 20% del problema.
+**Il punto onesto**: la specifica *"explicitly provides no key management functionality"*. Il problema difficile dell'E2EE non è cifrare i frame - è **distribuire e ruotare le chiavi senza fidarsi del server**. Chi dice "abbiamo l'E2EE perché usiamo Insertable Streams" ha risolto il 20% del problema.
 
-**RFC 8723 — Double Encryption Procedures for SRTP** (Standards Track) è l'alternativa: due trasformazioni annidate, una **inner** end-to-end (AES-GCM con la chiave del mittente, nota solo agli endpoint) e una **outer** hop-by-hop (chiave condivisa con il Media Distributor). §4 stabilisce che l'MD può modificare **solo tre campi** dell'header RTP — **Payload Type, Sequence Number, Marker bit** — mentre tutti gli altri *"MUST remain unmodified"*; i valori originali sono preservati nell'**Optional Header Block (OHB)** per la verifica del ricevente. **RFC 8870** (*Encrypted Key Transport for SRTP*) copre il trasporto delle chiavi in questi scenari.
+**RFC 8723 - Double Encryption Procedures for SRTP** (Standards Track) è l'alternativa: due trasformazioni annidate, una **inner** end-to-end (AES-GCM con la chiave del mittente, nota solo agli endpoint) e una **outer** hop-by-hop (chiave condivisa con il Media Distributor). §4 stabilisce che l'MD può modificare **solo tre campi** dell'header RTP - **Payload Type, Sequence Number, Marker bit** - mentre tutti gli altri *"MUST remain unmodified"*; i valori originali sono preservati nell'**Optional Header Block (OHB)** per la verifica del ricevente. **RFC 8870** (*Encrypted Key Transport for SRTP*) copre il trasporto delle chiavi in questi scenari.
 
 **Valutazione per Telemedic v1.0**: né SFrame né Double SRTP servono, perché non c'è SFU. Vanno però **documentati come percorso evolutivo** (§13), perché il giorno in cui entra un terzo partecipante la domanda "è ancora end-to-end?" arriverà da un DPO o da un cliente ospedaliero.
 
@@ -760,25 +760,25 @@ self.onrtctransform = (event) => {
 
 Il sito dichiara **"cipher FIPS 140-2 compliant"**. Questa affermazione presenta **quattro problemi distinti**, e vanno esposti tutti.
 
-**Problema 1 — FIPS 140-2 è in scadenza, e la scadenza cade prima della v1.0.**
+**Problema 1 - FIPS 140-2 è in scadenza, e la scadenza cade prima della v1.0.**
 
 Verificato: il **21 settembre 2026** il CMVP dichiarerà **historical** tutti i certificati FIPS 140-2 ancora attivi. Il CMVP ha smesso di accettare nuove sottomissioni 140-2 nell'aprile 2022. Dopo quella data, la formulazione operativa NIST è che le agenzie federali *"should not include"* moduli historical in nuove acquisizioni.
 
 **Oggi è il 25 agosto 2026. La v1.0 di Telemedic è prevista per il 30 novembre 2026.** Il progetto lancerebbe rivendicando conformità a uno standard **dichiarato obsoleto due mesi prima del rilascio**. Questo non è un dettaglio di forma: in un contesto di dispositivo medico, dove la documentazione tecnica è oggetto di scrutinio, citare uno standard scaduto è un errore che si nota.
 
-**Problema 2 — "cipher FIPS compliant" non è una categoria che esiste.**
+**Problema 2 - "cipher FIPS compliant" non è una categoria che esiste.**
 
-FIPS 140-2/140-3 **non valida algoritmi**: valida **moduli crittografici** — un'implementazione specifica, in una versione specifica, compilata in un modo specifico, operante in "FIPS mode", con self-test all'avvio, gestione dello stato d'errore e boundary definito. AES-128-GCM non è "FIPS-validated"; *un modulo che implementa AES-128-GCM* può esserlo. Dire "usiamo cipher FIPS 140-2 compliant" è una categoria errata: al massimo si può dire "usiamo algoritmi **FIPS-approved**" (cioè presenti nelle SP 800-131A / FIPS 197 / SP 800-38D), che è vero ma molto più debole di quanto suoni.
+FIPS 140-2/140-3 **non valida algoritmi**: valida **moduli crittografici** - un'implementazione specifica, in una versione specifica, compilata in un modo specifico, operante in "FIPS mode", con self-test all'avvio, gestione dello stato d'errore e boundary definito. AES-128-GCM non è "FIPS-validated"; *un modulo che implementa AES-128-GCM* può esserlo. Dire "usiamo cipher FIPS 140-2 compliant" è una categoria errata: al massimo si può dire "usiamo algoritmi **FIPS-approved**" (cioè presenti nelle SP 800-131A / FIPS 197 / SP 800-38D), che è vero ma molto più debole di quanto suoni.
 
-**Problema 3 — Il browser non è sotto il controllo di Telemedic.**
+**Problema 3 - Il browser non è sotto il controllo di Telemedic.**
 
 Il media è cifrato **dal browser dell'utente**. Verificato dalla documentazione BoringSSL: *"BoringSSL as a whole is not FIPS validated"*; esiste un core, **BoringCrypto (BCM)**, che ha ottenuto validazioni CMVP. Ma la stessa documentazione avverte: *"we cannot answer questions about FIPS, nor about using BoringSSL in a FIPS-compliant manner"*, e nota che sul ramo di aggiornamento *"FIPS_version will return zero to indicate that it is not the validated module stream"*.
 
-Cioè: **il modulo validato è una specifica revisione congelata, non ciò che gira nel browser che l'utente ha installato ieri.** Telemedic non ha modo di garantire — né di verificare — che la crittografia dell'endpoint provenga da un modulo in stato validato. Firefox usa NSS, altri browser altre librerie. Il claim è **non verificabile per costruzione**.
+Cioè: **il modulo validato è una specifica revisione congelata, non ciò che gira nel browser che l'utente ha installato ieri.** Telemedic non ha modo di garantire - né di verificare - che la crittografia dell'endpoint provenga da un modulo in stato validato. Firefox usa NSS, altri browser altre librerie. Il claim è **non verificabile per costruzione**.
 
-**Problema 4 — FIPS è uno standard federale statunitense, in un progetto che si vende come "sovereign telemedicine".**
+**Problema 4 - FIPS è uno standard federale statunitense, in un progetto che si vende come "sovereign telemedicine".**
 
-Questa è la contraddizione più grossa dal punto di vista del posizionamento. Il vincolo V1 dichiara che i dati clinici non devono transitare per server US-based e che nessun componente obbligatorio è ospitato fuori dall'UE. Rivendicare come sigillo di qualità una validazione **NIST/CMVP** — cioè un programma del governo degli Stati Uniti e del Canada — indebolisce l'argomento di sovranità invece di rafforzarlo.
+Questa è la contraddizione più grossa dal punto di vista del posizionamento. Il vincolo V1 dichiara che i dati clinici non devono transitare per server US-based e che nessun componente obbligatorio è ospitato fuori dall'UE. Rivendicare come sigillo di qualità una validazione **NIST/CMVP** - cioè un programma del governo degli Stati Uniti e del Canada - indebolisce l'argomento di sovranità invece di rafforzarlo.
 
 I riferimenti coerenti con il posizionamento europeo sono altri: **ETSI TS 119 312** (suite crittografiche per firme elettroniche), le raccomandazioni **ENISA** e **SOG-IS Agreed Cryptographic Mechanisms**, e in Italia le **Linee guida AgID/ACN sulla crittografia**. Per un dispositivo medico, IEC 62304 e ISO 14971 non richiedono FIPS: richiedono che le scelte crittografiche siano **motivate, documentate e proporzionate al rischio**.
 
@@ -786,7 +786,7 @@ I riferimenti coerenti con il posizionamento europeo sono altri: **ETSI TS 119 3
 
 > *"Il media è protetto con SRTP (RFC 3711) usando cipher suite AEAD basate su AES-GCM (RFC 7714), con chiavi negoziate via DTLS (RFC 6347/RFC 9147) secondo DTLS-SRTP (RFC 5764). Gli algoritmi impiegati appartengono agli insiemi raccomandati da ETSI TS 119 312 e SOG-IS. La cifratura è eseguita dalle librerie crittografiche del browser dell'utente: Telemedic non ne controlla la provenienza e non rivendica alcuna validazione FIPS 140-2 o 140-3, che riguarderebbe moduli e non algoritmi. La cipher suite effettivamente negoziata è osservabile e registrata per ogni sessione (`RTCTransportStats.srtpCipher`, `dtlsCipher`, `tlsVersion`)."*
 
-Questa formulazione è **più forte** di quella attuale, perché è verificabile. E l'ultima frase — *registriamo e mostriamo quale cifratura è stata effettivamente usata in ogni consulto* — è una feature reale, che nessun claim di marketing sostituisce.
+Questa formulazione è **più forte** di quella attuale, perché è verificabile. E l'ultima frase - *registriamo e mostriamo quale cifratura è stata effettivamente usata in ogni consulto* - è una feature reale, che nessun claim di marketing sostituisce.
 
 Se un cliente specifico (per esempio un'organizzazione soggetta a requisiti federali US) richiedesse davvero FIPS, la strada sarebbe: **componenti server** (coturn, JVM, TLS terminator) costruiti su OpenSSL 3.x con il FIPS provider validato, in FIPS mode, con documentazione del boundary. **Il piano media browser-to-browser resterebbe comunque fuori dal boundary.** Va detto in anticipo, non scoperto in fase di gara.
 
@@ -796,7 +796,7 @@ Se un cliente specifico (per esempio un'organizzazione soggetta a requisiti fede
 
 ### 6.1 Le tre topologie
 
-**P2P / mesh.** Ogni partecipante invia il proprio stream a ogni altro. Con N partecipanti: N-1 upload e N-1 download per nodo, N(N-1)/2 connessioni totali, e — punto spesso ignorato — **N-1 encoding paralleli** se le condizioni di rete verso i peer differiscono.
+**P2P / mesh.** Ogni partecipante invia il proprio stream a ogni altro. Con N partecipanti: N-1 upload e N-1 download per nodo, N(N-1)/2 connessioni totali, e - punto spesso ignorato - **N-1 encoding paralleli** se le condizioni di rete verso i peer differiscono.
 
 - **N=2**: 1 connessione, 1 encode, 1 decode. Ottimale sotto ogni profilo.
 - **N=3**: 3 connessioni, 2 encode e 2 decode per nodo. Upload richiesto ≈ 2× il bitrate. Ancora fattibile su una linea domestica decente.
@@ -811,7 +811,7 @@ Proprietà di sicurezza: **end-to-end nativo su ogni link**. Nessun intermediari
 - CPU server bassa rispetto all'MCU: nessuna transcodifica nel caso base.
 - **Termina DTLS-SRTP.** Vede il media in chiaro (§5.5, caso C).
 
-**MCU (Multipoint Control Unit).** Il server decodifica tutti gli stream, li compone in un singolo mosaico e ricodifica. Download O(1) — un solo stream, ideale per client deboli o per interop legacy (SIP, telefonia).
+**MCU (Multipoint Control Unit).** Il server decodifica tutti gli stream, li compone in un singolo mosaico e ricodifica. Download O(1) - un solo stream, ideale per client deboli o per interop legacy (SIP, telefonia).
 
 - **CPU per sessione altissima**: transcodifica di N flussi.
 - **Latenza aggiuntiva significativa**: decode + compose + encode aggiunge decine di ms.
@@ -821,11 +821,11 @@ Proprietà di sicurezza: **end-to-end nativo su ogni link**. Nessun intermediari
 
 **Per il consulto 1:1, la topologia P2P è inequivocabilmente corretta.** Non c'è alcun argomento a favore di un SFU per due partecipanti: aggiungerebbe una decodifica/ricodifica o un forwarding inutile, latenza, costo infrastrutturale, e **distruggerebbe la proprietà end-to-end che è il pilastro del posizionamento del progetto**.
 
-**Per il terzo partecipante — interprete, caregiver, secondo specialista — la risposta corretta è: mesh a 3, non SFU.**
+**Per il terzo partecipante - interprete, caregiver, secondo specialista - la risposta corretta è: mesh a 3, non SFU.**
 
 Motivazioni:
 
-1. **A N=3 la mesh è tecnicamente sostenibile.** 2 upload e 2 download per nodo. Con encoding a 720p a ~1.5 Mbit/s, servono ~3 Mbit/s di upload — alla portata di FTTH e di gran parte delle FTTC italiane, e di una 4G/5G decente. Da verificare con test sul campo, non da assumere.
+1. **A N=3 la mesh è tecnicamente sostenibile.** 2 upload e 2 download per nodo. Con encoding a 720p a ~1.5 Mbit/s, servono ~3 Mbit/s di upload - alla portata di FTTH e di gran parte delle FTTC italiane, e di una 4G/5G decente. Da verificare con test sul campo, non da assumere.
 2. **Preserva l'end-to-end.** Passare a SFU per un terzo partecipante significherebbe dover riscrivere la comunicazione sulla sicurezza, rifare la DPIA, e affrontare la domanda "e allora il server vede il video del paziente?". Il costo di *narrativa* è più alto del costo tecnico.
 3. **Per il caso "interprete LIS" o "caregiver" specificamente**, la mesh a 3 è persino preferibile: nessuna dipendenza da infrastruttura aggiuntiva, nessun single point of failure in più.
 
@@ -861,7 +861,7 @@ Tutte le licenze marcate `[da verificare]` **devono** essere confermate sul repo
 
 ### 7.1 Codec video
 
-**RFC 7742 — WebRTC Video Processing and Codec Requirements**, §5, testo verbatim verificato:
+**RFC 7742 - WebRTC Video Processing and Codec Requirements**, §5, testo verbatim verificato:
 
 > *"WebRTC Browsers MUST implement the VP8 video codec as described in [RFC6386] and H.264 Constrained Baseline as described in [H264]."*
 
@@ -873,7 +873,7 @@ Tutte le licenze marcate `[da verificare]` **devono** essere confermate sul repo
 |---|---|---|---|
 | **VP8** | RFC 6386; payload RFC 7741 | Royalty-free dichiarato; grant di brevetti dal licenziante | MTI. Baseline sicura. Efficienza inferiore a VP9/AV1 a parità di bitrate. |
 | **VP9** | Specifica di progetto aperta | Royalty-free dichiarato | Migliore efficienza di VP8 (~30–50% a parità di qualità, **`[ordine di grandezza]`**). Supporto browser ampio ma non universale. Supporta SVC nativamente. |
-| **H.264** | ITU-T H.264 / ISO 14496-10; payload RFC 6184 | **Coperto da pool di brevetti.** Le licenze hanno costi e condizioni. La distribuzione di un'implementazione può richiedere una licenza. | MTI, quindi presente ovunque, con **accelerazione hardware quasi universale** — il che significa **minor consumo di batteria e minor latenza di encoding sui dispositivi mobili**. Per una televisita da smartphone è spesso la scelta migliore in pratica. |
+| **H.264** | ITU-T H.264 / ISO 14496-10; payload RFC 6184 | **Coperto da pool di brevetti.** Le licenze hanno costi e condizioni. La distribuzione di un'implementazione può richiedere una licenza. | MTI, quindi presente ovunque, con **accelerazione hardware quasi universale** - il che significa **minor consumo di batteria e minor latenza di encoding sui dispositivi mobili**. Per una televisita da smartphone è spesso la scelta migliore in pratica. |
 | **AV1** | AOMedia AV1; payload format AOMedia (**non un RFC**; esiste `draft-ietf-avtcore-rtp-av1`) | Royalty-free dichiarato da AOMedia | Efficienza superiore, ma **l'encoding software real-time è costoso in CPU** e l'accelerazione hardware in *encoding* è ancora rara. Il supporto in WebRTC (non in playback) è disomogeneo fra browser e piattaforme. |
 
 **Onestà su AV1**: le fonti secondarie consultate concordano che nel 2026 **il real-time conferencing sullo stack WebRTC pubblico non usa AV1 per default**, che il supporto su alcune piattaforme è sperimentale e dipendente dall'hardware, e che il divario fra supporto **decoder** e supporto **encoder** resta ampio. **`[cifre puntuali non verificate su fonte primaria]`**.
@@ -884,15 +884,15 @@ Tutte le licenze marcate `[da verificare]` **devono** essere confermate sul repo
 
 **RFC 6716** definisce Opus; **RFC 7587** ne definisce il payload format RTP. RFC 7874 stabilisce i codec audio obbligatori per WebRTC (Opus e G.711).
 
-Clock rate obbligatorio verificato: `a=rtpmap:<pt> opus/48000/2` — **sempre 48000/2**, indipendentemente dal contenuto reale (il "/2" indica la capacità di trasportare stereo, non che lo stream sia stereo).
+Clock rate obbligatorio verificato: `a=rtpmap:<pt> opus/48000/2` - **sempre 48000/2**, indipendentemente dal contenuto reale (il "/2" indica la capacità di trasportare stereo, non che lo stream sia stereo).
 
 Parametri `fmtp` verificati (RFC 7587 §6.1):
 
 | Parametro | Range / valori | Default |
 |---|---|---|
-| `maxplaybackrate` | 8000–48000 Hz | — |
-| `sprop-maxcapturerate` | 8000–48000 Hz | — |
-| `maxaveragebitrate` | 6000–510000 bit/s (range raccomandato) | — |
+| `maxplaybackrate` | 8000–48000 Hz | - |
+| `sprop-maxcapturerate` | 8000–48000 Hz | - |
+| `maxaveragebitrate` | 6000–510000 bit/s (range raccomandato) | - |
 | `stereo` | `0` \| `1` | `0` |
 | `sprop-stereo` | `0` \| `1` | `0` |
 | `cbr` | `0` \| `1` | `0` |
@@ -927,19 +927,19 @@ Nota: **`minptime` non è definito da RFC 7587**, benché compaia negli SDP gene
 
 Il ragionamento è diretto: simulcast e SVC esistono per servire **riceventi eterogenei da un unico mittente**. In 1:1 esiste **un solo ricevente**, e il mittente può adattare l'encoding esattamente alle sue condizioni tramite congestion control e `setParameters()`. Il simulcast in 1:1 sprecherebbe banda in upload codificando layer che nessuno consuma.
 
-**L'unica eccezione ragionevole** è `L1T2`/`L1T3` — **scalabilità puramente temporale su un solo layer spaziale**. Costa quasi nulla (nessun encoding aggiuntivo, solo una struttura di riferimento gerarchica) e conferisce **resilienza**: la perdita di un frame del layer temporale superiore non propaga l'errore, perché nessun frame vi fa riferimento. È una difesa contro il freeze video a costo marginale. **Vale la pena valutarla e misurarla.**
+**L'unica eccezione ragionevole** è `L1T2`/`L1T3` - **scalabilità puramente temporale su un solo layer spaziale**. Costa quasi nulla (nessun encoding aggiuntivo, solo una struttura di riferimento gerarchica) e conferisce **resilienza**: la perdita di un frame del layer temporale superiore non propaga l'errore, perché nessun frame vi fa riferimento. È una difesa contro il freeze video a costo marginale. **Vale la pena valutarla e misurarla.**
 
 ### 7.4 Congestion control
 
 **RFC 8836** definisce i *requisiti*, non l'algoritmo. **RFC 8834** è esplicito: *"at the time of this writing, there is no standard congestion control algorithm that can be used for interactive media applications such as WebRTC's flows"*; gli endpoint devono implementare il **circuit breaker RTP (RFC 8083)** e possono usare algoritmi proprietari.
 
-**GCC (Google Congestion Control)** è l'algoritmo de-facto implementato in libwebrtc, quindi in tutti i browser derivati da Chromium e — con differenze — in Firefox. È descritto in `draft-ietf-rmcat-gcc`, **Internet-Draft mai pubblicato come RFC**. Combina un controllore basato sul **ritardo** (stima del delay gradient tramite filtro di Kalman sui tempi di arrivo inter-gruppo) e uno basato sulla **perdita** (riduzione se la loss supera una soglia, tipicamente ~10%; incremento se sotto ~2%). **`[i valori di soglia sono conoscenza corrente, non verificati su fonte primaria in questa ricerca]`**.
+**GCC (Google Congestion Control)** è l'algoritmo de-facto implementato in libwebrtc, quindi in tutti i browser derivati da Chromium e - con differenze - in Firefox. È descritto in `draft-ietf-rmcat-gcc`, **Internet-Draft mai pubblicato come RFC**. Combina un controllore basato sul **ritardo** (stima del delay gradient tramite filtro di Kalman sui tempi di arrivo inter-gruppo) e uno basato sulla **perdita** (riduzione se la loss supera una soglia, tipicamente ~10%; incremento se sotto ~2%). **`[i valori di soglia sono conoscenza corrente, non verificati su fonte primaria in questa ricerca]`**.
 
 **TWCC (transport-wide congestion control)**: aggiunge un numero di sequenza **a tutti i pacchetti della connessione** (attraverso tutti gli SSRC), permettendo al mittente di ricostruire i tempi di arrivo dall'altro lato. Verificato: definito in `draft-holmer-rmcat-transport-wide-cc-extensions`, **Internet-Draft individuale SCADUTO il 21 aprile 2016**, mai adottato, mai RFC. Il documento porta la nota *"not endorsed by the IETF"* e *"no formal standing in the IETF standards process"*. Feedback RTCP con **FMT=15** su **PT=205 (RTPFB)**. URI dell'estensione RTP: `http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions`. In SDP compare come `a=rtcp-fb:* transport-cc`.
 
 **Questo è un punto di onestà tecnica importante**: l'algoritmo di congestion control su cui poggia la qualità di ogni sessione WebRTC del pianeta è un **draft scaduto da dieci anni**, standardizzato di fatto dall'implementazione e non dalla IETF.
 
-Lo standard vero esiste ed è **RFC 8888** — *RTP Control Protocol (RTCP) Feedback for Congestion Control*, **Proposed Standard, gennaio 2021** (verificato). Usa **FMT=11 su PT=205**, sigla **CCFB**. Ogni blocco riporta, per pacchetto: **bit R** (ricevuto), campo **ECN** a 2 bit, campo **ATO** a 13 bit (arrival time offset in unità di 1/1024 s, misurato all'indietro dal Report Timestamp), fino a 16 384 numeri di sequenza per blocco. A differenza di transport-cc, RFC 8888 mantiene il feedback **per SSRC**, il che *"enables differential rate control and repair for audio and video flows"*. Il documento **non contiene informazioni sull'adozione nei browser**.
+Lo standard vero esiste ed è **RFC 8888** - *RTP Control Protocol (RTCP) Feedback for Congestion Control*, **Proposed Standard, gennaio 2021** (verificato). Usa **FMT=11 su PT=205**, sigla **CCFB**. Ogni blocco riporta, per pacchetto: **bit R** (ricevuto), campo **ECN** a 2 bit, campo **ATO** a 13 bit (arrival time offset in unità di 1/1024 s, misurato all'indietro dal Report Timestamp), fino a 16 384 numeri di sequenza per blocco. A differenza di transport-cc, RFC 8888 mantiene il feedback **per SSRC**, il che *"enables differential rate control and repair for audio and video flows"*. Il documento **non contiene informazioni sull'adozione nei browser**.
 
 **Implicazione per Telemedic**: il "bitrate adattivo" dichiarato nella feature 1 del sito **non è codice di Telemedic**. È GCC dentro il browser. Il progetto non lo implementa: lo **configura** (tramite `setParameters`) e lo **osserva** (tramite `getStats`). La documentazione deve dirlo così, altrimenti rivendica un lavoro non svolto.
 
@@ -949,7 +949,7 @@ Lo standard vero esiste ed è **RFC 8888** — *RTP Control Protocol (RTCP) Feed
 
 Membri di `RTCRtpEncodingParameters` verificati sulla Recommendation W3C: `active`, `maxBitrate`, `maxFramerate`, `scaleResolutionDownBy`, `rid` (sola lettura), `priority`, `networkPriority`, `codec`. Il membro **`scalabilityMode`** è aggiunto dalla specifica SVC. **`[MDN elenca anche `dtx`, `channels`, `clockRate`, `mimeType`, `sdpFmtpLine` fra i membri di encoding: sono in realtà membri di `RTCRtpCodecParameters`, non di encoding. Non riportarli come tali.]`**
 
-**`RTCDegradationPreference`**: i valori della specifica sono **`"maintain-framerate"`**, **`"maintain-resolution"`**, **`"balanced"`**. **`[MDN riporta anche `"maintain-framerate-and-resolution"`: non confermato sulla Recommendation W3C — non usarlo senza verifica.]`**
+**`RTCDegradationPreference`**: i valori della specifica sono **`"maintain-framerate"`**, **`"maintain-resolution"`**, **`"balanced"`**. **`[MDN riporta anche `"maintain-framerate-and-resolution"`: non confermato sulla Recommendation W3C - non usarlo senza verifica.]`**
 
 ```javascript
 /**
@@ -1013,14 +1013,14 @@ Questa mappatura specialità → `degradationPreference` è un'idea progettuale 
 | **FEC** | RFC 8854 | §6.2 |
 | Client-to-Mixer Audio Level | RFC 6464 | §5.2.2 |
 
-**Come lavorano insieme** — la sequenza reale in caso di perdita video:
+**Come lavorano insieme** - la sequenza reale in caso di perdita video:
 
 1. Il ricevente rileva un buco nella sequenza RTP.
 2. Se l'RTT è basso rispetto al budget di jitter buffer, invia **NACK** (RFC 4585). Il mittente ritrasmette via **RTX** (RFC 4588) su SSRC/payload type separato (`a=rtpmap:<pt> rtx/90000`, `a=fmtp:<pt> apt=<pt-originale>`).
 3. Se il NACK non è praticabile (RTT troppo alto, perdita troppo estesa) e il decoder ha perso il riferimento, il ricevente invia **PLI** (RFC 4585, PT=206 FMT=1) o **FIR** (RFC 5104, PT=206 FMT=4). Il mittente produce un **keyframe**.
-4. **Il keyframe è costoso**: è tipicamente 5–10× un frame inter **`[ordine di grandezza]`**. Un burst di PLI può innescare una spirale — congestione → perdita → PLI → keyframe → maggiore congestione. GCC gestisce questo, ma le implementazioni applicano rate limiting sulle richieste di keyframe.
+4. **Il keyframe è costoso**: è tipicamente 5–10× un frame inter **`[ordine di grandezza]`**. Un burst di PLI può innescare una spirale - congestione → perdita → PLI → keyframe → maggiore congestione. GCC gestisce questo, ma le implementazioni applicano rate limiting sulle richieste di keyframe.
 
-**FEC — RFC 8854, requisiti verbatim verificati:**
+**FEC - RFC 8854, requisiti verbatim verificati:**
 
 - Audio, §4.1: per Opus *"use of the built-in Opus FEC mechanism is RECOMMENDED"*; per codec a bitrate variabile non-Opus, *"redundant encoding (as described in Section 3.2) with lower-fidelity version(s) of the previous packet(s) is RECOMMENDED"*; per codec a bitrate costante come PCMU, *"redundant encoding MAY be used"*; uno stream FEC separato è *"NOT RECOMMENDED"* per l'audio, per l'eccesso di overhead a basso packet rate.
 - Video, §5.1: *"use of a separate FEC stream with the Flexible FEC RTP payload format is RECOMMENDED"* (FlexFEC, **RFC 8627**).
@@ -1044,29 +1044,29 @@ Questa mappatura specialità → `degradationPreference` è un'idea progettuale 
 
 ### 8.2 Metriche verificate, per dizionario
 
-**`RTCInboundRtpStreamStats`** (`type: "inbound-rtp"`) — membri confermati sulla specifica:
+**`RTCInboundRtpStreamStats`** (`type: "inbound-rtp"`) - membri confermati sulla specifica:
 
 `jitter`, `packetsLost`, `framesPerSecond`, `freezeCount`, `totalFreezesDuration`, `pauseCount`, `nackCount`, `firCount`, `pliCount`, `framesDropped`, `totalInterFrameDelay`, `jitterBufferDelay`, `jitterBufferEmittedCount`.
 
 **Non presenti** in questo dizionario: `roundTripTime`, `totalRoundTripTime`, `qualityLimitationReason`, `qualityLimitationDurations`, `availableOutgoingBitrate`, `currentRoundTripTime`, `retransmittedPacketsSent`, `fractionLost`.
 
-**`RTCOutboundRtpStreamStats`** (`type: "outbound-rtp"`) — membri confermati:
+**`RTCOutboundRtpStreamStats`** (`type: "outbound-rtp"`) - membri confermati:
 
 `qualityLimitationReason`, `qualityLimitationDurations`, `nackCount`, `firCount`, `pliCount`, `retransmittedPacketsSent`, `framesPerSecond`, `framesEncoded`.
 
 **Non presenti**: `roundTripTime`, `jitter`, `packetsLost`, `freezeCount`, `jitterBufferDelay`, `availableOutgoingBitrate`, `currentRoundTripTime`, `framesDropped`.
 
-**`RTCRemoteInboundRtpStreamStats`** (`type: "remote-inbound-rtp"`) — membri confermati:
+**`RTCRemoteInboundRtpStreamStats`** (`type: "remote-inbound-rtp"`) - membri confermati:
 
 `roundTripTime`, `totalRoundTripTime`, `fractionLost`, più `jitter` e `packetsLost` ereditati dal dizionario padre.
 
-> **Questo è il dizionario che risolve la confusione più diffusa.** L'RTT **non** sta in `outbound-rtp`. Sta in `remote-inbound-rtp`, che riporta ciò che il **peer remoto** ha osservato ricevendo il nostro stream, veicolato via RTCP Receiver Report. È quindi il vero indicatore della qualità **percepita dall'altra parte** — l'unica che conti in un consulto.
+> **Questo è il dizionario che risolve la confusione più diffusa.** L'RTT **non** sta in `outbound-rtp`. Sta in `remote-inbound-rtp`, che riporta ciò che il **peer remoto** ha osservato ricevendo il nostro stream, veicolato via RTCP Receiver Report. È quindi il vero indicatore della qualità **percepita dall'altra parte** - l'unica che conti in un consulto.
 
-**`RTCIceCandidatePairStats`** (`type: "candidate-pair"`) — membri confermati (§8.19 della specifica):
+**`RTCIceCandidatePairStats`** (`type: "candidate-pair"`) - membri confermati (§8.19 della specifica):
 
 `state`, `nominated`, `packetsSent`, `packetsReceived`, `bytesSent`, `bytesReceived`, `lastPacketSentTimestamp`, `totalRoundTripTime`, `currentRoundTripTime`, `availableOutgoingBitrate`, `availableIncomingBitrate`, `requestsReceived`, `requestsSent`, `responsesReceived`, `responsesSent`, `consentRequestsSent`, `packetsDiscardedOnSend`, `bytesDiscardedOnSend`.
 
-**`RTCTransportStats`** (`type: "transport"`) — membri confermati (§8.17):
+**`RTCTransportStats`** (`type: "transport"`) - membri confermati (§8.17):
 
 `dtlsState`, `srtpCipher`, `dtlsCipher`, `tlsVersion`, `selectedCandidatePairId`, `dtlsRole`.
 
@@ -1199,7 +1199,7 @@ Questa metrica va in TimescaleDB come dimensione di ogni sessione. Alimenta due 
 
 ### 8.5 Da metriche a indicatore sintetico di qualità
 
-**L'E-model — ITU-T G.107.** Modello di pianificazione della trasmissione che produce un **fattore R** (0–100) come:
+**L'E-model - ITU-T G.107.** Modello di pianificazione della trasmissione che produce un **fattore R** (0–100) come:
 
 ```
 R = R0 - Is - Id - Ie-eff + A
@@ -1237,7 +1237,7 @@ usando il **minimo** e non la media, perché la qualità percepita è dominata d
 - `S_jitter` da `inbound-rtp.jitter` e da `Δ(jitterBufferDelay)/Δ(jitterBufferEmittedCount)`
 - `S_continuità` da `Δ(totalFreezesDuration)` sulla finestra e da `Δ(freezeCount)`
 
-**Soglie clinicamente rilevanti — proposta da validare.** Non esiste, per quanto emerso da questa ricerca, uno standard che definisca soglie di qualità video per la televisita generica. **`[da verificare con l'agente compliance: esistono linee guida nazionali italiane sulla telemedicina — indicazioni nazionali per l'erogazione di prestazioni in telemedicina — che potrebbero contenere requisiti tecnici minimi]`**. Le soglie seguenti sono una **proposta ingegneristica**, esplicitamente non normativa:
+**Soglie clinicamente rilevanti - proposta da validare.** Non esiste, per quanto emerso da questa ricerca, uno standard che definisca soglie di qualità video per la televisita generica. **`[da verificare con l'agente compliance: esistono linee guida nazionali italiane sulla telemedicina - indicazioni nazionali per l'erogazione di prestazioni in telemedicina - che potrebbero contenere requisiti tecnici minimi]`**. Le soglie seguenti sono una **proposta ingegneristica**, esplicitamente non normativa:
 
 | Dimensione | Buono | Degradato (avviso) | Inadeguato (allerta) |
 |---|---|---|---|
@@ -1250,7 +1250,7 @@ usando il **minimo** e non la media, perché la qualità percepita è dominata d
 
 **La conseguenza clinica delle soglie va progettata**, non solo misurata: al superamento della soglia "inadeguato" il sistema deve **informare il professionista** che le condizioni tecniche potrebbero non essere adatte alla valutazione in corso, e offrire l'opzione di rinviare. Questo è un **controllo di rischio ai sensi di ISO 14971** ed è probabilmente il singolo elemento di questa ricerca con maggiore rilevanza per il fascicolo tecnico MDR. Va girato all'agente compliance.
 
-### 8.6 RTCP XR — RFC 3611
+### 8.6 RTCP XR - RFC 3611
 
 **RFC 3611** definisce sette tipi di blocco (sezioni e Block Type verificati):
 
@@ -1260,13 +1260,13 @@ usando il **minimo** e non la media, perché la qualità percepita è dominata d
 | Duplicate RLE | 4.2 | 2 | Run-length dei duplicati |
 | Packet Receipt Times | 4.3 | 3 | Timestamp di ricezione |
 | Receiver Reference Time | 4.4 | 4 | Wallclock del ricevente |
-| **DLRR** | 4.5 | 5 | Delay since last RR — abilita il calcolo dell'RTT |
+| **DLRR** | 4.5 | 5 | Delay since last RR - abilita il calcolo dell'RTT |
 | Statistics Summary | 4.6 | 6 | Perdite, duplicati, jitter, TTL aggregati |
 | **VoIP Metrics** | 4.7 | 7 | R factor, MOS-LQ, MOS-CQ, metriche burst/gap |
 
 Il blocco **VoIP Metrics** (§4.7) è basato su ITU-T G.107 ed ETSI TS 101 329-5: R factor su scala 0–100 (94 = toll quality), MOS-LQ e MOS-CQ su scala 10–50 (cioè MOS × 10), e la distinzione **burst/gap** fra periodi ad alta e bassa perdita.
 
-**Rilevanza per Telemedic — onesta**: RFC 8834 non elenca RTCP XR fra i meccanismi obbligatori, e il **supporto browser è limitato o assente** **`[non verificato]`**. La distinzione **burst vs gap** è però concettualmente preziosa: 5% di perdita distribuita uniformemente e 5% concentrata in due burst di 300 ms hanno effetti percettivi completamente diversi. Il primo è quasi impercettibile con FEC; il secondo produce due interruzioni udibili. **L'indice di qualità di Telemedic dovrebbe catturare la burstiness** — approssimabile lato client dalla varianza della perdita fra campioni consecutivi, senza bisogno di RTCP XR.
+**Rilevanza per Telemedic - onesta**: RFC 8834 non elenca RTCP XR fra i meccanismi obbligatori, e il **supporto browser è limitato o assente** **`[non verificato]`**. La distinzione **burst vs gap** è però concettualmente preziosa: 5% di perdita distribuita uniformemente e 5% concentrata in due burst di 300 ms hanno effetti percettivi completamente diversi. Il primo è quasi impercettibile con FEC; il secondo produce due interruzioni udibili. **L'indice di qualità di Telemedic dovrebbe catturare la burstiness** - approssimabile lato client dalla varianza della perdita fra campioni consecutivi, senza bisogno di RTCP XR.
 
 ---
 
@@ -1311,7 +1311,7 @@ Contenuti verificati della Recommendation ITU-T G.114 (*One-way transmission tim
 
 - One-way fra **150 e 400 ms** è accettabile *"provided that Administrations are aware of the transmission time impact on the transmission quality of user applications"*.
 - **Oltre 400 ms**: inaccettabile per la pianificazione generale di rete, salvo casi eccezionali (doppio hop satellitare).
-- Avvertenza chiave: i compiti **altamente interattivi** — *"many voice calls, interactive data applications, video conferencing"* — *"can be affected by much lower delays"* di quanto la soglia dei 400 ms suggerisca. Anche in **assenza totale di eco**, *"10% or more of the speakers may experience difficulty due to a delay of 400 ms"*.
+- Avvertenza chiave: i compiti **altamente interattivi** - *"many voice calls, interactive data applications, video conferencing"* - *"can be affected by much lower delays"* di quanto la soglia dei 400 ms suggerisca. Anche in **assenza totale di eco**, *"10% or more of the speakers may experience difficulty due to a delay of 400 ms"*.
 - La Recommendation raccomanda di non superare **400 ms** one-way per la pianificazione generale, e descrive il ritardo come *"a vital resource that is to be consumed with caution"*.
 
 La lettura corrente (dalla tabella classica di G.114): **0–150 ms** accettabile per la maggior parte delle applicazioni; **150–400 ms** accettabile con consapevolezza degli effetti; **> 400 ms** inaccettabile.
@@ -1337,7 +1337,7 @@ Questa versione è più lunga ma è **difendibile in un fascicolo tecnico** e tr
 - **Registrazione client-side**: preserva l'E2E. Il chiaro non lascia mai l'endpoint prima di essere ricifrato per il trasporto e la conservazione.
 - **Registrazione server-side**: **rompe l'E2E**. Richiede un endpoint media server-side che completi il proprio handshake DTLS e decifri lo stream.
 
-Il context pack (feature 6) dichiara *"Recording opzionale cifrato — consenso esplicito del paziente via UI dedicata, MP4 cifrato a riposo"*. **Non specifica dove avvenga la registrazione.** È la scelta architetturale più consequenziale ancora aperta.
+Il context pack (feature 6) dichiara *"Recording opzionale cifrato - consenso esplicito del paziente via UI dedicata, MP4 cifrato a riposo"*. **Non specifica dove avvenga la registrazione.** È la scelta architetturale più consequenziale ancora aperta.
 
 ### 10.2 Registrazione client-side con `MediaRecorder`
 
@@ -1418,9 +1418,9 @@ Richiede un endpoint WebRTC lato server (costruito ad esempio su Pion, GStreamer
 
 - Cifratura applicativa **nel browser** con **Web Crypto API** (AES-GCM) prima di qualunque upload. Chiave di contenuto casuale per sessione, incapsulata con la chiave pubblica del titolare del trattamento (envelope encryption).
 - Upload incrementale a chunk cifrati (`timeslice`), con ripresa dopo interruzione.
-- **Indicatore di registrazione persistente e non occultabile** nella UI di entrambi i partecipanti — requisito etico prima che tecnico, e requisito di accessibilità (annuncio via `aria-live`, non solo un pallino rosso: WCAG 1.4.1 vieta di veicolare informazione col solo colore).
+- **Indicatore di registrazione persistente e non occultabile** nella UI di entrambi i partecipanti - requisito etico prima che tecnico, e requisito di accessibilità (annuncio via `aria-live`, non solo un pallino rosso: WCAG 1.4.1 vieta di veicolare informazione col solo colore).
 - Cifratura a riposo con chiavi in un KMS UE, retention configurabile, cancellazione crittografica (distruzione della chiave) come meccanismo di cancellazione.
-- **Il claim "MP4" va verificato e, se necessario, corretto in "WebM" o rivisto con un remux server-side** — il quale però tratterebbe contenuto **cifrato**, quindi non potrebbe rimuxare senza decifrarlo. **Questione aperta, da risolvere prima della v1.0.**
+- **Il claim "MP4" va verificato e, se necessario, corretto in "WebM" o rivisto con un remux server-side** - il quale però tratterebbe contenuto **cifrato**, quindi non potrebbe rimuxare senza decifrarlo. **Questione aperta, da risolvere prima della v1.0.**
 
 ---
 
@@ -1428,7 +1428,7 @@ Richiede un endpoint WebRTC lato server (costruito ad esempio su Pion, GStreamer
 
 ### 11.1 Fake media devices
 
-**Chrome** — flag verificati sulla documentazione webrtc.org:
+**Chrome** - flag verificati sulla documentazione webrtc.org:
 
 ```bash
 --allow-file-access-from-files
@@ -1442,15 +1442,15 @@ La documentazione descrive `--use-file-for-fake-video-capture` come flag che *"f
 
 **`[Non verificati su fonte primaria in questa ricerca]`**: `--use-file-for-fake-audio-capture` (che accetta un file WAV), `--auto-accept-camera-and-microphone-capture`, e i requisiti di formato audio (PCM 16 bit, sample rate). Questi flag sono di uso comune ma **vanno confermati** su `media/base/media_switches.cc` della versione di Chrome usata in CI prima di finire nella documentazione.
 
-**Firefox** — preferenze `media.navigator.streams.fake` e `media.navigator.permission.disabled`. **`[non verificate in questa ricerca]`**.
+**Firefox** - preferenze `media.navigator.streams.fake` e `media.navigator.permission.disabled`. **`[non verificate in questa ricerca]`**.
 
 **Perché conta per Telemedic**: usare un file Y4M **deterministico** invece di rumore sintetico rende i test **riproducibili e misurabili**. Con un pattern noto (una sequenza di test standard, un timecode a schermo) si può misurare la latenza glass-to-glass in modo automatico e verificare che il video ricevuto corrisponda a quello trasmesso.
 
-**Idea concreta di test**: un file Y4M che contiene un **timecode leggibile a schermo**; il ricevente cattura frame via `<canvas>`, esegue OCR del timecode e lo confronta con l'orologio. Fornisce una misura **oggettiva** di latenza glass-to-glass in CI — cioè esattamente il numero che il progetto rivendica al §9 e che oggi non misura.
+**Idea concreta di test**: un file Y4M che contiene un **timecode leggibile a schermo**; il ricevente cattura frame via `<canvas>`, esegue OCR del timecode e lo confronta con l'orologio. Fornisce una misura **oggettiva** di latenza glass-to-glass in CI - cioè esattamente il numero che il progetto rivendica al §9 e che oggi non misura.
 
 ### 11.2 Simulazione delle condizioni di rete
 
-**Linux `tc` con `netem`** — lo strumento corretto, applicabile in container:
+**Linux `tc` con `netem`** - lo strumento corretto, applicabile in container:
 
 ```bash
 # Aggiunge 80 ms di ritardo con 20 ms di jitter, 3% di perdita e riordino
@@ -1487,7 +1487,7 @@ Il profilo `degraded` serve a verificare che il sistema **degradi con grazia e a
 Playwright (previsto da D10) supporta i flag Chrome e le preferenze Firefox:
 
 ```typescript
-// playwright.config.ts — estratto
+// playwright.config.ts - estratto
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
@@ -1513,7 +1513,7 @@ export default defineConfig({
 });
 ```
 
-Il test canonico usa **due `BrowserContext`** nella stessa istanza — uno per il professionista, uno per il paziente — e verifica la convergenza della sessione leggendo `getStats()` da entrambi tramite `page.evaluate()`.
+Il test canonico usa **due `BrowserContext`** nella stessa istanza - uno per il professionista, uno per il paziente - e verifica la convergenza della sessione leggendo `getStats()` da entrambi tramite `page.evaluate()`.
 
 ```typescript
 import { test, expect, type Page } from '@playwright/test';
@@ -1558,7 +1558,7 @@ async function readStats(page: Page) {
   });
 }
 
-test('consulto 1:1 — la sessione media si stabilisce ed è cifrata', async ({ browser }) => {
+test('consulto 1:1 - la sessione media si stabilisce ed è cifrata', async ({ browser }) => {
   const clinicianCtx = await browser.newContext();
   const patientCtx = await browser.newContext();
   const clinician = await clinicianCtx.newPage();
@@ -1591,7 +1591,7 @@ Questo è il test che D10 richiede esplicitamente. Due approcci, complementari:
 La build di test configura `RTCConfiguration.iceTransportPolicy = "relay"`, che **scarta tutti i candidati non-relay**. Se la sessione si stabilisce comunque, il percorso TURN funziona. Assertion: entrambi i `candidateType` valgono `"relay"`.
 
 ```typescript
-test('fallback TURN — la sessione si stabilisce con soli candidati relay', async ({ browser }) => {
+test('fallback TURN - la sessione si stabilisce con soli candidati relay', async ({ browser }) => {
   const ctx = await browser.newContext();
   const page = await ctx.newPage();
   // La build di test legge questo parametro e forza iceTransportPolicy.
@@ -1613,10 +1613,10 @@ Più realistico ma più complesso: in Docker Compose, si isolano i due client in
 
 **Entrambi vanno implementati.** (a) è veloce e gira su ogni PR; (b) è un test di integrazione notturno.
 
-**Terzo test, di sicurezza — obbligatorio (§4.5):**
+**Terzo test, di sicurezza - obbligatorio (§4.5):**
 
 ```typescript
-test('coturn — il relay verso indirizzi interni è negato', async () => {
+test('coturn - il relay verso indirizzi interni è negato', async () => {
   const cred = await issueTestTurnCredential();
   const forbidden = [
     '127.0.0.1',
@@ -1637,7 +1637,7 @@ Questo test appartiene alla suite di sicurezza (D10) ed è tracciabile come **mi
 
 ### 11.5 Strumenti diagnostici
 
-- **`chrome://webrtc-internals`**: la fonte di verità durante il debug. Grafici in tempo reale di tutte le statistiche, dump completo degli eventi della PeerConnection (createOffer, setLocalDescription, candidati, cambi di stato), e **export in JSON** del dump. Il JSON è archiviabile come allegato a una segnalazione di problema — utile per il processo di Post-Market Surveillance MDR.
+- **`chrome://webrtc-internals`**: la fonte di verità durante il debug. Grafici in tempo reale di tutte le statistiche, dump completo degli eventi della PeerConnection (createOffer, setLocalDescription, candidati, cambi di stato), e **export in JSON** del dump. Il JSON è archiviabile come allegato a una segnalazione di problema - utile per il processo di Post-Market Surveillance MDR.
 - **`about:webrtc`** in Firefox: equivalente, con log del signaling.
 - Cattura via **`RTCPeerConnection` event logging applicativo**: registrare lato applicazione ogni transizione di `iceConnectionState`, `connectionState`, `signalingState`, `iceGatheringState` con timestamp, e persisterla come parte dell'audit di sessione. Con Envers su un'entità `SessionEvent` questo diventa **tracciabilità non ripudiabile** (V5) del comportamento tecnico della sessione, non solo del suo esito clinico.
 
@@ -1649,9 +1649,9 @@ Questo test appartiene alla suite di sicurezza (D10) ed è tracciabile come **mi
 
 I criteri pertinenti (WCAG 2.1, Linea guida 1.2 *Time-based Media*):
 
-- **1.2.4 Captions (Live) — Livello AA**: *"Captions are provided for all live audio content in synchronized media."* Questo è il criterio che si applica a una televisita, ed è **di livello AA**, cioè **dentro il perimetro dichiarato dal progetto** (V6: WCAG 2.1 AA come requisito funzionale).
-- **1.2.9 Audio-only (Live) — Livello AAA**: fuori perimetro.
-- **1.2.5 Audio Description (Prerecorded) — AA**: si applica a media **preregistrati**, quindi eventualmente alle registrazioni riprodotte, non alla sessione live.
+- **1.2.4 Captions (Live) - Livello AA**: *"Captions are provided for all live audio content in synchronized media."* Questo è il criterio che si applica a una televisita, ed è **di livello AA**, cioè **dentro il perimetro dichiarato dal progetto** (V6: WCAG 2.1 AA come requisito funzionale).
+- **1.2.9 Audio-only (Live) - Livello AAA**: fuori perimetro.
+- **1.2.5 Audio Description (Prerecorded) - AA**: si applica a media **preregistrati**, quindi eventualmente alle registrazioni riprodotte, non alla sessione live.
 
 Criteri collaterali ma sostanziali per una videochiamata:
 
@@ -1662,7 +1662,7 @@ Criteri collaterali ma sostanziali per una videochiamata:
 
 ### 12.2 Che cosa è realmente esigibile
 
-**Va detto con franchezza**: 1.2.4 (Captions Live, AA) è **il criterio WCAG più costoso da soddisfare in assoluto** in un'applicazione di videochiamata. Richiede riconoscimento vocale in tempo reale, e per il dominio medico italiano — con terminologia clinica, farmaci, nomi propri, accenti regionali — un ASR generico produce risultati che possono essere **peggiori dell'assenza di sottotitoli**, perché introducono errori in un contesto clinico.
+**Va detto con franchezza**: 1.2.4 (Captions Live, AA) è **il criterio WCAG più costoso da soddisfare in assoluto** in un'applicazione di videochiamata. Richiede riconoscimento vocale in tempo reale, e per il dominio medico italiano - con terminologia clinica, farmaci, nomi propri, accenti regionali - un ASR generico produce risultati che possono essere **peggiori dell'assenza di sottotitoli**, perché introducono errori in un contesto clinico.
 
 Le opzioni, valutate onestamente:
 
@@ -1681,59 +1681,59 @@ Le opzioni, valutate onestamente:
 3. **Implementare il percorso "interprete come terzo partecipante"** con supporto esplicito nella UI (etichetta di ruolo, layout che privilegia il video dell'interprete, ordine di focus corretto). È la misura alternativa più efficace, ed è già supportata dalla topologia mesh a 3.
 4. **Progettare l'architettura del sottotitolaggio** in modo che si possa innestare in seguito: un `RTCDataChannel` dedicato al trasporto dei sottotitoli, con un formato messaggio versionato, in modo che qualunque motore ASR (client-side o interprete umano che digita) possa alimentarlo senza cambiare l'applicazione.
 
-**Nota su EN 301 549 e sull'European Accessibility Act**: per il settore pubblico (ASL/USL, telemedicina regionale — caso d'uso dichiarato) la conformità non è opzionale ed è soggetta a verifica. La dichiarazione di accessibilità va prodotta, non improvvisata.
+**Nota su EN 301 549 e sull'European Accessibility Act**: per il settore pubblico (ASL/USL, telemedicina regionale - caso d'uso dichiarato) la conformità non è opzionale ed è soggetta a verifica. La dichiarazione di accessibilità va prodotta, non improvvisata.
 
 ---
 
 ## 13. Raccomandazioni architetturali per Telemedic
 
-**R1 — Mantenere P2P come topologia primaria e dichiarare il limite di 3 partecipanti.**
+**R1 - Mantenere P2P come topologia primaria e dichiarare il limite di 3 partecipanti.**
 P2P per 1:1, mesh per il terzo partecipante (interprete, caregiver, secondo specialista). Nessun SFU nella v1.0. Il limite va **scritto** nella documentazione e **applicato** dal codice, con un errore chiaro al quarto partecipante. Un limite dichiarato è una scelta di ingegneria; un degrado silenzioso è un difetto.
 
-**R2 — Riformulare i tre claim pubblici problematici.**
+**R2 - Riformulare i tre claim pubblici problematici.**
 - *End-to-end*: corretto in P2P **e** attraverso il TURN, ma **condizionato all'integrità del signaling**. Aggiungere la verifica SAS fuori banda (R3) per renderlo verificabile.
 - *FIPS 140-2*: **rimuovere**. Sostituire con l'elenco degli algoritmi effettivamente negoziati, riferimenti ETSI/SOG-IS, e la capacità di **registrare e mostrare** la cipher suite di ogni sessione.
 - *< 200 ms*: **disambiguare**. Dichiarare la metrica (glass-to-glass o mouth-to-ear), ancorarla a ITU-T G.114, e sostituire la promessa con una **capacità di misura e notifica**.
 
-**R3 — Implementare la Short Authentication String.**
+**R3 - Implementare la Short Authentication String.**
 Derivare dalle due fingerprint DTLS una stringa breve o un pattern visivo, mostrarla a entrambi i partecipanti, chiedere loro di confrontarla a voce. È l'unica contromisura al MITM del server di signaling (§5.3) che non dipenda da API browser dal supporto incerto. Costo di implementazione basso; è la differenza fra "sostenere" e "dimostrare" l'end-to-end. Progettare con l'agente accessibilità (leggibile da screen reader, non basata sul colore).
 
-**R4 — Credenziali TURN effimere, sempre. Nessuna credenziale statica, mai.**
+**R4 - Credenziali TURN effimere, sempre. Nessuna credenziale statica, mai.**
 `use-auth-secret` + `static-auth-secret` da secret manager, TTL 300–3600 s, endpoint di emissione autenticato con JWT Keycloak, autorizzato sulla partecipazione al consulto, rate-limited. Il `subject` nella credenziale è un identificativo **opaco** di sessione, mai un identificativo di paziente. Documentare che il meccanismo deriva da un Internet-Draft scaduto, non da uno standard.
 
-**R5 — Hardening del TURN come requisito di sicurezza di primo livello, non di configurazione.**
+**R5 - Hardening del TURN come requisito di sicurezza di primo livello, non di configurazione.**
 `denied-peer-ip` in default-deny includendo le forme IPv4-mapped IPv6; `no-multicast-peers`; `no-tcp-relay`; quote; **isolamento di rete della DMZ senza rotte verso l'interno**; nessun servizio co-locato; metadata cloud disabilitato. **Test automatico in CI** che tenta il relay verso loopback/RFC1918/metadata e fallisce la build se una qualunque richiesta ha successo. Tracciare come misura di controllo del rischio ISO 14971.
 
-**R6 — Cluster TURN senza stato: N nodi indipendenti, stesso segreto HMAC, tutti in `iceServers`.**
+**R6 - Cluster TURN senza stato: N nodi indipendenti, stesso segreto HMAC, tutti in `iceServers`.**
 La ridondanza la fa ICE. Nessun database condiviso di allocazioni, nessun load balancer con affinità, nessun anycast.
 
-**R7 — Registrazione client-side con cifratura applicativa nel browser.**
+**R7 - Registrazione client-side con cifratura applicativa nel browser.**
 Preserva l'E2E, riduce il perimetro GDPR e MDR. Verificare il supporto del contenitore MP4 con `MediaRecorder.isTypeSupported()` e, se assente, **correggere il claim pubblico** o risolvere la questione del remux (§10.4). Indicatore di registrazione persistente, accessibile e non occultabile.
 
-**R8 — Signaling WebSocket nativo, senza STOMP e senza SockJS, con routing deterministico della sessione.**
+**R8 - Signaling WebSocket nativo, senza STOMP e senza SockJS, con routing deterministico della sessione.**
 La macchina a stati della sessione vive in un unico processo, determinato da hashing consistente sul `sessionId`. Elimina il backplane dal percorso critico e soddisfa il requisito di ordinamento di RFC 8838 §9. Se il tempo impone lo sticky session, registrarlo come debito tecnico in un ADR con la strategia di uscita.
 
-**R9 — Ruoli polite/impolite assegnati dal server: paziente polite, professionista impolite.**
+**R9 - Ruoli polite/impolite assegnati dal server: paziente polite, professionista impolite.**
 In mesh a 3, ordinamento lessicografico deterministico dei `participantId`. Perfect negotiation come da §2.3, con `setLocalDescription()` senza argomenti.
 
-**R10 — Trasformare le metriche di qualità in un controllo di rischio clinico.**
+**R10 - Trasformare le metriche di qualità in un controllo di rischio clinico.**
 Non limitarsi a graficare. Al superamento delle soglie "inadeguato" (§8.5), **informare il professionista** che le condizioni tecniche potrebbero non essere adatte alla valutazione in corso, offrire il rinvio, e **registrare l'evento nell'audit trail**. Registrare in ogni sessione `srtpCipher`, `dtlsCipher`, `tlsVersion`, `candidateType` come prova documentale.
 
-**R11 — `degradationPreference` derivata dalla specialità clinica.**
+**R11 - `degradationPreference` derivata dalla specialità clinica.**
 `maintain-resolution` per dermatologia e lettura di documenti; `maintain-framerate` per neurologia, fisiatria e psichiatria. Esporre la scelta all'utente. **Verificare con l'agente compliance** che l'esposizione della preferenza come scelta dell'utente, e non come adattamento automatico guidato dal contenuto, resti fuori dalla regola 11 MDR.
 
-**R12 — Opus con `useinbandfec=1` e `usedtx=0`.**
+**R12 - Opus con `useinbandfec=1` e `usedtx=0`.**
 FEC in-band raccomandato da RFC 8854 §4.1 e funzionalmente critico per l'intelligibilità. DTX disattivato perché in un consulto i suoni non vocali possono avere valore. Documentare la scelta come clinica.
 
-**R13 — Non forzare la preferenza dei codec nella v1.0.**
+**R13 - Non forzare la preferenza dei codec nella v1.0.**
 Lasciare negoziare, misurare l'uso reale via `RTCCodecStats.mimeType`, decidere sui dati. Valutare `scalabilityMode: "L1T2"` o `"L1
 
 T3"` per la resilienza temporale a costo marginale, misurandone l'effetto su `freezeCount`.
 
-**R14 — Ancorare il testing WebRTC a fixture deterministiche.**
+**R14 - Ancorare il testing WebRTC a fixture deterministiche.**
 File Y4M con timecode leggibile a schermo per la misura automatica della latenza glass-to-glass in CI; profili `netem` costanti e condivisi (§11.2); doppio `BrowserContext` Playwright; test di fallback TURN sia forzato (`iceTransportPolicy: "relay"`) sia realistico (isolamento di rete Docker). Documentare che il throttling di Chrome DevTools **non** agisce sul traffico UDP di WebRTC.
 
-**R15 — WCAG 2.1 AA pieno tranne 1.2.4, con non-conformità dichiarata e misura alternativa.**
+**R15 - WCAG 2.1 AA pieno tranne 1.2.4, con non-conformità dichiarata e misura alternativa.**
 Interprete come terzo partecipante supportato nativamente; `RTCDataChannel` dedicato ai sottotitoli con formato messaggio versionato, per innestare in futuro un ASR self-hosted UE senza riprogettare. **Escludere esplicitamente** la Web Speech API dei browser Chromium: inoltra l'audio a un servizio remoto, violando E2E e sovranità in modo non evidente all'utente.
 
 ---
@@ -1744,11 +1744,11 @@ Classificazione: **CRITICO** (blocca il rilascio o compromette il posizionamento
 
 | # | Rischio | Sev. | Descrizione e mitigazione |
 |---|---|---|---|
-| **T1** | **Relay TURN verso loopback / rete interna (SSRF di trasporto)** | **CRITICO** | Ogni paziente autenticato riceve, per progetto, una credenziale TURN valida. Senza restrizioni, quella credenziale è un proxy UDP verso qualunque destinazione, incluso `127.0.0.1` del TURN server, la rete interna e i metadata cloud. Precedente confermato: CVE-2020-26262 (`XOR-PEER-ADDRESS = 0.0.0.0`); pattern di bypass tramite `::ffff:127.0.0.1` per canonicalizzazione insufficiente. RFC 8656 **non** impone difese: §21.2.2 delega all'operatore. **Mitigazione: R5, a più strati — configurazione + isolamento di rete + test in CI.** Il solo `denied-peer-ip` non basta, perché è precisamente ciò che i bypass storici hanno aggirato. |
+| **T1** | **Relay TURN verso loopback / rete interna (SSRF di trasporto)** | **CRITICO** | Ogni paziente autenticato riceve, per progetto, una credenziale TURN valida. Senza restrizioni, quella credenziale è un proxy UDP verso qualunque destinazione, incluso `127.0.0.1` del TURN server, la rete interna e i metadata cloud. Precedente confermato: CVE-2020-26262 (`XOR-PEER-ADDRESS = 0.0.0.0`); pattern di bypass tramite `::ffff:127.0.0.1` per canonicalizzazione insufficiente. RFC 8656 **non** impone difese: §21.2.2 delega all'operatore. **Mitigazione: R5, a più strati - configurazione + isolamento di rete + test in CI.** Il solo `denied-peer-ip` non basta, perché è precisamente ciò che i bypass storici hanno aggirato. |
 | **T2** | **Il server di signaling può eseguire un MITM sul media** | **CRITICO** | RFC 8827 §9.1: *"Even if HTTPS is used, the signaling server can potentially mount a man-in-the-middle attack unless implementations have some mechanism for independently verifying keys."* RFC 8122 §7 conferma che la sicurezza del fingerprint dipende dall'integrità del canale di segnalazione. **Il claim di end-to-end, senza verifica indipendente, è un'asserzione di fiducia nell'operatore, non una proprietà crittografica dimostrabile.** Mitigazione: R3 (SAS). Senza R3, il claim va formulato con la condizione esplicita. |
-| **T3** | **Claim "FIPS 140-2" obsoleto due mesi prima della v1.0** | **CRITICO** (reputazionale/documentale) | Il 21 settembre 2026 il CMVP dichiara *historical* tutti i certificati FIPS 140-2 residui; le sottomissioni 140-2 sono chiuse da aprile 2022. La v1.0 è prevista per il 30 novembre 2026. Il claim è inoltre errato di categoria (FIPS valida moduli, non cipher), non verificabile (la cifratura avviene nel browser dell'utente, su moduli fuori dal controllo di Telemedic) e incoerente col posizionamento di sovranità europea. Mitigazione: R2 — rimozione e sostituzione. |
-| **T4** | **Il claim "< 200 ms" non è verificabile né difendibile così com'è** | **ALTO** | Metrica non specificata; se riferita all'RTT di rete è banale, se riferita al glass-to-glass non è garantibile perché dipende da telecamera, CPU, display, rete e jitter buffer — quasi tutti fuori dal controllo del progetto. Il jitter buffer, contributo dominante, **cresce deliberatamente** quando la rete peggiora: un target rigido di latenza è in tensione diretta con la qualità audio. Mitigazione: R2 + R10 (misurare e notificare invece di promettere). |
-| **T5** | **Il claim "peer-to-peer" è topologicamente falso per una quota delle sessioni** | **ALTO** | Con NAT endpoint-dependent su entrambi i lati — scenario ordinario su CGNAT mobile e reti ospedaliere — nessuna coppia diretta è valida e il relay è obbligatorio (RFC 8835 §3.4). La cifratura resta end-to-end (il TURN non ha le chiavi), ma la topologia non è P2P. Mitigazione: riformulare in "cifrato end-to-end, instradato direttamente quando la rete lo consente"; misurare la quota reale via `candidateType` (§8.4) invece di stimarla. |
+| **T3** | **Claim "FIPS 140-2" obsoleto due mesi prima della v1.0** | **CRITICO** (reputazionale/documentale) | Il 21 settembre 2026 il CMVP dichiara *historical* tutti i certificati FIPS 140-2 residui; le sottomissioni 140-2 sono chiuse da aprile 2022. La v1.0 è prevista per il 30 novembre 2026. Il claim è inoltre errato di categoria (FIPS valida moduli, non cipher), non verificabile (la cifratura avviene nel browser dell'utente, su moduli fuori dal controllo di Telemedic) e incoerente col posizionamento di sovranità europea. Mitigazione: R2 - rimozione e sostituzione. |
+| **T4** | **Il claim "< 200 ms" non è verificabile né difendibile così com'è** | **ALTO** | Metrica non specificata; se riferita all'RTT di rete è banale, se riferita al glass-to-glass non è garantibile perché dipende da telecamera, CPU, display, rete e jitter buffer - quasi tutti fuori dal controllo del progetto. Il jitter buffer, contributo dominante, **cresce deliberatamente** quando la rete peggiora: un target rigido di latenza è in tensione diretta con la qualità audio. Mitigazione: R2 + R10 (misurare e notificare invece di promettere). |
+| **T5** | **Il claim "peer-to-peer" è topologicamente falso per una quota delle sessioni** | **ALTO** | Con NAT endpoint-dependent su entrambi i lati - scenario ordinario su CGNAT mobile e reti ospedaliere - nessuna coppia diretta è valida e il relay è obbligatorio (RFC 8835 §3.4). La cifratura resta end-to-end (il TURN non ha le chiavi), ma la topologia non è P2P. Mitigazione: riformulare in "cifrato end-to-end, instradato direttamente quando la rete lo consente"; misurare la quota reale via `candidateType` (§8.4) invece di stimarla. |
 | **T6** | **Il TURN tratta metadati che sono dati relativi alla salute** | **ALTO** | Chi ha parlato con chi, quando, per quanto, da quale IP. In ambito sanitario, il solo fatto del consulto con uno specialista è un dato relativo alla salute (GDPR art. 9). Mitigazione: logging minimizzato, `subject` opaco nella credenziale (R4), retention breve documentata, collocazione UE (V1), inserimento nel registro dei trattamenti e nella DPIA. |
 | **T7** | **"Key rotation per sessione": affermazione ambigua** | **MEDIO** | Vero che ogni sessione ha materiale nuovo; **non verificato** che esista rotazione intra-sessione. La rinegoziazione DTLS 1.2 non è supportata dai browser; il comportamento di `KeyUpdate` DTLS 1.3 rispetto alle chiavi SRTP estratte via exporter (RFC 5764 §4.2) non è verificato. L'ICE restart **non** rifà l'handshake DTLS. RFC 3711 §9.2 mostra comunque che i limiti di vita chiave non sono avvicinabili in un consulto. Mitigazione: riformulare come "materiale crittografico generato ex novo per ogni sessione, senza riuso". |
 | **T8** | **Contenitore MP4 non garantito da `MediaRecorder`** | **MEDIO** | La feature 6 dichiara MP4. `video/webm` è il formato ampiamente supportato; MP4 va verificato per browser con `isTypeSupported()`. Un remux server-side contraddirebbe la scelta di cifrare nel browser (non si rimuxa contenuto cifrato senza decifrarlo). Mitigazione: verificare, e correggere il claim o risolvere l'architettura di remux prima della v1.0. **Questione aperta.** |
@@ -1756,8 +1756,8 @@ Classificazione: **CRITICO** (blocca il rilascio o compromette il posizionamento
 | **T10** | **mDNS penalizza lo scenario "medico e paziente sulla stessa LAN"** | **MEDIO** | Con mDNS bloccato dagli AP Wi-Fi enterprise (client isolation), la coppia host-host non si forma e si finisce sul relay per una connessione che poteva restare su switch locale. Mitigazione: documentare il requisito di rete (mDNS UDP 5353 multicast consentito) nella guida di deployment on-premise; misurare l'incidenza. |
 | **T11** | **Congestion control e bitrate adattivo non sono codice di Telemedic** | **MEDIO** | GCC è nel browser; transport-cc è un Internet-Draft **scaduto nel 2016**, mai adottato dalla IETF, standardizzato di fatto dall'implementazione. RFC 8834 conferma che non esiste un algoritmo standard. Il progetto configura e osserva, non implementa. Mitigazione: riformulare la feature 1 di conseguenza; evitare di rivendicare lavoro non svolto. |
 | **T12** | **HMAC-SHA1 nella credenziale TURN contraddice la narrativa "solo algoritmi moderni"** | **MEDIO** | Imposto da coturn e dal long-term credential mechanism di STUN (RFC 8489 §9.2), non scelto da Telemedic. Non è una vulnerabilità (HMAC-SHA1 resta robusto), ma è un fatto che va dichiarato preventivamente, prima che lo trovi un auditor. |
-| **T13** | **Nessun clustering nativo in coturn: la caduta di un nodo termina le allocazioni** | **MEDIO** | Non esiste stato condiviso fra nodi. Mitigazione: R6 — N nodi indipendenti tutti in `iceServers`, ridondanza affidata a ICE; ICE restart come recupero. |
-| **T14** | **WCAG 1.2.4 (Captions Live, AA) non è realisticamente soddisfabile in v1.0 nel rispetto di V1** | **MEDIO** | Le opzioni ASR mature sono cloud US-based (incompatibili con V1 e con l'E2E); la Web Speech API dei browser Chromium inoltra l'audio a un servizio remoto in modo non evidente all'utente. Mitigazione: R15 — conformità piena su tutto il resto, non-conformità dichiarata su 1.2.4, interprete come misura alternativa, architettura predisposta. |
+| **T13** | **Nessun clustering nativo in coturn: la caduta di un nodo termina le allocazioni** | **MEDIO** | Non esiste stato condiviso fra nodi. Mitigazione: R6 - N nodi indipendenti tutti in `iceServers`, ridondanza affidata a ICE; ICE restart come recupero. |
+| **T14** | **WCAG 1.2.4 (Captions Live, AA) non è realisticamente soddisfabile in v1.0 nel rispetto di V1** | **MEDIO** | Le opzioni ASR mature sono cloud US-based (incompatibili con V1 e con l'E2E); la Web Speech API dei browser Chromium inoltra l'audio a un servizio remoto in modo non evidente all'utente. Mitigazione: R15 - conformità piena su tutto il resto, non-conformità dichiarata su 1.2.4, interprete come misura alternativa, architettura predisposta. |
 | **T15** | **coturn è un servizio esposto a Internet: la cadenza di patching è un obbligo, non una buona pratica** | **MEDIO** | Il progetto ha rilasciato numerose versioni nel 2026 correggendo fra l'altro bypass dei controlli sui peer. Mitigazione: canale di aggiornamento tracciato con SLA definito nel piano PMS (D6); coturn come SOUP censito ai sensi di IEC 62304 §8.1.2. |
 | **T16** | **La versione di coturn e diverse direttive di configurazione non sono state verificate** | **MEDIO** (di processo) | Le fonti secondarie hanno restituito numeri di versione e di CVE non confermabili su fonte primaria in questa ricerca; alcune direttive citate nel mandato non compaiono nella man page upstream (§4.3). Mitigazione: **nessuna direttiva e nessun numero di CVE va pubblicato senza verifica su `turnserver --help` della versione deployata e su NVD/GHSA.** |
 
@@ -1767,7 +1767,7 @@ Classificazione: **CRITICO** (blocca il rilascio o compromette il posizionamento
 
 ### Per l'agente Architettura (`docs/02_architecture/`, `docs/adr/`)
 
-1. **Scalabilità del signaling**: routing deterministico per `sessionId` (raccomandato) o sticky session? Serve un **ADR** con la strategia di uscita se si sceglie la seconda. Vincolo tecnico da rispettare: RFC 8838 §9 richiede consegna dei candidati **esattamente una volta e in ordine** — Redis Pub/Sub semplice non lo garantisce.
+1. **Scalabilità del signaling**: routing deterministico per `sessionId` (raccomandato) o sticky session? Serve un **ADR** con la strategia di uscita se si sceglie la seconda. Vincolo tecnico da rispettare: RFC 8838 §9 richiede consegna dei candidati **esattamente una volta e in ordine** - Redis Pub/Sub semplice non lo garantisce.
 2. **Topologia mesh a 3**: dove vive la logica di orchestrazione delle N-1 PeerConnection? Come si assegnano deterministicamente i ruoli polite/impolite? Come si divide il budget di upload fra i peer?
 3. **Boundary architetturale del recording**: se client-side (R7), come si gestisce il fallimento dell'upload a chiamata conclusa? Serve una coda di upload resiliente lato browser?
 4. **Numero e collocazione dei nodi TURN**: quanti, in quali regioni UE, con quale strategia di annuncio al client? Il dimensionamento di §3.6 va convertito in una capacity plan.
@@ -1799,7 +1799,7 @@ Classificazione: **CRITICO** (blocca il rilascio o compromette il posizionamento
 
 19. **Verifica del supporto `MediaRecorder` per `video/mp4`** sui browser target (T8) e decisione sul contenitore.
 20. **Misura del carico CPU della registrazione client-side** su hardware di riferimento basso (T9), con la soglia di disattivazione automatica.
-21. **Implementazione di `getStats()` con differenziazione corretta dei contatori cumulativi** (§8.3) — errore comune che produce grafici privi di senso.
+21. **Implementazione di `getStats()` con differenziazione corretta dei contatori cumulativi** (§8.3) - errore comune che produce grafici privi di senso.
 22. **Esposizione controllata della `RTCPeerConnection` alle build di test** (§11.3) senza esporla in produzione.
 
 ### Per l'agente Accessibilità
@@ -1811,26 +1811,26 @@ Classificazione: **CRITICO** (blocca il rilascio o compromette il posizionamento
 
 ### Per l'agente Testing (`docs/01_technical/`, CI)
 
-27. **Produzione delle fixture Y4M con timecode** e dell'infrastruttura OCR per la misura automatica della latenza glass-to-glass (R14) — è ciò che rende verificabile il target di §9.
+27. **Produzione delle fixture Y4M con timecode** e dell'infrastruttura OCR per la misura automatica della latenza glass-to-glass (R14) - è ciò che rende verificabile il target di §9.
 28. **Profili `netem` come costanti condivise** (§11.2) e loro applicazione in Docker Compose di test.
-29. **Implementazione dei tre test TURN**: fallback forzato, fallback realistico, e il test di sicurezza sul relay verso indirizzi interni (§11.4) — quest'ultimo va collegato al file di gestione rischi.
+29. **Implementazione dei tre test TURN**: fallback forzato, fallback realistico, e il test di sicurezza sul relay verso indirizzi interni (§11.4) - quest'ultimo va collegato al file di gestione rischi.
 30. **Verifica dei flag Chrome non confermati** (`--use-file-for-fake-audio-capture` e altri, §11.1) sulla versione in uso in CI.
 
 ---
 
-## Appendice A — Indice dei riferimenti normativi citati
+## Appendice A - Indice dei riferimenti normativi citati
 
-**IETF — architettura WebRTC**: RFC 8825 (overview), 8826 (security considerations), 8827 (security architecture), 8829 (JSEP), 8831 (data channels), 8832 (DCEP), 8834 (RTP), 8835 (transports), 8836 (congestion control requirements), 8837 (DSCP), 8854 (FEC requirements), 8864 (data channel in SDP).
+**IETF - architettura WebRTC**: RFC 8825 (overview), 8826 (security considerations), 8827 (security architecture), 8829 (JSEP), 8831 (data channels), 8832 (DCEP), 8834 (RTP), 8835 (transports), 8836 (congestion control requirements), 8837 (DSCP), 8854 (FEC requirements), 8864 (data channel in SDP).
 
-**IETF — SDP e negoziazione**: RFC 3264 (offer/answer), 8866 (SDP), 8839 (SDP per ICE), 8840 (SIP trickle), 8842 (SDP per DTLS-SRTP), 8843 (BUNDLE), 8851/8852 (RID e simulcast), 8285 (header extension).
+**IETF - SDP e negoziazione**: RFC 3264 (offer/answer), 8866 (SDP), 8839 (SDP per ICE), 8840 (SIP trickle), 8842 (SDP per DTLS-SRTP), 8843 (BUNDLE), 8851/8852 (RID e simulcast), 8285 (header extension).
 
-**IETF — NAT traversal**: RFC 8445 (ICE), 8489 (STUN), 8656 (TURN), 8838 (Trickle ICE), 6062 (TURN TCP), 6544 (ICE-TCP), 7635 (STUN third-party auth), 4787 (NAT behavior). Obsoleti: 5245, 5389, 5766, 6156, 6336.
+**IETF - NAT traversal**: RFC 8445 (ICE), 8489 (STUN), 8656 (TURN), 8838 (Trickle ICE), 6062 (TURN TCP), 6544 (ICE-TCP), 7635 (STUN third-party auth), 4787 (NAT behavior). Obsoleti: 5245, 5389, 5766, 6156, 6336.
 
-**IETF — sicurezza media**: RFC 3711 (SRTP), 5764 (DTLS-SRTP), 7714 (AES-GCM per SRTP), 6347 (DTLS 1.2), 9147 (DTLS 1.3), 8122 (fingerprint SDP), 5763 (framework SRTP/DTLS), 7983 e 9443 (multiplexing), 9605 (SFrame), 8723 (Double SRTP), 8870 (EKT).
+**IETF - sicurezza media**: RFC 3711 (SRTP), 5764 (DTLS-SRTP), 7714 (AES-GCM per SRTP), 6347 (DTLS 1.2), 9147 (DTLS 1.3), 8122 (fingerprint SDP), 5763 (framework SRTP/DTLS), 7983 e 9443 (multiplexing), 9605 (SFrame), 8723 (Double SRTP), 8870 (EKT).
 
-**IETF — RTP e resilienza**: RFC 3550 (RTP), 3611 (RTCP XR), 4585 (AVPF, NACK, PLI), 5104 (CCM, FIR, TMMBR), 4588 (RTX), 2198 (RED), 5109 (ULPFEC), 8627 (FlexFEC), 5506 (RTCP ridotto), 5761 (rtcp-mux), 4961 (RTP simmetrico), 5124 (SAVPF), 8083 (circuit breaker), 8888 (CCFB), 6464 (audio level).
+**IETF - RTP e resilienza**: RFC 3550 (RTP), 3611 (RTCP XR), 4585 (AVPF, NACK, PLI), 5104 (CCM, FIR, TMMBR), 4588 (RTX), 2198 (RED), 5109 (ULPFEC), 8627 (FlexFEC), 5506 (RTCP ridotto), 5761 (rtcp-mux), 4961 (RTP simmetrico), 5124 (SAVPF), 8083 (circuit breaker), 8888 (CCFB), 6464 (audio level).
 
-**IETF — codec**: RFC 6716 (Opus), 7587 (payload Opus), 7742 (codec video WebRTC), 7874 (codec audio WebRTC), 6386 (VP8), 7741 (payload VP8), 6184 (payload H.264).
+**IETF - codec**: RFC 6716 (Opus), 7587 (payload Opus), 7742 (codec video WebRTC), 7874 (codec audio WebRTC), 6386 (VP8), 7741 (payload VP8), 6184 (payload H.264).
 
 **Internet-Draft non normativi citati come tali**: `draft-holmer-rmcat-transport-wide-cc-extensions` (scaduto 2016), `draft-ietf-rmcat-gcc`, `draft-ietf-mmusic-mdns-ice-candidates` (scaduto 2022), `draft-uberti-behave-turn-rest` (scaduto).
 
@@ -1842,7 +1842,7 @@ Classificazione: **CRITICO** (blocca il rilascio o compromette il posizionamento
 
 ---
 
-## Appendice B — Elenco delle affermazioni NON verificate
+## Appendice B - Elenco delle affermazioni NON verificate
 
 Da ripetere in verifica prima di qualunque pubblicazione:
 
@@ -1867,4 +1867,4 @@ Da ripetere in verifica prima di qualunque pubblicazione:
 
 ---
 
-**Fonti primarie consultate**: [RFC 8825](https://datatracker.ietf.org/doc/html/rfc8825), [RFC 8827](https://datatracker.ietf.org/doc/html/rfc8827), [RFC 8829](https://datatracker.ietf.org/doc/html/rfc8829), [RFC 8834](https://datatracker.ietf.org/doc/html/rfc8834), [RFC 8835](https://datatracker.ietf.org/doc/html/rfc8835), [RFC 8843](https://datatracker.ietf.org/doc/html/rfc8843), [RFC 8838](https://datatracker.ietf.org/doc/html/rfc8838), [RFC 8839](https://datatracker.ietf.org/doc/html/rfc8839), [RFC 8445](https://datatracker.ietf.org/doc/html/rfc8445), [RFC 8656](https://datatracker.ietf.org/doc/html/rfc8656), [RFC 5764](https://datatracker.ietf.org/doc/html/rfc5764), [RFC 7714](https://datatracker.ietf.org/doc/html/rfc7714), [RFC 8122](https://datatracker.ietf.org/doc/html/rfc8122), [RFC 8723](https://datatracker.ietf.org/doc/html/rfc8723), [RFC 9605](https://datatracker.ietf.org/doc/html/rfc9605), [RFC 8854](https://datatracker.ietf.org/doc/html/rfc8854), [RFC 8888](https://datatracker.ietf.org/doc/html/rfc8888), [RFC 3611](https://datatracker.ietf.org/doc/html/rfc3611), [RFC 7742](https://datatracker.ietf.org/doc/html/rfc7742), [RFC 7587](https://datatracker.ietf.org/doc/html/rfc7587), [W3C WebRTC](https://www.w3.org/TR/webrtc/), [W3C WebRTC Statistics](https://www.w3.org/TR/webrtc-stats/), [W3C WebRTC SVC](https://www.w3.org/TR/webrtc-svc/), [W3C WebRTC Encoded Transform](https://www.w3.org/TR/webrtc-encoded-transform/), [MDN Perfect Negotiation](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Perfect_negotiation), [coturn turnserver.conf](https://raw.githubusercontent.com/coturn/coturn/master/examples/etc/turnserver.conf), [coturn turnserver.1](https://raw.githubusercontent.com/coturn/coturn/master/man/man1/turnserver.1), [mediasoup LICENSE](https://raw.githubusercontent.com/versatica/mediasoup/v3/LICENSE), [Janus COPYING](https://raw.githubusercontent.com/meetecho/janus-gateway/master/COPYING), [BoringSSL FIPS.md](https://boringssl.googlesource.com/boringssl/+/master/crypto/fipsmodule/FIPS.md), [webrtc.org testing](https://webrtc.github.io/webrtc-org/testing/), [NIST CSRC FIPS 140-3 Transition](https://csrc.nist.gov/projects/fips-140-3-transition-effort), [ITU-T G.114](https://www.itu.int/rec/dologin_pub.asp?lang=e&id=T-REC-G.114-200305-I%21%21PDF-E), [Enable Security — coturn hardening](https://www.enablesecurity.com/blog/coturn-security-configuration-guide/), [CVE-2020-26262](https://app.opencve.io/cve/CVE-2020-26262).
+**Fonti primarie consultate**: [RFC 8825](https://datatracker.ietf.org/doc/html/rfc8825), [RFC 8827](https://datatracker.ietf.org/doc/html/rfc8827), [RFC 8829](https://datatracker.ietf.org/doc/html/rfc8829), [RFC 8834](https://datatracker.ietf.org/doc/html/rfc8834), [RFC 8835](https://datatracker.ietf.org/doc/html/rfc8835), [RFC 8843](https://datatracker.ietf.org/doc/html/rfc8843), [RFC 8838](https://datatracker.ietf.org/doc/html/rfc8838), [RFC 8839](https://datatracker.ietf.org/doc/html/rfc8839), [RFC 8445](https://datatracker.ietf.org/doc/html/rfc8445), [RFC 8656](https://datatracker.ietf.org/doc/html/rfc8656), [RFC 5764](https://datatracker.ietf.org/doc/html/rfc5764), [RFC 7714](https://datatracker.ietf.org/doc/html/rfc7714), [RFC 8122](https://datatracker.ietf.org/doc/html/rfc8122), [RFC 8723](https://datatracker.ietf.org/doc/html/rfc8723), [RFC 9605](https://datatracker.ietf.org/doc/html/rfc9605), [RFC 8854](https://datatracker.ietf.org/doc/html/rfc8854), [RFC 8888](https://datatracker.ietf.org/doc/html/rfc8888), [RFC 3611](https://datatracker.ietf.org/doc/html/rfc3611), [RFC 7742](https://datatracker.ietf.org/doc/html/rfc7742), [RFC 7587](https://datatracker.ietf.org/doc/html/rfc7587), [W3C WebRTC](https://www.w3.org/TR/webrtc/), [W3C WebRTC Statistics](https://www.w3.org/TR/webrtc-stats/), [W3C WebRTC SVC](https://www.w3.org/TR/webrtc-svc/), [W3C WebRTC Encoded Transform](https://www.w3.org/TR/webrtc-encoded-transform/), [MDN Perfect Negotiation](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Perfect_negotiation), [coturn turnserver.conf](https://raw.githubusercontent.com/coturn/coturn/master/examples/etc/turnserver.conf), [coturn turnserver.1](https://raw.githubusercontent.com/coturn/coturn/master/man/man1/turnserver.1), [mediasoup LICENSE](https://raw.githubusercontent.com/versatica/mediasoup/v3/LICENSE), [Janus COPYING](https://raw.githubusercontent.com/meetecho/janus-gateway/master/COPYING), [BoringSSL FIPS.md](https://boringssl.googlesource.com/boringssl/+/master/crypto/fipsmodule/FIPS.md), [webrtc.org testing](https://webrtc.github.io/webrtc-org/testing/), [NIST CSRC FIPS 140-3 Transition](https://csrc.nist.gov/projects/fips-140-3-transition-effort), [ITU-T G.114](https://www.itu.int/rec/dologin_pub.asp?lang=e&id=T-REC-G.114-200305-I%21%21PDF-E), [Enable Security - coturn hardening](https://www.enablesecurity.com/blog/coturn-security-configuration-guide/), [CVE-2020-26262](https://app.opencve.io/cve/CVE-2020-26262).

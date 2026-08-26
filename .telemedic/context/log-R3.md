@@ -1,11 +1,11 @@
-# Log agente R3 — Quadro istituzionale e normativo italiano
+# Log agente R3 - Quadro istituzionale e normativo italiano
 
 **Output**: `.telemedic/research/R3-normativa-italiana.md` (~17.400 parole, 12 sezioni)
 Contiene **32 requisiti vincolanti numerati** per Telemedic (§11) e **13 questioni aperte** (§12).
 
 ## FATTI CHE CAMBIANO LE DECISIONI DI PROGETTO
 
-### 1. Il perimetro MDR Classe I è più stretto di quanto assunto in D6 — CRITICO
+### 1. Il perimetro MDR Classe I è più stretto di quanto assunto in D6 - CRITICO
 Il **DM 21 settembre 2022, Allegato A, Sezione 2** impone **espressamente** la certificazione come dispositivo medico per:
 - il micro-servizio `viewer dati clinici` **unitamente a quello di refertazione**, nei teleconsulti radiologico e istopatologico;
 - il software **e** l'hardware della **televisita**, «ove nel servizio vengano usati dispositivi medici»;
@@ -29,7 +29,7 @@ Esistono e sono pubblicate: **Televisita v0.2.0** (set. 2025), **Teleconsulto v0
 
 ### 6. Due tassonomie di prestazioni che NON coincidono
 - **Accordo 215/CSR 2020**: televisita, teleconsulto, teleconsulenza, teleassistenza, telerefertazione + telecontrollo e telemonitoraggio come «modalità operative».
-- **DM 21 settembre 2022**: quattro **servizi minimi** — televisita, teleconsulto/teleconsulenza (unificati), telemonitoraggio (promosso), teleassistenza. La telerefertazione scompare come servizio autonomo.
+- **DM 21 settembre 2022**: quattro **servizi minimi** - televisita, teleconsulto/teleconsulenza (unificati), telemonitoraggio (promosso), teleassistenza. La telerefertazione scompare come servizio autonomo.
 Il modello di dominio deve rappresentare **entrambe** e la loro mappatura.
 
 ### 7. I micro-servizi trasversali vanno INTEGRATI, non reimplementati
@@ -44,7 +44,7 @@ V1 dice «non fuori dall'UE». Il requisito italiano per la PA sanitaria è **re
 ### 10. Il canale di acquisto pubblico PNRR è chiuso
 Le Regioni finanziate possono attivare le soluzioni **esclusivamente tramite le gare delle Regioni capofila**. Un progetto open source entra come **componente di una soluzione di un aggiudicatario**, oppure fuori dal perimetro PNRR, oppure nel mercato privato/assicurativo/mutualistico.
 
-### 11. Nessuna tariffa nazionale per la telemedicina — onestà commerciale obbligatoria
+### 11. Nessuna tariffa nazionale per la telemedicina - onestà commerciale obbligatoria
 La televisita è remunerata **come visita di controllo**; **teleconsulto e teleconsulenza non sono remunerati** (nessuna voce a nomenclatore, nessuna prescrizione SSN, nessuna compartecipazione); il nuovo nomenclatore non contiene voci di telemedicina. La documentazione commerciale non deve suggerire il contrario. → questione Q12.
 
 ### 12. «Riusabile ex art. 69 CAD» sarebbe un'affermazione scorretta

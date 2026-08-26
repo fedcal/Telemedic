@@ -1,4 +1,4 @@
-# log-TRAD-1 — Traduzione integrale in inglese: sicurezza e protocolli
+# log-TRAD-1 - Traduzione integrale in inglese: sicurezza e protocolli
 
 > **Agente**: `TRAD-1` (traduzione assistita, decisione **D56**)
 > **Data**: 25 agosto 2026
@@ -19,7 +19,7 @@ la misura autoritativa: la resa inglese è, riga per riga, di ampiezza equivalen
 entro il ±5%, in genere leggermente in difetto perché l'inglese perde le perifrasi con «di» e
 «che»). Nessun paragrafo è stato omesso, accorpato o aggiunto.
 
-### 1.1 Area sicurezza — `06_security/`
+### 1.1 Area sicurezza - `06_security/`
 
 | File | Parole (IT) |
 |---|---:|
@@ -36,7 +36,7 @@ entro il ±5%, in genere leggermente in difetto perché l'inglese perde le perif
 | `10-risposta-agli-incidenti.md` | 3.224 |
 | **Totale area** | **38.448** |
 
-### 1.2 Area protocolli — `04_protocols/`
+### 1.2 Area protocolli - `04_protocols/`
 
 | File | Parole (IT) |
 |---|---:|
@@ -64,8 +64,8 @@ entro il ±5%, in genere leggermente in difetto perché l'inglese perde le perif
   sono state mantenute.
 - I file di `06_security/` non avevano virgolette e **non ne hanno bisogno**: nessun valore tradotto
   contiene due punti seguiti da spazio. Verificato uno per uno. Dove il titolo italiano usava un
-  trattino lungo (`Sicurezza — indice e orientamento`) l'inglese lo conserva
-  (`Security — index and orientation`): l'em dash non richiede quotatura.
+  trattino lungo (`Sicurezza - indice e orientamento`) l'inglese lo conserva
+  (`Security - index and orientation`): l'em dash non richiede quotatura.
 - Nessun altro campo di frontmatter era presente in questi 22 file.
 
 ---
@@ -141,7 +141,7 @@ produrrebbe, su un sito bilingue, l'equivalente inglese del problema Q-06.
 > Analogamente, in `03-documenti-clinici.md §2` i nomi delle dieci tipologie documentali conservano
 > il termine italiano dove esso è **il nome della tipologia**, non una descrizione.
 
-### 3.4 Norme, decreti e accordi italiani — regola applicata
+### 3.4 Norme, decreti e accordi italiani - regola applicata
 
 Gli **estremi non si traducono mai**; alla prima occorrenza per documento segue una glossa inglese
 fra parentesi. Forme adottate:
@@ -164,7 +164,7 @@ fra parentesi. Forme adottate:
   `Tessera Sanitaria` → *national health card (Tessera Sanitaria)*;
   `Carta d'Identità Elettronica` → *electronic identity card (Carta d'Identità Elettronica, CIE)*.
 
-### 3.5 Sicurezza — lessico tecnico stabilizzato
+### 3.5 Sicurezza - lessico tecnico stabilizzato
 
 | Italiano | Inglese |
 |---|---|
@@ -287,7 +287,7 @@ fra parentesi. Forme adottate:
   (`02-fhir.md §4`: *«whose identifiers correspond to the names of third-party commercial
   videoconferencing platforms»*).
 - Domini negli esempi: `telemedic.example`, `gestionale.integratore.example`, `ehr.example`,
-  `idp.integratore.example` — invariati, sono segnaposto `.example` riservati.
+  `idp.integratore.example` - invariati, sono segnaposto `.example` riservati.
 - Dati di persona negli esempi (`VERDI^GIULIA`, `BIANCHI^ANNA`, `PZ-4471`, `MED-0007`) invariati e
   sintetici. Nessun segreto, nessuna chiave, nessun valore utilizzabile introdotto.
 
@@ -299,17 +299,17 @@ Tradotte conservando l'ambiguità, come da mandato. Nessuna è stata sciolta d'i
 
 | # | Dove | Ambiguità | Resa scelta e perché |
 |---|---|---|---|
-| A-1 | `06_security/07 §7.1(a)` | «una parte dei **codici di un legame** non si valida» — `legame` può essere il *binding* terminologico FHIR o, genericamente, un collegamento | Reso `binding`, che è la lettura tecnicamente coerente con il resto del paragrafo (validazione terminologica). **Se l'autore intendeva altro, la traduzione va corretta.** |
-| A-2 | `04_protocols/06 §8.3` | «identificatore pieno di una **voce di raccolta**» — `raccolta` traduce `Bundle` altrove, ma qui `voce di raccolta` potrebbe essere *collection entry* generico o *Bundle entry* FHIR | Reso *«the full identifier of a collection entry»*, che conserva l'ambiguità. Non è stato scritto `Bundle entry` perché avrebbe deciso al posto dell'autore. |
+| A-1 | `06_security/07 §7.1(a)` | «una parte dei **codici di un legame** non si valida» - `legame` può essere il *binding* terminologico FHIR o, genericamente, un collegamento | Reso `binding`, che è la lettura tecnicamente coerente con il resto del paragrafo (validazione terminologica). **Se l'autore intendeva altro, la traduzione va corretta.** |
+| A-2 | `04_protocols/06 §8.3` | «identificatore pieno di una **voce di raccolta**» - `raccolta` traduce `Bundle` altrove, ma qui `voce di raccolta` potrebbe essere *collection entry* generico o *Bundle entry* FHIR | Reso *«the full identifier of a collection entry»*, che conserva l'ambiguità. Non è stato scritto `Bundle entry` perché avrebbe deciso al posto dell'autore. |
 | A-3 | `06_security/05 §7.1` | «una rappresentazione del traffico costruita su di esse mostra **scalini**» | Reso *step changes*. `scalini` è metafora visiva non tecnica; l'inglese la mantiene descrittiva. |
-| A-4 | `06_security/03 §5` | «architettura con **concentratore**» — non è chiarito se si intende SFU o MCU | Reso *concentrator*, letterale. Il paragrafo successivo («ricombina i flussi») suggerisce MCU ma non lo dice: la traduzione non lo dice nemmeno. |
-| A-5 | `06_security/02 §3.1` | «nessun **trattamento dispositivo** su terzi» — l'aggettivo `dispositivo` in senso giuridico (che dispone di diritti) | Reso *«no operation with legal effect on third parties»*. Perifrasi necessaria: l'inglese non ha l'aggettivo, e *dispositive processing* sarebbe incomprensibile. |
-| A-6 | `06_security/05 §2.3` | «per il **rimanente** lo stato non è verificabile», dopo aver enumerato «due motori su tre» e «il terzo» — l'aritmetica lascia aperto quale sia il motore residuo | Reso letteralmente (*«for the remaining one»*), ambiguità inclusa. Vedi anche §6 punto D-6. |
-| A-7 | `04_protocols/09 §10`, ultima riga | «L'**ultima riga della quarta voce**» — la tabella non ha righe multiple per voce | Reso letteralmente. Probabile refuso per «l'ultima voce» o «la quarta riga»; non corretto. |
+| A-4 | `06_security/03 §5` | «architettura con **concentratore**» - non è chiarito se si intende SFU o MCU | Reso *concentrator*, letterale. Il paragrafo successivo («ricombina i flussi») suggerisce MCU ma non lo dice: la traduzione non lo dice nemmeno. |
+| A-5 | `06_security/02 §3.1` | «nessun **trattamento dispositivo** su terzi» - l'aggettivo `dispositivo` in senso giuridico (che dispone di diritti) | Reso *«no operation with legal effect on third parties»*. Perifrasi necessaria: l'inglese non ha l'aggettivo, e *dispositive processing* sarebbe incomprensibile. |
+| A-6 | `06_security/05 §2.3` | «per il **rimanente** lo stato non è verificabile», dopo aver enumerato «due motori su tre» e «il terzo» - l'aritmetica lascia aperto quale sia il motore residuo | Reso letteralmente (*«for the remaining one»*), ambiguità inclusa. Vedi anche §6 punto D-6. |
+| A-7 | `04_protocols/09 §10`, ultima riga | «L'**ultima riga della quarta voce**» - la tabella non ha righe multiple per voce | Reso letteralmente. Probabile refuso per «l'ultima voce» o «la quarta riga»; non corretto. |
 
 ---
 
-## 6. Difetti trovati nell'originale italiano — **segnalati, non corretti**
+## 6. Difetti trovati nell'originale italiano - **segnalati, non corretti**
 
 Tradurre è la revisione più severa che un testo riceva. Questi sono difetti **reali**, non
 divergenze di gusto. La traduzione li **riproduce fedelmente**: correggerli avrebbe creato una
@@ -338,14 +338,14 @@ divergenza silenziosa fra italiano e inglese, che è peggio del difetto.
 | # | File | Difetto |
 |---|---|---|
 | D-7 | `06_security/01 §7` | La regola dichiarata è *«ogni riga del §5 abbia almeno un requisito e almeno una prova automatica»*, ma la tabella delle prove **omette M-09** (copertura oraria dichiarata in modo difforme). Sono presenti M-01…M-08, M-10…M-15. O la riga manca, o la regola va temperata per le minacce non tecniche |
-| D-8 | `04_protocols/05 §9.2` | «Ha **due** opzioni rilevanti — ruolo del soggetto, riferimento al consenso, finalità d'uso —»: annuncia due e ne elenca **tre** |
+| D-8 | `04_protocols/05 §9.2` | «Ha **due** opzioni rilevanti - ruolo del soggetto, riferimento al consenso, finalità d'uso -»: annuncia due e ne elenca **tre** |
 
 ### 6.4 Coerenza terminologica interna
 
 | # | File | Difetto |
 |---|---|---|
 | D-9 | `04_protocols/04 §6.3` | Il titolo dice «Un **rifiuto** applicativo» ma l'esempio usa `MSA|AE`, che è *Application Error*. Il rifiuto è `AR`. Tradotto letteralmente (*«An application rejection»* con `MSA|AE`), difetto incluso |
-| D-10 | `06_security/02 §6`, elenco dei costi | «senza alcun effetto **sul obiettivo** di latenza» — errore di elisione (`sull'obiettivo`). Puramente ortografico, invisibile in traduzione, segnalato per la revisione dell'italiano |
+| D-10 | `06_security/02 §6`, elenco dei costi | «senza alcun effetto **sul obiettivo** di latenza» - errore di elisione (`sull'obiettivo`). Puramente ortografico, invisibile in traduzione, segnalato per la revisione dell'italiano |
 
 ### 6.5 Osservazione non bloccante
 

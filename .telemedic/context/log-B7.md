@@ -1,4 +1,4 @@
-# log-B7 — Identità digitale italiana (SPID, CIE, TS-CNS, IT-Wallet)
+# log-B7 - Identità digitale italiana (SPID, CIE, TS-CNS, IT-Wallet)
 
 - **Agente**: B7 (seconda ondata)
 - **Data**: 25 agosto 2026
@@ -21,8 +21,8 @@ pubblicata su `spid.gov.it`. Gli unici termini esistenti sono **a valle** della 
 - iscrizione degli **aggregatori entro 5 giorni** (Reg. aggregatori, Det. AgID 75/2023, art. 10, c. 2);
 - caricamento delle configurazioni presso gli IdP **entro ~1 giorno lavorativo** (procedura AgID).
 
-Tutto ciò che sta a monte — verifica del metadata, iterazioni, rilascio del certificato della PKI
-di AgID (Avviso n. 23), **controfirma del Direttore di AgID** — è **senza termine dichiarato**.
+Tutto ciò che sta a monte - verifica del metadata, iterazioni, rilascio del certificato della PKI
+di AgID (Avviso n. 23), **controfirma del Direttore di AgID** - è **senza termine dichiarato**.
 
 **Secondo elemento, dirimente: un progetto software open source non può essere accreditato.**
 Il *fornitore di servizi* ex art. 1, c. 1, lett. i) del DPCM è chi **eroga servizi in rete**; la
@@ -34,8 +34,8 @@ di ciascuno e gli attributi richiesti (Convenzione, art. 2, c. 1, lett. a-c). **
 
 | Lettura di D9 | Giudizio |
 |---|---|
-| **A** — «esiste un'installazione accreditata e operativa su SPID» | **NON COMPATIBILE in modo affidabile.** Rischio alto, non quantificabile né mitigabile dal progetto: nessun termine dichiarato, due atti esterni in sequenza per i privati (certificato PKI + controfirma), fase tecnica iterativa per costruzione, nessun deployer di riferimento individuato |
-| **B** — «Telemedic è SPID-ready, CIE-ready e TS-CNS-ready, con conformità verificata in CI» | **COMPATIBILE e verificabile oggettivamente** (`spid_sp_test`, `spid-saml-check`, pre-produzione CIE con carte di test) |
+| **A** - «esiste un'installazione accreditata e operativa su SPID» | **NON COMPATIBILE in modo affidabile.** Rischio alto, non quantificabile né mitigabile dal progetto: nessun termine dichiarato, due atti esterni in sequenza per i privati (certificato PKI + controfirma), fase tecnica iterativa per costruzione, nessun deployer di riferimento individuato |
+| **B** - «Telemedic è SPID-ready, CIE-ready e TS-CNS-ready, con conformità verificata in CI» | **COMPATIBILE e verificabile oggettivamente** (`spid_sp_test`, `spid-saml-check`, pre-produzione CIE con carte di test) |
 
 **Raccomandazione al committente: riformulare D9 nella lettura B**, spostando l'accreditamento
 fuori dal perimetro v1.0. Testo proposto in §11.1 e §9.4 del documento. Se la riformulazione non
@@ -56,7 +56,7 @@ Testo proposto per D9 (rev.) in §11.1 del documento.
 
 ## 3. Risultati verificati su fonte primaria
 
-### 3.1 Questione Q4 di R5 — RISOLTA
+### 3.1 Questione Q4 di R5 - RISOLTA
 
 I valori `acr` / `AuthnContextClassRef` sono:
 
@@ -239,12 +239,12 @@ SPID.**
 **Criterio d'ordine: non il valore per l'utente, ma il rischio esterno assunto e la capacità di
 falsificare presto le ipotesi sbagliate.**
 
-**Fase 0 — dal giorno 1, in parallelo**: inviare ad AgID e al Ministero le richieste sui dati non
+**Fase 0 - dal giorno 1, in parallelo**: inviare ad AgID e al Ministero le richieste sui dati non
 dichiarati (§9.2 del documento); avviare, se esiste un deployer, la richiesta di adesione CIE;
 **verificare empiricamente** che l'`AuthnContextClassRef` di ritorno CIE sia sempre `SpidL3`;
 verificare se Keycloak inoltri `acr_values` attraverso il brokering OIDC.
 
-**Fase 1 — fondamenta**: L1 realm broker `citizen-idp` → L6 contromisure ai difetti di Keycloak
+**Fase 1 - fondamenta**: L1 realm broker `citizen-idp` → L6 contromisure ai difetti di Keycloak
 (**prima** di collegare un IdP reale) → L4 **TS-CNS** (parallelizzabile, competenze diverse, unico
 canale completabile al 100%).
 
@@ -253,7 +253,7 @@ canale completabile al 100%).
 del provider SPID è statico per IdP, servono **due istanze di IdP per ciascun IdP SPID**, una per
 livello).
 
-**Fase 3**: L3 **SPID** — il lotto più oneroso (N IdP dal Registro, metadata aggregato con indici
+**Fase 3**: L3 **SPID** - il lotto più oneroso (N IdP dal Registro, metadata aggregato con indici
 stabili verificati in CI, 25 codici di anomalia, ordine casuale degli IdP, pulsante ufficiale,
 validazione con `spid-saml-check` e `spid_sp_test`).
 

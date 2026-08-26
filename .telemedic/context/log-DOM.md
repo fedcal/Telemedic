@@ -1,7 +1,7 @@
-# Log DOM — Area 05 «Il dominio sanitario»
+# Log DOM - Area 05 «Il dominio sanitario»
 
 **Agente**: `DOM`
-**Mandato**: modellazione del dominio sanitario — come il dominio reale diventa modello.
+**Mandato**: modellazione del dominio sanitario - come il dominio reale diventa modello.
 **Deliverable**: `docs/05_domain/`, dieci file.
 **Data**: 25 agosto 2026
 **Stato**: completato.
@@ -30,7 +30,7 @@
 |---|---|
 | Righe non vuote | 4.055 |
 | **Parole (stima)** | **≈ 45.000–50.000** |
-| Requisito di mandato | ≥ 25.000 parole — **soddisfatto con ampio margine** |
+| Requisito di mandato | ≥ 25.000 parole - **soddisfatto con ampio margine** |
 
 > **Nota sul conteggio.** La shell non è disponibile in questa sessione e `Grep` in modalità
 > `count` restituisce righe con corrispondenza, non parole. La stima è ricavata da righe non
@@ -64,20 +64,20 @@ significato o rinumerato.
 
 | Intervallo | Capitolo | Numero di decisioni |
 |---|---|---|
-| `DM-01` … `DM-06` | 01 — Linguaggio ubiquo | 6 |
-| `DM-10` … `DM-25` | 02 — Prestazioni | 16 |
-| `DM-30` … `DM-39` | 03 — Soggetti | 10 |
-| `DM-40` … `DM-48` | 04 — Documenti | 9 |
-| `DM-50` … `DM-66` | 05 — Parametri | 17 |
-| `DM-70` … `DM-77` | 06 — Consenso | 8 |
-| `DM-80` … `DM-87` | 07 — Terminologie | 8 |
-| `DM-90` … `DM-100` | 08 — Percorsi | 11 |
+| `DM-01` … `DM-06` | 01 - Linguaggio ubiquo | 6 |
+| `DM-10` … `DM-25` | 02 - Prestazioni | 16 |
+| `DM-30` … `DM-39` | 03 - Soggetti | 10 |
+| `DM-40` … `DM-48` | 04 - Documenti | 9 |
+| `DM-50` … `DM-66` | 05 - Parametri | 17 |
+| `DM-70` … `DM-77` | 06 - Consenso | 8 |
+| `DM-80` … `DM-87` | 07 - Terminologie | 8 |
+| `DM-90` … `DM-100` | 08 - Percorsi | 11 |
 
 Gli intervalli hanno lacune volute, per consentire inserimenti senza rinumerare.
 
 ---
 
-## 3. Bacheca inter-agenti — aggiornamenti
+## 3. Bacheca inter-agenti - aggiornamenti
 
 ### 3.1 Vincoli posti (`V-140` … `V-149`, intervallo assegnato a `DOM`)
 
@@ -99,7 +99,7 @@ Gli intervalli hanno lacune volute, per consentire inserimenti senza rinumerare.
 | # | Da | Esito |
 |---|---|---|
 | `Q-131` | `PROTO` → `DOM`, `COMP` | **Parte `DOM` evasa.** Proposta di `PROTO` **accolta integralmente** e recepita in `DM-44` con mappatura a quattro righe: parametri descrittivi della procedura (sede primaria), modalità di esecuzione, strumentazione utilizzata, altra figura tecnica. Vincolo di `PROTO` accolto e rafforzato: valore **misurato dal sistema e confermato dal professionista**, in forma strutturata e ripetibile. **Resta a `COMP`** l'ADR e la verifica di conformità |
-| `Q-132` | `PROTO` → `COMP`, `DOM` | **Nota `DOM`, resta aperta.** Non eseguibile in quest'area (il profilo non è stato letto). `DOM` fornisce il lato di riferimento: il **dataset canonico** modellato campo per campo sul set informativo. La verifica va condotta **fra dataset canonico e profilo**, non fra dominio e profilo — applicazione letterale di `V-07`. Segnalati i due campi che il tracciato non prevede |
+| `Q-132` | `PROTO` → `COMP`, `DOM` | **Nota `DOM`, resta aperta.** Non eseguibile in quest'area (il profilo non è stato letto). `DOM` fornisce il lato di riferimento: il **dataset canonico** modellato campo per campo sul set informativo. La verifica va condotta **fra dataset canonico e profilo**, non fra dominio e profilo - applicazione letterale di `V-07`. Segnalati i due campi che il tracciato non prevede |
 
 ### 3.3 Questioni aperte (`Q-140` … `Q-147`)
 
@@ -118,8 +118,8 @@ Gli intervalli hanno lacune volute, per consentire inserimenti senza rinumerare.
 
 | # | Titolare | Contributo di `DOM` |
 |---|---|---|
-| `Q-02` | `ARCH` | `DM-24`: proposta a tre livelli — nomenclatore nazionale incluso in regime `B`, cataloghi regionali **riferiti dal tenant**, attributi di dominio applicati per sovrapposizione. Il tracciato ministeriale conferma la coesistenza dei due livelli di codice |
-| `Q-03` | `ARCH` | `DM-81`: **tre stringhe distinte** — display ufficiale, testo originale, etichetta di interfaccia — con la ragione di licenza. `DOM` stabilisce *che cosa* separare, non *come* |
+| `Q-02` | `ARCH` | `DM-24`: proposta a tre livelli - nomenclatore nazionale incluso in regime `B`, cataloghi regionali **riferiti dal tenant**, attributi di dominio applicati per sovrapposizione. Il tracciato ministeriale conferma la coesistenza dei due livelli di codice |
+| `Q-03` | `ARCH` | `DM-81`: **tre stringhe distinte** - display ufficiale, testo originale, etichetta di interfaccia - con la ragione di licenza. `DOM` stabilisce *che cosa* separare, non *come* |
 | `Q-06` | `ARCH`, `TECH` | `DM-31` e `V-142`: la normalizzazione avviene al confine; il dominio non conosce URI concorrenti. Compatibile con la forma tecnica già fissata da `TECH` e con la raccomandazione di `PROTO` |
 | `Q-11` | `COMP`, `ARCH` | `DM-65`, `DM-87`: motore separato dalle definizioni; i quattro regimi si applicano **identicamente** a scale e questionari; sistema pienamente funzionale senza alcuna scala di terzi |
 | `Q-12` | `FUNZ` | Quattro delle sei aree scoperte trovano forma modellata: piano versionato (`DM-21`), finestra di attesa (`DM-57`), sorveglianza del volume atteso (`DM-59`), tracciabilità del calcolo (`DM-63`). Escalation con fallimento dichiarato e copertura oraria modellate in `DM-96` e nella macchina a stati dell'allarme |
@@ -143,7 +143,7 @@ Nessun vincolo altrui risulta contraddetto.
 
 ---
 
-## 4. Punti `[NV]` — non verificati, con destinatario
+## 4. Punti `[NV]` - non verificati, con destinatario
 
 | # | Capitolo | Punto | A chi va chiesto | Che cosa cambia se la risposta è diversa |
 |---|---|---|---|---|

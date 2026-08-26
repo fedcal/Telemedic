@@ -142,7 +142,7 @@ di un altro: si comunica per interfaccia sincrona o per evento.
    pipeline.
 7. **L'assenza di dato è informazione**: il silenzio non è mai trattato come normalità.
 
-## 12. Comunicazione fra agenti — obbligatoria
+## 12. Comunicazione fra agenti - obbligatoria
 
 Nessun agente lavora slegato. `05_BACHECA_INTERAGENTI.md` è il canale: si legge all'inizio,
 si risponde alle questioni indirizzate alla propria area, si aprono le proprie, si dichiarano

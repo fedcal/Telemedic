@@ -1,16 +1,16 @@
 ---
-title: "B7 — Identità digitale italiana: SPID, CIE, TS-CNS, IT-Wallet"
+title: "B7 - Identità digitale italiana: SPID, CIE, TS-CNS, IT-Wallet"
 sidebar_position: 13
 description: "Ricerca su fonti primarie sull'abilitazione di Telemedic all'autenticazione con identità digitale ex art. 64 CAD: profilo tecnico SPID SAML2, CIE id SAML/OIDC, TS-CNS in mutua autenticazione TLS, eIDAS 2.0 e IT-Wallet, integrazione con Keycloak, procedure di accreditamento, tempi e compatibilità con la scadenza del 30 novembre 2026."
 ---
 
-# B7 — Identità digitale italiana: SPID, CIE, TS-CNS, IT-Wallet
+# B7 - Identità digitale italiana: SPID, CIE, TS-CNS, IT-Wallet
 
 > **Ambito.** Documento di ricerca a supporto della decisione **D9** del *context pack*
 > (`.telemedic/context/00_PROJECT_BRIEF.md`): «SPID e CIE dentro la v1.0 … Considerare TS-CNS».
 > Completa la parte italiana del **§3 di `R5-pattern-integrazione.md`** (OAuth 2.x / OIDC) e
 > risolve la questione aperta **Q4** di R5 («mappatura dei valori `acr` per i livelli SPID
-> L1/L2/L3 — non verificata»).
+> L1/L2/L3 - non verificata»).
 >
 > **Riservatezza (R0).** Nessun nome di azienda, prodotto commerciale, marchio o dominio di
 > potenziali partner compare in questo documento. Le amministrazioni e gli enti pubblici citati
@@ -45,8 +45,8 @@ sezioni successive la documentano.
    l'adesione dei fornitori di servizi privati*, né la procedura tecnica pubblicata su
    `spid.gov.it` fissano un termine per la conclusione del procedimento. Gli unici termini
    presenti sono **a valle** della firma: iscrizione nel Registro SPID **entro 10 giorni dalla
-   stipula della Convenzione** (schema di Convenzione SP privati, art. 1, c. 4) e — per gli
-   aggregatori — **entro 5 giorni** (Regolamento aggregatori, art. 10, c. 2). Il tempo che
+   stipula della Convenzione** (schema di Convenzione SP privati, art. 1, c. 4) e - per gli
+   aggregatori - **entro 5 giorni** (Regolamento aggregatori, art. 10, c. 2). Il tempo che
    intercorre fra l'invio del metadata ad AgID e la controfirma del Direttore di AgID **non è
    normato**.
 2. **Un progetto software open source non può essere accreditato come Service Provider SPID.**
@@ -193,11 +193,11 @@ flowchart LR
 | DPCM SPID | DPCM 24 ottobre 2014, GU n. 285 del 9 dicembre 2014, modificato dal DPCM 19 ottobre 2021, GU n. 296 del 14 dicembre 2021 | §1.4, §3.5, §3.9 |
 | Regolamenti attuativi SPID | Determinazione AgID n. 44/2015 del 28 luglio 2015 | §3.5, §3.9 |
 | Regolamento modalità attuative SPID | «Regolamento recante le modalità attuative per la realizzazione dello SPID» (art. 4, c. 2 DPCM), **stato: Emanato, versione 2**, 39 pagine | §3.5, §3.8, §3.9 |
-| Regole tecniche SPID | `docs.italia.it/italia/spid/spid-regole-tecniche` — versione consolidata che incorpora gli avvisi fino al n. 34 | §3.2, §3.3, §3.4, §3.6, §3.7 |
+| Regole tecniche SPID | `docs.italia.it/italia/spid/spid-regole-tecniche` - versione consolidata che incorpora gli avvisi fino al n. 34 | §3.2, §3.3, §3.4, §3.6, §3.7 |
 | Avvisi SPID | Elenco AgID di 44 avvisi; citati nel testo n. 6, 19 v.4, 22 v.2, 23, 29 v.3, 41 v.2 (23/03/2023), 42, 43, 44 (12/08/2024) | §3.1 |
-| Linee guida interfacce | «SPID — Linee guida sulle interfacce e sulle informazioni IdP/SP», AgID, 14 pagine (frontespizio **privo di numero di versione e data**) | §3.8 |
+| Linee guida interfacce | «SPID - Linee guida sulle interfacce e sulle informazioni IdP/SP», AgID, 14 pagine (frontespizio **privo di numero di versione e data**) | §3.8 |
 | Convenzione SP privati | «Convenzione per l'adesione dei fornitori di servizi privati al Sistema pubblico per le identità digitali», schema AgID | §1.4, §3.9 |
-| Corrispettivi SPID | «Allegato 4 — Corrispettivi servizio di autenticazione SPID (2019)», allegato alla Determinazione AgID DT 166 | §3.9.5 |
+| Corrispettivi SPID | «Allegato 4 - Corrispettivi servizio di autenticazione SPID (2019)», allegato alla Determinazione AgID DT 166 | §3.9.5 |
 | Regolamento aggregatori | «Regolamento che disciplina l'adesione al sistema pubblico per la gestione dell'identità digitale di cittadini e imprese (SPID) da parte dei soggetti aggregatori», approvato con **Determinazione AgID n. 75/2023** | §3.10 |
 | Decreto CIE | **DM Interno 8 settembre 2022**, art. 5 | §4.1, §4.4 |
 | Manuale Operativo CIE | «Manuale Operativo per gli erogatori di servizi pubblici e privati», release master, **12 dicembre 2023** | §4.4 |
@@ -332,7 +332,7 @@ Esempio di metadata (**i valori sono illustrativi**, il documento reale va firma
       <spid:VATNumber>IT01234567890</spid:VATNumber>
       <spid:Private/>
     </md:Extensions>
-    <md:EmailAddress>spid-tech@esempio.it</md:EmailAddress>
+    <md:EmailAddress>spid-tech@esempio.invalid</md:EmailAddress>
   </md:ContactPerson>
 
   <md:ContactPerson contactType="billing">
@@ -354,7 +354,7 @@ Esempio di metadata (**i valori sono illustrativi**, il documento reale va firma
         </fpa:Sede>
       </fpa:CessionarioCommittente>
     </md:Extensions>
-    <md:EmailAddress>amministrazione@esempio.it</md:EmailAddress>
+    <md:EmailAddress>amministrazione@esempio.invalid</md:EmailAddress>
   </md:ContactPerson>
 </md:EntityDescriptor>
 ```
@@ -456,7 +456,7 @@ Il *Regolamento recante le modalità attuative per la realizzazione dello SPID* 
 | **livello 2** | **LoA3** | due fattori **non** necessariamente basati su certificati digitali | «rischio notevole … adeguato per tutti i servizi per i quali un indebito utilizzo dell'identità digitale può provocare un danno consistente» |
 | **livello 3** | **LoA4** | due fattori **basati su certificati digitali**, con custodia delle chiavi private su dispositivi conformi all'Allegato II del Regolamento 910/2014 | «rischio altissimo … da associare a quei servizi che possono subire un serio e grave danno per cause imputabili ad abusi di identità» |
 
-I valori `AuthnContextClassRef` corrispondenti — **questa è la risposta alla questione Q4 di R5**:
+I valori `AuthnContextClassRef` corrispondenti - **questa è la risposta alla questione Q4 di R5**:
 
 ```
 https://www.spid.gov.it/SpidL1
@@ -505,10 +505,10 @@ Tabella «Classificazione dato / Tipo di accesso» (verbatim):
 | 2 | Interno | «richieste/domande, interrogazioni, aggiornamenti e cancellazioni **che non riguardano dati sensibili**» |
 | 3 | Riservato | «siti che trattano **dati sensibili**, specifiche transazioni che includono trasferimento di fondi, accesso a documenti riservati» |
 
-#### 3.5.3 Quale livello serve per i dati sanitari — e perché la risposta è scomoda
+#### 3.5.3 Quale livello serve per i dati sanitari - e perché la risposta è scomoda
 
-Letta alla lettera, l'Appendice A colloca i **dati sensibili** — categoria che comprende i dati
-relativi alla salute, oggi «categorie particolari» ex art. 9 GDPR — al **livello 3**.
+Letta alla lettera, l'Appendice A colloca i **dati sensibili** - categoria che comprende i dati
+relativi alla salute, oggi «categorie particolari» ex art. 9 GDPR - al **livello 3**.
 
 Nella prassi nazionale, però, **l'accesso del cittadino al FSE avviene con SPID di livello 2**.
 La contraddizione è solo apparente e va spiegata con precisione, perché una documentazione che
@@ -566,7 +566,7 @@ Formati notevoli: le date in **ISO 8601** (`YYYY-MM-DD`); il `fiscalNumber` seco
 **ETSI EN 319 412-1**, cioè con il prefisso `TINIT-` (**da verificare** il prefisso esatto sul
 testo della sezione prima di implementare il parser).
 
-**Vincoli sostanziali derivanti dalla convenzione**, non dalle regole tecniche — sono obblighi,
+**Vincoli sostanziali derivanti dalla convenzione**, non dalle regole tecniche - sono obblighi,
 non buone pratiche:
 
 - schema di Convenzione SP privati, art. 2, c. 1, lett. g): il SP si impegna «a **non acquisire
@@ -579,7 +579,7 @@ non buone pratiche:
 **Conseguenza per il design del profilo FHIR:** l'insieme minimo per Telemedic è
 `fiscalNumber` (chiave di riconciliazione col `Patient.identifier` dell'integratore, cfr.
 `R5` §5.3 e questione Q3), `name`, `familyName`, `spidCode` (identificativo opaco stabile per
-gestore) e — solo se il caso d'uso lo richiede — `dateOfBirth` ed `email`. **Chiedere
+gestore) e - solo se il caso d'uso lo richiede - `dateOfBirth` ed `email`. **Chiedere
 `address`, `domicile*` o `idCard` per una televisita è un eccesso** e sarebbe contestabile in
 sede di convenzione.
 
@@ -596,32 +596,32 @@ tradurla in un messaggio all'utente conforme alla **Tabella delle anomalie** pub
 
 | Cod. | Anomalia | `StatusCode` SAML | `StatusMessage` | Messaggio prescritto all'utente |
 |---|---|---|---|---|
-| 1 | Autenticazione corretta | `…:status:Success` | — | — |
-| 2 | Indisponibilità del sistema | — | — | «Ripetere l'accesso al servizio più tardi» |
-| 3 | Errore di sistema (HTTP 500) | — | — | «Sistema di autenticazione non disponibile — Riprovare più tardi» |
-| 4 | Formato binding non corretto | — | — | «Formato richiesta non corretto — Contattare il gestore del servizio» |
-| 5 | Verifica della firma fallita | — | — | «Impossibile stabilire l'autenticità della richiesta di autenticazione — Contattare il gestore del servizio» |
-| 6 | Binding su metodo HTTP errato | — | — | «Formato richiesta non ricevibile — Contattare il gestore del servizio» |
-| 7 | Errore nella verifica della firma della richiesta | — | — | «Formato richiesta non corretto — Contattare il gestore del servizio» |
-| 8 | Formato della richiesta non conforme alle specifiche SAML | `…:status:Requester` | `ErrorCode nr08` | — |
-| 9 | `Version` assente, malformato o ≠ `2.0` | `…:status:VersionMismatch` | `ErrorCode nr09` | — |
-| 10 | `Issuer` assente, malformato o non corrispondente | — | — | «Formato richiesta non corretto — Contattare il gestore del servizio» |
-| 11 | `ID` assente, malformato o non conforme | `…:status:Requester` | `ErrorCode nr11` | — |
+| 1 | Autenticazione corretta | `…:status:Success` | - | - |
+| 2 | Indisponibilità del sistema | - | - | «Ripetere l'accesso al servizio più tardi» |
+| 3 | Errore di sistema (HTTP 500) | - | - | «Sistema di autenticazione non disponibile - Riprovare più tardi» |
+| 4 | Formato binding non corretto | - | - | «Formato richiesta non corretto - Contattare il gestore del servizio» |
+| 5 | Verifica della firma fallita | - | - | «Impossibile stabilire l'autenticità della richiesta di autenticazione - Contattare il gestore del servizio» |
+| 6 | Binding su metodo HTTP errato | - | - | «Formato richiesta non ricevibile - Contattare il gestore del servizio» |
+| 7 | Errore nella verifica della firma della richiesta | - | - | «Formato richiesta non corretto - Contattare il gestore del servizio» |
+| 8 | Formato della richiesta non conforme alle specifiche SAML | `…:status:Requester` | `ErrorCode nr08` | - |
+| 9 | `Version` assente, malformato o ≠ `2.0` | `…:status:VersionMismatch` | `ErrorCode nr09` | - |
+| 10 | `Issuer` assente, malformato o non corrispondente | - | - | «Formato richiesta non corretto - Contattare il gestore del servizio» |
+| 11 | `ID` assente, malformato o non conforme | `…:status:Requester` | `ErrorCode nr11` | - |
 | 12 | `RequestedAuthnContext` assente, malformato o non previsto | `…:status:Requester` | `ErrorCode nr12` | «Autenticazione SPID non conforme o non specificata» |
-| 13 | `IssueInstant` assente, malformato o non coerente | `…:status:Requester` | `ErrorCode nr13` | — |
-| 14 | `Destination` assente, malformato o non coincidente | `…:status:Requester` | `ErrorCode nr14` | — |
-| 15 | `IsPassive` presente e valorizzato a `true` | `…:status:Requester` | `ErrorCode nr15` | — |
-| 16 | `AssertionConsumerService` non correttamente valorizzato | `…:status:Requester` | `ErrorCode nr16` | — |
-| 17 | `Format` di `NameIDPolicy` assente o non valorizzato | `…:status:Requester` | `ErrorCode nr17` | — |
-| 18 | `AttributeConsumerServiceIndex` malformato o non registrato | `…:status:Requester` | `ErrorCode nr18` | — |
+| 13 | `IssueInstant` assente, malformato o non coerente | `…:status:Requester` | `ErrorCode nr13` | - |
+| 14 | `Destination` assente, malformato o non coincidente | `…:status:Requester` | `ErrorCode nr14` | - |
+| 15 | `IsPassive` presente e valorizzato a `true` | `…:status:Requester` | `ErrorCode nr15` | - |
+| 16 | `AssertionConsumerService` non correttamente valorizzato | `…:status:Requester` | `ErrorCode nr16` | - |
+| 17 | `Format` di `NameIDPolicy` assente o non valorizzato | `…:status:Requester` | `ErrorCode nr17` | - |
+| 18 | `AttributeConsumerServiceIndex` malformato o non registrato | `…:status:Requester` | `ErrorCode nr18` | - |
 | 19 | Autenticazione fallita per ripetute credenziali errate | `…:status:Responder` | `ErrorCode nr19` | «Inserire credenziali corrette» |
 | 20 | Utente privo di credenziali del livello richiesto | `…:status:Responder` | `ErrorCode nr20` | «Acquisire credenziali di livello idoneo» |
 | 21 | Timeout durante l'autenticazione | `…:status:Responder` | `ErrorCode nr21` | «L'operazione deve essere completata entro un periodo di tempo determinato» |
 | 22 | L'utente nega il consenso all'invio dei dati | `…:status:Responder` | `ErrorCode nr22` | «Dare il consenso» |
 | 23 | Identità sospesa/revocata o credenziali bloccate | `…:status:Responder` | `ErrorCode nr23` | «Credenziali sospese o revocate» |
-| 24 | *riservato* | — | — | — |
-| 25 | Processo di autenticazione annullato dall'utente | `…:status:Responder` | `ErrorCode nr25` | — |
-| 30 | Tipologia di identità digitale diversa da quella richiesta | `…:status:Responder` | `ErrorCode nr30` | — |
+| 24 | *riservato* | - | - | - |
+| 25 | Processo di autenticazione annullato dall'utente | `…:status:Responder` | `ErrorCode nr25` | - |
+| 30 | Tipologia di identità digitale diversa da quella richiesta | `…:status:Responder` | `ErrorCode nr30` | - |
 
 > **Codice 24 «riservato».** Vale la pena notarlo esplicitamente: la tabella salta dal 23 al 25.
 > Un'implementazione che generi la mappatura per iterazione numerica produrrebbe un ramo morto.
@@ -647,7 +647,7 @@ prescritto lo modifica.
 
 ### 3.8 Obblighi di interfaccia e di conformità
 
-Fonte: «SPID — Linee guida sulle interfacce e sulle informazioni IdP/SP», AgID, 14 pagine
+Fonte: «SPID - Linee guida sulle interfacce e sulle informazioni IdP/SP», AgID, 14 pagine
 (il frontespizio **non riporta numero di versione né data**; il documento è pubblicato su
 `spid.gov.it`), integrato dall'**Avviso n. 42** sull'aggiornamento del pulsante.
 
@@ -678,7 +678,7 @@ Altri obblighi di conformità in capo al SP (schema di Convenzione, art. 2):
 | Pubblicare sul proprio sito istituzionale l'elenco aggiornato dei servizi | art. 2, c. 1, lett. a) |
 | Rispettare le regole sull'uso degli elementi grafici identificativi dello SPID | art. 2, c. 1, lett. e) |
 | Registrare i log delle richieste di accesso | art. 2, c. 1, lett. h) |
-| Apporre ai log un riferimento temporale conforme alla scala UTC (IEN) **con scarto ≤ 1 minuto** | art. 2, c. 1, lett. i) — richiama il DM 30 novembre 1993, n. 591 |
+| Apporre ai log un riferimento temporale conforme alla scala UTC (IEN) **con scarto ≤ 1 minuto** | art. 2, c. 1, lett. i) - richiama il DM 30 novembre 1993, n. 591 |
 | Conservare per **24 mesi** le informazioni necessarie a imputare alle singole identità digitali le operazioni effettuate | *Regolamento modalità attuative*, art. 29 (che attua l'art. 13, c. 2 del DPCM) |
 | Garantire riservatezza, inalterabilità e integrità delle tracciature, con **cifratura** e accesso riservato a personale autorizzato | *Regolamento modalità attuative*, art. 29 |
 | Help desk di **primo livello** per l'utente, con escalation all'IdP per il secondo livello | art. 2, c. 1, lett. l) |
@@ -690,8 +690,8 @@ conseguenza concreta e spesso trascurata sui deployment containerizzati: **NTP v
 sull'host e monitorato**, e lo scostamento va esposto come metrica. Un'installazione Docker
 Compose senza sorveglianza dell'orologio è formalmente non conforme.
 
-Il requisito di **conservazione a 24 mesi delle tracciature di autenticazione** si somma — non si
-sostituisce — a quelli rilevati da R3 (§9.5: 24 mesi per i log, 12 mesi per i dati di accesso e
+Il requisito di **conservazione a 24 mesi delle tracciature di autenticazione** si somma - non si
+sostituisce - a quelli rilevati da R3 (§9.5: 24 mesi per i log, 12 mesi per i dati di accesso e
 autenticazione ex DM 19 novembre 2025). La policy di retention va progettata come **massimo fra
 le prescrizioni applicabili**, per classe di dato, con evidenza di cancellazione (cfr. questione
 Q8 di R3).
@@ -917,7 +917,7 @@ Fra i più onerosi:
 
 - formalizzare con **accordi ex artt. 4, n. 8 e 28 GDPR** i rapporti con gli aggregati; per gli
   aggregati **privati**, l'aggregatore **effettua le verifiche** previste dall'art. 15, c. 1 del
-  DPCM (assenza di condanne per reati informatici) — trattando quindi **dati giudiziari**, con
+  DPCM (assenza di condanne per reati informatici) - trattando quindi **dati giudiziari**, con
   tutta la disciplina dell'art. 9 del Regolamento e dell'art. 10 GDPR;
 - notificare ad AgID gli accordi e comunicare l'elenco dei servizi qualificati erogati dagli
   aggregati **con il rispettivo livello di sicurezza**;
@@ -962,7 +962,7 @@ gestori dell'identità.
   esattamente il pacchetto Keycloak + provider SPID che il progetto già produce, installato
   sull'infrastruttura dell'aggregato. È l'unico modello compatibile in pieno con il vincolo **V1**
   (nessun transito obbligatorio dei dati per un terzo) e con **V4** (isolamento per tenant).
-- La modalità **`full`** — autenticazione centralizzata sull'infrastruttura dell'aggregatore —
+- La modalità **`full`** - autenticazione centralizzata sull'infrastruttura dell'aggregatore -
   è tecnicamente più semplice e commercialmente più remunerativa, ma **concentra su un solo
   soggetto le asserzioni di autenticazione di tutti i tenant**. Va valutata in DPIA, non decisa
   in sede tecnica.
@@ -980,8 +980,8 @@ nessuno come prerequisito della v1.0**.
 
 | Fase | Termine dichiarato | Fonte |
 |---|---|---|
-| Implementazione tecnica e validazione locale | — (dipende dal fornitore) | — |
-| Verifica del metadata da parte di AgID e iterazioni | **non dichiarato pubblicamente** | — |
+| Implementazione tecnica e validazione locale | - (dipende dal fornitore) | - |
+| Verifica del metadata da parte di AgID e iterazioni | **non dichiarato pubblicamente** | - |
 | Rilascio del certificato di federazione ai SP privati (PKI AgID) | **non dichiarato pubblicamente** | Avviso n. 23 |
 | Sottoscrizione e controfirma della convenzione da parte del Direttore di AgID | **non dichiarato pubblicamente** | schema di Convenzione, art. 10, c. 1 |
 | Iscrizione nel Registro SPID dopo la stipula | **10 giorni** | Convenzione, art. 1, c. 4 |
@@ -990,11 +990,11 @@ nessuno come prerequisito della v1.0**.
 
 **A chi vanno chiesti i tempi non dichiarati:**
 
-- **`spid.tech@agid.gov.it`** — indirizzo indicato dalla procedura tecnica per l'invio del
+- **`spid.tech@agid.gov.it`** - indirizzo indicato dalla procedura tecnica per l'invio del
   metadata e i rapporti tecnici;
-- **Help Desk SPID** — `helpdesk.spid.gov.it`;
-- **PEC istituzionale di AgID** — per la fase amministrativa e la convenzione;
-- **forum.italia.it**, categoria SPID — canale pubblico presidiato, utile per verificare la
+- **Help Desk SPID** - `helpdesk.spid.gov.it`;
+- **PEC istituzionale di AgID** - per la fase amministrativa e la convenzione;
+- **forum.italia.it**, categoria SPID - canale pubblico presidiato, utile per verificare la
   prassi corrente prima di impegnare una data.
 
 **Giudizio.** Un procedimento amministrativo che non dichiara i propri termini non è
@@ -1006,7 +1006,7 @@ documento raccomanda di spostare l'accreditamento fuori dalla v1.0 (§11).
 ### 3.12 SPID e OpenID Connect: lo stato reale
 
 AgID ha pubblicato le **Linee Guida «OpenID Connect in SPID»** e il **Regolamento «SPID OpenID
-Connect Federation»**, integrati dall'**Avviso n. 41 — Versione 2.0 del 23/03/2023**, che
+Connect Federation»**, integrati dall'**Avviso n. 41 - Versione 2.0 del 23/03/2023**, che
 prescrive fra l'altro:
 
 - gli OpenID Provider e i Relying Party devono usare `jwks` **oppure** `signed_jwks_uri`; per
@@ -1108,7 +1108,7 @@ Dalle Regole Tecniche CIE eID SAML, sezione *Federazione*:
 | `<md:AssertionConsumerService>` | possono essere più d'uno; binding **HTTP-POST e HTTP-Redirect** supportati |
 | `<md:AttributeConsumingService>` | dichiara gli attributi richiesti |
 | `<md:Organization>` | nome, display name e URL, **almeno in italiano** |
-| `<md:ContactPerson>` | amministrativo e — se si usa un partner esterno — tecnico |
+| `<md:ContactPerson>` | amministrativo e - se si usa un partner esterno - tecnico |
 
 Il metadata si carica **dal portale di federazione**, con istanze separate per test e produzione.
 Non si invia per email come in SPID.
@@ -1235,7 +1235,7 @@ Manuale Operativo, cap. 4 («Condizioni»):
 - **il Ministero effettua le verifiche di onorabilità almeno ogni quattro anni**; gli aggregatori
   ripetono le verifiche sugli aggregati privati con la stessa periodicità e ad hoc su richiesta.
 
-#### 4.4.2 Obblighi (Manuale Operativo, §4.1.1 — «Obblighi generali»)
+#### 4.4.2 Obblighi (Manuale Operativo, §4.1.1 - «Obblighi generali»)
 
 Sintesi dei più vincolanti per il design:
 
@@ -1335,12 +1335,12 @@ corrispettivi analogo all'art. 3 della Convenzione SPID o all'Allegato 4 di DT 1
 
 **L'assenza di una previsione non equivale a una dichiarazione di gratuità.** Questo documento
 **non afferma che CIE sia gratuita**: afferma che **il dato non è dichiarato pubblicamente nelle
-fonti consultate** e che va richiesto al **Ministero dell'Interno — Direzione Centrale per i
+fonti consultate** e che va richiesto al **Ministero dell'Interno - Direzione Centrale per i
 Servizi Demografici**, PEC `servizidemografici.prot@pec.interno.it`, oppure attraverso la sezione
 «Supporto» del Portale Federazione «Entra con CIE».
 
-Ciò detto, l'assenza di un `ContactPerson contactType="billing"` nel metadata CIE — obbligatorio
-invece in SPID proprio perché il SP viene fatturato dagli IdP — è un **indizio strutturale forte**
+Ciò detto, l'assenza di un `ContactPerson contactType="billing"` nel metadata CIE - obbligatorio
+invece in SPID proprio perché il SP viene fatturato dagli IdP - è un **indizio strutturale forte**
 nella direzione dell'assenza di corrispettivi per accesso. Resta un indizio, non una fonte.
 
 #### 4.4.6 Tempi
@@ -1350,7 +1350,7 @@ termini** né per la valutazione ministeriale della richiesta di adesione, né p
 tecnica. Vanno chiesti agli stessi recapiti di §4.4.5.
 
 Elemento a favore, che va però trattato come qualitativo e non come stima: la fase 4
-(«federazione») è descritta come **automatica** — «Il portale avvia l'attività automatica di
+(«federazione») è descritta come **automatica** - «Il portale avvia l'attività automatica di
 federazione e convalida le configurazioni tecniche precedentemente inserite». L'unico passaggio
 umano è l'approvazione della fase amministrativa.
 
@@ -1369,7 +1369,7 @@ umano è l'approvazione della fase amministrativa.
 | Obbligo di ordine casuale degli IdP | **sì** | non applicabile (IdP unico) |
 | Livello effettivo desumibile dall'asserzione | **sì** (`AuthnContextClassRef` riporta il livello effettivo) | **no**: sempre `SpidL3` (§4.3) |
 | Verifica periodica dei requisiti | vigilanza AgID | **almeno ogni 4 anni** |
-| Semplificazione per chi è già federato | — | **sì**: chi è già SP SPID non ripresenta le dichiarazioni sostitutive |
+| Semplificazione per chi è già federato | - | **sì**: chi è già SP SPID non ripresenta le dichiarazioni sostitutive |
 
 ---
 
@@ -1378,11 +1378,11 @@ umano è l'approvazione della fase amministrativa.
 ### 5.1 Che cos'è e perché è nel perimetro
 
 La **Carta Nazionale dei Servizi (CNS)** è lo strumento di identificazione in rete basato su
-**certificato digitale su smart card**. La **Tessera Sanitaria — Carta Nazionale dei Servizi
+**certificato digitale su smart card**. La **Tessera Sanitaria - Carta Nazionale dei Servizi
 (TS-CNS)** è la tessera sanitaria dotata del microchip CNS: le TS-CNS sono **tecnicamente e
 normativamente equivalenti alla CNS** e utilizzabili per le stesse finalità.
 
-È il terzo canale elencato dall'art. 64 CAD e — come accertato da R3 — è richiesto
+È il terzo canale elencato dall'art. 64 CAD e - come accertato da R3 - è richiesto
 **espressamente** dal DM 19 novembre 2025 (All. 4) e dal DM 7 settembre 2023 (art. 11, c. 1).
 
 **Perché è strategicamente interessante per Telemedic**, al di là dell'obbligo:
@@ -1433,7 +1433,7 @@ Elementi chiave del template, verificati sul README:
 Il filtro per `ServiceTypeIdentifier` = `.../Svctype/IdV` è il punto tecnico più importante e il
 meno ovvio: **`IdV` è il tipo di servizio «Identity Verification»** nella TSL ETSI. È così che si
 seleziona, dall'elenco di fiducia nazionale, il sottoinsieme di CA autorizzate a emettere
-certificati di **autenticazione della persona** — e non, ad esempio, di firma o di marcatura
+certificati di **autenticazione della persona** - e non, ad esempio, di firma o di marcatura
 temporale.
 
 ### 5.3 Estrazione del codice fiscale
@@ -1469,7 +1469,7 @@ prende la decisione di autenticazione**. In un'architettura con TLS terminato al
 a meno che non venga propagato esplicitamente.
 
 **Il secondo problema, meno noto.** Se si richiede il certificato client su **tutte** le
-connessioni, ogni utente — anche chi entra con SPID — riceve dal browser un prompt di selezione
+connessioni, ogni utente - anche chi entra con SPID - riceve dal browser un prompt di selezione
 del certificato. È un difetto di esperienza d'uso grave e, per un'utenza fragile, un ostacolo
 di accessibilità (vincolo **V6**).
 
@@ -1502,7 +1502,7 @@ Regole di sicurezza che rendono il pattern sicuro anziché pericoloso:
    **V5**.
 
 Configurazione Apache di riferimento (derivata dal template `italia/cie-cns-apache-docker`,
-*adattata* — i valori sono illustrativi):
+*adattata* - i valori sono illustrativi):
 
 ```apache
 <VirtualHost *:443>
@@ -1678,9 +1678,9 @@ europeo per l'identità digitale, è **in vigore dal 20 maggio 2024** e impone a
 mettere a disposizione dei cittadini **almeno un portafoglio europeo di identità digitale
 (EUDI Wallet) certificato entro il 24 dicembre 2026**.
 
-Le date successive dichiarate nella pubblicistica di settore — obbligo per i grandi soggetti
+Le date successive dichiarate nella pubblicistica di settore - obbligo per i grandi soggetti
 privati regolati (banche, telecomunicazioni, assicurazioni) di **accettare** le credenziali del
-wallet **entro dicembre 2027** — provengono da **fonti secondarie** e vanno verificate sul testo
+wallet **entro dicembre 2027** - provengono da **fonti secondarie** e vanno verificate sul testo
 del Regolamento prima di essere citate in documentazione pubblica.
 
 ### 6.2 IT-Wallet: stato al 25 agosto 2026
@@ -1693,7 +1693,7 @@ delle attestazioni di identificazione personale; **AgID** cura le linee guida te
 l'accreditamento dei fornitori privati di wallet; **ACN** stabilisce i requisiti di
 cybersicurezza.
 
-**Stato di attuazione — attenzione, fonte secondaria.** Le informazioni seguenti provengono da
+**Stato di attuazione - attenzione, fonte secondaria.** Le informazioni seguenti provengono da
 pubblicistica specializzata (Agenda Digitale) e **non da fonte normativa primaria**; vanno
 verificate prima di essere riportate in documentazione pubblica:
 
@@ -1754,15 +1754,15 @@ R1 (questione R3 di `02_QUESTIONI_APERTE.md`).
 |---|---|---|---|---|
 | **`italia/spid-keycloak-provider`** | Identity provider SPID (SAML2) per Keycloak | **Apache-2.0** («same as the main Keycloak package») | KC 26.x → plugin **26.7.1**; KC 25.x → 25.0.1; KC 24.x → 24.0.1+ (con cambio del provider ID da `spid` a `spid-saml`); KC 23.x → 1.0.17; KC 19.x → 1.0.16 | «still at a development stage but has been successfully tested for SPID validation and is **currently used in Production**»; segue la release più recente di Keycloak |
 | **`lscorcia/keycloak-cieid-provider`** | Identity provider CIE id per Keycloak | **Apache-2.0** | KC 26.7.x → **26.7.1**; 26.0.x → 26.0.5; 25.x → 25.0.1; 24.x → 24.0.1; 23.x → 1.0.7; 19.x → 1.0.6 | «successfully tested for CIE ID federation and **currently used in Production**» |
-| `redhat-italy/keycloak-spid-provider` | fork/variante per Keycloak/RHSSO | — | — | **non verificato** in questa ricerca |
-| `italia/spid-keycloak-entando` | proxy OIDC → SAML2 SPID | — | — | **non verificato** |
+| `redhat-italy/keycloak-spid-provider` | fork/variante per Keycloak/RHSSO | - | - | **non verificato** in questa ricerca |
+| `italia/spid-keycloak-entando` | proxy OIDC → SAML2 SPID | - | - | **non verificato** |
 | **`italia/cie-cns-apache-docker`** | mTLS TS-CNS/CIE su Apache | **MIT** | Ubuntu 22.04, Apache 2.4.51 | attivamente mantenuto; 210 commit sul master; immagine su Docker Hub |
-| `italia/spid-saml-check` | SPID Validator: verifica di conformità | — | — | strumento ufficiale citato dalla procedura AgID; demo su `demo.spid.gov.it` |
-| `italia/spid-sp-access-button` | pulsante ufficiale «Entra con SPID» | — | — | indicato dalle Linee guida sulle interfacce |
+| `italia/spid-saml-check` | SPID Validator: verifica di conformità | - | - | strumento ufficiale citato dalla procedura AgID; demo su `demo.spid.gov.it` |
+| `italia/spid-sp-access-button` | pulsante ufficiale «Entra con SPID» | - | - | indicato dalle Linee guida sulle interfacce |
 
 **Valutazione onesta dell'ecosistema.**
 
-*Il buono.* Esistono due provider funzionanti, entrambi in **Apache-2.0** — **licenza compatibile
+*Il buono.* Esistono due provider funzionanti, entrambi in **Apache-2.0** - **licenza compatibile
 con la decisione D1** e priva di attriti per la ridistribuzione, anche nel SaaS proprietario di un
 partner. Entrambi dichiarano uso in produzione. La pagina wiki *Compliance tests results* del
 provider SPID riporta l'esito della validazione con **`spid_sp_test` 1.2.17** con **tutti i test
@@ -1865,11 +1865,11 @@ git, **JDK 17+**, Maven.
 
 *Proposta di progetto:* immagine Keycloak **costruita in CI** con i provider già dentro, non
 montaggio a runtime. Motivazioni: riproducibilità, **SBOM CycloneDX** (D10), firma dell'immagine,
-e tracciabilità della versione del provider rispetto alla versione di Keycloak — che è, come visto,
+e tracciabilità della versione del provider rispetto alla versione di Keycloak - che è, come visto,
 un accoppiamento stretto.
 
 ```dockerfile
-# Stage 1 — build dei provider
+# Stage 1 - build dei provider
 FROM maven:3.9-eclipse-temurin-21 AS providers
 WORKDIR /build
 RUN git clone --depth 1 --branch 26.7.1 https://github.com/italia/spid-keycloak-provider.git \
@@ -1877,7 +1877,7 @@ RUN git clone --depth 1 --branch 26.7.1 https://github.com/italia/spid-keycloak-
 RUN git clone --depth 1 --branch 26.7.1 https://github.com/lscorcia/keycloak-cieid-provider.git \
  && cd keycloak-cieid-provider && mvn -q clean package
 
-# Stage 2 — immagine Keycloak
+# Stage 2 - immagine Keycloak
 FROM quay.io/keycloak/keycloak:26.7 AS builder
 COPY --from=providers /build/spid-keycloak-provider/target/spid-provider.jar   /opt/keycloak/providers/
 COPY --from=providers /build/keycloak-cieid-provider/target/cieid-provider.jar /opt/keycloak/providers/
@@ -1909,7 +1909,7 @@ Parametri dichiarati dalla wiki, per ciascun IdP:
 |---|---|
 | **Alias** | identificativo del provider, senza spazi |
 | **Trust Email** | attivo |
-| **Sync Mode** | **`Force`** — aggiorna i dati utente a ogni login |
+| **Sync Mode** | **`Force`** - aggiorna i dati utente a ogni login |
 
 *Sezione SAML Config*
 
@@ -2025,10 +2025,10 @@ Requisito di §3.8, non risolto dal plugin. Due strategie:
 
 | Strategia | Come | Pro | Contro |
 |---|---|---|---|
-| **A — tema Keycloak custom** | *freemarker template* di `login.ftl` che randomizza la lista degli IdP e renderizza il pulsante ufficiale | tutto dentro Keycloak; nessun componente aggiuntivo | tema da mantenere a ogni upgrade di Keycloak; interagisce con la limitazione «tema Admin v2» |
-| **B — pagina di scelta nell'applicazione** | Angular mostra la pagina di scelta IdP, randomizza lato server e invoca Keycloak con `kc_idp_hint=<alias>` | pieno controllo su accessibilità (**V6**), branding white-label (**§6.2.1 del brief**) e ordine casuale; testabile con Playwright (D10) | la scelta dell'IdP avviene fuori da Keycloak; va garantito che `kc_idp_hint` non sia manipolabile in modo dannoso (non lo è: seleziona solo l'IdP) |
+| **A - tema Keycloak custom** | *freemarker template* di `login.ftl` che randomizza la lista degli IdP e renderizza il pulsante ufficiale | tutto dentro Keycloak; nessun componente aggiuntivo | tema da mantenere a ogni upgrade di Keycloak; interagisce con la limitazione «tema Admin v2» |
+| **B - pagina di scelta nell'applicazione** | Angular mostra la pagina di scelta IdP, randomizza lato server e invoca Keycloak con `kc_idp_hint=<alias>` | pieno controllo su accessibilità (**V6**), branding white-label (**§6.2.1 del brief**) e ordine casuale; testabile con Playwright (D10) | la scelta dell'IdP avviene fuori da Keycloak; va garantito che `kc_idp_hint` non sia manipolabile in modo dannoso (non lo è: seleziona solo l'IdP) |
 
-*Raccomandazione:* **strategia B**, con la randomizzazione eseguita **lato server** — come la
+*Raccomandazione:* **strategia B**, con la randomizzazione eseguita **lato server** - come la
 stessa linea guida AgID suggerisce come alternativa alla funzione JavaScript. Motivazioni: si
 integra con il requisito di embed white-label, è verificabile in E2E, e non lega la conformità
 normativa alla manutenzione di un tema Keycloak.
@@ -2137,7 +2137,7 @@ https://<host>/realms/<realm>/broker/<alias>/endpoint
 
 Se sia `clinic` sia `patient` federassero direttamente con SPID, servirebbero **due `entityID`
 distinti**, quindi **due metadata**, **due depositi presso AgID**, **due certificati per un SP
-privato**, **due convenzioni o due servizi dichiarati**, e — non da ultimo — **due volte la
+privato**, **due convenzioni o due servizi dichiarati**, e - non da ultimo - **due volte la
 superficie di conformità da mantenere**. È esattamente ciò che va evitato quando il collo di
 bottiglia è amministrativo.
 
@@ -2156,7 +2156,7 @@ flowchart TB
     subgraph EDGE["Bordo"]
         PX["Reverse proxy<br/>mTLS TS-CNS"]
     end
-    subgraph KCB["Keycloak — realm citizen-idp<br/>(UNICO Service Provider)"]
+    subgraph KCB["Keycloak - realm citizen-idp<br/>(UNICO Service Provider)"]
         IDP1["IdP: spid-01..N"]
         IDP2["IdP: cieid"]
         X509["Authenticator X.509 (TS-CNS)"]
@@ -2205,7 +2205,7 @@ Costi e rischi da dichiarare onestamente:
 |---|---|---|
 | Paziente cittadino | `patient` | SPID L2 o CIE L2 via `citizen-idp` |
 | Professionista sanitario di un tenant pubblico | `clinic` | SPID L2/L3, CIE, **TS-CNS** via `citizen-idp` |
-| Professionista di un tenant privato integrato | `clinic` | **identità dell'integratore**, via JWT grant / token exchange (`R5` §3.3) — **nessun secondo login** |
+| Professionista di un tenant privato integrato | `clinic` | **identità dell'integratore**, via JWT grant / token exchange (`R5` §3.3) - **nessun secondo login** |
 | Sistema dell'integratore (backend) | `clinic` | `client_credentials` + `private_key_jwt` (`R5` §2.6) |
 | Amministratore di tenant | `clinic` | SPID L3 o TS-CNS, configurabile |
 
@@ -2255,7 +2255,7 @@ of Authentication (LoA)**:
   passi aggiuntivi quando il livello richiesto non è soddisfatto.
 
 Configurazione di realm (**proposta di progetto**; l'attributo si chiama `acr.loa.map`
-nell'esportazione del realm — **da verificare** sulla versione adottata):
+nell'esportazione del realm - **da verificare** sulla versione adottata):
 
 ```json
 {
@@ -2266,7 +2266,7 @@ nell'esportazione del realm — **da verificare** sulla versione adottata):
 }
 ```
 
-Il valore `urn:telemedic:acr:cns` è una **proposta di progetto** — non è uno standard e non va
+Il valore `urn:telemedic:acr:cns` è una **proposta di progetto** - non è uno standard e non va
 presentato come tale. Rappresenta l'autenticazione con TS-CNS ed è mappato su LoA 3 secondo la
 valutazione di §5.6, che è essa stessa una stima di progetto.
 
@@ -2293,7 +2293,7 @@ lo richiede esplicitamente.
 claim `acr`.** Nel modello a tre realm di §7.6.2 l'informazione deve attraversare **due**
 confini: SPID/CIE → `citizen-idp`, e `citizen-idp` → `patient`/`clinic`.
 
-*Proposta di progetto — catena esplicita:*
+*Proposta di progetto - catena esplicita:*
 
 ```mermaid
 sequenceDiagram
@@ -2320,7 +2320,7 @@ versione di Keycloak:
 2. **Traduzione di `acr_values` in `RequestedAuthnContext` SAML.** Il provider SPID configura i
    `AuthnContext ClassRefs` **staticamente** per identity provider. Se il livello deve essere
    dinamico (L2 per il paziente, L3 per l'amministratore), servono **due istanze di IdP per
-   ciascun IdP SPID** — una per livello — oppure un'estensione. **È un costo di implementazione
+   ciascun IdP SPID** - una per livello - oppure un'estensione. **È un costo di implementazione
    che va nella stima, e viene sistematicamente dimenticato.**
 3. **Registrazione di `acr_asserted`** distinto da `acr_requested`, per la ragione di §4.3.
 4. **Test end-to-end** che verifichi il valore di `acr` nel token finale per ciascuna combinazione
@@ -2386,7 +2386,7 @@ E, per confronto, il token emesso quando è Telemedic ad aver autenticato il sog
 {
   "iss": "https://telemedic.esempio.it/realms/patient",
   "aud": "telemedic-api",
-  "sub": "f:citizen-idp:TINIT-RSSMRA80A01H501U",
+  "sub": "f:citizen-idp:TINIT-RSSMRA80A01H501Z",
   "acr": "https://www.spid.gov.it/SpidL2",
   "auth_source": {
     "kind": "national-federation",
@@ -2432,14 +2432,14 @@ E, per confronto, il token emesso quando è Telemedic ad aver autenticato il sog
 | **Identity provider da integrare** | **una decina** (leggere il Registro SPID) | **1** | **nessuno**: PKI + Trusted List | **non definito** |
 | **Attributi ottenibili** | catalogo esteso (identificativi + secondari) | **solo** `name`, `familyName`, `dateOfBirth`, `fiscalNumber` | solo ciò che è nel certificato (tipicamente CF, nome, cognome) | per attestazione |
 | **Procedura di abilitazione** | fase **amministrativa** (convenzione, PEC, controfirma Direttore AgID) + fase **tecnica** (metadata via email a `spid.tech@agid.gov.it`, SPID SAML Check) | **portale digitale** `federazione.servizicie.interno.gov.it`: richiesta → autorizzazione MIN → dati tecnici pre-prod/prod → federazione automatica | **nessuna procedura presso terzi** | accreditamento AgID per i wallet provider (non è il ruolo di Telemedic) |
-| **Atto giuridico** | **Convenzione, durata 5 anni**, senza rinnovo tacito | **modulo di adesione** firmato digitalmente | nessuno | — |
-| **Requisiti soggettivi (privati)** | assenza di condanne passate in giudicato per reati commessi a mezzo di sistemi informatici (DPCM art. 15, c. 1) | idem (DM 8 settembre 2022, art. 5, c. 2) + **requisiti di onorabilità** DM MEF 169/2020, con **dichiarazioni sostitutive** — **non richieste a chi è già SP SPID** | nessuno | — |
-| **Certificato** | SP privato: certificato della **PKI di AgID** (Avviso n. 23) | certificato proprio, caricato dal portale | certificato **del cittadino**, emesso dalle CA della TSL (`ServiceTypeIdentifier` = `.../Svctype/IdV`) | — |
-| **Ambiente di test** | SPID Validator / `spid-saml-check`, `demo.spid.gov.it` | **pre-produzione ufficiale con carte di test** + SDK Android/iOS | carte reali oppure carte di test | — |
+| **Atto giuridico** | **Convenzione, durata 5 anni**, senza rinnovo tacito | **modulo di adesione** firmato digitalmente | nessuno | - |
+| **Requisiti soggettivi (privati)** | assenza di condanne passate in giudicato per reati commessi a mezzo di sistemi informatici (DPCM art. 15, c. 1) | idem (DM 8 settembre 2022, art. 5, c. 2) + **requisiti di onorabilità** DM MEF 169/2020, con **dichiarazioni sostitutive** - **non richieste a chi è già SP SPID** | nessuno | - |
+| **Certificato** | SP privato: certificato della **PKI di AgID** (Avviso n. 23) | certificato proprio, caricato dal portale | certificato **del cittadino**, emesso dalle CA della TSL (`ServiceTypeIdentifier` = `.../Svctype/IdV`) | - |
+| **Ambiente di test** | SPID Validator / `spid-saml-check`, `demo.spid.gov.it` | **pre-produzione ufficiale con carte di test** + SDK Android/iOS | carte reali oppure carte di test | - |
 | **Tempi dichiarati** | **non dichiarati**, salvo: iscrizione al Registro **entro 10 gg** dalla stipula; caricamento presso gli IdP **entro ~1 giorno lavorativo** | **non dichiarati**; la fase 4 è descritta come **automatica** | **nessun tempo esterno**: dipende solo dallo sviluppo | non applicabili |
-| **Costi** | **tabella DT 166 All. 4 (2019)**: 0 €/0,4 € per autenticazione L1-L2 (soglia 1000 utenti unici per coppia SP/IdP), **3,5 €** per registrazione L1-L2, **7 €** per L3. IVA esclusa. **Da verificare la vigenza** | **non dichiarati pubblicamente** nelle fonti consultate (§4.4.5) | **nessun costo per accesso**; costo di lettori e middleware a carico dell'utente | — |
-| **Obblighi ricorrenti** | log 24 mesi, sincronizzazione UTC(IEN) ±1 min, help desk di 1° livello, elenco servizi pubblicato, notifica violazioni entro 24 h, rinnovo convenzione a 5 anni, sorveglianza avvisi | registro accessi 24 mesi, UTC(IEN) ±1 min, assistenza utenti, notifica entro 24 h, **verifica onorabilità almeno ogni 4 anni** | aggiornamento giornaliero del trust store e delle CRL; sorveglianza della TSL | — |
-| **Complessità implementativa** | **alta**: 18 deviazioni da SAML2 (§7.2), N IdP, metadata aggregato, tabella anomalie, ordine casuale IdP, pulsante ufficiale | **media**: stesse deviazioni SAML ma **un solo IdP**; con OIDC, sensibilmente inferiore | **media-bassa** nel codice, **media** nell'infrastruttura (mTLS dietro proxy, trust store, revoca) | — |
+| **Costi** | **tabella DT 166 All. 4 (2019)**: 0 €/0,4 € per autenticazione L1-L2 (soglia 1000 utenti unici per coppia SP/IdP), **3,5 €** per registrazione L1-L2, **7 €** per L3. IVA esclusa. **Da verificare la vigenza** | **non dichiarati pubblicamente** nelle fonti consultate (§4.4.5) | **nessun costo per accesso**; costo di lettori e middleware a carico dell'utente | - |
+| **Obblighi ricorrenti** | log 24 mesi, sincronizzazione UTC(IEN) ±1 min, help desk di 1° livello, elenco servizi pubblicato, notifica violazioni entro 24 h, rinnovo convenzione a 5 anni, sorveglianza avvisi | registro accessi 24 mesi, UTC(IEN) ±1 min, assistenza utenti, notifica entro 24 h, **verifica onorabilità almeno ogni 4 anni** | aggiornamento giornaliero del trust store e delle CRL; sorveglianza della TSL | - |
+| **Complessità implementativa** | **alta**: 18 deviazioni da SAML2 (§7.2), N IdP, metadata aggregato, tabella anomalie, ordine casuale IdP, pulsante ufficiale | **media**: stesse deviazioni SAML ma **un solo IdP**; con OIDC, sensibilmente inferiore | **media-bassa** nel codice, **media** nell'infrastruttura (mTLS dietro proxy, trust store, revoca) | - |
 | **Maturità dell'ecosistema Keycloak** | **buona ma vincolata**: `italia/spid-keycloak-provider`, Apache-2.0, in produzione, `spid_sp_test` **tutto verde** incl. XSW1-XSW8; accoppiamento stretto alle versioni di Keycloak; 3 problemi aperti che sono **di Keycloak** (§7.1) | **buona**: `lscorcia/keycloak-cieid-provider`, Apache-2.0, in produzione, stesso schema di versioni | **nativa**: autenticatore X.509 di Keycloak + template `italia/cie-cns-apache-docker` (MIT) | **assente** |
 | **Compatibilità con il vincolo V1 (sovranità)** | piena (infrastruttura nazionale) | piena | piena | piena |
 | **Adatto a** | cittadino paziente; ampia copertura dell'utenza esistente | cittadino paziente; **direzione strategica del sistema-Paese** | **professionista sanitario** con lettore già in uso | futuro |
@@ -2457,11 +2457,11 @@ Data di riferimento: **25 agosto 2026**. Scadenza D5: **30 novembre 2026**. Rest
 
 | Percorso | Tempo dichiarato dalla fonte | Fonte | Chi controlla il tempo |
 |---|---|---|---|
-| **SPID — accreditamento diretto come SP privato** | **non dichiarato pubblicamente** per: verifica del metadata da parte di AgID, iterazioni, rilascio del certificato della PKI AgID, controfirma del Direttore di AgID. Dichiarati soltanto: **10 giorni** per l'iscrizione nel Registro **dopo** la stipula (Convenzione art. 1, c. 4) e **~1 giorno lavorativo** per il caricamento presso gli IdP dopo la comunicazione di AgID (procedura tecnica `spid.gov.it`) | Convenzione SP privati; procedura tecnica AgID | **AgID**, per la parte dominante |
-| **SPID — adesione come soggetto aggregato** | **nessun procedimento presso AgID a carico dell'aggregato**: l'accordo è privato con l'aggregatore e viene **notificato** ad AgID; a valle, iscrizione nella sezione dedicata del Registro | Regolamento aggregatori (Det. AgID 75/2023), artt. 3, c. 1, lett. e) e 4, c. 2 | **l'aggregatore** (soggetto privato, quindi negoziabile contrattualmente) |
-| **SPID — adesione come aggregatore** | **non dichiarato**, salvo **5 giorni** per l'iscrizione nel Registro dopo la stipula | Regolamento aggregatori, art. 10, c. 2 | AgID |
-| **CIE — federazione** | **non dichiarato pubblicamente** per la valutazione ministeriale della richiesta di adesione e per la convalida tecnica. La fase finale di federazione è descritta come **automatica** | Manuale Operativo CIE, cap. 5 | **Ministero dell'Interno / Poligrafico** |
-| **TS-CNS** | **nessun tempo esterno**: non esiste procedimento presso terzi | — | **il progetto** |
+| **SPID - accreditamento diretto come SP privato** | **non dichiarato pubblicamente** per: verifica del metadata da parte di AgID, iterazioni, rilascio del certificato della PKI AgID, controfirma del Direttore di AgID. Dichiarati soltanto: **10 giorni** per l'iscrizione nel Registro **dopo** la stipula (Convenzione art. 1, c. 4) e **~1 giorno lavorativo** per il caricamento presso gli IdP dopo la comunicazione di AgID (procedura tecnica `spid.gov.it`) | Convenzione SP privati; procedura tecnica AgID | **AgID**, per la parte dominante |
+| **SPID - adesione come soggetto aggregato** | **nessun procedimento presso AgID a carico dell'aggregato**: l'accordo è privato con l'aggregatore e viene **notificato** ad AgID; a valle, iscrizione nella sezione dedicata del Registro | Regolamento aggregatori (Det. AgID 75/2023), artt. 3, c. 1, lett. e) e 4, c. 2 | **l'aggregatore** (soggetto privato, quindi negoziabile contrattualmente) |
+| **SPID - adesione come aggregatore** | **non dichiarato**, salvo **5 giorni** per l'iscrizione nel Registro dopo la stipula | Regolamento aggregatori, art. 10, c. 2 | AgID |
+| **CIE - federazione** | **non dichiarato pubblicamente** per la valutazione ministeriale della richiesta di adesione e per la convalida tecnica. La fase finale di federazione è descritta come **automatica** | Manuale Operativo CIE, cap. 5 | **Ministero dell'Interno / Poligrafico** |
+| **TS-CNS** | **nessun tempo esterno**: non esiste procedimento presso terzi | - | **il progetto** |
 | **IT-Wallet** | **non applicabile**: mancano i decreti attuativi | art. 64-quater CAD | Governo / AgID |
 
 **A chi chiedere quanto non è dichiarato**, in ordine di utilità:
@@ -2473,7 +2473,7 @@ Data di riferimento: **25 agosto 2026**. Scadenza D5: **30 novembre 2026**. Rest
 | **Tabella dei corrispettivi vigente** (sostituisce o conferma DT 166 All. 4 del 2019?) | AgID | stessi canali |
 | **Periodo di adesione minima** verso ciascun identity provider (Convenzione art. 3, c. 1) | AgID | stessi canali |
 | LoA che AgID associa alla categoria «servizi sanitari» (Regolamento modalità attuative, Appendice A) | AgID | stessi canali |
-| Tempi di autorizzazione della richiesta di adesione CIE | Ministero dell'Interno — Direzione Centrale Servizi Demografici | PEC `servizidemografici.prot@pec.interno.it`; sezione «Supporto» del Portale Federazione |
+| Tempi di autorizzazione della richiesta di adesione CIE | Ministero dell'Interno - Direzione Centrale Servizi Demografici | PEC `servizidemografici.prot@pec.interno.it`; sezione «Supporto» del Portale Federazione |
 | **Esistenza di corrispettivi per la federazione CIE** | idem | idem |
 | Conferma che l'`AuthnContextClassRef` di ritorno CIE sia sempre `SpidL3` (§4.3) | Ministero / Poligrafico | idem, **e verifica empirica in pre-produzione** |
 | Prassi corrente su OIDC per SPID | comunità | `forum.italia.it`, categoria SPID |
@@ -2486,17 +2486,17 @@ precedenti.
 
 | Lotto di lavoro | Contenuto | Ordine di grandezza (*stima di progetto*) |
 |---|---|---|
-| **L1 — Realm broker `citizen-idp`** | terzo realm, federazione interna OIDC verso `patient` e `clinic`, back-channel logout, configurazione come codice | contenuto |
-| **L2 — CIE id** | provider CIE, mapper dei 4 attributi eIDAS, gestione `acr_requested`/`acr_asserted`, test in pre-produzione con carte di prova | contenuto |
-| **L3 — SPID** | provider SPID, generazione della configurazione dal Registro, metadata aggregato firmato, tabella anomalie con i 25 codici e i messaggi prescritti, pagina di scelta IdP con ordine casuale e pulsante ufficiale, validazione con `spid-saml-check` e `spid_sp_test` in CI | **il lotto più oneroso** |
-| **L4 — TS-CNS** | host virtuale dedicato con mTLS, aggiornatore della TSL, gestione CRL/OCSP fail-closed, autenticatore X.509 in Keycloak, parser del codice fiscale con checksum, test di header injection | medio, ma su una **competenza diversa** (infrastruttura, non applicativa): parallelizzabile |
-| **L5 — Propagazione del LoA** | `acr.loa.map`, inoltro di `acr_values` attraverso il brokering, eventuale doppia istanza di IdP per livello, claim `auth_source`, regole di autorizzazione per tenant, integrazione con l'identity chaining di R5 §3.3 | **il lotto più sottovalutato** (§7.7.2, punto 2) |
-| **L6 — Contromisure ai difetti di Keycloak** | account console disabilitata, user profile in sola lettura, divieto di credenziali locali, test di sicurezza in CI | contenuto ma **non rinviabile** |
-| **L7 — Documentazione di accreditamento** | guida al deployer per i tre percorsi (diretto / aggregato / aggregatore), checklist di conformità, runbook di rinnovo del metadata e dei certificati | contenuto |
+| **L1 - Realm broker `citizen-idp`** | terzo realm, federazione interna OIDC verso `patient` e `clinic`, back-channel logout, configurazione come codice | contenuto |
+| **L2 - CIE id** | provider CIE, mapper dei 4 attributi eIDAS, gestione `acr_requested`/`acr_asserted`, test in pre-produzione con carte di prova | contenuto |
+| **L3 - SPID** | provider SPID, generazione della configurazione dal Registro, metadata aggregato firmato, tabella anomalie con i 25 codici e i messaggi prescritti, pagina di scelta IdP con ordine casuale e pulsante ufficiale, validazione con `spid-saml-check` e `spid_sp_test` in CI | **il lotto più oneroso** |
+| **L4 - TS-CNS** | host virtuale dedicato con mTLS, aggiornatore della TSL, gestione CRL/OCSP fail-closed, autenticatore X.509 in Keycloak, parser del codice fiscale con checksum, test di header injection | medio, ma su una **competenza diversa** (infrastruttura, non applicativa): parallelizzabile |
+| **L5 - Propagazione del LoA** | `acr.loa.map`, inoltro di `acr_values` attraverso il brokering, eventuale doppia istanza di IdP per livello, claim `auth_source`, regole di autorizzazione per tenant, integrazione con l'identity chaining di R5 §3.3 | **il lotto più sottovalutato** (§7.7.2, punto 2) |
+| **L6 - Contromisure ai difetti di Keycloak** | account console disabilitata, user profile in sola lettura, divieto di credenziali locali, test di sicurezza in CI | contenuto ma **non rinviabile** |
+| **L7 - Documentazione di accreditamento** | guida al deployer per i tre percorsi (diretto / aggregato / aggregatore), checklist di conformità, runbook di rinnovo del metadata e dei certificati | contenuto |
 
 **Osservazione onesta sull'ordine di grandezza complessivo.** Sette lotti, di cui uno
 infrastrutturale e uno trasversale all'autorizzazione, inseriti in una finestra di 14 settimane in
-cui — secondo `02_QUESTIONI_APERTE.md`, questione R1 — sono già in coda anche imaging, bulk data e
+cui - secondo `02_QUESTIONI_APERTE.md`, questione R1 - sono già in coda anche imaging, bulk data e
 cross-version extension. **Questo documento non è in grado di affermare che i sette lotti stiano
 tutti nella finestra**: quella valutazione spetta all'agente di pianificazione, che conosce la
 capacità disponibile. Quello che questo documento può affermare è **quale parte del rischio è
@@ -2506,7 +2506,7 @@ governabile e quale no**.
 
 **Il giudizio dipende interamente da come si legge D9. Ci sono due letture e vanno separate.**
 
-#### Lettura A — «entro il 30 novembre 2026 esiste un'installazione accreditata e operativa su SPID»
+#### Lettura A - «entro il 30 novembre 2026 esiste un'installazione accreditata e operativa su SPID»
 
 **Giudizio: NON COMPATIBILE in modo affidabile. Il rischio è alto e, soprattutto, non
 quantificabile né mitigabile dal progetto.**
@@ -2529,7 +2529,7 @@ Motivazioni, in ordine di gravità:
 5. **Ogni iterazione consuma tempo di calendario, non tempo di lavoro**: è tempo in cui il team
    attende, e non è comprimibile aggiungendo persone.
 
-#### Lettura B — «entro il 30 novembre 2026 Telemedic è SPID-ready, CIE-ready e TS-CNS-ready»
+#### Lettura B - «entro il 30 novembre 2026 Telemedic è SPID-ready, CIE-ready e TS-CNS-ready»
 
 **Giudizio: COMPATIBILE, e verificabile in modo oggettivo.**
 
@@ -2541,7 +2541,7 @@ Perché è difendibile:
 2. **Esiste un precedente verificabile**: `italia/spid-keycloak-provider` dichiara il superamento
    integrale di `spid_sp_test` 1.2.17 su metadata, `AuthnRequest` e 111 casi di `Response`. La
    conformità con questo stack **è raggiungibile**, non ipotetica.
-3. **TS-CNS è completabile al 100% dentro la v1.0**, senza dipendenze esterne — e copre il canale
+3. **TS-CNS è completabile al 100% dentro la v1.0**, senza dipendenze esterne - e copre il canale
    che il piano originario **non aveva previsto**.
 4. **CIE è completabile fino alla pre-produzione** senza dipendere da terzi oltre
    l'autorizzazione ministeriale, che serve **solo** per accedere all'ambiente tecnico.
@@ -2553,7 +2553,7 @@ Perché è difendibile:
 
 **Riformulare D9 nella lettura B**, con un testo del tipo:
 
-> **D9 (rev.)** — *Identità digitale.* La v1.0 di Telemedic implementa integralmente
+> **D9 (rev.)** - *Identità digitale.* La v1.0 di Telemedic implementa integralmente
 > l'autenticazione ex art. 64 CAD con **SPID (SAML2)**, **CIE id (SAML2 e/o OIDC)** e
 > **TS-CNS (mutua autenticazione TLS)**, con conformità verificata in CI contro gli strumenti
 > ufficiali di validazione e con documentazione di accreditamento per il deployer.
@@ -2562,8 +2562,8 @@ Perché è difendibile:
 > della v1.0**, in quanto procedimenti amministrativi di terzi privi di termine dichiarato.
 > IT-Wallet è fuori perimetro, con predisposizione architetturale documentata in un ADR.
 
-Se il committente **non** accetta questa riformulazione, allora — e questo va detto senza
-attenuazioni — **la sola mitigazione reale è avviare oggi, in parallelo allo sviluppo, il
+Se il committente **non** accetta questa riformulazione, allora - e questo va detto senza
+attenuazioni - **la sola mitigazione reale è avviare oggi, in parallelo allo sviluppo, il
 procedimento presso un deployer già individuato**, accettando che l'esito non è nelle mani del
 progetto. Ogni settimana di attesa è tempo di calendario che non si recupera.
 
@@ -2574,24 +2574,24 @@ progetto. Ogni settimana di attesa è tempo di calendario che non si recupera.
 Cinque opzioni, valutate. Non sono mutuamente esclusive: la raccomandazione di §11 ne combina
 alcune.
 
-### 10.1 Opzione A — Partire da CIE, SPID a seguire
+### 10.1 Opzione A - Partire da CIE, SPID a seguire
 
 **Che cosa significa.** Implementare e validare per primo il canale CIE id; SPID subito dopo, con
 la stessa infrastruttura di realm broker.
 
 | Pro | Contro |
 |---|---|
-| **Un solo identity provider** da configurare, contro una decina | copertura d'utenza inferiore a SPID nel breve periodo (55 milioni di CIE emesse contro 41 milioni di identità SPID, ma **9 milioni** di credenziali CIE effettivamente attivate — comunicato AgID 8 ottobre 2025) |
+| **Un solo identity provider** da configurare, contro una decina | copertura d'utenza inferiore a SPID nel breve periodo (55 milioni di CIE emesse contro 41 milioni di identità SPID, ma **9 milioni** di credenziali CIE effettivamente attivate - comunicato AgID 8 ottobre 2025) |
 | **OIDC disponibile in produzione**: nessuna necessità di un secondo protocollo di federazione | l'asserzione non riporta il livello effettivo (§4.3): la propagazione del LoA va progettata con cura |
 | **Onboarding interamente digitale** su portale, con referente tecnico anche esterno | attributi limitati al Minimum eIDAS Dataset |
 | **Ambiente di pre-produzione con carte di test**: il ciclo di sviluppo non dipende da terzi | tempi di autorizzazione ministeriale comunque non dichiarati |
-| **Direzione strategica del sistema-Paese** (§6.3) | — |
+| **Direzione strategica del sistema-Paese** (§6.3) | - |
 | Chi è già SP SPID **non** ripresenta le dichiarazioni sostitutive: l'ordine CIE→SPID non penalizza il secondo passo | l'ordine inverso (SPID→CIE) sarebbe leggermente più efficiente sul piano documentale |
 
 **Valutazione: opzione forte.** È quella con il miglior rapporto fra valore consegnato e rischio
 esterno assunto.
 
-### 10.2 Opzione B — Appoggiarsi a un aggregatore
+### 10.2 Opzione B - Appoggiarsi a un aggregatore
 
 **Che cosa significa.** Il deployer aderisce a SPID come **soggetto aggregato** di un aggregatore
 già accreditato (§3.10).
@@ -2609,7 +2609,7 @@ come architettura di prodotto.** Telemedic deve essere **utilizzabile** in modal
 aggregatore, e questo è un requisito di configurabilità (entityID e metadata per istanza), non una
 scelta strategica del progetto.
 
-### 10.3 Opzione C — Delegare l'autenticazione all'integratore che è già Service Provider
+### 10.3 Opzione C - Delegare l'autenticazione all'integratore che è già Service Provider
 
 **Che cosa significa.** Se l'integratore è già SP SPID/CIE, l'utente si autentica presso di lui e
 l'identità arriva a Telemedic per **identity chaining** (`R5` §3.3: token exchange RFC 8693 e JWT
@@ -2626,7 +2626,7 @@ grant RFC 7523 §2.1).
 soluzione per il cittadino.** Va documentata come tale, senza lasciar credere che sostituisca
 SPID/CIE dove la norma li impone.
 
-### 10.4 Opzione D — Rilasciare con OIDC generico e sola predisposizione
+### 10.4 Opzione D - Rilasciare con OIDC generico e sola predisposizione
 
 **Che cosa significa.** La v1.0 espone solo OIDC standard verso IdP generici; SPID/CIE restano
 documentati come estensione futura.
@@ -2635,13 +2635,13 @@ documentati come estensione futura.
 |---|---|
 | Costo minimo, nessun rischio esterno | **contraddice frontalmente D9** e la comunicazione pubblica del progetto |
 | Consente comunque il deployment presso integratori privati | **rende il prodotto non acquisibile da una PA** (R3 §8.4, punto 6: l'autenticazione ex art. 64 CAD è condizione di ammissibilità) |
-| — | esclude i casi d'uso «telemedicina pubblica regionale (ASL/USL)» dichiarati nel brief §4 |
-| — | il debito tecnico non si riduce: le 18 deviazioni di §7.2 vanno affrontate comunque, più tardi e con più contesto da ricostruire |
+| - | esclude i casi d'uso «telemedicina pubblica regionale (ASL/USL)» dichiarati nel brief §4 |
+| - | il debito tecnico non si riduce: le 18 deviazioni di §7.2 vanno affrontate comunque, più tardi e con più contesto da ricostruire |
 
 **Valutazione: sconsigliata.** È l'unica opzione che riduce il rischio **rinunciando al mercato di
 riferimento**. Se il vincolo temporale fosse insostenibile, sarebbe preferibile ridurre altro.
 
-### 10.5 Opzione E — Solo TS-CNS nella v1.0
+### 10.5 Opzione E - Solo TS-CNS nella v1.0
 
 **Che cosa significa.** Implementare integralmente il canale certificato su smart card e rinviare
 SPID e CIE.
@@ -2651,20 +2651,20 @@ SPID e CIE.
 | **Zero dipendenze esterne**: interamente completabile entro la scadenza | **non copre il paziente**: richiede lettore e middleware (§5.6) |
 | Soddisfa formalmente uno dei tre canali dell'art. 64 CAD richiesti da DM 19/11/2025 e DM 7/9/2023 | i due decreti elencano **SPID, CIE **e** TS-CNS**: coprirne uno solo non è conformità |
 | Il lettore di tessera sanitaria è già presente nel profilo archetipo dell'integratore (brief §6.1) | esperienza d'uso fragile, non mobile |
-| Costo zero per accesso | — |
+| Costo zero per accesso | - |
 
-**Valutazione: necessaria ma non sufficiente.** TS-CNS va fatto **comunque** — è obbligatorio e
-gratuito in termini di rischio — ma non può essere la sola risposta a D9.
+**Valutazione: necessaria ma non sufficiente.** TS-CNS va fatto **comunque** - è obbligatorio e
+gratuito in termini di rischio - ma non può essere la sola risposta a D9.
 
 ### 10.6 Sintesi delle opzioni
 
 | Opzione | Riduce il rischio esterno? | Copre il paziente? | Copre il professionista? | Compatibile con D9? |
 |---|---|---|---|---|
-| **A — CIE prima, SPID poi** | parzialmente (un solo IdP, portale digitale) | **sì** | sì | **sì** |
-| **B — Aggregatore** | **sì, quasi del tutto** | sì | sì | sì, ma sposta il controllo |
-| **C — Delega all'integratore** | **sì, del tutto** | no | **sì** | parzialmente |
-| **D — Solo OIDC generico** | sì | no | no | **no** |
-| **E — Solo TS-CNS** | **sì, del tutto** | no | **sì** | parzialmente |
+| **A - CIE prima, SPID poi** | parzialmente (un solo IdP, portale digitale) | **sì** | sì | **sì** |
+| **B - Aggregatore** | **sì, quasi del tutto** | sì | sì | sì, ma sposta il controllo |
+| **C - Delega all'integratore** | **sì, del tutto** | no | **sì** | parzialmente |
+| **D - Solo OIDC generico** | sì | no | no | **no** |
+| **E - Solo TS-CNS** | **sì, del tutto** | no | **sì** | parzialmente |
 
 ---
 
@@ -2687,7 +2687,7 @@ falsificare presto le ipotesi sbagliate.** Ciò che dipende da terzi va avviato 
 consegna valore per ultimo; ciò che può smentire un'ipotesi di design va verificato prima che il
 design vi si appoggi.
 
-#### Fase 0 — In parallelo dal giorno 1, senza attendere nulla
+#### Fase 0 - In parallelo dal giorno 1, senza attendere nulla
 
 | Azione | Perché ora |
 |---|---|
@@ -2696,39 +2696,39 @@ design vi si appoggi.
 | **Verificare empiricamente l'ipotesi di §4.3** (l'`AuthnContextClassRef` di ritorno CIE è sempre `SpidL3`?) | costa poco e **falsifica o conferma il design della propagazione del LoA**, da cui dipende L5 |
 | **Verificare l'inoltro di `acr_values` attraverso il brokering OIDC di Keycloak** (§7.7.2, punto 1) | stessa ragione: se non si propaga, L5 cambia forma |
 
-#### Fase 1 — Fondamenta (L1, L6, L4)
+#### Fase 1 - Fondamenta (L1, L6, L4)
 
-1. **L1 — realm broker `citizen-idp`** e federazione interna OIDC verso `patient` e `clinic`.
+1. **L1 - realm broker `citizen-idp`** e federazione interna OIDC verso `patient` e `clinic`.
    È il presupposto di tutto il resto e non dipende da nessun terzo.
-2. **L6 — contromisure ai difetti di Keycloak.** Vanno fatte **prima** di collegare un IdP reale:
+2. **L6 - contromisure ai difetti di Keycloak.** Vanno fatte **prima** di collegare un IdP reale:
    altrimenti si costruisce sopra un'identità mutabile dall'utente stesso, e il rifacimento
    costa più della prevenzione.
-3. **L4 — TS-CNS.** Vive al bordo dell'infrastruttura, richiede competenze diverse (rete, TLS,
+3. **L4 - TS-CNS.** Vive al bordo dell'infrastruttura, richiede competenze diverse (rete, TLS,
    PKI) ed è **completamente parallelizzabile** rispetto ai lotti applicativi. È l'unico canale
    che può essere dichiarato **completo** nella v1.0. Metterlo presto significa avere un canale
    ex art. 64 CAD funzionante e dimostrabile a prescindere da ogni esito burocratico.
 
-#### Fase 2 — CIE (L2), poi la propagazione del livello (L5)
+#### Fase 2 - CIE (L2), poi la propagazione del livello (L5)
 
-4. **L2 — CIE id.** Un solo IdP, OIDC disponibile, pre-produzione con carte di test: è il canale
+4. **L2 - CIE id.** Un solo IdP, OIDC disponibile, pre-produzione con carte di test: è il canale
    federato con il minor costo di integrazione e il ciclo di feedback più corto. Consegna un
    canale cittadino funzionante prima e con meno incertezza di SPID.
-5. **L5 — propagazione del LoA.** Va fatta **subito dopo il primo canale federato reale**, non
+5. **L5 - propagazione del LoA.** Va fatta **subito dopo il primo canale federato reale**, non
    alla fine: è il lotto sistematicamente sottovalutato (§7.7.2), tocca l'autorizzazione, l'audit
    e l'identity chaining verso l'integratore, e se scoperto tardi obbliga a rilavorare L2 e L3.
 
-#### Fase 3 — SPID (L3)
+#### Fase 3 - SPID (L3)
 
-6. **L3 — SPID.** È il lotto più oneroso: N identity provider generati dal Registro, metadata
+6. **L3 - SPID.** È il lotto più oneroso: N identity provider generati dal Registro, metadata
    aggregato firmato con indici stabili verificati in CI, tabella delle 25 anomalie con i messaggi
    prescritti, pagina di scelta con ordine casuale e pulsante ufficiale, validazione con
    `spid-saml-check` e `spid_sp_test`. Va **dopo** CIE perché riusa integralmente le fondamenta
    (L1, L5) e perché il rischio di scoprire tardi un problema di propagazione del livello è già
    stato eliminato.
 
-#### Fase 4 — Documentazione (L7) e chiusura
+#### Fase 4 - Documentazione (L7) e chiusura
 
-7. **L7 — documentazione di accreditamento**: guida al deployer per i tre percorsi (diretto,
+7. **L7 - documentazione di accreditamento**: guida al deployer per i tre percorsi (diretto,
    aggregato, aggregatore), checklist di conformità, runbook di rinnovo del metadata e dei
    certificati, policy di sorveglianza degli avvisi AgID.
 8. **ADR IT-Wallet**: predisposizione architetturale, nessuna implementazione (§6.3).
@@ -2763,7 +2763,7 @@ Perché D9 sia dichiarabile completa, e verificabile da un terzo:
 | A7 | Gli header `X-SSL-Client-*` iniettati dall'esterno **non** vengono onorati | test di sicurezza in CI |
 | A8 | Un utente federato **non** può modificare i propri attributi anagrafici né impostare una password locale | test di sicurezza in CI sugli endpoint REST di Keycloak |
 | A9 | Il claim `acr` è corretto nel token finale per ogni combinazione canale × livello, e `auth_source` distingue `verified_by_telemedic` | test di integrazione con asserzione sui claim |
-| A10 | Ogni `AuditEvent` di autenticazione registra canale, `acr_requested`, `acr_asserted`, IdP e — per l'identità riferita — il claim `act` | test di integrazione + revisione di conformità V5 |
+| A10 | Ogni `AuditEvent` di autenticazione registra canale, `acr_requested`, `acr_asserted`, IdP e - per l'identità riferita - il claim `act` | test di integrazione + revisione di conformità V5 |
 | A11 | Gli indici di `AssertionConsumerService` e `AttributeConsumingService` del metadata generato coincidono con quelli attesi | test di *diff* sul metadata in CI |
 | A12 | La retention delle tracciature di autenticazione è configurata a **24 mesi** e la cancellazione è dimostrabile | test di integrazione sul job di retention |
 | A13 | Lo scostamento dell'orologio dalla scala UTC è esposto come metrica e allarmato oltre **1 minuto** | verifica sulla dashboard di osservabilità |
@@ -2779,12 +2779,12 @@ I criteri **A7**, **A8** e **A11** sono quelli che, se omessi, lasciano un difet
 
 | # | Questione | Destinatario |
 |---|---|---|
-| B7-1 | Tempi medi correnti della fase tecnica e della fase amministrativa di adesione a SPID | AgID — `spid.tech@agid.gov.it`, Help Desk SPID, PEC |
+| B7-1 | Tempi medi correnti della fase tecnica e della fase amministrativa di adesione a SPID | AgID - `spid.tech@agid.gov.it`, Help Desk SPID, PEC |
 | B7-2 | Tempi di rilascio del certificato di federazione della PKI di AgID (Avviso n. 23) | AgID |
 | B7-3 | **La tabella dei corrispettivi DT 166 All. 4 (2019) è tuttora vigente?** Esiste una versione aggiornata dopo il rinnovo delle convenzioni dell'8 ottobre 2025? | AgID |
 | B7-4 | **Periodo di adesione minima** verso ciascun identity provider (Convenzione SP privati, art. 3, c. 1) | AgID |
 | B7-5 | Documento AgID che associa il **LoA alle categorie di servizi omogenee** (Regolamento modalità attuative, Appendice A): esiste una voce per i servizi sanitari? | AgID |
-| B7-6 | **Esistono corrispettivi a carico dei fornitori di servizi per la federazione CIE?** | Ministero dell'Interno — `servizidemografici.prot@pec.interno.it` |
+| B7-6 | **Esistono corrispettivi a carico dei fornitori di servizi per la federazione CIE?** | Ministero dell'Interno - `servizidemografici.prot@pec.interno.it` |
 | B7-7 | Tempi di valutazione della richiesta di adesione CIE e di convalida tecnica | Ministero dell'Interno |
 | B7-8 | Conferma che l'`AuthnContextClassRef` di ritorno CIE sia **sempre** `SpidL3` anche nella versione corrente delle regole tecniche | Ministero / Poligrafico + **verifica empirica in pre-produzione** |
 
@@ -2862,46 +2862,46 @@ I criteri **A7**, **A8** e **A11** sono quelli che, se omessi, lasciano un difet
 - **d.lgs. 7 marzo 2005, n. 82** (CAD), art. 64, commi 2-bis … 2-duodecies; art. 64-quater
   (IT-Wallet), introdotto dal **d.l. 2 marzo 2024, n. 19**, conv. **l. 29 aprile 2024, n. 56**.
 - **DPCM 24 ottobre 2014**, GU n. 285 del 9 dicembre 2014, modificato dal **DPCM 19 ottobre 2021**,
-  GU n. 296 del 14 dicembre 2021 — caratteristiche del sistema SPID; artt. 1, 6, 13, 15.
-- **Determinazione AgID n. 44/2015** del 28 luglio 2015 — emanazione dei regolamenti SPID.
-- **Determinazione AgID n. 75/2023** — Regolamento sui soggetti aggregatori SPID.
-- **Determinazione AgID DT 166** — corrispettivi del servizio di autenticazione SPID (Allegato 4,
+  GU n. 296 del 14 dicembre 2021 - caratteristiche del sistema SPID; artt. 1, 6, 13, 15.
+- **Determinazione AgID n. 44/2015** del 28 luglio 2015 - emanazione dei regolamenti SPID.
+- **Determinazione AgID n. 75/2023** - Regolamento sui soggetti aggregatori SPID.
+- **Determinazione AgID DT 166** - corrispettivi del servizio di autenticazione SPID (Allegato 4,
   2019).
-- **DM Interno 8 settembre 2022**, art. 5 — federazione «Entra con CIE».
-- **DM MEF 23 novembre 2020, n. 169** — requisiti di onorabilità.
-- **DM 30 novembre 1993, n. 591** — scala di tempo UTC (IEN).
-- **DM Salute 7 settembre 2023**, art. 11, c. 1 — FSE 2.0, GU n. 249 del 24 ottobre 2023.
-- **DM 19 novembre 2025**, Allegato 4 — GU n. 301 del 30 dicembre 2025, atto 25A06938.
+- **DM Interno 8 settembre 2022**, art. 5 - federazione «Entra con CIE».
+- **DM MEF 23 novembre 2020, n. 169** - requisiti di onorabilità.
+- **DM 30 novembre 1993, n. 591** - scala di tempo UTC (IEN).
+- **DM Salute 7 settembre 2023**, art. 11, c. 1 - FSE 2.0, GU n. 249 del 24 ottobre 2023.
+- **DM 19 novembre 2025**, Allegato 4 - GU n. 301 del 30 dicembre 2025, atto 25A06938.
 - **Regolamento (UE) n. 910/2014** (eIDAS), art. 8, par. 2 e Allegato II; SPID notificato in
   **GUUE C-318 del 10 settembre 2018**.
 - **Regolamento (UE) 2024/1183** (eIDAS 2), in vigore dal 20 maggio 2024.
 - **Regolamento (UE) 2016/679** (GDPR), artt. 4 n. 7-8, 5, 9, 10, 25, 28, 32, 33-34.
 - **d.lgs. 30 giugno 2003, n. 196**, artt. 2-octies, 2-sexies, 2-quaterdecies.
-- **d.lgs. 1° settembre 1993, n. 385**, art. 26 — requisiti di onorabilità bancari.
+- **d.lgs. 1° settembre 1993, n. 385**, art. 26 - requisiti di onorabilità bancari.
 - **DPR 28 dicembre 2000, n. 445**, artt. 46 e 71.
 - **d.lgs. 9 aprile 2003, n. 70**, artt. 2, c. 1, lett. a) e 17, c. 2.
 
 ### 13.2 Regole tecniche e documentazione operativa
 
-- **Regole tecniche SPID** — `docs.italia.it/italia/spid/spid-regole-tecniche` (sezioni
+- **Regole tecniche SPID** - `docs.italia.it/italia/spid/spid-regole-tecniche` (sezioni
   *Metadata*, *Single Sign-On*, *Attributi*, *Messaggi di errore*); sorgente:
   `github.com/italia/spid-regole-tecniche`.
 - **Regolamento recante le modalità attuative per la realizzazione dello SPID**, versione 2
   (artt. 2, 3, 26, 27, 28, 29, 30, 30-bis; Appendici A, B, D).
 - **Avvisi SPID** n. 6, 19 v.4, 22 v.2, 23, 25, 29 v.3, 34, **41 v.2 (23/03/2023)**, 42, 43,
-  **44 (12/08/2024)** — `agid.gov.it/it/piattaforme/spid/avvisi-spid`.
-- **SPID — Linee guida sulle interfacce e sulle informazioni IdP/SP**, AgID, 14 pagine.
+  **44 (12/08/2024)** - `agid.gov.it/it/piattaforme/spid/avvisi-spid`.
+- **SPID - Linee guida sulle interfacce e sulle informazioni IdP/SP**, AgID, 14 pagine.
 - **Schema di Convenzione per l'adesione dei fornitori di servizi privati a SPID**, AgID.
-- **Allegato 4 — Corrispettivi servizio di autenticazione SPID (2019)**.
+- **Allegato 4 - Corrispettivi servizio di autenticazione SPID (2019)**.
 - **Linee Guida «OpenID Connect in SPID»** e **Regolamento «SPID OpenID Connect Federation»**,
   AgID; regole tecniche `docs.italia.it/italia/spid/spid-cie-oidc-docs`.
 - **Manuale Operativo per gli erogatori di servizi pubblici e privati** (CIE), release master,
-  12 dicembre 2023 — `docs.italia.it/italia/cie/cie-manuale-operativo-docs`.
-- **Manuale Tecnico per gli erogatori di servizi pubblici e privati** (CIE) —
+  12 dicembre 2023 - `docs.italia.it/italia/cie/cie-manuale-operativo-docs`.
+- **Manuale Tecnico per gli erogatori di servizi pubblici e privati** (CIE) -
   `docs.italia.it/italia/cie/cie-manuale-tecnico-docs`.
-- **Regole Tecniche CIE eID SAML** — `docs.italia.it/italia/cie/cie-eid-saml-docs`.
-- **Portale Federazione «Entra con CIE»** — `federazione.servizicie.interno.gov.it`.
-- **Registro SPID** — `registry.spid.gov.it`.
+- **Regole Tecniche CIE eID SAML** - `docs.italia.it/italia/cie/cie-eid-saml-docs`.
+- **Portale Federazione «Entra con CIE»** - `federazione.servizicie.interno.gov.it`.
+- **Registro SPID** - `registry.spid.gov.it`.
 
 ### 13.3 Software
 
@@ -2909,19 +2909,19 @@ I criteri **A7**, **A8** e **A11** sono quelli che, se omessi, lasciano un difet
 |---|---|---|
 | SPID identity provider per Keycloak | `github.com/italia/spid-keycloak-provider` | Apache-2.0 |
 | CIE id identity provider per Keycloak | `github.com/lscorcia/keycloak-cieid-provider` | Apache-2.0 |
-| SPID Validator / SAML Check | `github.com/italia/spid-saml-check`; demo su `demo.spid.gov.it` | — |
-| Pulsante ufficiale «Entra con SPID» | `github.com/italia/spid-sp-access-button` | — |
+| SPID Validator / SAML Check | `github.com/italia/spid-saml-check`; demo su `demo.spid.gov.it` | - |
+| Pulsante ufficiale «Entra con SPID» | `github.com/italia/spid-sp-access-button` | - |
 | Template mTLS TS-CNS/CIE su Apache | `github.com/italia/cie-cns-apache-docker` | MIT |
 | Keycloak | `keycloak.org` | Apache-2.0 |
 
 ### 13.4 Documenti interni
 
-- `.telemedic/context/00_PROJECT_BRIEF.md` — decisioni D1, D5, D8, D9, D10; vincoli V1, V4, V5, V6.
-- `.telemedic/research/R3-normativa-italiana.md` — §§ 8.4, 9.5: obbligo di autenticazione forte
+- `.telemedic/context/00_PROJECT_BRIEF.md` - decisioni D1, D5, D8, D9, D10; vincoli V1, V4, V5, V6.
+- `.telemedic/research/R3-normativa-italiana.md` - §§ 8.4, 9.5: obbligo di autenticazione forte
   ex art. 64 CAD con SPID, CIE e **TS-CNS**.
-- `.telemedic/research/R5-pattern-integrazione.md` — §2.5, §3.3 (token exchange e identity
+- `.telemedic/research/R5-pattern-integrazione.md` - §2.5, §3.3 (token exchange e identity
   chaining), §3.3.7 (stato Keycloak), §3.10 (questione Q4, **risolta qui in §3.5.1**), §5.3.
-- `.telemedic/research/R6-dominio-funzionale.md` — §8.3 (nessun formato esterno nel nucleo);
+- `.telemedic/research/R6-dominio-funzionale.md` - §8.3 (nessun formato esterno nel nucleo);
   questione Q9 (minori e rappresentanza legale).
-- `.telemedic/context/02_QUESTIONI_APERTE.md` — questione R1 (compatibilità di D5 con la finestra
+- `.telemedic/context/02_QUESTIONI_APERTE.md` - questione R1 (compatibilità di D5 con la finestra
   temporale), R3 (ricontrollo delle fonti prima del rilascio).

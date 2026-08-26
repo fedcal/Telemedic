@@ -1,10 +1,10 @@
-# Verifica di fonte primaria — Appendice B della ricerca R4 (agente B3)
+# Verifica di fonte primaria - Appendice B della ricerca R4 (agente B3)
 
 **Data della verifica**: 25 agosto 2026. Ogni voce riporta l'esito, il dato accertato e la fonte. Le fonti sono classificate come **[UPSTREAM]** (repository o documentazione del progetto stesso), **[NORMATIVA]** (IETF/W3C), **[VENDOR]** (bug tracker o blog del produttore del browser), **[DB VULN]** (NVD / GitHub Security Advisories). Nessun numero di CVE, nome di direttiva, flag o valore di API compare in questo documento senza essere stato letto su una di queste fonti.
 
 ---
 
-## 1. coturn — verifica su fonte primaria
+## 1. coturn - verifica su fonte primaria
 
 ### 1.1 Versione corrente e cronologia delle release
 
@@ -53,13 +53,13 @@ Fonte [UPSTREAM]: `https://api.github.com/repos/coturn/coturn/releases/tags/4.17
 
 **Esito: CONFERMATA e ampiamente estesa.** R4 aveva ragione a non citare numeri: le fonti secondarie erano vaghe. I numeri esistono, sono verificabili su NVD, e sono **molti più** di quanti R4 sospettasse.
 
-#### 1.2.1 CVE-2020-26262 — verificata
+#### 1.2.1 CVE-2020-26262 - verificata
 
 **Esito: CONFERMATA.**
 
 Descrizione NVD: *"Coturn before version 4.5.2 had a loopback address bypass vulnerability. Sending a CONNECT request with the XOR-PEER-ADDRESS value of 0.0.0.0 would receive a successful response, allowing packet relay to loopback interfaces."* I sistemi IPv6 erano parimenti vulnerabili tramite `[::1]` o `[::]`.
 
-- CVSS v3.1: **7.2 HIGH** — `AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N`
+- CVSS v3.1: **7.2 HIGH** - `AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N`
 - Versioni affette: **tutte < 4.5.2**; corretta in **4.5.2**
 - Advisory: GHSA-6g6j-r9rf-cm7p
 
@@ -100,7 +100,7 @@ Fonte [DB VULN]: NVD API v2.0, `keywordSearch=coturn`.
 | CVE-2026-73215 | 2026-08-11 | `EVEN-PORT` esaurisce il pool di porte relay | 7.1 HIGH | 4.17.0 |
 | CVE-2026-73216 | 2026-08-11 | Bypass della quota allocazioni via disconnessione mobility | 6.5 MED | 4.17.0 |
 
-Advisory senza CVE assegnata [DB VULN]: **GHSA-67c2-q5xv-f85p** — *"Authenticated client grows multiplex-peer demux table without bounds"*, ≤ 4.15.0, corretta in 4.16.0.
+Advisory senza CVE assegnata [DB VULN]: **GHSA-67c2-q5xv-f85p** - *"Authenticated client grows multiplex-peer demux table without bounds"*, ≤ 4.15.0, corretta in 4.16.0.
 
 Fonte [DB VULN]: `https://api.github.com/repos/coturn/coturn/security-advisories`, `https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=coturn`
 
@@ -138,23 +138,23 @@ Fonti [DB VULN]:
 
 ### 1.3 Esistenza e semantica delle direttive contestate
 
-Metodo: incrocio fra tre fonti upstream — la man page `man/man1/turnserver.1`, la tabella `long_options[]` in `src/apps/relay/mainrelay.c` (che è ciò che il binario accetta davvero) e `examples/etc/turnserver.conf`. Dove le tre divergono, prevale `mainrelay.c`.
+Metodo: incrocio fra tre fonti upstream - la man page `man/man1/turnserver.1`, la tabella `long_options[]` in `src/apps/relay/mainrelay.c` (che è ciò che il binario accetta davvero) e `examples/etc/turnserver.conf`. Dove le tre divergono, prevale `mainrelay.c`.
 
 | Direttiva del mandato R4 | Esito | Accertamento |
 |---|---|---|
 | `no-rfc5780` | **CONFERMATA, deprecata** | Presente in `mainrelay.c` (`NO_RFC5780`) e in man page: *"DEPRECATED and now the default behaviour. See --rfc5780."* Il default è stato invertito in 4.7.0 (*"Invert RFC5780 option to default off (#1688)"*). **Non va scritta**: non serve più. |
-| `no-stun-backward-compatibility` | **SMENTITA — RIMOSSA** | **Assente** sia dalla man page sia da `mainrelay.c`. Introdotta in 4.6.0, invertita a default-on in 4.7.0 (*"Invert no-stun-backward-compatibility to be default on (#1689)"*), poi rimossa. Il sostituto è l'opzione **positiva** `--stun-backward-compatibility`: *"Add the deprecated MAPPED-ADDRESS attribute to STUN Binding responses, in addition to the XOR-MAPPED-ADDRESS attribute that is always sent."* Non impostarla è già il comportamento sicuro. |
+| `no-stun-backward-compatibility` | **SMENTITA - RIMOSSA** | **Assente** sia dalla man page sia da `mainrelay.c`. Introdotta in 4.6.0, invertita a default-on in 4.7.0 (*"Invert no-stun-backward-compatibility to be default on (#1689)"*), poi rimossa. Il sostituto è l'opzione **positiva** `--stun-backward-compatibility`: *"Add the deprecated MAPPED-ADDRESS attribute to STUN Binding responses, in addition to the XOR-MAPPED-ADDRESS attribute that is always sent."* Non impostarla è già il comportamento sicuro. |
 | `response-origin-only-with-rfc5780` | **CONFERMATA, deprecata** | Presente in `mainrelay.c`; **assente** dalla man page. Deprecata in 4.7.0. Non va scritta. |
-| `no-tlsv1` | **SMENTITA — RIMOSSA** | Assente da man page e `mainrelay.c`. Introdotta in 3.2.1.1 (2014), rimossa. |
-| `no-tlsv1_1` | **SMENTITA — RIMOSSA** | Idem. |
+| `no-tlsv1` | **SMENTITA - RIMOSSA** | Assente da man page e `mainrelay.c`. Introdotta in 3.2.1.1 (2014), rimossa. |
+| `no-tlsv1_1` | **SMENTITA - RIMOSSA** | Idem. |
 | `no-tlsv1_2` | **ESISTE, con semantica diversa da quella attesa** | Presente in `mainrelay.c` e man page: *"Set TLSv1.3/DTLSv1.2 as a minimum supported protocol version."* Non è «disabilita TLS 1.2»: è «alza il minimo a TLS 1.3 (per TLS) e a DTLS 1.2 (per DTLS)». |
-| `dh2066` | **SMENTITA — NON ESISTE** | Assente da man page e `mainrelay.c`. Esistono solo `dh566` e `dh1066`, entrambe **abbassano** la dimensione: *"Use 1066 bits predefined DH TLS key. **Default size of the key is 2066.**"* 2066 bit è già il default: la direttiva non serve e non esiste. |
+| `dh2066` | **SMENTITA - NON ESISTE** | Assente da man page e `mainrelay.c`. Esistono solo `dh566` e `dh1066`, entrambe **abbassano** la dimensione: *"Use 1066 bits predefined DH TLS key. **Default size of the key is 2066.**"* 2066 bit è già il default: la direttiva non serve e non esiste. |
 | `no-cli` | **CONFERMATA** | Presente. *"Turn OFF the CLI support. Since the CLI is OFF by default, this flag is only useful to override a 'cli' setting from the configuration file."* |
 | `no-udp` | **CONFERMATA** | *"Do not start UDP client listeners."* (Da **non** usare in WebRTC.) |
 | `no-software-attribute` | **CONFERMATA, deprecata** | Presente in `mainrelay.c` come `DEPRECATED_NO_SOFTWARE_ATTRIBUTE_OPT`; man page: *"DEPRECATED. See '--software-attribute'."* L'opzione viva è `--software-attribute`: *"Send SOFTWARE_ATTRIBUTE on messages that can have it. **Disabled by default.** Equals to deprecated option `--no-software-attribute false`."* **Il non-disclosure della versione è già il default**: non scrivere nulla. |
 | `unauthorized-ratelimit` | **CONFERMATA** | *"Enable per-source rate limiting of UDP 401 Unauthorized responses. This mitigates reflection and amplification attacks that spoof a victim's source address to receive authentication challenges."* Accompagnata da `--unauthorized-ratelimit-rps` (*"Maximum number of UDP 401 Unauthorized responses sent per source IP per second. Default is 10."*). **Da attivare.** |
 | `keep-address-family` | **CONFERMATA, deprecata** | Presente in `mainrelay.c` (opzione corta `'K'`); man page: *"Deprecated and will be removed in favor of --allocation-default-address-family!!"* Sostituta: `--allocation-default-address-family` (*"Default is IPv4."*). |
-| `no-loopback-peers` | **SMENTITA — NON ESISTE** | Assente. R4 aveva ragione: esiste solo il flag **permissivo** `allow-loopback-peers` — *"Allow peers on the loopback addresses (127.x.x.x and ::1). **Allow it only for testing in a development environment!**"* Il diniego dei peer loopback è il **default** dal 4.5.0.9 (confermato indipendentemente dal testo di CVE-2026-53450). |
+| `no-loopback-peers` | **SMENTITA - NON ESISTE** | Assente. R4 aveva ragione: esiste solo il flag **permissivo** `allow-loopback-peers` - *"Allow peers on the loopback addresses (127.x.x.x and ::1). **Allow it only for testing in a development environment!**"* Il diniego dei peer loopback è il **default** dal 4.5.0.9 (confermato indipendentemente dal testo di CVE-2026-53450). |
 
 Direttive rilevanti scoperte in questa verifica e **non presenti** nella configurazione di R4:
 
@@ -195,9 +195,9 @@ Nota ulteriore: *"input and output network streams are treated separately"*, qui
 
 **Esito: CONFERMATE, con precisazioni di sintassi.**
 
-`denied-peer-ip` / `allowed-peer-ip` — testo verbatim della man page [UPSTREAM], che chiarisce la **precedenza** delle regole e va citato in documentazione:
+`denied-peer-ip` / `allowed-peer-ip` - testo verbatim della man page [UPSTREAM], che chiarisce la **precedenza** delle regole e va citato in documentazione:
 
-> *"Options to ban or allow specific ip addresses or ranges of ip addresses. If an ip address is specified as both allowed and denied, then the ip address is considered to be allowed. This is useful when you wish to ban a range of ip addresses, except for a few specific ips within that range. This can be used when you do not want users of the turn server to be able to access machines reachable by the turn server, but would otherwise be unreachable from the internet. The allowed/denied addresses (white/black lists) rules are very simple: (1) If there is no rule for an address, then it is allowed; (2) If there is an 'allowed' rule that fits the address then it is allowed — no matter what; (3) If there is no 'allowed' rule that fits the address, and if there is a 'denied' rule that fits the address, then it is denied."*
+> *"Options to ban or allow specific ip addresses or ranges of ip addresses. If an ip address is specified as both allowed and denied, then the ip address is considered to be allowed. This is useful when you wish to ban a range of ip addresses, except for a few specific ips within that range. This can be used when you do not want users of the turn server to be able to access machines reachable by the turn server, but would otherwise be unreachable from the internet. The allowed/denied addresses (white/black lists) rules are very simple: (1) If there is no rule for an address, then it is allowed; (2) If there is an 'allowed' rule that fits the address then it is allowed - no matter what; (3) If there is no 'allowed' rule that fits the address, and if there is a 'denied' rule that fits the address, then it is denied."*
 
 Tre fatti che discendono da questo testo e che vanno resi espliciti:
 
@@ -210,9 +210,9 @@ Altre direttive di hardening del relay verificate:
 | Direttiva | Testo upstream | Uso |
 |---|---|---|
 | `no-multicast-peers` | *"Disallow peers on well-known broadcast addresses (224.0.0.0 and above, and FFXX:*)."* | **Attivare** |
-| `no-tcp-relay` | *"Do not allow TCP relay endpoints defined in RFC 6062, use only UDP relay endpoints as defined in RFC 5766."* | **Attivare** — è il path su cui è avvenuto il bypass di CVE-2026-73212 |
+| `no-tcp-relay` | *"Do not allow TCP relay endpoints defined in RFC 6062, use only UDP relay endpoints as defined in RFC 5766."* | **Attivare** - è il path su cui è avvenuto il bypass di CVE-2026-73212 |
 | `allow-loopback-peers` | *"Allow it only for testing in a development environment!"* | **Non impostare mai** |
-| `no-udp-relay` | *"Do not allow UDP relay endpoints defined in RFC 5766, use only TCP relay endpoints as defined in RFC 6062."* | **Non impostare** — WebRTC ne ha bisogno |
+| `no-udp-relay` | *"Do not allow UDP relay endpoints defined in RFC 5766, use only TCP relay endpoints as defined in RFC 6062."* | **Non impostare** - WebRTC ne ha bisogno |
 | `server-relay` | *"Server relay. NON-STANDARD AND DANGEROUS OPTION."* | **Non impostare mai** |
 | `unauthorized-ratelimit` (+ `-rps`) | vedi §1.3 | **Attivare** |
 | `secure-stun` | *"Require authentication of the STUN Binding request. By default, clients are allowed anonymous access."* | Valutare con cautela: rompe l'uso STUN anonimo |
@@ -225,33 +225,33 @@ La configurazione completa è in fondo al documento.
 
 ### 1.5 Metriche esposte dall'exporter Prometheus
 
-**Esito: CONFERMATA — elenco reale estratto da `src/apps/relay/prom_server.c`.**
+**Esito: CONFERMATA - elenco reale estratto da `src/apps/relay/prom_server.c`.**
 
-Endpoint di default: porta **9641**, path **`/metrics`** (man page: *"Would listen on port 9641 under the path /metrics"*), indirizzo di ascolto configurabile con `--prometheus-address` (default: **any** — da restringere).
+Endpoint di default: porta **9641**, path **`/metrics`** (man page: *"Would listen on port 9641 under the path /metrics"*), indirizzo di ascolto configurabile con `--prometheus-address` (default: **any** - da restringere).
 
 | Metrica | Tipo | Descrizione upstream | Label |
 |---|---|---|---|
-| `stun_binding_request` | counter | Incoming STUN Binding requests | — |
-| `stun_binding_response` | counter | Outgoing STUN Binding responses | — |
-| `stun_binding_error` | counter | STUN Binding errors | — |
-| `turn_unauthenticated_401_requests` | counter | UDP requests requiring a 401 Unauthorized response | — |
-| `turn_unauthenticated_401_responses` | counter | UDP 401 Unauthorized responses emitted | — |
-| `turn_unauthenticated_401_dropped_responses` | counter | UDP 401 responses suppressed by DDoS mitigation | — |
-| `turn_ratelimit_hash_collisions` | counter | 401 rate-limit hash-bucket collisions | — |
-| `turn_ratelimit_occupied_buckets` | gauge | 401 rate-limit buckets currently tracking a live window | — |
-| `turn_ratelimit_total_buckets` | gauge | 401 rate-limit hash table capacity in buckets | — |
+| `stun_binding_request` | counter | Incoming STUN Binding requests | - |
+| `stun_binding_response` | counter | Outgoing STUN Binding responses | - |
+| `stun_binding_error` | counter | STUN Binding errors | - |
+| `turn_unauthenticated_401_requests` | counter | UDP requests requiring a 401 Unauthorized response | - |
+| `turn_unauthenticated_401_responses` | counter | UDP 401 Unauthorized responses emitted | - |
+| `turn_unauthenticated_401_dropped_responses` | counter | UDP 401 responses suppressed by DDoS mitigation | - |
+| `turn_ratelimit_hash_collisions` | counter | 401 rate-limit hash-bucket collisions | - |
+| `turn_ratelimit_occupied_buckets` | gauge | 401 rate-limit buckets currently tracking a live window | - |
+| `turn_ratelimit_total_buckets` | gauge | 401 rate-limit hash table capacity in buckets | - |
 | `turn_traffic_rcvp` / `_rcvb` / `_sentp` / `_sentb` | counter | Pacchetti/byte ricevuti e inviati, **sessioni concluse** | `realm`, `user` (opzionale) |
 | `turn_traffic_peer_rcvp` / `_rcvb` / `_sentp` / `_sentb` | counter | Idem, lato peer | `realm`, `user` (opzionale) |
-| `turn_total_traffic_rcvp` / `_rcvb` / `_sentp` / `_sentb` | counter | Totali aggregati, sessioni concluse | — |
-| `turn_total_traffic_peer_rcvp` / `_rcvb` / `_sentp` / `_sentb` | counter | Idem, lato peer | — |
+| `turn_total_traffic_rcvp` / `_rcvb` / `_sentp` / `_sentb` | counter | Totali aggregati, sessioni concluse | - |
+| `turn_total_traffic_peer_rcvp` / `_rcvb` / `_sentp` / `_sentb` | counter | Idem, lato peer | - |
 | `turn_total_allocations` | **gauge** | Allocazioni correnti | `type` |
-| `turn_packet_processed` | counter | Incoming packet processed | — |
-| `turn_packet_dropped` | counter | Incoming packet dropped | — |
-| `turn_udp_recvmmsg_calls` | counter | `recvmmsg()` syscalls returning ≥1 datagram | — |
-| `turn_udp_recvmmsg_packets` | counter | Datagrammi ricevuti via `recvmmsg()` | — |
-| `turn_udp_sendmmsg_flushes` | counter | Egress batch flushes (sendmmsg/UDP-GSO) | — |
-| `turn_udp_sendmmsg_datagrams` | counter | Datagrammi inviati via batch di egress | — |
-| `turn_udp_sendmmsg_gso_datagrams` | counter | Datagrammi coalescenti in un singolo sendmsg UDP-GSO | — |
+| `turn_packet_processed` | counter | Incoming packet processed | - |
+| `turn_packet_dropped` | counter | Incoming packet dropped | - |
+| `turn_udp_recvmmsg_calls` | counter | `recvmmsg()` syscalls returning ≥1 datagram | - |
+| `turn_udp_recvmmsg_packets` | counter | Datagrammi ricevuti via `recvmmsg()` | - |
+| `turn_udp_sendmmsg_flushes` | counter | Egress batch flushes (sendmmsg/UDP-GSO) | - |
+| `turn_udp_sendmmsg_datagrams` | counter | Datagrammi inviati via batch di egress | - |
+| `turn_udp_sendmmsg_gso_datagrams` | counter | Datagrammi coalescenti in un singolo sendmsg UDP-GSO | - |
 
 Fonte [UPSTREAM]: `https://raw.githubusercontent.com/coturn/coturn/master/src/apps/relay/prom_server.c`
 
@@ -281,7 +281,7 @@ Accertamenti:
 
 - **Formato `timestamp:username`**: **CONFERMATO**, verbatim.
 - **Password = `base64(hmac(usercombo, shared-secret))`**: **CONFERMATO**, verbatim.
-- **Algoritmo di hash sottostante = SHA-1**: **NON VERIFICABILE dalla man page**, che scrive genericamente `hmac(...)`. Il codice sorgente non è stato ispezionato su questo punto specifico in questa verifica. **L'affermazione «HMAC-SHA1» di R4 §4.2 va quindi marcata come da confermare sul sorgente della versione deployata**, oppure — soluzione migliore e a costo zero — **validata empiricamente in un test di integrazione**: emettere una credenziale con l'implementazione Java, tentare un'`Allocate` contro il coturn deployato, e far fallire la build se l'autenticazione non riesce. Questo test è più solido di qualunque citazione documentale, perché verifica il comportamento della versione effettivamente in produzione.
+- **Algoritmo di hash sottostante = SHA-1**: **NON VERIFICABILE dalla man page**, che scrive genericamente `hmac(...)`. Il codice sorgente non è stato ispezionato su questo punto specifico in questa verifica. **L'affermazione «HMAC-SHA1» di R4 §4.2 va quindi marcata come da confermare sul sorgente della versione deployata**, oppure - soluzione migliore e a costo zero - **validata empiricamente in un test di integrazione**: emettere una credenziale con l'implementazione Java, tentare un'`Allocate` contro il coturn deployato, e far fallire la build se l'autenticazione non riesce. Questo test è più solido di qualunque citazione documentale, perché verifica il comportamento della versione effettivamente in produzione.
 - **Il rilievo di R4 sul rotolamento delle credenziali resta valido**, ma va aggiunto un fatto nuovo emerso dalla verifica: `--static-auth-secret` supporta **segreti multipli** (*"Multiple shared secrets can be used"*). Questo abilita la **rotazione senza downtime** del segreto condiviso: si configurano due segreti, si fa emettere al backend credenziali con il nuovo, si rimuove il vecchio dopo la scadenza del TTL massimo. R4 non lo menziona; è una capacità operativa rilevante per il piano di Post-Market Surveillance (D6).
 
 Onestà normativa di R4 (il «TURN REST API» deriva da `draft-uberti-behave-turn-rest-00`, Internet-Draft individuale scaduto, e non è uno standard IETF; lo standard è RFC 7635): **non contestata, nessun elemento contrario trovato**.
@@ -306,8 +306,8 @@ Il meccanismo (2) è documentato in man page sotto `--alternate-server`: *"Optio
 
 Accertamenti:
 
-- **Assenza di clustering nativo con stato condiviso**: **CONFERMATA**, ma per **assenza documentale**, non per dichiarazione esplicita. Il README non nomina né clustering, né replica di allocazioni, né stato condiviso; i soli tre meccanismi di scala offerti sono di distribuzione delle *nuove* richieste. Formulazione corretta da usare in documentazione: *«coturn non documenta alcun meccanismo di replica dello stato delle allocazioni fra nodi; i soli schemi di scalabilità offerti upstream — DNS SRV, redirezione 300 ALTERNATE-SERVER, load balancer di rete — distribuiscono le nuove richieste e non preservano le allocazioni esistenti alla caduta di un nodo.»* Evitare «coturn non ha clustering», che è una negazione non ancorabile.
-- **Comportamento alla caduta di un nodo**: coerente con quanto sopra — un'allocazione vive nello stato del processo che l'ha creata e non è ricostruibile altrove. Nessuna fonte upstream suggerisce il contrario.
+- **Assenza di clustering nativo con stato condiviso**: **CONFERMATA**, ma per **assenza documentale**, non per dichiarazione esplicita. Il README non nomina né clustering, né replica di allocazioni, né stato condiviso; i soli tre meccanismi di scala offerti sono di distribuzione delle *nuove* richieste. Formulazione corretta da usare in documentazione: *«coturn non documenta alcun meccanismo di replica dello stato delle allocazioni fra nodi; i soli schemi di scalabilità offerti upstream - DNS SRV, redirezione 300 ALTERNATE-SERVER, load balancer di rete - distribuiscono le nuove richieste e non preservano le allocazioni esistenti alla caduta di un nodo.»* Evitare «coturn non ha clustering», che è una negazione non ancorabile.
+- **Comportamento alla caduta di un nodo**: coerente con quanto sopra - un'allocazione vive nello stato del processo che l'ha creata e non è ricostruibile altrove. Nessuna fonte upstream suggerisce il contrario.
 - **La raccomandazione di R4 §4.6** (N nodi indipendenti, stessa `realm`, stesso `static-auth-secret`, tutti annunciati in `iceServers`, ridondanza affidata a ICE) resta **corretta e preferibile**, con **un'aggiunta obbligatoria emersa dalla verifica**: dal 4.17.0 va configurato anche **`stateless-nonce-secret` identico su tutti i nodi**, altrimenti ogni richiesta che atterra su un nodo diverso paga un round-trip `438` di ri-autenticazione. È il rimedio dichiarato dalle note di rilascio 4.17.0.
 - **`alternate-server` come alternativa**: sconsigliato per Telemedic. Richiede il supporto del codice `300` da parte del client TURN (i browser lo implementano in modo disomogeneo e non verificato in questa ricerca) e sposta la logica di bilanciamento nel server invece che in ICE, che è già ottimizzato per farlo.
 
@@ -315,7 +315,7 @@ Fonti [UPSTREAM]: `https://raw.githubusercontent.com/coturn/coturn/master/README
 
 ---
 
-## 2. L'API Identity Provider di RFC 8827 §7 — questione aperta n. 12
+## 2. L'API Identity Provider di RFC 8827 §7 - questione aperta n. 12
 
 **Esito: SMENTITA come tecnologia utilizzabile. La Short Authentication String è, oggi, l'unica strada praticabile.**
 
@@ -358,15 +358,15 @@ Lettura precisa di questi numeri:
 - **Edge l'aveva** nella versione EdgeHTML (≤18) e **l'ha persa nel 2020 passando a Chromium** (rimosso in 79). Questo è il dato più eloquente: l'unico secondo implementatore l'ha abbandonata cambiando motore.
 - **Firefox è l'unico implementatore rimasto**, dal 2015 (FF 40).
 
-Sul lato Firefox, il bug **1842328** — *"Remove media.peerconnection.identity.enabled pref"*, RESOLVED FIXED, target **Firefox 117** — è spesso frainteso: **non ha rimosso la funzionalità**, ha rimosso il *preference switch* perché, testualmente, *"RTCPeerConnection.setIdentityProvider() has been enabled for about 8 years now"*. La funzionalità resta attiva e permanente in Firefox.
+Sul lato Firefox, il bug **1842328** - *"Remove media.peerconnection.identity.enabled pref"*, RESOLVED FIXED, target **Firefox 117** - è spesso frainteso: **non ha rimosso la funzionalità**, ha rimosso il *preference switch* perché, testualmente, *"RTCPeerConnection.setIdentityProvider() has been enabled for about 8 years now"*. La funzionalità resta attiva e permanente in Firefox.
 
 Fonte [VENDOR]: `https://bugzilla.mozilla.org/show_bug.cgi?id=1842328`
 
 ### 2.3 Conclusione per Telemedic
 
-L'Identity Provider API è **funzionalmente monobrowser**. Una verifica indipendente delle chiavi che vi si appoggiasse funzionerebbe solo quando **entrambi** i partecipanti — medico e paziente — usano Firefox. In un contesto di telemedicina rivolta al pubblico, dove il paziente usa il browser che ha, questo è equivalente a non funzionare.
+L'Identity Provider API è **funzionalmente monobrowser**. Una verifica indipendente delle chiavi che vi si appoggiasse funzionerebbe solo quando **entrambi** i partecipanti - medico e paziente - usano Firefox. In un contesto di telemedicina rivolta al pubblico, dove il paziente usa il browser che ha, questo è equivalente a non funzionare.
 
-Aggiunta rispetto al mandato: anche ammesso il supporto universale, l'API richiederebbe un **Identity Provider terzo** che ospita lo script di proxy IdP. Introdurlo significherebbe (a) creare una nuova dipendenza runtime da un terzo, in tensione diretta con il **vincolo V1** di sovranità, e (b) spostare il trust anchor dal server di signaling all'IdP — senza eliminarlo, solo cambiandolo di posto. Anche in uno scenario ipotetico di supporto pieno, non è una soluzione evidentemente superiore.
+Aggiunta rispetto al mandato: anche ammesso il supporto universale, l'API richiederebbe un **Identity Provider terzo** che ospita lo script di proxy IdP. Introdurlo significherebbe (a) creare una nuova dipendenza runtime da un terzo, in tensione diretta con il **vincolo V1** di sovranità, e (b) spostare il trust anchor dal server di signaling all'IdP - senza eliminarlo, solo cambiandolo di posto. Anche in uno scenario ipotetico di supporto pieno, non è una soluzione evidentemente superiore.
 
 > **Risposta alla domanda posta da R4 §15 punto 12: la Short Authentication String non è una fra due strade. È l'unica.** La raccomandazione R3 di R4 va promossa da «raccomandazione forte» a **requisito**, e il rischio T2 va ri-classificato: non esiste un'alternativa standard di mitigazione.
 
@@ -374,11 +374,11 @@ Aggiunta rispetto al mandato: anche ammesso il supporto universale, l'API richie
 
 ## 3. Altre verifiche dall'Appendice B
 
-### 3.1 DTLS 1.3 — stato del supporto e cambio di default
+### 3.1 DTLS 1.3 - stato del supporto e cambio di default
 
 **Esito: CONFERMATA per Firefox (con versione esatta) e per il default della libreria di Chromium. NON VERIFICABILE il milestone Chrome esatto e lo stato Safari.**
 
-**BoringSSL** (la libreria TLS/DTLS di Chromium e libwebrtc) — verifica diretta sul sorgente `ssl/ssl_versions.cc` [UPSTREAM]:
+**BoringSSL** (la libreria TLS/DTLS di Chromium e libwebrtc) - verifica diretta sul sorgente `ssl/ssl_versions.cc` [UPSTREAM]:
 
 ```c
 static const uint16_t kDTLSVersions[] = {
@@ -401,13 +401,13 @@ if (version == 0) {
 
 Fonte [UPSTREAM]: `https://raw.githubusercontent.com/google/boringssl/main/ssl/ssl_versions.cc`
 
-**Firefox** — bug **1884140**, *"Enable DTLS1.3 in WebRTC for Firefox Release"*, RESOLVED FIXED, target milestone **Firefox 127**. Commento del contributore: *"Allow the use of DTLS 1.3 on release/beta."*
+**Firefox** - bug **1884140**, *"Enable DTLS1.3 in WebRTC for Firefox Release"*, RESOLVED FIXED, target milestone **Firefox 127**. Commento del contributore: *"Allow the use of DTLS 1.3 on release/beta."*
 
 Fonte [VENDOR]: `https://bugzilla.mozilla.org/show_bug.cgi?id=1884140`
 
-**Chrome** — il milestone esatto **non è stato verificabile su fonte primaria**: l'issue tracker Chromium (382915276, *"Enable DTLS 1.3 by default"*) e quello WebRTC (383141571) richiedono autenticazione, e non esiste una voce su Chrome Platform Status, perché il cambiamento non è una feature Blink ma un cambio di default nella libreria crittografica. Esito: **`NON VERIFICABILE`** sul milestone; **`CONFERMATO`** sul fatto che il default della libreria sia DTLS 1.3. Esiste inoltre il field trial `WebRTC-ForceDtls13` per forzare o rendere esclusivo DTLS 1.3 — utile in CI, il cui nome esatto è però da confermare sul sorgente libwebrtc della versione in uso prima di essere pubblicato.
+**Chrome** - il milestone esatto **non è stato verificabile su fonte primaria**: l'issue tracker Chromium (382915276, *"Enable DTLS 1.3 by default"*) e quello WebRTC (383141571) richiedono autenticazione, e non esiste una voce su Chrome Platform Status, perché il cambiamento non è una feature Blink ma un cambio di default nella libreria crittografica. Esito: **`NON VERIFICABILE`** sul milestone; **`CONFERMATO`** sul fatto che il default della libreria sia DTLS 1.3. Esiste inoltre il field trial `WebRTC-ForceDtls13` per forzare o rendere esclusivo DTLS 1.3 - utile in CI, il cui nome esatto è però da confermare sul sorgente libwebrtc della versione in uso prima di essere pubblicato.
 
-**Safari / WebKit** — **`NON VERIFICABILE`** in questa ricerca.
+**Safari / WebKit** - **`NON VERIFICABILE`** in questa ricerca.
 
 > **La raccomandazione di R4 resta la sola difendibile**: non dichiarare la versione DTLS, **misurarla** per sessione via `RTCTransportStats.tlsVersion` e registrarla nell'audit trail. Con il quadro attuale (default DTLS 1.3 su due dei tre motori, fallback DTLS 1.2 sempre attivo per compatibilità), qualunque affermazione statica in documentazione sarebbe falsa per una parte del parco installato.
 
@@ -433,7 +433,7 @@ Fonte [NORMATIVA]: `https://datatracker.ietf.org/doc/html/draft-ietf-tls-extende
 |---|---|
 | Il `KeyUpdate` di DTLS 1.3 rideriva le chiavi SRTP estratte via exporter (RFC 5764 §4.2) | **SMENTITA.** Il `KeyUpdate` standard aggiorna le traffic key del record layer, **non** l'`exporter_secret`. Le chiavi SRTP, estratte una sola volta con l'etichetta `"EXTRACTOR-dtls_srtp"`, restano invariate per l'intera sessione. |
 | Esiste rotazione intra-sessione delle chiavi SRTP in WebRTC | **SMENTITA.** Non con DTLS 1.2 (nessuna rinegoziazione nei browser), non con DTLS 1.3 (`KeyUpdate` non tocca l'exporter). Il meccanismo che la renderebbe possibile è un **Internet-Draft in corso di lavorazione**, non uno standard, e non è implementato in alcun browser. |
-| L'analisi di R4 §5.4 e il rischio T7 | **CONFERMATI** e ora **ancorati a fonte primaria**. La formulazione onesta proposta da R4 — *«Ogni sessione utilizza materiale crittografico generato ex novo tramite handshake DTLS, con certificati effimeri per connessione. Non avviene riutilizzo di chiavi fra sessioni.»* — è corretta e **va adottata verbatim**. Il termine «key rotation» va eliminato dal materiale pubblico. |
+| L'analisi di R4 §5.4 e il rischio T7 | **CONFERMATI** e ora **ancorati a fonte primaria**. La formulazione onesta proposta da R4 - *«Ogni sessione utilizza materiale crittografico generato ex novo tramite handshake DTLS, con certificati effimeri per connessione. Non avviene riutilizzo di chiavi fra sessioni.»* - è corretta e **va adottata verbatim**. Il termine «key rotation» va eliminato dal materiale pubblico. |
 
 Il rilievo di R4 su RFC 3711 §9.2 (i limiti di vita della master key, dell'ordine di 2^48 pacchetti SRTP, non sono avvicinabili in un consulto medico) resta valido: **l'assenza di rekeying intra-sessione non è una debolezza crittografica**, è solo una funzionalità che non esiste e che quindi non va rivendicata.
 
@@ -445,7 +445,7 @@ Il rilievo di R4 su RFC 3711 §9.2 (i limiti di vita della master key, dell'ordi
 
 | Browser | `video/mp4` in `MediaRecorder` | Fonte |
 |---|---|---|
-| **Chrome / Edge / Chrome Android / WebView** | **Sì**, dal **milestone 126**, abilitato per default. Codec: **H.264 video + AAC audio**. | Chrome Platform Status, feature 5163469011943424, *"MP4 container support for MediaRecorder"* — *"Adds support for muxing audio/video into MP4 containers with MediaRecorder."* Status: Enabled by default. [VENDOR] |
+| **Chrome / Edge / Chrome Android / WebView** | **Sì**, dal **milestone 126**, abilitato per default. Codec: **H.264 video + AAC audio**. | Chrome Platform Status, feature 5163469011943424, *"MP4 container support for MediaRecorder"* - *"Adds support for muxing audio/video into MP4 containers with MediaRecorder."* Status: Enabled by default. [VENDOR] |
 | **Chrome iOS** | **No** (la feature dichiara iOS non supportato) | idem |
 | **Safari / Safari iOS** | **Sì.** Safari registra nativamente in MP4 (H.264 + AAC) dall'introduzione di `MediaRecorder` (Safari 14.1 / iOS 14). | WebKit, *MediaRecorder API* [VENDOR] |
 | **Firefox / Firefox Android** | **NO.** | Bug **1631143**, *"The 'video/mp4' mime type is not supported in MediaRecorder"*, stato **NEW**, **nessuna risoluzione**. Commento di Mozilla: *"We don't support an mp4 muxer. Something we could add but not a huge priority."* [VENDOR] |
@@ -456,7 +456,7 @@ Dati collaterali verificati sulla stessa fonte: **Safari 18.4** (marzo 2025) ha 
 
 > **Conclusione per il rischio T8.** Il quadro è **rovesciato** rispetto all'assunto di R4 (che dava per scontato WebM come formato ampiamente supportato e MP4 come incerto). Nel 2026:
 > - **MP4 è supportato da Chrome, Edge e Safari; non da Firefox.**
-> - **WebM è supportato da Chrome, Edge, Firefox e — solo dal 18.4 — Safari.**
+> - **WebM è supportato da Chrome, Edge, Firefox e - solo dal 18.4 - Safari.**
 >
 > Nessuno dei due contenitori è universale. Le opzioni per Telemedic sono tre, in ordine di preferenza:
 > 1. **Negoziare il contenitore a runtime** con `MediaRecorder.isTypeSupported()` e **registrare il contenitore effettivo nei metadati della registrazione**, esattamente come R4 propone di fare per `srtpCipher`. Il claim pubblico diventa «registrazione in contenitore standard (MP4 o WebM secondo il browser), cifrata a riposo», che è verificabile.
@@ -488,9 +488,9 @@ Fonti [UPSTREAM]: `https://raw.githubusercontent.com/chromium/chromium/main/medi
 
 1. **`--auto-accept-camera-and-microphone-capture` è il flag corretto**, non `--use-fake-ui-for-media-stream`. La raccomandazione è **nel commento del sorgente Chromium stesso**. La differenza è sostanziale: `--use-fake-ui-for-media-stream` auto-accetta anche lo **screen capture**, il che significa che un test E2E che verifica il flusso di consenso allo screen sharing («mostro il referto al paziente») darebbe **falsi positivi**. Telemedic ha esattamente questo caso d'uso (R4 §2.3).
 2. **Formati confermati: Y4M per il video, WAV per l'audio.** La sintassi `<path>%noloop` è documentata ed è ciò che serve per le fixture con timecode previste dalla raccomandazione R14 di R4 (misura automatica della latenza glass-to-glass): un video in loop rende ambigua la lettura OCR del timecode.
-3. **`--use-file-for-fake-audio-capture` richiede la disattivazione dell'audio processing** (AEC/NS/AGC), altrimenti il file viene riprodotto distorto — e richiede di essere combinato con `--use-fake-device-for-media-stream`. Entrambi i vincoli sono dichiarati nel commento upstream e vanno codificati nella configurazione Playwright, non scoperti in debugging.
+3. **`--use-file-for-fake-audio-capture` richiede la disattivazione dell'audio processing** (AEC/NS/AGC), altrimenti il file viene riprodotto distorto - e richiede di essere combinato con `--use-fake-device-for-media-stream`. Entrambi i vincoli sono dichiarati nel commento upstream e vanno codificati nella configurazione Playwright, non scoperti in debugging.
 
-**Preferenze Firefox** — verifica su `modules/libpref/init/all.js` [UPSTREAM]:
+**Preferenze Firefox** - verifica su `modules/libpref/init/all.js` [UPSTREAM]:
 
 ```
 pref("media.navigator.streams.fake", false);
@@ -503,7 +503,7 @@ Preferenze contigue verificate nello stesso file, utili al testing di qualità: 
 
 Fonte [UPSTREAM]: `https://raw.githubusercontent.com/mozilla/gecko-dev/master/modules/libpref/init/all.js`
 
-> **Asimmetria da documentare**: Firefox **non ha un equivalente** di `--use-file-for-fake-video-capture` / `--use-file-for-fake-audio-capture`. `media.navigator.streams.fake` produce uno stream **sintetico** generato dal browser (video a barre, audio a `media.navigator.audio.fake_frequency` Hz), non riproduce un file dell'utente. **Nessuna preferenza di riproduzione da file è stata trovata.** Conseguenza concreta: **la misura automatica della latenza glass-to-glass basata su fixture Y4M con timecode (R14) è realizzabile solo su Chromium.** Su Firefox va usata una strategia diversa — per esempio il rendering del timecode su `<canvas>` con `canvas.captureStream()` — oppure la copertura va limitata dichiarandolo. Questo è un vincolo di progettazione della suite di test, da segnalare all'agente Testing (questione aperta n. 30 di R4).
+> **Asimmetria da documentare**: Firefox **non ha un equivalente** di `--use-file-for-fake-video-capture` / `--use-file-for-fake-audio-capture`. `media.navigator.streams.fake` produce uno stream **sintetico** generato dal browser (video a barre, audio a `media.navigator.audio.fake_frequency` Hz), non riproduce un file dell'utente. **Nessuna preferenza di riproduzione da file è stata trovata.** Conseguenza concreta: **la misura automatica della latenza glass-to-glass basata su fixture Y4M con timecode (R14) è realizzabile solo su Chromium.** Su Firefox va usata una strategia diversa - per esempio il rendering del timecode su `<canvas>` con `canvas.captureStream()` - oppure la copertura va limitata dichiarandolo. Questo è un vincolo di progettazione della suite di test, da segnalare all'agente Testing (questione aperta n. 30 di R4).
 
 ---
 
@@ -548,7 +548,7 @@ Fonte [NORMATIVA]: `https://www.w3.org/TR/mst-content-hint/`
 - Il valore `"maintain-framerate-and-resolution"` riportato da MDN è **legittimo e normativo**: MDN non ha un errore. Il sospetto di R4 va ritirato.
 - **Il riferimento normativo usato da R4 è però sbagliato**: `degradationPreference` **non** è parte della Recommendation WebRTC. Va citata *MediaStreamTrack Content Hints* (W3C **Working Draft**, 19 settembre 2025).
 - **Conseguenza per il rischio della raccomandazione R11 e per la questione aperta n. 14** (esporre `degradationPreference` per specialità clinica): la maturità normativa è **inferiore** a quanto R4 assumeva. Un Working Draft è materia instabile per definizione. La documentazione di conformità (D6) deve dichiararlo come tale, e il codice deve trattare l'attributo come **best-effort**: impostarlo dentro un `try`/verifica di supporto, non assumerne l'esistenza.
-- **`maintain-framerate-and-resolution` è, semanticamente, il valore più interessante per la telemedicina** — «non degradare né risoluzione né frame rate, semmai scarta frame» —, cioè il comportamento adatto a una dermatologia o a una valutazione del movimento, dove un fotogramma nitido vale più di un flusso fluido. È anche il valore **meno probabilmente implementato**, essendo il più recente. Va verificato a runtime leggendo indietro il parametro con `getParameters()` dopo averlo impostato, non assunto.
+- **`maintain-framerate-and-resolution` è, semanticamente, il valore più interessante per la telemedicina** - «non degradare né risoluzione né frame rate, semmai scarta frame» -, cioè il comportamento adatto a una dermatologia o a una valutazione del movimento, dove un fotogramma nitido vale più di un flusso fluido. È anche il valore **meno probabilmente implementato**, essendo il più recente. Va verificato a runtime leggendo indietro il parametro con `getParameters()` dopo averlo impostato, non assunto.
 
 ---
 
@@ -586,7 +586,7 @@ Status: `standard_track: true`, `experimental: false`, `deprecated: false`.
 
 Fonte: `https://raw.githubusercontent.com/mdn/browser-compat-data/main/api/RTCRtpReceiver.json`
 
-> **Rilevanza diretta per il rischio T4** («il claim < 200 ms non è verificabile né difendibile»). R4 identifica correttamente il jitter buffer come contributo dominante alla latenza glass-to-glass e come elemento che *cresce deliberatamente* quando la rete peggiora. `jitterBufferTarget` è **l'unica leva che l'applicazione ha su quel contributo**, ed è disponibile su tutti e tre i motori. Questo cambia la natura di T4: la latenza non è più soltanto «da misurare e non promettere», ma **parzialmente governabile** — a costo, esplicito e documentabile, di un aumento della perdita di pacchetti audio sotto jitter elevato. È un trade-off clinico che può essere esposto come scelta motivata nel file di gestione dei rischi ISO 14971, e va segnalato all'agente Compliance accanto a `degradationPreference`.
+> **Rilevanza diretta per il rischio T4** («il claim < 200 ms non è verificabile né difendibile»). R4 identifica correttamente il jitter buffer come contributo dominante alla latenza glass-to-glass e come elemento che *cresce deliberatamente* quando la rete peggiora. `jitterBufferTarget` è **l'unica leva che l'applicazione ha su quel contributo**, ed è disponibile su tutti e tre i motori. Questo cambia la natura di T4: la latenza non è più soltanto «da misurare e non promettere», ma **parzialmente governabile** - a costo, esplicito e documentabile, di un aumento della perdita di pacchetti audio sotto jitter elevato. È un trade-off clinico che può essere esposto come scelta motivata nel file di gestione dei rischi ISO 14971, e va segnalato all'agente Compliance accanto a `degradationPreference`.
 
 ---
 
@@ -602,7 +602,7 @@ Fonte: `https://raw.githubusercontent.com/mdn/browser-compat-data/main/api/RTCRt
 
 **Il giudizio di R4 §7.1 resta corretto e va conservato**: il divario fra supporto *decoder* e supporto *encoder*, e il costo CPU dell'encoding software real-time, restano i fattori decisivi. Nessuna cifra di adozione è stata verificabile su fonte primaria: le stime di settore trovate provengono tutte da blog commerciali e **non vanno citate**.
 
-**La raccomandazione operativa di R4 è quella giusta e va rafforzata**: non forzare la preferenza dei codec nella v1.0; misurare con `getStats()` (`RTCInboundRtpStreamStats.codecId` → `RTCCodecStats.mimeType`) quale codec viene realmente negoziato nel parco installato; decidere sui dati. Con Chrome e Firefox entrambi capaci di AV1 per default, la quota di sessioni AV1 nel traffico reale diventa un dato **osservabile** già dalla v1.0 — e quindi la base per una decisione informata nella v1.1, invece di una scommessa oggi.
+**La raccomandazione operativa di R4 è quella giusta e va rafforzata**: non forzare la preferenza dei codec nella v1.0; misurare con `getStats()` (`RTCInboundRtpStreamStats.codecId` → `RTCCodecStats.mimeType`) quale codec viene realmente negoziato nel parco installato; decidere sui dati. Con Chrome e Firefox entrambi capaci di AV1 per default, la quota di sessioni AV1 nel traffico reale diventa un dato **osservabile** già dalla v1.0 - e quindi la base per una decisione informata nella v1.1, invece di una scommessa oggi.
 
 ---
 
@@ -615,8 +615,8 @@ Dati dall'API GitHub, campo `license.spdx_id` (che deriva dal file di licenza up
 | Progetto | Licenza | Ultimo push | Archiviato | Stelle | Esito |
 |---|---|---|---|---|---|
 | **mediasoup** (`versatica/mediasoup`) | **ISC** | 2026-08-18 | no | 7 342 | **CONFERMATA.** Permissiva, compatibile con Apache-2.0. Manutenzione attiva. |
-| **Janus** (`meetecho/janus-gateway`) | **GPLv3** (già verificata da R4 sul `COPYING` upstream, con eccezione OpenSSL) | — | no | — | **CONFERMATA.** Il giudizio di esclusione per incompatibilità con D1 resta. |
-| **Jitsi Videobridge** (`jitsi/jitsi-videobridge`) | **Apache-2.0** — verificata sul file `LICENSE` upstream: *"Apache License, Version 2.0, January 2004"* | 2026-08-22 | no | 3 100 | **CONFERMATA.** Il `[da verificare]` di R4 si scioglie in positivo. Manutenzione attiva. |
+| **Janus** (`meetecho/janus-gateway`) | **GPLv3** (già verificata da R4 sul `COPYING` upstream, con eccezione OpenSSL) | - | no | - | **CONFERMATA.** Il giudizio di esclusione per incompatibilità con D1 resta. |
+| **Jitsi Videobridge** (`jitsi/jitsi-videobridge`) | **Apache-2.0** - verificata sul file `LICENSE` upstream: *"Apache License, Version 2.0, January 2004"* | 2026-08-22 | no | 3 100 | **CONFERMATA.** Il `[da verificare]` di R4 si scioglie in positivo. Manutenzione attiva. |
 | **LiveKit** (`livekit/livekit`) | **Apache-2.0** | 2026-08-25 | no | 20 511 | **CONFERMATA.** Manutenzione molto attiva. |
 | **ion-sfu** (`ionorg/ion-sfu`) | **MIT** | **2023-07-21** | no | 1 097 | **Licenza CONFERMATA. Sospetto di abbandono CONFERMATO**: nessun commit da **oltre tre anni**, 50 issue aperte, repository non archiviato ma inattivo. |
 | **Pion** (`pion/webrtc`) | **MIT** | 2026-08-25 | no | 16 738 | **CONFERMATA.** Manutenzione molto attiva. |
@@ -625,7 +625,7 @@ Fonti [UPSTREAM]: API GitHub `repos/{owner}/{repo}` per ciascun progetto; `https
 
 > **Conseguenza per la valutazione di R4 §6.3.** L'esclusione di **ion-sfu** non è più prudenziale, è **documentata**: tre anni senza commit rendono l'adozione insostenibile sotto **IEC 62304 §8.1.2** (gestione dei SOUP), che richiede un piano di sorveglianza delle vulnerabilità su una componente che nessuno mantiene. Va scritto così, con la data dell'ultimo commit come evidenza oggettiva.
 >
-> La preferenza di R4 per **Jitsi Videobridge** come primo candidato — per omogeneità di stack JVM — è ora **priva di riserve di licenza**: Apache-2.0 verificata sul file upstream, manutenzione attiva a tre giorni dalla verifica.
+> La preferenza di R4 per **Jitsi Videobridge** come primo candidato - per omogeneità di stack JVM - è ora **priva di riserve di licenza**: Apache-2.0 verificata sul file upstream, manutenzione attiva a tre giorni dalla verifica.
 
 ---
 
@@ -637,7 +637,7 @@ Ogni direttiva presente in questo file è stata verificata su almeno una delle t
 
 ```ini
 # =============================================================================
-# /etc/turnserver.conf — Telemedic, profilo produzione sanitaria
+# /etc/turnserver.conf - Telemedic, profilo produzione sanitaria
 # Versione coturn minima richiesta: 4.17.2 (2026-08-08)
 #
 # Motivo della versione minima: CVE-2026-73215 e CVE-2026-73216 sono corrette
@@ -648,7 +648,7 @@ Ogni direttiva presente in questo file è stata verificata su almeno una delle t
 # =============================================================================
 
 # -----------------------------------------------------------------------------
-# Listener — vincolare esplicitamente, mai 0.0.0.0
+# Listener - vincolare esplicitamente, mai 0.0.0.0
 # -----------------------------------------------------------------------------
 # Enumerare gli indirizzi su cui ascoltare. 0.0.0.0 lega anche le interfacce
 # di management e di rete interna: superficie inutile su un servizio che, per
@@ -670,7 +670,7 @@ external-ip=203.0.113.10/10.0.10.20
 min-port=49152
 max-port=65535
 
-# NOTA 4.17.0 — I listener DTLS sono ora OPT-IN: senza --dtls non vengono
+# NOTA 4.17.0 - I listener DTLS sono ora OPT-IN: senza --dtls non vengono
 # avviati. Per Telemedic questa e' la configurazione voluta: i browser usano
 # turns: su TCP/TLS, non TURN-over-DTLS, e non attivare DTLS elimina l'intera
 # superficie di CVE-2026-73214 (esaurimento di stato via ClientHello
@@ -678,7 +678,7 @@ max-port=65535
 #dtls
 
 # -----------------------------------------------------------------------------
-# Autenticazione — credenziali effimere HMAC, nessun utente statico
+# Autenticazione - credenziali effimere HMAC, nessun utente statico
 # -----------------------------------------------------------------------------
 realm=turn.telemedic.example
 use-auth-secret
@@ -692,7 +692,7 @@ static-auth-secret=${TURN_STATIC_AUTH_SECRET}   # iniettato da secret manager
 # Nonce a vita limitata (default 600). Mitiga il replay delle credenziali.
 stale-nonce=600
 
-# NOTA 4.17.0 — stateless-nonce e' attivo per DEFAULT. La chiave di firma e'
+# NOTA 4.17.0 - stateless-nonce e' attivo per DEFAULT. La chiave di firma e'
 # generata PER PROCESSO: senza un segreto condiviso, ogni riavvio e ogni
 # richiesta che atterra su un nodo diverso costa al client un round-trip 438.
 # In un'architettura a N nodi indipendenti questo segreto e' OBBLIGATORIO.
@@ -729,7 +729,7 @@ ec-curve-name=prime256v1
 # -----------------------------------------------------------------------------
 # HARDENING DEL RELAY
 #
-# ATTENZIONE — LEGGERE PRIMA DI MODIFICARE.
+# ATTENZIONE - LEGGERE PRIMA DI MODIFICARE.
 # Il default di coturn per i peer e' ALLOW: "If there is no rule for an
 # address, then it is allowed" (man page). Il default-deny non esiste come
 # interruttore: va costruito enumerando i range.
@@ -860,7 +860,7 @@ prometheus-address=10.0.10.20
 # estratto dai LOG, non dalle metriche. Vedi la regola di alerting in fondo.
 
 # -----------------------------------------------------------------------------
-# Amministrazione — disattivata per intero
+# Amministrazione - disattivata per intero
 # -----------------------------------------------------------------------------
 # La CLI e' OFF di default; no-cli e' esplicito e serve a impedire che una
 # direttiva 'cli' introdotta per errore la riattivi.
@@ -879,7 +879,7 @@ proc-group=turnserver
 pidfile=/var/run/turnserver.pid
 log-file=/var/log/coturn/turnserver.log
 
-# NOTA 4.17.0 — Il formato di log e' CAMBIATO per default: timestamp ISO-8601
+# NOTA 4.17.0 - Il formato di log e' CAMBIATO per default: timestamp ISO-8601
 # al millisecondo, niente thread id, delimitatore spazio singolo, un record
 # per riga. Ogni parser scritto per versioni precedenti va aggiornato.
 # --new-log-timestamp=false ripristina il vecchio formato.
@@ -900,17 +900,17 @@ Il file sopra è la componente più debole della difesa. Le quattro misure che s
 
 Elenco puntuale, ordinato per sezione del documento esistente.
 
-### §4.1 — Versioni e postura di aggiornamento
+### §4.1 - Versioni e postura di aggiornamento
 1. **Sostituire** il blocco `[la versione esatta più recente va verificata al momento del deploy…]` con la cronologia verificata (§1.1 di questo documento) e la versione corrente **4.17.2 del 2026-08-08**.
 2. **Aggiungere** una versione minima vincolante: **4.17.2**, con la motivazione per CVE.
 3. **Aggiungere** un paragrafo sui **tre cambi di default di 4.17.0** (DTLS opt-in, stateless nonce, formato di log), perché due di essi rompono la configurazione proposta in §4.3.
 
-### §4.2 — Autenticazione
+### §4.2 - Autenticazione
 4. **Declassare** l'affermazione «HMAC-SHA1 non è negoziabile» da fatto verificato a **da confermare sul sorgente della versione deployata**: la man page scrive genericamente `hmac(...)`. Sostituire la verifica documentale con un **test di integrazione** che emette una credenziale e tenta un'`Allocate` reale.
 5. **Aggiungere** la capacità di **segreti condivisi multipli** (*"Multiple shared secrets can be used"*) e il conseguente procedimento di rotazione senza downtime.
 6. **Conservare** invariato il rilievo T12 (HMAC-SHA1 contraddice la narrativa «solo algoritmi moderni»), ma condizionarlo all'esito del test del punto 4.
 
-### §4.3 — Configurazione di riferimento
+### §4.3 - Configurazione di riferimento
 7. **Sostituire integralmente** il blocco `ini` con la configurazione verificata in fondo a questo documento.
 8. **Correggere l'errore di unità**: `max-bps` e `bps-capacity` sono in **byte** al secondo e si applicano **per direzione**. I valori attuali sono otto volte quelli intesi.
 9. **Rimuovere** `cli-password=${TURN_CLI_PASSWORD}`: impostare la password non abilita la CLI (che è off di default) e non la protegge. Sostituire con `no-cli`.
@@ -921,49 +921,49 @@ Elenco puntuale, ordinato per sezione del documento esistente.
 14. **Aggiungere** la citazione verbatim della regola di precedenza allow/deny della man page e il divieto d'uso di `allowed-peer-ip` in questo profilo.
 15. **Riscrivere** il blocco `[non verificate]` di fine sezione con la tabella di esiti di §1.3: `no-loopback-peers` e `dh2066` **non esistono**; `no-stun-backward-compatibility`, `no-tlsv1`, `no-tlsv1_1` sono state **rimosse**; `no-rfc5780`, `response-origin-only-with-rfc5780`, `no-software-attribute`, `keep-address-family` esistono ma sono **deprecate e superflue**; `no-cli`, `no-udp`, `unauthorized-ratelimit` esistono e sono **utilizzabili**; `no-tlsv1_2` esiste con **semantica diversa** da quella supposta.
 
-### §4.4 — `external-ip` dietro NAT
+### §4.4 - `external-ip` dietro NAT
 16. Nessuna correzione. Il contenuto regge.
 
-### §4.5 — Relay verso loopback e reti interne
+### §4.5 - Relay verso loopback e reti interne
 17. **Sostituire** il blocco `[i numeri di CVE e le versioni esatte riportati dalle fonti secondarie non sono stati confermati…]` con la **tabella delle sei CVE della famiglia SSRF-di-trasporto** (§1.2.3), completa di numeri, versioni corrette e citazioni verbatim.
-18. **Aggiungere CVE-2018-4058** come precedente più antico: *"By default, the TURN server allows relaying external traffic to the loopback interface of its own host"* — dimostra che il default insicuro era il punto di partenza storico del progetto.
+18. **Aggiungere CVE-2018-4058** come precedente più antico: *"By default, the TURN server allows relaying external traffic to the loopback interface of its own host"* - dimostra che il default insicuro era il punto di partenza storico del progetto.
 19. **Riformulare la difesa a strati**: aggiungere esplicitamente che **`denied-peer-ip` è difesa in profondità, non difesa primaria**, perché è stata aggirata quattro volte in otto mesi; la difesa primaria è l'**isolamento di rete in uscita**.
 20. **Estendere il test di sicurezza in CI** (punto 5 della difesa) con due casi nuovi: l'IP pubblico del nodo stesso e un indirizzo dentro un range IPv6 non prefix-aligned (regression di CVE-2026-73213).
 21. **Aggiungere** la raccomandazione di **non attivare `mobility`** (tre CVE in due mesi) e di **non attivare `web-admin` né `acme-redirect`** (rispettivamente XSS + SQLi, e divulgazione di memoria pre-autenticazione).
 
-### §4.6 — Alta disponibilità
-22. **Riformulare** «coturn non ha un clustering nativo con stato condiviso» in una negazione ancorabile: *«il README upstream offre tre soli schemi di scalabilità — DNS SRV, redirezione 300 ALTERNATE-SERVER, load balancer di rete — tutti di distribuzione delle nuove richieste; nessuna fonte upstream documenta replica dello stato delle allocazioni»*, citando il README.
+### §4.6 - Alta disponibilità
+22. **Riformulare** «coturn non ha un clustering nativo con stato condiviso» in una negazione ancorabile: *«il README upstream offre tre soli schemi di scalabilità - DNS SRV, redirezione 300 ALTERNATE-SERVER, load balancer di rete - tutti di distribuzione delle nuove richieste; nessuna fonte upstream documenta replica dello stato delle allocazioni»*, citando il README.
 23. **Aggiungere** l'esistenza di `alternate-server` / `tls-alternate-server` e la ragione per cui **non** è la scelta giusta per Telemedic (dipendenza dal supporto client del codice 300; ICE fa già il lavoro meglio).
 24. **Aggiungere alla raccomandazione finale** il requisito di **`stateless-nonce-secret` identico su tutti i nodi**, senza il quale l'architettura a N nodi indipendenti paga un round-trip `438` per ogni riassegnazione di nodo.
 
-### §4.7 — Osservabilità
+### §4.7 - Osservabilità
 25. **Sostituire** il blocco `[l'elenco esatto delle metriche esposte non è stato verificato…]` con l'elenco reale di §1.5.
 26. **Correggere l'affermazione sui permessi negati**: l'exporter **non espone** alcun contatore di `CreatePermission` respinte. Il segnale d'attacco va estratto dai log. Questa è una correzione sostanziale, perché R4 la presentava come metrica disponibile.
 27. **Aggiungere** l'avvertenza che le metriche `turn_traffic_*` contano **solo le sessioni concluse**, e indicare `turn_udp_sendmmsg_datagrams` / `turn_udp_recvmmsg_packets` come sorgenti del traffico istantaneo.
 28. **Aggiungere** il divieto di `prometheus-username-labels` come requisito di minimizzazione GDPR, e la restrizione di `prometheus-address` all'interfaccia di management.
 
-### §5.2 — DTLS 1.3
+### §5.2 - DTLS 1.3
 29. **Sostituire** `[versioni e date non confermate su fonte primaria]` con: BoringSSL `main` ha **DTLS 1.3 come versione massima di default** (sorgente `ssl/ssl_versions.cc`); **Firefox 127** ha abilitato DTLS 1.3 in WebRTC su release e beta (bug 1884140). Dichiarare **`NON VERIFICABILE`** il milestone Chrome esatto e lo stato Safari. Conservare la raccomandazione di misurare `RTCTransportStats.tlsVersion` anziché dichiararla.
 
-### §5.3 — Fingerprint e catena di fiducia
-30. **Sostituire** `[il supporto browser dell'API IdP è stato storicamente scarso e in parte rimosso — va verificato…]` con il dato accertato: **implementata solo da Firefox (40+); mai da Chrome né da Safari; presente in Edge fino a EdgeHTML 18 e rimossa nel passaggio a Chromium (79); specifica ferma a Candidate Recommendation del 27 settembre 2018 senza commit sostanziali dal 2021**.
-31. **Promuovere la contromisura (2) — Short Authentication String — da «raccomandazione forte» a requisito**, motivandola con il fatto che l'alternativa standard **non esiste in pratica**.
+### §5.3 - Fingerprint e catena di fiducia
+30. **Sostituire** `[il supporto browser dell'API IdP è stato storicamente scarso e in parte rimosso - va verificato…]` con il dato accertato: **implementata solo da Firefox (40+); mai da Chrome né da Safari; presente in Edge fino a EdgeHTML 18 e rimossa nel passaggio a Chromium (79); specifica ferma a Candidate Recommendation del 27 settembre 2018 senza commit sostanziali dal 2021**.
+31. **Promuovere la contromisura (2) - Short Authentication String - da «raccomandazione forte» a requisito**, motivandola con il fatto che l'alternativa standard **non esiste in pratica**.
 32. **Aggiungere** l'argomento di sovranità: anche in uno scenario ipotetico di supporto pieno, l'IdP API richiederebbe un Identity Provider terzo, in tensione con il vincolo V1, e sposterebbe il trust anchor senza eliminarlo.
 
-### §5.4 — Rekeying
+### §5.4 - Rekeying
 33. **Sostituire** `[il comportamento esatto in presenza di DTLS 1.3 + use_srtp non è stato verificato…]` con l'accertamento definitivo: *"This exporter_secret is static for the lifetime of the connection and is not updated by a standard key update"* (`draft-ietf-tls-extended-key-update-13`, 4 luglio 2026). **Non esiste rotazione intra-sessione delle chiavi SRTP.** Citare il draft come prova del fatto che il problema è **noto, aperto e non ancora standardizzato**.
 34. **Confermare senza riserve** la formulazione onesta proposta da R4 e adottarla verbatim nel materiale pubblico.
 
-### §6.3 — SFU open source
+### §6.3 - SFU open source
 35. **Sciogliere in positivo** tutti i `[da verificare]`: Jitsi Videobridge **Apache-2.0** (file `LICENSE` upstream), LiveKit **Apache-2.0**, ion-sfu **MIT**, Pion **MIT**.
 36. **Sostituire** «stato di manutenzione incerta» per ion-sfu con il dato oggettivo: **ultimo commit 21 luglio 2023**, 50 issue aperte. Motivare l'esclusione su **IEC 62304 §8.1.2** con l'evidenza della data, non con un sospetto.
 37. **Aggiungere** le date di ultimo commit degli altri candidati come prova di manutenzione attiva (mediasoup 2026-08-18, Jitsi Videobridge 2026-08-22, LiveKit e Pion 2026-08-25).
 
-### §7.1 — Codec video
+### §7.1 - Codec video
 38. **Aggiornare la riga AV1**: encoder AV1 per WebRTC in **Chrome M90** (Chromium Blog, marzo 2021); **Firefox 136** lo attiva per default, con invio/ricezione e simulcast (bug 1944878); Safari **`NON VERIFICABILE`**. **Rimuovere** ogni cifra di adozione: nessuna è verificabile su fonte primaria.
 39. **Conservare** la raccomandazione di non forzare i codec e di misurare, rafforzandola: con due motori su tre che supportano AV1 per default, la quota reale è ora **osservabile** dalla v1.0.
 
-### §8 e §11 — `getStats()` e testing
+### §8 e §11 - `getStats()` e testing
 40. **Correggere il riferimento normativo di `degradationPreference`**: non è nella Recommendation WebRTC, è in ***MediaStreamTrack Content Hints*, W3C Working Draft del 19 settembre 2025**. **Ritirare** il sospetto sul valore `"maintain-framerate-and-resolution"`, che è **normativo e corretto**; MDN non sbaglia. Segnalare la minore maturità della specifica (WD, non REC) all'agente Compliance per la questione aperta n. 14.
 41. **Confermare `jitterBufferTarget`**: presente nell'interfaccia principale di `RTCRtpReceiver` nella Recommendation; Chrome 124, Firefox 115, Safari 27. **Collegarlo esplicitamente al rischio T4**: è l'unica leva applicativa sul contributo dominante alla latenza glass-to-glass, e trasforma T4 da rischio non governabile in trade-off documentabile.
 42. **Sostituire `--use-fake-ui-for-media-stream` con `--auto-accept-camera-and-microphone-capture`** in tutta la configurazione di CI, citando il commento upstream: il primo auto-accetta anche lo screen capture e produrrebbe falsi positivi sui test del flusso di consenso allo screen sharing.
@@ -971,28 +971,28 @@ Elenco puntuale, ordinato per sezione del documento esistente.
 44. **Confermare** le preferenze Firefox `media.navigator.streams.fake` e `media.navigator.permission.disabled` (booleane, default `false`, in `modules/libpref/init/all.js`).
 45. **Aggiungere un vincolo nuovo alla strategia di test**: Firefox **non ha** alcun equivalente di riproduzione da file. **La misura automatica della latenza glass-to-glass con fixture Y4M (raccomandazione R14) è realizzabile solo su Chromium.** Su Firefox serve una strategia alternativa o una copertura dichiaratamente ridotta.
 
-### §10 e §14 — Registrazione e rischio T8
-46. **Riscrivere T8 con il quadro reale, che è rovesciato**: MP4 è supportato da **Chrome 126+, Edge e Safari**; **non** da Firefox (bug 1631143, stato NEW, *"We don't support an mp4 muxer"*). WebM è supportato da Chrome, Edge, Firefox e — solo dal **18.4** — Safari. **Nessuno dei due contenitori è universale.**
+### §10 e §14 - Registrazione e rischio T8
+46. **Riscrivere T8 con il quadro reale, che è rovesciato**: MP4 è supportato da **Chrome 126+, Edge e Safari**; **non** da Firefox (bug 1631143, stato NEW, *"We don't support an mp4 muxer"*). WebM è supportato da Chrome, Edge, Firefox e - solo dal **18.4** - Safari. **Nessuno dei due contenitori è universale.**
 47. **Adottare la soluzione 1** di §3.3: negoziare il contenitore a runtime con `isTypeSupported()` e registrarlo nei metadati della registrazione, coerentemente con la scelta già fatta per `srtpCipher`. **Correggere la feature 6 del sito**, che dichiara MP4 senza qualificazioni.
 
-### §14 — Tabella dei rischi
-48. **T1** — aggiornare con le sei CVE verificate; aggiungere che `denied-peer-ip` è stato aggirato quattro volte in otto mesi e che la difesa primaria è l'isolamento di rete.
-49. **T2** — elevare la severità dell'assenza di alternative: l'IdP API di RFC 8827 §7 **non è una mitigazione disponibile**. La SAS è l'unica.
-50. **T7** — rimuovere il «non verificato»: è **verificato che non esiste** rotazione intra-sessione, con fonte IETF primaria.
-51. **T8** — riscrivere secondo il punto 46.
-52. **T13** — riformulare secondo il punto 22 e aggiungere il requisito `stateless-nonce-secret`.
-53. **T15** — sostituire «numerose versioni nel 2026» con **quattordici release in sette mesi e ventisette CVE su NVD**, di cui una CRITICAL 9.8 (CVE-2026-43994). La cadenza di patching non è un obbligo generico: è un obbligo **quantificato**, e va tradotto in uno SLA numerico nel piano PMS.
-54. **T16** — **chiudere il rischio**. Era un rischio di processo; il processo è stato eseguito. Sostituirlo con una regola permanente: *«la configurazione coturn e l'elenco CVE vanno ri-verificati su NVD/GHSA e su `turnserver --help` della versione deployata a ogni aggiornamento di minor version, e l'esito registrato nel fascicolo PMS.»*
+### §14 - Tabella dei rischi
+48. **T1** - aggiornare con le sei CVE verificate; aggiungere che `denied-peer-ip` è stato aggirato quattro volte in otto mesi e che la difesa primaria è l'isolamento di rete.
+49. **T2** - elevare la severità dell'assenza di alternative: l'IdP API di RFC 8827 §7 **non è una mitigazione disponibile**. La SAS è l'unica.
+50. **T7** - rimuovere il «non verificato»: è **verificato che non esiste** rotazione intra-sessione, con fonte IETF primaria.
+51. **T8** - riscrivere secondo il punto 46.
+52. **T13** - riformulare secondo il punto 22 e aggiungere il requisito `stateless-nonce-secret`.
+53. **T15** - sostituire «numerose versioni nel 2026» con **quattordici release in sette mesi e ventisette CVE su NVD**, di cui una CRITICAL 9.8 (CVE-2026-43994). La cadenza di patching non è un obbligo generico: è un obbligo **quantificato**, e va tradotto in uno SLA numerico nel piano PMS.
+54. **T16** - **chiudere il rischio**. Era un rischio di processo; il processo è stato eseguito. Sostituirlo con una regola permanente: *«la configurazione coturn e l'elenco CVE vanno ri-verificati su NVD/GHSA e su `turnserver --help` della versione deployata a ogni aggiornamento di minor version, e l'esito registrato nel fascicolo PMS.»*
 
-### §15 — Questioni aperte
+### §15 - Questioni aperte
 55. **Chiudere il punto 7** (verifica delle direttive coturn) e il **punto 11** (verifica dei CVE): fatti, esiti in §1.2 e §1.3.
 56. **Chiudere il punto 12** (IdP API): la risposta è **no**, la SAS è l'unica strada.
 57. **Chiudere il punto 19** (`MediaRecorder` MP4) con il quadro di §3.3, lasciando aperta la sola **decisione** sul contenitore.
 58. **Chiudere il punto 30** (flag Chrome), aggiungendo però la **questione nuova** del punto 45: quale strategia di misura della latenza su Firefox.
 
 ### Appendice A e Appendice B
-59. **Appendice A** — aggiungere ai riferimenti: *MediaStreamTrack Content Hints* (W3C WD, 19 settembre 2025); *Identity for WebRTC 1.0* (W3C CR, 27 settembre 2018, **fermo**); `draft-ietf-tls-extended-key-update` (Internet-Draft attivo, versione -13 del 4 luglio 2026, citato **come tale**).
-60. **Appendice B** — sostituire integralmente le voci **1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17** con gli esiti di questo documento. Le voci **13, 14, 15, 16, 18** restano aperte e fuori dal mandato di questa verifica.
+59. **Appendice A** - aggiungere ai riferimenti: *MediaStreamTrack Content Hints* (W3C WD, 19 settembre 2025); *Identity for WebRTC 1.0* (W3C CR, 27 settembre 2018, **fermo**); `draft-ietf-tls-extended-key-update` (Internet-Draft attivo, versione -13 del 4 luglio 2026, citato **come tale**).
+60. **Appendice B** - sostituire integralmente le voci **1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17** con gli esiti di questo documento. Le voci **13, 14, 15, 16, 18** restano aperte e fuori dal mandato di questa verifica.
 
 ---
 
@@ -1008,10 +1008,10 @@ Dentro il mandato ma non risolvibili su fonte primaria: il **milestone Chrome es
 
 **Upstream coturn**: [releases](https://api.github.com/repos/coturn/coturn/releases) · [security advisories](https://api.github.com/repos/coturn/coturn/security-advisories) · [turnserver.1](https://raw.githubusercontent.com/coturn/coturn/master/man/man1/turnserver.1) · [mainrelay.c](https://raw.githubusercontent.com/coturn/coturn/master/src/apps/relay/mainrelay.c) · [prom_server.c](https://raw.githubusercontent.com/coturn/coturn/master/src/apps/relay/prom_server.c) · [examples/etc/turnserver.conf](https://raw.githubusercontent.com/coturn/coturn/master/examples/etc/turnserver.conf) · [ChangeLog](https://raw.githubusercontent.com/coturn/coturn/master/ChangeLog) · [README.md](https://raw.githubusercontent.com/coturn/coturn/master/README.md)
 
-**Database di vulnerabilità**: [NVD API v2.0 — coturn](https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=coturn) · [CVE-2020-26262](https://nvd.nist.gov/vuln/detail/CVE-2020-26262) · [CVE-2026-27624](https://nvd.nist.gov/vuln/detail/CVE-2026-27624) · [CVE-2026-53450](https://nvd.nist.gov/vuln/detail/CVE-2026-53450) · [CVE-2018-4058](https://nvd.nist.gov/vuln/detail/CVE-2018-4058) · [GHSA-j8mm-mpf8-gvjg](https://github.com/coturn/coturn/security/advisories/GHSA-j8mm-mpf8-gvjg) · [GHSA-4v97-rxjj-4f99](https://github.com/coturn/coturn/security/advisories/GHSA-4v97-rxjj-4f99) · [GHSA-2x4g-wx24-48m4](https://github.com/coturn/coturn/security/advisories/GHSA-2x4g-wx24-48m4)
+**Database di vulnerabilità**: [NVD API v2.0 - coturn](https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=coturn) · [CVE-2020-26262](https://nvd.nist.gov/vuln/detail/CVE-2020-26262) · [CVE-2026-27624](https://nvd.nist.gov/vuln/detail/CVE-2026-27624) · [CVE-2026-53450](https://nvd.nist.gov/vuln/detail/CVE-2026-53450) · [CVE-2018-4058](https://nvd.nist.gov/vuln/detail/CVE-2018-4058) · [GHSA-j8mm-mpf8-gvjg](https://github.com/coturn/coturn/security/advisories/GHSA-j8mm-mpf8-gvjg) · [GHSA-4v97-rxjj-4f99](https://github.com/coturn/coturn/security/advisories/GHSA-4v97-rxjj-4f99) · [GHSA-2x4g-wx24-48m4](https://github.com/coturn/coturn/security/advisories/GHSA-2x4g-wx24-48m4)
 
-**Normativa W3C / IETF**: [Identity for WebRTC 1.0 (CR 2018-09-27)](https://www.w3.org/TR/webrtc-identity/) · [MediaStreamTrack Content Hints (WD 2025-09-19)](https://www.w3.org/TR/mst-content-hint/) · [webref — tr/idl/webrtc.idl](https://raw.githubusercontent.com/w3c/webref/main/tr/idl/webrtc.idl) · [draft-ietf-tls-extended-key-update](https://datatracker.ietf.org/doc/html/draft-ietf-tls-extended-key-update) · [w3c/webrtc-identity commits](https://api.github.com/repos/w3c/webrtc-identity/commits)
+**Normativa W3C / IETF**: [Identity for WebRTC 1.0 (CR 2018-09-27)](https://www.w3.org/TR/webrtc-identity/) · [MediaStreamTrack Content Hints (WD 2025-09-19)](https://www.w3.org/TR/mst-content-hint/) · [webref - tr/idl/webrtc.idl](https://raw.githubusercontent.com/w3c/webref/main/tr/idl/webrtc.idl) · [draft-ietf-tls-extended-key-update](https://datatracker.ietf.org/doc/html/draft-ietf-tls-extended-key-update) · [w3c/webrtc-identity commits](https://api.github.com/repos/w3c/webrtc-identity/commits)
 
-**Vendor browser**: [MDN browser-compat-data — RTCPeerConnection](https://raw.githubusercontent.com/mdn/browser-compat-data/main/api/RTCPeerConnection.json) · [MDN BCD — RTCRtpReceiver](https://raw.githubusercontent.com/mdn/browser-compat-data/main/api/RTCRtpReceiver.json) · [Bugzilla 1842328](https://bugzilla.mozilla.org/show_bug.cgi?id=1842328) · [Bugzilla 1884140](https://bugzilla.mozilla.org/show_bug.cgi?id=1884140) · [Bugzilla 1944878](https://bugzilla.mozilla.org/show_bug.cgi?id=1944878) · [Bugzilla 1631143](https://bugzilla.mozilla.org/show_bug.cgi?id=1631143) · [BoringSSL ssl_versions.cc](https://raw.githubusercontent.com/google/boringssl/main/ssl/ssl_versions.cc) · [Chromium media_switches.cc](https://raw.githubusercontent.com/chromium/chromium/main/media/base/media_switches.cc) · [Chromium content_switches.cc](https://raw.githubusercontent.com/chromium/chromium/main/content/public/common/content_switches.cc) · [gecko-dev all.js](https://raw.githubusercontent.com/mozilla/gecko-dev/master/modules/libpref/init/all.js) · [Chrome Platform Status — MP4 container support for MediaRecorder](https://chromestatus.com/feature/5163469011943424) · [blink-dev — Intent to ship: MP4 container support for MediaRecorder](https://groups.google.com/a/chromium.org/g/blink-dev/c/p1OMVj1FrMI) · [Chromium Blog — Chrome 90 Beta: AV1 Encoder for WebRTC](https://blog.chromium.org/2021/03/chrome-90-beta-av1-encoder-for-webrtc.html) · [WebKit — MediaRecorder API](https://webkit.org/blog/11353/mediarecorder-api/)
+**Vendor browser**: [MDN browser-compat-data - RTCPeerConnection](https://raw.githubusercontent.com/mdn/browser-compat-data/main/api/RTCPeerConnection.json) · [MDN BCD - RTCRtpReceiver](https://raw.githubusercontent.com/mdn/browser-compat-data/main/api/RTCRtpReceiver.json) · [Bugzilla 1842328](https://bugzilla.mozilla.org/show_bug.cgi?id=1842328) · [Bugzilla 1884140](https://bugzilla.mozilla.org/show_bug.cgi?id=1884140) · [Bugzilla 1944878](https://bugzilla.mozilla.org/show_bug.cgi?id=1944878) · [Bugzilla 1631143](https://bugzilla.mozilla.org/show_bug.cgi?id=1631143) · [BoringSSL ssl_versions.cc](https://raw.githubusercontent.com/google/boringssl/main/ssl/ssl_versions.cc) · [Chromium media_switches.cc](https://raw.githubusercontent.com/chromium/chromium/main/media/base/media_switches.cc) · [Chromium content_switches.cc](https://raw.githubusercontent.com/chromium/chromium/main/content/public/common/content_switches.cc) · [gecko-dev all.js](https://raw.githubusercontent.com/mozilla/gecko-dev/master/modules/libpref/init/all.js) · [Chrome Platform Status - MP4 container support for MediaRecorder](https://chromestatus.com/feature/5163469011943424) · [blink-dev - Intent to ship: MP4 container support for MediaRecorder](https://groups.google.com/a/chromium.org/g/blink-dev/c/p1OMVj1FrMI) · [Chromium Blog - Chrome 90 Beta: AV1 Encoder for WebRTC](https://blog.chromium.org/2021/03/chrome-90-beta-av1-encoder-for-webrtc.html) · [WebKit - MediaRecorder API](https://webkit.org/blog/11353/mediarecorder-api/)
 
 **Licenze e manutenzione SFU**: [jitsi-videobridge LICENSE](https://raw.githubusercontent.com/jitsi/jitsi-videobridge/master/LICENSE) · [livekit/livekit](https://api.github.com/repos/livekit/livekit) · [ionorg/ion-sfu](https://api.github.com/repos/ionorg/ion-sfu) · [pion/webrtc](https://api.github.com/repos/pion/webrtc) · [versatica/mediasoup](https://api.github.com/repos/versatica/mediasoup)

@@ -1,14 +1,14 @@
 ---
-title: "R5 — Pattern di integrazione per sistemi terzi"
+title: "R5 - Pattern di integrazione per sistemi terzi"
 sidebar_position: 5
 description: "Ricerca di riferimento sui pattern di integrazione di Telemedic: SMART on FHIR, OAuth 2.x/OIDC, webhook, API REST+FHIR, embed white-label, SDK, HL7 v2, profili IHE ed estensibilità."
 ---
 
-# R5 — Pattern di integrazione per sistemi terzi
+# R5 - Pattern di integrazione per sistemi terzi
 
 > **Ambito.** Documento di ricerca a supporto della decisione **D4** del context pack
 > (`.telemedic/context/00_PROJECT_BRIEF.md`): Telemedic espone **tutte e quattro** le modalità
-> di integrazione — (a) REST + FHIR R4 + webhook, (b) embed white-label, (c) SDK Java e
+> di integrazione - (a) REST + FHIR R4 + webhook, (b) embed white-label, (c) SDK Java e
 > TypeScript, (d) HL7 v2 + SMART on FHIR + profili IHE.
 >
 > **Riservatezza (R0).** In questo documento non compare alcun nome di azienda, prodotto
@@ -71,11 +71,11 @@ Questo esclude a priori due architetture comuni:
 
 Ne discende che l'architettura di integrazione ruota attorno a tre assi indipendenti:
 
-1. **Asse dell'identità** — come un utente già autenticato altrove diventa un soggetto
+1. **Asse dell'identità** - come un utente già autenticato altrove diventa un soggetto
    autorizzato in Telemedic (§3.3, Token Exchange).
-2. **Asse del dato** — come le entità cliniche entrano ed escono senza essere duplicate
+2. **Asse del dato** - come le entità cliniche entrano ed escono senza essere duplicate
    (§5, riferimenti per identificatore esterno; §4, notifiche di ritorno).
-3. **Asse della presentazione** — come la UI di Telemedic appare dentro la UI dell'integratore
+3. **Asse della presentazione** - come la UI di Telemedic appare dentro la UI dell'integratore
    (§6, embed white-label).
 
 ### 1.2 Mappa delle modalità
@@ -116,7 +116,7 @@ Le quattro modalità **non sono alternative**: sono strati che un singolo integr
 contemporaneamente. Il caso d'uso canonico del profilo archetipo (§6.1 del brief) è:
 
 1. L'appuntamento nasce nell'agenda dell'integratore → l'integratore chiama l'API REST/FHIR di
-   Telemedic per creare la sessione (**modalità a**, con autenticazione **modalità d** —
+   Telemedic per creare la sessione (**modalità a**, con autenticazione **modalità d** -
    SMART Backend Services);
 2. il medico apre il consulto dalla propria UI → embed della stanza video
    (**modalità b**), con l'identità propagata via Token Exchange (**modalità d**);
@@ -154,7 +154,7 @@ separatamente.
 
 ## 2. SMART on FHIR
 
-**Fonte primaria**: `https://hl7.org/fhir/smart-app-launch/` — HL7 SMART App Launch. La versione
+**Fonte primaria**: `https://hl7.org/fhir/smart-app-launch/` - HL7 SMART App Launch. La versione
 corrente pubblicata al momento della ricerca è la 2.x. Le pagine citate sono
 `app-launch.html`, `scopes-and-launch-context.html`, `backend-services.html`,
 `client-confidential-asymmetric.html`, `conformance.html`.
@@ -225,7 +225,7 @@ Da `app-launch.html`, sezione *Obtain authorization code*:
 | `code_challenge` | Required | versione hash S256 del `code_verifier` |
 | `code_challenge_method` | Required | `S256` |
 
-Il parametro `aud` **non è cosmetico**: la specifica lo motiva così — «This parameter prevents
+Il parametro `aud` **non è cosmetico**: la specifica lo motiva così - «This parameter prevents
 leaking a genuine bearer token to a counterfeit resource server». Un authorization server SMART
 che non valida `aud` consente a un resource server ostile di farsi emettere token validi per sé.
 
@@ -426,7 +426,7 @@ documentazione.
   client pubblici).
 - **Refresh**: `grant_type=refresh_token`, `refresh_token`; lo `scope` è opzionale ma «must be a
   strict sub-set of the scopes granted». Se la risposta contiene un nuovo `refresh_token`,
-  «app should discard any previous `refresh_token`» — cioè la specifica prevede esplicitamente
+  «app should discard any previous `refresh_token`» - cioè la specifica prevede esplicitamente
   la **rotazione del refresh token**, coerente con RFC 9700 §2.2.2 («Refresh tokens for public
   clients MUST be sender-constrained or use refresh token rotation»).
 - **Revoca**: l'endpoint `revocation_endpoint` è quello di **RFC 7009**.
@@ -440,7 +440,7 @@ documentazione.
 | Refresh token `online_access` | legato alla sessione SSO Keycloak | |
 | Refresh token `offline_access` | emesso **solo** a client confidenziali asimmetrici, con rotazione | un refresh token offline su client pubblico in ambito sanitario è un rischio sproporzionato |
 
-### 2.6 SMART Backend Services — il pattern chiave per Telemedic
+### 2.6 SMART Backend Services - il pattern chiave per Telemedic
 
 **Fonte**: `backend-services.html` e `client-confidential-asymmetric.html`.
 
@@ -479,7 +479,7 @@ Da `client-confidential-asymmetric.html`.
 
 | Claim | Valore |
 |---|---|
-| `iss` | «Issuer of the JWT — the client's `client_id`» |
+| `iss` | «Issuer of the JWT - the client's `client_id`» |
 | `sub` | «The client's `client_id`, as determined during registration» |
 | `aud` | «The FHIR authorization server's token URL» |
 | `exp` | scadenza: **non più di cinque minuti nel futuro** |
@@ -572,7 +572,7 @@ filesystem del container (vincolo di sicurezza; cfr. regola globale sui segreti)
 
 ### 2.7 SMART Web Messaging
 
-**Fonte**: `https://build.fhir.org/ig/HL7/smart-web-messaging/` — è un IG **separato** da
+**Fonte**: `https://build.fhir.org/ig/HL7/smart-web-messaging/` - è un IG **separato** da
 SMART App Launch e a maturità inferiore. Va documentato come *sperimentale*.
 
 Risolve il problema: un'app SMART incorporata in un iframe dentro l'EHR deve poter chiedere
@@ -588,7 +588,7 @@ Durante il lancio SMART l'app riceve due parametri aggiuntivi nella token respon
 | `smart_web_messaging_handle` | «A base64-encoded value used for authentication» |
 | `smart_web_messaging_origin` | l'origine dell'EHR (es. `https://ehr.example.org`) |
 
-`smart_web_messaging_origin` è il valore da usare come `targetOrigin` in `postMessage` — mai `*`
+`smart_web_messaging_origin` è il valore da usare come `targetOrigin` in `postMessage` - mai `*`
 (§6.3).
 
 #### 2.7.2 Struttura del messaggio
@@ -617,7 +617,7 @@ Risposta dall'EHR all'app:
 `messageType` definiti dall'IG: `status.handshake`, `ui.done`, `ui.launchActivity`,
 `scratchpad.create`, `scratchpad.update`, `scratchpad.delete` (e la lettura dello scratchpad).
 La specifica non è ancora normativa allo stesso livello di App Launch: **non verificato** se
-`scratchpad.read` sia elencato con questo nome esatto nella versione corrente — da confermare
+`scratchpad.read` sia elencato con questo nome esatto nella versione corrente - da confermare
 prima di implementarlo.
 
 #### 2.7.3 Sicurezza
@@ -631,7 +631,7 @@ l'app verso l'EHR. Ne discende che l'handle **non va mai loggato** né messo in 
 
 Il caso d'uso naturale è il ciclo di vita dell'embed: `ui.done` quando il consulto termina,
 perché l'EHR chiuda la finestra modale che ospita l'iframe. È l'alternativa **standard** al
-protocollo `postMessage` proprietario di §6.3 — e va offerta **quando l'ospitante è un EHR che
+protocollo `postMessage` proprietario di §6.3 - e va offerta **quando l'ospitante è un EHR che
 implementa SMART Web Messaging**. Poiché il profilo archetipo dell'integratore (gestionale PMI)
 quasi certamente **non** lo implementa, Telemedic deve offrire entrambi: SMART Web Messaging per
 gli ospitanti conformi e il protocollo proprietario documentato per tutti gli altri.
@@ -667,7 +667,7 @@ Le prescrizioni che vincolano il design di Telemedic:
 | Restrizione del privilegio | §2.3 | gli access token «SHOULD be audience-restricted to a specific resource server» e ristretti a risorse e azioni specifiche |
 | CSRF | §2.1 e §4.7.1 | i client «MUST» difendersi con `state`, PKCE o `nonce` OIDC |
 
-*Proposta di progetto — postura di default di Telemedic:*
+*Proposta di progetto - postura di default di Telemedic:*
 
 1. Implicit grant e ROPC **disabilitati a livello di realm Keycloak**, non solo sconsigliati.
 2. PKCE `S256` obbligatorio su tutti i client, inclusi i confidenziali.
@@ -675,7 +675,7 @@ Le prescrizioni che vincolano il design di Telemedic:
 4. Ogni access token porta `aud` esplicito e viene rifiutato da un resource server che non si
    riconosce in `aud`. Questo è il punto in cui si applica **§2.3**: l'audience deve essere il
    resource server, non il realm.
-5. Token opachi verso l'esterno, JWT internamente — oppure JWT firmati con chiave per tenant.
+5. Token opachi verso l'esterno, JWT internamente - oppure JWT firmati con chiave per tenant.
    La scelta è discussa in §3.9.
 
 ### 3.2 Authorization Code + PKCE
@@ -697,9 +697,9 @@ code_challenge  = BASE64URL(SHA256(ASCII(code_verifier)))    (RFC 7636 §4.2, me
 |---|---|---|
 | Nessun utente coinvolto (job, cron, motore di integrazione) | Non c'è nessuno a cui presentare la schermata di consenso | `client_credentials` + `private_key_jwt` (§3.4) |
 | L'utente è già autenticato dall'IAM dell'integratore e un secondo redirect sarebbe visibile | Anche con SSO silente, un redirect cross-origin dentro un iframe può essere bloccato dai cookie di terze parti (§6.5): il flusso fallisce in modo intermittente e non diagnosticabile | Token Exchange (§3.3) o JWT grant (§3.5) sul canale back-channel |
-| Dispositivo senza browser (totem, dispositivo medico embedded) | Non c'è user agent per il redirect | Device Authorization Grant (RFC 8628) — **non verificato** se necessario nel perimetro v1.0 |
+| Dispositivo senza browser (totem, dispositivo medico embedded) | Non c'è user agent per il redirect | Device Authorization Grant (RFC 8628) - **non verificato** se necessario nel perimetro v1.0 |
 
-### 3.3 Token Exchange (RFC 8693) — propagazione dell'identità senza secondo login
+### 3.3 Token Exchange (RFC 8693) - propagazione dell'identità senza secondo login
 
 Questa è **la sezione centrale** per il requisito §6.2.2 del brief: «Telemedic deve accettare
 identità federate senza obbligare gli utenti a un secondo login».
@@ -775,11 +775,11 @@ urn:ietf:params:oauth:token-type:jwt
 
 | Parametro | Obbligatorietà |
 |---|---|
-| `access_token` | REQUIRED — il token emesso |
+| `access_token` | REQUIRED - il token emesso |
 | `issued_token_type` | REQUIRED |
 | `token_type` | REQUIRED (es. `Bearer` oppure `N_A`) |
 | `expires_in` | RECOMMENDED |
-| `scope` | CONDITIONAL — obbligatorio se differisce da quello richiesto |
+| `scope` | CONDITIONAL - obbligatorio se differisce da quello richiesto |
 | `refresh_token` | OPTIONAL |
 
 #### 3.3.4 Esempio completo per Telemedic
@@ -954,7 +954,7 @@ frequente su questo RFC e la documentazione pubblica deve esplicitare la differe
 Il bearer token ha un difetto strutturale: chi lo intercetta lo usa. In sanità, dove il token
 apre l'accesso a dati particolari ex art. 9 GDPR, questo è un rischio da mitigare.
 
-#### 3.5.1 DPoP — RFC 9449
+#### 3.5.1 DPoP - RFC 9449
 
 **Struttura della prova DPoP (RFC 9449 §4.2).** Header JOSE:
 
@@ -1002,7 +1002,7 @@ dove `jkt` è il thumbprint SHA-256 base64url della JWK. La stessa struttura com
 risposta di introspection (§6.2). Il server può imporre un nonce con l'header `DPoP-Nonce`
 (§§8-9) e restituire gli errori `use_dpop_nonce` e `invalid_dpop_proof` (§12.2).
 
-#### 3.5.2 mTLS — RFC 8705
+#### 3.5.2 mTLS - RFC 8705
 
 Due metodi di autenticazione del client:
 
@@ -1013,7 +1013,7 @@ Due metodi di autenticazione del client:
 
 Metadati di registrazione per il metodo PKI (§2.1.2): `tls_client_auth_subject_dn`,
 `tls_client_auth_san_dns`, `tls_client_auth_san_uri`, `tls_client_auth_san_ip`,
-`tls_client_auth_san_email` — **esattamente uno** di questi va valorizzato.
+`tls_client_auth_san_email` - **esattamente uno** di questi va valorizzato.
 
 Il binding del token al certificato (§3.1) usa la conferma:
 
@@ -1089,8 +1089,8 @@ UDAP Business-to-Business, profilate per FHIR nell'IG HL7
 **«Security for Scalable Registration, Authentication, and Authorization»**
 (`https://hl7.org/fhir/us/udap-security/`).
 
-Meccanica essenziale: il client costruisce una **software statement** — un JWT firmato con la
-chiave privata corrispondente alla chiave pubblica contenuta nel proprio certificato X.509 — e
+Meccanica essenziale: il client costruisce una **software statement** - un JWT firmato con la
+chiave privata corrispondente alla chiave pubblica contenuta nel proprio certificato X.509 - e
 la presenta all'endpoint di registrazione. Il server valida la catena del certificato contro le
 trust anchor della community e registra dinamicamente il client. Le successive richieste di
 token usano l'autenticazione asimmetrica di RFC 7523.
@@ -1184,13 +1184,13 @@ deve dire all'integratore che qualcosa è successo, senza che l'integratore facc
 
 Le garanzie che un sistema di webhook di livello clinico deve offrire, in ordine di importanza:
 
-1. **Autenticità** — il ricevente deve poter provare che il messaggio viene da Telemedic.
-2. **Integrità** — il payload non è stato alterato.
-3. **Freschezza** — il messaggio non è un replay di uno vecchio.
-4. **Consegna at-least-once** — nessun evento va perso.
-5. **Idempotenza lato ricevente** — la consegna multipla non produce effetti multipli.
-6. **Osservabilità** — l'integratore deve poter vedere cosa è stato consegnato e cosa no.
-7. **Non-blocco** — un ricevente lento non deve degradare Telemedic.
+1. **Autenticità** - il ricevente deve poter provare che il messaggio viene da Telemedic.
+2. **Integrità** - il payload non è stato alterato.
+3. **Freschezza** - il messaggio non è un replay di uno vecchio.
+4. **Consegna at-least-once** - nessun evento va perso.
+5. **Idempotenza lato ricevente** - la consegna multipla non produce effetti multipli.
+6. **Osservabilità** - l'integratore deve poter vedere cosa è stato consegnato e cosa no.
+7. **Non-blocco** - un ricevente lento non deve degradare Telemedic.
 
 Ciò che un webhook **non** può garantire senza costi sproporzionati: l'ordinamento globale e la
 consegna exactly-once. Vanno dichiarati come non-garanzie (§4.5).
@@ -1286,7 +1286,7 @@ principale di errori di integrazione):
 4. Deduplicare su `Telemedic-Event-Id` con una finestra almeno pari alla finestra di replay.
 
 ```java
-// Verifica lato ricevente — esempio di riferimento per la documentazione dell'SDK
+// Verifica lato ricevente - esempio di riferimento per la documentazione dell'SDK
 public boolean verify(byte[] rawBody, String timestampHeader, String eventId,
                       String signatureHeader, List<byte[]> activeSecrets) {
     long ts = Long.parseLong(timestampHeader);
@@ -1322,7 +1322,7 @@ public boolean verify(byte[] rawBody, String timestampHeader, String eventId,
 **RFC 9421, «HTTP Message Signatures», febbraio 2024**, standardizza esattamente questo problema.
 Definisce due campi:
 
-- `Signature-Input`: metadati — quali componenti del messaggio sono coperti e con quali parametri;
+- `Signature-Input`: metadati - quali componenti del messaggio sono coperti e con quali parametri;
 - `Signature`: il valore della firma.
 
 I **componenti derivati** utilizzabili includono `@method`, `@target-uri`, `@authority`, `@path`,
@@ -1346,7 +1346,7 @@ Confronto:
   dell'integratore sa consumare.
 - Opzione raccomandata per l'alta assurance: **RFC 9421 con firma asimmetrica**. È l'unica
   che dà **non-ripudio**: con HMAC il segreto è condiviso, quindi il ricevente non può provare a
-  un terzo che il messaggio veniva da Telemedic — potrebbe averlo forgiato lui. In un contesto in
+  un terzo che il messaggio veniva da Telemedic - potrebbe averlo forgiato lui. In un contesto in
   cui la notifica trasporta l'esito di un atto sanitario e alimenta un audit trail (vincolo
   **V5**), la differenza è sostanziale e va documentata.
 
@@ -1411,7 +1411,7 @@ base = 5 s, cap = 6 h, tentativi = 12  →  copertura ≈ 72 h
 
 Il **jitter è obbligatorio, non ornamentale**: senza, un'indisponibilità di 5 minuti
 dell'integratore produce, alla riattivazione, una raffica sincronizzata di tutti gli eventi
-accumulati — un attacco DoS involontario contro il partner.
+accumulati - un attacco DoS involontario contro il partner.
 
 Codici che innescano il retry: errori di rete, timeout, `408`, `429`, `5xx`.
 Codici che **non** innescano il retry: `2xx` (successo), `410 Gone` (endpoint dismesso →
@@ -1455,9 +1455,9 @@ Da dichiarare esplicitamente nel contratto di API:
 
 *Proposta di progetto:*
 
-- `POST /v1/webhook-endpoints/{id}/test` — invia un evento sintetico `ping` firmato, e restituisce
+- `POST /v1/webhook-endpoints/{id}/test` - invia un evento sintetico `ping` firmato, e restituisce
   la risposta osservata (stato, latenza, primi byte sanificati).
-- `GET /v1/webhook-deliveries?endpointId=…&status=failed` — cronologia delle consegne con
+- `GET /v1/webhook-deliveries?endpointId=…&status=failed` - cronologia delle consegne con
   richiesta e risposta, per il debug autonomo dell'integratore. Riduce drasticamente il carico
   di supporto.
 
@@ -1484,7 +1484,7 @@ con gli attributi obbligatori mappati così:
 | `specversion` | `1.0` |
 | `id` | ULID dell'evento |
 | `source` | `https://telemedic.example/tenants/{tenantId}` |
-| `type` | `telemedic.session.completed.v1` — namespace invertito con versione esplicita |
+| `type` | `telemedic.session.completed.v1` - namespace invertito con versione esplicita |
 | `subject` | riferimento FHIR dell'aggregato, es. `Encounter/enc-77213` |
 | `time` | RFC 3339 con millisecondi e `Z` |
 | `datacontenttype` | `application/json` |
@@ -1555,7 +1555,7 @@ notifiche push su criterio di ricerca:
 }
 ```
 
-**Limiti strutturali di questo modello** — sono la ragione per cui HL7 lo ha sostituito:
+**Limiti strutturali di questo modello** - sono la ragione per cui HL7 lo ha sostituito:
 
 1. **Semantica del criterio ambigua.** «The search criteria are applied to the **new value** of
    the resource»: quindi una cancellazione, o un aggiornamento che fa *uscire* la risorsa dal
@@ -1564,7 +1564,7 @@ notifiche push su criterio di ricerca:
 2. **Costo computazionale.** Ogni scrittura va confrontata con **tutte** le sottoscrizioni
    attive: è un `O(scritture × sottoscrizioni)` che non scala su un sistema multi-tenant.
 3. **Nessun controllo granulare del payload**: o la risorsa completa o niente. La risorsa
-   completa in un webhook significa dati clinici in transito verso un endpoint HTTP —
+   completa in un webhook significa dati clinici in transito verso un endpoint HTTP -
    inaccettabile per default in ambito GDPR.
 4. **Nessun heartbeat, nessun handshake, nessuna verifica dell'endpoint.** L'integratore non può
    distinguere «nessun evento» da «webhook rotto».
@@ -1572,8 +1572,8 @@ notifiche push su criterio di ricerca:
    un buco nella sequenza.
 6. **Autenticazione debole**: `channel.header` con un bearer statico è l'unico meccanismo
    previsto. Nessuna firma.
-7. La specifica stessa dichiara aspetti irrisolti: «The details of the message — mainly the event
-   code — are still to be resolved during the trial use period».
+7. La specifica stessa dichiara aspetti irrisolti: «The details of the message - mainly the event
+   code - are still to be resolved during the trial use period».
 
 #### 4.7.2 Il backport R4 del modello topic-based di R5
 
@@ -1587,9 +1587,9 @@ pubblicato dal server, a cui il client si sottoscrive filtrando su parametri amm
 
 | Tipo | Id dell'artefatto |
 |---|---|
-| Profilo | `backport-subscription` — R4/B Topic-Based Subscription |
-| Profilo | `backport-subscription-notification` (R4B) e `backport-subscription-notification-r4` — Notification Bundle |
-| Profilo | `backport-subscription-status-r4` — SubscriptionStatus per R4 |
+| Profilo | `backport-subscription` - R4/B Topic-Based Subscription |
+| Profilo | `backport-subscription-notification` (R4B) e `backport-subscription-notification-r4` - Notification Bundle |
+| Profilo | `backport-subscription-status-r4` - SubscriptionStatus per R4 |
 | Estensione | `backport-topic-canonical` |
 | Estensione | `backport-payload-content` |
 | Estensione | `backport-heartbeat-period` |
@@ -1855,7 +1855,7 @@ Regole:
     },
     {
       "system": "http://hl7.it/sid/codiceFiscale",
-      "value": "RSSMRA80A01H501U"
+      "value": "RSSMRA80A01H501Z"
     }
   ]
 }
@@ -1896,7 +1896,7 @@ Le tre strategie e la loro valutazione:
 
 - annuncio pubblico ≥ 12 mesi prima della dismissione di una versione maggiore;
 - header `Deprecation` e `Sunset` (**RFC 8594** definisce `Sunset`; `Deprecation` è oggetto di un
-  Internet-Draft — **non verificato** se sia diventato RFC: va controllato prima di citarlo come
+  Internet-Draft - **non verificato** se sia diventato RFC: va controllato prima di citarlo come
   standard);
 - header `Link` con `rel="deprecation"` verso la pagina di migrazione;
 - almeno due versioni maggiori attive contemporaneamente;
@@ -2020,7 +2020,7 @@ Gate di CI raccomandati:
 I **membri di estensione** (§3.2) sono ammessi e i consumatori devono ignorare quelli che non
 riconoscono.
 
-*Proposta di progetto* — esempio Telemedic:
+*Proposta di progetto* - esempio Telemedic:
 
 ```json
 {
@@ -2118,7 +2118,7 @@ consistente. **Sul piano FHIR non si applica**: lì il formato è il `Bundle`.
 Gli header `RateLimit` e `RateLimit-Policy` sono definiti dall'Internet-Draft
 **`draft-ietf-httpapi-ratelimit-headers`** (standards track; versione `-11` del 23 maggio 2026 al
 momento della ricerca, **non ancora RFC**). La versione corrente del draft definisce **due** campi
-— `RateLimit` e `RateLimit-Policy` — non i tre header separati (`RateLimit-Limit`,
+- `RateLimit` e `RateLimit-Policy` - non i tre header separati (`RateLimit-Limit`,
 `RateLimit-Remaining`, `RateLimit-Reset`) delle versioni precedenti, che restano però lo standard
 *de facto* più diffuso.
 
@@ -2171,12 +2171,12 @@ If-Match: W/"23"
 
 Altre primitive FHIR rilevanti:
 
-- `If-None-Exist: {search}` — **conditional create** (§3.1.0.8.1): crea solo se la ricerca non
+- `If-None-Exist: {search}` - **conditional create** (§3.1.0.8.1): crea solo se la ricerca non
   trova nulla. È lo strumento naturale per l'ingestione idempotente di `Appointment`
   provenienti dall'integratore, usando l'identificatore esterno come criterio;
-- `PUT [base]/[type]?{search}` — **conditional update** (§3.1.0.4.3): `412` se la ricerca
+- `PUT [base]/[type]?{search}` - **conditional update** (§3.1.0.4.3): `412` se la ricerca
   trova più di un risultato;
-- `DELETE [base]/[type]?{search}` — conditional delete (§3.1.0.7.1);
+- `DELETE [base]/[type]?{search}` - conditional delete (§3.1.0.7.1);
 - `Prefer: return=minimal | representation | OperationOutcome` (§3.1.0.1.8);
 - `X-Request-Id` e `X-Correlation-Id` (§3.1.0.16), da propagare nell'audit.
 
@@ -2283,13 +2283,13 @@ attribute implements a further restriction on top of the policy specified in the
 
 #### 6.1.3 Configurazione corretta per Telemedic
 
-**Lato integratore — header sulla pagina che ospita l'iframe:**
+**Lato integratore - header sulla pagina che ospita l'iframe:**
 
 ```http
 Permissions-Policy: camera=(self "https://embed.telemedic.example"), microphone=(self "https://embed.telemedic.example"), display-capture=(self "https://embed.telemedic.example"), fullscreen=(self "https://embed.telemedic.example")
 ```
 
-**Lato integratore — markup dell'iframe:**
+**Lato integratore - markup dell'iframe:**
 
 ```html
 <iframe
@@ -2309,7 +2309,7 @@ Punti da documentare esplicitamente perché sbagliati quasi sempre:
    iframe **cross-origin** non ottiene il permesso: la `getUserMedia()` fallisce con
    `NotAllowedError`. **L'header sul documento ospitante è quindi necessario**, non opzionale.
 2. **`display-capture` è una feature separata** da `camera` e `microphone`. Va elencata a parte,
-   altrimenti la condivisione schermo fallisce mentre video e audio funzionano — un sintomo
+   altrimenti la condivisione schermo fallisce mentre video e audio funzionano - un sintomo
    confondente.
 3. **`allow` senza allowlist esplicita equivale a `'src'`**: `allow="camera"` significa «consenti
    camera se l'origine caricata coincide con quella di `src`». Se l'iframe naviga verso
@@ -2371,8 +2371,8 @@ incorporato può rimuovere l'attributo `sandbox` dal proprio frame, rendendo il 
 Nel caso di Telemedic **l'iframe è cross-origin** (`embed.telemedic.example` ≠ dominio
 dell'integratore), quindi la combinazione è accettabile. Ma questo va scritto in modo esplicito
 nella documentazione con l'avvertenza inversa: **se un integratore serve Telemedic dalla propria
-origine tramite reverse proxy** — cosa che alcuni faranno per aggirare i problemi di cookie di
-terze parti (§6.5) — allora l'avvertenza si applica e il sandbox diventa illusorio. In quel caso
+origine tramite reverse proxy** - cosa che alcuni faranno per aggirare i problemi di cookie di
+terze parti (§6.5) - allora l'avvertenza si applica e il sandbox diventa illusorio. In quel caso
 la sicurezza deve poggiare solo su CSP e sull'isolamento applicativo.
 
 #### `credentialless`
@@ -2407,7 +2407,7 @@ non è esprimibile con `X-Frame-Options`. Va emesso al massimo come fallback per
 antichi, sapendo che sarà `DENY` o assente. Dove entrambi sono presenti, i browser moderni danno
 precedenza a `frame-ancestors`.
 
-*Proposta di progetto — implementazione multi-tenant:*
+*Proposta di progetto - implementazione multi-tenant:*
 
 1. L'header `Content-Security-Policy` dell'endpoint di embed è **generato dinamicamente per
    sessione**, non statico: contiene solo le origini registrate per **quel** tenant.
@@ -2533,7 +2533,7 @@ window.addEventListener('message', (event) => {
 ```
 
 **Lato iframe (Telemedic):** simmetrico, con la allow-list delle origini ospitanti del tenant
-iniettata dal server nel bootstrap della pagina — **non** ricavata da `document.referrer`, che è
+iniettata dal server nel bootstrap della pagina - **non** ricavata da `document.referrer`, che è
 manipolabile e può essere assente.
 
 ```ts
@@ -2617,18 +2617,18 @@ Ricostruzione dalle fonti consultate, con la cautela che il tema è in movimento
   impostazione predefinita, ma presenta all'utente una scelta.
 - **Safari (ITP)** e **Firefox (Total Cookie Protection)** bloccano o partizionano i cookie di
   terze parti **da anni**, per impostazione predefinita.
-- **CHIPS** (`Partitioned`) è indicato come *Baseline 2025 — newly available*: funziona sulle
+- **CHIPS** (`Partitioned`) è indicato come *Baseline 2025 - newly available*: funziona sulle
   versioni recenti dei browser da dicembre 2025, non su quelle più vecchie.
 
 **Conclusione operativa: il rischio non è scomparso, si è solo spostato.** Anche assumendo Chrome
-permissivo, una quota rilevante di utenti (Safari su iOS/macOS — significativa nel settore
-sanitario per l'uso di iPad — e Firefox) opera già oggi in regime di cookie di terze parti
+permissivo, una quota rilevante di utenti (Safari su iOS/macOS - significativa nel settore
+sanitario per l'uso di iPad - e Firefox) opera già oggi in regime di cookie di terze parti
 partizionati o bloccati. **Progettare assumendo che i cookie di terze parti non funzionino è
 l'unica scelta difendibile.**
 
 #### 6.5.3 Le tre strategie e la raccomandazione
 
-**Strategia A — Nessun cookie (raccomandata).**
+**Strategia A - Nessun cookie (raccomandata).**
 
 L'embed non usa cookie. Le credenziali di sessione arrivano dal riscatto dell'`ott` (§6.4.4) e
 vivono **in memoria**. Ogni chiamata API porta `Authorization: Bearer`. Il refresh avviene
@@ -2636,10 +2636,10 @@ tramite un endpoint chiamato con il token corrente, non con un cookie.
 
 Conseguenze: immune al blocco dei cookie di terze parti su **tutti** i browser; nessuna
 dipendenza da Storage Access API; il ricaricamento della pagina dell'iframe perde lo stato e
-richiede un nuovo `ott` — accettabile per una sessione di teleconsulto, che ha durata definita e
+richiede un nuovo `ott` - accettabile per una sessione di teleconsulto, che ha durata definita e
 un host che può ri-emettere il token.
 
-**Strategia B — Cookie partizionati (CHIPS).**
+**Strategia B - Cookie partizionati (CHIPS).**
 
 ```http
 Set-Cookie: __Host-tm_embed=…; Path=/; Secure; HttpOnly; SameSite=None; Partitioned
@@ -2656,7 +2656,7 @@ vuole, ma va comunicato); supporto assente sui browser più vecchi; il partizion
 sottodomini del sito di primo livello funziona (i sottodomini dell'ospitante condividono la
 partizione).
 
-**Strategia C — Storage Access API.**
+**Strategia C - Storage Access API.**
 
 Da usare **solo** quando serve accedere allo stato **non partizionato** (cioè condividere la
 sessione con la UI standalone di Telemedic).
@@ -2784,7 +2784,7 @@ distrugge quando viene rimosso. Gli `@Input` diventano attributi/proprietà HTML
 nella proprietà `detail`.
 
 ```ts
-// Telemedic — packaging come custom element
+// Telemedic - packaging come custom element
 import { createApplication } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
 import { TelemedicRoomComponent } from './telemedic-room.component';
@@ -2841,7 +2841,7 @@ riattaccando manualmente un elemento dal DOM.
 non di comodità: in un contesto sanitario, il token che dà accesso a una sessione clinica **non
 deve trovarsi nello stesso realm JavaScript dell'applicazione dell'integratore**. Con un Web
 Component, un XSS nel gestionale del partner diventa un accesso a sessioni cliniche di
-Telemedic — e Telemedic non ha alcun controllo sulla qualità del codice del partner. In una
+Telemedic - e Telemedic non ha alcun controllo sulla qualità del codice del partner. In una
 analisi dei rischi ISO 14971 questo è un rischio non mitigabile con mezzi tecnici propri.
 
 Il Web Component va offerto:
@@ -2953,7 +2953,7 @@ mantenerne uno in più senza guadagno.
 | Server | `RestfulServer` + `IResourceProvider`: base per esporre l'API FHIR di Telemedic |
 
 ```java
-// Client generico HAPI — uso raccomandato nell'SDK
+// Client generico HAPI - uso raccomandato nell'SDK
 FhirContext ctx = FhirContext.forR4();          // una sola istanza per applicazione
 IGenericClient client = ctx.newRestfulGenericClient("https://telemedic.example/fhir");
 client.registerInterceptor(new BearerTokenAuthInterceptor(tokenSupplier.get()));
@@ -3194,14 +3194,14 @@ su TCP. Delimitatori:
 | Start block | `0x0B` (`<VT>`) |
 | End block | `0x1C` (`<FS>`) seguito da `0x0D` (`<CR>`) |
 
-I segmenti dentro il messaggio sono separati da `<CR>` (`0x0D`) — **non** da `\n`. È l'errore di
+I segmenti dentro il messaggio sono separati da `<CR>` (`0x0D`) - **non** da `\n`. È l'errore di
 parsing più comune.
 
 Il canale è una connessione TCP persistente su cui viaggiano più messaggi in sequenza; il
 ricevente risponde con un **ACK** (`MSA` con `AA` accept, `AE` error, `AR` reject).
 
 Requisiti di sicurezza (*proposta di progetto*): **MLLP sempre incapsulato in TLS**, con
-autenticazione mutua di nodo — che è esattamente ciò che richiede **IHE ATNA** (§9.4). MLLP in
+autenticazione mutua di nodo - che è esattamente ciò che richiede **IHE ATNA** (§9.4). MLLP in
 chiaro su una rete non segmentata è inaccettabile per un sistema che tratta dati sanitari.
 
 ### 8.3 Messaggi rilevanti per Telemedic
@@ -3220,7 +3220,7 @@ leggibilità):
 ```
 MSH|^~\&|GESTIONALE|ORG-INTEGRATORE|TELEMEDIC|ASL-NORD-01|20260901093000||SIU^S12^SIU_S12|MSG00001|P|2.5.1
 SCH||APT-9931|||||TELECONSULTO^Teleconsulto cardiologico^L||60|min|^^^20260901100000^20260901110000|||||||||||||BOOKED
-PID|1||PZ-889231^^^GESTIONALE^MR~RSSMRA80A01H501U^^^MINSAN^NNITA||ROSSI^MARIO||19800101|M|||VIA ROMA 1^^ROMA^^00100^ITA
+PID|1||PZ-889231^^^GESTIONALE^MR~RSSMRA80A01H501Z^^^MINSAN^NNITA||ROSSI^MARIO||19800101|M|||VIA ROMA 1^^ROMA^^00100^ITA
 PV1|1|O|||||PR-77^BIANCHI^ANNA^^^^^^GESTIONALE^^^^DN
 RGS|1|A
 AIS|1|A|TELECONSULTO^Teleconsulto cardiologico^L|20260901100000|||60|min
@@ -3256,7 +3256,7 @@ clienti target è già presente e già governata.
 ### 8.5 Mapping v2 ↔ FHIR
 
 L'**HL7 v2-to-FHIR Implementation Guide**
-(`https://build.fhir.org/ig/HL7/v2-to-fhir/`, versione 1.0.0 — STU 1, maturity level 1)
+(`https://build.fhir.org/ig/HL7/v2-to-fhir/`, versione 1.0.0 - STU 1, maturity level 1)
 fornisce il mapping cumulativo dello standard verso **FHIR R4**, organizzato per **messaggi**,
 **segmenti**, **tipi di dato** e **vocabolario/sistemi di codifica**. Non è il mapping di una
 specifica guida di implementazione, ma dello standard v2 nel suo complesso, incluse componenti
@@ -3306,7 +3306,7 @@ I profili IHE non sostituiscono le API descritte sopra: **le vincolano**. Dove u
 pubblico richiede conformità IHE, il profilo definisce **quali** transazioni FHIR, con **quali**
 attori e **quali** vincoli di sicurezza.
 
-### 9.1 MHD — Mobile access to Health Documents
+### 9.1 MHD - Mobile access to Health Documents
 
 `https://profiles.ihe.net/ITI/MHD/`. Fornisce «one standardized interface to health document
 sharing» per dispositivi mobili e sistemi con risorse limitate, semplificando i protocolli
@@ -3317,10 +3317,10 @@ Transazioni:
 
 | Transazione | Nome |
 |---|---|
-| **ITI-65** | Provide Document Bundle — invio/push di nuove document entry |
-| **ITI-66** | Find Document Lists — ricerca di liste di documenti per metadati |
-| **ITI-67** | Find Document References — ricerca di `DocumentReference` |
-| **ITI-68** | Retrieve Document — recupero del documento |
+| **ITI-65** | Provide Document Bundle - invio/push di nuove document entry |
+| **ITI-66** | Find Document Lists - ricerca di liste di documenti per metadati |
+| **ITI-67** | Find Document References - ricerca di `DocumentReference` |
+| **ITI-68** | Retrieve Document - recupero del documento |
 | **ITI-105** | Simplified Publish |
 | **ITI-106** | Generate Metadata |
 
@@ -3343,7 +3343,7 @@ preesistenti per il consulto. Non implementare l'intero profilo per completezza.
 - Quando non esiste un'infrastruttura di document sharing a valle: si produrrebbero metadati per
   un registro che non c'è.
 
-### 9.2 PIXm — Patient Identifier Cross-referencing for Mobile
+### 9.2 PIXm - Patient Identifier Cross-referencing for Mobile
 
 `https://profiles.ihe.net/ITI/PIXm/`. Basato su FHIR R4.
 
@@ -3366,14 +3366,14 @@ Telemedic sarebbe un **Patient Identifier Cross-reference Consumer**.
 - Quando l'integratore passa già entrambi gli identificativi nella chiamata: la query è un
   round-trip inutile.
 
-### 9.3 PDQm — Patient Demographics Query for Mobile
+### 9.3 PDQm - Patient Demographics Query for Mobile
 
 `https://profiles.ihe.net/ITI/PDQm/`. Basato su FHIR R4.
 
 | Transazione | Nome |
 |---|---|
-| **ITI-78** | Mobile Patient Demographics Query — query su dati anagrafici, restituisce risorse `Patient` |
-| **ITI-119** | Patient Demographics Match — introdotta come alternativa a ITI-78 |
+| **ITI-78** | Mobile Patient Demographics Query - query su dati anagrafici, restituisce risorse `Patient` |
+| **ITI-119** | Patient Demographics Match - introdotta come alternativa a ITI-78 |
 
 **Rilevanza per Telemedic.** Utile se il paziente accede autonomamente (scenario «app mobile di
 terze parti» o portale del cittadino) e va riconciliato con l'anagrafica autoritativa.
@@ -3387,7 +3387,7 @@ terze parti» o portale del cittadino) e va riconciliato con l'anagrafica autori
   su una base pazienti è una superficie di enumerazione. Va sempre limitata per tenant, con
   soglie di risultati e audit di ogni ricerca.
 
-### 9.4 ATNA — Audit Trail and Node Authentication
+### 9.4 ATNA - Audit Trail and Node Authentication
 
 `https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html`.
 
@@ -3398,8 +3398,8 @@ per i soli attori raggruppati), Audit Record Repository, Audit Record Forwarder.
 
 | Transazione | Nome |
 |---|---|
-| **ITI-19** | Authenticate Node — autenticazione mutua fra nodi/applicazioni per connessioni che possono esporre informazioni private |
-| **ITI-20** | Record Audit Event — trasmissione dei record di audit al repository |
+| **ITI-19** | Authenticate Node - autenticazione mutua fra nodi/applicazioni per connessioni che possono esporre informazioni private |
+| **ITI-20** | Record Audit Event - trasmissione dei record di audit al repository |
 
 Entrambe sono richieste per Secure Node e Secure Application.
 
@@ -3407,12 +3407,12 @@ Entrambe sono richieste per Secure Node e Secure Application.
 using BCP195» rappresenta il livello di protezione più elevato, limitando a TLS 1.2 o superiore
 con cipher suite selezionate.
 
-**Trasporto degli audit**: due opzioni syslog — **ATX: TLS Syslog** (syslog su TLS, RFC 5424) e
+**Trasporto degli audit**: due opzioni syslog - **ATX: TLS Syslog** (syslog su TLS, RFC 5424) e
 **ATX: UDP Syslog**. Almeno una va supportata.
 
 **Schema degli eventi**: DICOM PS3.15 Annex A.5, schema XML estensibile.
 
-**Rilevanza per Telemedic — alta.** Il vincolo **V5** (auditabilità immutabile) e la decisione
+**Rilevanza per Telemedic - alta.** Il vincolo **V5** (auditabilità immutabile) e la decisione
 **D6** (MDR) richiedono già un audit trail non ripudiabile. ATNA fornisce il **formato standard**
 e il **canale standard** per esportarlo verso il repository di audit del cliente.
 
@@ -3425,7 +3425,7 @@ e il **canale standard** per esportarlo verso il repository di audit del cliente
   cliente ed è ciò che rende l'audit **non ripudiabile rispetto al fornitore**;
 - **UDP Syslog è da escludere**: non garantisce la consegna, quindi un audit trail che ci si
   appoggia ha buchi non rilevabili;
-- ITI-19 (mutual TLS) si allinea alla raccomandazione mTLS di §3.5.3 — non è un requisito in più,
+- ITI-19 (mutual TLS) si allinea alla raccomandazione mTLS di §3.5.3 - non è un requisito in più,
   è lo stesso requisito visto dal lato IHE;
 - per la generazione dei record di audit sulle interazioni RESTful, il riferimento è **IHE BALP**
   (Basic Audit Log Patterns), citato in ITI TF-2 Appendix Z.8 *Mobile Security Considerations*.
@@ -3440,23 +3440,23 @@ e il **canale standard** per esportarlo verso il repository di audit del cliente
 
 ### 9.5 XUA e IUA
 
-**XUA — Cross-Enterprise User Assertion** (`https://profiles.ihe.net/ITI/TF/Volume1/ch-13.html`):
+**XUA - Cross-Enterprise User Assertion** (`https://profiles.ihe.net/ITI/TF/Volume1/ch-13.html`):
 comunica claim sull'identità di un principal autenticato in transazioni che attraversano i
 confini di impresa. La transazione **ITI-40 (Provide X-User Assertion)** è usata dall'X-Service
 User per passare un'asserzione di identità all'X-Service Provider: le transazioni Web Services
 usano l'header WS-Security con un **token SAML 2.0** contenente l'asserzione.
 
-**IUA — Internet User Authorization** (`https://profiles.ihe.net/ITI/IUA/`) è l'equivalente
+**IUA - Internet User Authorization** (`https://profiles.ihe.net/ITI/IUA/`) è l'equivalente
 per il mondo REST/OAuth.
 
 **Attori**: Authorization Client, Authorization Server, Resource Server.
 
 | Transazione | Nome |
 |---|---|
-| **ITI-71** | Get Access Token — richiesta e ottenimento di un access token |
-| **ITI-72** | Incorporate Access Token — aggiunta del token a una transazione |
-| **ITI-102** | Introspect Token — stato e claim associati a un access token |
-| **ITI-103** | Get Authorization Server Metadata — metadati dell'Authorization Server |
+| **ITI-71** | Get Access Token - richiesta e ottenimento di un access token |
+| **ITI-72** | Incorporate Access Token - aggiunta del token a una transazione |
+| **ITI-102** | Introspect Token - stato e claim associati a un access token |
+| **ITI-103** | Get Authorization Server Metadata - metadati dell'Authorization Server |
 
 Opzioni di token: **JWT Token Option** (JWT come access token, con algoritmi richiesti fra cui
 HS256 e RS256) e **SAML Token Option** (integrazione di ambienti che usano il token SAML
@@ -3527,7 +3527,7 @@ che si può fare con un webhook non deve richiedere codice in-process.
 Requisito reale: il profilo archetipo dell'integratore ha «cartelle cliniche personalizzate per
 specialità» (§6.1 del brief). Le sue entità hanno campi che Telemedic non può prevedere.
 
-*Proposta di progetto* — due meccanismi distinti, per due scopi distinti:
+*Proposta di progetto* - due meccanismi distinti, per due scopi distinti:
 
 **1. Attributi opachi (`metadata`)**
 Ogni risorsa applicativa espone un oggetto `metadata`: mappa chiave-valore che Telemedic
@@ -3602,7 +3602,7 @@ Il meccanismo Java standard è `java.util.ServiceLoader` con i file
 `META-INF/services/<interfaccia>`. In Spring il pattern raccomandato:
 
 ```java
-// Modulo telemedic-spi — artefatto pubblicato separatamente, superficie minima e stabile
+// Modulo telemedic-spi - artefatto pubblicato separatamente, superficie minima e stabile
 public interface PatientIdentityResolver {
     /** Ordine di applicazione: il valore più basso vince. */
     default int order() { return 0; }
@@ -3634,7 +3634,7 @@ public class PatientIdentityService {
 }
 ```
 
-Punti di estensione *proposti* per la v1.0 — **pochi e ben scelti**:
+Punti di estensione *proposti* per la v1.0 - **pochi e ben scelti**:
 
 | SPI | Scopo |
 |---|---|
@@ -3703,7 +3703,7 @@ Il pre-hook sincrono verso un endpoint esterno va progettato con estrema cautela
 
 ### 10.6 Contratto di API stabile e policy di deprecazione
 
-*Proposta di progetto* — da pubblicare come pagina permanente della documentazione.
+*Proposta di progetto* - da pubblicare come pagina permanente della documentazione.
 
 **Cosa è coperto dalla garanzia di stabilità:**
 
@@ -3785,11 +3785,11 @@ Regole aggiuntive:
 | **Profili IHE** | Nessuno | Nessuno | ATNA | **MHD ITI-65**, **PIXm ITI-83**, **ATNA ITI-19/20**, mappatura **IUA** documentata | Eventuale **PDQm ITI-78** con limiti stretti |
 | **Cookie di terze parti** | Architettura **senza cookie** (§6.5, strategia A) | Senza cookie | N/A | Senza cookie | N/A (contesto di prima parte) |
 | **Rischio principale** | Disponibilità dello scambio *external-to-internal* nella versione di Keycloak adottata (§3.3.7) | L'integratore non ha competenze OAuth: il costo di supporto si concentra qui | Perdita informativa nel mapping v2↔FHIR; sicurezza del canale MLLP | Requisiti di conformità (IHE, accessibilità, sovranità del dato) emergono a capitolato e sono costosi a posteriori | Custodia del token su dispositivo non controllato; impossibilità di revocare istantaneamente |
-| **Priorità v1.0** | **1 — primaria** | **2** | **3** | **2** | **4** |
+| **Priorità v1.0** | **1 - primaria** | **2** | **3** | **2** | **4** |
 
 ### 11.2 Motivazioni delle scelte non ovvie
 
-**A — perché JWT grant e non solo Token Exchange.** Lo scenario A è quello del profilo archetipo
+**A - perché JWT grant e non solo Token Exchange.** Lo scenario A è quello del profilo archetipo
 ed è la priorità assoluta. La scelta del meccanismo dipende dal supporto della piattaforma
 d'identità: al momento della ricerca, lo scambio *external-to-internal* di RFC 8693 in Keycloak
 era indicato come lavoro successivo rispetto all'internal-internal, mentre il JWT Authorization
@@ -3798,23 +3798,23 @@ combinazione con il token exchange. Documentare **entrambi** e scegliere in base
 effettivamente adottata è l'unica posizione difendibile. È un **rischio di pianificazione da
 tracciare**, non un dettaglio implementativo.
 
-**B — perché non forzare la federazione.** Un integratore piccolo che non ha un IdP non deve
+**B - perché non forzare la federazione.** Un integratore piccolo che non ha un IdP non deve
 essere costretto a costruirne uno. Il realm Keycloak di Telemedic funge da IAM per i suoi
 utenti, con branding per tenant. Il costo: gli utenti hanno due credenziali. È un compromesso
 accettabile a quella scala e va dichiarato apertamente invece di essere nascosto dietro
 un'integrazione a metà.
 
-**C — perché nessun webhook.** Un sistema che parla solo v2 non ha un endpoint HTTPS da chiamare.
+**C - perché nessun webhook.** Un sistema che parla solo v2 non ha un endpoint HTTPS da chiamare.
 Il ritorno dell'informazione avviene con un messaggio v2 sullo stesso canale MLLP, che è ciò che
 il motore di integrazione del cliente sa già consumare.
 
-**D — perché RFC 9421 asimmetrico e non HMAC.** Nel settore pubblico la notifica dell'esito di un
+**D - perché RFC 9421 asimmetrico e non HMAC.** Nel settore pubblico la notifica dell'esito di un
 atto sanitario alimenta un fascicolo. Con HMAC il segreto è condiviso: il ricevente non può
 provare a un terzo che il messaggio proveniva da Telemedic, perché avrebbe potuto forgiarlo lui.
 La firma asimmetrica dà **non-ripudio**. È il motivo per cui vale il costo di integrazione
 maggiore proprio in questo scenario e non negli altri.
 
-**E — perché WebView e non iframe.** Un'app mobile non ha un documento ospitante che possa servire
+**E - perché WebView e non iframe.** Un'app mobile non ha un documento ospitante che possa servire
 l'header `Permissions-Policy` (§6.1). Una WebView a pagina intera opera in contesto di prima
 parte: nessun problema di delega dei permessi, nessun problema di cookie di terze parti. La
 delega dei permessi media avviene a livello di sistema operativo (permessi dell'app), non a
@@ -3839,7 +3839,7 @@ livello web.
 | Applicazione web dell'integratore, controllo dell'header `Permissions-Policy` | **iframe** con `sandbox` + `allow` (§6.1-6.2) |
 | Applicazione web, nessun controllo degli header (CMS chiuso, portale di terzi) | **Nuova scheda/finestra** in contesto di prima parte |
 | Componente non clinico da fondere nel layout (pulsante, badge, test dispositivi) | **Web Component** (§6.7) |
-| Ergonomia da Web Component ma isolamento da iframe | **Custom element wrapper dell'iframe** — raccomandato |
+| Ergonomia da Web Component ma isolamento da iframe | **Custom element wrapper dell'iframe** - raccomandato |
 | L'ospitante è un EHR conforme SMART | **SMART App Launch** + **SMART Web Messaging** (§2.7) |
 | App mobile nativa | **WebView a pagina intera** |
 | Nessuna integrazione UI possibile | **Link di invito** con landing page Telemedic in white-label |
@@ -3896,22 +3896,22 @@ fattibilità evita una scoperta tardiva.
 | `draft-ietf-httpapi-ratelimit-headers` | RateLimit header fields for HTTP | `RateLimit`, `RateLimit-Policy`. Versione `-11` del 23/05/2026; **non ancora RFC** (§5.8) |
 | `draft-ietf-httpapi-idempotency-key-header` | The Idempotency-Key HTTP Header Field | `Idempotency-Key`. Versione `-07` del 15/10/2025; **non ancora RFC** (§5.9) |
 | `draft-ietf-oauth-identity-chaining` | Identity Chaining Across Trust Domains | Combinazione RFC 8693 + RFC 7523 §2.1 (§3.3.7). **Stato non verificato** |
-| RFC 8628 | OAuth 2.0 Device Authorization Grant | Citato solo come alternativa per dispositivi senza browser (§3.2) — **non verificato** come necessario in perimetro |
+| RFC 8628 | OAuth 2.0 Device Authorization Grant | Citato solo come alternativa per dispositivi senza browser (§3.2) - **non verificato** come necessario in perimetro |
 
 ### 12.2 HL7 / FHIR / SMART
 
 | Specifica | URL | Sezioni usate |
 |---|---|---|
-| FHIR R4 — RESTful API | `https://hl7.org/fhir/R4/http.html` | §3.1.0.1.3 ETag/Last-Modified, §3.1.0.1.8 `Prefer`, §3.1.0.1.9 media type, §3.1.0.3 vread, §3.1.0.4.3 conditional update, §3.1.0.5 version-aware update, §3.1.0.7.1 conditional delete, §3.1.0.8.1 `If-None-Exist`, §3.1.0.9 search, §3.1.0.11 transaction/batch, §3.1.0.12 history, §3.1.0.14 paging, §3.1.0.16 `X-Request-Id` |
-| FHIR R4 — `Subscription` | `https://hl7.org/fhir/R4/subscription.html` | `criteria`, `status`, `channel.*`, limitazioni (§4.7.1) |
+| FHIR R4 - RESTful API | `https://hl7.org/fhir/R4/http.html` | §3.1.0.1.3 ETag/Last-Modified, §3.1.0.1.8 `Prefer`, §3.1.0.1.9 media type, §3.1.0.3 vread, §3.1.0.4.3 conditional update, §3.1.0.5 version-aware update, §3.1.0.7.1 conditional delete, §3.1.0.8.1 `If-None-Exist`, §3.1.0.9 search, §3.1.0.11 transaction/batch, §3.1.0.12 history, §3.1.0.14 paging, §3.1.0.16 `X-Request-Id` |
+| FHIR R4 - `Subscription` | `https://hl7.org/fhir/R4/subscription.html` | `criteria`, `status`, `channel.*`, limitazioni (§4.7.1) |
 | FHIR Subscriptions R5 Backport IG | `https://hl7.org/fhir/uv/subscriptions-backport/` | Profili ed estensioni `backport-*`, operazioni `$status`/`$events`, `SubscriptionStatus` (§4.7.2) |
-| SMART App Launch — App Launch | `https://hl7.org/fhir/smart-app-launch/app-launch.html` | `iss`, `launch`, `aud`, PKCE, parametri di authorize/token, launch context, refresh (§2.1, §2.2, §2.5) |
-| SMART App Launch — Scopes and Launch Context | `https://hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html` | Sintassi degli scope v1/v2, scope di contesto, parametri di contesto (§2.3) |
-| SMART App Launch — Backend Services | `https://hl7.org/fhir/smart-app-launch/backend-services.html` | `client_credentials`, `client_assertion_type`, `expires_in: 300`, scope `system/` (§2.6) |
-| SMART App Launch — Client Confidential Asymmetric | `https://hl7.org/fhir/smart-app-launch/client-confidential-asymmetric.html` | Header e claim del JWT, `RS384`/`ES384`, JWKS via URL (§2.6.2, §2.6.5) |
-| SMART App Launch — Conformance | `https://hl7.org/fhir/smart-app-launch/conformance.html` | `/.well-known/smart-configuration`, capability, deprecazione del `CapabilityStatement` per gli endpoint OAuth (§2.4) |
+| SMART App Launch - App Launch | `https://hl7.org/fhir/smart-app-launch/app-launch.html` | `iss`, `launch`, `aud`, PKCE, parametri di authorize/token, launch context, refresh (§2.1, §2.2, §2.5) |
+| SMART App Launch - Scopes and Launch Context | `https://hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html` | Sintassi degli scope v1/v2, scope di contesto, parametri di contesto (§2.3) |
+| SMART App Launch - Backend Services | `https://hl7.org/fhir/smart-app-launch/backend-services.html` | `client_credentials`, `client_assertion_type`, `expires_in: 300`, scope `system/` (§2.6) |
+| SMART App Launch - Client Confidential Asymmetric | `https://hl7.org/fhir/smart-app-launch/client-confidential-asymmetric.html` | Header e claim del JWT, `RS384`/`ES384`, JWKS via URL (§2.6.2, §2.6.5) |
+| SMART App Launch - Conformance | `https://hl7.org/fhir/smart-app-launch/conformance.html` | `/.well-known/smart-configuration`, capability, deprecazione del `CapabilityStatement` per gli endpoint OAuth (§2.4) |
 | SMART Web Messaging | `https://build.fhir.org/ig/HL7/smart-web-messaging/` | `smart_web_messaging_handle`, `smart_web_messaging_origin`, struttura dei messaggi (§2.7) |
-| FHIR Bulk Data Access (Flat FHIR) | `https://hl7.org/fhir/uv/bulkdata/` | `$export` (§5.11) — **dettagli da riverificare** |
+| FHIR Bulk Data Access (Flat FHIR) | `https://hl7.org/fhir/uv/bulkdata/` | `$export` (§5.11) - **dettagli da riverificare** |
 | HL7 v2-to-FHIR IG | `https://build.fhir.org/ig/HL7/v2-to-fhir/` | Mapping per messaggi/segmenti/tipi/vocabolario; v1.0.0 STU 1, maturity 1 (§8.5) |
 | UDAP Security IG | `https://hl7.org/fhir/us/udap-security/` | Trust federation dinamica (§3.7) |
 | UDAP | `https://www.udap.org/` | Dynamic Client Registration, B2B (§3.7) |
@@ -3945,10 +3945,10 @@ fattibilità evita una scoperta tardiva.
 
 | Fonte | Uso |
 |---|---|
-| HAPI FHIR — Generic Client | `FhirContext`, `newRestfulGenericClient`, `IGenericClient`, interceptor (§7.3.1) |
+| HAPI FHIR - Generic Client | `FhirContext`, `newRestfulGenericClient`, `IGenericClient`, interceptor (§7.3.1) |
 | Angular Elements | `createCustomElement()`, `customElements.define()`, mapping input/output, limitazioni (§6.7.1) |
-| Keycloak — Standard Token Exchange (26.2) | Conformità RFC 8693; scope internal-internal (§3.3.7) |
-| Keycloak — JWT Authorization Grant (26.5) | RFC 7523 §2.1 in preview; identity chaining (§3.3.7) |
+| Keycloak - Standard Token Exchange (26.2) | Conformità RFC 8693; scope internal-internal (§3.3.7) |
+| Keycloak - JWT Authorization Grant (26.5) | RFC 7523 §2.1 in preview; identity chaining (§3.3.7) |
 
 ---
 
@@ -3961,15 +3961,15 @@ agenti dell'orchestrazione.
 |---|---|---|
 | Q1 | Versione di Keycloak adottata e disponibilità effettiva dello scambio *external-to-internal* di RFC 8693 e dello stato GA del JWT Authorization Grant (§3.3.7). Blocca la modalità primaria dello scenario A | Architettura, roadmap |
 | Q2 | Token opachi + phantom token al gateway, oppure JWT autoportanti? Impatto su latenza e topologia (§3.9) | Architettura |
-| Q3 | `system` canonico per il codice fiscale nei profili FHIR italiani (§5.3) — **non verificato** | Dominio sanitario |
-| Q4 | Mappatura dei valori `acr` per i livelli SPID L1/L2/L3 (§3.10) — **non verificata** | Identità digitale |
+| Q3 | `system` canonico per il codice fiscale nei profili FHIR italiani (§5.3) - **non verificato** | Dominio sanitario |
+| Q4 | Mappatura dei valori `acr` per i livelli SPID L1/L2/L3 (§3.10) - **non verificata** | Identità digitale |
 | Q5 | Dettagli esatti di FHIR Bulk Data `$export` (parametri e campi del manifest): recupero fallito in questa ricerca (§5.11) | Chi implementa l'export |
-| Q6 | Conformità del messaggio `SIU^S12` di esempio alla struttura v2.5.1 (§8.3) — **non verificata** | Chi implementa l'adapter v2 |
-| Q7 | Header `Deprecation`: è diventato RFC o è ancora Internet-Draft? (§5.4) — **non verificato** | Chi scrive la policy di deprecazione |
-| Q8 | Nomi esatti degli header `ce-*` del binding HTTP CloudEvents in modalità binary (§4.6.1) — **non verificati** | Chi implementa il dispatcher |
-| Q9 | `scratchpad.read` è un `messageType` valido nella versione corrente di SMART Web Messaging? (§2.7.2) — **non verificato** | Chi implementa Web Messaging |
-| Q10 | Stato di manutenzione di `fhir.js` (§7.4.1) — **non verificato** | Chi progetta l'SDK TypeScript |
-| Q11 | Pattern BALP (Basic Audit Log Patterns) per gli audit RESTful (§9.4) — **non verificati** | Sicurezza / audit |
+| Q6 | Conformità del messaggio `SIU^S12` di esempio alla struttura v2.5.1 (§8.3) - **non verificata** | Chi implementa l'adapter v2 |
+| Q7 | Header `Deprecation`: è diventato RFC o è ancora Internet-Draft? (§5.4) - **non verificato** | Chi scrive la policy di deprecazione |
+| Q8 | Nomi esatti degli header `ce-*` del binding HTTP CloudEvents in modalità binary (§4.6.1) - **non verificati** | Chi implementa il dispatcher |
+| Q9 | `scratchpad.read` è un `messageType` valido nella versione corrente di SMART Web Messaging? (§2.7.2) - **non verificato** | Chi implementa Web Messaging |
+| Q10 | Stato di manutenzione di `fhir.js` (§7.4.1) - **non verificato** | Chi progetta l'SDK TypeScript |
+| Q11 | Pattern BALP (Basic Audit Log Patterns) per gli audit RESTful (§9.4) - **non verificati** | Sicurezza / audit |
 | Q12 | Il modello «senza cookie» per l'embed (§6.5.3, strategia A) è compatibile con tutti i requisiti di sessione previsti dalla UI? Va confermato con chi progetta il frontend | Frontend, architettura |
 | Q13 | Versione esatta dell'IG Subscriptions Backport da citare nei profili (§4.7.2) | Chi implementa le Subscription |
 

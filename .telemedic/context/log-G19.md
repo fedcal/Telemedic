@@ -1,6 +1,6 @@
-# Log G-19 — Glossario della guida dei fondamenti
+# Log G-19 - Glossario della guida dei fondamenti
 
-**Deliverable**: `docs/10_fondamenti/19-glossario.md` — `sidebar_position: 20`.
+**Deliverable**: `docs/10_fondamenti/19-glossario.md` - `sidebar_position: 20`.
 **Data**: 25 agosto 2026.
 **Metodo**: raccolta sistematica, non redazione ex novo. Nessuna voce è stata inventata: ogni
 voce proviene da una sezione «Termini introdotti» di un modulo della guida, dal glossario del
@@ -14,9 +14,9 @@ dominio, o dal lessico esplicitamente introdotto da un'area di documentazione.
 |---|---|
 | Voci nell'elenco alfabetico (A–Z) | **~715** |
 | Sigle sciolte in italiano e in inglese (§ 5) | **~150**, in dieci raggruppamenti tematici |
-| Coppie di falsi sinonimi (§ 3) | **32** — le 14 dell'area dominio più 18 nuove |
-| Termini da non usare (§ 4) | **22** — gli 11 dell'area dominio più 11 nuovi |
-| Termini dipendenti dal contesto (§ 6) | **20** — i 12 dell'area dominio più 8 nuovi |
+| Coppie di falsi sinonimi (§ 3) | **32** - le 14 dell'area dominio più 18 nuove |
+| Termini da non usare (§ 4) | **22** - gli 11 dell'area dominio più 11 nuovi |
+| Termini dipendenti dal contesto (§ 6) | **20** - i 12 dell'area dominio più 8 nuovi |
 | Voci dell'indice inverso inglese → italiano (§ 7) | **~350** |
 | Lunghezza stimata | ampiamente oltre le 10.000 parole richieste (stima ≈ 30.000) |
 
@@ -60,10 +60,10 @@ non introduce lessico proprio ed è citato come destinazione, non come fonte di 
 
 ### 2.2 Area dominio
 
-`docs/05_domain/09-glossario-del-dominio.md` — ~150 voci italiano/inglese con natura (N/G/S/P) e
+`docs/05_domain/09-glossario-del-dominio.md` - ~150 voci italiano/inglese con natura (N/G/S/P) e
 rinvii, 18 sigle, 11 termini da non usare, 12 collisioni presidiate.
-`docs/05_domain/01-linguaggio-ubiquo.md` § 5 — le 14 coppie di falsi sinonimi, riprese in forma
-sintetica con il rinvio; § 6 — la tabella delle collisioni.
+`docs/05_domain/01-linguaggio-ubiquo.md` § 5 - le 14 coppie di falsi sinonimi, riprese in forma
+sintetica con il rinvio; § 6 - la tabella delle collisioni.
 
 **Assorbita, non duplicata.** Il glossario della guida riprende le voci che i moduli introducono e
 rinvia sistematicamente all'area dominio per il dettaglio di modellazione. La colonna «Natura» è
@@ -79,7 +79,7 @@ stati verificati sull'elenco reale dei file.
 
 ### 2.4 Contesto di progetto
 
-`.telemedic/context/00_PROJECT_BRIEF.md` § 5-ter — decisioni **D53–D58**. Recepite in modo
+`.telemedic/context/00_PROJECT_BRIEF.md` § 5-ter - decisioni **D53–D58**. Recepite in modo
 puntuale:
 
 - **D57**: nessuna voce presenta la pianificazione come «percorso di un terzo». Le formule
@@ -98,7 +98,7 @@ puntuale:
 
 ---
 
-## 3. Regole redazionali — verifica di conformità
+## 3. Regole redazionali - verifica di conformità
 
 | Regola | Esito |
 |---|---|
@@ -116,7 +116,7 @@ puntuale:
 
 ---
 
-## 4. Termini usati in modo incoerente fra aree diverse — SEGNALATI, NON CORRETTI
+## 4. Termini usati in modo incoerente fra aree diverse - SEGNALATI, NON CORRETTI
 
 Come da istruzione, le incoerenze trovate nelle aree altrui **non sono state modificate**. Sono
 elencate qui perché siano risolte da chi possiede quelle aree.
@@ -216,8 +216,8 @@ L'esclusione è sempre motivata; nessuna voce è stata omessa per economia.
 ## 6. Note per chi verrà dopo
 
 1. **La traduzione inglese di questo modulo non è una traduzione ordinaria.** Le voci contrassegnate
-   con l'avvertenza «equivalente inglese non esatto» — le otto prestazioni di telemedicina e una
-   trentina di istituti amministrativi italiani — richiedono che il termine italiano **resti nella
+   con l'avvertenza «equivalente inglese non esatto» - le otto prestazioni di telemedicina e una
+   trentina di istituti amministrativi italiani - richiedono che il termine italiano **resti nella
    forma originale** anche nel testo inglese, con la spiegazione a seguire. Un traduttore che
    sostituisca «televisita» con «video visit» distrugge precisamente l'informazione che la voce
    esiste per veicolare.

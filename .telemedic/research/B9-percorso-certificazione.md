@@ -1,13 +1,13 @@
 ---
-title: "Percorso operativo di certificazione — dalla Classe IIa alla marcatura CE"
+title: "Percorso operativo di certificazione - dalla Classe IIa alla marcatura CE"
 sidebar_position: 9
 description: "Guida eseguibile alla marcatura CE di Telemedic come dispositivo medico software di Classe IIa MDR: sequenza, date, prerequisiti, documenti, responsabili, costi, rischi. Include ISO 13485, IEC 62304, ISO 14971, IEC 62366-1, valutazione clinica, Organismo Notificato, EUDAMED, PMS e certificazioni complementari."
 ---
 
 # Percorso operativo di certificazione
 
-**Documento di ricerca — agente B9, seconda ondata**
-**Data di redazione: 25 agosto 2026 — stato normativo accertato alla data**
+**Documento di ricerca - agente B9, seconda ondata**
+**Data di redazione: 25 agosto 2026 - stato normativo accertato alla data**
 
 ---
 
@@ -80,8 +80,8 @@ telemonitoraggio e per il *viewer*/refertazione è documentato in
    nessun Organismo Notificato apre un fascicolo e nessuna delle attività successive è
    difendibile.
 4. **Il documento più costoso da sbagliare è la destinazione d'uso** (§ 4). Una singola frase
-   sbagliata — «monitoraggio in tempo reale dei parametri vitali» invece di «raccolta
-   differita di parametri per la revisione periodica del professionista» — sposta la
+   sbagliata - «monitoraggio in tempo reale dei parametri vitali» invece di «raccolta
+   differita di parametri per la revisione periodica del professionista» - sposta la
    classificazione dalla Classe IIa alla Classe IIb, la classe di sicurezza software da B a C,
    e aggiunge 12–18 mesi e un ordine di grandezza al costo.
 5. **La valutazione clinica è il secondo collo di bottiglia** (§ 10). Non richiede
@@ -117,16 +117,16 @@ riduce l'attrito e accorcia l'audit dell'ON, ma non lo sostituisce.
 L'**art. 52(6) MDR** offre al fabbricante di dispositivi di Classe IIa **due strade
 alternative**:
 
-- **Strada 1 (raccomandata per il software)** — valutazione della conformità basata sul
+- **Strada 1 (raccomandata per il software)** - valutazione della conformità basata sul
   **sistema di gestione della qualità**: Allegato IX, **Capo I** (valutazione del SGQ) e
   **Capo III** (disposizioni amministrative), **con in più** la valutazione della
   documentazione tecnica di cui alla **sezione 4** dell'Allegato IX per **almeno un
   dispositivo rappresentativo per ciascuna categoria di dispositivi**.
-- **Strada 2** — redazione della documentazione tecnica degli **Allegati II e III** unita a
+- **Strada 2** - redazione della documentazione tecnica degli **Allegati II e III** unita a
   una valutazione di conformità ai sensi dell'**Allegato XI** nella variante «garanzia di
   qualità della produzione» (Parte A) o «verifica del prodotto» (Parte B). L'art. 52(6) rinvia
   puntualmente alle sezioni dell'Allegato XI che disciplinano l'applicazione ai dispositivi di
-  Classe IIa. **[FONTE SECONDARIA — i numeri di sezione dell'Allegato XI vanno riletti sul
+  Classe IIa. **[FONTE SECONDARIA - i numeri di sezione dell'Allegato XI vanno riletti sul
   testo consolidato EUR-Lex prima di essere citati in un documento di progetto]**
 
 > **Nota di correzione rispetto al mandato.** La combinazione «Allegato X + XI»
@@ -139,10 +139,10 @@ concepita per prodotti fabbricati in lotti: prevede l'esame di ogni prodotto o d
 statistici. Applicata a un software distribuito per *download*, produce un onere ricorrente
 insensato. La garanzia di qualità della produzione (Parte A) è più praticabile ma comunque
 lascia scoperta la parte di progettazione, che per un software è **tutto il prodotto**.
-L'Allegato IX, Capo I, copre invece l'intero ciclo — progettazione, sviluppo, produzione,
-sorveglianza post-commercializzazione — ed è la scelta universale nel software dispositivo
+L'Allegato IX, Capo I, copre invece l'intero ciclo - progettazione, sviluppo, produzione,
+sorveglianza post-commercializzazione - ed è la scelta universale nel software dispositivo
 medico. **[PROPOSTA]** Adottare la Strada 1 e verbalizzarne la motivazione nel documento
-`MDR-CAP-001 — Scelta della procedura di valutazione della conformità`.
+`MDR-CAP-001 - Scelta della procedura di valutazione della conformità`.
 
 Testo di riferimento: [Regolamento (UE) 2017/745, versione consolidata su
 EUR-Lex](https://eur-lex.europa.eu/eli/reg/2017/745/oj).
@@ -151,7 +151,7 @@ EUR-Lex](https://eur-lex.europa.eu/eli/reg/2017/745/oj).
 
 ## 2. Cosa fare nei primi 30 giorni
 
-**Finestra: 25 agosto — 24 settembre 2026.**
+**Finestra: 25 agosto - 24 settembre 2026.**
 
 Queste attività hanno tempi di attraversamento lunghi e **non comprimibili** e sono
 prerequisito di tutto il resto. Ogni giorno di ritardo qui si traduce in un giorno di ritardo
@@ -184,8 +184,8 @@ blocco.
 
 | Dato | Valore | Fonte |
 |---|---|---|
-| Tempo dall'accordo scritto al certificato — 51 % degli ON | **13–18 mesi** | XX indagine della Commissione europea, dati a febbraio 2026 **[FONTE SECONDARIA]** |
-| Idem — 31 % degli ON | **19–24 mesi** | *ibidem* |
+| Tempo dall'accordo scritto al certificato - 51 % degli ON | **13–18 mesi** | XX indagine della Commissione europea, dati a febbraio 2026 **[FONTE SECONDARIA]** |
+| Idem - 31 % degli ON | **19–24 mesi** | *ibidem* |
 | Valutazione «solo SGQ» | in prevalenza **6–12 mesi** | Indagine Team-NB 2025 **[FONTE SECONDARIA]** |
 | Valutazione «SGQ + prodotto» (il nostro caso) | in prevalenza **13–18 mesi** | Indagine Team-NB 2025 |
 | Tempo dal primo contatto alla firma del contratto | **< 2 mesi nel 66 % dei casi** | Indagine Team-NB 2025 |
@@ -198,7 +198,7 @@ dimensione, con un dispositivo software di prima certificazione, **non è un cli
 prioritario** per un Organismo Notificato con capacità in contrazione. Questo va messo in
 conto nella pianificazione e nella negoziazione contrattuale (§ 7.6).
 
-### 3.2 Scenario A — compresso («2027», come da D16)
+### 3.2 Scenario A - compresso («2027», come da D16)
 
 | Milestone | Data |
 |---|---|
@@ -211,14 +211,14 @@ conto nella pianificazione e nella negoziazione contrattuale (§ 7.6).
 
 **Condizioni di realizzabilità, tutte necessarie:** (a) il contratto è firmato entro
 novembre 2026, il che significa RFI inviata entro settembre 2026; (b) il fascicolo tecnico è
-completo — *completo*, non «avviato» — a febbraio 2027, il che è in tensione diretta con la
+completo - *completo*, non «avviato» - a febbraio 2027, il che è in tensione diretta con la
 consegna software del 30 novembre 2026 e con la validazione sommativa di usabilità;
 (c) il sistema qualità ha già completato un ciclo di audit interno e riesame della direzione
 entro aprile 2027; (d) il CER è chiuso entro febbraio 2027; (e) l'ON si colloca nel decile
 più veloce (13 mesi) e non solleva non conformità maggiori. **Probabilità stimata: bassa.**
 **[PROPOSTA]** Trattare lo scenario A come obiettivo di tensione, non come piano.
 
-### 3.3 Scenario B — realistico (piano di riferimento)
+### 3.3 Scenario B - realistico (piano di riferimento)
 
 | Milestone | Data |
 |---|---|
@@ -236,18 +236,18 @@ Durata dalla firma del contratto al certificato: **18 mesi**, cioè il limite su
 fascia maggioritaria. È il piano su cui è costruito il diagramma del § 3.5 e la tabella
 cronologica del § 5.
 
-### 3.4 Scenario C — conservativo
+### 3.4 Scenario C - conservativo
 
 Contratto ON a marzo 2027 (perché il fabbricante non è ancora costituito a dicembre 2026, o
 perché i primi ON contattati non accettano nuovi clienti), 22 mesi di valutazione, due cicli
 di non conformità maggiori sulla valutazione clinica: **certificati a gennaio 2029, marcatura
 CE nel primo trimestre 2029.**
 
-### 3.5 Diagramma di Gantt — scenario B (piano di riferimento)
+### 3.5 Diagramma di Gantt - scenario B (piano di riferimento)
 
 ```mermaid
 gantt
-    title Telemedic — percorso di certificazione MDR Classe IIa (scenario B, realistico)
+    title Telemedic - percorso di certificazione MDR Classe IIa (scenario B, realistico)
     dateFormat YYYY-MM-DD
     axisFormat %b %y
 
@@ -366,15 +366,15 @@ fa, e progettare il prodotto perché faccia esattamente ciò che si vuole dichia
 
 Il testo della **Regola 11, Allegato VIII, MDR** contiene due commi con soglie diverse:
 
-- **Comma 1 — software che fornisce informazioni usate per assumere decisioni a fini
+- **Comma 1 - software che fornisce informazioni usate per assumere decisioni a fini
   diagnostici o terapeutici**: Classe IIa, salvo che tali decisioni possano causare il decesso
   o un deterioramento irreversibile dello stato di salute (Classe III) oppure un grave
   deterioramento dello stato di salute o un intervento chirurgico (Classe IIb).
-- **Comma 2 — software destinato al monitoraggio di processi fisiologici**: Classe IIa, salvo
+- **Comma 2 - software destinato al monitoraggio di processi fisiologici**: Classe IIa, salvo
   che sia destinato al monitoraggio di **parametri fisiologici vitali** in cui la natura delle
   variazioni di tali parametri **potrebbe comportare un pericolo immediato per il paziente**,
   nel qual caso è Classe IIb.
-- **Comma 3** — tutto il resto è Classe I.
+- **Comma 3** - tutto il resto è Classe I.
 
 Riferimento interpretativo: **MDCG 2021-24 rev.1** (*Guidance on classification of medical
 devices*, revisione dell'aprile 2026 **[FONTE SECONDARIA sulla data della revisione]**) e
@@ -398,18 +398,18 @@ sicurezza software C, evidenza clinica più stringente, costi e tempi superiori.
 
 ### 4.3 Traccia della dichiarazione di destinazione d'uso
 
-**[PROPOSTA]** — Documento `MDR-IU-001`. Testo da sottoporre a revisione del consulente
+**[PROPOSTA]** - Documento `MDR-IU-001`. Testo da sottoporre a revisione del consulente
 regolatorio e dell'ON. **Non è un testo definitivo: è una traccia strutturata.**
 
-> **1. Denominazione del dispositivo.** *Telemedic Clinical Distribution* — distribuzione
+> **1. Denominazione del dispositivo.** *Telemedic Clinical Distribution* - distribuzione
 > identificata, versionata e sottoposta a controllo qualità del software Telemedic. Il codice
 > sorgente pubblicato con licenza Apache-2.0 nel repository pubblico **non è** il dispositivo
 > e non è oggetto della presente dichiarazione.
 >
 > **2. Destinazione d'uso.** *Telemedic Clinical Distribution* è un software dispositivo
 > medico destinato a supportare l'erogazione a distanza di prestazioni sanitarie
-> programmate — televisita, teleconsulto e teleconsulenza, teleassistenza e telemonitoraggio
-> — mediante: (a) l'instaurazione di una sessione di comunicazione audio-video cifrata fra
+> programmate - televisita, teleconsulto e teleconsulenza, teleassistenza e telemonitoraggio
+> - mediante: (a) l'instaurazione di una sessione di comunicazione audio-video cifrata fra
 > professionista sanitario e paziente, o fra professionisti sanitari; (b) la raccolta, la
 > trasmissione, la conservazione e la presentazione al professionista sanitario di parametri
 > clinici misurati da dispositivi medici di terzi e di dati inseriti dal paziente o dal
@@ -476,12 +476,12 @@ regolatorio e dell'ON. **Non è un testo definitivo: è una traccia strutturata.
 
 ### 4.4 La determinazione di qualificazione e classificazione
 
-**[PROPOSTA]** — Documento `MDR-CLS-001`. Struttura minima richiesta dall'ON:
+**[PROPOSTA]** - Documento `MDR-CLS-001`. Struttura minima richiesta dall'ON:
 
 | § | Contenuto | Nota |
 |---|---|---|
 | 1 | Riferimento a `MDR-IU-001` nella revisione esatta | La classificazione è valida solo per quella revisione |
-| 2 | **Qualificazione ai sensi dell'art. 2(1)**: verifica puntuale di ciascun elemento della definizione — software, destinato dal fabbricante a essere impiegato sull'uomo, per una o più finalità mediche specifiche fra quelle elencate, che non esercita l'azione principale cui è destinato mediante mezzi farmacologici, immunologici o metabolici | Motivare la finalità medica: «diagnosi, prevenzione, monitoraggio, previsione, prognosi, trattamento o attenuazione di malattie» |
+| 2 | **Qualificazione ai sensi dell'art. 2(1)**: verifica puntuale di ciascun elemento della definizione - software, destinato dal fabbricante a essere impiegato sull'uomo, per una o più finalità mediche specifiche fra quelle elencate, che non esercita l'azione principale cui è destinato mediante mezzi farmacologici, immunologici o metabolici | Motivare la finalità medica: «diagnosi, prevenzione, monitoraggio, previsione, prognosi, trattamento o attenuazione di malattie» |
 | 3 | Applicazione dell'albero decisionale di **MDCG 2019-11 rev.1** con esito di ciascun nodo | L'ON verifica che l'albero sia stato percorso, non solo la conclusione |
 | 4 | Verifica di **tutte** le regole dell'Allegato VIII, non solo della Regola 11, con esito motivato per ciascuna | Errore frequente: fermarsi alla Regola 11. Vanno considerate anche le regole 9, 10, 12, 13, 15, 22 e le regole di implementazione (Allegato VIII, Capo II) |
 | 5 | **Applicazione della Regola 11**, comma per comma, con la motivazione dell'esclusione delle soglie di IIb e III | È il cuore del documento |
@@ -520,32 +520,32 @@ Notificato · **OC** organismo di certificazione ISO 13485.
 Tutti i costi sono **[ORDINE DI GRANDEZZA]**: vedi § 16 per la base delle stime e per la
 procedura di richiesta preventivi.
 
-### 5.1 Fase 0 — Prerequisiti giuridici (25 ago — 31 ott 2026)
+### 5.1 Fase 0 - Prerequisiti giuridici (25 ago - 31 ott 2026)
 
 | Attività | Prerequisito | Output documentale | Durata | Resp. | Costo indicativo |
 |---|---|---|---|---|---|
 | Costituzione o identificazione del soggetto fabbricante | Decisione sul modello societario | Atto costitutivo, visura, P.IVA, `MDR-FAB-001` Identificazione del fabbricante | 4–8 sett. | CMT | 2–5 k€ (notaio, diritti, commercialista) |
-| Determinazione della destinazione d'uso | — | `MDR-IU-001` r1 | 3–6 sett. | CMT+RA | incluso nel forfait RA |
+| Determinazione della destinazione d'uso | - | `MDR-IU-001` r1 | 3–6 sett. | CMT+RA | incluso nel forfait RA |
 | Determinazione di qualificazione e classificazione | `MDR-IU-001` | `MDR-CLS-001` | 2–4 sett. | RA+PRRC | 3–6 k€ |
 | Scelta della procedura di valutazione della conformità | `MDR-CLS-001` | `MDR-CAP-001` | 1 sett. | RA | incluso |
 | Nomina del PRRC e verifica della qualifica | Fabbricante costituito | `MDR-PRRC-001` incarico + dossier di qualifica | 4–8 sett. | CMT | vedi § 12 |
 | Separazione formale repository / distribuzione | D17 | `NOT-A-MEDICAL-DEVICE.md`, `DISTRIBUTION-POLICY.md`, `MDR-DIST-001` | 2–4 sett. | CMT+TL | interno |
-| Mandato al consulente regolatorio | — | Contratto | 2–3 sett. | CMT | vedi § 16 |
+| Mandato al consulente regolatorio | - | Contratto | 2–3 sett. | CMT | vedi § 16 |
 
-### 5.2 Fase 1 — Sistema di gestione della qualità (1 set 2026 — 15 mar 2027)
+### 5.2 Fase 1 - Sistema di gestione della qualità (1 set 2026 - 15 mar 2027)
 
 | Attività | Prerequisito | Output documentale | Durata | Resp. | Costo indicativo |
 |---|---|---|---|---|---|
 | *Gap analysis* rispetto a ISO 13485 e art. 10(9) MDR | Fabbricante costituito | `QMS-GAP-001` | 3–4 sett. | RA+RQ | 3–5 k€ |
-| Politica e obiettivi per la qualità, organigramma, matrice responsabilità | *Gap analysis* | `QMS-MAN-001` Manuale della qualità | 4 sett. | RQ | — |
+| Politica e obiettivi per la qualità, organigramma, matrice responsabilità | *Gap analysis* | `QMS-MAN-001` Manuale della qualità | 4 sett. | RQ | - |
 | Redazione delle procedure documentate (§ 6.3) | Manuale | `QMS-PRO-001`…`QMS-PRO-0nn` | 12–16 sett. | RQ+RA | vedi § 16 |
 | Validazione del software usato nel SGQ (ISO 13485 § 4.1.6) | Elenco strumenti | `QMS-VAL-001` Validazione degli strumenti | 3–4 sett. | RQ+TL | interno |
 | Formazione del personale e registri di competenza | Procedure approvate | `QMS-REC-COMP` | 2–3 sett. | RQ | interno |
-| **Avvio in esercizio del SGQ** | Procedure rilasciate | Registrazioni reali dal 2 nov 2026 | milestone | RQ | — |
+| **Avvio in esercizio del SGQ** | Procedure rilasciate | Registrazioni reali dal 2 nov 2026 | milestone | RQ | - |
 | Primo audit interno completo | ≥ 3 mesi di registrazioni | `QMS-AUD-INT-001` | 3–4 sett. | RQ (o auditor esterno) | 2–4 k€ se esterno |
 | Primo riesame della direzione | Audit interno | `QMS-RIE-001` verbale | 1–2 sett. | CMT+RQ | interno |
 
-### 5.3 Fase 2 — Ciclo di vita software IEC 62304 (1 set 2026 — 30 apr 2027)
+### 5.3 Fase 2 - Ciclo di vita software IEC 62304 (1 set 2026 - 30 apr 2027)
 
 | Attività | Prerequisito | Output documentale | Durata | Resp. | Costo indicativo |
 |---|---|---|---|---|---|
@@ -556,13 +556,13 @@ procedura di richiesta preventivi.
 | Inventario, giustificazione e sorveglianza dei SOUP | Prima build, SBOM | `SW-SOUP-001` + SBOM CycloneDX firmata | 10–14 sett. poi continuo | TL | interno + strumenti |
 | Piano e specifiche di verifica e validazione | SRS, SAD | `SW-VVP-001` | 4 sett. | TL | interno |
 | Esecuzione di V&V e matrice di tracciabilità generata in CI | Codice | `SW-VVR-001`, `SW-TRACE-001` | continuo | TL | interno |
-| Procedura di gestione della configurazione e di rilascio | — | `SW-CM-001`, `SW-REL-001` | 3 sett. | TL+RQ | interno |
-| Piano di manutenzione e risoluzione dei problemi | — | `SW-MAINT-001`, `SW-PROB-001` | 3 sett. | TL+RQ | interno |
+| Procedura di gestione della configurazione e di rilascio | - | `SW-CM-001`, `SW-REL-001` | 3 sett. | TL+RQ | interno |
+| Piano di manutenzione e risoluzione dei problemi | - | `SW-MAINT-001`, `SW-PROB-001` | 3 sett. | TL+RQ | interno |
 | Attività di sicurezza del ciclo di vita ISO/IEC 81001-5-1 | SAD, *threat model* | `SEC-LC-001`, `SEC-TM-001`, `SEC-RMF-001` | 10–14 sett. | SEC+TL | vedi § 16 |
 | Penetration test esterno indipendente | Ambiente di *staging* stabile | `SEC-PT-001` rapporto + piano di rimedio | 3–6 sett. | fornitore esterno | 12–30 k€ |
 | Requisiti dell'ambiente operativo (IEC 82304-1 § 7) | Metriche di qualità | `MDR-ENV-001` | 2 sett. | TL | interno |
 
-### 5.4 Fase 3 — Rischio e usabilità (1 set 2026 — 15 giu 2027)
+### 5.4 Fase 3 - Rischio e usabilità (1 set 2026 - 15 giu 2027)
 
 | Attività | Prerequisito | Output documentale | Durata | Resp. | Costo indicativo |
 |---|---|---|---|---|---|
@@ -571,23 +571,23 @@ procedura di richiesta preventivi.
 | Verifica dell'attuazione e dell'efficacia delle misure di controllo | Misure implementate | Evidenze in `SW-VVR-001`, aggiornamento `RM-FILE-001` | continuo | TL | interno |
 | Valutazione del rischio residuo complessivo e rapporto benefici-rischi | CER bozza | `RM-REP-001` | 4–6 sett. | RQ+PRRC+MW | interno |
 | Specifica d'uso e identificazione degli scenari d'uso pericolosi | `MDR-IU-001` | `UE-SPEC-001`, `UE-HAZ-001` | 8–10 sett. | UX+RQ | vedi § 16 |
-| Piano di validazione dell'usabilità | Scenari selezionati | `UE-PLAN-001` | 3 sett. | UX | — |
+| Piano di validazione dell'usabilità | Scenari selezionati | `UE-PLAN-001` | 3 sett. | UX | - |
 | Valutazioni formative | Prototipi | `UE-FORM-001` | 8–10 sett. | UX | vedi § 11 |
 | **Validazione sommativa** | Interfaccia congelata, protocollo approvato | `UE-SUM-001` rapporto | 12–14 sett. | UX | vedi § 11 |
-| Fascicolo di ingegneria dell'usabilità consolidato | Tutti i precedenti | `UEF-001` | 2 sett. | UX+RQ | — |
+| Fascicolo di ingegneria dell'usabilità consolidato | Tutti i precedenti | `UEF-001` | 2 sett. | UX+RQ | - |
 
-### 5.5 Fase 4 — Valutazione clinica (15 set 2026 — 15 giu 2027)
+### 5.5 Fase 4 - Valutazione clinica (15 set 2026 - 15 giu 2027)
 
 | Attività | Prerequisito | Output documentale | Durata | Resp. | Costo indicativo |
 |---|---|---|---|---|---|
 | Piano di valutazione clinica | `MDR-IU-001`, `MDR-CLS-001` | `CE-PLAN-001` | 5–6 sett. | MW+RA | vedi § 16 |
-| Definizione dello stato dell'arte e dei parametri clinici | CEP | Sezione di `CE-PLAN-001` | incluso | MW | — |
-| Ricerca sistematica della letteratura con protocollo e appraisal | CEP approvato | `CE-LIT-001` protocollo + `CE-LIT-002` risultati | 12–14 sett. | MW | — |
+| Definizione dello stato dell'arte e dei parametri clinici | CEP | Sezione di `CE-PLAN-001` | incluso | MW | - |
+| Ricerca sistematica della letteratura con protocollo e appraisal | CEP approvato | `CE-LIT-001` protocollo + `CE-LIT-002` risultati | 12–14 sett. | MW | - |
 | Valutazione dell'eventuale equivalenza (§ 10.4) | Candidati identificati | `CE-EQ-001` + contratto di accesso alla documentazione | 6–10 sett. | RA+legale | incerto |
 | Analisi dei dati clinici e stesura del rapporto | Letteratura, dati di V&V, usabilità, PMS | `CE-REP-001` (CER) | 12–14 sett. | MW+PRRC | vedi § 16 |
-| Piano di *follow-up* clinico post-commercializzazione | CER | `PMCF-PLAN-001` | 4–6 sett. | MW+RA | — |
+| Piano di *follow-up* clinico post-commercializzazione | CER | `PMCF-PLAN-001` | 4–6 sett. | MW+RA | - |
 
-### 5.6 Fase 5 — Organismo Notificato (25 ago 2026 — 30 giu 2028)
+### 5.6 Fase 5 - Organismo Notificato (25 ago 2026 - 30 giu 2028)
 
 | Attività | Prerequisito | Output documentale | Durata | Resp. | Costo indicativo |
 |---|---|---|---|---|---|
@@ -602,29 +602,29 @@ procedura di richiesta preventivi.
 | Cicli di risposta alle non conformità e ai quesiti | Rapporti | Risposte documentate, azioni correttive | 2–4 cicli × 6–10 sett. | PRRC+RQ+TL | costo di rilavorazione |
 | Decisione e rilascio dei certificati | Chiusura di tutte le NC | Certificato SGQ + certificato di valutazione della documentazione tecnica | 4–8 sett. | ON | incluso |
 
-### 5.7 Fase 6 — Certificazione ISO 13485 (gen — lug 2027)
+### 5.7 Fase 6 - Certificazione ISO 13485 (gen - lug 2027)
 
 | Attività | Prerequisito | Output documentale | Durata | Resp. | Costo indicativo |
 |---|---|---|---|---|---|
-| Selezione dell'organismo di certificazione accreditato | SGQ in esercizio | Contratto | 4 sett. | CMT+RQ | — |
+| Selezione dell'organismo di certificazione accreditato | SGQ in esercizio | Contratto | 4 sett. | CMT+RQ | - |
 | Audit di certificazione, fase 1 | Documentazione SGQ completa | Rapporto fase 1 | 1–2 gg. audit | OC | vedi § 16 |
-| Chiusura dei rilievi di fase 1 | Rapporto | Azioni | 4–6 sett. | RQ | — |
+| Chiusura dei rilievi di fase 1 | Rapporto | Azioni | 4–6 sett. | RQ | - |
 | Audit di certificazione, fase 2 | Registrazioni operative | Rapporto fase 2, non conformità | 2–4 gg. audit | OC | vedi § 16 |
-| Chiusura delle non conformità e rilascio del certificato | Azioni correttive verificate | Certificato ISO 13485:2016, validità 3 anni | 6–10 sett. | RQ | — |
+| Chiusura delle non conformità e rilascio del certificato | Azioni correttive verificate | Certificato ISO 13485:2016, validità 3 anni | 6–10 sett. | RQ | - |
 
-### 5.8 Fase 7 — Registrazioni e immissione sul mercato (gen 2027 — set 2028)
+### 5.8 Fase 7 - Registrazioni e immissione sul mercato (gen 2027 - set 2028)
 
 | Attività | Prerequisito | Output documentale | Durata | Resp. | Costo indicativo |
 |---|---|---|---|---|---|
 | Registrazione dell'operatore economico in EUDAMED e ottenimento dell'SRN | Fabbricante costituito, PRRC nominato | SRN | 4–8 sett. (dipende dalla convalida dell'autorità) | PRRC | nessuna tariffa nota |
 | Assegnazione del **UDI-DI di base** e del **UDI-DI** presso un ente di attribuzione | Definizione del dispositivo e delle versioni | `UDI-001` registro UDI | 4–6 sett. | PRRC | canone annuo dell'ente di attribuzione |
-| Redazione della dichiarazione di conformità UE | Certificati ON | `MDR-DOC-001` (Allegato IV) | 1–2 sett. | PRRC | — |
-| Apposizione della marcatura CE con il numero dell'ON | DoC | Artefatti di rilascio, IFU, etichettatura elettronica | 1–2 sett. | TL+PRRC | — |
+| Redazione della dichiarazione di conformità UE | Certificati ON | `MDR-DOC-001` (Allegato IV) | 1–2 sett. | PRRC | - |
+| Apposizione della marcatura CE con il numero dell'ON | DoC | Artefatti di rilascio, IFU, etichettatura elettronica | 1–2 sett. | TL+PRRC | - |
 | Registrazione del dispositivo in EUDAMED | UDI-DI di base, certificati, DoC | Registrazione | 2–4 sett. | PRRC | nessuna tariffa nota |
 | Adempimenti nazionali verso il Ministero della salute | Registrazione EUDAMED | Vedi § 13.3 | 4–8 sett. | PRRC | tariffe nazionali da verificare |
-| Prima immissione sul mercato | Tutto quanto sopra | — | milestone | CMT | — |
+| Prima immissione sul mercato | Tutto quanto sopra | - | milestone | CMT | - |
 
-### 5.9 Fase 8 — Post-commercializzazione (continuativa)
+### 5.9 Fase 8 - Post-commercializzazione (continuativa)
 
 | Attività | Periodicità | Output documentale | Resp. |
 |---|---|---|---|
@@ -687,9 +687,9 @@ dell'audit.**
    riscritta**, non aggirata.
 3. **Sfruttare l'infrastruttura già esistente.** Il progetto ha già controllo di versione,
    revisione fra pari obbligatoria, CI con *gate* automatici, *issue tracker*, SBOM. Un SGQ
-   *docs-as-code* — procedure versionate nel repository, approvazione via *pull request* con
+   *docs-as-code* - procedure versionate nel repository, approvazione via *pull request* con
    revisori nominati, immutabilità garantita dalla protezione dei rami e dalla firma dei
-   *commit* — soddisfa ISO 13485 § 4.2.4 e § 4.2.5 in modo più robusto di un archivio di
+   *commit* - soddisfa ISO 13485 § 4.2.4 e § 4.2.5 in modo più robusto di un archivio di
    documenti Word. **Va però validato** ai sensi del § 4.1.6 (validazione del software usato
    nel SGQ) e va scritta la procedura che spiega all'auditor come la corrispondenza fra
    *commit*, revisione e approvazione costituisce la registrazione di approvazione.
@@ -706,7 +706,7 @@ dell'audit.**
 
 ### 6.3 Procedure documentate indispensabili
 
-**Blocco A — obbligatorie per esplicito richiamo di ISO 13485:2016**
+**Blocco A - obbligatorie per esplicito richiamo di ISO 13485:2016**
 
 | ID **[PROPOSTA]** | Titolo | Clausola |
 |---|---|---|
@@ -732,7 +732,7 @@ dell'audit.**
 | `QMS-PRO-020` | Azioni correttive e azioni preventive | 8.5.2, 8.5.3 |
 | `QMS-PRO-021` | Validazione del software utilizzato nel SGQ | 4.1.6 |
 
-**Blocco B — imposte dall'MDR e non coperte da ISO 13485**
+**Blocco B - imposte dall'MDR e non coperte da ISO 13485**
 
 | ID | Titolo | Base |
 |---|---|---|
@@ -747,7 +747,7 @@ dell'audit.**
 | `QMS-PRO-038` | Rilascio del dispositivo e dichiarazione di conformità | artt. 19, 20 |
 | `QMS-PRO-039` | Ruolo, compiti e indipendenza del PRRC | art. 15 |
 
-**Blocco C — specifiche del software, richieste dalle norme di ciclo di vita**
+**Blocco C - specifiche del software, richieste dalle norme di ciclo di vita**
 
 | ID | Titolo | Base |
 |---|---|---|
@@ -812,13 +812,13 @@ funzione del numero di addetti «effettivi» e della complessità, con fattori d
 Per un'organizzazione di **1–10 addetti** l'ordine di grandezza tipico è di **2–4 giornate
 totali** fra fase 1 e fase 2 per l'audit iniziale, e **1–2 giornate** per ciascuna
 sorveglianza annuale, con un audit di rinnovo al terzo anno di durata intermedia.
-**[FONTE SECONDARIA — la tabella esatta è in IAF MD 9, documento pubblico dell'International
+**[FONTE SECONDARIA - la tabella esatta è in IAF MD 9, documento pubblico dell'International
 Accreditation Forum, e l'organismo di certificazione è tenuto a esplicitare il calcolo delle
 giornate nell'offerta: richiederlo per iscritto.]**
 
 Il costo si compone di: quota di istruttoria e di riesame della domanda, giornate di audit,
 spese di trasferta, quota annuale di mantenimento del certificato. **Non esistono listini
-pubblici comparabili**: le tariffe sono negoziate. **[ORDINE DI GRANDEZZA — richiedere almeno
+pubblici comparabili**: le tariffe sono negoziate. **[ORDINE DI GRANDEZZA - richiedere almeno
 tre preventivi]**: si veda la tabella del § 16.
 
 ---
@@ -859,7 +859,7 @@ imparzialità o non è un ON.
 **NANDO** (*New Approach Notified and Designated Organisations*) è la banca dati ufficiale
 della Commissione europea che elenca gli organismi notificati, per legislazione, per Stato
 membro e per **ambito di designazione**. Dal 2025 NANDO è confluita nel portale
-**SMCS — *Single Market Compliance Space***, che integra NANDO, ICSMS e Noise
+**SMCS - *Single Market Compliance Space***, che integra NANDO, ICSMS e Noise
 ([portale SMCS](https://webgate.ec.europa.eu/single-market-compliance-space/),
 [pagina della Commissione sugli organismi notificati](https://single-market-economy.ec.europa.eu/single-market/goods/building-blocks/notified-bodies_en)).
 
@@ -869,7 +869,7 @@ membro e per **ambito di designazione**. Dal 2025 NANDO è confluita nel portale
    (MDR)»**.
 2. Filtrare per Stato membro, oppure elencare tutti gli ON designati.
 3. Per ciascun candidato aprire la scheda e leggere **due sezioni distinte**:
-   - le **procedure di valutazione della conformità** per cui è designato — occorre che
+   - le **procedure di valutazione della conformità** per cui è designato - occorre che
      compaia l'**Allegato IX, Capi I e III** (e, se si volesse la Strada 2, l'Allegato XI);
    - i **codici di designazione** relativi ai tipi di dispositivo.
 4. Confrontare i codici con quelli pertinenti al proprio dispositivo e **chiedere conferma
@@ -909,13 +909,13 @@ sul software. Sono tre verifiche separate da fare per iscritto.
 
 ### 7.3 Organismi Notificati italiani designati sotto MDR
 
-**[FONTE SECONDARIA — DA VERIFICARE SU NANDO/SMCS PRIMA DI QUALSIASI USO]**
+**[FONTE SECONDARIA - DA VERIFICARE SU NANDO/SMCS PRIMA DI QUALSIASI USO]**
 Le fonti consultate indicano che l'Italia è, in valore assoluto, lo Stato membro con il
 maggior numero di organismi notificati designati sotto MDR, e citano fra questi:
 
 | Organismo | Numero identificativo | Nota |
 |---|---|---|
-| IMQ — Istituto Italiano del Marchio di Qualità | 0051 | **[FONTE SECONDARIA]** |
+| IMQ - Istituto Italiano del Marchio di Qualità | 0051 | **[FONTE SECONDARIA]** |
 | Istituto Superiore di Sanità | 0373 | **[FONTE SECONDARIA]** |
 | ICIM | 0425 | **[FONTE SECONDARIA]** |
 | Italcert | 0426 | **[FONTE SECONDARIA]** |
@@ -959,7 +959,7 @@ La domanda formale (Allegato IX, sez. 1 e Capo III) comprende tipicamente:
 I dati disponibili sono quelli del § 3.1. Sintesi operativa:
 
 - **firma del contratto**: tipicamente entro 2 mesi dal primo contatto **quando l'ON accetta**;
-  il tempo non misurato — e più pericoloso — è quello di **attesa prima di essere accettati**;
+  il tempo non misurato - e più pericoloso - è quello di **attesa prima di essere accettati**;
 - **dall'accordo scritto al certificato**: 13–18 mesi per la maggioranza, 19–24 mesi per quasi
   un terzo degli ON;
 - **verifica di completezza**: alcune settimane, ma una domanda incompleta viene respinta e
@@ -1012,7 +1012,7 @@ giornate previste + impegni sui tempi + disponibilità dichiarata**.
 
 ---
 
-## 8. Fascicolo tecnico — checklist mappata sui documenti del progetto
+## 8. Fascicolo tecnico - checklist mappata sui documenti del progetto
 
 Base normativa: **Allegato II MDR** (documentazione tecnica) e **Allegato III MDR**
 (documentazione tecnica sulla sorveglianza post-commercializzazione). L'art. 10(4) impone al
@@ -1021,7 +1021,7 @@ fabbricante di redigerla e **tenerla aggiornata**.
 Colonna «Stato»: `☐` da produrre · `◐` parzialmente coperto da artefatti già previsti dal
 progetto · `☑` coperto.
 
-### 8.1 Allegato II, sezione 1 — Descrizione e specifica del dispositivo
+### 8.1 Allegato II, sezione 1 - Descrizione e specifica del dispositivo
 
 | # | Voce dell'Allegato II | Documento del progetto **[PROPOSTA]** | Stato |
 |---|---|---|---|
@@ -1035,11 +1035,11 @@ progetto · `☑` coperto.
 | 1.1 h | Descrizione degli accessori, di altri dispositivi e di prodotti non-dispositivi destinati a essere usati in combinazione | `MDR-COMB-001` Dispositivi e sistemi in combinazione (dispositivi di misura del telemonitoraggio, lettori di tessera sanitaria, dispositivi di firma) | ☐ |
 | 1.1 i | Descrizione o elenco completo delle **varie configurazioni e varianti** che saranno rese disponibili | `MDR-CONF-001` Configurazioni e varianti (SaaS multi-tenant / on-premise; moduli attivabili per configurazione, D14) | ☐ |
 | 1.1 j | Descrizione generale degli **elementi funzionali chiave**: parti, componenti, software, formulazione, composizione, funzionalità; rappresentazioni figurate | `SW-SAD-001` Architettura software + diagrammi `02_architecture/` | ◐ |
-| 1.1 k | Descrizione delle materie prime degli elementi funzionali chiave a contatto con il corpo | **Non applicabile** — motivazione scritta in `MDR-TD-001` | ☐ |
+| 1.1 k | Descrizione delle materie prime degli elementi funzionali chiave a contatto con il corpo | **Non applicabile** - motivazione scritta in `MDR-TD-001` | ☐ |
 | 1.1 l | **Specifiche tecniche**: caratteristiche, dimensioni, prestazioni, e ogni variante/configurazione/accessorio, come tipicamente riportate nelle specifiche di prodotto rese disponibili all'utilizzatore | `MDR-SPEC-001` Specifiche di prodotto + `MDR-ENV-001` Requisiti dell'ambiente operativo | ☐ |
-| 1.2 | Riferimento alle **generazioni precedenti e a dispositivi analoghi** del fabbricante, ove esistano, con panoramica | `MDR-TD-001` § 1.2 — dichiarare che si tratta della prima generazione, e chiarire il rapporto con il repository open source (D17) | ☐ |
+| 1.2 | Riferimento alle **generazioni precedenti e a dispositivi analoghi** del fabbricante, ove esistano, con panoramica | `MDR-TD-001` § 1.2 - dichiarare che si tratta della prima generazione, e chiarire il rapporto con il repository open source (D17) | ☐ |
 
-### 8.2 Allegato II, sezione 2 — Informazioni fornite dal fabbricante
+### 8.2 Allegato II, sezione 2 - Informazioni fornite dal fabbricante
 
 | # | Voce | Documento | Stato |
 |---|---|---|---|
@@ -1048,9 +1048,9 @@ progetto · `☑` coperto.
 
 Riferimenti applicabili: **EN ISO 20417** (informazioni fornite dal fabbricante) e
 **EN ISO 15223-1** (simboli), entrambe fra le norme armonizzate sotto MDR.
-**[FONTE SECONDARIA — verificare sull'elenco consolidato della Commissione.]**
+**[FONTE SECONDARIA - verificare sull'elenco consolidato della Commissione.]**
 
-### 8.3 Allegato II, sezione 3 — Informazioni su progettazione e fabbricazione
+### 8.3 Allegato II, sezione 3 - Informazioni su progettazione e fabbricazione
 
 | # | Voce | Documento | Stato |
 |---|---|---|---|
@@ -1066,7 +1066,7 @@ Riferimenti applicabili: **EN ISO 20417** (informazioni fornite dal fabbricante)
 > `QMS-PRO-010` (controllo dei fornitori: i contributori esterni sono trattati come fonte
 > esterna soggetta a controllo in ingresso).
 
-### 8.4 Allegato II, sezione 4 — Requisiti generali di sicurezza e prestazione
+### 8.4 Allegato II, sezione 4 - Requisiti generali di sicurezza e prestazione
 
 | # | Voce | Documento | Stato |
 |---|---|---|---|
@@ -1083,28 +1083,28 @@ sulla **riduzione dei rischi legati all'errore d'uso**.
 **[FONTE SECONDARIA sulla numerazione puntuale delle sezioni dell'Allegato I: verificare sul
 testo consolidato.]**
 
-### 8.5 Allegato II, sezione 5 — Analisi benefici-rischi e gestione del rischio
+### 8.5 Allegato II, sezione 5 - Analisi benefici-rischi e gestione del rischio
 
 | # | Voce | Documento | Stato |
 |---|---|---|---|
 | 5.1 | **Analisi benefici-rischi** di cui alle sezioni 1 e 8 dell'Allegato I | `RM-REP-001` § benefici-rischi + `CE-REP-001` | ☐ |
 | 5.2 | Soluzioni adottate e **risultati della gestione del rischio** di cui alla sezione 3 dell'Allegato I | `RM-PLAN-001`, `RM-FILE-001`, `RM-REP-001` | ☐ |
 
-### 8.6 Allegato II, sezione 6 — Verifica e convalida del prodotto
+### 8.6 Allegato II, sezione 6 - Verifica e convalida del prodotto
 
 | # | Voce | Documento | Stato |
 |---|---|---|---|
 | 6.1 | Risultati e analisi critica di tutte le **verifiche e prove pre-cliniche** e delle prove di convalida svolte per dimostrare la conformità | `SW-VVP-001`, `SW-VVR-001`, `SW-TRACE-001` | ◐ |
 | 6.1 b | **Informazioni dettagliate sulla verifica e convalida del software** applicato nel dispositivo finito: sintesi dei risultati di tutte le verifiche, convalide e prove eseguite internamente e in ambiente d'uso simulato o reale **prima del rilascio definitivo**, con tutte le **diverse configurazioni hardware e, se del caso, i sistemi operativi** indicati nelle informazioni fornite dal fabbricante | `SW-VVR-001` + `MDR-ENV-001` (matrice browser/sistemi operativi/dispositivi supportati) + rapporti E2E, WebRTC quality testing, carico | ◐ |
 | 6.1 | **Prove di stabilità** e di durata di vita | `MDR-LIFE-001` Ciclo di vita del prodotto e fine del supporto (ISO/IEC 81001-5-1 impone la dichiarazione di **fine del supporto alla sicurezza**) | ☐ |
-| 6.1 | **Biocompatibilità, sicurezza biologica, sterilità, sostanze CMR, radiazioni** | **Non applicabili** — motivazione scritta | ☐ |
+| 6.1 | **Biocompatibilità, sicurezza biologica, sterilità, sostanze CMR, radiazioni** | **Non applicabili** - motivazione scritta | ☐ |
 | 6.1 | **Dati clinici**: rapporto sulla valutazione clinica, piano di valutazione clinica, **piano e rapporto di PMCF** o motivazione della non applicabilità (Allegato XIV) | `CE-PLAN-001`, `CE-REP-001`, `PMCF-PLAN-001` | ☐ |
-| 6.2 | Informazioni supplementari in casi specifici (sostanze medicinali, tessuti di origine umana o animale, dispositivi sterili, dispositivi con **funzione di misura**) | `MDR-TD-001` § 6.2 — **valutare se la presentazione di parametri misurati costituisca «funzione di misura»**: la posizione va argomentata, non data per scontata | ☐ |
-| — | **Sicurezza informatica**: modellazione delle minacce, requisiti di sicurezza, prove di sicurezza, gestione delle vulnerabilità, divulgazione coordinata, SBOM | `SEC-TM-001`, `SEC-RMF-001`, `SEC-PT-001`, `SEC-LC-001`, SBOM CycloneDX, `SECURITY.md` | ◐ |
-| — | **Fascicolo di ingegneria dell'usabilità** | `UEF-001` con `UE-SPEC-001`, `UE-HAZ-001`, `UE-PLAN-001`, `UE-FORM-001`, `UE-SUM-001` | ☐ |
-| — | **Documentazione del ciclo di vita software IEC 62304** completa | `SW-*` (§ 5.3) | ◐ |
+| 6.2 | Informazioni supplementari in casi specifici (sostanze medicinali, tessuti di origine umana o animale, dispositivi sterili, dispositivi con **funzione di misura**) | `MDR-TD-001` § 6.2 - **valutare se la presentazione di parametri misurati costituisca «funzione di misura»**: la posizione va argomentata, non data per scontata | ☐ |
+| - | **Sicurezza informatica**: modellazione delle minacce, requisiti di sicurezza, prove di sicurezza, gestione delle vulnerabilità, divulgazione coordinata, SBOM | `SEC-TM-001`, `SEC-RMF-001`, `SEC-PT-001`, `SEC-LC-001`, SBOM CycloneDX, `SECURITY.md` | ◐ |
+| - | **Fascicolo di ingegneria dell'usabilità** | `UEF-001` con `UE-SPEC-001`, `UE-HAZ-001`, `UE-PLAN-001`, `UE-FORM-001`, `UE-SUM-001` | ☐ |
+| - | **Documentazione del ciclo di vita software IEC 62304** completa | `SW-*` (§ 5.3) | ◐ |
 
-### 8.7 Allegato III — Documentazione tecnica sulla sorveglianza post-commercializzazione
+### 8.7 Allegato III - Documentazione tecnica sulla sorveglianza post-commercializzazione
 
 | # | Voce | Documento | Stato |
 |---|---|---|---|
@@ -1115,7 +1115,7 @@ testo consolidato.]**
 
 | Documento | Base |
 |---|---|
-| Dichiarazione di conformità UE (Allegato IV) | art. 19 — redatta al termine |
+| Dichiarazione di conformità UE (Allegato IV) | art. 19 - redatta al termine |
 | Dossier di qualifica del PRRC | art. 15 |
 | Manuale e procedure del SGQ | art. 10(9), Allegato IX sez. 2 |
 | Evidenze del ciclo qualità: audit interno, riesame della direzione, CAPA | ISO 13485 §§ 8.2.4, 5.6, 8.5 |
@@ -1125,7 +1125,7 @@ testo consolidato.]**
 
 ---
 
-## 9. IEC 62304 — classe di sicurezza del software e gestione dei SOUP
+## 9. IEC 62304 - classe di sicurezza del software e gestione dei SOUP
 
 ### 9.1 Determinazione della classe di sicurezza
 
@@ -1141,7 +1141,7 @@ perimetro, la situazione pericolosa peggiore non è più l'interruzione del cons
 che ritarda una decisione terapeutica. Se il paziente è cardiopatico o diabetico, il danno
 possibile è **grave**. In assenza di misure esterne, questo item sarebbe **Classe C**.
 
-**Le misure esterne effettivamente disponibili** — e la loro documentabilità è ciò che
+**Le misure esterne effettivamente disponibili** - e la loro documentabilità è ciò che
 determina l'esito:
 
 | Misura esterna | Fondamento | Documentata in |
@@ -1152,7 +1152,7 @@ determina l'esito:
 | Istruzione esplicita al paziente e al *caregiver* di rivolgersi ai servizi di emergenza in caso di sintomi, indipendentemente dai dati trasmessi | GSPR sulle informazioni per la sicurezza | IFU |
 | Riscontro visibile all'utente dello stato di trasmissione dei dati e notifica esplicita in caso di mancata ricezione entro la finestra attesa | misura **interna**, non abbassa la classe ma riduce la probabilità | `SW-SRS-001` |
 
-**Esito proposto [PROPOSTA] — da confermare con il file di rischio e con l'ON:**
+**Esito proposto [PROPOSTA] - da confermare con il file di rischio e con l'ON:**
 
 | Item software | Classe | Motivazione sintetica |
 |---|---|---|
@@ -1162,7 +1162,7 @@ determina l'esito:
 | Redazione, firma e trasmissione del contenuto clinico (`Composition` in `Bundle`, D13) | **B** | Perdita o alterazione del referto ritarda decisioni; la firma digitale e la conferma esplicita sono controlli |
 | IAM, autorizzazioni, isolamento fra tenant, audit immutabile | **B** | Divulgazione non autorizzata; danno alla persona possibile ma non grave sul piano fisico |
 | Metriche di qualità, *dashboard*, telemetria tecnica | **A** | Nessun contributo a situazione pericolosa clinica, previa segregazione documentata |
-| Frontend informativo, documentazione, i18n, portale pubblico | **A** | — |
+| Frontend informativo, documentazione, i18n, portale pubblico | **A** | - |
 
 **Classe dichiarata del sistema software: B**, con item di classe A isolati e **segregazione
 documentata** ai sensi della clausola 5.3.5 di IEC 62304 (l'architettura deve dimostrare
@@ -1208,19 +1208,19 @@ ha eseguito e su quale versione, e la **matrice di tracciabilità come artefatto
 | `SW-MAINT-001` Piano di manutenzione | 6 | Come si trattano le segnalazioni post-rilascio, incluse quelle sui SOUP |
 | `SW-REL-001` Procedura di rilascio | 5.8 | Verifica del completamento, anomalie residue documentate e valutate, archiviazione, **riproducibilità della build** |
 
-### 9.4 Gestione dei SOUP — il punto più oneroso
+### 9.4 Gestione dei SOUP - il punto più oneroso
 
 **Perché è il più oneroso.** Uno stack Spring Boot 3.4 + Angular 21 + Keycloak + PostgreSQL/
 TimescaleDB + Kafka + coturn + immagini *container* genera facilmente **oltre 1 500
 dipendenze transitive**. Trattarle tutte con lo stesso rigore è impossibile e non è richiesto.
 
-**Metodo proposto [PROPOSTA] — tre livelli di trattamento.**
+**Metodo proposto [PROPOSTA] - tre livelli di trattamento.**
 
 | Livello | Criterio di appartenenza | Trattamento |
 |---|---|---|
-| **L1 — SOUP critici** | Il componente realizza o supporta direttamente una misura di controllo del rischio, oppure un suo guasto può contribuire a una situazione pericolosa: libreria crittografica, stack WebRTC/DTLS-SRTP, coturn, Keycloak, driver e motore del database, libreria FHIR, libreria di firma, framework di autorizzazione, runtime | Scheda SOUP completa: nome, produttore, versione esatta, funzione svolta, **requisiti funzionali e prestazionali attesi** (5.3.3), **requisiti dell'ambiente di esecuzione** (5.3.4), valutazione delle anomalie pubblicate (7.1.2–7.1.3), feed di vulnerabilità sorvegliato, criterio e cadenza di aggiornamento, valutazione dell'impatto di ogni aggiornamento |
-| **L2 — SOUP di piattaforma** | Framework e componenti d'infrastruttura non direttamente coinvolti in misure di controllo: Spring Boot, Angular, Kafka, librerie di logging e di serializzazione | Scheda ridotta: identificazione, versione, funzione, feed di vulnerabilità, politica di aggiornamento. Nessuna analisi funzionale individuale |
-| **L3 — dipendenze transitive** | Tutto il resto | **Copertura mediante SBOM CycloneDX** generata a ogni build, firmata, allegata al rilascio, con *gate* CI su vulnerabilità note. È l'attuazione della clausola 8.1.2 (identificazione univoca di titolo, produttore e versione) |
+| **L1 - SOUP critici** | Il componente realizza o supporta direttamente una misura di controllo del rischio, oppure un suo guasto può contribuire a una situazione pericolosa: libreria crittografica, stack WebRTC/DTLS-SRTP, coturn, Keycloak, driver e motore del database, libreria FHIR, libreria di firma, framework di autorizzazione, runtime | Scheda SOUP completa: nome, produttore, versione esatta, funzione svolta, **requisiti funzionali e prestazionali attesi** (5.3.3), **requisiti dell'ambiente di esecuzione** (5.3.4), valutazione delle anomalie pubblicate (7.1.2–7.1.3), feed di vulnerabilità sorvegliato, criterio e cadenza di aggiornamento, valutazione dell'impatto di ogni aggiornamento |
+| **L2 - SOUP di piattaforma** | Framework e componenti d'infrastruttura non direttamente coinvolti in misure di controllo: Spring Boot, Angular, Kafka, librerie di logging e di serializzazione | Scheda ridotta: identificazione, versione, funzione, feed di vulnerabilità, politica di aggiornamento. Nessuna analisi funzionale individuale |
+| **L3 - dipendenze transitive** | Tutto il resto | **Copertura mediante SBOM CycloneDX** generata a ogni build, firmata, allegata al rilascio, con *gate* CI su vulnerabilità note. È l'attuazione della clausola 8.1.2 (identificazione univoca di titolo, produttore e versione) |
 
 **Attuazione tecnica minima:**
 
@@ -1244,8 +1244,8 @@ dipendenze transitive**. Trattarle tutte con lo stesso rigore è impossibile e n
    l'ON insiste di più negli audit di sorveglianza.
 
 > **Nota di posizionamento, rilevante per D17.** Telemedic sarà a sua volta **SOUP per
-> l'integratore**. Pubblicare gli artefatti di ciclo di vita — piano di sviluppo, SRS,
-> architettura, evidenze di verifica, SBOM firmata, dichiarazione di fine supporto — riduce
+> l'integratore**. Pubblicare gli artefatti di ciclo di vita - piano di sviluppo, SRS,
+> architettura, evidenze di verifica, SBOM firmata, dichiarazione di fine supporto - riduce
 > in modo diretto l'onere regolatorio del partner ed è un differenziale competitivo
 > misurabile, non un costo puro.
 
@@ -1263,14 +1263,14 @@ questa tabella di corrispondenza.
 
 | Rinvio nelle sezioni 0–9 | Sezione effettiva |
 |---|---|
-| § 10 — valutazione clinica | **§ 13** |
-| § 11 — usabilità, valutazioni formative e sommativa | **§ 11** (invariato) |
-| § 12 — PRRC | **§ 15.2** |
-| § 13.3 — adempimenti nazionali italiani | **§ 14.8** |
-| § 14 / § 14.3 — modifiche e modifiche sostanziali | **§ 14.7** |
-| § 15 — *claim* non leciti prima della marcatura | **§ 15.7** |
-| § 16 — costi, base delle stime, richiesta di preventivi | **§ 15.4** e **§ 15.5** |
-| § 10.4 — equivalenza nella valutazione clinica | **§ 13.6** |
+| § 10 - valutazione clinica | **§ 13** |
+| § 11 - usabilità, valutazioni formative e sommativa | **§ 11** (invariato) |
+| § 12 - PRRC | **§ 15.2** |
+| § 13.3 - adempimenti nazionali italiani | **§ 14.8** |
+| § 14 / § 14.3 - modifiche e modifiche sostanziali | **§ 14.7** |
+| § 15 - *claim* non leciti prima della marcatura | **§ 15.7** |
+| § 16 - costi, base delle stime, richiesta di preventivi | **§ 15.4** e **§ 15.5** |
+| § 10.4 - equivalenza nella valutazione clinica | **§ 13.6** |
 
 Le sezioni aggiunte sono: **10** ISO 14971, **11** IEC 62366-1, **12** ISO/IEC 81001-5-1,
 **13** valutazione clinica, **14** sorveglianza post-commercializzazione e vigilanza,
@@ -1278,18 +1278,18 @@ Le sezioni aggiunte sono: **10** ISO 14971, **11** IEC 62366-1, **12** ISO/IEC 8
 
 ---
 
-## 10. ISO 14971:2019 — la gestione del rischio
+## 10. ISO 14971:2019 - la gestione del rischio
 
 ### 10.1 Che cosa la norma chiede davvero, e che cosa non chiede
 
-**EN ISO 14971:2019** — *Dispositivi medici. Applicazione della gestione del rischio ai
-dispositivi medici* — è richiamata dall'**art. 10(2) MDR** («i fabbricanti istituiscono,
+**EN ISO 14971:2019** - *Dispositivi medici. Applicazione della gestione del rischio ai
+dispositivi medici* - è richiamata dall'**art. 10(2) MDR** («i fabbricanti istituiscono,
 documentano, applicano e mantengono un sistema di gestione del rischio») e dalla **sezione 3
 dell'Allegato I MDR**, che descrive il sistema di gestione del rischio come processo
 iterativo per l'intero ciclo di vita. Il riferimento è pubblicato fra le norme armonizzate
 sotto MDR con la stessa base della ISO 13485, cioè la **Decisione di esecuzione (UE)
 2021/1182** e le sue modifiche successive. **[FONTE SECONDARIA sulla versione esattamente
-citata nell'elenco — se sia `EN ISO 14971:2019` semplice o `EN ISO 14971:2019+A11:2021`: la
+citata nell'elenco - se sia `EN ISO 14971:2019` semplice o `EN ISO 14971:2019+A11:2021`: la
 distinzione non è nominalistica, perché è l'emendamento A11 a contenere gli allegati ZA/ZB
 con le deviazioni rispetto ai requisiti del regolamento. Verificare sull'elenco consolidato
 della Commissione prima di citare la norma nella matrice GSPR.]**
@@ -1313,10 +1313,10 @@ tabellare. **La norma impone che i criteri esistano, siano definiti nel piano pr
 dell'analisi, e siano motivati.** Tutto il resto è metodo scelto dal fabbricante, e la scelta
 del metodo è a sua volta un atto documentale che l'Organismo Notificato valuta.
 
-Il vocabolario di base — pericolo, sequenza di eventi, situazione pericolosa, danno, gravità,
-probabilità, rischio, misura di controllo, rischio residuo — è spiegato da zero nel modulo
-[`10 — Percorsi di cura e sicurezza`](../../docs/10_fondamenti/10-percorsi-di-cura-e-sicurezza.md),
-§ 9.6, e nel modulo [`15 — Regolatorio da zero`](../../docs/10_fondamenti/15-regolatorio-da-zero.md),
+Il vocabolario di base - pericolo, sequenza di eventi, situazione pericolosa, danno, gravità,
+probabilità, rischio, misura di controllo, rischio residuo - è spiegato da zero nel modulo
+[`10 - Percorsi di cura e sicurezza`](../../docs/10_fondamenti/10-percorsi-di-cura-e-sicurezza.md),
+§ 9.6, e nel modulo [`15 - Regolatorio da zero`](../../docs/10_fondamenti/15-regolatorio-da-zero.md),
 § 5.5. **Qui non si ripete: si esegue.**
 
 ### 10.2 Rischio e pericolo non sono la stessa cosa, e la confusione ha un costo misurabile
@@ -1330,7 +1330,7 @@ effettivamente esposto.
 Il costo della confusione è di due tipi, e l'Organismo Notificato li rileva entrambi.
 
 **Primo: il registro dei rischi scritto sui pericoli invece che sulle situazioni pericolose
-non è analizzabile.** Una riga che dica «pericolo: perdita di dati — gravità: alta —
+non è analizzabile.** Una riga che dica «pericolo: perdita di dati - gravità: alta -
 probabilità: bassa» non contiene alcuna informazione utilizzabile: non dice *quali* dati,
 *in quale circostanza*, *chi* è esposto, *quale decisione clinica* ne dipende, e quindi non
 consente né di stimare nulla né di progettare una misura. Il registro corretto ha una riga per
@@ -1354,10 +1354,10 @@ di confronto di soglia contenga un errore di segno è un esercizio privo di fond
 applicazione, tratta espressamente questa questione e indica come approccio praticabile
 l'assunzione che, per il software, **la probabilità di occorrenza del difetto sia posta pari
 a 1** (o comunque non stimata), lasciando che la valutazione del rischio sia governata dalla
-**gravità** del danno e dalla probabilità del *resto* della sequenza di eventi — cioè della
+**gravità** del danno e dalla probabilità del *resto* della sequenza di eventi - cioè della
 parte che non dipende dal software: la probabilità che il difetto sia attivato in esercizio,
 che l'errore non venga intercettato da una misura esterna e che si traduca in una decisione
-clinica. **[FONTE SECONDARIA — il riferimento puntuale alla sezione di ISO/TR 24971 va
+clinica. **[FONTE SECONDARIA - il riferimento puntuale alla sezione di ISO/TR 24971 va
 verificato sul testo della norma, che è a pagamento e non è stato letto in questa ricerca.
 La sostanza dell'approccio è però prassi consolidata e coerente con l'impianto di IEC 62304,
 che a sua volta determina la classe di sicurezza sul **danno possibile** e non sulla
@@ -1388,11 +1388,11 @@ misure esterne, ed entrambe cadono se una sola di quelle misure non è documenta
 La clausola sul controllo del rischio impone un ordine di priorità che **non è un elenco di
 opzioni equivalenti**:
 
-1. **sicurezza intrinseca per progettazione** — eliminare il pericolo o renderlo
+1. **sicurezza intrinseca per progettazione** - eliminare il pericolo o renderlo
    strutturalmente impossibile;
-2. **misure di protezione nel dispositivo o nel processo di fabbricazione** — barriere,
+2. **misure di protezione nel dispositivo o nel processo di fabbricazione** - barriere,
    verifiche, allarmi, conferme;
-3. **informazioni per la sicurezza** — avvertenze, istruzioni per l'uso, addestramento.
+3. **informazioni per la sicurezza** - avvertenze, istruzioni per l'uso, addestramento.
 
 Il terzo livello è il più economico e il più debole, ed è quello a cui si tende a ricorrere
 sotto pressione di scadenza. **Un'avvertenza nel manuale che risolve un problema risolvibile
@@ -1404,7 +1404,7 @@ Esempi presi da questo dominio, con il livello dichiarato:
 
 | Situazione pericolosa | Misura | Livello | Perché non si può salire di livello |
 |---|---|---|---|
-| Il professionista valuta i parametri di un altro assistito | Identificatore composito con ambito di tenant: un identificativo esterno **non è risolvibile** fuori dal proprio ambito di attribuzione | **1** | — |
+| Il professionista valuta i parametri di un altro assistito | Identificatore composito con ambito di tenant: un identificativo esterno **non è risolvibile** fuori dal proprio ambito di attribuzione | **1** | - |
 | *idem* | Doppio elemento identificativo mostrato in apertura di sessione, con conferma esplicita | **2** | Il primo livello non copre l'errore di selezione fatto a monte da un sistema terzo |
 | Il paziente crede di essere sorvegliato h24 | Dichiarazione persistente e non occultabile dello stato del servizio, con canale alternativo | **2** | La copertura oraria è un fatto organizzativo del cliente: non è eliminabile per progetto |
 | Il paziente crede di essere sorvegliato h24 | Istruzioni per l'uso che dichiarano che il dispositivo non sostituisce l'emergenza sanitaria | **3** | È il residuo dopo il livello 2, e va dichiarato come tale |
@@ -1431,8 +1431,8 @@ Serve a rispondere a una domanda che le righe del registro non pongono mai: **il
 considerato come oggetto unico che l'utilizzatore incontra, è accettabile?** Le situazioni che
 la fanno emergere sono tipicamente tre:
 
-1. **accumulo di rischi individualmente accettabili.** Dieci misure di livello 3 — dieci
-   avvertenze — sono individualmente accettabili e collettivamente producono un manuale che
+1. **accumulo di rischi individualmente accettabili.** Dieci misure di livello 3 - dieci
+   avvertenze - sono individualmente accettabili e collettivamente producono un manuale che
    nessuno legge, quindi un rischio residuo complessivo diverso dalla somma;
 2. **interazione fra misure di controllo.** L'allarme di assenza di misura riduce il rischio
    di sorveglianza mancata e **aumenta** il carico di allarmi, contribuendo
@@ -1487,17 +1487,17 @@ essere umano risulta averla presa.
 
 **Perché non regge, in ordine di gravità dell'obiezione.**
 
-**Primo — i criteri li stabilisce il fabbricante, quindi sono una scelta e non un dato.** La
+**Primo - i criteri li stabilisce il fabbricante, quindi sono una scelta e non un dato.** La
 norma non fornisce alcuna soglia. Colorare di giallo una cella significa aver deciso che una
 certa combinazione di danno e frequenza è tollerabile: è un giudizio di valore che va
 motivato, non un calcolo. Un piano di gestione del rischio che presenti la matrice senza la
 **motivazione della collocazione delle soglie** è incompleto.
 
-**Secondo — nel software la probabilità è la dimensione debole** (§ 10.3). Una matrice
+**Secondo - nel software la probabilità è la dimensione debole** (§ 10.3). Una matrice
 bidimensionale usata su una grandezza che non si sa stimare produce numeri che sembrano dati e
 non lo sono, e sposta la decisione dove non c'è informazione.
 
-**Terzo — l'MDR impone una riduzione «per quanto possibile», non «fino alla cella verde».** La
+**Terzo - l'MDR impone una riduzione «per quanto possibile», non «fino alla cella verde».** La
 sezione 2 dell'Allegato I richiede l'eliminazione o la riduzione dei rischi **per quanto
 possibile** attraverso una progettazione e una fabbricazione sicure, e prescrive espressamente
 che, nella selezione delle soluzioni più opportune, il fabbricante **non consideri accettabile
@@ -1506,8 +1506,8 @@ punto su cui gli allegati ZA/ZB dell'emendamento **A11:2021** alla EN ISO 14971:
 una **deviazione** fra la norma e il regolamento: la norma consente al fabbricante di fermarsi
 ai propri criteri di accettabilità, il regolamento no.
 **[FONTE SECONDARIA sulla formulazione letterale e sulla numerazione della sezione
-dell'Allegato I: verificare sul testo consolidato EUR-Lex. La sostanza — riduzione «as far as
-possible» senza considerazioni economiche, e non «as low as reasonably practicable» — è
+dell'Allegato I: verificare sul testo consolidato EUR-Lex. La sostanza - riduzione «as far as
+possible» senza considerazioni economiche, e non «as low as reasonably practicable» - è
 pacifica e va recepita nel piano.]**
 
 **Conseguenza vincolante per il piano di gestione del rischio del progetto [PROPOSTA].** Il
@@ -1559,8 +1559,8 @@ Le tre frecce che i fabbricanti piccoli dimenticano più spesso, e che sono altr
 1. **`UEF-001` → `RM-FILE-001`.** Gli scenari d'uso pericolosi di IEC 62366-1 **non sono un
    registro parallelo**: sono sequenze di eventi che entrano nel file di rischio ISO 14971.
    Due registri separati divergono, e la divergenza si nota al primo confronto incrociato.
-2. **`SEC-RMF-001` → `RM-FILE-001`.** Il file di rischio di sicurezza è distinto — ha
-   avversari, non guasti, e valuta la sfruttabilità, non la probabilità di rottura — **ma le
+2. **`SEC-RMF-001` → `RM-FILE-001`.** Il file di rischio di sicurezza è distinto - ha
+   avversari, non guasti, e valuta la sfruttabilità, non la probabilità di rottura - **ma le
    sue minacce con conseguenza clinica devono comparire nel file di rischio del dispositivo**.
    È il raccordo trattato al § 12.4.
 3. **`PMS-PLAN-001` → `RM-FILE-001`.** L'ultima clausola della norma non è decorativa: se dopo
@@ -1570,7 +1570,7 @@ Le tre frecce che i fabbricanti piccoli dimenticano più spesso, e che sono altr
 ### 10.9 Errori che l'Organismo Notificato rileva più spesso
 
 Elenco compilato per essere usato come lista di autocontrollo prima della sottomissione. Non è
-esaustivo ed è ordinato per frequenza attesa. **[FONTE SECONDARIA — deriva dalla letteratura di
+esaustivo ed è ordinato per frequenza attesa. **[FONTE SECONDARIA - deriva dalla letteratura di
 settore sui rilievi ricorrenti, non da un documento istituzionale.]**
 
 | # | Rilievo | Come si previene |
@@ -1588,7 +1588,7 @@ settore sui rilievi ricorrenti, non da un documento istituzionale.]**
 
 ---
 
-## 11. IEC 62366-1 — l'ingegneria dell'usabilità come requisito regolatorio
+## 11. IEC 62366-1 - l'ingegneria dell'usabilità come requisito regolatorio
 
 ### 11.1 Perché è un obbligo e non una buona pratica
 
@@ -1640,7 +1640,7 @@ ingegneria dell'usabilità** `UEF-001`.
 
 **Il punto in cui il progetto è in vantaggio e il punto in cui è in ritardo.** In vantaggio: la
 specifica d'uso è quasi interamente ricavabile da `MDR-IU-001` e dalla documentazione
-funzionale già prodotta, e gli scenari d'uso pericolosi esistono già in forma matura — sei
+funzionale già prodotta, e gli scenari d'uso pericolosi esistono già in forma matura - sei
 scenari sulla sessione video e dieci sul telemonitoraggio sono già censiti nella guida dei
 fondamenti. In ritardo: **non esiste alcuna valutazione formativa condotta con utenti reali**,
 e la sommativa non è pianificabile finché l'interfaccia non è congelata. È la sequenza che
@@ -1650,7 +1650,7 @@ determina la data del § 3.6.
 
 La norma definisce l'errore d'uso come **azione o omissione dell'utilizzatore che produce un
 risultato diverso da quello inteso dal fabbricante o atteso dall'utilizzatore**, e la scelta
-lessicale — *use error*, non *user error* — è deliberata: sposta l'oggetto dall'utente
+lessicale - *use error*, non *user error* - è deliberata: sposta l'oggetto dall'utente
 all'interazione.
 
 **Perché questo è un fatto tecnico e non una posizione ideologica.** Nella catena di ISO 14971
@@ -1665,8 +1665,8 @@ Ne discendono tre regole operative, che vanno scritte nella procedura `QMS-PRO-0
 1. **«L'utente ha sbagliato» non è la conclusione di un'analisi: ne è l'inizio.** La domanda
    successiva obbligatoria è: che cosa, nell'interfaccia, ha reso quel comportamento
    ragionevole?
-2. **Errore d'uso e uso anomalo vanno distinti e la distinzione va motivata.** L'uso anomalo —
-   violazione intenzionale e ingiustificabile dell'uso previsto — è fuori dal perimetro della
+2. **Errore d'uso e uso anomalo vanno distinti e la distinzione va motivata.** L'uso anomalo -
+   violazione intenzionale e ingiustificabile dell'uso previsto - è fuori dal perimetro della
    norma ma **non è fuori dalla gestione del rischio**: va trattato con misure organizzative, di
    controllo degli accessi e informative. Classificare come «uso anomalo» un comportamento che
    una parte significativa degli utilizzatori adotta spontaneamente è un modo di far sparire un
@@ -1682,7 +1682,7 @@ rappresentativi, su un'interfaccia in configurazione di rilascio, secondo un pro
 approvato prima dell'esecuzione, allo scopo di dimostrare che gli scenari d'uso pericolosi
 selezionati non si verificano o sono intercettati.
 
-**Le condizioni che la rendono valida — e che la rendono un vincolo di calendario:**
+**Le condizioni che la rendono valida - e che la rendono un vincolo di calendario:**
 
 | Condizione | Conseguenza pratica |
 |---|---|
@@ -1696,7 +1696,7 @@ selezionati non si verificano o sono intercettati.
 **Il numero di partecipanti.** IEC 62366-1 **non prescrive un numero**. La cifra di quindici
 partecipanti per gruppo di utilizzatori distinto, ampiamente usata nell'industria, proviene
 dalla linea guida sui fattori umani dell'autorità regolatoria statunitense e **non è un
-requisito dell'Unione europea**. **[FONTE SECONDARIA — non va citata come obbligo. In sede di
+requisito dell'Unione europea**. **[FONTE SECONDARIA - non va citata come obbligo. In sede di
 offerta e in sede di ON va chiesto quale numerosità l'organismo consideri adeguata per il
 profilo di rischio dichiarato: è una delle domande utili da porre nella *gap review*
 pre-sottomissione del § 7.5.]** Ciò che va invece motivato nel piano è il **criterio di
@@ -1706,7 +1706,7 @@ sufficienza adottato**, tipicamente la saturazione degli errori d'uso osservati.
 allineata alla prassi, la sommativa comporta reclutamento, consenso informato dei
 partecipanti, ambiente di esecuzione, conduzione, osservazione, analisi e stesura del rapporto,
 per un periodo di **dodici-quattordici settimane** già indicato nella tabella del § 5.4.
-**[ORDINE DI GRANDEZZA — il costo dipende in modo determinante dal reclutamento di
+**[ORDINE DI GRANDEZZA - il costo dipende in modo determinante dal reclutamento di
 partecipanti anziani e con disabilità, che è la voce più incerta dell'intero preventivo.]**
 
 ### 11.5 Usabilità e accessibilità: due obblighi distinti, la stessa interfaccia
@@ -1744,10 +1744,10 @@ copre una funzione legata alla sicurezza **non può essere oggetto di una non co
 dichiarata**.
 
 **Conseguenza sulla non conformità dichiarata di D24.** L'unica non conformità che il progetto
-dichiara — i sottotitoli in tempo reale — va verificata contro questa regola: se
+dichiara - i sottotitoli in tempo reale - va verificata contro questa regola: se
 l'indisponibilità dei sottotitoli in tempo reale rendesse inaccessibile a una persona sorda una
 funzione legata alla sicurezza, la non conformità non sarebbe dichiarabile ma sarebbe un
-rischio d'uso da controllare. La misura alternativa prevista — l'interprete — è precisamente
+rischio d'uso da controllare. La misura alternativa prevista - l'interprete - è precisamente
 la misura di controllo che rende sostenibile la dichiarazione, e va documentata **anche** nel
 fascicolo di usabilità, non solo nella dichiarazione di accessibilità.
 
@@ -1772,25 +1772,25 @@ anche non funzionanti, **prima** che l'implementazione sia completa.
 
 ---
 
-## 12. ISO/IEC 81001-5-1 — la sicurezza informatica nel ciclo di vita
+## 12. ISO/IEC 81001-5-1 - la sicurezza informatica nel ciclo di vita
 
 ### 12.1 Che cos'è e perché esiste
 
-**ISO/IEC 81001-5-1:2021** — *Health software and health IT systems safety, effectiveness and
-security. Part 5-1: Security — Activities in the product life cycle* — è la norma che
+**ISO/IEC 81001-5-1:2021** - *Health software and health IT systems safety, effectiveness and
+security. Part 5-1: Security - Activities in the product life cycle* - è la norma che
 introduce le attività di sicurezza informatica **dentro** il ciclo di vita del software
 sanitario. Non è una norma di controlli tecnici: non elenca cifrari né configurazioni. È una
 norma di **processo**, costruita per essere sovrapposta a IEC 62304 mantenendone la struttura.
 
-Il problema che risolve è concreto. IEC 62304 governa la sicurezza nel senso di *safety* — il
-danno accidentale — e non ha nulla da dire sull'avversario intenzionale. L'MDR, per parte sua,
+Il problema che risolve è concreto. IEC 62304 governa la sicurezza nel senso di *safety* - il
+danno accidentale - e non ha nulla da dire sull'avversario intenzionale. L'MDR, per parte sua,
 richiede nell'Allegato I misure di sicurezza informatica, requisiti minimi di hardware e di
 rete e protezione contro l'accesso non autorizzato, senza indicare un processo. ISO/IEC
 81001-5-1 riempie quello spazio.
 
 **Il suo status.** È lo standard di riferimento riconosciuto nella prassi di valutazione, ed è
 richiamato dalla guida **MDCG 2019-16 Rev.1** sulla sicurezza informatica dei dispositivi
-medici. **[NON VERIFICATO — se ISO/IEC 81001-5-1 figuri oggi nell'elenco delle norme
+medici. **[NON VERIFICATO - se ISO/IEC 81001-5-1 figuri oggi nell'elenco delle norme
 armonizzate sotto MDR con presunzione di conformità, o se sia invece «stato dell'arte» non
 armonizzato. La distinzione ha un effetto pratico: nel secondo caso l'applicazione va motivata
 nella matrice GSPR come «altra soluzione», non invocata come presunzione. Verificare
@@ -1848,8 +1848,8 @@ Tre esempi del raccordo, presi dal materiale già prodotto:
 | Fuga di dati fra tenant | Contesto di tenant non risolto · l'interrogazione restituisce righe altrui · il professionista valuta dati non pertinenti | Decisione su persona sbagliata, e danno da divulgazione |
 
 **I tre difetti del prodotto di federazione** già trattati come rischi di gestione del rischio
-nell'area di sicurezza — alterazione degli attributi da parte dell'utente federato, modifica
-non verificata dell'indirizzo di posta, coesistenza di una credenziale locale — appartengono a
+nell'area di sicurezza - alterazione degli attributi da parte dell'utente federato, modifica
+non verificata dell'indirizzo di posta, coesistenza di una credenziale locale - appartengono a
 questa categoria: sono difetti di un componente di terze parti con conseguenza sull'identità
 del firmatario di un documento clinico, quindi righe del file di rischio del dispositivo e non
 note di configurazione. Il raccordo è già scritto e **non va riformulato**: va **importato**
@@ -1907,8 +1907,8 @@ esplicitamente invece di subirlo in sede di trattativa.
 ### 12.6 Il conflitto fra regimi, e come lo si tratta nel fascicolo
 
 Il prodotto marcato ai sensi dell'MDR è escluso dal regolamento sulla resilienza informatica
-per effetto dell'esclusione dei dispositivi medici; gli altri artefatti — kit di sviluppo,
-componente incorporabile, immagini e pacchetti di distribuzione non coperti dalla marcatura —
+per effetto dell'esclusione dei dispositivi medici; gli altri artefatti - kit di sviluppo,
+componente incorporabile, immagini e pacchetti di distribuzione non coperti dalla marcatura -
 **non lo sono**. La scelta del progetto di adottare integralmente l'impianto del regolamento
 assorbe l'incertezza, ma **non elimina la necessità della tabella artefatto → regime
 applicabile**, che serve alla matrice di conformità e alla documentazione verso l'integratore.
@@ -1946,9 +1946,9 @@ Tre nozioni collegate, che vanno tenute distinte perché l'Organismo Notificato 
 **La definizione di beneficio clinico è il punto in cui molti progetti di sanità digitale si
 accorgono di avere un problema.** «Migliora l'efficienza organizzativa», «riduce i costi»,
 «è apprezzato dagli utenti» **non sono benefici clinici**. Sono argomenti commerciali. Il
-beneficio clinico dichiarato in `MDR-IU-001` — consentire l'accesso a prestazioni programmate a
+beneficio clinico dichiarato in `MDR-IU-001` - consentire l'accesso a prestazioni programmate a
 pazienti per i quali l'accesso in presenza è oneroso o non tempestivo, mantenendo la
-completezza e la tracciabilità dell'informazione clinica — è formulato per essere sostenibile,
+completezza e la tracciabilità dell'informazione clinica - è formulato per essere sostenibile,
 e va comunque sottoposto a verifica dal redattore clinico prima del congelamento: la
 formulazione «effetto positivo sulla **gestione del paziente**» è il ramo della definizione su
 cui poggia, ed è il ramo che va argomentato con dati.
@@ -1958,8 +1958,8 @@ cui poggia, ed è il ramo che va argomentato con dati.
 Il fattore limitante dichiarato al § 0.4 è l'Organismo Notificato; il **secondo** è la
 valutazione clinica, e ha una proprietà che lo rende peggiore: **non è comprimibile con
 risorse**. Raddoppiare le persone non dimezza il tempo di una ricerca sistematica della
-letteratura, perché la sequenza — protocollo, interrogazione, selezione a due valutatori,
-recupero dei testi integrali, valutazione critica, estrazione, sintesi — è intrinsecamente
+letteratura, perché la sequenza - protocollo, interrogazione, selezione a due valutatori,
+recupero dei testi integrali, valutazione critica, estrazione, sintesi - è intrinsecamente
 seriale su una parte rilevante del percorso.
 
 Le cifre del § 5.5: piano di valutazione clinica 5–6 settimane; ricerca sistematica 12–14
@@ -1976,7 +1976,7 @@ benefici/rischi del § 10.6, che non si chiude prima).
    della letteratura è respinto.
 2. **Non parte se non è congelata la destinazione d'uso.** Il perimetro della ricerca è
    determinato dalle affermazioni da dimostrare. Se la destinazione d'uso cambia, la ricerca va
-   rifatta — non integrata: rifatta, perché cambiano i criteri di inclusione. È la ragione per
+   rifatta - non integrata: rifatta, perché cambiano i criteri di inclusione. È la ragione per
    cui il punto di decisione del **31 ottobre 2026** è irreversibile.
 3. **Richiede una competenza che il gruppo tecnico non ha e non può acquisire in fretta.** Il
    redattore della valutazione clinica deve avere qualifica documentabile: la struttura della
@@ -1990,8 +1990,8 @@ slitta con esso**, trascinando l'intero percorso di un trimestre pieno o più.
 
 ### 13.3 MDCG 2020-1: le tre componenti dell'evidenza per un software
 
-**MDCG 2020-1** — *Guidance on clinical evaluation (MDR) / Performance evaluation (IVDR) of
-medical device software* — è il documento che traduce l'impianto generale dell'art. 61 nel
+**MDCG 2020-1** - *Guidance on clinical evaluation (MDR) / Performance evaluation (IVDR) of
+medical device software* - è il documento che traduce l'impianto generale dell'art. 61 nel
 caso specifico del software, e stabilisce che l'evidenza clinica di un software dispositivo
 medico si articola in **tre componenti distinte, tutte necessarie**:
 
@@ -2001,8 +2001,8 @@ medico si articola in **tre componenti distinte, tutte necessarie**:
 | **Validazione tecnica** (*technical validation*) | Il software genera l'uscita attesa a partire dagli ingressi, in modo accurato, affidabile e ripetibile? | **Verifica e validazione tecnica**: è la componente che il progetto già produce in massa con le proprie prove |
 | **Validazione clinica** (*clinical validation*) | L'uscita del software, usata nel contesto clinico previsto, produce l'effetto atteso sulla gestione del paziente o sull'esito? | Dati clinici: letteratura su dispositivi equivalenti, esperienza clinica documentata, eventuale indagine, dati di *follow-up* |
 
-**Perché questa struttura è la buona notizia di questa sezione.** La seconda componente — la
-validazione tecnica — è quella su cui il progetto ha già investito in modo sproporzionato
+**Perché questa struttura è la buona notizia di questa sezione.** La seconda componente - la
+validazione tecnica - è quella su cui il progetto ha già investito in modo sproporzionato
 rispetto alla media: copertura di prova elevata, prove di integrazione, prove end-to-end, prove
 di qualità del canale in tempo reale con simulazione di perdita e variazione del ritardo, prove
 di carico, tracciabilità requisiti↔prove. **Quelle evidenze sono direttamente riusabili come
@@ -2014,8 +2014,8 @@ che ne conservi l'esito come artefatto immutabile.
 **La cattiva notizia** è la terza componente. La validazione clinica di un sistema di
 telemedicina richiede dati sull'**effetto sulla gestione del paziente**, e la letteratura
 disponibile riguarda la telemedicina come **modalità di erogazione**, non questo specifico
-prodotto. Il ponte fra i due livelli — dal «la televisita in cardiologia è efficace» al «questo
-software consente la televisita in cardiologia con completezza dell'informazione» — è
+prodotto. Il ponte fra i due livelli - dal «la televisita in cardiologia è efficace» al «questo
+software consente la televisita in cardiologia con completezza dell'informazione» - è
 precisamente ciò che il rapporto deve costruire, ed è l'argomento su cui l'Organismo Notificato
 solleva i quesiti.
 
@@ -2091,8 +2091,8 @@ significa accesso all'architettura e agli algoritmi di un prodotto **di un conco
 Ne discendono tre conseguenze pratiche:
 
 1. **con un dispositivo di un terzo, serve un contratto** che dia accesso continuativo alla
-   documentazione tecnica. Nessun concorrente ha interesse a concederlo, e la trattativa —
-   quando esiste — richiede mesi e ha esito incerto. La tabella del § 5.5 lo registra come
+   documentazione tecnica. Nessun concorrente ha interesse a concederlo, e la trattativa -
+   quando esiste - richiede mesi e ha esito incerto. La tabella del § 5.5 lo registra come
    attività di 6–10 settimane con costo «incerto», ed è l'unica riga del documento con quella
    qualificazione;
 2. **l'equivalenza con un dispositivo dello stesso fabbricante** è praticabile ma qui non
@@ -2125,7 +2125,7 @@ post-commercializzazione (§ 14).
 **Perché per questo prodotto il piano di *follow-up* è sostanziale e non formale.** La
 valutazione clinica iniziale poggerà in misura prevalente su letteratura relativa alla
 modalità di erogazione e su validazione tecnica. Il vuoto di evidenza è quindi sul terzo
-elemento — l'effetto sulla gestione del paziente **con questo dispositivo** — ed è precisamente
+elemento - l'effetto sulla gestione del paziente **con questo dispositivo** - ed è precisamente
 il vuoto che il *follow-up* deve colmare. Un piano che dichiari il vuoto e definisca come
 colmarlo è difendibile; un piano generico che prometta «raccolta di riscontri degli
 utilizzatori» non lo è.
@@ -2212,7 +2212,7 @@ con la stima della popolazione che utilizza il dispositivo e la frequenza d'uso 
    repository pubblico non li conosce, salvo che la distribuzione certificata sia resa
    disponibile **solo** attraverso un canale che identifica il destinatario. **Questa è una
    conseguenza regolatoria diretta sulla politica di distribuzione**, e va decisa presto: è una
-   delle ragioni sostanziali — non formali — per cui il dispositivo è una **distribuzione
+   delle ragioni sostanziali - non formali - per cui il dispositivo è una **distribuzione
    identificata** e non il repository.
 
 ### 14.4 La vigilanza: incidenti gravi e termini
@@ -2321,7 +2321,7 @@ verbalizzazione, se la modifica:
 modifiche significative sono ampiamente usati anche per i dispositivi certificati sotto MDR, ma
 il **loro ambito proprio è la disciplina transitoria dei dispositivi legacy**: applicarli per
 analogia è prassi diffusa e ragionevole, **non è un fondamento normativo**. Nel documento di
-progetto vanno presentati per ciò che sono — metodo adottato dal fabbricante, motivato — e le
+progetto vanno presentati per ciò che sono - metodo adottato dal fabbricante, motivato - e le
 condizioni concrete vanno **concordate per iscritto con l'Organismo Notificato** in sede
 contrattuale. È una delle domande utili da porre in fase di offerta (§ 7.5).
 **[FONTE SECONDARIA sull'ambito dichiarato di MDCG 2020-3 e sulla sua revisione corrente.]**
@@ -2335,7 +2335,7 @@ perché condiziona il versionamento e la struttura dei rami:
 - la **distribuzione identificata** ha una cadenza di rilascio più lenta, un processo di
   valutazione delle modifiche, un registro dello stato di configurazione per ogni versione, e
   la capacità di distribuire **correzioni di sicurezza fuori cadenza** senza aprire la
-  procedura di modifica sostanziale — il che richiede che quelle correzioni siano, per
+  procedura di modifica sostanziale - il che richiede che quelle correzioni siano, per
   costruzione, prive di impatto funzionale.
 
 ### 14.8 Chi è titolare degli obblighi quando il software è aperto
@@ -2478,10 +2478,10 @@ organizzazione, ma devono averla **permanentemente e continuamente a disposizion
 formulazione con due implicazioni: la disponibilità deve essere **contrattualizzata** e
 verificabile, e «permanentemente e continuamente» esclude il rapporto occasionale a chiamata.
 
-**Le responsabilità dell'art. 15** — verifica della conformità dei dispositivi prima del
+**Le responsabilità dell'art. 15** - verifica della conformità dei dispositivi prima del
 rilascio, redazione e aggiornamento della documentazione tecnica e della dichiarazione di
 conformità, adempimento degli obblighi di sorveglianza post-commercializzazione, adempimento
-degli obblighi di segnalazione degli artt. 87–92 — **rendono la persona il punto di
+degli obblighi di segnalazione degli artt. 87–92 - **rendono la persona il punto di
 compressione dell'intero processo**. Il regolamento stabilisce inoltre che essa **non subisca
 svantaggi** nell'organizzazione per il corretto adempimento dei propri compiti: è una tutela di
 indipendenza, e ha senso solo se la persona ha un'autonomia reale rispetto a chi ha interesse a
@@ -2524,23 +2524,23 @@ dipendenze ci sono.
 Il documento adotta una regola: **non si stima ciò che ha una fonte pubblica primaria**, e non
 si stima ciò che dipende da variabili non note. Ne risulta una tripartizione.
 
-**Blocco A — costi con fonte pubblica accessibile, da leggere invece che stimare.**
+**Blocco A - costi con fonte pubblica accessibile, da leggere invece che stimare.**
 
 | Voce | Dove si legge |
 |---|---|
 | Tariffe dell'Organismo Notificato | **Obbligo di pubblicazione** dell'Allegato VII, sezione 1.2.8; elenco dei collegamenti mantenuto dalla Commissione (§ 7.6) |
 | Numero di giornate dell'audit di certificazione del sistema qualità | Tabelle di **IAF MD 9**, documento pubblico; l'organismo è tenuto a esplicitare il calcolo nell'offerta (§ 6.6) |
-| Canone dell'ente di attribuzione degli identificativi univoci | Listino pubblico dell'ente prescelto **[NON VERIFICATO — nessun listino è stato letto in questa ricerca]** |
+| Canone dell'ente di attribuzione degli identificativi univoci | Listino pubblico dell'ente prescelto **[NON VERIFICATO - nessun listino è stato letto in questa ricerca]** |
 | Diritti e oneri di costituzione del soggetto giuridico | Tariffe notarili e camerali, pubbliche |
 
-**Blocco B — costi stimabili solo come ordine di grandezza, da confermare con preventivo.**
+**Blocco B - costi stimabili solo come ordine di grandezza, da confermare con preventivo.**
 Sono quelli già indicati nelle tabelle del § 5, e sono esclusivamente prestazioni professionali:
 consulenza regolatoria, redazione delle procedure, audit interno commissionato, conduzione
 delle valutazioni di usabilità, redazione clinica, prova di penetrazione indipendente. Per
 ciascuno la variabile dominante non è la tariffa oraria ma la **quantità di lavoro**, che
 dipende da quanto materiale il progetto porta già pronto.
 
-**Blocco C — costi non stimabili, e va detto invece di inventare un numero.**
+**Blocco C - costi non stimabili, e va detto invece di inventare un numero.**
 
 | Voce | Perché non è stimabile |
 |---|---|
@@ -2562,8 +2562,8 @@ Cinque regole che riducono in modo misurabile l'incertezza del blocco B e limita
 1. **Chiedere il calcolo, non il prezzo.** All'organismo di certificazione: le giornate e il
    metodo di calcolo secondo IAF MD 9. All'Organismo Notificato: le giornate previste per
    ciascuna attività e il riferimento alla propria tariffa pubblicata.
-2. **Chiedere impegni sui tempi delle singole fasi** — verifica di completezza, primo ciclo di
-   quesiti, tempo di risposta alle repliche — e i rimedi in caso di scostamento. Un'offerta
+2. **Chiedere impegni sui tempi delle singole fasi** - verifica di completezza, primo ciclo di
+   quesiti, tempo di risposta alle repliche - e i rimedi in caso di scostamento. Un'offerta
    priva di impegni sui tempi è un'offerta su un solo asse.
 3. **Chiedere un riesame preliminare a pagamento**, quando offerto: riduce i cicli di non
    conformità, che sono la voce non stimabile più pesante.
@@ -2594,7 +2594,7 @@ conto capitale. Non lo è: apre un **flusso di costi ricorrenti** che dura quant
 
 **La riga strutturalmente più pesante è la valutazione delle modifiche**, perché è l'unica il
 cui costo cresce con l'attività di sviluppo: più il prodotto è vivo, più genera valutazioni. È
-la ragione economica — oltre che regolatoria — del modello a due velocità del § 14.7.
+la ragione economica - oltre che regolatoria - del modello a due velocità del § 14.7.
 
 ### 15.7 Ciò che non si può dire prima della marcatura
 

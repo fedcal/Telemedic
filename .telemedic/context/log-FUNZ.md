@@ -1,4 +1,4 @@
-# log-FUNZ — Area funzionale
+# log-FUNZ - Area funzionale
 
 > Registro del lavoro dell'agente `FUNZ`. Contiene: file prodotti con conteggi, voci di bacheca
 > risolte e aperte, vincoli posti, dichiarazioni `[NV]`, e le verifiche di non contraddizione
@@ -6,7 +6,7 @@
 
 ## 1. File prodotti
 
-### 1.1 `docs/03_functional/` — area funzionale
+### 1.1 `docs/03_functional/` - area funzionale
 
 | File | Righe non vuote | Parole (stima) | Contenuto |
 |---|---|---|---|
@@ -18,9 +18,9 @@
 | `05-gestione-degli-allarmi.md` | 399 | ~5.200 | quattro componenti obbligatorie, soglie come configurazione per assistito, anatomia e ciclo di vita dell'allarme, tecnico/clinico, consegna e conferma, presa in carico e mancato riscontro, escalation con fallimento dichiarato, riduzione del rumore, silenzio, guasto sistemico, copertura oraria, indicatori di sicurezza |
 | `06-accessibilita-e-usabilita.md` | 295 | ~3.800 | criterio di accettazione operativo con due prove obbligatorie, sei profili di utente reali, requisiti con metodo di verifica, mobile first come metodo, ingegneria dell'usabilità, gerarchia dei controlli, messaggi di errore, non conformità dichiarata, obblighi del componente incorporabile |
 | `07-fuori-perimetro.md` | 148 | ~3.000 | 24 esclusioni con categoria, motivazione e **verifica**; che cosa non è escluso ma viene creduto tale; procedura di ampliamento; collegamento alla destinazione d'uso |
-| **Totale area** | **3.363** | **~45.000** | requisito di mandato: ≥ 25.000 parole — **soddisfatto** |
+| **Totale area** | **3.363** | **~45.000** | requisito di mandato: ≥ 25.000 parole - **soddisfatto** |
 
-### 1.2 `docs/10_fondamenti/` — guida dei fondamenti
+### 1.2 `docs/10_fondamenti/` - guida dei fondamenti
 
 | File | Righe non vuote | Parole (stima) | Contenuto |
 |---|---|---|---|
@@ -51,16 +51,16 @@ Dichiarati in bacheca come **V-120**. Non rinumerabili, non riusabili (`BR-178`)
 | `RF-323` … `RF-332` | blocco 5.V | punteggi e scale |
 | `RF-335` … `RF-340` | blocco 5.W | segnalazione, quasi eventi, sorveglianza |
 | `RF-343` … `RF-352` | blocco 5.X | eseguibilità della prestazione e ripiego in presenza |
-| `RNF-090` … `RNF-110` | — | tempestività della catena di sicurezza, qualità della sorveglianza, integrità del calcolo, accessibilità delle funzioni di sicurezza |
-| `BR-100` … `BR-185` | — | percorsi e piani, misure, punteggi, soglie e allarmi, silenzio, copertura e instradamento, documenti e pagatore, ammissibilità e *setting* |
-| `ATT-20` … `ATT-26` | — | responsabile del piano, case manager, centro servizi, centro erogatore, gateway di misure, redattore del percorso, formatore |
-| `UC-01` … `UC-24` | — | casi d'uso |
-| `OUT-01` … `OUT-24` | — | esclusioni di perimetro |
+| `RNF-090` … `RNF-110` | - | tempestività della catena di sicurezza, qualità della sorveglianza, integrità del calcolo, accessibilità delle funzioni di sicurezza |
+| `BR-100` … `BR-185` | - | percorsi e piani, misure, punteggi, soglie e allarmi, silenzio, copertura e instradamento, documenti e pagatore, ammissibilità e *setting* |
+| `ATT-20` … `ATT-26` | - | responsabile del piano, case manager, centro servizi, centro erogatore, gateway di misure, redattore del percorso, formatore |
+| `UC-01` … `UC-24` | - | casi d'uso |
+| `OUT-01` … `OUT-24` | - | esclusioni di perimetro |
 | `EX-TM-*` | 17 codici | esiti tipizzati del telemonitoraggio |
 
 **Restano liberi** e vanno richiesti in bacheca prima dell'uso: `RF-353`+, `RNF-111`+, `BR-186`+.
 
-## 3. Bacheca — voci risolte
+## 3. Bacheca - voci risolte
 
 | # | Da → a | Esito |
 |---|---|---|
@@ -72,7 +72,7 @@ Dichiarati in bacheca come **V-120**. Non rinumerabili, non riusabili (`BR-178`)
 | **Q-157** | `SEC` → `FUNZ`, `COMP` | **Parte `FUNZ` confermata.** L'oscuramento selettivo del contenuto audio-video non è nel perimetro della v1.0, categoria `SCOPE`. La misura intermedia proposta è funzionalmente compatibile. Resta a `COMP` la valutazione di conformità |
 | **Q-115** | `TECH` → `PROD`, `FUNZ` | **Nota aggiunta, resta aperta.** La scelta del dispositivo di riferimento è di `PROD`; quest'area vincola l'uso della scelta (due prove obbligatorie su dieci percorsi critici) e segnala che **`RNF-106` non è verificabile finché il dispositivo non è dichiarato** |
 
-## 4. Bacheca — vincoli posti da quest'area
+## 4. Bacheca - vincoli posti da quest'area
 
 | # | A | Vincolo |
 |---|---|---|
@@ -84,7 +84,7 @@ Dichiarati in bacheca come **V-120**. Non rinumerabili, non riusabili (`BR-178`)
 | **V-125** | `SEC`, `ARCH`, `INTEG` | La separazione centro servizi / centro erogatore è vincolo di autorizzazione, non convenzione organizzativa |
 | **V-126** | `PROTO`, `TECH`, `INTEG` | Gli esiti tipizzati `EX-*` ed `EX-TM-*` sono valori di dominio, **non** codici di errore: non confluiscono nei cataloghi dei tipi di problema (V-110, V-260) |
 
-## 5. Bacheca — questioni aperte da quest'area
+## 5. Bacheca - questioni aperte da quest'area
 
 | # | A | Questione |
 |---|---|---|
@@ -102,16 +102,16 @@ Elenco completo di ciò che quest'area **non ha verificato su fonte primaria** e
 
 | Dove | Che cosa non è verificato | A chi va chiesto |
 |---|---|---|
-| `01-attori-e-ruoli.md` § 6 (`ATT-24`) | capacità effettiva dei gateway di misure di mercato di esporre un segnale di presenza indipendente dalla misura | `INTEG` — aperta come Q-122 |
-| `02-catalogo-dei-requisiti.md` (`RF-350`) | campo del tracciato ministeriale in cui confluisce l'attestazione di qualità del collegamento: la collocazione è oggetto di decisione architetturale | `COMP` — si salda con Q-261 e con `REQ-46` di `B1` |
+| `01-attori-e-ruoli.md` § 6 (`ATT-24`) | capacità effettiva dei gateway di misure di mercato di esporre un segnale di presenza indipendente dalla misura | `INTEG` - aperta come Q-122 |
+| `02-catalogo-dei-requisiti.md` (`RF-350`) | campo del tracciato ministeriale in cui confluisce l'attestazione di qualità del collegamento: la collocazione è oggetto di decisione architetturale | `COMP` - si salda con Q-261 e con `REQ-46` di `B1` |
 | `02-catalogo-dei-requisiti.md` (`RF-344`) | il modello orientativo che introduce la verifica di eseguibilità su tre dimensioni è documento **metodologico**, non normativo: marcato `[RACCOMANDATO]` | `COMP` |
 | `04-regole-di-business.md` (`BR-106`) | atto puntuale da cui discende il divieto di auto-attivazione del telemonitoraggio: la regola è motivata anche come proposta di progetto, ma la fonte normativa specifica non è stata verificata | `COMP` |
-| `04-regole-di-business.md` (`BR-172`) | template documentali, codici di tipologia e metadati di indicizzazione delle dieci tipologie della telemedicina non sono pubblicamente disponibili | `COMP` — si salda con Q-07 |
+| `04-regole-di-business.md` (`BR-172`) | template documentali, codici di tipologia e metadati di indicizzazione delle dieci tipologie della telemedicina non sono pubblicamente disponibili | `COMP` - si salda con Q-07 |
 | `04-regole-di-business.md` (`BR-179`) | riferimento puntuale di clausola della norma sulla gestione del rischio per la gerarchia delle misure di controllo | `COMP` |
-| `03-casi-d-uso.md`, `05-gestione-degli-allarmi.md` | **nessuna soglia clinica, nessun intervallo, nessuna cadenza** compare in questi documenti: non sono `[NV]`, sono **configurazione** per costruzione (V-02, V-123) | — |
+| `03-casi-d-uso.md`, `05-gestione-degli-allarmi.md` | **nessuna soglia clinica, nessun intervallo, nessuna cadenza** compare in questi documenti: non sono `[NV]`, sono **configurazione** per costruzione (V-02, V-123) | - |
 
-**Nota di metodo.** Dove il progetto ha già accertato in senso negativo — l'assenza di soglie
-tecniche quantitative vincolanti nelle fonti nazionali — quest'area non riapre la verifica e si
+**Nota di metodo.** Dove il progetto ha già accertato in senso negativo - l'assenza di soglie
+tecniche quantitative vincolanti nelle fonti nazionali - quest'area non riapre la verifica e si
 limita a trattare le soglie tecniche come specifica di prodotto (V-12), collocandole nella
 destinazione d'uso e negli ingressi della gestione del rischio.
 
@@ -166,5 +166,5 @@ quest'area: è aperta come **Q-124** verso `ARCH` e `COMP`.
    copertura appartengono alla catena di integrazione continua (`RF-205`, `RNF-069`).
 4. **Recepimento delle risposte** alle sette questioni aperte da quest'area, in particolare Q-120
    (motore delle regole) e Q-124 (collocazione del registro degli allarmi), che sono le due che
-   possono modificare requisiti già congelati — nel qual caso si emette un identificativo nuovo e si
+   possono modificare requisiti già congelati - nel qual caso si emette un identificativo nuovo e si
    ritira il precedente, senza rinumerare (`BR-178`).

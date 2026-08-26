@@ -1,4 +1,4 @@
-# log-COMP-B — Area conformità, seconda metà
+# log-COMP-B - Area conformità, seconda metà
 
 **Agente**: COMP-B. Ripresa dopo interruzione per limite di sessione. La sessione precedente aveva
 già completato la ricerca `B9` (sezioni 0–15) e il capitolo `05-gestione-del-rischio.md`; **nulla
@@ -17,13 +17,13 @@ stati toccati. Il capitolo 05 era già scritto da questo agente e vi si rimanda 
 |---|---:|---:|---|
 | `06-usabilita-e-accessibilita.md` | 7 | 4.529 | I due obblighi distinti sulla stessa interfaccia con la tabella dei fondamenti; l'**errore d'uso come modo di guasto** e il suo posto esatto nella catena ISO 14971; gli otto prodotti della clausola 5 con la ripartizione progetto / chi certifica; **gruppi di utilizzatori e coorti**, con l'errore che raddoppia il costo (la disabilità non è un quinto gruppo); dove i due obblighi si incontrano e dove no, con cinque esempi presi da questo dominio; il vincolo `V-175`; la **non conformità dichiarata verificata contro la regola**, con la dipendenza da `Q-111`; il dispositivo mobile come **elemento della specifica d'uso** e le tre popolazioni reali; la sommativa come vincolo di calendario con le tre modalità di fallimento |
 | `07-valutazione-clinica.md` | 8 | 4.029 | Definizioni esatte e distinzione fra dati, evidenza e beneficio clinico; **perché «efficienza» e «gradimento» non sono benefici clinici**; il collo di bottiglia non comprimibile con risorse e le tre ragioni della sottostima; la **dipendenza bloccante da `Q-144`** e il fatto che cambiare formulazione cambia il *corpus*, non il testo; le tre componenti di MDCG 2020-1 con la buona e la cattiva notizia; il vincolo `V-176` sull'evidenza citabile; **tabella di chi può fare che cosa**, con il dossier dello stato dell'arte come unico contributo strategico del progetto; l'art. 61(10) e le tre ragioni per non invocarlo; l'equivalenza e il limite che la rende inutilizzabile per un software, **compreso il vincolo `R0` che la rende non producibile qui**; il seguito clinico come requisito di progettazione del dato, vincolo `V-177` |
-| `08-sorveglianza-post-commercializzazione.md` | 9 | 4.710 | I due processi con logiche opposte; il piano dell'Allegato III tradotto voce per voce in conseguenze tecniche; **indicatori e soglie derivati dalle righe del registro dei rischi**; il rapporto periodico e il problema strutturale del volume di vendite nel modello aperto; incidenti gravi, termini e **perché il nesso è particolarmente difficile per un prodotto a conseguenze indirette**; rapporti di andamento contro rapporti riassuntivi, con il vincolo `V-178`; azioni correttive sul campo e la riga con l'orologio più corto; il modello a due velocità delle modifiche; **`§ 8` — chi è titolare degli obblighi quando il software è aperto**, in cinque punti compreso il caso che nessuna misura copre; il raccordo con la risposta agli incidenti **senza riformularla** |
-| `09-percorso-e-calendario.md` | 10 | 5.100 | Avvertenza che governa il capitolo: **il calendario è di chi certifica**; che cosa esattamente si deve ottenere, in diagramma; il calcolo all'indietro dai tempi reali dell'organismo notificato con la lettura onesta dei numeri; i tre scenari, il diagramma di Gantt del piano di riferimento e i **cinque punti di decisione irreversibili**; versione 1.0 e marcatura come due traguardi distinti; le **quattro attività retroattivamente irrecuperabili** con l'ammissione che la terza è già stata violata; la **sequenza minima** con la motivazione di ogni passo; **`§ 7` — ripartizione di responsabilità** (richiamato da `05 §6.3`), con `V-179` e i rischi trasferiti a chi integra; tempi non comprimibili, tripartizione del costo, cinque regole per i preventivi; figure e responsabile del rispetto della normativa |
+| `08-sorveglianza-post-commercializzazione.md` | 9 | 4.710 | I due processi con logiche opposte; il piano dell'Allegato III tradotto voce per voce in conseguenze tecniche; **indicatori e soglie derivati dalle righe del registro dei rischi**; il rapporto periodico e il problema strutturale del volume di vendite nel modello aperto; incidenti gravi, termini e **perché il nesso è particolarmente difficile per un prodotto a conseguenze indirette**; rapporti di andamento contro rapporti riassuntivi, con il vincolo `V-178`; azioni correttive sul campo e la riga con l'orologio più corto; il modello a due velocità delle modifiche; **`§ 8` - chi è titolare degli obblighi quando il software è aperto**, in cinque punti compreso il caso che nessuna misura copre; il raccordo con la risposta agli incidenti **senza riformularla** |
+| `09-percorso-e-calendario.md` | 10 | 5.100 | Avvertenza che governa il capitolo: **il calendario è di chi certifica**; che cosa esattamente si deve ottenere, in diagramma; il calcolo all'indietro dai tempi reali dell'organismo notificato con la lettura onesta dei numeri; i tre scenari, il diagramma di Gantt del piano di riferimento e i **cinque punti di decisione irreversibili**; versione 1.0 e marcatura come due traguardi distinti; le **quattro attività retroattivamente irrecuperabili** con l'ammissione che la terza è già stata violata; la **sequenza minima** con la motivazione di ogni passo; **`§ 7` - ripartizione di responsabilità** (richiamato da `05 §6.3`), con `V-179` e i rischi trasferiti a chi integra; tempi non comprimibili, tripartizione del costo, cinque regole per i preventivi; figure e responsabile del rispetto della normativa |
 | **Totale** | | **18.368** | Contro un minimo richiesto di 16.000 |
 
 ---
 
-## 2. Vincoli posti — intervallo riservato `COMP` 175–179
+## 2. Vincoli posti - intervallo riservato `COMP` 175–179
 
 Tutti scritti in `.telemedic/context/05_BACHECA_INTERAGENTI.md`. Nessuna voce altrui è stata
 rinumerata; le righe `V-170`…`V-174` di `COMP-A`, inserite in parallelo, sono state solo
@@ -32,14 +32,14 @@ riordinate in sequenza numerica senza modificarne il testo.
 | # | A | Sintesi |
 |---|---|---|
 | `V-175` | `FUNZ`, `PROD`, `INTEG`, `TECH` | **Collegamento bidirezionale usabilità ↔ accessibilità.** Un criterio di accessibilità che copre una funzione legata alla sicurezza **non è una non conformità dichiarabile**: è un rischio d'uso non controllato. Verifica meccanica: intersezione vuota fra l'elenco delle caratteristiche legate alla sicurezza e l'elenco delle non conformità dichiarate |
-| `V-176` | `TECH`, `ARCH`, tutte le aree con prove in CI | **Evidenza citabile.** Un rapporto rigenerabile ma non conservato **non è evidenza**. Versione, ambiente, data, esecutore, esito, impronta — conservati come artefatto immutabile. Requisito distinto e più stringente della ricostruibilità di IEC 62304, perché il destinatario è esterno |
+| `V-176` | `TECH`, `ARCH`, tutte le aree con prove in CI | **Evidenza citabile.** Un rapporto rigenerabile ma non conservato **non è evidenza**. Versione, ambiente, data, esecutore, esito, impronta - conservati come artefatto immutabile. Requisito distinto e più stringente della ricostruibilità di IEC 62304, perché il destinatario è esterno |
 | `V-177` | `ARCH`, `FUNZ`, `DOM`, `TECH` | **Le grandezze del seguito clinico si progettano prima del piano che le promette.** Definizione stabile e versionata; cambiarla senza cambiarne il nome vanifica il seguito senza che nessuno se ne accorga. Nessuna contiene contenuto clinico, ed è una condizione, non una coincidenza |
-| `V-178` | `TECH`, `SEC`, `ARCH`, `FUNZ` | **(a) Tassonomia stabile degli eventi contati** — una categoria rinominata fa *sparire* l'aumento significativo dell'art. 88 invece di rilevarlo. **(b) Conservazione della diagnostica pari almeno alla finestra di vigilanza**, determinata dagli obblighi di vigilanza e non dal fabbisogno operativo. **Chiude `Q-116`** |
+| `V-178` | `TECH`, `SEC`, `ARCH`, `FUNZ` | **(a) Tassonomia stabile degli eventi contati** - una categoria rinominata fa *sparire* l'aumento significativo dell'art. 88 invece di rilevarlo. **(b) Conservazione della diagnostica pari almeno alla finestra di vigilanza**, determinata dagli obblighi di vigilanza e non dal fabbisogno operativo. **Chiude `Q-116`** |
 | `V-179` | tutte | **Gli artefatti del progetto sono ingressi identificati, mai documenti controllati.** Versione, data e impronta verificabile sono la condizione perché chi certifica possa riemetterli sotto il proprio controllo. Complemento operativo di `V-174` |
 
 ---
 
-## 3. Questioni aperte — intervallo riservato `COMP` 175–179
+## 3. Questioni aperte - intervallo riservato `COMP` 175–179
 
 | # | A | Sintesi |
 |---|---|---|
@@ -74,9 +74,9 @@ Recepiti inoltre: `V-09`, `V-113`, `V-114`, `V-122`, `V-123`, `V-125`, `V-126`, 
 `V-148`, `V-150`, `V-152`, `V-163`, `V-165` (indirettamente), `V-171`, `V-172`, `V-174`.
 
 **Nessun vincolo altrui è stato contraddetto.** In particolare: `03_functional/06` non è stato
-riscritto né contraddetto — il criterio di accettazione operativo, le due prove obbligatorie, i
+riscritto né contraddetto - il criterio di accettazione operativo, le due prove obbligatorie, i
 dieci percorsi critici e i sei profili sono **richiamati e riletti in chiave regolatoria**, mai
-riformulati; `06_security/10` non è stato duplicato — il § 9 del capitolo 08 vi rimanda e vi
+riformulati; `06_security/10` non è stato duplicato - il § 9 del capitolo 08 vi rimanda e vi
 aggiunge la sola prospettiva del fabbricante, che quel capitolo non poteva assumere.
 
 ---
@@ -86,8 +86,8 @@ aggiunge la sola prospettiva del fabbricante, che quel capitolo non poteva assum
 1. **`09 § 7` è stato costruito per rispondere al rinvio già scritto in `05 §6.3`** («la questione
    della ripartizione di responsabilità è trattata al capitolo 09, § 7»). La numerazione del
    capitolo 09 è stata quindi vincolata da un rinvio preesistente, non scelta liberamente.
-2. **L'ammissione al `09 §5`** che la terza attività irrecuperabile di `D45` — il controllo dei
-   documenti prima di produrre altri documenti — sia **già stata violata**: questa documentazione
+2. **L'ammissione al `09 §5`** che la terza attività irrecuperabile di `D45` - il controllo dei
+   documenti prima di produrre altri documenti - sia **già stata violata**: questa documentazione
    è stata prodotta prima che il controllo esistesse. La conseguenza era già governata da `V-174`
    di `COMP-A`, e `V-179` ne aggiunge il complemento operativo. Tacerlo sarebbe stato prosa
    consolatoria.

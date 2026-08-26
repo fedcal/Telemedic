@@ -1,11 +1,11 @@
-# Log agente R1 — Standard e terminologie sanitarie
+# Log agente R1 - Standard e terminologie sanitarie
 
 **Output**: `.telemedic/research/R1-standard-sanitari.md` (~18.570 parole, 11 sezioni + 2 appendici)
 
 ## Fatti chiave accertati (VINCOLANTI per gli agenti a valle)
 
 1. **FHIR R4 = versione 4.0.1** (2019-10-30). Da citare sempre con la patch.
-2. **Esiste già l'Implementation Guide HL7 Italia "Televisita" v0.2.0 su FHIR R4.** Modella il referto come **`Composition`** (LOINC **75496-0**), **non** come `DiagnosticReport`. Il posizionamento pubblico del progetto va corretto di conseguenza. Stato: draft / trial-use — da valutare se dichiarare conformità a uno standard non ancora stabile.
+2. **Esiste già l'Implementation Guide HL7 Italia "Televisita" v0.2.0 su FHIR R4.** Modella il referto come **`Composition`** (LOINC **75496-0**), **non** come `DiagnosticReport`. Il posizionamento pubblico del progetto va corretto di conseguenza. Stato: draft / trial-use - da valutare se dichiarare conformità a uno standard non ancora stabile.
 3. **La televisita si modella con `Encounter.class = VR`** (CodeSystem `http://terminology.hl7.org/CodeSystem/v3-ActCode`). R4 **non** ha elementi per la sessione virtuale: `virtualService` esiste solo in R5.
 4. **`Media` è rimossa in R5** → le registrazioni vanno modellate su **`DocumentReference`**, mai su `Media`.
 5. **`Encounter.participant.individual` non può referenziare `Patient`** in R4. Errore di modellazione frequente.

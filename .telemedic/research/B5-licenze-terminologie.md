@@ -4,17 +4,17 @@ sidebar_position: 5
 description: "Policy terminologica di Telemedic: regime di licenza di SNOMED CT, LOINC, ICD-9-CM, ICD-10/11, ATC/DDD, nomenclatore nazionale, UCUM, CVX, HL7, IHE e IG italiane; cosa può stare nel repository e cosa no."
 ---
 
-# B5 — Licenze delle terminologie cliniche e compatibilità con Apache-2.0
+# B5 - Licenze delle terminologie cliniche e compatibilità con Apache-2.0
 
-> **Agente**: B5 (seconda ondata di ricerca — licenze terminologiche)
+> **Agente**: B5 (seconda ondata di ricerca - licenze terminologiche)
 > **Data della ricerca**: 25 agosto 2026
 > **Ambito**: fonti primarie (snomed.org, loinc.org, icd.who.int, atcddd.fhi.no, hl7.org, terminology.hl7.org, profiles.ihe.net, hl7.it, salute.gov.it, normattiva/testi di legge)
-> **Documento presupposto**: [R1 — Standard e terminologie sanitarie](./R1-standard-sanitari.md), §8 (Terminologie) e §10.3 (policy terminologica raccomandata)
+> **Documento presupposto**: [R1 - Standard e terminologie sanitarie](./R1-standard-sanitari.md), §8 (Terminologie) e §10.3 (policy terminologica raccomandata)
 > **Regola R0 applicata**: nessun nome di azienda, prodotto commerciale, marchio o dominio di potenziale partner compare in questo documento.
 
 ---
 
-## AVVERTENZA PRELIMINARE — NATURA DI QUESTO DOCUMENTO
+## AVVERTENZA PRELIMINARE - NATURA DI QUESTO DOCUMENTO
 
 **Questo documento è un'analisi tecnica di termini di licenza condotta su fonti pubbliche. Non è un parere legale e non costituisce consulenza legale.** Non instaura alcun rapporto professionale, non sostituisce la valutazione di un avvocato abilitato e non può essere invocato come base di una difesa.
 
@@ -43,7 +43,7 @@ Questa sezione è parte integrante del risultato: dichiarare ciò che non si è 
 | `https://loinc.org/license/` e `https://loinc.org/kb/license` | **HTTP 403** verso lo strumento di fetch (protezione anti-bot del sito). Il testo integrale della *LOINC Copyright Notice and License* **non è stato letto direttamente**. | Aprire l'URL da un normale browser; il testo è pubblico e non richiede registrazione. Le clausole citate al §3 provengono da riproduzioni testuali indicizzate **[V-sec]**. |
 | `https://www.salute.gov.it/...` (pagina della pubblicazione ICD-9-CM 2007 e note legali del portale) | Il portale risponde con una **schermata di verifica anti-DDoS** che blocca il fetch automatico. | Aprire l'URL da browser. I fatti riportati al §4 provengono da fonti secondarie e dai documenti PDF ministeriali già verificati da R1. |
 | `https://orders.atcddd.fhi.no/` (portale ordini ATC/DDD) | Applicazione JavaScript: la pagina restituita è vuota. Prezzi e condizioni contrattuali dei file elettronici ATC **non sono stati letti in forma primaria**. | Registrarsi sul portale ordini; i termini contrattuali sono esposti in fase di ordine. |
-| Testo integrale dell'**Affiliate License Agreement** su `snomed.org/license` | La pagina primaria rinvia a un download. **È stato però letto integralmente** il testo dell'accordo nella versione in vigore dal **31 luglio 2023**, pubblicato come mirror istituzionale dall'autorità competente tedesca (BfArM) — vedi §2. La verifica è quindi **[V-sec] sul veicolo, [V] sul contenuto**. | Scaricare la versione corrente da `https://www.snomed.org/get-snomed` o dal portale MLDS, e confrontarla con quanto qui riportato prima di firmare. |
+| Testo integrale dell'**Affiliate License Agreement** su `snomed.org/license` | La pagina primaria rinvia a un download. **È stato però letto integralmente** il testo dell'accordo nella versione in vigore dal **31 luglio 2023**, pubblicato come mirror istituzionale dall'autorità competente tedesca (BfArM) - vedi §2. La verifica è quindi **[V-sec] sul veicolo, [V] sul contenuto**. | Scaricare la versione corrente da `https://www.snomed.org/get-snomed` o dal portale MLDS, e confrontarla con quanto qui riportato prima di firmare. |
 | Termini contrattuali dell'**ICD-10** (distinti da ICD-11) | Il documento *Terms of Use* letto (§5) copre la *Digital Version* delle Classificazioni sul portale `icd.who.int`. Il regime dell'ICD-10 nelle sue distribuzioni storiche non è stato accertato separatamente. | Scrivere a `licensing@who.int`. |
 | `https://packages.simplifier.net/hl7.fhir.it.core` | HTTP 404 sull'endpoint interrogato. I metadati di licenza dei pacchetti HL7 Italia sono stati letti sulle risorse `ImplementationGuide` pubblicate (§9). | Interrogare il registry dei pacchetti FHIR configurato nella toolchain. |
 
@@ -51,9 +51,9 @@ Questa sezione è parte integrante del risultato: dichiarare ciò che non si è 
 
 L'analisi risponde a **tre domande distinte**, che vanno tenute separate perché hanno risposte diverse per la stessa terminologia:
 
-1. **Distribuzione di contenuto** — il repository Telemedic, rilasciato sotto Apache-2.0, può contenere i codici, le descrizioni, le gerarchie, i file di release, le espansioni di value set, i seed di database, i mapping precalcolati di quella terminologia?
-2. **Riferimento per URI + codice** — il software può scrivere in una risorsa FHIR un `Coding` con `system` = URI canonico e `code` = identificativo, e trasmetterlo?
-3. **Interrogazione a runtime** — il software può interrogare un servizio terminologico esterno che detiene il contenuto, e su chi ricade in quel caso l'obbligo di licenza?
+1. **Distribuzione di contenuto** - il repository Telemedic, rilasciato sotto Apache-2.0, può contenere i codici, le descrizioni, le gerarchie, i file di release, le espansioni di value set, i seed di database, i mapping precalcolati di quella terminologia?
+2. **Riferimento per URI + codice** - il software può scrivere in una risorsa FHIR un `Coding` con `system` = URI canonico e `code` = identificativo, e trasmetterlo?
+3. **Interrogazione a runtime** - il software può interrogare un servizio terminologico esterno che detiene il contenuto, e su chi ricade in quel caso l'obbligo di licenza?
 
 Confondere queste tre domande è l'errore che genera l'esposizione. Tutto il documento è costruito su questa distinzione.
 
@@ -76,7 +76,7 @@ Fonte: <https://www.apache.org/licenses/LICENSE-2.0> **[V]**.
 
 ### 1.2 Il conflitto strutturale
 
-Ogni file collocato nel repository e coperto dalla dichiarazione di licenza del progetto porta con sé, agli occhi di chi lo riceve, **cinque promesse**: uso gratuito, modifica, opere derivate, sublicenza, ridistribuzione — perpetue e irrevocabili.
+Ogni file collocato nel repository e coperto dalla dichiarazione di licenza del progetto porta con sé, agli occhi di chi lo riceve, **cinque promesse**: uso gratuito, modifica, opere derivate, sublicenza, ridistribuzione - perpetue e irrevocabili.
 
 Il progetto può fare queste promesse **soltanto sul materiale di cui detiene i diritti**. Su contenuto terminologico di terzi non può farle, perché:
 
@@ -100,7 +100,7 @@ Il `NOTICE` di Apache-2.0 ha una funzione tecnica precisa: propagare gli avvisi 
 
 ---
 
-## 2. SNOMED CT — il nodo principale
+## 2. SNOMED CT - il nodo principale
 
 ### 2.1 Il fatto di partenza, confermato
 
@@ -114,7 +114,7 @@ Questo non è un dettaglio burocratico. Nei paesi Membri l'accesso a SNOMED CT �
 
 **Testo esaminato**: *SNOMED CT® Affiliate License Agreement*, versione in vigore dal **31 luglio 2023**, letto integralmente (19 pagine, 15 clausole + Appendix A "Defined Terms" + Appendix B "License Fees in Non-Member Territories"). Il documento è stato reperito su mirror istituzionale del BfArM (autorità competente tedesca) all'indirizzo <https://www.bfarm.de/SharedDocs/Downloads/DE/Kodiersysteme/SNOMED-CT/AFFILIATE_LICENSE_AGREEMENT_gueltig_20230731.pdf>. **Il contenuto è [V]; la sua attualità va riconfermata su `snomed.org/license` prima della sottoscrizione.**
 
-#### 2.2.1 Come si diventa Licensee — e perché questo protegge il progetto
+#### 2.2.1 Come si diventa Licensee - e perché questo protegge il progetto
 
 L'avviso in testa all'accordo è determinante:
 
@@ -138,7 +138,7 @@ Il Licensor concede una licenza *perpetua (salvo revoca ex cl. 5), mondiale, non
 | 2.1.4 | modificare **il solo formato** della copia del SNOMED CT Core distribuita |
 | 2.1.5 | concedere sub-licenze agli **End Users**, *"to the extent necessary for the End Users to use the Licensee Products"* |
 
-#### 2.2.3 Gli usi permessi (clausola 2.2) — la clausola che decide tutto
+#### 2.2.3 Gli usi permessi (clausola 2.2) - la clausola che decide tutto
 
 La cl. 2.2 è formulata in modo **tassativo**: *"The Licensee may **only** use the International Release... for"* **[V]**:
 
@@ -154,9 +154,9 @@ La cl. 2.2 è formulata in modo **tassativo**: *"The Licensee may **only** use t
 
 **Ma la cl. 2.2 si apre con "The Licensee may only use..."**: l'uso è permesso **a un Licensee**. Chi trasmette quei messaggi deve essere Affiliate o sub-licenziatario di un Affiliate. Non esiste una franchigia per "uso solo per riferimento" a favore di chi non ha licenza.
 
-> **Conclusione operativa n. 1**: l'uso di SNOMED CT per riferimento URI+codice **è pienamente ammesso, ma solo a chi ha la licenza**. La licenza serve a chi *installa ed esercisce* Telemedic, non al progetto che ne scrive il codice — purché il progetto non tocchi mai il contenuto.
+> **Conclusione operativa n. 1**: l'uso di SNOMED CT per riferimento URI+codice **è pienamente ammesso, ma solo a chi ha la licenza**. La licenza serve a chi *installa ed esercisce* Telemedic, non al progetto che ne scrive il codice - purché il progetto non tocchi mai il contenuto.
 
-#### 2.2.4 La clausola 2.7 — perché un repository pubblico è escluso per definizione
+#### 2.2.4 La clausola 2.7 - perché un repository pubblico è escluso per definizione
 
 > **2.7** *"The Licensee shall implement reasonable measures to ensure that the International Release (and any part of it) cannot be accessed or downloaded from the Licensee's systems **except by authorised users**, and shall comply with the security measures that the Licensor prescribes by Regulations."* **[V]**
 
@@ -186,17 +186,17 @@ Queste definizioni hanno **tre conseguenze non ovvie e decisive**:
 
 **(b) Una tabella di mapping SNOMED ↔ ICD-9-CM è un Cross-Map, cioè un Derivative.** Se Telemedic volesse precalcolare la corrispondenza fra codici SNOMED e codici ICD-9-CM italiani per popolare `Condition.code`, produrrebbe un Cross-Map. Solo un Licensee può crearlo (cl. 2.3), e per gli Standards-Based Extension/Derivative serve preventivamente un **Namespace Identifier** rilasciato dal Licensor (cl. 3.1) **[V]**.
 
-**(c) Telemedic è, per definizione, un "Licensee Product" nelle mani di chi lo distribuisce.** La definizione al punto (2) — *"read or write records or other data that is encoded using SNOMED CT"* — non richiede che il prodotto **contenga** SNOMED CT: basta che **legga o scriva** dati codificati con SNOMED CT. Un software di telemedicina che persiste `Condition.code` con codici SNOMED ricade nella definizione anche se nel suo codice sorgente non c'è un solo concetto SNOMED.
+**(c) Telemedic è, per definizione, un "Licensee Product" nelle mani di chi lo distribuisce.** La definizione al punto (2) - *"read or write records or other data that is encoded using SNOMED CT"* - non richiede che il prodotto **contenga** SNOMED CT: basta che **legga o scriva** dati codificati con SNOMED CT. Un software di telemedicina che persiste `Condition.code` con codici SNOMED ricade nella definizione anche se nel suo codice sorgente non c'è un solo concetto SNOMED.
 
-> **Conclusione operativa n. 2**: l'integratore o l'azienda sanitaria che **distribuisce o commercializza** un'istanza di Telemedic capace di leggere/scrivere codici SNOMED sta distribuendo un Licensee Product e deve essere Affiliate (o sub-licenziatario di un Affiliate). Questo è un obbligo **dell'utilizzatore**, non del progetto — ma il progetto deve dirglielo, chiaramente e per iscritto.
+> **Conclusione operativa n. 2**: l'integratore o l'azienda sanitaria che **distribuisce o commercializza** un'istanza di Telemedic capace di leggere/scrivere codici SNOMED sta distribuendo un Licensee Product e deve essere Affiliate (o sub-licenziatario di un Affiliate). Questo è un obbligo **dell'utilizzatore**, non del progetto - ma il progetto deve dirglielo, chiaramente e per iscritto.
 
 Ulteriori vincoli rilevanti sui derivati **[V]**:
 
-- **cl. 2.3** — il Licensee può creare Extensions solo *dall'*International Release; per creare Extension o Derivative da un'Extension di un Membro serve un accordo con quel Membro.
-- **cl. 2.4** — *"The Licensee is not permitted to translate any part of the International Release into any other human language without the prior written consent of the Licensor."* **Tradurre in italiano le descrizioni SNOMED richiede consenso scritto preventivo.** In assenza di un Membro italiano, non esiste una traduzione italiana ufficiale liberamente disponibile: chi la volesse deve chiederla a SNOMED International.
-- **cl. 3.4** — il Licensee possiede i diritti IP sui propri Extensions e Derivatives, ma non può cederli se non a un altro Affiliate.
-- **cl. 3.5 / 3.6** — su richiesta del Licensor, il Licensee **deve trasferire** al Licensor (o a un Membro da esso designato) i diritti IP sugli Standards-Based Extensions. Chi costruisce un patrimonio terminologico derivato lo costruisce su un titolo condizionato.
-- **cl. 4.1** — salvo la modifica del solo formato (cl. 2.1.4), *"the Licensee may not modify any part of the SNOMED CT Core"*.
+- **cl. 2.3** - il Licensee può creare Extensions solo *dall'*International Release; per creare Extension o Derivative da un'Extension di un Membro serve un accordo con quel Membro.
+- **cl. 2.4** - *"The Licensee is not permitted to translate any part of the International Release into any other human language without the prior written consent of the Licensor."* **Tradurre in italiano le descrizioni SNOMED richiede consenso scritto preventivo.** In assenza di un Membro italiano, non esiste una traduzione italiana ufficiale liberamente disponibile: chi la volesse deve chiederla a SNOMED International.
+- **cl. 3.4** - il Licensee possiede i diritti IP sui propri Extensions e Derivatives, ma non può cederli se non a un altro Affiliate.
+- **cl. 3.5 / 3.6** - su richiesta del Licensor, il Licensee **deve trasferire** al Licensor (o a un Membro da esso designato) i diritti IP sugli Standards-Based Extensions. Chi costruisce un patrimonio terminologico derivato lo costruisce su un titolo condizionato.
+- **cl. 4.1** - salvo la modifica del solo formato (cl. 2.1.4), *"the Licensee may not modify any part of the SNOMED CT Core"*.
 
 #### 2.2.6 Sub-licenza: che cosa il licenziatario può e non può passare a valle (clausole 2.5, 5.8, 8.8)
 
@@ -252,7 +252,7 @@ Regole di calcolo che incidono direttamente sul modello SaaS multi-tenant (decis
 - **Appendix B, par. 5.1**: l'allocazione di un territorio non-Membro in Banda A/B/C/Low Income è **determinata dal Licensor** sulla base del reddito nazionale lordo relativo.
 - **Clausola 7.1 e 7.3**: le fee sono pagabili **annualmente in via posticipata**, previa presentazione di uno *statement of account* almeno una volta per anno solare, contenente l'elenco di tutti i contratti relativi ai Licensee Products in vigore nel periodo.
 
-> **[NV] — L'allocazione dell'Italia in una banda specifica non è stata verificata su fonte SNOMED.** L'Italia è un paese ad alto reddito secondo la classificazione della Banca Mondiale, il che rende **verosimile** la Banda A, ma il par. 5.1 attribuisce la determinazione al Licensor. **Il deployer deve ottenere l'allocazione per iscritto da SNOMED International prima di preventivare.**
+> **[NV] - L'allocazione dell'Italia in una banda specifica non è stata verificata su fonte SNOMED.** L'Italia è un paese ad alto reddito secondo la classificazione della Banca Mondiale, il che rende **verosimile** la Banda A, ma il par. 5.1 attribuisce la determinazione al Licensor. **Il deployer deve ottenere l'allocazione per iscritto da SNOMED International prima di preventivare.**
 
 La pagina `https://www.snomed.org/licensing` **[V]** riporta gli stessi importi (1.954 / 1.303 / 652 USD; Practice 652 USD; low income gratuito) e conferma che *"If you are using and/or deploying SNOMED CT in a non-Member country/territory, you are required to apply for a license on an annual basis"*, tramite il **Member Licensing & Distribution Service (MLDS)**, `https://mlds.ihtsdotools.org/`.
 
@@ -305,7 +305,7 @@ SNOMED International distribuisce essa stessa un terminology server open source 
 
 > **Interrogare un terminology server esterno NON solleva il deployer dall'obbligo di licenza.**
 
-Motivo: nel momento in cui l'installazione di Telemedic **scrive** un codice SNOMED in una risorsa `Condition`, `Encounter.reasonCode` o `Composition`, quell'installazione è un **Data Processing System** ai sensi di Appendix A — *"a computer system that is used to analyze or create records or other data that is encoded using SNOMED CT"* **[V]** — e Appendix B par. 2.1 lega la fee proprio al deployment di *"any Licensee Product that is or includes a Data Processing System"* **[V]**. Non c'è alcuna esenzione per il caso in cui il contenuto risieda altrove.
+Motivo: nel momento in cui l'installazione di Telemedic **scrive** un codice SNOMED in una risorsa `Condition`, `Encounter.reasonCode` o `Composition`, quell'installazione è un **Data Processing System** ai sensi di Appendix A - *"a computer system that is used to analyze or create records or other data that is encoded using SNOMED CT"* **[V]** - e Appendix B par. 2.1 lega la fee proprio al deployment di *"any Licensee Product that is or includes a Data Processing System"* **[V]**. Non c'è alcuna esenzione per il caso in cui il contenuto risieda altrove.
 
 Inoltre, il deployer *usa* SNOMED CT (accede al contenuto tramite l'API), il che di per sé lo fa rientrare nel perimetro dell'avviso in testa all'accordo (*"downloading, accessing or using"*).
 
@@ -313,7 +313,7 @@ Inoltre, il deployer *usa* SNOMED CT (accede al contenuto tramite l'API), il che
 
 > **Conclusione operativa n. 3**: il terminology server esterno risolve il problema **della distribuzione del contenuto** (che è il problema del progetto), non il problema **della licenza d'uso** (che è il problema del deployer). Presentarlo come una soluzione completa nella documentazione sarebbe fuorviante e trasferirebbe al deployer un rischio che non ha compreso.
 
-Nota di conformità incrociata: la questione **Q2** sollevata da R1 resta aperta e va risolta dall'agente MDR — un terminology server esterno è una dipendenza runtime non controllata, da classificare come **SOUP** ai sensi di IEC 62304, e la sua collocazione geografica va verificata rispetto al vincolo **V1** (nessun componente obbligatorio fuori dall'UE) del brief.
+Nota di conformità incrociata: la questione **Q2** sollevata da R1 resta aperta e va risolta dall'agente MDR - un terminology server esterno è una dipendenza runtime non controllata, da classificare come **SOUP** ai sensi di IEC 62304, e la sua collocazione geografica va verificata rispetto al vincolo **V1** (nessun componente obbligatorio fuori dall'UE) del brief.
 
 ### 2.4 Conclusione operativa: cosa può contenere il repository e cosa no
 
@@ -341,7 +341,7 @@ Nota di conformità incrociata: la questione **Q2** sollevata da R1 resta aperta
 | Gerarchie, alberi di sussunzione, indici di ricerca precalcolati | **Derivative** |
 | Descrizioni SNOMED tradotte in italiano | cl. 2.4 (consenso scritto preventivo) |
 | Snapshot o cache di risposte `$expand` committati nel repository | **Sub-Set** → Derivative; cl. 2.7 |
-| Fixture di test con **risposte reali** del terminology server contenenti codici e display SNOMED | Idem — è il canale con cui il contenuto rientra dalla porta di servizio |
+| Fixture di test con **risposte reali** del terminology server contenenti codici e display SNOMED | Idem - è il canale con cui il contenuto rientra dalla porta di servizio |
 | L'avviso della cl. 8.3.1 nel `NOTICE` del progetto | Dichiarazione non veritiera: il progetto non è Licensee |
 
 #### 2.4.3 La zona grigia: `Coding.display` negli esempi
@@ -368,7 +368,7 @@ Vedi §14 per i testi completi pronti all'uso, in italiano e in inglese. Il prin
 
 ---
 
-## 3. LOINC — la terminologia su cui il progetto può appoggiarsi
+## 3. LOINC - la terminologia su cui il progetto può appoggiarsi
 
 ### 3.1 Titolarità e reperimento
 
@@ -383,9 +383,9 @@ Il testo di licenza è la *LOINC Copyright Notice and License*, pubblicata su `h
 > *"Permission is hereby granted in perpetuity, without payment of license fees or royalties, to use, copy, or distribute the Licensed Materials for any commercial or non-commercial purpose."*
 
 Tre elementi decisivi, tutti favorevoli:
-1. **`distribute`** è espressamente concesso — a differenza di SNOMED CT e ATC/DDD;
-2. **`for any commercial or non-commercial purpose`** — compatibile con l'integrazione in prodotti proprietari (decisione D1);
-3. **`in perpetuity`, `without payment of license fees or royalties`** — nessun costo ricorrente, nessuna scadenza.
+1. **`distribute`** è espressamente concesso - a differenza di SNOMED CT e ATC/DDD;
+2. **`for any commercial or non-commercial purpose`** - compatibile con l'integrazione in prodotti proprietari (decisione D1);
+3. **`in perpetuity`, `without payment of license fees or royalties`** - nessun costo ricorrente, nessuna scadenza.
 
 Conferma incrociata dalla specifica FHIR **[V]** (<https://hl7.org/fhir/R4/license.html>): LOINC è elencato fra i contenuti di terzi ed è indicato come *"available at no cost"* sotto i termini di `loinc.org`.
 
@@ -405,7 +405,7 @@ E, per la traduzione **[V-sec]**: Regenstrief deve essere **notificato via email
 
 **Divieto di vocabolario concorrente** **[V-sec]**: la licenza è costruita per impedire che LOINC sia modificato dagli utenti o usato per creare un altro vocabolario, *"so that it can fulfill its goal of being an international standard"*. Questa restrizione non tocca Telemedic: il progetto non ha alcuna intenzione di produrre un vocabolario di osservazioni.
 
-**Documenti "Group 1/2/3"** **[V-sec]**: la licenza distingue i materiali licenziati (tabella LOINC, RELMA) da alcuni documenti (guida utente e simili) che *"may not be modified, nor may derivative works be created, without prior written permission of the Regenstrief Institute, Inc."* Rilevante solo se si volesse ripubblicare la documentazione LOINC — cosa che non serve.
+**Documenti "Group 1/2/3"** **[V-sec]**: la licenza distingue i materiali licenziati (tabella LOINC, RELMA) da alcuni documenti (guida utente e simili) che *"may not be modified, nor may derivative works be created, without prior written permission of the Regenstrief Institute, Inc."* Rilevante solo se si volesse ripubblicare la documentazione LOINC - cosa che non serve.
 
 ### 3.3 Testo dell'attribuzione richiesta
 
@@ -419,7 +419,7 @@ La formulazione estesa d'uso generale, per software e documentazione, è **[V-se
 
 **Avvertenza sui codici di terze parti** **[V]**: alcuni codici LOINC portano dichiarazioni di copyright **di terzi** (tipicamente strumenti di misura, scale e questionari clinici licenziati da editori). Quando tali codici entrano in un value set, *"they must carry their own copyright statement as well"*.
 
-> **Conseguenza operativa**: i codici LOINC che Telemedic usa (§3.4) sono codici di **struttura del documento**, non strumenti clinici licenziati. Il rischio di copyright di terzi è quindi basso. **Ma la regola vale**: prima di aggiungere un nuovo codice LOINC a un value set del progetto — in particolare per scale, questionari o punteggi clinici — va verificato sul sito LOINC se quel codice porta un `EXTERNAL_COPYRIGHT_NOTICE`. Va inserita come voce di checklist nel processo di revisione dei value set.
+> **Conseguenza operativa**: i codici LOINC che Telemedic usa (§3.4) sono codici di **struttura del documento**, non strumenti clinici licenziati. Il rischio di copyright di terzi è quindi basso. **Ma la regola vale**: prima di aggiungere un nuovo codice LOINC a un value set del progetto - in particolare per scale, questionari o punteggi clinici - va verificato sul sito LOINC se quel codice porta un `EXTERNAL_COPYRIGHT_NOTICE`. Va inserita come voce di checklist nel processo di revisione dei value set.
 
 ### 3.4 Conferma: LOINC è ridistribuibile nel repository
 
@@ -436,7 +436,7 @@ La formulazione estesa d'uso generale, per software e documentazione, è **[V-se
 3. **Nessuna modifica** ai codici, ai nomi ufficiali, alle parti del nome LOINC.
 4. Nessuna traduzione dei display (§3.2).
 5. Ogni artefatto dichiara la **versione LOINC** di riferimento (`ValueSet.compose.include.version`). R1 ha rilevato la 2.81 **[V-sec]**, con data di rilascio **[NV]**: va confermata.
-6. Il download del set completo LOINC richiede **registrazione gratuita** su `loinc.org`. È un requisito procedurale, non economico, e riguarda chi scarica — cioè un manutentore del progetto quando aggiorna i value set.
+6. Il download del set completo LOINC richiede **registrazione gratuita** su `loinc.org`. È un requisito procedurale, non economico, e riguarda chi scarica - cioè un manutentore del progetto quando aggiorna i value set.
 
 > **Conferma della raccomandazione R1 §10.3 punto 1: LOINC è effettivamente ridistribuibile ed è il fondamento corretto per la struttura del referto di televisita.** I nove codici verificati da R1 (75496-0 *Telehealth Note*, 47045-0 *referto*, 29545-1 *esame obiettivo*, ecc.) possono stare nel repository con l'attribuzione dovuta.
 
@@ -452,9 +452,9 @@ Il regime giuridico della "ICD-9-CM versione italiana 2007" si comprende solo ri
 
 | Anello | Opera | Titolare | Regime |
 |---|---|---|---|
-| 1 | **ICD-9** — International Classification of Diseases, 9ª revisione | **Organizzazione Mondiale della Sanità** | L'OMS detiene i diritti sulla famiglia ICD **[V]** (v. §5) |
-| 2 | **ICD-9-CM** — *Clinical Modification* statunitense | **NCHS / CMS**, agenzie federali USA | Opera di agenzia governativa federale statunitense: negli USA non soggetta a copyright ai sensi di **17 U.S.C. §105** **[V-sec]** |
-| 3 | **ICD-9-CM versione italiana 2007** — traduzione e adattamento | **Ministero della salute**; pubblicata dall'**Istituto Poligrafico e Zecca dello Stato** | Resa obbligatoria dal **DM 18 dicembre 2008** (GU n. 56 del 9 marzo 2009) per la codifica delle informazioni cliniche della SDO **[V-sec]** |
+| 1 | **ICD-9** - International Classification of Diseases, 9ª revisione | **Organizzazione Mondiale della Sanità** | L'OMS detiene i diritti sulla famiglia ICD **[V]** (v. §5) |
+| 2 | **ICD-9-CM** - *Clinical Modification* statunitense | **NCHS / CMS**, agenzie federali USA | Opera di agenzia governativa federale statunitense: negli USA non soggetta a copyright ai sensi di **17 U.S.C. §105** **[V-sec]** |
+| 3 | **ICD-9-CM versione italiana 2007** - traduzione e adattamento | **Ministero della salute**; pubblicata dall'**Istituto Poligrafico e Zecca dello Stato** | Resa obbligatoria dal **DM 18 dicembre 2008** (GU n. 56 del 9 marzo 2009) per la codifica delle informazioni cliniche della SDO **[V-sec]** |
 
 ### 4.2 Il regime della traduzione italiana
 
@@ -471,7 +471,7 @@ La classificazione ICD-9-CM versione italiana 2007 è:
 
 Si aggiungono due norme che rafforzano la conclusione:
 
-- **Art. 52, comma 2, del CAD** (d.lgs. 82/2005): i dati e i documenti pubblicati dalle amministrazioni **senza l'espressa adozione di una licenza** ai sensi dell'art. 2, comma 1, lett. h) del d.lgs. 36/2006 *"si intendono rilasciati come dati di tipo aperto"* ai sensi dell'art. 68, comma 3, del Codice — il principio **"open data by default"** **[V-sec]**.
+- **Art. 52, comma 2, del CAD** (d.lgs. 82/2005): i dati e i documenti pubblicati dalle amministrazioni **senza l'espressa adozione di una licenza** ai sensi dell'art. 2, comma 1, lett. h) del d.lgs. 36/2006 *"si intendono rilasciati come dati di tipo aperto"* ai sensi dell'art. 68, comma 3, del Codice - il principio **"open data by default"** **[V-sec]**.
 - **D.lgs. 24 gennaio 2006, n. 36** (attuazione della direttiva sul riutilizzo dell'informazione del settore pubblico, come modificato dal d.lgs. 102/2015 e dalla direttiva (UE) 2019/1024): disciplina il riutilizzo dei documenti delle pubbliche amministrazioni **[V-sec]**.
 - Le **Linee guida AgID** sull'apertura dei dati indicano la **CC BY 4.0** come licenza da applicare ai nuovi open data, e la presumono automaticamente attribuita nei casi di "open data by default" ex art. 52 CAD **[V-sec]** (<https://www.agid.gov.it/sites/agid/files/2024-05/lg-open-data_v.1.0_1.pdf>).
 
@@ -479,7 +479,7 @@ Si aggiungono due norme che rafforzano la conclusione:
 
 > **Conclusione**: la ridistribuzione dei codici ICD-9-CM italiani e delle relative descrizioni italiane, come pubblicati dal Ministero della salute in attuazione del DM 18 dicembre 2008, è **giuridicamente sostenibile** in base all'art. 5 L. 633/1941 e all'art. 52, c. 2, CAD. Il rischio è **basso ma non nullo**.
 
-**Il rischio residuo, dichiarato onestamente**: l'anello 1 della catena è l'OMS, e l'anello 2 è un'agenzia statunitense. Nessuna delle due ha mai — per quanto risulta da questa ricerca — contestato la pubblicazione delle versioni nazionali dell'ICD-9-CM, che sono prassi consolidata in molti paesi. L'art. 5 L. 633/1941 non "estingue" i diritti a monte: rende non protetto *il testo dell'atto ufficiale italiano*. È una posizione difendibile, non una certezza. **[NV]** — non è stato reperito un atto dell'OMS o del NCHS che autorizzi o vieti espressamente la traduzione italiana.
+**Il rischio residuo, dichiarato onestamente**: l'anello 1 della catena è l'OMS, e l'anello 2 è un'agenzia statunitense. Nessuna delle due ha mai - per quanto risulta da questa ricerca - contestato la pubblicazione delle versioni nazionali dell'ICD-9-CM, che sono prassi consolidata in molti paesi. L'art. 5 L. 633/1941 non "estingue" i diritti a monte: rende non protetto *il testo dell'atto ufficiale italiano*. È una posizione difendibile, non una certezza. **[NV]** - non è stato reperito un atto dell'OMS o del NCHS che autorizzi o vieti espressamente la traduzione italiana.
 
 **Opzione conservativa alternativa**: distribuire il dataset ICD-9-CM come **artefatto scaricato a runtime** dal portale ministeriale, anziché committarlo. **Costo funzionale**: l'installazione non ha la codifica delle diagnosi disponibile out-of-the-box; la validazione offline di `Condition.code` non funziona; il primo avvio richiede connettività verso `salute.gov.it`; e si aggiunge un punto di rottura (la URL ministeriale cambia con le riorganizzazioni del portale). **Valutazione**: il costo funzionale è alto e il rischio evitato è basso.
 
@@ -494,19 +494,19 @@ R1 ha rilevato che esistono almeno due `system` in uso per ICD-9-CM nel contesto
 | `http://hl7.org/fhir/sid/icd-9-cm` | Specifica FHIR internazionale (<https://hl7.org/fhir/R4/icd.html>) |
 | `http://hl7.it/fhir/televisita/CodeSystem/diagnosi-icd9cm` | IG HL7 Italia Televisita 0.2.0, `content = complete` |
 
-Questa è, oltre che una questione di interoperabilità, **una questione di licenza**: il secondo URI identifica un `CodeSystem` con `content = complete`, cioè un artefatto che **enumera i codici**. Se Telemedic vendesse (vendorizzasse) quel `CodeSystem` dal pacchetto HL7 Italia, ridistribuirebbe contenuto ICD-9-CM sotto la dichiarazione di licenza dell'IG — non sotto la propria analisi dell'art. 5 L. 633/1941. Cfr. §9.4.
+Questa è, oltre che una questione di interoperabilità, **una questione di licenza**: il secondo URI identifica un `CodeSystem` con `content = complete`, cioè un artefatto che **enumera i codici**. Se Telemedic vendesse (vendorizzasse) quel `CodeSystem` dal pacchetto HL7 Italia, ridistribuirebbe contenuto ICD-9-CM sotto la dichiarazione di licenza dell'IG - non sotto la propria analisi dell'art. 5 L. 633/1941. Cfr. §9.4.
 
-> **Raccomandazione**: Telemedic dichiara **`http://hl7.org/fhir/sid/icd-9-cm`** come `system` nelle risorse che scrive, e mantiene il proprio dataset in `third-party/icd9cm-it/` sotto la propria attribuzione. Quando la conformità all'IG Televisita richieda l'URI italiano, la traduzione fra i due `system` è un'operazione di conformità, da documentare in un ADR, non un'occasione per assorbire artefatti altrui. **[NV]** — l'edizione ICD-9-CM rappresentata dal `CodeSystem` dell'IG italiano non è dichiarata: resta la questione aperta **D1** di R1, da chiarire con HL7 Italia.
+> **Raccomandazione**: Telemedic dichiara **`http://hl7.org/fhir/sid/icd-9-cm`** come `system` nelle risorse che scrive, e mantiene il proprio dataset in `third-party/icd9cm-it/` sotto la propria attribuzione. Quando la conformità all'IG Televisita richieda l'URI italiano, la traduzione fra i due `system` è un'operazione di conformità, da documentare in un ADR, non un'occasione per assorbire artefatti altrui. **[NV]** - l'edizione ICD-9-CM rappresentata dal `CodeSystem` dell'IG italiano non è dichiarata: resta la questione aperta **D1** di R1, da chiarire con HL7 Italia.
 
 ---
 
-## 5. ICD-10 e ICD-11 — regime OMS
+## 5. ICD-10 e ICD-11 - regime OMS
 
 ### 5.1 Il documento di licenza
 
-**Testo esaminato integralmente [V]**: *International Statistical Classification of Diseases and Related Health Problems (ICD), International Classification of Functioning Disability and Health (ICF), International Classification of Health Interventions (ICHI) — Digital Version — Terms of Use and License Agreement*, © WHO 2020, 5 pagine (<https://icd.who.int/en/docs/icd11-license.pdf>).
+**Testo esaminato integralmente [V]**: *International Statistical Classification of Diseases and Related Health Problems (ICD), International Classification of Functioning Disability and Health (ICF), International Classification of Health Interventions (ICHI) - Digital Version - Terms of Use and License Agreement*, © WHO 2020, 5 pagine (<https://icd.who.int/en/docs/icd11-license.pdf>).
 
-Il documento distingue rigorosamente **due oggetti**, con due licenze diverse — ed è la distinzione che conta:
+Il documento distingue rigorosamente **due oggetti**, con due licenze diverse - ed è la distinzione che conta:
 
 | Oggetto | Definizione (§1.1 e §2.1) | Licenza |
 |---|---|---|
@@ -515,27 +515,27 @@ Il documento distingue rigorosamente **due oggetti**, con due licenze diverse �
 
 ### 5.2 Le clausole che decidono
 
-**§1.2 — Classifications License** **[V]**: *"The Classifications are licensed under the Creative Commons Attribution-NoDerivs 3.0 IGO license (CC BY-ND 3.0 IGO)... Under the terms of the License, you are **NOT** permitted to make 'adaptations' of the Classifications."*
+**§1.2 - Classifications License** **[V]**: *"The Classifications are licensed under the Creative Commons Attribution-NoDerivs 3.0 IGO license (CC BY-ND 3.0 IGO)... Under the terms of the License, you are **NOT** permitted to make 'adaptations' of the Classifications."*
 
 Seguono cinque chiarimenti dell'OMS, tutti citati verbatim **[V]**:
 
-- **1.2.1** — *"To prevent the dilution of the Classifications' purpose to provide a definitive standard for identifying health information, neither the Licensed Materials, nor any portion thereof, may be used for the purpose of developing or promulgating a different standard."*
-- **1.2.2** — *"WHO does **not** consider incorporation of the Classifications into a software product to be an 'adaptation', provided that you do not do any of the following:*
+- **1.2.1** - *"To prevent the dilution of the Classifications' purpose to provide a definitive standard for identifying health information, neither the Licensed Materials, nor any portion thereof, may be used for the purpose of developing or promulgating a different standard."*
+- **1.2.2** - *"WHO does **not** consider incorporation of the Classifications into a software product to be an 'adaptation', provided that you do not do any of the following:*
   - *a. Reproduce or remodelling the Classifications in part or whole and distribute it under a different name or without attribution;*
   - *b. Reproduce and distribute the Classifications in part or whole **without the Classifications' codes**;*
   - *c. Reproduce the Classifications in part or a whole **without the Classifications URIs**; or*
   - *d. Reproduce and distribute Classifications, in part or whole, with any combination of a-c above."*
-- **1.2.3** — *"Incorporation of Classifications into a software product, **in data transmission and storage must include Classifications code, title and URI**."*
-- **1.2.4** — *"**Mapping or producing crosswalks** between other classifications and terminologies and Classifications **and producing translations** are **not covered** by the Classifications License and are subject to a **separate written agreement from WHO**."*
-- **1.2.5** — *"Adding data fields to Classifications concepts is permitted if such additions are clearly identified as additions that do not originate from WHO."*
+- **1.2.3** - *"Incorporation of Classifications into a software product, **in data transmission and storage must include Classifications code, title and URI**."*
+- **1.2.4** - *"**Mapping or producing crosswalks** between other classifications and terminologies and Classifications **and producing translations** are **not covered** by the Classifications License and are subject to a **separate written agreement from WHO**."*
+- **1.2.5** - *"Adding data fields to Classifications concepts is permitted if such additions are clearly identified as additions that do not originate from WHO."*
 
-**§1.3 — citazione obbligatoria** **[V]**:
+**§1.3 - citazione obbligatoria** **[V]**:
 
 > *"ICD-11 Citation: International Classification of Diseases, Eleventh Revision (ICD-11), World Health Organization (WHO) 2019 https://icd.who.int/browse11. Licensed under the Creative Commons Attribution-NoDerivatives 3.0 IGO licence (CC BY-ND 3.0 IGO)."*
 
-**§2.3 — Software License** **[V]**: licenza *"non-exclusive, non-transferable and non-assignable royalty-free"* per usare e incorporare il Classifications Software in applicazioni; le applicazioni risultanti *"may be licensed to users for commercial and non-commercial purposes"*; ma *"You are **not** granted the right to sell or license the Classifications Software as a standalone product."*
+**§2.3 - Software License** **[V]**: licenza *"non-exclusive, non-transferable and non-assignable royalty-free"* per usare e incorporare il Classifications Software in applicazioni; le applicazioni risultanti *"may be licensed to users for commercial and non-commercial purposes"*; ma *"You are **not** granted the right to sell or license the Classifications Software as a standalone product."*
 
-**§2.4 — No modifications** **[V]**: *"You shall not modify, adapt, translate, reverse-engineer, decompile, disassemble, or otherwise attempt to discover the source code of the Classifications Software."*
+**§2.4 - No modifications** **[V]**: *"You shall not modify, adapt, translate, reverse-engineer, decompile, disassemble, or otherwise attempt to discover the source code of the Classifications Software."*
 
 Altre clausole rilevanti **[V]**: §4.1 divieto di usare nome ed emblema OMS; §4.2 divieto di registrare marchi contenenti l'acronimo o il titolo delle Classificazioni; §4.5 **obbligo di manleva a favore dell'OMS** (*"You shall indemnify, hold harmless, and defend at your own expense WHO..."*); §4.7 terminazione automatica in caso di violazione; §4.10 legge svizzera e arbitrato UNCITRAL.
 
@@ -553,11 +553,11 @@ Il **Classifications Software** (ICD-API, versioni locali, Embedded Tool) è anc
 
 ### 5.4 ICD-10
 
-**[NV] — il regime dell'ICD-10 non è stato accertato in forma primaria separata.** Il documento *Terms of Use* del §5.1 si riferisce alla *Digital Version* delle Classificazioni distribuite tramite la piattaforma `icd.who.int`, che include ICD-10 nel browser `browse10`. Non è stato reperito un documento di licenza specifico e distinto per l'ICD-10 nelle sue distribuzioni storiche (volumi a stampa, file elettronici distribuiti agli Stati membri, versioni nazionali modificate).
+**[NV] - il regime dell'ICD-10 non è stato accertato in forma primaria separata.** Il documento *Terms of Use* del §5.1 si riferisce alla *Digital Version* delle Classificazioni distribuite tramite la piattaforma `icd.who.int`, che include ICD-10 nel browser `browse10`. Non è stato reperito un documento di licenza specifico e distinto per l'ICD-10 nelle sue distribuzioni storiche (volumi a stampa, file elettronici distribuiti agli Stati membri, versioni nazionali modificate).
 
 **Come procurarsi la risposta**: scrivere a `licensing@who.int`, indicando l'uso previsto (incorporazione dei codici in un software di telemedicina open source distribuito sotto Apache-2.0, con ridistribuzione del contenuto).
 
-**Raccomandazione conservativa nell'attesa**: trattare ICD-10 con lo stesso regime di ICD-11 — **nessun contenuto nel repository**, solo riferimento per URI+codice.
+**Raccomandazione conservativa nell'attesa**: trattare ICD-10 con lo stesso regime di ICD-11 - **nessun contenuto nel repository**, solo riferimento per URI+codice.
 
 ### 5.5 URI canonici corretti
 
@@ -578,13 +578,13 @@ In Italia la codifica operativa delle diagnosi resta **ICD-9-CM** (R1 §8.3). IC
 
 > **Raccomandazione**: **nessun contenuto ICD-10 o ICD-11 nel repository.** Riferimento per URI+codice soltanto, con `system` canonico corretto. Se serve la risoluzione dei display, delegarla al terminology server configurato dal deployer o all'ICD-API dell'OMS, con avvertenza esplicita che l'uso dell'ICD-API è soggetto ai termini del §2.3–2.6 del documento OMS, che il deployer accetta in proprio.
 >
-> **Attenzione al vincolo V1 del brief**: l'ICD-API dell'OMS è un servizio ospitato dall'OMS. Prima di renderlo una dipendenza runtime, va verificata la sua collocazione rispetto al requisito "nessun componente obbligatorio ospitato fuori dall'UE". L'OMS distribuisce anche versioni **installabili localmente** dell'ICD-API (§2.1) — è l'opzione che concilia funzione e sovranità, e va preferita. Il container va comunque procurato dal deployer, non ridistribuito dal progetto (§2.3: divieto di vendita/licenza standalone; §4.7 terminazione).
+> **Attenzione al vincolo V1 del brief**: l'ICD-API dell'OMS è un servizio ospitato dall'OMS. Prima di renderlo una dipendenza runtime, va verificata la sua collocazione rispetto al requisito "nessun componente obbligatorio ospitato fuori dall'UE". L'OMS distribuisce anche versioni **installabili localmente** dell'ICD-API (§2.1) - è l'opzione che concilia funzione e sovranità, e va preferita. Il container va comunque procurato dal deployer, non ridistribuito dal progetto (§2.3: divieto di vendita/licenza standalone; §4.7 terminazione).
 >
 > **Se un giorno servisse una mappa ICD-9-CM ↔ ICD-11**: la clausola §1.2.4 la sottopone a **accordo scritto separato con l'OMS**. Non è un'attività che si può improvvisare in uno sprint.
 
 ---
 
-## 6. ATC / DDD — WHO Collaborating Centre
+## 6. ATC / DDD - WHO Collaborating Centre
 
 ### 6.1 Titolarità e sede
 
@@ -592,9 +592,9 @@ R1 aveva marcato **[NV]** i termini ATC. Sono stati accertati.
 
 Titolare: **WHO Collaborating Centre for Drug Statistics Methodology**, Oslo. **Il centro ha cambiato dominio**: `whocc.no` reindirizza con **HTTP 301** a **`atcddd.fhi.no`**, ospitato dal Norwegian Institute of Public Health (FHI) **[V]**. Il centro è *"entirely funded by the Norwegian government"* e i proventi delle vendite degli Index finanziano la manutenzione del sistema ATC/DDD **[V-sec]**.
 
-URI canonico FHIR: `http://www.whocc.no/atc` **[V]** (R1; <https://hl7.org/fhir/R4/terminologies-systems.html>). **Nota**: l'URI canonico resta `whocc.no` anche dopo il cambio di dominio del sito — un canonical URI è un identificatore, non un indirizzo da dereferenziare. Non va "aggiornato".
+URI canonico FHIR: `http://www.whocc.no/atc` **[V]** (R1; <https://hl7.org/fhir/R4/terminologies-systems.html>). **Nota**: l'URI canonico resta `whocc.no` anche dopo il cambio di dominio del sito - un canonical URI è un identificatore, non un indirizzo da dereferenziare. Non va "aggiornato".
 
-### 6.2 Condizioni d'uso — testo verificato
+### 6.2 Condizioni d'uso - testo verificato
 
 Dalla pagina *Copyright & disclaimer* **[V]** (<https://atcddd.fhi.no/copyright_disclaimer/>), tre affermazioni, tutte determinanti:
 
@@ -604,21 +604,21 @@ Dalla pagina *Copyright & disclaimer* **[V]** (<https://atcddd.fhi.no/copyright_
 
 ### 6.3 Costo e reperimento
 
-**[V-sec]** — Il Centro vende i file elettronici contenenti l'intero indice ATC/DDD (formato Excel o XML) tramite il portale `https://orders.atcddd.fhi.no/`. Il prezzo rilevato per il file completo è di circa **200 EUR**. **Come dichiarato al §0.1, il portale ordini è un'applicazione JavaScript non leggibile dallo strumento di fetch: prezzo e condizioni contrattuali di acquisto non sono stati verificati in forma primaria.** L'indice consultabile online è invece gratuito (<https://atcddd.fhi.no/atc_ddd_index/>).
+**[V-sec]** - Il Centro vende i file elettronici contenenti l'intero indice ATC/DDD (formato Excel o XML) tramite il portale `https://orders.atcddd.fhi.no/`. Il prezzo rilevato per il file completo è di circa **200 EUR**. **Come dichiarato al §0.1, il portale ordini è un'applicazione JavaScript non leggibile dallo strumento di fetch: prezzo e condizioni contrattuali di acquisto non sono stati verificati in forma primaria.** L'indice consultabile online è invece gratuito (<https://atcddd.fhi.no/atc_ddd_index/>).
 
-### 6.4 Analisi di compatibilità con Apache-2.0 — incompatibilità piena
+### 6.4 Analisi di compatibilità con Apache-2.0 - incompatibilità piena
 
-> **La condizione 2 — *"Copying and distribution for commercial purposes is not allowed"* — è direttamente e frontalmente incompatibile con Apache-2.0.**
+> **La condizione 2 - *"Copying and distribution for commercial purposes is not allowed"* - è direttamente e frontalmente incompatibile con Apache-2.0.**
 
 Apache-2.0 non distingue fra uso commerciale e non commerciale: concede a chiunque, per qualsiasi finalità, il diritto di riprodurre e distribuire. Ogni destinatario del repository riceverebbe una promessa che il titolare dei diritti ATC nega espressamente. E la decisione **D1** del brief rende il punto ineludibile: Telemedic esiste **proprio** per essere integrato in prodotti commerciali proprietari.
 
-> **La condizione 3 — *"Changing or manipulating the material is not allowed"* — è incompatibile con Apache-2.0 §4**, che consente la ridistribuzione *"with or without modifications"*.
+> **La condizione 3 - *"Changing or manipulating the material is not allowed"* - è incompatibile con Apache-2.0 §4**, che consente la ridistribuzione *"with or without modifications"*.
 
 > **Conclusione operativa n. 4**: **nessun contenuto ATC nel repository. In nessuna forma. Nessuna eccezione.** Vietati: file ATC/DDD, `CodeSystem` con `content = complete` o `fragment` popolato di codici ATC, `ValueSet` con espansioni ATC, tabelle `codice ATC → descrizione`, mapping ATC ↔ AIC, DDD precalcolate.
 
 ### 6.5 Che cosa resta possibile
 
-- **Riferimento per URI+codice**: scrivere `Coding` con `system = "http://www.whocc.no/atc"` e `code = "<codice ATC>"` in `Medication.code` o `MedicationRequest.medicationCodeableConcept`. Un codice scritto in una cartella clinica non è "copying and distribution of the material": è uso di un identificatore per descrivere un fatto clinico. **[NV]** — il testo del WHOCC non affronta esplicitamente questo caso; l'interpretazione è ragionevole ma non è confermata dal titolare. La condizione 1 (obbligo di riferimento al WHOCC) va comunque onorata nella documentazione.
+- **Riferimento per URI+codice**: scrivere `Coding` con `system = "http://www.whocc.no/atc"` e `code = "<codice ATC>"` in `Medication.code` o `MedicationRequest.medicationCodeableConcept`. Un codice scritto in una cartella clinica non è "copying and distribution of the material": è uso di un identificatore per descrivere un fatto clinico. **[NV]** - il testo del WHOCC non affronta esplicitamente questo caso; l'interpretazione è ragionevole ma non è confermata dal titolare. La condizione 1 (obbligo di riferimento al WHOCC) va comunque onorata nella documentazione.
 - **Risoluzione dei display a runtime** contro un terminology server o un servizio del deployer che detenga la licenza ATC.
 
 ### 6.6 La via italiana, che rende il problema quasi irrilevante
@@ -637,7 +637,7 @@ Nel contesto della ricetta dematerializzata e del Sistema TS, la codifica operat
 
 R1 ha ricostruito il quadro **[V-sec]**: **DM 23 giugno 2023** ("Decreto Tariffe"), che definisce le tariffe dell'assistenza specialistica ambulatoriale e protesica, modificato dal **DM 26 novembre 2024** (in vigore dal 30 dicembre 2024), che aggiorna 1.113 tariffe su 3.171. Le regioni hanno adottato i propri **cataloghi regionali** in attuazione del nomenclatore nazionale, ai sensi del DPCM 12 gennaio 2017 **[V-sec]**.
 
-### 7.2 Regime di riuso — favorevole e privo di ambiguità
+### 7.2 Regime di riuso - favorevole e privo di ambiguità
 
 Si applica **la stessa analisi del §4.2**, con margini ancora più ampi:
 
@@ -648,7 +648,7 @@ Si applica **la stessa analisi del §4.2**, con margini ancora più ampi:
 
 > **Conclusione**: i codici del nomenclatore nazionale e dei cataloghi regionali sono **liberamente ridistribuibili** nel repository. Rischio residuo: **molto basso**.
 
-**Cautela minima**: citare la fonte (decreto, data, Gazzetta Ufficiale, eventuale delibera regionale) e la data di estrazione, e non presentare i dati come opera del progetto. Da collocare in `third-party/nomenclatore-it/` con `NOTICE` proprio (§14.5) — non tanto per obbligo, quanto perché la separazione fra "dati normativi dello Stato" e "codice del progetto" è chiarezza che serve al deployer.
+**Cautela minima**: citare la fonte (decreto, data, Gazzetta Ufficiale, eventuale delibera regionale) e la data di estrazione, e non presentare i dati come opera del progetto. Da collocare in `third-party/nomenclatore-it/` con `NOTICE` proprio (§14.5) - non tanto per obbligo, quanto perché la separazione fra "dati normativi dello Stato" e "codice del progetto" è chiarezza che serve al deployer.
 
 ### 7.3 Il vincolo di modellazione che nessuna licenza risolve
 
@@ -674,7 +674,7 @@ I cataloghi regionali sono adottati con delibere di giunta e pubblicati sui BUR:
 
 | Code system | URI canonico | Titolare | Licenza | Ridistribuibile nel repository |
 |---|---|---|---|---|
-| **HL7 Terminology (THO)** — v2 tables, v3 ActCode, ecc. | `http://terminology.hl7.org/CodeSystem/*` | HL7 International | **CC0** **[V]** | **Sì, senza condizioni** |
+| **HL7 Terminology (THO)** - v2 tables, v3 ActCode, ecc. | `http://terminology.hl7.org/CodeSystem/*` | HL7 International | **CC0** **[V]** | **Sì, senza condizioni** |
 | **Code system FHIR core** | `http://hl7.org/fhir/*` | HL7 International | **CC0** **[V]** | **Sì, senza condizioni** |
 | **UCUM** | `http://unitsofmeasure.org` | Regenstrief Institute + UCUM Organization | Licenza UCUM v1.0 (notice v1.1, giugno 2024) **[V]** | **Sì, condizionata** (§8.3) |
 | **LOINC** | `http://loinc.org` | Regenstrief Institute | Licenza LOINC **[V-sec]** | **Sì, condizionata** (§3) |
@@ -686,7 +686,7 @@ I cataloghi regionali sono adottati con delibere di giunta e pubblicati sui BUR:
 | **ATC** | `http://www.whocc.no/atc` | WHO CC Oslo | §6.2 **[V]** | **No** (§6) |
 | **ICD-10 / ICD-11** | v. §5.5 | OMS | CC BY-ND 3.0 IGO **[V]** | **No** (§5) |
 
-### 8.2 HL7 Terminology (THO) e code system FHIR — CC0, nessun problema
+### 8.2 HL7 Terminology (THO) e code system FHIR - CC0, nessun problema
 
 Dichiarazione verbatim della pagina di licenza THO **[V]** (<https://terminology.hl7.org/6.5.0/license.html>):
 
@@ -708,7 +708,7 @@ E la specifica FHIR conferma **[V]** (<https://hl7.org/fhir/R4/license.html>) ch
 
 Sono quindi **integralmente ridistribuibili** i code system rilevanti per Telemedic verificati da R1: `v3-ActCode` (con il codice `VR` per la televisita), `encounter-status`, `endpoint-connection-type`, `consentscope`, `audit-event-type`, `iso-21089-lifecycle`, `virtual-service-type` (R5).
 
-### 8.3 UCUM — attenzione a due dettagli
+### 8.3 UCUM - attenzione a due dettagli
 
 **Testo esaminato [V]** (<https://ucum.org/license>): *Unified Code for Units of Measure (UCUM) Version 1.0 License*, con *Copyright Notice and License Version 1.1, June 2024*. Copyright © 1999–2026 Regenstrief Institute, Inc.
 
@@ -726,7 +726,7 @@ Sono quindi **integralmente ridistribuibili** i code system rilevanti per Teleme
 1. **La licenza è `revocable`.** Apache-2.0 §2 è `irrevocable`. È una differenza sostanziale di natura del titolo, non una sfumatura redazionale. Il progetto non può promettere a valle una stabilità che il proprio titolo a monte non ha.
 2. **Il divieto di opere derivate** confligge con Apache-2.0 §4 (*"with or without modifications"*).
 
-> **Raccomandazione**: se serve `ucum-essence.xml` (per la validazione offline delle unità in `Observation.valueQuantity` — RTT, jitter, packet loss, cfr. R1 §2.5), collocarlo in **`third-party/ucum/`**, **immodificato**, accompagnato dal file di licenza UCUM integrale e da un `NOTICE` che dichiari che Apache-2.0 non vi si applica. Non riformattarlo, non minificarlo, non convertirlo in JSON: sarebbe una modifica.
+> **Raccomandazione**: se serve `ucum-essence.xml` (per la validazione offline delle unità in `Observation.valueQuantity` - RTT, jitter, packet loss, cfr. R1 §2.5), collocarlo in **`third-party/ucum/`**, **immodificato**, accompagnato dal file di licenza UCUM integrale e da un `NOTICE` che dichiari che Apache-2.0 non vi si applica. Non riformattarlo, non minificarlo, non convertirlo in JSON: sarebbe una modifica.
 >
 > **Alternativa preferibile**: dipendere da una libreria UCUM esistente tramite il gestore di dipendenze (Maven/npm), senza committare il file. La libreria porta la propria licenza, la dipendenza è esplicita nell'SBOM CycloneDX previsto da **D10** del brief, e il repository resta pulito. **Costo funzionale: nullo.** È la strada da preferire.
 
@@ -734,7 +734,7 @@ Sono quindi **integralmente ridistribuibili** i code system rilevanti per Teleme
 
 CVX (*Vaccine Administered Code Set*) è sviluppato e mantenuto dal **CDC / NCIRD** (USA). URI: `http://hl7.org/fhir/sid/cvx` **[V]**.
 
-**[NV] — Non è stato reperito un enunciato di licenza esplicito del CDC su CVX.** Le pagine THO che descrivono il code system non riportano condizioni e rinviano alla pagina CDC. In linea di principio, le opere di agenzie federali statunitensi non sono soggette a copyright negli Stati Uniti ai sensi di **17 U.S.C. §105**, il che renderebbe CVX liberamente riusabile — **ma questa è un'inferenza, non una verifica**, e la regola del §105 riguarda il territorio statunitense.
+**[NV] - Non è stato reperito un enunciato di licenza esplicito del CDC su CVX.** Le pagine THO che descrivono il code system non riportano condizioni e rinviano alla pagina CDC. In linea di principio, le opere di agenzie federali statunitensi non sono soggette a copyright negli Stati Uniti ai sensi di **17 U.S.C. §105**, il che renderebbe CVX liberamente riusabile - **ma questa è un'inferenza, non una verifica**, e la regola del §105 riguarda il territorio statunitense.
 
 > **Raccomandazione**: **CVX non serve a Telemedic in v1.0.** Il perimetro del progetto è il consulto video, non la registrazione vaccinale. Escludere CVX dal repository elimina un'incertezza a costo funzionale zero. Se in futuro servisse `Immunization`, si verifichi la questione presso `iisinfo@cdc.gov` prima di includere contenuto.
 
@@ -757,7 +757,7 @@ Verifica condotta sulle risorse `ImplementationGuide` pubblicate e sui footer ge
 |---|---|---|---|---|
 | `hl7.fhir.it.terminology` **0.1.2** | **HL7 Italia** **[V]** | **2022+** **[V]** | **`CC0-1.0`** **[V]** | Status `active`. Dichiarazione coerente e completa. |
 | **Televisita** `televisita#0.2.0` | **`Example Publisher`** **[V]** | non valorizzato **[V]** | **`CC0-1.0`** **[V]** | Footer generato: *"IG © 2025+ Example Publisher. Package televisita#0.2.0 based on FHIR 4.0.1"*, con `contact.url = http://example.org/example-publisher` **[V]** |
-| **It-Core** `hl7.fhir.it.core#0.2.0` | HL7 Italia **[V]** | Footer: *"IG © 2026+ HL7 Italia"*, generato il 30 luglio 2026, *trial-use* **[V]** | **[NV]** — il campo `license` della risorsa non è stato letto (endpoint interrogati: HTTP 404) | Il footer riporta l'avviso SNOMED CT: *"Users must obtain proper SNOMED CT Affiliate license"* **[V]** |
+| **It-Core** `hl7.fhir.it.core#0.2.0` | HL7 Italia **[V]** | Footer: *"IG © 2026+ HL7 Italia"*, generato il 30 luglio 2026, *trial-use* **[V]** | **[NV]** - il campo `license` della risorsa non è stato letto (endpoint interrogati: HTTP 404) | Il footer riporta l'avviso SNOMED CT: *"Users must obtain proper SNOMED CT Affiliate license"* **[V]** |
 
 **Il sito istituzionale `hl7.it` riporta invece in footer: *"Copyright © 2024 by HL7 Italia. All Rights Reserved."*** **[V]**
 
@@ -766,7 +766,7 @@ Verifica condotta sulle risorse `ImplementationGuide` pubblicate e sui footer ge
 Ci sono **tre segnali che non concordano**:
 
 1. la risorsa `ImplementationGuide` di *Televisita* dichiara `license: CC0-1.0`, che sarebbe pienamente compatibile con Apache-2.0;
-2. la stessa risorsa ha `publisher = "Example Publisher"` e `contact.url = "http://example.org/example-publisher"` — cioè **i valori segnaposto del template dell'IG Publisher, mai sostituiti**;
+2. la stessa risorsa ha `publisher = "Example Publisher"` e `contact.url = "http://example.org/example-publisher"` - cioè **i valori segnaposto del template dell'IG Publisher, mai sostituiti**;
 3. il sito dell'ente riserva tutti i diritti.
 
 Il segnale 2 svaluta il segnale 1. Un campo `license` che convive con un `publisher` segnaposto è, con ogni probabilità, **il valore di default del template**, non una determinazione consapevole dell'ente. Non c'è un atto giuridico identificabile: non si sa **chi** abbia dichiarato CC0, perché il publisher dichiarato non esiste.
@@ -789,9 +789,9 @@ Il caso di `hl7.fhir.it.terminology` è diverso e migliore: publisher HL7 Italia
 
 > **Raccomandazione operativa**: **non vendorizzare i pacchetti HL7 Italia nel repository.** Dichiararli come **dipendenze** in `sushi-config.yaml` / `ig.ini` / `package.json` FHIR e lasciare che siano risolti dal registry dei pacchetti a build time, sulla macchina di chi compila.
 >
-> **Costo funzionale, dichiarato**: (a) la build richiede accesso di rete al registry dei pacchetti FHIR — il che stride con l'ideale di build ermetica; (b) è necessario un **mirror interno del registry** o una cache di CI per la riproducibilità; (c) chi compila il progetto accetta implicitamente i termini della fonte da cui scarica.
+> **Costo funzionale, dichiarato**: (a) la build richiede accesso di rete al registry dei pacchetti FHIR - il che stride con l'ideale di build ermetica; (b) è necessario un **mirror interno del registry** o una cache di CI per la riproducibilità; (c) chi compila il progetto accetta implicitamente i termini della fonte da cui scarica.
 >
-> **Mitigazione**: **pinnare le versioni esatte**. Il pacchetto *Televisita* dichiara la dipendenza `hl7.fhir.it.terminology: current` **[V]** — una versione flottante, che rende la build non riproducibile e che, in un progetto soggetto a IEC 62304 (decisione **D6**), è un difetto di gestione della configurazione, non solo un fastidio. Telemedic deve pinnare `0.1.2` (o la versione corrente al momento del rilascio) e documentarlo.
+> **Mitigazione**: **pinnare le versioni esatte**. Il pacchetto *Televisita* dichiara la dipendenza `hl7.fhir.it.terminology: current` **[V]** - una versione flottante, che rende la build non riproducibile e che, in un progetto soggetto a IEC 62304 (decisione **D6**), è un difetto di gestione della configurazione, non solo un fastidio. Telemedic deve pinnare `0.1.2` (o la versione corrente al momento del rilascio) e documentarlo.
 
 **Azione raccomandata verso HL7 Italia**: chiedere per iscritto (a) conferma della licenza applicabile ai pacchetti *Televisita*, *Teleconsulto*, *Teleassistenza*, *Telemonitoraggio* e *It-Core*; (b) correzione dei campi `publisher`/`contact` segnaposto; (c) chiarimento sul regime dei contenuti di terzi ricompresi (SNOMED CT, ATC, ICD-9-CM). La risposta scritta va conservata nel fascicolo tecnico MDR. **È una richiesta legittima, utile a tutta la comunità italiana, e va formulata come contributo, non come contestazione.**
 
@@ -799,16 +799,16 @@ Il caso di `hl7.fhir.it.terminology` è diverso e migliore: publisher HL7 Italia
 
 Merita di essere enunciato come regola generale, perché è l'errore più costoso che si possa fare in questa materia.
 
-> **Una dichiarazione di licenza apposta da un ente su un proprio Implementation Guide vincola i diritti *di quell'ente sul proprio contributo editoriale*. Non dispone — perché non può — dei diritti di terzi sul contenuto terminologico ricompreso.**
+> **Una dichiarazione di licenza apposta da un ente su un proprio Implementation Guide vincola i diritti *di quell'ente sul proprio contributo editoriale*. Non dispone - perché non può - dei diritti di terzi sul contenuto terminologico ricompreso.**
 
 Applicazioni concrete e verificate:
 
 - `hl7.fhir.it.terminology` dichiara **CC0-1.0** e contiene un code system **AIFA/ATC** **[V]**. La dichiarazione CC0 **non** rende ridistribuibile il contenuto ATC, i cui diritti sono del WHO Collaborating Centre (§6.2), che vieta espressamente la distribuzione commerciale.
 - Lo stesso pacchetto contiene value set costruiti su **SNOMED CT** (tipi di campione, contenitori, additivi) **[V]**. La dichiarazione CC0 **non** sostituisce l'Affiliate License.
 - L'IG *Televisita* definisce un `CodeSystem` ICD-9-CM con `content = complete` **[V]** (R1 §8.3): il contenuto è la classificazione ministeriale, il cui regime è quello del §4, non quello dichiarato dall'IG.
-- Simmetricamente, **THO è CC0** ma i concetti SNOMED/DICOM/CPT che vi transitano non lo sono (§8.2) — HL7 lo dichiara espressamente.
+- Simmetricamente, **THO è CC0** ma i concetti SNOMED/DICOM/CPT che vi transitano non lo sono (§8.2) - HL7 lo dichiara espressamente.
 
-> **Regola per Telemedic**: prima di vendorizzare **qualunque** artefatto terminologico proveniente da terzi — anche se dichiarato CC0, anche se proveniente da un ente pubblico o da un SDO — si ispeziona **artefatto per artefatto** da quale `system` provengono i concetti enumerati. La dichiarazione di licenza del contenitore non è la risposta. La risposta è la titolarità del contenuto.
+> **Regola per Telemedic**: prima di vendorizzare **qualunque** artefatto terminologico proveniente da terzi - anche se dichiarato CC0, anche se proveniente da un ente pubblico o da un SDO - si ispeziona **artefatto per artefatto** da quale `system` provengono i concetti enumerati. La dichiarazione di licenza del contenitore non è la risposta. La risposta è la titolarità del contenuto.
 >
 > Questa verifica va **automatizzata**: vedi il *terminology guard* al §12.3.
 
@@ -816,7 +816,7 @@ Applicazioni concrete e verificate:
 
 ## 10. Le specifiche HL7 internazionali e IHE
 
-### 10.1 FHIR — CC0
+### 10.1 FHIR - CC0
 
 > *"This document is licensed under Creative Commons 'No Rights Reserved' (CC0)."* **[V]** (<https://hl7.org/fhir/R4/license.html>)
 
@@ -833,7 +833,7 @@ Conseguenze **[V]**:
 
 Sono quindi **ridistribuibili senza condizioni** i `StructureDefinition`, `ValueSet`, `CodeSystem`, `SearchParameter` e `OperationDefinition` della specifica core FHIR, nonché il pacchetto `hl7.fhir.r4.core`.
 
-### 10.2 HL7 v2 — libero all'uso, non alla ridistribuzione
+### 10.2 HL7 v2 - libero all'uso, non alla ridistribuzione
 
 Il regime è **diverso da FHIR** e la differenza è quella che conta.
 
@@ -853,7 +853,7 @@ I membri HL7 registrati hanno il diritto di scaricare, copiare **per finalità i
 >
 > **Nota su MLLP**: R1 ha rilevato che il PDF della specifica MLLP non è stato letto direttamente (questione **D2**). Vale la stessa regola: **si può leggere e implementare, non si può committare nel repository.** I valori esadecimali dei caratteri di framing sono fatti tecnici, non contenuto protetto; il documento che li contiene sì.
 
-### 10.3 IHE — la licenza c'è, ma è `non-sublicensable`
+### 10.3 IHE - la licenza c'è, ma è `non-sublicensable`
 
 **Testo esaminato [V]**: IHE Technical Frameworks *General Introduction*, capitolo 9 *Copyright Licenses* (<https://profiles.ihe.net/GeneralIntro/ch-9.html>), richiamato da ciascun Technical Framework (ITI TF Vol. 1 §1.7 rinvia a questo capitolo **[V]**).
 
@@ -881,12 +881,12 @@ con l'avvertenza espressa che la concessione **si applica soltanto ai materiali 
 
 | Specifica | Licenza | Implementabile | Ridistribuibile nel repository |
 |---|---|---|---|
-| FHIR (core, R4/R4B/R5) | **CC0** **[V]** | Sì | **Sì** — con cautela sui marchi |
-| HL7 Terminology (THO) | **CC0** **[V]** | Sì | **Sì** — verificando l'origine dei concetti |
-| HL7 v2.x (documenti dello standard) | Gratuita con registrazione, **senza diritto di ridistribuzione** **[V-sec]** | Sì | **No** — usare THO per le tabelle |
-| IHE Technical Frameworks | Royalty-free ma `non-sublicensable` **[V]** | Sì | **No** — citare per URL |
-| DICOM (standard NEMA) | Pubblicazione gratuita; ridistribuzione **[NV]** | Sì | **No** — citare per URL |
-| IG HL7 Italia | Parzialmente accertata (§9.1) | Sì | **No allo stato attuale** — dipendenza a build time |
+| FHIR (core, R4/R4B/R5) | **CC0** **[V]** | Sì | **Sì** - con cautela sui marchi |
+| HL7 Terminology (THO) | **CC0** **[V]** | Sì | **Sì** - verificando l'origine dei concetti |
+| HL7 v2.x (documenti dello standard) | Gratuita con registrazione, **senza diritto di ridistribuzione** **[V-sec]** | Sì | **No** - usare THO per le tabelle |
+| IHE Technical Frameworks | Royalty-free ma `non-sublicensable` **[V]** | Sì | **No** - citare per URL |
+| DICOM (standard NEMA) | Pubblicazione gratuita; ridistribuzione **[NV]** | Sì | **No** - citare per URL |
+| IG HL7 Italia | Parzialmente accertata (§9.1) | Sì | **No allo stato attuale** - dipendenza a build time |
 
 ---
 
@@ -912,15 +912,15 @@ Ogni terminologia ricade in **uno e uno solo** di questi quattro regimi. Nessuna
 | **Code system FHIR core** | **A** | Sì | CC0 (§10.1) |
 | **Nomenclatore / catalogo nazionale prestazioni** | **B** (`third-party/nomenclatore-it/`) | Sì | Atto ufficiale dello Stato, art. 5 L. 633/1941 + art. 52 CAD (§7.2). Separazione per chiarezza, non per obbligo |
 | **ICD-9-CM versione italiana** | **B** (`third-party/icd9cm-it/`) | Sì | Idem (§4.2). Rischio residuo basso ma non nullo sulla catena a monte (§4.3) |
-| **UCUM** | **B** (`third-party/ucum/`) — o meglio dipendenza esterna | Sì | Ridistribuibile verbatim, ma vieta i derivati ed è **revocabile** (§8.3) |
-| **SNOMED CT** | **C** — terminology server esterno del deployer | Sì, **ma solo per chi ha la licenza** (cl. 2.2.5) | Cl. 2.7 rende impossibile la pubblicazione in un repo pubblico; sub-licenza incompatibile con Apache-2.0 §2 (§2.2.6) |
+| **UCUM** | **B** (`third-party/ucum/`) - o meglio dipendenza esterna | Sì | Ridistribuibile verbatim, ma vieta i derivati ed è **revocabile** (§8.3) |
+| **SNOMED CT** | **C** - terminology server esterno del deployer | Sì, **ma solo per chi ha la licenza** (cl. 2.2.5) | Cl. 2.7 rende impossibile la pubblicazione in un repo pubblico; sub-licenza incompatibile con Apache-2.0 §2 (§2.2.6) |
 | **ICD-10 / ICD-11** | **D** (con `C` opzionale via ICD-API locale) | Sì, con `system` canonico corretto | CC BY-**ND**: vieta i derivati; §4.5 impone manleva; §4.7 terminazione (§5.3) |
-| **ATC / DDD** | **D** | Sì (interpretazione ragionevole, **[NV]**) | *"Copying and distribution for commercial purposes is not allowed"* — incompatibile con D1 (§6.4) |
+| **ATC / DDD** | **D** | Sì (interpretazione ragionevole, **[NV]**) | *"Copying and distribution for commercial purposes is not allowed"* - incompatibile con D1 (§6.4) |
 | **CVX** | **D** in v1.0 | n/a | Licenza non accertata; non serve al perimetro v1.0 (§8.4) |
 | **DICOM controlled terminology** | **D** per il contenuto; codici usati per riferimento | Sì | Ridistribuzione non verificata (§8.5) |
-| **Pacchetti IG HL7 Italia** | **C** — dipendenza risolta a build time | Sì (canonical URL) | Licenza non pienamente attribuibile + contenuti di terzi ricompresi (§9.3) |
-| **Documenti IHE** | **D** — citazione per URL | n/a | `non-sublicensable` (§10.3) |
-| **Documenti standard HL7 v2** | **D** — usare THO | n/a | Nessun diritto di ridistribuzione (§10.2) |
+| **Pacchetti IG HL7 Italia** | **C** - dipendenza risolta a build time | Sì (canonical URL) | Licenza non pienamente attribuibile + contenuti di terzi ricompresi (§9.3) |
+| **Documenti IHE** | **D** - citazione per URL | n/a | `non-sublicensable` (§10.3) |
+| **Documenti standard HL7 v2** | **D** - usare THO | n/a | Nessun diritto di ridistribuzione (§10.2) |
 
 ### 11.3 Il costo funzionale della prudenza, dichiarato senza attenuanti
 
@@ -928,7 +928,7 @@ La prudenza qui raccomandata **ha un prezzo**, e chi decide deve conoscerlo:
 
 | Rinuncia | Costo funzionale concreto |
 |---|---|
-| Nessun contenuto SNOMED CT nel repository | Le espansioni dei value set con binding SNOMED (in particolare `Encounter.reasonCode`, ~4.000 codici — R1 §2.1) **non funzionano senza un terminology server configurato**. In un'installazione appena avviata, la validazione di quei binding fallisce o va disattivata. È il costo più alto dell'intera policy. |
+| Nessun contenuto SNOMED CT nel repository | Le espansioni dei value set con binding SNOMED (in particolare `Encounter.reasonCode`, ~4.000 codici - R1 §2.1) **non funzionano senza un terminology server configurato**. In un'installazione appena avviata, la validazione di quei binding fallisce o va disattivata. È il costo più alto dell'intera policy. |
 | Nessun display SNOMED negli esempi | Gli esempi FHIR sono meno leggibili e non eseguibili contro un validatore stringente senza configurazione preliminare. |
 | Nessuna traduzione italiana dei display LOINC | Serve una separazione architetturale fra stringhe i18n del progetto e `Coding.display` ufficiale, con un ADR dedicato. |
 | Nessun contenuto ATC | La ricerca del farmaco per classe terapeutica non è disponibile out-of-the-box. Mitigato dall'uso di AIC come codifica primaria italiana (§6.6). |
@@ -947,7 +947,7 @@ Una policy che vive solo in un documento viene violata al terzo sprint. Va incis
 
 ```
 LICENSE                          Apache-2.0, testo integrale
-NOTICE                           §4(d) Apache-2.0 — breve, con rinvio (§14.1)
+NOTICE                           §4(d) Apache-2.0 - breve, con rinvio (§14.1)
 THIRD-PARTY-TERMINOLOGY.md       Trattazione estesa (§14.2)
 CONTRIBUTING.md                  Divieto di contributi contenenti terminologia di terzi
 
@@ -959,7 +959,7 @@ src/main/resources/fhir/
   examples/                      Esempi: LOINC / ICD-9-CM / codici nazionali.
                                  SNOMED solo come placeholder tipografico
 
-third-party/                     REGIME B — Apache-2.0 NON si applica qui
+third-party/                     REGIME B - Apache-2.0 NON si applica qui
   README.md                      Spiega la natura della directory
   icd9cm-it/   { LICENSE-NOTICE.md, data/ }
   nomenclatore-it/ { LICENSE-NOTICE.md, data/ }
@@ -985,7 +985,7 @@ Da inserire nel template di pull request. Ogni voce è verificabile in trenta se
 
 ### 12.3 Il *terminology guard* in CI
 
-Difesa tecnica contro la reintroduzione accidentale di contenuto vietato — in particolare per proteggere la linea "il progetto non è mai stato Licensee SNOMED" (§2.2.1).
+Difesa tecnica contro la reintroduzione accidentale di contenuto vietato - in particolare per proteggere la linea "il progetto non è mai stato Licensee SNOMED" (§2.2.1).
 
 Controllo che **fa fallire la build** se, fuori da `third-party/`, compare:
 
@@ -1017,23 +1017,23 @@ Legenda della colonna "Ridistribuibile nel repository": **Sì** = regime A; **Co
 
 | Terminologia | Titolare dei diritti | Costo | Ridistribuibile nel repository | Uso per riferimento URI + codice | Obblighi di attribuzione | Rischio residuo |
 |---|---|---|---|---|---|---|
-| **SNOMED CT** | SNOMED International (IHTSDO), Londra | **A pagamento in Italia** (non-Membro): baseline USD 1.954/anno per Hospital in Banda A, USD 652 per Practice; gratuito nei paesi Membri **[V]** | **No (runtime)** — cl. 2.7 esclude il repository pubblico | **Sì**, cl. 2.2.5 (identificativi + descrizioni nei messaggi clinici) — **ma solo per chi ha la licenza** | A carico del **deployer**: avviso cl. 8.3.1 su tutti i media di distribuzione + versione e data della release (cl. 8.3.2) | **Alto se violato** (risoluzione della licenza, fee arretrate, danno reputazionale). **Basso se la disciplina §2.4 è rispettata** |
+| **SNOMED CT** | SNOMED International (IHTSDO), Londra | **A pagamento in Italia** (non-Membro): baseline USD 1.954/anno per Hospital in Banda A, USD 652 per Practice; gratuito nei paesi Membri **[V]** | **No (runtime)** - cl. 2.7 esclude il repository pubblico | **Sì**, cl. 2.2.5 (identificativi + descrizioni nei messaggi clinici) - **ma solo per chi ha la licenza** | A carico del **deployer**: avviso cl. 8.3.1 su tutti i media di distribuzione + versione e data della release (cl. 8.3.2) | **Alto se violato** (risoluzione della licenza, fee arretrate, danno reputazionale). **Basso se la disciplina §2.4 è rispettata** |
 | **LOINC** | Regenstrief Institute, Inc. + LOINC Committee | **Gratuito**, commerciale e non commerciale, in perpetuo **[V-sec]**. Registrazione gratuita per il download | **Sì** (regime A) | Sì | **Sì**: notice §3.3 in `NOTICE` e nell'elemento `copyright` di ogni ValueSet/CodeSystem | **Basso**. Attenzione a: traduzioni (derivati assegnati a Regenstrief) e codici con copyright di terzi |
 | **ICD-9-CM versione italiana 2007** | Traduzione: Ministero della salute / IPZS. A monte: NCHS-CMS (USA), OMS | **Gratuito**; download dal portale ministeriale | **Condizionata** (regime B, `third-party/icd9cm-it/`) | Sì | Citazione del DM 18 dicembre 2008 e del Ministero della salute; data di estrazione | **Basso**: art. 5 L. 633/1941 + art. 52 CAD. Non nullo sulla catena a monte (OMS/NCHS) **[NV]** |
-| **ICD-10** | Organizzazione Mondiale della Sanità | Regime **[NV]** — da accertare con `licensing@who.int` | **No** | Sì, `http://hl7.org/fhir/sid/icd-10` | Citazione OMS | **Medio** finché il regime non è accertato |
-| **ICD-11 MMS** | Organizzazione Mondiale della Sanità | **Gratuito** sotto CC BY-ND 3.0 IGO **[V]** | **No** — ND vieta i derivati; §4.5 impone manleva | Sì, **`http://id.who.int/icd/release/11/mms`** (mai `hl7.org/fhir/sid/icd-11`) | Citazione §1.3; in trasmissione e storage: **codice + titolo + URI** (§1.2.3) | **Medio**: mapping e traduzioni richiedono accordo scritto separato con OMS (§1.2.4) |
-| **ATC / DDD** | WHO Collaborating Centre for Drug Statistics Methodology, Oslo (`atcddd.fhi.no`) | Indice online gratuito; **file elettronici a pagamento**, ~200 EUR **[V-sec]** | **No** — *"Copying and distribution for commercial purposes is not allowed"* **[V]** | Sì (**[NV]** — non confermato dal titolare) | *"Use of all or parts of the material requires reference to the WHO Collaborating Centre for Drug Statistics Methodology"* **[V]** | **Alto se ridistribuito**; **basso** se si adotta AIC come codifica primaria (§6.6) |
+| **ICD-10** | Organizzazione Mondiale della Sanità | Regime **[NV]** - da accertare con `licensing@who.int` | **No** | Sì, `http://hl7.org/fhir/sid/icd-10` | Citazione OMS | **Medio** finché il regime non è accertato |
+| **ICD-11 MMS** | Organizzazione Mondiale della Sanità | **Gratuito** sotto CC BY-ND 3.0 IGO **[V]** | **No** - ND vieta i derivati; §4.5 impone manleva | Sì, **`http://id.who.int/icd/release/11/mms`** (mai `hl7.org/fhir/sid/icd-11`) | Citazione §1.3; in trasmissione e storage: **codice + titolo + URI** (§1.2.3) | **Medio**: mapping e traduzioni richiedono accordo scritto separato con OMS (§1.2.4) |
+| **ATC / DDD** | WHO Collaborating Centre for Drug Statistics Methodology, Oslo (`atcddd.fhi.no`) | Indice online gratuito; **file elettronici a pagamento**, ~200 EUR **[V-sec]** | **No** - *"Copying and distribution for commercial purposes is not allowed"* **[V]** | Sì (**[NV]** - non confermato dal titolare) | *"Use of all or parts of the material requires reference to the WHO Collaborating Centre for Drug Statistics Methodology"* **[V]** | **Alto se ridistribuito**; **basso** se si adotta AIC come codifica primaria (§6.6) |
 | **Nomenclatore / catalogo nazionale prestazioni** | Repubblica Italiana (DM 23 giugno 2023, DM 26 novembre 2024) | **Gratuito** | **Condizionata** (regime B, `third-party/nomenclatore-it/`) | Sì | Citazione del decreto, della GU e della data di estrazione | **Molto basso** |
-| **Cataloghi regionali** | Regioni (delibere di giunta, BUR) | **Gratuito** | **Sconsigliata** — accettare per riferimento dal tenant | Sì | Citazione della delibera | **Molto basso** (giuridico); **alto** in manutenzione: 21 cicli indipendenti |
-| **UCUM** | Regenstrief Institute + UCUM Organization | **Gratuito** **[V]** | **Condizionata** (regime B) — o dipendenza esterna, preferibile | Sì | Copyright notice + riferimento alla licenza + disclaimer + testo o URL della licenza **[V]** | **Basso**. Da notare: licenza **revocabile** e derivati vietati |
-| **HL7 Terminology (THO)** | HL7 International | **Gratuito** | **Sì** (regime A) — **CC0** **[V]** | Sì | Nessuno (CC0) | **Molto basso**. Verificare l'origine dei concetti veicolati (§9.4) |
-| **Code system FHIR core** | HL7 International | **Gratuito** | **Sì** (regime A) — **CC0** **[V]** | Sì | Nessuno. **Vincoli di marchio** su FHIR®/HL7® **[V]** | **Molto basso**. Rischio marchio se usato nel naming |
-| **CVX** | CDC / NCIRD (USA) | Presumibilmente gratuito | **No** in v1.0 — licenza **[NV]** | n/a in v1.0 | **[NV]** | **Indeterminato**; azzerato escludendolo dal perimetro v1.0 |
-| **DICOM controlled terminology** | NEMA | Standard pubblicato gratuitamente | **No** — solo i codici usati per riferimento | Sì, `http://dicom.nema.org/resources/ontology/DCM` | Marchio DICOM® di NEMA **[V]** | **Basso** con uso per riferimento |
-| **Specifica FHIR (core)** | HL7 International | **Gratuito** | **Sì** — **CC0** **[V]** | n/a | Vincoli di marchio (§10.1) | **Molto basso** |
-| **Standard HL7 v2.x** | HL7 International | Gratuito con registrazione | **No** — *"You may not... copy or distribute HL7's publication Product"* **[V-sec]** | n/a | — | **Basso** se si usano le tabelle v2 da THO |
-| **Technical Framework IHE** | IHE International | **Gratuito** | **No** — licenza `non-sublicensable` **[V]** | n/a | Citazione per URL e revisione | **Basso** con citazione per URL |
-| **IG e pacchetti HL7 Italia** | HL7 Italia (publisher segnaposto su *Televisita*) | **Gratuito** | **No (runtime)** — dipendenza risolta a build time | Sì (canonical URL) | Da definire con HL7 Italia (§9.3) | **Medio**: licenza non pienamente attribuibile + contenuti di terzi ricompresi |
+| **Cataloghi regionali** | Regioni (delibere di giunta, BUR) | **Gratuito** | **Sconsigliata** - accettare per riferimento dal tenant | Sì | Citazione della delibera | **Molto basso** (giuridico); **alto** in manutenzione: 21 cicli indipendenti |
+| **UCUM** | Regenstrief Institute + UCUM Organization | **Gratuito** **[V]** | **Condizionata** (regime B) - o dipendenza esterna, preferibile | Sì | Copyright notice + riferimento alla licenza + disclaimer + testo o URL della licenza **[V]** | **Basso**. Da notare: licenza **revocabile** e derivati vietati |
+| **HL7 Terminology (THO)** | HL7 International | **Gratuito** | **Sì** (regime A) - **CC0** **[V]** | Sì | Nessuno (CC0) | **Molto basso**. Verificare l'origine dei concetti veicolati (§9.4) |
+| **Code system FHIR core** | HL7 International | **Gratuito** | **Sì** (regime A) - **CC0** **[V]** | Sì | Nessuno. **Vincoli di marchio** su FHIR®/HL7® **[V]** | **Molto basso**. Rischio marchio se usato nel naming |
+| **CVX** | CDC / NCIRD (USA) | Presumibilmente gratuito | **No** in v1.0 - licenza **[NV]** | n/a in v1.0 | **[NV]** | **Indeterminato**; azzerato escludendolo dal perimetro v1.0 |
+| **DICOM controlled terminology** | NEMA | Standard pubblicato gratuitamente | **No** - solo i codici usati per riferimento | Sì, `http://dicom.nema.org/resources/ontology/DCM` | Marchio DICOM® di NEMA **[V]** | **Basso** con uso per riferimento |
+| **Specifica FHIR (core)** | HL7 International | **Gratuito** | **Sì** - **CC0** **[V]** | n/a | Vincoli di marchio (§10.1) | **Molto basso** |
+| **Standard HL7 v2.x** | HL7 International | Gratuito con registrazione | **No** - *"You may not... copy or distribute HL7's publication Product"* **[V-sec]** | n/a | - | **Basso** se si usano le tabelle v2 da THO |
+| **Technical Framework IHE** | IHE International | **Gratuito** | **No** - licenza `non-sublicensable` **[V]** | n/a | Citazione per URL e revisione | **Basso** con citazione per URL |
+| **IG e pacchetti HL7 Italia** | HL7 Italia (publisher segnaposto su *Televisita*) | **Gratuito** | **No (runtime)** - dipendenza risolta a build time | Sì (canonical URL) | Da definire con HL7 Italia (§9.3) | **Medio**: licenza non pienamente attribuibile + contenuti di terzi ricompresi |
 
 ---
 
@@ -1109,7 +1109,7 @@ project's Apache-2.0 licence. Each subdirectory carries its own licence and
 attribution.
 ```
 
-### 14.2 File `THIRD-PARTY-TERMINOLOGY.md` — clausola principale
+### 14.2 File `THIRD-PARTY-TERMINOLOGY.md` - clausola principale
 
 Versione italiana:
 
@@ -1139,7 +1139,7 @@ Versione italiana:
 >
 > ### Obblighi a carico di chi installa ed esercisce il sistema
 >
-> Chi installa, configura, esercisce, distribuisce o commercializza Telemedic — o un prodotto che lo incorpora — è **l'unico responsabile** dell'ottenimento e del mantenimento delle licenze necessarie per le terminologie cliniche che intende utilizzare, secondo la giurisdizione in cui opera.
+> Chi installa, configura, esercisce, distribuisce o commercializza Telemedic - o un prodotto che lo incorpora - è **l'unico responsabile** dell'ottenimento e del mantenimento delle licenze necessarie per le terminologie cliniche che intende utilizzare, secondo la giurisdizione in cui opera.
 >
 > **In particolare, per SNOMED CT**: l'**Italia non è un paese Membro di SNOMED International**. Non esiste una licenza nazionale italiana gratuita. Ogni utilizzatore in Italia deve procurarsi autonomamente una **Affiliate License** a titolo oneroso, tramite il *Member Licensing & Distribution Service* (<https://mlds.ihtsdotools.org/>), con rinnovo e dichiarazione d'uso annuali. **Il fatto di interrogare un servizio terminologico esterno gestito da terzi non esonera dall'obbligo di licenza**, perché un sistema che crea o analizza dati codificati con SNOMED CT è un *Data Processing System* ai sensi dell'accordo di licenza.
 >
@@ -1177,7 +1177,7 @@ Versione inglese:
 >
 > ### Obligations of the party installing and operating the system
 >
-> Any party that installs, configures, operates, distributes or commercialises Telemedic — or a product incorporating it — is **solely responsible** for obtaining and maintaining the licences required for the clinical terminologies it intends to use, according to the jurisdiction in which it operates.
+> Any party that installs, configures, operates, distributes or commercialises Telemedic - or a product incorporating it - is **solely responsible** for obtaining and maintaining the licences required for the clinical terminologies it intends to use, according to the jurisdiction in which it operates.
 >
 > **For SNOMED CT in particular**: **Italy is not a Member country of SNOMED International.** No free Italian national licence exists. Every user in Italy must independently obtain a paid **Affiliate License** through the *Member Licensing & Distribution Service* (<https://mlds.ihtsdotools.org/>), with annual renewal and usage reporting. **Querying an externally operated terminology service does not remove the licensing obligation**, because a system that creates or analyses data encoded using SNOMED CT is a *Data Processing System* within the meaning of the licence agreement.
 >
@@ -1189,7 +1189,7 @@ Versione inglese:
 
 ### 14.3 Clausole per la documentazione di deployment
 
-Da collocare in `docs/08_compliance/terminologie/` e da riprodurre nel README di installazione, in posizione visibile — non in fondo.
+Da collocare in `docs/08_compliance/terminologie/` e da riprodurre nel README di installazione, in posizione visibile - non in fondo.
 
 Versione italiana:
 
@@ -1197,7 +1197,7 @@ Versione italiana:
 >
 > Telemedic può essere configurato per utilizzare terminologie cliniche soggette a licenze di terzi. **Il software non le contiene e non le fornisce.** L'obbligo di procurarsele è tuo, in quanto soggetto che installa ed esercisce il sistema.
 >
-> **SNOMED CT — verifica obbligatoria prima dell'attivazione**
+> **SNOMED CT - verifica obbligatoria prima dell'attivazione**
 >
 > Se abiliti funzioni che leggono o scrivono codici SNOMED CT (binding su `Encounter.reasonCode`, `Condition.code`, `DiagnosticReport.conclusionCode`, o conformità a Implementation Guide che ne dipendono):
 >
@@ -1214,11 +1214,11 @@ Versione italiana:
 >
 > **Se non hai una licenza SNOMED CT**, configura Telemedic con `terminology.snomed.enabled=false`. Il sistema resta pienamente funzionale usando **LOINC**, **ICD-9-CM (versione italiana)** e il **catalogo nazionale delle prestazioni**, che non comportano alcun costo di licenza.
 >
-> **ICD-11 / ICD-10** — l'uso è soggetto ai *Terms of Use and License Agreement* dell'OMS (<https://icd.who.int/en/docs/icd11-license.pdf>). Se trasmetti o memorizzi codici ICD, devi includere **codice, titolo e URI** (clausola 1.2.3). Mappature verso altre classificazioni e traduzioni richiedono un **accordo scritto separato con l'OMS** (clausola 1.2.4).
+> **ICD-11 / ICD-10** - l'uso è soggetto ai *Terms of Use and License Agreement* dell'OMS (<https://icd.who.int/en/docs/icd11-license.pdf>). Se trasmetti o memorizzi codici ICD, devi includere **codice, titolo e URI** (clausola 1.2.3). Mappature verso altre classificazioni e traduzioni richiedono un **accordo scritto separato con l'OMS** (clausola 1.2.4).
 >
-> **ATC/DDD** — l'uso richiede il riferimento al *WHO Collaborating Centre for Drug Statistics Methodology*. La distribuzione commerciale del contenuto ATC non è consentita. I file elettronici si acquistano su <https://orders.atcddd.fhi.no/>. In Italia, la codifica operativa del farmaco è il codice **AIC**: Telemedic la usa come codifica primaria e non richiede ATC.
+> **ATC/DDD** - l'uso richiede il riferimento al *WHO Collaborating Centre for Drug Statistics Methodology*. La distribuzione commerciale del contenuto ATC non è consentita. I file elettronici si acquistano su <https://orders.atcddd.fhi.no/>. In Italia, la codifica operativa del farmaco è il codice **AIC**: Telemedic la usa come codifica primaria e non richiede ATC.
 >
-> **LOINC** — utilizzabile senza costi, anche in ambito commerciale. Se ridistribuisci Telemedic, **mantieni intatto il file `NOTICE`** con l'attribuzione LOINC: è una condizione della licenza.
+> **LOINC** - utilizzabile senza costi, anche in ambito commerciale. Se ridistribuisci Telemedic, **mantieni intatto il file `NOTICE`** con l'attribuzione LOINC: è una condizione della licenza.
 
 Versione inglese:
 
@@ -1226,7 +1226,7 @@ Versione inglese:
 >
 > Telemedic can be configured to use clinical terminologies subject to third-party licences. **The software does not contain and does not provide them.** Obtaining them is your obligation as the party installing and operating the system.
 >
-> **SNOMED CT — mandatory check before enabling**
+> **SNOMED CT - mandatory check before enabling**
 >
 > If you enable features that read or write SNOMED CT codes (bindings on `Encounter.reasonCode`, `Condition.code`, `DiagnosticReport.conclusionCode`, or conformance to Implementation Guides that depend on them):
 >
@@ -1243,11 +1243,11 @@ Versione inglese:
 >
 > **If you do not hold a SNOMED CT licence**, configure Telemedic with `terminology.snomed.enabled=false`. The system remains fully functional using **LOINC**, **ICD-9-CM (Italian version)** and the **national procedure catalogue**, none of which carry licensing costs.
 >
-> **ICD-11 / ICD-10** — use is subject to the WHO *Terms of Use and License Agreement* (<https://icd.who.int/en/docs/icd11-license.pdf>). If you transmit or store ICD codes, you must include **code, title and URI** (clause 1.2.3). Mappings to other classifications and translations require a **separate written agreement with WHO** (clause 1.2.4).
+> **ICD-11 / ICD-10** - use is subject to the WHO *Terms of Use and License Agreement* (<https://icd.who.int/en/docs/icd11-license.pdf>). If you transmit or store ICD codes, you must include **code, title and URI** (clause 1.2.3). Mappings to other classifications and translations require a **separate written agreement with WHO** (clause 1.2.4).
 >
-> **ATC/DDD** — use requires reference to the *WHO Collaborating Centre for Drug Statistics Methodology*. Commercial distribution of ATC content is not permitted. Electronic files are purchased at <https://orders.atcddd.fhi.no/>. In Italy the operational drug coding is the **AIC** code: Telemedic uses it as the primary coding and does not require ATC.
+> **ATC/DDD** - use requires reference to the *WHO Collaborating Centre for Drug Statistics Methodology*. Commercial distribution of ATC content is not permitted. Electronic files are purchased at <https://orders.atcddd.fhi.no/>. In Italy the operational drug coding is the **AIC** code: Telemedic uses it as the primary coding and does not require ATC.
 >
-> **LOINC** — free to use, including commercially. If you redistribute Telemedic, **keep the `NOTICE` file intact** with the LOINC attribution: it is a condition of the licence.
+> **LOINC** - free to use, including commercially. If you redistribute Telemedic, **keep the `NOTICE` file intact** with the LOINC attribution: it is a condition of the licence.
 
 ### 14.4 Elemento `copyright` per i `ValueSet` con codici LOINC
 
@@ -1265,10 +1265,10 @@ Versione inglese:
 **`third-party/icd9cm-it/LICENSE-NOTICE.md`**
 
 ```text
-ICD-9-CM — Classificazione delle malattie, dei traumatismi, degli interventi
-chirurgici e delle procedure diagnostiche e terapeutiche — VERSIONE ITALIANA 2007
+ICD-9-CM - Classificazione delle malattie, dei traumatismi, degli interventi
+chirurgici e delle procedure diagnostiche e terapeutiche - VERSIONE ITALIANA 2007
 
-Fonte: Ministero della salute — Direzione generale della programmazione
+Fonte: Ministero della salute - Direzione generale della programmazione
 sanitaria. Pubblicazione a cura dell'Istituto Poligrafico e Zecca dello Stato.
 
 Adottata con DM 18 dicembre 2008 (GU Serie Generale n. 56 del 9 marzo 2009),
@@ -1324,15 +1324,15 @@ In esercizio, il codice della prestazione va accettato per riferimento dal
 sistema chiamante.
 ```
 
-**`third-party/ucum/`** — includere il file di licenza UCUM integrale scaricato da <https://ucum.org/license>, il file `ucum-essence.xml` **immodificato**, e un `NOTICE` con copyright Regenstrief Institute, riferimento alla licenza, disclaimer di garanzia e URL della licenza, come richiesto dalle condizioni verificate al §8.3.
+**`third-party/ucum/`** - includere il file di licenza UCUM integrale scaricato da <https://ucum.org/license>, il file `ucum-essence.xml` **immodificato**, e un `NOTICE` con copyright Regenstrief Institute, riferimento alla licenza, disclaimer di garanzia e URL della licenza, come richiesto dalle condizioni verificate al §8.3.
 
 ### 14.6 Frase per la comunicazione pubblica e il README
 
 Da usare sul sito e nel README, per prevenire l'aspettativa sbagliata prima che si formi:
 
-> **Italiano** — Telemedic adotta **LOINC** per la struttura del referto, **ICD-9-CM (versione italiana)** per le diagnosi e il **catalogo nazionale delle prestazioni** per la prestazione erogata: nessuna di queste comporta costi di licenza. **SNOMED CT** è supportato per riferimento, tramite un servizio terminologico esterno configurabile: poiché l'Italia non è un paese Membro di SNOMED International, la relativa licenza è a carico di chi installa il sistema. Il progetto non distribuisce contenuto SNOMED CT.
+> **Italiano** - Telemedic adotta **LOINC** per la struttura del referto, **ICD-9-CM (versione italiana)** per le diagnosi e il **catalogo nazionale delle prestazioni** per la prestazione erogata: nessuna di queste comporta costi di licenza. **SNOMED CT** è supportato per riferimento, tramite un servizio terminologico esterno configurabile: poiché l'Italia non è un paese Membro di SNOMED International, la relativa licenza è a carico di chi installa il sistema. Il progetto non distribuisce contenuto SNOMED CT.
 
-> **English** — Telemedic uses **LOINC** for report structure, **ICD-9-CM (Italian version)** for diagnoses and the **national procedure catalogue** for the delivered service: none of these carries licensing costs. **SNOMED CT** is supported by reference, through a configurable external terminology service: since Italy is not a Member country of SNOMED International, the corresponding licence is the responsibility of the deploying party. The project does not distribute SNOMED CT content.
+> **English** - Telemedic uses **LOINC** for report structure, **ICD-9-CM (Italian version)** for diagnoses and the **national procedure catalogue** for the delivered service: none of these carries licensing costs. **SNOMED CT** is supported by reference, through a configurable external terminology service: since Italy is not a Member country of SNOMED International, the corresponding licence is the responsibility of the deploying party. The project does not distribute SNOMED CT content.
 
 ---
 
@@ -1340,7 +1340,7 @@ Da usare sul sito e nel README, per prevenire l'aspettativa sbagliata prima che 
 
 Destinatario: chi installa ed esercisce Telemedic (azienda sanitaria, integratore, studio associato). Da pubblicare in `docs/08_compliance/terminologie/` come checklist eseguibile e verificabile in audit.
 
-### Fase 0 — Determinare il perimetro terminologico effettivo (prima di tutto il resto)
+### Fase 0 - Determinare il perimetro terminologico effettivo (prima di tutto il resto)
 
 | # | Azione | Esito atteso |
 |---|---|---|
@@ -1351,13 +1351,13 @@ Destinatario: chi installa ed esercisce Telemedic (azienda sanitaria, integrator
 
 > **Nota**: anche il semplice **transito** di un codice SNOMED ricevuto dal sistema chiamante e persistito nel database rende l'installazione un *Data Processing System*. Il transito non è neutro.
 
-### Fase 1 — SNOMED CT (solo se la Fase 0 lo ha reso necessario)
+### Fase 1 - SNOMED CT (solo se la Fase 0 lo ha reso necessario)
 
 | # | Azione | A chi rivolgersi | Tempi indicativi |
 |---|---|---|---|
 | 1.1 | Verificare lo stato di Membro del proprio paese | <https://www.snomed.org/members> | Immediato |
 | 1.2a | **Paese Membro**: registrarsi presso il National Release Center; verificare le condizioni prescritte dal Membro (cl. 9.1–9.2) | NRC nazionale | Giorni |
-| 1.2b | **Paese non Membro (Italia)**: aprire una pratica sul MLDS | <https://mlds.ihtsdotools.org/> | **Settimane** — non è un passaggio da fare la settimana prima del go-live |
+| 1.2b | **Paese non Membro (Italia)**: aprire una pratica sul MLDS | <https://mlds.ihtsdotools.org/> | **Settimane** - non è un passaggio da fare la settimana prima del go-live |
 | 1.3 | Chiedere per iscritto l'**allocazione di banda** del territorio e il **preventivo** in base al numero di *Hospital* e *Practice* serviti | `info@snomed.org` | Settimane |
 | 1.4 | Verificare se la modalità di erogazione ricade in Appendix B par. 1.7 (app mobile; servizio internet che consente estrazione di porzione sostanziale) → regime negoziato *Other Activities* | `info@snomed.org` | Settimane |
 | 1.5 | Se si distribuisce a clienti finali: predisporre il **modello di sub-licenza** conforme alle cl. 2.5.1–2.5.6 e il **registro** della cl. 8.8 | Legale interno + `info@snomed.org` | Settimane |
@@ -1366,7 +1366,7 @@ Destinatario: chi installa ed esercisce Telemedic (azienda sanitaria, integrator
 | 1.8 | Predisporre il processo per lo **statement of account annuale** (cl. 7.3) e per l'**aggiornamento entro 180 giorni** da ogni nuova release (cl. 6.2) | Interno | Processo ricorrente |
 | 1.9 | Verificare l'applicabilità di un'**esenzione** (paese a basso reddito, ricerca qualificata, uso umanitario) | <https://www.snomed.org/fee-exemptions> | Settimane |
 
-### Fase 2 — Servizio terminologico
+### Fase 2 - Servizio terminologico
 
 | # | Azione | Note |
 |---|---|---|
@@ -1376,7 +1376,7 @@ Destinatario: chi installa ed esercisce Telemedic (azienda sanitaria, integrator
 | 2.4 | Classificare il servizio come **SOUP** ai sensi di IEC 62304 e documentarlo | Questione **Q2** aperta da R1 |
 | 2.5 | Definire il comportamento del sistema in caso di **indisponibilità** del servizio | Un fallimento terminologico non deve interrompere un consulto clinico in corso |
 
-### Fase 3 — Terminologie senza costo
+### Fase 3 - Terminologie senza costo
 
 | # | Azione | Note |
 |---|---|---|
@@ -1385,7 +1385,7 @@ Destinatario: chi installa ed esercisce Telemedic (azienda sanitaria, integrator
 | 3.3 | **Catalogo prestazioni**: allineare al **catalogo regionale** applicabile, non solo a quello nazionale | 21 cicli di aggiornamento indipendenti |
 | 3.4 | **UCUM**: nessuna azione se si usa la dipendenza esterna | Se si ridistribuisce `third-party/ucum/`, mantenerlo immodificato con il suo `NOTICE` |
 
-### Fase 4 — Documentazione e conservazione delle evidenze
+### Fase 4 - Documentazione e conservazione delle evidenze
 
 | # | Azione | Perché serve |
 |---|---|---|
@@ -1395,7 +1395,7 @@ Destinatario: chi installa ed esercisce Telemedic (azienda sanitaria, integrator
 | 4.4 | Definire un **riesame annuale** delle licenze, allineato al rinnovo SNOMED e alla release LOINC | Le licenze SNOMED scadono; le terminologie cambiano |
 | 4.5 | Inserire nel contratto con i propri clienti la **ripartizione delle responsabilità terminologiche** | Evita che l'obbligo torni indietro per via contrattuale |
 
-### Fase 5 — Configurazione
+### Fase 5 - Configurazione
 
 | # | Azione |
 |---|---|
@@ -1464,12 +1464,12 @@ Tre punti non sono attribuibili a un solo soggetto e vanno regolati **contrattua
 
 | # | Rischio | Probabilità | Impatto | Mitigazione |
 |---|---|---|---|---|
-| R1 | Un contributore reintroduce contenuto SNOMED CT in una PR | **Media** — è l'errore più naturale del mondo | **Alto**: il progetto diventerebbe Licensee e perderebbe la propria linea di difesa | *Terminology guard* in CI (§12.3) + checklist di PR + DCO |
+| R1 | Un contributore reintroduce contenuto SNOMED CT in una PR | **Media** - è l'errore più naturale del mondo | **Alto**: il progetto diventerebbe Licensee e perderebbe la propria linea di difesa | *Terminology guard* in CI (§12.3) + checklist di PR + DCO |
 | R2 | Le fixture di test contengono risposte reali del terminology server | **Alta** se non si interviene: è il canale di rientro più insidioso | **Alto** | Doppi di test con code system fittizi; guard esteso ai path di test |
 | R3 | Un deployer italiano ignora l'obbligo di licenza SNOMED e attribuisce la responsabilità al progetto | **Media** | **Medio** (reputazionale) | Documentazione esplicita in posizione visibile (§14.3); avvertenza a runtime al primo avvio con SNOMED abilitato |
 | R4 | HL7 Italia chiarisce che i propri IG **non** sono CC0 | **Bassa** | **Medio**: andrebbe rivista la strategia di dipendenza | Non vendorizzare (§9.3); richiesta scritta di chiarimento |
 | R5 | La catena a monte dell'ICD-9-CM italiano (OMS/NCHS) viene contestata | **Molto bassa** | **Medio** | Attribuzione completa; regime B; possibilità di passare al regime C senza rifacimenti |
-| R6 | SNOMED International modifica i termini della licenza | **Media** — la cl. 6.3 lo consente con 90 giorni di preavviso | **Basso** per il progetto (non è Licensee); **medio** per i deployer | Riesame annuale (§17.2) |
+| R6 | SNOMED International modifica i termini della licenza | **Media** - la cl. 6.3 lo consente con 90 giorni di preavviso | **Basso** per il progetto (non è Licensee); **medio** per i deployer | Riesame annuale (§17.2) |
 | R7 | Un fork commerciale aggiunge contenuto licenziato e il problema viene attribuito a Telemedic | **Bassa** | **Medio** (reputazionale) | Dichiarazione esplicita nel `NOTICE` e in `THIRD-PARTY-TERMINOLOGY.md` |
 | R8 | Il display italiano nella UI viene confuso con una traduzione LOINC | **Media** | **Basso** | ADR sulla separazione i18n / `Coding.display` (§3.2) |
 | R9 | Un `ValueSet` di THO copiato nel repository veicola concetti SNOMED enumerati | **Media** | **Alto** | Checklist §12.2 punto 8 + guard §12.3 |
@@ -1512,7 +1512,7 @@ Le licenze terminologiche cambiano, e alcune cambiano con preavviso breve.
 | NV5 | Regime di licenza dell'**ICD-10** distinto da ICD-11 (§5.4) | `licensing@who.int` |
 | NV6 | Prezzo e condizioni contrattuali dei file elettronici ATC/DDD (§6.3) | Registrazione su `orders.atcddd.fhi.no` |
 | NV7 | Licenza dichiarata dai pacchetti *It-Core*, *Teleconsulto*, *Teleassistenza*, *Telemonitoraggio* (§9.1) | Lettura delle risorse `ImplementationGuide` + richiesta a HL7 Italia |
-| NV8 | Licenza esplicita di **CVX** (§8.4) | `iisinfo@cdc.gov` — solo se CVX entrerà nel perimetro |
+| NV8 | Licenza esplicita di **CVX** (§8.4) | `iisinfo@cdc.gov` - solo se CVX entrerà nel perimetro |
 | NV9 | Ridistribuibilità dello **standard DICOM** e dei codici DCM (§8.5) | Termini di pubblicazione NEMA su `dicomstandard.org` |
 | NV10 | Termini di riuso dei **codici ISO 3166 alpha-2** (§8.5) | ISO Online Browsing Platform |
 | NV11 | Ammissibilità dell'uso ATC per solo riferimento URI+codice (§6.5) | Quesito scritto al WHO Collaborating Centre |
@@ -1521,50 +1521,50 @@ Le licenze terminologiche cambiano, e alcune cambiano con preavviso breve.
 
 ---
 
-## Appendice A — Fonti primarie consultate
+## Appendice A - Fonti primarie consultate
 
 | Ambito | URL | Esito |
 |---|---|---|
 | Apache License 2.0 | <https://www.apache.org/licenses/LICENSE-2.0> | **[V]** |
-| SNOMED — come ottenerlo | <https://www.snomed.org/get-snomed> | **[V]** |
-| SNOMED — Membri | <https://www.snomed.org/members> | **[V]** (conferma di R1) |
-| SNOMED — licenze e tariffe | <https://www.snomed.org/licensing> | **[V]** |
-| SNOMED — esenzioni | <https://www.snomed.org/fee-exemptions> | **[V]** |
-| SNOMED — MLDS | <https://mlds.ihtsdotools.org/> | citato **[V-sec]** |
+| SNOMED - come ottenerlo | <https://www.snomed.org/get-snomed> | **[V]** |
+| SNOMED - Membri | <https://www.snomed.org/members> | **[V]** (conferma di R1) |
+| SNOMED - licenze e tariffe | <https://www.snomed.org/licensing> | **[V]** |
+| SNOMED - esenzioni | <https://www.snomed.org/fee-exemptions> | **[V]** |
+| SNOMED - MLDS | <https://mlds.ihtsdotools.org/> | citato **[V-sec]** |
 | **SNOMED CT Affiliate License Agreement**, in vigore dal 31/07/2023 | <https://www.bfarm.de/SharedDocs/Downloads/DE/Kodiersysteme/SNOMED-CT/AFFILIATE_LICENSE_AGREEMENT_gueltig_20230731.pdf> | **letto integralmente [V]** (mirror istituzionale) |
-| SNOMED — guida per vendor, licensing | <https://docs.snomed.org/snomed-ct-practical-guides/vendor-introduction-to-snomed-ct/7-licensing> | **[V]** |
-| SNOMED — terminology server | <https://www.implementation.snomed.org/terminology-services> | **[V]** |
-| LOINC — licenza | <https://loinc.org/license/>, <https://loinc.org/kb/license> | **HTTP 403** — clausole **[V-sec]** |
-| LOINC — notice richiesto in FHIR | <https://build.fhir.org/ig/HL7/UTG/en/LOINC.html> | **[V]** |
-| **OMS — ICD/ICF/ICHI Terms of Use and License Agreement** | <https://icd.who.int/en/docs/icd11-license.pdf> | **letto integralmente [V]** |
-| OMS — pagina licenza ICD-API | <https://icd.who.int/icdapi/docs2/license/> | **[V]** |
-| **ATC/DDD — copyright e disclaimer** | <https://atcddd.fhi.no/copyright_disclaimer/> (da `whocc.no`, HTTP 301) | **[V]** |
-| ATC/DDD — indice e ordini | <https://atcddd.fhi.no/atc_ddd_index/>, <https://orders.atcddd.fhi.no/> | portale ordini non leggibile **[NV]** |
-| UCUM — licenza | <https://ucum.org/license>, <https://ucum.org/trac> | **[V]** |
-| FHIR R4 — licenza | <https://hl7.org/fhir/R4/license.html> | **[V]** |
-| HL7 Terminology — licenza | <https://terminology.hl7.org/6.5.0/license.html> | **[V]** |
-| HL7 — Free IP FAQ e standard gratuiti | <https://www.hl7.org/about/faqs/FreeIP.cfm>, <https://www.hl7.org/implement/standards/nocost.cfm> | **[V-sec]** |
-| **IHE — General Introduction, cap. 9 Copyright Licenses** | <https://profiles.ihe.net/GeneralIntro/ch-9.html> | **[V]** |
-| IHE — ITI TF Vol. 1, §1.7 | <https://profiles.ihe.net/ITI/TF/Volume1/ch-1.html> | **[V]** (rinvio al cap. 9) |
-| HL7 Italia — IG Televisita e risorsa ImplementationGuide | <https://www.hl7.it/fhir/televisita/>, `ImplementationGuide-televisita.json` | **[V]** |
-| HL7 Italia — IG It-Core | <https://www.hl7.it/fhir/core/> | **[V]** |
-| HL7 Italia — pacchetto terminology | `ImplementationGuide-hl7.fhir.it.terminology.json` | **[V]** |
-| HL7 Italia — sito | <https://www.hl7.it/> | **[V]** |
-| Ministero della salute — ICD-9-CM versione italiana 2007 | <https://www.salute.gov.it/portale/documentazione/p6_2_2_1.jsp?lingua=italiano&id=2251> | protezione anti-bot — **[V-sec]** |
-| Ministero della salute — classificazione ICD-9-CM (PDF) | <https://www.salute.gov.it/imgs/C_17_pubblicazioni_2251_ulterioriallegati_ulterioreallegato_0_alleg.pdf> | **[V-sec]** (via R1) |
+| SNOMED - guida per vendor, licensing | <https://docs.snomed.org/snomed-ct-practical-guides/vendor-introduction-to-snomed-ct/7-licensing> | **[V]** |
+| SNOMED - terminology server | <https://www.implementation.snomed.org/terminology-services> | **[V]** |
+| LOINC - licenza | <https://loinc.org/license/>, <https://loinc.org/kb/license> | **HTTP 403** - clausole **[V-sec]** |
+| LOINC - notice richiesto in FHIR | <https://build.fhir.org/ig/HL7/UTG/en/LOINC.html> | **[V]** |
+| **OMS - ICD/ICF/ICHI Terms of Use and License Agreement** | <https://icd.who.int/en/docs/icd11-license.pdf> | **letto integralmente [V]** |
+| OMS - pagina licenza ICD-API | <https://icd.who.int/icdapi/docs2/license/> | **[V]** |
+| **ATC/DDD - copyright e disclaimer** | <https://atcddd.fhi.no/copyright_disclaimer/> (da `whocc.no`, HTTP 301) | **[V]** |
+| ATC/DDD - indice e ordini | <https://atcddd.fhi.no/atc_ddd_index/>, <https://orders.atcddd.fhi.no/> | portale ordini non leggibile **[NV]** |
+| UCUM - licenza | <https://ucum.org/license>, <https://ucum.org/trac> | **[V]** |
+| FHIR R4 - licenza | <https://hl7.org/fhir/R4/license.html> | **[V]** |
+| HL7 Terminology - licenza | <https://terminology.hl7.org/6.5.0/license.html> | **[V]** |
+| HL7 - Free IP FAQ e standard gratuiti | <https://www.hl7.org/about/faqs/FreeIP.cfm>, <https://www.hl7.org/implement/standards/nocost.cfm> | **[V-sec]** |
+| **IHE - General Introduction, cap. 9 Copyright Licenses** | <https://profiles.ihe.net/GeneralIntro/ch-9.html> | **[V]** |
+| IHE - ITI TF Vol. 1, §1.7 | <https://profiles.ihe.net/ITI/TF/Volume1/ch-1.html> | **[V]** (rinvio al cap. 9) |
+| HL7 Italia - IG Televisita e risorsa ImplementationGuide | <https://www.hl7.it/fhir/televisita/>, `ImplementationGuide-televisita.json` | **[V]** |
+| HL7 Italia - IG It-Core | <https://www.hl7.it/fhir/core/> | **[V]** |
+| HL7 Italia - pacchetto terminology | `ImplementationGuide-hl7.fhir.it.terminology.json` | **[V]** |
+| HL7 Italia - sito | <https://www.hl7.it/> | **[V]** |
+| Ministero della salute - ICD-9-CM versione italiana 2007 | <https://www.salute.gov.it/portale/documentazione/p6_2_2_1.jsp?lingua=italiano&id=2251> | protezione anti-bot - **[V-sec]** |
+| Ministero della salute - classificazione ICD-9-CM (PDF) | <https://www.salute.gov.it/imgs/C_17_pubblicazioni_2251_ulterioriallegati_ulterioreallegato_0_alleg.pdf> | **[V-sec]** (via R1) |
 | L. 22 aprile 1941, n. 633, art. 5 | testo di legge | **[V-sec]** |
 | D.lgs. 82/2005 (CAD), art. 52, c. 2 | <https://docs.italia.it/italia/piano-triennale-ict/codice-amministrazione-digitale-docs/it/v2018-09-28/_rst/capo5_sezione1_art52.html> | **[V-sec]** |
 | D.lgs. 24 gennaio 2006, n. 36 | testo di legge | **[V-sec]** |
-| AgID — Linee guida open data | <https://www.agid.gov.it/sites/agid/files/2024-05/lg-open-data_v.1.0_1.pdf> | **[V-sec]** |
-| CDC — code set CVX | <https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx> | **[NV]** sulla licenza |
+| AgID - Linee guida open data | <https://www.agid.gov.it/sites/agid/files/2024-05/lg-open-data_v.1.0_1.pdf> | **[V-sec]** |
+| CDC - code set CVX | <https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx> | **[NV]** sulla licenza |
 
 ---
 
-## Appendice B — Riga per il registro agenti
+## Appendice B - Riga per il registro agenti
 
 | Fase | Agente | Output | Fatti chiave / questioni aperte |
 |---|---|---|---|
-| Ricerca (2ª ondata) | B5 | `.telemedic/research/B5-licenze-terminologie.md` | **Fatti chiave**: (1) Letto integralmente l'**Affiliate License Agreement SNOMED CT** (vers. 31/07/2023): la cl. **2.7** (contenuto non scaricabile se non da utenti autorizzati) rende **impossibile** pubblicare contenuto SNOMED in un repo pubblico; la cl. **2.2.5** è la base giuridica dell'uso "per riferimento" ma vale **solo per i Licensee**; l'accordo si perfeziona **scaricando** il contenuto, quindi il progetto resta estraneo **solo se non lo scarica mai**. (2) Tariffe Italia (non-Membro, presumibilmente Banda A): **USD 1.954/anno per Hospital, USD 652 per Practice**; **nessuna esenzione applicabile al progetto**. (3) **Interrogare un terminology server esterno NON esonera il deployer**: chi crea/analizza record codificati SNOMED è un *Data Processing System* e paga. (4) Chi **distribuisce** Telemedic distribuisce un *Licensee Product* e deve gestire sub-licenze e registro (cl. 2.5, 8.8) — incompatibile con Apache-2.0 §2. (5) **LOINC è ridistribuibile** (*"use, copy, or distribute... for any commercial or non-commercial purpose"*): la raccomandazione di R1 §10.3 è **confermata**. Trappola: **le traduzioni sono derivati assegnati a Regenstrief**. (6) **ATC/DDD: chiusa la questione Q4 di R1** — *"Copying and distribution for commercial purposes is not allowed"*: **incompatibile con Apache-2.0, escluso**. Dominio migrato da `whocc.no` a `atcddd.fhi.no`. (7) **ICD-11 è CC BY-ND 3.0 IGO**: derivati vietati, manleva a favore dell'OMS, terminazione automatica → escluso. Confermato che `http://hl7.org/fhir/sid/icd-11` **è errato**. (8) **ICD-9-CM italiano e nomenclatore sono riusabili** (art. 5 L. 633/1941 + art. 52 CAD): regime B, directory separata. (9) **THO e FHIR core sono CC0**; **HL7 v2 e IHE non sono ridistribuibili** (IHE è `non-sublicensable`) → usare le tabelle v2 da THO. (10) L'IG **Televisita dichiara `CC0-1.0` ma con `publisher = "Example Publisher"`** (segnaposto del template): licenza **non attribuibile** → non vendorizzare i pacchetti. (11) **Principio generale**: una dichiarazione CC0 su un IG **non dispone dei diritti di terzi** sul contenuto ricompreso. **Questioni aperte**: B5-A1..A3, B5-C1..C3, B5-D1..D2, B5-S1, B5-R1..R2 (§17.3); tredici punti **[NV]** da chiudere prima del rilascio (§17.4). |
+| Ricerca (2ª ondata) | B5 | `.telemedic/research/B5-licenze-terminologie.md` | **Fatti chiave**: (1) Letto integralmente l'**Affiliate License Agreement SNOMED CT** (vers. 31/07/2023): la cl. **2.7** (contenuto non scaricabile se non da utenti autorizzati) rende **impossibile** pubblicare contenuto SNOMED in un repo pubblico; la cl. **2.2.5** è la base giuridica dell'uso "per riferimento" ma vale **solo per i Licensee**; l'accordo si perfeziona **scaricando** il contenuto, quindi il progetto resta estraneo **solo se non lo scarica mai**. (2) Tariffe Italia (non-Membro, presumibilmente Banda A): **USD 1.954/anno per Hospital, USD 652 per Practice**; **nessuna esenzione applicabile al progetto**. (3) **Interrogare un terminology server esterno NON esonera il deployer**: chi crea/analizza record codificati SNOMED è un *Data Processing System* e paga. (4) Chi **distribuisce** Telemedic distribuisce un *Licensee Product* e deve gestire sub-licenze e registro (cl. 2.5, 8.8) - incompatibile con Apache-2.0 §2. (5) **LOINC è ridistribuibile** (*"use, copy, or distribute... for any commercial or non-commercial purpose"*): la raccomandazione di R1 §10.3 è **confermata**. Trappola: **le traduzioni sono derivati assegnati a Regenstrief**. (6) **ATC/DDD: chiusa la questione Q4 di R1** - *"Copying and distribution for commercial purposes is not allowed"*: **incompatibile con Apache-2.0, escluso**. Dominio migrato da `whocc.no` a `atcddd.fhi.no`. (7) **ICD-11 è CC BY-ND 3.0 IGO**: derivati vietati, manleva a favore dell'OMS, terminazione automatica → escluso. Confermato che `http://hl7.org/fhir/sid/icd-11` **è errato**. (8) **ICD-9-CM italiano e nomenclatore sono riusabili** (art. 5 L. 633/1941 + art. 52 CAD): regime B, directory separata. (9) **THO e FHIR core sono CC0**; **HL7 v2 e IHE non sono ridistribuibili** (IHE è `non-sublicensable`) → usare le tabelle v2 da THO. (10) L'IG **Televisita dichiara `CC0-1.0` ma con `publisher = "Example Publisher"`** (segnaposto del template): licenza **non attribuibile** → non vendorizzare i pacchetti. (11) **Principio generale**: una dichiarazione CC0 su un IG **non dispone dei diritti di terzi** sul contenuto ricompreso. **Questioni aperte**: B5-A1..A3, B5-C1..C3, B5-D1..D2, B5-S1, B5-R1..R2 (§17.3); tredici punti **[NV]** da chiudere prima del rilascio (§17.4). |
 
 ---
 
@@ -1574,7 +1574,7 @@ Le licenze terminologiche cambiano, e alcune cambiano con preavviso breve.
 
 Le conclusioni riflettono un'interpretazione conservativa di testi contrattuali redatti in lingua inglese e sottoposti a leggi straniere (l'Affiliate License Agreement di SNOMED CT è regolato dal diritto inglese con giurisdizione esclusiva delle corti inglesi, cl. 15.1–15.2; i *Terms of Use* dell'OMS sono regolati dal diritto svizzero con arbitrato UNCITRAL, §4.10). L'interpretazione di clausole contrattuali estere richiede competenze che esulano da un'analisi documentale.
 
-Alcuni termini non sono stati verificabili in forma primaria: sono elencati al §0.1 e al §17.4. Le condizioni di licenza possono cambiare — la clausola 6.3 dell'Affiliate License Agreement consente al licenziante di variarne i termini con novanta giorni di preavviso, e il §4.8 dei *Terms of Use* dell'OMS riserva all'OMS il diritto di modificarli **senza preavviso**.
+Alcuni termini non sono stati verificabili in forma primaria: sono elencati al §0.1 e al §17.4. Le condizioni di licenza possono cambiare - la clausola 6.3 dell'Affiliate License Agreement consente al licenziante di variarne i termini con novanta giorni di preavviso, e il §4.8 dei *Terms of Use* dell'OMS riserva all'OMS il diritto di modificarli **senza preavviso**.
 
 **Prima del rilascio v1.0 e prima di qualunque decisione che comporti la distribuzione di contenuto terminologico di terzi, questo documento va sottoposto a un legale abilitato specializzato in proprietà intellettuale e diritto del software.**
 

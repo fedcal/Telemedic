@@ -1,4 +1,4 @@
-# Log agente R2 — Ricerca normativa (MDR, GDPR, licenze)
+# Log agente R2 - Ricerca normativa (MDR, GDPR, licenze)
 
 **Data:** 25 agosto 2026
 **Output prodotto:** `/home/federicocalo/Scrivania/prj/Telemedic/.telemedic/research/R2-normativa-mdr-gdpr-licenze.md`
@@ -24,7 +24,7 @@ MDCG, standard e URL. Include disclaimer (analisi tecnica, non consulenza legale
    La § 3.1 elenca *e-mailing, web or voice messaging* fra gli scopi **non** medici.
 
 3. **La Classe I per Regola 11c esiste ma è quasi vuota.** La tabella IMDRF dell'Annex III MDCG dichiara
-   testualmente: «*This table does not take into account MDSW which is Class I*» — nessuna cella della
+   testualmente: «*This table does not take into account MDSW which is Class I*» - nessuna cella della
    matrice Regola 11a produce Classe I. Gli unici due esempi di Classe I forniti da MDCG sono una app di
    fertilità e un ausilio alla comunicazione per disabilità.
 
@@ -42,7 +42,7 @@ MDCG, standard e URL. Include disclaimer (analisi tecnica, non consulenza legale
    dispositivo **con il proprio nome o marchio**: è esattamente la fattispecie dell'embed white-label
    previsto dal context pack. L'esimente richiede un accordo che indichi il fabbricante sull'etichetta.
 
-7. **EUDAMED: i primi quattro moduli sono obbligatori dal 28 maggio 2026** — quindi già in vigore alla
+7. **EUDAMED: i primi quattro moduli sono obbligatori dal 28 maggio 2026** - quindi già in vigore alla
    data della ricerca. SRN necessario prima dell'immissione sul mercato.
 
 8. **Il PSUR (art. 86) NON si applica alla Classe I**: la Classe I richiede PMS plan (art. 84) e
@@ -76,7 +76,7 @@ MDCG, standard e URL. Include disclaimer (analisi tecnica, non consulenza legale
 
 > **Segnalazione principale: la decisione D6 così com'è formulata non è sostenibile giuridicamente.**
 > Non perché l'ambizione sia sbagliata, ma perché la qualificazione «Classe I» presuppone di essere un
-> dispositivo medico, e Telemedic — correttamente qualificato — **non lo è**.
+> dispositivo medico, e Telemedic - correttamente qualificato - **non lo è**.
 
 1. **Contraddizione logica interna.** Per stare in Classe I bisogna prima essere dispositivo; per essere
    dispositivo serve una finalità medica propria; ma se si dichiara una finalità medica propria, la
@@ -89,8 +89,8 @@ MDCG, standard e URL. Include disclaimer (analisi tecnica, non consulenza legale
    l'integratore, che potrebbe fondare la propria conformità su una marcatura non dovuta.
 
 3. **Il claim pubblico è materiale regolatorio (art. 2, punto 12, MDR).** Le formule già presenti nel
-   posizionamento — «consulti video con **qualità clinica**», specialità target «cardiologia,
-   psichiatria, **dermatologia**» — sono il singolo fattore che può far scivolare il prodotto in
+   posizionamento - «consulti video con **qualità clinica**», specialità target «cardiologia,
+   psichiatria, **dermatologia**» - sono il singolo fattore che può far scivolare il prodotto in
    Classe IIa. Con la regola 3.7 (informazioni «decisive per la diagnosi») e con la § 3.1 Rev.1
    («software which alters the representation of data for a medical purpose»), la compressione video
    **lossy** in teledermatologia è un argomento sostenibile in contraddittorio contro il progetto.
@@ -115,13 +115,13 @@ MDCG, standard e URL. Include disclaimer (analisi tecnica, non consulenza legale
 
 ### Proposta di riformulazione di D6 (senza tagli allo scope)
 
-- **Binario A — Determinazione di non-qualificazione documentata** (fascicolo di qualificazione con
+- **Binario A - Determinazione di non-qualificazione documentata** (fascicolo di qualificazione con
   albero MDCG motivato passo per passo, funzioni escluse come design constraint, change control).
-- **Binario B — Conformità volontaria «MDR-ready» + regulatory pack per l'integratore**: ISO 13485,
+- **Binario B - Conformità volontaria «MDR-ready» + regulatory pack per l'integratore**: ISO 13485,
   IEC 62304, ISO 14971, IEC 62366-1, IEC 82304-1, ISO/IEC 81001-5-1, tracciabilità, SBOM, SOUP,
   processi PMS-like e vigilanza-like. **Stesso carico di lavoro di D6, valore commerciale superiore**:
   l'integratore potrà trattare Telemedic come SOUP documentato nel proprio fascicolo tecnico.
-- **Binario C — Certificazione IIa con Organismo Notificato**, solo su decisione esplicita e come
+- **Binario C - Certificazione IIa con Organismo Notificato**, solo su decisione esplicita e come
   progetto a sé (telemonitoraggio, triage, refertazione assistita).
 
 ---
@@ -192,7 +192,7 @@ Gate automatici da implementare (ognuno soddisfa più regimi contemporaneamente)
 ### Per l'agente di documentazione
 - Aggiungere `docs/08_compliance/` come *Medical Device File* / fascicolo di qualificazione versionato.
 - Aggiungere il documento **«Requisiti dell'ambiente operativo e limiti d'uso»** (IEC 82304-1 § 7):
-  è al tempo stesso conformità, misura di controllo del rischio U3 e — punto cruciale — **la prova su
+  è al tempo stesso conformità, misura di controllo del rischio U3 e - punto cruciale - **la prova su
   cui poggia l'unica esenzione da responsabilità realisticamente invocabile dal progetto** ai sensi
   dell'art. 11 della Direttiva 2024/2853 (difetto imputabile all'integrazione o alle istruzioni del
   fabbricante del prodotto finale).
@@ -201,5 +201,5 @@ Gate automatici da implementare (ognuno soddisfa più regimi contemporaneamente)
 ### Rischio di programma da segnalare al committente
 La **validazione sommativa di usabilità** con utenti rappresentativi (medici e pazienti reali) richiesta
 da IEC 62366-1 § 5.9 è l'attività più a rischio di essere sacrificata dalla deadline del 30 novembre 2026.
-Va pianificata subito o dichiarata esplicitamente come non svolta nel fascicolo — non va lasciata
+Va pianificata subito o dichiarata esplicitamente come non svolta nel fascicolo - non va lasciata
 implicita.

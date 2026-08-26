@@ -1,4 +1,4 @@
-# Log R6 — Dominio funzionale e di business
+# Log R6 - Dominio funzionale e di business
 
 **Agente**: R6 · **Data**: 25 agosto 2026 · **Stato**: completato
 **Output**: `/home/federicocalo/Scrivania/prj/Telemedic/.telemedic/research/R6-dominio-funzionale.md`
@@ -19,7 +19,7 @@ Documento unico, in italiano, strutturato in 11 sezioni più elenco fonti. Conte
 | Requisiti non funzionali con metrica, soglia e metodo di verifica | RNF-001 … RNF-083 | **83** su 12 categorie |
 | Contesti delimitati DDD con aggregati, VO, eventi, invarianti | BC-01 … BC-13 | **13** |
 | Indicatori di prodotto | KPI-01 … KPI-18 | **18** |
-| Diagrammi Mermaid | — | **10** (4 `stateDiagram-v2`, 5 `sequenceDiagram`, 1 `flowchart` context map) |
+| Diagrammi Mermaid | - | **10** (4 `stateDiagram-v2`, 5 `sequenceDiagram`, 1 `flowchart` context map) |
 
 Processi modellati end-to-end: ciclo di vita della televisita (macchina a stati del contatto + macchina a stati della sessione media + sequence end-to-end), teleconsulto asincrono senza paziente, teleconsulto sincrono con paziente, fallimento tecnico e ripresa, emergenza clinica, paziente non identificabile, minore/incapace, terzi in sessione, cancellazione e riprogrammazione con finestre temporali.
 
@@ -52,7 +52,7 @@ Sezioni aggiuntive: percorsi utente e 14 punti di fallimento reali con requisiti
 
 ## 3. Questioni aperte per gli altri agenti
 
-### 3.1 Per **R3** (normativa italiana) — 11 questioni, marcate `[da confermare con R3]` nel documento
+### 3.1 Per **R3** (normativa italiana) - 11 questioni, marcate `[da confermare con R3]` nel documento
 
 | # | Questione | Cosa si sblocca / cosa cambia |
 |---|---|---|
@@ -68,7 +68,7 @@ Sezioni aggiuntive: percorsi utente e 14 punti di fallimento reali con requisiti
 | Q10 | Categorie di dati sanitari a tutela rafforzata e conseguenze operative | BR-065, RF-135 |
 | Q11 | Quadro dei fondi pubblici e degli obblighi per il riuso del software nella PA | §10.2 del documento |
 
-### 3.2 Per **R2** (MDR e GDPR) — 7 questioni, marcate `[da confermare con R2]`
+### 3.2 Per **R2** (MDR e GDPR) - 7 questioni, marcate `[da confermare con R2]`
 
 | # | Questione | Cosa cambia |
 |---|---|---|
@@ -116,7 +116,7 @@ La ripartizione MoSCoW (Must 133 su 195) riflette la **criticità di dominio**, 
 - I 133 Must includono l'intera catena minima di sicurezza clinica: prerequisiti tecnici, consenso, identificazione, sessione, refertazione firmata, restituzione al sistema di origine, audit. Tagliarne uno spezza la catena.
 - I Should e i Could sono l'area di negoziazione naturale (46 + 15 requisiti).
 - L'unico Won't-now (RF-097, lavagna condivisa) è già fuori scope.
-- **Ordine di implementazione suggerito da R6**, guidato dal rischio di dominio anziché dalla facilità: (1) BC-01 + BC-02 (identità, tenant, isolamento — perché retrofittare il multi-tenant è impossibile); (2) BC-03 + BC-04 (riferimenti e agenda); (3) BC-06 (consenso, prima della sessione perché ne è precondizione bloccante); (4) BC-05 + BC-08 (contatto e media); (5) BC-09 (telemetria, contestualmente alla sessione perché ne è la prova); (6) BC-07 (documentazione clinica); (7) BC-11 (integrazione); (8) BC-12 trasversale fin dall'inizio, mai alla fine.
+- **Ordine di implementazione suggerito da R6**, guidato dal rischio di dominio anziché dalla facilità: (1) BC-01 + BC-02 (identità, tenant, isolamento - perché retrofittare il multi-tenant è impossibile); (2) BC-03 + BC-04 (riferimenti e agenda); (3) BC-06 (consenso, prima della sessione perché ne è precondizione bloccante); (4) BC-05 + BC-08 (contatto e media); (5) BC-09 (telemetria, contestualmente alla sessione perché ne è la prova); (6) BC-07 (documentazione clinica); (7) BC-11 (integrazione); (8) BC-12 trasversale fin dall'inizio, mai alla fine.
 
 ---
 

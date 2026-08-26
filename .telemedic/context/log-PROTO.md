@@ -1,8 +1,8 @@
-# log-PROTO — Area protocolli
+# log-PROTO - Area protocolli
 
 > **Agente**: `PROTO` (documentazione dell'area protocolli)
 > **Data**: 25 agosto 2026
-> **Mandato**: `docs/04_protocols/` — come Telemedic parla ciascun protocollo.
+> **Mandato**: `docs/04_protocols/` - come Telemedic parla ciascun protocollo.
 > **Regola R0 applicata**: nessun nome di azienda, marchio, prodotto commerciale o dominio di
 > potenziale partner. Dove uno standard contiene identificativi di codice coincidenti con marchi
 > commerciali di piattaforme di videoconferenza, il fatto è riportato e gli identificativi non
@@ -73,7 +73,7 @@ invece che in una nota isolata.
 
 ## 5. Concorso su questioni altrui
 
-**Q-06 — divergenza dell'URI del codice fiscale (`ARCH`, `TECH`).** Rimasta **APERTA**. Quest'area
+**Q-06 - divergenza dell'URI del codice fiscale (`ARCH`, `TECH`).** Rimasta **APERTA**. Quest'area
 ha aggiunto in bacheca il concorso richiesto **senza decidere e senza cablare**: gli esempi
 normativi dell'intera area **non contengono l'identificatore del codice fiscale**, verificato
 automaticamente. Sono documentate le quattro conseguenze accertate della divergenza e una
@@ -84,63 +84,63 @@ codice di tipo dell'identificatore nel segmento del canale legacy resta contratt
 l'integratore e **non è risolto** da Q-06: `NNITA` è la raccomandazione motivata, `NN` da solo non
 è un codice della tabella.
 
-**Q-15 — le dieci scelte che meritano un ADR (`ARCH`, `PROTO`).** La parte di quest'area è
+**Q-15 - le dieci scelte che meritano un ADR (`ARCH`, `PROTO`).** La parte di quest'area è
 **evasa**: le dieci scelte sono formulate come `P-01`…`P-10` in `01` §5, ciascuna con motivazione,
 costo dichiarato e rinvio al capitolo che la dettaglia; nessuna è presentata come conformità a uno
 standard. La questione **resta aperta verso `ARCH`** per la decisione formale.
 
-**Q-16 (`SEC`, `TECH`) e Q-161 (`ARCH`, `SEC`)** — quest'area le **sostiene** e ne dichiara la
+**Q-16 (`SEC`, `TECH`) e Q-161 (`ARCH`, `SEC`)** - quest'area le **sostiene** e ne dichiara la
 motivazione in `07` §7 e `06` §10: quattro implementazioni della stessa protezione producono
 quattro comportamenti diversi, di cui conta il più debole; registri separati di origini e
 destinazioni fidate divergono sempre.
 
-**Q-163 (`FUNZ`, `PROD`)** — **recepita come vincolo di catalogo** in `07` §3: la variante
+**Q-163 (`FUNZ`, `PROD`)** - **recepita come vincolo di catalogo** in `07` §3: la variante
 dell'evento di completamento destinata alla liquidazione porta solo identificativo della
 prestazione, esito amministrativo e importo.
 
-**Q-07 (`COMP`)** — è la questione che **blocca** la serializzazione strutturata per il fascicolo e
+**Q-07 (`COMP`)** - è la questione che **blocca** la serializzazione strutturata per il fascicolo e
 i metadati di indicizzazione. Quest'area ne dichiara l'effetto senza aggirarlo (`03` §4.2 e §5).
 
-**Q-160 (`ARCH`, `TECH`)** — richiamata in `08` §6.4 come verifica da mettere sul percorso critico
+**Q-160 (`ARCH`, `TECH`)** - richiamata in `08` §6.4 come verifica da mettere sul percorso critico
 prima di dichiarare pubblicamente come si propaga il livello di garanzia.
 
 ## 6. Vincoli altrui rispettati
 
 Nessun vincolo in vigore è stato contraddetto. Applicazioni puntuali:
 
-- **V-01** — `Encounter` e sessione media restano aggregati distinti: piani diversi, macchine a
+- **V-01** - `Encounter` e sessione media restano aggregati distinti: piani diversi, macchine a
   stati diverse, dichiarato in `02` §3.4, `06` §2 e `09` §4.
-- **V-02** — soglie come dato del piano di rilevazione, mai costanti: `03` §8.4.
-- **V-03** — il costo del funzionamento senza la terminologia a licenza è **quantificato** invece
+- **V-02** - soglie come dato del piano di rilevazione, mai costanti: `03` §8.4.
+- **V-03** - il costo del funzionamento senza la terminologia a licenza è **quantificato** invece
   che taciuto: `02` §8.1.
-- **V-04** — dichiarato tre volte che le serializzazioni del tracciamento **non sono** il registro
+- **V-04** - dichiarato tre volte che le serializzazioni del tracciamento **non sono** il registro
   immutabile: `02` §3.1, `05` §4.5.
-- **V-05** — nessuna affermazione di accreditamento: `08` §1 e `10` §2.
-- **V-06** — nessuna affermazione di marcatura; il materiale di conformità è prodotto con
+- **V-05** - nessuna affermazione di accreditamento: `08` §1 e `10` §2.
+- **V-06** - nessuna affermazione di marcatura; il materiale di conformità è prodotto con
   tracciabilità obbligo-prova per chi certifica: `10` §7.
-- **V-07** — è il principio che apre il capitolo `03` e genera **V-136**.
-- **V-08** — ripreso in `03` §10 e come vincolo di catalogo in `07` §3.
-- **V-09** — l'assenza di rilevazione attesa **è un evento** del catalogo pubblico, e un campo
+- **V-07** - è il principio che apre il capitolo `03` e genera **V-136**.
+- **V-08** - ripreso in `03` §10 e come vincolo di catalogo in `07` §3.
+- **V-09** - l'assenza di rilevazione attesa **è un evento** del catalogo pubblico, e un campo
   obbligatorio mancante produce rifiuto motivato invece di un valore predefinito: `07` §3, `04` §8.4.
-- **V-10**, **V-11**, **V-12** — richiamati in `09` §7.5, `09` §6 e `02` §10.3, `09` §8.
+- **V-10**, **V-11**, **V-12** - richiamati in `09` §7.5, `09` §6 e `02` §10.3, `09` §8.
 
 ## 7. Punti `[NV]`, con destinatario
 
 | # | Punto | Capitolo | Destinatario |
 |---|---|---|---|
 | 1 | Forma esatta della sotto-estensione dell'indirizzo nel servizio virtuale | `02` §4 | Chi implementa l'adattatore clinico, con validazione contro il pacchetto fissato |
-| 2 | Strumenti concreti di validazione e di pubblicazione | `02` §8.1, `10` §6 | `TECH` — **Q-133** |
-| 3 | Template, codici documentali e metadati delle dieci tipologie | `03` §4.2 | `COMP` — **Q-07** |
-| 4 | Insiemi di valori dei metadati di indicizzazione | `03` §5 | `COMP` — **Q-07** |
+| 2 | Strumenti concreti di validazione e di pubblicazione | `02` §8.1, `10` §6 | `TECH` - **Q-133** |
+| 3 | Template, codici documentali e metadati delle dieci tipologie | `03` §4.2 | `COMP` - **Q-07** |
+| 4 | Insiemi di valori dei metadati di indicizzazione | `03` §5 | `COMP` - **Q-07** |
 | 5 | Profilo del formato per la conservazione a lungo termine | `03` §4.3 | `COMP` |
-| 6 | Copertura campo per campo fra set informativo e profilo | `03` §4.1 | `DOM`, `COMP` — **Q-132** |
-| 7 | Formati di busta di firma, certificato, marca temporale | `03` §6.2 | `COMP`, `SEC` — **Q-134** |
+| 6 | Copertura campo per campo fra set informativo e profilo | `03` §4.1 | `DOM`, `COMP` - **Q-132** |
+| 7 | Formati di busta di firma, certificato, marca temporale | `03` §6.2 | `COMP`, `SEC` - **Q-134** |
 | 8 | Lettura diretta della specifica del protocollo di incapsulamento legacy | `04` §5.1 | Chi implementa il modulo |
 | 9 | Lunghezze, obbligatorietà e ripetibilità del segmento di errore legacy | `04` §7 | Chi implementa il modulo. **Tre estrazioni indipendenti hanno prodotto valori incompatibili: non pubblicati** |
 | 10 | Numero della tabella dell'undicesimo campo del segmento di errore | `04` §7 | Dedotto per esclusione, non verificato |
-| 11 | Valori di contesto accettati dal fornitore dell'identità su documento | `08` §6.1 | `INTEG` — vanno letti dai metadati a runtime, non cablati |
-| 12 | Inoltro del livello richiesto attraverso il realm di intermediazione | `08` §6.4 | `ARCH`, `TECH` — **Q-160** |
-| 13 | Disponibilità dello scambio da emittente esterno a interno nella versione adottata | `08` §5.4 | `ARCH`, `TECH` — con **cancello di rilascio** dichiarato |
+| 11 | Valori di contesto accettati dal fornitore dell'identità su documento | `08` §6.1 | `INTEG` - vanno letti dai metadati a runtime, non cablati |
+| 12 | Inoltro del livello richiesto attraverso il realm di intermediazione | `08` §6.4 | `ARCH`, `TECH` - **Q-160** |
+| 13 | Disponibilità dello scambio da emittente esterno a interno nella versione adottata | `08` §5.4 | `ARCH`, `TECH` - con **cancello di rilascio** dichiarato |
 | 14 | Algoritmo di hash delle credenziali temporanee del relay | `09` §7.4 | Chi implementa il servizio, **con collaudo di integrazione** invece che con una citazione |
 
 ## 8. Note finali
@@ -148,9 +148,9 @@ Nessun vincolo in vigore è stato contraddetto. Applicazioni puntuali:
 Tre scelte redazionali che vale la pena registrare, perché sono state prese e non subite.
 
 **Le deviazioni sono un artefatto pubblico.** Quest'area devia consapevolmente dalla
-raccomandazione di una specifica in tre punti — gestione stretta dei parametri di ricerca,
+raccomandazione di una specifica in tre punti - gestione stretta dei parametri di ricerca,
 obbligatorietà del validatore di precondizione sulle scritture cliniche, risposta di risorsa
-inesistente al posto di quella di accesso negato — e ciascuna deviazione è registrata con
+inesistente al posto di quella di accesso negato - e ciascuna deviazione è registrata con
 motivazione e costo. Una deviazione non dichiarata è un difetto; una deviazione dichiarata e
 motivata è una decisione.
 

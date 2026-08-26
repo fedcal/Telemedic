@@ -3,7 +3,7 @@
 Classificazione delle ~108 questioni aperte emerse dalla fase di ricerca.
 Distingue ciò che deve decidere il committente da ciò che va approfondito da altri agenti.
 
-## A — DECISIONI DEL COMMITTENTE (bloccanti)
+## A - DECISIONI DEL COMMITTENTE (bloccanti)
 
 | # | Area | Questione | Origine |
 |---|---|---|---|
@@ -22,7 +22,7 @@ Distingue ciò che deve decidere il committente da ciò che va approfondito da a
 | A13 | **Profili di deployment** | Tre profili (UE / Italia / PSN-cloud qualificato ACN): si documentano tutti e tre come supportati? | R3-Q6 |
 | A14 | **WCAG 1.2.4** | Non-conformità dichiarata sui sottotitoli live con interprete come misura alternativa: si accetta? | R4-T14 |
 
-## B — MANDATI DI RICERCA APPROFONDITA (agenti dedicati)
+## B - MANDATI DI RICERCA APPROFONDITA (agenti dedicati)
 
 | # | Mandato | Contenuto | Agente proposto |
 |---|---|---|---|
@@ -35,7 +35,7 @@ Distingue ciò che deve decidere il committente da ciò che va approfondito da a
 | B7 | **Identità digitale italiana** | SPID (accreditamento SP presso AgID e tempi), CIE ID, TS-CNS, livelli di garanzia, integrazione Keycloak. | api-documenter |
 | B8 | **Stato API Identity Provider RFC 8827 §7** | Utilizzabile nei browser target o di fatto abbandonata? Determina se la SAS è l'unica strada. | search-specialist |
 
-## C — SPIKE TECNICI (da schedulare in roadmap, non ricerca documentale)
+## C - SPIKE TECNICI (da schedulare in roadmap, non ricerca documentale)
 
 | # | Spike | Perché è bloccante |
 |---|---|---|
@@ -46,6 +46,6 @@ Distingue ciò che deve decidere il committente da ciò che va approfondito da a
 | C5 | Relay TURN verso loopback e rete interna | Rischio critico T1, va testato in CI |
 | C6 | Misura glass-to-glass con fixture Y4M e timecode | Rende verificabile il target di latenza |
 
-## D — QUESTIONI TECNICHE RISOLVIBILI IN SEDE DI ARCHITETTURA
+## D - QUESTIONI TECNICHE RISOLVIBILI IN SEDE DI ARCHITETTURA
 Non richiedono decisione del committente né ricerca: le risolve l'agente architetto negli ADR.
 R1-A2/A3/A4/A5 · R1-S1/S2/S3/S5 · R3-Q8 · R4-1/4/5/6 · R5-Q2/Q12 · R6-11.3

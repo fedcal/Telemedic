@@ -1,4 +1,4 @@
-# Log agente G2 — modulo 10 «Percorsi di cura e sicurezza del paziente»
+# Log agente G2 - modulo 10 «Percorsi di cura e sicurezza del paziente»
 
 > Agente **G2**. Mandato: decisione **D35**, blocco C della guida dei fondamenti.
 > Deliverable unico: `docs/10_fondamenti/10-percorsi-di-cura-e-sicurezza.md`.
@@ -12,12 +12,12 @@
 | Voce | Valore |
 |---|---|
 | File prodotto | `docs/10_fondamenti/10-percorsi-di-cura-e-sicurezza.md` |
-| Frontmatter | `title`, `sidebar_position: 11`, `description` — come da mandato |
+| Frontmatter | `title`, `sidebar_position: 11`, `description` - come da mandato |
 | Righe non vuote | 1.868 |
 | Righe di tabella | 208 (≈ 158 righe di contenuto su 25 tabelle) |
 | Titoli (`#`–`####`) | 88 |
 | Diagrammi Mermaid | 4 |
-| **Parole (stima)** | **≈ 22.000–24.000** — ampiamente oltre il minimo di 8.000 richiesto |
+| **Parole (stima)** | **≈ 22.000–24.000** - ampiamente oltre il minimo di 8.000 richiesto |
 
 > **Nota sul metodo di conteggio.** L'agente non dispone di shell in questo ambiente: il
 > conteggio è una stima ricavata da numero di righe per tipo (prosa ~13,5 parole/riga a
@@ -44,18 +44,18 @@
 
 ---
 
-## 2. Punti marcati `[NV]` — da verificare su fonte primaria
+## 2. Punti marcati `[NV]` - da verificare su fonte primaria
 
 Elenco completo, con la ragione della marcatura e la fonte da consultare.
 
 | # | § | Enunciato marcato | Fonte primaria da consultare |
 |---|---|---|---|
 | NV-01 | 2.7 | Latenze tipiche del deterioramento per scompenso, BPCO e insufficienza renale (ordini di grandezza «giorni», «giorni-settimane») | letteratura clinica specialistica; l'enunciato è dichiaratamente ricavato dalla logica fisiopatologica |
-| NV-02 | 5.3 | Valori di soglia degli item, pesi, cut-off del punteggio totale e livelli di risposta di **NEWS2** — **deliberatamente non riportati** | pubblicazione originale del Royal College of Physicians + verifica della licenza d'uso |
+| NV-02 | 5.3 | Valori di soglia degli item, pesi, cut-off del punteggio totale e livelli di risposta di **NEWS2** - **deliberatamente non riportati** | pubblicazione originale del Royal College of Physicians + verifica della licenza d'uso |
 | NV-03 | 5.4 | Nomi, versioni e cut-off delle scale del dolore **osservazionali** per pazienti che non possono riferire | pubblicazioni originali delle singole scale |
 | NV-04 | 5.5 | Denominazioni ufficiali, item, pesi e fasce interpretative delle scale di autonomia funzionale (ADL, IADL, indici a punteggio graduato) | pubblicazioni originali; verifica licenza |
 | NV-05 | 6.2 | Estremi esatti dell'atto sul triage intraospedaliero (indicato come Accordo Stato-Regioni 1º agosto 2019), denominazioni ufficiali dei cinque livelli e tempi massimi di attesa associati | testo dell'Accordo in Conferenza Stato-Regioni; Gazzetta Ufficiale |
-| NV-06 | 6.4 | Elenco dei segnali d'allarme per patologia — **deliberatamente non riportato**: è contenuto clinico del percorso/piano, non di un documento tecnico | linee guida di patologia; materiali di educazione terapeutica adottati dall'organizzazione |
+| NV-06 | 6.4 | Elenco dei segnali d'allarme per patologia - **deliberatamente non riportato**: è contenuto clinico del percorso/piano, non di un documento tecnico | linee guida di patologia; materiali di educazione terapeutica adottati dall'organizzazione |
 | NV-07 | 7.3 | Quota di allarmi non azionabili nei sistemi di monitoraggio ospedaliero (indicata come «ben oltre l'80%») | letteratura primaria sull'*alarm fatigue* |
 | NV-08 | 7.3 | Estremi esatti dell'avviso della Joint Commission sulla sicurezza degli allarmi dei dispositivi medici | archivio Sentinel Event Alert della Joint Commission |
 | NV-09 | 7.3 | Riferimenti puntuali delle graduatorie annuali dei rischi tecnologici sanitari in cui compaiono i pericoli da allarme | pubblicazioni degli organismi indipendenti di settore |
@@ -76,12 +76,12 @@ modulo è il calcolo di valore predittivo positivo al § 7.2, dichiarato esplici
 
 ## 3. Questioni per gli altri agenti
 
-### 3.1 Incoerenza di numerazione fra i moduli già scritti — **da risolvere**
+### 3.1 Incoerenza di numerazione fra i moduli già scritti - **da risolvere**
 
 Il modulo [02](../../docs/10_fondamenti/02-prestazioni-di-telemedicina.md) rinvia a
 `10-regolatorio-da-zero.md` e a `14-glossario.md`. L'indice del modulo
-[00](../../docs/10_fondamenti/00-come-usare-questa-guida.md) — che è la struttura approvata a
-ventuno moduli — colloca invece il regolatorio in **15** e il glossario in **19**, e assegna il
+[00](../../docs/10_fondamenti/00-come-usare-questa-guida.md) - che è la struttura approvata a
+ventuno moduli - colloca invece il regolatorio in **15** e il glossario in **19**, e assegna il
 numero **10** proprio a questo modulo.
 
 Il modulo 10 qui prodotto **segue la numerazione dell'indice** (`15-regolatorio-da-zero.md`,
@@ -93,7 +93,7 @@ modulo anziché sul modulo regolatorio**. Va rediretto a 15.
 
 Analogo controllo va fatto sui moduli 01, 03, 05, 06, 07, 08 già scritti.
 
-### 3.2 Verso l'agente del modulo 09 (fondamenti clinici) — confine concordato
+### 3.2 Verso l'agente del modulo 09 (fondamenti clinici) - confine concordato
 
 Il modulo 10 **non tratta** anatomia, fisiologia, significato dei parametri vitali, limiti di
 misura strumentale e ragionamento clinico: li dà per acquisiti e vi rinvia. Rinvii espliciti a
@@ -140,12 +140,12 @@ i rinvii incrociati.
 
 **Attenzione a tre collisioni semantiche** da disambiguare nel glossario:
 
-1. **«allarme»** — allarme clinico, allarme tecnico e allarme di piattaforma (monitoraggio
+1. **«allarme»** - allarme clinico, allarme tecnico e allarme di piattaforma (monitoraggio
    dell'infrastruttura) sono tre cose diverse. Nel codice vanno nomi distinti.
-2. **«codice di priorità»** — codice di triage (accesso in emergenza) e codice di priorità
+2. **«codice di priorità»** - codice di triage (accesso in emergenza) e codice di priorità
    della prestazione (tempo massimo di erogazione) hanno lo stesso nome colloquiale e sono due
    oggetti diversi. Già segnalato in R6 § 1.2.
-3. **«piano»** — PDTA, piano di cura, PAI, PRI, piano terapeutico e piano di telemonitoraggio
+3. **«piano»** - PDTA, piano di cura, PAI, PRI, piano terapeutico e piano di telemonitoraggio
    sono sei oggetti distinti. Il modulo 10 § 3.5 ne dà la tabella; il glossario deve tenerli
    separati.
 
@@ -172,7 +172,7 @@ probabilità con la matrice 5×5 proposta in R2 e collegati alle misure di contr
 Due scenari meritano attenzione perché sono probabilmente **S4** nella scala di R2:
 **T1** (falsa rassicurazione da dato vecchio) e **T4** (copertura oraria non dichiarata).
 
-### 3.8 Questione aperta per il committente — nomi e licenze delle scale
+### 3.8 Questione aperta per il committente - nomi e licenze delle scale
 
 Il modulo enuncia il principio (§ 5.2, ultima riga) ma **non risolve** la questione: quali
 scale il prodotto implementa, in quale regime di licenza, e se il contenuto viaggia nei
@@ -189,14 +189,14 @@ di punteggio.
 
 | Regola | Esito |
 |---|---|
-| **R0** — nessuna azienda, marchio, prodotto commerciale o dominio di partner | rispettata; i riferimenti a organismi (Royal College of Physicians, Joint Commission) sono citazioni di fonti scientifiche e normative, non di partner commerciali |
-| **D35** — nessun prerequisito implicito, ogni sigla sciolta alla prima occorrenza | rispettata: PDTA, PAI, PRI, ADL, IADL, NEWS2, MDR, GDPR, DM sciolte alla prima occorrenza |
-| **D35** — ogni concetto sanitario spiegato a un informatico | rispettata: è la modalità espositiva dell'intero modulo |
-| Convenzione — prosa tecnica densa, nessun riempitivo | rispettata; nessuna frase di raccordo vuota |
-| Convenzione — ogni affermazione normativa cita la fonte | rispettata: DM 77/2022, DM 21 settembre 2022, DM 30 settembre 2022, DM 19 novembre 2025 (art. 7, All. 1 § 2.24, All. 3 § 4.1), Accordo 215/CSR 2020, Accordo 231/CSR 2021, ISO 14971:2019, IEC 62366-1, IEC 62304, Reg. (UE) 2017/745 All. VIII Regola 11 |
-| Convenzione — distinguere fatto, fonte e proposta | rispettata: `[NV]` su tutto ciò che non è verificato; esempi numerici dichiarati inventati |
-| Convenzione — link relativi | rispettata |
-| Convenzione — Mermaid per i diagrammi | rispettata: 4 diagrammi (traiettoria della cronicità, modello→istanza, ciclo di presa in carico, catena dell'allarme, catena pericolo→danno — di cui uno `stateDiagram-v2` e tre `flowchart`) |
+| **R0** - nessuna azienda, marchio, prodotto commerciale o dominio di partner | rispettata; i riferimenti a organismi (Royal College of Physicians, Joint Commission) sono citazioni di fonti scientifiche e normative, non di partner commerciali |
+| **D35** - nessun prerequisito implicito, ogni sigla sciolta alla prima occorrenza | rispettata: PDTA, PAI, PRI, ADL, IADL, NEWS2, MDR, GDPR, DM sciolte alla prima occorrenza |
+| **D35** - ogni concetto sanitario spiegato a un informatico | rispettata: è la modalità espositiva dell'intero modulo |
+| Convenzione - prosa tecnica densa, nessun riempitivo | rispettata; nessuna frase di raccordo vuota |
+| Convenzione - ogni affermazione normativa cita la fonte | rispettata: DM 77/2022, DM 21 settembre 2022, DM 30 settembre 2022, DM 19 novembre 2025 (art. 7, All. 1 § 2.24, All. 3 § 4.1), Accordo 215/CSR 2020, Accordo 231/CSR 2021, ISO 14971:2019, IEC 62366-1, IEC 62304, Reg. (UE) 2017/745 All. VIII Regola 11 |
+| Convenzione - distinguere fatto, fonte e proposta | rispettata: `[NV]` su tutto ciò che non è verificato; esempi numerici dichiarati inventati |
+| Convenzione - link relativi | rispettata |
+| Convenzione - Mermaid per i diagrammi | rispettata: 4 diagrammi (traiettoria della cronicità, modello→istanza, ciclo di presa in carico, catena dell'allarme, catena pericolo→danno - di cui uno `stateDiagram-v2` e tre `flowchart`) |
 | Vincoli citati e recepiti | V2 (§ 6.3, § 7.9), V3 (§ 10.8), V4 (§ 3.7, § 10.8), V5 (§ 7.11), V6/D25 (§ 9.7) |
 | Decisioni citate | D12/D26 (§ 5.7, § 9.6), D21 (§ 7.9), D31–D34 (§ 5.2), D42 (§ 7.11), D45 (§ 10.8), D46 (§ 5.7) |
 | Nessun dato reale | rispettata: nessun caso clinico, nessun dato di persona |
@@ -209,50 +209,50 @@ di punteggio.
 Ordinati come nella tabella finale del modulo. Fra parentesi il termine inglese dove il modulo
 lo introduce; dove manca, va integrato dall'agente del glossario.
 
-1. Acuto (evento, malattia) — *acute*
-2. Aderenza — *adherence*
-3. Affaticamento da allarme — *alarm fatigue*
-4. Allarme clinico — *clinical alarm*
-5. Allarme tecnico — *technical alarm*
-6. Analisi delle cause profonde — *root cause analysis*
-7. Arruolamento — *enrolment*
-8. Attività di base della vita quotidiana (ADL) — *activities of daily living*
-9. Attività strumentali della vita quotidiana (IADL) — *instrumental activities of daily living*
-10. Case manager — *case manager*
-11. Complessità assistenziale — *care complexity*
-12. Condizione latente — *latent condition*
-13. Copertura del servizio — *service coverage*
-14. Cronico (malattia) — *chronic*
-15. Cultura giusta — *just culture*
-16. Danno — *harm* (ISO 14971)
-17. Errore d'uso — *use error* (IEC 62366-1)
-18. Escalation — *escalation*
-19. Evento avverso — *adverse event*
-20. Evento sentinella — *sentinel event*
-21. Falsa rassicurazione — *false reassurance*
-22. Finestra di attesa — *expected measurement window*
-23. Fragilità — *frailty*
-24. Isteresi (di un allarme) — *hysteresis*
-25. Multimorbilità — *multimorbidity*
-26. Pericolo — *hazard* (ISO 14971)
-27. Piano assistenziale individuale (PAI) — *individual care plan*
-28. Piano di cura — *care plan*
-29. Piano di telemonitoraggio — *telemonitoring plan*
-30. Presa in carico — *enrolment into care*
-31. Quasi evento — *near miss*
-32. Riacutizzazione / esacerbazione — *exacerbation*
-33. Rischio — *risk* (ISO 14971)
-34. Rischio clinico — *clinical risk*
-35. Rischio residuo — *residual risk*
-36. Scala clinica — *clinical scale / score*
-37. Scala di allerta precoce — *early warning score*
-38. Segnale d'allarme — *red flag*
-39. Sensibilità — *sensitivity*
-40. Situazione pericolosa — *hazardous situation* (ISO 14971)
-41. Specificità — *specificity*
-42. Triage — *triage*
-43. Uso anomalo — *abnormal use* (IEC 62366-1)
-44. Valore predittivo positivo — *positive predictive value*
+1. Acuto (evento, malattia) - *acute*
+2. Aderenza - *adherence*
+3. Affaticamento da allarme - *alarm fatigue*
+4. Allarme clinico - *clinical alarm*
+5. Allarme tecnico - *technical alarm*
+6. Analisi delle cause profonde - *root cause analysis*
+7. Arruolamento - *enrolment*
+8. Attività di base della vita quotidiana (ADL) - *activities of daily living*
+9. Attività strumentali della vita quotidiana (IADL) - *instrumental activities of daily living*
+10. Case manager - *case manager*
+11. Complessità assistenziale - *care complexity*
+12. Condizione latente - *latent condition*
+13. Copertura del servizio - *service coverage*
+14. Cronico (malattia) - *chronic*
+15. Cultura giusta - *just culture*
+16. Danno - *harm* (ISO 14971)
+17. Errore d'uso - *use error* (IEC 62366-1)
+18. Escalation - *escalation*
+19. Evento avverso - *adverse event*
+20. Evento sentinella - *sentinel event*
+21. Falsa rassicurazione - *false reassurance*
+22. Finestra di attesa - *expected measurement window*
+23. Fragilità - *frailty*
+24. Isteresi (di un allarme) - *hysteresis*
+25. Multimorbilità - *multimorbidity*
+26. Pericolo - *hazard* (ISO 14971)
+27. Piano assistenziale individuale (PAI) - *individual care plan*
+28. Piano di cura - *care plan*
+29. Piano di telemonitoraggio - *telemonitoring plan*
+30. Presa in carico - *enrolment into care*
+31. Quasi evento - *near miss*
+32. Riacutizzazione / esacerbazione - *exacerbation*
+33. Rischio - *risk* (ISO 14971)
+34. Rischio clinico - *clinical risk*
+35. Rischio residuo - *residual risk*
+36. Scala clinica - *clinical scale / score*
+37. Scala di allerta precoce - *early warning score*
+38. Segnale d'allarme - *red flag*
+39. Sensibilità - *sensitivity*
+40. Situazione pericolosa - *hazardous situation* (ISO 14971)
+41. Specificità - *specificity*
+42. Triage - *triage*
+43. Uso anomalo - *abnormal use* (IEC 62366-1)
+44. Valore predittivo positivo - *positive predictive value*
 
 **Termini già presenti in altri moduli e riusati senza ridefinizione** (da collegare, non da
 duplicare): PDTA, PRI, adesione informata, caregiver, centro servizi, centro erogatore,

@@ -1,8 +1,8 @@
-# log-TECH — Area tecnica
+# log-TECH - Area tecnica
 
 - **Agente**: `TECH`
 - **Data**: 25 agosto 2026
-- **Output**: `docs/01_technical/` — dieci file
+- **Output**: `docs/01_technical/` - dieci file
 - **Mandato**: come il sistema è realizzato, non cosa fa. Minimo 25.000 parole.
 - **Letture obbligatorie eseguite**: `00_PROJECT_BRIEF.md` (D1–D52, regola R0),
   `04_BASELINE_ARCHITETTURALE.md`, `05_BACHECA_INTERAGENTI.md` (rilettura a fine lavoro per la
@@ -45,7 +45,7 @@ blocchi di codice dichiarano il linguaggio e sono marcati come illustrativi. Dia
 
 ---
 
-## 3. Vincoli posti — `TECH` 110–119
+## 3. Vincoli posti - `TECH` 110–119
 
 | # | A | Sintesi |
 |---|---|---|
@@ -58,7 +58,7 @@ blocchi di codice dichiarano il linguaggio e sono marcati come illustrativi. Dia
 
 ---
 
-## 4. Questioni aperte — `TECH` 110–119
+## 4. Questioni aperte - `TECH` 110–119
 
 | # | A | Sintesi |
 |---|---|---|
@@ -72,25 +72,25 @@ blocchi di codice dichiarano il linguaggio e sono marcati come illustrativi. Dia
 
 ---
 
-## 5. Elementi `[NV]` — sedici occorrenze
+## 5. Elementi `[NV]` - sedici occorrenze
 
 | Dove | Che cosa non è verificato | A chi va chiesto |
 |---|---|---|
 | `01` §4.3 | Data di fine supporto pubblico gratuito della piattaforma: dipende dal distributore scelto dal deployer | Fonte del distributore, non assumibile |
 | `01` §4.5 | Guadagni di memoria e tempo di avvio della compilazione a immagine nativa: **non misurati dal progetto** | Misura propria |
 | `01` §5.2 | Date esatte di fine supporto delle versioni minori del quadro di lavoro: cambierebbero prima della pubblicazione | Fonte a monte, al rilascio; campo «data di riesame» del registro |
-| `01` §7.2 | Regime di licenza dell'estensione per serie temporali | `COMP` — **Q-112** |
+| `01` §7.2 | Regime di licenza dell'estensione per serie temporali | `COMP` - **Q-112** |
 | `03` §2.4 | Soglia di tenant per installazione nel modello a schema: **non misurata, non inventata** | Prova di capacità propria |
 | `03` §5.3 | Intervallo di partizionamento delle serie temporali | Prova di capacità propria |
 | `03` §9.1 | Obiettivi di punto e tempo di ripristino: sono del titolare del trattamento, non del prodotto | Deployer |
-| `04` §5 | Valori numerici delle soglie di prestazione dell'interfaccia | `PROD` — **Q-115** |
+| `04` §5 | Valori numerici delle soglie di prestazione dell'interfaccia | `PROD` - **Q-115** |
 | `05` §4.5 | Quota di sessioni instradate dal relay: **da misurare sul traffico proprio, mai citata da stime altrui** | Misura propria |
 | `05` §6.3 | Standardizzazione dei fattori di compromissione per la codifica audio moderna nei modelli classici | Fonte normativa; motiva V-114 |
 | `05` §5.1 | Versione del protocollo di handshake effettivamente negoziata: **non si dichiara, si misura** | Statistiche della connessione, per sessione |
 | `07` §2.1 | Valori numerici di ciascuno stadio del bilancio di latenza: **deliberatamente non riportati** per non mettere in circolazione cifre altrui | Prova automatica propria |
 | `07` §5.2 | Bitrate medio, quota instradata e picco di sessioni concorrenti | Misura propria |
-| `09` §5.2 | Stato normativo di una delle due intestazioni di dismissione | `PROTO` — vedi correzione C-01 in bacheca |
-| `00` | Riepilogo degli elementi non verificati | — |
+| `09` §5.2 | Stato normativo di una delle due intestazioni di dismissione | `PROTO` - vedi correzione C-01 in bacheca |
+| `00` | Riepilogo degli elementi non verificati | - |
 | `03` §9.4 | Determinazione delle basi giuridiche e dei perimetri di cancellazione | Titolare del trattamento e `COMP` |
 
 **Regola applicata senza eccezioni**: dove una cifra non era verificata, **non è stata scritta**.
@@ -131,7 +131,7 @@ Rilettura della bacheca a fine lavoro. Nessun vincolo contraddetto. Recepimenti 
 
 **Tensione dichiarata e non risolta d'ufficio.** D23 stabilisce la registrazione lato server;
 `R4-webrtc-media.md` §10.4 raccomandava quella lato client. **Prevale D23**, che è decisione del
-committente, e `05` §8 ne dichiara la conseguenza senza attenuazioni — la sessione registrata non
+committente, e `05` §8 ne dichiara la conseguenza senza attenuazioni - la sessione registrata non
 è cifrata fino agli estremi. La questione **Q-08** verso `ARCH` resta aperta e **non è stata
 anticipata**: quest'area descrive le conseguenze tecniche della decisione presa, non il modello
 dati che ne discende.
@@ -144,8 +144,8 @@ dati che ne discende.
    coppia tenant × contesto dà l'isolamento migliore e il ripristino per singolo tenant, ma fa
    crescere il catalogo della base dati con il prodotto tenant × contesti × tabelle, e con esso la
    durata delle migrazioni e le serie di metriche. È `[NV]` e va misurato **prima** di promettere
-   una scala a un cliente. La struttura scelta — registro dei tenant come unico punto di
-   risoluzione — consente la ripartizione su più basi dati **senza toccare il dominio**, ed è
+   una scala a un cliente. La struttura scelta - registro dei tenant come unico punto di
+   risoluzione - consente la ripartizione su più basi dati **senza toccare il dominio**, ed è
    l'unica mitigazione progettata.
 2. **La cadenza di rilascio del nodo di relay cambia la natura dell'impegno di supporto.**
    Quattordici versioni in poco più di sette mesi, con una vulnerabilità critica corretta a metà
@@ -153,6 +153,6 @@ dati che ne discende.
    **Q-113** e si collega a **Q-155** di `SEC` sul periodo di supporto dichiarato.
 3. **Le prove di isolamento fra tenant sono la parte della suite che va scritta per prima.** Una
    fuga fra tenant in ambito sanitario non è un difetto: è una violazione notificabile. Le prove
-   non verificano che l'accesso legittimo funzioni — **tentano attivamente quello illegittimo**,
+   non verificano che l'accesso legittimo funzioni - **tentano attivamente quello illegittimo**,
    per ogni contesto, per ogni interfaccia, e in condizioni avverse: pool esaurito, contesto non
    risolto, richiesta senza tenant, tenant sostituito a metà percorso.

@@ -1,4 +1,4 @@
-# log-SEC — Area sicurezza informatica
+# log-SEC - Area sicurezza informatica
 
 **Agente**: SEC-2 (esecuzione). L'istruttoria era già stata condotta e validata sulle fonti da
 un agente precedente privo di strumenti di scrittura; questo agente l'ha **eseguita**, non
@@ -50,7 +50,7 @@ V-10, V-11, V-12, V-21, V-22, V-23, V-25.
 
 | # | Esito |
 |---|---|
-| **Q-04** | **Chiusa.** Il terminology server è componente di terze parti **a runtime**: (a) fuori dal percorso principale; (b) se fuori UE è trasferimento nel momento in cui riceve dati riferibili — quindi **nessun identificativo dell'assistito** e sovranità **per assenza di dato, non per collocazione**; (c) fornitore rilevante di secondo livello che il cliente dichiara con il Paese della sede legale. Riportata per esteso in `07-catena-di-fornitura.md` §7.1. Resta ad `ARCH` la sola scelta del punto di risoluzione e del contratto del gateway |
+| **Q-04** | **Chiusa.** Il terminology server è componente di terze parti **a runtime**: (a) fuori dal percorso principale; (b) se fuori UE è trasferimento nel momento in cui riceve dati riferibili - quindi **nessun identificativo dell'assistito** e sovranità **per assenza di dato, non per collocazione**; (c) fornitore rilevante di secondo livello che il cliente dichiara con il Paese della sede legale. Riportata per esteso in `07-catena-di-fornitura.md` §7.1. Resta ad `ARCH` la sola scelta del punto di risoluzione e del contratto del gateway |
 | **Q-16** | **Chiusa nella parte `SEC`.** Recepita la realizzazione già indicata da `TECH` e **elevata a V-157**: non regola di codifica ma requisito architetturale con **uscita negata a livello di rete**. Definiti gli intervalli vietati e **tre regole di manutenzione**: intervalli IPv6 allineati a prefisso; **divieto d'uso della lista di indirizzi consentiti** nel profilo sanitario; riverifica a ogni aggiornamento di versione minore con esito registrato. Confermata l'avvertenza di `TECH`: il filtro applicativo è difesa in profondità, la primaria è l'isolamento di rete |
 
 ---
@@ -79,7 +79,7 @@ Q-20 (ripartizione dei ruoli).
 ## 5. Marcature `[NV]` da sciogliere
 
 1. Estremi e revisione vigente delle **raccomandazioni crittografiche** europee e nazionali da
-   citare nella matrice di conformità — nessun parametro è stato inventato.
+   citare nella matrice di conformità - nessun parametro è stato inventato.
 2. **Testo dei 116 requisiti** delle misure di base (Q-151).
 3. Testo della determinazione che introduce l'obbligo di **dichiarazione dei fornitori
    rilevanti**, e selezione dei codici della nomenclatura degli appalti.

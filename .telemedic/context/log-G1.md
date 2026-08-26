@@ -1,4 +1,4 @@
-# Log agente G1 — `docs/10_fondamenti/09-fondamenti-clinici.md`
+# Log agente G1 - `docs/10_fondamenti/09-fondamenti-clinici.md`
 
 **Mandato**: D35, blocco C della guida dei fondamenti. Un solo file.
 **Data**: 25 agosto 2026.
@@ -13,8 +13,8 @@
 | File prodotto | `docs/10_fondamenti/09-fondamenti-clinici.md` |
 | Frontmatter | `title: Il corpo, i parametri, il ragionamento clinico` · `sidebar_position: 10` · `description` presente |
 | Righe | 2.212 |
-| Parole | **stima ~17.000–18.000** (minimo richiesto: 9.000 — ampiamente superato) |
-| Diagrammi Mermaid | 3 — anello di retroazione omeostatica (§ 2.1), catena della misura (§ 3.0), percorso del ragionamento clinico (§ 5.2) |
+| Parole | **stima ~17.000–18.000** (minimo richiesto: 9.000 - ampiamente superato) |
+| Diagrammi Mermaid | 3 - anello di retroazione omeostatica (§ 2.1), catena della misura (§ 3.0), percorso del ragionamento clinico (§ 5.2) |
 | Tabelle | 17 |
 | Sezione «Cosa devi ricordare» | presente, 15 punti |
 | Tabella «Termini introdotti in questo modulo» | presente, 43 voci |
@@ -29,15 +29,15 @@
 | § | Contenuto | Copre il punto del mandato |
 |---|---|---|
 | Avviso in apertura | Modulo di formazione tecnica, non materiale clinico né guida alla pratica medica; valori indicativi; il progetto non cabla soglie | requisito esplicito |
-| 1 | Perché uno sviluppatore deve saperlo — sei difetti reali (saturazione come numero puro, unità convertita male, media su serie che non ammette medie, allarme su valore isolato, intervallo su popolazione sbagliata, valore senza contesto di misura) | 1 |
-| 2 | Anatomia e fisiologia essenziali — omeostasi e compenso, cardiocircolatorio, respiratorio, nervoso, endocrino, renale, esempio integrato sullo scompenso | 2 |
-| 3 | I parametri vitali uno per uno — pressione (sistolica, diastolica, media, differenziale), frequenza cardiaca, saturazione, frequenza respiratoria, temperatura, glicemia (+ emoglobina glicata), peso; tabella riepilogativa con UCUM, LOINC e trappole; attributi obbligatori di una misura | 3 |
-| 4 | Il tempo nel dato clinico — andamento contro valore puntuale, definizione operativa di «tendenza», variabilità circadiana, quando la media è priva di senso, i quattro istanti, fuso orario e ora legale, l'assenza come dato | 4 |
-| 5 | Il ragionamento clinico — segno/sintomo, percorso completo, sospetto contro diagnosi, sensibilità/specificità/VPP/VPN/prevalenza, **esempio numerico svolto** con due scenari e rapporti di verosimiglianza, ricaduta sugli allarmi | 5 |
-| 6 | Cosa si perde a distanza — i quattro tempi dell'esame obiettivo, tabella di ciò che sopravvive, caregiver, ragione clinica del limite sulla prima visita, distorsioni di compressione/colore/illuminazione/frame rate/audio | 6 |
-| 7 | Farmaci — principio attivo contro medicinale, codifica e licenze, posologia strutturata, aderenza, interazioni con vincolo di perimetro, tre nozioni di «prescrizione» | 7 |
-| 8 | Esami e referti — tre famiglie, come si legge un referto, intervallo di riferimento specifico del laboratorio, valore critico | 8 |
-| 9 | Terminologia medica — costruzione delle parole, tabelle di prefissi, radici e suffissi, sigle frequenti | 9 |
+| 1 | Perché uno sviluppatore deve saperlo - sei difetti reali (saturazione come numero puro, unità convertita male, media su serie che non ammette medie, allarme su valore isolato, intervallo su popolazione sbagliata, valore senza contesto di misura) | 1 |
+| 2 | Anatomia e fisiologia essenziali - omeostasi e compenso, cardiocircolatorio, respiratorio, nervoso, endocrino, renale, esempio integrato sullo scompenso | 2 |
+| 3 | I parametri vitali uno per uno - pressione (sistolica, diastolica, media, differenziale), frequenza cardiaca, saturazione, frequenza respiratoria, temperatura, glicemia (+ emoglobina glicata), peso; tabella riepilogativa con UCUM, LOINC e trappole; attributi obbligatori di una misura | 3 |
+| 4 | Il tempo nel dato clinico - andamento contro valore puntuale, definizione operativa di «tendenza», variabilità circadiana, quando la media è priva di senso, i quattro istanti, fuso orario e ora legale, l'assenza come dato | 4 |
+| 5 | Il ragionamento clinico - segno/sintomo, percorso completo, sospetto contro diagnosi, sensibilità/specificità/VPP/VPN/prevalenza, **esempio numerico svolto** con due scenari e rapporti di verosimiglianza, ricaduta sugli allarmi | 5 |
+| 6 | Cosa si perde a distanza - i quattro tempi dell'esame obiettivo, tabella di ciò che sopravvive, caregiver, ragione clinica del limite sulla prima visita, distorsioni di compressione/colore/illuminazione/frame rate/audio | 6 |
+| 7 | Farmaci - principio attivo contro medicinale, codifica e licenze, posologia strutturata, aderenza, interazioni con vincolo di perimetro, tre nozioni di «prescrizione» | 7 |
+| 8 | Esami e referti - tre famiglie, come si legge un referto, intervallo di riferimento specifico del laboratorio, valore critico | 8 |
+| 9 | Terminologia medica - costruzione delle parole, tabelle di prefissi, radici e suffissi, sigle frequenti | 9 |
 
 ## 3. Punti marcati `[NV]` (non verificati)
 
@@ -61,7 +61,7 @@ Tredici marcature, tutte accompagnate dalla ragione dell'incertezza.
 
 ## 4. Questioni aperte per gli altri agenti
 
-### Q1 — Incoerenza di numerazione fra i moduli della guida (bloccante per i link)
+### Q1 - Incoerenza di numerazione fra i moduli della guida (bloccante per i link)
 
 `docs/10_fondamenti/02-prestazioni-di-telemedicina.md` rinvia a
 **`10-regolatorio-da-zero.md`** (§ 2.1, § 12) e a **`14-glossario.md`** (§ 2.3), mentre l'indice
@@ -76,7 +76,7 @@ e a `19-glossario.md`.
 discrepanza esiste, alcuni link della guida sono rotti. Serve una decisione di un solo agente,
 non di due.
 
-### Q2 — Per l'agente del modulo 10 (percorsi di cura e sicurezza)
+### Q2 - Per l'agente del modulo 10 (percorsi di cura e sicurezza)
 
 Il modulo 09 rinvia esplicitamente a 10 in quattro punti e vi delega quattro argomenti, che non
 vanno duplicati ma **devono esistere**:
@@ -92,7 +92,7 @@ Il § 5.5 fornisce già l'apparato probabilistico completo (sensibilità, specif
 predittivi, prevalenza, rapporti di verosimiglianza) con esempio numerico svolto: il modulo 10
 può richiamarlo invece di riscriverlo.
 
-### Q3 — Per l'agente del modulo 06 (FHIR da zero)
+### Q3 - Per l'agente del modulo 06 (FHIR da zero)
 
 Il § 3.9 è, di fatto, la specifica degli **attributi obbligatori di una misura** nel dominio.
 Va confrontata campo per campo con il profilo dei segni vitali di FHIR R4 e con le
@@ -111,7 +111,7 @@ Implementation Guide di HL7 Italia (D13). Punti di attenzione:
 - § 4.4 richiede quattro istanti distinti e la conservazione del riferimento locale accanto
   all'istante assoluto.
 
-### Q4 — Per l'agente terminologia / licenze
+### Q4 - Per l'agente terminologia / licenze
 
 - I codici LOINC del § 3.8 vanno **verificati contro un rilascio pinnato** e corredati
   dell'attribuzione richiesta dalla licenza (regime A di D31). La marcatura `[NV]` in blocco va
@@ -127,26 +127,26 @@ Implementation Guide di HL7 Italia (D13). Punti di attenzione:
 - Il § 3.1.3 e il § 1.2 pongono UCUM come forma obbligatoria dell'unità: coerente con il regime B
   di D31 (`third-party/` con licenza propria).
 
-### Q5 — Per l'agente MDR / regolatorio (D26, D46)
+### Q5 - Per l'agente MDR / regolatorio (D26, D46)
 
 Il modulo fissa **tre confini di perimetro** in forma esplicita e verificabile. Vanno confrontati
 con la bozza di destinazione d'uso `MDR-IU-001`, perché una difformità di formulazione fra i due
 documenti è precisamente il tipo di incoerenza che costa cara:
 
-1. **§ 5.6** — il sistema non scrive mai «valore anomalo», «probabile peggioramento», «paziente a
+1. **§ 5.6** - il sistema non scrive mai «valore anomalo», «probabile peggioramento», «paziente a
    rischio»: registra il superamento di una soglia configurata, indicando quale soglia, chi l'ha
    configurata e quando;
-2. **§ 7.5** — il progetto **non verifica le interazioni fra farmaci** e non genera avvisi clinici
+2. **§ 7.5** - il progetto **non verifica le interazioni fra farmaci** e non genera avvisi clinici
    sulla terapia. È un vincolo assoluto, non una scelta di priorità;
-3. **§ 5.2** e **§ 6.5** — il sistema non calcola prognosi e non applica **miglioramento
+3. **§ 5.2** e **§ 6.5** - il sistema non calcola prognosi e non applica **miglioramento
    dell'immagine**. Entrambe sono nominate come funzionalità che sposterebbero la
    classificazione, coerentemente con D26 («tre funzionalità a una user story dalla IIa»).
 
-Va inoltre verificata la formulazione del § 6.5 in chiusura — «la qualità del collegamento si
-dichiara come misura tecnica verificabile e non come adeguatezza diagnostica» — rispetto ai claim
+Va inoltre verificata la formulazione del § 6.5 in chiusura - «la qualità del collegamento si
+dichiara come misura tecnica verificabile e non come adeguatezza diagnostica» - rispetto ai claim
 pubblici riformulati da D19 e D29.
 
-### Q6 — Per l'agente dei requisiti (catalogo R6)
+### Q6 - Per l'agente dei requisiti (catalogo R6)
 
 Il § 3.9 e il § 4.4 generano requisiti che vanno cercati nel catalogo e, se assenti, aggiunti
 senza rinumerare l'esistente (conseguenza 6 di D12):
@@ -163,7 +163,7 @@ senza rinumerare l'esistente (conseguenza 6 di D12):
 - misurabilità della **proporzione di allerte confermate** dal professionista (§ 5.6), senza la
   quale non è valutabile l'efficacia del servizio.
 
-### Q7 — Revisione clinica del modulo
+### Q7 - Revisione clinica del modulo
 
 Il modulo 00 prevede che i moduli 09 e 10 siano **letti da un clinico con il compito di trovare
 gli errori**. Il modulo 09 è scritto da un agente senza formazione medica e va sottoposto a quella
@@ -171,7 +171,7 @@ revisione **prima della pubblicazione**, con attenzione prioritaria ai §§ 2 (f
 (parametri) e 5.2 (percorso del ragionamento). I punti `[NV]` della § 3 sono i candidati naturali
 per la prima passata.
 
-### Q8 — Segnalazione minore
+### Q8 - Segnalazione minore
 
 Nel modulo 02, § 2.3, il rinvio al glossario è scritto «modulo [14]»; nell'indice del modulo 00 il
 glossario è il 19. Stessa causa di Q1, segnalato a parte perché è un'occorrenza isolata e facile
@@ -202,7 +202,7 @@ voci vanno corredate del corrispettivo inglese, con attenzione a `SpO₂`/`SaO�
 
 | Regola | Stato |
 |---|---|
-| **R0** — nessuna azienda, marchio, prodotto commerciale o dominio di partner | Rispettata. Dispositivi e sistemi citati sempre per categoria («un misuratore oscillometrico», «un gateway di terze parti», «l'ente che mantiene la classificazione») |
+| **R0** - nessuna azienda, marchio, prodotto commerciale o dominio di partner | Rispettata. Dispositivi e sistemi citati sempre per categoria («un misuratore oscillometrico», «un gateway di terze parti», «l'ente che mantiene la classificazione») |
 | Italiano con accenti e diacritici corretti | Rispettata |
 | Nessuna soglia clinica cablata; valori dichiarati indicativi | Rispettata, con avviso in apertura, ripetizione in § 3.1.4 e punto 14 di «Cosa devi ricordare» |
 | Ogni termine clinico definito alla prima occorrenza | Rispettata |
