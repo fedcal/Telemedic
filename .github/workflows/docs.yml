@@ -3,6 +3,15 @@
 # Due lavori distinti di proposito: su una proposta di modifica si costruisce
 # soltanto, senza pubblicare. Una documentazione che non compila non deve poter
 # essere unita, ma nemmeno deve poter pubblicare da un ramo non rivisto.
+#
+# LIMITE DI TEMPO SU OGNI LAVORO. Venti minuti, contro le sei ore del limite predefinito di GitHub.
+# Il motivo non e' il costo ma un difetto senza correzione disponibile: «image-size», tirato da
+# @docusaurus/mdx-loader, ha due vulnerabilita' di grado alto che permettono un ciclo infinito nei
+# parser ICNS, JXL e HEIF, e la 2.0.2 installata e' l'ULTIMA versione pubblicata - non esiste una
+# versione a cui salire. L'esposizione oggi e' remota, perche' il repository contiene sei sole
+# immagini e sono tutte SVG, formato che quei parser non toccano; ma una proposta di modifica che
+# ne introducesse una artefatta bloccherebbe un esecutore per sei ore. Il limite non corregge la
+# vulnerabilita' e non pretende di farlo: ne limita la durata.
 name: Documentazione
 
 on:
@@ -30,6 +39,7 @@ jobs:
   costruzione:
     name: Costruzione
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
         with:
@@ -60,6 +70,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     needs: costruzione
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       pages: write
       id-token: write

@@ -7,7 +7,13 @@
       "type": "library",
       "name": "pacchetto-sintetico-collaudo",
       "version": "3.0.0",
-      "licenses": [{"license": {"name": "GPL-3.0"}}]
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0"
+          }
+        }
+      ]
     }
   ]
 }

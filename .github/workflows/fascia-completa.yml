@@ -7,6 +7,15 @@
 # pipeline/collocazione-dei-controlli.tsv. Quella tabella è la fonte: questo file le si adegua, non
 # il contrario. Un lavoro spostato qui senza la riga corrispondente nella tabella, o con una fascia
 # diversa da quella scritta in tabella, è un difetto da segnalare, non da correggere in silenzio.
+#
+# LIMITE DI TEMPO SU OGNI LAVORO. Venti minuti, contro le sei ore del limite predefinito di GitHub.
+# Il motivo non e' il costo ma un difetto senza correzione disponibile: «image-size», tirato da
+# @docusaurus/mdx-loader, ha due vulnerabilita' di grado alto che permettono un ciclo infinito nei
+# parser ICNS, JXL e HEIF, e la 2.0.2 installata e' l'ULTIMA versione pubblicata - non esiste una
+# versione a cui salire. L'esposizione oggi e' remota, perche' il repository contiene sei sole
+# immagini e sono tutte SVG, formato che quei parser non toccano; ma una proposta di modifica che
+# ne introducesse una artefatta bloccherebbe un esecutore per sei ore. Il limite non corregge la
+# vulnerabilita' e non pretende di farlo: ne limita la durata.
 name: Fascia completa
 
 on:
@@ -30,6 +39,7 @@ jobs:
   collocazione-dei-controlli:
     name: Collocazione dei controlli della pipeline
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # Sorveglia pipeline/collocazione-dei-controlli.tsv (criterio 4 di T-03): una riga in sola
     # segnalazione senza «bloccante_dal», una riga senza prova negativa, o una prova negativa che
     # cita un caso assente dal banco, fa fallire la costruzione. Non è continue-on-error: un
@@ -45,6 +55,7 @@ jobs:
   terminologie:
     name: Terminologie sotto licenza
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
       - run: ./scripts/verifica-terminologie.sh
@@ -52,6 +63,7 @@ jobs:
   redazionale:
     name: Conformità redazionale
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
       - run: ./scripts/verifica-conformita-redazionale.sh
@@ -59,6 +71,7 @@ jobs:
   distinta-dei-materiali:
     name: Distinta dei materiali del sito
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -119,6 +132,7 @@ jobs:
   divergenza-traduzioni:
     name: Divergenza fra italiano e inglese
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # G8: bloccante. Le due divergenze redazionali che ne rinviavano la bloccanza sono state
     # chiuse (145 documenti allineati, zero divergenti, zero assenti sulle aree esigite, zero
     # pagine orfane); la scadenza dichiarata in pipeline/collocazione-dei-controlli.tsv è quindi
@@ -135,6 +149,7 @@ jobs:
   identificativi-requisiti:
     name: Identificativi di requisito citati nelle prove (T-01 criterio 5)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # Criterio 5 di T-01: fa fallire la costruzione quando una prova cita un identificativo
     # assente dal registro, o il cui ultimo evento è "ritirato", o quando il registro stesso è
     # malformato. Non è continue-on-error: è il senso stesso del criterio.
@@ -148,6 +163,7 @@ jobs:
   registro-dei-difetti:
     name: Registro dei difetti (RD-C1)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # Sorveglia registro/difetti.tsv, che lega ogni voce del runbook degli errori a un presidio, a
     # una data di esigibilita' e a cio' che la voce diventera' quando esistera' codice. Sta in
     # fascia completa e blocca da subito, come T01-C5 e T03-C4: l'oggetto e' un registro di
@@ -164,6 +180,7 @@ jobs:
   dichiarazione-non-marcatura:
     name: Costruzione del sito - non marcatura (T-01/7) e criteri 1, 2 e 3 di T-07
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # CINQUE responsabilita' dichiarate sullo stesso lavoro, non una che vive nascosta dentro
     # l'altra:
     #
@@ -283,6 +300,7 @@ jobs:
   accessibilita:
     name: Accessibilità automatica (G4) - in sola segnalazione fino al 2026-10-03
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # G4 fa fallire su una violazione delle regole di accessibilità automatizzabili su qualunque
     # schermata E STATO. Non ha oggetto oggi: non esiste nessuna schermata (V-182).
     #
@@ -310,6 +328,7 @@ jobs:
   regole-di-dipendenza:
     name: Regole di dipendenza (G13) - in sola segnalazione fino al 2026-10-03
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # G13 fa fallire su una violazione dei confini fra moduli del servizio e dell'interfaccia
     # (regole di §1 di 01_technical/02-backend.md e §2.1 di 01_technical/04-frontend.md). Non ha
     # oggetto oggi: non esiste nessuna struttura di moduli (V-182).
@@ -334,6 +353,7 @@ jobs:
   copertura:
     name: Copertura differenziata (G7) - in sola segnalazione fino al 2026-11-14
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # G7 fa fallire sotto la soglia dell'ambito. La soglia è differenziata, non uniforme
     # (10_fondamenti/17-ambiente-di-sviluppo.md §8, richiamato dalla colonna «perché esiste» di
     # G7 in §9.2: «vedi §8.8: necessaria, non sufficiente»): sostanzialmente totale sul percorso di
@@ -358,6 +378,7 @@ jobs:
   profilo-di-esercizio:
     name: Profilo di esercizio (G12) - in sola segnalazione fino al 2026-11-14
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # G12 fa fallire su una configurazione dell'immagine che attivi una scorciatoia di sviluppo -
     # origini permissive, endpoint di diagnostica senza autenticazione, livello di registro a
     # diagnostica, segreto risolto da un valore letterale (01_technical/02-backend.md §9). Non ha
@@ -381,6 +402,7 @@ jobs:
   compatibilita-di-contratto:
     name: Compatibilità di contratto (G6) - in sola segnalazione fino al 2026-11-30
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # G6 fa fallire su una modifica non additiva a un elemento del perimetro contrattuale senza
     # nuova versione maggiore. La colonna «perché esiste» di 10_fondamenti/17 §9.2 lo dice così:
     # «una modifica che rompe un consumatore va dichiarata, non scoperta da lui». Non ha oggetto

@@ -1,0 +1,43 @@
+# Configurazione di gitleaks - controllo G1, ricerca di segreti.
+#
+# Estende l'insieme di regole predefinito: non lo sostituisce. Ogni voce qui sotto ATTENUA un
+# controllo, e in questo progetto un'attenuazione senza motivo scritto e' una rinuncia non
+# dichiarata (regola 2 di pipeline/README.md, applicata fuori dalla sua tabella).
+[extend]
+useDefault = true
+
+# I tre riconoscitori qui sotto non sono esclusioni di percorso - un'esclusione di percorso
+# spegnerebbe il controllo su un'intera cartella, e la cartella della documentazione e' proprio
+# quella dove un segreto copiato per sbaglio da un ambiente reale ha piu' probabilita' di finire.
+# Sono esclusioni di FORMA: tre campi che non sono credenziali per definizione, in nessun punto
+# del repository.
+#
+# LA RAGIONE PER CIASCUNO, e non «sono esempi»:
+#
+# 1. «Idempotency-Key» e' un identificativo di richiesta GENERATO DAL CLIENTE e trasmesso in
+#    chiaro perche' il servitore riconosca un rinvio della stessa operazione. Non autentica
+#    nessuno: chi lo intercetta non ottiene alcun accesso, ottiene solo la facolta' di far
+#    riconoscere la propria richiesta come gia' vista - che e' l'effetto voluto del campo.
+#
+# 2. «Sec-WebSocket-Key» e' un nonce in base64 definito dalla RFC 6455 §1.3, che dichiara
+#    esplicitamente di NON fornire autenticazione, riservatezza o integrita': serve a impedire
+#    che un intermediario scambi la stretta di mano per una richiesta HTTP ordinaria. Il valore
+#    presente nel corpus e' l'esempio canonico della RFC stessa.
+#
+# 3. «ott_» prefissa un gettone MONOUSO negli esempi del primo avvio. Il valore e' sintetico e il
+#    riconoscitore e' vincolato al prefisso seguito da un UUID: una credenziale reale con un'altra
+#    forma continua a essere intercettata.
+#
+# COME SONO STATI TROVATI, e perche' vale annotarlo. Gitleaks li ha segnalati il 26 agosto 2026
+# sui soli file INGLESI, mentre gli stessi valori erano da tempo negli originali italiani senza che
+# nessuno li segnalasse. Non e' un difetto della traduzione: gitleaks esamina il DIFFERENZIALE dei
+# commit, e i file italiani erano entrati prima che il controllo esistesse. Il suo verdetto dipende
+# quindi da QUANDO un contenuto e' entrato, non solo da che cosa contiene, ed e' una proprieta' da
+# tenere presente ogni volta che il controllo tace.
+[allowlist]
+description = "Campi che non sono credenziali per definizione: vedi il commento sopra, voce per voce."
+regexes = [
+  '''Idempotency-Key:\s*\S+''',
+  '''Sec-WebSocket-Key:\s*\S+''',
+  '''"token":\s*"ott_[0-9a-fA-F-]{36}"''',
+]

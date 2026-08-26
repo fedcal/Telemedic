@@ -1,0 +1,2 @@
+componente	versione	licenza_dichiarata	compatibilita_apache_2_0	motivo_inclusione	canale_di_avviso
+@collaudo/pacchetto-sintetico	1.0.0	Apache-2.0	compatibile	Riga sintetica: il registro dichiara una licenza diversa da quella del componente (MIT nella distinta).	https://example.invalid/avvisi

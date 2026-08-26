@@ -104,6 +104,27 @@ done < "$REGISTRO"
 #
 # Estrae ogni componente con jq: nome, versione, licenza. Raccoglie in elenco temporaneo.
 #
+# DUE DIFETTI CORRETTI IL 26 AGOSTO 2026, e vale la pena dire quali perche' entrambi rendevano
+# questo controllo incapace del proprio mestiere mentre appariva funzionante.
+#
+# 1. IL NOME ERA MUTILO. Si leggeva «.name» soltanto, ma CycloneDX scrive lo spazio dei nomi npm
+#    in un campo separato: «@docusaurus/core» diventa group «@docusaurus» piu' name «core». Il
+#    controllo cercava quindi «core@3.10.2» in un registro che dichiara «@docusaurus/core», e
+#    nessuno dei 412 componenti con spazio dei nomi poteva combaciare. Peggio del non combaciare:
+#    due componenti diversi collassavano sulla stessa chiave, perche' «@docusaurus/react» e
+#    «react» si riducono entrambi a «react».
+#
+# 2. LA LICENZA NON SI LEGGEVA MAI. Si cercava «.license.name», ma il generatore reale scrive
+#    «.license.id» per le licenze in forma SPDX e «.expression» per quelle composte («MIT OR
+#    CC0-1.0»). Sulla distinta vera, TUTTI E 1236 i componenti si leggevano «NOLICENSE»: il
+#    controllo sulle licenze non ne ha mai confrontata una.
+#
+# PERCHE' IL BANCO NON SE N'E' ACCORTO, ed e' la parte che insegna qualcosa. Le tenute di collaudo
+# erano scritte nella forma che questo controllo si aspettava - «license.name», nessun group -
+# invece che nella forma che il generatore produce. Il banco collaudava il controllo contro una
+# finzione fatta a sua immagine, e passava. Una tenuta si modella sulla REALTA' che il controllo
+# incontrera', mai sul codice del controllo.
+#
 if ! command -v jq &> /dev/null; then
   printf '\033[31m✗ jq non disponibile: necessario per leggere la distinta\033[0m\n'
   exit 2
@@ -111,7 +132,13 @@ fi
 
 componenti_distinta=$(
   jq -r '.components[] | select(.type == "library" or .type == "application") |
-          "\(.name) \(.version) \(.licenses[]?.license?.name // "NOLICENSE")"' \
+          # Nome npm completo: group/name quando lo spazio dei nomi esiste, name quando manca.
+          ((if .group then .group + "/" else "" end) + .name) as $nome |
+          # La licenza nelle tre forme ammesse da CycloneDX, in ordine di specificita:
+          # identificativo SPDX, espressione composta (MIT OR CC0-1.0), nome libero.
+          ([.licenses[]? | (.license.id // .expression // .license.name)]
+             | map(select(. != null)) | first // "NOLICENSE") as $lic |
+          "\($nome) \(.version) \($lic)"' \
     "$SBOM_FILE" 2>/dev/null | sort -u
 )
 
@@ -159,6 +186,35 @@ non è una dichiarazione: va scritta «compatibile», «indeterminabile» o «in
     rilievi=$((rilievi+1))
     continue
   fi
+  # La licenza dichiarata nel registro deve essere QUELLA CHE IL COMPONENTE DICHIARA.
+  #
+  # Fino al 26 agosto 2026 questo confronto non esisteva: «licenza_distinta» veniva estratta dalla
+  # distinta e poi buttata via, e il controllo si fidava della colonna «compatibilita» senza mai
+  # guardare la licenza su cui quel giudizio poggia. Il registro poteva dichiarare «MIT,
+  # compatibile» per un componente che spedisce GPL-3.0, e la costruzione passava. E' la falla
+  # esatta che G2 esiste per chiudere - pipeline/README-COMPONENTI.md dichiara che la colonna
+  # porta «la licenza dichiarata in package.json, non una valutazione, il valore letterale», e
+  # niente lo faceva rispettare.
+  #
+  # NOLICENSE non e' un caso di divergenza ma di assenza: il componente non dichiara alcuna
+  # licenza, e cio' che il registro deve dire in quel caso e' «indeterminabile», che la regola
+  # successiva intercetta gia' da se'. Segnalarlo qui produrrebbe due rilievi per un difetto solo.
+  if [ "$licenza_distinta" != "NOLICENSE" ] && [ "$licenza_distinta" != "${reg_licenza["$chiave"]}" ]; then
+    segnala "Licenza dichiarata nel registro diversa da quella del componente" \
+"Componente: $nome
+Versione: $versione
+Licenza nella distinta: $licenza_distinta
+Licenza nel registro:   ${reg_licenza["$chiave"]}
+Riga: $REGISTRO
+
+Ragione (G2): la colonna «licenza_dichiarata» porta il valore LETTERALE che il componente
+dichiara, non una valutazione. Se le due divergono, il giudizio di compatibilita' della riga
+poggia su una licenza che il componente non ha - e il giudizio non vale piu'. Aggiorna la riga
+con la licenza vera, poi rivedi la compatibilita': puo' essere cambiata insieme alla licenza."
+    rilievi=$((rilievi+1))
+    continue
+  fi
+
   if [ "$compatibilita" != "compatibile" ]; then
     segnala "Licenza non compatibile o indeterminabile" \
 "Componente: $nome

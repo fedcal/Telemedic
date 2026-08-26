@@ -7,13 +7,25 @@
       "type": "library",
       "name": "pacchetto-sintetico-collaudo-a",
       "version": "4.0.0",
-      "licenses": [{"license": {"name": "MIT"}}]
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
     },
     {
       "type": "library",
       "name": "pacchetto-sintetico-collaudo-b",
       "version": "5.0.0",
-      "licenses": [{"license": {"name": "ISC"}}]
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ]
     }
   ]
 }

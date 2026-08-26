@@ -1,0 +1,14 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "components": [
+    {
+      "type": "library",
+      "name": "pacchetto-sintetico",
+      "group": "@collaudo",
+      "version": "1.0.0",
+      "licenses": [ { "license": { "id": "MIT", "acknowledgement": "declared" } } ]
+    }
+  ]
+}

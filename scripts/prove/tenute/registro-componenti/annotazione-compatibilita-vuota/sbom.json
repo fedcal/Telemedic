@@ -7,7 +7,13 @@
       "type": "library",
       "name": "pacchetto-sintetico-collaudo",
       "version": "6.0.0",
-      "licenses": [{"license": {"name": "MIT"}}]
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
     }
   ]
 }

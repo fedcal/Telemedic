@@ -1268,6 +1268,33 @@ printf '\n== Controllo 12 - verifica-registro-componenti.sh (G2 licenze, G5 dist
 REGISTRO_COMPONENTI_TENUTE="$TENUTE/registro-componenti"
 SCRIPT_REGISTRO_COMPONENTI="$RADICE_REPO/scripts/verifica-registro-componenti.sh"
 
+# I DUE CASI SEGUENTI ESISTONO PERCHE' IL BANCO AVEVA COLLAUDATO IL CONTROLLO CONTRO UNA
+# FINZIONE FATTA A SUA IMMAGINE. Le tenute erano scritte nella forma che il controllo si
+# aspettava - «license.name», nessun «group» - invece che nella forma che il generatore
+# CycloneDX produce davvero. Sulla distinta vera il controllo leggeva «core» al posto di
+# «@docusaurus/core» per tutti i 412 componenti con spazio dei nomi, e leggeva «NOLICENSE» per
+# TUTTI E 1236: non aveva mai confrontato una licenza in vita sua. Il banco passava lo stesso.
+# Una tenuta si modella sulla REALTA' che il controllo incontrera', mai sul codice del controllo.
+
+esegui_caso "registro componenti: lo spazio dei nomi npm non si perde (group + name)" passa \
+  env RADICE_SORGENTI="$REGISTRO_COMPONENTI_TENUTE/spazio-dei-nomi" \
+      SBOM_FILE="$REGISTRO_COMPONENTI_TENUTE/spazio-dei-nomi/sbom.json" \
+  "$SCRIPT_REGISTRO_COMPONENTI"
+
+# Fino al 26 agosto 2026 la licenza letta dalla distinta veniva estratta e BUTTATA VIA: il
+# controllo si fidava della colonna «compatibilita» senza mai guardare la licenza su cui quel
+# giudizio poggia. Il registro poteva dichiarare «MIT, compatibile» per un componente che
+# spedisce GPL-3.0. Questa tenuta ha la distinta che dice MIT e il registro che dice Apache-2.0.
+esegui_caso "registro componenti: il registro dichiara una licenza diversa da quella del componente" fallisce \
+  env RADICE_SORGENTI="$REGISTRO_COMPONENTI_TENUTE/licenza-divergente" \
+      SBOM_FILE="$REGISTRO_COMPONENTI_TENUTE/licenza-divergente/sbom.json" \
+  "$SCRIPT_REGISTRO_COMPONENTI"
+
+esegui_caso "registro componenti: licenza in forma di espressione composta, non di identificativo" passa \
+  env RADICE_SORGENTI="$REGISTRO_COMPONENTI_TENUTE/licenza-in-espressione" \
+      SBOM_FILE="$REGISTRO_COMPONENTI_TENUTE/licenza-in-espressione/sbom.json" \
+  "$SCRIPT_REGISTRO_COMPONENTI"
+
 esegui_caso "registro componenti: componente nella distinta non annotato" fallisce \
   env RADICE_SORGENTI="$REGISTRO_COMPONENTI_TENUTE/componente-non-annotato" \
       SBOM_FILE="$REGISTRO_COMPONENTI_TENUTE/componente-non-annotato/sbom.json" \

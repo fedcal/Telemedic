@@ -1,0 +1,2 @@
+componente	versione	licenza_dichiarata	compatibilita_apache_2_0	motivo_inclusione	canale_di_avviso
+@collaudo/pacchetto-sintetico	1.0.0	MIT	compatibile	Riga sintetica di collaudo: verifica che lo spazio dei nomi npm non venga perso.	https://example.invalid/avvisi

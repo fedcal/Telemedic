@@ -8,6 +8,15 @@
 # Il flusso esiste comunque, con il proprio innesco, e lo dichiara. Un flusso che non esiste non si
 # può popolare quando servirà; un flusso che esiste e dice «nulla da verificare» è onesto e pronto
 # (.telemedic/piani/T-03-catena-di-costruzione.md §5.3, lavoro L-05).
+#
+# LIMITE DI TEMPO SU OGNI LAVORO. Venti minuti, contro le sei ore del limite predefinito di GitHub.
+# Il motivo non e' il costo ma un difetto senza correzione disponibile: «image-size», tirato da
+# @docusaurus/mdx-loader, ha due vulnerabilita' di grado alto che permettono un ciclo infinito nei
+# parser ICNS, JXL e HEIF, e la 2.0.2 installata e' l'ULTIMA versione pubblicata - non esiste una
+# versione a cui salire. L'esposizione oggi e' remota, perche' il repository contiene sei sole
+# immagini e sono tutte SVG, formato che quei parser non toccano; ma una proposta di modifica che
+# ne introducesse una artefatta bloccherebbe un esecutore per sei ore. Il limite non corregge la
+# vulnerabilita' e non pretende di farlo: ne limita la durata.
 name: Fascia estesa
 
 on:
@@ -25,6 +34,7 @@ jobs:
   nulla-da-verificare:
     name: Nessun codice applicativo - nulla da verificare
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Dichiarazione esplicita dello stato
         run: |

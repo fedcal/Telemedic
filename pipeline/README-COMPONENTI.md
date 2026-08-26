@@ -25,7 +25,7 @@ commentata è l'intestazione e dichiara le sei colonne.
 | Colonna | Contenuto |
 |---|---|
 | `componente` | Nome del componente npm (il valore di `"name"` in `package.json`) |
-| `versione` | Intervallo di versione accettato (identico alla riga di `package.json`, ad es. `^3.7.0`) |
+| `versione` | La versione **risolta**, quella che la distinta dichiara (ad es. `3.10.2`) - non l'intervallo di `package.json`. Il controllo compone la chiave `componente@versione` e la confronta con la distinta: un intervallo non combacerebbe mai |
 | `licenza_dichiarata` | La licenza dichiarata in `package.json` - non una valutazione, il valore letterale |
 | `compatibilita_apache_2_0` | `compatibile` · `indeterminabile` · `incompatibile` |
 | `motivo_inclusione` | Perché il componente è nel progetto: il bisogno che risolve, in una frase o due |

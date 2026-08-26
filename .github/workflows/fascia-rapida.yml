@@ -5,6 +5,15 @@
 # GitHub, non quando qualcuno apre una pull request su di esso. Per questo l'innesco è il push, su
 # qualunque ramo, e non la sola pull request - è il motivo di collocazione dichiarato per G1 in
 # pipeline/collocazione-dei-controlli.tsv.
+#
+# LIMITE DI TEMPO SU OGNI LAVORO. Venti minuti, contro le sei ore del limite predefinito di GitHub.
+# Il motivo non e' il costo ma un difetto senza correzione disponibile: «image-size», tirato da
+# @docusaurus/mdx-loader, ha due vulnerabilita' di grado alto che permettono un ciclo infinito nei
+# parser ICNS, JXL e HEIF, e la 2.0.2 installata e' l'ULTIMA versione pubblicata - non esiste una
+# versione a cui salire. L'esposizione oggi e' remota, perche' il repository contiene sei sole
+# immagini e sono tutte SVG, formato che quei parser non toccano; ma una proposta di modifica che
+# ne introducesse una artefatta bloccherebbe un esecutore per sei ore. Il limite non corregge la
+# vulnerabilita' e non pretende di farlo: ne limita la durata.
 name: Fascia rapida
 
 on:
@@ -26,6 +35,7 @@ jobs:
   segreti:
     name: Ricerca di segreti
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
         with:
@@ -37,6 +47,7 @@ jobs:
   dati-sintetici:
     name: Dati non sintetici (G10)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # G10 (tabella di 10_fondamenti/17-ambiente-di-sviluppo.md §9.2) - forme riconoscibili di
     # identificativo reale nei sorgenti, nelle fixture e negli esempi. È l'automazione della prima
     # regola non negoziabile del progetto: nessun dato reale di paziente, mai (CONTRIBUTING.md,
@@ -64,6 +75,7 @@ jobs:
   ancore:
     name: Riferimenti interni - ancore (G9, meta')
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # G9 (docs/10_fondamenti/17-ambiente-di-sviluppo.md §9.2) fa fallire su un collegamento interno
     # rotto. Questo lavoro copre solo la META' di G9: le ANCORE (#frammento), non i collegamenti fra
     # documenti. Ogni rinvio con ancora deve trovare, nel documento bersaglio, un titolo che genera
@@ -92,6 +104,7 @@ jobs:
   termini-vietati:
     name: Regola di riservatezza R0 (G11) - in sola segnalazione fino al 2026-09-26
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # G11 (tabella di docs/01_technical/09-integrazione-continua-e-rilascio.md §3 e di
     # docs/10_fondamenti/17-ambiente-di-sviluppo.md §9.2) traduce in controllo la regola R0: nessun
     # nome di azienda, marchio, prodotto commerciale o dominio di un potenziale partner compare in

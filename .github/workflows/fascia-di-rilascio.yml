@@ -13,6 +13,15 @@
 # Innesco: manuale ed esplicito, mai automatico. La procedura di rilascio è documentata in
 # docs/01_technical/09-integrazione-continua-e-rilascio.md §10.
 
+#
+# LIMITE DI TEMPO SU OGNI LAVORO. Venti minuti, contro le sei ore del limite predefinito di GitHub.
+# Il motivo non e' il costo ma un difetto senza correzione disponibile: «image-size», tirato da
+# @docusaurus/mdx-loader, ha due vulnerabilita' di grado alto che permettono un ciclo infinito nei
+# parser ICNS, JXL e HEIF, e la 2.0.2 installata e' l'ULTIMA versione pubblicata - non esiste una
+# versione a cui salire. L'esposizione oggi e' remota, perche' il repository contiene sei sole
+# immagini e sono tutte SVG, formato che quei parser non toccano; ma una proposta di modifica che
+# ne introducesse una artefatta bloccherebbe un esecutore per sei ore. Il limite non corregge la
+# vulnerabilita' e non pretende di farlo: ne limita la durata.
 name: Fascia di rilascio
 
 on:
@@ -26,6 +35,7 @@ jobs:
   costruzione-e-firma-artefatti:
     name: Costruzione, firma e attestazione degli artefatti
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Controllo del codice
         uses: actions/checkout@v4
