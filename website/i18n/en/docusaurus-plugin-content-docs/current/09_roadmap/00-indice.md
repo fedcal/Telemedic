@@ -342,18 +342,26 @@ theatre, and this one does.
 `dichiarazione-non-marcatura`, **neither of them in report-only mode**: they can fail
 the build, which is the point of `T-01`.
 
-**What the work has opened, and not closed.** The document control procedure **prescribes
-two checks that the project has not implemented**: protection of the main branch - verified as of
-26 August 2026, `gh api .../branches/main/protection` responds `404 Branch not protected` - and
-cryptographic signing of commits, which no commit carries. They are recorded as `Q-283` and `Q-284`.
-Not to be confused with `Signed-off-by` (DCO), which is **active and mandatory** and is what
-satisfies the nominative traceability of the author today.
+**What the work has opened, and not closed.** The document control procedure prescribes two
+checks, and as of 26 August 2026 the state of the two differs. Protection of the **main branch**
+is **implemented** from that day: a proposal that has not received at least one favourable review
+cannot be merged, and five status checks are required. It does not, however, apply to repository
+administrators (`enforce_admins` is `false`), so the owner retains the ability to merge their own
+work after approving it themselves: that is the gap of `Q-189`, which the implementation does not
+close. **Cryptographic signing of commits** remains unimplemented: as of 26 August 2026 none of
+the 36 commits in the history carries a valid signature, and the `commit.gpgsign` setting is
+enabled but has never produced one. They remain recorded as `Q-283` (closed) and `Q-284` (open).
 
-As long as those two remain unimplemented, the approval record **does not have the form that the
-procedure describes**, and must be read for what it is: the trace of what was done, not proof
-that it could not be done otherwise. `Q-283` intertwines with `D54`: with a single contributor, branch
-protection requiring a different reviewer than the author would block all work, so the
-form of activation must be decided together with the gap of `Q-189`.
+On `Signed-off-by` (DCO), a statement this very chapter carried for days must be corrected. **It
+was not active**: `CONTRIBUTING.md` §147 prescribes it for every commit, but of the 36 commits in
+the history **only 5 carry it**, all dated 26 August 2026 and all subsequent to the measurement.
+It was a rule written and not observed by whoever wrote it, and it is exactly the form of defect
+the project records elsewhere as «a rule written and not enforced by a check is not a rule». No
+check verifies it today.
+
+As long as commit signing remains unimplemented, the approval record **does not have the complete
+form that the procedure describes**, and must be read for what it is: the trace of what was done
+and by whom, not cryptographic proof that it could not have been done otherwise.
 
 **A defect found by the newly written check.** The expression that recognised identifiers was
 `\b(RF|RNF|BR|ATT|UC|OUT|EX|DM)-[0-9]+\b`, and the family `EX-*` **has no numeric grammar**: its

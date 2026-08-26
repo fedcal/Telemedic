@@ -348,18 +348,27 @@ teatro, e questo se ne accorge.
 `dichiarazione-non-marcatura`, **nessuno dei due in sola segnalazione**: possono far fallire la
 costruzione, che è il senso di `T-01`.
 
-**Che cosa il lavoro ha aperto, e non chiuso.** La procedura di controllo documentale **prescrive
-due controlli che il progetto non ha attuato**: la protezione del ramo principale - verificato il
-26 agosto 2026, `gh api .../branches/main/protection` risponde `404 Branch not protected` - e la
-firma crittografica dei commit, che nessun commit porta. Sono registrati come `Q-283` e `Q-284`.
-Da non confondere con il `Signed-off-by` (DCO), che è **attivo e obbligatorio** ed è ciò che
-soddisfa oggi la tracciabilità nominativa dell'autore.
+**Che cosa il lavoro ha aperto, e non chiuso.** La procedura di controllo documentale prescrive
+due controlli, e al 26 agosto 2026 lo stato dei due è diverso. La **protezione del ramo
+principale** è **attuata** da quel giorno: una proposta che non abbia ricevuto almeno una
+revisione favorevole non può essere unita, e cinque controlli di stato sono obbligatori. Non si
+applica però agli amministratori (`enforce_admins` è `false`), quindi il proprietario conserva la
+facoltà di unire il proprio lavoro dopo essersi approvato da sé: è la lacuna di `Q-189`, che
+l'attuazione non chiude. La **firma crittografica dei commit** resta invece non attuata: al 26
+agosto 2026 nessuno dei 36 commit della cronologia porta una firma valida, e la configurazione
+`commit.gpgsign` è attiva ma non ha mai prodotto una firma. Restano registrati come `Q-283`
+(chiusa) e `Q-284` (aperta).
 
-Finché quei due restano non attuati, la registrazione di approvazione **non ha la forma che la
-procedura descrive**, e va letta per ciò che è: la traccia di che cosa è stato fatto, non la prova
-che non si potesse fare altrimenti. `Q-283` si intreccia con `D54`: con un contributore unico, una
-protezione del ramo che esiga un revisore diverso dall'autore bloccherebbe ogni lavoro, quindi la
-forma dell'attivazione va decisa insieme alla lacuna di `Q-189`.
+Sul `Signed-off-by` (DCO) va corretta un'affermazione che questo stesso capitolo ha portato per
+giorni. **Non era attivo**: è prescritto da `CONTRIBUTING.md` §147 per ogni commit, ma dei 36
+commit della cronologia **solo 5 lo portano**, tutti del 26 agosto 2026 e tutti successivi alla
+misura. Era una regola scritta e non osservata da chi l'ha scritta, ed è esattamente la forma di
+difetto che il progetto registra altrove come «una regola scritta e non presidiata non è una
+regola». Nessun controllo lo verifica oggi.
+
+Finché la firma dei commit resta non attuata, la registrazione di approvazione **non ha la forma
+completa che la procedura descrive**, e va letta per ciò che è: la traccia di che cosa è stato
+fatto e da chi, non la prova crittografica che non si potesse fare altrimenti.
 
 **Un difetto trovato dal controllo appena scritto.** L'espressione che riconosceva gli
 identificativi era `\b(RF|RNF|BR|ATT|UC|OUT|EX|DM)-[0-9]+\b`, e la famiglia `EX-*` **non ha

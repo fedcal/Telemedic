@@ -433,8 +433,14 @@ Il criterio 2 di `T-03` (26 settembre) esige che blocchi «il controllo sui term
 ### 11.3 `T-06` dipende da `T-08` e non lo dichiara
 Il criterio 5 di `T-06` non è verificabile finché non esistono stringhe di internazionalizzazione, cioè finché `T-08` non esiste. Le dipendenze dichiarate sono `T-02` c.1 e c.5 e `T-03` c.3. Inoltre l'innesco dichiarato - il conteggio delle parole - **è già scattato il 26 agosto**.
 
-### 11.4 La protezione del ramo è insieme non attuata e risolta, alla stessa data
-`00 §8.4` registra `404 Branch not protected` e apre `Q-283` fra i controlli **non attuati**; `docs/08_compliance/10-controllo-dei-documenti.md §5` e `§10` la dichiarano **attuata dal 26 agosto 2026** e `Q-283` **risolta**. Lo stesso documento di conformità, al §7.1 punto 5 e al §8, continua a scrivere che il controllo «non è oggi attuato»: la contraddizione è **anche interna** a quel documento.
+### 11.4 La protezione del ramo era insieme non attuata e risolta, alla stessa data - CHIUSA il 26 agosto 2026
+La contraddizione era doppia: `00 §8.4` registrava `404 Branch not protected` e apriva `Q-283` fra i controlli **non attuati**, mentre `docs/08_compliance/10-controllo-dei-documenti.md §5` e `§10` la dichiaravano **attuata** e `Q-283` **risolta**; e lo stesso documento di conformità si contraddiceva **internamente**, perché il §7.1 punto 5 e il §8 continuavano a scrivere che il controllo «non è oggi attuato».
+
+Chiusa misurando invece di scegliere fra i documenti. `gh api repos/fedcal/Telemedic/branches/main/protection` risponde oggi: una revisione favorevole richiesta, cinque controlli di stato obbligatori, `require_code_owner_reviews` **false**, `enforce_admins` **false**. La protezione **è attuata**, e tutti i luoghi che dicevano il contrario sono stati riallineati in entrambe le lingue.
+
+Il riallineamento ha però scoperto due affermazioni false che nessuno dei documenti contraddiceva, perché tutti le ripetevano allo stesso modo. La prima: la procedura sosteneva che gli altri contributori ricevono la revisione **dal revisore nominato per la categoria** - con `require_code_owner_reviews: false` ciò che la macchina impone è **una** revisione, non quella della persona giusta, e la corrispondenza è affidata alla disciplina. La seconda: il `Signed-off-by` era dichiarato «attivo e obbligatorio» mentre **dei 36 commit della cronologia solo 5 lo portano**, tutti successivi alla misura. Era una regola scritta e non osservata da chi l'aveva scritta.
+
+Resta aperta `Q-284`: nessuno dei 36 commit porta una firma crittografica valida, e `commit.gpgsign` è attiva ma non ha mai prodotto una firma.
 
 ### 11.5 Un taglio reversibile dichiarato è stato disfatto senza registrazione
 `TG-16` e la sezione «che cosa non comprende» di `T-02` dichiarano rinviato il **modulo delle fonti primarie**, con la conseguenza che «ogni rinvio normativo resta citato per esteso nel testo». I file `docs/10_fondamenti/20-fonti-primarie.md` e la versione inglese **esistono**, e `00 §4` dichiara la guida completa «fonti primarie comprese». Un taglio disfatto è una decisione quanto un taglio eseguito, e `00 §8.3` esige che le variazioni di ambito siano registrate.

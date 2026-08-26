@@ -88,13 +88,22 @@ formulazione rende possibile fraintendere.
    paragrafo precedente, esattamente come prima. Chi legge «stanno certificando» e ne conclude
    «allora posso usarlo» trae una conclusione **sbagliata**, e le conseguenze di quella
    conclusione restano sue.
-2. **Nessuna data.** Questo documento non indica, e nessun altro artefatto del progetto
-   indica, una data entro la quale il prodotto sarà marcato. L'intenzione di certificare e la
-   promessa di un esito datato sono due cose diverse: la destinazione d'uso di un dispositivo
-   si ricava anche dal materiale pubblicato (art. 2, punto 12, del Regolamento (UE) 2017/745)
-   e le dichiarazioni fuorvianti sono vietate anche in assenza di marcatura (art. 7 del
-   medesimo regolamento). Le date della pianificazione interna sono pianificazione, non
-   impegno, e non vanno lette come previsione di un esito.
+2. **Nessuna data promessa.** Questo documento non promette, e **nessun artefatto del progetto
+   promette**, una data entro la quale il prodotto sarà marcato. Delle date esistono, e vanno
+   dette invece che taciute: la pianificazione interna ne porta - tre scenari che collocano la
+   marcatura fra dicembre 2027 e il primo trimestre 2029, con luglio - agosto 2028 come piano
+   di riferimento
+   ([`docs/08_compliance/09-percorso-e-calendario.md`](docs/08_compliance/09-percorso-e-calendario.md),
+   ripreso da [`docs/10_fondamenti/15-regolatorio-da-zero.md`](docs/10_fondamenti/15-regolatorio-da-zero.md)).
+   Sono date di lavoro interno, non impegni verso chicchessia, e chi le legge come previsione di
+   un esito le sta leggendo per quello che non sono: l'esito dipende da un soggetto fabbricante
+   non ancora costituito e da un organismo notificato che non ha ancora ricevuto alcun fascicolo.
+   L'intenzione di certificare e la promessa di un esito datato restano due cose diverse: la
+   destinazione d'uso di un dispositivo si ricava anche dal materiale pubblicato (art. 2, punto
+   12, del Regolamento (UE) 2017/745) e le dichiarazioni fuorvianti sono vietate anche in assenza
+   di marcatura (art. 7 del medesimo regolamento). Per questo le date della pianificazione stanno
+   dove devono stare - in un capitolo di pianificazione, dichiarate come tali e accompagnate dalle
+   condizioni che le reggono - e non compaiono in questa pagina come promessa.
 3. **Ciò che un giorno potrà essere certificato non è questo repository.** Il dispositivo, se
    e quando esisterà, sarà una **distribuzione identificata**, con un proprio nome, un proprio
    numero di versione e un proprio ciclo di vita. Chi prende il codice da qui e lo installa
@@ -208,13 +217,22 @@ it possible to misunderstand.
    paragraph in full, exactly as before. Whoever reads "they are certifying" and concludes
    "then I may use it" draws a **wrong** conclusion, and the consequences of that conclusion
    remain theirs.
-2. **No date.** This document does not state, and no other project artefact states, a date by
-   which the product will be marked. The intention to certify and the promise of a dated
-   outcome are two different things: a device's intended use is derived from published
-   material as well (Article 2(12) of Regulation (EU) 2017/745), and misleading claims are
-   prohibited even in the absence of a marking (Article 7 of the same regulation). The dates in
-   the internal planning are planning, not a commitment, and are not to be read as a forecast
-   of an outcome.
+2. **No date promised.** This document does not promise, and **no project artefact promises**, a
+   date by which the product will be marked. Dates do exist, and they are to be stated rather
+   than withheld: the internal planning carries them - three scenarios placing the marking
+   between December 2027 and the first quarter of 2029, with July - August 2028 as the reference
+   plan
+   ([`docs/08_compliance/09-percorso-e-calendario.md`](docs/08_compliance/09-percorso-e-calendario.md),
+   restated in [`docs/10_fondamenti/15-regolatorio-da-zero.md`](docs/10_fondamenti/15-regolatorio-da-zero.md)).
+   They are internal working dates, not commitments to anyone, and whoever reads them as a
+   forecast of an outcome is reading them for what they are not: the outcome depends on a
+   manufacturer entity not yet constituted and on a notified body that has received no technical
+   file. The intention to certify and the promise of a dated outcome remain two different things:
+   a device's intended use is derived from published material as well (Article 2(12) of
+   Regulation (EU) 2017/745), and misleading claims are prohibited even in the absence of a
+   marking (Article 7 of the same regulation). This is why the planning dates stay where they
+   belong - in a planning chapter, declared as such and accompanied by the conditions that hold
+   them up - and do not appear on this page as a promise.
 3. **What may one day be certified is not this repository.** The device, if and when it
    exists, will be an **identified distribution**, with its own name, its own version number
    and its own lifecycle. Whoever takes the code from here and deploys it **is not deploying a

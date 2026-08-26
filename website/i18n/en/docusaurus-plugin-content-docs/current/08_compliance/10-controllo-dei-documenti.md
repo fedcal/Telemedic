@@ -120,11 +120,20 @@ responsibility for the quality of what enters the repository.
 | **Architectural decisions** (`docs/adr/`) | Technical reviewer designated in the decision | Knowledge of the problem solved |
 | **Register of identifiers** | Register author | Knowledge of the complete catalogue and the state of every identifier |
 
-**Competence dossier:** The dossier of each nominated reviewer is preserved, contains a
-description of the specific competence for the category to which they are assigned, and is itself
-a controlled document in the dedicated section of the manufacturing entity's document management
-system when constituted. For the project, the dossier is maintained in the repository's internal
-documentation.
+**Competence dossier - a commitment made and not yet fulfilled:** The form ISO 13485 § 6.2 requires
+for documenting competence is a dossier for each nominated reviewer, containing the description of
+the specific competence for the category to which they are assigned, itself a controlled document in
+the dedicated section of the manufacturing entity's document management system when constituted.
+**Today that dossier does not exist.** There is no file in the repository that holds it: the word
+appears only in the prose that prescribes it, this passage included. This must be stated as it
+stands, because it concerns a record and not an intention: the competence of reviewers is, as of
+today, asserted by this chapter and not evidenced by a record. The gap is of the same nature as the
+one described in § 9 - a record the standard presupposes and that the capacity declared by `D54` has
+not yet produced - and, like that one, it is stated rather than attenuated. Its closure is tied to
+the constitution of the manufacturing entity ([09 § 4.2](./09-percorso-e-calendario.md), `T-14`),
+which is the moment the dossier will have a document management system to reside in; until then the
+absence is known, stated here, and belongs among the gaps the notified body will find already
+written rather than having to discover them.
 
 **Explicit point of fragility:** A project that widens the set of reviewers without updating
 competence dossiers loses the property of control at the exact moment it does so, and loses it in a
@@ -157,10 +166,24 @@ the technical control of branch protection on GitHub is enforced as of 26 August
 itself - the act of incorporation into the main branch - is recorded in the git log with the
 identity of whoever performed it. **Approval is conceived as triple**: favourable review on the
 proposal, branch protection that blocks unauthorised merging, immutable record of who performed the
-merge. Today **all three elements are technically enforced** in the declared model: the Sponsor
-(repository owner) may approve and merge their own work, whilst other contributors receive review
-from a nominated person before merge is possible. This form **does not resolve the gap of
-`Q-189`** - under the declared capacity of `D54`, the author of documents is the same person who
+merge. Today the three elements are all in place, but not everything this procedure prescribes is
+enforced by the machine, and the difference must be stated in full rather than smoothed over. **What
+the machine enforces** is one favourable review on every proposal: without it the merge is blocked,
+and this holds for anyone who is not an administrator of the repository. **What the procedure
+prescribes and the machine does not enforce** is that this review come from the reviewer nominated
+for the document's category: branch protection deliberately has `require_code_owner_reviews` set to
+`false`, and [`.github/CODEOWNERS`](https://github.com/fedcal/Telemedic/blob/main/.github/CODEOWNERS)
+gives the reason with the evidence. With a single maintainer, every line of that file assigns the
+same person; were the setting `true`, every proposal would require approval from an owner other than
+the author, and no proposal could ever be merged without the administrator bypass. The choice is
+therefore deliberate, but its consequence must be stated without attenuation: **today the
+correspondence between the reviewer who approves and the reviewer nominated for the category rests
+on the discipline of whoever works, not on a technical control**, and an approval given by the wrong
+person would be accepted by the system without any warning. The `require_code_owner_reviews` setting
+is to be reconsidered when there are at least two maintainers - not before, because before that it
+would make the repository unusable without the very bypass it is meant to avoid. To this is added
+that the Sponsor, being an administrator, may approve and merge their own work. This form **does not
+resolve the gap of `Q-189`** - under the declared capacity of `D54`, the author of documents is the same person who
 approves them - but **makes it visible and confined**: the system records it, the trace is
 immutable, and the circumstance is attestable in the technical file as a declared gap. The
 approval record now has the form this procedure describes.
@@ -234,10 +257,14 @@ A typical process is as follows:
 5. **Merge into the main branch.** After approval, the reviewer or a delegated person merges the
    proposal into the main branch ("merge"). This action is recorded in git with the identity of the
    requester and on GitHub in the timeline of the proposal. The procedure prescribes that the merge
-   **happens only after approval**, but the technical control of branch protection that enforces
-   this rule is not today implemented: a proposal could in theory be merged without approval,
-   violating the procedure with no technical obstacle. Until the protection is activated, the only
-   control on this rule is procedural respect and the trace of the commit in the git log.
+   **happens only after approval**, and as of 26 August 2026 the technical control of branch
+   protection that enforces this rule is implemented: a proposal that has not received at least one
+   favourable review cannot be merged, so the rule no longer rests on procedural respect alone. The
+   trace of the commit in the git log and the timeline of the proposal remain alongside it, as
+   before. What the protection does **not** cover must be stated precisely: it does not apply to
+   repository administrators, and the owner therefore retains the ability to merge their own work
+   after approving it themselves - a circumstance stated in § 5 and recorded as a gap in `Q-189`,
+   not concealed by this implementation.
 
 6. **Immediacy of publication.** The document comes into force immediately after the merge, because
    the documentation site and distributed artefacts are generated from the current version of main.
@@ -323,7 +350,8 @@ software, and its absence is a gap.
 ### 9.2 The consequence on priority
 
 Under `D54`, the gap of author/approver coincidence **is not resolvable with more hours of work**.
-It is resolvable only with a second person. Since capacity is fixed ([02 § 2.1](./09-percorso-e-calendario.md)),
+It is resolvable only with a second person. Since capacity is fixed
+([02 § 2.1](/09_roadmap/02-traguardi.md#21-the-three-decisions-that-determine-this-chapter)),
 the only path is to acquire the function from outside.
 
 ### 9.3 The status of this gap in the certification path
@@ -360,7 +388,7 @@ approval records according to the rules described in §§ 7–8, because:
 | Reference | Question | To whom |
 |---|---|---|
 | **`Q-189`** | **Allocation of records with distinct roles.** Which subset of records that the quality management system requires - internal audit, release review, configuration verification by someone who did not write the code, external review of critical code - does the project accept as a declared gap under `D54`, and which does it propose to cover by acquiring people from outside. Author/approver coincidence is the first item of this allocation. The predetermined outcome is the declared gap, to be marked in the technical file at the date of first distribution | → Sponsor |
-| **`Q-283`** | **Main branch protection - RESOLVED on 26 August 2026.** Configured with `gh api -X PUT repos/fedcal/Telemedic/branches/main/protection --input -` and verified the same day. A change proposal to a controlled document cannot now be merged without favourable review from the nominated reviewer for that category. **Form declared by the Sponsor**: the repository owner (Sponsor) may approve and merge their own work; external contributors receive review from a nominated person before merge is possible. This form **does not resolve the gap of `Q-189`** - the author approves themselves under `D54` - but **makes it visible and confined**: the system records it and the circumstance is attestable in the technical file. Declared structural gap | Technique, compliance |
+| **`Q-283`** | **Main branch protection - RESOLVED on 26 August 2026.** Configured with `gh api -X PUT repos/fedcal/Telemedic/branches/main/protection --input -` and verified the same day. A change proposal to a controlled document cannot now be merged without at least one favourable review. **What the configuration enforces and what it does not**: it enforces one review, not that the review come from the reviewer nominated for the category - `require_code_owner_reviews` is deliberately set to `false`, for the reason given in [`.github/CODEOWNERS`](https://github.com/fedcal/Telemedic/blob/main/.github/CODEOWNERS), and the correspondence between the actual reviewer and the nominated reviewer remains a matter of discipline (§ 5). **Form declared by the Sponsor**: the repository owner (Sponsor), being an administrator, may approve and merge their own work; external contributors receive a favourable review before merge is possible. This form **does not resolve the gap of `Q-189`** - the author approves themselves under `D54` - but **makes it visible and confined**: the system records it and the circumstance is attestable in the technical file. Declared structural gap | Technique, compliance |
 | **`Q-284`** | **Cryptographic signing of commits - adopted on 26 August 2026, mandatory signing on branch pending.** The procedure prescribes that commits on the main branch carry verifiable cryptographic signature (GPG). **Status adopted**: local configuration `user.signingkey` `13EEEA8DBE18B284`, `gpg.format openpgp`, `commit.gpgsign true`, `tag.gpgsign true`. Key `ed25519` registered to `Federico Calò <fedcal01@gmail.com>`, expiration 20 February 2029. **Step remaining open**: mandatory signing on the `main` branch with specific trigger - whilst the public key is not uploaded to GitHub, signed commits would appear "unverified" and push would be refused. It is the final step and has a specific trigger, not a date. Distinguish from `Signed-off-by` (DCO, today mandatory and active, which satisfies ISO 13485 § 7.5.8 on nominative traceability): cryptographic signing is an additional and stronger control | Technique, compliance | <!-- dato-reale-consentito: intestazione della chiave di firma, tracciabilità nominativa richiesta dalla clausola 7.5.8 di ISO 13485 -->
 | `[NV]` | **Formal validation of the four tools.** Validation of the tools (git, GitHub, automatic checks, cryptographic signing) is a functional prerequisite of milestones `T-01` criteria 5 and 7, and `T-03`. The form of validation (how to prove that a tool does what it should) is defined in [03 § 3.2](./03-sistema-di-gestione-della-qualita.md); execution of the validation has not been started. Until validation exists, the control is assertion, not proof | Conformance, technique, pipeline |
 | - | **Access and delegations for main branch control.** Who can merge a change proposal without further approval, when and for what reason, remains in the project's internal documentation and is not repeated here. The decision must remain open to review every six months, because it is the point at which an informal expansion of capacity risks becoming permanent | → Single contributor for quarterly review |

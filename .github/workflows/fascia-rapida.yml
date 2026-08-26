@@ -101,6 +101,46 @@ jobs:
       - uses: actions/checkout@v5
       - run: ./scripts/verifica-ancore.sh
 
+  dco:
+    name: Developer Certificate of Origin (RD-C2)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # CONTRIBUTING.md paragrafo 147 prescrive il «Signed-off-by» per ogni commit. Al 26 agosto
+    # 2026, dei 36 commit della cronologia, ne portavano il marcatore cinque: era una regola
+    # scritta e non osservata da chi l'ha scritta, e questo lavoro la rende esigibile.
+    #
+    # «fetch-depth: 0» serve perche' il controllo confronta l'intervallo con origin/main, e senza
+    # la cronologia completa quell'intervallo non si risolve. E' l'unico costo del lavoro.
+    #
+    # Il controllo NON esamina tutta la cronologia, ma l'intervallo non ancora spinto: pretendere
+    # il marcatore da commit scritti prima che il controllo esistesse renderebbe il cancello
+    # impossibile da soddisfare, e un cancello impossibile non e' un cancello - e' un cancello
+    # che qualcuno finira' per aggirare.
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      # L'intervallo si dichiara qui invece di lasciarlo dedurre allo script, perche' i due
+      # inneschi hanno due risposte diverse e nessuna delle due e' «origin/main..HEAD»:
+      #
+      #   pull_request - i commit della proposta sono quelli fra la base dell'unione e la testa,
+      #                  e la base la sa solo GitHub;
+      #   push         - sono quelli fra lo stato precedente del ramo e quello nuovo. Al primo
+      #                  invio su un ramo nuovo «before» e' tutto zeri, e in quel caso si esamina
+      #                  il solo commit di testa invece di tutta la cronologia del progetto.
+      - name: Developer Certificate of Origin sui commit dell'intervallo
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          TESTA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            INTERVALLO="${TESTA}~1..${TESTA}"
+          else
+            INTERVALLO="${BASE}..${TESTA}"
+          fi
+          echo "Intervallo esaminato: $INTERVALLO"
+          INTERVALLO="$INTERVALLO" ./scripts/verifica-dco.sh
+
   termini-vietati:
     name: Regola di riservatezza R0 (G11) - in sola segnalazione fino al 2026-09-26
     runs-on: ubuntu-latest

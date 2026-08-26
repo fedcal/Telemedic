@@ -773,6 +773,75 @@ esegui_caso "collocazione: un controllo che vive in due luoghi con la prima met�
   env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-due-luoghi.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
+printf '\n== Controllo 7bis - verifica-dco.sh (Developer Certificate of Origin su ogni commit) ==\n\n'
+
+# Il controllo legge la CRONOLOGIA git, non file: le tenute sono quindi repository sintetici
+# costruiti al volo sotto una directory temporanea, con identita' fittizia impostata localmente
+# (mai globalmente) e nessun contenuto reale. Stessa tecnica dei Controlli 3-6.
+_repo_dco() {
+  local dir="$1" con_dco="$2"
+  git -C "$dir" init -q -b main
+  git -C "$dir" config user.name "Collaudo Sintetico"
+  git -C "$dir" config user.email "collaudo@example.invalid"
+  git -C "$dir" config commit.gpgsign false
+  printf 'base\n' > "$dir/f.txt"
+  git -C "$dir" add f.txt
+  git -C "$dir" commit -q -m "chore: commit di base" --no-gpg-sign
+  printf 'seguito\n' >> "$dir/f.txt"
+  git -C "$dir" add f.txt
+  if [ "$con_dco" = "si" ]; then
+    git -C "$dir" commit -q -s -m "chore: commit con DCO" --no-gpg-sign
+  else
+    git -C "$dir" commit -q -m "chore: commit senza DCO" --no-gpg-sign
+  fi
+}
+
+verifica_dco_con_marcatore_passa() {
+  local d uscita; set +e; trap 'set -e' RETURN
+  d=$(mktemp -d) || return 1
+  _repo_dco "$d" si >/dev/null 2>&1
+  env REPO="$d" INTERVALLO="HEAD~1..HEAD" bash "$RADICE_REPO/scripts/verifica-dco.sh" >/dev/null 2>&1
+  uscita=$?; rm -rf "$d"; return "$uscita"
+}
+
+verifica_dco_senza_marcatore_fallisce() {
+  local d uscita; set +e; trap 'set -e' RETURN
+  d=$(mktemp -d) || return 1
+  _repo_dco "$d" no >/dev/null 2>&1
+  env REPO="$d" INTERVALLO="HEAD~1..HEAD" bash "$RADICE_REPO/scripts/verifica-dco.sh" >/dev/null 2>&1
+  uscita=$?; rm -rf "$d"; return "$uscita"
+}
+
+verifica_dco_intervallo_vuoto_passa() {
+  local d uscita; set +e; trap 'set -e' RETURN
+  d=$(mktemp -d) || return 1
+  _repo_dco "$d" si >/dev/null 2>&1
+  env REPO="$d" INTERVALLO="HEAD..HEAD" bash "$RADICE_REPO/scripts/verifica-dco.sh" >/dev/null 2>&1
+  uscita=$?; rm -rf "$d"; return "$uscita"
+}
+
+esegui_caso "dco: il commit porta il Signed-off-by" passa \
+  verifica_dco_con_marcatore_passa
+
+esegui_caso "dco: il commit non porta il Signed-off-by" fallisce \
+  verifica_dco_senza_marcatore_fallisce
+
+esegui_caso "dco: intervallo vuoto, controllo corretto a insieme vuoto" passa \
+  verifica_dco_intervallo_vuoto_passa
+
+# Uscita 2 e non 1: l'errore d'uso si distingue dalla violazione, ed e' la convenzione del
+# progetto. esegui_caso conosce solo «passa» e «fallisce», quindi la distinzione la fa la
+# funzione, come gia' per il Controllo 8.
+verifica_dco_intervallo_non_risolvibile_esce_2() {
+  local uscita; set +e; trap 'set -e' RETURN
+  env INTERVALLO="ramo-che-non-esiste..HEAD" bash "$RADICE_REPO/scripts/verifica-dco.sh" >/dev/null 2>&1
+  uscita=$?
+  [ "$uscita" -eq 2 ] && return 1 || return 0
+}
+
+esegui_caso "dco: intervallo non risolvibile, uscita 2 e non 1" fallisce \
+  verifica_dco_intervallo_non_risolvibile_esce_2
+
 printf '\n== Controllo 8 - verifica-terminologie.sh (G3: contenuto di terminologie sotto licenza) ==\n\n'
 
 # scripts/verifica-terminologie.sh non accetta variabili d'ambiente per puntare a una radice
