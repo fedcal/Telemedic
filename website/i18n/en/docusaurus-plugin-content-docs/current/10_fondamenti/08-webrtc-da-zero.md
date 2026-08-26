@@ -2001,4 +2001,827 @@ re-encoding. No end-to-end encryption property, and the layout is imposed by the
 argument in favour of an intermediate server for two participants: it would add latency,
 infrastructural cost and **would destroy the property on which the entire positioning rests**.
 
-<!--TRAD3-CONT-->
+**For the third participant — sign language interpreter, carer, second specialist — the answer
+is a three-way mesh, not a server.** The reasons:
+
+1. **At three, mesh is technically sustainable.** Two sends and two receives per node. It must
+   be verified in the field, not assumed.
+2. **It preserves end-to-end encryption.** Introducing a server for a third participant would
+   mean rewriting the security communications, redoing the impact assessment and facing the
+   question «so does the server see the patient's video?». The narrative cost exceeds the
+   technical one.
+3. **For the interpreter case it is even preferable**: no additional infrastructure, no further
+   single point of failure.
+
+**The limit must be declared and enforced by the code**: up to three participants in mesh.
+Beyond that, a new architectural decision with documented security implications is needed. **A
+declared limit is engineering; silent degradation is a defect.**
+
+On the implementation side, the three-way mesh requires: `N−1` connections per client;
+deterministic assignment of the negotiation roles for **each pair**; division of the upstream
+bandwidth budget between the recipients; and — a detail that escapes notice — the aggregation of
+metrics across `N−1` connections, where **the session's quality is the minimum, not the average**,
+of the per-link qualities.
+
+### 10.3 If an intermediate server were ever needed
+
+End-to-end encryption would be recovered only by adding a layer of protection **above** SRTP,
+that is, by encrypting the frames before they enter the transport.
+
+The standard exists: **RFC 9605 — Secure Frame (SFrame)**, *Lightweight Authenticated Encryption
+for Real-Time Media*, **Standards Track, August 2024**. It provides encryption and authentication
+of the frames in such a way that intermediate servers can access the metadata but not the
+content. It operates on **whole frames** rather than on individual packets, which makes it more
+bandwidth-efficient. It defines five cipher suites (§4.5), a variable-length header with key
+identifier and counter (§4.3), and compatibility with selective forwarding, simulcast and layered
+coding (§6.1).
+
+The alternative is **RFC 8723 — Double Encryption Procedures for SRTP**: two nested
+transformations, an inner end-to-end one and an outer hop-by-hop one. §4 establishes that the
+distributor may modify **only three fields** of the RTP header — payload type, sequence number
+and marker bit — while all the others *«MUST remain unmodified»*.
+
+**The honest point**, which closes any hasty discussion: **RFC 9605 §5 does not define key
+exchange.** Verbatim, *«Applications bear responsibility for provisioning keys and managing
+rotation»*. The hard problem of end-to-end encryption in a conference is not encrypting the
+frames: it is **distributing and rotating the keys without trusting the server**. Anyone who says
+«we have end-to-end encryption because we transform the frames» has solved the easy part.
+
+For version 1.0 none of this is needed, because there is no intermediate server. It must
+nevertheless be documented as an evolutionary path, because on the day a third participant comes
+in the question will arrive from a data protection officer or from a hospital customer.
+
+### 10.4 The conflict between server-side recording and end-to-end encryption
+
+Here there is a fact that admits no shortcuts.
+
+> **Recording an end-to-end encrypted call requires, by definition, that somebody with access to
+> the clear text write it to disk.** The only entities that have the clear text are the two
+> browsers. There is no way round it.
+
+Only two possibilities follow:
+
+- **Recording on the device**: it preserves end-to-end encryption, but it depends on the CPU and
+  on the continuity of the user's device, and it produces a recording in which the local audio
+  and the remote video are offset by the network latency.
+- **Recording on the server**: reliable, synchronised, device-independent, with format and
+  encryption at rest governed centrally — **but it requires a component that completes a
+  handshake of its own and decrypts the stream. The session is no longer end-to-end encrypted.**
+
+**The project's decision D23 chooses server-side recording, and declares its consequences instead
+of hiding them.** The resulting architecture has **two distinct modes**:
+
+| | Default mode | Recording mode |
+|---|---|---|
+| Media path | Direct where the network allows, otherwise via the relay | Through the recording component |
+| Encryption | End-to-end; the relay does not have the keys | **Terminated on the server** |
+| Verification of the other party | Short authentication string (§6.6) | The SAS verifies the leg up to the server, not up to the other party |
+| Activation | Default | **Only with the patient's explicit consent** |
+
+The obligations that follow are binding and non-negotiable:
+
+1. **The consent notice states explicitly that the session is no longer end-to-end encrypted.**
+   Not «the session will be recorded»: the security model changes too, and that is what the
+   patient has a right to know.
+2. **The interface signals the recording status persistently and non-concealably** for the whole
+   duration, on **both** sides. Persistently means that it does not disappear after a few
+   seconds; non-concealably means that it cannot be closed. And, for WCAG criterion 1.4.1, **it
+   cannot be conveyed by colour alone**: text is needed, and an announcement to assistive
+   technologies when the status changes.
+3. **The transition between the two modes is recorded in the audit trail**, with timestamp, actor
+   and reference to the consent.
+4. **The file is encrypted at rest** with per-organisation keys, with a configurable retention
+   period and with destruction of the key as the deletion mechanism.
+
+This is the part where architectural honesty costs something and one pays it willingly: it would
+be more convenient to declare «end-to-end encrypted» without qualification and record anyway. It
+would be false, and verifiable as such by anyone who read the transport statistics of a recorded
+session.
+
+---
+
+## 11. The relay server
+
+### 11.1 What it is for, in one line
+
+The project uses **coturn**, an open source implementation of STUN and TURN. It does two things:
+it answers the questions «what address do you see arriving from me?» (STUN, §5.3) and it lends an
+address of its own to route the packets when no direct path works (TURN, §5.3).
+
+The data sovereignty constraint (V1) requires that it be **hosted by the project or by the
+distributor, in the European Union**. No third-party managed service.
+
+### 11.2 Authentication with temporary credentials
+
+A relay server is, by definition, **an authenticated UDP proxy that forwards arbitrary bytes
+towards an address chosen by the client**. Whoever obtains a credential for it can push traffic
+through it. This makes credential management a security question, not a configuration one.
+
+**Why static credentials are unacceptable.** The relay credentials **must be delivered to the
+browser**, therefore to the client, therefore to the user. A static credential is, by
+construction, **public**: anyone who opens the developer tools reads it and reuses it to push
+arbitrary traffic, with the bandwidth cost borne by the operator and legal responsibility for the
+traffic relayed.
+
+**The solution: short-lived credentials derived from a shared secret.** The mechanism, verified
+against the upstream project's documentation:
+
+- `username` = `<expiry timestamp>:<identifier>`
+- `password` = `base64(hmac(username, shared secret))`
+
+The backend issues the credential, the relay server verifies it by recomputing the HMAC with the
+same secret. **No user database, no shared state**: any node can validate any credential.
+
+Four non-negotiable rules on this mechanism:
+
+1. **The endpoint that issues the credential is authenticated, authorised and rate limited.** It
+   must verify that the requester is actually party to that consultation. Otherwise it is a
+   vending machine for relay access.
+2. **The lifetime is short** — the correct order of magnitude is between five minutes and an
+   hour.
+3. **The identifier inside the credential is opaque.** It ends up in the relay server's logs in
+   the clear: **it must never be an identifier of the patient nor of the professional**, but a
+   session identifier that cannot be correlated without access to the project's database. It is
+   a minimisation requirement, not a preference.
+4. **The shared secret comes from a secret manager**, never from the source. In this guide's
+   examples it appears exclusively as an environment variable placeholder.
+
+Two clarifications of normative honesty, both verified:
+
+- **This mechanism is not an IETF standard.** It derives from an expired individual
+  Internet-Draft. The real standard would be RFC 7635 (third-party authorisation via token). The
+  mechanism described here is, however, the only one with universal support in browsers and in
+  the server: it is adopted, and **it is documented for what it is — a de facto convention**.
+- **The hash algorithm underlying the HMAC** is generically indicated as `hmac(...)` in the
+  server's documentation: `[NV]` that it is SHA-1. The correct way to resolve the doubt is not a
+  documentary citation but **an integration test**: issue a credential with the project's
+  implementation, attempt a real allocation against the server as actually distributed, and fail
+  the build if the authentication does not succeed. It verifies the behaviour of the version in
+  production, which is what counts.
+
+A relevant operational capability, verified: the server accepts **several shared secrets
+simultaneously**. It is the mechanism that makes it possible to **rotate the secret without
+interruption of service**: the new one is added, the backend is made to issue with the new one,
+the old one is removed after the maximum lifetime has elapsed.
+
+### 11.3 The minimum version is 4.17.2, and it is not negotiable
+
+Figure verified against the upstream repository as at 25 August 2026: the current version is
+**4.17.2**, published on **8 August 2026**. In the seven preceding months **fourteen releases**
+were published, five of them in the month of August 2026 alone.
+
+**The minimum version permitted by the project is 4.17.2.** It is not a preference: earlier
+versions remain exposed to defects fixed later, some of them of high severity — including one
+rated 9.8 out of 10 in the decoding of an authorisation token, fixed in 4.10.0.
+
+Three changes of default behaviour introduced in 4.17.0 must be known, because they break
+configurations written for earlier versions:
+
+1. **The DTLS listeners are now optional**: *«The server no longer starts DTLS listeners unless
+   `--dtls` is given.»* For the project this is the configuration wanted — browsers use the relay
+   over TCP with TLS, not over DTLS — and not enabling them removes an entire attack surface.
+2. **The stateless nonce is on by default**, with a signing key **generated per process**. In an
+   architecture with several independent nodes this means that every request that lands on a
+   different node costs the client an additional round of re-authentication. **The secret for the
+   stateless nonce must therefore be configured identically on all nodes**: it is a requirement,
+   not an optimisation.
+3. **The log format has changed** (ISO-8601 timestamp to the millisecond, one record per line).
+   Any parser written for earlier versions must be updated.
+
+**Permanent rule**: at every minor version update, the configuration and the list of known
+defects must be re-verified against the vulnerability databases and against the online help of
+the version actually distributed, and the outcome must be recorded in the post-market
+surveillance file. The relay server is a third-party component formally inventoried within the
+meaning of IEC 62304 §8.1.2, not just any dependency.
+
+### 11.4 The rule that counts: egress network isolation is the primary defence
+
+This is the most important part of the paragraph, and it is the one that in practice is
+systematically got wrong.
+
+**The mechanism of the attack.** A relay server forwards bytes towards an address **chosen by
+the client**. If the destinations are not restricted, anyone who obtains a valid credential —
+and in the project **every authenticated patient** obtains one, by construction — can:
+
+- reach the server's own loopback address and talk to services believed to be unexposed;
+- scan the operator's internal network;
+- reach the metadata endpoints of the infrastructure providers, the classic ladder towards
+  administration credentials;
+- use the infrastructure as a bounce point towards third parties, with the project's address at
+  the head of the victim's logs.
+
+It is **server-side request forgery at the transport level**, not the application level.
+
+**What the standard says.** **RFC 8656 §21** deals with security but **does not impose**
+restrictions on relaying towards loopback or private networks. §7.2 confines itself to saying
+that *«the TURN server application knows, through some means not specified here, that other
+applications running on the same host as the TURN server application will not be impacted»*;
+§21.2.2 mentions lists of forbidden addresses as a firewall consideration, **delegating to the
+operator**. The defence is the responsibility of whoever deploys, not of the protocol.
+
+**The verified figure, which decides the strategy.** The pattern is not theoretical: it has **six
+distinct vulnerabilities** recorded over eight years, **four of them in the last eight months**:
+
+| Mechanism of the bypass | Fixed in |
+|---|---|
+| Default configuration that allowed relaying towards loopback | 4.5.0.9 |
+| Destination address `0.0.0.0` (and the equivalent IPv6 forms) | 4.5.2 |
+| IPv4-mapped IPv6 form that bypasses **the explicit** deny rules | 4.9.0 |
+| IPv4-mapped IPv6 form that bypasses **the default** loopback protection | 4.13.0 |
+| Alternative IPv6 forms routable to IPv4 (6to4, NAT64) not normalised | 4.13.1 |
+| Comparison of IPv6 addresses byte by byte rather than numerically: a range **not aligned to a prefix** is bypassed | 4.16.0 |
+
+That is **four bypasses in eight months**, all due to defects in the normalisation or comparison
+of IPv6 addresses.
+
+> **The operational conclusion, which is the non-negotiable rule of this module.**
+>
+> **The list of forbidden addresses is defence in depth, not the primary defence.** It has been
+> bypassed four times in eight months. **The only defence that has held against all six
+> vulnerabilities is egress network isolation**, because it does not depend on the correctness of
+> the server's parsing.
+
+The four measures that follow from this fact, and that no line of configuration can replace:
+
+1. **Egress network isolation.** The relay node in a demilitarised zone, **with no route
+   whatsoever towards the internal network**. Egress rules at the network level: only traffic
+   towards the public Internet permitted; everything else denied, **including traffic towards
+   itself and towards its own public address**.
+2. **No co-located services.** No database, no management agent listening on loopback, no
+   reachable metadata endpoint.
+3. **Security tests in continuous integration.** With a valid credential, attempt to create a
+   permission towards the loopback address, towards its IPv4-mapped IPv6 form, towards the
+   metadata endpoint, towards private addresses, **towards the node's own public address** and
+   **towards an address inside an IPv6 range not aligned to a prefix**; fail the build if any of
+   them receives a success response. It is a traceable risk control measure.
+4. **Alerts on the logs, not on the metrics.** A verified fact: **the server's metrics exporter
+   exposes no counter of denied permissions**. The attack signal — a spike in rejected permission
+   requests, that is, a scan of the internal network — **must be extracted from the application
+   logs**. The useful metrics alongside are the number of current allocations (for saturation)
+   and the counter of suppressed authentication responses (for reflection activity).
+
+### 11.5 The configuration rules, explained
+
+We do not reproduce the complete file here; it lives in the operational documentation. What
+matters are the **principles**, because they are what must be understood before touching that
+file.
+
+**First principle: the default behaviour is «allow».** Verbatim text of the server's
+documentation: *«If there is no rule for an address, then it is allowed»*. There is no global
+«deny everything by default» switch: **the default denial must be built by enumerating the
+ranges**. One forgotten line means relaying allowed.
+
+**Second principle: allow rules always prevail over deny rules.** Again verbatim: *«If there is
+an 'allowed' rule that fits the address then it is allowed — no matter what»*. It follows that
+**in a healthcare profile allow rules are not used at all**: a single line would annul all the
+denials.
+
+**Third principle: IPv6 ranges must be aligned to a prefix.** It is the mitigation recommended by
+the security advisory on byte-by-byte comparison: arbitrary boundaries between a minimum and a
+maximum are precisely what that defect got wrong.
+
+What must be denied, by category: the private and non-routable IPv4 spaces; **the node's own
+public address** (otherwise the relay reaches its own services by coming back in from outside);
+the IPv4-mapped IPv6 form; the special IPv6 prefixes, including 6to4 and NAT64, which have
+proved to be real vectors.
+
+What must be **enabled**: the denial of multicast peers; the denial of relaying towards TCP
+destinations, which WebRTC does not use and which is exactly the path on which one of the
+bypasses took place; rate limiting of failed authentication responses, which *«mitigates
+reflection and amplification attacks»*; the limited-lifetime nonce.
+
+What must **never** be enabled: permission for loopback peers, whose documentation says verbatim
+*«Allow it only for testing in a development environment!»*; the server-side relay option,
+documented as a *«NON-STANDARD AND DANGEROUS OPTION»*; the web administration interface, which
+has a history of script injection and SQL injection; the redirection for automatic certificate
+management, which has a precedent of memory disclosure **before authentication**; the session
+mobility mechanism, which has accumulated three vulnerabilities in two months and brings no
+benefit to a two-party consultation.
+
+**Two traps of units and of environment:**
+
+- The server's bandwidth limits have names that suggest bits but are expressed in **bytes per
+  second**, and they apply **per direction**. Verified verbatim: *«Max bytes-per-second bandwidth
+  a TURN session is allowed to handle (input and output network streams are treated
+  separately)»*. Anyone reading «bps» as «bits per second» gets the sizing wrong by a factor of
+  eight.
+- **The relay port range cannot be mapped port by port in a container.** There are over sixteen
+  thousand ports: individual mapping is impracticable. The only sane configuration is host
+  network mode, and it must be written into the composition file with a comment explaining why.
+
+An example of the only part that the application code needs — no real secrets, only placeholders:
+
+```yaml
+# Fragment of the application's configuration.
+# The two values come from the secret manager, never from the source
+# and never from the repository.
+telemedic:
+  media:
+    turn:
+      urls:
+        - "turn:turn.telemedic.example:3478?transport=udp"
+        - "turns:turn.telemedic.example:5349?transport=tcp"   # for networks that block UDP
+      static-auth-secret: ${TURN_STATIC_AUTH_SECRET}
+      stateless-nonce-secret: ${TURN_STATELESS_NONCE_SECRET}
+      credential-ttl: PT10M
+```
+
+### 11.6 High availability: the redundancy is done by ICE
+
+The correct, anchorable formulation, to be used in place of absolute claims: **the upstream
+documentation offers only three scalability schemes — name resolution with service records,
+redirection towards an alternative server, network load balancer — all of them for distributing
+new requests; no source documents the replication of allocation state between nodes.** An
+allocation lives in the process that created it and cannot be reconstructed elsewhere.
+
+From this follows the correct architecture, which is also the simplest: **N independent nodes,
+the same authentication realm, the same shared secret, the same secret for the stateless nonce,
+all announced to the client in the list of servers**. ICE allocates in parallel on several
+servers and chooses the best pair: **the redundancy is done by ICE, not by the relay**. No
+cluster, no session affinity, no anycast addressing — which for a stateful protocol over UDP is
+particularly wrong, because a change of route moves the packets onto a node that does not have
+the allocation.
+
+The cost is that each client opens several allocations; this is contained with a per-credential
+quota.
+
+---
+
+## 12. Recording
+
+### 12.1 Container, codec, format: three different things
+
+A recurrent confusion. A video file has three independent layers:
+
+- the **video codec** (VP8, VP9, H.264, AV1) and the **audio codec** (Opus, AAC) — how the two
+  streams are compressed;
+- the **container** (MP4, WebM) — how the two streams are interleaved into a single file together
+  with index, timings and metadata;
+- **encryption at rest** — which in the project is applied **on top of** the file, with
+  per-organisation keys.
+
+The container does not imply the codec, nor vice versa. The fact that the browser can **decode**
+a format does not imply that it can **produce** it: they are different software paths.
+
+### 12.2 The verified trap: the container diverges between browsers
+
+The interface that produces a file from a stream is defined by the W3C *MediaStream Recording*
+specification. Container support has been **verified browser by browser**, and the picture is
+less reassuring than is commonly assumed:
+
+| Engine | `video/mp4` for recording | `video/webm` for recording |
+|---|---|---|
+| Chrome, Edge and derivatives (desktop and Android) | **Yes**, from version 126, on by default (H.264 + AAC) | Yes |
+| Chrome on iOS | **No** | `[NV]` |
+| Safari and Safari iOS | **Yes**, since the interface was introduced (H.264 + AAC) | **Yes, but only from version 18.4** |
+| Firefox and Firefox Android | **No.** Open report with no resolution; comment from the vendor: *«We don't support an mp4 muxer.»* | Yes |
+
+> **Neither of the two containers is universal.** MP4 is missing on Firefox; WebM is missing on
+> versions of Safari earlier than 18.4.
+
+**The project's rule follows directly from this fact: the container is negotiated at runtime and
+never assumed.** The implementation is queried with the support-checking function, the first
+format supported from a preference list is chosen, and **the container actually used is recorded
+in the recording's metadata**, exactly as the cipher suite actually negotiated for the session is
+recorded.
+
+```javascript
+/**
+ * Chooses the recording container supported by the implementation.
+ * NEVER assumes a format: support diverges between engines (see table).
+ * Returns the chosen MIME type, to be recorded in the session's metadata.
+ */
+function selectRecordingContainer() {
+  const preferences = [
+    "video/mp4;codecs=avc1,mp4a.40.2",
+    "video/webm;codecs=vp9,opus",
+    "video/webm;codecs=vp8,opus",
+    "video/webm",
+    "video/mp4",
+  ];
+
+  const chosen = preferences.find((type) => MediaRecorder.isTypeSupported(type));
+  if (!chosen) {
+    // Explicit and comprehensible error: never a silent failure.
+    throw new Error(
+      "No recording container supported by this browser"
+    );
+  }
+  return chosen;
+}
+```
+
+**Consequence for public communications**: any statement declaring a single format without
+qualification must be corrected. The verifiable formulation is *«recording in a standard
+container, MP4 or WebM according to the browser, with the actual format recorded in the metadata,
+encrypted at rest»*.
+
+Server-side remuxing of the container as a remedy must also be excluded: **you cannot remux
+encrypted content without decrypting it**, and reintroducing a decryption in order to convert a
+format would defeat the very reason for encryption at rest.
+
+### 12.3 The other pitfalls of recording
+
+Even with the container resolved, four problems remain that must be addressed in design and not
+discovered in production.
+
+1. **Composing the streams.** The recording interface records **one** stream. To capture
+   professional and patient together they must be composed, and composition costs CPU **on top
+   of** the encoding and decoding of the call in progress. On modest hardware it is a concrete
+   risk of causing precisely the degradation the system is supposed to avoid. If the recording
+   takes place on the device, it must be measured on low reference hardware and disabled
+   automatically — informing the user — when the quality limitation reason persistently indicates
+   CPU.
+2. **Synchronisation.** When recording the local composition, the remote video is already offset
+   from the local audio by the network latency. It is not correctable downstream without the
+   transport's reference timings, which the recording interface does not expose. It is one of the
+   reasons why D23 chooses server-side recording.
+3. **Reliability.** If the browser closes or the tab freezes, the recording on the device is
+   lost. Incremental chunked upload limits the damage but does not eliminate it; and if the
+   professional shuts the laptop at the end of the consultation before the upload finishes, that
+   recording no longer exists.
+4. **Retention.** Encryption at rest with per-organisation keys, configurable retention period,
+   and **cryptographic erasure** — destruction of the key — as the mechanism of effective
+   deletion.
+
+---
+
+## 13. How all this is tested locally
+
+### 13.1 Replacing camera and microphone with deterministic sources
+
+Testing a video call with a real webcam is impossible in continuous integration and unreliable on
+a laptop: the framing changes, the light changes, the result is not reproducible. Browsers offer
+ways to replace the devices with synthetic sources.
+
+Options **verified against the source code of the Chromium engine**, with the original comments:
+
+| Option | Effect |
+|---|---|
+| `--use-fake-device-for-media-stream` | *«Use fake device for Media Stream to replace actual camera and microphone.»* |
+| `--use-file-for-fake-video-capture=<file>` | *«Use an .y4m file to play as the webcam.»* |
+| `--use-file-for-fake-audio-capture=<file>` | *«Play a .wav file as the microphone.»* Syntax `<path>%noloop` to stop at the end of the file |
+| `--auto-accept-camera-and-microphone-capture` | *«Bypasses the dialog prompting the user for permission to capture cameras and microphones… this flag does NOT affect screen-capture.»* |
+| `--use-fake-ui-for-media-stream` | The same thing, **but it also accepts screen capture**. The upstream comment itself recommends preferring the previous option |
+
+**Three operational facts that are otherwise only discovered by losing a day:**
+
+1. **The correct option is the one that does not touch screen capture.** The other would also
+   auto-accept screen sharing, and a test that verifies the consent flow for sharing — «I show
+   the report to the patient» is a real use case of the project — would produce **false
+   positives**.
+2. **Formats: Y4M for video, WAV for audio.** They are not interchangeable.
+3. **Playback of an audio file requires audio processing to be disabled** (echo, noise, gain),
+   otherwise the file is played back distorted, and it must be combined with the synthetic device
+   option. Both constraints are stated in the upstream comment.
+
+On **Firefox**, the equivalent preferences verified are `media.navigator.streams.fake` and
+`media.navigator.permission.disabled`, both boolean and defaulting to false. Neighbouring
+preferences useful for quality testing: default number of frames per second, maximum frame size,
+frequency of the synthetic audio tone, activation of audio error correction.
+
+> **An asymmetry to know before designing the test suite.** **Firefox has no equivalent of
+> playback from a file.** The synthetic stream preference produces a browser-generated signal —
+> colour bars and a tone — it does not play back a file chosen by the developer. **Concrete
+> consequence: automatic measurement of camera-to-display latency based on a file with a
+> time counter burnt into it is achievable only on the Chromium engine.** On Firefox an
+> alternative strategy is needed — for example drawing the counter on a graphical element and
+> capturing its stream — or reduced coverage must be declared.
+
+**The idea of the latency test, for completeness**: a video file is prepared containing a time
+counter readable on screen; the receiving side captures the frames, reads the counter and
+compares it with its own clock. It is the only way to obtain an **objective** measurement of
+perceived latency, that is, exactly the number the project declares and that without this
+experiment it would not measure.
+
+### 13.2 Simulating degraded networks
+
+The correct tool on Linux is the kernel's queueing discipline with the network emulator,
+applicable also inside a container:
+
+```bash
+# Adds 80 ms of delay with 20 ms of variability, 3 % loss and reordering
+sudo tc qdisc add dev eth0 root netem \
+    delay 80ms 20ms distribution normal \
+    loss 3% \
+    reorder 1% 50%
+
+# Bandwidth limit: emulator and limiter in cascade
+sudo tc qdisc add dev eth0 root handle 1: tbf rate 1mbit burst 32kbit latency 400ms
+sudo tc qdisc add dev eth0 parent 1:1 handle 10: netem delay 80ms 20ms loss 3%
+
+# Removal
+sudo tc qdisc del dev eth0 root
+```
+
+Profiles to be defined **once only** as shared constants and reused throughout the suite, so that
+the results are comparable between runs:
+
+| Profile | Delay | Variability | Loss | Bandwidth | Scenario |
+|---|---|---|---|---|---|
+| `fibre` | 10 ms | 2 ms | 0.1 % | 100 Mbit/s | Home fibre |
+| `mixed` | 25 ms | 8 ms | 0.5 % | 20/3 Mbit/s | Asymmetric line |
+| `mobile` | 50 ms | 25 ms | 2 % | 8/2 Mbit/s | Mobile network on the move |
+| `congested_mobile` | 120 ms | 60 ms | 6 % | 2/0.5 Mbit/s | Crowded cell |
+| `hospital_wifi` | 30 ms | 40 ms | 3 % | 10/10 Mbit/s | Crowded corporate Wi-Fi |
+| `degraded` | 250 ms | 100 ms | 10 % | 1/0.3 Mbit/s | Worst acceptable case |
+
+The `degraded` profile **is not there to verify that the system works well**: it is there to
+verify that it **degrades gracefully and says so to the user** (§8.5, §9.6).
+
+> **A misconception to dismantle at once.** The bandwidth throttling offered by the browser's
+> developer tools acts at the HTTP layer and **does not touch WebRTC's UDP traffic**. It cannot
+> be used for these tests. It must be written into the test documentation, because it is a
+> mistake that wastes the time of anyone who makes it.
+
+### 13.3 Simulating NAT
+
+Two approaches, complementary.
+
+**The first, quick one**: force the use of the relay by setting the ICE transport policy to
+`relay`. The browser discards all candidates that are not `relay`; if the session establishes
+anyway, the path through the relay works. Check to be made: **both** candidate types of the
+selected pair must be `relay`. It runs on every proposed change.
+
+**The second, realistic one**: in a container environment, the two clients are placed on separate
+networks and UDP packets directly between them are blocked, leaving open only the path towards
+the relay. It verifies the **actual** behaviour of ICE, not a forced path. It is a nightly
+integration test, not one to be run on every change.
+
+**Both must be implemented.** The first says that the relay is reachable and configured; only the
+second says that ICE behaves as expected when it has no choice.
+
+### 13.4 Verifying the relay
+
+Three distinct checks, answering three different questions:
+
+1. **Does the credential work?** Issue one with the project's code and attempt a real allocation
+   against the distributed server. It fails the build if the authentication does not succeed. It
+   also resolves the doubt of §11.2 about the hash algorithm, definitively and without citations.
+2. **Does the path through the relay work?** The test of §13.3.
+3. **Is the relay confined?** The security test of §11.4, point 3. With a valid credential,
+   attempt to create permissions towards loopback, towards its IPv4-mapped IPv6 form, towards the
+   metadata endpoint, towards private addresses, towards the node's public address and towards an
+   address inside an IPv6 range not aligned to a prefix. **Every success fails the build.** This
+   test is linked to the risk management file: it is not a test like the others.
+
+### 13.5 What to look at when it does not work
+
+In order, from the most probable to the least probable:
+
+1. **Is the signalling arriving?** If the messages do not get through, there is no WebRTC to
+   speak of. Look at the WebSocket connection before anything else.
+2. **Does the offer contain media sections?** An offer with no sections means that capture from
+   camera and microphone has failed — permissions denied, device busy, insecure context. **WebRTC
+   requires a secure context**: over plain HTTP, `getUserMedia()` does not work, and in local
+   development the only origin treated as secure is the loopback one.
+3. **Are candidates being produced?** If only one of type `host` appears, the STUN and TURN
+   server is unreachable or the credentials have expired.
+4. **Are the candidates delivered to the other side, in order and exactly once?** It is the
+   requirement of RFC 8838 §9 (§4.5). A defect here produces sessions that establish
+   «sometimes».
+5. **Do the fingerprints match?** A handshake that fails with mismatched fingerprints means that
+   something has altered the SDP along the way — or, far more often, that the code has applied
+   two descriptions belonging to different negotiations.
+6. **Does the connection state reach `connected` but the bytes stay at zero?** A firewall that
+   lets the control traffic through and blocks the data.
+7. **The browser's internal diagnostic tools** show the rest: they are the source of truth, not
+   the application logs.
+
+---
+
+## 14. Typical mistakes of those touching this area for the first time
+
+**1. Believing that the signalling server «manages the call».** It does not manage it: it puts
+two endpoints in contact and then leaves the path. If it goes down once the call is under way,
+the stream continues; what is lost is renegotiation, ICE restart and orderly closing.
+
+**2. Claiming fallback to the relay as a feature of one's own.** It is ICE's native behaviour,
+due to the type preference of zero (§5.5). What the project really does is supply valid
+credentials for a reliable relay.
+
+**3. Saying «peer-to-peer» when one means «end-to-end encrypted».** They are two independent
+properties. A relayed session is not point to point **and is** end-to-end encrypted (§6.7 case
+B).
+
+**4. Believing that the relay can see the content.** It cannot: it does not take part in the
+handshake and does not have the keys. It sees metadata, which are nevertheless personal data in
+the healthcare domain.
+
+**5. Confusing an ICE restart with a key rotation.** The former changes the network path, not the
+keys (§5.8). And rotation within a session **does not exist** (§6.8).
+
+**6. Regarding the list of forbidden addresses on the relay as the defence.** It is defence in
+depth. It has been bypassed four times in eight months. **The defence is egress network
+isolation** (§11.4).
+
+**7. Plotting cumulative counters without differencing them.** `packetsLost` always grows:
+plotting it raw produces a chart that always says «getting worse» and means nothing (§9.3).
+
+**8. Looking for round-trip time in the outbound stream's statistics.** It is not there. It is in
+`remote-inbound-rtp`, because it is what the other party observes on receiving our stream (§9.2).
+
+**9. Using the developer tools' bandwidth throttling to simulate a poor network.** It acts on
+HTTP, not on WebRTC's UDP traffic (§13.2).
+
+**10. Assuming the recording container.** It diverges between engines, and neither of the two
+main containers is universal (§12.2). It must be negotiated at runtime and recorded in the
+metadata.
+
+**11. Writing the patient's identifier inside the relay credential.** It ends up in the server's
+logs in the clear (§11.2). An opaque session identifier is needed.
+
+**12. Recording the complete SDP in the application logs.** It contains fingerprints, ICE
+credentials and stream identifiers (§4.3). The audit trail should carry the outcome and the
+fingerprints, not the block.
+
+**13. Treating latency as a rigid target.** The jitter buffer **grows on purpose** when the
+network gets worse, and it is the largest contributor (§8.2). Imposing a fixed threshold means
+asking the system to discard packets.
+
+**14. Inferring perceived latency from round-trip time.** It is one component, and not even the
+largest (§8.2). Measuring it requires a dedicated experiment.
+
+**15. Presenting quality thresholds as regulatory compliance.** They are product specification
+(§9.6). Presenting them as an obligation is an unsustainable claim.
+
+**16. Forgetting that WebRTC requires a secure context.** Over plain HTTP device capture does not
+work, and the error message does not say so obviously.
+
+**17. Trying to map the relay's port range in a container, port by port.** There are over sixteen
+thousand rules (§11.5).
+
+**18. Testing the session with two tabs of the same browser on the same computer and concluding
+that it works.** That test exercises neither the NAT, nor the relay, nor upstream bandwidth, nor
+encoding on modest hardware. It demonstrates almost nothing.
+
+**19. Designing the authentication string's interface as a dismissible warning.** If it can be
+closed with a click without comparing it, it is not a risk control: it is decoration (§6.6).
+
+**20. Treating quality degradation as an optimisation problem.** It is an accessibility problem
+and, when it concerns audio intelligibility, a patient safety problem (§8.5).
+
+---
+
+## What you must remember
+
+1. **The web presupposes a reachable server; a video call has none.** Everything that follows is
+   born from this.
+2. **The temporal constraint comes from physiology, not from technology.** ITU-T G.114: within
+   150 ms nobody notices; beyond 400 ms the conversation is compromised, and highly interactive
+   applications suffer earlier still.
+3. **Late data is worse than lost data.** It is why UDP is used and not TCP: TCP's guarantees are
+   harmful for real time.
+4. **NAT makes both endpoints unreachable**, and address-and-port-dependent mapping makes the
+   direct path **impossible** if it is present on both sides. On the Italian mobile network, with
+   the operator's second level of translation, it is the ordinary scenario.
+5. **The consultation in which the two are in the same building is often the hardest to route**,
+   because of client isolation on managed Wi-Fi networks.
+6. **WebRTC is two bodies of rules**: the W3C's interface and the IETF's protocols, coordinated
+   by RFC 8825.
+7. **Signalling is not in the standard, by declared choice** (RFC 8829 §1.1). It is a project's
+   choice — and, not being specified, **it is not protected either**.
+8. **The signalling server is the anchor point of trust for the entire session**, not an
+   accessory component.
+9. **ICE does not choose: it gathers all the plausible paths, tries them all and keeps the best
+   one.** The relay has type preference **zero**: it is used only if nothing else works.
+10. **Fallback to the relay is not project code**: it is ICE's native behaviour.
+11. **Trickle ICE lets the offer leave before gathering has finished**, and requires the
+    transport to deliver **exactly once and in order** (RFC 8838 §9). It is a direct requirement
+    on the signalling server.
+12. **An ICE restart changes the path, not the keys**, and it requires signalling: without the
+    WebSocket a change of network cannot be recovered from.
+13. **DTLS-SRTP protects the media, and the fingerprint in the SDP binds the certificate to the
+    signalled session.** It guarantees that the stream comes from whoever produced that SDP —
+    **not** that that SDP is authentic.
+14. **The signalling server can carry out a man-in-the-middle attack** (RFC 8827 §9.1) and no
+    automatic check can notice it.
+15. **The alternative provided for by the standard does not exist in practice**: the identity
+    verification interface is implemented by **one browser only** and its specification is stuck
+    at the Candidate Recommendation of **27 September 2018**, with no substantive commits since
+    2021.
+16. **The short authentication string is not one of two roads: it is the only one.** That is why
+    the project makes it mandatory by default, readable by a screen reader, never conveyed by
+    colour alone, with a defined procedure in the event of a mismatch.
+17. **There is no rotation of SRTP keys within a session.** Verified: TLS 1.3's
+    `exporter_secret` *«is static for the lifetime of the connection and is not updated by a
+    standard key update»*. It is not a weakness — RFC 3711 §9.2 shows that the key lifetime
+    limits are unreachable in a consultation — but **it must not be claimed**.
+18. **The relay cannot decrypt anything**, but it sees metadata which in the healthcare domain
+    are already data concerning health.
+19. **The mandatory codecs are Opus and G.711 for audio, VP8 and H.264 Constrained Baseline for
+    video.** In version 1.0 no preference is forced: which codec is really negotiated is
+    measured and decisions are taken on the data.
+20. **Congestion control is not project code**: it is in the browser, and it rests on drafts
+    that were never standardised, one of which expired in 2016. The project configures it and
+    observes it.
+21. **The jitter buffer is the largest contributor to perceived latency and it grows on purpose
+    when the network gets worse.** A rigid latency target is in direct tension with audio
+    quality.
+22. **Audio comes before video, and it is a clinical choice.** The intelligibility of the voice
+    is the vehicle of the service and a misunderstood dosage is an adverse event.
+23. **Round-trip time is in `remote-inbound-rtp`**, not in the outbound stream's statistics: it
+    is what the other party observes, and it is the only measure that counts.
+24. **The counters are cumulative and must be differenced.** It is the commonest error in this
+    area.
+25. **No technical threshold is imposed on telemedicine by Italian law**, so far as the research
+    has shown. The project's target values are **product specification**, not compliance, and
+    must be presented as such. `[NV]` on the possible existence of minimum requirements in the
+    national indications: if they existed, they would prevail.
+26. **Recording `srtpCipher`, `dtlsCipher`, `tlsVersion` and the candidate types for every
+    session** turns a security claim into an auditable fact.
+27. **For two participants the direct topology is the only sensible one; for three, mesh is used,
+    and the limit of three is declared and enforced by the code.**
+28. **Server-side recording and end-to-end encryption are incompatible.** The project resolves
+    this with **two distinct modes**, declared in the consent and signalled persistently and
+    non-concealably in the interface.
+29. **The minimum version of the relay server is 4.17.2**, with fourteen releases in seven months
+    behind it: the update cadence is a quantified obligation, not a good practice.
+30. **The list of forbidden addresses on the relay is defence in depth, not the primary
+    defence.** It has been bypassed **four times in eight months** because of IPv6
+    canonicalisation defects. **The only defence that has held against all six vulnerabilities is
+    egress network isolation.**
+31. **The recording container diverges between browsers** and neither is universal: it must be
+    negotiated at runtime and recorded in the metadata, never assumed.
+32. **The test with two tabs of the same browser on the same computer demonstrates almost
+    nothing.** Deterministic fake devices, reproducible degraded networks and explicit
+    verification of the path through the relay are needed.
+
+---
+
+## Terms introduced in this module
+
+| Term | Short definition |
+|---|---|
+| **WebRTC** (*Web Real-Time Communication*) | Set of W3C and IETF specifications that allow a browser to establish an audio, video and data session in real time with another endpoint. |
+| **UDP** (*User Datagram Protocol*) | Minimal transport protocol: no connection, no acknowledgement, no ordering. It is what real time needs. |
+| **TCP** (*Transmission Control Protocol*) | Reliable, ordered transport protocol; its guarantees are harmful for real-time media. |
+| **Head-of-line blocking** | Delay of all subsequent data caused by waiting for a lost datum that precedes them. |
+| **Port** | Number from 0 to 65535 identifying the destination program on a machine. |
+| **Five-tuple** | Protocol, source address and port, destination address and port: it identifies a communication. |
+| **NAT** (*Network Address Translation*) | Address translation that allows several devices to share a public address; it makes internal hosts unreachable. |
+| **Symmetric NAT** | Translation with address-and-port-dependent mapping (RFC 4787): it makes the direct path impossible if present on both sides. |
+| **CGNAT** (*Carrier-Grade NAT*) | Second level of translation inside the operator's network; addresses in the `100.64.0.0/10` space (RFC 6598). |
+| **Client isolation** | Wi-Fi access point policy that prevents two devices on the same network from talking to each other directly. |
+| **mDNS** (*multicast DNS*) | Name resolution on the local network; used by browsers to obfuscate private addresses in the candidates. |
+| **Signalling** | Preliminary exchange between the two endpoints of the session descriptions and the candidates. **It is not standardised by WebRTC.** |
+| **SDP** (*Session Description Protocol*) | Textual format describing a media session: codecs, parameters, addresses, fingerprints (RFC 8866). |
+| **Offer / answer** | Negotiation model: one proposes everything it can do, the other accepts, restricts or refuses (RFC 3264). |
+| **JSEP** | *JavaScript Session Establishment Protocol* (RFC 8829): how offer and answer appear to the browser's interface. |
+| **BUNDLE** | Mechanism that makes audio, video and data share a single connection, a single handshake, a single relay allocation (RFC 8843). |
+| **Media section** (`m=`) | Block of the SDP describing a stream: type, codecs offered, direction, attributes. |
+| **`a=fingerprint`** | SDP attribute with the fingerprint of the DTLS certificate; it binds the encrypted stream to the signalled session (RFC 8122). |
+| **`a=setup`** | SDP attribute that assigns the client and server roles in the DTLS handshake (RFC 8842). |
+| **Glare** | Two simultaneous offers; resolved with the polite and impolite roles. |
+| **Perfect negotiation** | Scheme that resolves the collision without races, using `setLocalDescription()` with no arguments. |
+| **ICE** (*Interactive Connectivity Establishment*) | Procedure that gathers all the plausible paths, tries them and chooses the best (RFC 8445). |
+| **Candidate** | Address/port pair at which an endpoint can be reached. |
+| **Host candidate** | Address of a local interface of the device. |
+| **Server-reflexive candidate** (`srflx`) | Public address discovered by querying a STUN server. |
+| **Peer-reflexive candidate** (`prflx`) | Address discovered during the checks, not announced in advance. |
+| **Relayed candidate** (`relay`) | Address lent by a TURN server; type preference **zero**. |
+| **Foundation** | Label shared by homogeneous candidates; it governs the order of the checks. |
+| **Connectivity check** | Authenticated STUN request sent on a candidate pair to verify that it works. |
+| **Nomination** | Designation of the definitive pair by the controlling agent, with the `USE-CANDIDATE` attribute. |
+| **Consent check** | Periodic verification that the other endpoint is still present and still consenting. |
+| **STUN** (*Session Traversal Utilities for NAT*) | Protocol for discovering one's own public address (RFC 8489). |
+| **TURN** (*Traversal Using Relays around NAT*) | Protocol for borrowing an address from a server that forwards the packets (RFC 8656). |
+| **Allocation** | Address and port reserved by a relay server for a client, with an expiry. |
+| **Permission** | Authorisation, per address, to send traffic towards an allocation; lifetime 5 minutes. |
+| **Channel bind** | Association between a channel number and an address, reducing the header to 4 bytes; lifetime 10 minutes. |
+| **Trickle ICE** | Sending the candidates as they are discovered, instead of waiting for the end of gathering (RFC 8838). |
+| **ICE restart** | New gathering and selection of paths without redoing the session; it does **not** regenerate the keys. |
+| **DTLS** (*Datagram Transport Layer Security*) | TLS adapted to a transport that loses and reorders packets (RFC 6347, RFC 9147). |
+| **SRTP** (*Secure Real-time Transport Protocol*) | Format that encrypts and authenticates the media packets (RFC 3711). |
+| **DTLS-SRTP** | Mechanism that extracts the SRTP keys from the DTLS secret with the label `EXTRACTOR-dtls_srtp` (RFC 5764). |
+| **Protection profile** | Negotiated SRTP cipher suite; the `NULL` profiles **do not encrypt** and must be refused. |
+| **Man in the middle** | Substitution of the fingerprints by the signalling server, which inserts itself between the two endpoints. |
+| **SAS** (*Short Authentication String*) | Short code derived from the two fingerprints, compared aloud by the participants; the only independent verification mechanism available. |
+| **`KeyUpdate`** | DTLS 1.3 message that updates the record-layer keys but **not** the exporter secret, and therefore not the SRTP keys. |
+| **Codec** | Algorithm for compressing and decompressing the signal. |
+| **Opus** | Reference audio codec for WebRTC (RFC 6716; transport RFC 7587). |
+| **Built-in error correction** (`useinbandfec`) | Opus mechanism that includes in the packet a low-fidelity copy of the previous one. |
+| **Discontinuous transmission** (`usedtx`) | Suspension of sending during silence; disabled by the project for clinical reasons. |
+| **G.711** | Mandatory telephone audio codec (`PCMU`, `PCMA`); needed for interoperability with the non-browser world. |
+| **VP8 / VP9 / H.264 / AV1** | Video codecs; VP8 and H.264 Constrained Baseline are mandatory (RFC 7742 §5). |
+| **Jitter** | Variability of the delay between consecutive packets. |
+| **Jitter buffer** | Receiving queue that absorbs the variability by adding latency; dominant contributor to perceived delay. |
+| **RTT** (*Round Trip Time*) | Round-trip time; read in `remote-inbound-rtp`, not in the outbound statistics. |
+| **Congestion control** | Adaptation of the bitrate to network conditions; it is not project code, it is in the browser. |
+| **Transport feedback** (`transport-cc`) | Reporting of arrival times for all the connection's packets; derives from a draft that expired in 2016. |
+| **Degradation preference** | Choice between sacrificing resolution or fluidity; defined by *MediaStreamTrack Content Hints*, not by the WebRTC Recommendation. |
+| **`NACK` / `RTX`** | Retransmission request and retransmission stream (RFC 4585, RFC 4588). |
+| **`PLI` / `FIR`** | Picture loss indication and full-frame request (RFC 4585, RFC 5104). |
+| **Keyframe** | Self-sufficient frame, far heavier than a differential one; a burst of requests can trigger a congestion spiral. |
+| **Forward error correction** (*FEC*) | Redundancy sent pre-emptively: it always costs bandwidth, but it does not cost a network round trip (RFC 8854). |
+| **Mesh** | Topology in which every participant sends to every other; it preserves end-to-end encryption, it does not scale beyond three. |
+| **Selective forwarding** (*SFU*) | Server that receives one stream from each and forwards it; **it terminates the encryption**. |
+| **Composition** (*MCU*) | Server that decodes, composes and re-encodes; maximum latency and maximum CPU cost. |
+| **SFrame** | Authenticated encryption of frames on top of SRTP (RFC 9605); **it does not define key management**. |
+| **Container** | File format that interleaves the audio and video streams (MP4, WebM); **support diverges between browsers**. |
+| **Secure context** | Browser requirement without which camera and microphone capture does not work. |
+| **Network emulator** (*netem*) | Linux kernel tool for introducing delay, variability, loss and reordering in tests. |
+| **Transport-level request forgery** | Improper use of the relay to reach internal destinations; six known vulnerabilities, four bypasses in eight months. |
+| **Egress network isolation** | Absence of routes from the relay node towards the internal network and towards itself: **the primary defence**, not the lists of forbidden addresses. |
+| **Temporary credential** | Short-lived relay credential derived via HMAC from a shared secret; it replaces static credentials, which are by construction public. |
+
