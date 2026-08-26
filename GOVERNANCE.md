@@ -66,6 +66,17 @@ cifratura del media - seguono il controllo delle modifiche descritto in
 - I controlli automatici devono essere verdi. Il controllo sulle terminologie e quello sui
   segreti non si aggirano: se falliscono a torto, si corregge il controllo, non lo si salta.
 
+**La seconda regola oggi non è applicabile, e va detto qui invece di lasciarlo scoprire.** Il
+progetto ha un solo manutentore: un insieme di uno non contiene un elemento diverso dall'autore,
+quindi l'approvazione di «almeno un manutentore che non sia l'autore» non è rispettabile da
+nessuno. La regola **non è sospesa e non è emendata**: è inapplicabile per una condizione di
+fatto, e torna vincolante nel momento esatto in cui entra il secondo manutentore, senza che
+nessuno debba deliberare di nuovo. Fino ad allora l'approvazione che resta registrata è quella
+dell'autore su sé stesso, ed è una **lacuna dichiarata, non una conformità**: è la prima voce
+della questione aperta `Q-189`. La procedura che la registra e ne descrive la forma è
+`docs/08_compliance/PROCEDURA-controllo-dei-documenti.md`; la ragione per esteso, con ciò che la
+norma presuppone e che qui manca, è in `docs/08_compliance/10-controllo-dei-documenti.md`.
+
 ## Rilasci
 
 Versionamento semantico. Ogni rilascio pubblica: note di rilascio, distinta dei materiali
@@ -162,6 +173,17 @@ alone.
   also require the area owner's approval.
 - Automated checks must pass. The terminology guard and the secret scan are not bypassed: if
   they fail wrongly, the check is fixed, not skipped.
+
+**The second rule is not applicable today, and this must be stated here rather than left to be
+discovered.** The project has a single maintainer: a set of one contains no element other than the
+author, so approval by «at least one maintainer other than the author» cannot be met by anyone. The
+rule **is not suspended and is not amended**: it is inapplicable by a condition of fact, and becomes
+binding again the very moment a second maintainer arrives, without anyone having to decide anew.
+Until then the approval that stands recorded is the author's own approval of themselves, and it is a
+**declared gap, not conformance**: it is the first item of open question `Q-189`. The procedure that
+records it and describes its form is `docs/08_compliance/PROCEDURA-controllo-dei-documenti.md`; the
+full reasoning, with what the standard presupposes and what is missing here, is in
+`docs/08_compliance/10-controllo-dei-documenti.md`.
 
 ## Releases
 

@@ -149,11 +149,11 @@ It is the scenario adopted by `D44`.
 | Technical file complete and submitted | **30 June 2027** |
 | ISO 13485 certificate | July 2027 |
 | Completeness check passed | 31 August 2027 |
-| On-site quality system audit | September – October 2027 |
-| Assessment of the technical documentation | September – December 2027 |
-| Cycles of response to the non-conformities | January – April 2028 |
+| On-site quality system audit | September - October 2027 |
+| Assessment of the technical documentation | September - December 2027 |
+| Cycles of response to the non-conformities | January - April 2028 |
 | Annex IX certificates | **June 2028** |
-| Declaration of conformity, CE marking, European registration | **July – August 2028** |
+| Declaration of conformity, CE marking, European registration | **July - August 2028** |
 
 Duration from signature of the contract to the certificate: **eighteen months**, that is the upper
 bound of the majority band and not a pessimistic hypothesis.
@@ -260,7 +260,7 @@ It has to be said explicitly because it is the most likely misunderstanding of t
 
 | | **Version 1.0** | **CE marking** |
 |---|---|---|
-| Date | **30 November 2026** (`D5`) | Autonomous milestone, scenario B: **July–August 2028** |
+| Date | **30 November 2026** (`D5`) | Autonomous milestone, scenario B: **July-August 2028** |
 | Holder | The project | The manufacturer entity, to be constituted |
 | Content | Software complete, tested, documented; technical file **started**; quality system set up | The body's certificates, declaration of conformity, registration |
 | What may be said | «Not yet CE marked, **not usable for the delivery of healthcare services to real patients**» | - |

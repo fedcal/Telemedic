@@ -116,7 +116,8 @@ nella stessa frase, stato di fatto negativo in prima posizione, nessuna data - s
 | [07](./07-valutazione-clinica.md) | **Valutazione clinica** | Che cosa si deve dimostrare, con quali dati, in quanto tempo, e perché è il secondo percorso a tempo lungo dopo l'organismo notificato |
 | [08](./08-sorveglianza-post-commercializzazione.md) | **Sorveglianza post-commercializzazione** | I due processi distinti - sorveglianza e vigilanza -, i termini di segnalazione, le modifiche e quando richiedono l'intervento dell'organismo notificato |
 | [09](./09-percorso-e-calendario.md) | **Percorso e calendario** | Gli ottenimenti da conseguire, in quale ordine, con quali prerequisiti, e gli scenari temporali con i punti di decisione irreversibili. **È la sede unica delle date**, che sono **pianificazione interna del progetto** (`D57`) e mai una data di marcatura |
-| [10](./10-controllo-dei-documenti.md) | **Controllo dei documenti** | La procedura di controllo dei documenti approvata: elenco dei documenti, regole di identificazione e versione, revisori per categoria, forma dell'approvazione, ritiro. Come la registrazione di approvazione funziona nel modello «documenti come codice» e la lacuna esplicita dichiarata: redattore e approvatore coincidono, è la prima voce di `Q-189` |
+| [10](./10-controllo-dei-documenti.md) | **Controllo dei documenti** | La definizione del controllo dei documenti: perimetro, regole di identificazione e versione, revisori per categoria, forma dell'approvazione, ritiro. Come la registrazione di approvazione funziona nel modello «documenti come codice» e la lacuna esplicita dichiarata: redattore e approvatore coincidono, è la prima voce di `Q-189` |
+| [PROC](/08_compliance/PROCEDURA-controllo-dei-documenti.md) | **Procedura di controllo dei documenti** | **Non è un capitolo, ed è l'unico artefatto di quest'area che non lo è.** È la procedura operativa che il criterio 1 di `T-01` esige: elenco nominale dei documenti controllati con il loro stato, regola di identificazione e di versione, revisore nominato per ciascuna categoria, forma dell'approvazione, regola di ritiro. È **essa stessa sotto controllo** e compare nel proprio elenco. Rinvia al capitolo 10 invece di ricopiarlo |
 
 **Una regola di collocazione che vale per tutta l'area: le date stanno solo nel capitolo 09.** Gli
 altri capitoli rinviano. Due calendari in due luoghi divergono al primo aggiornamento, e in
@@ -272,10 +273,17 @@ una risposta implicita. Quello che segue è ciò che non è stato scritto, e la 
 3. **Non contiene il fascicolo tecnico.** Contiene la sua mappa e il materiale che lo alimenta: la
    differenza è trattata in [04 §1](./04-fascicolo-tecnico.md) ed è la stessa che passa fra
    un'analisi e un documento approvato.
-4. **Non contiene le procedure del sistema di gestione della qualità.** Ne elenca l'insieme
-   necessario e ne spiega la ragione; scriverle è un atto di chi le esercita, dentro un controllo
-   dei documenti che **non è in esercizio** (`V-174`). Che il ruolo di fabbricante sia quello che
-   il progetto intende assumere non cambia questo punto: cambia soltanto a chi tocca istituirlo.
+4. **Non contiene le procedure del sistema di gestione della qualità**, con **una sola eccezione,
+   che va nominata invece di essere lasciata dedurre**. Quest'area elenca l'insieme necessario di
+   quelle procedure e ne spiega la ragione; scriverle è un atto di chi le esercita, e i tre blocchi
+   elencati in [03 §4](./03-sistema-di-gestione-della-qualita.md) restano interamente a carico del
+   soggetto fabbricante da costituire. L'eccezione è la
+   [procedura di controllo dei documenti](/08_compliance/PROCEDURA-controllo-dei-documenti.md) che
+   il progetto esercita su sé stesso: è scritta, versionata e sotto il proprio controllo, perché il
+   criterio 1 di `T-01` la esige in questa forma e perché senza di essa nessun altro documento
+   sarebbe controllato. `V-174` non ne è scalfito: continua a valere per i **capitoli**, che restano
+   ingressi e non procedure. Che il ruolo di fabbricante sia quello che il progetto intende assumere
+   non cambia questo punto: cambia soltanto a chi tocca istituire il resto.
 5. **Non stima costi e tariffe.** Le tariffe standard degli organismi notificati sono pubblicate
    per obbligo normativo: in presenza di una fonte primaria, stimare è un errore di metodo.
 6. **Non fissa la data della marcatura CE.** L'omissione resta intatta e la sua ragione è cambiata

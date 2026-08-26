@@ -151,11 +151,11 @@ nel decile più veloce, senza non conformità maggiori.
 | Fascicolo tecnico completo e sottomesso | **30 giugno 2027** |
 | Certificato ISO 13485 | luglio 2027 |
 | Verifica di completezza superata | 31 agosto 2027 |
-| Audit del sistema qualità in sito | settembre – ottobre 2027 |
-| Valutazione della documentazione tecnica | settembre – dicembre 2027 |
-| Cicli di risposta alle non conformità | gennaio – aprile 2028 |
+| Audit del sistema qualità in sito | settembre - ottobre 2027 |
+| Valutazione della documentazione tecnica | settembre - dicembre 2027 |
+| Cicli di risposta alle non conformità | gennaio - aprile 2028 |
 | Certificati dell'Allegato IX | **giugno 2028** |
-| Dichiarazione di conformità, marcatura CE, registrazione europea | **luglio – agosto 2028** |
+| Dichiarazione di conformità, marcatura CE, registrazione europea | **luglio - agosto 2028** |
 
 Durata dalla firma del contratto al certificato: **diciotto mesi**, cioè il limite superiore della
 fascia maggioritaria e non un'ipotesi pessimistica.
@@ -261,7 +261,7 @@ Va detto esplicitamente perché è il fraintendimento più probabile di questo c
 
 | | **Versione 1.0** | **Marcatura CE** |
 |---|---|---|
-| Data | **30 novembre 2026** (`D5`) | Milestone autonoma, scenario B: **luglio–agosto 2028** |
+| Data | **30 novembre 2026** (`D5`) | Milestone autonoma, scenario B: **luglio-agosto 2028** |
 | Titolare | Il progetto | Il soggetto fabbricante, da costituire |
 | Contenuto | Software completo, testato, documentato; fascicolo tecnico **avviato**; sistema qualità impostato | Certificati dell'organismo, dichiarazione di conformità, registrazione |
 | Che cosa si può dire | «Non ancora marcato CE, **non utilizzabile per l'erogazione di prestazioni sanitarie su pazienti reali**» | - |

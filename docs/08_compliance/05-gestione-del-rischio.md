@@ -269,7 +269,7 @@ dell'evento verifica l'attuazione, non l'efficacia.
 
 **Nuovi rischi introdotti.** L'allarme di assenza **aumenta il carico di allarmi** e contribuisce
 all'affaticamento (`RM-11`). Il bilancio va fatto e documentato: si riduce un rischio di gravità
-`G3` aumentandone uno di gravità `G2`–`G3` con probabilità crescente nel tempo. È esattamente il
+`G3` aumentandone uno di gravità `G2`-`G3` con probabilità crescente nel tempo. È esattamente il
 tipo di compensazione che la valutazione del rischio residuo **complessivo** deve intercettare.
 
 **Rischio residuo.** L'assenza è rilevata e segnalata, ma resta il tempo che intercorre fra la
@@ -347,7 +347,7 @@ conferma deve richiedere un'azione discriminante, non un assenso indistinto.
 monte**, nel sistema che invia l'appuntamento o l'anagrafica, il progetto **non può rilevarlo**:
 riceve un identificativo formalmente corretto che punta alla persona sbagliata. La misura è
 allora esclusivamente il doppio elemento identificativo e la conferma umana. È un residuo di
-gravità `G3`–`G4` che va comunicato a chi integra come **obbligo di controllo a monte**, e la
+gravità `G3`-`G4` che va comunicato a chi integra come **obbligo di controllo a monte**, e la
 questione della ripartizione di responsabilità che ne deriva è trattata al capitolo
 [09](./09-percorso-e-calendario.md), § 7.
 
@@ -400,7 +400,7 @@ chi installa, che è il soggetto in grado di rimuoverlo acquisendo la licenza.
 | **Sequenza di eventi** | L'orologio del dispositivo di misura o dell'apparecchio dell'assistito è sfasato, o dichiara un fuso orario errato, o attraversa il cambio di ora legale · la misura è acquisita con un istante di rilevazione non attendibile · la valutazione della soglia e il calcolo della finestra di attesa operano su quell'istante · la serie temporale è ordinata in modo errato |
 | **Situazione pericolosa** | Il professionista osserva un andamento che non è mai esistito, oppure una finestra di attesa scade prima o dopo il momento reale |
 | **Danno** | Allarme non generato o generato fuori tempo; decisione clinica su un andamento inesistente; nella ricostruzione a posteriori, impossibilità di stabilire la sequenza reale degli eventi |
-| **Gravità** | `G2`–`G3`; sale a `G3` quando la cronologia determina la valutazione di un andamento e non di un singolo valore |
+| **Gravità** | `G2`-`G3`; sale a `G3` quando la cronologia determina la valutazione di un andamento e non di un singolo valore |
 
 **Perché è una riga a sé e non un dettaglio.** Il tempo, in questo sistema, è simultaneamente:
 dato clinico (l'andamento), parametro di controllo (la finestra di attesa), elemento di
@@ -448,14 +448,14 @@ individuate, con l'origine dichiarata, e vanno sviluppate nella stessa forma.
 | `RM-07` | Uno dei partecipanti crede che la registrazione sia attiva quando non lo è, o viceversa | `G2` clinica, con conseguenza giuridica autonoma | **2** - indicatore persistente non occultabile né tematizzabile; passaggio fra modalità tracciato | Analisi + sicurezza |
 | `RM-08` | Il documento clinico resta in bozza e il professionista lo crede trasmesso | `G3` | **2** - stato di trasmissione esplicito e conferma di presa in carico dal ricevente; nessuno stato intermedio ambiguo | Analisi |
 | `RM-09` | Il caregiver inserisce misure attribuendole all'assistito sbagliato | `G3` | **2** - contesto del soggetto permanente e non ambiguo; conferma esplicita al cambio | Fondamenti |
-| `RM-10` | Una misura corretta dall'assistito lascia in circolo il valore errato già valutato | `G2`–`G3` | **1** - la misura è immutabile e versionata; **2** - riconciliazione esplicita degli allarmi già generati | Fondamenti |
+| `RM-10` | Una misura corretta dall'assistito lascia in circolo il valore errato già valutato | `G2`-`G3` | **1** - la misura è immutabile e versionata; **2** - riconciliazione esplicita degli allarmi già generati | Fondamenti |
 | `RM-11` | Un allarme non viene notato perché sommerso da allarmi non azionabili | `G3` | **2** - misura del valore predittivo per regola, tetto di allarmi per operatore, revisione periodica delle soglie | Fondamenti + `RM-01` |
 | `RM-12` | L'assistito crede di essere sorvegliato senza interruzione e ritarda l'accesso all'emergenza | `G4` | **2** - dichiarazione persistente dello stato corrente del servizio e del canale alternativo, non occultabile; **3** - istruzioni | Fondamenti + funzionale |
 | `RM-13` | Un allarme è preso in carico e mai risolto, e nessuno se ne accorge | `G3` | **1** - presa in carico e risoluzione sono transizioni distinte; **2** - sorveglianza degli allarmi presi in carico e non risolti | Fondamenti |
-| `RM-14` | Un utente con lettore di schermo non individua il controllo di consenso, di registrazione o di fine sessione | `G2`–`G3` | **1** - componenti accessibili per costruzione; **2** - verifica manuale con tecnologie assistive | Usabilità e accessibilità |
+| `RM-14` | Un utente con lettore di schermo non individua il controllo di consenso, di registrazione o di fine sessione | `G2`-`G3` | **1** - componenti accessibili per costruzione; **2** - verifica manuale con tecnologie assistive | Usabilità e accessibilità |
 | `RM-15` | Il professionista modifica il piano credendo abbia effetto immediato, mentre l'assistito vede ancora il precedente | `G3` | **2** - stato di efficacia del piano visibile a entrambi, con conferma della versione attiva | Fondamenti |
 | `RM-16` | Il contenuto clinico oscurato è inferito da un canale collaterale (conteggi, numerazione, paginazione, notifiche, messaggi d'errore) | `G2` con danno da divulgazione | **1** - l'oscuramento è applicato dal motore di autorizzazione, non dai consumatori, con totali calcolati sull'insieme filtrato | Dominio + sicurezza |
-| `RM-17` | Un difetto del prodotto di federazione consente all'utente di alterare i propri attributi anagrafici, di cambiare l'indirizzo di posta senza verifica o di darsi una credenziale locale | `G3`–`G4` per via di `RM-03` | **2** - controlli di configurazione con prove negative in integrazione continua | **Modello di minaccia** (§ 9) |
+| `RM-17` | Un difetto del prodotto di federazione consente all'utente di alterare i propri attributi anagrafici, di cambiare l'indirizzo di posta senza verifica o di darsi una credenziale locale | `G3`-`G4` per via di `RM-03` | **2** - controlli di configurazione con prove negative in integrazione continua | **Modello di minaccia** (§ 9) |
 
 ## 7. La doppia verifica, e i rischi introdotti dalle misure
 

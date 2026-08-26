@@ -19,13 +19,22 @@ description: "The project's document control procedure: list of documents subjec
 > ([09 § 4.2](./09-percorso-e-calendario.md), `T-14`), not a waiting state: every week in which it
 > is not started is a week the project subtracts from its own certification path.
 >
-> **Is this chapter a procedure?** No. It is the definition of the procedure itself, the
-> documentation of how it is applied and the perimeter of what it applies to - held within the
-> present repository. The operating procedures of the quality management system, when written by
-> the manufacturing entity, will be controlled documents within this procedure and will reside in
-> its own document management system, in accordance with ISO 13485 § 4.2.4. Until the entity
-> exists, this documentation is an input for its creation, and is not itself subject to the
-> controls it describes (`V-174`).
+> **Is this chapter a procedure?** No, and from today the distinction has a second term instead of
+> being a single negation. This chapter is the **definition** of the procedure: the documentation of
+> how it is applied, the perimeter of what it applies to and the reason for each rule. The procedure
+> proper - who does what, when, by which act, and what trace remains - is a separate document:
+> [Document control procedure](/08_compliance/PROCEDURA-controllo-dei-documenti.md), which criterion
+> 1 of `T-01` requires to be versioned **and itself under control**, and which indeed appears in its
+> own list with its own reviewer, its own versioning rule and its own withdrawal rule. The operating
+> procedures of the quality management system, when written by the manufacturing entity, will reside
+> in its own document management system, in accordance with ISO 13485 § 4.2.4.
+>
+> **What remains true of `V-174`, and what no longer is.** It remains true of the **chapters**: this
+> one, like every other in this documentation, is an input for the creation of the manufacturing
+> entity's quality management system and **is not itself subject to the controls it describes**. It
+> is no longer true of the repository as a whole, because the procedure referred to above is under
+> its own control. The distinction is not formal: a chapter declaring itself a procedure would breach
+> `V-174`, and a procedure exempting itself from its own controls would not be a procedure.
 
 ---
 

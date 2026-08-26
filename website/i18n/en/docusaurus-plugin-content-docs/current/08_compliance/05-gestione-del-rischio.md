@@ -262,7 +262,7 @@ event verifies implementation, not effectiveness.
 
 **New risks introduced.** The absence alert **increases the alert load** and contributes to fatigue
 (`RM-11`). The balance must be struck and documented: a `G3` severity risk is reduced by increasing
-a `G2`–`G3` severity one with a probability rising over time. It is exactly the kind of
+a `G2`-`G3` severity one with a probability rising over time. It is exactly the kind of
 compensation that the **overall** residual risk evaluation must catch.
 
 **Residual risk.** The absence is detected and notified, but the time between the expiry of the
@@ -338,7 +338,7 @@ must require a discriminating action, not an undifferentiated assent.
 **Residual risk, declared without softening.** If the association error is made **upstream**, in the
 system sending the appointment or the personal data, the project **cannot detect it**: it receives a
 formally correct identifier pointing to the wrong person. The measure is then exclusively the two
-identifying elements and the human confirmation. It is a `G3`–`G4` severity residual that must be
+identifying elements and the human confirmation. It is a `G3`-`G4` severity residual that must be
 communicated to the integrator as an **obligation of upstream control**, and the resulting question
 of the allocation of responsibility is dealt with in chapter
 [09](./09-percorso-e-calendario.md), § 7.
@@ -390,7 +390,7 @@ who is the party able to remove it by acquiring the licence.
 | **Sequence of events** | The clock of the measuring device or of the patient's equipment is out of sync, or declares a wrong time zone, or crosses the daylight saving change · the measurement is acquired with an unreliable instant of measurement · the threshold evaluation and the calculation of the expectation window operate on that instant · the time series is ordered wrongly |
 | **Hazardous situation** | The professional observes a trend that never existed, or an expectation window expires before or after the real moment |
 | **Harm** | Alert not generated or generated out of time; clinical decision on a non-existent trend; in reconstruction after the fact, impossibility of establishing the real sequence of events |
-| **Severity** | `G2`–`G3`; rises to `G3` where the chronology determines the assessment of a trend and not of a single value |
+| **Severity** | `G2`-`G3`; rises to `G3` where the chronology determines the assessment of a trend and not of a single value |
 
 **Why it is a row of its own and not a detail.** Time, in this system, is simultaneously: clinical
 data (the trend), a control parameter (the expectation window), an element of non-repudiable
@@ -437,14 +437,14 @@ identified, with their origin declared, and are to be developed in the same form
 | `RM-07` | One of the participants believes recording is on when it is not, or vice versa | `G2` clinically, with an autonomous legal consequence | **2** - persistent indicator, neither concealable nor themeable; switching between modes logged | Analysis + security |
 | `RM-08` | The clinical document stays in draft and the professional believes it has been transmitted | `G3` | **2** - explicit transmission status and confirmation that the recipient has taken it on; no ambiguous intermediate status | Analysis |
 | `RM-09` | The carer enters measurements attributing them to the wrong patient | `G3` | **2** - permanent, unambiguous subject context; explicit confirmation on switching | Foundations |
-| `RM-10` | A measurement corrected by the patient leaves the already-assessed wrong value in circulation | `G2`–`G3` | **1** - the measurement is immutable and versioned; **2** - explicit reconciliation of the alerts already generated | Foundations |
+| `RM-10` | A measurement corrected by the patient leaves the already-assessed wrong value in circulation | `G2`-`G3` | **1** - the measurement is immutable and versioned; **2** - explicit reconciliation of the alerts already generated | Foundations |
 | `RM-11` | An alert is not noticed because it is buried under non-actionable alerts | `G3` | **2** - measurement of the predictive value per rule, cap on alerts per operator, periodic review of the thresholds | Foundations + `RM-01` |
 | `RM-12` | The patient believes they are under uninterrupted surveillance and delays contacting the emergency services | `G4` | **2** - persistent, non-concealable statement of the current status of the service and of the alternative channel; **3** - instructions | Foundations + functional |
 | `RM-13` | An alert is taken on and never resolved, and nobody notices | `G3` | **1** - taking on and resolution are distinct transitions; **2** - monitoring of alerts taken on and not resolved | Foundations |
-| `RM-14` | A screen reader user does not locate the consent, recording or end-of-session control | `G2`–`G3` | **1** - components accessible by construction; **2** - manual verification with assistive technologies | Usability and accessibility |
+| `RM-14` | A screen reader user does not locate the consent, recording or end-of-session control | `G2`-`G3` | **1** - components accessible by construction; **2** - manual verification with assistive technologies | Usability and accessibility |
 | `RM-15` | The professional amends the plan believing it takes immediate effect, while the patient still sees the previous one | `G3` | **2** - the plan's effectiveness status visible to both, with confirmation of the active version | Foundations |
 | `RM-16` | Obscured clinical content is inferred from a side channel (counts, numbering, pagination, notifications, error messages) | `G2` with harm from disclosure | **1** - obscuring is applied by the authorisation engine, not by the consumers, with totals computed on the filtered set | Domain + security |
-| `RM-17` | A defect of the federation product allows the user to alter their own personal-data attributes, to change their email address without verification or to give themselves a local credential | `G3`–`G4` by way of `RM-03` | **2** - configuration checks with negative tests in continuous integration | **Threat model** (§ 9) |
+| `RM-17` | A defect of the federation product allows the user to alter their own personal-data attributes, to change their email address without verification or to give themselves a local credential | `G3`-`G4` by way of `RM-03` | **2** - configuration checks with negative tests in continuous integration | **Threat model** (§ 9) |
 
 ## 7. The double verification, and the risks introduced by the measures
 

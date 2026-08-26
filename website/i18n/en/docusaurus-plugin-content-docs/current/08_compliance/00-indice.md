@@ -115,7 +115,8 @@ in first position, no dates - are in
 | [07](./07-valutazione-clinica.md) | **Clinical evaluation** | What must be demonstrated, with what data, in what time, and why it is the second long-lead path after the notified body |
 | [08](./08-sorveglianza-post-commercializzazione.md) | **Post-market surveillance** | The two distinct processes - surveillance and vigilance -, the reporting deadlines, changes and when they require the notified body's intervention |
 | [09](./09-percorso-e-calendario.md) | **Path and schedule** | The attainments to be achieved, in what order, with what prerequisites, and the time scenarios with the irreversible decision points. **It is the single home of the dates**, which are **the project's internal planning** (`D57`) and never a marking date |
-| [10](./10-controllo-dei-documenti.md) | **Document control** | The approved document control procedure: list of documents, rules for identification and versioning, reviewers by category, form of approval, withdrawal. How the approval record works in the «documents as code» model, and the explicit declared gap: author and approver coincide, and it is the first entry of `Q-189` |
+| [10](./10-controllo-dei-documenti.md) | **Document control** | The definition of document control: perimeter, rules for identification and versioning, reviewers by category, form of approval, withdrawal. How the approval record works in the «documents as code» model, and the explicit declared gap: author and approver coincide, and it is the first entry of `Q-189` |
+| [PROC](/08_compliance/PROCEDURA-controllo-dei-documenti.md) | **Document control procedure** | **Not a chapter, and the only artefact in this area that is not one.** It is the operational procedure criterion 1 of `T-01` requires: named list of controlled documents with their status, rule for identification and versioning, nominated reviewer for each category, form of approval, rule for withdrawal. It is **itself under control** and appears in its own list. It refers to chapter 10 rather than copying it |
 
 **A placement rule that holds for the whole area: dates live only in chapter 09.** The other
 chapters refer to it. Two schedules in two places diverge at the first update, and in regulatory
@@ -270,11 +271,17 @@ answer. What follows is what has not been written, and why.
 3. **It does not contain the technical file.** It contains its map and the material that feeds it:
    the difference is dealt with in [04 §1](./04-fascicolo-tecnico.md) and is the same as that
    between an analysis and an approved document.
-4. **It does not contain the quality management system procedures.** It lists the necessary set and
-   explains the reason for it; writing them is an act of whoever exercises the system, inside a
-   document control that **is not in operation** (`V-174`). That the manufacturer role is the one
-   the project intends to assume does not change this point: it changes only whose task it is to
-   institute it.
+4. **It does not contain the quality management system procedures**, with **one single exception,
+   which must be named rather than left to be inferred**. This area lists the necessary set of those
+   procedures and explains the reason for it; writing them is an act of whoever exercises the system,
+   and the three blocks listed in [03 §4](./03-sistema-di-gestione-della-qualita.md) remain entirely
+   the responsibility of the manufacturing entity to be constituted. The exception is the
+   [document control procedure](/08_compliance/PROCEDURA-controllo-dei-documenti.md) the project
+   operates on itself: it is written, versioned and under its own control, because criterion 1 of
+   `T-01` requires it in that form and because without it no other document would be controlled.
+   `V-174` is untouched by this: it continues to hold for the **chapters**, which remain inputs and
+   not procedures. That the manufacturer role is the one the project intends to assume does not
+   change this point: it changes only whose task it is to institute the rest.
 5. **It does not estimate costs and fees.** Notified bodies' standard fees are published as a legal
    obligation: where a primary source exists, estimating is a methodological error.
 6. **It does not set the date of the CE marking.** The omission stands intact and its reason has
