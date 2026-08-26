@@ -1,7 +1,7 @@
 ---
 title: Il sistema sanitario italiano
 sidebar_position: 2
-description: Come è organizzata la sanità in Italia — Servizio sanitario nazionale, tre livelli di governo, aziende sanitarie, professioni, LEA, percorso del cittadino, DM 77/2022, PNRR Missione 6 — e cosa cambia per un software che entra in questo sistema.
+description: Come è organizzata la sanità in Italia - Servizio sanitario nazionale, tre livelli di governo, aziende sanitarie, professioni, LEA, percorso del cittadino, DM 77/2022, PNRR Missione 6 - e cosa cambia per un software che entra in questo sistema.
 ---
 
 # Il sistema sanitario italiano
@@ -58,11 +58,11 @@ chiama **assistito** e non «cliente».
 L'impianto del 1978 poggia su tre principi, ripetutamente richiamati dalla giurisprudenza
 costituzionale e dai documenti di programmazione:
 
-- **universalità** — la platea dei destinatari è l'intera popolazione residente, senza
+- **universalità** - la platea dei destinatari è l'intera popolazione residente, senza
   selezione;
-- **uguaglianza** — a parità di bisogno corrisponde parità di accesso, indipendentemente da
+- **uguaglianza** - a parità di bisogno corrisponde parità di accesso, indipendentemente da
   reddito, condizione sociale e luogo di residenza;
-- **equità** — il sistema è finanziato dalla fiscalità generale in proporzione alla capacità
+- **equità** - il sistema è finanziato dalla fiscalità generale in proporzione alla capacità
   contributiva, non al rischio individuale.
 
 Su questo impianto sono intervenute tre riforme che ne hanno cambiato la struttura organizzativa
@@ -92,10 +92,10 @@ senza toccarne i principi:
 L'**articolo 117 della Costituzione**, nel testo vigente dopo la riforma del 2001,
 distribuisce la potestà legislativa così:
 
-- **comma 2, lettera m)** — è **competenza esclusiva dello Stato** la «*determinazione dei
+- **comma 2, lettera m)** - è **competenza esclusiva dello Stato** la «*determinazione dei
   livelli essenziali delle prestazioni concernenti i diritti civili e sociali che devono
   essere garantiti su tutto il territorio nazionale*». Da qui discendono i **LEA** (§ 6);
-- **comma 3** — la «*tutela della salute*» è materia di **legislazione concorrente**: allo
+- **comma 3** - la «*tutela della salute*» è materia di **legislazione concorrente**: allo
   Stato spetta la determinazione dei **principi fondamentali**, alle Regioni la potestà
   legislativa di dettaglio.
 
@@ -114,7 +114,7 @@ sono ripartite fra le due **Province autonome di Trento e di Bolzano**, ciascuna
 ordinamento sanitario proprio. Nel lessico normativo si scrive quasi sempre «*Regioni e
 Province autonome*», abbreviato in «Regioni e PP.AA.» oppure «RdA/RdE» quando il riferimento
 è alla Regione di assistenza o di erogazione (§ 7.6 e modulo
-[07 — FSE e infrastrutture nazionali](07-fse-e-infrastrutture-nazionali.md)).
+[07 - FSE e infrastrutture nazionali](07-fse-e-infrastrutture-nazionali.md)).
 
 Cinque Regioni hanno **statuto speciale** (Sicilia, Sardegna, Valle d'Aosta, Friuli-Venezia
 Giulia, Trentino-Alto Adige) e finanziano la sanità in tutto o in parte con risorse proprie
@@ -135,7 +135,7 @@ manifesta almeno su queste dimensioni.
 | **Tariffe e ticket** | Tariffa nazionale massima, quote regionali aggiuntive, esenzioni regionali | Il calcolo dell'addebito è una policy per tenant, non una formula globale |
 | **Regole di prescrizione** | Quando serve l'impegnativa, quali prestazioni sono ad accesso diretto | Il gate di prescrizione è configurabile |
 | **Flussi di rendicontazione** | Tracciati regionali della specialistica ambulatoriale con nomi e campi diversi | L'esportazione è un adattatore per Regione |
-| **Modalità di erogazione a distanza** | La codifica del valore «telemedicina» nei flussi non è nazionale e uniforme | Attributo con codifica configurabile per Regione, **mai una costante** — vedi § 7.7 |
+| **Modalità di erogazione a distanza** | La codifica del valore «telemedicina» nei flussi non è nazionale e uniforme | Attributo con codifica configurabile per Regione, **mai una costante** - vedi § 7.7 |
 | **Interpretazione delle norme nazionali** | Le Regioni recepiscono gli Accordi Stato-Regioni con atti propri che li specificano e talvolta li estendono | Le regole di dominio hanno un livello nazionale e un livello di *override* regionale |
 
 Un esempio concreto della sesta riga, documentato nella ricerca del progetto: l'Accordo
@@ -156,9 +156,9 @@ permanente per i rapporti tra lo Stato, le Regioni e le Province autonome di Tre
 Bolzano**, disciplinata dal **D.lgs. 28 agosto 1997, n. 281**. Produce due tipi di atto che
 è indispensabile distinguere:
 
-- **Intesa** — atto con cui Stato e Regioni convergono su un contenuto vincolante; il suo
+- **Intesa** - atto con cui Stato e Regioni convergono su un contenuto vincolante; il suo
   mancato raggiungimento può bloccare l'adozione dell'atto statale;
-- **Accordo** — atto con cui si coordinano competenze rispettive; **non è una fonte
+- **Accordo** - atto con cui si coordinano competenze rispettive; **non è una fonte
   normativa in senso proprio**: diventa cogente nel momento in cui le Regioni lo recepiscono
   con atti propri (delibere di giunta, decreti dirigenziali, circolari).
 
@@ -220,7 +220,7 @@ L'**azienda sanitaria locale (ASL)** è l'ente pubblico che garantisce i livelli
 di assistenza alla popolazione di un **territorio** definito. Ha personalità giuridica
 pubblica, autonomia organizzativa, patrimoniale e contabile, ed è retta da un **direttore
 generale** nominato dalla Regione, affiancato da un direttore sanitario, un direttore
-amministrativo e — dove previsto — un direttore dei servizi sociosanitari.
+amministrativo e - dove previsto - un direttore dei servizi sociosanitari.
 
 La ASL ha una **doppia natura** che è la fonte di molte confusioni:
 
@@ -272,12 +272,12 @@ attività assistenziale, specializzandi in formazione). Il **medico specializzan
 medico abilitato ma in formazione, che compie atti sotto tutoraggio: nel modello di
 autorizzazione non è un `CLINICIAN` pieno, e la firma del referto segue regole di
 controfirma. La documentazione del progetto tratta questo caso nella
-[matrice dei ruoli](16-architettura-del-progetto.md).
+[matrice dei ruoli](./16-architettura-del-progetto.md).
 
 ### 4.3 IRCCS
 
-Gli **Istituti di ricovero e cura a carattere scientifico (IRCCS)** sono enti — pubblici o
-privati — riconosciuti dal Ministero della salute per l'eccellenza clinica e per l'attività
+Gli **Istituti di ricovero e cura a carattere scientifico (IRCCS)** sono enti - pubblici o
+privati - riconosciuti dal Ministero della salute per l'eccellenza clinica e per l'attività
 di ricerca biomedica e organizzativo-sanitaria in una disciplina specifica. Sono disciplinati
 dal **D.lgs. 16 ottobre 2003, n. 288**. Il riconoscimento è periodico e revocabile ed è
 legato al mantenimento di requisiti di produzione scientifica.
@@ -285,7 +285,7 @@ legato al mantenimento di requisiti di produzione scientifica.
 Per il software un IRCCS è rilevante per due ragioni: eroga assistenza come qualunque altro
 erogatore, ma **conduce anche ricerca sui dati clinici**, il che attiva basi giuridiche,
 comitati etici e percorsi di pseudonimizzazione che non si applicano al normale ciclo di
-cura (modulo [03 — Il dato clinico](03-il-dato-clinico.md), § 3).
+cura (modulo [03 - Il dato clinico](03-il-dato-clinico.md), § 3).
 
 ### 4.4 Strutture private accreditate, autorizzate, e private pure
 
@@ -468,13 +468,13 @@ L'atto vigente è il **D.P.C.M. 12 gennaio 2017**, «Definizione e aggiornamento
 essenziali di assistenza», che ha sostituito il D.P.C.M. 29 novembre 2001. Articola i LEA in
 tre macro-livelli:
 
-1. **Prevenzione collettiva e sanità pubblica** — sorveglianza epidemiologica, vaccinazioni,
+1. **Prevenzione collettiva e sanità pubblica** - sorveglianza epidemiologica, vaccinazioni,
    screening oncologici, sicurezza alimentare, salute e sicurezza sul lavoro, sanità
    veterinaria;
-2. **Assistenza distrettuale** — assistenza primaria, farmaceutica, specialistica
+2. **Assistenza distrettuale** - assistenza primaria, farmaceutica, specialistica
    ambulatoriale, domiciliare, residenziale e semiresidenziale, consultori, salute mentale,
    dipendenze, riabilitazione;
-3. **Assistenza ospedaliera** — pronto soccorso, ricovero ordinario e diurno, riabilitazione
+3. **Assistenza ospedaliera** - pronto soccorso, ricovero ordinario e diurno, riabilitazione
    e lungodegenza, attività trasfusionale, trapianti.
 
 ### 6.2 Cosa significa «essere nei LEA»
@@ -484,8 +484,8 @@ Dire che una prestazione «è nei LEA» significa tre cose insieme:
 - **è erogabile a carico pubblico**, con il solo ticket eventualmente dovuto;
 - **è esigibile**: il cittadino ha titolo a ottenerla, e la Regione che non la garantisce è
   inadempiente;
-- **è codificata**: compare in un **nomenclatore** con un codice, una descrizione e — per la
-  specialistica ambulatoriale e la protesica — una tariffa massima nazionale.
+- **è codificata**: compare in un **nomenclatore** con un codice, una descrizione e - per la
+  specialistica ambulatoriale e la protesica - una tariffa massima nazionale.
 
 Il rispetto dei LEA è misurato dal **Nuovo sistema di garanzia (NSG)**, un sistema di
 indicatori con cui il Ministero della salute valuta annualmente ciascuna Regione. `[NV]`
@@ -556,8 +556,8 @@ flowchart TD
 
 ### 7.1 L'impegnativa
 
-L'**impegnativa** — colloquialmente «ricetta rossa», dal colore del ricettario cartaceo del
-SSN — è l'atto con cui un medico abilitato a prescrivere per il SSN dispone una prestazione
+L'**impegnativa** - colloquialmente «ricetta rossa», dal colore del ricettario cartaceo del
+SSN - è l'atto con cui un medico abilitato a prescrivere per il SSN dispone una prestazione
 specialistica o un accertamento. Non è solo una prescrizione clinica: è **prescrizione più
 titolo di accesso al regime pubblico**. Senza impegnativa la stessa prestazione si può
 comunque ottenere, ma a pagamento integrale in regime privato.
@@ -654,10 +654,10 @@ sugli importi vigenti, che variano per Regione e per anno.
 L'**esenzione** è il diritto a non corrispondere il ticket, in tutto o in parte. Le
 categorie principali:
 
-- **per patologia** — malattie croniche e invalidanti individuate dai LEA, malattie rare;
+- **per patologia** - malattie croniche e invalidanti individuate dai LEA, malattie rare;
   ciascuna con un **codice di esenzione** che identifica la patologia e l'elenco delle
   prestazioni esentate;
-- **per reddito** — combinata con l'età (minori, over 65) o con la condizione (disoccupazione,
+- **per reddito** - combinata con l'età (minori, over 65) o con la condizione (disoccupazione,
   titolarità di pensione sociale o minima);
 - **per invalidità**, per gravidanza fisiologica, per diagnosi precoce di specifici tumori,
   per condizione di vittima o di infortunato sul lavoro.
@@ -707,8 +707,8 @@ settembre 2023, art. 12, c. 3).
 
 L'Accordo 215/CSR 2020 impegna a «*adeguare i flussi informativi di erogazione/rendicontazione
 delle attività di specialistica ambulatoriale al fine di tenere traccia delle prestazioni in
-telemedicina*» e suggerisce di estendere il campo «luogo di erogazione» — che storicamente ha
-valori `A` = ambulatorio e `D` = domicilio — con un valore `T` per telemedicina.
+telemedicina*» e suggerisce di estendere il campo «luogo di erogazione» - che storicamente ha
+valori `A` = ambulatorio e `D` = domicilio - con un valore `T` per telemedicina.
 
 **La ricerca del progetto non è riuscita ad accertare se e come questa estensione sia stata
 recepita nei disciplinari tecnici vigenti del flusso ex art. 50 e del flusso DEMA.** La
@@ -726,10 +726,10 @@ modo di sapere oggi quante siano.
 
 ### 8.1 Cosa è
 
-Il **decreto del Ministro della salute 23 maggio 2022, n. 77** — «Regolamento recante la
+Il **decreto del Ministro della salute 23 maggio 2022, n. 77** - «Regolamento recante la
 definizione di modelli e standard per lo sviluppo dell'assistenza territoriale nel Servizio
 sanitario nazionale», pubblicato in Gazzetta Ufficiale Serie generale n. 144 del 22 giugno
-2022 — è il regolamento che ridisegna l'assistenza fuori dall'ospedale. È un **regolamento**,
+2022 - è il regolamento che ridisegna l'assistenza fuori dall'ospedale. È un **regolamento**,
 quindi fonte normativa con efficacia vincolante, non un documento di indirizzo.
 
 Nasce dalla constatazione, resa evidente dalla pandemia, che un sistema sbilanciato
@@ -786,8 +786,8 @@ La telemedicina, in questo decreto, **non è un canale alternativo alla visita i
 è una **modalità di erogazione integrata nei percorsi**. Le prestazioni a distanza si
 collocano dentro un **piano assistenziale individuale (PAI)** o un **percorso
 diagnostico-terapeutico assistenziale (PDTA)**, non come atti isolati. Il DM 21 settembre
-2022 — l'atto tecnicamente più prescrittivo per le piattaforme di telemedicina, trattato nel
-modulo [02](02-prestazioni-di-telemedicina.md) — dichiara espressamente di essere stato
+2022 - l'atto tecnicamente più prescrittivo per le piattaforme di telemedicina, trattato nel
+modulo [02](02-prestazioni-di-telemedicina.md) - dichiara espressamente di essere stato
 redatto «*in coerenza con quanto previsto dal decreto ministeriale 23 maggio 2022, n. 77*».
 
 Ne discendono tre conseguenze di modellazione:
@@ -814,12 +814,12 @@ Il **Piano nazionale di ripresa e resilienza (PNRR)** è il programma con cui l'
 utilizza le risorse del dispositivo europeo per la ripresa e la resilienza. La **Missione 6
 «Salute»** si articola in due componenti:
 
-- **M6C1 — «Reti di prossimità, strutture intermedie e telemedicina per l'assistenza sanitaria
+- **M6C1 - «Reti di prossimità, strutture intermedie e telemedicina per l'assistenza sanitaria
   territoriale»**, che finanzia l'attuazione del DM 77/2022:
-  - Investimento 1.1 — Case della comunità;
-  - **Investimento 1.2 — «Casa come primo luogo di cura e telemedicina»**;
-  - Investimento 1.3 — Ospedali di comunità;
-- **M6C2 — «Innovazione, ricerca e digitalizzazione del servizio sanitario nazionale»**, che
+  - Investimento 1.1 - Case della comunità;
+  - **Investimento 1.2 - «Casa come primo luogo di cura e telemedicina»**;
+  - Investimento 1.3 - Ospedali di comunità;
+- **M6C2 - «Innovazione, ricerca e digitalizzazione del servizio sanitario nazionale»**, che
   contiene l'investimento sul **fascicolo sanitario elettronico** e, al sub-investimento
   1.3.2.4, la **Piattaforma nazionale per la diffusione della telemedicina**.
 
@@ -840,7 +840,7 @@ Consiglio come amministrazione coinvolta.
 
 **Come si compra.** Questo è il punto strategicamente più importante per un progetto software.
 Il **DM 30 settembre 2022** stabilisce che le Regioni presentano piani operativi ad AGENAS,
-una commissione tecnica li valuta entro 30 giorni, e — testualmente — «*per ottenere il
+una commissione tecnica li valuta entro 30 giorni, e - testualmente - «*per ottenere il
 finanziamento PNRR, le regioni e province autonome i cui piani sono stati approvati possono
 attivare le soluzioni selezionate **esclusivamente attraverso le gare delle regioni
 capofila***». Le Regioni capofila designate sono **Lombardia e Puglia**.
@@ -883,8 +883,8 @@ professionisti interessati: alla data di redazione **il decreto non risulta adot
 
 Esiste inoltre un canale di finanziamento distinto e potenzialmente rilevante: il **DM 7
 ottobre 2025**, in attuazione dell'art. 9, c. 2, del **D.lgs. 15 marzo 2024, n. 29** (riforma
-dell'assistenza agli anziani non autosufficienti), individua prestazioni di telemedicina —
-in particolare telemonitoraggio domiciliare — con prioritario riferimento agli
+dell'assistenza agli anziani non autosufficienti), individua prestazioni di telemedicina -
+in particolare telemonitoraggio domiciliare - con prioritario riferimento agli
 ultraottantenni affetti da almeno una patologia cronica, con **150 milioni di euro**
 assegnati. `[NV]` sul testo integrale, non reperito in Gazzetta Ufficiale nella ricerca del
 progetto.
@@ -914,8 +914,8 @@ Le implicazioni progettuali sono precise e sono già decisioni assunte dal proge
 - **l'alimentazione del FSE non è opzionale nemmeno nel privato puro**, perché il DM 7
   settembre 2023 include fra i soggetti obbligati anche le strutture autorizzate e i
   professionisti che operano in autonomia;
-- **il calcolo dell'addebito deve supportare tre modelli** — ticket con esenzioni, tariffa
-  privata, convenzione con terzo pagatore — senza che nessuno dei tre sia il caso
+- **il calcolo dell'addebito deve supportare tre modelli** - ticket con esenzioni, tariffa
+  privata, convenzione con terzo pagatore - senza che nessuno dei tre sia il caso
   «predefinito» hardcoded;
 - **l'identità digitale nazionale è obbligatoria in un contesto e impraticabile in un
   altro**: un professionista di uno studio privato non accede necessariamente con SPID. Ne
@@ -956,8 +956,8 @@ D.lgs. 209/2024, disciplina l'acquisto. Le soglie di rilevanza europea in vigore
 
 | Fattispecie | Soglia |
 |---|---|
-| Forniture e servizi — amministrazioni **centrali** | 140.000 € |
-| Forniture e servizi — amministrazioni **sub-centrali** (Regioni, ASL, enti locali) | 216.000 € |
+| Forniture e servizi - amministrazioni **centrali** | 140.000 € |
+| Forniture e servizi - amministrazioni **sub-centrali** (Regioni, ASL, enti locali) | 216.000 € |
 | Concessioni | 5.404.000 € |
 
 Una ASL è amministrazione **sub-centrale**: la soglia europea è **216.000 €**. Sotto soglia
@@ -1021,7 +1021,7 @@ qualunque, con la fonte di ciascun obbligo:
 | Essere qualificato come dispositivo medico quando il perimetro funzionale lo richiede | DM 21 settembre 2022, All. A, Sez. 2; Reg. (UE) 2017/745 |
 
 L'ultima riga è quella con l'impatto maggiore sul ciclo di sviluppo, ed è trattata nel modulo
-[15 — Il quadro regolatorio da zero](15-regolatorio-da-zero.md).
+[15 - Il quadro regolatorio da zero](15-regolatorio-da-zero.md).
 
 ---
 

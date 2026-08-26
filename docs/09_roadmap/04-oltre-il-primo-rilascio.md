@@ -1,19 +1,19 @@
 ---
 title: Oltre il primo rilascio
 sidebar_position: 5
-description: Che cosa viene dopo il primo rilascio installabile, in ordine di priorità motivata — la coda pianificata voce per voce con criteri di completamento binari, innesco e titolare, comprese le voci uscite da RU-1 per effetto di D53; ciò che è soltanto desiderabile e che cosa manca perché diventi pianificato; ciò che non torna in nessun rilascio.
+description: Che cosa viene dopo il primo rilascio installabile, in ordine di priorità motivata - la coda pianificata voce per voce con criteri di completamento binari, innesco e titolare, comprese le voci uscite da RU-1 per effetto di D53; ciò che è soltanto desiderabile e che cosa manca perché diventi pianificato; ciò che non torna in nessun rilascio.
 ---
 
 # Oltre il primo rilascio
 
 Il capitolo [03](./03-primo-rilascio-utilizzabile.md) ha dichiarato che cosa `RU-1` contiene, che
-cosa non contiene e — al §5 — **che cosa è stato tagliato per rispettare la data del 30 novembre
+cosa non contiene e - al §5 - **che cosa è stato tagliato per rispettare la data del 30 novembre
 2026**. Questo capitolo risponde alla domanda successiva, che è quella che un integratore pone
 appena finito di leggere l'elenco dei tagli: **e poi?**
 
 > **La risposta utile non è un elenco di cose che si faranno.** È la distinzione fra ciò che è
-> **pianificato** — con una posizione in coda, un criterio di completamento e un innesco dichiarato
-> — e ciò che è **soltanto desiderabile**, cioè privo di tutte e tre queste cose. Un documento che
+> **pianificato** - con una posizione in coda, un criterio di completamento e un innesco dichiarato
+> - e ciò che è **soltanto desiderabile**, cioè privo di tutte e tre queste cose. Un documento che
 > presenta le due categorie con la stessa grafica ha già ingannato chi lo legge, anche se ogni
 > singola frase è vera.
 
@@ -21,7 +21,7 @@ appena finito di leggere l'elenco dei tagli: **e poi?**
 
 ## 1. Le due categorie, e la regola che le separa
 
-Le tre classi di enunciato del progetto — `[IMPEGNO]`, `[INTENZIONE]`, `[IPOTESI]` — restano quelle
+Le tre classi di enunciato del progetto - `[IMPEGNO]`, `[INTENZIONE]`, `[IPOTESI]` - restano quelle
 definite in [00 §2](./00-indice.md). Questo capitolo introduce una partizione **ortogonale**, che
 serve a un lettore diverso: non a chi valuta l'affidabilità di una data, ma a chi deve decidere se
 aspettare una funzione o procurarsela altrove.
@@ -62,12 +62,12 @@ propri secondo la regola di
   identificativo `OUT-nn` e categoria di riapribilità, e il §7 vi rinvia senza riscriverle.
 - **Le date.** Nessuna voce di questo capitolo ha una data. La ragione è cambiata rispetto alla
   versione precedente di questo documento e va detta con precisione: **non è più che la capacità
-  sia ignota** — `D54` la dichiara — **è che la capacità dichiarata è interamente impegnata fino al
+  sia ignota** - `D54` la dichiara - **è che la capacità dichiarata è interamente impegnata fino al
   30 novembre 2026** dal piano del capitolo [02](./02-traguardi.md), che non ha margine. Oltre quella
   data la capacità resta quella di un contributore unico a tempo parziale, e la coda che segue
   contiene **ventidue voci**. Dichiarare qui un trimestre significherebbe inventarlo.
 - **I rischi.** Ogni voce cita i rischi che la riguardano; la loro descrizione è in
-  [05 — Rischi e dipendenze](./05-rischi-e-dipendenze.md).
+  [05 - Rischi e dipendenze](./05-rischi-e-dipendenze.md).
 
 ---
 
@@ -84,7 +84,7 @@ sicurezza dell'assistito senza un controllo di rischio, o se la sua assenza rend
 prodotto. Una voce che violasse uno dei due non sarebbe una voce di coda: sarebbe un difetto del
 primo rilascio, e andrebbe corretta lì.
 
-**Il criterio 2 — irrecuperabilità — dopo `D53` ordina, e prima non lo faceva.** È la novità di
+**Il criterio 2 - irrecuperabilità - dopo `D53` ordina, e prima non lo faceva.** È la novità di
 questa revisione e va motivata. Fino alla terza tornata di decisioni, ciò che era irrecuperabile
 era stato collocato nei traguardi di classe `A` e quindi non compariva in coda. Dopo `D53` e `D54`
 esistono voci la cui **assenza produce una perdita nuova a ogni rilascio**, non una sola volta: sono
@@ -95,23 +95,23 @@ davanti a voci di maggiore valore funzionale**, ed è una scelta che questo docu
 di lasciarla dedurre.
 
 **Ordinano il resto della coda i criteri 4 e 5**, nell'ordine: quante altre cose una voce sblocca, e
-quanto beneficio clinico produce per unità di lavoro. Il criterio 6 — desiderabilità — non ordina
+quanto beneficio clinico produce per unità di lavoro. Il criterio 6 - desiderabilità - non ordina
 niente: **è la definizione della seconda categoria**.
 
 ### 2.2 Le tre regole aggiuntive
 
-**Prima — il debito regolatorio si estingue prima di aggiungere.** Se al momento di aprire una voce
+**Prima - il debito regolatorio si estingue prima di aggiungere.** Se al momento di aprire una voce
 esiste una lacuna dichiarata ai sensi di [01 §8](./01-principi-e-metodo.md), quella lacuna si
 chiude prima. La ragione è aritmetica: il debito regolatorio non si rifinanzia, e ogni funzione
 aggiunta sopra una lacuna ne aumenta la superficie invece di lasciarla costante. **Sotto `D54`
 questa regola ha un destinatario preciso**: le lacune dichiarate del §5.3 del capitolo
 [03](./03-primo-rilascio-utilizzabile.md), che è la ragione per cui `OL-22` è in prima posizione.
 
-**Seconda — ciò che sblocca chi integra precede ciò che aggiunge una prestazione.** Una prestazione
+**Seconda - ciò che sblocca chi integra precede ciò che aggiunge una prestazione.** Una prestazione
 nuova produce valore per un tenant; una capacità di integrazione mancante blocca **tutti** gli
 integratori contemporaneamente e li obbliga a costruire un aggiramento che poi manterranno per anni.
 
-**Terza — nulla si aggiunge finché il percorso verticale di `RU-1` non è stato esercitato da
+**Terza - nulla si aggiunge finché il percorso verticale di `RU-1` non è stato esercitato da
 qualcuno che non l'ha scritto.** È l'applicazione del criterio di composizione di
 [01 §4.2](./01-principi-e-metodo.md), e sotto `D54` è **l'unica forma di verifica indipendente che
 `RU-1` avrà**: la esegue chi installa, con la procedura di
@@ -131,7 +131,7 @@ sorpasso è una sola, ed è verificabile:
 
 ---
 
-## 3. La coda pianificata — quadro d'insieme
+## 3. La coda pianificata - quadro d'insieme
 
 | Pos. | Voce | Enunciato | Perché non è in `RU-1` | Innesco | Titolare |
 |:-:|---|:-:|---|---|---|
@@ -171,7 +171,7 @@ possa distribuire senza dichiarare per quanto tempo si sostiene ciò che si è d
 Ogni voce ha la stessa forma. **I criteri di completamento sono binari**: si soddisfano o non si
 soddisfano, e la verifica non richiede una discussione.
 
-### `OL-22` — Funzioni a ruoli distinti acquisite all'esterno
+### `OL-22` - Funzioni a ruoli distinti acquisite all'esterno
 *`[INTENZIONE]` · prima posizione · titolare: **committente***
 
 **Che cosa comprende.** L'acquisizione all'esterno delle funzioni che richiedono un soggetto diverso
@@ -181,7 +181,7 @@ esterna indipendente del codice di sicurezza critico** prescritta da `D18`.
 
 **Perché non è in `RU-1`.** Perché `D54` dichiara un contributore unico e queste funzioni
 **presuppongono soggetti distinti per definizione**. Non è un problema di ore: è il taglio
-irreversibile `TG-20` — con `TG-21` per la revisione esterna — descritto in
+irreversibile `TG-20` - con `TG-21` per la revisione esterna - descritto in
 [03 §5.3](./03-primo-rilascio-utilizzabile.md).
 
 **Perché è in prima posizione, davanti a ogni funzione.** Per una ragione che il §2.1 enuncia e che
@@ -213,7 +213,7 @@ decisione al 30 settembre 2026, e da una decisione di spesa.
 
 **Rischi.** `R-02`, `R-22` (le figure specialistiche sono una risorsa scarsa), `R-29`.
 
-### `OL-15` — Documentazione clinica e refertazione
+### `OL-15` - Documentazione clinica e refertazione
 *`[INTENZIONE]` · seconda posizione · titolare: **progetto***
 
 **Che cosa comprende.** Bozza, validazione, **firma**, immodificabilità del documento firmato,
@@ -258,7 +258,7 @@ installa può provare.
 **Rischi.** `R-23` (deriva verso l'interpretazione: la refertazione assistita è una delle tre
 funzionalità a una singola storia utente dall'innalzamento di classe), `R-24`.
 
-### `OL-21` — Ancoraggio periodico firmato della catena del registro
+### `OL-21` - Ancoraggio periodico firmato della catena del registro
 *`[INTENZIONE]` · terza posizione · titolare: **progetto***
 
 **Che cosa comprende.** Lo strato mancante del registro immutabile: l'ancoraggio periodico firmato
@@ -288,7 +288,7 @@ mette `OL-22` in prima posizione, applicata a un componente invece che a un ruol
 
 **Rischi.** `R-20`.
 
-### `OL-02` — Terzo partecipante alla sessione
+### `OL-02` - Terzo partecipante alla sessione
 *`[INTENZIONE]` · quarta posizione · titolare: **committente**, poi progetto*
 
 **Che cosa comprende.** La presenza in sessione di un terzo soggetto: interprete, caregiver che
@@ -307,7 +307,7 @@ su un dispositivo e una rete di riferimento **non ancora dichiarati** (`Q-115`, 
 alternativa dichiarata** per l'unica non conformità di accessibilità che il progetto ammette, quella
 sui sottotitoli in tempo reale (`D24`). Finché il terzo partecipante non esiste, la misura
 alternativa non esiste, e una non conformità dichiarata con una misura alternativa inesistente è una
-non conformità senza misura alternativa. **Il criterio 3 — legittimità dell'uso — vi si applica
+non conformità senza misura alternativa. **Il criterio 3 - legittimità dell'uso - vi si applica
 direttamente**, e supera i criteri di sblocco e di valore.
 
 **Criteri di completamento.**
@@ -331,7 +331,7 @@ e il riesame è a carico di chi ha dichiarato la non conformità.
 
 **Rischi.** `R-17`, `R-19`.
 
-### `OL-16` — Facciata di interoperabilità
+### `OL-16` - Facciata di interoperabilità
 *`[INTENZIONE]` · quinta posizione · titolare: **progetto***
 
 **Che cosa comprende.** La facciata di interoperabilità con documento di capacità, profili fissati
@@ -343,7 +343,7 @@ un'interfaccia che nessun integratore ha ancora esercitato.
 
 **Perché è quinta.** Per la seconda regola del §2.2: **ciò che sblocca chi integra precede ciò che
 aggiunge una prestazione**. La sua assenza obbliga ogni integratore a mappare per conto proprio, e
-la mappatura fatta ora andrà rifatta quando la facciata esiste — un costo che si moltiplica per il
+la mappatura fatta ora andrà rifatta quando la facciata esiste - un costo che si moltiplica per il
 numero di integratori e che nessuno di essi recupera.
 
 **Criteri di completamento.**
@@ -356,7 +356,7 @@ numero di integratori e che nessuno di essi recupera.
    comportamento effettivo fa fallire la costruzione.
 4. Nessuna formula di conformità vietata compare nel materiale prodotto (`V-133`).
 
-### `OL-01` — Telemonitoraggio, percorso completo
+### `OL-01` - Telemonitoraggio, percorso completo
 *`[INTENZIONE]` · sesta posizione · titolare: **progetto***
 
 **Che cosa comprende.** Arruolamento in un percorso, piano individuale versionato, acquisizione delle
@@ -372,7 +372,7 @@ tempo reale. Il modello di dominio era già scritto così: **il lavoro non è pi
 riscrittura.** Restano due ragioni. **La prima**: è il contesto più esteso del catalogo dei
 requisiti, e sotto `D54` l'ampiezza è dirimente. **La seconda**: la rappresentazione delle regole è
 una decisione architetturale aperta (`Q-120`), e realizzare un motore prima di aver deciso quanto
-debba essere espressivo produce esattamente l'esito che quella questione vuole evitare — un
+debba essere espressivo produce esattamente l'esito che quella questione vuole evitare - un
 linguaggio di programmazione arbitrario eseguito in produzione, che è insieme superficie di attacco e
 oggetto non validabile ai fini regolatori.
 
@@ -421,7 +421,7 @@ degli allarmi nella modalità di esercizio senza conservazione del contenuto cli
 **Rischi.** `R-17`, `R-23` (è la voce con la maggiore pressione ad ampliarsi verso
 l'interpretazione), `R-11`.
 
-### `OL-17` — Componente incorporabile white-label
+### `OL-17` - Componente incorporabile white-label
 *`[INTENZIONE]` · settima posizione · titolare: **progetto***
 
 **Che cosa comprende.** L'elemento personalizzato conforme allo standard dei componenti web, con
@@ -438,12 +438,12 @@ dell'integratore**.
    contrasto è **rifiutata al salvataggio**, non accettata con avviso: prova negativa.
 2. Gli elementi non tematizzabili né occultabili restano tali in ogni configurazione supportata, e
    fra essi l'indicatore di registrazione: prova negativa che tenta di nasconderlo con ogni mezzo.
-3. Il rispetto delle preferenze di sistema — movimento ridotto, contrasto elevato, dimensione del
-   carattere — **non è disattivabile** dalla personalizzazione.
+3. Il rispetto delle preferenze di sistema - movimento ridotto, contrasto elevato, dimensione del
+   carattere - **non è disattivabile** dalla personalizzazione.
 4. Il componente consuma **le stesse interfacce applicative** offerte agli integratori: nessuna
    capacità gli è riservata (`V-164`).
 
-### `OL-03` — Registrazione della sessione lato server
+### `OL-03` - Registrazione della sessione lato server
 *`[INTENZIONE]` · ottava posizione · titolare: **progetto***
 
 **Che cosa comprende.** La seconda modalità di sessione prevista da `D23`: il media transita per un
@@ -453,7 +453,7 @@ chiavi per tenant e ha una scadenza sempre valorizzata.
 **Perché non è in `RU-1`.** Perché **non è una funzione opzionale: è una seconda modalità di
 sicurezza.** Comporta un componente distinto con un proprio perimetro, un flusso di consenso
 dedicato, una gerarchia di chiavi, una politica di conservazione, una procedura di riproduzione
-tracciata e — soprattutto — un'informativa che dichiara esplicitamente all'assistito che **la
+tracciata e - soprattutto - un'informativa che dichiara esplicitamente all'assistito che **la
 sessione non è più cifrata fino agli estremi**.
 
 **Che cosa `RU-1` ha già fatto per lei, e perché è la scelta giusta.** L'indicatore di registrazione
@@ -486,7 +486,7 @@ già in esercizio da un rilascio.
 
 **Rischi.** `R-19`, `R-25` (componente esposto in più).
 
-### `OL-19` — Esercizio: amministrazione, secondo profilo, migrazioni non bloccanti
+### `OL-19` - Esercizio: amministrazione, secondo profilo, migrazioni non bloccanti
 *`[INTENZIONE]` · nona posizione · titolare: **progetto***
 
 **Che cosa comprende.** Le tre voci che `RU-1` ha spostato su chi installa: l'**interfaccia di
@@ -514,7 +514,7 @@ e una **finestra di manutenzione** per gli aggiornamenti.
    blocca gli altri**: una prova provoca il fallimento su un tenant e verifica che gli altri
    completino.
 
-### `OL-20` — Estensione della verifica
+### `OL-20` - Estensione della verifica
 *`[INTENZIONE]` · decima posizione · titolare: **progetto***
 
 **Che cosa comprende.** Il recupero della profondità di verifica ridotta per rispettare la data:
@@ -542,7 +542,7 @@ lo è.
    percorso che contiene contenuto codificato**, e passa: è la verifica che `RU-1` ha potuto
    soddisfare solo in forma degenere.
 
-### `OL-04` — Teleconsulto, teleconsulenza e second opinion
+### `OL-04` - Teleconsulto, teleconsulenza e second opinion
 *`[INTENZIONE]` · undicesima posizione · titolare: **progetto***
 
 **Che cosa comprende.** Le prestazioni fra professionisti: il teleconsulto fra medici, la
@@ -552,7 +552,7 @@ documentato, che è una variante asincrona del teleconsulto e non una funzione a
 **Perché non è in `RU-1`.** Perché ciascuna è **una macchina a stati propria** con attori ammessi
 diversi, artefatti obbligatori diversi, obbligo di presenza dell'assistito diverso e insieme di esiti
 diverso (`V-140`). Non sono varianti di configurazione della televisita: la tassonomia del progetto
-porta due attributi distinti — l'attività e il servizio minimo — che **non coincidono**, e il vincolo
+porta due attributi distinti - l'attività e il servizio minimo - che **non coincidono**, e il vincolo
 professionale si applica all'**attività**, non al servizio (`V-147`, `Q-147`).
 
 **Perché segue `OL-15`.** Perché il caso già documentato presuppone un documento: senza la
@@ -572,13 +572,13 @@ refertazione, il parere ulteriore non ha su che cosa esercitarsi.
 
 **Rischi.** `R-23`, `R-24`.
 
-### `OL-05` — Teleassistenza
+### `OL-05` - Teleassistenza
 *`[INTENZIONE]` · dodicesima posizione · titolare: **progetto***
 
 **Che cosa comprende.** Le prestazioni erogate dalle professioni sanitarie non mediche, con i propri
 artefatti e i propri esiti.
 
-**Perché segue `OL-04`.** Stessa ragione strutturale — è una macchina a stati propria — con in più una
+**Perché segue `OL-04`.** Stessa ragione strutturale - è una macchina a stati propria - con in più una
 considerazione di sequenza: buona parte del lavoro di `OL-04` è la generalizzazione del catalogo delle
 prestazioni e della selezione della macchina a stati dal tipo. Fatta quella, `OL-05` è prevalentemente
 contenuto di catalogo. Consegnarle nell'ordine inverso significherebbe fare due volte la
@@ -588,7 +588,7 @@ generalizzazione.
 discrimini le regole**: dove la fonte prevede l'annotazione digitale in luogo del referto, il sistema
 produce l'annotazione e non pretende un referto (`V-145`).
 
-### `OL-18` — Broker di eventi e consumatori multipli
+### `OL-18` - Broker di eventi e consumatori multipli
 *`[INTENZIONE]` · tredicesima posizione · titolare: **progetto***
 
 **Che cosa comprende.** Il broker di eventi con l'assetto a nodo singolo per l'installazione presso il
@@ -616,7 +616,7 @@ abbia un secondo consumatore significherebbe restituire peso operativo in cambio
    empirica rinviata con questa voce.
 4. I consumatori restano **idempotenti per costruzione**, e nessuna busta contiene contenuto clinico.
 
-### `OL-06` — Canale asincrono e condivisione di documenti in sessione
+### `OL-06` - Canale asincrono e condivisione di documenti in sessione
 *`[INTENZIONE]` · quattordicesima posizione · titolare: **progetto***
 
 **Che cosa comprende.** Il canale di messaggistica asincrona fra assistito e struttura, e la
@@ -636,7 +636,7 @@ dipende solo dal criterio di composizione.
    riferimento, il contenuto si rilegge con chiamata autenticata (`V-135`, `V-161`).
 4. Il canale è raggiungibile da un sistema terzo tramite interfaccia documentata e versionata (`V-164`).
 
-### `OL-07` — Conferimento alle infrastrutture documentali nazionali e regionali
+### `OL-07` - Conferimento alle infrastrutture documentali nazionali e regionali
 *`[IPOTESI]` · quindicesima posizione, non databile dal progetto*
 
 **Perché non è in `RU-1` e perché resta `[IPOTESI]`.** Perché **manca il contenuto, non il progetto**.
@@ -664,14 +664,14 @@ di dominio.
 **Chi se ne fa carico.** L'interlocuzione per ottenere il materiale è dell'area di conformità (`Q-07`);
 la realizzazione è del progetto. **La data dipende da un terzo** e il progetto non la dichiara.
 
-### `OL-08` — Conformità verificata sull'identità digitale nazionale, su tutti i canali
+### `OL-08` - Conformità verificata sull'identità digitale nazionale, su tutti i canali
 *`[IPOTESI]` · sedicesima posizione, non databile dal progetto*
 
 **Che cosa `RU-1` contiene già.** I realm distinti per contesto clinico e contesto dell'assistito, e
 l'accettazione di un'identità già autenticata dal sistema dell'integratore con delega esplicita.
 
 **Che cosa manca, e perché non dipende dal progetto.** La **conformità verificata** sull'intero insieme
-dei fornitori richiede ambienti di pre-produzione, credenziali di prova e — per uno dei canali — **due
+dei fornitori richiede ambienti di pre-produzione, credenziali di prova e - per uno dei canali - **due
 istanze di fornitore di identità per ciascun fornitore**, perché il contesto di autenticazione
 richiesto è configurato staticamente sulla singola istanza (`Q-05`, `D38`). È il lotto di lavoro
 sistematicamente sottovalutato, e il moltiplicatore agisce su un insieme la cui cardinalità **si legge
@@ -704,7 +704,7 @@ cercati.
 
 **Rischi.** `R-13`, `R-14`, `R-15`, `R-11`.
 
-### `OL-09` — Messaggistica ospedaliera, profili di interoperabilità documentale e avvio applicativo in contesto clinico
+### `OL-09` - Messaggistica ospedaliera, profili di interoperabilità documentale e avvio applicativo in contesto clinico
 *`[IPOTESI]` · diciassettesima posizione, non databile dal progetto*
 
 **Perché non è in `RU-1`.** Perché tutte e tre richiedono una **controparte con un ambiente di prova**.
@@ -726,7 +726,7 @@ reali di una controparte reale.
 3. Il codice di tipo dell'identificatore nel canale legacy è **contrattuale con l'integratore** e
    documentato come tale, non presentato come conformità a una tabella.
 
-### `OL-10` — Kit di sviluppo in due linguaggi
+### `OL-10` - Kit di sviluppo in due linguaggi
 *`[INTENZIONE]` · diciottesima posizione · titolare: **progetto***
 
 **Perché non è in `RU-1`.** Perché è **comodità, non capacità**: l'interfaccia applicativa versionata e
@@ -734,7 +734,7 @@ le prove a contratto sono sufficienti a completare una prima integrazione, e un 
 stabilizzazione dell'interfaccia sarebbe da riscrivere.
 
 **Perché è così in basso.** Perché un kit di sviluppo è un **terzo contratto pubblico** da mantenere
-per il periodo di supporto — dopo l'interfaccia propria e la facciata di `OL-16` — con la propria
+per il periodo di supporto - dopo l'interfaccia propria e la facciata di `OL-16` - con la propria
 cadenza di dismissione e il proprio preavviso. Sotto `D54` ogni contratto pubblico in più è capacità
 ricorrente sottratta per sempre allo sviluppo ([01 §9](./01-principi-e-metodo.md)).
 
@@ -747,7 +747,7 @@ ricorrente sottratta per sempre allo sviluppo ([01 §9](./01-principi-e-metodo.m
 3. Il kit non contiene logica di dominio: se una regola vive nel kit, la stessa regola non è applicata
    dal server e il vincolo `V-164` è violato.
 
-### `OL-11` — Moduli propri di agenda, fatturazione e rendicontazione
+### `OL-11` - Moduli propri di agenda, fatturazione e rendicontazione
 *`[INTENZIONE]` · diciannovesima posizione · titolare: **progetto***
 
 **Perché non è in `RU-1`.** Perché il caso d'uso di riferimento del progetto è l'integrazione con un
@@ -768,7 +768,7 @@ spegnere non è un modulo proprio: è una duplicazione imposta.
 3. Nessuna capacità è disponibile **solo** con il modulo proprio attivo: la matrice delle capacità nelle
    due configurazioni è identica, e la verifica è automatica.
 
-### `OL-12` — Contesto autonomo della rendicontazione
+### `OL-12` - Contesto autonomo della rendicontazione
 *`[INTENZIONE]` · ventesima posizione · titolare: **committente**, poi progetto*
 
 **Perché non è in `RU-1`.** Perché è una decisione dichiarata rinviata al committente (`C-1`) e **una
@@ -790,7 +790,7 @@ nulla lo impedisca strutturalmente.
    amministrativo e importo, **e nient'altro**: una prova negativa tenta di aggiungervi un riferimento
    clinico e fallisce.
 
-### `OL-13` — Punteggi di scale e questionari clinici validati
+### `OL-13` - Punteggi di scale e questionari clinici validati
 *`[IPOTESI]` · ventunesima posizione · titolare: **`COMP`***
 
 **Perché non è in `RU-1`.** Per una misura cautelativa in vigore e motivata: il regime di licenza degli
@@ -805,7 +805,7 @@ lo è.
 
 **Le due avvertenze che questa voce si porta dietro.** La prima: se il calcolo verrà introdotto, va
 valutato il confine con la finalità interpretativa, perché **un punteggio calcolato dal sistema è più
-vicino a quel confine di una risposta conservata** — ed è una delle tre funzionalità a una singola
+vicino a quel confine di una risposta conservata** - ed è una delle tre funzionalità a una singola
 storia utente dall'innalzamento di classe. La seconda: il contenuto degli strumenti non è nella
 distribuzione ed è dato di configurazione per tenant, caricato da chi installa.
 
@@ -813,7 +813,7 @@ distribuzione ed è dato di configurazione per tenant, caricato da chi installa.
 determinazione di regime per ciascuno strumento ammesso**, verificata sulla licenza primaria e
 registrata. Senza quella, i criteri tecnici non si esaminano.
 
-### `OL-14` — Oscuramento selettivo del contenuto audio-video
+### `OL-14` - Oscuramento selettivo del contenuto audio-video
 *`[INTENZIONE]` · ventiduesima posizione · titolare: **`COMP`**, poi progetto*
 
 **Perché non è in `RU-1`.** Perché è dichiarata non presente nella prima versione ed è registrata come
@@ -825,8 +825,8 @@ radice: la registrazione è **eccezione e non regola**, disabilitata per imposta
 livello e con consenso specifico per sessione; e per i tipi di prestazione marcati non registrabili la
 funzione è **assente e non disattivabile neppure da un amministratore**.
 
-**Che cosa resta da decidere prima di realizzarla.** Se il rilascio parziale — il solo audio della parte
-richiedente — soddisfi l'istanza dell'interessato, o se la valutazione caso per caso vada comunque
+**Che cosa resta da decidere prima di realizzarla.** Se il rilascio parziale - il solo audio della parte
+richiedente - soddisfi l'istanza dell'interessato, o se la valutazione caso per caso vada comunque
 documentata. È una determinazione di conformità, non di prodotto.
 
 ---
@@ -836,15 +836,15 @@ documentata. È una determinazione di conformità, non di prodotto.
 Nessuna delle voci seguenti è pianificata. Nessuna ha una posizione, un criterio o un innesco. Ciascuna
 dichiara **che cosa manca perché diventi pianificata**, che è l'unica informazione utile a chi legge.
 
-### `DS-01` — Sottotitoli in tempo reale
+### `DS-01` - Sottotitoli in tempo reale
 
 **Perché sarebbe desiderabile.** Rimuoverebbe l'unica non conformità di accessibilità che il progetto
 dichiara, e renderebbe non necessaria la misura alternativa di `OL-02`.
 
 **Che cosa manca.** Un motore di trascrizione, che è un componente con tre implicazioni non risolte:
-**sovranità** — nessuna dipendenza obbligatoria fuori dall'Unione è ammessa (`V-01`), e i motori con la
-qualità richiesta sono in prevalenza servizi remoti; **licenza** — un modello va collocato nei regimi
-della politica sui contenuti di terzi come qualunque altro contenuto; **qualificazione** — un
+**sovranità** - nessuna dipendenza obbligatoria fuori dall'Unione è ammessa (`V-01`), e i motori con la
+qualità richiesta sono in prevalenza servizi remoti; **licenza** - un modello va collocato nei regimi
+della politica sui contenuti di terzi come qualunque altro contenuto; **qualificazione** - un
 sottotitolo è veicolo di comunicazione, ma una trascrizione che riassumesse, correggesse o
 normalizzasse contenuto clinico non lo sarebbe più, e `D55` rende il confine più stretto, non più
 largo.
@@ -852,7 +852,7 @@ largo.
 **Che cosa il progetto ha comunque fatto.** Il canale dati dei sottotitoli è **definito e versionato nel
 protocollo**, come impone `D24`. Innestare un motore in futuro non richiede di riprogettare la sessione.
 
-### `DS-02` — Lingue ulteriori oltre l'italiano e l'inglese
+### `DS-02` - Lingue ulteriori oltre l'italiano e l'inglese
 
 **Perché sarebbe desiderabile.** Il decreto sulle infrastrutture regionali richiede il multilingua, e
 l'architettura di internazionalizzazione è predisposta fin dall'inizio.
@@ -864,7 +864,7 @@ lingua va dimostrato che il controllo di divergenza fra le due esistenti non pro
 stabile **su tutto il corpus e non solo sulle aree prerequisito**: è la condizione che `T-09` chiude, e
 finché non è chiusa questa voce non può nemmeno essere valutata.
 
-### `DS-03` — Applicazione nativa per dispositivi mobili
+### `DS-03` - Applicazione nativa per dispositivi mobili
 
 **Perché sarebbe desiderabile.** Accesso a capacità del dispositivo non disponibili al navigatore, e
 notifiche più affidabili.
@@ -872,11 +872,11 @@ notifiche più affidabili.
 **Che cosa manca, e perché non è una decisione tecnica.** Un artefatto distribuito attraverso un canale
 di distribuzione applicativa ha **un regime proprio**: due catene di distribuzione, due cicli di
 aggiornamento, due superfici da sorvegliare, e un intermediario che decide se e quando un aggiornamento
-di sicurezza raggiunge l'utilizzatore — il che è in tensione diretta con un livello di servizio di
+di sicurezza raggiunge l'utilizzatore - il che è in tensione diretta con un livello di servizio di
 rimedio espresso in giorni (`V-185`). Il requisito del progetto è **mobile first sul web**, non
 un'applicazione nativa.
 
-### `DS-04` — Firma grafometrica e lettura della tessera sanitaria da lettore locale
+### `DS-04` - Firma grafometrica e lettura della tessera sanitaria da lettore locale
 
 **Perché sarebbero desiderabili.** Sono capacità ricorrenti nel profilo di integratore su cui il
 progetto è disegnato.
@@ -888,19 +888,19 @@ sistema di destinazione possiede, con hardware, controllori di periferica e supe
 propri. Diventerebbero pianificabili solo per un adottante che non abbia un sistema di origine, cioè per
 il caso d'uso su cui il progetto **non** è disegnato.
 
-### `DS-05` — Cruscotti clinici aggregati e indicatori di popolazione
+### `DS-05` - Cruscotti clinici aggregati e indicatori di popolazione
 
 **Perché sarebbero desiderabili.** Una struttura che eroga prestazioni a distanza vuole misurare il
 proprio servizio.
 
-**Che cosa manca, e qual è il confine.** Gli indicatori **di servizio** — volumi, esiti amministrativi,
-disponibilità, qualità del collegamento — sono già misurati e non sono questa voce; la loro
+**Che cosa manca, e qual è il confine.** Gli indicatori **di servizio** - volumi, esiti amministrativi,
+disponibilità, qualità del collegamento - sono già misurati e non sono questa voce; la loro
 presentazione è `OL-19`. Ciò che manca, ed è desiderabile e insieme pericoloso, è l'aggregazione
 **clinica**: sfiora l'uso secondario dei dati, che ha basi giuridiche e percorsi propri, e sfiora la
 produzione di informazione clinica nuova. Perché diventi pianificabile serve prima una determinazione
 sul confine, non una specifica di cruscotto.
 
-### `DS-06` — Federazione fra installazioni distinte
+### `DS-06` - Federazione fra installazioni distinte
 
 **Perché sarebbe desiderabile.** Consentirebbe un teleconsulto fra due strutture che usano due
 installazioni separate senza che nessuna delle due debba ospitare l'altra.
@@ -910,7 +910,7 @@ fiducia del progetto è per tenant, non fra installazioni, e la sua estensione p
 gerarchia di attestazioni, una revoca fra domini amministrativi diversi e una ripartizione di
 responsabilità che oggi non è nemmeno formulata. È la voce più distante di questo elenco.
 
-### `DS-07` — Modalità fuori linea per il contenuto clinico
+### `DS-07` - Modalità fuori linea per il contenuto clinico
 
 **Perché sarebbe desiderabile.** Continuità operativa in condizioni di rete assente.
 
@@ -925,7 +925,7 @@ già un requisito del contesto di `OL-01`.
 
 ## 6. Perché questa coda ha questa forma, in tre osservazioni
 
-**Prima — e la conclusione si è capovolta rispetto alla versione precedente di questo capitolo.** Prima
+**Prima - e la conclusione si è capovolta rispetto alla versione precedente di questo capitolo.** Prima
 di `D53`, nove voci su quattordici non dipendevano dalla capacità del progetto ma da decisioni altrui,
 e la conseguenza dichiarata era che **aumentare la capacità non avrebbe accorciato la coda**. Dopo i
 tagli, la coda contiene **ventidue voci, e dodici dipendono soltanto dalla capacità**: sono le voci
@@ -935,13 +935,13 @@ aumentare la capacità accorcia la coda, e prima non lo faceva.** È l'effetto d
 significativo della riduzione di ambito, ed è un argomento che appartiene al committente, non al
 pianificatore.
 
-**Seconda — le prime tre posizioni non sono funzioni.** `OL-22`, `OL-15` e `OL-21`: la prima è
+**Seconda - le prime tre posizioni non sono funzioni.** `OL-22`, `OL-15` e `OL-21`: la prima è
 l'acquisizione di ruoli, la terza è uno strato di garanzia di un componente già presente. Stanno lì
 perché la loro assenza produce una **perdita che si ripete a ogni rilascio**, e nessuna funzione ha
 questa proprietà. Una coda ordinata per valore funzionale visibile le avrebbe messe in fondo, ed è
 precisamente l'errore che il criterio 2 di [01 §3](./01-principi-e-metodo.md) esiste per evitare.
 
-**Terza — nessuna voce di questa coda rimuove il limite d'uso.** Nemmeno tutte insieme. **Oggi il
+**Terza - nessuna voce di questa coda rimuove il limite d'uso.** Nemmeno tutte insieme. **Oggi il
 prodotto non reca marcatura CE**, non è coperto da alcuna dichiarazione di conformità, e non è
 utilizzabile per l'erogazione di prestazioni sanitarie su pazienti reali. Che il progetto intenda
 assumere il ruolo di fabbricante (`D58`) è pianificazione interna con un proprio calendario in
@@ -972,8 +972,8 @@ Quattro precisazioni che riguardano questa coda e non quel capitolo:
    valutazione precede la stima dello sforzo.** L'ordine è vincolante, perché stimare per primo fa
    apparire economica una modifica che comporta una rivalutazione di conformità. **Con `D58` la
    rivalutazione è a carico nostro**, e l'ordine pesa di più.
-3. **Tre funzionalità sono a una singola storia utente dall'innalzamento di classe** — allerta su
-   soglia, elaborazione dell'immagine, refertazione assistita — e sono sotto controllo delle modifiche.
+3. **Tre funzionalità sono a una singola storia utente dall'innalzamento di classe** - allerta su
+   soglia, elaborazione dell'immagine, refertazione assistita - e sono sotto controllo delle modifiche.
    Una proposta che le tocchi non è una proposta di funzione: è una proposta di modifica del
    dispositivo.
 4. **`D55` aggiunge un divieto permanente**: nessuna funzione può essere aggiunta se sposta il sistema
@@ -994,13 +994,13 @@ Le transizioni ammesse sono quattro, e ciascuna ha una condizione verificabile.
 | Fuori perimetro | Pianificata | La procedura di [`docs/03_functional/07-fuori-perimetro.md`](../03_functional/07-fuori-perimetro.md) §7, con il costo proporzionato alla categoria | Secondo la categoria |
 
 A queste si aggiunge, dopo `D53`, una quinta transizione che prima non esisteva e che va dichiarata
-perché è quella che ha generato sei delle ventidue voci — `OL-15`…`OL-20`:
+perché è quella che ha generato sei delle ventidue voci - `OL-15`…`OL-20`:
 
 | Da | A | Condizione | Chi la accerta |
 |---|---|---|---|
 | **Perimetro del primo rilascio** | **Pianificata** | Un taglio **reversibile** registrato in [03 §5.2](./03-primo-rilascio-utilizzabile.md), con la sua voce `TG-nn`, la sua conseguenza per chi installa e la sua posizione in questa coda | Il documento stesso: la transizione è compiuta e registrata, non pendente |
 
-Le altre due voci nuove — `OL-21` e `OL-22` — **non discendono da questa transizione**, e la
+Le altre due voci nuove - `OL-21` e `OL-22` - **non discendono da questa transizione**, e la
 differenza è quella che il §9 ripete: nascono da tagli **irreversibili**, non restituiscono il periodo
 perduto, e ciò che rendono disponibile vale **dai rilasci successivi in avanti**.
 
@@ -1031,6 +1031,6 @@ esplicitamente.
 
 ---
 
-**Prosegue in**: [05 — Rischi e dipendenze](./05-rischi-e-dipendenze.md), dove i rischi citati in questo
-capitolo — e le dipendenze esterne da cui dipendono dieci voci su ventidue — sono descritti con
+**Prosegue in**: [05 - Rischi e dipendenze](./05-rischi-e-dipendenze.md), dove i rischi citati in questo
+capitolo - e le dipendenze esterne da cui dipendono dieci voci su ventidue - sono descritti con
 probabilità, impatto sul calendario, indicatore anticipatore, risposta e titolare.

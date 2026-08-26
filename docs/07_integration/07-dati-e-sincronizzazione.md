@@ -11,7 +11,7 @@ quale dato, e che cosa succede quando due sistemi dicono cose diverse sulla stes
 
 La risposta ha conseguenze cliniche. Una divergenza fra due anagrafiche non produce un difetto di
 dati: produce una fusione o una scissione di identità, e sono eventi avversi. I fondamenti sono
-in [10 §04 — Identità e anagrafiche](../10_fondamenti/04-identita-e-anagrafiche.md); qui si
+in [10 §04 - Identità e anagrafiche](../10_fondamenti/04-identita-e-anagrafiche.md); qui si
 tratta il confine fra i due sistemi.
 
 ## 1. Il principio
@@ -28,19 +28,19 @@ Da cui tre corollari che valgono senza eccezioni:
    chiede di fare altrettanto.
 2. **Il progetto non modifica il vostro dato di riferimento.** Non riscrive un'anagrafica, non
    corregge una data di nascita, non fonde due assistiti nel vostro sistema. Segnala e chiede.
-3. **Ciò che il progetto produce — documentazione clinica, misure, consensi, tracce — è
+3. **Ciò che il progetto produce - documentazione clinica, misure, consensi, tracce - è
    governato dal progetto**, e viene restituito a voi. La direzione del possesso si inverte a
    metà del flusso, ed è il punto in cui si concentrano i malintesi.
 
 ```mermaid
 flowchart LR
-    subgraph V["Il vostro sistema — dato di riferimento"]
+    subgraph V["Il vostro sistema - dato di riferimento"]
         A["Assistiti"]
         P["Professionisti"]
         AG["Agenda"]
         O["Organizzazioni e sedi"]
     end
-    subgraph T["Telemedic — dato di riferimento"]
+    subgraph T["Telemedic - dato di riferimento"]
         D["Documentazione clinica"]
         M["Misure e piani"]
         C["Consensi"]
@@ -84,7 +84,7 @@ Sul piano clinico la forma è quella prescritta dallo standard:
     },
     {
       "system": "http://hl7.it/sid/codiceFiscale",
-      "value": "RSSMRA80A01H501U"
+      "value": "RSSMRA80A01H501Z"
     }
   ]
 }
@@ -101,13 +101,13 @@ Sul piano clinico la forma è quella prescritta dallo standard:
 | **Registratelo in fase di onboarding** | Un dominio non registrato viene rifiutato: impedisce che un errore di digitazione crei un secondo spazio dei nomi silenzioso |
 
 L'ultima riga previene l'incidente più frequente di questa famiglia: due chiamate con due domini
-leggermente diversi — con e senza barra finale, con e senza sottodominio — creano due assistiti
+leggermente diversi - con e senza barra finale, con e senza sottodominio - creano due assistiti
 per la stessa persona, e nessuno se ne accorge finché lo storico non si divide.
 
 ### 2.3 Gli identificatori italiani, e la divergenza verificata
 
-Il quadro completo — codice fiscale e sua costruzione, omocodia, casi in cui manca o cambia,
-identificatori delle popolazioni non iscritte, tessera sanitaria, identificativi regionali — è in
+Il quadro completo - codice fiscale e sua costruzione, omocodia, casi in cui manca o cambia,
+identificatori delle popolazioni non iscritte, tessera sanitaria, identificativi regionali - è in
 [10 §04 §2](../10_fondamenti/04-identita-e-anagrafiche.md). Qui interessa un fatto verificato che
 vi riguarda direttamente:
 
@@ -136,8 +136,8 @@ Una **proiezione minima**, non un'anagrafica:
 |---|---|---|
 | Assistito | Identificativi con dominio, dati anagrafici minimi necessari all'identificazione durante la prestazione e alla produzione del documento, recapiti per l'invito | Storia clinica pregressa, terapie, allergie, salvo che siano oggetto della prestazione |
 | Professionista | Identificativi con dominio, nome, **ruolo presso l'organizzazione con la sua validità temporale**, eventuale numero di iscrizione | Dati personali non necessari |
-| Organizzazione e sede | Identificativi, denominazione | — |
-| Appuntamento | Identificativo con dominio, istanti, tipo di prestazione, partecipanti | — |
+| Organizzazione e sede | Identificativi, denominazione | - |
+| Appuntamento | Identificativo con dominio, istanti, tipo di prestazione, partecipanti | - |
 
 **Il principio di minimizzazione non è un adempimento formale**: ogni campo che non ci mandate è
 un campo che non può essere trattato in modo eccessivo, non può comparire in un registro e non
@@ -149,8 +149,8 @@ può essere oggetto di una violazione.
 
 | Errore | Che cosa succede | Gravità |
 |---|---|---|
-| **Fusione errata** — due persone diverse trattate come una | Il documento clinico di una persona finisce nella storia di un'altra | **Massima.** È un evento avverso, non un difetto di dati |
-| **Mancata fusione** — la stessa persona in due record | La storia si divide; un professionista vede metà delle informazioni | Grave, ma **recuperabile** |
+| **Fusione errata** - due persone diverse trattate come una | Il documento clinico di una persona finisce nella storia di un'altra | **Massima.** È un evento avverso, non un difetto di dati |
+| **Mancata fusione** - la stessa persona in due record | La storia si divide; un professionista vede metà delle informazioni | Grave, ma **recuperabile** |
 
 L'asimmetria determina la politica: **in caso di dubbio non si fonde**. Una mancata fusione si
 corregge; una fusione errata lascia tracce nella documentazione clinica firmata, che è
@@ -315,7 +315,7 @@ identificativo come criterio ([03 §5.4](03-integrazione-per-api.md)). È il mod
 sincronizzazione notturna che rielabora gli stessi appuntamenti senza creare duplicati.
 
 **Che cosa il progetto non fa:** non decide la disponibilità, non risolve sovrapposizioni, non
-applica regole di prenotabilità. Se avete bisogno di un'agenda, il progetto ne ha una — ed è un
+applica regole di prenotabilità. Se avete bisogno di un'agenda, il progetto ne ha una - ed è un
 modulo **disattivabile**, che si spegne quando avete la vostra
 ([08](08-moduli-sostituibili.md)).
 
@@ -328,7 +328,7 @@ modulo **disattivabile**, che si spegne quando avete la vostra
 
 La conseguenza per il vostro sistema è netta: **dovete saper rappresentare una sostituzione**.
 Sovrascrivere il documento archiviato con la nuova versione distrugge l'informazione su che cosa
-era stato refertato in un dato momento — che è precisamente l'informazione che serve in una
+era stato refertato in un dato momento - che è precisamente l'informazione che serve in una
 contestazione.
 
 | Evento | Che cosa fare nel vostro sistema |
@@ -344,7 +344,7 @@ vanno cablate. Sul piano clinico il referto della prestazione è una **composizi
 busta**, non un referto diagnostico generico: è la forma prescritta dalle guide nazionali.
 
 La forma di referto diagnostico è mantenuta come **proiezione in sola lettura** per gli
-integratori che se l'aspettano — mai come artefatto primario. Se il vostro sistema la consuma,
+integratori che se l'aspettano - mai come artefatto primario. Se il vostro sistema la consuma,
 funziona; se dovete costruire da zero, costruite sulla forma canonica.
 
 ### 8.3 Che cosa il progetto non fa con i documenti
@@ -365,10 +365,10 @@ delle responsabilità è in [09 §3](09-obblighi-di-chi-integra.md); qui i fatti
 
 | Diritto | Che cosa può fare il progetto | Limite |
 |---|---|---|
-| Accesso | Esportazione di ciò che riguarda l'interessato, per tenant | — |
+| Accesso | Esportazione di ciò che riguarda l'interessato, per tenant | - |
 | Rettifica | Sui dati di proiezione: si applica al **vostro** dato e si riflette qui | **Non sulla documentazione clinica firmata**: si rettifica con una versione successiva, non si corregge |
 | Cancellazione | Cancellazione delle proiezioni e dei dati non soggetti a obbligo di conservazione | **La documentazione clinica e le tracce di accesso hanno obblighi di conservazione propri** e non si cancellano su richiesta |
-| Limitazione | Sospensione dei trattamenti non necessari | — |
+| Limitazione | Sospensione dei trattamenti non necessari | - |
 | Opposizione a specifici trattamenti | Revoca dei consensi, oscuramento | L'oscuramento ha una disciplina propria che non coincide con la cancellazione |
 
 **La conseguenza pratica più importante:** se il vostro processo di cancellazione presuppone che

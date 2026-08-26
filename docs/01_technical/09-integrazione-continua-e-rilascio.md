@@ -12,8 +12,8 @@ distribuzione prodotta da **costruzione riproducibile** e sottoposta a controllo
 stabilisce che la distinta dei materiali va generata **dalla prima pipeline**, perché censire i
 componenti a posteriori costa diverse volte tanto.
 
-Questo capitolo descrive la struttura tecnica. Gli impegni formali — periodo di supporto,
-notifica degli incidenti, sorveglianza — appartengono a `docs/08_compliance/` e sono qui
+Questo capitolo descrive la struttura tecnica. Gli impegni formali - periodo di supporto,
+notifica degli incidenti, sorveglianza - appartengono a `docs/08_compliance/` e sono qui
 richiamati per la parte che si realizza in pipeline.
 
 ---
@@ -46,15 +46,15 @@ Quattro fasce, con criteri di appartenenza chiari.
 
 ```mermaid
 flowchart TB
-    A[Fascia rapida — a ogni invio<br/>compilazione, prove unitarie e di componente,<br/>analisi statica, ricerca di segreti] --> B
-    B[Fascia completa — a ogni proposta di modifica<br/>prove di integrazione, a contratto, accessibilità automatica,<br/>controlli obbligatori, copertura, costruzione degli artefatti] --> C
-    C[Fascia estesa — pianificata<br/>da estremo a estremo, media su rete simulata, analisi dinamica,<br/>copertura per mutazione, ricontrollo delle dipendenze] --> D
-    D[Fascia di rilascio — su procedura esplicita<br/>costruzione riproducibile, distinta dei materiali, firma,<br/>attestazioni, rapporto di tracciabilità, note di rilascio]
+    A[Fascia rapida - a ogni invio<br/>compilazione, prove unitarie e di componente,<br/>analisi statica, ricerca di segreti] --> B
+    B[Fascia completa - a ogni proposta di modifica<br/>prove di integrazione, a contratto, accessibilità automatica,<br/>controlli obbligatori, copertura, costruzione degli artefatti] --> C
+    C[Fascia estesa - pianificata<br/>da estremo a estremo, media su rete simulata, analisi dinamica,<br/>copertura per mutazione, ricontrollo delle dipendenze] --> D
+    D[Fascia di rilascio - su procedura esplicita<br/>costruzione riproducibile, distinta dei materiali, firma,<br/>attestazioni, rapporto di tracciabilità, note di rilascio]
 ```
 
 Il criterio di collocazione è il tempo: la fascia rapida sta in pochi minuti, perché altrimenti
 smette di essere eseguita a ogni invio; la fascia completa sta entro il tempo di attenzione di
-chi ha proposto la modifica. Ciò che non ci sta scende di fascia — **tranne i controlli
+chi ha proposto la modifica. Ciò che non ci sta scende di fascia - **tranne i controlli
 obbligatori del §3, che restano nella fascia completa a prescindere dal costo**, perché sono
 condizioni di ammissibilità e non verifiche di qualità.
 
@@ -76,10 +76,10 @@ un rapporto che qualcuno leggerà: impedisce l'integrazione. Un controllo che si
 | G6 | **Compatibilità di contratto** | Modifica non additiva a un elemento del perimetro contrattuale senza nuova versione maggiore |
 | G7 | **Copertura** | Sotto la soglia dell'ambito, secondo la tabella differenziata |
 | G8 | **Divergenza linguistica** | Documento italiano modificato senza il corrispondente inglese |
-| G9 | **Riferimenti interni** | Collegamento interno rotto — **bloccante prima del primo rilascio del sito**, secondo D52 |
+| G9 | **Riferimenti interni** | Collegamento interno rotto - **bloccante prima del primo rilascio del sito**, secondo D52 |
 | G10 | **Dati non sintetici** | Forme riconoscibili di identificativo reale nei sorgenti, nelle fixture e negli esempi |
 | G11 | **Regola di riservatezza** | Nomi di aziende, marchi, prodotti commerciali o domini nell'elenco vietato |
-| G12 | **Profilo di produzione** | Configurazione dell'immagine che attiva una scorciatoia di sviluppo |
+| G12 | **Profilo di esercizio** | Configurazione dell'immagine che attiva una scorciatoia di sviluppo |
 | G13 | **Regole di dipendenza** | Violazione delle regole di §1 di [`02-backend.md`](./02-backend.md) e §2.1 di [`04-frontend.md`](./04-frontend.md) |
 
 Tre note che valgono più della tabella.
@@ -94,8 +94,8 @@ non è un rischio di traduzione: è un rischio di **contenuto normativo diverso 
 in un dispositivo medico è un difetto documentale.
 
 **G11 è la traduzione automatizzata della regola R0.** È una lista di termini vietati, versionata,
-con procedura di aggiornamento. Non copre tutto — un controllo automatico non sostituisce la
-revisione — ma copre il caso in cui un nome finisce in un commento o in un file di configurazione
+con procedura di aggiornamento. Non copre tutto - un controllo automatico non sostituisce la
+revisione - ma copre il caso in cui un nome finisce in un commento o in un file di configurazione
 di esempio.
 
 ---
@@ -115,9 +115,9 @@ del progetto.
 
 - cerca, in tutto il repository, la presenza di identificatori di sistema, di forme note di codice
   e di contenuti riconducibili ai sistemi in regime di esclusione (D31, regime D) o di
-  acquisizione a carico del deployer (regime C);
-- **ammette** l'identificatore di sistema e il codice nudo — che sono identificatori, non
-  contenuto — quando l'ammissione è esplicita nella lista;
+  acquisizione a carico di chi installa (regime C);
+- **ammette** l'identificatore di sistema e il codice nudo - che sono identificatori, non
+  contenuto - quando l'ammissione è esplicita nella lista;
 - **blocca** qualunque cosa somigli a una denominazione, una gerarchia, una relazione o un insieme
   di valori espanso;
 - **blocca** l'aggiunta di una dipendenza che scarichi contenuto in fase di costruzione.
@@ -132,9 +132,9 @@ vincolo V-03. Le prove girano nella configurazione senza sistemi a licenza vinco
 che rende quella modalità realmente funzionante (vedi
 [`08-qualita-e-test.md`](./08-qualita-e-test.md) §4.3).
 
-**Le due avvertenze che il progetto deve documentare senza attenuanti** — l'interrogazione di un
-servizio esterno non esonera il deployer, e chi distribuisce Telemedic distribuisce un prodotto
-soggetto alla licenza anche senza contenere un solo concetto — sono di competenza di `COMP` e
+**Le due avvertenze che il progetto deve documentare senza attenuanti** - l'interrogazione di un
+servizio esterno non esonera chi installa, e chi distribuisce Telemedic distribuisce un prodotto
+soggetto alla licenza anche senza contenere un solo concetto - sono di competenza di `COMP` e
 vanno nel materiale per l'integratore, non nascoste in una nota tecnica.
 
 ---
@@ -157,10 +157,10 @@ vanno nel materiale per l'integratore, non nascoste in una nota tecnica.
 La policy è dichiarata nel contratto pubblico: annuncio con anticipo di **dodici mesi** sulla
 dismissione di una versione maggiore, intestazioni standard di dismissione e di termine, collegamento
 alla guida di migrazione, almeno due versioni maggiori attive contemporaneamente, e telemetria
-d'uso per versione — perché senza sapere chi usa ancora la versione vecchia non si può contattare
+d'uso per versione - perché senza sapere chi usa ancora la versione vecchia non si può contattare
 nessuno.
 
-`[NV]` — lo stato normativo di una delle due intestazioni va verificato prima di citarla come
+`[NV]` - lo stato normativo di una delle due intestazioni va verificato prima di citarla come
 standard: una è definita da una specifica pubblicata, l'altra è oggetto di lavoro in corso.
 
 ### 5.3 Identificativo di costruzione
@@ -178,8 +178,8 @@ prima domanda di ogni indagine.
 ### 6.1 Che cosa significa
 
 Che due costruzioni della stessa revisione, su macchine diverse e in momenti diversi, producano
-artefatti **identici byte per byte**. Non è un esercizio: è ciò che consente a un terzo — un
-verificatore, un integratore, un organismo — di **verificare che l'artefatto distribuito
+artefatti **identici byte per byte**. Non è un esercizio: è ciò che consente a un terzo - un
+verificatore, un integratore, un organismo - di **verificare che l'artefatto distribuito
 corrisponda al sorgente pubblicato**. Senza, la separazione fra repository e distribuzione di §1
 è un'affermazione non verificabile.
 
@@ -233,7 +233,7 @@ Attestazioni prodotte a ogni rilascio:
 | Riproducibilità | Esito dell'ultima verifica di ricostruzione |
 | Conformità del profilo | Verifica che l'immagine non attivi scorciatoie di sviluppo |
 
-### 7.3 Verifica lato deployer
+### 7.3 Verifica a cura di chi installa
 
 La verifica è **documentata come procedura eseguibile** nel manuale di installazione, con i
 comandi. Un artefatto firmato che nessuno verifica non aggiunge sicurezza: aggiunge una
@@ -244,7 +244,7 @@ dichiarazione.
 ## 8. Distinta dei materiali
 
 **Generata a ogni costruzione**, in un formato standard leggibile da macchina, per **ogni**
-artefatto — servizio, interfaccia, immagini, chart — e non solo per il servizio principale. Le
+artefatto - servizio, interfaccia, immagini, chart - e non solo per il servizio principale. Le
 immagini di base contengono componenti di sistema che sono componenti di terze parti a tutti gli
 effetti, e una distinta che li ignora è incompleta.
 
@@ -255,9 +255,9 @@ controllo G5: **un componente nella distinta e assente dalle annotazioni fa fall
 costruzione**. È il meccanismo che impedisce a una dipendenza di entrare senza essere stata
 valutata.
 
-La distinta è **pubblicata** insieme all'artefatto. Serve al deployer per rispondere ai propri
-obblighi — fra cui la dichiarazione dei fornitori rilevanti prevista da D40, per la quale il
-progetto fornisce la scheda con i dati che il cliente è tenuto a comunicare — e serve al progetto
+La distinta è **pubblicata** insieme all'artefatto. Serve a chi installa per rispondere ai propri
+obblighi - fra cui la dichiarazione dei fornitori rilevanti prevista da D40, per la quale il
+progetto fornisce la scheda con i dati che il cliente è tenuto a comunicare - e serve al progetto
 per correlare un avviso di sicurezza a un artefatto rilasciato in pochi minuti invece che in
 giorni.
 
@@ -269,12 +269,12 @@ giorni.
 |---|---|---|---|
 | Sviluppo | Lavoro quotidiano | Sintetici generati | Automatica |
 | Integrazione | Fascia completa | Sintetici generati | Automatica |
-| Collaudo | Fascia estesa, verifica manuale di accessibilità, verifica del deployer | **Sintetici. Mai esportazioni di produzione** | Automatica dalla revisione principale |
-| Produzione | Esercizio | Reali | **Manuale, con approvazione registrata** |
+| Collaudo | Fascia estesa, verifica manuale di accessibilità, verifica a cura di chi installa | **Sintetici. Mai esportazioni di produzione** | Automatica dalla revisione principale |
+| Esercizio | Erogazione | Reali | **Manuale, con approvazione registrata** |
 
 **Si promuove l'artefatto, non si ricostruisce.** Ciò che è stato provato in collaudo è
-esattamente ciò che va in produzione, byte per byte. Ricostruire per la produzione significa
-mettere in esercizio un artefatto che nessuno ha provato.
+esattamente ciò che va in esercizio, byte per byte. Ricostruire per l'ambiente successivo
+significa mettere in esercizio un artefatto che nessuno ha provato.
 
 La riga «mai esportazioni di produzione» è la stessa regola di
 [`08-qualita-e-test.md`](./08-qualita-e-test.md) §4.1 e va ripetuta qui perché è in questa fase
@@ -304,7 +304,7 @@ riemesso**, il che costa più che farlo bene la prima volta.
 Non un elenco di modifiche generato dai messaggi di revisione. Struttura fissa: modifiche con
 impatto clinico o di sicurezza in testa e con evidenza; correzioni di vulnerabilità con la
 gravità e il componente; modifiche al perimetro contrattuale con la versione; azioni richieste al
-deployer; limiti noti; componenti di terze parti aggiornati.
+chi installa; limiti noti; componenti di terze parti aggiornati.
 
 ### 10.3 Ritorno a una versione precedente
 
@@ -342,7 +342,7 @@ piano tecnico** e come si realizza in pipeline.
 
 **Il livello di servizio si esprime in giorni dalla pubblicazione dell'avviso, per gravità, e si
 misura.** Un impegno espresso in mesi è privo di significato per componenti con la cadenza di
-rilascio osservata sul nodo di relay — quattordici versioni in poco più di sette mesi, cinque nel
+rilascio osservata sul nodo di relay - quattordici versioni in poco più di sette mesi, cinque nel
 solo mese di agosto. La proposta tecnica è aperta in bacheca a `COMP` e `ROAD` per la
 formalizzazione.
 
@@ -350,8 +350,8 @@ formalizzazione.
 
 Annunciata con anticipo dichiarato, con la data, la versione successiva supportata e il percorso
 di migrazione. **Il progetto non rimuove gli artefatti pubblicati** al termine del supporto: li
-marca come non supportati. Rimuoverli renderebbe impossibile a un deployer ricostruire un
-ambiente per un'indagine su un incidente avvenuto quando erano in uso — che è precisamente ciò che
+marca come non supportati. Rimuoverli renderebbe impossibile a chi installa ricostruire un
+ambiente per un'indagine su un incidente avvenuto quando erano in uso - che è precisamente ciò che
 la vigilanza richiede di poter fare.
 
 ---
@@ -365,8 +365,7 @@ la vigilanza richiede di poter fare.
   valutazione legale, non una regola di configurazione. D34 lo dice in modo definitivo: una
   dichiarazione permissiva apposta su un contenitore **non dispone dei diritti di terzi** sul
   contenuto ricompreso, e la verifica va fatta artefatto per artefatto sulla licenza primaria.
-- **Non produce la marcatura.** Produce il materiale che serve a chi certifica (D49), con i due
-  cicli di vita di §1 tenuti distinti.
+- **Non produce la marcatura.** Produce il materiale per il nostro percorso di valutazione della conformità (D49), con i due cicli di vita di §1 tenuti distinti.
 - **Non conserva dati reali**, in nessun ambiente e in nessuna fase.
 
 ---

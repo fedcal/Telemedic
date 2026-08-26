@@ -1,14 +1,14 @@
 ---
 title: Crittografia e sicurezza
 sidebar_position: 13
-description: La teoria della sicurezza prima delle misure — proprietà di sicurezza, modellazione delle minacce, crittografia simmetrica e asimmetrica, funzioni di hash e catene di hash, firma digitale e PKI, cifratura in transito e a riposo, identità e autorizzazione, rottura del vetro, registro degli accessi immutabile, GDPR, NIS2 e Cyber Resilience Act, sicurezza nel ciclo di sviluppo.
+description: La teoria della sicurezza prima delle misure - proprietà di sicurezza, modellazione delle minacce, crittografia simmetrica e asimmetrica, funzioni di hash e catene di hash, firma digitale e PKI, cifratura in transito e a riposo, identità e autorizzazione, rottura del vetro, registro degli accessi immutabile, GDPR, NIS2 e Cyber Resilience Act, sicurezza nel ciclo di sviluppo.
 ---
 
 # Crittografia e sicurezza
 
 La maggior parte dei documenti di sicurezza di un progetto software è un elenco di misure:
 cifra qui, ruota là, imponi il secondo fattore. Un elenco di misure è utile a chi ha già in
-testa il modello che le giustifica, ed è inutile — anzi, dannoso — a chi non ce l'ha, perché
+testa il modello che le giustifica, ed è inutile - anzi, dannoso - a chi non ce l'ha, perché
 produce l'illusione che applicare la misura equivalga a ottenere la proprietà. Non è così.
 Si può cifrare un disco e non proteggere nulla. Si può imporre un secondo fattore e lasciare
 aperta la strada principale. Si può firmare un documento e non essere in grado di dimostrare
@@ -29,22 +29,22 @@ una cartella pesa quanto la cifratura del disco su cui sta.
 
 1. **Questo modulo non contiene ricette.** Dove indica un algoritmo o un parametro, dichiara
    la fonte. Dove la fonte non è stata verificata, lo marca con `[NV]`. La ragione è che le
-   ricette crittografiche invecchiano — un parametro adeguato nel 2015 può non esserlo nel
-   2026 — e un documento che le cristallizza produce sistemi obsoleti che si credono sicuri.
+   ricette crittografiche invecchiano - un parametro adeguato nel 2015 può non esserlo nel
+   2026 - e un documento che le cristallizza produce sistemi obsoleti che si credono sicuri.
    I riferimenti di elezione del progetto per la scelta dei meccanismi e delle dimensioni
    delle chiavi sono **ETSI TS 119 312**, i meccanismi crittografici concordati in ambito
    **SOG-IS** e le indicazioni **AgID-ACN**, per effetto della decisione **D19**.
 2. **Non copre il tempo reale.** DTLS-SRTP, ICE, STUN, TURN e la stringa di autenticazione
    breve confrontata a voce sono trattati per esteso in
-   [08 — WebRTC da zero](08-webrtc-da-zero.md), che ne è la fonte. Qui compaiono come esempi
+   [08 - WebRTC da zero](08-webrtc-da-zero.md), che ne è la fonte. Qui compaiono come esempi
    applicativi, con rinvio.
 3. **Non copre i protocolli.** TLS, OAuth 2.0, OpenID Connect, SAML 2 e la loro meccanica
-   stanno in [13 — I protocolli, uno per uno](13-protocolli.md). Qui si spiega la teoria che
+   stanno in [13 - I protocolli, uno per uno](13-protocolli.md). Qui si spiega la teoria che
    quei protocolli usano; là si spiega come la usano.
 
-E un rinvio che vale per tutto il modulo: **la disciplina del dato sanitario — art. 9 GDPR,
-base giuridica, consenso, ruoli privacy, oscuramento, conservazione — sta in
-[03 — Il dato clinico](03-il-dato-clinico.md)**. Qui non si ripete: si assume, e si parla di
+E un rinvio che vale per tutto il modulo: **la disciplina del dato sanitario - art. 9 GDPR,
+base giuridica, consenso, ruoli privacy, oscuramento, conservazione - sta in
+[03 - Il dato clinico](03-il-dato-clinico.md)**. Qui non si ripete: si assume, e si parla di
 come si realizza tecnicamente.
 
 ---
@@ -71,9 +71,9 @@ dall'amministratore di sistema che gestisce la base dati, né dal collega dermat
 stessa struttura, né dal tecnico del fornitore che interviene su un incidente, né da chi
 intercetta il traffico sulla rete dell'ospedale.
 
-**Cosa la viola, in ordine di frequenza reale.** Non l'intercettazione del traffico — che è
+**Cosa la viola, in ordine di frequenza reale.** Non l'intercettazione del traffico - che è
 l'attacco che tutti immaginano e quasi nessuno subisce, perché il trasporto cifrato è
-universale — ma: un'autorizzazione applicativa scritta male che lascia leggere una risorsa di
+universale - ma: un'autorizzazione applicativa scritta male che lascia leggere una risorsa di
 un altro tenant; un log di diagnostica che stampa il corpo di una richiesta contenente un
 codice fiscale; un messaggio d'errore che rivela l'esistenza di un paziente; un backup non
 cifrato copiato su una postazione di lavoro; un accesso legittimo per credenziali ma
@@ -109,14 +109,14 @@ al primo posto. In sanità l'ordine si inverte, per una ragione strutturale: **l
 della riservatezza produce un danno grave ma non modifica la decisione clinica; la violazione
 dell'integrità la modifica**.
 
-Se un dato sanitario viene divulgato, il paziente subisce un danno — stigma, discriminazione,
-perdita di opportunità — che è reale e che il diritto protegge con particolare intensità. Ma
+Se un dato sanitario viene divulgato, il paziente subisce un danno - stigma, discriminazione,
+perdita di opportunità - che è reale e che il diritto protegge con particolare intensità. Ma
 il medico continua a decidere sulla base di informazioni corrette. Se invece un dato sanitario
 viene alterato, il medico decide sulla base di un'informazione falsa, e l'esito può essere una
 terapia sbagliata, un mancato intervento, un danno permanente. La gestione del rischio ai
 sensi di **ISO 14971:2019** classifica il primo scenario come grave e il secondo come critico
 o catastrofico, perché il criterio di severità è il **danno alla persona** (`harm`), non il
-danno informativo — e lo scenario «decisione clinica presa su informazione errata o attribuita
+danno informativo - e lo scenario «decisione clinica presa su informazione errata o attribuita
 al paziente sbagliato» è, nella matrice di rischio proposta per questo progetto, di severità
 **S4**, immediatamente sotto il danno permanente o il decesso.
 
@@ -134,7 +134,7 @@ diritto, nei tempi richiesti dall'uso.
 **Nel dominio.** Una televisita che non parte è una prestazione sanitaria non erogata. Se il
 paziente è un cardiopatico cronico in un programma di telemonitoraggio e il sistema non
 riceve le sue misure per tre giorni, il programma di sorveglianza si è interrotto senza che
-nessuno se ne accorga — ed è uno scenario di rischio clinico, non un disservizio.
+nessuno se ne accorga - ed è uno scenario di rischio clinico, non un disservizio.
 
 **Perché la disponibilità è un requisito di sicurezza e non di ingegneria delle prestazioni.**
 Perché un avversario può attaccarla direttamente (esaurimento delle risorse, cifratura
@@ -142,7 +142,7 @@ estorsiva dei dati) e perché il diritto la tratta come tale: l'art. 32, par. 1,
 impone «la capacità di ripristinare tempestivamente la disponibilità e l'accesso dei dati
 personali in caso di incidente fisico o tecnico», e il **d.lgs. 4 settembre 2024, n. 138**
 (recepimento della direttiva NIS2) fa della «violazione dei livelli di servizio attesi» una
-tipologia autonoma di **incidente significativo** notificabile all'autorità — la tipologia
+tipologia autonoma di **incidente significativo** notificabile all'autorità - la tipologia
 **IS-3** degli Allegati 3 e 4 della **Determinazione ACN n. 379907 del 19 dicembre 2025**.
 
 Un dato quantitativo che chiarisce la portata dell'obbligo: l'esempio ufficiale di ACN nella
@@ -160,8 +160,8 @@ cruscotto, ma perché senza quel numero il cliente non sa se è in obbligo di no
 con cui si interagisce è effettivamente quella che dichiara di essere.
 
 Autenticità e integrità sono spesso confuse perché gli stessi strumenti crittografici le
-forniscono insieme. Sono però proprietà distinte: un messaggio può essere integro — non
-alterato dopo l'invio — e non autentico, se chi l'ha inviato non è chi dice di essere. Un
+forniscono insieme. Sono però proprietà distinte: un messaggio può essere integro - non
+alterato dopo l'invio - e non autentico, se chi l'ha inviato non è chi dice di essere. Un
 messaggio integro proveniente da un impostore è integro e falso.
 
 **Nel dominio.** La sessione video a cui il paziente si collega è davvero condotta dal suo
@@ -202,7 +202,7 @@ avvenuto.
 
 **Attenzione a una confusione ricorrente.** TLS non produce non ripudio. Protegge il canale,
 autentica il server (e opzionalmente il client), garantisce integrità e riservatezza del
-transito — ma non lascia alcuna prova opponibile a un terzo su chi ha inviato cosa. Per il non
+transito - ma non lascia alcuna prova opponibile a un terzo su chi ha inviato cosa. Per il non
 ripudio servono firme **sui messaggi o sui documenti**, non sul canale.
 
 E una seconda confusione, più insidiosa: **la firma elettronica non è tutta uguale**. Il
@@ -220,18 +220,18 @@ che si vuole poter reggere**, non della comodità implementativa.
 > ha **due significati distinti e non intercambiabili**, e usarli senza accorgersene è un modo
 > rapido per fraintendersi in una discussione tecnica.
 >
-> - **Tracciabilità degli accessi** — il significato di questa sezione: ricostruire *a
+> - **Tracciabilità degli accessi** - il significato di questa sezione: ricostruire *a
 >   posteriori* chi ha fatto cosa. È una proprietà di sicurezza, e il suo strumento è il
 >   registro degli accessi.
-> - **Tracciabilità dei requisiti** — il significato usato nei moduli
->   [11](./11-fondamenti-informatici.md) e [17](./17-ambiente-di-sviluppo.md) e in tutta l'area
+> - **Tracciabilità dei requisiti** - il significato usato nei moduli
+>   [11](11-fondamenti-informatici.md) e [17](17-ambiente-di-sviluppo.md) e in tutta l'area
 >   di conformità: la catena che lega un requisito alla progettazione, alla realizzazione e alla
 >   prova che lo verifica. È una proprietà di processo, richiesta dalla norma sul ciclo di vita
->   del software, e **non si ricostruisce a posteriori** — è questo che la rende una delle
+>   del software, e **non si ricostruisce a posteriori** - è questo che la rende una delle
 >   attività retroattivamente irrecuperabili.
 >
 > Quando il contesto non è ovvio, questa guida usa la forma estesa. Il
-> [glossario](./19-glossario.md) riporta entrambe le voci.
+> [glossario](19-glossario.md) riporta entrambe le voci.
 
 **Definizione.** Ogni operazione rilevante è registrata in modo che si possa ricostruire, a
 posteriori, chi ha fatto cosa, quando, su quale dato e in quale contesto.
@@ -245,7 +245,7 @@ maggior parte degli accessi è **legittima per credenziali e potenzialmente ille
 scopo**. Un professionista abilitato ha titolo ad accedere a molte cartelle; quali di queste
 riguardino pazienti effettivamente in cura da lui è una circostanza che il sistema, in molti
 casi, non può accertare in anticipo con certezza. Il controllo preventivo può ridurre
-l'insieme, non azzerarlo — e se lo azzerasse bloccherebbe la cura in emergenza.
+l'insieme, non azzerarlo - e se lo azzerasse bloccherebbe la cura in emergenza.
 
 Ne discende il modello: **si consente più di quanto si vorrebbe, e si registra tutto in modo
 non ripudiabile e non alterabile**. È esattamente il vincolo **V5** del progetto, ed è la
@@ -253,8 +253,8 @@ ragione per cui l'obbligo di tracciabilità compare in tutte le fonti applicabil
 contemporaneamente: art. 5, par. 2 GDPR (responsabilizzazione), misure `PR.PS-04` e `DE.CM-01`
 delle specifiche di base ACN, requisito R30 delle linee guida AgID sulla sicurezza nel
 procurement ICT, misura ABSC 3.5.1 della Circolare AgID 2/2017, Allegato I Parte I del
-**Regolamento (UE) 2024/2847** (*Cyber Resilience Act*), e — sul versante dei termini di
-conservazione — l'Allegato 4 del **DM 19 novembre 2025**, che fissa in ventiquattro mesi la
+**Regolamento (UE) 2024/2847** (*Cyber Resilience Act*), e - sul versante dei termini di
+conservazione - l'Allegato 4 del **DM 19 novembre 2025**, che fissa in ventiquattro mesi la
 conservazione dei log delle operazioni.
 
 **La conseguenza architetturale, che è lo sforzo maggiore dell'intero catalogo di sicurezza.**
@@ -272,7 +272,7 @@ verificabile **contro chi lo ospita**. È la decisione **D42**, ed è trattata a
 | **Disponibilità** | È accessibile quando serve? | Ridondanza, backup verificati, resilienza | La sessione non parte all'orario dell'appuntamento |
 | **Autenticità** | Chi lo dice è chi dice di essere? | Firma, certificati, verifica delle chiavi | Un terzo si sostituisce al medico nella sessione video |
 | **Non ripudio** | Si può provare a un terzo? | Firma digitale con chiave privata esclusiva, marca temporale | Il firmatario nega di aver validato un referto |
-| **Tracciabilità** | Chi ha fatto cosa, quando? | Registro append-only con catena di impronte e conservazione separata | Nessuna evidenza di chi ha consultato un dossier |
+| **Tracciabilità** | Chi ha fatto cosa, quando? | Registro a sola aggiunta con catena di impronte e conservazione separata | Nessuna evidenza di chi ha consultato un dossier |
 
 ### 1.8 Le proprietà che nessuna di queste copre
 
@@ -327,8 +327,8 @@ messaggio; verifica: test di integrazione che rigetta un messaggio con firma non
 
 **Perché è un obbligo e non una buona pratica, in questo progetto.** La decisione **D10**
 impone un modello di minaccia **STRIDE** come parte del testing di sicurezza. La norma
-**EN IEC 81001-5-1:2022** — *Health software and health IT systems safety, effectiveness and
-security — Part 5-1: Security — Activities in the product life cycle* — richiede la
+**EN IEC 81001-5-1:2022** - *Health software and health IT systems safety, effectiveness and
+security - Part 5-1: Security - Activities in the product life cycle* - richiede la
 modellazione delle minacce come attività di processo del ciclo di vita, e la guida
 **MDCG 2019-16 rev. 1** della Commissione europea la presuppone nel processo di gestione del
 rischio di cibersicurezza raccordato con **ISO 14971**. Il requisito verificabile
@@ -372,14 +372,14 @@ Una minaccia senza un attore è un'astrazione. Il modello di minaccia va ancorat
 - **Motivazione**: perché lo fa. Determina la persistenza, il costo che è disposto a
   sostenere e il bersaglio che sceglie.
 
-L'errore da evitare è modellare soltanto l'avversario spettacolare — l'attaccante statale con
-risorse illimitate — perché contro di lui nessuna misura proporzionata funziona e la
+L'errore da evitare è modellare soltanto l'avversario spettacolare - l'attaccante statale con
+risorse illimitate - perché contro di lui nessuna misura proporzionata funziona e la
 conclusione operativa è la paralisi. Il modello utile è quello che descrive gli avversari che
 si presentano davvero, in ordine di probabilità decrescente.
 
 ### 2.4 Gli avversari realistici di questo sistema
 
-**A1 — L'attaccante esterno opportunista.** Non ha alcun interesse specifico per la sanità:
+**A1 - L'attaccante esterno opportunista.** Non ha alcun interesse specifico per la sanità:
 scansiona Internet in cerca di servizi esposti con vulnerabilità note o credenziali
 predefinite. È l'avversario più frequente in assoluto e il più facile da respingere. Capacità:
 strumenti automatici pubblici, exploit di vulnerabilità note, riuso di credenziali trapelate.
@@ -388,29 +388,29 @@ Contromisure: assenza di credenziali predefinite e di servizi non necessari espo
 dell'utenza dopo tentativi falliti (**SEC-015**), secondo fattore obbligatorio sulle utenze
 amministrative (**SEC-012**).
 
-**A2 — L'attaccante esterno mirato.** Ha scelto il bersaglio. In sanità la motivazione tipica
+**A2 - L'attaccante esterno mirato.** Ha scelto il bersaglio. In sanità la motivazione tipica
 è economica: estorsione tramite cifratura dei dati e minaccia di pubblicazione, che nel
 settore sanitario funziona particolarmente bene perché la pressione a ripristinare il servizio
 è massima e il valore ricattatorio del dato è alto. Capacità: ricognizione, phishing mirato
 verso il personale, sfruttamento di vulnerabilità recenti, movimento laterale. Contromisure:
 segmentazione, privilegio minimo, backup cifrati con copia non raggiungibile dal sistema
-compromesso e test di ripristino verificati — che è precisamente il profilo rinforzato della
+compromesso e test di ripristino verificati - che è precisamente il profilo rinforzato della
 misura `PR.DS-11` per i soggetti essenziali.
 
-**A3 — L'insider curioso.** È un utente legittimo dell'organizzazione che accede a dati a cui
+**A3 - L'insider curioso.** È un utente legittimo dell'organizzazione che accede a dati a cui
 non ha titolo per lo scopo per cui vi accede. Non è un attaccante nel senso tecnico: non
 elude alcun controllo, usa le proprie credenziali, non lascia tracce anomale sulla rete. È il
 caso che il diritto della protezione dei dati tratta con maggiore severità nel dominio
 sanitario, ed è quello contro cui la crittografia è quasi inerme. Contromisure: autorizzazione
 ancorata alla relazione di cura, rottura del vetro con motivazione obbligatoria e notifica
-(§ 8.7), registro degli accessi con indicatori quali-quantitativi — che è esattamente ciò che
+(§ 8.7), registro degli accessi con indicatori quali-quantitativi - che è esattamente ciò che
 la misura `DE.CM-01` delle specifiche di base ACN richiede quando chiede di definire parametri
 come «il superamento di una soglia per le interrogazioni di una banca dati da parte di un
 singolo utente» o «l'accesso di un amministratore di sistema al di fuori dell'orario di
-servizio», e che la tipologia di incidente **IS-4** — riservata ai soggetti essenziali — rende
+servizio», e che la tipologia di incidente **IS-4** - riservata ai soggetti essenziali - rende
 notificabile all'autorità.
 
-**A4 — Il professionista che accede a un caso che non gli compete.** È una variante di A3 che
+**A4 - Il professionista che accede a un caso che non gli compete.** È una variante di A3 che
 merita trattazione separata perché la sua legittimità è **graduata, non binaria**. Un medico
 di guardia che apre la cartella di un paziente che non ha mai visto può essere: (a) un
 curioso; (b) un collega chiamato in consulenza informale; (c) il professionista che sta per
@@ -420,27 +420,27 @@ questi quattro casi. Ne discende il modello a due stadi: **si consente l'accesso
 dichiararne il motivo, si registra in modo non ripudiabile, si notifica, e si verifica dopo**.
 Un sistema che pretende di decidere prima o blocca la cura o lascia passare tutto.
 
-**A5 — L'amministratore di sistema.** Ha, per definizione del proprio ruolo, i privilegi
+**A5 - L'amministratore di sistema.** Ha, per definizione del proprio ruolo, i privilegi
 tecnici che consentono di leggere e alterare qualunque cosa: contenuto delle basi dati, file
 di configurazione, chiavi, log. È l'avversario che rende inutile gran parte delle difese
 applicative e che obbliga a progettare la tracciabilità **contro il custode del sistema**. La
-figura è disciplinata anche sul piano giuridico — il modulo [03 § 3.4](03-il-dato-clinico.md)
+figura è disciplinata anche sul piano giuridico - il modulo [03 § 3.4](03-il-dato-clinico.md)
 tratta la designazione individuale, il tracciamento e la verifica periodica degli
 amministratori di sistema. Contromisure tecniche: separazione dei compiti, catena di impronte
 dell'audit con **conservazione presso un soggetto o un sistema distinto** (§ 9.4), cifratura a
 livello di campo con chiavi non accessibili all'amministratore della base dati (§ 7.4),
 controllo duale sulle operazioni più sensibili.
 
-**A6 — Il tenant vicino.** In un'installazione multi-tenant, ogni altro cliente della stessa
+**A6 - Il tenant vicino.** In un'installazione multi-tenant, ogni altro cliente della stessa
 installazione è un avversario potenziale. Non perché lo sia in intenzione, ma perché la
 distanza fra lui e i dati altrui è una sola riga di codice sbagliata. La perdita di dati
 attraverso il confine di tenant è, nella matrice di rischio del progetto, uno dei due scenari
 di severità **S4** da tenere sotto controllo assoluto. Contromisura strutturale: l'isolamento
-imposto **a livello di persistenza** — sicurezza a livello di riga o schema dedicato — e non
+imposto **a livello di persistenza** - sicurezza a livello di riga o schema dedicato - e non
 soltanto a livello applicativo (requisito **SEC-018**, vincolo **V4**), più un test di accesso
 trasversale negativo su ogni endpoint dell'interfaccia.
 
-**A7 — Il fornitore compromesso e la catena di fornitura.** L'avversario non attacca il
+**A7 - Il fornitore compromesso e la catena di fornitura.** L'avversario non attacca il
 sistema: attacca una delle sue dipendenze, o lo strumento con cui il sistema viene costruito.
 Una libreria di terze parti con un contributo malevolo, un'immagine di base alterata, una
 credenziale della pipeline di integrazione continua sottratta, una chiave di firma degli
@@ -452,7 +452,7 @@ vulnerabilità di ciascun fornitore diretto» e «la qualità complessiva dei pr
 pratiche di cybersicurezza dei fornitori, comprese le procedure di sviluppo sicuro». Il § 11
 tratta le contromisure.
 
-**A8 — L'integratore.** Non è un avversario in senso proprio: è una controparte legittima che
+**A8 - L'integratore.** Non è un avversario in senso proprio: è una controparte legittima che
 però sta **fuori dal confine di fiducia del progetto**. Riceve deleghe, presenta identità
 federate, invoca l'interfaccia per conto dei propri utenti. Se il suo sistema è compromesso, o
 se semplicemente sbaglia, le sue asserzioni diventano false. Da qui la regola della decisione
@@ -463,11 +463,11 @@ di garanzia dell'autenticazione va qualificato con un marcatore che distingua
 **l'autenticazione eseguita dal progetto** da quella **riferita dall'integratore**. Sono due
 affermazioni con valore probatorio diverso e non vanno confuse in un unico campo.
 
-**A9 — L'utente stesso.** Il paziente che concede l'accesso al proprio dispositivo a un
+**A9 - L'utente stesso.** Il paziente che concede l'accesso al proprio dispositivo a un
 familiare, che riusa una password, che clicca su un collegamento in un messaggio che sembra
 provenire dalla struttura. Non è malevolo: è la condizione ordinaria. Contromisure: percorsi
 brevi e reversibili, autenticazione forte tramite identità digitale nazionale, messaggi che
-non chiedono mai credenziali, e — per il vincolo **V6** — la consapevolezza che una misura di
+non chiedono mai credenziali, e - per il vincolo **V6** - la consapevolezza che una misura di
 sicurezza che l'utente reale non riesce a eseguire è una misura che non esiste.
 
 ### 2.5 Superficie di attacco
@@ -511,7 +511,7 @@ confine sono obbligatorie.
 
 ```mermaid
 flowchart TB
-    subgraph EXT["Zona non fidata — Internet pubblica"]
+    subgraph EXT["Zona non fidata - Internet pubblica"]
         PZ["Browser del paziente"]
         PR["Browser del professionista"]
     end
@@ -520,7 +520,7 @@ flowchart TB
         EHR["Sistema EHR di terze parti<br/>anagrafica, agenda, cartella"]
     end
 
-    subgraph EDGE["Zona di frontiera — perimetro esposto"]
+    subgraph EDGE["Zona di frontiera - perimetro esposto"]
         GW["Gateway applicativo<br/>terminazione TLS, limiti di frequenza"]
         SIG["Servizio di segnalazione"]
         TURN["Server STUN/TURN"]
@@ -534,11 +534,11 @@ flowchart TB
     subgraph DATA["Zona dei dati"]
         DB[("Base dati clinica")]
         OBJ[("Archivio oggetti<br/>registrazioni cifrate")]
-        KMS["Custode delle chiavi"]
+        KMS["Deposito delle chiavi"]
     end
 
-    subgraph AUDIT["Zona del registro — conservazione separata"]
-        LOG[("Registro degli accessi<br/>append-only, catena di impronte")]
+    subgraph AUDIT["Zona del registro - conservazione separata"]
+        LOG[("Registro degli accessi<br/>a sola aggiunta, catena di impronte")]
     end
 
     PZ -- "TLS, token utente" --> GW
@@ -561,7 +561,7 @@ Cinque letture del diagramma che vale la pena esplicitare.
 1. **Il browser non è mai fidato.** Nemmeno quello del professionista, nemmeno su una rete
    ospedaliera. Qualunque controllo eseguito soltanto nell'interfaccia è un suggerimento di
    usabilità, non una misura di sicurezza. Se una regola conta, deve essere applicata anche
-   dal lato server — e siccome il vincolo **V3** impone che ogni capacità sia raggiungibile da
+   dal lato server - e siccome il vincolo **V3** impone che ogni capacità sia raggiungibile da
    un sistema terzo tramite interfaccia documentata, il lato server è comunque l'unico punto
    di applicazione possibile.
 2. **L'integratore è in una zona propria.** Non è pubblico come un browser né fidato come un
@@ -569,7 +569,7 @@ Cinque letture del diagramma che vale la pena esplicitare.
    utenti vanno accettate **qualificandole come riferite** (decisione D38).
 3. **Il server di relay sta sulla frontiera e vede più di quanto sembri.** Non vede il
    contenuto del media, che resta cifrato da estremo a estremo, ma vede gli indirizzi IP di
-   entrambe le parti — che sono dati personali e che possono rivelare la posizione. È il
+   entrambe le parti - che sono dati personali e che possono rivelare la posizione. È il
    motivo per cui il vincolo **V1** ne impone l'autogestione nell'Unione: è una misura ai
    sensi dell'art. 32 GDPR, non soltanto una scelta di sovranità.
 4. **Il media non attraversa la zona applicativa** nella modalità predefinita. È la ragione
@@ -634,17 +634,17 @@ analizzato, e un algoritmo non analizzato è rotto: semplicemente, non lo si sa 
 
 ### 3.2 Cifrari a blocchi e cifrari a flusso
 
-Un **cifrario a blocchi** (*block cipher*) trasforma blocchi di dimensione fissa — tipicamente
-128 bit — in blocchi cifrati della stessa dimensione, sotto il controllo della chiave. È una
+Un **cifrario a blocchi** (*block cipher*) trasforma blocchi di dimensione fissa - tipicamente
+128 bit - in blocchi cifrati della stessa dimensione, sotto il controllo della chiave. È una
 permutazione: a chiave fissata, la corrispondenza fra blocco in chiaro e blocco cifrato è
 biunivoca. Il cifrario a blocchi di riferimento è **AES** (*Advanced Encryption Standard*),
 adottato dopo una competizione pubblica pluriennale.
 
 Un **cifrario a flusso** (*stream cipher*) genera invece, a partire dalla chiave, una sequenza
-pseudocasuale di lunghezza arbitraria — il **flusso di chiave** — che viene combinata con il
+pseudocasuale di lunghezza arbitraria - il **flusso di chiave** - che viene combinata con il
 testo in chiaro bit a bit tramite l'operazione di or esclusivo. Cifratura e decifratura sono la
 stessa operazione. È efficiente e adatto a dati di lunghezza non nota in anticipo, e ha una
-proprietà pericolosa che vedremo al § 3.4.
+proprietà pericolosa che vedremo al § 3.5.
 
 La distinzione, in pratica, si è attenuata: le modalità operative moderne usano un cifrario a
 blocchi **come se fosse** un generatore di flusso di chiave. Ciò che conta oggi non è tanto la
@@ -658,12 +658,12 @@ del cifrario.
 
 La modalità più ingenua, chiamata storicamente **ECB** (*Electronic Codebook*), cifra ogni
 blocco indipendentemente con la stessa chiave. Il difetto è immediato e catastrofico: **blocchi
-in chiaro uguali producono blocchi cifrati uguali**. Su un dato strutturato — un file di
-immagine, un record con campi ripetuti, un flusso con intestazioni fisse — la struttura del
+in chiaro uguali producono blocchi cifrati uguali**. Su un dato strutturato - un file di
+immagine, un record con campi ripetuti, un flusso con intestazioni fisse - la struttura del
 testo in chiaro rimane visibile nel testo cifrato. Non è un difetto teorico: è il motivo per
 cui ECB non va usata mai, in nessun contesto, nemmeno per un singolo blocco.
 
-Le modalità successive — a concatenazione di blocchi, a contatore — risolvono il problema
+Le modalità successive - a concatenazione di blocchi, a contatore - risolvono il problema
 introducendo un valore variabile per ogni cifratura, e ottengono la proprietà desiderata:
 **due cifrature dello stesso testo in chiaro con la stessa chiave producono testi cifrati
 diversi**. Ma nessuna di queste modalità, da sola, fornisce **integrità**: un avversario che
@@ -674,8 +674,8 @@ Questo porta al punto centrale.
 
 ### 3.4 La cifratura autenticata è il minimo, non un'opzione
 
-Una **cifratura autenticata con dati associati** — abbreviata **AEAD**, *Authenticated
-Encryption with Associated Data* — è una costruzione che fornisce contemporaneamente
+Una **cifratura autenticata con dati associati** - abbreviata **AEAD**, *Authenticated
+Encryption with Associated Data* - è una costruzione che fornisce contemporaneamente
 riservatezza e integrità, e che consente di legare al testo cifrato dei **dati associati** che
 restano in chiaro ma di cui si garantisce l'integrità e l'associazione. L'interfaccia astratta
 di un AEAD è definita da **RFC 5116**; le costruzioni AEAD di riferimento sono AES in modalità
@@ -689,9 +689,9 @@ chiaro. La lezione è consolidata in una regola: **non esiste un caso in cui sia
 cifrare senza autenticare**. Se qualcuno propone di farlo per prestazioni, la risposta è che le
 costruzioni AEAD moderne sono accelerate in hardware e il costo è trascurabile.
 
-**A cosa servono i dati associati.** Sono la parte del messaggio che deve restare leggibile —
+**A cosa servono i dati associati.** Sono la parte del messaggio che deve restare leggibile -
 un'intestazione di instradamento, un identificativo di tenant, un numero di versione dello
-schema — ma che non deve poter essere cambiata senza invalidare il messaggio. Nel dominio:
+schema - ma che non deve poter essere cambiata senza invalidare il messaggio. Nel dominio:
 cifrando una registrazione di sessione, l'identificativo del tenant e quello della sessione
 sono candidati naturali a essere dati associati, perché così un file cifrato non può essere
 spostato da una sessione all'altra o da un tenant all'altro senza che la decifratura fallisca.
@@ -705,7 +705,7 @@ autenticata basate su AES-GCM (**RFC 7714**), con chiavi negoziate via DTLS seco
 ### 3.5 Vettore di inizializzazione, e il disastro del riuso
 
 Il valore variabile che rende diverse due cifrature dello stesso testo si chiama **vettore di
-inizializzazione** (*initialization vector*, IV) o **nonce** — *number used once*, «numero
+inizializzazione** (*initialization vector*, IV) o **nonce** - *number used once*, «numero
 usato una volta sola». Il nome contiene già il requisito.
 
 **Che cosa deve essere.** Non deve essere segreto: viaggia in chiaro accanto al testo cifrato.
@@ -713,14 +713,14 @@ Deve essere **unico per ogni cifratura eseguita con la stessa chiave**. In alcun
 anche essere **imprevedibile**; in altre basta che sia unico, e un contatore va bene.
 
 **Cosa succede se si riusa.** Le conseguenze dipendono dalla modalità, ma nelle costruzioni a
-contatore — cioè in quasi tutte quelle in uso, AES-GCM compresa — sono catastrofiche e non
+contatore - cioè in quasi tutte quelle in uso, AES-GCM compresa - sono catastrofiche e non
 graduali:
 
 1. **Perdita immediata di riservatezza relativa.** Con lo stesso nonce e la stessa chiave si
    genera lo stesso flusso di chiave. Un avversario che ottiene due testi cifrati prodotti così
    può combinarli e ottenere l'or esclusivo dei due testi in chiaro, eliminando del tutto la
-   chiave dall'equazione. Su testi con struttura nota — e un referto o un messaggio protocollare
-   ha struttura notissima — questo equivale a leggerli entrambi.
+   chiave dall'equazione. Su testi con struttura nota - e un referto o un messaggio protocollare
+   ha struttura notissima - questo equivale a leggerli entrambi.
 2. **Perdita totale di integrità.** In AES-GCM, il riuso del nonce consente il recupero della
    **chiave di autenticazione**, che è derivata deterministicamente dalla chiave di cifratura.
    Recuperata quella, l'avversario può **falsificare messaggi validi a piacere**. Non è più un
@@ -758,8 +758,8 @@ soddisfatti esplicitamente.
 
 **Generazione.** Una chiave deve provenire da un generatore di numeri pseudocasuali
 **crittograficamente sicuro**, cioè da una primitiva progettata per essere imprevedibile anche
-a chi conosce parte dell'output. Il generatore ordinario di un linguaggio di programmazione —
-quello che si usa per mescolare una lista — **non lo è**, ed è uno degli errori più frequenti
+a chi conosce parte dell'output. Il generatore ordinario di un linguaggio di programmazione -
+quello che si usa per mescolare una lista - **non lo è**, ed è uno degli errori più frequenti
 in assoluto. In Java la classe da usare è `SecureRandom`; nell'ambiente del browser
 l'interfaccia `crypto.getRandomValues`. La differenza non è di qualità statistica: è che il
 generatore ordinario ha uno stato ricostruibile da poche osservazioni.
@@ -775,8 +775,8 @@ derivazione include un'etichetta di contesto proprio a questo scopo.
 **Conservazione.** Una chiave conservata accanto al dato che protegge non protegge nulla. La
 gerarchia usuale è a due livelli: una **chiave di cifratura dei dati** (*data encryption key*),
 che cifra il dato ed è conservata cifrata accanto ad esso, e una **chiave di cifratura delle
-chiavi** (*key encryption key*), custodita in un sistema separato — un custode delle chiavi,
-un modulo hardware, un servizio dedicato — che non espone mai la chiave ma esegue le operazioni
+chiavi** (*key encryption key*), custodita in un sistema separato - un deposito delle chiavi,
+un modulo hardware, un servizio dedicato - che non espone mai la chiave ma esegue le operazioni
 di avvolgimento e svolgimento. Il vantaggio operativo è che ruotare la chiave di livello
 superiore non richiede di ricifrare i dati.
 
@@ -793,15 +793,15 @@ identificativo è un requisito di progettazione che va previsto dal primo giorno
 aggiungerlo dopo significa non sapere quale chiave si applica a quale dato.
 
 Sulla frequenza di rotazione la letteratura è meno perentoria di quanto si creda: la rotazione
-periodica «per igiene» ha benefici limitati, mentre la rotazione **su evento** — sospetto di
-compromissione, cessazione di un amministratore, dismissione di un componente — è quella che
+periodica «per igiene» ha benefici limitati, mentre la rotazione **su evento** - sospetto di
+compromissione, cessazione di un amministratore, dismissione di un componente - è quella che
 conta. `[NV]` su qualunque periodicità numerica raccomandata: non è ricavabile dalle fonti
 consultate in questo progetto e va fissata nella politica di gestione delle chiavi con
 motivazione esplicita.
 
 **Distruzione.** La cancellazione di una chiave è il modo più efficace per rendere
 irrecuperabile un dato cifrato, ed è la tecnica che rende praticabile la cancellazione da
-supporti su cui la cancellazione fisica non è possibile — backup su nastro, repliche
+supporti su cui la cancellazione fisica non è possibile - backup su nastro, repliche
 geografiche, archivi immutabili. È il meccanismo che il requisito **SEC-025** presuppone quando
 chiede la rimozione sicura e permanente dei dati di un tenant con verifica sui backup e sulle
 repliche. Cifratura per tenant con chiave distinta significa che dismettere un tenant è
@@ -859,7 +859,7 @@ entrambi.
 
 ### 4.3 Perché non si cifra un referto con RSA
 
-La crittografia asimmetrica è **lenta** — ordini di grandezza più lenta della simmetrica — e
+La crittografia asimmetrica è **lenta** - ordini di grandezza più lenta della simmetrica - e
 opera su input di dimensione limitata. Non si cifra un documento con essa. Si usa la
 **cifratura ibrida**: si genera una chiave simmetrica effimera, si cifra il documento con
 quella, si cifra la chiave simmetrica con la chiave pubblica del destinatario, e si spedisce la
@@ -891,7 +891,7 @@ in avanti, ogni sessione registrata è una bomba a orologeria.
 
 Lo scambio di chiavi grezzo, però, è **anonimo**: garantisce un segreto condiviso con
 *qualcuno*, non con il destinatario voluto. Senza autenticazione delle chiavi pubbliche
-scambiate, un avversario attivo può eseguire due scambi — uno con ciascuna parte — e
+scambiate, un avversario attivo può eseguire due scambi - uno con ciascuna parte - e
 interporsi. È l'attacco dell'intermediario, ed è il motivo per cui ogni scambio di chiavi utile
 è **autenticato**: da un certificato (§ 6), da una chiave pre-condivisa, o da una verifica
 fuori banda come la stringa di autenticazione breve del § 1.4.
@@ -900,8 +900,8 @@ fuori banda come la stringa di autenticazione breve del § 1.4.
 
 I primi sistemi a chiave pubblica poggiano sulla difficoltà di fattorizzare numeri interi
 grandi (RSA) o di calcolare logaritmi discreti in gruppi moltiplicativi. I sistemi su **curve
-ellittiche** poggiano sulla difficoltà del logaritmo discreto in un gruppo diverso — i punti di
-una curva ellittica su un campo finito — e hanno una proprietà pratica decisiva: **a parità di
+ellittiche** poggiano sulla difficoltà del logaritmo discreto in un gruppo diverso - i punti di
+una curva ellittica su un campo finito - e hanno una proprietà pratica decisiva: **a parità di
 sicurezza stimata, le chiavi sono molto più corte**, il che riduce banda, memoria e costo
 computazionale.
 
@@ -912,7 +912,7 @@ Cosa serve sapere per lavorare qui:
   implementazione. La scelta della curva non è un dettaglio di configurazione: è una decisione
   con una fonte.
 - **Non si implementano curve.** Le operazioni su curva sono notoriamente soggette ad attacchi
-  a canale laterale — analisi dei tempi di esecuzione, del consumo — che estraggono la chiave
+  a canale laterale - analisi dei tempi di esecuzione, del consumo - che estraggono la chiave
   privata da un'implementazione corretta ma non a tempo costante.
 - La **fonte del progetto** per la scelta dei meccanismi, delle curve e delle dimensioni delle
   chiavi è **ETSI TS 119 312**, integrata dai meccanismi concordati in ambito **SOG-IS** e dalle
@@ -943,7 +943,7 @@ Tre conseguenze pratiche di progettazione, che valgono a prescindere dai numeri.
    destinato a essere conservato per decenni richiede una marca temporale, non soltanto una
    firma.
 3. **La conservazione lunga cambia i requisiti.** Nel dominio sanitario i termini di
-   conservazione si misurano in decenni — il modulo [03 § 7.3](03-il-dato-clinico.md) riporta,
+   conservazione si misurano in decenni - il modulo [03 § 7.3](03-il-dato-clinico.md) riporta,
    fra gli altri, i trent'anni dal decesso previsti per l'indice e i documenti del Fascicolo
    Sanitario Elettronico dal DM 7 settembre 2023. Su quell'orizzonte, l'obsolescenza
    crittografica non è ipotetica: è certa.
@@ -951,8 +951,8 @@ Tre conseguenze pratiche di progettazione, che valgono a prescindere dai numeri.
 ### 4.7 La minaccia quantistica, senza allarmismo
 
 Un calcolatore quantistico sufficientemente grande e stabile romperebbe i sistemi a chiave
-pubblica oggi in uso — fattorizzazione e logaritmo discreto, quindi RSA, Diffie-Hellman e
-curve ellittiche — mentre indebolirebbe soltanto in misura gestibile la crittografia
+pubblica oggi in uso - fattorizzazione e logaritmo discreto, quindi RSA, Diffie-Hellman e
+curve ellittiche - mentre indebolirebbe soltanto in misura gestibile la crittografia
 simmetrica e le funzioni di hash, che si difendono aumentando le dimensioni.
 
 Cosa si può dire onestamente, allo stato:
@@ -985,7 +985,7 @@ aggiornati al momento della decisione.
 ### 5.1 Cosa sono
 
 Una **funzione di hash crittografica** trasforma un input di lunghezza arbitraria in un output
-di lunghezza fissa — tipicamente 256 o 512 bit — chiamato **digest**, **impronta** o
+di lunghezza fissa - tipicamente 256 o 512 bit - chiamato **digest**, **impronta** o
 **riassunto**. È deterministica: lo stesso input produce sempre lo stesso digest. Non usa
 chiavi. Non è invertibile per costruzione, semplicemente perché comprime informazione.
 
@@ -1006,19 +1006,19 @@ somigliano.
 
 ### 5.2 Perché le collisioni contano più di quanto sembri
 
-Una collisione — due documenti diversi con la stessa impronta — sembra una curiosità
+Una collisione - due documenti diversi con la stessa impronta - sembra una curiosità
 matematica. Diventa un attacco quando l'impronta è usata **al posto** del documento, che è
 esattamente ciò che accade nella firma digitale: non si firma il documento, si firma la sua
 impronta (§ 6.1).
 
-Se un avversario può costruire due documenti con la stessa impronta — un referto benigno e uno
-alterato — può far firmare il primo e presentare il secondo con la firma del primo. La firma
+Se un avversario può costruire due documenti con la stessa impronta - un referto benigno e uno
+alterato - può far firmare il primo e presentare il secondo con la firma del primo. La firma
 verificherà correttamente, perché verifica l'impronta, e le due impronte sono uguali. Il non
 ripudio è distrutto.
 
 La difesa non è concettuale ma pratica: **usare una funzione di hash per cui la costruzione di
 collisioni non è nota**. Le funzioni per cui lo è vanno abbandonate per ogni uso in cui la
-resistenza alle collisioni conta — firma, catene di hash, identificatori di contenuto — anche
+resistenza alle collisioni conta - firma, catene di hash, identificatori di contenuto - anche
 se restano formalmente utilizzabili per usi che dipendono solo dalla prima preimmagine. La
 regola pratica per chi contribuisce è più semplice: **non si usano funzioni deprecate, in
 nessun contesto**, perché il contesto cambia e nessuno rilegge il codice per verificare che
@@ -1039,7 +1039,7 @@ hardware specializzato ne prova miliardi al secondo, e le password ordinarie cad
 che si misurano in minuti.
 
 **La contromisura è rendere il calcolo deliberatamente costoso.** Le funzioni progettate per
-questo scopo — le funzioni di derivazione di chiave da password — hanno parametri di costo
+questo scopo - le funzioni di derivazione di chiave da password - hanno parametri di costo
 regolabili lungo tre assi:
 
 - **costo in tempo**, cioè il numero di iterazioni;
@@ -1061,12 +1061,12 @@ non nel codice, e va memorizzato **accanto a ogni digest** così che i parametri
 crescere senza invalidare gli hash esistenti.
 
 **Nota importante sull'ambito.** In questo progetto la verifica delle password degli utenti
-finali è, nella configurazione di riferimento, delegata al servizio di identità e — per gli
-utenti che accedono con identità digitale nazionale — non avviene affatto localmente. Questo
-non rende il paragrafo irrilevante: restano le credenziali di servizio, quelle degli
-amministratori locali e i casi di installazione senza federazione. E resta una trappola nota,
-segnalata dalla decisione **D37** come rischio ai sensi di ISO 14971: nella configurazione
-predefinita del componente di gestione delle identità adottato, **un utente federato può
+finali è, nella configurazione di riferimento, delegata al prodotto di federazione delle
+identità e - per gli utenti che accedono con identità digitale nazionale - non avviene affatto
+localmente. Questo non rende il paragrafo irrilevante: restano le credenziali di servizio,
+quelle degli amministratori locali e i casi di installazione senza federazione. E resta una
+trappola nota, segnalata dalla decisione **D37** come rischio ai sensi di ISO 14971: nella
+configurazione predefinita del prodotto di federazione adottato, **un utente federato può
 darsi una password locale**, aprendo un canale di accesso che scavalca il livello di garanzia
 dell'identità digitale. È un difetto di configurazione da trattare come rischio, non come nota
 a piè di pagina.
@@ -1077,7 +1077,7 @@ Il **sale** (*salt*) è un valore **casuale, unico per ogni password, non segret
 concatenato alla password prima dell'hash e memorizzato in chiaro accanto al digest.
 
 Cosa risolve, precisamente: senza sale, due utenti con la stessa password hanno lo stesso
-digest — il che rivela già un'informazione — e soprattutto un avversario può precalcolare una
+digest - il che rivela già un'informazione - e soprattutto un avversario può precalcolare una
 volta sola una tabella di digest e usarla contro **tutti** gli archivi del mondo. Con un sale
 unico per utente, ogni password va attaccata singolarmente e il precalcolo non è riutilizzabile.
 
@@ -1087,7 +1087,7 @@ più lento. **La lentezza la dà il parametro di costo, non il sale.** Servono e
 misure contro avversari diversi.
 
 Va distinto da un terzo elemento, il **pepe** (*pepper*): un valore segreto, uguale per tutti,
-conservato **fuori dalla base dati** — in un custode di chiavi o nella configurazione del
+conservato **fuori dalla base dati** - in un deposito delle chiavi o nella configurazione del
 servizio. Il suo scopo è che chi ottiene un dump della base dati, ma non il segreto
 applicativo, non possa attaccare affatto. È una difesa in profondità, non un sostituto del
 sale.
@@ -1100,8 +1100,8 @@ messaggio, sullo stesso canale, non protegge da un avversario attivo.
 
 Il **codice di autenticazione del messaggio** (*message authentication code*, MAC) risolve
 questo: è un valore calcolato su un messaggio **e su una chiave segreta condivisa**, tale che
-solo chi conosce la chiave può produrlo e verificarlo. **HMAC** — *Hash-based MAC*,
-specificato in **RFC 2104** — è la costruzione standard che ottiene un MAC a partire da una
+solo chi conosce la chiave può produrlo e verificarlo. **HMAC** - *Hash-based MAC*,
+specificato in **RFC 2104** - è la costruzione standard che ottiene un MAC a partire da una
 funzione di hash, in un modo che resta sicuro anche con funzioni di hash che hanno debolezze
 strutturali note. Il motivo per cui esiste una costruzione dedicata invece della concatenazione
 ingenua di chiave e messaggio è che quella ingenua è vulnerabile: con molte funzioni di hash,
@@ -1140,7 +1140,7 @@ Qui le funzioni di hash smettono di essere uno strumento ausiliario e diventano 
 centrale di una delle proprietà più importanti del progetto.
 
 **Il problema.** Si vuole un registro di eventi tale che, se qualcuno ne altera, cancella o
-riordina anche una sola riga, l'alterazione sia **rilevabile** — anche se chi altera ha pieni
+riordina anche una sola riga, l'alterazione sia **rilevabile** - anche se chi altera ha pieni
 privilegi sulla base dati che ospita il registro.
 
 **L'idea.** Ogni riga del registro contiene, oltre al proprio contenuto, **l'impronta della
@@ -1167,7 +1167,7 @@ riordina gli eventi produce impronte che non tornano.
 **Perché da sola non basta.** Chi ha pieni privilegi può alterare l'evento 2 **e ricalcolare
 tutti gli hash successivi**. La catena è internamente coerente e l'alterazione è invisibile.
 Questa è la ragione per cui una catena di impronte conservata **soltanto** nel sistema che la
-genera non prova nulla contro il gestore di quel sistema — che è esattamente l'avversario A5
+genera non prova nulla contro il gestore di quel sistema - che è esattamente l'avversario A5
 del § 2.4.
 
 **Le tre costruzioni che chiudono il buco**, in ordine di robustezza crescente:
@@ -1216,9 +1216,9 @@ Il procedimento, in tre passaggi:
 
 1. Si calcola l'**impronta** del documento con una funzione di hash (§ 5). Si firma l'impronta,
    non il documento, per due ragioni: le operazioni asimmetriche sono lente e limitate nella
-   dimensione dell'input, e l'impronta è un rappresentante fedele del documento — purché la
+   dimensione dell'input, e l'impronta è un rappresentante fedele del documento - purché la
    funzione di hash resista alle collisioni, che è il motivo per cui il § 5.2 conta.
-2. Si applica alla impronta lo **schema di firma** con la chiave privata, ottenendo il valore
+2. Si applica all'impronta lo **schema di firma** con la chiave privata, ottenendo il valore
    di firma.
 3. Si trasmette il documento con la firma. Il verificatore ricalcola l'impronta, applica
    l'operazione di verifica con la chiave pubblica e ottiene un esito binario.
@@ -1234,7 +1234,7 @@ paragrafo seguente.
 
 Una chiave pubblica è una sequenza di byte. Non dice a chi appartiene. Se ricevo un documento
 firmato con una chiave e verifico correttamente la firma, ho dimostrato che chi ha firmato
-possedeva quella chiave — il che è privo di valore se non so a chi appartiene la chiave.
+possedeva quella chiave - il che è privo di valore se non so a chi appartiene la chiave.
 
 Un **certificato** risolve questo legame: è un documento elettronico che associa una **chiave
 pubblica** a un'**identità**, ed è **firmato da un'entità terza** che attesta l'associazione.
@@ -1290,11 +1290,11 @@ regolarmente due.
 Va aggiunto un punto di realismo che nessun diagramma mostra: **la fiducia in una CA è una
 fiducia totale**. Ogni CA nell'archivio fidato del sistema può emettere un certificato valido
 per qualunque nome. La sicurezza del sistema è quindi pari a quella della CA meno affidabile
-fra quelle di cui ci si fida — e gli archivi di fiducia dei sistemi operativi contengono
+fra quelle di cui ci si fida - e gli archivi di fiducia dei sistemi operativi contengono
 centinaia di radici. Le contromisure a questo problema strutturale sono la **trasparenza dei
 certificati**, cioè registri pubblici e verificabili di tutti i certificati emessi (**RFC 6962**,
-aggiornato da **RFC 9162**), che rendono rilevabile l'emissione anomala, e — per le
-comunicazioni fra componenti sotto controllo comune — la restrizione dell'archivio di fiducia a
+aggiornato da **RFC 9162**), che rendono rilevabile l'emissione anomala, e - per le
+comunicazioni fra componenti sotto controllo comune - la restrizione dell'archivio di fiducia a
 una CA propria, che è la scelta corretta per il traffico interno e per l'autenticazione
 reciproca fra servizi.
 
@@ -1331,11 +1331,11 @@ un singolo certificato.
 Entrambi hanno lo stesso difetto e obbligano alla stessa decisione: **cosa fare quando il
 servizio di revoca non risponde?**
 
-- **Fallire in chiusura** — rifiutare la connessione — è sicuro e rende la disponibilità del
+- **Fallire in chiusura** - rifiutare la connessione - è sicuro e rende la disponibilità del
   sistema dipendente da quella di un servizio esterno che non si controlla. In un contesto
   sanitario, dove una televisita che non parte è una prestazione non erogata, non è una scelta
   neutra.
-- **Fallire in apertura** — procedere ugualmente — mantiene la disponibilità e rende la revoca
+- **Fallire in apertura** - procedere ugualmente - mantiene la disponibilità e rende la revoca
   inefficace contro un avversario in grado di bloccare le interrogazioni, che è esattamente
   l'avversario contro cui serve.
 
@@ -1351,7 +1351,7 @@ Una firma dice *chi* e *cosa*. Non dice *quando*: la data che il firmatario inse
 documento è un'affermazione del firmatario, non una prova.
 
 La **marca temporale** (*time-stamp*) è l'attestazione, rilasciata da un prestatore di servizi
-fiduciari, che un certo documento — in pratica, una certa impronta — esisteva in quella forma
+fiduciari, che un certo documento - in pratica, una certa impronta - esisteva in quella forma
 in quell'istante. Il protocollo standard è definito da **RFC 3161**. Il prestatore riceve
 l'impronta, non il documento: non vede il contenuto, e questo la rende utilizzabile anche su
 dati sanitari.
@@ -1393,7 +1393,7 @@ sul piano probatorio** e perché la scelta ricade su un tecnico e non solo su un
   italiano il **Codice dell'amministrazione digitale** (D.lgs. 7 marzo 2005, n. 82) completa il
   quadro: l'art. 20 disciplina il valore probatorio del documento informatico, l'art. 21 gli
   effetti delle firme, e il documento sottoscritto con firma elettronica qualificata o digitale
-  ha l'efficacia probatoria dell'art. **2702 del codice civile** — cioè fa piena prova, fino a
+  ha l'efficacia probatoria dell'art. **2702 del codice civile** - cioè fa piena prova, fino a
   querela di falso, della provenienza delle dichiarazioni da chi l'ha sottoscritto.
 
 La **firma digitale** è, nel diritto italiano, la specie di firma qualificata basata su un
@@ -1415,8 +1415,8 @@ conseguenza architetturale:
    con il suo nome.
 2. **Firma, validazione clinica e marca temporale sono tre eventi distinti** e vanno modellati
    come tali ([03 § 7.2](03-il-dato-clinico.md)).
-3. **I formati contano.** Le firme si applicano in formati normalizzati — PAdES per i PDF,
-   CAdES per file generici, XAdES per XML — e la scelta del formato determina cosa un
+3. **I formati contano.** Le firme si applicano in formati normalizzati - PAdES per i PDF,
+   CAdES per file generici, XAdES per XML - e la scelta del formato determina cosa un
    verificatore terzo riesce a fare senza software proprietario.
 4. **Una bozza non firmata non è un referto.** Il confine fra i due stati è un evento di
    dominio con conseguenze giuridiche, non un attributo booleano di comodo.
@@ -1445,8 +1445,8 @@ sistema con credenziali valide, perché per costui il sistema decifra.
 
 **Il punto scoperto da entrambe: i dati sono in chiaro durante l'elaborazione.** Nel momento in
 cui il servizio applicativo esegue una regola su un referto, quel referto è in memoria, in
-chiaro. Chi ha accesso al processo — chi può leggere la memoria, chi può ottenere un dump,
-chi può iniettare codice — lo vede. Esistono tecnologie per ridurre questa finestra (calcolo in
+chiaro. Chi ha accesso al processo - chi può leggere la memoria, chi può ottenere un dump,
+chi può iniettare codice - lo vede. Esistono tecnologie per ridurre questa finestra (calcolo in
 ambienti isolati, cifratura omomorfa), ma non sono a maturità e portata utilizzabili per un
 sistema di questo tipo. **La conseguenza corretta non è cercare una soluzione crittografica, è
 riconoscere che la difesa in quel punto è di natura diversa**: controllo degli accessi ai
@@ -1475,7 +1475,7 @@ sottovalutati.
 altro tenant li espone cifrati perfettamente. TLS non ha alcuna opinione sul contenuto.
 
 **Secondo: non nasconde i metadati.** Un osservatore della rete vede gli indirizzi IP, i tempi,
-i volumi, la durata, e — nella negoziazione TLS — il nome del servizio contattato, che viaggia
+i volumi, la durata, e - nella negoziazione TLS - il nome del servizio contattato, che viaggia
 in chiaro nell'estensione di indicazione del nome del server. Sa quindi **che** un certo
 indirizzo ha contattato un servizio di telemedicina, per quanto tempo, con quale profilo di
 traffico. Nel dominio sanitario questo è già informazione rilevante.
@@ -1517,19 +1517,19 @@ e fermarsi lì.
 
 **Cifratura a livello di base dati, di tabella o di colonna.** Il motore della base dati cifra
 i file dei dati, o determinate colonne, con chiavi che gestisce esso stesso o che riceve da un
-custode esterno.
+deposito esterno.
 
 *Contro cosa protegge*: la lettura dei file della base dati e dei suoi backup fuori dal motore.
 
 *Contro cosa non protegge*: chi si connette al motore con credenziali valide, perché il motore
-decifra per lui. Se il custode delle chiavi è l'amministratore della base dati, la protezione
+decifra per lui. Se chi custodisce le chiavi è l'amministratore della base dati, la protezione
 verso l'avversario A5 è nulla.
 
 **Cifratura a livello di campo, applicativa.** L'applicazione cifra il valore **prima** di
 consegnarlo alla persistenza e lo decifra dopo averlo riletto. La base dati vede byte opachi.
 
 *Contro cosa protegge*: tutto quanto sopra, **più** l'amministratore della base dati, più la
-copia del dump, più — se le chiavi sono per tenant e custodite separatamente — la fuoriuscita
+copia del dump, più - se le chiavi sono per tenant e custodite separatamente - la fuoriuscita
 attraverso il confine di tenant.
 
 *Cosa costa*, e il costo è reale e va messo in conto in fase di progettazione:
@@ -1604,7 +1604,7 @@ condizionalità, non la nasconda.
 **Perché questa onestà è tecnicamente rilevante e non solo etica.** Perché un'affermazione di
 cifratura da estremo a estremo che non regge in tutte le configurazioni è, per un'autorità di
 controllo o per un revisore di fascicolo tecnico, una dichiarazione non veritiera sulle misure
-di sicurezza — con conseguenze ben maggiori dell'assenza della proprietà. Il modulo
+di sicurezza - con conseguenze ben maggiori dell'assenza della proprietà. Il modulo
 [08 § 6.9](08-webrtc-da-zero.md) riporta la formulazione difendibile, che è più forte di
 un'affermazione assoluta proprio perché ogni sua parte è verificabile.
 
@@ -1624,7 +1624,7 @@ cui il dato clinico esiste in chiaro. Per questo sistema, nella modalità predef
 
 L'ultima riga è quella che produce più incidenti reali. Un log di diagnostica che stampa il
 corpo di una richiesta vanifica in una riga tutta la cifratura del sistema, e lo fa in un
-componente — il sistema di raccolta dei log — che tipicamente ha controlli di accesso più
+componente - il sistema di raccolta dei log - che tipicamente ha controlli di accesso più
 deboli, conservazione più lunga e una distribuzione più ampia rispetto alla base dati clinica.
 
 ---
@@ -1640,14 +1640,14 @@ deboli, conservazione più lunga e una distribuzione più ampia rispetto alla ba
 
 Sono tre passaggi distinti che falliscono in modi diversi, e la confusione fra il secondo e il
 terzo è la causa della maggior parte delle vulnerabilità applicative reali. Un sistema può
-autenticare in modo impeccabile — secondo fattore, identità digitale nazionale, certificato su
-smart card — e poi lasciare che un utente autenticato legga la risorsa di un altro cambiando un
+autenticare in modo impeccabile - secondo fattore, identità digitale nazionale, certificato su
+smart card - e poi lasciare che un utente autenticato legga la risorsa di un altro cambiando un
 identificativo nell'indirizzo. **L'autenticazione forte non compensa l'autorizzazione debole**;
 anzi, la maschera, perché produce fiducia nel soggetto autenticato.
 
 La regola operativa che ne discende: **l'autorizzazione si verifica a ogni richiesta, sulla
 risorsa specifica, sul lato server**. Non all'ingresso, non nella costruzione del menu, non
-nella schermata. Il vincolo **V3** — nessuna funzionalità raggiungibile solo dall'interfaccia —
+nella schermata. Il vincolo **V3** - nessuna funzionalità raggiungibile solo dall'interfaccia -
 rende questa regola inevitabile: se ogni capacità è invocabile da un sistema terzo, non esiste
 alcun controllo lato interfaccia che possa essere considerato una difesa.
 
@@ -1668,25 +1668,25 @@ Ciascuna categoria ha un modo caratteristico di fallire:
 
 - **ciò che sai** viene riusato su più servizi, indovinato, sottratto con inganno, o trapelato
   da una violazione altrui;
-- **ciò che hai** viene rubato, smarrito, clonato quando il canale è debole — è il caso dei
-  codici inviati via messaggio testuale, esposti alla sottrazione del numero telefonico — o
+- **ciò che hai** viene rubato, smarrito, clonato quando il canale è debole - è il caso dei
+  codici inviati via messaggio testuale, esposti alla sottrazione del numero telefonico - o
   raggirato con l'affaticamento da notifiche, in cui l'utente approva per stanchezza una
   richiesta che non ha originato;
 - **ciò che sei** non è revocabile. Una password compromessa si cambia; un'impronta digitale
-  no. Per questo la biometria è appropriata come **sblocco locale di un fattore di possesso** —
-  è il dispositivo che verifica l'utente e poi usa la propria chiave — e non come credenziale
+  no. Per questo la biometria è appropriata come **sblocco locale di un fattore di possesso** -
+  è il dispositivo che verifica l'utente e poi usa la propria chiave - e non come credenziale
   trasmessa a un servizio remoto. La distinzione ha anche rilevanza giuridica: il dato
   biometrico è categoria particolare ai sensi dell'art. 9 GDPR.
 
 **La difesa più forte non è il secondo fattore in sé: è il legame con l'origine.** Un secondo
 fattore basato su un codice numerico che l'utente digita è vulnerabile all'inganno in tempo
-reale — un sito falso lo raccoglie e lo rigioca subito. I meccanismi in cui la prova è legata
+reale - un sito falso lo raccoglie e lo rigioca subito. I meccanismi in cui la prova è legata
 crittograficamente al dominio che l'ha richiesta non lo sono, perché la firma prodotta per il
 sito falso non vale per quello vero. È una differenza qualitativa, non incrementale.
 
 **Nel progetto.** Il requisito **SEC-012** impone che il sistema supporti l'autenticazione a
 più fattori su tutte le utenze e la **imponga obbligatoriamente** per le utenze con privilegi
-amministrativi e per l'accesso remoto; la verifica è funzionale — deve essere impossibile
+amministrativi e per l'accesso remoto; la verifica è funzionale - deve essere impossibile
 completare un accesso amministrativo senza secondo fattore. Le fonti che convergono su questo
 punto sono quattro: la misura `PR.AA-03`, punto 2 delle specifiche di base ACN; la misura ABSC
 5.6.1 della Circolare AgID 2/2017; l'art. 24, comma 2, lett. l) del d.lgs. 138/2024, che nomina
@@ -1702,12 +1702,12 @@ colloca nel claim `acr`, con un marcatore proprio del progetto che distingue l'a
 eseguita da quella riferita dall'integratore, e chiarisce che **non viaggia nel claim `act`**,
 il quale esprime la delega e non il livello. La meccanica dei protocolli sta in
 [13](13-protocolli.md); l'anagrafica dell'identità in
-[04 — Identità e anagrafiche](04-identita-e-anagrafiche.md).
+[04 - Identità e anagrafiche](04-identita-e-anagrafiche.md).
 
 ### 8.3 La sessione: il punto in cui l'autenticazione si conserva
 
 Autenticare a ogni richiesta con la credenziale primaria non è praticabile. Si autentica una
-volta e si emette un **artefatto di sessione** — un cookie, un token — che le richieste
+volta e si emette un **artefatto di sessione** - un cookie, un token - che le richieste
 successive presentano. Questo artefatto **vale quanto la credenziale**: chi lo ruba entra.
 
 Le proprietà che deve avere non sono negoziabili.
@@ -1719,7 +1719,7 @@ Le proprietà che deve avere non sono negoziabili.
   quella di un paziente sul proprio telefono.
 - **Revocabilità.** Deve esistere un modo di invalidare una sessione **prima** della sua
   scadenza naturale, e deve funzionare immediatamente. È il punto in cui i token autoconsistenti
-  — quelli che il server valida senza consultare uno stato — mostrano il loro limite: senza un
+  - quelli che il server valida senza consultare uno stato - mostrano il loro limite: senza un
   elenco di revoca o senza una durata brevissima con rinnovo, un token rubato resta valido fino
   alla scadenza. Il requisito **SEC-017** chiede che la revoca delle autorizzazioni al variare
   del rapporto (trasferimento, cessazione) sia effettiva **entro il termine dichiarato**: se il
@@ -1735,15 +1735,15 @@ Le proprietà che deve avere non sono negoziabili.
 
 Il **controllo degli accessi basato sui ruoli** (*role-based access control*, RBAC) introduce
 un livello intermedio: i permessi non si assegnano alle persone ma ai **ruoli**, e alle persone
-si assegnano i ruoli. Semplifica enormemente l'amministrazione — un nuovo cardiologo eredita
-un insieme di permessi già definito — e rende verificabile il modello, perché i ruoli sono
+si assegnano i ruoli. Semplifica enormemente l'amministrazione - un nuovo cardiologo eredita
+un insieme di permessi già definito - e rende verificabile il modello, perché i ruoli sono
 pochi e i permessi per ruolo sono elencabili.
 
 Il limite è strutturale e in sanità è decisivo: **il ruolo non dipende dalla risorsa**. Dire
 che un utente ha ruolo «medico» non dice se quel medico abbia titolo ad accedere alla cartella
 di **quel** paziente. Se si prova a risolvere il problema dentro il modello dei ruoli si
-ottiene un'esplosione — «cardiologo del reparto X in turno di guardia con incarico sul paziente
-Y» non è un ruolo, è una condizione — e il modello diventa ingestibile.
+ottiene un'esplosione - «cardiologo del reparto X in turno di guardia con incarico sul paziente
+Y» non è un ruolo, è una condizione - e il modello diventa ingestibile.
 
 ### 8.5 Autorizzazione basata sugli attributi, e la relazione di cura
 
@@ -1764,8 +1764,8 @@ appuntamento, da una presa in carico, da un episodio in corso. È l'unico modo d
 alla domanda «questo medico può leggere questa cartella?» senza né bloccare la cura né aprire
 tutto.
 
-Il modello che funziona è **ibrido**: RBAC per i permessi grossolani — chi può usare quali
-funzionalità — e ABAC per l'accesso alla singola risorsa clinica. Il primo si amministra, il
+Il modello che funziona è **ibrido**: RBAC per i permessi grossolani - chi può usare quali
+funzionalità - e ABAC per l'accesso alla singola risorsa clinica. Il primo si amministra, il
 secondo si valuta.
 
 **Tre implicazioni progettuali che vanno previste dall'inizio.**
@@ -1785,7 +1785,7 @@ secondo si valuta.
 
 ### 8.6 Privilegio minimo e separazione dei compiti
 
-**Privilegio minimo**: ogni soggetto — persona, servizio, processo — dispone dei soli permessi
+**Privilegio minimo**: ogni soggetto - persona, servizio, processo - dispone dei soli permessi
 necessari a svolgere il proprio compito, per il solo tempo necessario. È il principio che
 limita il danno di ogni compromissione: un componente compromesso può fare soltanto ciò che
 poteva fare prima.
@@ -1811,8 +1811,8 @@ amministra il registro degli accessi; chi custodisce le chiavi non amministra la
 esse proteggono; chi approva un accesso in emergenza non è chi lo ha richiesto.
 
 È il controllo che rende difficile l'abuso da parte di chi ha privilegi legittimi, ed è la sola
-difesa **strutturale** contro l'avversario A5 del § 2.4. Ha un costo operativo reale — richiede
-più persone e più procedure — e per questo va applicato dove serve: chiavi, registro degli
+difesa **strutturale** contro l'avversario A5 del § 2.4. Ha un costo operativo reale - richiede
+più persone e più procedure - e per questo va applicato dove serve: chiavi, registro degli
 accessi, pubblicazione degli artefatti, gestione delle utenze privilegiate.
 
 ### 8.7 La rottura del vetro
@@ -1833,7 +1833,7 @@ non lo prevede fallisce in uno dei due modi possibili, entrambi inaccettabili.
 
 La rottura del vetro è la costruzione che scioglie il dilemma: **l'accesso in emergenza è
 consentito, ma è costoso, visibile e verificabile**. Non è una scappatoia tollerata: è un
-controllo progettato, disciplinato, e richiesto dalla letteratura di settore —
+controllo progettato, disciplinato, e richiesto dalla letteratura di settore -
 **ISO 27799:2016**, che è l'interpretazione sanitaria dei controlli di ISO/IEC 27002, tratta
 espressamente la gestione degli accessi in emergenza fra i requisiti specifici del dominio.
 
@@ -1849,7 +1849,7 @@ flowchart TD
     F --> G["Motivazione obbligatoria<br/>in testo libero + categoria<br/>nessun valore predefinito"]
     G --> H["Accesso consentito<br/>per una finestra limitata<br/>e a un perimetro limitato"]
     H --> I["Registrazione rinforzata:<br/>attore, risorsa, motivazione,<br/>momento, contesto, durata"]
-    I --> J["Notifica immediata:<br/>titolare del trattamento,<br/>responsabile della struttura,<br/>e — secondo la politica —<br/>l'interessato"]
+    I --> J["Notifica immediata:<br/>titolare del trattamento,<br/>responsabile della struttura,<br/>e - secondo la politica -<br/>l'interessato"]
     J --> K["Verifica a posteriori<br/>entro un termine dichiarato<br/>Esito registrato"]
     K --> L{"Accesso giustificato?"}
     L -- "sì" --> M["Chiusura con esito<br/>documentato"]
@@ -1875,7 +1875,7 @@ scorciatoia:
    anch'esso registrato. Una rottura del vetro mai verificata è un permesso con un modulo da
    compilare.
 7. **Non è disponibile a tutti.** L'insieme dei ruoli che possono invocarla, e quello delle
-   categorie di dati su cui è invocabile, sono configurazioni della struttura — e vanno
+   categorie di dati su cui è invocabile, sono configurazioni della struttura - e vanno
    coordinate con i limiti che il modulo [03 § 8.3](03-il-dato-clinico.md) descrive per le
    categorie a maggiore tutela dell'anonimato, dove la disciplina è più stringente.
 
@@ -1890,7 +1890,7 @@ accessi non consapevoli, che sono il difetto peggiore fra tutti quelli possibili
 
 ### 9.1 Che cos'è, e cosa non è
 
-Il **registro degli accessi** — o registro di tracciabilità, o *audit trail* — è la sequenza
+Il **registro degli accessi** - o registro di tracciabilità, o *audit trail* - è la sequenza
 degli eventi che documentano chi ha fatto cosa, quando, su quale dato e con quale esito. È la
 realizzazione tecnica della proprietà di tracciabilità del § 1.6 e del vincolo **V5** del
 progetto.
@@ -1917,16 +1917,16 @@ contestazione senza ulteriori indagini:
 
 | Attributo | Perché |
 |---|---|
-| **Chi** — identificativo nominativo dell'attore, non l'utenza applicativa | Senza attore nominativo non c'è responsabilità; le utenze condivise distruggono questa proprietà (§ 8.6) |
-| **Per conto di chi** — l'eventuale delegante, con il claim `act` | Distingue «Tizio ha agito» da «il sistema X ha agito per Tizio» (D18) |
-| **Cosa** — l'azione, in un vocabolario chiuso e versionato | Un'azione descritta in testo libero non è aggregabile né confrontabile nel tempo |
-| **Su quale risorsa** — tipo e identificativo, più il paziente cui si riferisce | Senza il riferimento al paziente non si può rispondere a «chi ha letto la mia cartella?» |
-| **Quando** — momento con fuso e precisione dichiarati, da orologio sincronizzato | Requisito **SEC-034**: senza sincronizzazione gli eventi di componenti diversi non sono ordinabili |
-| **Da dove** — provenienza, canale, applicazione chiamante | Serve a distinguere l'accesso da rete interna da quello remoto |
-| **Con quale esito** — consentito, negato, parziale | I dinieghi sono l'informazione più utile per rilevare un abuso in corso |
-| **In forza di cosa** — la motivazione dell'autorizzazione, e in emergenza la motivazione dichiarata | § 8.5, punto 2 |
+| **Chi** - identificativo nominativo dell'attore, non l'utenza applicativa | Senza attore nominativo non c'è responsabilità; le utenze condivise distruggono questa proprietà (§ 8.6) |
+| **Per conto di chi** - l'eventuale delegante, con il claim `act` | Distingue «Tizio ha agito» da «il sistema X ha agito per Tizio» (D18) |
+| **Cosa** - l'azione, in un vocabolario chiuso e versionato | Un'azione descritta in testo libero non è aggregabile né confrontabile nel tempo |
+| **Su quale risorsa** - tipo e identificativo, più il paziente cui si riferisce | Senza il riferimento al paziente non si può rispondere a «chi ha letto la mia cartella?» |
+| **Quando** - momento con fuso e precisione dichiarati, da orologio sincronizzato | Requisito **SEC-034**: senza sincronizzazione gli eventi di componenti diversi non sono ordinabili |
+| **Da dove** - provenienza, canale, applicazione chiamante | Serve a distinguere l'accesso da rete interna da quello remoto |
+| **Con quale esito** - consentito, negato, parziale | I dinieghi sono l'informazione più utile per rilevare un abuso in corso |
+| **In forza di cosa** - la motivazione dell'autorizzazione, e in emergenza la motivazione dichiarata | § 8.5, punto 2 |
 | **Tenant** | Vincolo **V4**: ogni riga di audit porta l'identificativo di tenant |
-| **Anello della catena** — impronta dell'evento precedente | § 5.6 |
+| **Anello della catena** - impronta dell'evento precedente | § 5.6 |
 
 **Cosa non deve contenere, mai.** Questa parte è più importante della precedente, perché un
 registro mal costruito diventa esso stesso il peggior archivio di dati sanitari del sistema:
@@ -1934,7 +1934,7 @@ conservato più a lungo, replicato più ampiamente, protetto peggio, e consultat
 tecnico che non ha titolo sul contenuto clinico.
 
 - **Il contenuto clinico.** Si registra *che* il referto è stato letto, non il referto. Si
-  registra *che* il campo è stato modificato, non il valore prima e dopo — se serve, il valore
+  registra *che* il campo è stato modificato, non il valore prima e dopo - se serve, il valore
   sta nel dato versionato, con i suoi controlli di accesso, non nel registro.
 - **Credenziali, token, chiavi, impronte biometriche**, nemmeno parziali, nemmeno oscurate a
   metà. Un token oscurato a metà è un token dimezzato, non un token protetto.
@@ -1962,7 +1962,7 @@ parallele. È utile, risolve problemi reali, ed è la scelta dichiarata dallo st
 1. **Versiona, non rende immutabile.** Le tabelle di versione sono tabelle ordinarie della
    stessa base dati. **Chi ha accesso in scrittura alla base dati può alterarle**, esattamente
    come altera le tabelle applicative. È l'enunciato testuale della decisione **D42**, ed è la
-   ragione per cui il meccanismo non oppone nulla all'avversario A5 del § 2.4 — che è
+   ragione per cui il meccanismo non oppone nulla all'avversario A5 del § 2.4 - che è
    precisamente l'avversario contro cui il registro serve.
 2. **Traccia le scritture, non le letture.** Una modifica produce una versione; **una
    consultazione non produce nulla**. In un dossier sanitario l'atto da tracciare per eccellenza
@@ -1982,13 +1982,14 @@ dell'intero catalogo di sicurezza», da pianificare come tale.
 
 Va detto con precisione **cosa resta** al versionamento delle entità, perché il punto non è
 abbandonarlo: resta la ricostruzione dello stato storico del dato, che è un'esigenza clinica
-autonoma — sapere quale era il valore della soglia di allerta il giorno in cui l'allerta non è
+autonoma - sapere quale era il valore della soglia di allerta il giorno in cui l'allerta non è
 scattata. Sono due funzioni diverse che convivono. Il difetto è **spacciare l'una per l'altra**
 nella documentazione di conformità.
 
 ### 9.4 Come si costruisce: catena di impronte e conservazione separata
 
-L'architettura che soddisfa i quattro requisiti è composta da quattro elementi.
+L'architettura che colma le tre carenze del § 9.3 e soddisfa le quattro fonti che vi sono
+elencate è composta da quattro elementi.
 
 **Primo: scrittura in sola aggiunta.** Il registro non ha operazioni di modifica né di
 cancellazione. Non «non le usiamo»: **non esistono**, né nel codice né nei permessi concessi
@@ -2021,7 +2022,7 @@ flowchart LR
     subgraph GEN["Sistema che genera gli eventi"]
         APP["Servizi applicativi"] -- "sola aggiunta" --> CH[("Registro locale<br/>catena di impronte per tenant")]
     end
-    subgraph SEP["Conservazione separata — altra autorità amministrativa"]
+    subgraph SEP["Conservazione separata - altra autorità amministrativa"]
         COPY[("Copia in sola aggiunta<br/>credenziali di sola scrittura")]
         SIEM["Sistema di gestione<br/>degli eventi di sicurezza<br/>del cliente"]
     end
@@ -2044,7 +2045,7 @@ flowchart LR
 ```
 
 **Un problema pratico che va risolto in fase di progettazione e non dopo: la concorrenza.** Una
-catena di impronte è intrinsecamente sequenziale — per calcolare l'anello *n* serve l'anello *n−1* —
+catena di impronte è intrinsecamente sequenziale - per calcolare l'anello *n* serve l'anello *n−1* -
 mentre un sistema che serve molte richieste in parallelo produce eventi contemporaneamente.
 Le strategie sono tre, con compromessi diversi: **serializzare** la scrittura del registro
 attraverso un componente unico per tenant, il che è semplice e introduce un collo di bottiglia;
@@ -2075,7 +2076,7 @@ essi si costruisce a posteriori.
    piano dell'affermazione a quello dell'opponibilità.
 3. **L'esportazione in formato aperto con impronta di integrità del pacchetto.** Il requisito
    **SEC-036** chiede l'esportazione in CSV, TXT o JSON con impronta del pacchetto esportato,
-   entro un termine documentato e comunque **entro il giorno successivo alla richiesta** — un
+   entro un termine documentato e comunque **entro il giorno successivo alla richiesta** - un
    termine che discende dal requisito R44 delle linee guida AgID sul procurement ICT. Un
    registro che si consulta solo attraverso l'interfaccia del produttore non è esibibile.
 4. **La ricostruzione cronologica su interrogazione.** Il requisito **SEC-035** chiede che il
@@ -2093,7 +2094,7 @@ mesi** per i log di tracciabilità e **dodici mesi** per i dati di accesso e aut
 sensi dell'**Allegato 4 del DM 19 novembre 2025** e del parere del Garante per la protezione
 dei dati personali n. 2 del 16 gennaio 2025. La conservazione è **un massimo oltre che un
 minimo**: alla scadenza i dati vanno cancellati, e una conservazione dichiarata e non applicata
-equivale, in sede di verifica, all'assenza di conservazione — come il modulo
+equivale, in sede di verifica, all'assenza di conservazione - come il modulo
 [03 § 7.3](03-il-dato-clinico.md) osserva a proposito di tutte le politiche di conservazione.
 
 ### 9.6 Il registro come strumento di rilevazione
@@ -2102,7 +2103,7 @@ Un registro serve a ricostruire il passato, ma il suo valore aumenta enormemente
 a **rilevare il presente**. Le specifiche di base ACN lo richiedono espressamente: la misura
 `DE.CM-01` impone di definire **parametri quali-quantitativi** il cui superamento identifichi
 un accesso anomalo, e la *Guida alla lettura* ne fornisce due esempi che sembrano scritti per
-questo dominio — un indicatore quantitativo, «il superamento di una soglia per le interrogazioni
+questo dominio - un indicatore quantitativo, «il superamento di una soglia per le interrogazioni
 di una banca dati da parte di un singolo utente», e uno qualitativo, «l'accesso di un
 amministratore di sistema al di fuori dell'orario di servizio». Il superamento configura la
 tipologia di incidente **IS-4**, notificabile dai soggetti essenziali.
@@ -2118,8 +2119,8 @@ ciascuna soglia e si constata l'emissione dell'allarme.
 **Un'osservazione sul valore probatorio dell'ordine temporale.** Il momento di ciascun evento è
 attestato dall'orologio del componente che lo produce, che è alterabile. La catena di impronte
 attesta l'**ordine** degli eventi, che è una proprietà più forte e più difficile da falsificare;
-i sigilli marcati temporalmente ancorano quell'ordine a istanti certi. Le tre cose insieme —
-orologi sincronizzati, catena, sigilli — producono una cronologia difendibile; nessuna delle tre
+i sigilli marcati temporalmente ancorano quell'ordine a istanti certi. Le tre cose insieme -
+orologi sincronizzati, catena, sigilli - producono una cronologia difendibile; nessuna delle tre
 da sola ci riesce.
 
 ---
@@ -2135,23 +2136,25 @@ coesistono **tre soggetti con obblighi diversi**:
 
 - **il progetto**, cioè chi produce e pubblica il codice sorgente sotto licenza Apache-2.0.
   Non è un dispositivo medico e lo dichiara (**D28**, **D51**);
-- **chi installa e utilizza** — l'azienda sanitaria, la clinica, l'integratore che eroga il
+- **chi installa e utilizza** - l'azienda sanitaria, la clinica, l'integratore che eroga il
   servizio. È il titolare del trattamento, è il soggetto NIS, è chi notifica gli incidenti;
-- **chi certifica e immette sul mercato** il dispositivo medico, assumendo il ruolo di
+- **il soggetto fabbricante, da costituire, che immette sul mercato** il dispositivo medico, assumendo il ruolo di
   fabbricante ai sensi del Regolamento (UE) 2017/745.
 
-La decisione **D49** chiude il punto: il progetto produce e pubblica il pacchetto regolatorio —
-fascicolo tecnico, documentazione di ciclo di vita IEC 62304, gestione del rischio ISO 14971,
-file di ingegneria dell'usabilità IEC 62366-1 — **ma non costituisce un soggetto fabbricante,
-non ingaggia organismi notificati, non conduce la valutazione clinica e non appone la marcatura
-CE**. Chi integra e immette sul mercato assume quel ruolo. Restano a carico del progetto le sole
-attività **retroattivamente irrecuperabili** elencate dalla decisione **D45**.
+La decisione **D63** del 26 agosto 2026 riorienta il punto: il progetto intende assumere il ruolo
+di fabbricante e produrrà il pacchetto regolatorio - fascicolo tecnico, documentazione di ciclo
+di vita IEC 62304, gestione del rischio ISO 14971, file di ingegneria dell'usabilità
+IEC 62366-1 - e il soggetto fabbricante, **una volta costituito, ingaggerà organismi notificati, condurrà la
+valutazione clinica e apporrà la marcatura CE**. La decisione **D63**
+autorizza il percorso; i compiti che restano a carico del progetto fino a quel momento e quelli
+che assumerà il soggetto fabbricante sono dettagliati dal piano di recepimento in
+`.telemedic/piani/D63-recepimento-del-ruolo-di-fabbricante.md`.
 
 ### 10.1 GDPR: l'art. 32 e cosa richiede davvero
 
 Il **Regolamento (UE) 2016/679** disciplina il trattamento dei dati personali. Il modulo
-[03](03-il-dato-clinico.md) ne tratta la parte sostanziale — categoria particolare, base
-giuridica, ruoli, consenso, conservazione, oscuramento, valutazione d'impatto, violazioni — e
+[03](03-il-dato-clinico.md) ne tratta la parte sostanziale - categoria particolare, base
+giuridica, ruoli, consenso, conservazione, oscuramento, valutazione d'impatto, violazioni - e
 qui non si ripete. Interessa l'**art. 32**, che è la norma sulle misure di sicurezza.
 
 L'art. 32, par. 1 impone misure «adeguate al rischio», e ne elenca quattro a titolo
@@ -2172,7 +2175,7 @@ produce conformità automatica; la norma richiede l'adeguatezza al rischio, che 
 documentata. La lett. d) rende inoltre la conformità un **processo verificato periodicamente**,
 non uno stato raggiunto una volta.
 
-**Secondo: il par. 2 individua le minacce di riferimento** — distruzione, perdita, modifica,
+**Secondo: il par. 2 individua le minacce di riferimento** - distruzione, perdita, modifica,
 divulgazione non autorizzata o accesso, «in modo accidentale o illegale». Si noti che la
 **modifica** e la **distruzione** precedono la divulgazione: l'ordine del testo conferma la
 lettura del § 1.2 di questo modulo.
@@ -2192,15 +2195,15 @@ principi: una tabella tracciabile verso il registro dei rischi.
 
 E il collegamento con gli **artt. 33–34** sulle violazioni: il titolare notifica all'autorità di
 controllo entro 72 ore; **il responsabile informa il titolare «senza ingiustificato ritardo»**,
-senza soglia oraria di legge — motivo per cui l'accordo ex art. 28 deve fissarne una
+senza soglia oraria di legge - motivo per cui l'accordo ex art. 28 deve fissarne una
 contrattuale. Il requisito **SEC-038** la colloca **sotto le 24 ore**, e immediata per gli
 incidenti gravi, perché è il termine che consente al cliente di rispettare il proprio.
 
 ### 10.2 NIS2 in Italia: il termine è soggettivo
 
 La direttiva NIS2 è recepita in Italia dal **d.lgs. 4 settembre 2024, n. 138**, in vigore dal
-16 ottobre 2024. Impone a determinati soggetti — fra cui i prestatori di assistenza sanitaria,
-quindi gli utilizzatori tipici di questo sistema — obblighi di governance (art. 23), misure di
+16 ottobre 2024. Impone a determinati soggetti - fra cui i prestatori di assistenza sanitaria,
+quindi gli utilizzatori tipici di questo sistema - obblighi di governance (art. 23), misure di
 gestione dei rischi (art. 24) e notifica degli incidenti significativi (art. 25: **pre-notifica
 entro 24 ore, notifica entro 72 ore, relazione finale entro un mese**).
 
@@ -2208,7 +2211,7 @@ entro 24 ore, notifica entro 72 ore, relazione finale entro un mese**).
 enuncia senza margini: **il termine per l'adozione delle misure non è una data unica**. La
 regola è **diciotto mesi dalla ricezione della comunicazione di inserimento** nell'elenco dei
 soggetti NIS, ai sensi dell'art. 3, comma 1 della **Determinazione ACN n. 379907 del 19 dicembre
-2025** — quindi **un termine diverso per ciascun cliente**. La data del 31 ottobre 2026, che
+2025** - quindi **un termine diverso per ciascun cliente**. La data del 31 ottobre 2026, che
 circola come scadenza generale, è soltanto il limite esterno della prima ondata. La
 determinazione si applica dal **15 gennaio 2026** e sostituisce la n. 164179 del 14 aprile 2025.
 La **Determinazione ACN n. 127434 del 13 aprile 2026** porta i soggetti inseriti nel 2026 a
@@ -2220,7 +2223,7 @@ nella pianificazione.
 
 **Le misure.** Le specifiche di base ACN, adottate come Allegati 1–4 della Determinazione
 379907/2025, contano **37 misure con 87 requisiti per i soggetti importanti** e **43 misure con
-116 requisiti per i soggetti essenziali** — dato confermato dalla *Guida alla lettura* ufficiale,
+116 requisiti per i soggetti essenziali** - dato confermato dalla *Guida alla lettura* ufficiale,
 § 2.1. Ogni misura ha un codice della forma `XX.YY-NN` derivato dal Framework nazionale per la
 cybersecurity e la data protection, edizione 2025.
 
@@ -2236,7 +2239,7 @@ attuato dalle misure `PR.AA-03`, `PR.DS-02` e `PR.IR-03`. Per un soggetto sanita
 una piattaforma di consulto video cifrato **è il mezzo con cui quella misura viene attuata**:
 è il punto in cui la funzione del prodotto e un obbligo di legge del cliente coincidono.
 
-**Chi ha l'obbligo.** Il soggetto NIS, cioè l'utilizzatore. **Non il progetto** — che, secondo
+**Chi ha l'obbligo.** Il soggetto NIS, cioè l'utilizzatore. **Non il progetto** - che, secondo
 l'analisi di riferimento, quasi certamente non è soggetto NIS in proprio. Ma l'art. 24, comma 2,
 lett. d) e comma 3 impongono al cliente di valutare «le specifiche vulnerabilità di ciascun
 fornitore diretto» e «la qualità complessiva dei prodotti e le pratiche di cybersicurezza dei
@@ -2255,7 +2258,7 @@ qualificate concordanti e dalla comunicazione istituzionale.
 
 ### 10.3 Il Cyber Resilience Act: l'esclusione è per prodotto, non per progetto
 
-Il **Regolamento (UE) 2024/2847** — regolamento sulla ciberresilienza, in sigla **CRA** — impone
+Il **Regolamento (UE) 2024/2847** - regolamento sulla ciberresilienza, in sigla **CRA** - impone
 requisiti orizzontali di cibersicurezza ai prodotti con elementi digitali immessi sul mercato
 dell'Unione. È entrato in vigore il 10 dicembre 2024, con applicazione scaglionata: **art. 14
 (segnalazione delle vulnerabilità attivamente sfruttate e degli incidenti gravi) dall'11
@@ -2272,7 +2275,7 @@ l'errore che la decisione **D41** corregge: **l'esclusione è per prodotto, non 
 
 Ne discende il requisito **SEC-006**: il progetto documenta, **per ciascun artefatto
 distribuito**, se è coperto dalla marcatura CE e quindi escluso dal CRA. La decisione **D27**
-sceglie la via che assorbe l'incertezza — **conformità CRA piena, senza invocare esenzioni** —
+sceglie la via che assorbe l'incertezza - **conformità CRA piena, senza invocare esenzioni** -
 ma la tabella artefatto → regime resta necessaria per la matrice di conformità e per la
 documentazione all'integratore.
 
@@ -2286,7 +2289,7 @@ attraverso cui si monetizzano altri servizi; usare dati personali per ragioni di
 miglioramento di sicurezza, compatibilità e interoperabilità.
 
 La figura del **custode di software open source** (*open-source software steward*, art. 3, punto
-14 e art. 24) è una **persona giuridica** — mai una persona fisica — che fornisce sostegno
+14 e art. 24) è una **persona giuridica** - mai una persona fisica - che fornisce sostegno
 sistematico e continuativo allo sviluppo di prodotti open source destinati ad attività
 commerciali. I suoi obblighi sono deliberatamente più leggeri di quelli del fabbricante:
 politica di cibersicurezza documentata, cooperazione con le autorità di vigilanza del mercato,
@@ -2299,7 +2302,7 @@ ricevente la responsabilità del CRA, dell'MDR o del GDPR. Chi integra il proget
 commerciale è fabbricante *ex lege*, indipendentemente da quanto scritto nella licenza. Va
 aggiunta l'avvertenza della decisione **D28**: la **Direttiva (UE) 2024/2853** vieta all'art. 15
 l'esclusione contrattuale della responsabilità verso il danneggiato, e all'art. 10 presume la
-difettosità in caso di non conformità a requisiti obbligatori di sicurezza dell'Unione — le
+difettosità in caso di non conformità a requisiti obbligatori di sicurezza dell'Unione - le
 clausole di esclusione di garanzia e limitazione di responsabilità di Apache-2.0 valgono fra le
 parti, **non verso il paziente**.
 
@@ -2343,7 +2346,7 @@ soluzione. Non prescrivono algoritmi né configurazioni: prescrivono che esista 
 di sviluppo sicuro documentato, integrato nel sistema di gestione della qualità, con modellazione
 delle minacce, requisiti di sicurezza, verifica, gestione dei componenti di terze parti e
 gestione delle vulnerabilità dopo il rilascio. È il motivo per cui **un solo processo li
-soddisfa tutti** — CRA, NIS2 e MDR — e progettarli separatamente sarebbe l'errore da evitare.
+soddisfa tutti** - CRA, NIS2 e MDR - e progettarli separatamente sarebbe l'errore da evitare.
 
 ### 10.5 Il conflitto riconosciuto fra sicurezza e certificazione
 
@@ -2364,7 +2367,7 @@ mitigazione compensative** e a descrivere il rischio residuo nel piano di tratta
 (misura `ID.RA-06`, punto 2).
 
 **Chi deve produrre le misure compensative.** La decisione **D43** è netta: **il fornitore**, non
-il cliente. Il requisito **SEC-010** ne definisce il contenuto — una dichiarazione tecnica che
+il cliente. Il requisito **SEC-010** ne definisce il contenuto - una dichiarazione tecnica che
 (a) individui i componenti la cui alterazione invaliderebbe la marcatura CE, (b) elenchi le
 misure compensative disponibili nativamente (irrobustimento del contenitore, file system in sola
 lettura, verifica dell'integrità delle immagini, monitoraggio esterno del comportamento del
@@ -2378,23 +2381,23 @@ necessaria ad adempierlo.**
 
 ### 10.6 Chi ha quale obbligo: la tabella
 
-| Adempimento | Progetto | Chi installa e utilizza | Chi certifica e immette sul mercato |
+| Adempimento | Progetto | Chi installa e utilizza | Il soggetto fabbricante, da costituire |
 |---|:-:|:-:|:-:|
-| Misure di sicurezza ex art. 32 GDPR | Fornisce le capacità e le documenta | **Obbligato** come titolare o responsabile | — |
-| Accordo ex art. 28 GDPR | Fornisce il modello (**SEC-005**) | **Obbligato** a stipularlo | — |
-| Valutazione d'impatto sulla protezione dei dati | Fornisce gli elementi tecnici | **Obbligato** | — |
-| Notifica di violazione all'autorità (72 h) | Fornisce l'evidenza e notifica al cliente entro 24 h (**SEC-038**) | **Obbligato** | — |
-| Misure NIS2 (37 o 43, secondo la categoria) | Fornisce fascicolo pre-compilato e matrice RACI (**SEC-001**, **SEC-002**) | **Obbligato**, entro il proprio termine soggettivo | — |
-| Notifica di incidente significativo (24 h / 72 h / 1 mese) | Fornisce rilevazione, cronologia ed esportazione | **Obbligato** | — |
-| Dichiarazione dei fornitori rilevanti ad ACN | È il soggetto dichiarato; pubblica i dati (**SEC-007**) | **Obbligato** | — |
-| Deroga a `DE.CM-09` con misure compensative | **Produce la dichiarazione tecnica** (**SEC-010**) | Adotta la deroga e la documenta | — |
-| Requisiti essenziali CRA, Allegato I | Li adotta volontariamente in pieno (**D27**) | — | **Obbligato** per ciò che immette sul mercato non coperto da MDR |
-| Segnalazione ex art. 14 CRA (dall'11 settembre 2026) | Solo se diventa custode o fabbricante | — | **Obbligato** come fabbricante |
+| Misure di sicurezza ex art. 32 GDPR | Fornisce le capacità e le documenta | **Obbligato** come titolare o responsabile | - |
+| Accordo ex art. 28 GDPR | Fornisce il modello (**SEC-005**) | **Obbligato** a stipularlo | - |
+| Valutazione d'impatto sulla protezione dei dati | Fornisce gli elementi tecnici | **Obbligato** | - |
+| Notifica di violazione all'autorità (72 h) | Fornisce l'evidenza e notifica al cliente entro 24 h (**SEC-038**) | **Obbligato** | - |
+| Misure NIS2 (37 o 43, secondo la categoria) | Fornisce fascicolo pre-compilato e matrice RACI (**SEC-001**, **SEC-002**) | **Obbligato**, entro il proprio termine soggettivo | - |
+| Notifica di incidente significativo (24 h / 72 h / 1 mese) | Fornisce rilevazione, cronologia ed esportazione | **Obbligato** | - |
+| Dichiarazione dei fornitori rilevanti ad ACN | È il soggetto dichiarato; pubblica i dati (**SEC-007**) | **Obbligato** | - |
+| Deroga a `DE.CM-09` con misure compensative | **Produce la dichiarazione tecnica** (**SEC-010**) | Adotta la deroga e la documenta | - |
+| Requisiti essenziali CRA, Allegato I | Li adotta volontariamente in pieno (**D27**) | - | **Obbligato** per ciò che immette sul mercato non coperto da MDR |
+| Segnalazione ex art. 14 CRA (dall'11 settembre 2026) | Solo se diventa custode o fabbricante | - | **Obbligato** come fabbricante |
 | Distinta dei materiali software | **Produce e pubblica** (**SEC-043**) | La usa per il proprio piano vulnerabilità | La include nella documentazione tecnica |
-| Fascicolo tecnico, IEC 62304, ISO 14971, IEC 62366-1 | **Produce e pubblica il pacchetto** (**D49**) | — | Lo assume, lo completa, se ne assume la responsabilità |
-| Marcatura CE e dichiarazione di conformità | **Mai** (**D28**, **D49**) | — | **Obbligato** |
-| Valutazione clinica | **Mai** (**D49**) | — | **Obbligato** |
-| Conservazione dei log per 24 mesi | Fornisce la capacità e la configurazione | **Obbligato** ad applicarla | — |
+| Fascicolo tecnico, IEC 62304, ISO 14971, IEC 62366-1 | **Produce e pubblica il pacchetto** (**D49**) | - | Lo assume, lo completa, se ne assume la responsabilità |
+| Marcatura CE e dichiarazione di conformità | **Mai** (**D28**, **D49**) | - | **Obbligato** |
+| Valutazione clinica | **Mai** (**D49**) | - | **Obbligato** |
+| Conservazione dei log per 24 mesi | Fornisce la capacità e la configurazione | **Obbligato** ad applicarla | - |
 
 La lettura trasversale della tabella è il messaggio: **il progetto non ha quasi mai l'obbligo, e
 ha quasi sempre il monopolio dell'informazione necessaria ad adempierlo**. È questo che rende la
@@ -2410,11 +2413,11 @@ Un controllo di sicurezza applicato dopo che l'architettura è fissata può solt
 non correggere. Se il modello di autorizzazione non prevede la relazione di cura, nessun
 apparato di rete la introdurrà; se il registro non ha una catena di impronte dal primo evento
 scritto, non gliela si aggiunge dopo per gli eventi già scritti; se le dipendenze non sono
-censite da subito, censirle a posteriori costa — secondo la decisione **D45** — **tre-cinque
+censite da subito, censirle a posteriori costa - secondo la decisione **D45** - **tre-cinque
 volte tanto**.
 
 Da qui la classificazione della decisione **D45** in due gruppi: le attività **retroattivamente
-irrecuperabili**, che vanno fatte subito a prescindere da chi certificherà, e le altre. Fra le
+irrecuperabili**, che vanno fatte subito a prescindere da chi assumerà il ruolo di fabbricante, e le altre. Fra le
 prime, due riguardano direttamente questo modulo: il **congelamento degli identificativi di
 requisito** con registro, perché la tracciabilità richiesta da IEC 62304 non si ricostruisce; e
 l'**inventario dei componenti di terze parti con distinta dei materiali generata dalla prima
@@ -2423,7 +2426,7 @@ pipeline**.
 ### 11.2 Componenti di terze parti: SOUP e classificazione
 
 Ogni dipendenza esterna è codice che entra nel prodotto e di cui non si controlla lo sviluppo.
-Nel vocabolario della norma **IEC 62304** si chiama **SOUP** — *Software Of Unknown Provenance*,
+Nel vocabolario della norma **IEC 62304** si chiama **SOUP** - *Software Of Unknown Provenance*,
 software di provenienza non nota: un componente software già sviluppato e disponibile in
 generale, non sviluppato per essere incorporato nel dispositivo medico, o per il quale non è
 disponibile una documentazione adeguata del processo di sviluppo.
@@ -2431,7 +2434,7 @@ disponibile una documentazione adeguata del processo di sviluppo.
 Per effetto della classificazione del progetto come software dispositivo medico, **la gestione
 dei SOUP è un obbligo formale, non una buona pratica**. Il requisito **SEC-051** ne definisce il
 contenuto: elenco, versione, **motivo dell'inclusione**, valutazione del rischio, criteri di
-aggiornamento — e coerenza con la distinta dei materiali.
+aggiornamento - e coerenza con la distinta dei materiali.
 
 Il criterio di classificazione che serve, in pratica, ordina le dipendenze per **impatto in caso
 di compromissione**, non per popolarità:
@@ -2448,7 +2451,7 @@ nell'artefatto, ma può alterare l'artefatto mentre viene costruito, il che è p
 
 ### 11.3 La distinta dei materiali software è un obbligo normativo
 
-La **distinta dei materiali software** — *software bill of materials*, **SBOM** — è l'elenco
+La **distinta dei materiali software** - *software bill of materials*, **SBOM** - è l'elenco
 leggibile automaticamente dei componenti che compongono un artefatto, con versione, origine e
 licenza. Non è documentazione: è **un obbligo di legge**.
 
@@ -2473,30 +2476,30 @@ Tre precisazioni che evitano altrettanti fraintendimenti.
    di valutare la qualità dei prodotti dei fornitori. Il requisito di progetto è **SEC-043**:
    distinta in formato **CycloneDX**, pubblicata per ogni rilascio, validabile contro lo schema.
 
-**Il complemento che rende la distinta utile: il documento di sfruttabilità.** Una distinta
+**Il complemento che rende la distinta utile: la dichiarazione di esposizione.** Una distinta
 produce un elenco di vulnerabilità note delle dipendenze, la maggior parte delle quali non è
-sfruttabile nel contesto specifico — perché il codice vulnerabile non viene mai invocato, o
+sfruttabile nel contesto specifico - perché il codice vulnerabile non viene mai invocato, o
 perché una configurazione lo neutralizza. Senza una dichiarazione esplicita, l'integratore si
 trova a dover rimediare vulnerabilità irrilevanti, e il costo di questa attività è ciò che fa
-respingere un componente in fase di valutazione. Il **VEX** — *Vulnerability Exploitability
-eXchange* — è il documento che dichiara, per ciascuna vulnerabilità nota delle dipendenze, se sia
+respingere un componente in fase di valutazione. Il **VEX** - *Vulnerability Exploitability
+eXchange* - è il documento che dichiara, per ciascuna vulnerabilità nota delle dipendenze, se sia
 effettivamente sfruttabile nel prodotto. È il requisito **SEC-044**.
 
 > **Nota di metodo.** Questo modulo **non cita identificativi di vulnerabilità specifici**.
 > Citare un identificativo che non si è letto sulla fonte è un errore che si propaga nella
-> documentazione e che invecchia male. Gli identificativi vivono negli avvisi di sicurezza e nel
-> documento di sfruttabilità, aggiornati a ogni rilascio, non in una guida formativa.
+> documentazione e che invecchia male. Gli identificativi vivono negli avvisi di sicurezza e
+> nella dichiarazione di esposizione, aggiornati a ogni rilascio, non in una guida formativa.
 
 ### 11.4 Gestione delle vulnerabilità e divulgazione coordinata
 
-**Il ciclo.** Una vulnerabilità viene scoperta — da uno strumento automatico, da un ricercatore
+**Il ciclo.** Una vulnerabilità viene scoperta - da uno strumento automatico, da un ricercatore
 esterno, da un utente, da un avviso su una dipendenza. Va **valutata** (è applicabile? con quale
 impatto nel contesto reale?), **corretta**, **rilasciata**, **comunicata**. Ognuno di questi
 passaggi ha un termine dichiarato, e la dichiarazione dei termini è essa stessa un requisito.
 
 Il requisito **SEC-052** fissa la parte in ingresso: il progetto **monitora la pubblicazione di
 aggiornamenti e correzioni relativi alle proprie dipendenze e avvia la valutazione entro il
-giorno successivo al rilascio**, dichiarando il termine di correzione in funzione della gravità —
+giorno successivo al rilascio**, dichiarando il termine di correzione in funzione della gravità -
 requisito R45 delle linee guida AgID, misure ABSC 4.7.1, 4.8.1 e 4.8.2, Allegato I Parte II
 punto 2 del CRA.
 
@@ -2520,8 +2523,8 @@ progetto che dichiara un periodo di supporto più breve rende il proprio integra
 conforme**. La dichiarazione di fine del supporto alla sicurezza è anche un elemento richiesto da
 EN IEC 81001-5-1 nella comunicazione all'utilizzatore.
 
-**Un obbligo con una data vicina.** Gli obblighi di segnalazione dell'**art. 14 CRA** —
-vulnerabilità attivamente sfruttate e incidenti gravi — decorrono dall'**11 settembre 2026**
+**Un obbligo con una data vicina.** Gli obblighi di segnalazione dell'**art. 14 CRA** -
+vulnerabilità attivamente sfruttate e incidenti gravi - decorrono dall'**11 settembre 2026**
 (art. 71), quindi **prima** del rilascio della v1.0. Riguardano fabbricanti e, nei limiti
 dell'art. 24, par. 3, i custodi di software open source. La decisione **D27** adotta l'intero
 impianto del regolamento senza invocare esenzioni, e registra la decorrenza.
@@ -2536,8 +2539,8 @@ firma dei webhook.
 
 1. **Nessun segreto nel repository.** Mai, in nessuna forma, in nessun ramo, nemmeno nei test,
    nemmeno commentato, nemmeno in un file di esempio con un valore «finto» che poi diventa vero.
-   Negli esempi di questa guida e del progetto compaiono soltanto segnaposto — `<CHIAVE-API>`,
-   `${SECRET_DA_CONFIGURARE}` — mai valori dall'aspetto plausibile, perché un valore plausibile
+   Negli esempi di questa guida e del progetto compaiono soltanto segnaposto - `<CHIAVE-API>`,
+   `${SECRET_DA_CONFIGURARE}` - mai valori dall'aspetto plausibile, perché un valore plausibile
    verrà copiato.
 2. **Rilevazione automatica.** Un controllo di ricerca dei segreti gira a ogni proposta di
    modifica e blocca l'integrazione (requisito **SEC-047**). Va accompagnato da una scansione
@@ -2586,8 +2589,8 @@ firmato dal legittimo firmatario, che supera ogni controllo di runtime.
   sfruttato in assoluto contro i progetti open source.
 - **Firmare gli artefatti e rendere verificabile la provenienza.** È il requisito **SEC-050**:
   gli artefatti sono firmati, la provenienza è verificabile, le immagini di distribuzione sono
-  firmate e la firma è verificabile dal deployer. La fonte è l'Allegato I, Parte II, punto 7 del
-  CRA — «meccanismi sicuri di distribuzione degli aggiornamenti» — insieme alla misura ABSC 2.3.3
+  firmate e la firma è verificabile da chi installa. La fonte è l'Allegato I, Parte II, punto 7 del
+  CRA - «meccanismi sicuri di distribuzione degli aggiornamenti» - insieme alla misura ABSC 2.3.3
   e alla verifica preventiva dell'integratore. La firma va accompagnata da un'**attestazione di
   provenienza** che dichiari quale sorgente, quale processo di costruzione e quale ambiente hanno
   prodotto l'artefatto.
@@ -2604,7 +2607,7 @@ firmato dal legittimo firmatario, che supera ogni controllo di runtime.
 La decisione **D10** definisce il perimetro del testing di sicurezza. Il requisito **SEC-047** lo
 rende verificabile: **analisi statica, analisi dinamica, analisi della composizione e ricerca di
 segreti a ogni proposta di modifica**, con blocco dell'integrazione al superamento delle soglie
-definite — e la verifica richiede l'evidenza di **almeno un blocco effettivo**, perché un
+definite - e la verifica richiede l'evidenza di **almeno un blocco effettivo**, perché un
 controllo che non ha mai bloccato nulla è, con ogni probabilità, un controllo mal configurato.
 
 Vanno distinti gli strumenti, perché trovano cose diverse e nessuno sostituisce l'altro:
@@ -2622,11 +2625,11 @@ difetto di autorizzazione, perché lo strumento non sa chi avrebbe dovuto poter 
 difetti di autorizzazione sono la classe di vulnerabilità più frequente nelle applicazioni
 sanitarie reali, e si trovano soltanto con test scritti da chi conosce il modello: **per ogni
 endpoint, un test che verifica che un utente di un altro tenant, o senza relazione di cura,
-riceva un diniego** — che è precisamente la verifica prevista dal requisito **SEC-018**.
+riceva un diniego** - che è precisamente la verifica prevista dal requisito **SEC-018**.
 
 A questi si aggiungono, per effetto di D10: revisione esterna indipendente del codice di
-sicurezza critico — che la decisione **D18** impone espressamente per il meccanismo di scambio
-dei token — e test di penetrazione esterni.
+sicurezza critico - che la decisione **D18** impone espressamente per il meccanismo di scambio
+dei token - e test di penetrazione esterni.
 
 ### 11.8 Che cosa il progetto deve consegnare, in una lista
 
@@ -2634,7 +2637,7 @@ Mettendo insieme le fonti, il pacchetto minimo che rende il progetto utilizzabil
 integratore e da un soggetto NIS:
 
 1. **Distinta dei materiali** CycloneDX firmata, per ogni rilascio (**SEC-043**).
-2. **Documento di sfruttabilità** aggiornato all'ultimo rilascio (**SEC-044**).
+2. **Dichiarazione di esposizione** aggiornata all'ultimo rilascio (**SEC-044**).
 3. **`SECURITY.md`** con politica di divulgazione coordinata, contatto, chiave pubblica, termini
    dichiarati, porto sicuro (**SEC-045**).
 4. **Avvisi di sicurezza** pubblicati per le vulnerabilità corrette (**SEC-046**).
@@ -2757,8 +2760,8 @@ forma in cui si applicano mentre si scrive codice o si rivede una proposta di mo
 
 ## Cosa devi ricordare
 
-1. **«Sicuro» non è un aggettivo: sono sei proprietà distinte** — riservatezza, integrità,
-   disponibilità, autenticità, non ripudio, tracciabilità — ciascuna definita contro un
+1. **«Sicuro» non è un aggettivo: sono sei proprietà distinte** - riservatezza, integrità,
+   disponibilità, autenticità, non ripudio, tracciabilità - ciascuna definita contro un
    avversario preciso.
 2. **In sanità l'integrità e la tracciabilità pesano quanto la riservatezza, e in alcuni scenari
    di più.** La divulgazione produce un danno grave ma non altera la decisione clinica;
@@ -2775,8 +2778,8 @@ forma in cui si applicano mentre si scrive codice o si rivede una proposta di mo
    rotazione progettata, distruzione come strumento di cancellazione.
 7. **Cifrare e firmare sono operazioni diverse**, con chiavi diverse; e solo la firma
    asimmetrica produce non ripudio, perché HMAC e TLS non lo producono.
-8. **Le dimensioni delle chiavi invecchiano.** L'agilità crittografica — identificativo
-   dell'algoritmo e versione della chiave accanto a ogni dato — è ciò che consente di
+8. **Le dimensioni delle chiavi invecchiano.** L'agilità crittografica - identificativo
+   dell'algoritmo e versione della chiave accanto a ogni dato - è ciò che consente di
    sopravvivere all'obsolescenza, minaccia quantistica compresa.
 9. **Le funzioni di hash veloci sono la scelta sbagliata per le password**, e il sale non
    sostituisce il costo: servono entrambi, contro avversari diversi.
@@ -2798,7 +2801,7 @@ forma in cui si applicano mentre si scrive codice o si rivede una proposta di mo
     rendere immutabile, traccia le scritture e non le letture, e non prova la completezza.
 17. **Nel registro non entra contenuto clinico.** Un registro mal costruito diventa il peggior
     archivio sanitario del sistema.
-18. **Il termine NIS2 è soggettivo** — diciotto mesi dalla comunicazione di inserimento — non una
+18. **Il termine NIS2 è soggettivo** - diciotto mesi dalla comunicazione di inserimento - non una
     data unica (**D39**): la conformità va parametrizzata sul termine del singolo utilizzatore.
 19. **L'esclusione del CRA è per prodotto, non per progetto** (**D41**): kit di sviluppo,
     componenti incorporabili e immagini di distribuzione non coperti dalla marcatura restano nel
@@ -2806,8 +2809,8 @@ forma in cui si applicano mentre si scrive codice o si rivede una proposta di mo
 20. **Il conflitto fra protezione degli endpoint e certificazione del dispositivo è riconosciuto
     dall'autorità**, la deroga esiste, ma le misure compensative le deve produrre il fornitore
     (**D43**, **SEC-010**).
-21. **La distinta dei materiali software è un obbligo normativo**, non documentazione, e senza il
-    documento di sfruttabilità che l'accompagna scarica sull'integratore un lavoro che gli farà
+21. **La distinta dei materiali software è un obbligo normativo**, non documentazione, e senza la
+    dichiarazione di esposizione che l'accompagna scarica sull'integratore un lavoro che gli farà
     respingere il componente.
 22. **Il progetto non ha quasi mai l'obbligo, e ha quasi sempre il monopolio dell'informazione
     necessaria ad adempierlo.** È questo che rende la documentazione di sicurezza un deliverable

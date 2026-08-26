@@ -1,7 +1,7 @@
 ---
 title: Il linguaggio ubiquo
 sidebar_position: 2
-description: Il vocabolario condiviso fra clinici e sviluppatori — definizione normativa dove esiste, operativa dove non esiste, regola di precedenza fra le fonti, falsi sinonimi e collisioni terminologiche da presidiare.
+description: Il vocabolario condiviso fra clinici e sviluppatori - definizione normativa dove esiste, operativa dove non esiste, regola di precedenza fra le fonti, falsi sinonimi e collisioni terminologiche da presidiare.
 ---
 
 # Il linguaggio ubiquo
@@ -30,7 +30,7 @@ autorità.
 | **3** | **Standard internazionale adottato** | *`Encounter`*, *`Observation`*, *`Consent`*, *`Provenance`* | Definisce la struttura, non il significato clinico. Si adotta salvo divergenza con i livelli 1 e 2 |
 | **4** | **Definizione operativa del progetto** | *sessione media*, *pre-verifica tecnica*, *ambito di consulto*, *finestra di refertazione* | Ammessa **solo** dove i tre livelli superiori tacciono, e sempre dichiarata come tale |
 
-> **`DM-01` [MOD] — Regola di precedenza.** In caso di conflitto fra due definizioni si applica
+> **`DM-01` [MOD] - Regola di precedenza.** In caso di conflitto fra due definizioni si applica
 > il livello più basso di numero. Una definizione di livello 4 che entri in conflitto con una
 > di livello 1 non è un'estensione: è un difetto, e va corretta nel codice, non negoziata.
 
@@ -54,7 +54,7 @@ AGENAS ha pubblicato un **Glossario nazionale di Telemedicina, v. 1.0.0 del 29 g
 (fonte: `B1-verifiche-documentali-italiane.md`, § 14). Il **Business Glossary** è inoltre un
 modulo dichiarato dell'Infrastruttura nazionale di telemedicina (DM 19 novembre 2025, art. 2).
 
-> **`DM-02` [MOD]** — Il glossario del progetto ([capitolo 09](09-glossario-del-dominio.md))
+> **`DM-02` [MOD]** - Il glossario del progetto ([capitolo 09](09-glossario-del-dominio.md))
 > dichiara per ogni voce se coincide con il glossario nazionale, se lo specializza o se è
 > propria del progetto. Una divergenza non dichiarata è un difetto documentale.
 >
@@ -83,7 +83,7 @@ dominio**, invece, non attraversano alcuno standard: sono il vocabolario interno
 sono l'unico artefatto tecnico che un clinico può leggere e verificare. `ContattoConcluso` è
 verificabile da chi conosce il dominio; `EncounterFinishedEvent` no.
 
-> **`DM-03` [MOD]** — Un evento di dominio il cui nome non sia comprensibile a un clinico che
+> **`DM-03` [MOD]** - Un evento di dominio il cui nome non sia comprensibile a un clinico che
 > non conosce il codice è mal nominato. Il criterio di accettazione è letterale: si legge il
 > nome dell'evento a un professionista sanitario e gli si chiede che cosa è successo. Se non
 > sa rispondere, il nome cambia.
@@ -107,7 +107,7 @@ diversi del linguaggio ubiquo**, e chiamarli entrambi «descrizione» è l'inizi
 ## 3. I termini con definizione normativa
 
 Sono i termini su cui il progetto ha grado di libertà zero. La tabella riporta la fonte esatta
-e — colonna decisiva — **che cosa il modello è obbligato a rappresentare** per non tradire la
+e - colonna decisiva - **che cosa il modello è obbligato a rappresentare** per non tradire la
 definizione. I testi integrali stanno nel modulo
 [02 dei fondamenti](../10_fondamenti/02-prestazioni-di-telemedicina.md) § 4.
 
@@ -133,17 +133,17 @@ definizione. I testi integrali stanno nel modulo
 È il punto in cui il linguaggio normativo italiano è internamente disallineato, ed è quindi il
 punto in cui un modello ingenuo rompe.
 
-- L'**Accordo 215/CSR 2020** elenca **cinque attività ambulatoriali** — televisita, teleconsulto,
-  teleconsulenza, teleassistenza, telerefertazione — più telecontrollo e telemonitoraggio come
+- L'**Accordo 215/CSR 2020** elenca **cinque attività ambulatoriali** - televisita, teleconsulto,
+  teleconsulenza, teleassistenza, telerefertazione - più telecontrollo e telemonitoraggio come
   «modalità operative».
-- Il **DM 21 settembre 2022** elenca **quattro servizi minimi** — televisita,
-  teleconsulto/teleconsulenza, telemonitoraggio, teleassistenza — unificando teleconsulto e
+- Il **DM 21 settembre 2022** elenca **quattro servizi minimi** - televisita,
+  teleconsulto/teleconsulenza, telemonitoraggio, teleassistenza - unificando teleconsulto e
   teleconsulenza, promuovendo il telemonitoraggio a servizio e degradando la telerefertazione a
   micro-servizio trasversale («refertazione e firma digitale»).
 
-> **`DM-04` [MOD]** — Il modello rappresenta **entrambe le tassonomie e la loro mappatura**, e
-> non ne sceglie una. Concretamente: il tipo di prestazione porta due attributi distinti —
-> `attivitaAccordo2020` e `servizioMinimoDM2022` — perché servono a scopi diversi. Il primo
+> **`DM-04` [MOD]** - Il modello rappresenta **entrambe le tassonomie e la loro mappatura**, e
+> non ne sceglie una. Concretamente: il tipo di prestazione porta due attributi distinti -
+> `attivitaAccordo2020` e `servizioMinimoDM2022` - perché servono a scopi diversi. Il primo
 > determina attori ammessi, obblighi documentali e regime tariffario; il secondo determina
 > l'aggancio a un'infrastruttura regionale e il perimetro di micro-servizi atteso.
 >
@@ -179,7 +179,7 @@ che segue.
 ## 4. I termini con definizione operativa del progetto
 
 Sono i termini di livello 4: nessuna fonte superiore li definisce, il progetto li definisce e
-**lo dichiara**. Ognuno è qui accompagnato dalla ragione per cui esiste — un termine operativo
+**lo dichiara**. Ognuno è qui accompagnato dalla ragione per cui esiste - un termine operativo
 senza necessità è rumore nel vocabolario.
 
 | Termine del progetto | Definizione operativa | Perché serve un termine proprio |
@@ -211,7 +211,7 @@ Il modello ne risente in un punto preciso: le regole di accesso ai dati amminist
 (esenzioni, recapiti, scelta del medico) e quelle di accesso ai dati clinici hanno domini
 diversi. Un operatore di front-office lavora sull'assistito; non deve poter lavorare sul
 paziente. Se il modello ha una sola entità con un solo insieme di permessi, la separazione va
-ricostruita a mano su ogni campo — e prima o poi qualcuno dimentica un campo.
+ricostruita a mano su ogni campo - e prima o poi qualcuno dimentica un campo.
 
 ### 5.2 Prestazione richiesta, prestazione eseguita, prestazione addebitata
 
@@ -221,7 +221,7 @@ l'esecuzione nasce dall'erogante e può avvenire senza richiesta; l'addebito nas
 dall'amministrazione e può non seguire l'esecuzione (prestazione esente, prestazione non
 tariffata come il teleconsulto).
 
-> **`DM-05` [MOD]** — Il modello non contiene alcuna entità chiamata «Prestazione». Contiene
+> **`DM-05` [MOD]** - Il modello non contiene alcuna entità chiamata «Prestazione». Contiene
 > `ServiceRequest` (richiesta), l'atto eseguito rappresentato dall'`Encounter` e dalle sue
 > procedure, e l'evento rendicontabile. Il termine italiano «prestazione» resta nel linguaggio
 > parlato e nella documentazione, sempre qualificato: prestazione *richiesta*, *erogata*,
@@ -273,7 +273,7 @@ decisioni sanitarie: vanno registrati come **ambito** e verificati **per atto** 
 
 Una bozza non firmata **non è un referto**: non è visibile al paziente, non è trasmissibile,
 non è conservata come documento sanitario (`BR-041`). Il linguaggio corrente dice «il referto è
-in bozza», e il modello che segue il linguaggio crea un `Referto` con `stato = bozza` — dal
+in bozza», e il modello che segue il linguaggio crea un `Referto` con `stato = bozza` - dal
 quale, prima o poi, qualcuno estrae un elenco senza filtrare lo stato.
 
 Il capitolo [04](04-documenti-clinici.md) tiene il documento in stato di redazione come oggetto
@@ -357,7 +357,7 @@ soluzione non è scegliere: è qualificare sempre.
 | **Verifica** | Verifica di eseguibilità clinica | Verifica tecnica del dispositivo | *verifica di eseguibilità* / *pre-verifica tecnica* |
 | **Validazione** | Validazione clinica di un documento da parte del medico | Validazione sintattica di una risorsa | *validazione clinica* / *validazione formale* |
 
-> **`DM-06` [MOD]** — Nessuna delle parole della prima colonna compare da sola in un nome di
+> **`DM-06` [MOD]** - Nessuna delle parole della prima colonna compare da sola in un nome di
 > classe, di colonna, di endpoint, di evento o di etichetta di interfaccia. Il controllo è
 > automatizzabile e va inserito fra le verifiche di stile del progetto: è una lista di dodici
 > parole, non un principio.
@@ -450,9 +450,9 @@ Non sono metafore. Sono controlli eseguibili su un ramo di lavoro prima della fu
 
 ## Dove continuare
 
-- [02 — Le prestazioni modellate](02-le-prestazioni-modellate.md): il vocabolario normativo
+- [02 - Le prestazioni modellate](02-le-prestazioni-modellate.md): il vocabolario normativo
   diventa macchine a stati.
-- [09 — Glossario del dominio](09-glossario-del-dominio.md): l'elenco alfabetico bilingue con i
+- [09 - Glossario del dominio](09-glossario-del-dominio.md): l'elenco alfabetico bilingue con i
   rinvii.
 - Modulo [02 dei fondamenti](../10_fondamenti/02-prestazioni-di-telemedicina.md): i testi
   normativi integrali, che quest'area non ripete.

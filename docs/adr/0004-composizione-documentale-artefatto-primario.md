@@ -1,10 +1,10 @@
 ---
-title: "ADR-0004 — Composizione documentale come artefatto primario del referto"
+title: "ADR-0004 - Composizione documentale come artefatto primario del referto"
 sidebar_position: 4
 description: Perché il referto di una prestazione a distanza è una composizione dentro un contenitore documentale e non un referto diagnostico, e perché quest'ultimo resta come proiezione in sola lettura.
 ---
 
-# ADR-0004 — Composizione documentale come artefatto primario del referto
+# ADR-0004 - Composizione documentale come artefatto primario del referto
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Decisioni di riferimento**: D13; vincolo V2
@@ -22,7 +22,7 @@ influisce su questo confine più di quanto sembri.
 
 ## Alternative valutate
 
-### Alternativa 1 — Referto diagnostico come artefatto primario
+### Alternativa 1 - Referto diagnostico come artefatto primario
 
 *Vantaggi*: coerenza con il contenuto pubblico già diffuso; molti sistemi terzi sanno consumarlo;
 struttura più semplice.
@@ -32,7 +32,7 @@ struttura più semplice.
 - **Non è allineato al realm nazionale.** Le guide modellano il referto come composizione; emettere
   un referto diagnostico significa non essere conformi al profilo di riferimento.
 - **La risorsa è progettata per un caso diverso.** La sua stessa specifica indica che è adatta a
-  referti di laboratorio, anatomia patologica e imaging — con risultati atomici e interpretazione —
+  referti di laboratorio, anatomia patologica e imaging - con risultati atomici e interpretazione -
   mentre per referti prevalentemente narrativi e con minore struttura di flusso di lavoro «la
   risorsa composizione sarebbe più appropriata».
 - **Contiene elementi che invitano a superare il confine.** Ha un campo di conclusione e un campo
@@ -42,15 +42,15 @@ struttura più semplice.
   riusato, firma applicata al contenitore. Sono precisamente le proprietà richieste da un documento
   sanitario.
 
-### Alternativa 2 — Composizione come artefatto primario, referto diagnostico rimosso
+### Alternativa 2 - Composizione come artefatto primario, referto diagnostico rimosso
 
 *Vantaggi*: allineamento pieno; un solo artefatto; nessuna ambiguità sulla sede della verità.
 
-*Compromessi*: rompe l'integrazione con i sistemi che sanno consumare solo il referto diagnostico —
-categoria non trascurabile — e contraddice il contenuto pubblico senza offrire un percorso di
+*Compromessi*: rompe l'integrazione con i sistemi che sanno consumare solo il referto diagnostico -
+categoria non trascurabile - e contraddice il contenuto pubblico senza offrire un percorso di
 migrazione.
 
-### Alternativa 3 — Composizione primaria, referto diagnostico come proiezione in sola lettura
+### Alternativa 3 - Composizione primaria, referto diagnostico come proiezione in sola lettura
 
 *Vantaggi*: allineamento pieno con una sola sede della verità; compatibilità preservata per i
 consumatori esistenti.
@@ -99,5 +99,5 @@ di prodotto.
 
 ## Riferimenti
 
-[04 — Modello dati](../02_architecture/04-modello-dati.md#23-il-documento-sanitario-composizione-non-referto-diagnostico) ·
+[04 - Modello dati](../02_architecture/04-modello-dati.md#23-il-documento-sanitario-composizione-non-referto-diagnostico) ·
 ADR-0002 · ADR-0005

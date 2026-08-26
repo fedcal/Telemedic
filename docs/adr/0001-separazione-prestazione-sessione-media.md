@@ -1,10 +1,10 @@
 ---
-title: "ADR-0001 — Separazione fra prestazione clinica e sessione media"
+title: "ADR-0001 - Separazione fra prestazione clinica e sessione media"
 sidebar_position: 1
 description: Perché l'atto clinico a distanza e la connessione in tempo reale sono due aggregati distinti in due contesti distinti, quali alternative sono state scartate e a quale prezzo.
 ---
 
-# ADR-0001 — Separazione fra prestazione clinica e sessione media
+# ADR-0001 - Separazione fra prestazione clinica e sessione media
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Vincoli di riferimento**: V-01 di bacheca; base architetturale §2
@@ -25,7 +25,7 @@ Serviva quindi decidere se l'atto clinico e la connessione fossero la stessa ent
 
 ## Alternative valutate
 
-### Alternativa 1 — Un solo aggregato, con gli attributi di connessione
+### Alternativa 1 - Un solo aggregato, con gli attributi di connessione
 
 L'entità dell'atto porta lo stato del collegamento, il tipo di percorso di rete, l'istante di avvio
 del flusso. La fine della connessione chiude l'atto.
@@ -36,13 +36,13 @@ corrisponde alla percezione dell'utente.
 *Compromessi accertati*, ciascuno verificato come difetto reale e non ipotetico:
 
 1. **Prestazione fantasma.** Una caduta e una riconnessione producono due connessioni, quindi due
-   atti dove ce n'è stato uno. Il conteggio delle prestazioni erogate — che alimenta la
-   rendicontazione — diventa il conteggio delle connessioni riuscite, che è una grandezza diversa.
+   atti dove ce n'è stato uno. Il conteggio delle prestazioni erogate - che alimenta la
+   rendicontazione - diventa il conteggio delle connessioni riuscite, che è una grandezza diversa.
    L'informazione che le due connessioni erano lo stesso atto non è mai esistita e non è
    ricostruibile a posteriori.
 2. **Atto sanitario inesistente.** La verifica tecnica che precede l'appuntamento è una connessione
    senza atto. O si crea un atto fittizio, che finisce nei conteggi, oppure si introduce un ramo
-   speciale che crea una connessione senza atto — cioè si ammette che le due cose sono separate,
+   speciale che crea una connessione senza atto - cioè si ammette che le due cose sono separate,
    facendolo di nascosto.
 3. **Prestazione erogata che risulta fallita.** Il video fallisce, il professionista prosegue in
    fonia, conclude e referta. La connessione video è fallita; l'atto è stato erogato. Il modello
@@ -58,24 +58,24 @@ corrisponde alla percezione dell'utente.
    protocolli di rete; la documentazione dell'atto cambia con la normativa sanitaria. Uniti, ogni
    aggiornamento dell'uno tocca l'altro.
 
-### Alternativa 2 — Due entità nello stesso aggregato
+### Alternativa 2 - Due entità nello stesso aggregato
 
 Due tipi, una sola radice, un solo confine transazionale.
 
 *Vantaggi*: separazione concettuale con consistenza immediata fra i due.
 
 *Compromessi*: la consistenza immediata è **esattamente ciò che non si vuole**. Se i due stanno
-nello stesso confine transazionale, ogni cambio di stato della connessione — decine in una
-prestazione — è una scrittura sull'aggregato dell'atto, con contesa e con il rischio permanente che
+nello stesso confine transazionale, ogni cambio di stato della connessione - decine in una
+prestazione - è una scrittura sull'aggregato dell'atto, con contesa e con il rischio permanente che
 qualcuno colleghi i due stati «perché sono lì». Il regime di conservazione resta comune. Non
 risolve i punti 1, 5 e 6.
 
-### Alternativa 3 — Due aggregati in due contesti, collegati per identificativo
+### Alternativa 3 - Due aggregati in due contesti, collegati per identificativo
 
 *Vantaggi*: risolve tutti e sei i compromessi.
 
 *Compromessi accettati*: due identificativi da correlare; una sincronizzazione esplicita da
-progettare; l'impossibilità di garantire in una transazione un'invariante che coinvolga entrambi —
+progettare; l'impossibilità di garantire in una transazione un'invariante che coinvolga entrambi -
 il che è corretto, perché nessuna invariante clinica deve coinvolgerli entrambi.
 
 ## Decisione
@@ -118,5 +118,5 @@ Regola operativa che ne discende, e che è la sostanza della decisione:
 
 ## Riferimenti
 
-[03 — Modello di dominio](../02_architecture/03-modello-di-dominio.md#3-la-separazione-fra-prestazione-clinica-e-sessione-media) ·
-[02 — Contesti delimitati](../02_architecture/02-contesti-delimitati.md)
+[03 - Modello di dominio](../02_architecture/03-modello-di-dominio.md#3-la-separazione-fra-prestazione-clinica-e-sessione-media) ·
+[02 - Contesti delimitati](../02_architecture/02-contesti-delimitati.md)

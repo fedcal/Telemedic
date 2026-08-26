@@ -15,13 +15,13 @@ La descrizione di ciascun attore comprende quattro elementi che nella maggior pa
 specifiche mancano, e la cui assenza è la ragione per cui i sistemi sanitari a distanza
 falliscono nell'uso reale invece che in collaudo:
 
-- **il tempo che ha davvero a disposizione** — un medico fra due televisite ha novanta secondi,
+- **il tempo che ha davvero a disposizione** - un medico fra due televisite ha novanta secondi,
   non «il tempo necessario»;
-- **la competenza digitale che si può presumere** — che per la popolazione di riferimento del
+- **la competenza digitale che si può presumere** - che per la popolazione di riferimento del
   telemonitoraggio è bassa, e va progettata come stato normale e non come caso limite;
-- **il dispositivo su cui opera davvero** — smartphone di fascia media di quattro anni fa, non
+- **il dispositivo su cui opera davvero** - smartphone di fascia media di quattro anni fa, non
   la postazione di sviluppo;
-- **la rete che ha davvero** — mobile, intermittente, con banda variabile nell'arco della stessa
+- **la rete che ha davvero** - mobile, intermittente, con banda variabile nell'arco della stessa
   sessione.
 
 Questi quattro vincoli non sono contesto: sono **requisiti**, e la decisione D25 del progetto li
@@ -47,7 +47,7 @@ che rompe il multi-tenant al primo cliente con due sedi.
 
 ## 2. Attori che ricevono la prestazione
 
-### ATT-01 — Assistito, paziente
+### ATT-01 - Assistito, paziente
 
 **Veste**: destinatario dell'atto sanitario; titolare dei dati; nella maggioranza dei casi anche
 soggetto che presta il consenso.
@@ -79,7 +79,7 @@ scelte iniziali, test tecnico dentro il percorso e non come opzione, istruzioni 
 browser e il sistema operativo rilevati, ripiego telefonico dichiarato in anticipo, nessuna
 installazione richiesta, testo e comandi grandi per impostazione predefinita.
 
-### ATT-02 — Caregiver
+### ATT-02 - Caregiver
 
 **Veste**: persona che assiste stabilmente il paziente. **Assistere non è rappresentare**: un
 caregiver non presta consenso al posto di un paziente capace, in nessuna configurazione
@@ -101,12 +101,12 @@ momento dal paziente; nessuna capacità di prestare consenso in sostituzione.
 **Vincoli reali.** Il caregiver è spesso un figlio adulto che lavora, contattabile in fasce orarie
 ristrette, che assiste **più di una persona**. Da qui due requisiti che non sono ovvi: il
 contesto del soggetto assistito deve essere permanentemente visibile e non ambiguo, e il cambio
-di soggetto richiede una conferma esplicita (`RF-264`) — l'inserimento di una misura sul paziente
+di soggetto richiede una conferma esplicita (`RF-264`) - l'inserimento di una misura sul paziente
 sbagliato è uno scenario d'uso pericoloso documentato, non un'ipotesi teorica. Il caregiver ha
 inoltre bisogno di un **proprio collegamento di accesso e di istruzioni scritte per chi assiste**,
 diverse da quelle destinate al paziente.
 
-### ATT-03 — Rappresentante legale
+### ATT-03 - Rappresentante legale
 
 **Veste**: tutore, amministratore di sostegno, esercente la responsabilità genitoriale. Sono tre
 figure con poteri diversi e vanno tenute distinte: il tutore sostituisce la volontà del
@@ -124,7 +124,7 @@ del dominio e produce un consenso invalido.
 
 ## 3. Attori clinici
 
-### ATT-04 — Medico specialista erogante
+### ATT-04 - Medico specialista erogante
 
 **Obiettivo primario**: erogare l'atto e refertare in sicurezza, nel tempo che ha.
 
@@ -145,7 +145,7 @@ dominio reale i campi obbligatori non necessari vengono compilati con valori fal
 qualità del dato più di quanto la migliorerebbe la loro assenza. Va assunto che operi anche da
 postazione condivisa e talvolta da dispositivo mobile fra un ambulatorio e l'altro.
 
-### ATT-05 — Medico di medicina generale, pediatra di libera scelta
+### ATT-05 - Medico di medicina generale, pediatra di libera scelta
 
 **Veste particolare**: titolare del rapporto di fiducia continuativo con l'assistito. È il
 **destinatario naturale della comunicazione clinica** anche quando non è l'erogante, e va
@@ -157,7 +157,7 @@ scelta **non richiede prescrizione** e si conclude con annotazione digitale in l
 (DM 30 settembre 2022, Allegato B, sezione «Modalità di erogazione»). Il modello deve rappresentare
 il *setting* come discriminante di regole (`RF-349`), non come etichetta descrittiva.
 
-### ATT-06 — Medico consulente
+### ATT-06 - Medico consulente
 
 **Obiettivo primario**: rispondere a un quesito clinico su materiale trasmesso, senza entrare
 nella presa in carico.
@@ -167,7 +167,7 @@ documenti allegati al quesito e a scadenza dopo la risposta (`BR-014`). È la di
 rispetto a un normale accesso clinico e va implementata come ambito effimero, non come eccezione
 gestita a mano.
 
-### ATT-07 — Infermiere
+### ATT-07 - Infermiere
 
 **Obiettivo primario**: erogare teleassistenza, preparare la sessione, condurre operativamente il
 telemonitoraggio.
@@ -184,21 +184,21 @@ relazione collaborativa del teleconsulto e la relazione clinico-assistenziale co
 teleassistenza. È una regola di autorizzazione da implementare e da testare, non una convenzione
 organizzativa.
 
-### ATT-08 — Psicologo, psicoterapeuta
+### ATT-08 - Psicologo, psicoterapeuta
 
 **Vincolo di dominio non aggirabile**: se il tipo di prestazione è marcato non registrabile, la
 funzione di registrazione è **assente**, e la sua abilitazione è rifiutata anche a un
 amministratore (`BR-075`). Le note di seduta portano il livello di riservatezza massimo e sono
 escluse dai riepiloghi aggregati di struttura.
 
-### ATT-09 — Professionista della riabilitazione
+### ATT-09 - Professionista della riabilitazione
 
 **Vincolo funzionale**: le prestazioni vivono dentro un **progetto riabilitativo individuale**;
 non esistono sedute isolate (Accordo Stato-Regioni 18 novembre 2021, rep. atti n. 231/CSR).
 Modellare la teleriabilitazione come singolo contatto perde il ciclo e rende impossibile misurare
 l'aderenza al programma.
 
-### ATT-20 — Professionista responsabile del piano di telemonitoraggio
+### ATT-20 - Professionista responsabile del piano di telemonitoraggio
 
 > **Identificativo introdotto da quest'area. Congelato.**
 
@@ -229,7 +229,7 @@ attribuiti e in sola lettura, con un'azione esplicita di copia (`RF-240`, `RNF-1
 differenza fra «mostrare un riferimento attribuito» e «precompilare un campo» è invisibile a chi
 scrive il codice e decisiva per chi ne risponde.
 
-### ATT-21 — Case manager
+### ATT-21 - Case manager
 
 > **Identificativo introdotto da quest'area. Congelato.**
 
@@ -255,7 +255,7 @@ configurabile di allarmi per destinatario e per turno** e della misura dell'esit
 (`RF-290`): un carico di allarmi non azionabili riduce la capacità di risposta all'allarme che
 conta, e questo è un meccanismo documentato di produzione del danno, non un problema di comfort.
 
-### ATT-22 — Operatore del centro servizi
+### ATT-22 - Operatore del centro servizi
 
 > **Identificativo introdotto da quest'area. Congelato.**
 
@@ -280,7 +280,7 @@ clinica è rifiutato con errore di validazione, come già previsto per i ruoli a
 la piattaforma è erogata come servizio gestito. Ha bisogno di sapere **quale paziente**, ma non
 **perché è in cura**: la vista tecnica mostra lo stato del dispositivo, non la condizione clinica.
 
-### ATT-23 — Operatore del centro erogatore
+### ATT-23 - Operatore del centro erogatore
 
 > **Identificativo introdotto da quest'area. Congelato.**
 
@@ -292,12 +292,12 @@ dal turno tecnico per essere raggiunto**. Una catena di escalation che, fuori da
 centro servizi, non riesce più a raggiungere un ruolo clinico è una catena rotta, e va rilevata
 come tale (`RF-281`).
 
-### ATT-25 — Redattore e approvatore del percorso di cura
+### ATT-25 - Redattore e approvatore del percorso di cura
 
 > **Identificativo introdotto da quest'area. Congelato.**
 
 **Veste**: gruppo di lavoro multiprofessionale e organo che adotta formalmente il percorso
-diagnostico terapeutico assistenziale con un atto — deliberazione regionale, delibera aziendale,
+diagnostico terapeutico assistenziale con un atto - deliberazione regionale, delibera aziendale,
 provvedimento del direttore sanitario.
 
 **Obiettivo primario**: rendere eseguibile nel sistema il percorso adottato, senza che questo
@@ -315,11 +315,11 @@ dispone.
 **Vincoli reali.** Non è una figura tecnica. Il linguaggio di descrizione del percorso deve essere
 sufficientemente espressivo da rappresentare attività, cadenze, punti di decisione, responsabilità
 e criteri, e sufficientemente ristretto da non diventare un linguaggio di programmazione arbitrario
-eseguito in produzione. Un percorso incoerente — nodo irraggiungibile, cadenza senza unità, soglia
-senza parametro — va rifiutato **alla pubblicazione**, con un messaggio comprensibile a chi lo ha
+eseguito in produzione. Un percorso incoerente - nodo irraggiungibile, cadenza senza unità, soglia
+senza parametro - va rifiutato **alla pubblicazione**, con un messaggio comprensibile a chi lo ha
 redatto, non quando un paziente ci passa dentro (`RF-231`).
 
-### ATT-26 — Formatore del paziente e del caregiver
+### ATT-26 - Formatore del paziente e del caregiver
 
 > **Identificativo introdotto da quest'area. Congelato.**
 
@@ -334,7 +334,7 @@ assenza già dal primo giorno (`RF-242`, `RF-243`).
 
 ## 4. Attori amministrativi e di governo
 
-### ATT-10 — Operatore di front-office
+### ATT-10 - Operatore di front-office
 
 È l'attore che **assorbe tutti i fallimenti degli altri** ed è il miglior indicatore anticipato
 dei problemi del sistema. Il suo strumento principale non è un elenco di appuntamenti ma una
@@ -346,26 +346,26 @@ appuntamento, non *perché*. È l'attore più esposto agli errori di autorizzazi
 tentazione di mostrargli «giusto un po' di contesto clinico» per aiutarlo a lavorare meglio è
 costante e va rifiutata per costruzione.
 
-### ATT-11 — Amministratore di struttura
+### ATT-11 - Amministratore di struttura
 
 Configura utenti, ruoli, agende, cataloghi, personalizzazione, politiche locali. **Non accede al
 contenuto clinico in virtù del ruolo**, e l'assegnazione a sé stesso di un ruolo clinico genera un
 evento di audit di severità critica con notifica al responsabile della protezione dei dati
 (`BR-013`).
 
-### ATT-12 — Amministratore di sistema
+### ATT-12 - Amministratore di sistema
 
 Gestisce l'installazione. È progettato come ruolo **strutturalmente privo di accesso in chiaro al
 contenuto clinico**, con operazioni sempre tracciate e, per quelle critiche, doppio controllo. Non
 esiste alcuna funzione di impersonificazione che consenta di operare come utente clinico
 (`RF-015`): non è disattivata, non esiste.
 
-### ATT-13 — Responsabile della protezione dei dati
+### ATT-13 - Responsabile della protezione dei dati
 
 Legge **audit e metadati, non contenuto**. Ogni sua lettura è a sua volta registrata (`BR-094`).
 Riceve le notifiche degli accessi in deroga e ne rivede la coda.
 
-### ATT-14 — Direzione sanitaria e responsabile di servizio
+### ATT-14 - Direzione sanitaria e responsabile di servizio
 
 Governa qualità e volumi su **statistiche aggregate e pseudonimizzate**, con soglia minima di
 cardinalità e protezione dalla deduzione per differenza fra interrogazioni successive (`BR-090`,
@@ -373,19 +373,19 @@ cardinalità e protezione dalla deduzione per differenza fra interrogazioni succ
 sicurezza** e non come metriche tecniche: il tasso di mancato riscontro degli allarmi e l'esito
 degli allarmi generati (`RNF-095`, `RNF-096`).
 
-### ATT-16 — Auditor, organismo di verifica
+### ATT-16 - Auditor, organismo di verifica
 
 Sola lettura, a finestra temporale, con esportazione firmata e pseudonimizzata quando sufficiente.
 
 ## 5. Attori terzi ammessi alla sessione
 
-### ATT-17 — Discente, osservatore
+### ATT-17 - Discente, osservatore
 
 Ammesso previo **consenso specifico e preventivo** del paziente, revocabile in qualunque momento
 senza conseguenze sull'erogazione (`BR-067`). Nessun accesso a documenti, nessuna persistenza,
 presenza visibile a tutti i partecipanti. Il paziente non deve subire la didattica.
 
-### ATT-18 — Interprete, mediatore culturale
+### ATT-18 - Interprete, mediatore culturale
 
 Come sopra, con canale audio attivo. È un terzo che accede a dati sanitari: servono base
 giuridica, vincolo di riservatezza documentato e registrazione degli orari di ingresso e di uscita
@@ -397,7 +397,7 @@ pieno titolo**, non un accessorio dell'interfaccia.
 Sono attori a tutti gli effetti: hanno obiettivi, capacità e limiti, e la loro omissione dal
 catalogo è la causa più comune di autorizzazioni troppo larghe.
 
-### ATT-15 — Integratore tecnico
+### ATT-15 - Integratore tecnico
 
 **Principal applicativo**, non utente. Ha proprie chiavi, propri webhook, propri limiti di
 frequenza e propria configurazione di personalizzazione. Le credenziali applicative **non
@@ -405,7 +405,7 @@ conferiscono da sole accesso a dati clinici**: ogni operazione clinica richiede 
 delegante verificabile, rappresentato con la delega e mai con l'impersonificazione (`BR-017`,
 decisione D18). Una chiave compromessa non deve diventare un accesso indiscriminato.
 
-### ATT-24 — Gateway di acquisizione delle misure
+### ATT-24 - Gateway di acquisizione delle misure
 
 > **Identificativo introdotto da quest'area. Congelato.**
 
@@ -431,10 +431,10 @@ obbligatoria dei due istanti (`RF-254`), verifica dell'unità di misura al confi
 rilevazione dell'assenza indipendente dalla dichiarazione del gateway (`RF-293`). Il segnale di
 presenza periodico e la telemetria di stato del dispositivo sono richiesti al gateway, ma la loro
 assenza non può disattivare la sorveglianza: `[NV]` sulla capacità effettiva dei gateway di
-mercato di esporre un segnale di presenza indipendente dalla misura — questione aperta verso
+mercato di esporre un segnale di presenza indipendente dalla misura - questione aperta verso
 l'area integrazione.
 
-### ATT-19 — Sistema esterno di monitoraggio
+### ATT-19 - Sistema esterno di monitoraggio
 
 Osserva lo stato di salute della piattaforma su un endpoint separato, con metriche tecniche non
 identificanti e nessun accesso a identificatori di paziente.
@@ -467,27 +467,27 @@ persona.
 ## 8. Matrice attore per capacità
 
 Sintesi delle capacità distintive introdotte da quest'area. `●` capacità piena, `◐` capacità
-limitata all'ambito indicato, `—` capacità assente per vincolo di dominio, non per configurazione.
+limitata all'ambito indicato, `-` capacità assente per vincolo di dominio, non per configurazione.
 
 | Capacità | ATT-01 Paziente | ATT-02 Caregiver | ATT-20 Resp. piano | ATT-21 Case manager | ATT-22 Centro servizi | ATT-23 Centro erogatore | ATT-25 Percorsi | ATT-24 Gateway |
 |---|---|---|---|---|---|---|---|---|
-| Proporre l'arruolamento | — | — | ● | ◐ proposta | — | ◐ | — | — |
-| Fissare o modificare una soglia individuale | — | — | ● | — | — | — | — | — |
-| Pubblicare un percorso di popolazione | — | — | — | — | — | — | ● | — |
-| Attivare il piano | — | — | ● | ◐ su delega del piano | — | ◐ | — | — |
-| Inserire una misura | ● propria | ◐ per delega | ◐ | ◐ | — | ◐ | — | ● per ingestione |
-| Dichiarare non valida una misura | ● propria | ◐ per delega | ● | ● | — | ● | — | — |
-| Dichiarare un'indisponibilità programmata | ● | ◐ per delega | ● | ● | — | ● | — | — |
-| Prendere in carico un allarme clinico | — | — | ● | ● | — | ● | — | — |
-| Prendere in carico un allarme tecnico | — | — | — | ◐ visibilità | ● | ◐ visibilità | — | — |
-| Leggere il contenuto clinico | ● proprio | ◐ per delega | ● ambito piano | ● ambito piano | — | ● ambito cura | — | — |
-| Chiudere il percorso con motivazione | — | — | ● | ◐ proposta | — | ◐ | — | — |
-| Modificare la copertura oraria dichiarata | — | — | — | — | — | ◐ proposta | — | — |
-| Vedere lo stato corrente della copertura | ● | ● | ● | ● | ● | ● | ● | — |
+| Proporre l'arruolamento | - | - | ● | ◐ proposta | - | ◐ | - | - |
+| Fissare o modificare una soglia individuale | - | - | ● | - | - | - | - | - |
+| Pubblicare un percorso di popolazione | - | - | - | - | - | - | ● | - |
+| Attivare il piano | - | - | ● | ◐ su delega del piano | - | ◐ | - | - |
+| Inserire una misura | ● propria | ◐ per delega | ◐ | ◐ | - | ◐ | - | ● per ingestione |
+| Dichiarare non valida una misura | ● propria | ◐ per delega | ● | ● | - | ● | - | - |
+| Dichiarare un'indisponibilità programmata | ● | ◐ per delega | ● | ● | - | ● | - | - |
+| Prendere in carico un allarme clinico | - | - | ● | ● | - | ● | - | - |
+| Prendere in carico un allarme tecnico | - | - | - | ◐ visibilità | ● | ◐ visibilità | - | - |
+| Leggere il contenuto clinico | ● proprio | ◐ per delega | ● ambito piano | ● ambito piano | - | ● ambito cura | - | - |
+| Chiudere il percorso con motivazione | - | - | ● | ◐ proposta | - | ◐ | - | - |
+| Modificare la copertura oraria dichiarata | - | - | - | - | - | ◐ proposta | - | - |
+| Vedere lo stato corrente della copertura | ● | ● | ● | ● | ● | ● | ● | - |
 
 L'ultima riga è deliberata: **lo stato della copertura è visibile a tutti**, paziente compreso, in
 ogni momento e non solo in fase di adesione. È il presidio contro la falsa rassicurazione, ed è
-trattato come requisito di sicurezza in [05 — Gestione degli allarmi](05-gestione-degli-allarmi.md).
+trattato come requisito di sicurezza in [05 - Gestione degli allarmi](05-gestione-degli-allarmi.md).
 
 ## 9. Errori di modellazione degli attori che questo catalogo esclude
 

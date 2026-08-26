@@ -1,15 +1,15 @@
 ---
 title: Contesti delimitati
 sidebar_position: 3
-description: I tredici contesti delimitati di Telemedic uno per uno — responsabilità, linguaggio proprio, invarianti custodite, ciò che ciascuno deliberatamente non fa, relazioni con gli altri — con la mappa dei contesti e le regole di attraversamento dei confini.
+description: I tredici contesti delimitati di Telemedic uno per uno - responsabilità, linguaggio proprio, invarianti custodite, ciò che ciascuno deliberatamente non fa, relazioni con gli altri - con la mappa dei contesti e le regole di attraversamento dei confini.
 ---
 
 # Contesti delimitati
 
 ## 1. Perché i confini stanno dove stanno
 
-La decomposizione di Telemedic non nasce da una suddivisione tecnica — presentazione, logica,
-dati — né da una divisione per tipo di risorsa. Nasce da **tre linee di frattura osservabili nel
+La decomposizione di Telemedic non nasce da una suddivisione tecnica - presentazione, logica,
+dati - né da una divisione per tipo di risorsa. Nasce da **tre linee di frattura osservabili nel
 dominio**, e ciascuna produce confini che sarebbe costoso spostare.
 
 **La frattura di linguaggio.** La stessa parola cambia significato attraversando il sistema.
@@ -28,7 +28,7 @@ richiedono cicli di rilascio diversi, e componenti che cambiano insieme devono s
 **La frattura di regime di protezione.** Il contenuto clinico, l'evidenza di consenso, la
 registrazione audiovisiva e il registro degli accessi hanno regimi di accesso, di conservazione e
 di cancellazione incompatibili fra loro. Tenerli nello stesso contesto costringerebbe ad
-applicare a tutti il regime più severo — rendendo il sistema inutilizzabile — oppure il più
+applicare a tutti il regime più severo - rendendo il sistema inutilizzabile - oppure il più
 permissivo, rendendolo illecito.
 
 ## 2. Elenco e sintesi
@@ -188,7 +188,7 @@ codici della ricerca.
 Per ciascun contesto: che cosa gli è affidato, quale linguaggio parla, quali invarianti custodisce,
 che cosa deliberatamente non fa e come si rapporta agli altri.
 
-### CTX-01 — Identità e accessi
+### CTX-01 - Identità e accessi
 
 **Responsabilità.** Trasformare un'asserzione di identità proveniente dall'esterno in un contesto
 autorizzativo interno; conservare le assegnazioni di ruolo e le deleghe applicative; decidere se
@@ -233,7 +233,7 @@ contesti, nel senso che essi accettano la decisione di accesso senza rinegoziarl
 implementa una propria logica di autorizzazione. Pubblica al tracciamento un linguaggio versionato
 di eventi di autenticazione, assegnazione di ruolo, deroga e diniego.
 
-### CTX-02 — Anagrafiche
+### CTX-02 - Anagrafiche
 
 **Responsabilità.** Custodire i **riferimenti** ai soggetti e alle organizzazioni con cui il
 sistema lavora: assistiti, professionisti, organizzazioni, sedi, relazioni di ruolo, legami di
@@ -255,7 +255,7 @@ del soggetto capace, con scadenza obbligatoria.
    costruzione, due entità distinte e non collegate. Non esiste alcuna interrogazione che
    attraversi i tenant su base anagrafica.
 4. La veste professionale è una relazione con validità temporale, mai un attributo della persona.
-   Lo stesso professionista ha più vesti — branca per struttura per regime — e i permessi seguono
+   Lo stesso professionista ha più vesti - branca per struttura per regime - e i permessi seguono
    la veste, non la persona.
 5. Ogni delega volontaria ha una scadenza. Una delega senza termine è un accesso permanente non
    presidiato e non è rappresentabile.
@@ -265,21 +265,21 @@ del soggetto capace, con scadenza obbligatoria.
 **Che cosa non fa.** Non decide chi può fare cosa: è CTX-01. Non costruisce e non mantiene un
 indice di riconciliazione delle identità fra sistemi: consuma l'identità del sistema di origine e
 non ne diventa il detentore. Non conserva dati clinici: la condizione, l'esenzione per patologia e
-lo storico appartengono ai contesti clinici, non all'anagrafica — anche perché un'esenzione per
+lo storico appartengono ai contesti clinici, non all'anagrafica - anche perché un'esenzione per
 patologia rivela la patologia ed è dato particolare a tutti gli effetti.
 
 **Relazioni.** Fornisce riferimenti a CTX-03 e CTX-04 in relazione cliente-fornitore. Riceve da
 CTX-11 i dati provenienti dal sistema di origine, già tradotti dal livello anticorruzione: nessuna
 struttura esterna entra qui nella sua forma originale.
 
-### CTX-03 — Agenda
+### CTX-03 - Agenda
 
 **Responsabilità.** Disponibilità di erogazione, prenotazione, riprogrammazione, disdetta, liste
 di attesa, promemoria. È un contesto del nucleo perché l'ammissibilità della prestazione a
 distanza si decide qui, prima che l'atto esista.
 
-**Linguaggio.** Agenda appartiene alla risorsa erogante — la veste professionale, l'ambulatorio,
-l'apparecchiatura — non alla persona del professionista. Intervallo è l'unità elementare di
+**Linguaggio.** Agenda appartiene alla risorsa erogante - la veste professionale, l'ambulatorio,
+l'apparecchiatura - non alla persona del professionista. Intervallo è l'unità elementare di
 disponibilità e non coincide con l'appuntamento: uno slot occupato è la proiezione di un
 appuntamento sull'agenda, non l'appuntamento. Disponibile ha tre significati che vanno tenuti
 separati: pubblicato, prenotabile da un dato canale, non ancora occupato.
@@ -301,11 +301,11 @@ Non è il detentore dell'appuntamento quando l'appuntamento nasce nel sistema di
 caso conserva un riferimento e riflette lo stato, senza pretendere di governarlo.
 
 **Relazioni.** Cliente-fornitore verso CTX-04: la prestazione consuma l'appuntamento e non il
-contrario. Riceve da CTX-13 la configurazione — catalogo abilitato, finestre, politiche di
-disdetta — come linguaggio pubblicato versionato. Produce eventi consumati da CTX-08 per i
+contrario. Riceve da CTX-13 la configurazione - catalogo abilitato, finestre, politiche di
+disdetta - come linguaggio pubblicato versionato. Produce eventi consumati da CTX-08 per i
 promemoria e da CTX-11 per la restituzione al sistema di origine.
 
-### CTX-04 — Prestazione clinica
+### CTX-04 - Prestazione clinica
 
 **Responsabilità.** Il ciclo di vita dell'atto sanitario a distanza: presa in carico,
 prerequisiti, ammissione, svolgimento, identificazione del soggetto, esito, chiusura. È il
@@ -313,7 +313,7 @@ contesto centrale del sistema ed è **documentale**: ciò che vi accade resta.
 
 **Linguaggio.** Contatto è l'interazione singola fra assistito e sistema di erogazione, con un
 inizio e una fine. Episodio è il contenitore temporale di più contatti sullo stesso problema.
-Partecipante è il soggetto ammesso con un ruolo — erogante, assistito, caregiver, interprete,
+Partecipante è il soggetto ammesso con un ruolo - erogante, assistito, caregiver, interprete,
 osservatore. Identificazione è l'accertamento che la persona collegata sia effettivamente
 l'assistito atteso, e **non coincide con l'autenticazione**: la credenziale certifica chi possiede
 la credenziale, non chi sta davanti alla telecamera. Esito è la dichiarazione del professionista
@@ -329,7 +329,7 @@ sul risultato dell'atto, e comprende esiti legittimi come il rinvio in presenza.
 1-ter. **Stato ed esito sono attributi distinti** e non collassabili: due esiti possono condividere
    lo stato terminale e avere effetti amministrativi opposti (vincolo V-141).
 1-quater. **Il setting discrimina le regole**: l'obbligo di referto non è incondizionato e non va
-   cablato come tale — esistono setting in cui la prestazione produce un'annotazione digitale in
+   cablato come tale - esistono setting in cui la prestazione produce un'annotazione digitale in
    luogo del referto (vincolo V-145 dell'area di dominio).
 2. Il contatto non passa a concluso senza un **esito dichiarato da un professionista**. Nessuna
    chiusura automatica per scadenza produce un esito clinico.
@@ -339,7 +339,7 @@ sul risultato dell'atto, e comprende esiti legittimi come il rinvio in presenza.
    ruolo, nemmeno di supporto tecnico.
 5. L'identificazione e l'autenticazione sono due evidenze distinte, in due momenti distinti, con
    due registrazioni distinte.
-6. Il cambio di canale — dal video alla sola fonia — è un fatto registrato con l'ora e il motivo,
+6. Il cambio di canale - dal video alla sola fonia - è un fatto registrato con l'ora e il motivo,
    perché può cambiare l'ammissibilità e la refertabilità dell'atto.
 
 **Che cosa non fa.** Non trasporta audio e video. Non conosce candidati di rete, ripieghi su
@@ -351,7 +351,7 @@ CTX-09, che ne condiziona l'esistenza, e con CTX-06, di cui è il contenitore. C
 relazione cliente-fornitore, scambiando **soltanto identificativi e stati**. Pubblica al
 tracciamento un linguaggio versionato.
 
-### CTX-05 — Sessione media
+### CTX-05 - Sessione media
 
 **Responsabilità.** Stabilire e mantenere il collegamento in tempo reale: segnalazione,
 negoziazione, credenziali effimere per il relay, verifica indipendente delle chiavi da parte dei
@@ -383,8 +383,8 @@ dimostrabile la cifratura fino agli estremi e un controllo di rischio tracciabil
 6. I campioni di qualità non contengono identificatori diretti dell'assistito, e nessuna metrica
    infrastrutturale del relay è etichettata con l'identificativo di sessione (vincolo V-155
    dell'area sicurezza).
-7. Le due modalità operative — cifrata fino agli estremi senza registrazione, e con registrazione
-   lato server — sono **stati distinti e mutuamente esclusivi** della sessione, con transizione
+7. Le due modalità operative - cifrata fino agli estremi senza registrazione, e con registrazione
+   lato server - sono **stati distinti e mutuamente esclusivi** della sessione, con transizione
    tracciata.
 
 **Che cosa non fa.** Non attribuisce significato clinico a ciò che accade. Non decide se la
@@ -398,7 +398,7 @@ in corso. Fornisce a CTX-08 gli eventi di degradazione. Non ha alcuna relazione 
 CTX-06: nessun frammento di media entra nel documento clinico se non attraverso una decisione
 esplicita del professionista, registrata come acquisizione.
 
-### CTX-06 — Documentazione clinica
+### CTX-06 - Documentazione clinica
 
 **Responsabilità.** Il ciclo di vita del documento sanitario: bozza, validazione, firma,
 versione, rettifica, messa a disposizione. È il contesto in cui il vincolo sul confine fra
@@ -438,7 +438,7 @@ CTX-01 e gli oscuramenti di CTX-09. Non produce contenuto.
 servizio di firma e marca temporale, il cui formato è imposto. Riceve da CTX-09 gli oscuramenti,
 che ne condizionano la visibilità. Consegna a CTX-11 il documento firmato e i suoi metadati.
 
-### CTX-07 — Telemonitoraggio
+### CTX-07 - Telemonitoraggio
 
 **Responsabilità.** Piani di rilevazione configurati dal professionista, acquisizione di misure da
 un gateway di terze parti, inserimento manuale da parte dell'assistito o del caregiver,
@@ -453,8 +453,8 @@ Silenzio è l'assenza di una misura attesa, ed è un'informazione a pieno titolo
 
 **Invarianti.**
 0. **Il contesto è scritto sulla formulazione «raccolta differita di parametri per la revisione
-   periodica del professionista».** Nessun artefatto — documentazione, interfaccia, materiale
-   pubblico, nome di classe o di evento — può usare «monitoraggio in tempo reale», «sorveglianza
+   periodica del professionista».** Nessun artefatto - documentazione, interfaccia, materiale
+   pubblico, nome di classe o di evento - può usare «monitoraggio in tempo reale», «sorveglianza
    continua» o formule equivalenti (vincolo V-144 dell'area di dominio): la differenza fra le due
    formulazioni vale una classe di rischio.
 1. **Nessuna soglia è cablata.** Le soglie sono configurazione per assistito, attribuite a un
@@ -481,7 +481,7 @@ Silenzio è l'assenza di una misura attesa, ed è un'informazione a pieno titolo
    dell'area di dominio).
 6-quater. **Nessun percorso di cura è codificato nel software**: aggiungere un percorso richiede
    redazione della definizione, validazione al caricamento, pubblicazione con versione e ambito,
-   modelli di documento e di consenso associati, configurazione della copertura — **mai un
+   modelli di documento e di consenso associati, configurazione della copertura - **mai un
    rilascio né una migrazione di schema** (vincolo V-147 dell'area di dominio).
 7. Il sistema **non dialoga direttamente con i dispositivi medici**: acquisisce da un gateway di
    terze parti e non si assume responsabilità sull'accuratezza della catena di misura hardware.
@@ -489,14 +489,14 @@ Silenzio è l'assenza di una misura attesa, ed è un'informazione a pieno titolo
 **Che cosa non fa.** Non decide clinicamente. Non deduce soglie da serie storiche. Non produce
 prognosi, non verifica interazioni fra terapie, non formula giudizi interpretativi negli avvisi.
 Non calcola punteggi di scale cliniche finché la questione delle licenze delle scale non è chiusa
-(cfr. [09 — Decisioni rinviate](09-decisioni-rinviate.md)).
+(cfr. [09 - Decisioni rinviate](09-decisioni-rinviate.md)).
 
 **Relazioni.** Riceve da CTX-13 la configurazione del catalogo dei parametri e da CTX-01 la
 decisione di accesso. Fornisce a CTX-08 le allerte, in relazione cliente-fornitore: la definizione
 della soglia sta qui, il recapito sta là. Pubblica al tracciamento. Riceve da CTX-11 le misure
 provenienti dall'esterno, già tradotte.
 
-### CTX-08 — Notifiche e allarmi
+### CTX-08 - Notifiche e allarmi
 
 **Responsabilità.** Recapitare un messaggio a un destinatario su un canale, verificarne l'esito,
 inoltrare quando il primo tentativo non produce presa in carico, rendere visibile il fallimento.
@@ -529,13 +529,13 @@ clinico oltre il tempo necessario al recapito.
 i modelli di messaggio e le politiche di inoltro. Non ha accesso ai contesti clinici in lettura:
 riceve ciò che gli viene passato nell'evento e null'altro.
 
-### CTX-09 — Consenso
+### CTX-09 - Consenso
 
 **Responsabilità.** Informative versionate, manifestazioni di volontà, revoche, oscuramenti,
 deleghe di accesso, verifica al momento dell'atto.
 
-**Linguaggio.** Le tre accezioni di consenso — all'atto sanitario, al trattamento dei dati, alla
-registrazione — sono **tre concetti distinti** con base giuridica, revocabilità, effetti e
+**Linguaggio.** Le tre accezioni di consenso - all'atto sanitario, al trattamento dei dati, alla
+registrazione - sono **tre concetti distinti** con base giuridica, revocabilità, effetti e
 conservazione diversi. Informativa è il documento che precede e fonda; è versionata, e il consenso
 è valido rispetto alla versione vigente al momento. Oscuramento è il diritto a rendere invisibili
 determinati documenti a determinati soggetti. Revoca è un atto irreversibile in quanto atto: se ne
@@ -561,7 +561,7 @@ può prestare uno nuovo, non annullare la revoca.
    dominio). I dati sintetici di collaudo comprendono documenti oscurati, altrimenti nessuna prova
    esercita il percorso.
 6. La manifestazione di volontà porta la propria evidenza: dichiarante, istante, canale, testo
-   presentato, e — dove pertinente — il titolo di rappresentanza in forza del quale è stata resa.
+   presentato, e - dove pertinente - il titolo di rappresentanza in forza del quale è stata resa.
 
 **Che cosa non fa.** Non stabilisce le basi giuridiche dei trattamenti: quelle appartengono al
 titolare e il contesto le registra come fatti configurati. Non decide chi accede: fornisce a
@@ -571,7 +571,7 @@ CTX-01 la componente negativa della decisione.
 verifiche. Pubblica al tracciamento. Riceve da CTX-13 i modelli di informativa e le politiche del
 tenant, che sono configurazione versionata.
 
-### CTX-10 — Terminologie
+### CTX-10 - Terminologie
 
 **Responsabilità.** Punto unico di risoluzione, validazione ed espansione dei codici; applicazione
 della politica di abilitazione per sistema di codifica; gestione del degrado quando un sistema è
@@ -605,7 +605,7 @@ separato, gestito dall'internazionalizzazione del prodotto.
 unico e stabile che nasconde la diversità delle fonti. Conformista, opzionale e disattivabile
 verso un servizio terminologico esterno.
 
-### CTX-11 — Interoperabilità in uscita
+### CTX-11 - Interoperabilità in uscita
 
 **Responsabilità.** Tradurre da e verso i formati esterni; recapitare eventi ai sistemi terzi;
 trasmettere documenti alle infrastrutture documentali; ricevere risorse dall'esterno; custodire le
@@ -642,11 +642,11 @@ origine, destinazione. È l'unico contesto in cui compaiono i nomi degli standar
 né amministrative: applica trasformazioni e politiche di recapito.
 
 **Relazioni.** Livello anticorruzione verso tutti i contesti di dominio. Conformista verso il
-sistema di origine — che è il detentore di anagrafica e agenda — e verso le infrastrutture
+sistema di origine - che è il detentore di anagrafica e agenda - e verso le infrastrutture
 documentali, i cui profili sono imposti. Servizio ospitante aperto verso l'esterno: pubblica un
 contratto unico per tutti gli integratori, senza logica specifica per partner.
 
-### CTX-12 — Tracciamento
+### CTX-12 - Tracciamento
 
 **Responsabilità.** Registrare in modo non ripudiabile e non alterabile chi ha fatto che cosa,
 quando, su quale soggetto, con quale esito e con quale livello di garanzia dell'autenticazione;
@@ -676,14 +676,14 @@ per prendere una decisione. Non sostituisce il versionamento delle entità e non
 a nessun contesto di dominio: le sue uniche uscite sono verso la revisione, la verifica di
 conformità e l'interessato che esercita il proprio diritto.
 
-### CTX-13 — Amministrazione tenant
+### CTX-13 - Amministrazione tenant
 
 **Responsabilità.** Ciclo di vita del tenant, configurazione, cataloghi abilitati,
 personalizzazione dell'aspetto entro limiti verificati, quote e limiti di traffico, politiche di
 conservazione, abilitazione delle funzioni.
 
 **Linguaggio.** Tenant è il confine di isolamento; non coincide con l'organizzazione, né con la
-struttura erogante, né con l'integratore — quattro concetti che coincidono nei casi semplici e
+struttura erogante, né con l'integratore - quattro concetti che coincidono nei casi semplici e
 divergono in quelli reali. Configurazione è versionata e ha validità temporale. Abilitazione di
 funzione è una scelta di installazione, non un ramo di codice.
 
@@ -712,8 +712,8 @@ direttamente.
 
 ## 5. Uno scostamento dichiarato: la rendicontazione
 
-La ricerca di dominio aveva individuato un tredicesimo contesto di supporto — la produzione degli
-eventi rendicontabili e delle aggregazioni verso il sistema amministrativo — che **non compare fra
+La ricerca di dominio aveva individuato un tredicesimo contesto di supporto - la produzione degli
+eventi rendicontabili e delle aggregazioni verso il sistema amministrativo - che **non compare fra
 i tredici contesti della base architetturale vincolante**.
 
 Il fatto di dominio che lo motiva è reale e verificato: la prestazione erogata a distanza si
@@ -731,13 +731,13 @@ Le opzioni sono tre e non sono equivalenti:
 |---|---|
 | Un quattordicesimo contesto di supporto dedicato | Confine netto, che rende strutturale la separazione fra il piano clinico e il piano amministrativo e rende verificabile V-166. Costo: un contesto in più da governare |
 | Responsabilità distribuita fra CTX-04 e CTX-11 | Nessun contesto nuovo, ma l'evento amministrativo si forma dentro il contesto clinico, e la garanzia di V-166 diventa una convenzione di codice invece che un confine |
-| Responsabilità interamente in CTX-11 | Coerente con l'idea che tutto ciò che esce passa dalla frontiera, ma carica il livello anticorruzione di una responsabilità di dominio — quale evento è rendicontabile e con quale codice — che non gli appartiene |
+| Responsabilità interamente in CTX-11 | Coerente con l'idea che tutto ciò che esce passa dalla frontiera, ma carica il livello anticorruzione di una responsabilità di dominio - quale evento è rendicontabile e con quale codice - che non gli appartiene |
 
 **Questa area propone la prima opzione**, argomentata nell'ADR corrispondente, ma **non la adotta
 d'ufficio**: modificare l'elenco dei contesti della base architetturale è una decisione che
 eccede il mandato di un'area. La questione è portata all'orchestratore. Fino a quando non è
-decisa, la responsabilità resta dove la base la lascia implicitamente — cioè in CTX-04 per la
-determinazione del fatto rendicontabile e in CTX-11 per il recapito — **con l'avvertenza esplicita
+decisa, la responsabilità resta dove la base la lascia implicitamente - cioè in CTX-04 per la
+determinazione del fatto rendicontabile e in CTX-11 per il recapito - **con l'avvertenza esplicita
 che questa collocazione rende V-166 una convenzione e non un confine**, e che va verificata con una
 prova dedicata.
 
@@ -745,37 +745,37 @@ prova dedicata.
 
 Le relazioni della mappa si traducono in cinque regole operative, verificabili automaticamente.
 
-**Regola 1 — Nessun contesto accede alla base dati di un altro.** Non esiste join fra tabelle di
+**Regola 1 - Nessun contesto accede alla base dati di un altro.** Non esiste join fra tabelle di
 contesti diversi, non esiste chiave esterna che attraversi un confine. Il collegamento fra
 contesti avviene per **identificativo**, e la risoluzione dell'identificativo passa da
 un'interfaccia del contesto proprietario.
 
-**Regola 2 — Ciò che attraversa un confine è un contratto.** Un'interfaccia sincrona di contesto o
+**Regola 2 - Ciò che attraversa un confine è un contratto.** Un'interfaccia sincrona di contesto o
 un evento pubblicato hanno uno schema versionato e prove a contratto. Una struttura dati
 condivisa fra due contesti è una violazione, anche se comoda.
 
-**Regola 3 — La traduzione è esplicita e sta al confine.** Il chiamante non conosce il modello del
-chiamato. Quando i due linguaggi divergono — ed è il caso normale, perché la divergenza è la
-ragione del confine — la traduzione è codice dedicato, provato, e collocato nel contesto che ha
+**Regola 3 - La traduzione è esplicita e sta al confine.** Il chiamante non conosce il modello del
+chiamato. Quando i due linguaggi divergono - ed è il caso normale, perché la divergenza è la
+ragione del confine - la traduzione è codice dedicato, provato, e collocato nel contesto che ha
 bisogno della traduzione.
 
-**Regola 4 — Il verso della dipendenza segue il tipo di relazione.** In una relazione
+**Regola 4 - Il verso della dipendenza segue il tipo di relazione.** In una relazione
 cliente-fornitore, il fornitore non conosce il cliente. In una relazione conformista, il
 conformista si adegua e non chiede modifiche. In una partnership, i due contesti evolvono insieme
 e ogni cambiamento è concordato: è la relazione più costosa e per questo se ne dichiarano solo
 tre.
 
-**Regola 5 — Il tempo reale non attraversa i confini nello stesso modo dei fatti.** Il traffico di
+**Regola 5 - Il tempo reale non attraversa i confini nello stesso modo dei fatti.** Il traffico di
 negoziazione della sessione resta interno a CTX-05 e non transita per il meccanismo di
 pubblicazione degli eventi; ciò che entra nel piano dei fatti persistenti sono **i fatti già
-accaduti** — sessione avviata, sessione terminata, degradazione rilevata — non il traffico che li
-ha prodotti. La motivazione è in [06 — Eventi e integrazione interna](06-eventi-e-integrazione-interna.md).
+accaduti** - sessione avviata, sessione terminata, degradazione rilevata - non il traffico che li
+ha prodotti. La motivazione è in [06 - Eventi e integrazione interna](06-eventi-e-integrazione-interna.md).
 
 ## 7. Che cosa questa decomposizione non implica
 
 **Non implica un microservizio per contesto.** Il contesto delimitato è un confine di modello e di
 linguaggio; la scelta di distribuire o meno i contesti in processi separati è di dispiegamento e
-appartiene a [08 — Viste di deployment](08-viste-di-deployment.md). Il progetto sostiene
+appartiene a [08 - Viste di deployment](08-viste-di-deployment.md). Il progetto sostiene
 esplicitamente un assetto a processo unico per l'installazione presso il cliente e un assetto
 distribuito per il servizio gestito, **con lo stesso codice**: è possibile solo se i confini sono
 di modello e non di rete.

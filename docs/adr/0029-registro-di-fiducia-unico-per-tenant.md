@@ -1,10 +1,10 @@
 ---
-title: "ADR-0029 — Registro di fiducia unico per tenant"
+title: "ADR-0029 - Registro di fiducia unico per tenant"
 sidebar_position: 29
 description: Perché emittenti ammessi, origini per l'incorporamento, origini per la condivisione fra origini, destinazioni in uscita ed elenco consentito del mediatore stanno in un solo registro, e perché registri separati divergono sempre a favore di chi attacca.
 ---
 
-# ADR-0029 — Registro di fiducia unico per tenant
+# ADR-0029 - Registro di fiducia unico per tenant
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Origine**: questioni convergenti poste dall'area di integrazione e dall'area di sicurezza
@@ -26,7 +26,7 @@ tenant**. La forma con cui sono conservate determina se restano coerenti.
 
 ## Alternative valutate
 
-### Alternativa 1 — Cinque elenchi indipendenti
+### Alternativa 1 - Cinque elenchi indipendenti
 
 *Vantaggi*: ciascun componente possiede il proprio elenco e non dipende dagli altri; il modello di
 ciascuno è ottimizzato per il proprio uso.
@@ -36,7 +36,7 @@ attacca.** Un'origine rimossa da un elenco e non dall'altro **resta valida sul s
 esiste una revoca che sia atomica su cinque elenchi mantenuti separatamente, e la verifica della
 coerenza è un controllo che qualcuno deve ricordarsi di fare. **Scartata.**
 
-### Alternativa 2 — Un elenco unico, indifferenziato
+### Alternativa 2 - Un elenco unico, indifferenziato
 
 Un solo elenco di soggetti fidati, senza distinzione di capacità.
 
@@ -44,7 +44,7 @@ Un solo elenco di soggetti fidati, senza distinzione di capacità.
 destinazione di messaggi in uscita, e le due fiducie hanno conseguenze diverse. Un elenco
 indifferenziato costringe a concedere il massimo comune. **Scartata.**
 
-### Alternativa 3 — Un registro unico per tenant, con capacità esplicite per voce
+### Alternativa 3 - Un registro unico per tenant, con capacità esplicite per voce
 
 Una sola fonte di verità; ogni voce dichiara **quali capacità** sono concesse a quel soggetto.
 
@@ -81,7 +81,7 @@ ogni verifica; il suo modello deve accogliere capacità eterogenee.
 **Positive**
 
 - La revoca è effettiva e completa.
-- La domanda posta da chi verifica — «chi può fare che cosa su questo tenant» — ha una risposta in
+- La domanda posta da chi verifica - «chi può fare che cosa su questo tenant» - ha una risposta in
   un solo luogo.
 - L'elenco consentito del mediatore di uscita non è un elenco a parte che qualcuno dimentica di
   aggiornare.
@@ -98,4 +98,4 @@ ogni verifica; il suo modello deve accogliere capacità eterogenee.
 ## Riferimenti
 
 ADR-0015 · ADR-0025 ·
-[02 — Contesti delimitati](../02_architecture/02-contesti-delimitati.md#ctx-11--interoperabilità-in-uscita)
+[02 - Contesti delimitati](../02_architecture/02-contesti-delimitati.md#ctx-11---interoperabilità-in-uscita)

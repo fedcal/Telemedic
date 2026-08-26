@@ -52,8 +52,8 @@ il referto: lo è **il fatto stesso di essersi registrati per ricevere assistenz
 
 ### 1.2 Perché quasi tutto, in questo sistema, è dato sanitario
 
-Applichiamo la definizione al dominio del progetto. Sono dati relativi alla salute — con
-tutte le conseguenze — anche:
+Applichiamo la definizione al dominio del progetto. Sono dati relativi alla salute - con
+tutte le conseguenze - anche:
 
 - **l'esistenza di un appuntamento con una determinata branca specialistica.** Un
   appuntamento in oncologia rivela un sospetto o una diagnosi oncologica. Un appuntamento in
@@ -90,7 +90,7 @@ L'**art. 9, paragrafo 1** del GDPR stabilisce un **divieto**:
 Questa è la differenza strutturale rispetto a tutti gli altri dati personali. Per i dati
 comuni la regola è: si può trattare, purché esista una base giuridica fra quelle dell'art. 6.
 Per le categorie particolari la regola è: **è vietato**, salvo che ricorra una delle deroghe
-tassative dell'art. 9, paragrafo 2 — e **in aggiunta** una base giuridica dell'art. 6.
+tassative dell'art. 9, paragrafo 2 - e **in aggiunta** una base giuridica dell'art. 6.
 
 Servono cioè **due condizioni cumulative**, non una. È l'errore più comune nelle
 autovalutazioni di conformità: individuare la deroga dell'art. 9 e fermarsi lì.
@@ -117,12 +117,12 @@ Il GDPR lascia agli Stati margini di intervento, e l'Italia li ha esercitati con
 30 giugno 2003, n. 196** (Codice in materia di protezione dei dati personali), profondamente
 novellato dal **D.lgs. 10 agosto 2018, n. 101**. Due articoli contano qui:
 
-- **art. 2-*septies*** — il Garante per la protezione dei dati personali adotta **misure di
+- **art. 2-*septies*** - il Garante per la protezione dei dati personali adotta **misure di
   garanzia** per il trattamento dei dati genetici, biometrici e relativi alla salute. Sono
   prescrizioni ulteriori e vincolanti, aggiornate periodicamente. `[NV]` sull'elenco delle
   misure vigenti alla data odierna: vanno verificate sul sito del Garante prima di derivarne
   requisiti;
-- **art. 2-*sexies*** — individua i motivi di interesse pubblico rilevante che consentono il
+- **art. 2-*sexies*** - individua i motivi di interesse pubblico rilevante che consentono il
   trattamento di categorie particolari da parte di soggetti pubblici, richiedendo che siano
   previsti da legge o regolamento.
 
@@ -159,7 +159,7 @@ Ora si consideri cosa accadrebbe se il trattamento dei dati per finalità di cur
 sul consenso:
 
 - il paziente potrebbe **revocarlo a metà di un percorso terapeutico**, obbligando la
-  struttura a cessare il trattamento dei suoi dati — cioè a smettere di poterlo curare in
+  struttura a cessare il trattamento dei suoi dati - cioè a smettere di poterlo curare in
   sicurezza;
 - il consenso non sarebbe **libero**, perché il rifiuto comporterebbe l'impossibilità di
   ricevere la prestazione: manca la genuina possibilità di scelta;
@@ -191,7 +191,7 @@ di volontà distinte, ciascuna raccolta, revocata e conservata separatamente:
 Due regole ulteriori che il progetto tratta come invarianti:
 
 - **ogni consenso registra la versione esatta dell'informativa o del testo presentato**,
-  l'istante, il canale, l'identità del dichiarante e — se diverso — quella dell'interessato.
+  l'istante, il canale, l'identità del dichiarante e - se diverso - quella dell'interessato.
   Un consenso non riferito a un testo versionato è **indimostrabile**: nel contenzioso non si
   può provare *a cosa* la persona abbia acconsentito;
 - **un caregiver non presta consenso in sostituzione di un paziente capace**, in nessuna
@@ -225,19 +225,19 @@ e un modello che li unifichi in un unico flag non è implementabile.
 
 ### 3.1 Le definizioni
 
-- **Titolare del trattamento** (*data controller*, art. 4, n. 7) — chi **determina le finalità
+- **Titolare del trattamento** (*data controller*, art. 4, n. 7) - chi **determina le finalità
   e i mezzi** del trattamento. È il soggetto che risponde verso l'interessato e verso
   l'autorità.
-- **Responsabile del trattamento** (*data processor*, art. 4, n. 8) — chi tratta **per conto
+- **Responsabile del trattamento** (*data processor*, art. 4, n. 8) - chi tratta **per conto
   del titolare**, sulla base di un contratto o altro atto giuridico che rispetti i contenuti
   dell'**art. 28**. Non decide le finalità; esegue istruzioni documentate.
-- **Contitolari** (art. 26) — due o più titolari che **determinano congiuntamente** finalità e
+- **Contitolari** (art. 26) - due o più titolari che **determinano congiuntamente** finalità e
   mezzi. Devono definire con un accordo trasparente le rispettive responsabilità, e
   l'interessato può esercitare i diritti nei confronti di ciascuno di essi.
-- **Sub-responsabile** (art. 28, par. 2 e 4) — il responsabile può ricorrere ad altri
+- **Sub-responsabile** (art. 28, par. 2 e 4) - il responsabile può ricorrere ad altri
   responsabili solo con autorizzazione del titolare, e resta pienamente responsabile del loro
   operato.
-- **Responsabile della protezione dei dati (RPD, o *DPO*)** (artt. 37-39) — figura di
+- **Responsabile della protezione dei dati (RPD, o *DPO*)** (artt. 37-39) - figura di
   sorveglianza e punto di contatto. **Obbligatoria** quando il trattamento riguarda su larga
   scala categorie particolari di dati.
 
@@ -337,7 +337,7 @@ Rimuovere nome, cognome e codice fiscale è banale e quasi sempre insufficiente.
   data di una prestazione e la struttura erogante, l'unicità diventa quasi certa;
 - **la rarità clinica.** Una diagnosi rara in una provincia piccola identifica la persona
   senza bisogno di altro. È esattamente il motivo per cui esistono le soglie di aggregazione;
-- **la longitudinalità.** Una sequenza temporale di misure — pressione, glicemia, peso — è una
+- **la longitudinalità.** Una sequenza temporale di misure - pressione, glicemia, peso - è una
   firma. Due serie storiche di telemonitoraggio non si confondono;
 - **i dati intrinsecamente identificanti.** I dati genetici lo sono per costruzione. Le
   immagini che ritraggono il volto lo sono. Le registrazioni audio-video lo sono in modo
@@ -414,7 +414,7 @@ formazione, consenso e profilazione degli accessi con linee guida dedicate. `[NV
 estremi e sulla vigenza aggiornata del provvedimento.
 
 **L'archivio dell'erogatore** è la nozione più prosaica e più trascurata: è tutto ciò che una
-struttura conserva perché obbligata da norme non sanitarie — obblighi fiscali, contabili,
+struttura conserva perché obbligata da norme non sanitarie - obblighi fiscali, contabili,
 contrattuali, di conservazione documentale. È la ragione per cui il «diritto alla
 cancellazione» ha limiti robusti in questo settore (§ 7.3).
 
@@ -441,8 +441,8 @@ attesta che un esame o una visita è stata eseguita e cosa ne è risultato.
 
 Requisiti formali che il progetto deve garantire:
 
-- identificazione univoca dell'assistito, del **medico refertante** e — dato non intuitivo,
-  ma imposto dal tracciato ministeriale — del **medico firmatario**, che può essere persona
+- identificazione univoca dell'assistito, del **medico refertante** e - dato non intuitivo,
+  ma imposto dal tracciato ministeriale - del **medico firmatario**, che può essere persona
   diversa;
 - identificazione della struttura su tre livelli: azienda, presidio, unità operativa;
 - riferimenti all'atto che lo ha originato: numero di ricetta, codice CUP, data e ora di
@@ -458,7 +458,7 @@ sovrascrittura.
 
 ### 6.2 Relazione clinica
 
-Comunicazione discorsiva fra professionisti su un caso — tipicamente dal consulente al
+Comunicazione discorsiva fra professionisti su un caso - tipicamente dal consulente al
 curante. **Non è un referto**: non certifica l'esecuzione di un esame, non è necessariamente
 destinata al paziente, e non ha lo stesso regime di consegna.
 
@@ -525,7 +525,7 @@ va documentata come decisione con la relativa motivazione, non assunta implicita
 **Formati.** Le firme si applicano al documento in formati normalizzati: **PAdES** per i
 documenti PDF, **CAdES** per file generici (estensione `.p7m`), **XAdES** per XML. Lo standard
 documentale nazionale del FSE è **HL7 CDA Rel. 2**, veicolato dentro un PDF firmato
-digitalmente — impostazione confermata dalle specifiche nazionali di interoperabilità.
+digitalmente - impostazione confermata dalle specifiche nazionali di interoperabilità.
 
 ### 7.2 Firma, validazione e marca temporale sono tre cose
 
@@ -547,7 +547,7 @@ problematica.
 la **conservazione a norma** protegge dalla contestazione, garantendo nel tempo autenticità,
 integrità, affidabilità, leggibilità e reperibilità del documento informatico. È un processo,
 con un responsabile della conservazione, un manuale, pacchetti di versamento, archiviazione e
-distribuzione, e — nel contesto pubblico — regole tecniche puntuali. Le linee guida AgID sulla
+distribuzione, e - nel contesto pubblico - regole tecniche puntuali. Le linee guida AgID sulla
 formazione, gestione e conservazione del documento informatico sono la fonte tecnica di
 riferimento. `[NV]` su versione e data di ultimo aggiornamento delle linee guida vigenti.
 
@@ -559,8 +559,8 @@ riferimento. `[NV]` su versione e data di ultimo aggiornamento delle linee guida
 | Dati di autenticazione e accesso ai servizi minimi di telemedicina | **Dodici mesi** | DM 19 novembre 2025, art. 12 |
 | Log delle operazioni | **Ventiquattro mesi**, con cancellazione alla scadenza | DM 19 novembre 2025, All. 4, § 6 |
 | Documenti e dati generati dalle infrastrutture regionali | **Non conservati** dalla IRT | DM 19 novembre 2025, artt. 4, c. 4 e 12 |
-| Cartella clinica ospedaliera | Illimitata secondo la prassi consolidata | `[NV]` — la fonte comunemente citata è una circolare ministeriale del 1986, la cui vigenza e portata non sono state verificate |
-| Referti e documentazione diagnostica | Termini pluriennali, differenziati per tipologia | `[NV]` — non verificato nelle fonti consultate |
+| Cartella clinica ospedaliera | Illimitata secondo la prassi consolidata | `[NV]` - la fonte comunemente citata è una circolare ministeriale del 1986, la cui vigenza e portata non sono state verificate |
+| Referti e documentazione diagnostica | Termini pluriennali, differenziati per tipologia | `[NV]` - non verificato nelle fonti consultate |
 
 Dalla frammentazione discende un requisito che non ammette scorciatoie: **ogni categoria di
 dato ha un periodo di conservazione dichiarato, applicato da un processo automatico
@@ -646,10 +646,10 @@ procedere al trattamento**, una valutazione dell'impatto.
 Il paragrafo 3 elenca casi in cui è **richiesta in particolare**, e due riguardano
 direttamente questo progetto:
 
-- lettera **a)** — valutazione sistematica e globale di aspetti personali basata su un
+- lettera **a)** - valutazione sistematica e globale di aspetti personali basata su un
   trattamento automatizzato, su cui si fondano decisioni che producono effetti giuridici o
   incidono significativamente;
-- lettera **b)** — **trattamento su larga scala di categorie particolari di dati** di cui
+- lettera **b)** - **trattamento su larga scala di categorie particolari di dati** di cui
   all'art. 9, paragrafo 1.
 
 Una piattaforma di telemedicina multi-tenant ricade nella lettera b) senza margini di dubbio.
@@ -681,13 +681,13 @@ violazioni. Un backup corrotto senza copia recuperabile è una violazione.
 
 Gli obblighi:
 
-- **art. 33** — notifica all'autorità di controllo **senza ingiustificato ritardo e, ove
+- **art. 33** - notifica all'autorità di controllo **senza ingiustificato ritardo e, ove
   possibile, entro 72 ore** dal momento in cui il titolare ne è venuto a conoscenza, salvo che
   sia improbabile un rischio per i diritti e le libertà. Se la notifica supera le 72 ore, va
   motivato il ritardo. **Il responsabile informa il titolare senza ingiustificato ritardo**;
-- **art. 34** — comunicazione **all'interessato** senza ingiustificato ritardo quando la
+- **art. 34** - comunicazione **all'interessato** senza ingiustificato ritardo quando la
   violazione è suscettibile di presentare un **rischio elevato**;
-- **art. 33, par. 5** — il titolare **documenta qualsiasi violazione**, comprese le circostanze,
+- **art. 33, par. 5** - il titolare **documenta qualsiasi violazione**, comprese le circostanze,
   le conseguenze e i provvedimenti adottati, anche quando non la notifica. È il **registro
   delle violazioni**, ed è verificabile dall'autorità.
 
@@ -701,10 +701,10 @@ un erogatore sanitario italiano coesistono almeno tre regimi:
 
 | Regime | Fonte | Prima segnalazione | Notifica | Relazione finale |
 |---|---|---|---|---|
-| **Protezione dei dati** | GDPR artt. 33-34 | — | **72 ore** al Garante | — |
+| **Protezione dei dati** | GDPR artt. 33-34 | - | **72 ore** al Garante | - |
 | **NIS2** | D.lgs. 4 settembre 2024, n. 138 | Pre-notifica **24 ore** al CSIRT Italia | **72 ore** | **1 mese** |
-| **L. 90/2024** (PA, incluse le ASL) | L. 28 giugno 2024, n. 90 | Segnalazione **24 ore** ad ACN | **72 ore** | — |
-| **Perimetro di sicurezza nazionale cibernetica** | D.L. 105/2019 conv. L. 133/2019 | **Da 1 a 6 ore** per gli incidenti gravi | 72 ore | — |
+| **L. 90/2024** (PA, incluse le ASL) | L. 28 giugno 2024, n. 90 | Segnalazione **24 ore** ad ACN | **72 ore** | - |
+| **Perimetro di sicurezza nazionale cibernetica** | D.L. 105/2019 conv. L. 133/2019 | **Da 1 a 6 ore** per gli incidenti gravi | 72 ore | - |
 
 Sull'ultima riga va detto con precisione ciò che la ricerca del progetto ha accertato: **la
 sanità non figura tra i settori del perimetro di sicurezza nazionale cibernetica** secondo
@@ -737,19 +737,19 @@ assoluti.
 
 Perché ogni forma attenuata è stata provata e fallisce:
 
-- «*è un solo paziente*» — un solo dato sanitario esposto è una violazione notificabile;
-- «*ho tolto il nome*» — restano data di nascita, comune, data della prestazione, struttura,
+- «*è un solo paziente*» - un solo dato sanitario esposto è una violazione notificabile;
+- «*ho tolto il nome*» - restano data di nascita, comune, data della prestazione, struttura,
   diagnosi. È pseudonimizzazione, non anonimizzazione (§ 4.2);
-- «*è un ambiente di test*» — la copia del database di produzione in ambiente di collaudo è
+- «*è un ambiente di test*» - la copia del database di produzione in ambiente di collaudo è
   una delle modalità di violazione più frequenti in assoluto, perché il collaudo ha
   tipicamente controlli di accesso più deboli, meno registrazione e più persone con
   privilegi;
-- «*l'ho incollato solo nella issue per far capire il bug*» — le issue di un repository
+- «*l'ho incollato solo nella issue per far capire il bug*» - le issue di un repository
   pubblico sono indicizzate dai motori di ricerca e archiviate da terzi in modo permanente. La
   cancellazione non rimuove le copie;
-- «*è uno screenshot, non un dato strutturato*» — è leggibile da una persona, che è
+- «*è uno screenshot, non un dato strutturato*» - è leggibile da una persona, che è
   esattamente il rischio;
-- «*l'ho passato a un assistente per farmi aiutare a diagnosticare*» — il trasferimento di
+- «*l'ho passato a un assistente per farmi aiutare a diagnosticare*» - il trasferimento di
   dati sanitari a un servizio terzo, spesso extra-UE, senza base giuridica e senza contratto
   ex art. 28, è una violazione compiuta, e ha per giunta conseguenze sul vincolo di sovranità
   del dato adottato dal progetto.
@@ -809,21 +809,21 @@ Le tecniche per evitarlo, in ordine di robustezza:
   future), quando il sistema sotto test lo consente;
 - usare l'intervallo di identificativi riservati alle **anagrafiche temporanee** (STP per
   stranieri temporaneamente presenti, ENI per europei non iscritti), che hanno formati propri
-  e che il sistema deve comunque saper gestire — è anzi un'occasione per testare un caso
+  e che il sistema deve comunque saper gestire - è anzi un'occasione per testare un caso
   reale spesso trascurato;
 - marcare ogni record generato con un **attributo esplicito di sinteticità** persistito nel
   dato stesso, così che sia sempre possibile verificare, con una singola interrogazione, che
   un ambiente non contenga dati reali.
 
 **Verificabile in integrazione continua.** Un controllo automatico in *pipeline* che rifiuti
-il commit quando rileva pattern sospetti — sequenze conformi al formato del codice fiscale,
+il commit quando rileva pattern sospetti - sequenze conformi al formato del codice fiscale,
 numeri di ricetta elettronica, indirizzi di posta elettronica di domini reali, coordinate
-geografiche precise — chiude il canale prima che il dato entri nella storia del repository.
+geografiche precise - chiude il canale prima che il dato entri nella storia del repository.
 Una volta entrato in un commit, il dato è di fatto permanente: la riscrittura della storia di
 un repository pubblico non ne elimina le copie già distribuite.
 
 **Documentato.** Il generatore fa parte del progetto ed è descritto nel modulo
-[17 — L'ambiente di sviluppo](17-ambiente-di-sviluppo.md), insieme alle istruzioni per
+[17 - L'ambiente di sviluppo](17-ambiente-di-sviluppo.md), insieme alle istruzioni per
 popolare un ambiente completo.
 
 ### 10.5 E se un dato reale entra comunque

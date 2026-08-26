@@ -6,7 +6,7 @@ description: Persone, ruoli e relazioni con validità temporale, deleghe e rappr
 
 # Assistito, professionista, organizzazione
 
-Questo capitolo modella i soggetti. Non le loro anagrafiche — quelle sono trattate dal modulo
+Questo capitolo modella i soggetti. Non le loro anagrafiche - quelle sono trattate dal modulo
 [04 dei fondamenti](../10_fondamenti/04-identita-e-anagrafiche.md), che spiega come è fatto un
 codice fiscale, che cosa sono STP ed ENI, perché le anagrafi divergono e perché una fusione
 errata è un evento avverso. Questo capitolo decide **come i soggetti diventano entità e
@@ -38,7 +38,7 @@ osservabili:
 | **Autorizzazione non rappresentabile** | «Può firmare referti di questa branca **presso questa struttura**» non è esprimibile con attributi sulla persona |
 | **Rendicontazione ambigua** | La prestazione va attribuita alla struttura erogante, che è una proprietà del ruolo, non della persona |
 
-> **`DM-30` [MOD] — Tre entità, non una.** `Persona` (dati identificativi, immutabili o quasi),
+> **`DM-30` [MOD] - Tre entità, non una.** `Persona` (dati identificativi, immutabili o quasi),
 > `Organizzazione` (soggetto giuridico e sue articolazioni), `RuoloOrganizzativo` (la relazione
 > fra le due, con periodo di validità, disciplina, prestazioni erogabili, abilitazioni). La
 > corrispondenza con lo standard è `Practitioner`, `Organization`, `PractitionerRole`, e non è
@@ -52,8 +52,8 @@ l'errore dal lato didattico; qui ne discende la struttura.
 ### 2.1 Il modello per riferimento
 
 > **[BASE]** Nel modello di integrazione l'anagrafica non è del progetto: pazienti,
-> professionisti e agende sono già gestiti altrove. Il sistema lavora **per riferimento** —
-> identificatori esterni con dominio di attribuzione esplicito — e non diventa il *master data*
+> professionisti e agende sono già gestiti altrove. Il sistema lavora **per riferimento** -
+> identificatori esterni con dominio di attribuzione esplicito - e non diventa il *master data*
 > (`00_PROJECT_BRIEF.md` § 6.2.3).
 
 Ne discendono quattro proprietà del modello, tutte verificabili.
@@ -73,16 +73,16 @@ Ne discendono quattro proprietà del modello, tutte verificabili.
 
 ### 2.2 Il codice fiscale e i suoi due domini
 
-> **[NV] — Questione `Q-06` in bacheca, indirizzata alle aree `ARCH` e `TECH`.** Le guide di
+> **[NV] - Questione `Q-06` in bacheca, indirizzata alle aree `ARCH` e `TECH`.** Le guide di
 > implementazione italiane usano **due URI diversi** per il codice fiscale:
 > `http://hl7.it/sid/codiceFiscale` nelle famiglie *IT Base* e *Televisita*,
 > `http://hl7.it/fhir/itcore/CodeSystem/cs-codicefiscale` in *IT-Core*. Sono due domini di
 > attribuzione distinti per qualunque sistema che confronti identificatori.
 
-Il contributo di quest'area alla questione non è la scelta dell'URI — che spetta ad `ARCH` — ma
+Il contributo di quest'area alla questione non è la scelta dell'URI - che spetta ad `ARCH` - ma
 il vincolo che qualunque scelta deve rispettare:
 
-> **`DM-31` [MOD] — La normalizzazione degli identificatori avviene al confine, mai nel
+> **`DM-31` [MOD] - La normalizzazione degli identificatori avviene al confine, mai nel
 > dominio.** Il modello di dominio conosce un identificativo canonico interno e una collezione
 > di identificatori esterni qualificati. La traduzione fra gli URI concorrenti è responsabilità
 > dello strato di adattamento del contesto di interoperabilità, che è per costruzione il solo
@@ -120,7 +120,7 @@ di sensibilità, e la branca specialistica non compare nelle notifiche su canali
 
 ### 2.4 Nessun indice paziente globale
 
-> **[BASE] `V-04`** — Ogni entità porta l'identificativo di tenant. La stessa persona fisica
+> **[BASE] `V-04`** - Ogni entità porta l'identificativo di tenant. La stessa persona fisica
 > presente in due tenant è rappresentata da **entità distinte e non correlabili** con alcuna
 > interrogazione della piattaforma (`RF-023`).
 
@@ -158,7 +158,7 @@ Le entità e il loro contenuto minimo:
 
 | Entità | Contenuto | Validità temporale |
 |---|---|---|
-| `PersonaProfessionista` | dati identificativi, identificatori esterni | — |
+| `PersonaProfessionista` | dati identificativi, identificatori esterni | - |
 | `IscrizioneAlbo` | ordine, provincia, numero, data di iscrizione, data di verifica, **chi ha verificato** | sì |
 | `Organizzazione` | soggetto giuridico, tipo, identificativi, articolazione gerarchica | sì |
 | `RuoloOrganizzativo` | persona, organizzazione, disciplina, qualifica, professione | **sì, obbligatoria** |
@@ -172,9 +172,9 @@ verifica e l'identità di chi ha verificato** (`RF-018`), e segnalare i profili 
 verifica. La ragione è che un profilo clinico non verificato non è un difetto di completezza:
 è un rischio, perché l'abilitazione a compiere atti riservati dipende dall'iscrizione.
 
-> **`DM-32` [MOD]** — La verifica dell'abilitazione è un **atto con autore e data**, non un
+> **`DM-32` [MOD]** - La verifica dell'abilitazione è un **atto con autore e data**, non un
 > attributo booleano del profilo. Un booleano risponde alla domanda «è verificato?»; il modello
-> deve poter rispondere a «chi lo ha verificato, quando, sulla base di che cosa» — che è la
+> deve poter rispondere a «chi lo ha verificato, quando, sulla base di che cosa» - che è la
 > domanda che viene posta quando qualcosa va storto.
 
 ### 3.3 Gli atti riservati non sono configurabili
@@ -193,7 +193,7 @@ discende una struttura a due livelli che va tenuta rigorosamente separata:
 | **Vincolo di dominio** | l'ordinamento professionale, codificato nel prodotto | la televisita è atto medico | **no** |
 | **Abilitazione organizzativa** | il tenant, entro il vincolo | il dottor X eroga televisite di questa disciplina presso questa struttura | sì |
 
-> **`DM-33` [MOD]** — L'insieme delle configurazioni ammesse è un **sottoinsieme proprio** dello
+> **`DM-33` [MOD]** - L'insieme delle configurazioni ammesse è un **sottoinsieme proprio** dello
 > spazio delle politiche (`BR-096`). Il tentativo di comporre un'abilitazione che violi un
 > vincolo di dominio è rifiutato con errore di validazione, non silenziosamente ignorato: un
 > rifiuto silenzioso lascia l'amministratore convinto di aver configurato ciò che voleva.
@@ -212,7 +212,7 @@ I due centri hanno responsabilità che il modello deve poter separare:
 | Compiti | manutenzione, gestione degli account, assistenza a tutti gli utenti, monitoraggio, gestione dei dispositivi a domicilio, formazione all'uso | erogazione delle prestazioni |
 | Allarmi gestiti | **tecnici** | **sanitari** |
 
-> **`DM-34` [MOD]** — Il centro servizi è un'**organizzazione con ruolo tecnico**, non un ruolo
+> **`DM-34` [MOD]** - Il centro servizi è un'**organizzazione con ruolo tecnico**, non un ruolo
 > applicativo. La distinzione conta perché il centro servizi può essere un soggetto giuridico
 > diverso dall'erogatore, con un proprio rapporto di responsabilità sul trattamento dei dati, e
 > perché la classe dell'allarme determina il destinatario. Una coda unica di allarmi rende
@@ -230,15 +230,15 @@ chiavi, propri webhook, propri limiti e propria configurazione di personalizzazi
 > impone il claim `act` di RFC 8693 § 4.1.
 
 Sul piano del dominio la conseguenza è netta: **ogni atto ha due soggetti quando è compiuto in
-delega** — chi agisce e per conto di chi — e il registro degli accessi ne registra entrambi. Un
+delega** - chi agisce e per conto di chi - e il registro degli accessi ne registra entrambi. Un
 modello che riduca l'atto a un solo soggetto rende indistinguibile un'azione dell'integratore
 da un'azione dell'utente.
 
 ### 3.6 Gli identificativi del professionista
 
 Il tracciato ministeriale del referto di televisita richiede **cognome, nome e codice fiscale**
-per quattro soggetti professionali distinti — refertante, firmatario, altra figura tecnica
-coinvolta, prescrittore — e i codici delle strutture (DM 19 novembre 2025, All. 1, § 2.20).
+per quattro soggetti professionali distinti - refertante, firmatario, altra figura tecnica
+coinvolta, prescrittore - e i codici delle strutture (DM 19 novembre 2025, All. 1, § 2.20).
 
 Ne discendono tre requisiti del modello del professionista che vengono spesso scoperti tardi.
 
@@ -255,7 +255,7 @@ Ne discendono tre requisiti del modello del professionista che vengono spesso sc
    confine. Lo stesso professionista può portare l'identificativo dell'ordine, quello aziendale
    e quello del sistema di origine.
 
-> **`DM-39` [MOD]** — Il **professionista di riferimento**, che compare nei documenti senza
+> **`DM-39` [MOD]** - Il **professionista di riferimento**, che compare nei documenti senza
 > essere utente, è modellato come `PersonaProfessionista` senza alcun `RuoloOrganizzativo` nel
 > tenant. È coerente con `DM-30`: la persona esiste indipendentemente dai ruoli, e l'assenza di
 > ruoli significa esattamente che non può operare.
@@ -283,8 +283,8 @@ sanitaria**, **presidio**, **unità operativa**, ciascuno con codice e descrizio
 novembre 2025, All. 1, § 2.20). Non sono etichette: sono l'articolazione che la rendicontazione
 e la refertazione richiedono.
 
-> **`DM-35` [MOD]** — L'organizzazione è **ricorsiva** con un tipo dichiarato per livello. Tre
-> campi separati e piatti — azienda, presidio, unità operativa — funzionano finché non compare
+> **`DM-35` [MOD]** - L'organizzazione è **ricorsiva** con un tipo dichiarato per livello. Tre
+> campi separati e piatti - azienda, presidio, unità operativa - funzionano finché non compare
 > un tenant privato che non ha presidi o un tenant pubblico con un livello intermedio in più.
 > La gerarchia ricorsiva con tipo permette di proiettare i tre campi richiesti dal tracciato
 > senza vincolare il modello a esattamente tre livelli.
@@ -304,10 +304,10 @@ diversi con due finalità diverse e due regimi di conservazione diversi.
 
 ### 5.1 La forma generale
 
-Tutte le relazioni di questo dominio — di cura, di rappresentanza, di delega, di ruolo — hanno
+Tutte le relazioni di questo dominio - di cura, di rappresentanza, di delega, di ruolo - hanno
 la stessa forma. Riconoscerlo evita di modellarle cinque volte in cinque modi diversi.
 
-> **`DM-36` [MOD] — Forma canonica della relazione.**
+> **`DM-36` [MOD] - Forma canonica della relazione.**
 >
 > | Componente | Obbligatorio | Contenuto |
 > |---|---|---|
@@ -347,7 +347,7 @@ persona sia medico non dice nulla su *quale* paziente possa vedere.
 Le finestre temporali proposte da `R6` § 2.2 sono **valori predefiniti del progetto**,
 configurabili per tenant, non prescrizioni normative.
 
-> **`DM-37` [MOD] — La relazione di cura è un'entità di prima classe, non una interrogazione.**
+> **`DM-37` [MOD] - La relazione di cura è un'entità di prima classe, non una interrogazione.**
 > Se l'esistenza della relazione si deduce ogni volta interrogando appuntamenti, contatti ed
 > episodi, tre cose diventano impossibili: motivare una decisione di accesso a distanza di
 > tempo, verificare la decisione in un audit, e modificare le regole senza toccare il codice di
@@ -371,7 +371,7 @@ sportello il 21 marzo e registrato lo stesso giorno. Fra il 3 e il 21 marzo il s
 consentito a un delegato volontario accessi che, alla luce del decreto, andavano valutati
 diversamente.
 
-> **`DM-38` [MOD]** — Le relazioni che fondano l'accesso ai dati sono **bitemporali**: portano
+> **`DM-38` [MOD]** - Le relazioni che fondano l'accesso ai dati sono **bitemporali**: portano
 > il periodo di validità nel mondo e l'istante di registrazione nel sistema. Il registro degli
 > accessi si valuta sempre con lo stato **conosciuto al momento dell'accesso**, non con lo stato
 > corrente: giudicare accessi passati con conoscenza successiva produce falsi positivi in ogni
@@ -483,7 +483,7 @@ Tre esclusioni sono **strutturali**, cioè non ottenibili per configurazione:
 
 L'assegnazione a sé stessi di un ruolo clinico da parte di un amministratore genera un evento di
 severità critica e una notifica al responsabile della protezione dei dati (`BR-013`): è
-l'escalation di privilegio più ovvia e va resa costosa, non impossibile — renderla impossibile
+l'escalation di privilegio più ovvia e va resa costosa, non impossibile - renderla impossibile
 produrrebbe organizzazioni piccole incapaci di operare.
 
 ## 8. Il tempo che scorre sui soggetti
@@ -505,8 +505,8 @@ accadono con frequenza sufficiente a non essere casi limite.
 Tre questioni toccano i soggetti ma appartengono ad altre aree, e vanno lasciate lì per non
 produrre decisioni contraddittorie.
 
-- **La federazione dell'identità digitale** — realm, provider, livelli di garanzia, propagazione
-  del contesto di autenticazione — è dell'area `SEC` e dell'area `INTEG`. Quest'area consuma il
+- **La federazione dell'identità digitale** - realm, provider, livelli di garanzia, propagazione
+  del contesto di autenticazione - è dell'area `SEC` e dell'area `INTEG`. Quest'area consuma il
   livello di garanzia come attributo del soggetto e non ne decide la produzione.
 - **La divergenza degli URI del codice fiscale** è la questione `Q-06`, indirizzata ad `ARCH` e
   `TECH`. Quest'area vi contribuisce con `DM-31` e non la chiude.
@@ -539,9 +539,9 @@ produrre decisioni contraddittorie.
 
 ## Dove continuare
 
-- [06 — Consenso e riservatezza](06-consenso-e-riservatezza.md): che cosa i soggetti dichiarano
+- [06 - Consenso e riservatezza](06-consenso-e-riservatezza.md): che cosa i soggetti dichiarano
   e come lo si dimostra.
-- [04 — I documenti clinici](04-documenti-clinici.md): chi è autore, chi è firmatario e perché
+- [04 - I documenti clinici](04-documenti-clinici.md): chi è autore, chi è firmatario e perché
   non sono la stessa persona.
 - Modulo [04 dei fondamenti](../10_fondamenti/04-identita-e-anagrafiche.md): identificatori,
   anagrafi, identità digitale e livelli di garanzia, che quest'area non ripete.

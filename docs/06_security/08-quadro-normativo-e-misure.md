@@ -6,11 +6,11 @@ description: Quali norme di sicurezza si applicano e a chi, il termine soggettiv
 
 # Quadro normativo e misure
 
-> **Presupposto di lettura.** Il quadro regolatorio generale — che cosa sono la disciplina dei
+> **Presupposto di lettura.** Il quadro regolatorio generale - che cosa sono la disciplina dei
 > dispositivi medici, il regolamento sulla protezione dei dati, la direttiva sulla sicurezza
-> delle reti e il regolamento sulla resilienza informatica, e come si collocano fra loro — è in
+> delle reti e il regolamento sulla resilienza informatica, e come si collocano fra loro - è in
 > [10 §12 §10](../10_fondamenti/12-crittografia-e-sicurezza.md) e in
-> [10 §15 — Regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md). Qui si tratta la
+> [10 §15 - Regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md). Qui si tratta la
 > sola sicurezza, con le date, i destinatari e i punti di conflitto.
 >
 > **Avvertenza.** Questo capitolo è **analisi tecnica di conformità, non consulenza legale**. Le
@@ -20,8 +20,8 @@ description: Quali norme di sicurezza si applicano e a chi, il termine soggettiv
 ## 1. Il problema in una riga
 
 **Il progetto quasi certamente non è, in proprio, soggetto della disciplina nazionale sulla
-sicurezza delle reti.** Lo sono i suoi utilizzatori — aziende sanitarie, aziende ospedaliere,
-strutture accreditate sopra soglia, gestionali sanitari in cloud — e questi **riversano
+sicurezza delle reti.** Lo sono i suoi utilizzatori - aziende sanitarie, aziende ospedaliere,
+strutture accreditate sopra soglia, gestionali sanitari in cloud - e questi **riversano
 contrattualmente sul fornitore** una parte consistente dei propri obblighi, per effetto di tre
 meccanismi cumulativi:
 
@@ -49,7 +49,7 @@ del catalogo, e i passaggi della guida alla lettura dell'autorità che sono stat
 
 Ciò che questo capitolo **non** cita, e marca `[NV]`: il **testo dei singoli requisiti**. Un
 fornitore che citi male un requisito produce, presso il cliente, un'evidenza documentale che
-non chiude — che è esattamente il danno che voleva evitare.
+non chiude - che è esattamente il danno che voleva evitare.
 
 ## 3. Il termine è soggettivo, non una data unica
 
@@ -66,8 +66,8 @@ elementi:
    Il termine per l'obbligo di notifica degli incidenti significativi di base è di **nove mesi**
    dalla stessa data.
 2. **L'autorità ha iniziato a inviare le comunicazioni di inserimento nell'aprile 2025.** Per i
-   soggetti che l'hanno ricevuta entro il 30 aprile 2025 — la larga maggioranza della prima
-   ondata — i diciotto mesi maturano entro il 31 ottobre 2026.
+   soggetti che l'hanno ricevuta entro il 30 aprile 2025 - la larga maggioranza della prima
+   ondata - i diciotto mesi maturano entro il 31 ottobre 2026.
 
 **Il termine è quindi soggettivo: ciascun cliente ha la propria data.** Il 31 ottobre 2026 è il
 **limite esterno della prima ondata**, ed è la data oltre la quale l'autorità passa dalla fase
@@ -115,8 +115,8 @@ essenziali; **6** sono previste per i soli essenziali. 27 + 10 + 6 = 43; 43 − 
 
 **Assunzione di lavoro del progetto.** Una piattaforma che eroga televisita e teleconsulto per
 un soggetto essenziale sarà classificata come **sistema rilevante**. La documentazione presume
-quindi l'applicazione del **profilo più severo** — secondo fattore, cifratura delle copie di
-sicurezza, prove di ripristino, monitoraggio di rete, protezione degli endpoint — e non del
+quindi l'applicazione del **profilo più severo** - secondo fattore, cifratura delle copie di
+sicurezza, prove di ripristino, monitoraggio di rete, protezione degli endpoint - e non del
 profilo minimo.
 
 ### 4.1 Le quattro clausole di proporzionalità
@@ -162,7 +162,7 @@ crisi; piano di formazione; piano per la gestione degli incidenti.
 amministrazione del cliente.** Ma **due non sono redigibili senza il fornitore**: l'inventario
 dei servizi erogati dai fornitori e il piano di gestione delle vulnerabilità, che deve tenere
 conto delle vulnerabilità delle dipendenze del prodotto. È da qui che nasce il deliverable
-naturale del progetto: un **fascicolo di conformità precompilato** che il cliente incorpora —
+naturale del progetto: un **fascicolo di conformità precompilato** che il cliente incorpora -
 distinta dei materiali, elenco dei flussi di rete verso l'esterno, elenco dei sistemi
 accessibili da remoto, configurazioni di riferimento, ripartizione delle responsabilità,
 procedura di divulgazione.
@@ -236,7 +236,7 @@ alterazione la invaliderebbe. Ne discende un deliverable preciso, che il progett
 parte del pacchetto per l'utilizzatore:
 
 **Dichiarazione tecnica di deroga**, che (a) individua i componenti la cui alterazione
-invaliderebbe la marcatura; (b) elenca le **misure compensative disponibili nativamente** —
+invaliderebbe la marcatura; (b) elenca le **misure compensative disponibili nativamente** -
 irrobustimento del contenitore, filesystem in sola lettura, verifica dell'integrità delle
 immagini, monitoraggio esterno del comportamento del processo, segmentazione di rete; (c)
 definisce la **configurazione supportata** di protezione degli endpoint sull'host ospitante.
@@ -264,8 +264,8 @@ Una nota sulle linee guida sugli approvvigionamenti che ha effetto diretto sulla
 documentazione: le linee guida raccomandano alle amministrazioni di attingere all'appendice dei
 requisiti eleggibili invece di scriverne di nuovi, e di formularli in modo **«chiaro, oggettivo
 e quanto più possibile chiuso»**, lasciando meno spazio possibile alla valutazione soggettiva
-della commissione. **Le risposte del fornitore saranno quindi valutate contro requisiti chiusi —
-sì o no, con evidenza — non contro narrazioni.** La documentazione di conformità del progetto è
+della commissione. **Le risposte del fornitore saranno quindi valutate contro requisiti chiusi -
+sì o no, con evidenza - non contro narrazioni.** La documentazione di conformità del progetto è
 strutturata come matrice requisito → evidenza → riferimento puntuale, ed è la stessa struttura
 richiesta dalla tracciabilità del ciclo di vita: un artefatto per entrambi gli scopi.
 
@@ -279,31 +279,31 @@ responsabilità**, o sarà contestato in sede di gara.
 ## 8. Matrice di sovrapposizione
 
 Legenda: **●** obbligo diretto · **○** obbligo indiretto, che ricade sul progetto per via
-contrattuale · **—** non applicabile.
+contrattuale · **-** non applicabile.
 
 | Controllo | Sicurezza reti | Contratti pubblici | Resilienza informatica | Protezione dati | Dispositivi medici | Misure minime PA | Approvvigionamenti | Telemedicina | Destinatario primario |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Inventario e distinta dei materiali | ● | — | ● | ○ | ● | ● | ● | — | **Progetto** produce, chi installa mantiene |
+| Inventario e distinta dei materiali | ● | - | ● | ○ | ● | ● | ● | - | **Progetto** produce, chi installa mantiene |
 | Configurazioni sicure di riferimento | ● | ● | ● | ● | ● | ● | ● | ● | **Progetto** documenta, chi installa applica |
-| Gestione e divulgazione delle vulnerabilità | ● | ● | ● | ○ | ● | ● | ● | — | **Entrambi** |
+| Gestione e divulgazione delle vulnerabilità | ● | ● | ● | ○ | ● | ● | ● | - | **Entrambi** |
 | Aggiornamenti di sicurezza | ● | ● | ● | ● | ● | ● | ● | ● | **Progetto** rilascia, chi installa applica |
 | Controllo degli accessi e privilegi | ● | ● | ● | ● | ● | ● | ● | ● | **Entrambi** |
 | Autenticazione a più fattori | ● | ● | ● | ● | ● | ● | ● | ● | **Progetto** abilita, chi installa configura |
 | Cifratura in transito | ● | ● | ● | ● | ● | ● | ● | ● | **Progetto** |
 | Cifratura a riposo | ● | ● | ● | ● | ● | ● | ● | ● | **Progetto** abilita, chi installa gestisce le chiavi |
-| Copie di sicurezza cifrate con prova di ripristino | ● | — | — | ● | ● | ● | — | ● | **Chi installa**, con procedura del progetto |
-| Continuità e ripristino | ● | — | — | ● | ● | ● | — | ● | **Chi installa** |
+| Copie di sicurezza cifrate con prova di ripristino | ● | - | - | ● | ● | ● | - | ● | **Chi installa**, con procedura del progetto |
+| Continuità e ripristino | ● | - | - | ● | ● | ● | - | ● | **Chi installa** |
 | Registro non alterabile e tracciabilità | ● | ● | ● | ● | ● | ● | ● | ● | **Progetto** |
 | Rilevazione e monitoraggio | ● | ● | ● | ● | ● | ● | ● | ● | **Chi installa**, con integrazione del progetto |
-| Notifica degli incidenti | ● | ● | ● | ● | ● | — | ● | ● | **Chi installa** notifica, **progetto** fornisce l'evidenza |
-| Esportazione forense e cronologia | ○ | ○ | ○ | ○ | ○ | — | ● | — | **Progetto** |
-| Sicurezza della catena di fornitura | ● | ● | ● | ● | ● | — | ● | — | **Chi installa** obbligato; **progetto** oggetto della verifica |
-| Dichiarazione dei fornitori rilevanti | ● | — | — | — | — | — | — | — | **Chi installa**; il progetto ne è il soggetto dichiarato |
-| Ciclo di vita di sviluppo sicuro | ● | ● | ● | ● | ● | — | ● | — | **Progetto** |
-| Formazione del personale | ● | ● | — | ● | ● | — | ● | ● | **Chi installa** |
-| Governance e approvazione dei piani | ● | ● | — | ● | ● | — | ● | — | **Chi installa** |
-| Comunicazioni protette | ● | — | ● | ● | ● | — | ● | ● | **Progetto** |
-| Residenza dei dati | ○ | ● | — | ● | — | — | ● | ● | **Entrambi** |
+| Notifica degli incidenti | ● | ● | ● | ● | ● | - | ● | ● | **Chi installa** notifica, **progetto** fornisce l'evidenza |
+| Esportazione forense e cronologia | ○ | ○ | ○ | ○ | ○ | - | ● | - | **Progetto** |
+| Sicurezza della catena di fornitura | ● | ● | ● | ● | ● | - | ● | - | **Chi installa** obbligato; **progetto** oggetto della verifica |
+| Dichiarazione dei fornitori rilevanti | ● | - | - | - | - | - | - | - | **Chi installa**; il progetto ne è il soggetto dichiarato |
+| Ciclo di vita di sviluppo sicuro | ● | ● | ● | ● | ● | - | ● | - | **Progetto** |
+| Formazione del personale | ● | ● | - | ● | ● | - | ● | ● | **Chi installa** |
+| Governance e approvazione dei piani | ● | ● | - | ● | ● | - | ● | - | **Chi installa** |
+| Comunicazioni protette | ● | - | ● | ● | ● | - | ● | ● | **Progetto** |
+| Residenza dei dati | ○ | ● | - | ● | - | - | ● | ● | **Entrambi** |
 
 ### 8.1 I sette controlli a massimo rendimento
 

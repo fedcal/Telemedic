@@ -1,7 +1,7 @@
 ---
 title: Multi-tenancy
 sidebar_position: 6
-description: Il modello di isolamento di Telemedic — uno schema per tenant con sicurezza a livello di riga come difesa in profondità — la propagazione del contesto, le migrazioni, il ripristino selettivo, il ciclo di vita del tenant e il caso degenere a tenant unico dell'installazione presso il cliente.
+description: Il modello di isolamento di Telemedic - uno schema per tenant con sicurezza a livello di riga come difesa in profondità - la propagazione del contesto, le migrazioni, il ripristino selettivo, il ciclo di vita del tenant e il caso degenere a tenant unico dell'installazione presso il cliente.
 ---
 
 # Multi-tenancy
@@ -51,7 +51,7 @@ aggirata da un errore.
 
 ### 2.1 Perché non le righe condivise
 
-Il modello a righe condivise — una sola tabella, una colonna che distingue il tenant — è più
+Il modello a righe condivise - una sola tabella, una colonna che distingue il tenant - è più
 economico da realizzare e più costoso da difendere. Le tre ragioni del rifiuto:
 
 **Il ripristino selettivo diventa difficile.** Un cliente che chiede di riportare i propri dati a
@@ -107,8 +107,8 @@ Non tutto è per tenant, e distinguere è importante quanto isolare.
 non esiste un tenant «di sistema» a cui ricadere, non esiste un percorso che, in assenza di
 contesto, restituisca l'insieme completo. In assenza di contesto, l'operazione **fallisce**.
 
-La formulazione negativa è deliberata. La formulazione positiva — «ogni operazione imposta il
-tenant» — è una regola di disciplina che qualcuno prima o poi dimentica. La formulazione negativa è
+La formulazione negativa è deliberata. La formulazione positiva - «ogni operazione imposta il
+tenant» - è una regola di disciplina che qualcuno prima o poi dimentica. La formulazione negativa è
 verificabile: si può provare che un percorso senza contesto fallisce, non si può provare che
 qualcuno si è ricordato.
 
@@ -170,7 +170,7 @@ chiamante e che sono la sede tipica dei difetti di isolamento.
 
 | Famiglia | Come si risolve il tenant |
 |---|---|
-| **Lavori pianificati** — scadenze, solleciti, applicazione delle politiche di conservazione | Il lavoro è eseguito **per tenant**, iterando sul registro dei tenant attivi, con contesto impostato a ogni iterazione. Non esiste una versione del lavoro che opera su tutti i tenant in una sola interrogazione |
+| **Lavori pianificati** - scadenze, solleciti, applicazione delle politiche di conservazione | Il lavoro è eseguito **per tenant**, iterando sul registro dei tenant attivi, con contesto impostato a ogni iterazione. Non esiste una versione del lavoro che opera su tutti i tenant in una sola interrogazione |
 | **Consumatori di eventi** | Il tenant è nella busta dell'evento ed è impostato prima di qualunque accesso. Un evento senza tenant è scartato nella coda dei messaggi non elaborabili, non processato con un valore predefinito |
 | **Relay dell'outbox** | Legge la propria tabella nello schema del tenant, con contesto impostato. Non esiste un relay che legge da tutti gli schemi in una sola interrogazione |
 
@@ -191,7 +191,7 @@ si riduce, poi si sospende, e gli altri non se ne accorgono.
 
 Lo stesso vale per le risorse di calcolo condivise: un'esportazione voluminosa richiesta da un
 tenant non deve poter esaurire il pool di connessioni e bloccare l'ingresso in sala d'attesa di un
-altro. La separazione dei pool per classe di operazione — interattiva, di sfondo, di esportazione —
+altro. La separazione dei pool per classe di operazione - interattiva, di sfondo, di esportazione -
 è un requisito architetturale, non un'ottimizzazione.
 
 ## 4. Migrazioni
@@ -288,7 +288,7 @@ per tutte: **rappresentano fatti accaduti, non stato**.
 |---|---|
 | Registro immutabile | Un accesso avvenuto resta avvenuto. Riportarlo indietro cancellerebbe l'evidenza degli accessi compresi nella finestra, che è precisamente ciò che il registro esiste per conservare |
 | Evidenze di consenso e di revoca | Una revoca manifestata è un fatto; un ripristino che la annulla riattiverebbe un trattamento che il soggetto ha rifiutato |
-| Eventi già consegnati a sistemi terzi | Sono usciti. Il ripristino può richiedere una compensazione — un evento di rettifica — non una cancellazione retroattiva di ciò che il destinatario ha già ricevuto |
+| Eventi già consegnati a sistemi terzi | Sono usciti. Il ripristino può richiedere una compensazione - un evento di rettifica - non una cancellazione retroattiva di ciò che il destinatario ha già ricevuto |
 
 Ne discende che dopo un ripristino il registro contiene voci relative a operazioni che, nello
 stato applicativo, non risultano più. **È corretto così** e va spiegato a chi verifica: la
@@ -310,7 +310,7 @@ modo uniforme significa o sovradimensionare o perdere dati che non si possono pe
 
 La riga della documentazione firmata è quella che ha un costo reale: la replica sincrona aggiunge
 latenza all'operazione di firma. **Il costo è accettato e va dichiarato al professionista**
-nell'esperienza d'uso — l'apposizione della firma non è istantanea — invece di essere nascosto con
+nell'esperienza d'uso - l'apposizione della firma non è istantanea - invece di essere nascosto con
 una conferma ottimistica che potrebbe risultare falsa.
 
 ## 6. Operazioni che attraversano i tenant
@@ -358,7 +358,7 @@ stateDiagram-v2
 | **Sospeso** | Accesso applicativo bloccato, dati intatti, lavori pianificati sospesi tranne quelli di conservazione e di verifica dell'integrità. **Il registro resta scrivibile**: un tentativo di accesso su tenant sospeso è un fatto da registrare |
 | **In dismissione** | Sole letture per l'esportazione. Nessuna scrittura applicativa |
 | **Estratto** | L'esportazione completa è stata consegnata al titolare in formato aperto e la consegna è stata verificata |
-| **Chiuso** | Schema rimosso. Sopravvivono: la voce di registro della dismissione, l'evidenza della consegna dell'esportazione e — separatamente e per il tempo prescritto — il registro immutabile del tenant |
+| **Chiuso** | Schema rimosso. Sopravvivono: la voce di registro della dismissione, l'evidenza della consegna dell'esportazione e - separatamente e per il tempo prescritto - il registro immutabile del tenant |
 
 Due punti che si sbagliano spesso:
 
@@ -378,7 +378,7 @@ struttura, nessun ramo separato, nessuna configurazione che disattivi la tenancy
 
 ### 8.1 Perché non si semplifica
 
-La tentazione — «in installazione singola il tenant non serve, semplifichiamo» — produrrebbe due
+La tentazione - «in installazione singola il tenant non serve, semplifichiamo» - produrrebbe due
 percorsi di codice, quindi due comportamenti, quindi difetti che si manifestano solo in uno dei due
 assetti. Peggio: sarebbe **irreversibile**, perché il cliente che oggi ha un'installazione singola
 e domani vuole servire due strutture giuridicamente distinte si troverebbe di fronte a una
@@ -411,7 +411,7 @@ Un corollario spesso trascurato: **le funzioni disponibili nel servizio gestito 
 anche nell'installazione presso il cliente**, e viceversa. Una funzione che esiste solo nel
 servizio gestito produce documentazione divergente, prove che coprono un solo assetto e clienti che
 scoprono una differenza dopo aver scelto. Le uniche differenze ammesse sono quelle **dichiarate
-nella matrice degli assetti** di [08 — Viste di deployment](08-viste-di-deployment.md), e ciascuna
+nella matrice degli assetti** di [08 - Viste di deployment](08-viste-di-deployment.md), e ciascuna
 ha una motivazione scritta.
 
 ## 9. Verifiche automatiche obbligatorie

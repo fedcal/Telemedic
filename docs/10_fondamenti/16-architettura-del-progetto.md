@@ -7,8 +7,8 @@ description: "La mappa mentale di Telemedic per chi non l'ha mai visto: quale fo
 # L'architettura del progetto
 
 Questo modulo serve a una cosa sola: darti **la forma del sistema in testa** prima che tu apra
-un file di codice o un documento di specifica. Non ti insegna a progettare architetture — quella
-è materia del [modulo 11](11-fondamenti-informatici.md) — e non sostituisce l'area
+un file di codice o un documento di specifica. Non ti insegna a progettare architetture - quella
+è materia del [modulo 11](11-fondamenti-informatici.md) - e non sostituisce l'area
 architetturale del progetto, che sta in [`docs/02_architecture/`](../02_architecture/00-indice.md)
 ed è dieci volte più dettagliata di quanto leggerai qui.
 
@@ -32,14 +32,14 @@ non consigliati.
 
 | Presuppone | Dove sta | Che cosa te ne serve qui |
 |---|---|---|
-| Sistemi distribuiti, consistenza, transazioni, saga | [11 — Fondamenti informatici](11-fondamenti-informatici.md) | Sapere che cosa significa «il guasto è parziale» e perché non esiste una transazione che comprende due sistemi |
+| Sistemi distribuiti, consistenza, transazioni, saga | [11 - Fondamenti informatici](11-fondamenti-informatici.md) | Sapere che cosa significa «il guasto è parziale» e perché non esiste una transazione che comprende due sistemi |
 | Aggregato, invariante, contesto delimitato, linguaggio ubiquo | [11 §7](11-fondamenti-informatici.md#7-domain-driven-design) | Il vocabolario. Qui si spiega **quali sono** in Telemedic, non che cosa siano in generale |
 | Doppia scrittura, outbox, idempotenza, consegna | [11 §5](11-fondamenti-informatici.md#5-la-doppia-scrittura-e-loutbox-transazionale) e [11 §6](11-fondamenti-informatici.md#6-consegna-e-idempotenza) | Il meccanismo. Qui si spiega **perché il progetto lo ha adottato** e che cosa costa |
 | Impronte crittografiche, firma, catene di hash | [12 §5](12-crittografia-e-sicurezza.md#5-funzioni-di-hash) | Perché una catena di impronte rende rilevabile una manomissione |
-| Ogni protocollo che il sistema parla | [13 — I protocolli, uno per uno](13-protocolli.md) | Qui i protocolli non si spiegano: si dice **dove** stanno nell'architettura |
-| Che cos'è un dato sanitario e perché ha un regime proprio | [03 — Il dato clinico](03-il-dato-clinico.md) | Metà delle scelte architetturali di questo sistema discende da lì |
-| Che cos'è una televisita e in che cosa differisce da un teleconsulto | [02 — Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md) | Il dominio che l'architettura deve reggere |
-| Perché questo software ha vincoli che altrove non esistono | [15 — Il quadro regolatorio da zero](15-regolatorio-da-zero.md) | Le forze normative di §2 |
+| Ogni protocollo che il sistema parla | [13 - I protocolli, uno per uno](13-protocolli.md) | Qui i protocolli non si spiegano: si dice **dove** stanno nell'architettura |
+| Che cos'è un dato sanitario e perché ha un regime proprio | [03 - Il dato clinico](03-il-dato-clinico.md) | Metà delle scelte architetturali di questo sistema discende da lì |
+| Che cos'è una televisita e in che cosa differisce da un teleconsulto | [02 - Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md) | Il dominio che l'architettura deve reggere |
+| Perché questo software ha vincoli che altrove non esistono | [15 - Il quadro regolatorio da zero](15-regolatorio-da-zero.md) | Le forze normative di §2 |
 
 Se non hai letto il modulo 11, **leggilo prima di questo**. Non è una raccomandazione di
 cortesia: da §6 in avanti questo modulo usa «outbox», «idempotente», «aggregato» e «coerenza
@@ -72,7 +72,7 @@ Ogni scelta descritta qui è presentata in tre tempi, sempre nello stesso ordine
 
 Il terzo tempo non è una concessione all'onestà: è il modo in cui si capisce se una scelta è
 stata compresa. Un'architettura descritta senza ciò che costa non è stata capita, è stata
-memorizzata — e chi l'ha memorizzata la aggira alla prima occasione in cui il costo si presenta.
+memorizzata - e chi l'ha memorizzata la aggira alla prima occasione in cui il costo si presenta.
 
 ---
 
@@ -85,7 +85,7 @@ Prima di parlare di forma, serve sapere che cosa la forma deve reggere.
 
 Non è un portale. Non è una cartella clinica. Non è il punto di ingresso dell'utente. Non è il
 detentore dell'anagrafica dei pazienti. È il pezzo che manca a un gestionale sanitario, a una
-struttura pubblica o a un'infrastruttura regionale quando la prestazione va erogata a distanza —
+struttura pubblica o a un'infrastruttura regionale quando la prestazione va erogata a distanza -
 e che deve inserirsi **senza chiedere a nessuno di cambiare ciò che ha già**.
 
 Questa frase, e non lo stack tecnologico, è ciò che determina l'architettura. Vale la pena
@@ -96,7 +96,7 @@ l'**ospite**. Da questa inversione discendono tre conseguenze che nessuna scelta
 contraddire, e che è utile fissare subito perché ricorrono in ogni sezione di questo modulo.
 
 **Prima: il sistema non possiede l'identità.** La persona davanti allo schermo è già stata
-autenticata altrove — dal fornitore di identità dell'integratore, oppure dalla federazione
+autenticata altrove - dal fornitore di identità dell'integratore, oppure dalla federazione
 nazionale delle identità digitali. Telemedic riceve un'affermazione («questo è il dottor Rossi,
 di questa organizzazione, autenticato a questo livello») e la trasforma in un contesto
 autorizzativo interno. Non emette credenziali primarie per il cittadino e non impone un secondo
@@ -139,18 +139,18 @@ problema, la ragione sta quasi sempre in una di queste quattro.
 
 ### 2.1 Perché non si parte dallo stile architetturale
 
-C'è un modo diffuso e sbagliato di raccontare un'architettura: si annuncia lo stile — «è a
-microservizi», «è esagonale», «è a eventi» — e da lì si deduce tutto il resto. È sbagliato
+C'è un modo diffuso e sbagliato di raccontare un'architettura: si annuncia lo stile - «è a
+microservizi», «è esagonale», «è a eventi» - e da lì si deduce tutto il resto. È sbagliato
 perché lo stile è un **effetto**, non una causa. Uno stile scelto prima di conoscere le forze in
 gioco produce un sistema che ha la forma giusta per i problemi di qualcun altro.
 
 L'area architetturale di Telemedic parte dal verso opposto: elenca **sette forze**, dichiara
 l'ordine in cui si risolvono quando confliggono, e ricava la forma da lì. Quelle sette forze
-sono riassunte in [`01 — Visione architetturale`](../02_architecture/01-visione-architetturale.md);
+sono riassunte in [`01 - Visione architetturale`](../02_architecture/01-visione-architetturale.md);
 qui vengono spiegate una per una a chi non le ha mai incontrate, perché è la parte del sistema
 che più spesso viene saltata e più spesso serve.
 
-### 2.2 Prima forza — La dimostrabilità viene prima di tutto
+### 2.2 Prima forza - La dimostrabilità viene prima di tutto
 
 **Il problema.** Immagina che fra tre anni una persona chieda alla struttura sanitaria che l'ha
 in cura: «chi ha letto il mio referto?». Oppure che un'autorità di controllo chieda di
@@ -177,7 +177,7 @@ vietato attenuarlo in qualunque documento.
 separata dal sistema che genera gli eventi**. Non è configurazione: è un componente, ed è per
 ammissione della decisione stessa che lo impone lo sforzo maggiore dell'intero catalogo di
 sicurezza. Il meccanismo è spiegato in §7 di questo modulo e sviluppato in
-[`07 — Tracciamento e registro immutabile`](../02_architecture/07-tracciamento-e-registro-immutabile.md).
+[`07 - Tracciamento e registro immutabile`](../02_architecture/07-tracciamento-e-registro-immutabile.md).
 
 **Perché è la prima forza.** Perché è **retroattiva**. Un registro costruito male non si ripara
 a posteriori: gli eventi già scritti non acquistano integrità dimostrabile dopo il fatto. Puoi
@@ -189,7 +189,7 @@ clinico: la sua latenza si somma a quella dell'operazione, e se il registro non 
 l'operazione clinica fallisce. È una scelta severa e deliberata, e §7.5 spiega perché
 l'alternativa è peggiore.
 
-### 2.3 Seconda forza — Il confine fra veicolo e interpretazione
+### 2.3 Seconda forza - Il confine fra veicolo e interpretazione
 
 **Il problema.** Il [modulo 15](15-regolatorio-da-zero.md) spiega che la qualificazione di un
 software come dispositivo medico, e la sua classe di rischio, dipendono dalla **destinazione
@@ -227,10 +227,10 @@ dell'ultimo piano dello stesso assistito.
 
 **Il prezzo.** Attrito d'uso reale, riconosciuto e accettato. Un professionista che configura
 dieci piani simili li configura dieci volte. Il progetto lo compensa mostrando **riferimenti
-attribuiti, in sola lettura, con un'azione esplicita di copia** — che è una cosa diversa dalla
+attribuiti, in sola lettura, con un'azione esplicita di copia** - che è una cosa diversa dalla
 precompilazione, perché la decisione resta un atto.
 
-### 2.4 Terza forza — Integrabilità totale
+### 2.4 Terza forza - Integrabilità totale
 
 **Il problema.** Se il sistema è un ospite, ogni sua capacità deve essere raggiungibile da chi
 lo ospita. Un integratore che ha già la propria interfaccia non userà la nostra; un integratore
@@ -240,8 +240,8 @@ che deve automatizzare un flusso non può farlo cliccando.
 il vincolo **V3** del progetto.
 
 **Che cosa ne discende, e non è ovvio.** La conseguenza non è «esporre tutto in REST». È che il
-**livello applicativo non può contenere logica di dominio**. Se contenesse una regola — poniamo,
-«un documento non si firma se il consenso non è vigente» — quella regola esisterebbe nel percorso
+**livello applicativo non può contenere logica di dominio**. Se contenesse una regola - poniamo,
+«un documento non si firma se il consenso non è vigente» - quella regola esisterebbe nel percorso
 dell'interfaccia utente e andrebbe riscritta nel percorso dell'interfaccia applicativa. Due
 implementazioni della stessa regola divergono sempre, e la divergenza si scopre quando qualcuno
 usa il percorso meno provato.
@@ -253,7 +253,7 @@ esposizione è un adattatore sottile sopra di esso.
 progetto lo ha formalizzato con una regola operativa: *l'area che introduce una capacità
 introduce anche il contratto; non è lavoro rinviabile*.
 
-### 2.5 Quarta forza — Sovranità e sostituibilità
+### 2.5 Quarta forza - Sovranità e sostituibilità
 
 **Il problema.** Il progetto dichiara che i dati clinici non transitano per servizi stabiliti
 fuori dall'Unione europea, e supporta tre profili di collocazione: Unione europea, territorio
@@ -270,8 +270,8 @@ un'interfaccia di progetto e ha un ripiego dichiarato**. Vale per il servizio te
 il servizio di firma, per il recapito delle notifiche, per il broker di eventi. E il corollario,
 che è la parte affilata: **dove il ripiego non esiste, il percorso non è principale**.
 
-**Il caso che illustra il principio meglio di ogni altro.** Il servizio terminologico — il
-componente che risolve e valida i codici clinici — potrebbe essere ospitato fuori dall'Unione.
+**Il caso che illustra il principio meglio di ogni altro.** Il servizio terminologico - il
+componente che risolve e valida i codici clinici - potrebbe essere ospitato fuori dall'Unione.
 La soluzione adottata non è collocarlo altrove: è **non trasportare il dato**. Le interrogazioni
 verso quel servizio non portano identificativi dell'assistito, non portano contesto clinico e
 non sono correlabili a una persona. **La sovranità di questa dipendenza si soddisfa per assenza
@@ -281,7 +281,7 @@ si applica molto più spesso di quanto sembri.
 **Il prezzo.** Ogni interfaccia di astrazione è codice in più, e ogni ripiego è un secondo
 comportamento da provare. Un sistema che chiama direttamente ciò che gli serve è più corto.
 
-### 2.6 Quinta forza — Isolamento fra titolari autonomi
+### 2.6 Quinta forza - Isolamento fra titolari autonomi
 
 **Il problema.** Il progetto esiste in due assetti: **servizio gestito** multi-organizzazione e
 **installazione presso il cliente**, con lo stesso codice. Nel servizio gestito le organizzazioni
@@ -302,11 +302,11 @@ categoria di dati neutri**. Il fatto che una persona abbia un appuntamento con u
 branca specialistica è già un dato relativo alla salute: rivela che si sta curando, e di che
 cosa. Non c'è quindi un sottoinsieme di tabelle «amministrative» da isolare con meno rigore.
 
-### 2.7 Sesta forza — Il tempo reale non tollera il percorso lungo
+### 2.7 Sesta forza - Il tempo reale non tollera il percorso lungo
 
 **Il problema.** Una videochiamata clinica ha un budget di latenza che si misura in decine di
-millisecondi. Lo scambio di messaggi che stabilisce la connessione — la **segnalazione**,
-spiegata nel [modulo 08](08-webrtc-da-zero.md) — ha inoltre un requisito che gli altri messaggi
+millisecondi. Lo scambio di messaggi che stabilisce la connessione - la **segnalazione**,
+spiegata nel [modulo 08](08-webrtc-da-zero.md) - ha inoltre un requisito che gli altri messaggi
 del sistema non hanno: i candidati di rete devono arrivare **esattamente una volta e nell'ordine
 in cui sono stati emessi**, altrimenti la negoziazione fallisce in modo intermittente e non
 diagnosticabile.
@@ -321,7 +321,7 @@ eventi e quello del tempo reale, con una propria macchina a stati e una propria 
 distribuzione del carico. È un secondo sistema da capire e da provare, ed è dichiarato come tale
 invece di essere nascosto sotto un'astrazione unificante che non reggerebbe.
 
-### 2.8 Settima forza — Accessibilità e uso reale come requisiti funzionali
+### 2.8 Settima forza - Accessibilità e uso reale come requisiti funzionali
 
 **Il problema.** Il paziente tipico di una televisita è una persona anziana, su uno smartphone,
 su rete mobile, spesso senza assistenza. Il professionista tipico è sotto pressione di tempo.
@@ -329,7 +329,7 @@ Un'interfaccia progettata per un utente competente su un buon collegamento non �
 «ottimizzabile in seguito»: è **inutilizzabile dalla popolazione di riferimento**.
 
 Nel progetto l'accessibilità non è una rifinitura: è un **criterio di accettazione di ogni
-schermata**, e — per effetto della disciplina sui dispositivi medici — è anche una misura di
+schermata**, e - per effetto della disciplina sui dispositivi medici - è anche una misura di
 controllo del rischio, perché un errore d'uso è un difetto di progettazione e non colpa
 dell'utente.
 
@@ -348,7 +348,7 @@ dei tre è un problema di fogli di stile:
    clinico, l'indicatore dello stato di cifratura.
 3. **L'internazionalizzazione è strutturale.** In particolare, le stringhe di interfaccia del
    progetto sono separate **per costruzione** dalle etichette ufficiali delle terminologie
-   cliniche — e la ragione, sorprendentemente, non è di ordine ma di licenza: §9.4 lo spiega.
+   cliniche - e la ragione, sorprendentemente, non è di ordine ma di licenza: §9.4 lo spiega.
 
 ### 2.9 L'ordine fra le forze
 
@@ -362,7 +362,7 @@ e aggiunge latenza a ogni operazione clinica. Se l'ordine fosse invertito, e la 
 precedesse la dimostrabilità, la scelta sarebbe stata di scrivere il registro in modo asincrono
 e di accettare una piccola finestra di accessi non tracciati. Sarebbe stato più veloce. E la
 finestra di accessi non tracciati avrebbe coinciso, statisticamente, con i momenti di maggiore
-carico — cioè con gli incidenti, cioè con l'unico momento in cui il registro serve.
+carico - cioè con gli incidenti, cioè con l'unico momento in cui il registro serve.
 
 ### 2.10 La forma che ne risulta
 
@@ -435,7 +435,7 @@ Quattro letture di questo disegno meritano di essere esplicitate, perché sono q
 del sistema e non quattro dettagli grafici.
 
 **Il nucleo non parla con l'esterno.** Ogni traduzione da e verso un formato di terzi avviene
-nel **livello anticorruzione** della frontiera — il nome tecnico per «il codice che traduce fra
+nel **livello anticorruzione** della frontiera - il nome tecnico per «il codice che traduce fra
 due linguaggi al confine, in modo che nessuno dei due contamini l'altro». È la condizione che
 consente due cose insieme: sostenere più integratori contemporaneamente senza avere logica
 specifica per partner dentro il dominio, e sopravvivere al cambio di versione di uno standard
@@ -470,7 +470,7 @@ Un'architettura di questo tipo non è gratis, e le sue tre voci di costo princip
 
 Nessuno dei tre è nascosto. Il secondo, in particolare, va compreso bene: **la coerenza immediata
 esiste dentro un aggregato, non fra contesti**. I confini degli aggregati sono scelti in modo
-che ogni invariante clinicamente rilevante sia interna a un solo aggregato — e ogni finestra di
+che ogni invariante clinicamente rilevante sia interna a un solo aggregato - e ogni finestra di
 divergenza ha una durata dichiarata e un meccanismo di riconciliazione visibile a un operatore.
 
 ---
@@ -493,8 +493,8 @@ sistema esterno usa per la stessa persona.
 Dopo sei mesi hai un'entità `Paziente` con ottanta campi, di cui **ogni consumatore usa dieci e
 ignora settanta**. Ogni modifica a quell'entità tocca tutti i moduli. Ogni caricamento la porta
 in memoria per intero. Ogni discussione su «che cosa significa questo campo» ha risposte diverse
-a seconda di chi la fa. E soprattutto: il campo *esenzione per patologia* — che ti sembrava
-amministrativo — **rivela la patologia**, è un dato particolare a tutti gli effetti, e sta
+a seconda di chi la fa. E soprattutto: il campo *esenzione per patologia* - che ti sembrava
+amministrativo - **rivela la patologia**, è un dato particolare a tutti gli effetti, e sta
 nella stessa entità che il modulo dell'agenda carica per mandare un promemoria via SMS.
 
 Questo è l'esito prevedibile del **modello unico**, ed è l'errore più costoso che si possa
@@ -528,16 +528,16 @@ riconosce quando un confine è stato violato:
 2. **Il modello è privato.** Nessun altro contesto legge le tabelle di questo, nessun altro
    contesto conosce la forma interna dei suoi tipi. Ciò che esce è un **contratto**.
 3. **La traduzione avviene al confine, esplicitamente.** Quando due contesti devono parlarsi e i
-   loro linguaggi divergono — ed è il caso normale, perché la divergenza è la **ragione** del
-   confine — la traduzione è codice dedicato, provato, collocato nel contesto che ne ha bisogno.
+   loro linguaggi divergono - ed è il caso normale, perché la divergenza è la **ragione** del
+   confine - la traduzione è codice dedicato, provato, collocato nel contesto che ne ha bisogno.
 
 La conseguenza pratica è che nel sistema esistono **più modelli del paziente**, uno per contesto,
 ciascuno con i soli attributi che servono a quel contesto, collegati fra loro da un
 identificativo. Non è duplicazione: è **specializzazione**. La duplicazione sarebbe avere due
 copie dello stesso modello; qui si hanno modelli **diversi** dello stesso soggetto reale.
 
-> La teoria generale — che cos'è un aggregato, che cos'è un linguaggio ubiquo, quali sono i
-> modelli di relazione fra contesti — è nel
+> La teoria generale - che cos'è un aggregato, che cos'è un linguaggio ubiquo, quali sono i
+> modelli di relazione fra contesti - è nel
 > [modulo 11 §7](11-fondamenti-informatici.md#7-domain-driven-design). Questo modulo dice quali
 > sono i contesti di Telemedic e perché passano di lì.
 
@@ -554,13 +554,13 @@ attraversando il sistema, e non in modo sottile:
 | **Sessione** | L'atto clinico (per il professionista) | La connessione audio-video (per l'infrastruttura) | L'unità rendicontabile (per l'amministrazione) |
 | **Consenso** | L'adesione all'atto sanitario | La base del trattamento dei dati | L'autorizzazione alla registrazione |
 | **Prestazione** | La richiesta | L'esecuzione | L'addebito |
-| **Registrazione** | La cattura audiovisiva | L'atto di registrare un fatto nel sistema | — |
+| **Registrazione** | La cattura audiovisiva | L'atto di registrare un fatto nel sistema | - |
 | **Disponibile** | Pubblicato | Prenotabile da un dato canale | Non ancora occupato |
-| **Esito** | Dove si trova il contatto (stato) | Che cosa è successo (esito) | — |
+| **Esito** | Dove si trova il contatto (stato) | Che cosa è successo (esito) | - |
 
 Ognuna di queste ambiguità ha già prodotto difetti in sistemi reali. La più insidiosa è
 l'ultima: **stato ed esito non sono la stessa cosa**, e due esiti diversi possono condividere lo
-stato terminale avendo effetti amministrativi **opposti** — la mancata presentazione
+stato terminale avendo effetti amministrativi **opposti** - la mancata presentazione
 dell'assistito e il fallimento tecnico a lui attribuibile finiscono entrambi in «terminato» e si
 rendicontano in modo diverso. Collassarli in un unico campo è vietato dal progetto.
 
@@ -574,7 +574,7 @@ diverse:
 
 Componenti che cambiano insieme devono stare insieme; componenti che cambiano per ragioni
 diverse devono poter essere rilasciati separatamente. Metterli nello stesso contesto significa
-che un aggiornamento del trasporto media obbliga a riverificare la documentazione clinica —
+che un aggiornamento del trasporto media obbliga a riverificare la documentazione clinica -
 cioè, in un percorso regolatorio, a rifare prove che non c'era ragione di rifare.
 
 **La frattura di regime di protezione.** Questa è la frattura che chi arriva da un dominio non
@@ -588,8 +588,8 @@ cancellazione **incompatibili fra loro**:
 - l'evidenza di consenso sopravvive al dato a cui si riferisce, perché serve a dimostrarne la
   liceità.
 
-Tenerli nello stesso contesto costringerebbe ad applicare a tutti il regime più severo —
-rendendo il sistema inutilizzabile, perché nulla sarebbe mai cancellabile — oppure il più
+Tenerli nello stesso contesto costringerebbe ad applicare a tutti il regime più severo -
+rendendo il sistema inutilizzabile, perché nulla sarebbe mai cancellabile - oppure il più
 permissivo, rendendolo illecito. Non esiste una via di mezzo: **è una frattura, non un
 compromesso**.
 
@@ -654,8 +654,8 @@ I confini costano, e il costo è concreto:
 | **Più modelli dello stesso soggetto** | Chi legge il codice per la prima volta trova tre rappresentazioni dell'assistito e deve capire perché |
 | **Disciplina permanente** | I confini **si erodono per accumulo di eccezioni ragionevoli**. Il momento pericoloso non è la progettazione: è quando qualcuno propone di aggiungere «solo un campo» |
 
-L'ultima riga è la ragione per cui la tabella di §4 ha una colonna che sembra strana — **«che
-cosa non è affar suo»** — e per cui il progetto verifica automaticamente che nessun contesto
+L'ultima riga è la ragione per cui la tabella di §4 ha una colonna che sembra strana - **«che
+cosa non è affar suo»** - e per cui il progetto verifica automaticamente che nessun contesto
 acceda alle tabelle di un altro. Una regola di confine affidata alla buona volontà ha una vita
 media di pochi mesi.
 
@@ -667,12 +667,12 @@ media di pochi mesi.
 
 I contesti di Telemedic sono **tredici**, fissati dalla base architetturale del progetto e
 sviluppati uno per uno in
-[`02 — Contesti delimitati`](../02_architecture/02-contesti-delimitati.md). Si dividono in
+[`02 - Contesti delimitati`](../02_architecture/02-contesti-delimitati.md). Si dividono in
 quattro famiglie, e la famiglia dice quanta cura merita ciascuno.
 
 ```mermaid
 flowchart TB
-    subgraph NUCLEO["Nucleo del dominio — dove vive il valore distintivo"]
+    subgraph NUCLEO["Nucleo del dominio - dove vive il valore distintivo"]
         C03["CTX-03 Agenda"]
         C04["CTX-04 Prestazione clinica"]
         C06["CTX-06 Documentazione clinica"]
@@ -680,20 +680,20 @@ flowchart TB
         C09["CTX-09 Consenso"]
     end
 
-    subgraph SUPPORTO["Supporto — necessari, non distintivi"]
+    subgraph SUPPORTO["Supporto - necessari, non distintivi"]
         C02["CTX-02 Anagrafiche"]
         C05["CTX-05 Sessione media"]
         C08["CTX-08 Notifiche e allarmi"]
         C10["CTX-10 Terminologie"]
     end
 
-    subgraph TRASV["Trasversali — servono tutti"]
+    subgraph TRASV["Trasversali - servono tutti"]
         C01["CTX-01 Identita e accessi"]
         C12["CTX-12 Tracciamento"]
         C13["CTX-13 Amministrazione tenant"]
     end
 
-    subgraph FRONT["Frontiera — l'unico che parla con l'esterno"]
+    subgraph FRONT["Frontiera - l'unico che parla con l'esterno"]
         C11["CTX-11 Interoperabilita in uscita"]
     end
 
@@ -769,18 +769,18 @@ un contesto, la domanda non è «ci sta bene?», ma **«questa riga dice che non
 
 ### 4.3 I tredici, uno per uno
 
-Quello che segue è il minimo necessario a orientarsi. Il dettaglio — invarianti, linguaggio
-proprio, relazioni — è in
-[`02 — Contesti delimitati`](../02_architecture/02-contesti-delimitati.md), e chi sta per
+Quello che segue è il minimo necessario a orientarsi. Il dettaglio - invarianti, linguaggio
+proprio, relazioni - è in
+[`02 - Contesti delimitati`](../02_architecture/02-contesti-delimitati.md), e chi sta per
 lavorare su un contesto deve leggere la scheda corrispondente per intero.
 
 **CTX-01 · Identità e accessi.** Trasforma un'affermazione di identità che viene da fuori in un
 contesto autorizzativo interno. Nel suo linguaggio la parola «utente» **è deliberatamente
 evitata**, perché nasconde tre cose diverse: la persona, la sua **veste** professionale (la
 coppia persona-organizzazione con validità temporale) e il **principale applicativo** che agisce
-per suo conto. L'accesso è consentito solo se **quattro condizioni congiunte** sono vere — il
+per suo conto. L'accesso è consentito solo se **quattro condizioni congiunte** sono vere - il
 permesso appartiene ai ruoli, esiste una relazione abilitante, nessuna volontà negativa copre la
-risorsa, il tenant coincide — e il valore predefinito è il diniego. *Non è affar suo* sapere chi
+risorsa, il tenant coincide - e il valore predefinito è il diniego. *Non è affar suo* sapere chi
 è clinicamente l'assistito: sa che esiste un soggetto, non che cosa ha.
 
 **CTX-02 · Anagrafiche.** Custodisce **riferimenti**, non anagrafiche. La parola chiave è quella:
@@ -798,7 +798,7 @@ che sfugge sempre: l'**intervallo** di disponibilità non è l'**appuntamento**;
 la catena di riprogrammazione conserva **la data della richiesta originaria**, perché senza di
 essa i tempi di attesa non sono ricostruibili e riprogrammare diventa un modo per azzerarli.
 *Non è affar suo* sapere che cosa accade durante la prestazione. E il promemoria che invia **non
-contiene dato clinico**: data, ora, struttura, collegamento — mai la branca specialistica, che è
+contiene dato clinico**: data, ora, struttura, collegamento - mai la branca specialistica, che è
 essa stessa un dato sulla salute.
 
 **CTX-04 · Prestazione clinica.** Il contesto centrale, ed è **documentale**: ciò che vi accade
@@ -806,19 +806,19 @@ resta. Custodisce due distinzioni che il resto del sistema deve rispettare.
 La prima è fra **identificazione** e **autenticazione**: la credenziale certifica chi possiede la
 credenziale, non chi sta davanti alla telecamera. Sono due evidenze distinte, in due momenti
 distinti, con due registrazioni distinte. La seconda è fra **stato** ed **esito**. Custodisce
-inoltre l'invariante più importante del sistema — *lo stato del contatto non dipende dallo stato
-della sessione media* — che è l'oggetto di §5. *Non è affar suo* trasportare audio e video, e non
+inoltre l'invariante più importante del sistema - *lo stato del contatto non dipende dallo stato
+della sessione media* - che è l'oggetto di §5. *Non è affar suo* trasportare audio e video, e non
 conosce candidati di rete né cifrari negoziati. E non redige il documento: apre la finestra di
 refertazione e ne osserva lo stato.
 
 **CTX-05 · Sessione media.** Qui «sessione» significa **connessione**, non atto. Custodisce la
 negoziazione, la qualità misurata, il materiale registrato e l'esito della **verifica breve delle
-chiavi** — il codice che i due interlocutori si confrontano a voce all'inizio, che è insieme ciò
+chiavi** - il codice che i due interlocutori si confrontano a voce all'inizio, che è insieme ciò
 che rende *dimostrabile* la cifratura fino agli estremi e un controllo di rischio tracciabile.
 *Non è affar suo* attribuire significato clinico a ciò che accade, e in particolare **non decide
 se la qualità è sufficiente per l'atto**: misura, confronta con soglie configurate, informa il
 professionista, che decide. È una distinzione da tenere ben ferma, perché la scorciatoia
-opposta — «se la qualità scende sotto X, chiudi la prestazione» — sposta il sistema oltre il
+opposta - «se la qualità scende sotto X, chiudi la prestazione» - sposta il sistema oltre il
 confine regolatorio di §2.3.
 
 **CTX-06 · Documentazione clinica.** Il contesto in cui il confine fra registrazione e
@@ -834,8 +834,8 @@ popolato da testo prodotto automaticamente.
 **CTX-07 · Telemonitoraggio.** Il contesto scritto interamente sulla formulazione «**raccolta
 differita di parametri per la revisione periodica del professionista**». La formulazione non è
 uno stile: «monitoraggio in tempo reale» o «sorveglianza continua» sposterebbero il prodotto in
-una classe di rischio superiore, e nessun artefatto del progetto — documentazione, interfaccia,
-nome di classe, nome di evento — può usarle. Custodisce piani **versionati**, misure
+una classe di rischio superiore, e nessun artefatto del progetto - documentazione, interfaccia,
+nome di classe, nome di evento - può usarle. Custodisce piani **versionati**, misure
 **immutabili** con il proprio contesto di produzione, l'aderenza, e una entità che sorprende chi
 la incontra per la prima volta: l'**attesa di rilevazione**. Il silenzio non è l'assenza di una
 riga: è **una riga che dichiara l'assenza**, con finestra attesa, istante di scadenza e causa
@@ -862,8 +862,8 @@ un'entità, ed è sempre riferito a una **versione immutabile** dell'informativa
 versionamento dell'informativa, il consenso è indimostrabile. Custodisce anche l'**oscuramento**,
 con una proprietà che va enunciata perché è controintuitiva: *l'oscuramento è anche oscuramento
 dell'oscuramento*. L'esistenza del documento oscurato non deve essere inferibile, e i canali da
-cui si inferisce sono sei — numerazione, conteggi, paginazione, notifiche, differenze fra
-interrogazioni successive, messaggi d'errore — e vanno chiusi **tutti**, in un unico punto.
+cui si inferisce sono sei - numerazione, conteggi, paginazione, notifiche, differenze fra
+interrogazioni successive, messaggi d'errore - e vanno chiusi **tutti**, in un unico punto.
 
 **CTX-10 · Terminologie.** Punto **unico** di risoluzione e validazione dei codici clinici:
 nessun altro contesto interroga direttamente una fonte terminologica. Custodisce la politica di
@@ -882,14 +882,14 @@ atteso, mappatura dei claim, origini ammesse, destinazioni ammesse. La ragione d
 netta: registri separati divergono, e **la divergenza è sempre a favore di chi attacca**.
 Tre invarianti: nessuna struttura di formato esterno entra nei contesti di dominio; ogni
 messaggio in uscita è identificato e idempotente; **il fallimento definitivo di una consegna non
-è silenzioso** — entra in una coda di riconciliazione visibile a un operatore, con un'azione
+è silenzioso** - entra in una coda di riconciliazione visibile a un operatore, con un'azione
 possibile. *Non è affar suo* definire il modello canonico: lo riceve.
 
 **CTX-12 · Tracciamento.** Registra chi ha fatto che cosa, quando, su quale soggetto, con quale
 esito e con quale livello di garanzia. È l'unico contesto **senza comportamento di mutazione**:
 la voce di registro non ha metodi che la modifichino. Tre invarianti che vanno sapute subito: è
 **append-only** per ogni ruolo, senza eccezioni; **il fallimento della scrittura fa fallire
-l'operazione applicativa**; **la lettura del registro è a sua volta registrata** — chi guarda chi
+l'operazione applicativa**; **la lettura del registro è a sua volta registrata** - chi guarda chi
 ha guardato lascia traccia, ed è la proprietà che rende sorvegliabile il ruolo più privilegiato
 del sistema. *Non è affar suo* contenere logica applicativa, e non è **mai** letto da un percorso
 applicativo per prendere una decisione.
@@ -897,7 +897,7 @@ applicativo per prendere una decisione.
 **CTX-13 · Amministrazione tenant.** Custodisce il ciclo di vita del tenant, la configurazione
 versionata, le quote, i limiti di traffico e le personalizzazioni di aspetto. Nel suo linguaggio
 c'è una distinzione da non perdere: **tenant** non coincide con **organizzazione**, né con
-**struttura erogante**, né con **integratore** — quattro concetti che coincidono nei casi
+**struttura erogante**, né con **integratore** - quattro concetti che coincidono nei casi
 semplici e divergono in quelli reali. L'invariante centrale è che **nessuna configurazione può
 rimuovere un'invariante di dominio**, creare un permesso nuovo o abilitare una combinazione di
 professione e atto che il dominio vieta. *Non è affar suo* accedere ai dati clinici: il ruolo di
@@ -913,14 +913,14 @@ perché mostra come si comporta il progetto quando una domanda eccede il proprio
 Quando una prestazione si conclude, nasce un **fatto rendicontabile**: qualcosa è stato erogato,
 e va comunicato a chi lo liquida. Il fatto di dominio è verificato: la prestazione erogata a
 distanza si rendiconta con **il codice della corrispondente prestazione in presenza**, con un
-attributo di canale che ne qualifica la modalità. Non esiste — e non deve esistere — un codice di
+attributo di canale che ne qualifica la modalità. Non esiste - e non deve esistere - un codice di
 prestazione «televisita» separato. Confondere l'asse «che cosa è stato erogato» con l'asse «come
 è stato erogato» rende un sistema di telemedicina **non rendicontabile**, e la correzione a
 posteriori richiede di ricodificare tutto lo storico.
 
 Esiste inoltre un vincolo severo: il profilo di integrazione del **pagatore** è
-**amministrativo per costruzione** — identificativo della prestazione, esito amministrativo,
-importo — e non può in alcun modo costituire un percorso verso il contenuto clinico, nemmeno
+**amministrativo per costruzione** - identificativo della prestazione, esito amministrativo,
+importo - e non può in alcun modo costituire un percorso verso il contenuto clinico, nemmeno
 mediato da un professionista.
 
 La domanda aperta è **dove si forma** quell'evento. Le opzioni sono tre:
@@ -959,55 +959,55 @@ complessità gratuita, e chi lo propone non è distratto: sta applicando il prin
 è modellare la realtà come la vedono gli utenti.
 
 Il codice più semplice è quello in cui l'entità della prestazione porta anche i campi della
-connessione — stato del collegamento, tipo di percorso di rete, istante di avvio del flusso — e
+connessione - stato del collegamento, tipo di percorso di rete, istante di avvio del flusso - e
 in cui la fine della connessione chiude la prestazione. Nel caso felice le due entità hanno la
 stessa durata, gli stessi partecipanti, lo stesso identificativo logico.
 
 > **Il modello unificato funziona perfettamente finché la rete funziona perfettamente.**
 
 Questa è la frase su cui gira tutto. In un sistema di telemedicina il caso in cui la rete non
-funziona **non è un'eccezione**: è una parte consistente del volume — il paziente è su rete
-mobile, in casa, con un dispositivo modesto — ed è il caso su cui il sistema si giudica.
+funziona **non è un'eccezione**: è una parte consistente del volume - il paziente è su rete
+mobile, in casa, con un dispositivo modesto - ed è il caso su cui il sistema si giudica.
 
 ### 5.2 Le sei conseguenze dell'unione
 
 Ognuna di queste è un difetto reale, non un'ipotesi accademica.
 
-**Prima — la prestazione fantasma.** Una caduta di rete e una riconnessione producono due
+**Prima - la prestazione fantasma.** Una caduta di rete e una riconnessione producono due
 connessioni. Se la connessione **è** la prestazione, il sistema registra due atti sanitari dove
-ce n'è stato uno. Il conteggio delle prestazioni erogate — che alimenta la rendicontazione —
+ce n'è stato uno. Il conteggio delle prestazioni erogate - che alimenta la rendicontazione -
 diventa il conteggio delle connessioni riuscite, che è una grandezza diversa e serve ad altro.
 La parte irreparabile è questa: nessun aggiustamento successivo recupera l'informazione, perché
 **il sistema non ha mai saputo che le due connessioni erano lo stesso atto**. L'informazione non
 è stata persa: non è mai esistita.
 
-**Seconda — l'atto sanitario inesistente.** La verifica tecnica che precede l'appuntamento —
-«prova microfono e telecamera prima della visita», che è una funzione richiesta e sensata — è una
+**Seconda - l'atto sanitario inesistente.** La verifica tecnica che precede l'appuntamento -
+«prova microfono e telecamera prima della visita», che è una funzione richiesta e sensata - è una
 connessione **senza** atto clinico. Con il modello unificato hai due strade: creare una
 prestazione fittizia, che finisce nei conteggi e potenzialmente nella cartella di una persona;
-oppure introdurre un ramo speciale che crea una connessione senza prestazione — cioè ammettere
+oppure introdurre un ramo speciale che crea una connessione senza prestazione - cioè ammettere
 che le due cose sono separate, ma **facendolo di nascosto**, in un caso particolare, senza che il
 modello lo dica.
 
-**Terza — la prestazione erogata che risulta non erogata.** Il video fallisce, il professionista
+**Terza - la prestazione erogata che risulta non erogata.** Il video fallisce, il professionista
 prosegue e conclude in fonia, dichiara l'esito, referta. È **una prestazione erogata**, con un
 esito clinico e un referto, in cui la connessione video è fallita. Con il modello unificato
 l'atto risulta fallito, e il fallimento entra nella rendicontazione e negli indicatori di
 qualità del servizio.
 
-**Quarta — la prestazione con più sessioni legittime.** Ci sono atti in cui le connessioni sono
+**Quarta - la prestazione con più sessioni legittime.** Ci sono atti in cui le connessioni sono
 più di una **per progetto, non per guasto**: l'ingresso di un interprete a metà seduta, la
 ripresa dopo una pausa concordata, il passaggio di consegne fra due professionisti. Il modello
 unificato le rappresenta come atti distinti, oppure costringe a nascondere le successive.
 
-**Quinta — l'inquinamento del regime di conservazione.** La connessione produce metadati tecnici
+**Quinta - l'inquinamento del regime di conservazione.** La connessione produce metadati tecnici
 con un regime di conservazione **breve**; la prestazione è documentazione sanitaria con un regime
 **lungo**. Unendoli hai due esiti, entrambi sbagliati: conservare i metadati tecnici per il tempo
-della documentazione sanitaria — costruendo un archivio di dati di traffico sanitario che nessuno
-ha chiesto e che qualcuno dovrà proteggere per anni — oppure cancellare la documentazione insieme
+della documentazione sanitaria - costruendo un archivio di dati di traffico sanitario che nessuno
+ha chiesto e che qualcuno dovrà proteggere per anni - oppure cancellare la documentazione insieme
 ai metadati.
 
-**Sesta — l'accoppiamento dei ritmi di rilascio.** Il trasporto in tempo reale cambia quando
+**Sesta - l'accoppiamento dei ritmi di rilascio.** Il trasporto in tempo reale cambia quando
 cambiano i motori dei browser e i protocolli di rete, cioè spesso. La documentazione dell'atto
 cambia quando cambia la normativa sanitaria, cioè di rado. Nel modello unificato **ogni
 aggiornamento dell'uno tocca l'altro**, e in un percorso regolatorio «toccare» significa
@@ -1016,8 +1016,8 @@ riverificare.
 ### 5.3 La decisione
 
 **Prestazione clinica e sessione media sono due aggregati distinti, radici di due contesti
-delimitati distinti, collegati solo per identificativo.** Fu valutata anche una via di mezzo —
-due tipi dentro lo stesso aggregato — e fu scartata perché la consistenza immediata fra i due è
+delimitati distinti, collegati solo per identificativo.** Fu valutata anche una via di mezzo -
+due tipi dentro lo stesso aggregato - e fu scartata perché la consistenza immediata fra i due è
 **esattamente ciò che non si vuole**: metterli nello stesso confine transazionale significa che
 ogni cambio di stato della connessione (decine, in una prestazione) è una scrittura
 sull'aggregato dell'atto, con contesa, e con il rischio permanente che qualcuno colleghi i due
@@ -1025,7 +1025,7 @@ stati «perché tanto sono lì».
 
 ```mermaid
 flowchart LR
-    subgraph A["Aggregato Prestazione — CTX-04"]
+    subgraph A["Aggregato Prestazione - CTX-04"]
         P["Prestazione<br/>radice"]
         PA["Partecipazione"]
         PI["Atto di identificazione"]
@@ -1035,7 +1035,7 @@ flowchart LR
         P --> PE
     end
 
-    subgraph B["Aggregato Sessione media — CTX-05"]
+    subgraph B["Aggregato Sessione media - CTX-05"]
         S["SessioneMedia<br/>radice"]
         SN["Negoziazione"]
         SQ["Profilo di qualita"]
@@ -1065,7 +1065,7 @@ attraverso l'interfaccia del contesto proprietario.
 | Perdita di connettività | **Nessun effetto.** L'evento è annotato nel registro tecnico dell'atto |
 | Riconnessione riuscita | Nessun effetto. Un identificativo di sessione in più nell'elenco |
 | Degradazione oltre la soglia configurata | **Nessun cambio di stato.** Il professionista è informato e decide il ripiego o il rinvio |
-| Fallimento definitivo della sessione | **Nessun cambio di stato automatico.** La prestazione resta aperta e il professionista dichiara l'esito — che può essere il ripiego in fonia, il rinvio, o il fallimento tecnico |
+| Fallimento definitivo della sessione | **Nessun cambio di stato automatico.** La prestazione resta aperta e il professionista dichiara l'esito - che può essere il ripiego in fonia, il rinvio, o il fallimento tecnico |
 | Terminazione ordinata | Nessun effetto: la chiusura dell'atto è un atto del professionista |
 
 **Nessuna riga di questa tabella produce un cambio di stato automatico.** Se stai scrivendo
@@ -1082,7 +1082,7 @@ prestazione, la prima poche volte in ore o giorni.
 ```mermaid
 stateDiagram-v2
     direction TB
-    state "Prestazione — semantica clinica e amministrativa" as PREST {
+    state "Prestazione - semantica clinica e amministrativa" as PREST {
         [*] --> Richiesta
         Richiesta --> Prenotata : appuntamento confermato
         Prenotata --> Pronta : prerequisiti e consensi verificati
@@ -1107,7 +1107,7 @@ stateDiagram-v2
 ```mermaid
 stateDiagram-v2
     direction LR
-    state "Sessione media — semantica tecnica" as MEDIA {
+    state "Sessione media - semantica tecnica" as MEDIA {
         [*] --> Inizializzata
         Inizializzata --> Negoziazione : scambio di offerta e risposta
         Negoziazione --> ConnessaDiretta : coppia di percorsi diretta
@@ -1168,7 +1168,7 @@ Va detto per intero, perché è reale.
 
 | Costo | In pratica |
 |---|---|
-| **Il modello non corrisponde alla percezione ingenua** | Va spiegato a ogni nuovo contributore — è il motivo per cui questa sezione esiste |
+| **Il modello non corrisponde alla percezione ingenua** | Va spiegato a ogni nuovo contributore - è il motivo per cui questa sezione esiste |
 | **Due identificativi da correlare** | La risoluzione passa dall'interfaccia del contesto proprietario, non da un join |
 | **Sincronizzazione esplicita da progettare** | La tabella di §5.4 è codice, non documentazione |
 | **Finestre in cui la connessione è terminata e l'atto è ancora aperto** | È **corretto**, ma richiede che l'interfaccia lo rappresenti in modo comprensibile al professionista, altrimenti sembra un difetto |
@@ -1229,7 +1229,7 @@ notifica, il fatto rendicontabile non è emesso. **E nessuno se ne accorge**, pe
 che segnali l'assenza di un evento che non è mai esistito. In un dominio in cui il silenzio non è
 mai normalità, questo è particolarmente grave.
 
-**L'evento fantasma.** L'ordine inverso — pubblicare prima di consolidare — produce il caso
+**L'evento fantasma.** L'ordine inverso - pubblicare prima di consolidare - produce il caso
 opposto: l'evento è consegnato, la transazione fallisce. Un sistema di terze parti riceve la
 notifica di un documento firmato **che non esiste**. È il peggiore dei due, perché produce dati
 errati nella cartella clinica di qualcun altro.
@@ -1279,7 +1279,7 @@ di perimetro, non di prestazioni**: introdurrebbe un componente di terze parti d
 aggiornare e sorvegliare per l'intera vita del prodotto, e richiederebbe privilegi di replica in
 un'installazione presso un cliente che non è un fornitore di servizi informatici. Resta come
 opzione dichiarata per assetti ad alto volume, e **il contratto degli eventi non cambia fra le
-due modalità** — che è precisamente la proprietà che consente di cambiare idea senza toccare i
+due modalità** - che è precisamente la proprietà che consente di cambiare idea senza toccare i
 consumatori.
 
 **Non tutto passa dall'outbox.** Non vi passano: le interrogazioni sincrone fra contesti (che non
@@ -1287,13 +1287,13 @@ sono eventi); le metriche di esercizio; le voci del registro immutabile, che han
 proprio con garanzie **più forti**; e il segnalamento della sessione in tempo reale, che è
 l'argomento di §6.7.
 
-**La busta è standard, non inventata.** Il formato con cui l'evento viaggia — attributi comuni
-come identificativo, sorgente, tipo, istante, più il dato — è quello di una specifica di settore,
+**La busta è standard, non inventata.** Il formato con cui l'evento viaggia - attributi comuni
+come identificativo, sorgente, tipo, istante, più il dato - è quello di una specifica di settore,
 descritta nel [modulo 13 §6.2](13-protocolli.md#62-cloudevents), con alcune estensioni di
 progetto obbligatorie: **l'identificativo dell'organizzazione, senza eccezioni**, un numero di
 sequenza per aggregato e un identificativo di correlazione che collega gli eventi originati dalla
 stessa azione. Due dettagli hanno conseguenze pratiche: **la versione sta nel nome del tipo**, non
-in un attributo separato — così un consumatore può sottoscrivere la versione che sa trattare e
+in un attributo separato - così un consumatore può sottoscrivere la versione che sa trattare e
 ignorare le altre, mentre con la versione in un attributo riceverebbe comunque tutto; e per la
 durata del preavviso di dismissione **entrambe le versioni sono emesse**, il che comporta che il
 produttore debba poter ricostruire la vecchia forma dal nuovo stato. Se non è possibile, la
@@ -1316,12 +1316,12 @@ sistema promette e che cosa non promette.
 **Perché «esattamente una volta» non si promette.** Immagina il relay che pubblica un evento e
 poi cade **prima** di aver marcato la riga come pubblicata. Al riavvio, la riga è ancora da
 pubblicare, e l'evento parte una seconda volta. L'unico modo di evitarlo sarebbe rendere atomici
-la pubblicazione sul broker e l'aggiornamento della riga — cioè una transazione che comprende due
+la pubblicazione sul broker e l'aggiornamento della riga - cioè una transazione che comprende due
 sistemi, che è precisamente ciò che non esiste. Lo stesso vale, moltiplicato, quando il
 destinatario è il sistema di un terzo: nessuna garanzia attraversa quel confine.
 
 Si potrebbe fingere. Sarebbe la scelta peggiore, perché produrrebbe **integratori che non
-deduplicano** — e il duplicato arriverebbe comunque, un giorno, sotto carico.
+deduplicano** - e il duplicato arriverebbe comunque, un giorno, sotto carico.
 
 **Che cosa ne discende, ed è un obbligo.** **Ogni consumatore è idempotente, senza eccezioni.**
 Non è una raccomandazione: è una condizione di accettazione, verificata con una prova che consegna
@@ -1337,24 +1337,24 @@ di preferenza:
 **Due effetti, in questo sistema, non sono ritrattabili** e vanno protetti con la terza forma: il
 **recapito di un messaggio a una persona** e il **deposito di un documento in un'infrastruttura
 documentale esterna**. Un messaggio inviato due volte a un assistito non è un difetto tecnico
-invisibile: è un'esperienza che genera dubbio su un contenuto sanitario — «ho due referti?», «me
-ne hanno mandato uno sbagliato?» — e in questo dominio il dubbio ha un costo.
+invisibile: è un'esperienza che genera dubbio su un contenuto sanitario - «ho due referti?», «me
+ne hanno mandato uno sbagliato?» - e in questo dominio il dubbio ha un costo.
 
 **Sull'ordine.** Un evento di conclusione **può arrivare prima** dell'evento di avvio. È una
 conseguenza inevitabile dei ritentativi e della consegna concorrente, ed è **documentata nel
 contratto pubblico**, non nascosta. L'ordine si ricostruisce con due meccanismi complementari:
 la chiave di partizionamento è **l'identificativo dell'aggregato** (la prestazione, il documento,
-il piano) e non il tenant — partizionare per tenant sembra naturale, produce partizioni
+il piano) e non il tenant - partizionare per tenant sembra naturale, produce partizioni
 gravemente sbilanciate e non dà la garanzia che serve; e ogni evento porta un **numero di
 sequenza per aggregato**, così che il consumatore che ha già applicato il numero `n` scarti ciò
 che arriva con un numero inferiore. È questo secondo meccanismo che rende l'ordine di arrivo
-**irrilevante** senza costringere a code ordinate, che sono costose e fragili — in una coda
+**irrilevante** senza costringere a code ordinate, che sono costose e fragili - in una coda
 ordinata un evento bloccato blocca tutti quelli che lo seguono.
 
 ### 6.5 Perché gli eventi non trasportano contenuto clinico
 
 Un evento che notifica la firma di un referto può portare con sé il referto, oppure portare solo
-l'informazione che esiste. Sembra un'ottimizzazione — una chiamata in meno — ed è invece **una
+l'informazione che esiste. Sembra un'ottimizzazione - una chiamata in meno - ed è invece **una
 decisione sul modello di autorizzazione**.
 
 > **Il dato è magro.** L'evento trasporta identificativi, riferimenti e i pochi attributi che
@@ -1364,7 +1364,7 @@ decisione sul modello di autorizzazione**.
 
 Le tre ragioni, in ordine di importanza.
 
-**Prima — l'autorizzazione è valutata al momento della lettura, non della produzione.** Se il
+**Prima - l'autorizzazione è valutata al momento della lettura, non della produzione.** Se il
 contenuto viaggia nella busta, è stato autorizzato quando l'evento è stato prodotto. Se fra la
 produzione e la lettura l'assistito **revoca un consenso** o **oscura un documento**, la busta
 già consegnata non lo sa e non può saperlo. La rilettura, invece, sposta la decisione al momento
@@ -1372,13 +1372,13 @@ dell'accesso, con gli attributi vigenti **allora**: una revoca sopravvenuta è r
 sistema in cui la revoca ha effetto immediato su ciò che è in corso, questa è la ragione
 decisiva.
 
-**Seconda — la superficie di esposizione.** Una busta con contenuto clinico attraversa code,
+**Seconda - la superficie di esposizione.** Una busta con contenuto clinico attraversa code,
 registri di diagnostica, sistemi di sorveglianza, archivi di ritentativo e **la coda dei messaggi
 non elaborabili**, che è ispezionabile da un amministratore. Ogni transito è una copia di un
 dato sanitario in un luogo con un regime di protezione diverso, spesso più permissivo, quasi
 sempre non censito.
 
-**Terza — la stabilità del contratto.** Una busta magra cambia meno spesso, perché non segue
+**Terza - la stabilità del contratto.** Una busta magra cambia meno spesso, perché non segue
 l'evoluzione della forma del contenuto.
 
 **Il prezzo, che è reale.** Il destinatario deve saper richiamare, quindi deve avere credenziali
@@ -1399,7 +1399,7 @@ Tre meccanismi, in cascata, e tutti e tre hanno una proprietà comune che vale l
 
 1. **Ritentativi con attesa esponenziale e variazione casuale.** La variazione casuale non è
    ornamentale: senza, un'indisponibilità di pochi minuti di un destinatario produce, alla
-   riattivazione, una **raffica sincronizzata** di tutti gli eventi accumulati — cioè un attacco
+   riattivazione, una **raffica sincronizzata** di tutti gli eventi accumulati - cioè un attacco
    involontario di negazione del servizio contro il proprio integratore. I valori di base, tetto
    e numero di tentativi sono **parametri dichiarati nel contratto pubblico**, non costanti nel
    codice: l'integratore deve poter sapere per quanto tempo il sistema riproverà, perché da quel
@@ -1418,7 +1418,7 @@ Tre meccanismi, in cascata, e tutti e tre hanno una proprietà comune che vale l
 
 Sull'ultimo punto il progetto è categorico. Se il fallimento riguarda contenuto clinico che
 doveva raggiungere il sistema di origine, entra in una **coda di riconciliazione presidiata da un
-operatore**, con un'azione possibile — non in un registro di diagnostica. E la sorveglianza della
+operatore**, con un'azione possibile - non in un registro di diagnostica. E la sorveglianza della
 profondità di quella coda è un requisito di esercizio con soglia dichiarata, perché *una coda dei
 messaggi non elaborabili che nessuno guarda è peggio dell'assenza della coda*: produce la
 convinzione che il problema sia gestito.
@@ -1434,8 +1434,8 @@ quella del broker. Il percorso di negoziazione della sessione ha un budget di fr
 **misurate**: aggiungere il percorso lungo significa mancare il requisito per costruzione.
 
 **L'ordinamento e la consegna.** Lo scambio dei candidati di rete richiede consegna **esattamente
-una volta e nello stesso ordine** in cui sono stati emessi — è un requisito della specifica del
-protocollo, non una preferenza; il [modulo 13 §7](13-protocolli.md#7-tempo-reale--scheda-sintetica)
+una volta e nello stesso ordine** in cui sono stati emessi - è un requisito della specifica del
+protocollo, non una preferenza; il [modulo 13 §7](13-protocolli.md#7-tempo-reale---scheda-sintetica)
 elenca la pila che lo produce e il [modulo 08](08-webrtc-da-zero.md) spiega perché quei candidati
 esistono. Un canale di pubblicazione generico non garantisce quella proprietà, e un candidato
 duplicato o fuori ordine produce fallimenti di negoziazione **intermittenti, dipendenti dal
@@ -1460,7 +1460,7 @@ rinegoziazione. Il sistema ha quindi due meccanismi di comunicazione da capire e
 invece di uno, ed è stato preferito a un meccanismo unico che avrebbe mancato il requisito.
 
 Il dettaglio completo è in
-[`06 — Eventi e integrazione interna`](../02_architecture/06-eventi-e-integrazione-interna.md);
+[`06 - Eventi e integrazione interna`](../02_architecture/06-eventi-e-integrazione-interna.md);
 le decisioni corrispondenti sono [ADR-0008](../adr/0008-outbox-transazionale-unica-sorgente.md),
 [ADR-0009](../adr/0009-relay-outbox-per-interrogazione-periodica.md),
 [ADR-0010](../adr/0010-buste-cloudevents-consegna-e-idempotenza.md),
@@ -1482,7 +1482,7 @@ compiuta. Richiede che l'identità sia stata accertata **al momento dell'operazi
 registrata insieme al **livello di garanzia** con cui è stata accertata, e che la registrazione
 sia opponibile.
 
-**Non alterabile** significa che nessuno — **incluso chi amministra il sistema** — può modificare
+**Non alterabile** significa che nessuno - **incluso chi amministra il sistema** - può modificare
 o cancellare una voce senza che l'alterazione sia rilevabile.
 
 La seconda è quella difficile, e la difficoltà ha un nome preciso: **il modello di minaccia
@@ -1500,7 +1500,7 @@ Non lo è, e la ragione sta in una frase:
 > **Le tabelle di storico sono tabelle come le altre.**
 
 Chi ha accesso in scrittura alla base dati modifica anche quelle. Il versionamento **versiona,
-non rende immutabile**. Nel modello di minaccia dichiarato — che comprende l'amministratore — non
+non rende immutabile**. Nel modello di minaccia dichiarato - che comprende l'amministratore - non
 copre nulla.
 
 Un esempio concreto per fissarlo. Supponiamo che un operatore acceda impropriamente al referto
@@ -1510,7 +1510,7 @@ verifica lo rileva, perché non esiste nulla che affermi quante righe **avrebber
 esserci. Il registro torna positivo, e la sua positività non significa niente.
 
 Nel progetto questa distinzione **non va attenuata in nessun documento**: è il vincolo **V-04**.
-Il versionamento delle entità resta utile — per ricostruire lo stato applicativo passato — e non
+Il versionamento delle entità resta utile - per ricostruire lo stato applicativo passato - e non
 è, e non viene mai presentato come, il registro degli accessi.
 
 ### 7.3 Quattro strati, non quattro alternative
@@ -1560,7 +1560,7 @@ delle funzioni di impronta è nel
 [modulo 12 §5](12-crittografia-e-sicurezza.md#5-funzioni-di-hash).
 
 **La catena è per organizzazione, non globale.** Una catena globale creerebbe una dipendenza fra
-organizzazioni — verificare l'integrità dell'una richiederebbe le voci dell'altra — che
+organizzazioni - verificare l'integrità dell'una richiederebbe le voci dell'altra - che
 contraddice l'isolamento di §8 e renderebbe impossibile consegnare a un titolare l'evidenza dei
 propri accessi **senza esporgli l'esistenza degli altri**.
 
@@ -1587,7 +1587,7 @@ Due righe di quell'elenco meritano attenzione perché sono quelle che mancano qu
 
 - **L'esito comprende il diniego.** Un accesso negato si registra, ed è **l'informazione più
   interessante per chi verifica**: dice che qualcuno ha provato.
-- **La finalità** — cura, deroga, esercizio, amministrazione, verifica — è l'attributo che rende
+- **La finalità** - cura, deroga, esercizio, amministrazione, verifica - è l'attributo che rende
   una decisione di accesso **spiegabile a posteriori**. Senza, si sa che l'accesso è avvenuto e
   non si sa perché era legittimo.
 
@@ -1614,7 +1614,7 @@ e la terza è quella che chiude la discussione:
 
 L'elenco di ciò che non compare è **chiuso e verificato automaticamente**, non affidato al buon
 senso. Comprende anche un elemento inatteso: **l'identificativo esterno dell'assistito**, quello
-con cui l'integratore lo identifica nel proprio sistema, non compare — si registra
+con cui l'integratore lo identifica nel proprio sistema, non compare - si registra
 l'identificativo interno opaco. La ragione è che il registro è consegnabile a soggetti diversi
 dal titolare, e l'identificativo esterno è **una chiave verso un altro archivio**.
 
@@ -1623,7 +1623,7 @@ dal titolare, e l'identificativo esterno è **una chiave verso un altro archivio
 > **Il fallimento della scrittura di registro fa fallire l'operazione applicativa.**
 
 Non è una scelta di robustezza: è la traduzione operativa del requisito. Se l'operazione
-riuscisse senza traccia, esisterebbe un accesso a dato sanitario non dimostrabile — che è
+riuscisse senza traccia, esisterebbe un accesso a dato sanitario non dimostrabile - che è
 esattamente ciò che il registro esiste per impedire.
 
 Le conseguenze vanno accettate consapevolmente, e sono tre.
@@ -1632,7 +1632,7 @@ Le conseguenze vanno accettate consapevolmente, e sono tre.
 dato clinico, e il budget di latenza delle operazioni la comprende esplicitamente.
 
 **L'indisponibilità del registro è indisponibilità del sistema** per le operazioni su dato
-clinico. È severo. L'alternativa — proseguire senza traccia e riconciliare dopo — produrrebbe una
+clinico. È severo. L'alternativa - proseguire senza traccia e riconciliare dopo - produrrebbe una
 finestra di accessi non dimostrabili, e **la finestra coinciderebbe con l'incidente**, cioè con
 il momento in cui la dimostrabilità serve di più.
 
@@ -1678,7 +1678,7 @@ controlla**. Ciò che può fare è renderla predefinita, rilevarne l'assenza e d
 conseguenza.
 
 Il dettaglio è in
-[`07 — Tracciamento e registro immutabile`](../02_architecture/07-tracciamento-e-registro-immutabile.md).
+[`07 - Tracciamento e registro immutabile`](../02_architecture/07-tracciamento-e-registro-immutabile.md).
 
 ---
 
@@ -1690,7 +1690,7 @@ Immagina di aver scritto un sistema per una clinica. Funziona. Arriva una second
 chiede lo stesso sistema. Hai due strade: installare una seconda copia, oppure far convivere le
 due cliniche sulla stessa installazione.
 
-La seconda strada si chiama **multi-tenancy**, e la parola *tenant* — «inquilino» — dice bene la
+La seconda strada si chiama **multi-tenancy**, e la parola *tenant* - «inquilino» - dice bene la
 cosa: più inquilini nello stesso edificio, ciascuno con le proprie stanze, senza che nessuno
 possa entrare in quelle degli altri.
 
@@ -1706,7 +1706,7 @@ In un prodotto multi-cliente ordinario, una fuga di dati fra clienti è **un dif
 spiacevole, correggibile, imbarazzante.
 
 Qui non è un difetto. I tenant di Telemedic sono, nel servizio gestito, **titolari del
-trattamento giuridicamente autonomi** — organizzazioni sanitarie distinte, che rispondono
+trattamento giuridicamente autonomi** - organizzazioni sanitarie distinte, che rispondono
 ciascuna per proprio conto. Una fuga fra tenant è una **comunicazione di dati relativi alla
 salute fra soggetti distinti**: un evento con conseguenze proprie per chi la subisce, per chi la
 riceve e per chi gestisce l'infrastruttura.
@@ -1742,19 +1742,19 @@ Le tabelle portano **comunque** l'identificativo di tenant e sono protette da po
 che regge quando la prima è stata aggirata da un errore.
 
 > **Tre affermazioni sulla sicurezza a livello di riga, che vanno lette insieme.** Sono sparse
-> in tre moduli, sono cumulative e nessuna delle tre da sola dà il quadro — motivo per cui vale
+> in tre moduli, sono cumulative e nessuna delle tre da sola dà il quadro - motivo per cui vale
 > la pena riunirle qui.
 >
 > 1. È un **filtro applicato dal motore della base dati**, non dal codice applicativo, e questo
 >    è il suo valore: agisce anche su una query che il codice non avrebbe dovuto scrivere
->    ([11 — Fondamenti informatici](./11-fondamenti-informatici.md)).
+>    ([11 - Fondamenti informatici](./11-fondamenti-informatici.md)).
 > 2. È la **seconda barriera e non il meccanismo unico**: la separazione degli schemi resta la
 >    prima, e chi tratta le politiche di riga come unica difesa ha un solo strato dove ne
 >    servono due (questo paragrafo).
 > 3. **In assenza di contesto nega tutto**, e in fase di sviluppo il sintomo è un elenco vuoto
 >    senza alcun errore. È il guasto più disorientante dell'ambiente locale, perché somiglia a
 >    un problema di dati e non lo è
->    ([17 — Ambiente di sviluppo](./17-ambiente-di-sviluppo.md)).
+>    ([17 - Ambiente di sviluppo](./17-ambiente-di-sviluppo.md)).
 >
 > La terza è conseguenza voluta della prima: un filtro che, non sapendo per chi filtrare,
 > lasciasse passare tutto sarebbe peggio che inutile.
@@ -1768,9 +1768,9 @@ che regge quando la prima è stata aggirata da un errore.
    tabelle. **È un requisito, non un desiderio.**
 2. **La dimostrazione della separazione diventa argomentativa.** Alla domanda «come sapete che il
    cliente A non vede i dati di B?», con righe condivise la risposta è *«perché ogni
-   interrogazione filtra per tenant»* — una risposta sulla **disciplina del codice**. Con schemi
+   interrogazione filtra per tenant»* - una risposta sulla **disciplina del codice**. Con schemi
    separati la risposta è *«perché il ruolo applicativo che serve A non ha alcun privilegio sullo
-   schema di B»* — una risposta sulla **struttura**. Davanti a chi verifica, sono due risposte di
+   schema di B»* - una risposta sulla **struttura**. Davanti a chi verifica, sono due risposte di
    natura diversa.
 3. **La dismissione diventa una cancellazione selettiva.** Portare a termine la cessazione di un
    cliente con righe condivise significa cancellare righe sparse in decine di tabelle, sperando
@@ -1787,7 +1787,7 @@ Il ragionamento completo è in
 > fallisce.**
 
 La formulazione negativa è deliberata, ed è il punto più importante di questa sezione. La
-formulazione positiva — «ogni operazione imposta il tenant» — è una regola di disciplina che
+formulazione positiva - «ogni operazione imposta il tenant» - è una regola di disciplina che
 qualcuno prima o poi dimentica, e la sua violazione non produce sintomi: produce **dati altrui in
 una schermata**.
 
@@ -1822,7 +1822,7 @@ sequenceDiagram
 Sono tre, sono quelli che accadono davvero, e nel progetto ciascuno ha una contromisura
 strutturale.
 
-**Errore 1 — il tenant preso dalla richiesta.** È il più grave e il più comune. Se il tenant
+**Errore 1 - il tenant preso dalla richiesta.** È il più grave e il più comune. Se il tenant
 arriva da un parametro del percorso, da un campo del corpo o da un'intestazione, allora è **un
 tenant che il chiamante può scegliere**: è la definizione di una fuga di dati. La contromisura è
 categorica: **il tenant si risolve dall'asserzione di identità, mai dalla richiesta**. Il gateway
@@ -1830,16 +1830,16 @@ lo ricava dal principale autenticato e verifica che quel principale sia abilitat
 il valore eventualmente presente nella richiesta può solo essere **confrontato** con quello
 risolto, mai sostituirlo.
 
-**Errore 2 — il contesto che sopravvive alla richiesta.** Le connessioni alla base dati sono
+**Errore 2 - il contesto che sopravvive alla richiesta.** Le connessioni alla base dati sono
 costose e vengono riusate attraverso un *pool*. Se il contesto di tenant viene impostato sulla
 connessione in una forma che **persiste**, la connessione restituita al pool porta con sé il
-tenant della richiesta precedente — e la richiesta successiva, di un'altra organizzazione, lo
+tenant della richiesta precedente - e la richiesta successiva, di un'altra organizzazione, lo
 eredita. È un difetto che **non dà sintomi visibili** in sviluppo, si manifesta solo sotto
 concorrenza, e si presenta come dato altrui in una schermata. La contromisura: **il contesto si
 imposta dentro la transazione, con la forma che decade alla sua chiusura**, e una prova dedicata
 verifica che la connessione restituita al pool non conservi nulla.
 
-**Errore 3 — i processi che non nascono da una richiesta.** Sono la sede tipica dei difetti di
+**Errore 3 - i processi che non nascono da una richiesta.** Sono la sede tipica dei difetti di
 isolamento, perché non hanno un chiamante da cui ricavare il tenant. Sono tre famiglie:
 
 | Famiglia | Come si risolve il tenant |
@@ -1862,7 +1862,7 @@ positiva dell'isolamento sarebbe «il cliente A vede i propri dati», e non dimo
 utile: li vedrebbe anche se vedesse pure quelli di B.
 
 Serve la **prova negativa**: un principale abilitato sull'organizzazione A tenta di accedere a
-un dato dell'organizzazione B — **per ogni percorso**, incluse la ricerca e l'esportazione — e la
+un dato dell'organizzazione B - **per ogni percorso**, incluse la ricerca e l'esportazione - e la
 prova **passa solo se il tentativo fallisce**.
 
 Tre precisazioni la rendono efficace, e senza di esse è teatro.
@@ -1877,7 +1877,7 @@ fallisce, no.
 **Il tentativo deve essere fatto sotto le condizioni reali**, cioè con il ruolo applicativo
 effettivo e non con un ruolo di amministrazione, e deve fallire **nell'archivio**, non essere
 semplicemente evitato dal codice. Se fallisce perché il codice ha filtrato, la prova sta
-verificando la disciplina — che è ciò che si era deciso di non fare.
+verificando la disciplina - che è ciò che si era deciso di non fare.
 
 **La suite di integrazione esercita sempre almeno due organizzazioni e due integratori
 distinti**, con configurazioni deliberatamente divergenti: domini di attribuzione degli
@@ -1886,7 +1886,7 @@ prova che passa **con un solo tenant configurato non dimostra nulla**, perché n
 altro da cui isolarsi.
 
 Le verifiche automatiche che il progetto dichiara bloccanti su questo tema sono dodici, e
-comprendono — oltre alla prova negativa — che un'interrogazione senza contesto fallisca, che le
+comprendono - oltre alla prova negativa - che un'interrogazione senza contesto fallisca, che le
 politiche di riga non siano superabili dal ruolo applicativo, che la connessione restituita al
 pool non conservi il contesto, che ogni tabella, ogni evento e ogni voce di registro portino
 l'identificativo di tenant.
@@ -1896,8 +1896,8 @@ l'identificativo di tenant.
 L'installazione presso il cliente è il **caso degenere con un solo tenant**: stesso codice,
 stessa struttura, nessun ramo separato, **nessuna configurazione che disattivi la tenancy**.
 
-**Perché non si semplifica.** La tentazione — «in installazione singola il tenant non serve»
-— produrrebbe due percorsi di codice, quindi due comportamenti, quindi difetti che si manifestano
+**Perché non si semplifica.** La tentazione - «in installazione singola il tenant non serve»
+- produrrebbe due percorsi di codice, quindi due comportamenti, quindi difetti che si manifestano
 in un solo assetto. E sarebbe **irreversibile**: il cliente che oggi ha un'installazione singola
 e domani vuole servire due strutture giuridicamente distinte si troverebbe davanti a una
 migrazione impossibile.
@@ -1931,7 +1931,7 @@ all'aggiornamento senza interruzione **e al ritorno a una versione precedente**,
 funzionalità che richieda una migrazione distruttiva nello stesso rilascio **va riprogettata**,
 non autorizzata in deroga.
 
-Il dettaglio è in [`05 — Multi-tenancy`](../02_architecture/05-multi-tenancy.md).
+Il dettaglio è in [`05 - Multi-tenancy`](../02_architecture/05-multi-tenancy.md).
 
 ---
 
@@ -1961,7 +1961,7 @@ Il progetto ha quindi un criterio unico, e vale la pena impararlo alla lettera.
 > degli accessi.
 
 Il corollario operativo è che **ogni configurazione è validata contro limiti codificati**, e una
-configurazione che violi un limite **viene rifiutata al salvataggio** — non accettata con un
+configurazione che violi un limite **viene rifiutata al salvataggio** - non accettata con un
 avviso. La differenza fra rifiuto e avviso è la differenza fra un vincolo e un suggerimento.
 
 C'è poi un principio di progettazione che governa **dove** si colloca un punto di estensione:
@@ -1971,8 +1971,8 @@ C'è poi un principio di progettazione che governa **dove** si colloca un punto 
 > codice in processo; ciò che si può ottenere con codice in processo non richiede una
 > biforcazione del progetto.
 
-Ogni gradino sceso aumenta il costo per chi installa e — in un percorso regolatorio — **sposta il
-perimetro della documentazione tecnica**, perché il codice aggiunto dal deployer entra nel
+Ogni gradino sceso aumenta il costo per chi installa e - in un percorso regolatorio - **sposta il
+perimetro della documentazione tecnica**, perché il codice aggiunto da chi installa entra nel
 prodotto che verrà valutato.
 
 ### 9.3 I quattro piani
@@ -1992,7 +1992,7 @@ Due letture di questa tabella meritano attenzione.
 **La riga più importante è l'ultima.** Le **soglie cliniche non sono configurazione di
 organizzazione**: sono per assistito, e attribuite a un professionista identificato con una
 validità temporale. La configurazione dell'organizzazione può definire **i limiti entro cui** una
-soglia può essere impostata — impedendo l'errore grossolano — ma **non il suo valore**.
+soglia può essere impostata - impedendo l'errore grossolano - ma **non il suo valore**.
 
 **La seconda riga più importante è la prima.** Ciò che è deciso nel codice non è deciso «perché
 non abbiamo avuto tempo di renderlo configurabile»: è deciso perché **renderlo configurabile
@@ -2004,12 +2004,12 @@ Due vincoli del progetto illustrano il criterio meglio di qualunque spiegazione,
 sono i due che ricorrono più spesso in questo modulo.
 
 **Nessuna soglia clinica cablata.** Non c'è nessun numero, in nessun file del progetto, che
-dichiari quando una misura è anomala. Non perché non si sappia — i valori di riferimento sono
-pubblici — ma perché il momento in cui il sistema fornisce un valore clinico è il momento in cui
+dichiari quando una misura è anomala. Non perché non si sappia - i valori di riferimento sono
+pubblici - ma perché il momento in cui il sistema fornisce un valore clinico è il momento in cui
 smette di registrare una decisione professionale e comincia a produrre un giudizio proprio, con
 le conseguenze di qualificazione descritte nel [modulo 15](15-regolatorio-da-zero.md). La forma
 operativa è severa: il campo parte **vuoto e obbligatorio**, e non si precompila nemmeno con i
-valori dell'ultimo piano dello stesso assistito. Ciò che si può fare — e si fa — è mostrare
+valori dell'ultimo piano dello stesso assistito. Ciò che si può fare - e si fa - è mostrare
 **riferimenti attribuiti, in sola lettura, con un'azione esplicita di copia**: la decisione resta
 un atto, e l'atto ha un autore.
 
@@ -2024,7 +2024,7 @@ costano nulla.
 
 Questo **non è un ripiego**: è un vincolo di prodotto, ed è verificato. La verifica automatica
 corrispondente è che **la suite funzionale completa passi con il sistema di codifica a licenza
-onerosa disattivato**. Se una prova fallisce, quella dipendenza non era facoltativa — ed è così
+onerosa disattivato**. Se una prova fallisce, quella dipendenza non era facoltativa - ed è così
 che una promessa diventa una proprietà.
 
 Il costo è **dichiarato, non nascosto**: senza quella terminologia, alcune migliaia di codici
@@ -2071,7 +2071,7 @@ Anche la configurabilità costa, e il progetto lo dichiara:
 - **ogni configurazione è un'ipotesi su chi la imposterà**, e le verifiche di configurazione
   bloccanti all'avvio esistono precisamente perché quell'ipotesi è spesso ottimistica: il sistema
   **si rifiuta di avviarsi** in configurazioni che comprometterebbero silenziosamente una
-  garanzia — politiche di riga inattive, archivio del registro raggiungibile con le credenziali
+  garanzia - politiche di riga inattive, archivio del registro raggiungibile con le credenziali
   applicative, relay raggiungibile dalle reti interne, segreti ai valori predefiniti, categorie
   di dati senza politica di conservazione;
 - **una configurazione mal fatta è indistinguibile da un difetto** per chi la subisce, e ciò
@@ -2087,7 +2087,7 @@ produce una falsa rassicurazione.
 
 ### 10.1 Che cos'è un ADR e perché il progetto ne ha trenta
 
-Un **ADR** — *Architecture Decision Record*, registro di decisione architetturale — è un
+Un **ADR** - *Architecture Decision Record*, registro di decisione architetturale - è un
 documento breve che fissa una scelta strutturale. La sua caratteristica non è dire **che cosa** si
 è deciso: quello lo dice il codice. È dire **perché**, quali alternative sono state scartate e a
 quale prezzo.
@@ -2100,7 +2100,7 @@ La ragione per cui il progetto ne ha trenta, in
 > perché lo fu.
 
 Ogni ADR ha cinque parti obbligatorie: **contesto**, **alternative valutate** (ciascuna con i
-propri vantaggi *e* i propri compromessi — un'alternativa presentata senza vantaggi non è stata
+propri vantaggi *e* i propri compromessi - un'alternativa presentata senza vantaggi non è stata
 valutata, è stata usata come contrasto), **decisione**, **conseguenze** positive e negative, e
 **stato**. Le decisioni **non si cancellano e non si riscrivono**: una decisione superata cambia
 stato e rinvia a quella che la sostituisce, perché la cronologia delle decisioni è parte della
@@ -2111,8 +2111,8 @@ sola squadra, in una sola proposta di modifica, senza coordinamento, non è un A
 
 ### 10.2 Nove decisioni che vale la pena conoscere subito
 
-Le prime tre — separazione fra prestazione e sessione media, outbox come unica sorgente, registro
-a quattro strati — sono già state ricostruite nelle sezioni precedenti. Quelle che seguono sono
+Le prime tre - separazione fra prestazione e sessione media, outbox come unica sorgente, registro
+a quattro strati - sono già state ricostruite nelle sezioni precedenti. Quelle che seguono sono
 le altre che incontrerai per prime, ciascuna in tre righe: la domanda, la scorciatoia disponibile,
 la ragione per cui è stata scartata.
 
@@ -2131,13 +2131,13 @@ un tipo di dominio importa un tipo dello standard.
 ([ADR-0004](../adr/0004-composizione-documentale-artefatto-primario.md) e
 [ADR-0005](../adr/0005-dataset-canonico-serializzazioni-sostituibili.md)).
 *Il problema*: le rappresentazioni tecniche dei documenti destinati all'infrastruttura
-documentale nazionale — i modelli strutturati, i codici documentali, i metadati di indicizzazione
-— **non sono pubblicamente disponibili** alla data di stesura.
+documentale nazionale - i modelli strutturati, i codici documentali, i metadati di indicizzazione
+- **non sono pubblicamente disponibili** alla data di stesura.
 *La scelta*: modellare il **contenuto informativo** come *dataset canonico* versionato, e trattare
 ogni serializzazione come sostituibile.
 *Perché paga*: quando i modelli tecnici diventeranno disponibili, per il progetto sarà **la
-scrittura di un mappatore e di una suite di prove**. Nel modello alternativo — contenuto
-modellato sulla forma — sarebbe stata una migrazione del modello di dominio e dei dati già
+scrittura di un mappatore e di una suite di prove**. Nel modello alternativo - contenuto
+modellato sulla forma - sarebbe stata una migrazione del modello di dominio e dei dati già
 prodotti. Ne discende anche che **la versione leggibile da una persona e quella leggibile da una
 macchina derivano dallo stesso dataset**, il che elimina alla radice la divergenza fra ciò che il
 professionista ha firmato e ciò che il sistema ha trasmesso.
@@ -2146,9 +2146,9 @@ professionista ha firmato e ciò che il sistema ha trasmesso.
 ([ADR-0006](../adr/0006-due-piani-di-esposizione.md)).
 *Il problema*: due pubblici con esigenze incompatibili. I sistemi sanitari terzi hanno bisogno di
 una grammatica clinica che conoscono già; chi realizza l'integrazione ha bisogno di esprimere
-**azioni** — avviare una sessione, ruotare una chiave, configurare una destinazione.
+**azioni** - avviare una sessione, ruotare una chiave, configurare una destinazione.
 *La scorciatoia scartata*: modellare tutto come risorsa clinica. Costringerebbe a rappresentare la
-stanza virtuale e le metriche del canale come risorse cliniche — e **una metrica del canale
+stanza virtuale e le metriche del canale come risorse cliniche - e **una metrica del canale
 modellata come osservazione finisce nella cartella clinica di una persona**.
 *La regola che ne risulta*, senza eccezioni: se il concetto ha un equivalente clinico riconosciuto
 e deve poter essere consumato da un sistema sanitario terzo, è **piano clinico**; se è una
@@ -2196,15 +2196,15 @@ gli effetti un sottoinsieme derivato. E **nessun identificativo dell'assistito l
 
 **Le metriche del canale non sono osservazioni cliniche**
 ([ADR-0020](../adr/0020-serie-temporali-in-archivio-dedicato.md)).
-*Il fatto*: il sistema produce due famiglie di serie temporali con **regimi giuridici opposti** —
+*Il fatto*: il sistema produce due famiglie di serie temporali con **regimi giuridici opposti** -
 i parametri clinici del telemonitoraggio (dato sulla salute, conservazione lunga, ogni lettura
 tracciata) e le metriche del canale (non clinico, conservazione breve, nessun identificativo
 diretto).
 *Perché non si mescolano*: se le metriche tecniche ereditano il regime clinico si costruisce un
 archivio di dati di traffico sanitario che nessuno ha chiesto; se i parametri clinici ereditano
 il regime tecnico **si perde documentazione sanitaria**.
-*Una conseguenza operativa che tutti sbagliano*: i contatori grezzi — pacchetti persi, byte,
-durata dei congelamenti — crescono in modo **monotono**, e **nessuno di essi può essere citato
+*Una conseguenza operativa che tutti sbagliano*: i contatori grezzi - pacchetti persi, byte,
+durata dei congelamenti - crescono in modo **monotono**, e **nessuno di essi può essere citato
 come indicatore di qualità**. Vanno differenziati fra campioni consecutivi, e le medie corrette
 sono rapporti fra differenze.
 
@@ -2236,7 +2236,7 @@ telemonitoraggio non li calcola. La risposta a un questionario strutturato è ra
 conservata; il punteggio no.
 *Perché la cautela viene prima*: la questione va chiusa **prima** che venga scritto il primo motore
 di calcolo. Scriverlo e poi scoprire che lo strumento non è utilizzabile significherebbe rimuovere
-una funzione già promessa — che è la peggiore delle sequenze.
+una funzione già promessa - che è la peggiore delle sequenze.
 
 ### 10.3 Come si legge un ADR, e come si propone di cambiarlo
 
@@ -2262,8 +2262,8 @@ architetturale non registrata è una discontinuità in quella catena.
 
 ### 11.1 Perché una regola enunciata non basta
 
-Ogni regola di questo modulo — «nessun contesto legge le tabelle di un altro», «nessuna soglia
-clinica cablata», «ogni evento porta il tenant» — ha una proprietà scomoda: **è vera il giorno in
+Ogni regola di questo modulo - «nessun contesto legge le tabelle di un altro», «nessuna soglia
+clinica cablata», «ogni evento porta il tenant» - ha una proprietà scomoda: **è vera il giorno in
 cui viene scritta e diventa progressivamente falsa**.
 
 Non per malafede. Per accumulo di eccezioni ragionevoli, sotto pressione di consegna, da parte di
@@ -2307,7 +2307,7 @@ volesse». Il messaggio deve dire quale regola è stata violata e dove.
 **Non è aggirabile per convenienza locale.** Questo è un punto su cui il progetto è categorico:
 **nessuna procedura documentata può contenere l'aggiramento di un controllo obbligatorio**. I
 controlli sono **condizioni di ammissibilità**, non giudizi di qualità: aggirarne uno produce un
-artefatto che non avrebbe potuto essere prodotto e che porta con sé una dichiarazione falsa — con
+artefatto che non avrebbe potuto essere prodotto e che porta con sé una dichiarazione falsa - con
 la catena di costruzione verde e la proprietà insussistente. Se un controllo blocca legittimamente
 uno sviluppo legittimo, **si corregge il controllo con la procedura di revisione prevista**, non
 lo si disattiva per la propria proposta.
@@ -2319,7 +2319,7 @@ lo si disattiva per la propria proposta.
 ### 12.1 Un'architettura che ha deciso tutto sta nascondendo qualcosa
 
 L'area architetturale ha un capitolo che elenca **ciò che deliberatamente non è deciso**:
-[`09 — Decisioni rinviate`](../02_architecture/09-decisioni-rinviate.md). È una scelta insolita e
+[`09 - Decisioni rinviate`](../02_architecture/09-decisioni-rinviate.md). È una scelta insolita e
 vale la pena capire perché è stata fatta.
 
 Le decisioni prese senza informazioni sufficienti **hanno lo stesso aspetto** di quelle prese con
@@ -2337,9 +2337,9 @@ Le famiglie sono tre:
 
 | Famiglia | Chi decide | Che cosa serve |
 |---|---|---|
-| **A — Rinviate a una verifica** | L'area architetturale, dopo la verifica | Una misura o una prova empirica |
-| **B — Rinviate ad altra area** | L'area competente | La competenza specifica |
-| **C — Rinviate al committente** | Il committente | Una scelta di prodotto o di rischio |
+| **A - Rinviate a una verifica** | L'area architetturale, dopo la verifica | Una misura o una prova empirica |
+| **B - Rinviate ad altra area** | L'area competente | La competenza specifica |
+| **C - Rinviate al committente** | Il committente | Una scelta di prodotto o di rischio |
 
 Qualche esempio, per capire di che natura sono. Il **meccanismo** con cui si realizza
 l'orchestrazione dei processi (la *strategia* è decisa; il meccanismo no, perché dipende da una
@@ -2413,8 +2413,8 @@ informazione clinica; poi `docs/08_compliance/`. L'area architetturale **non con
 determinazione di qualificazione e classificazione: la presuppone e ne descrive le conseguenze
 strutturali.
 
-**Se sei un clinico e vuoi verificare che non stiamo sbagliando il dominio.** Leggi 02 — solo la
-tabella di sintesi e le schede dei contesti del nucleo — e 03. Il contributo più prezioso che puoi
+**Se sei un clinico e vuoi verificare che non stiamo sbagliando il dominio.** Leggi 02 - solo la
+tabella di sintesi e le schede dei contesti del nucleo - e 03. Il contributo più prezioso che puoi
 dare è sulla colonna «che cosa non è affar suo» e sul linguaggio: se una parola è usata in un
 senso che in clinica non ha, segnalalo. Vale più di dieci righe di codice.
 
@@ -2426,7 +2426,7 @@ divergenza **non la risolve d'ufficio**: la segnala. Sopra l'area architetturale
 base architetturale vincolante del progetto e le decisioni approvate dal committente.
 
 **I registri linguistici.** «La norma stabilisce» introduce un obbligo con fonte citata; «è
-prassi» un uso diffuso senza obbligo; «è una scelta del progetto» una decisione di Telemedic —
+prassi» un uso diffuso senza obbligo; «è una scelta del progetto» una decisione di Telemedic -
 che in quanto tale ha un ADR e **può essere cambiata**. Non sono sinonimi.
 
 **I diagrammi non sostituiscono il testo.** Se un vincolo esiste solo nel diagramma, **non
@@ -2516,8 +2516,8 @@ può darsi che il ragionamento abbia un difetto, ed è esattamente così che si 
    con gli attributi vigenti allora, perché una revoca sopravvenuta deve essere rispettata.
 10. **Il segnalamento del tempo reale non passa dagli eventi.** Il traffico di negoziazione resta
     dov'è; solo i fatti già accaduti attraversano il confine.
-11. **Il versionamento delle entità versiona, non rende immutabile.** Servono quattro strati —
-    catena di impronte, archivio a sola scrittura, privilegi disgiunti, ancoraggio firmato —
+11. **Il versionamento delle entità versiona, non rende immutabile.** Servono quattro strati -
+    catena di impronte, archivio a sola scrittura, privilegi disgiunti, ancoraggio firmato -
     perché nessuno dei quattro, da solo, copre il modello di minaccia, che comprende
     l'amministratore.
 12. **Il registro non contiene contenuto clinico**, ed è una destinazione e mai una sorgente. Chi
@@ -2588,11 +2588,11 @@ può darsi che il ragionamento abbia un difetto, ed è esattamente così che si 
 ## Dove continuare
 
 **Se hai finito la guida dei fondamenti e vuoi il dettaglio.** L'area architetturale al completo,
-a partire da [`00 — Indice`](../02_architecture/00-indice.md), poi i trenta
+a partire da [`00 - Indice`](../02_architecture/00-indice.md), poi i trenta
 [ADR](../adr/README.md).
 
 **Se vuoi mettere in piedi l'ambiente e provare.** Il modulo
-[17 — L'ambiente di sviluppo](17-ambiente-di-sviluppo.md) porta dal clone al sistema funzionante,
+[17 - L'ambiente di sviluppo](17-ambiente-di-sviluppo.md) porta dal clone al sistema funzionante,
 dati sintetici compresi.
 
 **Se vuoi sapere che cosa serve sapere per toccare una specifica area del codice.** Il modulo 18,

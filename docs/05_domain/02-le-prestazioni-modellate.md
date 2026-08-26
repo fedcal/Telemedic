@@ -1,7 +1,7 @@
 ---
 title: Le prestazioni modellate
 sidebar_position: 3
-description: Televisita, teleconsulto, teleconsulenza, teleassistenza, telemonitoraggio — attori, ciclo di vita, stati e transizioni ammesse, cosa producono, cosa le conclude, cosa le annulla. Macchine a stati in Mermaid.
+description: Televisita, teleconsulto, teleconsulenza, teleassistenza, telemonitoraggio - attori, ciclo di vita, stati e transizioni ammesse, cosa producono, cosa le conclude, cosa le annulla. Macchine a stati in Mermaid.
 ---
 
 # Le prestazioni modellate
@@ -20,19 +20,19 @@ con transizioni ammesse**. Non le ripete: presuppone che siano state lette.
 
 Tre decisioni governano l'intero capitolo e vanno enunciate prima dei diagrammi.
 
-> **`DM-10` [MOD] — La prestazione è una famiglia di macchine a stati, non un tipo con un
-> `enum`.** Ogni prestazione condivide la stessa struttura di aggregato — un contatto, dei
-> partecipanti, un esito, degli artefatti prodotti — ma ha **il proprio insieme di stati
+> **`DM-10` [MOD] - La prestazione è una famiglia di macchine a stati, non un tipo con un
+> `enum`.** Ogni prestazione condivide la stessa struttura di aggregato - un contatto, dei
+> partecipanti, un esito, degli artefatti prodotti - ma ha **il proprio insieme di stati
 > ammessi, la propria condizione di conclusione e la propria condizione di annullamento**. Il
 > tipo di prestazione seleziona la macchina a stati; non aggiunge un campo.
 
-> **`DM-11` [MOD] — Ciò che varia per prestazione è dichiarato, non codificato.** Attori
+> **`DM-11` [MOD] - Ciò che varia per prestazione è dichiarato, non codificato.** Attori
 > ammessi, artefatti obbligatori, obbligo di presenza del paziente, registrabilità, esiti
 > ammessi e finestre temporali sono **attributi del tipo di prestazione nel catalogo**, non
 > condizioni `if` sparse nel codice. Aggiungere una prestazione deve essere una riga di
 > catalogo più una macchina a stati, non una modifica diffusa.
 
-> **[BASE] `V-01` — `Encounter` e `MediaSession` sono aggregati distinti.** Una prestazione può
+> **[BASE] `V-01` - `Encounter` e `MediaSession` sono aggregati distinti.** Una prestazione può
 > avvenire senza media (teleconsulto asincrono), con più sessioni (caduta e riconnessione), o
 > con sessioni fallite; una sessione media può esistere senza prestazione (prova tecnica).
 > Unirli è l'errore di modellazione più costoso di questo dominio.
@@ -41,15 +41,15 @@ Tre decisioni governano l'intero capitolo e vanno enunciate prima dei diagrammi.
 
 ```mermaid
 flowchart TB
-    SR["ServiceRequest — richiesta o quesito"]
-    ENC["Encounter — il contatto, radice di aggregato"]
-    PART["Participant — soggetto con ruolo e periodo"]
-    OUT["EncounterOutcome — esito dichiarato"]
-    IDA["IdentificationAct — atto di identificazione"]
-    MS["MediaSession — radice di aggregato separata"]
-    QP["SessionQualityProfile — campioni e profilo"]
-    DOC["ClinicalDocument — artefatto prodotto"]
-    BE["BillableEvent — evento rendicontabile"]
+    SR["ServiceRequest - richiesta o quesito"]
+    ENC["Encounter - il contatto, radice di aggregato"]
+    PART["Participant - soggetto con ruolo e periodo"]
+    OUT["EncounterOutcome - esito dichiarato"]
+    IDA["IdentificationAct - atto di identificazione"]
+    MS["MediaSession - radice di aggregato separata"]
+    QP["SessionQualityProfile - campioni e profilo"]
+    DOC["ClinicalDocument - artefatto prodotto"]
+    BE["BillableEvent - evento rendicontabile"]
 
     SR -->|"puo dare origine a"| ENC
     ENC --> PART
@@ -107,7 +107,7 @@ le dieci tipologie documentali introdotte dal DM 19 novembre 2025 e descritte al
 | **Interprete** | no | Terzo che accede a dati sanitari: consenso, vincolo di riservatezza, orari di ingresso e uscita registrati (`BR-066`) |
 | **Discente o osservatore** | no | Consenso specifico e preventivo, revocabile senza conseguenze (`BR-067`) |
 
-> **`DM-12` [MOD]** — Il partecipante non è un riferimento a una persona: è un'**entità con
+> **`DM-12` [MOD]** - Il partecipante non è un riferimento a una persona: è un'**entità con
 > ruolo, qualifica dichiarata, istante di ingresso e istante di uscita**. Serve perché la
 > presenza di un terzo è un fatto con conseguenze giuridiche, e perché la lista dei presenti
 > deve essere visibile a tutti per l'intera durata (`BR-038`).
@@ -127,16 +127,16 @@ MDR). Concretamente:
 - il **catalogo** marca il tipo di prestazione come erogabile in televisita e, se del caso, come
   «richiede diagnosi già formulata» (`RF-030`, `BR-001`);
 - l'**atto di verifica di eseguibilità** registra le tre dimensioni previste dal *Modello
-  orientativo di erogazione della Televisita* AGENAS v. 1.0.25 del 16 aprile 2026 — utilità
-  clinica, sicurezza clinica, **compliance digitale dell'assistito** — come dichiarazioni del
+  orientativo di erogazione della Televisita* AGENAS v. 1.0.25 del 16 aprile 2026 - utilità
+  clinica, sicurezza clinica, **compliance digitale dell'assistito** - come dichiarazioni del
   professionista, non come calcoli **[RACCOMANDATO]**;
 - la **deroga** a `BR-002` esiste come oggetto: identità di chi la dispone, motivazione
   testuale, evento di audit ad alta severità (`BR-003`).
 
 > **[NORM]** Il DM 30 settembre 2022, All. B, esclude la televisita dai contesti di
 > urgenza-emergenza: «non deve costituire ragione per ritardare interventi in presenza»
-> (`REQ-62` di `B1`). Il modello lo rappresenta come **attributo del tipo di prestazione** —
-> `ammessaInUrgenza = false` per la televisita — e non come controllo sparso: il teleconsulto,
+> (`REQ-62` di `B1`). Il modello lo rappresenta come **attributo del tipo di prestazione** -
+> `ammessaInUrgenza = false` per la televisita - e non come controllo sparso: il teleconsulto,
 > per la stessa fonte, è invece eseguibile anche in urgenza.
 
 ### 2.3 Il ciclo di vita del contatto
@@ -205,14 +205,14 @@ stateDiagram-v2
 
 L'invariante più importante del capitolo, e la ragione di `V-01`:
 
-> **`DM-13` [MOD] — Lo stato del contatto non dipende dallo stato della sessione media.** Una
+> **`DM-13` [MOD] - Lo stato del contatto non dipende dallo stato della sessione media.** Una
 > caduta di rete non modifica lo stato del contatto. Il contatto passa da `In corso` a
 > `Sospeso` **solo** se l'interruzione supera la finestra di ripresa configurata, e non viene
 > **mai** chiuso automaticamente (`BR-030`, `BR-032`).
 
 La finestra di ripresa è un parametro di configurazione per tenant e per tipo di prestazione.
 `R6` § 3.4 propone dieci minuti come valore predefinito: è una **proposta di progetto**, non una
-prescrizione normativa — nessuna fonte italiana stabilisce soglie tecniche (`B1`, mandato
+prescrizione normativa - nessuna fonte italiana stabilisce soglie tecniche (`B1`, mandato
 aggiuntivo; vincolo `V-12`).
 
 ### 2.5 Gli esiti
@@ -236,8 +236,8 @@ attributi distinti, e il secondo è quello che determina gli effetti amministrat
 | `EX-THIRD-PARTY` | Terzo non previsto presente | no | valutazione del professionista | consenso da acquisire in sessione |
 
 La distinzione fra `EX-NOSHOW` ed `EX-TECH-PATIENT` è la ragione per cui l'esito esiste come
-concetto separato dallo stato. Sono lo stesso stato terminale — il paziente non è stato visitato
-— con effetti economici e reputazionali **opposti**. Addebitare una mancata presentazione a chi
+concetto separato dallo stato. Sono lo stesso stato terminale - il paziente non è stato visitato
+- con effetti economici e reputazionali **opposti**. Addebitare una mancata presentazione a chi
 ha tentato e non è riuscito a collegarsi è un difetto di dominio, non un caso limite.
 
 ### 2.6 Che cosa produce la televisita
@@ -251,7 +251,7 @@ L'obbligo è però **condizionato al setting**, e questo è un correttivo che `B
 > medico di medicina generale o pediatra di libera scelta **non richiede prescrizione** e
 > prevede **annotazione digitale in luogo del referto** (`REQ-59` di `B1`).
 
-> **`DM-14` [MOD]** — Il **setting di erogazione** è un attributo di dominio discriminante di
+> **`DM-14` [MOD]** - Il **setting di erogazione** è un attributo di dominio discriminante di
 > regole, non un'etichetta descrittiva. Determina almeno: obbligo di referto contro annotazione,
 > necessità della prescrizione, tipologia documentale del fascicolo, regime di rendicontazione.
 > Cablare l'obbligo di referto come incondizionato è un errore che si manifesta al primo
@@ -260,8 +260,8 @@ L'obbligo è però **condizionato al setting**, e questo è un correttivo che `B
 Il referto della televisita ha inoltre **contenuti obbligatori propri**, imposti dall'Accordo
 215/CSR 2020: indicazione degli eventuali collaboratori partecipanti (caregiver, altro medico) e
 **qualità del collegamento con conferma dell'idoneità all'esecuzione della prestazione**. Il
-capitolo [04](04-documenti-clinici.md) affronta il problema — non risolto dal tracciato
-ministeriale — di dove questa evidenza si scriva.
+capitolo [04](04-documenti-clinici.md) affronta il problema - non risolto dal tracciato
+ministeriale - di dove questa evidenza si scriva.
 
 ### 2.7 Che cosa annulla la televisita
 
@@ -287,8 +287,8 @@ iniziato**: non si può erogare una prestazione a una persona che non si sa chi 
 > scatta «l'obbligo della riprogrammazione della prestazione in presenza».
 
 È un obbligo che ricade direttamente sul modello: gli esiti `EX-TECH-FAIL`, `EX-QOS` e
-`EX-ESCALATE` **generano un fatto successivo** — una nuova richiesta con il collegamento alla
-precedente — e non si limitano a chiudere il contatto. La riprogrammazione in presenza è parte
+`EX-ESCALATE` **generano un fatto successivo** - una nuova richiesta con il collegamento alla
+precedente - e non si limitano a chiudere il contatto. La riprogrammazione in presenza è parte
 della macchina a stati, non gestione dell'errore (`REQ-61` di `B1`).
 
 ## 3. Teleconsulto
@@ -301,7 +301,7 @@ teleconsulto, allora esso si svolge in tempo reale utilizzando le modalità oper
 quelle di una televisita e si configura come una visita multidisciplinare» (Accordo 215/CSR
 2020, All. A).
 
-> **`DM-15` [MOD]** — Le due forme sono **due macchine a stati distinte**, selezionate alla
+> **`DM-15` [MOD]** - Le due forme sono **due macchine a stati distinte**, selezionate alla
 > creazione della richiesta e non modificabili dopo l'accettazione. La combinazione è
 > esplicitamente codificata perché il tracciato ministeriale la richiede: il campo «Modalità
 > esecuzione procedura operativa» dell'Allegato 1, § 2.21 al DM 19 novembre 2025 impone di
@@ -345,7 +345,7 @@ Il fatto rilevante non è la sequenza: è **l'ambito di consulto**. Il consulent
 accesso al dossier del paziente ma **soltanto al materiale che il richiedente ha selezionato**,
 per il tempo necessario alla risposta (`BR-014`).
 
-> **`DM-16` [MOD] — L'ambito di consulto è un aggregato con ciclo di vita proprio.** Nasce con
+> **`DM-16` [MOD] - L'ambito di consulto è un aggregato con ciclo di vita proprio.** Nasce con
 > la richiesta, contiene l'elenco chiuso dei riferimenti documentali, ha una scadenza
 > obbligatoria e **decade in tre modi**: risposta firmata, rifiuto, scadenza. La revoca è un
 > fatto registrato, non l'assenza di un rinnovo.
@@ -366,8 +366,8 @@ Lo scenario a tre introduce quattro problemi che la televisita non ha.
 | Chi conduce? | Ruolo esplicito di **conduttore**, con i poteri di ammissione ed esclusione. Senza, l'ammissione dei partecipanti è ambigua |
 | Il paziente sa chi c'è? | Lista dei partecipanti con nome e qualifica visibile per tutta la durata, senza possibilità di occultamento (`BR-038`) |
 
-La **stanza laterale** fra professionisti — colloquio riservato che esclude temporaneamente il
-paziente — è clinicamente necessaria ed eticamente delicata. Il modello la rappresenta come
+La **stanza laterale** fra professionisti - colloquio riservato che esclude temporaneamente il
+paziente - è clinicamente necessaria ed eticamente delicata. Il modello la rappresenta come
 **periodo dichiarato del contatto**, con inizio, fine e annuncio al paziente: non esiste
 modalità silenziosa (`BR-068`).
 
@@ -380,14 +380,14 @@ Qui la fonte è netta, e contraddice l'intuizione di chi modella per analogia:
 > (Accordo 215/CSR 2020, All. A).
 
 Non significa però che non produca nulla. Il DM 19 novembre 2025 crea una tipologia documentale
-propria — «relazione collaborativa per il teleconsulto/teleconsulenza», lett. q) — con una regola
+propria - «relazione collaborativa per il teleconsulto/teleconsulenza», lett. q) - con una regola
 strutturale esplicita:
 
 > **[NORM]** «La relazione collaborativa **viene conferita al FSE come allegato del documento di
 > referto** relativo alla prestazione o all'evento principale […] redatto dal medico richiedente
 > la consulenza» (DM 19 novembre 2025, All. 1, § 2.21).
 
-> **`DM-17` [MOD]** — La relazione collaborativa è modellata come **documento autonomo con
+> **`DM-17` [MOD]** - La relazione collaborativa è modellata come **documento autonomo con
 > vincolo di allegazione**: ha autore, firma e ciclo di vita propri, ma la sua trasmissione al
 > fascicolo è subordinata all'esistenza del documento principale a cui si allega, con
 > correlazione tramite l'identificativo di richiesta. Trattarla come sezione del referto del
@@ -416,15 +416,15 @@ Differisce dal teleconsulto su quattro assi, tutti con conseguenze sul modello.
 | Attori | due o più **medici** | professionisti sanitari, **non necessariamente medici**, con **responsabilità differenti** sul caso |
 | Elemento preminente | condivisione di dati, referti, immagini | **videochiamata**, con condivisione garantita all'occorrenza |
 | Programmazione | anche estemporanea | **sempre programmata** |
-| Divieto espresso | — | **non può surrogare le attività di soccorso** |
+| Divieto espresso | - | **non può surrogare le attività di soccorso** |
 
 Il DM 21 settembre 2022 le unifica in un unico servizio minimo
 («teleconsulto/teleconsulenza»), mentre l'Accordo 215/CSR 2020 le distingue. È il caso in cui
-`DM-04` — rappresentare entrambe le tassonomie — si applica in concreto: **lo stesso servizio
+`DM-04` - rappresentare entrambe le tassonomie - si applica in concreto: **lo stesso servizio
 minimo copre due attività con attori ammessi diversi**, e il vincolo professionale si applica
 sull'attività, non sul servizio.
 
-> **`DM-18` [MOD]** — La relazione **asimmetrica** richiedente/consulente è un attributo del
+> **`DM-18` [MOD]** - La relazione **asimmetrica** richiedente/consulente è un attributo del
 > partecipante, non un'inferenza dall'ordine di ingresso. Nella teleconsulenza esiste un
 > richiedente che ha la responsabilità del caso e un interpellato che fornisce indicazioni: la
 > responsabilità non si trasferisce, e il modello deve poterlo dimostrare a distanza di tempo.
@@ -437,7 +437,7 @@ La teleassistenza è «prevalentemente programmata e ripetibile in base a specif
 accompagnamento del paziente» (Accordo 215/CSR 2020, All. A). Modellarla come contatto singolo
 perde l'unità di senso: il programma.
 
-> **`DM-19` [MOD]** — Il contenitore della teleassistenza è un **episodio con programma**, non
+> **`DM-19` [MOD]** - Il contenitore della teleassistenza è un **episodio con programma**, non
 > un contatto. I singoli incontri sono contatti collegati all'episodio; l'aderenza al programma
 > è una proprietà dell'episodio, non dei singoli contatti. Vale identicamente per la
 > teleriabilitazione, che l'Accordo Stato-Regioni 18 novembre 2021, rep. atti n. 231/CSR
@@ -492,17 +492,17 @@ che arrivano, allarmi che si generano e revisioni che avvengono.
 
 ### 6.1 Il perimetro, e perché è scritto così
 
-> **[BASE] `D21`** — Il perimetro del progetto è: **ingestione di misure da un gateway di terze
+> **[BASE] `D21`** - Il perimetro del progetto è: **ingestione di misure da un gateway di terze
 > parti**, più **inserimento manuale da parte dell'assistito o del caregiver**, più
 > **questionari strutturati**. Il progetto **non dialoga direttamente con i dispositivi medici**
 > e non si assume responsabilità sull'accuratezza della catena di misura hardware.
 
-> **[BASE] `D46`** — La formulazione della destinazione d'uso decide la classificazione. «Monitoraggio
+> **[BASE] `D46`** - La formulazione della destinazione d'uso decide la classificazione. «Monitoraggio
 > **in tempo reale** dei parametri vitali» porta in Classe IIb e classe di sicurezza software C;
 > «**raccolta differita** di parametri per la revisione periodica del professionista» resta in
 > Classe IIa e classe B. La differenza vale 12–18 mesi e un ordine di grandezza di costo.
 
-> **`DM-20` [MOD] — Il modello di dominio è scritto sulla seconda formulazione, e lo dichiara.**
+> **`DM-20` [MOD] - Il modello di dominio è scritto sulla seconda formulazione, e lo dichiara.**
 > Non esiste, nel modello, alcun concetto di «sorveglianza continua», «allarme in tempo reale»
 > o «monitoraggio attivo del paziente». Esistono: un piano di rilevazione, misure che arrivano
 > in modo differito, una valutazione rispetto a soglie configurate dal professionista, e una
@@ -547,12 +547,12 @@ prima programmazione o riprogrammazione, codice UDI dei dispositivi, parametri, 
 rilevazione** (intermediato oppure a ciclo chiuso), **soglia di allarme** e **regole di
 comportamento in violazione delle soglie**.
 
-> **`DM-21` [MOD] — Il piano è versionato e la versione è parte dell'identità della misura.** Una
+> **`DM-21` [MOD] - Il piano è versionato e la versione è parte dell'identità della misura.** Una
 > misura acquisita sotto la versione 2 del piano non va confrontata con le soglie della versione
 > 3. Senza versionamento, ogni modifica del piano riscrive retroattivamente il significato dello
 > storico. È la questione `Q-12` in bacheca, per la parte «piano di telemonitoraggio versionato».
 
-> **[BASE] `V-02`** — La soglia è **configurazione per assistito**, decisa dal professionista, e
+> **[BASE] `V-02`** - La soglia è **configurazione per assistito**, decisa dal professionista, e
 > non è mai una costante del codice né un valore predefinito «ragionevole». Il modulo
 > [10 dei fondamenti](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 7.10 spiega perché
 > un valore predefinito ragionevole può essere clinicamente sbagliato per la persona a cui si
@@ -626,10 +626,10 @@ Tre proprietà di questa macchina a stati sono decisioni, non dettagli:
    senza destinatario non deve terminare in silenzio: è la questione `Q-12`, voce «escalation
    con fallimento dichiarato».
 
-> **[BASE] `D26`** — La valutazione automatica delle soglie nel telemonitoraggio è l'elemento
+> **[BASE] `D26`** - La valutazione automatica delle soglie nel telemonitoraggio è l'elemento
 > che costituisce *interpretazione* e fonda la qualificazione come dispositivo medico. Il
-> modello lo isola in un componente identificabile, con tracciabilità del calcolo — versione del
-> piano, versione della regola, valori in ingresso, esito — perché sia verificabile a posteriori
+> modello lo isola in un componente identificabile, con tracciabilità del calcolo - versione del
+> piano, versione della regola, valori in ingresso, esito - perché sia verificabile a posteriori
 > (questione `Q-12`, voce «tracciabilità del calcolo»).
 
 ### 6.3 Che cosa produce il telemonitoraggio
@@ -671,7 +671,7 @@ da solo non genera evento rendicontabile; il contatto di revisione sì.
 paziente e non richiede la sua identificazione in tempo reale (`BR-008`). Nel DM 21 settembre
 2022 non è servizio minimo: è il micro-servizio trasversale «refertazione e firma digitale». Il
 decreto è esplicito sul fatto che per tale micro-servizio «non si deve realizzare un modulo *ad
-hoc*» ma prevedere «l'integrazione con il modulo regionale, se già presente» — il che, per
+hoc*» ma prevedere «l'integrazione con il modulo regionale, se già presente» - il che, per
 `D14`, è esattamente la postura del progetto: modulo proprio, **disattivabile e sostituibile per
 configurazione**.
 
@@ -679,7 +679,7 @@ configurazione**.
 condivisione di dati raccolti presso il paziente. È a nomenclatore e rendicontata nei flussi
 della specialistica ambulatoriale, a differenza del telemonitoraggio.
 
-> **`DM-22` [MOD]** — Il telecontrollo si modella come **televisita con collegamento obbligatorio
+> **`DM-22` [MOD]** - Il telecontrollo si modella come **televisita con collegamento obbligatorio
 > a un piano di rilevazione**: stessa macchina a stati del contatto, con la precondizione che
 > esista un piano attivo e con l'obbligo di riportarne i risultati nel documento. Non è una sesta
 > macchina a stati.
@@ -696,7 +696,7 @@ esiste e i professionisti lo usano.
 > nuovo appuntamento, **non rientra tra le attività riconducibili alla telemedicina**» (Accordo
 > 215/CSR 2020, All. A).
 
-> **`DM-25` [MOD]** — Il contatto telefonico di orientamento è rappresentato come **fatto
+> **`DM-25` [MOD]** - Il contatto telefonico di orientamento è rappresentato come **fatto
 > organizzativo**, non come prestazione di telemedicina: non genera un contatto con macchina a
 > stati clinica, non produce documento sanitario, non genera evento rendicontabile come
 > prestazione di telemedicina. Va comunque registrato, perché è un'interazione con l'assistito
@@ -789,7 +789,7 @@ Le due macchine a stati si osservano e non si comandano a vicenda, con tre eccez
 Esiste ed è deliberata: la **prova tecnica**. Una sessione media può essere avviata per
 verificare dispositivo, permessi e raggiungibilità senza che vi sia un atto sanitario. Se il
 modello richiedesse un contatto per ogni sessione media, ogni prova tecnica creerebbe un
-contatto fantasma da filtrare in ogni rapporto — che è esattamente il difetto che `V-01`
+contatto fantasma da filtrare in ogni rapporto - che è esattamente il difetto che `V-01`
 previene, osservato dal lato opposto.
 
 ## 9. La sala d'attesa virtuale
@@ -803,7 +803,7 @@ Due controlli distinti convivono nella sala d'attesa e possono fallire indipende
 - il **controllo amministrativo**: documenti, consensi obbligatori, attività preliminari,
   pagamento se previsto.
 
-> **`DM-23` [MOD]** — I due controlli hanno esito separato e visibile separatamente. Un semaforo
+> **`DM-23` [MOD]** - I due controlli hanno esito separato e visibile separatamente. Un semaforo
 > unico costringe l'operatore a indovinare quale dei due manca, ed è la prima causa di
 > telefonate al front-office.
 
@@ -818,14 +818,14 @@ avere un evento acuto, senza possibilità di intervento diretto.
 
 Il modello ha un solo compito, ed è **logistico, non clinico**:
 
-> **[BASE] `V2`** — Il sistema **non valuta la gravità e non suggerisce condotte cliniche**. Rende
+> **[BASE] `V2`** - Il sistema **non valuta la gravità e non suggerisce condotte cliniche**. Rende
 > immediatamente disponibili al professionista le informazioni che non ha perché il paziente non
 > è nella stessa stanza: **indirizzo in cui la persona si trova in quel momento**, recapiti,
 > contatto di emergenza dichiarato.
 
 Ne discende un requisito di dominio che sorprende chi non ha pensato al caso: **l'indirizzo di
 svolgimento va chiesto e confermato all'inizio di ogni sessione** (`BR-039`), perché l'indirizzo
-di residenza anagrafico è inutile in emergenza — la persona potrebbe non essere a casa.
+di residenza anagrafico è inutile in emergenza - la persona potrebbe non essere a casa.
 
 L'attivazione della procedura ha due effetti sul modello del contatto: forza la persistenza
 dell'annotazione di emergenza e **impedisce la chiusura del contatto senza registrazione
@@ -893,18 +893,18 @@ La validità temporale non è un dettaglio: un catalogo senza di essa rende irri
 rendicontazione storica, perché non si può più sapere quali regole erano vigenti alla data
 dell'erogazione.
 
-> **Questione `Q-02` in bacheca** — Il catalogo è dato di riferimento incluso nel prodotto o
+> **Questione `Q-02` in bacheca** - Il catalogo è dato di riferimento incluso nel prodotto o
 > esclusivamente riferito dal tenant? I cataloghi regionali sono ventuno cicli indipendenti di
 > aggiornamento. La questione è indirizzata all'area `ARCH`; quest'area vi concorre con una
 > proposta e non la chiude:
 >
-> **`DM-24` [MOD] — Proposta a tre livelli.** (a) Il **nomenclatore nazionale** è dato di
-> riferimento incluso, in regime `B` di `B5` — directory separata con licenza propria, riusabile
+> **`DM-24` [MOD] - Proposta a tre livelli.** (a) Il **nomenclatore nazionale** è dato di
+> riferimento incluso, in regime `B` di `B5` - directory separata con licenza propria, riusabile
 > ex art. 5 L. 633/1941 e art. 52 c. 2 CAD. (b) I **cataloghi regionali** non sono inclusi: sono
 > **riferiti dal tenant** e importati per configurazione, perché ventuno cicli di aggiornamento
 > indipendenti dentro il prodotto sono un debito di manutenzione permanente (`B5` § 7.4).
-> (c) Gli **attributi di dominio** — canali ammessi, professioni abilitate, artefatti
-> obbligatori — sono del progetto e si applicano **per sovrapposizione** al codice del
+> (c) Gli **attributi di dominio** - canali ammessi, professioni abilitate, artefatti
+> obbligatori - sono del progetto e si applicano **per sovrapposizione** al codice del
 > catalogo, quale che ne sia l'origine. Il tracciato ministeriale conferma la coesistenza dei
 > due livelli: la richiesta di teleconsulto porta sia `codProdPrest` del nomenclatore nazionale
 > sia `codCatalogoPrescr` del catalogo regionale (DM 19 novembre 2025, All. 1, § 2.19).
@@ -937,10 +937,10 @@ dell'erogazione.
 
 ## Dove continuare
 
-- [03 — Assistito, professionista, organizzazione](03-assistito-professionista-organizzazione.md):
+- [03 - Assistito, professionista, organizzazione](03-assistito-professionista-organizzazione.md):
   chi sono gli attori di queste macchine a stati e come si rappresentano nel tempo.
-- [04 — I documenti clinici](04-documenti-clinici.md): che cosa producono gli stati terminali.
-- [05 — Parametri e osservazioni](05-parametri-e-osservazioni.md): la misura del
+- [04 - I documenti clinici](04-documenti-clinici.md): che cosa producono gli stati terminali.
+- [05 - Parametri e osservazioni](05-parametri-e-osservazioni.md): la misura del
   telemonitoraggio e il suo contesto obbligatorio.
-- [08 — Percorsi e piani di cura](08-percorsi-e-piani-di-cura.md): il contenitore dentro cui più
+- [08 - Percorsi e piani di cura](08-percorsi-e-piani-di-cura.md): il contenitore dentro cui più
   prestazioni compongono un percorso.

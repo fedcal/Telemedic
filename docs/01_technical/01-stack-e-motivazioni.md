@@ -1,7 +1,7 @@
 ---
 title: Stack tecnologico e motivazioni
 sidebar_position: 2
-description: Ogni tecnologia dello stack — che problema risolve, quali alternative sono state scartate e per quale ragione, quale versione minima si richiede e perché, come è classificata come componente di terze parti e che cosa accade se un giorno va sostituita.
+description: Ogni tecnologia dello stack - che problema risolve, quali alternative sono state scartate e per quale ragione, quale versione minima si richiede e perché, come è classificata come componente di terze parti e che cosa accade se un giorno va sostituita.
 ---
 
 # Stack tecnologico e motivazioni
@@ -13,8 +13,8 @@ parti e la strategia di sostituzione. Un elenco senza motivazioni è inutile in 
 deve produrre un fascicolo tecnico: la norma non chiede *cosa* si usa, chiede *perché* e con
 quale sorveglianza.
 
-I fondamenti dei concetti citati — che cos'è un broker di eventi, che cos'è l'outbox
-transazionale, che cos'è un dominio delimitato — non si ripetono qui: stanno in
+I fondamenti dei concetti citati - che cos'è un broker di eventi, che cos'è l'outbox
+transazionale, che cos'è un dominio delimitato - non si ripetono qui: stanno in
 [`docs/10_fondamenti/11-fondamenti-informatici.md`](../10_fondamenti/11-fondamenti-informatici.md).
 Le conseguenze architetturali delle scelte stanno in `docs/02_architecture/`. Qui si sta sul
 piano tecnico: versioni, vincoli, trappole, sostituibilità.
@@ -75,7 +75,7 @@ dei componenti non sviluppati dal progetto, dettagliata al §14.
 
 | Componente | Versione minima | Motivo della soglia | Regime | Sostituibile? |
 |---|---|---|---|---|
-| Java (piattaforma) | **21** (LTS) | Thread virtuali finalizzati; pattern di record e pattern matching su `switch` finalizzati; collezioni ordinate. Sotto la 21 le prime due sono in anteprima e non sono utilizzabili in produzione. | Runtime | No (è la piattaforma) |
+| Java (piattaforma) | **21** (LTS) | Thread virtuali finalizzati; pattern di record e pattern matching su `switch` finalizzati; collezioni ordinate. Sotto la 21 le prime due sono in anteprima e non sono utilizzabili in esercizio. | Runtime | No (è la piattaforma) |
 | Spring Boot | **3.4.x** | Base Spring Framework 6.2; supporto ai thread virtuali sui contenitori web; `RestClient` e `@HttpExchange` stabilizzati; supporto di prima classe a Micrometer con tracciamento. | Libreria | No in v1.0 |
 | Angular | **21** | Componenti autonomi come impostazione predefinita, segnali stabilizzati, `@if`/`@for` nel modello, idratazione incrementale. | Libreria | No in v1.0 |
 | PostgreSQL | **16** | `SET LOCAL` con `pg_settings` per il contesto di tenant; miglioramenti su partizionamento dichiarativo e replica logica; `SKIP LOCKED` maturo per il relay dell'outbox. La 17 è preferibile ma non necessaria. | Servizio | Difficile (è il perno) |
@@ -106,14 +106,14 @@ concentrata in tre punti.
 sono in anteprima e richiedono `--enable-preview`, che è inaccettabile in un artefatto
 distribuito perché la piattaforma non garantisce compatibilità binaria fra versioni per il
 codice compilato in anteprima. Con la 21 si può scrivere codice di dominio bloccante e leggibile
-— che è precisamente ciò che serve in un sistema dove la maggior parte della complessità è
-clinica e non tecnica — senza pagare il costo di un pool di thread di piattaforma dimensionato
+- che è precisamente ciò che serve in un sistema dove la maggior parte della complessità è
+clinica e non tecnica - senza pagare il costo di un pool di thread di piattaforma dimensionato
 sul caso peggiore. Il modello reattivo resta disponibile ma non è imposto: si veda
 [`02-backend.md`](./02-backend.md) §6 per la regola di applicazione, che è restrittiva.
 
 **I pattern di record e il pattern matching su `switch` sono finalizzati nella 21.** Non è
-zucchero sintattico: il dominio clinico è pieno di gerarchie chiuse — lo stato di una
-prestazione, l'esito di una sessione media, il tipo di misura, il regime di consenso — e una
+zucchero sintattico: il dominio clinico è pieno di gerarchie chiuse - lo stato di una
+prestazione, l'esito di una sessione media, il tipo di misura, il regime di consenso - e una
 `sealed interface` con `switch` esaustivo trasforma in errore di compilazione l'aggiunta di un
 caso non gestito. In un sistema in cui l'omissione di un caso può significare un allarme non
 inoltrato, l'esaustività verificata dal compilatore è un controllo di rischio a costo zero.
@@ -124,12 +124,12 @@ elemento» e «l'ultimo elemento» di sequenze temporali.
 ### 4.3 E la versione successiva a supporto esteso
 
 Esiste una versione a supporto esteso più recente della 21. Il progetto **non** la adotta nella
-v1.0 per due ragioni: la catena di strumenti regolatoria — analisi statica, generatore di
-distinta dei materiali, agenti di strumentazione — si stabilizza sulle versioni a supporto
+v1.0 per due ragioni: la catena di strumenti regolatoria - analisi statica, generatore di
+distinta dei materiali, agenti di strumentazione - si stabilizza sulle versioni a supporto
 esteso con ritardo, e cambiare piattaforma a metà di un percorso di tracciabilità significa
 rieseguire la verifica su una base diversa. La migrazione è una voce di roadmap, non una scelta
-di v1.0. `[NV]` — la data esatta di fine supporto pubblico degli aggiornamenti gratuiti per la
-21 dipende dal distributore della piattaforma scelto dal deployer e va verificata sulla fonte
+di v1.0. `[NV]` - la data esatta di fine supporto pubblico degli aggiornamenti gratuiti per la
+21 dipende dal distributore della piattaforma scelto da chi installa e va verificata sulla fonte
 del distributore, non assunta.
 
 **Conseguenza vincolante**: la versione della piattaforma è fissata nella catena di costruzione
@@ -156,7 +156,7 @@ guasto in fase di costruzione nativa e non in fase di esecuzione. Su un disposit
 una modalità di esecuzione che si comporta diversamente da quella su cui si è eseguita la
 verifica è una modalità che va verificata di nuovo per intero. Il profilo nativo esiste, è
 costruito in integrazione continua ed è provato dalla stessa suite, ma **la distribuzione di
-riferimento è quella su macchina virtuale**. `[NV]` — i guadagni di memoria e di tempo di avvio
+riferimento è quella su macchina virtuale**. `[NV]` - i guadagni di memoria e di tempo di avvio
 non sono stati misurati sul progetto: qualunque cifra pubblicata prima della misura sarebbe
 inventata.
 
@@ -185,7 +185,7 @@ insieme a mano significa scrivere e mantenere codice di integrazione che non ha 
 - **Attuatore con endpoint di prontezza e di vivacità distinti**, requisito diretto del
   confezionamento su orchestratore di contenitori.
 
-`[NV]` — le date esatte di fine del supporto pubblico gratuito delle versioni minori vanno
+`[NV]` - le date esatte di fine del supporto pubblico gratuito delle versioni minori vanno
 verificate sulla pagina di supporto del progetto a monte al momento del rilascio, e vanno
 registrate nel registro dei componenti di terze parti come data di riesame. Non si citano qui
 perché cambierebbero prima della pubblicazione.
@@ -194,7 +194,7 @@ perché cambierebbero prima della pubblicazione.
 
 | Alternativa | Motivo dello scarto |
 |---|---|
-| **Un contenitore a compilazione anticipata orientato al nativo** | Tempo di avvio e memoria migliori. Ma l'ecosistema di sicurezza — provider SAML2 per la federazione nazionale, integrazione con il prodotto di identità scelto, filtri di autorizzazione basati su attributi — è significativamente più maturo sull'alternativa scelta, e la sicurezza dell'accesso a dati sanitari non è il posto dove risparmiare maturità. |
+| **Un contenitore a compilazione anticipata orientato al nativo** | Tempo di avvio e memoria migliori. Ma l'ecosistema di sicurezza - provider SAML2 per la federazione nazionale, integrazione con il prodotto di identità scelto, filtri di autorizzazione basati su attributi - è significativamente più maturo sull'alternativa scelta, e la sicurezza dell'accesso a dati sanitari non è il posto dove risparmiare maturità. |
 | **Un contenitore a compilazione anticipata basato su elaborazione delle annotazioni** | Stesso ragionamento, con in più una base di utenti minore, quindi meno occhi sulle vulnerabilità. Il criterio C3 penalizza esplicitamente la minore diffusione: un componente molto usato riceve segnalazioni di sicurezza prima. |
 | **La specifica enterprise pura su un server applicativo** | Coerente e standardizzata, ma richiede il server applicativo come artefatto separato, il che complica il confezionamento a tenant unico (C5) e sposta parte della configurazione fuori dal repository, cioè fuori dal controllo di configurazione richiesto da D45. |
 | **Nessun contenitore: solo librerie assemblate a mano** | Massimo controllo, minima velocità. In un progetto con una data di consegna fissa e un obbligo di tracciabilità, il tempo speso a costruire l'infrastruttura è tempo sottratto alla verifica del dominio. |
@@ -237,7 +237,7 @@ l'idratazione incrementale è ciò che rende sostenibile il primo caricamento su
 ogni scelta (instradamento, formulari, internazionalizzazione, stato) diventa una decisione di
 progetto e un componente da sorvegliare, e nessuna di quelle scelte ha valore clinico. Un
 quadro di lavoro a compilazione con reattività fine: interessante tecnicamente, base di utenti
-e strumenti di accessibilità meno maturi — e l'accessibilità qui è un requisito funzionale
+e strumenti di accessibilità meno maturi - e l'accessibilità qui è un requisito funzionale
 (D25), non una rifinitura. Il rendering lato server con generazione statica: il prodotto è
 un'applicazione autenticata con sessioni lunghe, non un sito di contenuti; il rendering lato
 server serve solo per il primo caricamento e si adotta in quella forma, non come architettura.
@@ -265,7 +265,7 @@ Tre proprietà lo rendono non negoziabile in questo progetto, e nessuna riguarda
    evento fantasma». Senza transazioni serie non esiste outbox, ed è la base architetturale §5 a
    imporlo.
 3. **`SELECT ... FOR UPDATE SKIP LOCKED`** rende possibile un relay dell'outbox a più istanze
-   senza coordinatore esterno — il che, a sua volta, rende sostenibile l'installazione a tenant
+   senza coordinatore esterno - il che, a sua volta, rende sostenibile l'installazione a tenant
    unico (C5).
 
 Le alternative sono state escluse per costruzione: una base dati documentale non offre le
@@ -288,26 +288,26 @@ servizio: aggiunge un'estensione.
 
 **Il problema è la licenza, e va detto ora.** Il progetto è distribuito sotto Apache-2.0 (D1) e
 deve poter essere integrato in prodotti proprietari di terzi. Risulta che le funzionalità
-avanzate dell'estensione — in particolare la compressione e le aggregazioni continue — non
+avanzate dell'estensione - in particolare la compressione e le aggregazioni continue - non
 siano distribuite sotto una licenza open source approvata ma sotto una licenza propria di tipo
 sorgente disponibile, con restrizioni sull'offerta del componente come servizio gestito a terzi.
-**`[NV]` — questa affermazione va verificata sul testo della licenza primaria, artefatto per
+**`[NV]` - questa affermazione va verificata sul testo della licenza primaria, artefatto per
 artefatto, prima di qualunque pubblicazione.** È esattamente il caso previsto da D34: una
 dichiarazione permissiva apposta su un contenitore non dispone dei diritti sul contenuto
 ricompreso, e la verifica va fatta sulla licenza primaria.
 
 Conseguenze operative, che valgono a prescindere dall'esito della verifica:
 
-- **Telemedic non ridistribuisce l'estensione.** È una dipendenza di runtime che il deployer
-  installa nella propria base dati. La licenza di Telemedic non ne è toccata; l'obbligo di
+- **Telemedic non ridistribuisce l'estensione.** È una dipendenza di runtime che chi installa
+  aggiunge alla propria base dati. La licenza di Telemedic non ne è toccata; l'obbligo di
   verifica ricade su chi distribuisce l'installazione completa, ed è materiale che il progetto
   deve fornirgli, non nascondergli (D28).
-- **Il progetto documenta il vincolo per il deployer** nella scheda dei componenti di terze
+- **Il progetto documenta il vincolo per chi installa** nella scheda dei componenti di terze
   parti, con il campo «regime di licenza» compilato e non lasciato in bianco.
 - **L'architettura prevede il ripiego per progetto, non per emergenza.** Vedi §7.3.
 
 Questione aperta in bacheca a `COMP` (vedi §15): la verifica legale del testo di licenza e la
-sua collocazione nei quattro regimi terminologici di D31 — che sono stati definiti per le
+sua collocazione nei quattro regimi terminologici di D31 - che sono stati definiti per le
 terminologie ma la cui logica si applica identicamente a qualunque componente incorporato.
 
 ### 7.3 Il ripiego progettato: partizionamento dichiarativo nativo
@@ -316,10 +316,10 @@ Il livello di persistenza delle serie temporali sta **dietro un'interfaccia di p
 (`TimeSeriesRepository`), con due realizzazioni:
 
 - realizzazione a **iperbabelle** dell'estensione, predefinita quando l'estensione è presente e
-  il deployer ne ha accettato il regime di licenza;
+  chi installa ne ha accettato il regime di licenza;
 - realizzazione a **partizionamento dichiarativo nativo** di PostgreSQL, per intervallo
   temporale, con creazione delle partizioni programmata e conservazione realizzata staccando e
-  scartando la partizione — operazione che, a differenza della cancellazione riga per riga, è
+  scartando la partizione - operazione che, a differenza della cancellazione riga per riga, è
   costante nel tempo e non frammenta.
 
 Il ripiego **non è degradato sul piano funzionale**: perde la compressione e le aggregazioni
@@ -336,7 +336,7 @@ Il dettaglio dello schema e delle politiche di conservazione è in
 | Alternativa | Motivo dello scarto |
 |---|---|
 | **Archivio di metriche a scarto per campionamento** | È progettato per metriche operative con conservazione breve, campionamento con perdita e nessuna garanzia transazionale. Un parametro clinico rilevato dal paziente **non è una metrica**: è un dato sanitario, immutabile, con contesto di rilevazione, soggetto a conservazione normata e a diritto di accesso. Confondere i due è l'errore di modellazione più comune in questo dominio. Le metriche operative del sistema, quelle sì, ci vanno: vedi [`06-osservabilita.md`](./06-osservabilita.md). |
-| **Archivio di serie temporali autonomo** | Aggiunge un servizio, un modello di sicurezza, un salvataggio, una politica di conservazione e una catena di credenziali separati da quelli della base dati clinica — e rende impossibile una transazione che comprenda il dato e la sua registrazione di accesso. Viola C4 e C5. |
+| **Archivio di serie temporali autonomo** | Aggiunge un servizio, un modello di sicurezza, un salvataggio, una politica di conservazione e una catena di credenziali separati da quelli della base dati clinica - e rende impossibile una transazione che comprenda il dato e la sua registrazione di accesso. Viola C4 e C5. |
 | **Archivio a colonne per analisi** | Ottimo per l'analisi, inadatto all'inserimento singolo a bassa latenza e alla lettura per singolo soggetto che è il profilo di accesso reale del telemonitoraggio. |
 
 ---
@@ -397,13 +397,13 @@ La base architetturale §9 la fissa, il vincolo V-10 la ribadisce, e la verifica
 primaria che l'ha prodotta è documentata in `.telemedic/research/B3-verifica-coturn-webrtc.md`.
 Il fatto rilevante per questa area è la **forma della cronologia**: quattordici rilasci in poco
 più di sette mesi nel 2026, di cui cinque nel solo mese di agosto, e una famiglia di sei
-vulnerabilità distinte, in otto anni, tutte riconducibili allo stesso schema — l'aggiramento
+vulnerabilità distinte, in otto anni, tutte riconducibili allo stesso schema - l'aggiramento
 delle liste di indirizzi peer vietati per canonicalizzazione o confronto errato degli indirizzi
 IPv6, quattro delle quali negli ultimi otto mesi.
 
 Ne discende una conclusione tecnica che va scritta esplicitamente e che è il vincolo V-10:
 **la lista di indirizzi vietati è difesa in profondità, non difesa primaria. La difesa primaria
-è l'isolamento di rete in uscita del nodo di relay**, applicato fuori dal processo — regole di
+è l'isolamento di rete in uscita del nodo di relay**, applicato fuori dal processo - regole di
 rete dell'infrastruttura, non direttive del file di configurazione. È l'unica difesa che ha
 retto a tutte e sei le vulnerabilità della famiglia.
 
@@ -417,7 +417,7 @@ proposta tecnica di questa area è in [`09-integrazione-continua-e-rilascio.md`]
 
 È l'implementazione di riferimento, è quella su cui sono verificati i comportamenti dei
 navigatori, espone metriche native, ha un canale di avvisi di sicurezza pubblico e una cronologia
-di correzioni verificabile — cioè soddisfa C3 meglio di qualunque alternativa. Le alternative
+di correzioni verificabile - cioè soddisfa C3 meglio di qualunque alternativa. Le alternative
 gestite violano V1 senza eccezioni; le alternative in altri linguaggi violano C4 e hanno una
 base di utenti minore, quindi meno segnalazioni di sicurezza.
 
@@ -443,14 +443,14 @@ La base architetturale §5 è vincolante: l'outbox transazionale su PostgreSQL �
 sorgente degli eventi in uscita, il broker è alimentato dall'outbox e mai da una seconda
 scrittura applicativa. Quindi il broker non è la sorgente di verità: è il mezzo di
 distribuzione. Questa distinzione cambia il criterio di scelta, perché ciò che serve al mezzo di
-distribuzione è la conservazione, la rilettura e il partizionamento per chiave — non la
+distribuzione è la conservazione, la rilettura e il partizionamento per chiave - non la
 garanzia transazionale, che sta a monte.
 
 ### 10.2 Perché un registro e non una coda
 
 | Alternativa | Motivo dello scarto |
 |---|---|
-| **Coda di messaggi tradizionale** | Il messaggio consumato sparisce. Un nuovo consumatore — un nuovo integratore, una nuova proiezione, una ricostruzione dopo un guasto — non può rileggere la storia. In un sistema che deve poter dimostrare che cosa ha inviato e a chi, e che deve poter aggiungere integratori senza rigiocare a mano, la rilettura non è una comodità: è un requisito. |
+| **Coda di messaggi tradizionale** | Il messaggio consumato sparisce. Un nuovo consumatore - un nuovo integratore, una nuova proiezione, una ricostruzione dopo un guasto - non può rileggere la storia. In un sistema che deve poter dimostrare che cosa ha inviato e a chi, e che deve poter aggiungere integratori senza rigiocare a mano, la rilettura non è una comodità: è un requisito. |
 | **Flussi su archivio chiave-valore in memoria** | Adeguato alla scala di un'installazione piccola, ma la conservazione dipende dalla memoria e la persistenza è una configurazione delicata. Per il registro immutabile e per la consegna verso terzi è un rischio non giustificato. |
 | **Registro distribuito alternativo con livello di archiviazione a più strati** | Tecnicamente valido, base di utenti e strumenti operativi minori, e un modello di distribuzione più pesante per l'installazione a tenant unico (C5). |
 | **Nessun broker: solo chiamate sincrone** | Accoppia la disponibilità di Telemedic a quella dell'integratore. Un consulto non può fallire perché il sistema di destinazione del referto è in manutenzione. |
@@ -462,7 +462,7 @@ nodo singolo. È il compromesso che rende il modello di D8 praticabile: nessun s
 coordinamento aggiuntivo da installare, mettere in sicurezza e sorvegliare in uno studio
 associato. Il conto è dichiarato: **con un nodo singolo non c'è ridondanza del broker**. Poiché
 la sorgente di verità è l'outbox nella base dati, la perdita del broker significa ritardo nella
-consegna, non perdita di eventi — il relay riprende dal punto in cui era. Va scritto nel
+consegna, non perdita di eventi - il relay riprende dal punto in cui era. Va scritto nel
 manuale di installazione, perché è la differenza fra un guasto tollerabile e un incidente.
 
 ### 10.4 Come l'outbox alimenta il broker
@@ -488,8 +488,8 @@ latenza di consegna che ne risulta è dichiarata come limite in
 [`07-prestazioni-e-capacita.md`](./07-prestazioni-e-capacita.md) §6, non nascosta.
 
 L'astrazione di pubblicazione resta dietro un'interfaccia di progetto, come impone D15: il
-codice di dominio non conosce il broker. Questo non è purismo — è ciò che consente a un
-deployer di sostituire il broker senza toccare il dominio, che è un requisito di sovranità
+codice di dominio non conosce il broker. Questo non è purismo - è ciò che consente a
+chi installa di sostituire il broker senza toccare il dominio, che è un requisito di sovranità
 sostanziale (C1).
 
 ---
@@ -535,7 +535,7 @@ Elencare ciò che si è scartato è più informativo di elencare ciò che si è 
 
 | Componente | Perché non c'è |
 |---|---|
-| **Unità di inoltro selettivo del media** | Il consulto è da due a tre partecipanti. Un'unità di inoltro termina la cifratura e ha il media in chiaro: distruggerebbe la proprietà su cui poggia l'intero posizionamento del progetto, per un beneficio nullo a questa scala. Se un giorno servisse, la valutazione è già impostata in `.telemedic/research/R4-webrtc-media.md` §6.3, con l'esclusione di un candidato per incompatibilità di licenza con D1 e di un altro per abbandono documentato — tre anni senza modifiche rendono un componente non sorvegliabile ai sensi di IEC 62304 §8.1.2, il che è un fatto, non un giudizio. |
+| **Unità di inoltro selettivo del media** | Il consulto è da due a tre partecipanti. Un'unità di inoltro termina la cifratura e ha il media in chiaro: distruggerebbe la proprietà su cui poggia l'intero posizionamento del progetto, per un beneficio nullo a questa scala. Se un giorno servisse, la valutazione è già impostata in `.telemedic/research/R4-webrtc-media.md` §6.3, con l'esclusione di un candidato per incompatibilità di licenza con D1 e di un altro per abbandono documentato - tre anni senza modifiche rendono un componente non sorvegliabile ai sensi di IEC 62304 §8.1.2, il che è un fatto, non un giudizio. |
 | **Archivio chiave-valore in memoria come diffusore del segnale** | Il protocollo di raccolta incrementale dei candidati richiede consegna esattamente una volta e nell'ordine. Un meccanismo di pubblicazione e sottoscrizione senza persistenza non garantisce nessuna delle due cose sotto riconnessione. Se serve un diffusore, la forma corretta è a flusso persistente con gruppi di consumatori; l'architettura preferita evita del tutto il diffusore. Vedi §15, questione aperta a `ARCH`. |
 | **Griglia di servizi** | Aggiunge un piano di controllo, un piano dati e un modello di certificati da gestire, per un sistema con un numero piccolo di servizi. Su installazione a tenant unico è insostenibile (C5). |
 | **Registro di scoperta dei servizi** | Stesso motivo. Il numero di servizi è noto e fisso. |
@@ -617,9 +617,9 @@ Coerentemente con il protocollo della bacheca, ciò che è strutturale non si in
 ## 16. In sintesi
 
 Lo stack non è stato scelto per prestazioni: è stato scelto per **sostituibilità, sorvegliabilità
-e sostenibilità dell'installazione presso il cliente**. Dove una scelta ha un costo — la licenza
+e sostenibilità dell'installazione presso il cliente**. Dove una scelta ha un costo - la licenza
 dell'estensione per serie temporali, il nodo singolo del broker, i difetti noti del prodotto di
-federazione, la cadenza di rilascio del server di relay — il costo è dichiarato qui e ha un
+federazione, la cadenza di rilascio del server di relay - il costo è dichiarato qui e ha un
 ripiego progettato, provato in integrazione continua. Un ripiego che non gira nella suite di
 prove non è un ripiego: è una speranza.
 

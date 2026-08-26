@@ -32,7 +32,7 @@ Prima dei diagrammi, un'idea sola, e va assimilata perché regge ogni flusso che
 **In telemedicina il percorso nominale è la minoranza dei casi.** Non per difetto di progettazione:
 per struttura del dominio. Fra il momento in cui una prestazione è prenotata e il momento in cui il
 suo esito arriva dove serve, esistono decine di punti in cui qualcosa può andare diversamente da
-come previsto — un permesso di sistema non concesso, una rete che cade, un documento non leggibile,
+come previsto - un permesso di sistema non concesso, una rete che cade, un documento non leggibile,
 un consenso mancante, una trasmissione che non arriva, un dato che non parte. La maggior parte di
 questi punti **non è un errore tecnico**: è un percorso di dominio con un esito proprio, un
 responsabile e una conseguenza amministrativa.
@@ -43,21 +43,21 @@ registrabile. Un flusso disegnato solo nel suo percorso felice è un flusso non 
 
 Il secondo principio è più tecnico ma altrettanto vincolante.
 
-**Lo stato clinico e lo stato tecnico sono due macchine distinte.** Il contatto — l'atto sanitario —
-ha un ciclo di vita clinico e amministrativo; la sessione media — la connessione audio-video — ha un
+**Lo stato clinico e lo stato tecnico sono due macchine distinte.** Il contatto - l'atto sanitario -
+ha un ciclo di vita clinico e amministrativo; la sessione media - la connessione audio-video - ha un
 ciclo di vita tecnico. Una caduta di rete **non chiude e non conclude** un atto sanitario. Se le due
 macchine sono la stessa entità, ogni disconnessione crea un atto fantasma, ogni riconnessione crea un
 duplicato, e la ricostruzione di ciò che è realmente accaduto diventa impossibile.
 
 ```mermaid
 flowchart LR
-    subgraph CL["Macchina clinica e amministrativa — il contatto"]
+    subgraph CL["Macchina clinica e amministrativa - il contatto"]
         C1["Richiesto"] --> C2["Prenotato"] --> C3["Pronto"] --> C4["In attesa"] --> C5["In corso"]
         C5 --> C6["Sospeso"]
         C6 --> C5
         C5 --> C7["Concluso"] --> C8["Refertato"] --> C9["Consegnato"] --> C10["Rendicontato"]
     end
-    subgraph ME["Macchina tecnica — la sessione media"]
+    subgraph ME["Macchina tecnica - la sessione media"]
         M1["Inizializzata"] --> M2["Negoziazione"] --> M3["Connessa"]
         M3 --> M4["Degradata"] --> M3
         M3 --> M5["Riconnessione"] --> M3
@@ -93,19 +93,19 @@ sequenceDiagram
     actor M as Professionista
     participant FSE as Repository documentale
 
-    Note over EXT,TM: Fase 1 — Richiesta e prenotazione
+    Note over EXT,TM: Fase 1 - Richiesta e prenotazione
     EXT->>TM: crea appuntamento (riferimenti esterni di assistito, professionista, prestazione)
     TM->>TM: verifica catalogo, canale ammesso, professione abilitata, relay configurato
     TM-->>EXT: identificativo del contatto e collegamenti di accesso
     TM->>P: conferma con istruzioni e richiamo alla verifica tecnica
 
-    Note over M,TM: Fase 2 — Verifica di eseguibilità
+    Note over M,TM: Fase 2 - Verifica di eseguibilità
     M->>TM: dichiara che la prestazione non richiede esame obiettivo completo
     M->>TM: seleziona la condizione di erogabilità applicabile
     M->>TM: registra utilità clinica, sicurezza clinica, capacità di interazione digitale
     TM->>TM: rende la dichiarazione immutabile
 
-    Note over P,TM: Fase 3 — Verifica tecnica e manifestazioni di volontà
+    Note over P,TM: Fase 3 - Verifica tecnica e manifestazioni di volontà
     P->>TM: apre il collegamento di verifica
     TM->>P: prova telecamera, microfono, altoparlante, banda
     TM->>TURN: verifica raggiungibilità e credenziali effimere
@@ -114,7 +114,7 @@ sequenceDiagram
     TM->>P: presenta l'informativa vigente e richiede le manifestazioni pertinenti
     P-->>TM: manifesta la volontà con evidenza (versione del testo, istante, canale)
 
-    Note over P,M: Fase 4 — Accesso e identificazione
+    Note over P,M: Fase 4 - Accesso e identificazione
     P->>IDP: autenticazione
     IDP-->>TM: asserzione con livello di garanzia
     P->>TM: ingresso in sala d'attesa
@@ -125,19 +125,19 @@ sequenceDiagram
     M->>P: identificazione con il metodo previsto
     M->>TM: registra metodo, esito, autore, istante
 
-    Note over P,M: Fase 5 — Svolgimento
+    Note over P,M: Fase 5 - Svolgimento
     P->>TM: conferma il luogo in cui si trova
     P-->>M: flusso media cifrato
     M->>TM: annota, condivide documenti, richiede allegati
     TM->>TM: campiona le metriche di qualità a intervallo fisso
 
-    Note over M,FSE: Fase 6 — Chiusura, refertazione, firma
+    Note over M,FSE: Fase 6 - Chiusura, refertazione, firma
     M->>TM: chiude la sessione selezionando un esito tipizzato
     TM->>TM: chiude il contatto, calcola la durata effettiva, produce il rapporto tecnico
     M->>TM: redige la bozza sul modello della prestazione
     M->>TM: conferma l'idoneità del collegamento e appone la firma
 
-    Note over TM,FSE: Fase 7 — Consegna e restituzione
+    Note over TM,FSE: Fase 7 - Consegna e restituzione
     TM->>P: mette a disposizione il documento e notifica senza contenuto clinico
     TM->>EXT: restituisce documento e metadati al sistema di origine
     TM->>EXT: emette l'evento rendicontabile
@@ -185,15 +185,15 @@ prodotto va perduto.
 
 | Fase | Che cosa può fermare il flusso | Esito | Chi ne risponde |
 |---|---|---|---|
-| 1 — Prenotazione | canale non ammesso, professione non abilitata, relay non configurato, contesto di urgenza | rifiuto motivato, nessuna risorsa parziale | sistema, con messaggio al richiedente |
-| 2 — Eseguibilità | esame obiettivo necessario, nessuna condizione applicabile, capacità digitale insufficiente | instradamento verso la prestazione in presenza o verso il supporto | professionista |
-| 3 — Verifica tecnica | permesso non concesso, dispositivo non supportato, banda insufficiente, relay irraggiungibile | esito tecnico registrato, contatto nella vista dei rischi | front-office, in modo proattivo |
-| 3 — Consensi | manifestazione obbligatoria mancante, rappresentante privo di poteri | raccolta immediata prima dell'atto, oppure sospensione | professionista e front-office |
-| 4 — Sala d'attesa | accesso fuori finestra, abbandono, mancata connessione | messaggio esplicativo, oppure esito di abbandono o di mancata presentazione | sistema, con distinzione fra chi ha tentato e chi no |
-| 4 — Identificazione | documento non leggibile, discordanza sostanziale | metodo alternativo, oppure contatto annullato senza addebito | professionista |
-| 5 — Svolgimento | degrado, caduta, emergenza clinica, decisione clinica di interrompere | ripiego, riconnessione, procedura di emergenza, esito tipizzato | professionista, con supporto del sistema |
-| 6 — Refertazione | sezione obbligatoria mancante, certificato non valido, termine superato | firma impedita, sollecito, segnalazione al responsabile | professionista, con sorveglianza del sistema |
-| 7 — Consegna | consenso alla trasmissione assente, destinatario irraggiungibile | condizione nota comunicata, oppure coda di riconciliazione | sistema, con visibilità al front-office |
+| 1 - Prenotazione | canale non ammesso, professione non abilitata, relay non configurato, contesto di urgenza | rifiuto motivato, nessuna risorsa parziale | sistema, con messaggio al richiedente |
+| 2 - Eseguibilità | esame obiettivo necessario, nessuna condizione applicabile, capacità digitale insufficiente | instradamento verso la prestazione in presenza o verso il supporto | professionista |
+| 3 - Verifica tecnica | permesso non concesso, dispositivo non supportato, banda insufficiente, relay irraggiungibile | esito tecnico registrato, contatto nella vista dei rischi | front-office, in modo proattivo |
+| 3 - Consensi | manifestazione obbligatoria mancante, rappresentante privo di poteri | raccolta immediata prima dell'atto, oppure sospensione | professionista e front-office |
+| 4 - Sala d'attesa | accesso fuori finestra, abbandono, mancata connessione | messaggio esplicativo, oppure esito di abbandono o di mancata presentazione | sistema, con distinzione fra chi ha tentato e chi no |
+| 4 - Identificazione | documento non leggibile, discordanza sostanziale | metodo alternativo, oppure contatto annullato senza addebito | professionista |
+| 5 - Svolgimento | degrado, caduta, emergenza clinica, decisione clinica di interrompere | ripiego, riconnessione, procedura di emergenza, esito tipizzato | professionista, con supporto del sistema |
+| 6 - Refertazione | sezione obbligatoria mancante, certificato non valido, termine superato | firma impedita, sollecito, segnalazione al responsabile | professionista, con sorveglianza del sistema |
+| 7 - Consegna | consenso alla trasmissione assente, destinatario irraggiungibile | condizione nota comunicata, oppure coda di riconciliazione | sistema, con visibilità al front-office |
 
 ---
 
@@ -492,7 +492,7 @@ sequenceDiagram
 
 ### 6.1 I sei punti in cui questo flusso si rompe nelle implementazioni reali
 
-1. **Fra generazione e consegna.** La consegna fallisce in silenzio — recapito non più valido,
+1. **Fra generazione e consegna.** La consegna fallisce in silenzio - recapito non più valido,
    dispositivo spento, servizio esterno indisponibile. Senza conferma per canale il sistema crede di
    aver avvisato e non ha avvisato.
 2. **Fra consegna e riscontro.** Nessuna scadenza definita, quindi nessun modo di sapere che il
@@ -514,7 +514,7 @@ sequenceDiagram
 Un sistema che chiude gli allarmi non riscontrati «per scadenza» **cancella l'unica traccia del fatto
 che nessuno ha risposto**. È il comportamento più comodo da implementare e il più difficile da
 difendere: rende invisibile precisamente ciò che il servizio deve misurare. Il fallimento dichiarato
-non è un fallimento del software, è un'informazione preziosa — dice che il servizio, in quel momento
+non è un fallimento del software, è un'informazione preziosa - dice che il servizio, in quel momento
 e in quella fascia, non è stato in grado di gestire un allarme.
 
 E la catena va **provata a freddo**, periodicamente, senza generare un allarme clinico reale. Una
@@ -569,8 +569,8 @@ flowchart TB
 
 ### 7.1 La strategia: eliminare le cause note
 
-L'ultima categoria di cause del silenzio — la persona che non riesce più a eseguire la misura perché
-sta peggiorando — **non è distinguibile con mezzi tecnici**. La strategia corretta non è indovinarla:
+L'ultima categoria di cause del silenzio - la persona che non riesce più a eseguire la misura perché
+sta peggiorando - **non è distinguibile con mezzi tecnici**. La strategia corretta non è indovinarla:
 è **eliminare tutte le altre**, così che il silenzio residuo sia informativo. Ogni causa tecnica che
 il sistema non sa riconoscere diluisce il segnale clinico e produce contatti a vuoto, che a loro volta
 generano affaticamento nell'operatore.
@@ -728,7 +728,7 @@ qualità del collegamento e della sua idoneità** all'esecuzione della prestazio
 Quest'ultima merita una nota, perché è il punto in cui la norma clinica incontra l'ingegneria del
 trasporto. La norma impone al professionista di attestare che il collegamento fosse idoneo, **senza
 fissare alcuna soglia numerica**: il giudizio è del medico, sul singolo atto. L'attestazione però
-richiede evidenza oggettiva, altrimenti è un'affermazione nuda — e le metriche di sessione sono quella
+richiede evidenza oggettiva, altrimenti è un'affermazione nuda - e le metriche di sessione sono quella
 evidenza. Le soglie con cui il prodotto avvisa del degrado sono quindi **specifica di prodotto**,
 configurabile per tenant, non conformità normativa. Il dettaglio è nel modulo
 [02, § 4.1.7](02-prestazioni-di-telemedicina.md).
@@ -790,7 +790,7 @@ Passa a sospeso solo se la sospensione supera la finestra configurata, e non vie
 automaticamente senza decisione del professionista. È l'applicazione diretta del principio del § 0.
 
 **La lezione.** Il ripiego non è un fallimento del servizio: è il servizio che continua in modo
-degradato. Ciò che va evitato è il fallimento *silenzioso* — la schermata bloccata, il messaggio
+degradato. Ciò che va evitato è il fallimento *silenzioso* - la schermata bloccata, il messaggio
 generico, la disconnessione senza spiegazione. La differenza fra un ripiego riuscito e un abbandono è
 quasi tutta nella qualità delle informazioni fornite nei trenta secondi successivi alla caduta.
 
@@ -847,7 +847,7 @@ sequenceDiagram
 **Il confine, e perché sta lì.** Il sistema **non** valuta la gravità e **non** suggerisce condotte
 cliniche. Rende immediatamente disponibili al professionista le informazioni logistiche che non ha
 perché la persona non è nella stessa stanza: dove si trova, a che numero è raggiungibile, chi
-contattare. È supporto logistico, non supporto decisionale clinico — ed è la ragione per cui il luogo
+contattare. È supporto logistico, non supporto decisionale clinico - ed è la ragione per cui il luogo
 di svolgimento va chiesto **all'inizio di ogni sessione**: un indirizzo di residenza anagrafico, in
 emergenza, è inutile.
 
@@ -977,7 +977,7 @@ flowchart TB
 
 **Perché i due istanti devono essere due.** Una misura eseguita ieri e trasmessa oggi appartiene alla
 serie di ieri. Confondere l'istante di misura con quello di ricezione produce serie temporali sbagliate
-e allarmi generati sul giorno sbagliato — e, nel caso peggiore, un allarme di assenza che resta aperto
+e allarmi generati sul giorno sbagliato - e, nel caso peggiore, un allarme di assenza che resta aperto
 mentre il dato è arrivato.
 
 **Perché il duplicato è un problema di fiducia.** Un duplicato che genera un secondo allarme identico
@@ -1037,10 +1037,11 @@ La consegna è **almeno una volta**, non esattamente una volta: ogni consumatore
 costruzione**, con una chiave di deduplicazione esplicita. Un consumatore che non lo è produce
 duplicati sotto carico, e il carico arriva sempre nel momento peggiore.
 
-L'ordine è garantito **solo** all'interno della partizione scelta per chiave — tipicamente il
-contatto o il soggetto. Nessun requisito funzionale può dipendere da un ordine globale: se un flusso
-richiede che due eventi arrivino in un certo ordine, quell'ordine va imposto dentro la chiave, non
-sperato.
+L'ordine è garantito **solo** all'interno della partizione scelta per chiave - tipicamente il
+contatto o il soggetto - e **solo se valgono insieme le tre condizioni** enunciate in
+[`06-eventi-e-integrazione-interna.md`](../02_architecture/06-eventi-e-integrazione-interna.md#41-ciò-che-si-garantisce-e-ciò-che-non-si-garantisce) §4.1: un solo lavoratore per volta, il produttore idempotente verso il canale, il numero di partizioni stabile. Fuori da quelle condizioni l'ordine **non è garantito**.
+Nessun requisito funzionale può dipendere da un ordine globale: se un flusso richiede che due eventi
+arrivino in un certo ordine, quell'ordine va imposto dentro la chiave, non sperato.
 
 La **coda dei messaggi non elaborabili non è un cimitero**: ha una procedura di riesame documentata,
 un responsabile e un tempo. Un evento che finisce lì e non viene mai guardato è esattamente
@@ -1077,8 +1078,8 @@ ordinata per frequenza attesa, non per gravità.
 | F20 | Il quadro «tutto verde» viene letto come stabilità su dati vecchi | telemonitoraggio | età dell'ultimo dato sempre visibile ed evidenziata, perimetro del piano dichiarato |
 
 > **Il principio riassuntivo.** Il fallimento tipico di una prestazione a distanza non avviene durante
-> la videochiamata: avviene **prima** — prerequisiti non verificati, collegamento non trovato,
-> consensi mancanti — o **dopo** — documento che non arriva dove serve. Investire nella qualità video
+> la videochiamata: avviene **prima** - prerequisiti non verificati, collegamento non trovato,
+> consensi mancanti - o **dopo** - documento che non arriva dove serve. Investire nella qualità video
 > oltre la soglia clinicamente necessaria, trascurando la catena di prerequisiti e la restituzione del
 > contenuto, è l'errore di priorità più comune in questo dominio. Nel telemonitoraggio l'equivalente
 > è investire nell'ingestione e trascurare che cosa accade quando i dati **non** arrivano.
@@ -1126,14 +1127,14 @@ ordinata per frequenza attesa, non per gravità.
 
 | Che cosa | Dove |
 |---|---|
-| Definizioni normative delle prestazioni, condizioni di erogabilità, documenti prodotti | [02 — Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md) |
-| Dato clinico, consensi, basi giuridiche, conservazione | [03 — Il dato clinico](03-il-dato-clinico.md) |
-| Identità digitale, anagrafiche, identificativi | [04 — Identità e anagrafiche](04-identita-e-anagrafiche.md) |
-| Rappresentazione delle risorse cliniche | [06 — FHIR da zero](06-fhir-da-zero.md) |
-| Fascicolo e infrastrutture nazionali | [07 — FSE e infrastrutture nazionali](07-fse-e-infrastrutture-nazionali.md) |
-| Trasporto in tempo reale, degrado, relay | [08 — WebRTC da zero](08-webrtc-da-zero.md) |
-| Parametri, misure, limiti della misura a domicilio | [09 — Fondamenti clinici](09-fondamenti-clinici.md) |
-| Cronicità, percorsi, allarmi, silenzio, sicurezza del paziente | [10 — Percorsi di cura e sicurezza](10-percorsi-di-cura-e-sicurezza.md) |
+| Definizioni normative delle prestazioni, condizioni di erogabilità, documenti prodotti | [02 - Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md) |
+| Dato clinico, consensi, basi giuridiche, conservazione | [03 - Il dato clinico](03-il-dato-clinico.md) |
+| Identità digitale, anagrafiche, identificativi | [04 - Identità e anagrafiche](04-identita-e-anagrafiche.md) |
+| Rappresentazione delle risorse cliniche | [06 - FHIR da zero](06-fhir-da-zero.md) |
+| Fascicolo e infrastrutture nazionali | [07 - FSE e infrastrutture nazionali](07-fse-e-infrastrutture-nazionali.md) |
+| Trasporto in tempo reale, degrado, relay | [08 - WebRTC da zero](08-webrtc-da-zero.md) |
+| Parametri, misure, limiti della misura a domicilio | [09 - Fondamenti clinici](09-fondamenti-clinici.md) |
+| Cronicità, percorsi, allarmi, silenzio, sicurezza del paziente | [10 - Percorsi di cura e sicurezza del paziente](10-percorsi-di-cura-e-sicurezza.md) |
 | Requisiti, casi d'uso, regole, esiti tipizzati | area funzionale, `docs/03_functional/` |
 
 ---

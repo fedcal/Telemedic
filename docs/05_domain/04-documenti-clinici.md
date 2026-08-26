@@ -35,7 +35,7 @@ esiti. Solo una parte è **documento clinico**. La differenza non è di lunghezz
 | Ha un **regime di conservazione** proprio | no | sì |
 | Può essere **oscurato** | no | sì |
 
-> **`DM-40` [MOD]** — Il passaggio da contenuto a documento è un **atto**, non un salvataggio.
+> **`DM-40` [MOD]** - Il passaggio da contenuto a documento è un **atto**, non un salvataggio.
 > Nel modello esiste un momento identificabile in cui un insieme di contenuti diventa
 > documento, con un autore che se ne assume la responsabilità. Prima di quel momento il
 > materiale non è visibile all'assistito, non è trasmissibile e non è conservato come documento
@@ -96,13 +96,13 @@ conservazione e regole di accesso sbagliate in entrambe le direzioni.
 Il tracciato ministeriale del referto di televisita distingue esplicitamente, e va preso alla
 lettera (DM 19 novembre 2025, All. 1, § 2.20):
 
-- **medico refertante** — cognome, nome, codice fiscale;
-- **medico firmatario** — cognome, nome, codice fiscale, **distinto dal refertante**;
-- **altra figura tecnica coinvolta nell'esecuzione della procedura** — cognome, nome, codice
+- **medico refertante** - cognome, nome, codice fiscale;
+- **medico firmatario** - cognome, nome, codice fiscale, **distinto dal refertante**;
+- **altra figura tecnica coinvolta nell'esecuzione della procedura** - cognome, nome, codice
   fiscale;
-- **medico prescrittore** — «medico del ruolo unico di assistenza primaria/PLS o Specialista».
+- **medico prescrittore** - «medico del ruolo unico di assistenza primaria/PLS o Specialista».
 
-> **`DM-41` [MOD]** — Il documento porta **quattro riferimenti a soggetti distinti**, ciascuno
+> **`DM-41` [MOD]** - Il documento porta **quattro riferimenti a soggetti distinti**, ciascuno
 > con il proprio ruolo, e non un unico campo «medico». Un modello che identifica autore e
 > firmatario è corretto nel caso ordinario e **non rappresentabile** nel caso, previsto dal
 > tracciato, in cui differiscono. Aggiungere il quarto riferimento dopo è una migrazione di
@@ -110,8 +110,8 @@ lettera (DM 19 novembre 2025, All. 1, § 2.20):
 
 La distinzione fra refertante e firmatario è quella che rende il modello non banale. Il
 refertante è chi **redige e assume la responsabilità clinica**; il firmatario è chi **appone la
-firma elettronica**. Nella maggior parte dei casi coincidono. Quando non coincidono — e il
-tracciato prevede che possa accadere — il documento deve dire entrambe le cose, perché
+firma elettronica**. Nella maggior parte dei casi coincidono. Quando non coincidono - e il
+tracciato prevede che possa accadere - il documento deve dire entrambe le cose, perché
 rispondono a due domande diverse: chi risponde del contenuto e chi garantisce l'integrità.
 
 Nel teleconsulto la stessa struttura si ripete con soggetti diversi: **medico consultato**,
@@ -177,7 +177,7 @@ Il tempo fra conclusione del contatto e firma è un fatto misurabile con consegu
 organizzative: superata la finestra configurata, il professionista riceve un sollecito e il
 responsabile del servizio vede il contatto nell'elenco degli inadempimenti (`RF-130`).
 
-> **`DM-42` [MOD]** — Il superamento del termine di refertazione è un **evento di dominio**
+> **`DM-42` [MOD]** - Il superamento del termine di refertazione è un **evento di dominio**
 > (`TermineDiRefertazioneSuperato`), non un rapporto periodico. La differenza è che un evento è
 > tracciabile, sottoscrivibile e verificabile; un rapporto è una fotografia che nessuno conserva.
 
@@ -191,9 +191,9 @@ prescrizioni normative.
 
 ```mermaid
 flowchart LR
-    V1["Versione 1 — firmata il giorno A"]
-    V2["Versione 2 — firmata il giorno B, sostituisce V1"]
-    V3["Versione 3 — firmata il giorno C, sostituisce V2"]
+    V1["Versione 1 - firmata il giorno A"]
+    V2["Versione 2 - firmata il giorno B, sostituisce V1"]
+    V3["Versione 3 - firmata il giorno C, sostituisce V2"]
 
     V1 -->|"sostituita da"| V2
     V2 -->|"sostituita da"| V3
@@ -225,7 +225,7 @@ retroattivo sul contenuto già conferito.**
 
 ### 5.3 Il versionamento delle entità non è il registro degli accessi
 
-> **[BASE] `D42`, `V-04`** — Il versionamento automatico delle entità **versiona, non rende
+> **[BASE] `D42`, `V-04`** - Il versionamento automatico delle entità **versiona, non rende
 > immutabile**: chi ha accesso in scrittura alla base dati può alterare anche le tabelle di
 > versionamento. Il registro degli accessi è a **catena di impronte e conservazione separata**.
 
@@ -238,7 +238,7 @@ sostituisce l'altro, e presentare il primo come «audit immutabile» è un claim
 
 ### 6.1 Il vincolo
 
-> **[BASE] `V-07`** — Il contenuto informativo dei documenti destinati al fascicolo si modella
+> **[BASE] `V-07`** - Il contenuto informativo dei documenti destinati al fascicolo si modella
 > come **dataset canonico**; le serializzazioni (CDA2, FHIR, altro) sono **sostituibili** e non
 > vanno cablate.
 
@@ -259,8 +259,8 @@ set informativo è pubblicato in Gazzetta Ufficiale**.
 
 ```mermaid
 flowchart TB
-    DOM["Modello di dominio — documento, autore, versione, stato"]
-    DS["Dataset canonico — set informativo dell Allegato 1"]
+    DOM["Modello di dominio - documento, autore, versione, stato"]
+    DS["Dataset canonico - set informativo dell Allegato 1"]
     S1["Serializzazione documentale nazionale"]
     S2["Serializzazione su profilo FHIR nazionale"]
     S3["Proiezione di sola lettura per integratori"]
@@ -279,7 +279,7 @@ flowchart TB
 | **Dataset canonico** | Il contenuto informativo, campo per campo, come pubblicato in Gazzetta Ufficiale | la norma |
 | **Serializzazione** | Il formato con cui il dataset viene scritto per un destinatario | la specifica del destinatario |
 
-> **`DM-43` [MOD]** — Il dataset canonico è **generato dal dominio**, non è il dominio. È il
+> **`DM-43` [MOD]** - Il dataset canonico è **generato dal dominio**, non è il dominio. È il
 > punto in cui il modello interno incontra l'obbligo normativo, ed è l'unico artefatto che deve
 > corrispondere campo per campo al set informativo. Sotto di esso il dominio è libero; sopra di
 > esso le serializzazioni sono intercambiabili.
@@ -331,7 +331,7 @@ Tre osservazioni di modellazione:
 
 ### 6.4 Il campo che manca
 
-> **`DM-44` [MOD] — Il problema aperto più concreto di questo capitolo.**
+> **`DM-44` [MOD] - Il problema aperto più concreto di questo capitolo.**
 >
 > L'Accordo 215/CSR 2020 impone che nel referto di televisita siano registrati **la qualità del
 > collegamento e la conferma della sua idoneità all'esecuzione della prestazione**, oltre
@@ -390,11 +390,11 @@ Ha una regola strutturale che nessun'altra tipologia ha:
 | Contenuto temporale obbligatorio | data di ricezione della richiesta, data e ora della presa in carico, data e ora della programmazione della consulenza nel caso sincrono |
 | Modalità dichiarata | estemporaneo o programmato × sincrono o asincrono × con o senza presenza dell'assistito |
 
-> **`DM-45` [MOD]** — Il vincolo di allegazione è modellato come **dipendenza di conferimento**,
+> **`DM-45` [MOD]** - Il vincolo di allegazione è modellato come **dipendenza di conferimento**,
 > non come composizione: la relazione ha autore, firma e ciclo di vita propri, ma il suo
 > conferimento è subordinato all'esistenza del documento principale. Il caso in cui il documento
-> principale non venga mai emesso è previsto e ha un esito dichiarato — relazione firmata e non
-> conferibile, segnalata al richiedente — non un fallimento silenzioso.
+> principale non venga mai emesso è previsto e ha un esito dichiarato - relazione firmata e non
+> conferibile, segnalata al richiedente - non un fallimento silenzioso.
 
 ## 8. Riservatezza del documento
 
@@ -453,7 +453,7 @@ e va enunciato senza attenuazioni:
 > sanitarie**. I dati di autenticazione e accesso si conservano dodici mesi; i registri
 > ventiquattro mesi (`REQ-52` di `B1`).
 
-> **`DM-46` [MOD]** — Il modello prevede una **modalità di esercizio a non conservazione** del
+> **`DM-46` [MOD]** - Il modello prevede una **modalità di esercizio a non conservazione** del
 > contenuto clinico, in cui la piattaforma è **produttrice e non archivio**. Non è una variante
 > di configurazione marginale: è una modalità che il modello deve rendere possibile senza
 > riscrittura, perché è il regime richiesto quando il sistema opera come componente di
@@ -481,7 +481,7 @@ Le conseguenze sul modello sono tre, e vanno rese esplicite:
 > amministrativi; la **richiesta di teleconsulto** è accessibile solo a medici, altri dirigenti
 > sanitari e all'assistito (`REQ-53` di `B1`).
 
-> **`DM-47` [MOD]** — La matrice tipologia documentale × ruolo è **dato di configurazione
+> **`DM-47` [MOD]** - La matrice tipologia documentale × ruolo è **dato di configurazione
 > versionato**, non codice. Cambia con la norma, e la norma cambia. Il modello di autorizzazione
 > la consuma come una delle condizioni congiuntive di `BR-010`; non la sostituisce.
 
@@ -533,7 +533,7 @@ collocare, perché un contenuto senza collocazione documentale è ingovernabile.
 | Contenuto della chat di sessione | contenuto potenzialmente clinico | allegato come documento **oppure** eliminato, secondo configurazione: nessuno stato intermedio (`BR-056`) |
 | Rapporto tecnico della sessione | dato tecnico | collegato al contatto, con regime di conservazione proprio |
 
-> **`DM-48` [MOD] — La provenienza dell'allegato è dichiarata e non deducibile dal caricatore.**
+> **`DM-48` [MOD] - La provenienza dell'allegato è dichiarata e non deducibile dal caricatore.**
 > Un referto caricato dall'assistito e un referto ricevuto da un sistema terzo hanno lo stesso
 > aspetto e un valore diverso: il primo è un contenuto riportato, il secondo è un documento con
 > una catena di origine. Il modello li distingue con un attributo esplicito, perché il clinico
@@ -554,7 +554,7 @@ Due vincoli discendono dal decreto e vanno tenuti presenti:
 Un capitolo sui documenti deve dire anche che cosa il sistema non produce, perché è la parte che
 determina la qualificazione regolatoria.
 
-> **[BASE] `V2`, `BR-040`, `RF-126`** — Il sistema **non genera, non deduce e non suggerisce
+> **[BASE] `V2`, `BR-040`, `RF-126`** - Il sistema **non genera, non deduce e non suggerisce
 > contenuto clinico interpretativo**. Può fornire modelli di documento e campi strutturati; può
 > precompilare dati anagrafici, amministrativi e temporali e dati precedentemente inseriti dal
 > professionista. **Nessun campo di valutazione clinica contiene testo generato.**
@@ -598,9 +598,9 @@ modifiche, non con buone intenzioni.
 
 ## Dove continuare
 
-- [06 — Consenso e riservatezza](06-consenso-e-riservatezza.md): l'oscuramento, la revoca e
+- [06 - Consenso e riservatezza](06-consenso-e-riservatezza.md): l'oscuramento, la revoca e
   l'accesso d'emergenza.
-- [07 — Le terminologie nel dominio](07-terminologie-nel-dominio.md): come si codificano quesito
+- [07 - Le terminologie nel dominio](07-terminologie-nel-dominio.md): come si codificano quesito
   diagnostico, diagnosi e terapia senza contaminare la licenza.
 - Modulo [03 dei fondamenti](../10_fondamenti/03-il-dato-clinico.md): firma, validazione, marca
   temporale, conservazione, che quest'area non ripete.

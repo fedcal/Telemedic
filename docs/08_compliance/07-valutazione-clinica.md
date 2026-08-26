@@ -1,17 +1,17 @@
 ---
 title: Valutazione clinica
 sidebar_position: 8
-description: "Che cos'è la valutazione clinica ai sensi dell'art. 61 e dell'Allegato XIV, perché è il collo di bottiglia reale e non comprimibile con risorse, le tre componenti dell'evidenza per un software secondo MDCG 2020-1, che cosa il progetto può preparare oggi e quali atti restano riservati al ruolo di fabbricante — ruolo che il progetto intende assumere e il cui soggetto giuridico è ancora da costituire —, l'equivalenza e i suoi limiti, e il seguito clinico post-commercializzazione come requisito di progettazione del dato."
+description: "Che cos'è la valutazione clinica ai sensi dell'art. 61 e dell'Allegato XIV, perché è il collo di bottiglia reale e non comprimibile con risorse, le tre componenti dell'evidenza per un software secondo MDCG 2020-1, che cosa il progetto può preparare oggi e quali atti restano riservati al ruolo di fabbricante - ruolo che il progetto intende assumere e il cui soggetto giuridico è ancora da costituire -, l'equivalenza e i suoi limiti, e il seguito clinico post-commercializzazione come requisito di progettazione del dato."
 ---
 
 # Valutazione clinica
 
 > **Presupposto di lettura.** La qualificazione e la destinazione d'uso da cui tutto questo
 > capitolo dipende sono al capitolo
-> [02 — Qualificazione e classificazione](./02-qualificazione-e-classificazione.md). Il registro
+> [02 - Qualificazione e classificazione](./02-qualificazione-e-classificazione.md). Il registro
 > dei rischi e il rapporto benefici/rischi, che sono a valle, sono al capitolo
-> [05 — Gestione del rischio](./05-gestione-del-rischio.md). Il calendario che questo capitolo
-> vincola è al capitolo [09 — Percorso e calendario](./09-percorso-e-calendario.md).
+> [05 - Gestione del rischio](./05-gestione-del-rischio.md). Il calendario che questo capitolo
+> vincola è al capitolo [09 - Percorso e calendario](./09-percorso-e-calendario.md).
 >
 > **Avvertenza che governa l'intero capitolo, e va letta prima di ogni riga sull'evidenza.**
 > **Il prodotto non reca marcatura CE**, **non è coperto da alcuna dichiarazione di conformità** e
@@ -38,7 +38,7 @@ description: "Che cos'è la valutazione clinica ai sensi dell'art. 61 e dell'All
 > facciamo cominciare noi. Non cambia nulla, invece, sulla ripartizione tecnica del § 4.
 >
 > **E il varco che questa avvertenza potrebbe aprire, chiuso qui.** Chi legge che il progetto
-> intende certificare — o che una parte consistente dell'evidenza tecnica è già prodotta — e ne
+> intende certificare - o che una parte consistente dell'evidenza tecnica è già prodotta - e ne
 > conclude «allora posso usarlo con pazienti reali» trae una conclusione **sbagliata**, e questo
 > capitolo è quello in cui l'errore costa di più. **L'evidenza tecnica non è evidenza clinica**:
 > dimostrare che il software fa ciò che dichiara di fare non dimostra che il suo uso produca
@@ -48,7 +48,7 @@ description: "Che cos'è la valutazione clinica ai sensi dell'art. 61 e dell'All
 > ne derivano.
 >
 > **Nessuna data compare in questo capitolo.** Le durate delle attività sono dichiarate perché
-> sono la sostanza dell'argomento — la valutazione clinica non si comprime con risorse — ma una
+> sono la sostanza dell'argomento - la valutazione clinica non si comprime con risorse - ma una
 > durata non è un termine: il vincolo `V-171` vieta di affermare o lasciare intendere che il
 > prodotto sarà marcato entro un termine, e questa è l'unica occorrenza ammessa di quella parola.
 > Le date del progetto stanno unicamente in [09](./09-percorso-e-calendario.md) e sono
@@ -62,7 +62,7 @@ in modo **continuo** i dati clinici relativi a un dispositivo, allo scopo di ver
 sicurezza e le prestazioni, **compresi i benefici clinici**, quando è utilizzato conformemente
 alla destinazione d'uso indicata dal fabbricante. L'obbligo è nell'**art. 61**; la procedura è
 nell'**Allegato XIV, Parte A**.
-`[NV]` — la numerazione puntuale dei punti dell'art. 2 va verificata sul testo consolidato prima
+`[NV]` - la numerazione puntuale dei punti dell'art. 2 va verificata sul testo consolidato prima
 della citazione nel fascicolo.
 
 Tre nozioni collegate vanno tenute distinte, perché un organismo notificato le distingue e la
@@ -82,10 +82,10 @@ Sono argomenti commerciali, e presentarli come beneficio clinico produce un cicl
 conformità sul punto centrale del rapporto.
 
 La definizione ha tre rami, e per questo prodotto **il ramo praticabile è il secondo**: l'effetto
-positivo sulla **gestione del paziente**. La formulazione che il progetto propone come bozza —
+positivo sulla **gestione del paziente**. La formulazione che il progetto propone come bozza -
 *consentire l'accesso a prestazioni programmate a persone per le quali l'accesso in presenza è
 oneroso o non tempestivo, mantenendo la completezza e la tracciabilità dell'informazione clinica*
-— è costruita su quel ramo, e va comunque sottoposta a verifica da un redattore clinico
+- è costruita su quel ramo, e va comunque sottoposta a verifica da un redattore clinico
 qualificato prima del congelamento.
 
 **Attenzione a una asimmetria che sfugge.** «Mantenendo la completezza dell'informazione clinica»
@@ -99,8 +99,8 @@ evidenza. Ogni parola che non afferma nulla è inutile. Non esistono parole neut
 Il fattore limitante dichiarato dall'intero percorso è la disponibilità dell'organismo notificato
 (`D44`). Il **secondo** è la valutazione clinica, e ha una proprietà che lo rende peggiore: **non
 è comprimibile con risorse**. Raddoppiare le persone non dimezza il tempo di una ricerca
-sistematica, perché la sequenza — protocollo, interrogazione, selezione a due valutatori,
-recupero dei testi integrali, valutazione critica, estrazione, sintesi — è **intrinsecamente
+sistematica, perché la sequenza - protocollo, interrogazione, selezione a due valutatori,
+recupero dei testi integrali, valutazione critica, estrazione, sintesi - è **intrinsecamente
 seriale** su una parte rilevante del percorso.
 
 | Attività | Durata | Perché non si comprime |
@@ -110,8 +110,8 @@ seriale** su una parte rilevante del percorso.
 | Analisi dei dati e stesura del rapporto | 12–14 settimane | Dipende dalla ricerca **e** dagli esiti di verifica e validazione |
 | Piano di seguito clinico | 4–6 settimane | Dipende dal rapporto |
 
-**Sei-nove mesi in sequenza**, con una dipendenza a monte — la destinazione d'uso — e una a
-valle — il rapporto benefici/rischi del capitolo
+**Sei-nove mesi in sequenza**, con una dipendenza a monte - la destinazione d'uso - e una a
+valle - il rapporto benefici/rischi del capitolo
 [05 §8](./05-gestione-del-rischio.md), che non si chiude prima.
 
 ```mermaid
@@ -141,12 +141,15 @@ deve seguire.
 
 ### 2.1 Tre ragioni per cui viene sistematicamente sottostimata
 
-1. **Sembra documentale e non lo è.** Chi guarda l'elenco dei prodotti vede tre documenti e stima
-   tre settimane. La ricerca sistematica è un'attività di metodo con un protocollo registrato,
+1. **Sembra documentale e non lo è.** Chi guarda l'elenco dei prodotti del § 4 si ferma ai tre che
+   portano un identificativo - il piano `CE-PLAN-001`, il rapporto `CE-REP-001` e il piano di
+   seguito `PMCF-PLAN-001` - vede tre documenti e stima tre settimane. Gli altri quattro prodotti
+   della stessa tabella non hanno un identificativo e per questo si contano male, ma sono dove sta
+   il lavoro. La ricerca sistematica è un'attività di metodo con un protocollo registrato,
    criteri di inclusione ed esclusione dichiarati **prima**, doppia selezione e valutazione
    critica di ogni fonte inclusa. Un rapporto costruito su una rassegna informale della
    letteratura viene respinto, e la riscrittura riparte dal protocollo.
-2. **Non parte se la destinazione d'uso non è congelata** — condizione oggi soddisfatta
+2. **Non parte se la destinazione d'uso non è congelata** - condizione oggi soddisfatta
    (§ 2.2), e che va presidiata perché è reversibile per errore. Il perimetro della ricerca è
    determinato dalle affermazioni da dimostrare. Se la destinazione d'uso cambia, la ricerca **va
    rifatta, non integrata**: cambiano i criteri di inclusione, quindi cambia l'insieme dei testi
@@ -162,8 +165,8 @@ deve seguire.
 La formulazione della destinazione d'uso del telemonitoraggio **è congelata** (`D55`, che chiude
 `Q-144`): «**raccolta differita di parametri per la revisione periodica del professionista**». È
 la formulazione su cui l'intero modello di dominio è scritto (vincolo `V-144`) e mantiene la
-Classe IIa e la classe di sicurezza software B. La formulazione alternativa — «monitoraggio in
-tempo reale dei parametri vitali», che porterebbe in Classe IIb e classe C — è **esclusa**.
+Classe IIa e la classe di sicurezza software B. La formulazione alternativa - «monitoraggio in
+tempo reale dei parametri vitali», che porterebbe in Classe IIb e classe C - è **esclusa**.
 
 **Per la valutazione clinica la differenza non era di classe, era di corpus**, ed è la ragione per
 cui il congelamento sblocca questo capitolo più di quanto sblocchi gli altri. Le stringhe di
@@ -171,7 +174,7 @@ interrogazione, i criteri di inclusione e lo stato dell'arte di riferimento sono
 diversi** nei due casi: la letteratura sulla sorveglianza continua e quella sulla revisione
 periodica sono corpora distinti, con esiti, popolazioni e disegni di studio diversi. Cambiare
 formulazione dopo l'avvio non modificherebbe un paragrafo: **azzererebbe il lavoro**. Da `D55`
-discende un divieto permanente che questo capitolo ha interesse diretto a presidiare — **nessuna
+discende un divieto permanente che questo capitolo ha interesse diretto a presidiare - **nessuna
 funzione può essere aggiunta se sposta il sistema verso il tempo reale clinico**, e la valutazione
 va fatta **prima** di scrivere la funzione, non dopo.
 
@@ -180,21 +183,22 @@ congelata sia **sottoposta a revisione esterna prima** di ingaggiare qualunque o
 notificato. Quella revisione **non è stata condotta**. E ingaggiare l'organismo è a sua volta un
 atto che presuppone il ruolo di fabbricante: il progetto **intende** assumerlo e **il soggetto
 giuridico che lo eserciterebbe è ancora da costituire**. Il congelamento rende quindi avviabile la
-parte **metodologica** — protocollo della ricerca, criteri di inclusione ed esclusione, dossier
-dello stato dell'arte — e **non rende anticipabile** nulla di ciò che il § 4 riserva al ruolo.
+parte **metodologica** - protocollo della ricerca, criteri di inclusione ed esclusione, dossier
+dello stato dell'arte - e **non rende anticipabile** nulla di ciò che il § 4 riserva al ruolo.
 
 **Una precisazione che questa sezione deve alla propria storia.** La versione precedente
-dichiarava la destinazione d'uso non congelata e la dipendenza bloccante. Non lo è più. Chi
-trovasse `Q-144` ancora elencata fra le questioni aperte in altri capitoli dell'area la legga alla
-luce di `D55`: è un residuo di riformulazione, segnalato con `Q-274`, non una divergenza di
-merito.
+dichiarava la destinazione d'uso non congelata e la dipendenza bloccante. Non lo è più, e i due
+capitoli che riprendono `Q-144` - [02 §12](./02-qualificazione-e-classificazione.md) e
+[09 §10](./09-percorso-e-calendario.md) - la riportano già come **chiusa da `D55`**. Ciò che resta
+da fare non è una rettifica di quei capitoli ma la **condizione residua** che `09` §10 dichiara: la
+revisione esterna della formulazione, che è `Q-275` e non è stata condotta.
 
 ## 3. MDCG 2020-1: le tre componenti dell'evidenza per un software
 
 **MDCG 2020-1** traduce l'impianto dell'art. 61 nel caso specifico del software e stabilisce che
 l'evidenza clinica di un software dispositivo medico si articola in **tre componenti distinte,
 tutte necessarie**.
-`[NV]` — la revisione corrente del documento va verificata al momento dell'uso: i documenti del
+`[NV]` - la revisione corrente del documento va verificata al momento dell'uso: i documenti del
 gruppo di coordinamento vengono revisionati.
 
 | Componente | Domanda a cui risponde | Come si dimostra | Posizione del progetto |
@@ -211,10 +215,10 @@ del canale in tempo reale con simulazione di perdita e variazione del ritardo, p
 tracciabilità requisiti ↔ prove generata e non compilata (`D10`, capitolo
 [03 §7](./03-sistema-di-gestione-della-qualita.md)).
 
-**Quelle evidenze sono direttamente riusabili come componente dell'evidenza clinica** — ma solo a
+**Quelle evidenze sono direttamente riusabili come componente dell'evidenza clinica** - ma solo a
 una condizione, ed è una condizione di prodotto, non di redazione.
 
-> **`V-176`.** Ogni esito di prova destinato a essere citato come evidenza — clinica o tecnica —
+> **`V-176`.** Ogni esito di prova destinato a essere citato come evidenza - clinica o tecnica -
 > deve essere prodotto in **forma citabile** e conservato come **artefatto immutabile**: versione
 > esatta del software, ambiente dichiarato, data e ora, esecutore, esito, impronta di integrità.
 > Un rapporto **rigenerabile ma non conservato** non è evidenza: al momento della citazione
@@ -222,7 +226,7 @@ una condizione, ed è una condizione di prodotto, non di redazione.
 > l'esito citato riceve un esito diverso. Vale per la catena di integrazione continua di ogni
 > area, non per la sola documentazione di conformità.
 
-È una ragione tecnica precisa — e diversa da quella di IEC 62304 — per cui la tracciabilità va
+È una ragione tecnica precisa - e diversa da quella di IEC 62304 - per cui la tracciabilità va
 congelata subito e le prove vanno prodotte da una catena che ne conservi l'esito. La ragione di
 IEC 62304 è la ricostruibilità; questa è la **citabilità**, ed è più stringente perché il
 destinatario è esterno.
@@ -233,8 +237,8 @@ La validazione clinica di un sistema di telemedicina richiede dati sull'**effett
 del paziente**, e la letteratura disponibile riguarda la telemedicina come **modalità di
 erogazione**, non questo specifico prodotto.
 
-Il ponte fra i due livelli — dal «la televisita in una data specialità è efficace» al «questo
-software consente quella televisita con completezza e tracciabilità dell'informazione clinica» —
+Il ponte fra i due livelli - dal «la televisita in una data specialità è efficace» al «questo
+software consente quella televisita con completezza e tracciabilità dell'informazione clinica» -
 è **precisamente ciò che il rapporto deve costruire**, ed è l'argomento su cui l'organismo
 notificato solleva i quesiti. Non esiste una scorciatoia: esiste un'argomentazione, che va scritta
 bene, e la cui debolezza si paga in cicli di non conformità.
@@ -246,7 +250,7 @@ di misure di qualità del canale dimostra che l'uso del dispositivo produca l'ef
 gestione del paziente. Chi legge l'elenco delle evidenze tecniche prodotte e ne ricava che il
 prodotto sia clinicamente validato compie **esattamente** l'inferenza che questo paragrafo
 esclude: **il beneficio clinico dichiarato non è ad oggi dimostrato**, e non lo diventa perché il
-progetto **intende** dimostrarlo o perché il soggetto fabbricante — **ancora da costituire** —
+progetto **intende** dimostrarlo o perché il soggetto fabbricante - **ancora da costituire** -
 un giorno lo dimostrerà.
 
 ## 4. Che cosa serve concretamente, e chi lo può fare
@@ -258,12 +262,12 @@ un giorno lo dimostrerà.
 | **Protocollo e risultati della ricerca sistematica** | Banche dati interrogate, stringhe, date, criteri di inclusione ed esclusione, diagramma di selezione, valutazione critica di ciascuna fonte inclusa | Può **predisporre il protocollo** e l'infrastruttura documentale | **Il fabbricante esegue**, con redattore qualificato |
 | **Evidenza di validazione tecnica** | Rapporti citabili, con versione, ambiente, data, esecutore, esito | **Integrale** (`V-176`) | **Il fabbricante** la riesamina e la cita |
 | **Evidenza dall'ingegneria dell'usabilità** | Rapporto della validazione sommativa: è **dato clinico** ai fini della gestione del paziente da parte di un utilizzatore | Conduce le formative; contribuisce alla specifica | **Il fabbricante conduce o commissiona la sommativa** ([06 §9](./06-usabilita-e-accessibilita.md)) |
-| `CE-REP-001` **Rapporto di valutazione clinica** | Sintesi e giudizio qualificato, con la determinazione che l'evidenza è **sufficiente** | — | **Solo il fabbricante**, firmato da valutatore qualificato con dichiarazione di assenza di conflitto |
+| `CE-REP-001` **Rapporto di valutazione clinica** | Sintesi e giudizio qualificato, con la determinazione che l'evidenza è **sufficiente** | - | **Solo il fabbricante**, firmato da valutatore qualificato con dichiarazione di assenza di conflitto |
 | `PMCF-PLAN-001` **Piano di seguito clinico** | Che cosa si raccoglierà dal campo per colmare i vuoti di evidenza, con metodi e periodicità | Fornisce la **strumentazione** (§ 7) | **Solo il fabbricante**: è un impegno, non un'analisi |
 
 **Come si legge la quarta colonna.** Non nomina un terzo: nomina il **ruolo formale di
 fabbricante**, che il progetto **intende** assumere e il cui **soggetto giuridico è ancora da
-costituire**. Le righe di quella colonna non sono eseguibili oggi — non per scelta di perimetro ma
+costituire**. Le righe di quella colonna non sono eseguibili oggi - non per scelta di perimetro ma
 perché manca il soggetto, e in due casi manca anche la persona: il rapporto e il piano di seguito
 richiedono un **valutatore qualificato con dichiarazione di assenza di conflitto di interessi**,
 figura che il progetto non ha internamente e che `D54` non consente di improvvisare. La riserva
@@ -273,8 +277,8 @@ controllo dei documenti è in esercizio**.
 ### 4.1 La riga che conta: il dossier dello stato dell'arte
 
 È la parte più laboriosa della valutazione clinica che **non dipende dal fabbricante**. Descrive
-qual è la pratica clinica di riferimento — che cosa si fa oggi, con quali risultati, con quali
-limiti riconosciuti — per le prestazioni nel perimetro dichiarato. È costruita su **fonti
+qual è la pratica clinica di riferimento - che cosa si fa oggi, con quali risultati, con quali
+limiti riconosciuti - per le prestazioni nel perimetro dichiarato. È costruita su **fonti
 pubbliche**: atti nazionali sulla telemedicina, accordi in sede di conferenza permanente, linee
 guida di società scientifiche, letteratura sottoposta a revisione paritaria.
 
@@ -282,8 +286,8 @@ Ne discendono due proprietà che la rendono l'unico contributo davvero strategic
 alla valutazione clinica:
 
 1. **riduce il tempo di percorso di chiunque lo intraprenda, a partire da noi**: non contiene
-   nulla di specifico di un fabbricante, quindi serve **prima di tutto al nostro percorso** — che
-   con `D58` è il percorso di cui il progetto risponde — e resta riusabile da chiunque altro senza
+   nulla di specifico di un fabbricante, quindi serve **prima di tutto al nostro percorso** - che
+   con `D58` è il percorso di cui il progetto risponde - e resta riusabile da chiunque altro senza
    che questo tolga nulla a noi;
 2. **si presta alla forma aperta**, perché è costruita su fonti pubbliche e non su documentazione
    riservata. È l'unica parte sostanziale della valutazione clinica di cui questo si possa dire:
@@ -301,7 +305,7 @@ un'adeguata giustificazione fondata sui risultati della gestione del rischio e s
 considerazione delle specificità dell'interazione fra dispositivo e corpo umano, delle prestazioni
 cliniche previste e delle indicazioni del fabbricante. La disposizione non si applica ai
 dispositivi impiantabili e di Classe III.
-`[NV]` — la numerazione del paragrafo va verificata sul testo consolidato.
+`[NV]` - la numerazione del paragrafo va verificata sul testo consolidato.
 
 **È una via d'uscita apparente**, e va documentata come tale invece di essere ignorata. Tre
 ragioni per non percorrerla:
@@ -343,13 +347,16 @@ Ne discendono tre conseguenze pratiche, e nessuna delle tre è aggirabile con la
 
 1. **Con un dispositivo di un terzo serve un contratto** che dia accesso continuativo alla
    documentazione tecnica. Nessun operatore concorrente ha interesse a concederlo; la trattativa,
-   quando esiste, richiede mesi e ha esito incerto. È l'unica attività dell'intero percorso il cui
-   costo si qualifica come **incerto** e non come ordine di grandezza.
+   quando esiste, richiede mesi e ha esito incerto. Il costo non si lascia esprimere nemmeno come
+   ordine di grandezza - è fra le voci **non stimabili** di
+   [09 §8.2](./09-percorso-e-calendario.md) - ed è esattamente la ragione per cui il § 6.2
+   **non la mette a piano**: un'attività il cui esito non dipende da chi la conduce non si
+   pianifica, si tiene fuori da `CE-PLAN-001` come attività condizionata.
 2. **L'equivalenza con un dispositivo dello stesso fabbricante** è la strada praticabile in
    generale, ma **qui non esiste**: si tratta della prima generazione.
 3. **Una rivendicazione di equivalenza non sostenuta è peggio dell'assenza di equivalenza**,
    perché produce un ciclo di non conformità su un punto centrale del rapporto, e la riscrittura
-   senza equivalenza richiede la ricerca di letteratura che non si era fatta — cioè aggiunge
+   senza equivalenza richiede la ricerca di letteratura che non si era fatta - cioè aggiunge
    dodici-quattordici settimane nel momento peggiore.
 
 **Una nota di riservatezza che vale come regola redazionale, e che `D58` non tocca.** Nessun
@@ -362,8 +369,8 @@ di `D58` la stessa conclusione si giustificava dicendo che l'analisi era «docum
 quella giustificazione è caduta insieme al terzo. La ragione vera è un'altra e regge da sola:
 un'analisi di equivalenza appartiene al **fascicolo tecnico**, che vive sotto il controllo dei
 documenti del fabbricante e **non nel repository pubblico**, ed è per costruzione incompatibile
-con `R0`. Se mai andasse condotta, sarebbe **un documento del fabbricante** — atto riservato a un
-ruolo che il progetto **intende** assumere e il cui **soggetto giuridico è ancora da costituire** —
+con `R0`. Se mai andasse condotta, sarebbe **un documento del fabbricante** - atto riservato a un
+ruolo che il progetto **intende** assumere e il cui **soggetto giuridico è ancora da costituire** -
 e non comparirebbe qui nemmeno allora. Il § 6.2 spiega perché, per questo prodotto, la questione
 in concreto non si pone.
 
@@ -384,31 +391,31 @@ fa. È la strada normale per questo tipo di prodotto ed è esattamente la strada
 sei-nove mesi del § 2.
 
 **Proposta del progetto:** costruire `CE-PLAN-001` **senza equivalenza**, e trattare l'equivalenza
-come attività **condizionata** — da valutare solo se emergesse un candidato con documentazione
-tecnica effettivamente accessibile — e non come attività pianificata. Un piano che pianifica una
+come attività **condizionata** - da valutare solo se emergesse un candidato con documentazione
+tecnica effettivamente accessibile - e non come attività pianificata. Un piano che pianifica una
 trattativa il cui esito non dipende da chi la conduce non è un piano.
 
 ## 7. Il seguito clinico post-commercializzazione è un requisito di progettazione del dato
 
 L'**Allegato XIV, Parte B**, disciplina il seguito clinico post-commercializzazione come processo
-**continuo** di aggiornamento della valutazione clinica, con un **piano** — metodi, procedure,
+**continuo** di aggiornamento della valutazione clinica, con un **piano** - metodi, procedure,
 obiettivi, razionale, riferimento alle parti pertinenti del rapporto e ai requisiti generali di
-sicurezza e prestazione — e un **calendario**. L'esito è un **rapporto** che alimenta insieme la
+sicurezza e prestazione - e un **calendario**. L'esito è un **rapporto** che alimenta insieme la
 valutazione clinica e la sorveglianza post-commercializzazione
 (capitolo [08](./08-sorveglianza-post-commercializzazione.md)).
 
 **Perché qui il piano è sostanziale e non formale.** La valutazione clinica iniziale poggerà in
 misura prevalente su letteratura relativa alla modalità di erogazione e su validazione tecnica.
-Il vuoto di evidenza è quindi sulla terza componente — l'effetto sulla gestione del paziente **con
-questo dispositivo** — ed è precisamente il vuoto che il seguito deve colmare. Un piano che
+Il vuoto di evidenza è quindi sulla terza componente - l'effetto sulla gestione del paziente **con
+questo dispositivo** - ed è precisamente il vuoto che il seguito deve colmare. Un piano che
 **dichiari il vuoto** e definisca come colmarlo è difendibile; un piano generico che prometta
 «raccolta di riscontri degli utilizzatori» non lo è.
 
 ### 7.1 La conseguenza di prodotto, che va presa ora e non dopo
 
 > **`V-177`.** Le grandezze che il piano di seguito clinico si impegna a raccogliere devono
-> **esistere come dati** — con definizione stabile, versionata e confrontabile fra installazioni e
-> nel tempo — **prima** che il piano sia scritto. Progettare la strumentazione dopo aver scritto
+> **esistere come dati** - con definizione stabile, versionata e confrontabile fra installazioni e
+> nel tempo - **prima** che il piano sia scritto. Progettare la strumentazione dopo aver scritto
 > il piano significa scoprire che il dato non c'è, e un dato che non c'è non si recupera
 > retroattivamente per il periodo trascorso. La definizione di ciascuna grandezza è versionata:
 > cambiarla senza cambiarne il nome rende la serie storica incomparabile e vanifica il seguito
@@ -421,7 +428,7 @@ Le grandezze plausibili per questo prodotto, e ciò che ciascuna richiede al mod
 | Frazione di prestazioni **concluse** rispetto a quelle avviate, per esito tipizzato | Se il dispositivo consente effettivamente l'erogazione | Gli esiti tipizzati sono valori di dominio e non codici di errore (`V-126`): la distinzione fra mancata presentazione e fallimento tecnico deve restare (`V-141`) |
 | Frequenza dei **ripieghi in presenza** | Se la modalità a distanza regge il caso d'uso dichiarato | La valutazione di eseguibilità a tre esiti indipendenti deve essere registrata, non solo applicata |
 | **Completezza dell'informazione clinica** trasmessa al sistema di origine | È l'affermazione contenuta nella destinazione d'uso (§ 1.1) | Stato di trasmissione esplicito con conferma di presa in carico dal ricevente: nessuno stato intermedio ambiguo (`RM-08`) |
-| Frequenza di **allarmi non riscontrati** nella finestra dichiarata | Sicurezza del percorso di telemonitoraggio | L'attesa di rilevazione è un'entità (`V-148`) e la copertura oraria è dato di runtime versionato (`V-122`) |
+| Frequenza di **allarmi non riscontrati** nella finestra dichiarata | Sicurezza del percorso di telemonitoraggio | La presa in carico è una transizione registrata nella sequenza di eventi immutabili dell'allarme, non una colonna di stato aggiornata sul posto (`V-121`, `BR-136`): senza di essa il mancato riscontro non è ricostruibile a posteriori. La copertura oraria è dato di runtime versionato (`V-122`) e stabilisce se un mancato riscontro fosse atteso o anomalo |
 | Frequenza di **errori di associazione** segnalati | Sicurezza dell'identificazione | Registrazione dell'atto di identificazione come evento, non come attributo |
 
 **Nessuna di queste grandezze contiene contenuto clinico**, ed è una condizione, non una
@@ -434,11 +441,11 @@ valore informativo del dato.
 
 | Verso | Legame | Direzione |
 |---|---|---|
-| [02 — Qualificazione](./02-qualificazione-e-classificazione.md) | La destinazione d'uso determina le affermazioni da dimostrare, quindi il perimetro della ricerca | **Ingresso**, congelato da `D55` (§ 2.2) |
-| [05 — Gestione del rischio](./05-gestione-del-rischio.md) | Il rapporto benefici/rischi ha bisogno del termine di paragone dei benefici, che viene da qui | **Uscita** verso il § 8 di quel capitolo |
-| [06 — Usabilità](./06-usabilita-e-accessibilita.md) | Il rapporto della validazione sommativa è **dato clinico** ai fini della gestione del paziente | **Ingresso** |
-| [08 — Sorveglianza](./08-sorveglianza-post-commercializzazione.md) | Il seguito clinico è parte della sorveglianza e alimenta il rapporto periodico sulla sicurezza | **Bidirezionale** |
-| [09 — Percorso](./09-percorso-e-calendario.md) | Sei-nove mesi non comprimibili, che collocano la sottomissione nella **pianificazione interna** del progetto (`D57`) — durate, non termini: qui non compare alcuna data | **Uscita** |
+| [02 - Qualificazione](./02-qualificazione-e-classificazione.md) | La destinazione d'uso determina le affermazioni da dimostrare, quindi il perimetro della ricerca | **Ingresso**, congelato da `D55` (§ 2.2) |
+| [05 - Gestione del rischio](./05-gestione-del-rischio.md) | Il rapporto benefici/rischi ha bisogno del termine di paragone dei benefici, che viene da qui | **Uscita** verso il § 8 di quel capitolo |
+| [06 - Usabilità](./06-usabilita-e-accessibilita.md) | Il rapporto della validazione sommativa è **dato clinico** ai fini della gestione del paziente | **Ingresso** |
+| [08 - Sorveglianza](./08-sorveglianza-post-commercializzazione.md) | Il seguito clinico è parte della sorveglianza e alimenta il rapporto periodico di aggiornamento sulla sicurezza | **Bidirezionale** |
+| [09 - Percorso](./09-percorso-e-calendario.md) | Sei-nove mesi non comprimibili, che collocano la sottomissione nella **pianificazione interna** del progetto (`D57`) - durate, non termini: qui non compare alcuna data | **Uscita** |
 
 **La freccia più pericolosa è la prima**, ed è quella che si dimentica: la valutazione clinica non
 è un'attività a valle della consegna del software. Se parte nel momento in cui il software è
@@ -448,12 +455,16 @@ più.
 
 ## 9. Che cosa questo capitolo lascia aperto
 
+**L'ordine della tabella è per priorità e stato, non per identificativo**: prima le due questioni
+aperte che attendono una decisione, poi quella chiusa in sede di verifica incrociata, poi le
+verifiche `[NV]`, infine ciò che resta riservato al ruolo di fabbricante.
+
 | Riferimento | Questione | A chi |
 |---|---|---|
 | `Q-176` | **Se il progetto produca e pubblichi il dossier dello stato dell'arte** (§ 4.1). Con `D58` la domanda cambia di natura: non è più «se contribuire al pacchetto di un terzo» ma **se avviare ora una voce del nostro percorso** che è a tempo lungo, non comprimibile e a monte della ricerca sistematica. Si presta alla forma aperta ed è riusabile da chiunque; richiede però una competenza clinica documentabile che il progetto **non ha internamente** ed è quindi un impegno di risorse esterne, non un'estensione della documentazione | → Committente |
-| `Q-275` | **La revisione esterna della destinazione d'uso congelata non è stata condotta** (§ 2.2). `D46` e `D55` la impongono **prima** di ingaggiare qualunque organismo notificato; l'ingaggio presuppone il soggetto fabbricante da costituire, ma **la revisione no** — è la sola delle due che si può commissionare ora, e rinviarla espone al rischio che il congelamento regga fino al primo confronto esterno e non oltre | → Committente |
-| `Q-274` | **Residuo di riformulazione fuori dal mio perimetro**: `Q-144` risulta ancora elencata fra le questioni aperte in `02` §12 e in `09` §10, benché `D55` l'abbia chiusa congelando la destinazione d'uso del telemonitoraggio. Non è una divergenza di merito, ma un lettore che entri da quei capitoli ricava una dipendenza bloccante che non esiste più | → **ORCH** |
+| `Q-275` | **La revisione esterna della destinazione d'uso congelata non è stata condotta** (§ 2.2). `D46` e `D55` la impongono **prima** di ingaggiare qualunque organismo notificato; l'ingaggio presuppone il soggetto fabbricante da costituire, ma **la revisione no** - è la sola delle due che si può commissionare ora, e rinviarla espone al rischio che il congelamento regga fino al primo confronto esterno e non oltre | → Committente |
+| `Q-274` | **CHIUSA in sede di verifica incrociata.** La questione affermava che `Q-144` risultasse ancora elencata fra le questioni aperte in `02` §12 e in `09` §10. La verifica sui due capitoli mostra che **non è così**: entrambi la riportano come «**CHIUSA da `D55`**» con esito **RISOLTA**, e `09` §10 vi aggiunge la sola condizione residua della revisione esterna, che è `Q-275` e resta aperta qui sopra. Nessun lettore ricava da quei capitoli una dipendenza bloccante: `Q-274` era essa stessa un residuo di riformulazione, e si chiude senza girarla ad altri | **CHIUSA**, verificata sui due capitoli |
 | `[NV]` | Numerazione puntuale dell'art. 2, punto 44, e dell'art. 61, paragrafo 10 (§§ 1, 5) | Conformità |
 | `[NV]` | Revisione corrente di MDCG 2020-1 (§ 3) | Conformità |
-| — | **Il rapporto di valutazione clinica non è producibile dal progetto in nessuna forma**, nemmeno in bozza: richiede un valutatore qualificato con dichiarazione di assenza di conflitto, e la firma è l'atto stesso (§ 4). L'atto **resta riservato al ruolo di fabbricante anche quando il ruolo sarà nostro** | **Il fabbricante**, con soggetto costituito e valutatore nominato |
-| — | **L'analisi di equivalenza non è producibile in questa documentazione** perché nomina necessariamente un dispositivo di confronto (§ 6.1, `R0`, `V-274`). Il limite è di **perimetro della documentazione pubblica** e non si sposta con `D58` | **Il fabbricante**, nel fascicolo tecnico e mai qui |
+| - | **Il rapporto di valutazione clinica non è producibile dal progetto in nessuna forma**, nemmeno in bozza: richiede un valutatore qualificato con dichiarazione di assenza di conflitto, e la firma è l'atto stesso (§ 4). L'atto **resta riservato al ruolo di fabbricante anche quando il ruolo sarà nostro** | **Il fabbricante**, con soggetto costituito e valutatore nominato |
+| - | **L'analisi di equivalenza non è producibile in questa documentazione** perché nomina necessariamente un dispositivo di confronto (§ 6.1, `R0`, `V-274`). Il limite è di **perimetro della documentazione pubblica** e non si sposta con `D58` | **Il fabbricante**, nel fascicolo tecnico e mai qui |

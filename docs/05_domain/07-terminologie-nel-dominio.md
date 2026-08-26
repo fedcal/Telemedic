@@ -19,12 +19,12 @@ decisione `D31`; quest'area non la ripete e non la contraddice.
 
 ## 1. Il vincolo di partenza
 
-> **[BASE] `D1`** — La licenza del progetto è Apache-2.0, che concede a valle il diritto di usare,
+> **[BASE] `D1`** - La licenza del progetto è Apache-2.0, che concede a valle il diritto di usare,
 > modificare e ridistribuire, anche in prodotti proprietari. Una terminologia la cui licenza
 > vieti la ridistribuzione o i derivati **non può stare fra i sorgenti**, perché il progetto non
 > può concedere a valle diritti che non ha.
 
-> **[BASE] `V-03`** — Il sistema è **pienamente funzionale senza SNOMED CT**. Nessun percorso
+> **[BASE] `V-03`** - Il sistema è **pienamente funzionale senza SNOMED CT**. Nessun percorso
 > principale può richiederlo.
 
 > **[BASE]** Gateway unico verso le terminologie, con disattivazione per sistema di codifica;
@@ -56,7 +56,7 @@ riferimento per identificatore e codice.
 | Classificazioni internazionali delle malattie, decima e undicesima revisione | terminologia dell'organizzazione internazionale competente | **D** | licenza che vieta i derivati; solo riferimento per identificatore |
 | Scale e questionari clinici validati | titolari diversi, uno per scala | **da accertare** | questione `Q-11`; capitolo [05](05-parametri-e-osservazioni.md) § 9.3 |
 
-> **`DM-80` [MOD] — La colonna «regime» è un attributo del sistema di codifica nel modello, non
+> **`DM-80` [MOD] - La colonna «regime» è un attributo del sistema di codifica nel modello, non
 > una nota di documentazione.** Il gateway conosce, per ciascun sistema, il proprio regime, e ne
 > fa discendere il comportamento: che cosa può essere memorizzato, che cosa può essere
 > espanso, che cosa può essere solo riferito. Senza questo attributo, la policy vive in un
@@ -91,11 +91,11 @@ flowchart LR
 
 ### 3.2 Il display ufficiale non è l'etichetta di interfaccia
 
-> **[BASE] `D34`** — Le traduzioni di una terminologia sono **derivati** e appartengono al
+> **[BASE] `D34`** - Le traduzioni di una terminologia sono **derivati** e appartengono al
 > titolare della terminologia. Le stringhe di internazionalizzazione del progetto vanno separate
 > architetturalmente dal display ufficiale.
 
-> **`DM-81` [MOD] — Tre stringhe distinte per lo stesso concetto**, e la confusione fra loro è
+> **`DM-81` [MOD] - Tre stringhe distinte per lo stesso concetto**, e la confusione fra loro è
 > insieme un difetto funzionale e un problema di licenza:
 >
 > 1. **Il display ufficiale** appartiene al titolare. Si conserva come ricevuto, non si traduce,
@@ -106,8 +106,8 @@ flowchart LR
 >    è collegata al codice e non deriva dal display.
 >
 > **Questione `Q-03` in bacheca**, indirizzata all'area `ARCH`: come si realizza concretamente la
-> separazione. Quest'area vi contribuisce con `DM-81` — che stabilisce **che cosa** va separato e
-> perché — e non ne decide la realizzazione tecnica.
+> separazione. Quest'area vi contribuisce con `DM-81` - che stabilisce **che cosa** va separato e
+> perché - e non ne decide la realizzazione tecnica.
 
 Il costo della disciplina è dichiarato in `B5` § 11.3 e va detto senza attenuanti: **senza le
 traduzioni ufficiali, il progetto deve mantenere le proprie etichette per i codici che espone
@@ -120,8 +120,8 @@ costo di conformità: è il prodotto.
 Un sistema che dipenda dalla risoluzione dei codici funziona solo quando tutto è configurato. Il
 modello prevede il caso contrario come normale.
 
-> **`DM-82` [MOD] — Un concetto codificato è valido anche se il suo sistema non è risolvibile.**
-> Il dato si conserva integro — sistema, codice, testo originale — e porta uno **stato di
+> **`DM-82` [MOD] - Un concetto codificato è valido anche se il suo sistema non è risolvibile.**
+> Il dato si conserva integro - sistema, codice, testo originale - e porta uno **stato di
 > risoluzione** dichiarato: risolto, non risolvibile perché il sistema è disattivato, non
 > risolvibile perché il servizio non è raggiungibile, non trovato nel sistema dichiarato.
 >
@@ -148,7 +148,7 @@ poter distinguere.
 > **[BASE]** **Nessuna cache persistita su disco** per i sistemi la cui licenza non consente
 > derivati: una cache persistente di risposte è un sottoinsieme, cioè un derivato (`D33`).
 
-> **`DM-83` [MOD]** — La politica di memorizzazione temporanea è **per sistema di codifica**, non
+> **`DM-83` [MOD]** - La politica di memorizzazione temporanea è **per sistema di codifica**, non
 > globale. Un unico livello di memorizzazione con la stessa politica per tutti i sistemi è
 > tecnicamente più semplice e giuridicamente insostenibile.
 
@@ -173,7 +173,7 @@ comportamento del percorso funzionale, e quindi va dichiarata e presentata all'u
 
 ### 5.1 La regola, e la ragione
 
-> **[BASE] `D32`** — L'accordo di licenza si perfeziona **scaricando o accedendo** al contenuto:
+> **[BASE] `D32`** - L'accordo di licenza si perfeziona **scaricando o accedendo** al contenuto:
 > se il progetto non lo scarica mai, non ne è mai vincolato. La clausola che impone che il
 > contenuto non sia accessibile se non a utenti autorizzati è **incompatibile con un repository
 > pubblico**, e la catena di sub-licenza è incompatibile con Apache-2.0 per costruzione.
@@ -182,8 +182,8 @@ Ne discendono tre regole operative che ricadono su chi scrive codice e non solo 
 documenti:
 
 1. **Nessun manutentore scarica i file di rilascio** per finalità di sviluppo. Le prove
-   dell'integrazione terminologica si eseguono con **doppi di prova** — sistemi di codifica
-   fittizi del progetto — o su un'istanza fornita da chi detiene già la licenza.
+   dell'integrazione terminologica si eseguono con **doppi di prova** - sistemi di codifica
+   fittizi del progetto - o su un'istanza fornita da chi detiene già la licenza.
 2. **Nessun insieme di valori del progetto contiene concetti enumerati** di quel sistema. La
    composizione per filtro è ammessa; l'espansione no.
 3. **Un controllo in integrazione continua fa fallire la costruzione** se contenuto vietato
@@ -201,7 +201,7 @@ Vanno dette senza attenuanti, perché riguardano chi userà il sistema e non il 
 - **Chi distribuisce il sistema distribuisce un prodotto soggetto alla licenza**, anche senza che
   esso contenga un solo concetto.
 
-Il capitolo [08 della documentazione di conformità](../08_compliance/) è la sede della procedura
+Il capitolo [08 della documentazione di conformità](../08_compliance/00-indice.md) è la sede della procedura
 operativa per chi installa; quest'area si limita a segnalare che il modello deve **rendere
 possibile l'esercizio senza quel sistema**, che è il punto successivo.
 
@@ -226,12 +226,12 @@ nazionale delle prestazioni, che non hanno costo (`D33`).
 
 ### 6.2 Che cosa non funziona, dichiarato
 
-> **[BASE] `D33`** — Il costo è dichiarato: gli insiemi di valori con collegamento a quel sistema
-> — in particolare quello del motivo del contatto, dell'ordine di alcune migliaia di concetti —
+> **[BASE] `D33`** - Il costo è dichiarato: gli insiemi di valori con collegamento a quel sistema
+> - in particolare quello del motivo del contatto, dell'ordine di alcune migliaia di concetti -
 > **non si validano**. In un'installazione appena avviata, la validazione di quei collegamenti
 > fallisce o va disattivata. È il costo più alto dell'intera policy, ed è dichiarato come tale.
 
-> **`DM-84` [MOD] — La degradazione è dichiarata all'utente, non silenziosa.** Quando un
+> **`DM-84` [MOD] - La degradazione è dichiarata all'utente, non silenziosa.** Quando un
 > collegamento non è validabile perché il sistema è disattivato, l'esito è **«non validato,
 > sistema non disponibile»**, distinto sia da «valido» sia da «non valido». Restituire «valido»
 > per non bloccare è la scelta che rende il sistema inaffidabile senza che nessuno se ne accorga.
@@ -246,7 +246,7 @@ di chi installa, che è anche il soggetto che ne assume gli obblighi.
 
 ### 7.1 Il farmaco
 
-> **[BASE] `D34`** — La classificazione anatomico-terapeutica è **esclusa**: i termini del
+> **[BASE] `D34`** - La classificazione anatomico-terapeutica è **esclusa**: i termini del
 > titolare vietano copia e distribuzione a fini commerciali e ogni modifica, frontalmente
 > incompatibili con Apache-2.0.
 
@@ -254,7 +254,7 @@ La mitigazione è a costo nullo perché in Italia la codifica operativa del farm
 l'autorizzazione all'immissione in commercio, che è il codice che compare nel tracciato
 ministeriale del referto di televisita accanto alla classificazione terapeutica.
 
-> **`DM-85` [MOD]** — Il modello del farmaco ha **due codifiche facoltative e indipendenti**:
+> **`DM-85` [MOD]** - Il modello del farmaco ha **due codifiche facoltative e indipendenti**:
 > identificazione commerciale e classificazione terapeutica. Il sistema è pienamente funzionale
 > con la sola prima. L'identificatore canonico della seconda resta ammesso come **riferimento**,
 > perché un identificatore di sistema è un nome, non un indirizzo da cui scaricare.
@@ -290,7 +290,7 @@ stesso vincolo del catalogo delle prestazioni del capitolo
 ### 7.4 I cataloghi regionali
 
 Ventuno cicli di aggiornamento indipendenti. Il rischio giuridico è molto basso; quello di
-manutenzione è alto. La scelta di quest'area — coerente con `DM-24` — è **accettarli per
+manutenzione è alto. La scelta di quest'area - coerente con `DM-24` - è **accettarli per
 riferimento dal tenant** e non includerli.
 
 Il tracciato ministeriale conferma che i due livelli coesistono: la richiesta di teleconsulto
@@ -302,13 +302,13 @@ non sceglierne uno.
 
 > **[NORM]** Il DM 19 novembre 2025, All. 3, § 3.2 prevede che la piattaforma possa consumare dal
 > glossario di business dell'infrastruttura nazionale le risorse terminologiche in formato dello
-> standard — sistemi di codifica, insiemi di valori, mappe di concetti — dal servizio
+> standard - sistemi di codifica, insiemi di valori, mappe di concetti - dal servizio
 > terminologico, e le linee guida, i percorsi e i protocolli dal repository di librerie in formato
 > documentale, **con logica espressa in un linguaggio di espressione clinica** (`REQ-57` di `B1`).
 
 L'ultima parte è la più delicata dell'intero capitolo:
 
-> **`DM-86` [MOD] — Consumare terminologie non è eseguire logica decisionale, e la distinzione va
+> **`DM-86` [MOD] - Consumare terminologie non è eseguire logica decisionale, e la distinzione va
 > mantenuta nel modello.** L'acquisizione di sistemi di codifica, insiemi di valori e mappe di
 > concetti è nel perimetro. **L'esecuzione locale di logica clinica espressa in un linguaggio di
 > espressione** configura supporto alla decisione clinica e sposta il perimetro di
@@ -334,7 +334,7 @@ funzionale senza alcuna scala di terzi.
 
 Qui va aggiunto ciò che riguarda la policy terminologica:
 
-> **`DM-87` [MOD] — I quattro regimi si applicano identicamente a scale e questionari.** Non
+> **`DM-87` [MOD] - I quattro regimi si applicano identicamente a scale e questionari.** Non
 > sono una categoria a parte: sono contenuto di terzi con titolare, licenza e obblighi di
 > attribuzione, e vanno collocati con lo stesso criterio, verificati con la stessa lista di
 > controllo e sorvegliati dallo stesso controllo automatico.
@@ -367,11 +367,11 @@ ricompreso**. La verifica è artefatto per artefatto.
 
 | Punto | Stato | A chi va chiesto |
 |---|---|---|
-| Regime di licenza delle singole scale e questionari clinici | **[NV]** | `COMP` — questione `Q-11` |
-| Contenuto puntuale del glossario nazionale di telemedicina e allineamento voce per voce | **[NV]** | `COMP` — capitolo [01](01-linguaggio-ubiquo.md) § 1.2 |
-| Codici di tipologia documentale e metadati di indicizzazione delle dieci tipologie di telemedicina | **[NV]** | `COMP` — questione `Q-07` |
-| Compatibilità del servizio terminologico esterno con il vincolo di sovranità | **[NV]** | `SEC`, `ARCH` — questione `Q-04` |
-| Valori puntuali degli insiemi di valori dedicati agli identificatori delle popolazioni non iscritte | **[NV]** | `ARCH` — segnalato nel modulo [04 dei fondamenti](../10_fondamenti/04-identita-e-anagrafiche.md) § 3.2 |
+| Regime di licenza delle singole scale e questionari clinici | **[NV]** | `COMP` - questione `Q-11` |
+| Contenuto puntuale del glossario nazionale di telemedicina e allineamento voce per voce | **[NV]** | `COMP` - capitolo [01](01-linguaggio-ubiquo.md) § 1.2 |
+| Codici di tipologia documentale e metadati di indicizzazione delle dieci tipologie di telemedicina | **[NV]** | `COMP` - questione `Q-07` |
+| Compatibilità del servizio terminologico esterno con il vincolo di sovranità | **[NV]** | `SEC`, `ARCH` - questione `Q-04` |
+| Valori puntuali degli insiemi di valori dedicati agli identificatori delle popolazioni non iscritte | **[NV]** | `ARCH` - segnalato nel modulo [04 dei fondamenti](../10_fondamenti/04-identita-e-anagrafiche.md) § 3.2 |
 
 ## Cosa devi ricordare
 
@@ -400,9 +400,9 @@ ricompreso**. La verifica è artefatto per artefatto.
 
 ## Dove continuare
 
-- [05 — Parametri e osservazioni](05-parametri-e-osservazioni.md): le grandezze codificate e le
+- [05 - Parametri e osservazioni](05-parametri-e-osservazioni.md): le grandezze codificate e le
   unità.
-- [04 — I documenti clinici](04-documenti-clinici.md): quali codifiche il tracciato ministeriale
+- [04 - I documenti clinici](04-documenti-clinici.md): quali codifiche il tracciato ministeriale
   richiede nel referto.
 - Modulo [06 dei fondamenti](../10_fondamenti/06-fhir-da-zero.md): come è fatto un concetto
   codificato nello standard adottato.

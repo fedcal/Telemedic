@@ -1,16 +1,16 @@
 ---
-title: Panoramica — indice e orientamento
+title: Panoramica - indice e orientamento
 sidebar_position: 1
 description: "La porta d'ingresso alla documentazione di Telemedic: come è organizzata, i percorsi di lettura per profilo, la mappa delle undici aree con ciò che ciascuna copre e ciò che non copre, le convenzioni comuni e le regole di precedenza."
 ---
 
-# Panoramica — indice e orientamento
+# Panoramica - indice e orientamento
 
 Questa è la porta d'ingresso alla documentazione di Telemedic. **Non riassume le altre aree:
 instrada.** Se una risposta esiste altrove, qui trovi il collegamento e la ragione per cui sta lì
 e non altrove.
 
-La documentazione è ampia — undici aree, più il registro delle decisioni architetturali —
+La documentazione è ampia - undici aree, più il registro delle decisioni architetturali -
 e **nessuno la legge per intero**. Il §3 contiene i percorsi che coprono i casi reali.
 
 ## 1. Le quattro pagine di questa area
@@ -36,13 +36,13 @@ entro cui il prodotto sarà marcato**. Fonte diretta:
 
 **Seconda.** Al momento della stesura di quest'area **non esiste codice applicativo**. Esiste un
 corpo documentale esteso e nessuna riga di software del servizio o dell'interfaccia. La fotografia
-completa è in [04 — Stato e limiti](./04-stato-e-limiti.md) §2.
+completa è in [04 - Stato e limiti](./04-stato-e-limiti.md) §2.
 
 **Terza.** Il progetto è costruito attorno alle definizioni normative italiane delle prestazioni di
 telemedicina, non attorno a una piattaforma di videochiamata. Se le distinzioni fra televisita,
 teleconsulto, teleassistenza e telemonitoraggio non contano per il tuo caso d'uso, quasi tutte le
-scelte documentate qui sembreranno inutilmente complicate — e la spiegazione del perché non lo sono
-è in [02 — Le quattro prestazioni](./02-le-quattro-prestazioni.md).
+scelte documentate qui sembreranno inutilmente complicate - e la spiegazione del perché non lo sono
+è in [02 - Le quattro prestazioni](./02-le-quattro-prestazioni.md).
 
 ## 3. Percorsi di lettura
 
@@ -50,24 +50,24 @@ scelte documentate qui sembreranno inutilmente complicate — e la spiegazione d
 
 L'ordine è studiato: prima i limiti, poi il perimetro, poi ciò che l'adozione comporta.
 
-1. [04 — Stato e limiti](./04-stato-e-limiti.md), **per intero**. Il §7 è la lista degli otto punti
+1. [04 - Stato e limiti](./04-stato-e-limiti.md), **per intero**. Il §7 è la lista degli otto punti
    che vanno saputi prima di decidere.
 2. [`docs/09_roadmap/03-primo-rilascio-utilizzabile.md`](../09_roadmap/03-primo-rilascio-utilizzabile.md)
-   — perimetro esatto del primo rilascio, presupposti di installazione, limiti dichiarati.
+   - perimetro esatto del primo rilascio, presupposti di installazione, limiti dichiarati.
 3. [`docs/06_security/09-ripartizione-delle-responsabilita.md`](../06_security/09-ripartizione-delle-responsabilita.md)
-   — la tabella da mettere accanto a un capitolato. Esiste specificamente perché nessuno creda di
+   - la tabella da mettere accanto a un capitolato. Esiste specificamente perché nessuno creda di
    essere coperto dove non lo è.
-4. [`docs/03_functional/07-fuori-perimetro.md`](../03_functional/07-fuori-perimetro.md) — che cosa
+4. [`docs/03_functional/07-fuori-perimetro.md`](../03_functional/07-fuori-perimetro.md) - che cosa
    il sistema non fa, con la categoria di riapribilità di ciascuna esclusione.
-5. [`docs/09_roadmap/00-indice.md`](../09_roadmap/00-indice.md) §§2–3 — per non attribuire al
+5. [`docs/09_roadmap/00-indice.md`](../09_roadmap/00-indice.md) §§2–3 - per non attribuire al
    progetto impegni che non ha assunto.
 
 ### 3.2 Chi deve installare e mandare in esercizio
 
 1. [`docs/02_architecture/08-viste-di-deployment.md`](../02_architecture/08-viste-di-deployment.md)
-   — componenti, reti, isolamento del relay, dipendenze.
+   - componenti, reti, isolamento del relay, dipendenze.
 2. [`docs/09_roadmap/03-primo-rilascio-utilizzabile.md`](../09_roadmap/03-primo-rilascio-utilizzabile.md)
-   §5 — i presupposti. **Chi non può soddisfarli non può installare.**
+   §5 - i presupposti. **Chi non può soddisfarli non può installare.**
 3. [`docs/02_architecture/05-multi-tenancy.md`](../02_architecture/05-multi-tenancy.md) e
    [`docs/02_architecture/07-tracciamento-e-registro-immutabile.md`](../02_architecture/07-tracciamento-e-registro-immutabile.md).
 4. [`docs/01_technical/06-osservabilita.md`](../01_technical/06-osservabilita.md),
@@ -75,7 +75,7 @@ L'ordine è studiato: prima i limiti, poi il perimetro, poi ciò che l'adozione 
    e [`docs/01_technical/09-integrazione-continua-e-rilascio.md`](../01_technical/09-integrazione-continua-e-rilascio.md).
 5. [`docs/06_security/08-quadro-normativo-e-misure.md`](../06_security/08-quadro-normativo-e-misure.md)
    e [`docs/06_security/10-risposta-agli-incidenti.md`](../06_security/10-risposta-agli-incidenti.md)
-   — i quattro orologi distinti, che non vanno confusi.
+   - i quattro orologi distinti, che non vanno confusi.
 
 ### 3.3 Chi deve integrare un sistema esistente
 
@@ -89,10 +89,10 @@ Se non hai familiarità con il dominio, prima:
 [`docs/10_fondamenti/06-fhir-da-zero.md`](../10_fondamenti/06-fhir-da-zero.md).
 
 Poi, in ordine di conseguenze irreversibili:
-[01 — Le quattro modalità](../07_integration/01-modalita-di-integrazione.md), comprese le sezioni
-«quando è la scelta sbagliata»; [06 — Identità e delega](../07_integration/06-identita-e-delega.md),
+[01 - Le quattro modalità](../07_integration/01-modalita-di-integrazione.md), comprese le sezioni
+«quando è la scelta sbagliata»; [06 - Identità e delega](../07_integration/06-identita-e-delega.md),
 che è il capitolo con più conseguenze irreversibili;
-[09 — Obblighi di chi integra](../07_integration/09-obblighi-di-chi-integra.md), da leggere **prima**
+[09 - Obblighi di chi integra](../07_integration/09-obblighi-di-chi-integra.md), da leggere **prima**
 della firma di un contratto, non dopo.
 
 ### 3.4 Chi vuole contribuire al codice
@@ -101,12 +101,12 @@ La guida dei fondamenti in
 [`docs/10_fondamenti/`](../10_fondamenti/00-come-usare-questa-guida.md) è **prerequisito dichiarato**
 di [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md). Ventuno
 moduli che non danno per scontato nulla, né del mondo sanitario né di quello informatico, con
-percorsi di lettura distinti per profilo. **Quattro dei ventuno non sono ancora scritti** — fra cui
+percorsi di lettura distinti per profilo. **Quattro dei ventuno non sono ancora scritti** - fra cui
 il glossario e la matrice area del codice → conoscenze richieste: vedi
-[04 — Stato e limiti](./04-stato-e-limiti.md) §3.
+[04 - Stato e limiti](./04-stato-e-limiti.md) §3.
 
 Dopo la guida: l'indice dell'area che si intende toccare, e tre pagine che possono far respingere
-una proposta indipendentemente dalla qualità del codice —
+una proposta indipendentemente dalla qualità del codice -
 [`docs/08_compliance/02-qualificazione-e-classificazione.md`](../08_compliance/02-qualificazione-e-classificazione.md)
 §6 sulle richieste che spostano la qualificazione,
 [`docs/08_compliance/03-sistema-di-gestione-della-qualita.md`](../08_compliance/03-sistema-di-gestione-della-qualita.md)
@@ -132,15 +132,18 @@ sviluppo e non si recuperano a valle; la destinazione d'uso è il documento più
 sbagliare, perché una singola formulazione sposta insieme classe di rischio e classe di sicurezza
 del software.
 
-> **Nota di allineamento.** I capitoli dell'area di conformità e le avvertenze alla radice del
-> repository sono in parte costruiti sulla figura del fabbricante come **soggetto terzo**, e la
-> loro riscrittura è prevista da `D58`. Dove divergono da questa panoramica sul punto, prevale il
-> testo di `D58`: cambia **chi** è il destinatario del percorso, non **quanto** il prodotto è
-> pronto oggi.
+Le avvertenze pubbliche alla radice del repository -
+[`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md),
+[`DISTRIBUTION-POLICY.md`](https://github.com/fedcal/Telemedic/blob/main/DISTRIBUTION-POLICY.md) e
+[`README.md`](https://github.com/fedcal/Telemedic/blob/main/README.md) - **non sono cambiate nel recepimento di
+`D63`, e non perché siano state dimenticate**. Dichiarano uno stato di fatto - il prodotto non
+reca marcatura CE, il soggetto fabbricante non è costituito, nessuna data è dichiarata - e `D63`
+non modifica quello stato: cambia l'obiettivo, non ciò che è vero oggi. Un'avvertenza pubblica
+riscritta su un'intenzione direbbe più della fonte che sintetizza.
 
 ### 3.6 Chi arriva dal mondo clinico
 
-[02 — Le quattro prestazioni](./02-le-quattro-prestazioni.md), poi
+[02 - Le quattro prestazioni](./02-le-quattro-prestazioni.md), poi
 [`docs/03_functional/05-gestione-degli-allarmi.md`](../03_functional/05-gestione-degli-allarmi.md)
 e [`docs/03_functional/07-fuori-perimetro.md`](../03_functional/07-fuori-perimetro.md): sono i
 documenti che delimitano ciò che il sistema decide e ciò che resta atto professionale. Il
@@ -158,8 +161,8 @@ Per ciascuna: che cosa copre, che cosa **non** copre, e la domanda tipica che vi
 | [**01 Tecnica**](../01_technical/00-indice.md) | Come il sistema è **realizzato**: stack e motivazioni, backend, persistenza, frontend, media e tempo reale, osservabilità, prestazioni e capacità, qualità e test, integrazione continua e rilascio | *Che cosa fa* (funzionale), *perché i confini sono quelli* (architettura), *come si scrive un messaggio verso un terzo* (protocolli) |
 | [**02 Architettura**](../02_architecture/00-indice.md) | I **confini interni** e le ragioni che li reggono: tredici contesti delimitati, aggregati e invarianti, modello dati canonico, multi-tenancy, eventi, registro immutabile, viste di dispiegamento, decisioni rinviate | Requisiti, protocolli, minacce e misure, contratti verso terzi, scelte di libreria, date |
 | [**03 Funzionale**](../03_functional/00-indice.md) | **Che cosa il sistema fa**, per chi, a quali condizioni: attori e ruoli, catalogo dei requisiti con identificativi congelati, casi d'uso con flussi di errore, regole di business, allarmi, accessibilità verificabile, **fuori perimetro** | Come è costruito; specifiche di interfaccia utente; il manuale d'uso; la dichiarazione di destinazione d'uso, da cui l'area **discende** |
-| [**04 Protocolli**](../04_protocols/00-indice.md) | Come il progetto **usa** ciascun protocollo: versioni fissate con stato di maturità, profili, FHIR, documenti clinici, messaggistica ospedaliera, profili di interoperabilità, interfaccia di progetto, eventi e webhook, identità, tempo reale, prove di conformità | Che cosa sono i protocolli — quello è la guida dei fondamenti; le decisioni architetturali, che apre come questioni invece di prenderle |
-| [**05 Dominio**](../05_domain/00-indice.md) | Come il dominio reale **diventa modello**: linguaggio ubiquo, prestazioni come macchine a stati, soggetti e ruoli nel tempo, documenti clinici, parametri e osservazioni, consenso, terminologie, percorsi di cura, glossario del dominio | Che cosa esiste nel mondo — quello è la guida dei fondamenti; l'implementazione |
+| [**04 Protocolli**](../04_protocols/00-indice.md) | Come il progetto **usa** ciascun protocollo: versioni fissate con stato di maturità, profili, FHIR, documenti clinici, messaggistica ospedaliera, profili di interoperabilità, interfaccia di progetto, eventi e webhook, identità, tempo reale, prove di conformità | Che cosa sono i protocolli - quello è la guida dei fondamenti; le decisioni architetturali, che apre come questioni invece di prenderle |
+| [**05 Dominio**](../05_domain/00-indice.md) | Come il dominio reale **diventa modello**: linguaggio ubiquo, prestazioni come macchine a stati, soggetti e ruoli nel tempo, documenti clinici, parametri e osservazioni, consenso, terminologie, percorsi di cura, glossario del dominio | Che cosa esiste nel mondo - quello è la guida dei fondamenti; l'implementazione |
 | [**06 Sicurezza**](../06_security/00-indice.md) | Il bene protetto, l'avversario e la **conseguenza clinica** del fallimento: modello di minaccia, identità e accessi, protezione dei dati, tracciamento, tempo reale, sicurezza applicativa, catena di fornitura, quadro normativo, **ripartizione delle responsabilità**, risposta agli incidenti | Il percorso di certificazione; il contratto delle interfacce; le scelte architetturali; la pianificazione |
 | [**07 Integrazione**](../07_integration/00-indice.md) | Come collegare Telemedic a un sistema esistente: quattro modalità con albero decisionale, primo avvio, interfacce applicative, eventi, componente incorporabile, identità e delega, dati e sincronizzazione, moduli sostituibili, **obblighi di chi integra**, antipattern | I fondamenti; l'implementazione interna |
 
@@ -168,7 +171,7 @@ Per ciascuna: che cosa copre, che cosa **non** copre, e la domanda tipica che vi
 | Area | Copre | Non copre |
 |---|---|---|
 | [**08 Conformità**](../08_compliance/00-indice.md) | *Quale fonte, su chi grava, da quando*: inquadramento normativo, qualificazione e classificazione, sistema di gestione della qualità, fascicolo tecnico, gestione del rischio, usabilità e accessibilità come obblighi, valutazione clinica, sorveglianza post-commercializzazione, percorso e calendario | **Non dichiara che il progetto è conforme a qualcosa.** Non è consulenza legale, non contiene il fascicolo tecnico né le procedure di qualità, non stima tariffe, non fissa la data della marcatura |
-| [**09 Roadmap**](../09_roadmap/00-indice.md) | **Quando accade che cosa**: metodo di decisione, traguardi con criteri di completamento binari, perimetro del primo rilascio, coda successiva, registro dei rischi di programma. È **pianificazione interna del progetto** (`D57`) | Requisiti, architettura, analisi normativa. E **nessuna data per un esito regolatorio**: né per traguardi che non sono del progetto, né — pur essendo pianificazione nostra — per la marcatura |
+| [**09 Roadmap**](../09_roadmap/00-indice.md) | **Quando accade che cosa**: metodo di decisione, traguardi con criteri di completamento binari, perimetro del primo rilascio, coda successiva, registro dei rischi di programma. È **pianificazione interna del progetto** (`D57`) | Requisiti, architettura, analisi normativa. E **nessuna data per un esito regolatorio**: né per traguardi che non sono del progetto, né - pur essendo pianificazione nostra - per la marcatura |
 | [**10 Fondamenti**](../10_fondamenti/00-come-usare-questa-guida.md) | La **teoria**, da zero, per chiunque: sistema sanitario italiano, prestazioni, dato clinico, identità, standard, FHIR, fascicolo, WebRTC, fondamenti clinici, percorsi di cura, fondamenti informatici, crittografia, protocolli, flussi, quadro regolatorio, ambiente di sviluppo | Le scelte di Telemedic. Se un modulo comincia a decidere invece di spiegare, sta invadendo un'area |
 
 ### 4.3 Il registro delle decisioni architetturali
@@ -272,7 +275,7 @@ diagramma, non esiste**.
 **Lingua.** Italiano lingua primaria, inglese traduzione **integrale** e non sintesi (`D50`). I
 riferimenti normativi italiani restano citati nella forma originale, con la spiegazione in lingua.
 Al momento della stesura di quest'area la versione inglese dei contenuti **non esiste ancora**:
-vedi [04 — Stato e limiti](./04-stato-e-limiti.md) §3.
+vedi [04 - Stato e limiti](./04-stato-e-limiti.md) §3.
 
 ## 8. Avvertenze permanenti
 
@@ -304,7 +307,7 @@ da riportare, in ordine:
 2. **Il punto in cui ti sei bloccato e per quanto tempo.**
 3. **La cosa che hai assunto e che si è rivelata falsa.** È l'informazione più preziosa, perché
    indica dove la documentazione dice qualcosa di **ambiguo** invece di dire qualcosa di sbagliato
-   — che è molto più difficile da trovare.
+   - che è molto più difficile da trovare.
 
 Un caso ha un canale proprio e non va aperto come segnalazione pubblica: una **vulnerabilità di
 sicurezza** si comunica secondo
@@ -313,7 +316,7 @@ sicurezza** si comunica secondo
 ## Dove continuare
 
 Se sei arrivato fin qui e non sai ancora dove andare, il percorso predefinito è questo:
-[01 — Visione e obiettivi](./01-visione-e-obiettivi.md) →
-[02 — Le quattro prestazioni](./02-le-quattro-prestazioni.md) →
-[03 — A chi si rivolge](./03-a-chi-si-rivolge.md) →
-[04 — Stato e limiti](./04-stato-e-limiti.md), poi l'indice dell'area che ti riguarda.
+[01 - Visione e obiettivi](./01-visione-e-obiettivi.md) →
+[02 - Le quattro prestazioni](./02-le-quattro-prestazioni.md) →
+[03 - A chi si rivolge](./03-a-chi-si-rivolge.md) →
+[04 - Stato e limiti](./04-stato-e-limiti.md), poi l'indice dell'area che ti riguarda.

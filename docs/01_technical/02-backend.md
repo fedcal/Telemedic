@@ -12,7 +12,7 @@ arrivano mille richieste insieme, che cosa si valida e dove, e che forma ha un e
 descrive che cosa fa il sistema: quello è `docs/03_functional/`. Non descrive perché i confini
 dei contesti sono quelli: quello è `docs/02_architecture/` e la base architetturale §1.
 
-I fondamenti — che cos'è una transazione, che cos'è un aggregato, che cos'è l'idempotenza —
+I fondamenti - che cos'è una transazione, che cos'è un aggregato, che cos'è l'idempotenza -
 stanno in [`docs/10_fondamenti/11-fondamenti-informatici.md`](../10_fondamenti/11-fondamenti-informatici.md)
 e non si ripetono.
 
@@ -20,7 +20,7 @@ e non si ripetono.
 
 ## 1. La regola che governa tutto: si separa per dominio, non per livello
 
-L'errore di struttura più costoso è organizzare il codice per natura tecnica — tutti i
+L'errore di struttura più costoso è organizzare il codice per natura tecnica - tutti i
 controllori insieme, tutti i servizi insieme, tutti i repositori insieme. Produce un sistema in
 cui ogni funzionalità è sparsa in cinque punti e in cui nessuna dipendenza è vietata, perché
 tutto sta allo stesso livello di tutto.
@@ -36,8 +36,7 @@ telemedic/
 │  ├─ security/              confine di autorizzazione, scambio di token, livello di garanzia
 │  ├─ outbox/                tabella di outbox, relay, buste degli eventi
 │  ├─ problem/               catalogo degli errori e loro rappresentazione
-│  ├─ observability/         correlazione, redazione, misure
-│  └─ terminology-gateway/   punto unico di accesso alle terminologie
+│  └─ observability/         correlazione, redazione, misure
 ├─ contexts/
 │  ├─ identity/              identità e accessi
 │  ├─ registry/              anagrafiche
@@ -50,7 +49,8 @@ telemedic/
 │  ├─ consent/               consenso
 │  ├─ outbound/              interoperabilità in uscita
 │  ├─ audit/                 tracciamento
-│  └─ tenant-admin/          amministrazione tenant
+│  ├─ tenant-admin/          amministrazione tenant
+│  └─ terminology/           risoluzione e validazione dei codici clinici (CTX-10)
 ├─ interfaces/
 │  ├─ rest-api/              interfaccia applicativa di progetto
 │  ├─ fhir-facade/           facciata di interoperabilità
@@ -106,7 +106,7 @@ nessuno; cambiare `api` sì, ed è un cambiamento che si discute.
 
 **`domain` non ha effetti collaterali.** Riceve dati, decide, restituisce una decisione e degli
 eventi. Non scrive, non chiama, non registra. Questo lo rende provabile con prove unitarie pure
-— e le prove unitarie pure sono le uniche che si possono eseguire migliaia di volte, cioè le
+- e le prove unitarie pure sono le uniche che si possono eseguire migliaia di volte, cioè le
 uniche su cui si può fondare una copertura credibile.
 
 **`application` è il livello che ha effetti.** Apre la transazione, carica l'aggregato, invoca il
@@ -147,7 +147,7 @@ tecnico i punti non negoziabili sono quattro.
    contesto di esecuzione, propagato esplicitamente e verificato all'ingresso di ogni contesto.
    Non è mai un parametro di richiesta: un parametro è controllabile dal chiamante.
 
-Il codice di questo confine è codice di sicurezza critico e ne discendono obblighi propri —
+Il codice di questo confine è codice di sicurezza critico e ne discendono obblighi propri -
 revisione esterna indipendente, prove di abuso dedicate, copertura sostanzialmente totale sul
 percorso di validazione. Il modello di minaccia sta in `docs/06_security/`.
 
@@ -158,37 +158,37 @@ percorso di validazione. Il modello di minaccia sta in `docs/06_security/`.
 ### 4.1 Il confine è il caso d'uso
 
 Una transazione comincia all'inizio di un metodo di `application` e finisce alla sua uscita.
-Mai più in alto — un confine sul controllore terrebbe aperta la transazione durante la
-serializzazione della risposta — e mai più in basso — un confine sul repositorio produrrebbe
+Mai più in alto - un confine sul controllore terrebbe aperta la transazione durante la
+serializzazione della risposta - e mai più in basso - un confine sul repositorio produrrebbe
 tante transazioni quante sono le scritture, distruggendo l'atomicità che è la ragione per cui
 esistono.
 
 ### 4.2 Le cinque regole
 
-**R1 — L'evento di dominio si scrive nella stessa transazione del dato.** È l'outbox
+**R1 - L'evento di dominio si scrive nella stessa transazione del dato.** È l'outbox
 transazionale imposto dalla base architetturale §5. Non c'è una seconda scrittura applicativa
 verso il broker, e non c'è un `@TransactionalEventListener` che pubblichi dopo il commit: quello
 è precisamente il modo di perdere un evento se il processo muore fra il commit e la
 pubblicazione.
 
-**R2 — Nessuna chiamata remota dentro una transazione.** Chiamare il sistema dell'integratore,
+**R2 - Nessuna chiamata remota dentro una transazione.** Chiamare il sistema dell'integratore,
 il fascicolo, il gateway delle terminologie o il prodotto di federazione mentre una transazione
 è aperta significa tenere una connessione e dei blocchi per la durata di una latenza che non
 si controlla. Il modello è: si legge, si chiude, si chiama, si riapre e si applica il risultato
 con un controllo di concorrenza ottimistica. Dove serve coordinare più passi con effetti esterni
 si usa un processo a lunga durata con compensazione esplicita, non una transazione lunga.
 
-**R3 — Le letture sono dichiarate in sola lettura.** Non è micro-ottimizzazione: consente al
+**R3 - Le letture sono dichiarate in sola lettura.** Non è micro-ottimizzazione: consente al
 livello di persistenza di saltare il controllo delle modifiche e, soprattutto, rende esplicito
-nel codice che quel caso d'uso non modifica nulla — informazione utile a chi legge e a chi
+nel codice che quel caso d'uso non modifica nulla - informazione utile a chi legge e a chi
 verifica.
 
-**R4 — L'isolamento predefinito è quello della base dati, e le eccezioni sono motivate nel
+**R4 - L'isolamento predefinito è quello della base dati, e le eccezioni sono motivate nel
 codice.** Dove un invariante richiede un isolamento più forte, lo si dichiara con un commento
 che dice *quale* invariante lo richiede. Un livello di isolamento alzato «per sicurezza» è un
 punto di conflitto in attesa di manifestarsi sotto carico.
 
-**R5 — Il contesto di tenant è impostato dentro la transazione, prima di qualunque
+**R5 - Il contesto di tenant è impostato dentro la transazione, prima di qualunque
 interrogazione.** La sicurezza a livello di riga legge una variabile di sessione: se la
 variabile non è impostata, le politiche devono negare tutto. Impostarla fuori dalla transazione
 o dopo la prima interrogazione è la classe di errore che produce fughe di dati fra tenant, ed è
@@ -249,7 +249,7 @@ public class ChiudiSessioneMediaUseCase {
 ```
 
 Tre cose che questo frammento dichiara implicitamente e che vale la pena rendere esplicite:
-l'orologio è iniettato — senza di che le prove sul tempo diventano fragili e il comportamento
+l'orologio è iniettato - senza di che le prove sul tempo diventano fragili e il comportamento
 non è riproducibile; il caricamento è *per aggiornamento*, cioè con la semantica di blocco
 dichiarata nel repositorio e non lasciata al caso; l'evento porta **riferimenti**, non
 contenuto.
@@ -294,7 +294,7 @@ virtuali è un controsenso che reintroduce esattamente il limite che si voleva t
 
 ### 5.3 Dove la programmazione reattiva è ammessa
 
-In un solo caso: i flussi a lunga durata con molte connessioni per lo più inattive — la
+In un solo caso: i flussi a lunga durata con molte connessioni per lo più inattive - la
 segnalazione della sessione media, la consegna di eventi verso l'interfaccia. Lì il modello a
 eventi è appropriato perché il problema è realmente quello. Ovunque altro è vietato dal profilo
 di progetto, e l'introduzione va discussa come decisione architetturale.
@@ -302,7 +302,7 @@ di progetto, e l'introduzione va discussa come decisione architetturale.
 ### 5.4 Contropressione
 
 Un sistema che accetta tutto ciò che gli arriva non è disponibile: è in ritardo, che è peggio,
-perché il chiamante non lo sa. La contropressione è esplicita a quattro livelli — limite di
+perché il chiamante non lo sa. La contropressione è esplicita a quattro livelli - limite di
 richieste per tenant e per credenziale, semaforo di ammissione per classe di operazione, coda
 limitata con rifiuto dichiarato quando è piena, limite di tempo su ogni chiamata uscente. Il
 dettaglio, i valori e il modo in cui si dichiarano al chiamante stanno in
@@ -454,17 +454,17 @@ segnaposto.
 | Origine | Contenuto | Chi la governa |
 |---|---|---|
 | **Predefiniti del prodotto** | Valori sicuri, nel repository | Il progetto |
-| **Configurazione dell'installazione** | Indirizzi, dimensionamenti, profili attivi, moduli sostituibili | Il deployer |
+| **Configurazione dell'installazione** | Indirizzi, dimensionamenti, profili attivi, moduli sostituibili | Chi installa |
 | **Configurazione per tenant** | Personalizzazione di tema, terminologie abilitate, copertura oraria, quote, recapiti | L'amministratore del tenant |
 
 Nessun segreto viaggia in nessuna delle tre: i segreti hanno un percorso separato. Le regole di
-precedenza sono dichiarate e provate — una precedenza non provata è una fonte di sorprese in
-produzione.
+precedenza sono dichiarate e provate - una precedenza non provata è una fonte di sorprese in
+esercizio.
 
 **La configurazione per tenant è dato, non file.** Vive nella base dati, è versionata, è
 soggetta a tracciamento (chi ha cambiato la soglia di allerta e quando è una domanda che si
 porrà) e ha una cronologia. La configurazione dell'installazione è file, ed è nel controllo di
-configurazione del deployer.
+configurazione di chi installa.
 
 ### 8.3 Che cosa la configurazione **non** può fare
 
@@ -472,7 +472,7 @@ Non può cambiare il comportamento clinico. Nessuna proprietà può disattivare 
 un accesso, alterare la catena del registro immutabile, sopprimere un avviso di qualità
 inadeguata, disattivare la verifica delle chiavi della sessione o modificare la valutazione di
 una soglia. Le proprietà che toccano la sicurezza o la sicurezza del paziente hanno un solo
-valore ammesso in produzione, il profilo di produzione lo impone, e una prova lo verifica. È
+valore ammesso in esercizio, il profilo di esercizio lo impone, e una prova lo verifica. È
 la traduzione tecnica del principio per cui un dispositivo non deve poter essere configurato in
 uno stato non sicuro.
 
@@ -495,8 +495,8 @@ con quella dell'integratore cambia la realizzazione di una porta, non la logica 
 prenotazione dal punto di vista del contesto della prestazione. Se cambiare profilo richiede un
 ramo condizionale nel dominio, la porta è stata disegnata male.
 
-**Regola vincolante: il profilo di produzione non ammette scorciatoie di sviluppo.** L'avvio in
-profilo di produzione fallisce se sono attive origini permissive per le richieste da altri
+**Regola vincolante: il profilo di esercizio non ammette scorciatoie di sviluppo.** L'avvio in
+profilo di esercizio fallisce se sono attive origini permissive per le richieste da altri
 domini, se un endpoint di diagnostica è esposto senza autenticazione, se il livello di registro
 del dominio è a diagnostica, se un segreto è stato risolto da un valore letterale invece che dal
 gestore. Sono controlli di avvio, con messaggi che dicono che cosa correggere.

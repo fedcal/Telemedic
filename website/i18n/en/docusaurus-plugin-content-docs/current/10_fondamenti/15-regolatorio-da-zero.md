@@ -10,7 +10,7 @@ description: "Why the code in this project carries constraints that do not exist
 > Its purpose is to make people who write code understand why certain rules exist and what
 > changes in practice. It does not replace the opinion of a regulatory affairs consultant, it
 > does not constitute a determination of qualification or classification, and it binds nobody.
-> Regulatory decisions belong to whoever assumes the role of manufacturer (section 3) and must
+> Regulatory decisions belong to the manufacturer entity, yet to be established (section 3) and must
 > be confirmed against the original legislative texts. Where a figure is estimated, uncertain or
 > taken from a secondary source, it is declared as such; anything not verified against a primary
 > source is marked **[NV]**.
@@ -48,12 +48,12 @@ The reference legislation in the European Union is **Regulation (EU) 2017/745**,
 > «any instrument, apparatus, appliance, **software**, implant, reagent, material or other article
 > intended by the manufacturer to be used, alone or in combination, for human beings for one or
 > more of the following specific medical purposes:
-> — diagnosis, prevention, monitoring, prediction, prognosis, treatment or alleviation of disease,
-> — diagnosis, monitoring, treatment, alleviation of, or compensation for, an injury or
+> - diagnosis, prevention, monitoring, prediction, prognosis, treatment or alleviation of disease,
+> - diagnosis, monitoring, treatment, alleviation of, or compensation for, an injury or
 > disability,
-> — investigation, replacement or modification of the anatomy or of a physiological or
+> - investigation, replacement or modification of the anatomy or of a physiological or
 > pathological process or state,
-> — providing information by means of in vitro examination of specimens derived from the human
+> - providing information by means of in vitro examination of specimens derived from the human
 > body […]
 > and which does not achieve its principal intended action by pharmacological, immunological or
 > metabolic means, in or on the human body, but which may be assisted in its function by such
@@ -70,7 +70,7 @@ can be a medical device; a distributed system with ten million lines may not be 
 section 1.3.
 
 **Third: the purposes are exhaustive.** Diagnosis, prevention, monitoring, prediction, prognosis,
-treatment, alleviation — referring to diseases, injuries or disabilities — plus investigation,
+treatment, alleviation - referring to diseases, injuries or disabilities - plus investigation,
 replacement or modification of the anatomy or of a physiological process. Outside this list there
 is no medical purpose within the meaning of the MDR, however healthcare-related the product may be
 in the ordinary sense. Invoicing for a medical practice is a healthcare activity and is not a
@@ -165,8 +165,8 @@ flowchart TD
 
 Three nodes deserve careful reading.
 
-**Step 3 is the one that decides almost everything.** The list of «neutral» actions — storage,
-archival, communication, simple search, lossless compression — describes exactly what an
+**Step 3 is the one that decides almost everything.** The list of «neutral» actions - storage,
+archival, communication, simple search, lossless compression - describes exactly what an
 information system does. The note accompanying the step defines «communication» by reference to
 the standard IEEE 610.10-1994: «the flow of information from one point, known as the source, to
 another, the receiver». Routing signalling messages, carrying an encrypted multimedia stream,
@@ -183,7 +183,7 @@ not a frictionless one, and the friction grows the more the public communication
 diagnostic adequacy of the channel.
 
 **Step 4 excludes what does not concern the individual patient.** Population aggregations, generic
-pathways, literature, atlases, epidemiological registries, and — a case relevant to us — **network
+pathways, literature, atlases, epidemiological registries, and - a case relevant to us - **network
 quality metrics**: round-trip time, packet loss, jitter, bitrate. They are for the benefit of
 managing the infrastructure, not of the individual patient. They must be documented with this
 justification made explicit, not left implicit.
@@ -216,7 +216,7 @@ do not fall within the definition of a medical device.**» And immediately after
 «*A software module generating alarms based on the monitoring and analysis of patient specific
 physiological parameters is qualified as a medical device (MDSW).*»
 
-**d.1) Telemedicine systems** (p. 27) — the decisive passage, rewritten precisely in revision 1:
+**d.1) Telemedicine systems** (p. 27) - the decisive passage, rewritten precisely in revision 1:
 
 > «Telemedicine that solely transfers and displays information for monitoring purposes **without
 > interpreting data** does not qualify as a medical device. Additional modules such as
@@ -256,13 +256,13 @@ component designed to be embedded:
 > device. […] **Therefore, the manufacturer must assess the host module's interface as part of
 > the MDSW's usability and clinical performance evaluations.**»
 
-Translated: if one day somebody — an integrator, a third party, a *fork* — builds a module with a
+Translated: if one day somebody - an integrator, a third party, a *fork* - builds a module with a
 medical purpose on top of this platform, **our user interface and our multimedia pipeline enter the
 scope of the usability and clinical performance evaluation of that module**, while themselves
-remaining non-device. That is why the architectural constraint **V2** — an explicit separation
-between «communication vehicle» and «clinical decision support» — is not a design preference: it is
-a documentary requirement imposed by the guidance, and it is what makes our work usable by whoever
-certifies.
+remaining non-device. That is why the architectural constraint **V2** - an explicit separation
+between «communication vehicle» and «clinical decision support» - is not a design preference: it is
+a documentary requirement imposed by the guidance, and it is what makes our work usable by the
+manufacturer in the conformity assessment pathway.
 
 ---
 
@@ -278,15 +278,15 @@ procedural rigour the legal order demands before the product reaches a patient.
 Chapter II of Annex VIII contains the **implementing rules**, that is, the meta-rules that say how
 the classification rules are used. Four of them are decisive for software:
 
-- **3.1** — «Application of the classification rules shall be governed by the intended purpose of
+- **3.1** - «Application of the classification rules shall be governed by the intended purpose of
   the devices.» Again the intended purpose, not the technology.
-- **3.3** — «Software, which drives a device or influences the use of a device, shall fall within
+- **3.3** - «Software, which drives a device or influences the use of a device, shall fall within
   the same class as the device. **If the software is independent of any other device, it shall be
   classified in its own right.**»
-- **3.5** — «If several rules, or if, within the same rule, several sub-rules, apply to the same
+- **3.5** - «If several rules, or if, within the same rule, several sub-rules, apply to the same
   device based on the device's intended purpose, **the strictest rule and sub-rule resulting in the
   higher classification shall apply**.»
-- **3.7** — «A device is considered to allow direct diagnosis when it provides the diagnosis of the
+- **3.7** - «A device is considered to allow direct diagnosis when it provides the diagnosis of the
   disease or condition in question by itself **or when it provides decisive information for the
   diagnosis**.»
 
@@ -311,10 +311,10 @@ Annex VIII, Chapter III, point 6.3:
 > therapeutic purposes is classified as class IIa, except if such decisions have an impact that may
 > cause:
 >
-> — death or an irreversible deterioration of a person's state of health, in which case it is in
+> - death or an irreversible deterioration of a person's state of health, in which case it is in
 > class III, or
 >
-> — a serious deterioration of a person's state of health or a surgical intervention, in which case
+> - a serious deterioration of a person's state of health or a surgical intervention, in which case
 > it is classified as class IIb.
 >
 > Software intended to monitor physiological processes is classified as class IIa, except if it is
@@ -365,8 +365,8 @@ And beneath the table, in a note, the sentence that closes the argument:
 > «**This table does not take into account MDSW which is Class I.**»
 
 That is: in the matrix applied to Rule 11a, **Class I appears in no cell**. Any software that has
-been qualified as a medical device and that provides information used for clinical decisions —
-however marginal the information, however non-serious the condition — is **at least IIa**.
+been qualified as a medical device and that provides information used for clinical decisions -
+however marginal the information, however non-serious the condition - is **at least IIa**.
 
 The logical chain that follows is inescapable:
 
@@ -383,8 +383,8 @@ The logical chain that follows is inescapable:
 monitoring*. The only two examples the guidance offers (Annex IV, p. 35) are an application that
 computes fertility status from basal temperature and days of menstruation and returns it with a
 traffic-light indicator, and an application that assists people with communication disorders by
-converting symbols into spoken language. Both have a medical purpose attributable to Article 2(1) —
-respectively control or support of conception and compensation for a disability — **without**
+converting symbols into spoken language. Both have a medical purpose attributable to Article 2(1) -
+respectively control or support of conception and compensation for a disability - **without**
 producing information used for a diagnostic or therapeutic decision. A secure audio-video channel
 does not belong to that family.
 
@@ -475,8 +475,8 @@ The project has recorded this finding as a formal decision (**D46**).
 
 | Wording of the intended purpose | MDR class | Software safety class | Difference |
 |---|---|---|---|
-| «**real-time** monitoring of vital parameters» | **IIb** (Rule 11, second paragraph) | **C** | 12–18 months and an order of magnitude more cost — **an estimate, not a price list** |
-| «**deferred** collection of parameters for the professional's **periodic review**» | **IIa** | **B** | — |
+| «**real-time** monitoring of vital parameters» | **IIb** (Rule 11, second paragraph) | **C** | 12–18 months and an order of magnitude more cost - **an estimate, not a price list** |
+| «**deferred** collection of parameters for the professional's **periodic review**» | **IIa** | **B** | - |
 
 Two words. The difference between «real-time» and «deferred», and between «vital parameters» and
 «parameters», is worth more than any technological choice taken in the whole project. That is why
@@ -542,7 +542,7 @@ because it makes concrete what otherwise remains abstract.
 | 10(11) | Information accompanying the device in the **official languages** determined by the Member State | Instructions for use in Italian |
 | 10(12) | Immediate corrective action in the event of non-conformity | Field safety corrective action procedure |
 | 10(13) | Recording and reporting of **incidents** | Section 4.9 |
-| 10(14) | Provision to the authority of all information needed to demonstrate conformity | — |
+| 10(14) | Provision to the authority of all information needed to demonstrate conformity | - |
 | 10(16) | **Sufficient financial cover** for potential product liability | Section 8.4 |
 
 Among the quality system elements listed in paragraph 9, point **(d)** deserves emphasis:
@@ -561,8 +561,8 @@ regulatory compliance** (**PRRC**), with expertise demonstrated by:
   management systems; **or**
 - (b) four years of professional experience in regulatory affairs or in quality management systems.
 
-Micro and small enterprises — under Recommendation 2003/361/EC, micro below 10 staff and EUR 2
-million, small below 50 staff and EUR 10 million — **are not required to have the PRRC within the
+Micro and small enterprises - under Recommendation 2003/361/EC, micro below 10 staff and EUR 2
+million, small below 50 staff and EUR 10 million - **are not required to have the PRRC within the
 organisation, but must have such a person permanently and continuously at their disposal**,
 typically under contract.
 
@@ -604,11 +604,11 @@ them the role.
 
 The definitions matter, because each triggers different obligations.
 
-- **Art. 2(27) — «making available on the market»**: any supply of a device for distribution,
+- **Art. 2(27) - «making available on the market»**: any supply of a device for distribution,
   consumption or use on the Union market **in the course of a commercial activity**, whether in
   return for payment **or free of charge**;
-- **Art. 2(28) — «placing on the market»**: the first making available;
-- **Art. 2(29) — «putting into service»**: the stage at which the device has been made available to
+- **Art. 2(28) - «placing on the market»**: the first making available;
+- **Art. 2(29) - «putting into service»**: the stage at which the device has been made available to
   the final user **as being ready for use** for its intended purpose.
 
 Three operational consequences, distinct and not interchangeable:
@@ -641,25 +641,26 @@ it has not been subjected to assessment by a Notified Body.
 
 The reasoning that supports this statement unfolds in four steps.
 
-**First — source code is not a device ready for use.** A device is put into service when it is
+**First - source code is not a device ready for use.** A device is put into service when it is
 «made available to the final user as being ready for use for its intended purpose» (Art. 2(29)). A
 repository that requires compilation, configuration, integration with identity and registry
 systems, choice of network infrastructure and definition of the clinical thresholds is not ready
 for use: it is material from which somebody will build a product.
 
-**Second — there is no commercial activity.** The project does not sell, does not offer managed
+**Second - there is no commercial activity.** The project does not sell, does not offer managed
 services, does not invoice support. It is the condition that keeps the repository outside the
 notion of «making available on the market» in Art. 2(27), and it is a **factual and revocable**
 condition: if one day the project monetised, the boundary would shift and the position would have
 to be reviewed. That is why the declaration must be kept up to date and is not a text written once.
 
-**Third — there is no manufacturer.** Nobody affixes their name or trade mark to a device that is
+**Third - there is no manufacturer.** Nobody affixes their name or trade mark to a device that is
 marketed. The second cumulative element of the definition in Art. 2(30) is missing.
 
-**Fourth — the project produces the regulatory material anyway.** This is the point that
+**Fourth - the project produces the regulatory material anyway.** This is the point that
 distinguishes this position from a loophole. The technical file, life cycle documentation, risk
-management, usability engineering and the software bill of materials are produced and published —
-**to make the pathway of whoever certifies practicable, not to replace it**. In technical language:
+management, usability engineering and the software bill of materials are produced and published -
+**to make the manufacturer's conformity pathway practicable, not to replace it**. In technical
+language:
 the project makes itself usable as **documented SOUP** (section 5.5) rather than as code of unknown
 provenance.
 
@@ -678,7 +679,7 @@ declaration document.
 Whoever installs, integrates, distributes or puts this software into service in a real healthcare
 setting:
 
-1. **must verify the code** — this is not a stylistic formula: it is the condition on which the
+1. **must verify the code** - this is not a stylistic formula: it is the condition on which the
    project makes its own work available;
 2. **assumes the role of manufacturer** under the MDR, with qualification, classification,
    conformity assessment, clinical evaluation, post-market surveillance and vigilance;
@@ -714,7 +715,7 @@ market is hard to sustain for telemedicine.
 
 ### 3.8 Contributors are not manufacturers, but design control has to stay somewhere
 
-The symmetrical problem is real: whoever certifies must be able to answer for code written by
+The symmetrical problem is real: the manufacturer must be able to answer for code written by
 people they do not control. The solution is not legal, it is procedural, and it lives entirely in
 the repository:
 
@@ -731,9 +732,11 @@ the repository:
 
 ## 4. The conformity pathway
 
-This section describes what happens to whoever certifies. The project does not walk this path
-(decision **D49**), but it produces the material that makes it walkable: understanding the sequence
-helps to understand why certain artefacts exist and why they have the shape they have.
+This section describes the conformity pathway that the project intends to walk. With decision
+**D63** of 26 August 2026, the sponsor decided that the system must be suitable for delivery of
+services to real patients: the manufacturer entity, yet to be established, must follow this
+pathway. Understanding the sequence helps to grasp why certain artefacts must have that shape
+and what the order of dependencies in the work is.
 
 ### 4.1 The sequence
 
@@ -772,11 +775,11 @@ sequenceDiagram
 «Conformity assessment» is the procedure by which it is demonstrated that the device meets the
 applicable requirements. For Class IIa, **Article 52(6)** offers two alternative routes:
 
-- **Route 1** — assessment based on the **quality management system**: Annex IX, **Chapter I**
+- **Route 1** - assessment based on the **quality management system**: Annex IX, **Chapter I**
   (assessment of the QMS) and **Chapter III** (administrative provisions), **plus** the assessment
   of the technical documentation under **Section 4** of Annex IX for at least one representative
   device per category.
-- **Route 2** — technical documentation under Annexes II and III combined with an assessment under
+- **Route 2** - technical documentation under Annexes II and III combined with an assessment under
   **Annex XI**, in the «production quality assurance» variant (Part A) or «product verification»
   (Part B). **[NV]** the section numbers of Annex XI applicable to Class IIa must be re-read
   against the consolidated text before being cited in a project document.
@@ -849,7 +852,7 @@ down by **Annex II** (which the MDR calls the *technical documentation*):
    is the document from which everything else is navigated: it must be built as a table with links
    to documents versioned at the exact revision, not as prose.
 5. **Benefit-risk analysis and risk management.**
-6. **Product verification and validation**, with — for software — a summary of the results of all
+6. **Product verification and validation**, with - for software - a summary of the results of all
    verification and validation performed before final release, on all the declared hardware
    configurations and operating systems.
 
@@ -878,8 +881,8 @@ testing methods alone where demonstration on clinical data is not deemed appropr
 requires an **adequate justification** based on the results of risk management.
 
 **Every claimed clinical benefit must be demonstrated individually.** The guidance **MDCG 2020-1**
-on the clinical evaluation of software articulates the evidence in three elements — validity of the
-scientific association, technical or analytical performance, clinical performance — and requires
+on the clinical evaluation of software articulates the evidence in three elements - validity of the
+scientific association, technical or analytical performance, clinical performance - and requires
 that every indication and every benefit claimed in the intended purpose be evaluated and supported.
 Practical consequence: **every word added to the clinical benefit is more evidence to produce.**
 Declaring «improves adherence» or «diagnostic equivalence with an in-person visit» means having to
@@ -921,11 +924,11 @@ The **UDI** system (*Unique Device Identification*, Art. 27) operates on three l
 - the **UDI-DI** identifies the specific version or model;
 - the **UDI-PI** identifies the production unit: for software, the **version**.
 
-The guidance **MDCG 2018-5** establishes the criterion: a **major revision** — a change to the
+The guidance **MDCG 2018-5** establishes the criterion: a **major revision** - a change to the
 original performance, to safety or to the interpretation of data, or a change of name, version,
-model number, critical warnings, contraindications or interface language — requires a **new
-UDI-DI**; a **minor revision** — bug fixes, usability enhancements not related to safety, security
-patches, operating efficiency — requires only a new UDI-PI.
+model number, critical warnings, contraindications or interface language - requires a **new
+UDI-DI**; a **minor revision** - bug fixes, usability enhancements not related to safety, security
+patches, operating efficiency - requires only a new UDI-PI.
 
 A note for whoever manages versioning: the correspondence with semantic versioning **is not
 automatic**. A security patch is «minor» under this criterion even if it changes behaviour. The
@@ -947,7 +950,7 @@ of data on quality, performance and safety throughout the life of the device, on
 85); from Class IIa upwards a **PSUR** (Art. 86), updated at least every two years for IIa.
 
 **Vigilance** (Arts. 87–92): the reporting of serious incidents and field safety corrective actions,
-with deadlines graduated by severity — **15 days** from awareness of the serious incident as a rule,
+with deadlines graduated by severity - **15 days** from awareness of the serious incident as a rule,
 **10 days** in the event of death or an unanticipated serious deterioration, **2 days** in the event
 of a serious public health threat.
 
@@ -958,9 +961,9 @@ of a serious public health threat.
 | Intended purpose, qualification, classification | Decides and justifies | Signs off | Verifies | May challenge, including in advance |
 | Quality management system | Establishes and maintains | Oversees | Certifies (Annex IX Chapter I) | Market surveillance |
 | Technical file | Drafts and updates | Draws up and updates (Art. 15.3) | Assesses (Annex IX Sec. 4) | May request it |
-| Clinical evaluation | Plans and conducts | Checks | Assesses | — |
-| Declaration of conformity | **Draws up and signs** | Prepares | — | May request it |
-| CE marking | **Affixes** | Checks before release | Provides its own number | — |
+| Clinical evaluation | Plans and conducts | Checks | Assesses | - |
+| Declaration of conformity | **Draws up and signs** | Prepares | - | May request it |
+| CE marking | **Affixes** | Checks before release | Provides its own number | - |
 | EUDAMED registration | Carries it out | Handles the formalities | Registers the certificates | Validates the actors |
 | Vigilance on incidents | Reports | Handles the reporting | Takes it into account in surveillance | Receives and assesses |
 
@@ -1003,7 +1006,7 @@ of these standards you have to buy the text.
 | **IEC 82304-1:2016** | Health software product | *In what environment does it run and with what limits?* |
 | **ISO/IEC 81001-5-1:2021** | Security in the life cycle | *How does it defend itself, and how are vulnerabilities managed?* |
 
-### 5.3 ISO 13485 — the quality management system
+### 5.3 ISO 13485 - the quality management system
 
 **What it requires.** A quality management system specific to medical devices, built on the ISO 9001
 framework but with the emphasis on regulatory effectiveness rather than generic continuous
@@ -1031,25 +1034,25 @@ requires a documented review; and adding a dependency is not a line in a configu
 procurement decision that must be justified.
 
 **A note of realism.** ISO 13485 has value towards third parties only if **certified** by an
-accredited body — in Italy accreditation is entrusted to the single national body designated under
+accredited body - in Italy accreditation is entrusted to the single national body designated under
 Regulation (EC) No 765/2008. Declared conformity alone has limited commercial value. The ISO 13485
 certificate **does not replace** the Notified Body certificate: the latter assesses the quality
 system against Art. 10(9) MDR and Annex IX, not against ISO 13485. It does, however, reduce friction
 and can shorten the audit.
 
-### 5.4 IEC 62304 — the software life cycle
+### 5.4 IEC 62304 - the software life cycle
 
 **What it requires.** A life cycle process for medical device software, with mandatory activities
 that depend on the **safety class** of the software item.
 
 The classes (clause 4.3, as amended in 2015):
 
-- **Class A** — the software system **cannot contribute to a hazardous situation**, or it can
+- **Class A** - the software system **cannot contribute to a hazardous situation**, or it can
   contribute but the resulting risk is acceptable **after** risk control measures **external to the
   software system**;
-- **Class B** — it can lead to a hazardous situation even after the control measures, but the
+- **Class B** - it can lead to a hazardous situation even after the control measures, but the
   possible harm **is not serious**;
-- **Class C** — it can lead to a hazardous situation even after the control measures, and the
+- **Class C** - it can lead to a hazardous situation even after the control measures, and the
   possible harm **is serious or fatal**.
 
 Two things almost everyone misunderstands:
@@ -1069,11 +1072,11 @@ The mandatory processes by class:
 |---|---|---|---|
 | 5.1 Development planning | ✔ | ✔ | ✔ |
 | 5.2 Software requirements analysis | ✔ | ✔ | ✔ |
-| 5.3 Architectural design | — | ✔ | ✔ |
-| 5.4 Detailed design (at unit level) | — | — | ✔ |
-| 5.5 Unit implementation and verification | — | ✔ | ✔ |
-| 5.6 Integration and integration testing | — | ✔ | ✔ |
-| 5.7 Software system testing | — | ✔ | ✔ |
+| 5.3 Architectural design | - | ✔ | ✔ |
+| 5.4 Detailed design (at unit level) | - | - | ✔ |
+| 5.5 Unit implementation and verification | - | ✔ | ✔ |
+| 5.6 Integration and integration testing | - | ✔ | ✔ |
+| 5.7 Software system testing | - | ✔ | ✔ |
 | 5.8 Release | ✔ | ✔ | ✔ |
 | 6 Maintenance | reduced | ✔ | ✔ |
 | 7 Software risk management | reduced | ✔ | ✔ |
@@ -1094,8 +1097,8 @@ developed item for which adequate records of the development processes are not a
 
 **Every dependency is SOUP.** Every library, every base image, every runtime, every infrastructure
 component. A frequent error: an open source component **does not stop being SOUP** because the code
-is visible. The clause looks at the availability of **records of the development processes** — plan,
-requirements, verification evidence — not at the visibility of the source.
+is visible. The clause looks at the availability of **records of the development processes** - plan,
+requirements, verification evidence - not at the visibility of the source.
 
 The applicable requirements: specify the functional and performance requirements of each SOUP
 (5.3.3) and the requirements of the execution environment (5.3.4); identify **published anomalies**
@@ -1108,9 +1111,9 @@ the same rigour is impossible and is not required:
 
 | Level | Who falls into it | Treatment |
 |---|---|---|
-| **L1 — critical** | The component realises or supports a risk control measure, or its failure can contribute to a hazardous situation: cryptography, multimedia transport stack, relay, identity management, database engine, clinical interoperability library, signature library | Full record: expected functional and performance requirements, environment requirements, evaluation of published anomalies, monitored vulnerability feed, update criterion, impact assessment for every update |
-| **L2 — platform** | Frameworks and infrastructure not involved in control measures | Reduced record: identification, version, function, vulnerability feed, update policy |
-| **L3 — transitive** | Everything else | Coverage through the **software bill of materials** generated by the build, signed, attached to the release, with an automatic check for known vulnerabilities |
+| **L1 - critical** | The component realises or supports a risk control measure, or its failure can contribute to a hazardous situation: cryptography, multimedia transport stack, relay, identity management, database engine, clinical interoperability library, signature library | Full record: expected functional and performance requirements, environment requirements, evaluation of published anomalies, monitored vulnerability feed, update criterion, impact assessment for every update |
+| **L2 - platform** | Frameworks and infrastructure not involved in control measures | Reduced record: identification, version, function, vulnerability feed, update policy |
+| **L3 - transitive** | Everything else | Coverage through the **software bill of materials** generated by the build, signed, attached to the release, with an automatic check for known vulnerabilities |
 
 **What changes in a *pull request*.** Four concrete things:
 
@@ -1124,7 +1127,7 @@ the same rigour is impossible and is not required:
 4. **a change to product code without an upstream requirement is not acceptable**: it is an output
    without an input.
 
-### 5.5 ISO 14971 — risk management, and the chain that must be learnt
+### 5.5 ISO 14971 - risk management, and the chain that must be learnt
 
 **What it requires.** A process, not a document: risk analysis, risk evaluation, risk control,
 evaluation of overall residual risk, review, and production and post-production activities that feed
@@ -1163,7 +1166,7 @@ Two important technical clarifications.
 
 **ISO 14971 concerns harm to people**, not the risk to the rights and freedoms of data subjects
 under Article 35 GDPR. They are two distinct assessments, with different methods and criteria, and
-they **must not be merged** — this is the commonest error in digital health projects. They must,
+they **must not be merged** - this is the commonest error in digital health projects. They must,
 however, be **linked**: a confidentiality breach can produce harm to a person, and some scenarios
 legitimately appear in both files.
 
@@ -1174,10 +1177,10 @@ choice, not an objective fact.
 **What changes in a *pull request*.** That if your contribution implements or modifies a risk
 control measure, the implementation alone is not enough: **verification of implementation** and
 **verification of effectiveness** are both needed, both recorded. And that if you introduce a new
-hazardous situation — even merely by changing the order of two screens — the risk file must be
+hazardous situation - even merely by changing the order of two screens - the risk file must be
 updated before acceptance, not afterwards.
 
-### 5.6 IEC 62366-1 — usability engineering and use error
+### 5.6 IEC 62366-1 - usability engineering and use error
 
 **What it requires.** A process that identifies and mitigates use-related risks. The standard
 distinguishes two notions that must be kept apart:
@@ -1188,7 +1191,7 @@ distinguishes two notions that must be kept apart:
 - **abnormal use**: behaviour intentionally contrary to the intended use, excluded from the scope of
   the standard but not from risk management.
 
-The process (clause 5): use specification — user profiles, use environment, patient
+The process (clause 5): use specification - user profiles, use environment, patient
 characteristics; identification of **safety-related functions**; identification of use-related
 hazards and hazardous situations; description of **hazardous use scenarios**; selection of the
 scenarios to be validated; interface specification; validation plan; **formative evaluation** during
@@ -1219,18 +1222,18 @@ on a smartphone on a mobile network, and by a professional using only a keyboard
 reader. If that is not possible, the requirement is not satisfied.
 
 **What changes in a *pull request*.** That a change to the interface is not a cosmetic change. If it
-touches a safety-related function — identity confirmation, recording indicator, connection quality
-indicator, confirmation of document transmission — it requires an impact assessment on the hazardous
+touches a safety-related function - identity confirmation, recording indicator, connection quality
+indicator, confirmation of document transmission - it requires an impact assessment on the hazardous
 use scenarios, and it may require a fresh validation. And that «I tried it and it works» is not a
 usability evaluation: evaluation is done with representative users under a protocol defined
 beforehand.
 
 **The expected weak point, declared in advance:** summative validation requires time, real
 participants and an approved protocol. It is the activity that, under deadline pressure, is
-sacrificed first. It must be planned now or explicitly declared as not performed — never left
+sacrificed first. It must be planned now or explicitly declared as not performed - never left
 implicit.
 
-### 5.7 IEC 82304-1 — the product and its environment
+### 5.7 IEC 82304-1 - the product and its environment
 
 Whereas IEC 62304 is a «process» standard, IEC 82304-1 is a «product» standard for standalone health
 software. It covers product requirements, validation, **identification and accompanying
@@ -1245,13 +1248,13 @@ The deliverable that follows from it, and which is more important than it seems,
 minimum bandwidth, maximum latency, acceptable packet loss and jitter, relay configuration, and
 measurable thresholds below which the system **signals degradation and advises against
 continuing**. That document is simultaneously: conformity with clause 7 of IEC 82304-1, a risk
-control measure for scenario U3, and — as will be seen in section 8.4 — the evidence on which rests
+control measure for scenario U3, and - as will be seen in section 8.4 - the evidence on which rests
 the only liability exemption realistically available to whoever supplies a component.
 
-### 5.8 ISO/IEC 81001-5-1 — security in the life cycle
+### 5.8 ISO/IEC 81001-5-1 - security in the life cycle
 
 **What it requires.** It is the «cybersecurity» complement to IEC 62304: it keeps the same process
-structure and grafts security activities onto it — threat modelling, security requirements, secure
+structure and grafts security activities onto it - threat modelling, security requirements, secure
 design, security-oriented code review, security testing including *fuzzing* and penetration testing,
 vulnerability management for third-party components **including SOUP**, coordinated vulnerability
 disclosure, update management and communication with users. It includes the concept of **end of
@@ -1262,7 +1265,7 @@ concerning cybersecurity: security risk management, security by design and by de
 throughout the life cycle, post-market surveillance and incident response.
 
 **What changes in a *pull request*.** That the threat model is a living artefact: a change that
-introduces a new surface — a new endpoint, a new trust boundary, a new input format — requires the
+introduces a new surface - a new endpoint, a new trust boundary, a new input format - requires the
 model to be updated before acceptance. That the **security risk file is distinct** from the ISO
 14971 risk file, but linked to it. That every release declares an end-of-support date. And that
 updating an L1 SOUP requires a security impact assessment *before* inclusion in the release: it is
@@ -1286,7 +1289,7 @@ the point on which surveillance audits insist most.
 ### 6.1 What it is
 
 **Traceability** means that there exists an explicit, walkable chain linking every requirement to
-its realisation and to the evidence that it works — and that the chain can be walked **in both
+its realisation and to the evidence that it works - and that the chain can be walked **in both
 directions**.
 
 ```mermaid
@@ -1307,12 +1310,12 @@ flowchart LR
 
 The two directions answer different questions, and both are asked.
 
-**Forwards — from requirement to evidence.** *Is this requirement realised? Is it verified? By which
+**Forwards - from requirement to evidence.** *Is this requirement realised? Is it verified? By which
 test? With what outcome, on which version?* It serves to demonstrate **completeness**: no
 requirement has been left unrealised, no risk control measure has been left without verification of
 effectiveness.
 
-**Backwards — from code to requirement.** *Why does this function exist? Which requirement does it
+**Backwards - from code to requirement.** *Why does this function exist? Which requirement does it
 derive from? Which risk does it mitigate?* It serves to demonstrate the absence of **unrequested
 functionality**. It is the question that catches code nobody asked for, the function added «while I
 was there», the diagnostic shortcut left in production. In a medical device, functionality not
@@ -1338,7 +1341,7 @@ that that architectural decision was taken at that moment for that reason.
 In detail, here is what becomes unrecoverable and why:
 
 1. **Requirement identifiers.** If the identifiers `RF-*`, `RNF-*`, `BR-*` are renumbered, reordered
-   or reused, every previous reference — in commits, in tests, in minutes, in risk documents —
+   or reused, every previous reference - in commits, in tests, in minutes, in risk documents -
    points to the wrong place. There is no automatic way of reconstructing the correct association:
    it has to be redone by hand, item by item, with the memory of whoever was there. That is why the
    identifiers are **frozen and are never renumbered**, not even when a requirement is abandoned: it
@@ -1386,7 +1389,7 @@ The requests in the contribution document should now look different.
 | «Do not renumber identifiers» | Pedantry | See above: it is irreversible |
 
 None of these rules is there to slow anyone down. They are there because **their absence would make
-it impossible for anyone, in the future, to certify this software** — and would therefore make all
+it impossible for anyone, in the future, to certify this software** - and would therefore make all
 the rest of the work useless.
 
 ---
@@ -1422,8 +1425,8 @@ unique identifiers, which distinguishes:
 
 And then there is the category that is not a change to the device but a change of regime: any change
 that touches the **intended purpose** or that introduces one of the functions C1–C9 in section 2.8.
-That one is not «notified»: it obliges you to redo the qualification, the classification and — by
-cascade — the clinical evaluation, the risk file and the usability scenarios.
+That one is not «notified»: it obliges you to redo the qualification, the classification and - by
+cascade - the clinical evaluation, the risk file and the usability scenarios.
 
 ### 7.3 Why software changes more often than the framework assumes
 
@@ -1448,9 +1451,9 @@ source of defectiveness.
 
 There is no elegant solution. There are four practices that make it manageable.
 
-**Classify changes before making them.** A decision tree applied at *pull request* time — does the
+**Classify changes before making them.** A decision tree applied at *pull request* time - does the
 change touch the intended purpose? does it touch a safety-related function? does it touch the
-interpretation of data? does it touch only an L3 SOUP? — routes towards different pathways. Most
+interpretation of data? does it touch only an L3 SOUP? - routes towards different pathways. Most
 changes are not substantial, but it has to be demonstrated that they are not, and the demonstration
 has to be recorded.
 
@@ -1484,15 +1487,15 @@ connection with this module.
 first concerns harm to the person, the second the risks to rights and freedoms. They do not merge,
 but they do connect.
 
-**Second: data protection by design (Art. 25) is addressed to the controller, not to the producer** —
+**Second: data protection by design (Art. 25) is addressed to the controller, not to the producer** -
 but recital 78 encourages producers to take it into account, and protective default settings are a
 product requirement that no controller can reconstruct afterwards. Hence: recording disabled by
 default, minimum retention by default, logs without clinical content by default.
 
 **Third: the impact assessment is mandatory** for processing such as this, and the party that has to
-carry it out is the customer. Supplying ninety per cent of the material — a description of the
+carry it out is the customer. Supplying ninety per cent of the material - a description of the
 processing, flow diagrams, a risk catalogue, a list of the measures with the automated test that
-verifies each one — is simultaneously a service and a competitive advantage.
+verifies each one - is simultaneously a service and a competitive advantage.
 
 ### 8.2 Security of network and information systems
 
@@ -1516,8 +1519,8 @@ There is then an effect that bears directly on whoever writes code, and it comes
 **D40**: ACN determination no. 127437/2026, Art. 18, obliges the NIS entity to **declare its
 «relevant suppliers» by name to the authority**, with company name, tax code (codice fiscale),
 **country of the registered office**, classification codes and criterion of relevance. The project's
-constraint **V1** — no mandatory component hosted outside the Union, no runtime dependency on
-non-EU services — therefore ceases to be a positioning argument and becomes **a fact that the
+constraint **V1** - no mandatory component hosted outside the Union, no runtime dependency on
+non-EU services - therefore ceases to be a positioning argument and becomes **a fact that the
 customer is obliged to communicate to an authority**. Introducing a runtime dependency on a non-EU
 service is not a technical choice: it is a fact that ends up in somebody else's official
 declaration.
@@ -1560,7 +1563,7 @@ project has chosen (decision **D27**) to adopt the whole framework without invok
 because building the material once satisfies the CRA, ISO/IEC 81001-5-1 and healthcare customers'
 security questionnaires at the same time. But the table is still needed.
 
-### 8.4 Liability for defective products — and the warning that matters most
+### 8.4 Liability for defective products - and the warning that matters most
 
 **Directive (EU) 2024/2853**, which repeals Directive 85/374/EEC, has a transposition deadline of
 **9 December 2026** and applies to products placed on the market or put into service **after** that
@@ -1578,7 +1581,7 @@ software is supplied in return for a price or in exchange for personal data used
 than improving security, compatibility or interoperability.
 
 **The notion of defectiveness now includes specifically digital elements.** Among the circumstances
-to be taken into account: the effect of other products reasonably used together with the product —
+to be taken into account: the effect of other products reasonably used together with the product -
 relevant for a component intended for integration; cybersecurity requirements; and **the moment at
 which the product left the manufacturer's control, where the manufacturer retains control**. From
 which follows a consequence that must be stated plainly: **a product that is safe at the date of
@@ -1615,13 +1618,13 @@ Codice del consumo (the Italian Consumer Code). **[NV]** the numbering applicabl
 transposition of the new directive is to be verified.
 
 The reason is structural, even before it is textual: product liability is non-contractual and
-operates **towards the injured party**, who in telemedicine is typically **the patient** — a person
+operates **towards the injured party**, who in telemedicine is typically **the patient** - a person
 who has never accepted any licence. A licence clause cannot, by definition, be relied on against
 someone who is not a party to the relationship.
 
 Clauses §§ 7–8 remain effective **between the parties to the licence**, for contractual liability and
 for pure economic loss. They do not protect against: actions by the injured person, regulatory
-liability, or liability for intent or gross negligence — which under Italian law cannot be limited in
+liability, or liability for intent or gross negligence - which under Italian law cannot be limited in
 advance.
 
 There is, however, one exemption realistically available to whoever supplies a component, and it is
@@ -1665,7 +1668,7 @@ d.lgs. 82/2022 · legge 4/2004 (Italy)         ─┘   (clauses 9, 10, 11 of EN
 **Why the project's requirement goes beyond WCAG.** EN 301 549 contains requirements that do not
 derive from WCAG and that bear precisely on a video communication platform: **clause 6** (two-way
 voice communication) imposes audio quality, **real-time text** where voice is supported, caller
-identification, and — for video communication — **resolution, frame rate and lip synchronisation
+identification, and - for video communication - **resolution, frame rate and lip synchronisation
 sufficient for sign language**. An analysis limited to WCAG catches none of these requirements, and
 they are crucial for a health service intended also for deaf people.
 
@@ -1710,7 +1713,7 @@ the three points that bear on the regulatory framework.
 
 **The decree that defines the services and the service requirements.** **DM 21 settembre 2022** (the
 Ministerial Decree of 21 September 2022), «Approvazione delle linee guida per i servizi di
-telemedicina — Requisiti funzionali e livelli di servizio», published in *Gazzetta Ufficiale* (the
+telemedicina - Requisiti funzionali e livelli di servizio», published in *Gazzetta Ufficiale* (the
 Italian Official Journal) no. 256 of 2 November 2022, contains statements that bear directly on
 Italian regulatory strategy: the regional infrastructure for the minimum **remote monitoring**
 (telemonitoraggio) service must be **certified as a medical device**; where medical devices are used
@@ -1748,17 +1751,18 @@ source.
 
 ## 10. When to obtain the certifications, and how
 
-This section describes the pathway of whoever certifies. The project does not walk it (decision
-**D49**): it produces the regulatory package and documents the pathway as a **manual for whoever
-certifies**. It is nevertheless necessary for contributors to know it, because it explains why
-certain things have to be done now and not «when they are needed».
+This section describes the operational conformity pathway and the timescales that govern it. The
+project intends to walk it: the manufacturer entity, once established, must walk
+it. Understanding the sequence and timescales helps to grasp which decisions are
+irretrievable, what the structural order of the work is, and why certain things have to be done
+now and not «when they are needed».
 
 ### 10.1 The limiting factor is not software development
 
 It is the most important message in the section, and it contradicts the intuition of every technical
 team.
 
-The data available — all from **secondary sources**, reported as such:
+The data available - all from **secondary sources**, reported as such:
 
 | Datum | Value |
 |---|---|
@@ -1834,21 +1838,21 @@ the reference plan and must be read as a **logical structure**, not as commitmen
 secondary-source data on notified body timescales. They must be read as orders of magnitude and as a
 structure of dependencies.
 
-**Scenario A — compressed.** Contract signed in November 2026, complete file in February 2027, audit
-in May, certificates in December 2027. It requires simultaneously: a *complete* file — not «started»
-— in February, in direct tension with delivery of the software; the clinical evaluation report closed
+**Scenario A - compressed.** Contract signed in November 2026, complete file in February 2027, audit
+in May, certificates in December 2027. It requires simultaneously: a *complete* file - not «started»
+- in February, in direct tension with delivery of the software; the clinical evaluation report closed
 in February; a cycle of internal audit and review already completed in April; and a body that sits in
 the fastest decile without raising any major non-conformities. **Estimated probability: low.** It
 should be treated as a stretch objective, not as a plan.
 
-**Scenario B — realistic, the reference plan (decision D44).** Contract at the end of December 2026,
+**Scenario B - realistic, the reference plan (decision D44).** Contract at the end of December 2026,
 quality system certificate in July 2027, file submitted in June 2027, audit between September and
 October 2027, assessment of the technical documentation through to December 2027, non-conformity
 response cycles through to April 2028, **certificates in June 2028**, declaration of conformity and
 CE marking between **July and August 2028**. That is 18 months from signature to certificate, that
 is, the upper limit of the majority band.
 
-**Scenario C — conservative.** Contract in March 2027 because the manufacturer has not yet been
+**Scenario C - conservative.** Contract in March 2027 because the manufacturer has not yet been
 constituted or because the first bodies contacted are not accepting new clients; 22 months of
 assessment; two cycles of major non-conformities on the clinical evaluation: certificates in January
 2029, marking in the first quarter of 2029.
@@ -1896,7 +1900,7 @@ submission, which dramatically reduces the non-conformity cycles.
 |---|---|
 | Produces and publishes the technical file, life cycle documentation, risk management, the usability engineering file, the software bill of materials | Does not constitute a manufacturer entity |
 | Maintains traceability, the SOUP register, the compliance matrix | Does not engage Notified Bodies |
-| Documents the operational pathway as a manual for whoever certifies | Does not conduct the clinical evaluation |
+| Documents the operational pathway of the manufacturer | The manufacturer entity, yet to be established, will conduct the clinical evaluation |
 | Publishes and maintains the declaration of regulatory status, the intended purpose and the limits of use | **Does not affix the CE marking and does not sign declarations of conformity** |
 | Carries out the retroactively unrecoverable activities (section 10.2, points 7–10) | Does not assume liability towards third parties |
 
@@ -1945,15 +1949,15 @@ Area by area, the practical consequences.
 - if it is L1 or L2, the record must be updated in the same *pull request*;
 - pinned versions, reproducible build, `latest` forbidden;
 - check the licence: strong copyleft licences and those with a network-use clause are blocked by the
-  licence gate, and the commonest breach is not deliberate — it is a fourth-level transitive
+  licence gate, and the commonest breach is not deliberate - it is a fourth-level transitive
   dependency that changes licence in a minor version.
 
 **If you touch the interface**
 
 - a change to a safety-related function is not a cosmetic change: it requires an impact assessment on
   the hazardous use scenarios;
-- the mandatory persistent indicators — recording status, identity of the other party, connection
-  quality — cannot be concealed or removed for layout reasons;
+- the mandatory persistent indicators - recording status, identity of the other party, connection
+  quality - cannot be concealed or removed for layout reasons;
 - accessibility and *mobile first* are acceptance criteria for every screen, not a final polish:
   every requirement must be completable by an elderly patient on a smartphone on a mobile network and
   by a professional using only a keyboard and a screen reader;
@@ -1962,7 +1966,7 @@ Area by area, the practical consequences.
 
 **If you touch security**
 
-- a new surface — endpoint, trust boundary, input format — requires the threat model to be updated
+- a new surface - endpoint, trust boundary, input format - requires the threat model to be updated
   before acceptance;
 - the security risk file is distinct from the clinical safety one, but linked to it;
 - every release declares an end-of-support date;
@@ -2046,7 +2050,7 @@ Area by area, the practical consequences.
 | **Intended purpose** | The use for which the manufacturer intends the device according to the label, the instructions, promotional material and the clinical evaluation (Art. 2(12) MDR) |
 | **EU declaration of conformity** | The act by which the manufacturer assumes responsibility for the conformity of the device (Art. 19 and Annex IV MDR) |
 | **Active device** | A device whose operation depends on a source of energy other than that of the human body; software is by definition an active device (Art. 2(4)) |
-| **Medical device** | An object — software included — intended by the manufacturer for one of the exhaustive medical purposes in Art. 2(1) MDR |
+| **Medical device** | An object - software included - intended by the manufacturer for one of the exhaustive medical purposes in Art. 2(1) MDR |
 | **EHDS** | Regulation (EU) 2025/327 on the European Health Data Space |
 | **Use error** | An act or omission of the user producing a different result from that intended; it is a defect in the design of the interface, not the user's fault (IEC 62366-1) |
 | **EUDAMED** | The European database on medical devices: registration of actors, devices and certificates, vigilance and surveillance |

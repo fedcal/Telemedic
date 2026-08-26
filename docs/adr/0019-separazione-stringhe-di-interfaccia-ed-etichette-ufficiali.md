@@ -1,10 +1,10 @@
 ---
-title: "ADR-0019 — Separazione fra stringhe di interfaccia del progetto ed etichette ufficiali delle terminologie"
+title: "ADR-0019 - Separazione fra stringhe di interfaccia del progetto ed etichette ufficiali delle terminologie"
 sidebar_position: 19
 description: Perché le traduzioni del prodotto non si scrivono nel campo dell'etichetta ufficiale, come si realizza concretamente la separazione e quali verifiche la rendono effettiva.
 ---
 
-# ADR-0019 — Separazione fra stringhe di interfaccia del progetto ed etichette ufficiali delle terminologie
+# ADR-0019 - Separazione fra stringhe di interfaccia del progetto ed etichette ufficiali delle terminologie
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Decisione di riferimento**: D34 · **Origine**: questione posta dal modulo dei fondamenti
@@ -22,13 +22,13 @@ dell'etichetta ufficiale, e quel campo fosse emesso verso l'esterno, il progetto
 distribuirebbe un derivato di quella terminologia.
 
 C'è anche una ragione funzionale indipendente: le stringhe di interfaccia del prodotto hanno bisogno
-di essere adattate al contesto d'uso, alla lunghezza disponibile e al profilo dell'utente — un
+di essere adattate al contesto d'uso, alla lunghezza disponibile e al profilo dell'utente - un
 assistito anziano e un professionista sotto pressione di tempo non leggono la stessa etichetta con
 la stessa efficacia. L'etichetta ufficiale non è adattabile: è ciò che il proprietario ha stabilito.
 
 ## Alternative valutate
 
-### Alternativa 1 — Un solo campo, tradotto dal progetto
+### Alternativa 1 - Un solo campo, tradotto dal progetto
 
 *Vantaggi*: banale; nessuna ricerca aggiuntiva; l'interfaccia mostra ciò che trova.
 
@@ -38,7 +38,7 @@ adattare il testo all'interfaccia senza alterare il dato.
 
 **Scartata.**
 
-### Alternativa 2 — Un solo campo, con l'etichetta ufficiale, mostrata direttamente
+### Alternativa 2 - Un solo campo, con l'etichetta ufficiale, mostrata direttamente
 
 *Vantaggi*: nessun derivato; nessuna divergenza fra ciò che si mostra e ciò che si emette.
 
@@ -46,7 +46,7 @@ adattare il testo all'interfaccia senza alterare il dato.
 dell'utente, spesso troppo lunghe, spesso incomprensibili a un assistito. Contraddice il requisito
 trasversale di accessibilità e di progettazione per l'utente reale. **Scartata.**
 
-### Alternativa 3 — Due archivi separati per costruzione
+### Alternativa 3 - Due archivi separati per costruzione
 
 *Vantaggi*: nessun derivato; interfaccia adattabile; emissione conforme.
 
@@ -97,5 +97,5 @@ per etichetta produrrebbe collisioni silenziose.
 
 ## Riferimenti
 
-[04 — Modello dati](../02_architecture/04-modello-dati.md#62-la-separazione-fra-etichetta-ufficiale-e-stringa-di-interfaccia) ·
+[04 - Modello dati](../02_architecture/04-modello-dati.md#62-la-separazione-fra-etichetta-ufficiale-e-stringa-di-interfaccia) ·
 ADR-0016

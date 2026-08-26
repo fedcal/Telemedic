@@ -1,7 +1,7 @@
 ---
 title: Rischi e dipendenze
 sidebar_position: 6
-description: Il registro dei rischi di programma — trenta voci con probabilità dichiarata, impatto sul calendario, indicatore anticipatore, risposta e titolare — il rischio dominante della data ravvicinata con capacità dichiarata bassa, le funzioni che richiedono soggetti distinti, le dipendenze esterne famiglia per famiglia e la procedura con cui il registro si sorveglia.
+description: Il registro dei rischi di programma - trenta voci con probabilità dichiarata, impatto sul calendario, indicatore anticipatore, risposta e titolare - il rischio dominante della data ravvicinata con capacità dichiarata bassa, le funzioni che richiedono soggetti distinti, le dipendenze esterne famiglia per famiglia e la procedura con cui il registro si sorveglia.
 ---
 
 # Rischi e dipendenze
@@ -18,7 +18,7 @@ description: Il registro dei rischi di programma — trenta voci con probabilit�
 > soggetti terzi; `D58` attribuisce al progetto il ruolo di fabbricante, ancora da costituire. Ne
 > discende che **i rischi il cui titolare era «chi certifica» sono ora rischi del progetto**, con
 > l'impatto ricalcolato su di noi, e che tre voci nuove entrano in registro: `R-28`, `R-29` e `R-30`.
-> Una voce — `R-01` — **si chiude**, perché la condizione che la produceva è stata rimossa.
+> Una voce - `R-01` - **si chiude**, perché la condizione che la produceva è stata rimossa.
 
 ---
 
@@ -45,7 +45,7 @@ vicenda.**
 
 **Nessuna voce di questo registro ha come risposta «si accetta il rischio clinico».** Dove la risposta
 a un rischio di programma toccherebbe un controllo di rischio clinico, la risposta ammessa è una sola:
-**si riduce l'ambito, e se l'ambito non è più riducibile la data si dichiara mancata** — mai si
+**si riduce l'ambito, e se l'ambito non è più riducibile la data si dichiara mancata** - mai si
 comprime il controllo. È la traduzione, sul piano del tempo, del divieto di debito su registro degli
 accessi, verifica delle chiavi, avviso di qualità, allerte, consenso, isolamento fra tenant e assenza
 di contenuto clinico nei registri, elencato in [01 §7.3](./01-principi-e-metodo.md) e ripreso come
@@ -87,16 +87,16 @@ materializza consuma una riga dell'ordine di sacrificio di
 
 ### 1.4 Le quattro risposte ammesse
 
-**Evitare** — si rimuove la condizione che lo produce. **Ridurre** — si abbassa la probabilità o
-l'impatto con una misura verificabile. **Trasferire** — si sposta su un soggetto che è nella posizione
-di sostenerlo. **Accettare** — si dichiara e si sorveglia, senza misura.
+**Evitare** - si rimuove la condizione che lo produce. **Ridurre** - si abbassa la probabilità o
+l'impatto con una misura verificabile. **Trasferire** - si sposta su un soggetto che è nella posizione
+di sostenerlo. **Accettare** - si dichiara e si sorveglia, senza misura.
 
 Sul trasferimento vale un limite non negoziabile: **nessun rischio si trasferisce su chi installa o
 sull'assistito per il tramite di una clausola.** La licenza permissiva del progetto vale fra le parti,
 non verso il danneggiato, e la fonte europea in materia di responsabilità da prodotto difettoso vieta
-l'esclusione contrattuale della responsabilità verso di lui — **e con `D58` questo vale con più forza,
-non con meno**. Il trasferimento ammesso è quello **verso chi ha già l'obbligo per legge** — chi
-installa, il titolare del trattamento — e consiste nel dichiararlo, non nell'imporlo.
+l'esclusione contrattuale della responsabilità verso di lui - **e con `D58` questo vale con più forza,
+non con meno**. Il trasferimento ammesso è quello **verso chi ha già l'obbligo per legge** - chi
+installa, il titolare del trattamento - e consiste nel dichiararlo, non nell'imporlo.
 
 `D57` restringe ulteriormente le risposte disponibili, e va detto: **non è più ammesso trasferire un
 rischio a «chi certifica»**, perché chi certifica siamo noi. Dove la versione precedente di questo
@@ -118,12 +118,12 @@ Il **titolare** è chi ha l'autorità di attuare la risposta, non chi ne subisce
 
 ### 2.1 Capacità e organizzazione
 
-> **`R-01` — La capacità del progetto non è dichiarata** · **CHIUSO**
+> **`R-01` - La capacità del progetto non è dichiarata** · **CHIUSO**
 > *Chiuso il 25 agosto 2026 da `D54`* · *Titolare della chiusura* **committente**
 
 **Perché si chiude, e non semplicemente sparisce.** La regola del §5.2 è che un rischio si chiude solo
 se la condizione che lo produce è stata rimossa e la rimozione è verificabile. `D54` dichiara la
-capacità — **un contributore unico, a tempo parziale** — e chiude `Q-181`: la condizione è rimossa e la
+capacità - **un contributore unico, a tempo parziale** - e chiude `Q-181`: la condizione è rimossa e la
 rimozione è verificabile leggendo la decisione. Le tre ipotesi `H1`, `H2` e `H3` su cui la roadmap
 produceva date sono decadute ([01 §11](./01-principi-e-metodo.md)).
 
@@ -131,7 +131,7 @@ produceva date sono decadute ([01 §11](./01-principi-e-metodo.md)).
 rischio che ne discende è nuovo, ha un'altra forma e un altro indicatore, ed è `R-28`. Cancellare
 `R-01` senza aprire `R-28` avrebbe prodotto l'illusione che una decisione risolva un'aritmetica.
 
-> **`R-28` — Data pubblica ravvicinata con capacità dichiarata bassa**
+> **`R-28` - Data pubblica ravvicinata con capacità dichiarata bassa**
 > *Probabilità* **Alta** · *Impatto* **I4** · *Titolare* **committente**, con il contributore unico
 > per l'esecuzione dell'ordine di sacrificio
 
@@ -147,7 +147,7 @@ stato ridotto perché sia possibile. **È che il margine, essendo tutto nell'amb
 silenzioso**: ogni scostamento mangia una riga dell'ordine di sacrificio senza che nessuno debba
 annunciarlo, e quando l'ordine finisce non resta niente da tagliare che non sia un criterio bloccante.
 
-**La forma in cui si materializza.** Non uno slittamento — la data è fissa — ma una delle due:
+**La forma in cui si materializza.** Non uno slittamento - la data è fissa - ma una delle due:
 
 1. **Un rilascio più povero di quanto dichiarato**, se l'ordine di sacrificio viene eseguito senza
    essere registrato: è l'esito peggiore, perché la scelta di che cosa sacrificare **smette di essere
@@ -159,7 +159,7 @@ annunciarlo, e quando l'ordine finisce non resta niente da tagliare che non sia 
 sacrificio di [03 §6.2](./03-primo-rilascio-utilizzabile.md) ancora disponibili.** Sono sette. Una
 revisione che ne registri il consumo di due nello stesso mese anticipa l'esaurimento prima della data.
 Indicatore secondario: **un traguardo del capitolo [02](./02-traguardi.md) che non chiude entro la
-propria data senza che una riga dell'ordine sia stata consumata** — significa che lo scostamento è
+propria data senza che una riga dell'ordine sia stata consumata** - significa che lo scostamento è
 stato assorbito in silenzio, che è la condizione che precede l'esito 1.
 
 **Risposta.** *Ridurre*, con quattro misure tutte già in vigore:
@@ -177,12 +177,12 @@ stato assorbito in silenzio, che è la condizione che precede l'esito 1.
 *Accettare* il residuo, dichiarandolo: con data e capacità fissate, un residuo esiste per costruzione e
 nessuna misura di pianificazione lo elimina.
 
-> **`R-02` — Concentrazione della conoscenza su un unico contributore**
+> **`R-02` - Concentrazione della conoscenza su un unico contributore**
 > *Probabilità* **Accertato** · *Impatto* **I4** · *Titolare* **committente**
 
 **Che cos'è.** `D54` dichiara un contributore unico: la conoscenza del progetto risiede in una sola
 persona, e la sua indisponibilità non ritarda il progetto, **lo ferma**. Non è più un'ipotesi da
-sorvegliare — era `Alta` sotto `H1` e `H2` — è un dato **accertato**.
+sorvegliare - era `Alta` sotto `H1` e `H2` - è un dato **accertato**.
 
 **Indicatore anticipatore.** Il tempo che intercorre fra la pubblicazione della guida dei fondamenti e
 **la prima proposta di modifica accettata da una persona diversa dal contributore unico**. Finché quel
@@ -198,11 +198,11 @@ avviabile su una macchina disconnessa da tutto (`V-190`). *Accettare* il residuo
 
 **Che cosa questo rischio non copre più.** La parte relativa alle **registrazioni a ruoli distinti**,
 che nella versione precedente era una sua componente, è stata **estratta in `R-29`**. La ragione non è
-redazionale: sono rischi di natura diversa. `R-02` è un rischio di **continuità** — se la persona resta,
-non si materializza — mentre `R-29` è **già materializzato ogni giorno che il progetto lavora**, e
+redazionale: sono rischi di natura diversa. `R-02` è un rischio di **continuità** - se la persona resta,
+non si materializza - mentre `R-29` è **già materializzato ogni giorno che il progetto lavora**, e
 nessuna presenza lo attenua.
 
-> **`R-29` — Le registrazioni a ruoli distinti non sono producibili, e la lacuna si ripete a ogni
+> **`R-29` - Le registrazioni a ruoli distinti non sono producibili, e la lacuna si ripete a ogni
 > rilascio**
 > *Probabilità* **Accertato** · *Impatto* **I5** · *Titolare* **committente**
 
@@ -229,7 +229,7 @@ predefinito è la lacuna dichiarata su `RU-1`. Indicatore continuo, per i rilasc
 numero di lacune datate nell'elenco del fascicolo di rilascio**, che deve smettere di crescere.
 
 **Risposta.** *Ridurre* per la parte che si acquisisce all'esterno, secondo la ripartizione che `Q-189`
-deve decidere. *Accettare formalmente* per il resto — e «formalmente» è la parola vincolante: una
+deve decidere. *Accettare formalmente* per il resto - e «formalmente» è la parola vincolante: una
 lacuna accettata è **una decisione registrata con motivazione, titolare e data**, non un silenzio
 (criterio 2 di `OL-22`). Ciò che il progetto fa comunque, e che non sostituisce la verifica
 indipendente ma è ciò che resta producibile:
@@ -239,15 +239,15 @@ indipendente ma è ciò che resta producibile:
 - il fascicolo di rilascio **dichiara esplicitamente, in entrambe le lingue, che nessuna verifica è
   stata eseguita da un secondo soggetto** (criterio bloccante 17 di
   [03 §8](./03-primo-rilascio-utilizzabile.md));
-- la procedura di verifica lato deployer è pubblicata perché **chi installa la esegua**: in `RU-1` è
+- la procedura di verifica a cura di chi installa è pubblicata perché **sia eseguita davvero**: in `RU-1` è
   l'unica verifica indipendente che esisterà ([03 §10](./03-primo-rilascio-utilizzabile.md)).
 
 **Il vincolo che ne discende**, posto come `V-281`: **nessun traguardo entra nel piano se richiede due
 soggetti distinti e il secondo non esiste.** Si dichiara come lacuna con la data in cui nasce, non si
-pianifica come attività — perché pianificare un'attività non producibile è il modo più efficace di
+pianifica come attività - perché pianificare un'attività non producibile è il modo più efficace di
 farla sparire dalla vista.
 
-> **`R-12` — La capacità ricorrente di sorveglianza consuma capacità di sviluppo**
+> **`R-12` - La capacità ricorrente di sorveglianza consuma capacità di sviluppo**
 > *Probabilità* **Accertato** · *Impatto* **I2 ricorrente** · *Titolare* **progetto**
 
 **Che cos'è.** Il livello di servizio di aggiornamento dei componenti di terze parti si esprime in
@@ -258,11 +258,11 @@ corretta a metà percorso.
 
 **Perché sotto `D54` pesa più di prima.** Perché la capacità ricorrente si sottrae da una capacità
 lorda che è **una persona a tempo parziale**: la frazione sottratta è la stessa in valore assoluto e
-molto maggiore in proporzione. È la ragione per cui `TG-04` — il taglio del broker — è l'unico taglio
+molto maggiore in proporzione. È la ragione per cui `TG-04` - il taglio del broker - è l'unico taglio
 che alleggerisce anche il progetto e non solo chi installa: un componente esposto in meno è
 sorveglianza ricorrente in meno.
 
-**Quantificazione.** `[NV]` — non stimabile senza cronologia di consegna propria. Ciò che si dichiara è
+**Quantificazione.** `[NV]` - non stimabile senza cronologia di consegna propria. Ciò che si dichiara è
 la **regola**: la capacità ricorrente si sottrae **prima** di calcolare qualunque data
 ([01 §9](./01-principi-e-metodo.md)).
 
@@ -272,11 +272,11 @@ finestra dichiarata.
 **Risposta.** *Ridurre*: automazione dell'aggiornamento delle dipendenze, distinta generata a ogni
 costruzione, registro dei componenti con annotazioni versionate. *Accettare* il residuo, dichiarandolo.
 
-> **`R-21` — Il reclutamento di utenti rappresentativi non si comprime**
+> **`R-21` - Il reclutamento di utenti rappresentativi non si comprime**
 > *Probabilità* **Alta** · *Impatto* **I3** · *Titolare* **committente**, per l'ingaggio
 
 **Che cos'è.** La validazione di usabilità richiede utenti rappresentativi che comprendono persone
-anziane e persone con disabilità — **popolazione di riferimento e non caso limite** — e il loro
+anziane e persone con disabilità - **popolazione di riferimento e non caso limite** - e il loro
 reclutamento ha un tempo di calendario proprio, con consensi da raccogliere e protocollo da approvare
 prima dell'esecuzione.
 
@@ -291,7 +291,7 @@ esecuzione.
 **Risposta.** *Ridurre*, anticipando il protocollo; *accettare* la durata del reclutamento e la lacuna
 formativa già maturata, che il fascicolo di ingegneria dell'usabilità dichiara con la sua data.
 
-> **`R-22` — Le figure specialistiche necessarie sono una risorsa scarsa**
+> **`R-22` - Le figure specialistiche necessarie sono una risorsa scarsa**
 > *Probabilità* **Media** · *Impatto* **I3** · *Titolare* **committente**
 
 **Che cos'è.** Il percorso richiede competenze che non si improvvisano e che sotto `D54` **non esistono
@@ -310,10 +310,10 @@ rifatta su quel dato. È misurabile dal criterio 2 di `T-14`, che registra la da
 settembre 2026 e non dopo il primo rilascio. **Non è più ammesso trasferire con dichiarazione**: con
 `D58` il fabbisogno è nostro, non di un terzo che lo assumerà.
 
-> **`R-24` — Le priorità si spostano su richiesta esterna**
+> **`R-24` - Le priorità si spostano su richiesta esterna**
 > *Probabilità* **Alta** · *Impatto* **I2, cumulativo** · *Titolare* **committente**
 
-**Che cos'è.** Una richiesta che arriva da fuori — un integratore, una gara, una dimostrazione — ha una
+**Che cos'è.** Una richiesta che arriva da fuori - un integratore, una gara, una dimostrazione - ha una
 forza di persuasione che una voce di coda non ha, e la deviazione singola costa poco. Il costo è
 **cumulativo**: tre deviazioni da due settimane consumano il margine di un traguardo senza che nessuna
 delle tre appaia significativa nel momento in cui viene concessa.
@@ -331,7 +331,7 @@ perimetro e dalla revisione, ed è registrata con la sua causa.
 
 ### 2.2 Volume del corpus e regime linguistico
 
-> **`R-03` — Il volume del corpus documentale eccede la capacità di traduzione**
+> **`R-03` - Il volume del corpus documentale eccede la capacità di traduzione**
 > *Probabilità* **Alta** · *Impatto* **I3 sul piano 2027**, non più `I4` sul traguardo del 30 novembre
 > 2026 · *Titolare* **progetto**
 
@@ -350,11 +350,11 @@ guida dei fondamenti e le aree di conformità e sicurezza**, dove il controllo d
 costruzione: **la distanza fra corpus italiano e corpus inglese, misurata e non stimata**. Se cresce fra
 due revisioni consecutive, la traduzione assistita non tiene il passo della produzione.
 
-**Risposta.** *Ridurre* con la misura preliminare — il **conteggio esatto delle parole**, criterio 5 di
-`T-02` — e con la modalità di `D56`. *Accettare* per il resto: la parte non tradotta è **visibile e
+**Risposta.** *Ridurre* con la misura preliminare - il **conteggio esatto delle parole**, criterio 5 di
+`T-02` - e con la modalità di `D56`. *Accettare* per il resto: la parte non tradotta è **visibile e
 misurata**, che è la condizione minima perché non degeneri in `R-16`.
 
-> **`R-16` — Le due versioni linguistiche divergono**
+> **`R-16` - Le due versioni linguistiche divergono**
 > *Probabilità* **Alta**, in assenza di controllo automatico · *Impatto* **I5 sul piano regolatorio** ·
 > *Titolare* **progetto**
 
@@ -378,10 +378,10 @@ la transizione da segnalazione a bloccanza registrata area per area e **non reve
 
 ### 2.3 Conformità, decisioni e perimetro
 
-> **`R-04` — L'area di conformità concentra le questioni pendenti delle altre aree**
+> **`R-04` - L'area di conformità concentra le questioni pendenti delle altre aree**
 > *Probabilità* **Accertato** · *Impatto* **I3** · *Titolare* **orchestrazione**, poi `COMP`
 
-**Che cos'è.** L'area di conformità è ora scritta — dieci documenti — e il documento di ricerca sul
+**Che cos'è.** L'area di conformità è ora scritta - dieci documenti - e il documento di ricerca sul
 percorso di certificazione è stato completato. Il rischio non si chiude con la stesura: quell'area resta
 quella verso cui converge il maggior numero di questioni pendenti delle altre, e su di essa poggiano la
 procedura di controllo dei documenti di `T-01`, il registro degli identificativi di requisito e l'intero
@@ -393,11 +393,11 @@ qualcun altro un percorso che è nostro.
 revisioni consecutive senza che nessuna si chiuda.
 
 **Risposta.** *Ridurre*, con la sequenza: le attività di classe `A` che appartengono naturalmente a
-quell'area — controllo dei documenti, registro degli identificativi, riallineamento delle avvertenze
-pubbliche a `D58` — sono **anticipate in `T-01`** e non attendono, perché il loro costo di omissione
+quell'area - controllo dei documenti, registro degli identificativi, riallineamento delle avvertenze
+pubbliche a `D58` - sono **anticipate in `T-01`** e non attendono, perché il loro costo di omissione
 cresce ogni giorno.
 
-> **`R-05` — I modelli documentali delle tipologie di telemedicina non sono disponibili**
+> **`R-05` - I modelli documentali delle tipologie di telemedicina non sono disponibili**
 > *Probabilità* **Accertato** · *Impatto* **I0 sul progetto** · *Titolare* **`COMP`**, per
 > l'interlocuzione
 
@@ -407,7 +407,7 @@ sono pubblicamente disponibili (`Q-07`, `B-7`, `V-136`).
 **Perché l'impatto sul progetto è nullo, ed è un risultato e non una fortuna.** Perché il contenuto è
 modellato come **dataset canonico** e ogni serializzazione è sostituibile (`V-07`). Il rischio esisteva,
 è stato **evitato per progettazione**, e la voce resta in registro per sorvegliare l'unica cosa che può
-ancora andare storta: che qualcuno cabli un template per convenienza — **e sotto pressione di calendario
+ancora andare storta: che qualcuno cabli un template per convenienza - **e sotto pressione di calendario
 la convenienza aumenta**, che è la ragione per cui la voce non si chiude ora.
 
 **Indicatore anticipatore.** La comparsa, in una proposta di modifica, di un template documentale dentro
@@ -415,7 +415,7 @@ il dominio invece che dietro il punto di estensione.
 
 **Risposta.** *Evitare* per costruzione, con verifica automatica.
 
-> **`R-17` — Le decisioni del committente non vengono prese entro le date dichiarate**
+> **`R-17` - Le decisioni del committente non vengono prese entro le date dichiarate**
 > *Probabilità* **Media** · *Impatto* **da I2 a I5, secondo la decisione** · *Titolare* **committente**
 
 **Che cos'è, e come si è ridotto.** Nella versione precedente erano sette le decisioni con una data oltre
@@ -436,10 +436,10 @@ destinazione d'uso (`D55`). Restano, con l'aggiunta di due che `D57` e `D58` int
 scadenza esplicita per ciascuna delle sue componenti.
 
 **Risposta.** *Ridurre*: la roadmap **pone** le decisioni con la conseguenza dichiarata accanto, e
-dichiara l'esito predefinito in assenza di risposta — per `Q-189` è la lacuna dichiarata su `RU-1`. Un
+dichiara l'esito predefinito in assenza di risposta - per `Q-189` è la lacuna dichiarata su `RU-1`. Un
 piano che attende in silenzio una decisione che non arriva ha già scelto, senza dirlo.
 
-> **`R-18` — Una decisione dichiarata rinviata viene presa d'ufficio in una proposta di modifica**
+> **`R-18` - Una decisione dichiarata rinviata viene presa d'ufficio in una proposta di modifica**
 > *Probabilità* **Media** · *Impatto* **I2, con coda `I5` sulla coerenza documentale** · *Titolare*
 > **progetto**
 
@@ -449,8 +449,8 @@ realizza si imbatte in una di esse e sceglie l'opzione più comoda per proseguir
 ragionevole e invisibile. Il costo emerge quando **il codice fa una cosa e la documentazione ne dice
 un'altra**.
 
-**Perché sotto `D54` è più insidioso.** Perché la regola che lo presidia — chi si imbatte in una
-decisione rinviata **apre una voce in bacheca e non sceglie** — è presidiata dalla revisione, e la
+**Perché sotto `D54` è più insidioso.** Perché la regola che lo presidia - chi si imbatte in una
+decisione rinviata **apre una voce in bacheca e non sceglie** - è presidiata dalla revisione, e la
 revisione con un contributore unico è **auto-revisione** (`R-29`). L'unico presidio che resta effettivo
 è **l'elenco delle decisioni rinviate come lista di controllo esplicita** prima di ogni proposta di
 modifica che tocchi un'area coperta.
@@ -461,7 +461,7 @@ rinviata **senza** citarla.
 **Risposta.** *Evitare* con la regola; *ridurre* con `T-05`, che raccoglie le decisioni con scadenza
 anteriore al primo codice e le **pone** entro il 3 ottobre 2026.
 
-> **`R-19` — Il materiale pubblico non è allineato ai claim approvati**
+> **`R-19` - Il materiale pubblico non è allineato ai claim approvati**
 > *Probabilità* **Accertato** · *Impatto* **I5** · *Titolare* **committente**, con `PROD`
 
 **Che cos'è.** Le riformulazioni approvate con `D19` e `D29` non risultano recepite nella pagina pubblica
@@ -485,11 +485,11 @@ sorveglia è la **durata**: ogni revisione registra da quanti giorni la condizio
 
 **Risposta.** *Evitare*, con una data. Il presidio strutturale è di processo: **l'allineamento fra
 dichiarazione formale e comunicazione pubblica va verificato a ogni modifica del materiale pubblico, e
-la verifica va registrata** — è `Q-174` verso `COMP`. Vi si aggiunge la verifica testuale che nessun
+la verifica va registrata** - è `Q-174` verso `COMP`. Vi si aggiunge la verifica testuale che nessun
 materiale contenga una data di marcatura, che è criterio bloccante 15 di
 [03 §8](./03-primo-rilascio-utilizzabile.md) e criterio 5 di `T-14`.
 
-> **`R-23` — Deriva del perimetro verso l'innalzamento di classe**
+> **`R-23` - Deriva del perimetro verso l'innalzamento di classe**
 > *Probabilità* **Media** · *Impatto* **I4** · *Titolare* **`COMP`**, con il committente
 
 **Che cos'è.** Tre funzionalità sono **a una singola storia utente** dall'innalzamento di classe: allerta
@@ -499,7 +499,7 @@ avviene per accumulo di richieste ragionevoli: un avviso che «suggerisce», una
 
 **Che cosa `D55` cambia, ed è in meglio.** Il congelamento della destinazione d'uso sulla **raccolta
 differita** rende la deriva **riconoscibile**: esiste una formulazione di riferimento contro cui
-misurare ogni proposta, e il divieto è enunciato — nessuna funzione può spostare il sistema verso il
+misurare ogni proposta, e il divieto è enunciato - nessuna funzione può spostare il sistema verso il
 tempo reale clinico, e la valutazione **precede** la scrittura della funzione.
 
 **Che cosa `D58` cambia, ed è in peggio.** La rivalutazione conseguente a una deriva **è a carico
@@ -507,13 +507,13 @@ nostro**: nella versione precedente il costo di una riclassificazione sarebbe ri
 esterno, e ora ricade sul progetto. L'impatto resta `I4`, ma il soggetto che lo subisce è cambiato.
 
 **Indicatore anticipatore.** Una proposta formulata come capacità tecnica e non come caso d'uso con un
-attore — «sarebbe utile calcolare un punteggio» — è il primo sintomo.
+attore - «sarebbe utile calcolare un punteggio» - è il primo sintomo.
 
 **Risposta.** *Evitare*: controllo delle modifiche sulle tre funzionalità di confine, prove negative per
 ciascuna esclusione, e la regola per cui **la valutazione di impatto regolatorio precede la stima dello
 sforzo**.
 
-> **`R-26` — La fonte normativa cambia durante il programma**
+> **`R-26` - La fonte normativa cambia durante il programma**
 > *Probabilità* **Alta** · *Impatto* **da I1 a I3** · *Titolare* **`COMP`**
 
 **Che cos'è.** Il progetto poggia su fonti in movimento: tipologie documentali di recente istituzione,
@@ -529,11 +529,11 @@ come standard ciò che non lo è (`V-133`); nessun template cablato (`V-136`). *
 
 ### 2.4 Rischi tecnici sul percorso critico
 
-> **`R-13` — I difetti noti del prodotto di federazione tornano al primo aggiornamento**
+> **`R-13` - I difetti noti del prodotto di federazione tornano al primo aggiornamento**
 > *Probabilità* **Media** · *Impatto* **I1, con conseguenza di sicurezza** · *Titolare* **progetto**
 
-**Che cos'è.** Tre comportamenti del prodotto di federazione adottato — l'utente federato può alterarsi
-gli attributi, cambiare l'indirizzo di posta senza verifica, darsi una credenziale locale — sono
+**Che cos'è.** Tre comportamenti del prodotto di federazione adottato - l'utente federato può alterarsi
+gli attributi, cambiare l'indirizzo di posta senza verifica, darsi una credenziale locale - sono
 chiudibili in configurazione. Una configurazione chiusa e non sorvegliata si riapre a un aggiornamento, e
 nessuno se ne accorge.
 
@@ -544,7 +544,7 @@ il criterio 3 di `T-04` richiede sia la chiusura sia la prova di non regressione
 che non sono state tagliate**, benché la federazione nazionale sia fuori dal perimetro di `RU-1`: il
 prodotto di federazione è comunque nel percorso di ingresso.
 
-> **`R-14` — Il lotto della doppia istanza per fornitore di identità è sottostimato**
+> **`R-14` - Il lotto della doppia istanza per fornitore di identità è sottostimato**
 > *Probabilità* **Alta** · *Impatto* **I2** · *Titolare* **progetto**
 
 **Che cos'è.** Il contesto di autenticazione richiesto è configurato **staticamente sulla singola
@@ -563,7 +563,7 @@ fra costo di codice e costo di procedura.
 due e non a *n*; convenzione di alias con prefisso stabile, verificata in integrazione continua sul
 documento di metadata generato.
 
-> **`R-15` — Un meccanismo di sicurezza viene documentato prima di essere verificato**
+> **`R-15` - Un meccanismo di sicurezza viene documentato prima di essere verificato**
 > *Probabilità* **Media** · *Impatto* **I5 reputazionale** · *Titolare* **`INTEG`**, con `TECH`
 
 **Che cos'è.** Non è verificato se il prodotto di federazione inoltri il livello richiesto attraverso il
@@ -583,13 +583,13 @@ meccanismo priva di rinvio a un esito di verifica registrato.
 `T-04` insieme al rinvio**: finché l'esito non è registrato, la documentazione pubblica non descrive il
 meccanismo.
 
-> **`R-20` — Il registro immutabile è più costoso di quanto una pianificazione ingenua assuma**
+> **`R-20` - Il registro immutabile è più costoso di quanto una pianificazione ingenua assuma**
 > *Probabilità* **Alta** · *Impatto* **I3** · *Titolare* **progetto**
 
 **Che cos'è.** È dichiarato dall'area di sicurezza come **il singolo elemento di maggiore sforzo
 dell'intero catalogo**. Il versionamento delle entità **non rende immutabile**, e il requisito richiede
-strati che coprono minacce diverse — catena applicativa, archivio in sola aggiunta, conservazione a
-privilegi disgiunti, ancoraggio periodico firmato — più la scrittura bloccante, la catena per tenant, la
+strati che coprono minacce diverse - catena applicativa, archivio in sola aggiunta, conservazione a
+privilegi disgiunti, ancoraggio periodico firmato - più la scrittura bloccante, la catena per tenant, la
 procedura di verifica e quella di esportazione.
 
 **Come si è già materializzato.** È la causa del taglio `TG-23`: `RU-1` consegna la **copertura
@@ -604,7 +604,7 @@ di persistenza invece che come un componente con un ciclo di vita proprio.
 rilascio bloccante, quindi non è comprimibile nemmeno sotto pressione. *Accettare e dichiarare* la
 riduzione di uno strato, con `OL-21` in terza posizione in coda.
 
-> **`R-27` — La costruzione riproducibile non si ottiene**
+> **`R-27` - La costruzione riproducibile non si ottiene**
 > *Probabilità* **Media** · *Impatto* **I2** · *Titolare* **progetto**
 
 **Che cos'è.** Due costruzioni della stessa revisione su esecutori diversi devono produrre artefatti
@@ -625,7 +625,7 @@ nell'ordine di sacrificio. *Accettare* la riduzione di perimetro, con `OL-20` in
 
 ### 2.5 Catena di fornitura e licenze
 
-> **`R-08` — Un componente incorporato ha un regime di licenza incompatibile**
+> **`R-08` - Un componente incorporato ha un regime di licenza incompatibile**
 > *Probabilità* **Media** · *Impatto* **da I2 a I4** · *Titolare* **`COMP`**, con `TECH`
 
 **Che cos'è.** Un componente entra nella distinta con una licenza non compatibile con quella del
@@ -644,7 +644,7 @@ annotazioni versionate.
 bloccanti dal primo giorno** e non fra quelli in sola segnalazione (`T-03` criterio 2), proprio perché
 presidia un divieto pubblico.
 
-> **`R-09` — Contenuto terminologico a licenza vincolata entra nel repository pubblico**
+> **`R-09` - Contenuto terminologico a licenza vincolata entra nel repository pubblico**
 > *Probabilità* **Bassa**, presidiata · *Impatto* **I5** · *Titolare* **progetto**
 
 **Che cos'è.** Alcune terminologie cliniche hanno licenze incompatibili con un repository pubblico e con
@@ -662,13 +662,13 @@ quei sistemi disattivati (`V-03`). **Una nota di onestà sulla terza misura**: i
 **degenere**, perché il perimetro ridotto non contiene contenuto codificato (`TG-05`). La proprietà è
 dichiarata, non ancora dimostrata sul caso che conta, e `OL-20` la riporta a verifica reale.
 
-> **`R-25` — Un componente esposto ha una cadenza di rilascio superiore alla capacità di aggiornamento**
+> **`R-25` - Un componente esposto ha una cadenza di rilascio superiore alla capacità di aggiornamento**
 > *Probabilità* **Alta** · *Impatto* **I1 ricorrente, con conseguenza di sicurezza** · *Titolare*
 > **progetto**, per il rilascio; **chi installa**, per l'applicazione
 
 **Che cos'è.** Il nodo di relay è il componente più esposto dell'architettura e ha la cadenza di rilascio
-più alta. La stessa famiglia di difetti — aggiramento delle liste di indirizzi vietati per
-canonicalizzazione o confronto errato delle forme di indirizzo estese — ha prodotto **sei vulnerabilità
+più alta. La stessa famiglia di difetti - aggiramento delle liste di indirizzi vietati per
+canonicalizzazione o confronto errato delle forme di indirizzo estese - ha prodotto **sei vulnerabilità
 distinte in otto anni** su un componente maturo, quattro delle quali negli ultimi otto mesi.
 
 **Indicatore anticipatore.** La distanza fra la versione minima dichiarata dal progetto e l'ultima
@@ -680,7 +680,7 @@ dipende da nessuna delle due è però un'altra, ed è la ragione per cui il risc
 codice; le liste di indirizzi vietati sono difesa in profondità (`V-10`, `V-157`). La verifica
 corrispondente è `T-04` criterio 4, **non tagliata**.
 
-### 2.6 Percorso di conformità — ora rischi del progetto
+### 2.6 Percorso di conformità - ora rischi del progetto
 
 > **Che cosa è cambiato in questa sezione.** Con `D57` e `D58` le tre voci che seguono **non sono più
 > rischi di terzi con impatto nullo sul progetto**. Sono nostre, e l'impatto è ricalcolato su di noi.
@@ -688,7 +688,7 @@ corrispondente è `T-04` criterio 4, **non tagliata**.
 > dichiarazione di conformità, e **nessuna data di questo registro è una promessa di marcatura**
 > (`V-171`, `V-280`).
 
-> **`R-30` — Il ruolo di fabbricante non è ancora costituito**
+> **`R-30` - Il ruolo di fabbricante non è ancora costituito**
 > *Probabilità* **Accertato** · *Impatto* **I3, crescente** · *Titolare* **committente**
 
 **Che cos'è.** `D58` attribuisce al progetto il ruolo di fabbricante, e **il soggetto giuridico non
@@ -714,13 +714,13 @@ organismi notificati non richiede il soggetto costituito** e si invia prima (cri
 perché la coda è il vincolo effettivo. *Accettare* la durata del procedimento, che non dipende da noi, e
 **dichiararla non stimabile** invece di inventarla.
 
-> **`R-06` — I tempi degli organismi notificati**
+> **`R-06` - I tempi degli organismi notificati**
 > *Probabilità* **Alta** · *Impatto* **I3 sulla pianificazione del progetto** · *Titolare* **progetto**
 
 **Che cos'è.** Il 51 % degli organismi impiega **13–18 mesi** dalla firma dell'accordo al certificato e il
 31 % ne impiega **19–24**; a fine 2025 il divario era di 25 978 domande contro 13 953 certificati;
-l'organico degli organismi è in **contrazione** — meno 8 % di personale interno e meno 21 % di
-subappaltatori — per la prima volta in oltre un decennio. Ne discende l'aritmetica di `D44`: anche
+l'organico degli organismi è in **contrazione** - meno 8 % di personale interno e meno 21 % di
+subappaltatori - per la prima volta in oltre un decennio. Ne discende l'aritmetica di `D44`: anche
 firmando entro dicembre 2026 il certificato non arriva prima di gennaio 2028 nell'ipotesi più favorevole,
 e realisticamente fra giugno 2028 e giugno 2029.
 
@@ -731,7 +731,7 @@ una dipendenza esterna**, e quindi non comprimibile.
 
 **Due elementi che vanno detti perché sono quelli che si scoprono tardi.** Il primo: **un fabbricante
 nuovo, micro, alla prima certificazione non è un cliente prioritario** per un organismo con capacità in
-contrazione, e va messo in conto nella negoziazione — **il profilo descritto siamo noi**. Il secondo: il
+contrazione, e va messo in conto nella negoziazione - **il profilo descritto siamo noi**. Il secondo: il
 **tempo di attesa prima di essere accettati** non è misurato da alcuna indagine pubblica, ed è per questo
 la variabile più pericolosa dell'intero percorso.
 
@@ -744,11 +744,11 @@ tabella va aggiornata alla revisione successiva.
 il prezzo, chiedere impegni sui tempi delle singole fasi. *Accettare* la durata. **Non è più ammesso
 trasferire con dichiarazione**: non c'è nessun altro a cui trasferire.
 
-> **`R-07` — I cicli di risposta alle non conformità occupano le stesse persone**
+> **`R-07` - I cicli di risposta alle non conformità occupano le stesse persone**
 > *Probabilità* **Alta** · *Impatto* **I3** · *Titolare* **progetto**
 
 **Che cos'è.** Da due a quattro cicli, ciascuno con una coda dell'organismo. **Occupano le stesse persone**
-che scrivono il software e la documentazione — che sotto `D54` è **una sola persona** — e la loro durata
+che scrivono il software e la documentazione - che sotto `D54` è **una sola persona** - e la loro durata
 non dipende da loro.
 
 **Perché sotto `D54` e `D58` è più grave di prima, ed è aritmetica.** Nella versione precedente era lavoro
@@ -770,13 +770,13 @@ tariffa**. *Accettare* con riserva dichiarata, secondo la decisione di `Q-188`.
 
 ### 2.7 Rischi che dipendono da controparti
 
-> **`R-10` — Dipendenza strutturale da un singolo integratore**
+> **`R-10` - Dipendenza strutturale da un singolo integratore**
 > *Probabilità* **Alta** · *Impatto* **I4 sul perimetro, I2 sul calendario** · *Titolare* **committente**
 
 Il rischio è descritto per esteso al §4, perché la sua trattazione richiede più spazio di quanto una voce
 di registro ne conceda e perché la sua contromisura è architetturale.
 
-> **`R-11` — Ambienti di prova e controparti non disponibili**
+> **`R-11` - Ambienti di prova e controparti non disponibili**
 > *Probabilità* **Alta** · *Impatto* **I3 sulle voci che ne dipendono, I0 sul resto** · *Titolare*
 > **committente**, per la ricerca delle controparti
 
@@ -806,7 +806,7 @@ la causa dell'assenza di misura sia marcata **non determinabile** invece che ded
 
 Una dipendenza esterna non è un rischio: è una **condizione strutturale**. Il rischio è ciò che accade
 quando la si mette sul percorso critico. Questa sezione elenca le famiglie, dichiara chi le controlla, e
-— la parte che conta — **che cosa il progetto ha fatto per non esserne bloccato**.
+- la parte che conta - **che cosa il progetto ha fatto per non esserne bloccato**.
 
 | Famiglia | Chi la controlla | Che cosa ne dipende | Come il progetto evita di esserne bloccato |
 |---|---|---|---|
@@ -840,7 +840,7 @@ regolatorio: una registrazione formalmente presente e sostanzialmente vuota.
 ### 3.2 La dipendenza che nessuno tratta come tale
 
 **I contributori.** È l'unica famiglia il cui titolare è «nessuno», ed è quella che decide se tutto il
-resto accade — **e sotto `D54` è anche quella che risolverebbe due rischi in una volta**, `R-02` e
+resto accade - **e sotto `D54` è anche quella che risolverebbe due rischi in una volta**, `R-02` e
 `R-29`, perché un secondo contributore continuativo è insieme continuità e secondo soggetto.
 
 Le misure elencate esistono per una ragione precisa: un progetto che richieda una macchina potente, un
@@ -882,7 +882,7 @@ comportamento. E la proprietà perduta non si recupera aggiungendo un secondo in
 Va detto, perché è la variazione di questa revisione. Un perimetro ridotto è **più facile da piegare a un
 solo interlocutore**: con una sola superficie di integrazione (`TG-02` ha tagliato la seconda), con un
 solo consumatore di eventi (`TG-04`), con l'avvio della sessione per rinvio invece che per incorporamento
-(`TG-03`), le scelte da fare sono poche e ciascuna ha un candidato naturale — **quello che serve
+(`TG-03`), le scelte da fare sono poche e ciascuna ha un candidato naturale - **quello che serve
 all'unico interlocutore che sta provando il prodotto**. E la revisione che dovrebbe intercettarlo è
 auto-revisione (`R-29`).
 
@@ -907,12 +907,12 @@ A queste il presente capitolo aggiunge una misura di prova, che è la sola che i
 **prima** del quinto passo, ed è posta come vincolo `V-188`:
 
 > **La suite di prove di integrazione esercita sempre almeno due tenant e due integratori distinti, con
-> configurazioni deliberatamente divergenti** — domini di attribuzione degli identificatori diversi,
+> configurazioni deliberatamente divergenti** - domini di attribuzione degli identificatori diversi,
 > profili di uscita diversi, modalità di recapito degli eventi diverse. Una prova che passa con un solo
 > integratore configurato non dimostra la proprietà che si vuole dimostrare.
 
 **`V-188` non è entrato in nessun taglio, ed è deliberato.** Sarebbe stato un candidato ovvio alla
-riduzione — due configurazioni costano più di una — ed è stato escluso perché è **l'unica contromisura
+riduzione - due configurazioni costano più di una - ed è stato escluso perché è **l'unica contromisura
 automatica** al §4.2, ora che la revisione fra pari non esiste.
 
 ### 4.4 Indicatore anticipatore, e che cosa resta da decidere
@@ -925,14 +925,14 @@ configurazioni distinte esercitate dalla suite di prove di integrazione**: se sc
 passo è già cominciato. È misurabile a ogni costruzione e non richiede nessuno che guardi.
 
 **Che cosa resta da decidere, ed è del committente.** Fino a quale grado di concentrazione la dipendenza è
-accettabile, e in quale momento il progetto deve procurarsi una **seconda controparte di prova** — che può
+accettabile, e in quale momento il progetto deve procurarsi una **seconda controparte di prova** - che può
 essere un secondo integratore reale, un ente, o un'implementazione di riferimento costruita apposta. È la
 questione `Q-187`.
 
 **Una regola redazionale che discende dalla regola `R0`.** Nessun documento, commit, segnalazione,
 proposta di modifica o materiale pubblico del progetto nomina aziende, prodotti commerciali, marchi o
-domini di potenziali partner. Questo rischio, in particolare, si descrive **strutturalmente** — «un
-integratore», «la controparte», «il sistema di origine» — e mai per nome.
+domini di potenziali partner. Questo rischio, in particolare, si descrive **strutturalmente** - «un
+integratore», «la controparte», «il sistema di origine» - e mai per nome.
 
 ---
 
@@ -949,7 +949,7 @@ informazioni e non una in più:
    un'impressione.
 3. **Lo stato della risposta**: attuata, in attuazione, non attuata. Se non attuata, **perché**.
 4. **La durata**, per i rischi con probabilità *Accertato*: da quanti giorni la condizione persiste. È
-   l'unico modo per impedire che una condizione accertata diventi normale — e **sette voci di questo
+   l'unico modo per impedire che una condizione accertata diventi normale - e **sette voci di questo
    registro sono `Accertato`**: `R-02`, `R-04`, `R-05`, `R-12`, `R-19`, `R-29` e `R-30`.
 
 **La cadenza cambia nelle ultime sei settimane.** Dal 19 ottobre 2026 la revisione è **settimanale** e ha
@@ -977,7 +977,7 @@ titolare non è un rischio nuovo: è una preoccupazione, e va riformulata.
 
 **Gli inneschi di revisione fuori cadenza** sono quelli di [00 §8](./00-indice.md), e tre riguardano
 direttamente questo registro: il verificarsi di un rischio; il superamento di un punto di decisione
-irreversibile senza decisione; e — nuovo con `D53` — **il consumo di una riga dell'ordine di sacrificio**,
+irreversibile senza decisione; e - nuovo con `D53` - **il consumo di una riga dell'ordine di sacrificio**,
 che obbliga a rivedere `R-28` e il traguardo colpito.
 
 ---
@@ -1005,7 +1005,7 @@ che obbliga a rivedere `R-28` e il traguardo colpito.
 | `V-187` | tutte | Una voce non è **pianificata** se non ha insieme criterio di completamento binario, innesco dichiarato e titolare nominato. In assenza anche di uno solo dei tre è **desiderabile**, e va marcata tale in ogni materiale |
 | `V-188` | `TECH`, `INTEG`, `ARCH` | La suite di prove di integrazione esercita **sempre almeno due tenant e due integratori distinti**, con configurazioni deliberatamente divergenti |
 | `V-189` | tutte | Ogni rischio di programma ha un **indicatore anticipatore osservabile** e un **titolare nominato** |
-| `V-280` | tutte | **Riformulazione di `V-180` alla luce di `D57` e `D58`.** La roadmap è **pianificazione interna del progetto** e il titolare dei traguardi è il progetto, compresi quelli del percorso di conformità. Restano non dichiarabili le sole date che la norma pone in capo a un soggetto diverso — il termine di adeguamento del singolo utilizzatore, l'accreditamento del fornitore di servizi. **Una data di pianificazione interna non è una promessa di esito**: nessun materiale scrive che il prodotto sarà marcato entro una data (`V-171`) |
+| `V-280` | tutte | **Riformulazione di `V-180` alla luce di `D57` e `D58`.** La roadmap è **pianificazione interna del progetto** e il titolare dei traguardi è il progetto, compresi quelli del percorso di conformità. Restano non dichiarabili le sole date che la norma pone in capo a un soggetto diverso - il termine di adeguamento del singolo utilizzatore, l'accreditamento del fornitore di servizi. **Una data di pianificazione interna non è una promessa di esito**: nessun materiale scrive che il prodotto sarà marcato entro una data (`V-171`) |
 | `V-281` | tutte, in particolare `COMP` | **Nessun traguardo entra nel piano se richiede due soggetti distinti e il secondo non esiste.** La registrazione che ne deriverebbe si dichiara come **lacuna, con la data in cui nasce**, e non si pianifica come attività |
 | `V-282` | tutte | **L'ambito è l'unica variabile libera.** Con data e capacità fissate da `D53` e `D54`, ogni scostamento si assorbe **riducendo l'ambito** secondo l'ordine di sacrificio dichiarato in [03 §6](./03-primo-rilascio-utilizzabile.md), che contiene **soltanto tagli reversibili**; mai spostando la data in silenzio, mai comprimendo un criterio di rilascio bloccante. Se l'ordine si esaurisce, **la data si dichiara mancata con la causa registrata** |
 
@@ -1020,21 +1020,21 @@ che obbliga a rivedere `R-28` e il traguardo colpito.
 | `Q-187` | → **ORCH** | **Concentrazione ammessa su un solo integratore** e momento della seconda controparte di prova. Aggravato da `D53` e `D54` (§4.2) |
 | `Q-188` | `COMP`, → **ORCH** | **Riserva dichiarata per le voci non stimabili.** Con `D58` i cicli di risposta alle non conformità sono lavoro nostro e occupano la stessa capacità che produce il software: la riserva non è più un capitolo di un piano altrui |
 | `Q-189` | → **ORCH** | **Ripartizione delle registrazioni a ruoli distinti.** Quale sottoinsieme si accetta come lacuna dichiarata e quale si copre acquisendo la funzione all'esterno. Punto di decisione: **30 settembre 2026**; esito predefinito in assenza di decisione: lacuna dichiarata su `RU-1`. `R-29`, `TG-20`, `OL-22` |
-| `Q-280` | → **ORCH** | **Costituzione del soggetto fabbricante** (`D58`): forma giuridica, avvio della pratica, profilo e reperimento della persona responsabile del rispetto della normativa. È di **classe `B`** — poche ore e molti mesi — e ogni settimana di ritardo si trasferisce integralmente in fondo alla catena. Punto di decisione: **19 settembre 2026**. `R-30`, `T-14` |
+| `Q-280` | → **ORCH** | **Costituzione del soggetto fabbricante** (`D58`): forma giuridica, avvio della pratica, profilo e reperimento della persona responsabile del rispetto della normativa. È di **classe `B`** - poche ore e molti mesi - e ogni settimana di ritardo si trasferisce integralmente in fondo alla catena. Punto di decisione: **19 settembre 2026**. `R-30`, `T-14` |
 | `Q-281` | `PROD`, → **ORCH** | **La differenza fra ciò che il materiale pubblico dichiara e ciò che `RU-1` consegna.** Alla pubblicazione del rilascio la distanza diventa verificabile da chiunque: serve la formulazione approvata che la dichiara, con la stessa evidenza dell'elenco delle funzioni. Vale in particolare per le capacità tagliate con `TG-01`, `TG-02` e `TG-03`. Punto di decisione: **31 ottobre 2026**. `R-19` |
-| `Q-282` | `COMP` | **Forma della dichiarazione delle lacune datate nel fascicolo.** Quali registrazioni sono **datate a un periodo** e quindi non ricostruibili — riesame del rilascio, audit interno, valutazione formativa di usabilità, ancoraggio del registro — e con quale forma la loro assenza va dichiarata nel fascicolo tecnico perché sia riconoscibile come lacuna dichiarata e non come omissione. **`Q-189` decide la ripartizione, questa questione decide la forma**: sono complementari e nessuna sostituisce l'altra. `TG-20`…`TG-23` |
+| `Q-282` | `COMP` | **Forma della dichiarazione delle lacune datate nel fascicolo.** Quali registrazioni sono **datate a un periodo** e quindi non ricostruibili - riesame del rilascio, audit interno, valutazione formativa di usabilità, ancoraggio del registro - e con quale forma la loro assenza va dichiarata nel fascicolo tecnico perché sia riconoscibile come lacuna dichiarata e non come omissione. **`Q-189` decide la ripartizione, questa questione decide la forma**: sono complementari e nessuna sostituisce l'altra. `TG-20`…`TG-23` |
 
 ### 7.3 Contributo alla questione `Q-191`, per la parte di quest'area
 
 > *«Consumo di memoria e disco dell'ambiente locale: non misurato. Serve una misura su macchina di
-> riferimento dichiarata e la dichiarazione del profilo minimo praticabile.»* — `GUIDA` → `TECH`, `ROAD`
+> riferimento dichiarata e la dichiarazione del profilo minimo praticabile.»* - `GUIDA` → `TECH`, `ROAD`
 
 **Risposta per la parte di roadmap.** Quest'area **non produce la misura**, che è di `TECH`, e non sceglie
 la macchina di riferimento. Dichiara però la collocazione: la misura e la dichiarazione del **profilo
 minimo praticabile** sono un criterio della catena di costruzione (`T-03`) e non un'attività successiva.
 Finché il profilo minimo non è dichiarato, la dipendenza «contributori» del §3.2 **non ha una condizione
 verificabile**, e `R-02` non ha un indicatore anticipatore per la componente «ingresso di un contributore
-esterno» — un rischio senza indicatore viola `V-189`.
+esterno» - un rischio senza indicatore viola `V-189`.
 
 **Sotto `D54` la questione cambia peso e va detto.** Un contributore esterno non è più soltanto un
 acceleratore: è **la sola via per cui due rischi si chiudono insieme**, `R-02` per la continuità e `R-29`

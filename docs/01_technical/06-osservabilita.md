@@ -1,7 +1,7 @@
 ---
 title: Osservabilità
 sidebar_position: 7
-description: "Registri strutturati, metriche, tracce e loro correlazione — con la parte che conta davvero: che cosa non si può registrare quando i dati sono sanitari, quali sono i livelli di severità e come si conduce un'indagine post-incidente senza aver conservato ciò che non si poteva conservare."
+description: "Registri strutturati, metriche, tracce e loro correlazione - con la parte che conta davvero: che cosa non si può registrare quando i dati sono sanitari, quali sono i livelli di severità e come si conduce un'indagine post-incidente senza aver conservato ciò che non si poteva conservare."
 ---
 
 # Osservabilità
@@ -46,7 +46,7 @@ Ogni identificativo che deve comparire in un segnale di osservabilità compare c
 per tenant**, derivato in modo deterministico con una chiave che **non è disponibile ai sistemi di
 osservabilità**. Ne discendono le due proprietà che servono:
 
-- **correlazione possibile** — due righe che riguardano lo stesso soggetto sono riconoscibili come
+- **correlazione possibile** - due righe che riguardano lo stesso soggetto sono riconoscibili come
   tali all'interno dello stesso tenant, il che è ciò che serve per indagare;
 - **reidentificazione impossibile** senza un accesso deliberato al perimetro applicativo, che è
   esso stesso un'operazione tracciata nel registro immutabile.
@@ -56,10 +56,10 @@ impedire correlazioni fra titolari del trattamento distinti.
 
 ### 1.3 La redazione è a due livelli, e il secondo è quello che salva
 
-**Primo livello — non produrre.** Il codice non scrive ciò che non deve scrivere. È la difesa
+**Primo livello - non produrre.** Il codice non scrive ciò che non deve scrivere. È la difesa
 corretta e va perseguita con revisioni e analisi statica.
 
-**Secondo livello — non far passare.** Un filtro nel percorso di uscita dei registri riconosce e
+**Secondo livello - non far passare.** Un filtro nel percorso di uscita dei registri riconosce e
 oscura le forme note di dato sensibile prima della persistenza: strutture di codice fiscale,
 strutture di identificativo di documento, intestazioni di autorizzazione, campi con nomi noti.
 È una rete di sicurezza, non la difesa: un filtro basato su forme note non riconosce un testo
@@ -72,7 +72,7 @@ sensibili e falliscono se ci riescono.
 ### 1.4 La diagnostica dettagliata è una procedura, non un livello di registro
 
 Il livello di diagnostica dettagliata sui contesti clinici **non è attivabile modificando una
-proprietà in produzione**. È una procedura con quattro condizioni: attivazione motivata e
+proprietà in esercizio**. È una procedura con quattro condizioni: attivazione motivata e
 approvata, **perimetro limitato** a un tenant e a un contesto, **scadenza automatica** dopo una
 finestra breve, e **registrazione dell'attivazione nel registro immutabile**. Un livello di
 diagnostica lasciato attivo su un contesto clinico è una fuga di dati continua che nessuno nota.
@@ -109,7 +109,7 @@ Campi obbligatori su ogni riga:
 Tre scelte da notare. `event` è un **identificativo stabile**, non una frase: è ciò che consente
 di cercare, contare e allertare senza dipendere dal testo, che cambia con le traduzioni e con le
 riformulazioni. `subject_ref` è uno pseudonimo. `version` porta l'identificativo esatto della
-costruzione, il che è ciò che permette di collegare un comportamento a un artefatto — requisito di
+costruzione, il che è ciò che permette di collegare un comportamento a un artefatto - requisito di
 tracciabilità, oltre che comodità operativa.
 
 ### 2.2 Livelli di severità, con criteri operativi
@@ -127,7 +127,7 @@ I livelli sono inutili se ciascuno li usa a proprio giudizio. Questi sono i crit
 regolarmente e non c'è niente da fare, non è un errore: è una caratteristica della realtà, e va
 declassata e misurata. La proliferazione di errori non azionabili è il modo in cui un sistema di
 allerta smette di essere letto, e un sistema di allerta che nessuno legge è peggio dell'assenza di
-allerta, perché produce falsa rassicurazione — lo stesso ragionamento che il vincolo V-14 di
+allerta, perché produce falsa rassicurazione - lo stesso ragionamento che il vincolo V-14 di
 `GUIDA` applica alla copertura oraria dichiarata.
 
 ### 2.3 Conservazione
@@ -153,8 +153,8 @@ giustifichi.
 | **Qualità del media** | Sintesi delle misure di sessione | Distribuzione dell'indice di qualità, quota di sessioni instradate dal relay, quota di sessioni con avviso di inidoneità |
 
 La famiglia di dominio è quella che manca più spesso e che vale di più. «Il servizio risponde in
-40 millisecondi» non dice se le allerte cliniche vengono prese in carico. Il vincolo V-09 —
-l'assenza di dato è informazione — si traduce qui in una regola concreta: **si misurano gli
+40 millisecondi» non dice se le allerte cliniche vengono prese in carico. Il vincolo V-09 -
+l'assenza di dato è informazione - si traduce qui in una regola concreta: **si misurano gli
 eventi attesi e non accaduti**, non solo quelli accaduti. Una misura attesa e non pervenuta, una
 notifica non riscontrata, una sessione programmata e mai avviata sono metriche di prima classe.
 
@@ -176,8 +176,8 @@ no.
 ### 3.3 Denominazione
 
 Prefisso di progetto, nome che descrive il fatto e non la sua realizzazione, unità nel nome,
-suffisso coerente con la natura della metrica. Un nome che descrive la realizzazione — anziché il
-fatto — diventa falso al primo cambio interno, e nessuno aggiorna i cruscotti.
+suffisso coerente con la natura della metrica. Un nome che descrive la realizzazione - anziché il
+fatto - diventa falso al primo cambio interno, e nessuno aggiorna i cruscotti.
 
 ---
 
@@ -279,7 +279,7 @@ famiglie sono quattro:
    più in grado di dimostrare ciò che è accaduto.
 4. **Postura di sicurezza**: tentativi di autenticazione respinti oltre soglia, accessi
    d'emergenza, verifiche delle chiavi con esito negativo, configurazioni di sicurezza divergenti
-   dal profilo di produzione.
+   dal profilo di esercizio.
 
 ### 7.2 Le regole
 
@@ -330,14 +330,14 @@ finestra limitati, notifica, riesame con esito registrato.
 della minimizzazione, ed è un prezzo che si è scelto di pagare. Ciò che si può fare per ridurlo è
 progettare i segnali perché siano **sufficienti a localizzare** il problema anche senza il
 contenuto: identificativo dell'evento stabile, esito esplicito, punto del percorso, versione
-dell'artefatto, e — dove serve — una **forma** del dato invece del dato: lunghezza, presenza,
+dell'artefatto, e - dove serve - una **forma** del dato invece del dato: lunghezza, presenza,
 struttura, esito della validazione. Sapere che un documento è stato rifiutato perché un elemento
 obbligatorio era assente, e quale, non richiede di conoscerne il contenuto.
 
 ### 8.3 Il rapporto
 
 Il rapporto di incidente è **senza colpa** e ha una struttura fissa: cronologia con istanti,
-impatto misurato — quanti tenant, quanti assistiti, quali prestazioni compromesse —, causa
+impatto misurato - quanti tenant, quanti assistiti, quali prestazioni compromesse -, causa
 prossima, cause contribuenti, che cosa ha funzionato nel rilevare, che cosa no, azioni con
 responsabile e scadenza.
 
@@ -361,13 +361,13 @@ determinazione del termine è di `COMP`; il vincolo tecnico che ne discende è d
 
 Tre, e non venti.
 
-1. **Salute del servizio** — capacità di erogare, per tenant: sessioni avviate e loro esito,
+1. **Salute del servizio** - capacità di erogare, per tenant: sessioni avviate e loro esito,
    errori per tipo, latenze in coda, saturazione delle risorse critiche.
-2. **Qualità del media** — distribuzione dell'indice, quota instradata dal relay, avvisi di
+2. **Qualità del media** - distribuzione dell'indice, quota instradata dal relay, avvisi di
    inidoneità, motivi di limitazione prevalenti, con la possibilità di confrontare sessioni dirette
    e instradate **separatamente**, perché confrontarle insieme produce conclusioni errate.
-3. **Integrità e sicurezza** — verifica della catena, accessi d'emergenza, esiti negativi della
-   verifica delle chiavi, autenticazioni respinte, divergenze del profilo di produzione.
+3. **Integrità e sicurezza** - verifica della catena, accessi d'emergenza, esiti negativi della
+   verifica delle chiavi, autenticazioni respinte, divergenze del profilo di esercizio.
 
 I cruscotti sono **versionati nel repository** insieme al codice che produce le metriche. Un
 cruscotto costruito a mano nell'interfaccia dello strumento è un artefatto che nessuno può

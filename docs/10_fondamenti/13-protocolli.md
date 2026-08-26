@@ -1,7 +1,7 @@
 ---
 title: I protocolli, uno per uno
 sidebar_position: 14
-description: Catalogo ragionato di ogni protocollo che Telemedic parla — trasporto, web, interfacce applicative, identità, integrazione sanitaria, eventi, tempo reale — con il problema risolto, il meccanismo, l'uso nel progetto, gli errori tipici e le alternative scartate.
+description: Catalogo ragionato di ogni protocollo che Telemedic parla - trasporto, web, interfacce applicative, identità, integrazione sanitaria, eventi, tempo reale - con il problema risolto, il meccanismo, l'uso nel progetto, gli errori tipici e le alternative scartate.
 ---
 
 # I protocolli, uno per uno
@@ -52,16 +52,16 @@ standardizzato, e da qualcun altro che ci ha creduto.
 ### 0.3 Che cosa questo modulo non copre
 
 - **Il dettaglio del tempo reale.** ICE, STUN, TURN, DTLS-SRTP, RTP e il canale dati hanno
-  un modulo dedicato: [08 — WebRTC da zero](08-webrtc-da-zero.md). Qui ne trovi una scheda
+  un modulo dedicato: [08 - WebRTC da zero](08-webrtc-da-zero.md). Qui ne trovi una scheda
   sintetica (§7) che serve a collocarli nel quadro generale, non a sostituirla.
 - **Gli standard di contenuto sanitario.** HL7 versione 2, CDA release 2, i profili IHE, DICOM
   e le terminologie cliniche sono trattati in
-  [05 — Gli standard di interoperabilità](05-standard-di-interoperabilita.md). Qui compaiono
+  [05 - Gli standard di interoperabilità](05-standard-di-interoperabilita.md). Qui compaiono
   **solo come protocolli di trasporto o di interfaccia** (MLLP, DICOMweb, FHIR REST), con
   rinvio esplicito.
-- **Il modello dati FHIR.** Sta in [06 — FHIR da zero](06-fhir-da-zero.md).
+- **Il modello dati FHIR.** Sta in [06 - FHIR da zero](06-fhir-da-zero.md).
 - **La teoria crittografica.** Cifratura simmetrica e asimmetrica, firma, PKI, funzioni di
-  hash: [12 — Crittografia e sicurezza](12-crittografia-e-sicurezza.md). Qui si dà per
+  hash: [12 - Crittografia e sicurezza](12-crittografia-e-sicurezza.md). Qui si dà per
   acquisito che tu sappia cosa sia una firma digitale, e si parla di come i protocolli la
   usano.
 
@@ -77,12 +77,12 @@ Un **protocollo** è un accordo fra due o più parti su:
 2. **in quale ordine** (la macchina a stati della conversazione);
 3. **come sono rappresentati i byte** di ciascun messaggio;
 4. **che cosa significa** ciascun messaggio;
-5. **che cosa succede quando qualcosa va storto** — messaggi persi, duplicati, fuori ordine,
+5. **che cosa succede quando qualcosa va storto** - messaggi persi, duplicati, fuori ordine,
    controparte che tace, controparte ostile.
 
 Il quinto punto è quello che distingue un protocollo serio da una convenzione fra amici. È
 anche quello che i tutorial saltano e che in produzione costa. Un protocollo senza semantica
-degli errori è un protocollo che funziona solo quando tutto funziona — cioè quando non serve.
+degli errori è un protocollo che funziona solo quando tutto funziona - cioè quando non serve.
 
 Un esempio minimo, per fissare l'idea. Immagina due processi che si scambiano numeri:
 
@@ -103,7 +103,7 @@ rispondi, non hai un protocollo utilizzabile.
 
 ### 1.2 Protocollo, formato, standard: la confusione più frequente
 
-Sono tre cose diverse, e vengono scambiate continuamente — anche in documentazione
+Sono tre cose diverse, e vengono scambiate continuamente - anche in documentazione
 professionale.
 
 | | Che cos'è | Domanda a cui risponde | Esempi |
@@ -159,7 +159,7 @@ intestazione. Chi riceve fa il percorso inverso.
 Un **modello a livelli** è la mappa concettuale di questa struttura. I due che incontrerai:
 
 - **Il modello OSI** (ISO/IEC 7498-1), a sette livelli: fisico, collegamento, rete, trasporto,
-  sessione, presentazione, applicazione. È il vocabolario di riferimento — quando qualcuno dice
+  sessione, presentazione, applicazione. È il vocabolario di riferimento - quando qualcuno dice
   «un bilanciatore di livello 7» intende «che legge HTTP», e «livello 4» significa «che vede
   solo TCP/UDP e porte». È un modello descrittivo: non esiste una pila reale che gli
   corrisponda esattamente.
@@ -288,7 +288,7 @@ Due punti di metodo:
 
 ## 2. Trasporto e web
 
-### 2.1 IP — Internet Protocol
+### 2.1 IP - Internet Protocol
 
 **Problema.** Consegnare un blocco di byte da una macchina qualsiasi del pianeta a un'altra,
 attraverso una sequenza di reti gestite da soggetti diversi che non si coordinano fra loro.
@@ -301,15 +301,15 @@ successivo. Nessun router conserva memoria della conversazione.
 
 Il servizio offerto è deliberatamente povero, ed è importante capire quanto:
 
-- **nessuna garanzia di consegna** — un datagramma può essere scartato in qualunque punto,
+- **nessuna garanzia di consegna** - un datagramma può essere scartato in qualunque punto,
   tipicamente perché una coda è piena;
-- **nessuna garanzia di ordine** — due datagrammi possono seguire percorsi diversi e arrivare
+- **nessuna garanzia di ordine** - due datagrammi possono seguire percorsi diversi e arrivare
   invertiti;
-- **nessuna garanzia di unicità** — un datagramma può essere duplicato;
-- **nessuna riservatezza, nessuna autenticazione** — l'indirizzo sorgente è un campo scritto
+- **nessuna garanzia di unicità** - un datagramma può essere duplicato;
+- **nessuna riservatezza, nessuna autenticazione** - l'indirizzo sorgente è un campo scritto
   dal mittente, e mentire su quel campo (*spoofing*) è banale.
 
-Tutto ciò che c'è sopra — affidabilità, ordine, cifratura, identità — è ricostruito da altri
+Tutto ciò che c'è sopra - affidabilità, ordine, cifratura, identità - è ricostruito da altri
 protocolli su questa base volutamente minima. Due versioni convivono: **IPv4** (RFC 791,
 indirizzi a 32 bit, esauriti) e **IPv6** (RFC 8200, 128 bit). L'esaurimento degli indirizzi
 IPv4 è la causa storica del NAT, che è a sua volta la ragione per cui una videochiamata è un
@@ -330,7 +330,7 @@ quartiere. Assumere che due richieste dallo stesso indirizzo siano lo stesso ute
 indirizzi diversi siano utenti diversi: entrambe le implicazioni sono false, e in rete mobile
 l'indirizzo può cambiare a metà sessione.
 
-### 2.2 UDP — User Datagram Protocol
+### 2.2 UDP - User Datagram Protocol
 
 **Problema.** Aggiungere a IP il minimo indispensabile per distinguere le applicazioni sulla
 stessa macchina, senza aggiungere altro.
@@ -361,7 +361,7 @@ affidabilità su UDP, si usa QUIC o SCTP, che quel lavoro l'hanno già fatto.
 produce il blocco in testa alla coda descritto in §2.3, che è precisamente il difetto
 inaccettabile in tempo reale.
 
-### 2.3 TCP — Transmission Control Protocol
+### 2.3 TCP - Transmission Control Protocol
 
 **Problema.** Offrire all'applicazione l'illusione di un **flusso di byte affidabile e
 ordinato** fra due processi, costruita sopra un servizio che non garantisce né consegna né
@@ -388,7 +388,7 @@ disastro.
 **Nel progetto.** È il trasporto di tutto ciò che non è media: HTTP in tutte le versioni
 tranne la terza, WebSocket, MLLP, il protocollo del broker di eventi, le connessioni al
 database. E, in modalità di ripiego, anche del media, quando TURN deve usare TCP o TLS
-perché la rete blocca UDP — con il degrado di qualità che ne consegue
+perché la rete blocca UDP - con il degrado di qualità che ne consegue
 ([08 §5.9](08-webrtc-da-zero.md)).
 
 **Specifica.** RFC 9293 (2022), che sostituisce e consolida RFC 793 e la lunga serie di
@@ -397,7 +397,7 @@ non è aggiornato.**
 
 **Errori tipici.** Credere che «il messaggio è arrivato» perché la `write` è ritornata: TCP
 garantisce la consegna al *sistema operativo* della controparte, non all'applicazione, e
-meno che mai la sua elaborazione. Solo un riscontro applicativo prova l'elaborazione — è
+meno che mai la sua elaborazione. Solo un riscontro applicativo prova l'elaborazione - è
 esattamente la ragione per cui HL7 versione 2 ha gli `ACK` applicativi
 ([05 §4.5](05-standard-di-interoperabilita.md)). Secondo errore: dimenticare che TCP non
 delimita i messaggi. Il flusso è di byte, non di messaggi; senza un incorniciamento esplicito
@@ -408,7 +408,7 @@ non sai dove finisce l'uno e comincia l'altro. MLLP (§5.3) esiste solo per ques
 **Problema.** TCP ha due difetti strutturali che non si possono correggere senza rompere la
 compatibilità: il blocco in testa alla coda su tutti i flussi multiplati sulla stessa
 connessione, e il fatto che la connessione sia identificata dalla cinquina
-(indirizzi e porte), quindi muoia quando l'indirizzo del client cambia — cosa che accade a
+(indirizzi e porte), quindi muoia quando l'indirizzo del client cambia - cosa che accade a
 ogni passaggio da Wi-Fi a rete mobile.
 
 **Meccanismo.** QUIC è un trasporto costruito **sopra UDP**, in spazio utente, che
@@ -423,7 +423,7 @@ sostanziali:
   dalla cinquina: se il client cambia indirizzo, la connessione **migra** invece di morire.
 
 L'handshake unificato porta la connessione a un solo RTT nel caso normale, e a zero RTT nel
-caso di ripresa — con l'avvertenza, non trascurabile, che i dati inviati a zero RTT sono
+caso di ripresa - con l'avvertenza, non trascurabile, che i dati inviati a zero RTT sono
 esposti a replay e non devono quindi veicolare operazioni non idempotenti.
 
 **Nel progetto.** È il trasporto di HTTP/3 (§2.9). Rilevante soprattutto per il vincolo
@@ -437,10 +437,10 @@ non usa QUIC: usa RTP su UDP come descritto in [08](08-webrtc-da-zero.md).
 **Errori tipici.** Assumere che sia disponibile. QUIC gira su UDP, e **le reti ospedaliere e
 aziendali bloccano UDP con notevole frequenza**. Ogni client deve saper ripiegare su
 HTTP/2 su TCP senza intervento dell'utente e senza attese lunghe. Secondo errore: aspettarsi
-che i middlebox lo capiscano — per un firewall di livello 4, QUIC è traffico UDP opaco, e
+che i middlebox lo capiscano - per un firewall di livello 4, QUIC è traffico UDP opaco, e
 questo cambia sia le regole da configurare sia ciò che si vede negli strumenti diagnostici.
 
-### 2.5 TLS — Transport Layer Security
+### 2.5 TLS - Transport Layer Security
 
 **Problema.** Su una rete che chiunque può ascoltare e alterare, garantire tre cose insieme:
 che i dati non siano leggibili da terzi (**riservatezza**), che non siano modificabili senza
@@ -465,7 +465,7 @@ sequenceDiagram
     C->>C: valida la catena del certificato,<br/>verifica il nome, controlla la revoca,<br/>verifica la firma dell'handshake
     C->>S: (opzionale: Certificate + CertificateVerify del client)
     C->>S: Finished
-    Note over C,S: canale stabilito — un solo RTT
+    Note over C,S: canale stabilito - un solo RTT
 ```
 
 Tre punti che spiegano perché la stretta di mano è fatta così:
@@ -486,7 +486,7 @@ Tre punti che spiegano perché la stretta di mano è fatta così:
   Conseguenza di riservatezza da conoscere: **un osservatore vede quale servizio stai
   contattando**, anche se non vede cosa gli dici.
 
-**mTLS — autenticazione reciproca.** Nell'uso comune solo il server presenta un certificato.
+**mTLS - autenticazione reciproca.** Nell'uso comune solo il server presenta un certificato.
 In **mTLS** anche il client ne presenta uno, e il server lo valida allo stesso modo. Il
 risultato è che l'identità del client è provata **dal canale**, non da un segreto trasportato
 dentro il canale. È qualitativamente diverso da una chiave API: un token rubato è
@@ -497,7 +497,7 @@ riutilizzabile ovunque, una chiave privata protetta da un dispositivo no.
 1. **MLLP** verso i motori di integrazione ospedalieri (§5.3): è l'unico modo di rendere
    accettabile un protocollo nato senza sicurezza;
 2. **TS-CNS**, dove il certificato del cittadino su smart card autentica l'utente al livello
-   del trasporto `[B7]` — è l'unico canale ex art. 64 CAD privo di dipendenze esterne;
+   del trasporto `[B7]` - è l'unico canale ex art. 64 CAD privo di dipendenze esterne;
 3. **traffico interno** fra componenti nei profili di installazione che lo richiedono;
 4. **opzionalmente**, per legare i token di un integratore al suo certificato client
    (RFC 8705, *token binding* mTLS), come irrobustimento del profilo di §4.
@@ -520,7 +520,7 @@ D19), non elenchi copiati da guide di configurazione.
   dimentica in molte librerie di basso livello.
 - **Ignorare la revoca.** Un certificato compromesso e revocato resta crittograficamente
   valido fino alla scadenza. Servono OCSP (RFC 6960) o le liste di revoca (RFC 5280), e serve
-  decidere **che cosa fare quando il servizio di revoca non risponde** — decisione che va
+  decidere **che cosa fare quando il servizio di revoca non risponde** - decisione che va
   presa consapevolmente, perché entrambe le risposte hanno un costo.
 - **Considerare TLS sufficiente per il non ripudio.** TLS protegge il canale; non produce
   alcuna prova opponibile a un terzo su chi ha inviato che cosa. Per quello servono firme sui
@@ -536,8 +536,8 @@ l'identità *per servizio* che serve qui.
 Prima di distinguere le versioni, conviene fissare ciò che **non cambia**. Dal 2022 la
 revisione delle specifiche ha separato esplicitamente i due piani:
 
-- **La semantica** — metodi, codici di stato, campi di intestazione, negoziazione del
-  contenuto, richieste condizionali, autenticazione — è definita **una volta sola** in
+- **La semantica** - metodi, codici di stato, campi di intestazione, negoziazione del
+  contenuto, richieste condizionali, autenticazione - è definita **una volta sola** in
   **RFC 9110**, e vale identica per HTTP/1.1, HTTP/2 e HTTP/3.
 - **La sintassi e il trasporto** cambiano da versione a versione: RFC 9112 (HTTP/1.1),
   RFC 9113 (HTTP/2), RFC 9114 (HTTP/3). La cache ha una specifica propria, RFC 9111.
@@ -563,7 +563,7 @@ intestazioni `Nome: valore`, una riga vuota, e un corpo la cui lunghezza è data
 
 ```http
 GET /v1/sessions/9f1c2b3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d HTTP/1.1
-Host: api.telemedic.esempio.it
+Host: api.telemedic.example
 Accept: application/json
 Authorization: Bearer eyJhbGciOiJFUzM4NCIsImtpZCI6InRtLTIwMjYtMDgifQ...
 ```
@@ -580,7 +580,7 @@ Cache-Control: no-store
 Il limite strutturale è che **su una connessione si serve una richiesta per volta**. Il
 *pipelining* previsto dalla specifica non ha mai funzionato in pratica per l'obbligo di
 rispondere in ordine, e i browser hanno risolto aprendo sei connessioni in parallelo per
-origine — un rimedio che moltiplica strette di mano TCP e TLS.
+origine - un rimedio che moltiplica strette di mano TCP e TLS.
 
 **Nel progetto.** È il minimo comun denominatore garantito: ogni integratore lo parla. È la
 versione in cui sono scritti tutti gli esempi della documentazione, perché è l'unica leggibile
@@ -640,7 +640,7 @@ volta dipendenze d'ordine fra flussi.
 
 **Nel progetto.** Abilitato sul gateway pubblico, con **ripiego automatico obbligatorio** su
 HTTP/2 quando UDP è bloccato. Il beneficio si concentra dove il progetto ne ha più bisogno:
-paziente su smartphone, rete mobile, qualità variabile — cioè il vincolo **V6**.
+paziente su smartphone, rete mobile, qualità variabile - cioè il vincolo **V6**.
 
 **Specifica.** RFC 9114 (2022); QPACK in RFC 9204.
 
@@ -663,13 +663,13 @@ ping/pong e chiusura ordinata con codice.
 
 ```http
 GET /ws/signaling HTTP/1.1
-Host: api.telemedic.esempio.it
+Host: api.telemedic.example
 Upgrade: websocket
 Connection: Upgrade
 Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==
 Sec-WebSocket-Version: 13
 Sec-WebSocket-Protocol: telemedic.signaling.v1
-Origin: https://app.telemedic.esempio.it
+Origin: https://app.telemedic.example
 ```
 
 ```http
@@ -684,9 +684,9 @@ Tre cose che WebSocket **non** dà e che si finisce sempre per implementare:
 
 1. **Nessuna semantica applicativa.** Sopra c'è un flusso di messaggi opachi: il protocollo
    dei messaggi te lo scrivi tu, compresi correlazione, errori e versionamento. Il parametro
-   `Sec-WebSocket-Protocol` serve proprio a negoziarne il nome e la versione — usarlo è
+   `Sec-WebSocket-Protocol` serve proprio a negoziarne il nome e la versione - usarlo è
    buona igiene, non un dettaglio.
-2. **Nessuna riconnessione.** Se la connessione cade — e in rete mobile cade — riconnettersi
+2. **Nessuna riconnessione.** Se la connessione cade - e in rete mobile cade - riconnettersi
    e **recuperare i messaggi persi nel frattempo** è un problema applicativo. Serve un
    numero di sequenza dei messaggi e una ripresa da un punto noto, altrimenti si perdono
    eventi in silenzio.
@@ -709,7 +709,7 @@ dall'IETF: sono due documenti diversi per due strati diversi.
 
 - **Mettere il token nell'URL** (`wss://…?token=…`) perché l'API del browser non consente
   intestazioni personalizzate nell'handshake. L'URL finisce nei log di ogni intermediario. La
-  soluzione del progetto — *proposta di progetto* — è un **token d'ingresso a uso singolo,
+  soluzione del progetto - *proposta di progetto* - è un **token d'ingresso a uso singolo,
   a scadenza brevissima, emesso back-channel** e speso come primo messaggio applicativo dopo
   l'apertura, coerentemente con la decisione D18.
 - **Non validare `Origin`.** L'apertura di una WebSocket **non è soggetta alla politica di
@@ -837,7 +837,7 @@ ogni volta che il servizio rallenta.
 delle due parti, che sia comprensibile senza documentazione proprietaria e che sfrutti
 l'infrastruttura esistente del web (cache, proxy, bilanciatori) invece di aggirarla.
 
-**Meccanismo.** REST — *REpresentational State Transfer* — non è un protocollo né uno
+**Meccanismo.** REST - *REpresentational State Transfer* - non è un protocollo né uno
 standard: è uno **stile architetturale** descritto nel 2000 nella tesi di dottorato di Roy
 Fielding, che è anche uno degli autori delle specifiche HTTP. Impone sei vincoli:
 architettura client-server; **assenza di stato di sessione sul server**; possibilità di
@@ -853,7 +853,7 @@ applicativo (*HATEOAS*).
 termine è abusato:
 
 - **Un'API non è REST perché usa JSON su HTTP.** La stragrande maggioranza delle «API REST»
-  in circolazione — inclusa, in parte, quella di questo progetto — sono *HTTP-JSON con
+  in circolazione - inclusa, in parte, quella di questo progetto - sono *HTTP-JSON con
   orientamento alle risorse*. È una scelta legittima; chiamarla REST senza precisare è
   impreciso e va evitato nella documentazione pubblica.
 - **HATEOAS è il vincolo che quasi nessuno rispetta**, ed è quello che dovrebbe consentire al
@@ -869,7 +869,7 @@ termine è abusato:
   aggiungere istanze del gateway senza sessioni condivise, ed è la ragione per cui l'identità
   viaggia in un token per richiesta (§4).
 
-**Progettazione delle risorse — le regole del progetto** (*proposta di progetto*):
+**Progettazione delle risorse - le regole del progetto** (*proposta di progetto*):
 
 | Regola | Esempio corretto | Esempio da evitare |
 |---|---|---|
@@ -900,7 +900,7 @@ Il `POST` usato per leggere, che rende impossibile qualunque memorizzazione in c
 
 | Alternativa | Perché scartata |
 |---|---|
-| **GraphQL** | Il progetto espone già FHIR, che ha un proprio linguaggio di ricerca ricco e normato. Aggiungere un secondo modello di interrogazione significa duplicare autorizzazione e audit su due strati diversi — e l'autorizzazione per campo in un contesto sanitario è il punto in cui si sbaglia. Fuori perimetro v1.0 |
+| **GraphQL** | Il progetto espone già FHIR, che ha un proprio linguaggio di ricerca ricco e normato. Aggiungere un secondo modello di interrogazione significa duplicare autorizzazione e audit su due strati diversi - e l'autorizzazione per campo in un contesto sanitario è il punto in cui si sbaglia. Fuori perimetro v1.0 |
 | **gRPC** | Eccellente fra servizi propri, ma richiede HTTP/2 senza intermediari che lo degradino e strumenti che il profilo dell'integratore tipico non ha. Resta valutabile per il traffico interno, mai come interfaccia pubblica |
 | **SOAP** | Fuori dal panorama tecnologico del progetto. Compare solo come vincolo esterno quando un'infrastruttura nazionale lo impone; in quel caso lo si parla in un adattatore dedicato, e non contamina il modello interno |
 | **Chiamata a procedura remota su HTTP** | È ciò che si ottiene per inerzia quando non si progetta. Non è una scelta, è un esito |
@@ -916,7 +916,7 @@ risposte, schemi e schemi di sicurezza. La novità decisiva della **3.1** rispet
 che gli schemi sono **JSON Schema completo** (dialetto 2020-12), non più un sottoinsieme
 divergente: cade la lunga serie di incompatibilità che rendeva impossibile riusare gli stessi
 schemi per la validazione e per la documentazione. La 3.1 supporta inoltre `webhooks` come
-elemento di primo livello — cioè consente di descrivere **le richieste che il server invia**,
+elemento di primo livello - cioè consente di descrivere **le richieste che il server invia**,
 non solo quelle che riceve.
 
 ```yaml
@@ -951,7 +951,7 @@ paths:
             application/json:
               schema: { $ref: '#/components/schemas/Session' }
         '409':
-          description: Conflitto — esiste già una sessione per questo appuntamento
+          description: Conflitto - esiste già una sessione per questo appuntamento
           content:
             application/problem+json:
               schema: { $ref: '#/components/schemas/Problem' }
@@ -979,7 +979,7 @@ Politica di progetto, in tre punti:
 
 1. **Il contratto è la fonte, non il derivato.** Si scrive il documento OpenAPI e da lì si
    generano client e test di contratto; il codice viene verificato contro il contratto in
-   integrazione continua. L'alternativa — generare la specifica dalle annotazioni del codice —
+   integrazione continua. L'alternativa - generare la specifica dalle annotazioni del codice -
    fa sì che qualunque modifica accidentale del codice diventi automaticamente una modifica
    del contratto, il che è precisamente ciò che il contratto dovrebbe impedire.
 2. **La compatibilità è verificata automaticamente.** Una modifica che rimuove un campo,
@@ -1002,8 +1002,8 @@ scope: l'integratore non può sapere quale autorizzazione chiedere.
 
 ### 3.3 La semantica dei codici di stato
 
-**Problema.** Comunicare l'esito di un'operazione in modo che un client generico — un proxy,
-una cache, una libreria di ritentativi che non sa nulla del tuo dominio — possa comportarsi
+**Problema.** Comunicare l'esito di un'operazione in modo che un client generico - un proxy,
+una cache, una libreria di ritentativi che non sa nulla del tuo dominio - possa comportarsi
 correttamente senza leggere il corpo della risposta.
 
 **Meccanismo.** RFC 9110 §15 definisce cinque classi. La prima cifra è ciò che conta per
@@ -1065,14 +1065,14 @@ fuori uso.
 
 ### 3.4 Negoziazione del contenuto
 
-**Problema.** La stessa risorsa può avere rappresentazioni diverse — JSON o XML, italiano o
+**Problema.** La stessa risorsa può avere rappresentazioni diverse - JSON o XML, italiano o
 inglese, compressa o meno. Come si mettono d'accordo client e server senza moltiplicare gli
 URI?
 
 **Meccanismo.** Il client dichiara le proprie preferenze con le intestazioni `Accept`,
 `Accept-Language`, `Accept-Encoding`, ciascuna con pesi di qualità `q` fra 0 e 1; il server
 sceglie e dichiara la scelta in `Content-Type`, `Content-Language`, `Content-Encoding`, e
-segnala con `Vary` quali intestazioni hanno influito — informazione indispensabile alle cache,
+segnala con `Vary` quali intestazioni hanno influito - informazione indispensabile alle cache,
 che altrimenti servirebbero la rappresentazione sbagliata a un altro client.
 
 ```http
@@ -1099,8 +1099,8 @@ ETag: W/"3"
    riconosce senza sapere nulla dell'API.
 3. **La lingua.** Vale la pena essere precisi su un punto che ha sostanza giuridica: la
    negoziazione linguistica riguarda i **messaggi dell'interfaccia**, mai il **contenuto
-   clinico**. Un referto redatto in italiano resta in italiano. E — regola terminologica del
-   progetto, decisione D34 — la traduzione italiana del `display` di un codice non è una
+   clinico**. Un referto redatto in italiano resta in italiano. E - regola terminologica del
+   progetto, decisione D34 - la traduzione italiana del `display` di un codice non è una
    stringa di interfaccia da negoziare: è materiale con titolarità propria, tenuto separato
    architetturalmente. Vedi [05 §8.5](05-standard-di-interoperabilita.md).
 
@@ -1137,8 +1137,8 @@ minuti. Le direttive che contano:
 **non** impedisce la memorizzazione: impedisce l'uso senza rivalidazione. Per un dato
 sanitario serve `no-store`.
 
-**Validazione.** Il server allega alla risposta un **validatore** — un `ETag` (identificatore
-opaco della rappresentazione) o una `Last-Modified` — e il client, alla richiesta successiva,
+**Validazione.** Il server allega alla risposta un **validatore** - un `ETag` (identificatore
+opaco della rappresentazione) o una `Last-Modified` - e il client, alla richiesta successiva,
 lo ripropone in `If-None-Match` o `If-Modified-Since`. Se nulla è cambiato, il server risponde
 `304 Not Modified` senza corpo.
 
@@ -1157,7 +1157,7 @@ Un `ETag` può essere **forte** (`"a3f1c9e2"`) o **debole** (`W/"a3f1c9e2"`). Il
 identità byte per byte; il debole solo equivalenza semantica. FHIR usa `ETag` deboli, con il
 numero di versione della risorsa come valore ([06 §7.7](06-fhir-da-zero.md)).
 
-**Nel progetto — la regola vincolante.** Il progetto tratta dati appartenenti alle categorie
+**Nel progetto - la regola vincolante.** Il progetto tratta dati appartenenti alle categorie
 particolari dell'art. 9 GDPR. La politica è netta e non è negoziabile per comodità:
 
 - **ogni risposta che contiene dato clinico o dato personale porta `Cache-Control: no-store`**;
@@ -1171,7 +1171,7 @@ particolari dell'art. 9 GDPR. La politica è netta e non è negoziabile per como
 
 **Errori tipici.** `Cache-Control: no-cache` creduto equivalente a `no-store`. Un `ETag`
 calcolato sull'oggetto in memoria anziché sui byte serializzati, che cambia a ogni richiesta
-perché l'ordine delle chiavi non è stabile — un validatore che non è stabile non è un
+perché l'ordine delle chiavi non è stabile - un validatore che non è stabile non è un
 validatore. Nessuna intestazione di cache: il comportamento predefinito degli intermediari
 è definito dalla specifica ma non è quello che la maggior parte delle persone si aspetta, e
 non è una buona idea scoprirlo in produzione con dati sanitari.
@@ -1216,7 +1216,7 @@ chiedere una decisione esplicita.
 
 **Nel progetto.** Obbligatorio su ogni risorsa clinica modificabile: referto in redazione,
 piano di monitoraggio, consenso, configurazione di tenant. Su queste risorse una `PUT` o una
-`PATCH` **senza `If-Match` viene rifiutata con `428 Precondition Required`** (RFC 6585) —
+`PATCH` **senza `If-Match` viene rifiutata con `428 Precondition Required`** (RFC 6585) -
 *proposta di progetto*, ma con una motivazione che va oltre la tecnica: consentire un
 aggiornamento cieco su un documento clinico è un rischio da registrare nell'analisi ai sensi
 di ISO 14971, non una comodità da concedere.
@@ -1233,7 +1233,7 @@ indistinguibili. Generare l'`ETag` da un timestamp con lo stesso difetto. Accett
 credendo che significhi «qualunque versione»: significa «purché la risorsa esista», il che
 disattiva completamente la protezione.
 
-### 3.7 `Idempotency-Key` — e il suo stato di specifica
+### 3.7 `Idempotency-Key` - e il suo stato di specifica
 
 **Problema.** Un client invia `POST /v1/sessions`. La rete cade prima che la risposta torni.
 Il client non sa se la sessione è stata creata. Se ritenta, rischia di crearne due; se non
@@ -1247,7 +1247,7 @@ con la stessa chiave, non riesegue nulla: restituisce la risposta memorizzata.
 
 ```http
 POST /v1/sessions HTTP/1.1
-Host: api.telemedic.esempio.it
+Host: api.telemedic.example
 Content-Type: application/json
 Idempotency-Key: 8f3c1e02-77a1-4f77-9d1a-6a2b3c4d5e6f
 Authorization: Bearer eyJhbGciOiJFUzM4NCI...
@@ -1278,7 +1278,7 @@ clinico o hanno effetti esterni: creazione di sessione, invio di referto verso i
 origine, registrazione di un consenso, pubblicazione di un documento. È inoltre il meccanismo
 che il progetto **chiede ai ricevitori dei propri webhook** di implementare (§6.4).
 
-**Specifica — questo è il punto che va detto senza ambiguità.**
+**Specifica - questo è il punto che va detto senza ambiguità.**
 
 > **`Idempotency-Key` non è uno standard IETF.** Il documento è
 > `draft-ietf-httpapi-idempotency-key-header`, del working group *httpapi*; l'ultima revisione
@@ -1371,7 +1371,7 @@ il requisito di multi-integratore §6.2.6 del profilo. La politica adottata:
 - `429` **sempre con `Retry-After`**, perché è l'unico campo di questa famiglia che è
   effettivamente normato (RFC 9110 §10.2.3) e che le librerie generiche rispettano.
 
-**Errori tipici.** Restituire `429` senza `Retry-After`, lasciando il client a indovinare —
+**Errori tipici.** Restituire `429` senza `Retry-After`, lasciando il client a indovinare -
 tipicamente ritentando subito e peggiorando la situazione. Applicare il limite dopo
 l'autenticazione anziché prima, in modo che un attacco a forza bruta consumi comunque risorse
 di validazione crittografica. Contare le richieste e non il costo: mille letture leggere e
@@ -1397,8 +1397,8 @@ i secondi dall'epoca Unix (RFC 9651 §3.3.7) `[B6]`:
 HTTP/1.1 200 OK
 Deprecation: @1688169599
 Sunset: Sat, 31 Oct 2026 23:59:59 GMT
-Link: <https://docs.telemedic.esempio.it/api/v1-deprecation>; rel="deprecation"; type="text/html"
-Link: <https://api.telemedic.esempio.it/v2/sessions>; rel="successor-version"
+Link: <https://docs.telemedic.example/api/v1-deprecation>; rel="deprecation"; type="text/html"
+Link: <https://api.telemedic.example/v2/sessions>; rel="successor-version"
 ```
 
 Le tre parti hanno ruoli distinti e complementari:
@@ -1431,12 +1431,12 @@ movimento. Rimuovere prima della data dichiarata. Deprecare senza indicare il su
 `Link; rel="successor-version"` esiste apposta. Emettere l'intestazione solo sulla
 documentazione e non sulle risposte, dove i sistemi automatici la vedrebbero.
 
-### 3.10 `Problem Details` — gli errori in forma leggibile da una macchina
+### 3.10 `Problem Details` - gli errori in forma leggibile da una macchina
 
 **Problema.** Ogni API inventa il proprio formato di errore. Un client che ne integra cinque
 scrive cinque parser. Nessuno di quei formati è comprensibile a uno strumento generico.
 
-**Meccanismo.** RFC 9457 definisce un tipo di contenuto — `application/problem+json` — e un
+**Meccanismo.** RFC 9457 definisce un tipo di contenuto - `application/problem+json` - e un
 insieme di campi:
 
 | Campo | Obbligatorietà | Contenuto |
@@ -1453,12 +1453,11 @@ l'informazione strutturata di dominio.
 ```http
 HTTP/1.1 422 Unprocessable Content
 Content-Type: application/problem+json
-Content-Language: it-IT
 ```
 
 ```json
 {
-  "type": "https://docs.telemedic.esempio.it/problems/consenso-registrazione-mancante",
+  "type": "https://docs.telemedic.example/problems/consenso-registrazione-mancante",
   "title": "Consenso alla registrazione non acquisito",
   "status": 422,
   "detail": "La sessione ses-9f1c2b3d richiede il consenso esplicito del paziente prima di attivare la registrazione lato server.",
@@ -1471,6 +1470,11 @@ Content-Language: it-IT
 }
 ```
 
+La risposta reale porta anche `Content-Language`, che dichiara la lingua delle stringhe
+destinate a una persona - `title` e `detail`. Il valore dipende dalla lingua negoziata con il
+client, e per questo non compare nell'esempio: fissarne uno qui renderebbe l'esempio falso in
+ogni altra lingua in cui la stessa risposta è legittima.
+
 **Nel progetto.** È il formato **unico** degli errori dell'API applicativa. Con tre regole
 proprie:
 
@@ -1479,7 +1483,7 @@ proprie:
    e va trattato come parte del contratto: cambiarlo è una modifica non retro-compatibile.
 2. **`detail` non contiene mai dato clinico né dato personale.** Un messaggio d'errore finisce
    nei log del client, in quelli degli intermediari e negli strumenti di monitoraggio. «Il
-   paziente RSSMRA80A01H501U non ha consenso attivo» è una violazione confezionata come
+   paziente RSSMRA80A01H501Z non ha consenso attivo» è una violazione confezionata come
    messaggio di cortesia. Si usa un identificativo interno, e la corrispondenza si risolve nei
    sistemi autorizzati.
 3. **`traceId` è sempre presente** e corrisponde all'identificativo di traccia distribuita:
@@ -1499,7 +1503,7 @@ problema. Se trovi RFC 7807 citata, il riferimento va aggiornato.
 
 **Errori tipici.** Usare `Content-Type: application/json` invece di
 `application/problem+json`: il client generico non riconosce il documento. Far variare `title`
-con l'occorrenza — `title` è costante per tipo, la parte variabile sta in `detail`. Usare come
+con l'occorrenza - `title` è costante per tipo, la parte variabile sta in `detail`. Usare come
 `type` un URI che non esiste. Restituire uno stack trace in `detail`: è un dono a chi cerca la
 struttura interna del sistema.
 
@@ -1517,9 +1521,9 @@ due domande distinte:
 
 OAuth 2.0 **non è un protocollo di autenticazione**, e usarlo come tale è la vulnerabilità
 storica di questa famiglia. OpenID Connect esiste precisamente perché OAuth non rispondeva
-alla prima domanda. Il quadro dell'identità digitale italiana — SPID, CIE, TS-CNS, i livelli
-di garanzia, chi è il fornitore di servizi — è in
-[04 — Identità e anagrafiche](04-identita-e-anagrafiche.md); qui si trattano i protocolli.
+alla prima domanda. Il quadro dell'identità digitale italiana - SPID, CIE, TS-CNS, i livelli
+di garanzia, chi è il fornitore di servizi - è in
+[04 - Identità e anagrafiche](04-identita-e-anagrafiche.md); qui si trattano i protocolli.
 
 ### 4.1 OAuth 2.0
 
@@ -1553,8 +1557,8 @@ comparire in un URL e perché esistono i meccanismi di vincolo al possessore (§
 | **Client Credentials** | Nessun utente: sistema che chiama sistema | Ammesso, con autenticazione asimmetrica (§4.3) |
 | **Refresh Token** | Rinnovare l'accesso senza reinteragire | Ammesso, con rotazione |
 | **Device Authorization Grant** (RFC 8628) | Dispositivo senza browser | Fuori perimetro v1.0 `[NV]` |
-| **Implicit** | — | **Vietato.** RFC 9700 §2.1.2: i client «SHOULD NOT use the implicit grant» `[R5]` |
-| **Resource Owner Password Credentials** | — | **Vietato.** RFC 9700 §2.4: «MUST NOT be used» `[R5]` |
+| **Implicit** | - | **Vietato.** RFC 9700 §2.1.2: i client «SHOULD NOT use the implicit grant» `[R5]` |
+| **Resource Owner Password Credentials** | - | **Vietato.** RFC 9700 §2.4: «MUST NOT be used» `[R5]` |
 
 Il divieto dei due ultimi non è un irrigidimento del progetto: l'implicit consegnava il token
 nel frammento dell'URL, dove finisce in cronologia e nei log; il flusso a password
@@ -1575,7 +1579,7 @@ di *mix-up*) `[R5]`.
 
 **Errori tipici.** Trattare l'access token come prova d'identità dell'utente (è
 un'autorizzazione, non un'asserzione di identità: per quello serve l'`id_token` di OIDC).
-Emettere token senza `aud`, che possono così essere rigirati verso un altro resource server —
+Emettere token senza `aud`, che possono così essere rigirati verso un altro resource server -
 RFC 9700 §2.3 prescrive la restrizione di audience `[R5]`. Scope grossolani del tipo
 `read`/`write`, che rendono impossibile applicare il minimo privilegio. Token a vita lunga
 «per comodità dell'integratore».
@@ -1585,10 +1589,10 @@ RFC 9700 §2.3 prescrive la restrizione di audience `[R5]`. Scope grossolani del
 **Problema.** Nel flusso Authorization Code, l'authorization server rinvia il browser al
 client con un **codice** di autorizzazione, che il client scambia poi con un token. Su un
 dispositivo mobile o in un'applicazione a pagina singola quel rinvio può essere intercettato
-— per esempio da un'applicazione ostile registrata sullo stesso schema di URL. Chi cattura il
+- per esempio da un'applicazione ostile registrata sullo stesso schema di URL. Chi cattura il
 codice e conosce il `client_id` (che è pubblico) ottiene il token.
 
-**Meccanismo.** **PKCE** — *Proof Key for Code Exchange* — lega il codice a un segreto
+**Meccanismo.** **PKCE** - *Proof Key for Code Exchange* - lega il codice a un segreto
 generato dal client per quella singola richiesta.
 
 ```text
@@ -1626,7 +1630,7 @@ sequenceDiagram
 **Nel progetto.** Obbligatorio su **tutti** i client, pubblici e confidenziali, con
 `code_challenge_method=S256`. Il metodo `plain`, pur ammesso da RFC 7636, è **rifiutato**: non
 protegge dall'intercettazione, che è la sola minaccia contro cui PKCE esiste. Questo allinea
-il progetto sia a RFC 9700 §2.1.1 sia a SMART App Launch, che è categorico — «All SMART apps
+il progetto sia a RFC 9700 §2.1.1 sia a SMART App Launch, che è categorico - «All SMART apps
 SHALL support PKCE», i server «SHALL support the `S256` `code_challenge_method` and SHALL NOT
 support the `plain` method» `[R5]`.
 
@@ -1666,13 +1670,13 @@ I claim dell'`id_token` che vanno **sempre** validati:
 | `iss` | Coincide esattamente con l'issuer atteso |
 | `aud` | Contiene il proprio `client_id` |
 | `exp` / `iat` | Non scaduto, non emesso nel futuro (con una tolleranza minima) |
-| `nonce` | Coincide con quello inviato nella richiesta — difesa dal replay |
+| `nonce` | Coincide con quello inviato nella richiesta - difesa dal replay |
 | `azp` | Se presente e ci sono più audience, è il proprio `client_id` |
 | `acr` | **Il livello di autenticazione effettivamente ottenuto** |
 | `auth_time` | Quando è avvenuta l'autenticazione, se serve una freschezza |
 
 L'ultimo punto merita attenzione: `acr` (*Authentication Context Class Reference*) è il campo
-in cui viaggia il livello di garanzia, e nel contesto italiano ha valori normati — §4.9.
+in cui viaggia il livello di garanzia, e nel contesto italiano ha valori normati - §4.9.
 
 **Nel progetto.** OIDC è il protocollo di autenticazione verso Keycloak per la UI clinica, per
 la UI paziente e per i client degli integratori. È anche il protocollo con cui Keycloak si
@@ -1705,7 +1709,7 @@ destinatario possa verificarne l'origine e l'integrità **senza interrogare l'em
 richiesta**.
 
 **Meccanismo.** Un **JWT** è un contenitore di claim JSON. Nella forma usata praticamente
-sempre — **JWS Compact Serialization** — è composto da tre parti separate da punti, ciascuna
+sempre - **JWS Compact Serialization** - è composto da tre parti separate da punti, ciascuna
 codificata in base64url:
 
 ```text
@@ -1724,15 +1728,15 @@ Payload realistico di un access token del progetto (valori sintetici):
 
 ```json
 {
-  "iss": "https://telemedic.esempio.it/realms/clinic",
+  "iss": "https://telemedic.example/realms/clinic",
   "aud": "telemedic-api",
   "sub": "https://idp.integratore.example#prof-001",
   "act": { "sub": "b1f2c3d4-integratore-client-id",
-           "iss": "https://telemedic.esempio.it/realms/clinic" },
+           "iss": "https://telemedic.example/realms/clinic" },
   "acr": "urn:telemedic:acr:asserted-by-issuer",
   "scope": "https://telemedic.example/scopes/session.start system/Encounter.cu",
   "tenant": "asl-nord-01",
-  "fhirUser": "https://telemedic.esempio.it/fhir/Practitioner/prc-8812",
+  "fhirUser": "https://telemedic.example/fhir/Practitioner/prc-8812",
   "exp": 1787654621,
   "iat": 1787654321,
   "jti": "0f5b1c2d-9a8e-4b7f-a1c2-3d4e5f6a7b8c"
@@ -1749,8 +1753,8 @@ Payload realistico di un access token del progetto (valori sintetici):
    l'header `{"alg":"none"}` accetta token non firmati. **Il verificatore non deve mai
    dedurre l'algoritmo dal token**: deve imporre l'insieme degli algoritmi ammessi.
 2. **Confusione fra algoritmi simmetrici e asimmetrici.** Se il verificatore accetta `HS256`
-   e la chiave usata come segreto è la chiave *pubblica* RSA del server — che è pubblica per
-   definizione — l'attaccante può firmare token validi. Stessa contromisura: allow-list degli
+   e la chiave usata come segreto è la chiave *pubblica* RSA del server - che è pubblica per
+   definizione - l'attaccante può firmare token validi. Stessa contromisura: allow-list degli
    algoritmi, per emittente.
 3. **`kid` non sanificato.** Il `kid` viene spesso usato per cercare una chiave in un archivio
    o in un file: se finisce in una query o in un percorso senza controlli, si ottiene
@@ -1761,7 +1765,7 @@ Payload realistico di un access token del progetto (valori sintetici):
    dell'header **va confrontato con il `jwks_uri` registrato per quel `client_id`**, e se non
    coincide la richiesta si rifiuta `[R5]`.
 5. **`aud` non verificato.** Un token emesso per un altro servizio viene accettato. È
-   l'attacco che il parametro `aud` di SMART esiste per impedire — la specifica lo motiva
+   l'attacco che il parametro `aud` di SMART esiste per impedire - la specifica lo motiva
    testualmente: «This parameter prevents leaking a genuine bearer token to a counterfeit
    resource server» `[R5]`.
 6. **`exp` verificato con tolleranza generosa.** Una tolleranza di minuti per compensare
@@ -1774,7 +1778,7 @@ Payload realistico di un access token del progetto (valori sintetici):
 **non si revoca**: fino a `exp` è valido, punto. Le tre risposte possibili sono: token brevi
 (la sola che scali davvero), introspezione a ogni richiesta (§4.6), lista di revoca (efficace
 ma introduce lo stato che il JWT voleva eliminare). Politica del progetto: **token brevi**,
-con le durate proposte in fase di ricerca — 5-10 minuti per l'access token dell'utente in
+con le durate proposte in fase di ricerca - 5-10 minuti per l'access token dell'utente in
 contesto clinico, 300 secondi per i token di sistema, allineandosi alla raccomandazione
 esplicita di SMART Backend Services `[R5]`.
 
@@ -1791,7 +1795,7 @@ dedicato che definisce fra l'altro il `typ: at+jwt` `[NV]`.
 ### 4.5 JWKS e rotazione delle chiavi
 
 **Problema.** Chi verifica una firma deve conoscere la chiave pubblica di chi ha firmato, e
-deve continuare a funzionare quando quella chiave cambia — senza un intervento coordinato di
+deve continuare a funzionare quando quella chiave cambia - senza un intervento coordinato di
 tutte le parti nello stesso istante.
 
 **Meccanismo.** Un **JWK Set** è un documento JSON che pubblica un insieme di chiavi
@@ -1844,7 +1848,7 @@ dalla fase di ricerca `[R5]`):
 **Errori tipici.** Rotazione senza sovrapposizione. Cache senza scadenza, che rende la
 rotazione invisibile. Nessuna cache, che rende l'authorization server un punto di guasto
 sincrono per ogni richiesta. Emettere token senza `kid`, costringendo il verificatore a
-provare tutte le chiavi — con l'effetto collaterale di rendere impossibile capire, in un
+provare tutte le chiavi - con l'effetto collaterale di rendere impossibile capire, in un
 incidente, quale chiave ha firmato cosa.
 
 ### 4.6 Introspezione e revoca
@@ -1873,7 +1877,7 @@ token=eyJhbGciOiJFUzM4NCI...&token_type_hint=access_token
 
 Il campo che conta è **`active`**: è l'unico che dà una risposta *aggiornata all'istante*,
 perché tiene conto della revoca. Il costo è una chiamata di rete sincrona per ogni richiesta,
-che va mitigata con una cache di durata molto breve — e ogni secondo di cache è un secondo in
+che va mitigata con una cache di durata molto breve - e ogni secondo di cache è un secondo in
 cui una revoca non ha ancora effetto.
 
 **Revoca (RFC 7009).** Il client dichiara all'authorization server che un token non va più
@@ -1909,7 +1913,7 @@ revocato nulla.
 è già autenticato nel sistema dell'integratore. Clicca «avvia teleconsulto». Deve comparire la
 stanza video **senza un secondo login e senza rinvii visibili**. Ma Telemedic deve sapere chi
 è il medico (per l'audit non ripudiabile, vincolo **V5**), quale tenant (**V4**), quali
-permessi ha, e deve saperlo da una fonte fidata — non dal browser, che è manipolabile.
+permessi ha, e deve saperlo da una fonte fidata - non dal browser, che è manipolabile.
 
 **Meccanismo.** RFC 8693 definisce un tipo di concessione OAuth che scambia un token con un
 altro token. Il chiamante presenta il token del soggetto (`subject_token`), si autentica come
@@ -1949,7 +1953,7 @@ compare mai in un URL**: lo scambio avviene da backend a backend.
 | `scope` | OPTIONAL | Ambiti desiderati |
 | `actor_token` / `actor_token_type` | OPTIONAL / condizionale | Token che rappresenta la parte agente |
 
-**Delega, non impersonificazione — e perché è vincolante qui.** RFC 8693 §1.1 distingue due
+**Delega, non impersonificazione - e perché è vincolante qui.** RFC 8693 §1.1 distingue due
 esiti:
 
 - **Impersonificazione**: si passa il solo `subject_token`; il token risultante rende il
@@ -1958,7 +1962,7 @@ esiti:
 - **Delega**: il token porta entrambe le identità, con il claim **`act`** (RFC 8693 §4.1).
   L'audit può rispondere alla domanda «quale sistema ha agito per conto di quale persona».
 
-Il progetto **usa sempre la delega, mai l'impersonificazione** — è la decisione D18, ed è una
+Il progetto **usa sempre la delega, mai l'impersonificazione** - è la decisione D18, ed è una
 conseguenza diretta dei vincoli di auditabilità (**V5**) e degli obblighi di tracciabilità in
 contesto MDR e GDPR `[R5]`. Le catene annidate si preservano: se l'integratore agiva a sua
 volta per conto di un terzo, l'`act` annidato lo registra.
@@ -1970,13 +1974,13 @@ volta per conto di un terzo, l'`act` annidato lo registra.
 1. per ogni tenant si registra un **trust anchor**: issuer dell'IdP dell'integratore,
    `jwks_uri`, algoritmi ammessi, eventuale `aud` atteso;
 2. il `client_id` che presenta la richiesta è legato al tenant. **Non si accetta un
-   `subject_token` il cui `iss` non sia il trust anchor del tenant del client chiamante** —
+   `subject_token` il cui `iss` non sia il trust anchor del tenant del client chiamante** -
    senza questo controllo, l'integratore A può presentare un token dell'IdP dell'integratore B;
 3. si valida firma, `iss`, `exp`, `nbf`, `aud`, con l'algoritmo in allow-list;
 4. la mappatura dei claim verso l'identità interna è **configurabile per tenant**, mai
    cablata: quale claim porta il codice fiscale, quale il ruolo, quale l'organizzazione.
 
-**Stato dell'implementazione — informazione rilevante per la pianificazione.** Keycloak 26.2
+**Stato dell'implementazione - informazione rilevante per la pianificazione.** Keycloak 26.2
 ha reso supportato lo *Standard Token Exchange*, dichiarato conforme a RFC 8693, ma con
 perimetro iniziale **interno-interno** (scambio fra client dello stesso realm); lo scambio
 *esterno-interno* era indicato come lavoro successivo. Keycloak 26.5 ha introdotto **in
@@ -1993,7 +1997,7 @@ concessione di autorizzazione.
 **Errori tipici.** Accettare qualunque `subject_token` con firma valida senza legarlo al
 tenant. Usare l'impersonificazione perché è più semplice. Propagare l'`acr` del token in
 ingresso come se fosse un'autenticazione eseguita da sé (§4.9). Emettere il token risultante
-senza restringerne l'audience, ottenendo un token più potente di quello di partenza —
+senza restringerne l'audience, ottenendo un token più potente di quello di partenza -
 un'escalation di privilegio confezionata come integrazione.
 
 ### 4.8 SAML 2.0, e perché in Italia resta necessario
@@ -2025,7 +2029,7 @@ entityID, endpoint, certificati e attributi richiesti.
 Ne discende che il progetto **deve** parlare SAML 2.0, non come compatibilità con il passato
 ma come requisito corrente per accedere all'identità digitale nazionale. E deve parlarne la
 variante italiana, che **non è SAML generico**: le regole tecniche SPID introducono deviazioni
-che un'implementazione generica non soddisfa. Due esempi accertati in fase di ricerca `[B7]`:
+che un'implementazione generica non soddisfa. Quattro esempi accertati in fase di ricerca `[B7]`:
 
 - l'`Issuer` dell'`AuthnRequest` deve portare l'attributo **`NameQualifier`**, che il profilo
   SAML 2.0 core non prevede per il formato `entity`;
@@ -2046,7 +2050,7 @@ che un'implementazione generica non soddisfa. Due esempi accertati in fase di ri
 broker dedicato (`citizen-idp`) che funge da unico Service Provider verso la federazione, per
 non moltiplicare metadata e adesioni fra i realm `clinic` e `patient` `[B7]`. Vale la pena
 ripetere il punto di sostanza fissato dalla decisione D36: **il Service Provider è chi eroga
-il servizio in rete, cioè il deployer, mai il progetto**. Telemedic è «SPID/CIE/TS-CNS ready»,
+il servizio in rete, cioè chi installa, mai il progetto**. Telemedic è «SPID/CIE/TS-CNS ready»,
 verificabile in integrazione continua; non è né può essere «accreditato».
 
 **Specifica.** *OASIS Security Assertion Markup Language (SAML) V2.0*, standard OASIS del
@@ -2068,8 +2072,8 @@ Con una password, con due fattori, con un certificato su dispositivo? La differe
 quali operazioni sono lecite.
 
 **Meccanismo.** Il livello viaggia nel claim `acr` (OIDC) e nell'elemento
-`AuthnContextClassRef` (SAML). Nel contesto italiano i valori sono normati e — punto non
-ovvio — **sono gli stessi per SPID e per CIE** `[B7]`:
+`AuthnContextClassRef` (SAML). Nel contesto italiano i valori sono normati e - punto non
+ovvio - **sono gli stessi per SPID e per CIE** `[B7]`:
 
 ```text
 https://www.spid.gov.it/SpidL1
@@ -2096,7 +2100,7 @@ realizzazione dello SPID* `[B7]`:
    *richiesta*: il livello va imposto in `RequestedAuthnContext` `[B7]`. Da qui la regola:
    **si registrano sempre entrambi, `acr_requested` e `acr_asserted`**, ed è l'unico modo di
    rispettare **V5** senza affermare il falso.
-2. **Il livello non viaggia nel claim `act`.** RFC 8693 §4.1 esprime la delega — *chi agisce* —
+2. **Il livello non viaggia nel claim `act`.** RFC 8693 §4.1 esprime la delega - *chi agisce* -
    non il livello di autenticazione del soggetto. Metterlo lì è un abuso semantico. Il livello
    sta in `acr` `[B7]`.
 3. **`acr` non significa la stessa cosa nelle due direzioni.** Se il cittadino si è
@@ -2145,11 +2149,11 @@ intero.
 
 **Un costo di implementazione che viene sistematicamente dimenticato.** Il provider SPID per
 Keycloak configura i `RequestedAuthnContext` **staticamente per identity provider**. Se il
-livello deve essere dinamico — L2 per il paziente, L3 per l'amministratore — servono **due
+livello deve essere dinamico - L2 per il paziente, L3 per l'amministratore - servono **due
 istanze di identity provider per ciascun IdP SPID**, una per livello `[B7]`. Con una decina
 di IdP nel registro, il lotto di lavoro non è marginale.
 
-**Un vincolo economico da documentare per il deployer**, non tecnico ma decisivo nelle scelte
+**Un vincolo economico da documentare per chi installa**, non tecnico ma decisivo nelle scelte
 di prodotto: chiedere **un solo attributo oltre l'anagrafica** porta il costo per accesso da
 0,4 € a 3,5 € `[B7]`. È la ragione tecnica ed economica per cui l'insieme minimo di attributi
 richiesti va difeso: chiedere `address` o `idCard` per una televisita è un eccesso, ed è
@@ -2160,7 +2164,7 @@ anche contestabile in sede di convenzione.
 ## 5. Integrazione sanitaria
 
 Questa sezione tratta i quattro protocolli sanitari **in quanto protocolli**: come si parla,
-non che cosa si dice. Il contenuto — risorse, profili, terminologie, template — è nei moduli
+non che cosa si dice. Il contenuto - risorse, profili, terminologie, template - è nei moduli
 [05](05-standard-di-interoperabilita.md) e [06](06-fhir-da-zero.md).
 
 ### 5.1 FHIR REST
@@ -2211,7 +2215,7 @@ prima pagina sia il risultato completo. Usare `PUT` per creare con un identifica
 dal client su un server che non lo consente. Ignorare il `CapabilityStatement` e scoprire in
 produzione che un'interazione non è supportata.
 
-### 5.2 FHIR Bulk Data — l'asincrono normato
+### 5.2 FHIR Bulk Data - l'asincrono normato
 
 **Problema.** Estrarre centinaia di migliaia di risorse. Una ricerca paginata sincrona non
 regge: i timeout intermedi la uccidono, la paginazione su un dataset che cambia dà risultati
@@ -2249,7 +2253,7 @@ Gli elementi accertati in fase di ricerca `[B6]` e da recepire senza errori:
   **`allowPartialManifests`**, oltre a `_outputFormat`, `_since`, `_type`, `_elements`,
   `patient` (solo POST), `includeAssociatedData`, `_typeFilter`.
 - Il **manifest** di completamento contiene `transactionTime`, `request`,
-  `requiresAccessToken`, `output`, `error`, e — nuovi nella 3.0.0 — `outputOrganizedBy` e
+  `requiresAccessToken`, `output`, `error`, e - nuovi nella 3.0.0 - `outputOrganizedBy` e
   `link` per la paginazione.
 - **Avvertenza esplicita**: il *continuous build* della guida presenta un manifest
   strutturalmente diverso (rinomina `error` in `outcome`, aggiunge `manifestType`, `fileSize`,
@@ -2265,7 +2269,7 @@ integralmente nell'audit e richiede uno scope dedicato; e **il formato di uscita
 
 **Errori tipici.** Sondare con frequenza fissa ignorando `Retry-After`. Assumere che l'URL dei
 file non richieda autenticazione: il manifest ha il campo `requiresAccessToken` proprio per
-dirlo. Caricare in memoria un file ndjson da gigabyte invece di elaborarlo riga per riga —
+dirlo. Caricare in memoria un file ndjson da gigabyte invece di elaborarlo riga per riga -
 il formato esiste per essere letto in streaming.
 
 ### 5.3 MLLP su TLS
@@ -2274,7 +2278,7 @@ il formato esiste per essere letto in streaming.
 connessione TCP i byte arrivano come flusso continuo (§2.3): serve sapere dove finisce un
 messaggio e comincia il successivo.
 
-**Meccanismo.** **MLLP** — *Minimal Lower Layer Protocol* — incornicia ogni messaggio fra un
+**Meccanismo.** **MLLP** - *Minimal Lower Layer Protocol* - incornicia ogni messaggio fra un
 byte di inizio e una coppia di byte di fine:
 
 ```text
@@ -2282,7 +2286,7 @@ byte di inizio e una coppia di byte di fine:
 ```
 
 Nient'altro. Nessuna autenticazione, nessuna cifratura, nessun controllo di integrità, nessun
-riscontro a livello di trasporto — il riscontro è **applicativo**, ed è il messaggio `ACK`
+riscontro a livello di trasporto - il riscontro è **applicativo**, ed è il messaggio `ACK`
 descritto in [05 §4.5](05-standard-di-interoperabilita.md).
 
 **Il punto che conta.**
@@ -2297,7 +2301,7 @@ dove il modello di minaccia era un altro. È un difetto **del deployment** usarl
 [05 §4.6](05-standard-di-interoperabilita.md):
 
 1. Ogni listener MLLP è esposto **esclusivamente** dentro un canale TLS con **autenticazione
-   reciproca** (§2.5) — che è esattamente ciò che prescrive il profilo IHE di autenticazione
+   reciproca** (§2.5) - che è esattamente ciò che prescrive il profilo IHE di autenticazione
    di nodo.
 2. Mai un listener raggiungibile da rete non fidata, nemmeno «temporaneamente per il collaudo».
 3. Il certificato della controparte va **verificato**, non solo presentato.
@@ -2307,7 +2311,7 @@ dove il modello di minaccia era un altro. È un difetto **del deployment** usarl
 **Specifica.** *HL7 Transport Specification: MLLP*, standard HL7 distinto dallo standard di
 messaggistica. I valori esadecimali dell'incorniciamento sono confermati da due fonti
 indipendenti che citano la specifica ufficiale; il documento primario non è stato letto
-direttamente in fase di ricerca. **[NV]** La porta 6660, spesso citata come convenzionale,
+direttamente in fase di ricerca. `[NV]` La porta 6660, spesso citata come convenzionale,
 **non** risulta registrata per MLLP: nella pratica si concorda fra le parti.
 
 **Errori tipici.** Cercare i byte di incorniciamento con una ricerca di sottostringa senza
@@ -2331,15 +2335,15 @@ punto a punto. In un mondo web, e attraverso confini organizzativi, non funziona
 
 | Servizio | Che cosa fa | Metodo |
 |---|---|---|
-| **QIDO-RS** | *Query based on ID for DICOM Objects* — cerca studi, serie, istanze | `GET` |
-| **WADO-RS** | *Web Access to DICOM Objects* — recupera le istanze | `GET` |
-| **STOW-RS** | *Store Over the Web* — memorizza | `POST` |
+| **QIDO-RS** | *Query based on ID for DICOM Objects* - cerca studi, serie, istanze | `GET` |
+| **WADO-RS** | *Web Access to DICOM Objects* - recupera le istanze | `GET` |
+| **STOW-RS** | *Store Over the Web* - memorizza | `POST` |
 | **UPS-RS** | Gestione dei passi di lavoro | vari |
 
 I metadati sono disponibili in una rappresentazione JSON, e i dati binari in `multipart` con i
 tipi di trasferimento DICOM.
 
-**Nel progetto — e qui il vincolo è architetturale, non tecnico.** Telemedic **non è un
+**Nel progetto - e qui il vincolo è architetturale, non tecnico.** Telemedic **non è un
 sistema di archiviazione di immagini**. Il rapporto con DICOMweb è di sola consultazione, e
 vale una regola che il modulo [05 §7.3](05-standard-di-interoperabilita.md) enuncia come
 divieto:
@@ -2368,11 +2372,11 @@ sistemi implementino DICOMweb: molti parlano ancora solo DIMSE, e serve un ponte
 clinico** (quale paziente, quale incontro), gli **scope granulari sulle risorse cliniche**, e
 una **scoperta standardizzata** degli endpoint di autorizzazione di un server FHIR.
 
-**Meccanismo — App Launch.** È un profilo di OAuth 2.0 Authorization Code che aggiunge:
+**Meccanismo - App Launch.** È un profilo di OAuth 2.0 Authorization Code che aggiunge:
 
 - **il contesto di lancio**: l'applicazione riceve paziente e incontro correnti **senza
   chiederli all'utente**;
-- **gli scope FHIR**, nella forma `{patient|user|system}/{Risorsa}.{permessi}` — dove i
+- **gli scope FHIR**, nella forma `{patient|user|system}/{Risorsa}.{permessi}` - dove i
   permessi della versione 2 sono le lettere di `cruds` (create, read, update, delete, search),
   che **devono comparire nell'ordine di quella stringa**: `.cu` e `.rs` sono validi, `.dus` no
   `[R5]`;
@@ -2386,20 +2390,20 @@ interpretare); e **standalone launch**, in cui l'applicazione parte da sola e ch
 contesto con gli scope `launch/patient` e `launch/encounter`.
 
 Il parametro **`aud`** nella richiesta di autorizzazione non è cosmetico: contiene l'URL del
-resource server FHIR, e la specifica lo motiva testualmente — «This parameter prevents leaking
+resource server FHIR, e la specifica lo motiva testualmente - «This parameter prevents leaking
 a genuine bearer token to a counterfeit resource server» `[R5]`.
 
-La risposta del token endpoint estende quella OAuth con il contesto. Tre campi risolvono
+La risposta del token endpoint estende quella OAuth con il contesto. Quattro campi risolvono
 problemi reali del progetto senza estensioni proprietarie `[R5]`:
 
 | Campo | A cosa serve nel progetto |
 |---|---|
 | `need_patient_banner` | Dice se il sistema ospitante mostra già l'intestazione con il paziente: risolve il problema della doppia intestazione nel componente incorporabile |
-| `smart_style_url` | È il **meccanismo standard di white-label** per applicazioni SMART: l'ospitante pubblica colori e caratteri, l'applicazione li applica. Va trattato come input non fidato — è un URL controllato da un terzo |
+| `smart_style_url` | È il **meccanismo standard di white-label** per applicazioni SMART: l'ospitante pubblica colori e caratteri, l'applicazione li applica. Va trattato come input non fidato - è un URL controllato da un terzo |
 | `tenant` | Mappa direttamente sul vincolo **V4** |
 | `fhirContext` | È la sede naturale del riferimento all'`Appointment` che ha originato il consulto |
 
-**Meccanismo — Backend Services.** È il pattern per **backend che chiama backend, senza
+**Meccanismo - Backend Services.** È il pattern per **backend che chiama backend, senza
 utente**: il caso del gestionale che crea una sessione di teleconsulto da un job dell'agenda.
 Richiede il profilo *client-confidential-asymmetric*: il client si autentica con un **JWT
 firmato con la propria chiave privata** (RFC 7523), non con un segreto condiviso `[R5]`.
@@ -2441,8 +2445,8 @@ Un dettaglio di integrazione che genera segnalazioni ricorrenti: **lo `scope` re
 essere più ristretto di quello richiesto**. Il client deve leggerlo, non assumerlo `[R5]`.
 
 E un vincolo di igiene semantica: le capacità applicative che **non** corrispondono a risorse
-FHIR — avviare una sessione video, ruotare una chiave TURN, gestire il consenso alla
-registrazione — **non vanno mascherate da scope FHIR**. Forzare «avvia una sessione» dentro
+FHIR - avviare una sessione video, ruotare una chiave TURN, gestire il consenso alla
+registrazione - **non vanno mascherate da scope FHIR**. Forzare «avvia una sessione» dentro
 `patient/Encounter.cu` è un abuso semantico e rende impossibile revocare l'una senza l'altra.
 Vanno espresse come scope in forma di URI `[R5]`.
 
@@ -2486,7 +2490,7 @@ documentato dal progetto stesso. Le proprietà che contano per il design:
   che va detta esplicitamente: **il broker non è un archivio di dati clinici**. La ritenzione
   degli eventi è configurata per l'operatività, e la conservazione a norma sta altrove.
 
-**L'outbox transazionale — la parte che non è del broker ma è indispensabile.** La decisione
+**L'outbox transazionale - la parte che non è del broker ma è indispensabile.** La decisione
 D15 prescrive un **outbox transazionale su PostgreSQL** davanti a Kafka:
 
 ```mermaid
@@ -2523,7 +2527,7 @@ qualificazione come SOUP ai sensi di IEC 62304 ne discende (decisione D12).
 una partizione sovraccarica. Confondere il broker con una base dati e interrogarlo per stato
 corrente. Mettere **dati clinici nel payload** senza considerare che il broker li conserva per
 tutta la ritenzione, in chiaro, su nodi che potrebbero non avere lo stesso regime di
-protezione della base dati — motivo per cui il progetto preferisce payload **con riferimenti**
+protezione della base dati - motivo per cui il progetto preferisce payload **con riferimenti**
 e non con contenuto clinico completo (§6.4).
 
 **Alternative scartate.**
@@ -2537,8 +2541,8 @@ e non con contenuto clinico completo (§6.4).
 ### 6.2 CloudEvents
 
 **Problema.** Ogni sistema inventa la propria busta per gli eventi. Un consumatore che ne
-integra tre scrive tre parser e non può costruire strumenti generici — instradamento, tracce,
-archiviazione — che funzionino su tutti.
+integra tre scrive tre parser e non può costruire strumenti generici - instradamento, tracce,
+archiviazione - che funzionino su tutti.
 
 **Meccanismo.** CloudEvents definisce un insieme minimo di **attributi di contesto** comuni a
 qualunque evento, e i **binding** che li mappano su protocolli concreti.
@@ -2549,15 +2553,15 @@ Attributi obbligatori: `id`, `source`, `specversion`, `type`. Opzionali di uso c
 ```json
 {
   "specversion": "1.0",
-  "type": "it.telemedic.session.completed.v1",
-  "source": "/tenants/asl-nord-01/sessions",
+  "type": "telemedic.session.completed.v1",
+  "source": "https://telemedic.example/tenants/t0001",
   "subject": "ses-9f1c2b3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d",
   "id": "8f3c1e02-77a1-4f77-9d1a-6a2b3c4d5e6f",
   "time": "2026-08-25T09:47:12.004Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://docs.telemedic.esempio.it/schemas/session-completed-v1.json",
+  "dataschema": "https://docs.telemedic.example/schemas/session-completed-v1.json",
   "data": {
-    "tenant": "asl-nord-01",
+    "tenant": "t0001",
     "sessionId": "ses-9f1c2b3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d",
     "encounterRef": "Encounter/enc-4471",
     "outcome": "completed",
@@ -2580,28 +2584,28 @@ but prefixed with `ce-`»* `[B6]`.
 
 **Con una trappola verificata che va codificata nei test.** L'attributo `datacontenttype`
 **non** ha un header `ce-`: il suo valore corrisponde a `Content-Type`, e la specifica è
-esplicita — *«Note that a `ce-datacontenttype` HTTP header MUST NOT also be present in the
+esplicita - *«Note that a `ce-datacontenttype` HTTP header MUST NOT also be present in the
 message»* `[B6]`. Emettere `ce-datacontenttype` è una violazione di un `MUST NOT`.
 
 ```http
 POST /webhooks/telemedic HTTP/1.1
 Host: gestionale.integratore.example
 ce-specversion: 1.0
-ce-type: it.telemedic.session.completed.v1
-ce-source: /tenants/asl-nord-01/sessions
+ce-type: telemedic.session.completed.v1
+ce-source: /tenants/t0001/sessions
 ce-subject: ses-9f1c2b3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
 ce-id: 8f3c1e02-77a1-4f77-9d1a-6a2b3c4d5e6f
 ce-time: 2026-08-25T09:47:12.004Z
 Content-Type: application/json
 Idempotency-Key: 8f3c1e02-77a1-4f77-9d1a-6a2b3c4d5e6f
 
-{"tenant":"asl-nord-01","sessionId":"ses-9f1c2b3d…","outcome":"completed"}
+{"tenant":"t0001","sessionId":"ses-9f1c2b3d…","outcome":"completed"}
 ```
 
 **Nel progetto.** CloudEvents è la busta di **ogni** evento pubblicato, sia sul broker interno
 sia verso l'esterno nei webhook. Convenzioni di progetto:
 
-- **`type` gerarchico e versionato**: `it.telemedic.<dominio>.<fatto>.v<N>`. La versione fa
+- **`type` gerarchico e versionato**: `telemedic.<dominio>.<fatto>.v<N>`. La versione fa
   parte del tipo, così che un consumatore possa ignorare una versione che non conosce invece
   di fallire su un campo inatteso.
 - **`source` contiene il tenant**, coerentemente con **V4**.
@@ -2616,7 +2620,7 @@ sia verso l'esterno nei webhook. Convenzioni di progetto:
 **Errori tipici.** Mettere dato clinico in `data` senza valutare dove finisce l'evento
 (§6.4). Cambiare la forma di `data` senza cambiare la versione nel `type`, rompendo tutti i
 consumatori in silenzio. Usare `time` come identificativo o come chiave di ordinamento fra
-sorgenti diverse — sono orologi diversi, §8.1.
+sorgenti diverse - sono orologi diversi, §8.1.
 
 ### 6.3 Webhook e firma dei messaggi HTTP
 
@@ -2638,10 +2642,10 @@ contromisure, tutte e tre:
 3. **Identificativo di evento univoco** che consenta la deduplicazione.
 
 **Il metodo di firma, e il suo stato di specifica.** Il metodo normato è **HTTP Message
-Signatures**, che definisce come firmare un insieme scelto di componenti di una richiesta —
-metodo, percorso, autorità, intestazioni selezionate, un'impronta del corpo — con parametri
+Signatures**, che definisce come firmare un insieme scelto di componenti di una richiesta -
+metodo, percorso, autorità, intestazioni selezionate, un'impronta del corpo - con parametri
 espliciti (identificativo di chiave, algoritmo, istante di creazione, scadenza, nonce). È
-**RFC 9421, *HTTP Message Signatures*, Standards Track, febbraio 2024** — verificato sul
+**RFC 9421, *HTTP Message Signatures*, Standards Track, febbraio 2024** - verificato sul
 registro RFC durante la stesura di questo modulo. È l'unico approccio normato, e sostituisce
 le firme proprietarie che ogni piattaforma ha inventato per conto proprio.
 
@@ -2673,7 +2677,7 @@ traffico. Regole del progetto:
 - **finestra temporale accettata di cinque minuti** (*proposta di progetto*);
 - **payload magro**: identificativi e riferimenti, non contenuto clinico. Chi riceve rilegge
   dall'API con la propria autorizzazione. Questo riduce l'esposizione, rende la notifica
-  indipendente dall'evoluzione del modello dati e — punto non secondario — impedisce che un
+  indipendente dall'evoluzione del modello dati e - punto non secondario - impedisce che un
   URL di webhook mal configurato diventi una fuga di dati sanitari;
 - **il ricevente deve rispondere `2xx` rapidamente** e fare il lavoro in modo asincrono: la
   risposta significa «preso in carico», non «elaborato».
@@ -2681,7 +2685,7 @@ traffico. Regole del progetto:
 **L'alternativa standard nel mondo FHIR.** Per le notifiche su risorse cliniche esiste la
 risorsa `Subscription`, e per FHIR R4 la guida *Subscriptions R5 Backport* (versione 1.1.0,
 STU, 11 gennaio 2023) `[B6]`. Due dettagli che la fase di ricerca ha corretto e che vanno
-recepiti: **non esiste alcuna estensione `backport-topic`** — in R4 il canonical del
+recepiti: **non esiste alcuna estensione `backport-topic`** - in R4 il canonical del
 `SubscriptionTopic` si scrive **direttamente in `Subscription.criteria`**; e in R4 **non
 esiste la risorsa `SubscriptionStatus`**: lo stato viaggia come `Parameters` conforme a un
 profilo, con i nomi dei parametri in kebab-case (`event-number`, non `eventNumber`) `[B6]`.
@@ -2725,7 +2729,7 @@ stesso evento, e in un contesto clinico questo significa, per esempio, due refer
 | Quando si ritenta | `5xx`, `429`, timeout, errore di connessione |
 | Quando **non** si ritenta | `4xx` diversi da `429`: la richiesta è sbagliata, ritentarla è inutile |
 | Attesa | Esponenziale con componente casuale (*jitter*), da 1 s a 6 h |
-| Tentativi | Fino a 24 ore complessive |
+| Tentativi | Dodici, per una copertura di circa settantadue ore (`P-08`) |
 | `Retry-After` | **Rispettata quando presente**, e prevale sull'attesa calcolata |
 | Dopo l'esaurimento | L'evento va in coda di scarto (*dead letter*), l'integratore è notificato per un canale fuori banda, l'evento resta **recuperabile via API** |
 
@@ -2754,10 +2758,10 @@ costruire un sistema che sarà scorretto in ogni condizione di guasto.
 
 ---
 
-## 7. Tempo reale — scheda sintetica
+## 7. Tempo reale - scheda sintetica
 
 > **Questa è una scheda di orientamento, non la trattazione.** Il tempo reale ha un modulo
-> dedicato: [08 — WebRTC da zero](08-webrtc-da-zero.md), che copre il NAT e i suoi tipi, la
+> dedicato: [08 - WebRTC da zero](08-webrtc-da-zero.md), che copre il NAT e i suoi tipi, la
 > segnalazione e il modello offerta/risposta, la raccolta e l'accoppiamento dei candidati, la
 > stretta di mano DTLS e ciò che l'impronta del certificato garantisce davvero, la Short
 > Authentication String, i codec, il controllo della congestione e la misura della qualità.
@@ -2767,20 +2771,20 @@ costruire un sistema che sarà scorretto in ogni condizione di guasto.
 ### 7.1 La pila del media, in un colpo d'occhio
 
 ```text
-┌───────────────────────────────────────────────────────────┐
+┌────────────────────────────────────────────────────────────┐
 │  Audio e video codificati (Opus, VP8/VP9/H.264/AV1)        │
-├───────────────────────────────────────────────────────────┤
+├────────────────────────────────────────────────────────────┤
 │  RTP  (trasporto del media)  +  RTCP  (controllo e qualità)│
-├───────────────────────────────────────────────────────────┤
+├────────────────────────────────────────────────────────────┤
 │  SRTP  (cifratura e autenticazione del media)              │
 │  chiavi derivate dalla stretta di mano DTLS (DTLS-SRTP)    │
-├───────────────────────────────────────────────────────────┤
-│  ICE  (scelta del percorso)  —  STUN  —  TURN se serve     │
-├───────────────────────────────────────────────────────────┤
+├────────────────────────────────────────────────────────────┤
+│  ICE  (scelta del percorso)  -  STUN  -  TURN se serve     │
+├────────────────────────────────────────────────────────────┤
 │  UDP  (o TCP/TLS solo come ripiego attraverso TURN)        │
-├───────────────────────────────────────────────────────────┤
+├────────────────────────────────────────────────────────────┤
 │  IP                                                        │
-└───────────────────────────────────────────────────────────┘
+└────────────────────────────────────────────────────────────┘
 
 canale dati:  SCTP  sopra  DTLS  sopra  ICE/UDP
 ```
@@ -2791,12 +2795,12 @@ canale dati:  SCTP  sopra  DTLS  sopra  ICE/UDP
 |---|---|---|---|
 | **ICE** (*Interactive Connectivity Establishment*) | Due dispositivi dietro NAT non sanno quale percorso funzioni fra loro. ICE non sceglie: **prova tutte le combinazioni** di candidati e tiene quella che funziona, con un ordine di priorità | RFC 8445 | Ogni sessione. Il riavvio di ICE è il meccanismo di ripresa quando la rete cambia |
 | **STUN** (*Session Traversal Utilities for NAT*) | Un dispositivo dietro NAT non conosce il proprio indirizzo pubblico. Lo chiede a un server esterno, che gli risponde «ti vedo come questo indirizzo e questa porta» | RFC 8489 | Server `coturn` proprio, nei profili di installazione previsti (vincolo **V1**) |
-| **TURN** (*Traversal Using Relays around NAT*) | Quando nessun percorso diretto funziona — NAT simmetrici da entrambi i lati, firewall restrittivo — serve un **relay** che inoltri il traffico | RFC 8656 | Stesso server. È il caso in cui la parola «peer-to-peer» smette di descrivere il percorso: vedi la riformulazione della decisione D19 |
+| **TURN** (*Traversal Using Relays around NAT*) | Quando nessun percorso diretto funziona - NAT simmetrici da entrambi i lati, firewall restrittivo - serve un **relay** che inoltri il traffico | RFC 8656 | Stesso server. È il caso in cui la parola «peer-to-peer» smette di descrivere il percorso: vedi la riformulazione della decisione D19 |
 | **DTLS** (*Datagram TLS*) | TLS presuppone un trasporto affidabile e ordinato. Su UDP non c'è: DTLS riporta la stretta di mano e la cifratura sopra i datagrammi | RFC 6347 (1.2); RFC 9147 (1.3) | Negoziazione delle chiavi del media e trasporto del canale dati |
 | **DTLS-SRTP** | Legare la stretta di mano DTLS alla derivazione delle chiavi SRTP, così che il media sia cifrato con chiavi negoziate direttamente fra i due estremi | RFC 5764 | È ciò che consente l'affermazione «cifrato end-to-end», **condizionata alla verifica indipendente delle chiavi** (D19, D22) |
 | **SRTP** (*Secure RTP*) | Cifrare e autenticare i pacchetti RTP con basso costo computazionale e senza aggiungere ritardo | RFC 3711 | Media di ogni sessione |
 | **RTP / RTCP** | RTP trasporta i campioni con marca temporale e numero di sequenza; RTCP riporta perdita, jitter e tempo di andata e ritorno | RFC 3550 | RTCP è la fonte delle metriche di qualità della sessione |
-| **SCTP** e **canale dati WebRTC** | Un canale di messaggi affidabile o parzialmente affidabile, ordinato o non ordinato, dentro la stessa connessione del media | RFC 9260 (SCTP); RFC 8261 (SCTP su DTLS); RFC 8831 (canali dati); RFC 8832 (protocollo di apertura) | Canale dei sottotitoli — definito e versionato nel protocollo anche prima che esista un motore di trascrizione (decisione D24) — e scambi accessori a bassa latenza |
+| **SCTP** e **canale dati WebRTC** | Un canale di messaggi affidabile o parzialmente affidabile, ordinato o non ordinato, dentro la stessa connessione del media | RFC 9260 (SCTP); RFC 8261 (SCTP su DTLS); RFC 8831 (canali dati); RFC 8832 (protocollo di apertura) | Canale dei sottotitoli - definito e versionato nel protocollo anche prima che esista un motore di trascrizione (decisione D24) - e scambi accessori a bassa latenza |
 | **SDP** (*Session Description Protocol*) | Descrivere in modo testuale le capacità di una sessione: codec, indirizzi, chiavi, impronte. **Non è un protocollo di trasporto**: è un formato trasportato dalla segnalazione | RFC 8866; l'uso in WebRTC è definito da RFC 8829 (JSEP) | Corpo dei messaggi di segnalazione, che viaggiano sulla WebSocket di §2.10 |
 
 ### 7.3 Le tre cose da ricordare qui
@@ -2805,7 +2809,7 @@ canale dati:  SCTP  sopra  DTLS  sopra  ICE/UDP
    offerta, risposta e candidati: è deliberatamente lasciato all'applicazione. Nel progetto è
    la WebSocket di §2.10. Ne discende che **la sicurezza della segnalazione è responsabilità
    del progetto**, non dello standard, ed è il punto in cui un intermediario potrebbe
-   sostituire le impronte dei certificati — la ragione per cui la Short Authentication String
+   sostituire le impronte dei certificati - la ragione per cui la Short Authentication String
    è obbligatoria per impostazione predefinita (decisione D22).
 2. **Il ripiego su relay non è un dettaglio operativo.** Cambia il percorso, il costo e la
    latenza, e cambia ciò che si può affermare pubblicamente sul percorso dei dati.
@@ -2829,7 +2833,7 @@ subdole perché non generano errori:
    sistematicamente se i due orologi divergono di sei.
 2. **Ordine degli eventi.** Ricostruire l'ordine di due eventi provenienti da macchine diverse
    confrontando le loro marche temporali è **scorretto**, e il modulo
-   [11 — Fondamenti informatici](11-fondamenti-informatici.md) spiega perché in termini
+   [11 - Fondamenti informatici](11-fondamenti-informatici.md) spiega perché in termini
    generali. Per questo il progetto usa numeri di sequenza per soggetto (§6.4).
 3. **Prova legale.** L'audit non ripudiabile (**V5**, decisione D42) ha valore solo se le sue
    marche temporali sono attendibili e la loro attendibilità è dimostrabile.
@@ -2840,7 +2844,7 @@ scambiando quattro marche temporali per ogni interrogazione, e **corregge gradua
 passato e rompe qualunque logica basata sulla monotonia.
 
 Il problema di sicurezza di NTP è che il protocollo classico non è autenticato: chi controlla
-la rete può spostare l'orologio di un sistema — e con esso la validità dei token. La risposta
+la rete può spostare l'orologio di un sistema - e con esso la validità dei token. La risposta
 è **NTS** (*Network Time Security*), che autentica la sorgente.
 
 **Nel progetto.** Regole (*proposta di progetto*):
@@ -2860,8 +2864,8 @@ la rete può spostare l'orologio di un sistema — e con esso la validità dei t
 strette esiste PTP (IEEE 1588), che il progetto non usa: non serve, e richiede supporto
 hardware nella rete.
 
-**Errori tipici.** Usare `System.currentTimeMillis()` — o l'equivalente in qualunque
-linguaggio — per misurare una durata. Confrontare istanti provenienti da macchine diverse per
+**Errori tipici.** Usare `System.currentTimeMillis()` - o l'equivalente in qualunque
+linguaggio - per misurare una durata. Confrontare istanti provenienti da macchine diverse per
 dedurne l'ordine. Salvare istanti senza fuso e ricostruirlo per convenzione. Consentire il
 salto all'indietro dell'orologio su un nodo che scrive audit.
 
@@ -2894,11 +2898,11 @@ Due proprietà con conseguenze operative dirette:
 **Nel progetto.** Tre punti in cui il DNS non è infrastruttura invisibile ma decisione di
 progetto:
 
-1. **Risoluzione degli URL forniti dagli integratori** — webhook, `jwks_uri`, `jku`. È il
+1. **Risoluzione degli URL forniti dagli integratori** - webhook, `jwks_uri`, `jku`. È il
    vettore di *server-side request forgery* già citato in §4.4 e §6.3: la risoluzione va
    controllata, gli indirizzi privati e di collegamento locale vanno rifiutati, e il controllo
    va fatto **sull'indirizzo effettivamente usato per la connessione**, non su una risoluzione
-   precedente — altrimenti resta aperta la finestra fra il controllo e l'uso.
+   precedente - altrimenti resta aperta la finestra fra il controllo e l'uso.
 2. **Record `CAA`** sui domini del progetto, per limitare chi può emettere certificati.
 3. **Scoperta dei server TURN**, dove nomi e priorità hanno effetto diretto sulla qualità.
 
@@ -2942,8 +2946,8 @@ descrivono la stessa sintassi da due prospettive. Gli schemi: **JSON Schema**, d
 
 #### XML
 
-**Problema.** Documenti con struttura mista, spazi dei nomi, validazione per schema e —
-soprattutto — **firma di una parte del documento**.
+**Problema.** Documenti con struttura mista, spazi dei nomi, validazione per schema e -
+soprattutto - **firma di una parte del documento**.
 
 **Meccanismo.** Alberi di elementi con attributi, spazi dei nomi, e un ecosistema di standard
 correlati: XSD per la validazione, XPath e XSLT per la navigazione e la trasformazione,
@@ -3004,8 +3008,8 @@ consumare un formato binario con schema compilato, e il vincolo **V3** impone ch
 capacità sia raggiungibile da un sistema terzo. Un formato che richiede una catena di
 compilazione alza la barriera d'ingresso più di quanto la prestazione la abbassi.
 
-Resta valutabile per il traffico interno ad alto volume — le metriche di qualità della
-sessione verso TimescaleDB sono il candidato naturale — dove entrambe le parti sono controllate
+Resta valutabile per il traffico interno ad alto volume - le metriche di qualità della
+sessione verso TimescaleDB sono il candidato naturale - dove entrambe le parti sono controllate
 dal progetto `[NV]`.
 
 **Specifica.** *Protocol Buffers Language Guide*, pubblicata dal progetto stesso. Non è uno
@@ -3123,7 +3127,7 @@ vincoli dati. Questi sono i criteri effettivamente usati nel progetto, **nell'or
 vanno applicati**. L'ordine conta: i primi tre eliminano opzioni, gli altri scelgono fra
 quelle rimaste.
 
-### Criterio 1 — Esiste già uno standard per questo problema?
+### Criterio 1 - Esiste già uno standard per questo problema?
 
 Se sì, si usa. Non perché sia sempre tecnicamente superiore, ma perché **l'interoperabilità è
 il prodotto**, non un attributo del prodotto. Un formato proprietario migliore del 20% e
@@ -3133,7 +3137,7 @@ Il corollario, meno ovvio: **si usa lo standard anche quando se ne usa una frazi
 CloudEvents per una busta di sei campi sembra sovradimensionato, finché non arriva il secondo
 consumatore e non serve uno strumento generico di instradamento.
 
-### Criterio 2 — La sovranità del dato lo consente? (vincolo V1)
+### Criterio 2 - La sovranità del dato lo consente? (vincolo V1)
 
 Nessun componente obbligatorio ospitato fuori dall'Unione Europea, nessuna dipendenza di
 runtime da servizi che non si possano installare nel profilo più restrittivo (decisione D24).
@@ -3146,7 +3150,7 @@ NIS deve **dichiarare nominativamente all'autorità i fornitori rilevanti**, con
 sede legale. La scelta di un protocollo che vincola a un fornitore è un dato che il cliente
 dovrà comunicare.
 
-### Criterio 3 — Passa attraverso le reti reali degli utilizzatori?
+### Criterio 3 - Passa attraverso le reti reali degli utilizzatori?
 
 Un protocollo che funziona in laboratorio e non attraversa il firewall di un'azienda
 ospedaliera non funziona. In concreto: UDP è spesso bloccato in uscita, le porte non standard
@@ -3158,7 +3162,7 @@ obbligatorio**, e il ripiego è progettato insieme alla scelta principale, non d
 ripiego su HTTP/2; media diretto con ripiego su relay; WebSocket con ripiego su polling per la
 sola funzione di stato.
 
-### Criterio 4 — Chi sta dall'altra parte, e cosa sa fare?
+### Criterio 4 - Chi sta dall'altra parte, e cosa sa fare?
 
 Il profilo dell'integratore archetipico è un gestionale sanitario cloud di fascia piccola e
 media, con un'équipe di sviluppo ridotta e nessuna specializzazione in interoperabilità
@@ -3170,7 +3174,7 @@ Da qui tre scelte concrete già prese: JSON e non Protocol Buffers sulle interfa
 accettare gli scope SMART nella sintassi v1 convertendoli, invece di rifiutarli `[R5]`;
 offrire i webhook accanto alle `Subscription` FHIR invece di imporre le seconde.
 
-### Criterio 5 — Che cosa succede quando qualcosa va storto?
+### Criterio 5 - Che cosa succede quando qualcosa va storto?
 
 La domanda va posta **prima** di adottare, non dopo il primo incidente:
 
@@ -3183,7 +3187,7 @@ La domanda va posta **prima** di adottare, non dopo il primo incidente:
 
 Un protocollo che non ha risposte a queste sei domande non è stato scelto: è stato subito.
 
-### Criterio 6 — È osservabile e diagnosticabile?
+### Criterio 6 - È osservabile e diagnosticabile?
 
 Un protocollo di cui non si può vedere il traffico senza strumenti specializzati costa in
 assistenza ogni giorno della sua vita. È uno dei motivi seri, non estetici, per cui il
@@ -3195,7 +3199,7 @@ Corollario: **ogni protocollo del progetto deve poter essere tracciato**. Identi
 correlazione propagato, marca temporale affidabile (§8.1), registrazione degli esiti. Un
 protocollo che non si può correlare a una traccia distribuita è un punto cieco.
 
-### Criterio 7 — Che cosa comporta in regime di dispositivo medico?
+### Criterio 7 - Che cosa comporta in regime di dispositivo medico?
 
 Criterio che altrove non esiste e qui è vincolante. Ogni protocollo implementato con una
 libreria di terze parti è **SOUP** ai sensi di IEC 62304 (decisione D12): va censito,
@@ -3208,7 +3212,7 @@ protocollo con la superficie di dipendenze minore**, anche se un po' meno comodo
 logica per cui l'SDK TypeScript del progetto dipende dai soli tipi FHIR e implementa il
 trasporto internamente `[B6]`.
 
-### Criterio 8 — È una scelta reversibile?
+### Criterio 8 - È una scelta reversibile?
 
 Un protocollo dietro un'interfaccia di progetto si sostituisce; un protocollo il cui modello
 è entrato nel codice di dominio no. È esattamente la ragione per cui la decisione D15
@@ -3270,8 +3274,8 @@ differenza fra una documentazione affidabile e una che genera aspettative infond
 
 **10. Progettare per il caso felice della rete.** Banda larga, latenza bassa, nessuna perdita.
 Il paziente reale è su smartphone in rete mobile, in un corridoio, con due tacche di segnale.
-Il vincolo **V6** dice che degradare in modo comprensibile — audio prima del video, avvisi
-chiari, ripresa della sessione — **è parte dell'accessibilità**, non un'ottimizzazione.
+Il vincolo **V6** dice che degradare in modo comprensibile - audio prima del video, avvisi
+chiari, ripresa della sessione - **è parte dell'accessibilità**, non un'ottimizzazione.
 
 **11. Costruire un protocollo proprietario dove ne esiste uno.** Costa la progettazione, la
 documentazione, l'implementazione su entrambi i lati, i test di interoperabilità e la
@@ -3279,9 +3283,9 @@ manutenzione perpetua. Ogni tanto è giustificato; quasi mai è la prima ipotesi
 
 **12. Non leggere la fonte primaria.** La quasi totalità delle affermazioni sbagliate su
 protocolli e standard proviene da sintesi di sintesi. Le correzioni raccolte in questo modulo
-— `Deprecation` che è diventata una RFC, `Idempotency-Key` che non lo è, la forma di
+- `Deprecation` che è diventata una RFC, `Idempotency-Key` che non lo è, la forma di
 `RateLimit` che è cambiata, l'estensione `backport-topic` che non esiste, `ce-datacontenttype`
-che è vietato — sono **tutte** frutto della lettura del testo originale `[B6]`. Nessuna sarebbe
+che è vietato - sono **tutte** frutto della lettura del testo originale `[B6]`. Nessuna sarebbe
 emersa da una ricerca superficiale.
 
 ---
@@ -3308,7 +3312,7 @@ emersa da una ricerca superficiale.
 7. **`Idempotency-Key` non è uno standard**: l'Internet-Draft è scaduto e archiviato. Va
    adottato come convenzione di progetto e dichiarato come tale `[B6]`.
 8. **La forma corretta della limitazione del traffico oggi è `RateLimit` più
-   `RateLimit-Policy`**, non i tre campi storici — che non sono mai stati standard e sono
+   `RateLimit-Policy`**, non i tre campi storici - che non sono mai stati standard e sono
    anche superati. Il documento resta un Internet-Draft attivo, non una RFC `[B6]`.
 9. **`Deprecation` è diventata RFC 9745, Standards Track, marzo 2025**, con valore Date di
    *Structured Fields*; `Sunset` (RFC 8594) non può mai precederla `[B6]`.
@@ -3330,7 +3334,7 @@ emersa da una ricerca superficiale.
     riferito. Con CIE l'asserzione di ritorno è **sempre `SpidL3`**: il livello effettivo non è
     desumibile dalla risposta, quindi si registrano sia il richiesto sia l'asserito `[B7]`.
 16. **SPID richiede SAML 2.0**, non OIDC, e richiede la sua variante italiana con le
-    deviazioni delle regole tecniche e degli avvisi. Il Service Provider è il deployer, mai il
+    deviazioni delle regole tecniche e degli avvisi. Il Service Provider è chi installa, mai il
     progetto (D36).
 17. **MLLP nudo è testo in chiaro senza autenticazione.** Sempre dentro TLS con autenticazione
     reciproca, senza eccezioni «per il collaudo».
@@ -3341,8 +3345,8 @@ emersa da una ricerca superficiale.
     una volta» è un risultato osservabile ottenuto con la deduplicazione lato ricevente.
 20. **L'ordine è garantito per soggetto, non globalmente**, e sui webhook non è garantito
     affatto: ogni evento deve portare un numero di sequenza e uno stato autosufficiente.
-21. **I webhook si firmano con RFC 9421**, con chiave asimmetrica — mai HMAC condiviso, che
-    consentirebbe al ricevente di fabbricare notifiche indistinguibili — e l'impronta del corpo
+21. **I webhook si firmano con RFC 9421**, con chiave asimmetrica - mai HMAC condiviso, che
+    consentirebbe al ricevente di fabbricare notifiche indistinguibili - e l'impronta del corpo
     è `Content-Digest` di RFC 9530, che RFC 9421 **non** definisce.
 22. **`ce-datacontenttype` non deve mai essere emesso**: il tipo di contenuto di un CloudEvent
     in modalità binaria sta solo in `Content-Type`. È un `MUST NOT` della specifica `[B6]`.

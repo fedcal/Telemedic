@@ -11,7 +11,7 @@ description: "Il calendario interno del progetto verso la marcatura CE: che cosa
 > nostra**, non il percorso di un soggetto esterno e non un impegno verso alcuno.
 >
 > Una pianificazione interna, però, **non diventa una promessa solo perché è nostra**. Resta
-> vietato — dal vincolo `V-171` e senza eccezioni — scrivere o lasciare intendere in qualunque
+> vietato - dal vincolo `V-171` e senza eccezioni - scrivere o lasciare intendere in qualunque
 > luogo, documentazione, comunicazione pubblica o materiale di presentazione, **che il prodotto
 > sarà marcato entro una data**. La distinzione non è formale: la destinazione d'uso di un
 > dispositivo si ricava anche dal materiale pubblicato, quindi una data presentata come impegno
@@ -23,14 +23,14 @@ description: "Il calendario interno del progetto verso la marcatura CE: che cosa
 > non che cosa il prodotto è oggi.
 >
 > **Il ruolo di fabbricante non è ancora costituito.** Diversi passi di questo calendario lo
-> presuppongono formalmente — ingaggiare un organismo, firmare un rapporto di valutazione
+> presuppongono formalmente - ingaggiare un organismo, firmare un rapporto di valutazione
 > clinica, apporre la marcatura. La costituzione e la formalizzazione di quel ruolo è quindi
 > essa stessa **un prerequisito interno con un proprio tempo**, ed è messa a calendario come
 > tale invece di essere data per scontata o attribuita altrove.
 >
 > Il § 5 conserva una priorità che nessun altro paragrafo ha: le attività **retroattivamente
 > irrecuperabili**, che vanno svolte ora perché la loro assenza renderebbe impossibile
-> certificare in seguito — a noi come a chiunque.
+> certificare in seguito - a noi come a chiunque.
 
 ## 1. Che cosa esattamente si deve ottenere
 
@@ -93,15 +93,15 @@ dell'organismo notificato, ed è un dato esterno su cui nessuna pianificazione i
 
 | Dato | Valore |
 |---|---|
-| Tempo dall'accordo scritto al certificato — 51 % degli organismi | **13–18 mesi** |
-| Idem — 31 % degli organismi | **19–24 mesi** |
+| Tempo dall'accordo scritto al certificato - 51 % degli organismi | **13–18 mesi** |
+| Idem - 31 % degli organismi | **19–24 mesi** |
 | Valutazione «solo sistema qualità» | in prevalenza **6–12 mesi** |
 | Valutazione «sistema qualità più prodotto», che è il caso qui | in prevalenza **13–18 mesi** |
 | Tempo dal primo contatto alla firma del contratto | **meno di 2 mesi nel 66 % dei casi** |
 | Divario fra domande e certificati emessi a fine 2025 | **25 978 domande contro 13 953 certificati** |
 | Andamento dell'organico degli organismi 2024 → 2025 | **−8 %** personale interno, **−21 %** subappaltatori |
 
-`[FONTI SECONDARIE]` — le cifre provengono da indagini di settore e da rilevazioni della
+`[FONTI SECONDARIE]` - le cifre provengono da indagini di settore e da rilevazioni della
 Commissione riportate nella ricerca del progetto; non sono state lette sulle pubblicazioni
 originali e **non vanno citate come dati ufficiali** in un documento contrattuale.
 
@@ -110,8 +110,8 @@ si chiude prima del 2028 secondo la stessa analisi di settore, e l'organico degl
 contrazione per la prima volta in oltre un decennio. In questo mercato **un fabbricante nuovo, di
 micro dimensione, con un dispositivo software alla prima certificazione, non è un cliente
 prioritario**. Va messo in conto nella pianificazione e nella negoziazione, e ha una conseguenza
-pratica immediata: la variabile più pericolosa dell'intero percorso — il **tempo di attesa prima
-di essere accettati** — non è misurata da alcuna indagine pubblica e non è quindi stimabile
+pratica immediata: la variabile più pericolosa dell'intero percorso - il **tempo di attesa prima
+di essere accettati** - non è misurata da alcuna indagine pubblica e non è quindi stimabile
 (§ 8.2).
 
 **La conseguenza aritmetica.** Anche firmando un contratto entro dicembre 2026, il certificato non
@@ -122,7 +122,7 @@ presentati come uno solo.
 
 ## 3. I tre scenari temporali
 
-### 3.1 Scenario A — compresso
+### 3.1 Scenario A - compresso
 
 | Milestone | Data |
 |---|---|
@@ -133,7 +133,7 @@ presentati come uno solo.
 | Certificati e marcatura CE | dicembre 2027 |
 
 **Condizioni di realizzabilità, tutte necessarie insieme:** richiesta di informazioni inviata agli
-organismi entro settembre 2026; fascicolo *completo* — non «avviato» — a febbraio 2027, in
+organismi entro settembre 2026; fascicolo *completo* - non «avviato» - a febbraio 2027, in
 tensione diretta con la consegna del software di novembre 2026 e con la validazione sommativa di
 usabilità; sistema qualità che ha già completato un ciclo di audit interno e riesame della
 direzione entro aprile 2027; rapporto di valutazione clinica chiuso entro febbraio 2027; organismo
@@ -141,7 +141,7 @@ nel decile più veloce, senza non conformità maggiori.
 
 **Probabilità bassa.** Va trattato come **obiettivo di tensione, non come piano**.
 
-### 3.2 Scenario B — piano di riferimento
+### 3.2 Scenario B - piano di riferimento
 
 È lo scenario adottato da `D44`.
 
@@ -160,10 +160,10 @@ nel decile più veloce, senza non conformità maggiori.
 Durata dalla firma del contratto al certificato: **diciotto mesi**, cioè il limite superiore della
 fascia maggioritaria e non un'ipotesi pessimistica.
 
-### 3.3 Scenario C — conservativo
+### 3.3 Scenario C - conservativo
 
-Contratto a marzo 2027 — perché il fabbricante non è ancora costituito a dicembre 2026, oppure
-perché i primi organismi contattati non accettano nuovi clienti — ventidue mesi di valutazione,
+Contratto a marzo 2027 - perché il fabbricante non è ancora costituito a dicembre 2026, oppure
+perché i primi organismi contattati non accettano nuovi clienti - ventidue mesi di valutazione,
 due cicli di non conformità maggiori sulla valutazione clinica: **certificati a gennaio 2029,
 marcatura nel primo trimestre 2029**.
 
@@ -262,9 +262,9 @@ Va detto esplicitamente perché è il fraintendimento più probabile di questo c
 | | **Versione 1.0** | **Marcatura CE** |
 |---|---|---|
 | Data | **30 novembre 2026** (`D5`) | Milestone autonoma, scenario B: **luglio–agosto 2028** |
-| Titolare | Il progetto | Un fabbricante, che oggi non esiste |
+| Titolare | Il progetto | Il soggetto fabbricante, da costituire |
 | Contenuto | Software completo, testato, documentato; fascicolo tecnico **avviato**; sistema qualità impostato | Certificati dell'organismo, dichiarazione di conformità, registrazione |
-| Che cosa si può dire | «Non ancora marcato CE, **non utilizzabile per l'erogazione di prestazioni sanitarie su pazienti reali**» | — |
+| Che cosa si può dire | «Non ancora marcato CE, **non utilizzabile per l'erogazione di prestazioni sanitarie su pazienti reali**» | - |
 
 **Fino al rilascio dei certificati, nessun artefatto, messaggio, pagina o presentazione può
 lasciare intendere che il prodotto sia marcato o utilizzabile su pazienti reali** (`D16`). La
@@ -289,20 +289,20 @@ seguito. Sono le quattro attività di `D45`.
 **Un'ammissione che va fatta invece di essere aggirata.** L'attività 3 è **già stata violata di
 fatto**: questa documentazione è stata prodotta prima che esistesse un controllo documentale, e
 non è un documento controllato. La conseguenza è già dichiarata dal vincolo `V-174`
-([03 §4](./03-sistema-di-gestione-della-qualita.md)): **nessun capitolo di questa documentazione è
+([03 §4.1](./03-sistema-di-gestione-della-qualita.md)): **nessun capitolo di questa documentazione è
 una procedura del sistema di gestione della qualità**, e nessuno può essere presentato come tale.
 I capitoli sono **ingressi**: contengono l'analisi da cui una procedura si scrive, non la
 procedura. La regola perché quegli ingressi restino utilizzabili è al § 7.2.
 
-Le altre attività dei primi trenta giorni — costituzione del soggetto fabbricante, nomina del
+Le altre attività dei primi trenta giorni - costituzione del soggetto fabbricante, nomina del
 responsabile del rispetto della normativa, richieste di informazioni agli organismi, avvio del
-piano di valutazione clinica — **sono nostre** (`D58`), e questo le rende **più** urgenti di
+piano di valutazione clinica - **sono nostre** (`D58`), e questo le rende **più** urgenti di
 quanto fossero quando le si documentava soltanto.
 
 Una di esse merita di essere isolata perché non è dello stesso genere delle altre. La
 **costituzione del soggetto fabbricante non è attività di documentazione: è atto societario.**
 Non si accelera lavorando di più, dipende da procedimenti amministrativi con tempi propri, e
-finché non è avviata **ogni voce che presuppone il ruolo resta bloccata a monte** — non
+finché non è avviata **ogni voce che presuppone il ruolo resta bloccata a monte** - non
 rallentata, bloccata. È la sola attività di questo calendario che non possiamo portare avanti
 scrivendo.
 
@@ -339,9 +339,9 @@ flowchart LR
    committente, che è il passaggio più lento, e perché tutto ciò che la segue le è subordinato.
 
 **Ciò che questa sequenza garantisce, e ciò che non garantisce.** Garantisce che nessuna delle
-quattro attività irrecuperabili resti pregiudicata, cioè che chi vorrà certificare **possa
-farlo**. Non garantisce alcuna data di certificazione, che dipende interamente dal § 2 e da
-soggetti che il progetto non controlla.
+quattro attività irrecuperabili resti pregiudicata: il soggetto fabbricante, da costituire, avrà
+il percorso libero per certificare. Non garantisce alcuna data di certificazione, che dipende
+interamente dal § 2 e da soggetti che il progetto non controlla.
 
 ## 7. La ripartizione di responsabilità
 
@@ -357,15 +357,14 @@ soggetti che il progetto non controlla.
 | Fascicolo tecnico | Ingressi per la maggior parte delle sezioni | **Compone, mantiene e risponde** |
 | Sistema di gestione della qualità | Pratiche di ingegneria conformi, evidenze generate | **Istituisce, certifica, esercita** |
 | Organismo notificato | Prepara la documentazione richiesta | **Selezione, contratto e risposta ai quesiti** |
-| Marcatura CE e dichiarazione di conformità | — | **Atto esclusivo del fabbricante**, non anticipabile né sostituibile |
+| Marcatura CE e dichiarazione di conformità | - | **Atto esclusivo del fabbricante**, non anticipabile né sostituibile |
 | Sorveglianza e vigilanza | Capacità di prodotto e canale a monte | **Titolare degli obblighi** ([08 §8](./08-sorveglianza-post-commercializzazione.md)) |
 | Responsabilità verso il paziente danneggiato | Nessuna assunta oggi; **non escludibile per contratto** se mai sorgesse | Del fabbricante e dell'operatore economico |
 
 ### 7.2 Come gli artefatti entrano nel sistema di gestione della qualità
 
 > **`V-179`.** Gli artefatti prodotti dal progetto entrano nel sistema di gestione della qualità di
-> un sistema di gestione della qualità come **ingressi identificati**, mai come documenti
-> controllati: chi li acquisisce
+> chi li acquisisce come **ingressi identificati**, mai come documenti controllati: chi li acquisisce
 > li **riemette sotto il proprio controllo documentale**, con proprio identificativo, propria
 > revisione e propria approvazione. Perché la riemissione sia possibile e tracciabile, il progetto
 > garantisce che ogni artefatto destinato al pacchetto regolatorio porti **versione, data e
@@ -376,7 +375,7 @@ soggetti che il progetto non controlla.
 
 È il complemento operativo di `V-174` e la ragione tecnica per cui i due vincoli esistono
 insieme: il primo dice che questi capitoli **non sono** procedure, il secondo dice che cosa
-occorre perché possano diventare l'ingresso di una procedura altrui.
+occorre perché possano diventare l'ingresso di una procedura del soggetto fabbricante da costituire.
 
 ### 7.3 I rischi che si trasferiscono a chi integra, e vanno formalizzati
 
@@ -388,7 +387,7 @@ nessuno.
 
 | Categoria | Esempio | Forma della formalizzazione |
 |---|---|---|
-| **Controlli di configurazione a monte** | I difetti del prodotto di federazione trattati come rischi di prodotto (`RM-17`) richiedono controlli di configurazione che il deployer applica | Requisiti dell'ambiente operativo nelle istruzioni per l'uso, con **prove negative** che il deployer esegue |
+| **Controlli di configurazione a monte** | I difetti del prodotto di federazione trattati come rischi di prodotto (`RM-17`) richiedono controlli di configurazione che chi installa applica | Requisiti dell'ambiente operativo nelle istruzioni per l'uso, con **prove negative** che chi installa esegue |
 | **Obblighi organizzativi** | La copertura oraria dichiarata è una misura di controllo del rischio informativa, e dipende da chi presidia il servizio | Clausola contrattuale con dichiarazione della copertura effettivamente presidiata |
 | **Obblighi di segnalazione** | Il fabbricante deve conoscere gli incidenti entro un termine **inferiore** a quelli dell'art. 87 | Clausola contrattuale con termine e canale ([08 §8.2](./08-sorveglianza-post-commercializzazione.md)) |
 | **Ripartizione dei ruoli** | Titolare del trattamento, fabbricante, fornitore di servizi in rete, soggetto obbligato alla sicurezza delle reti possono essere quattro soggetti distinti | Tabella di ripartizione confermata in [01 §10](./01-inquadramento-normativo.md), da assegnare **nominativamente** nel contratto |
@@ -415,8 +414,8 @@ sostituisce.
 | Cicli di risposta alle non conformità | 2–4 cicli × 6–10 settimane | Ogni ciclo ha una coda dell'organismo |
 
 **Somma delle sole attività a monte della sottomissione, dove la sequenza è obbligata: circa dieci
-mesi.** È la ragione aritmetica per cui lo scenario A è un obiettivo di tensione — non perché
-manchi la volontà, ma perché richiederebbe che sei attività non comprimibili si svolgessero
+mesi.** È la ragione aritmetica per cui lo scenario A è un obiettivo di tensione - non perché
+manchi la volontà, ma perché richiederebbe che cinque attività non comprimibili si svolgessero
 contemporaneamente senza dipendenze, e le dipendenze esistono.
 
 ### 8.2 Che cosa è stimabile e che cosa no
@@ -424,22 +423,22 @@ contemporaneamente senza dipendenze, e le dipendenze esistono.
 Il progetto adotta una regola: **non si stima ciò che ha una fonte pubblica primaria**, e non si
 stima ciò che dipende da variabili non note.
 
-**Blocco A — si legge, non si stima.** Le tariffe dell'organismo notificato sono oggetto di un
+**Blocco A - si legge, non si stima.** Le tariffe dell'organismo notificato sono oggetto di un
 **obbligo di pubblicazione** dell'Allegato VII, sezione 1.2.8, con l'elenco dei collegamenti
 mantenuto dalla Commissione. Il numero di giornate dell'audit di certificazione del sistema
 qualità si calcola con tabelle pubbliche, e l'organismo è tenuto a esplicitare il calcolo
 nell'offerta. Diritti e oneri di costituzione del soggetto giuridico sono tariffe pubbliche.
-`[NV]` — nessun listino è stato letto in questa documentazione, e **il progetto non stima le
+`[NV]` - nessun listino è stato letto in questa documentazione, e **il progetto non stima le
 tariffe: rinvia alla fonte primaria**.
 
-**Blocco B — ordine di grandezza, da confermare con preventivo.** Sono esclusivamente prestazioni
+**Blocco B - ordine di grandezza, da confermare con preventivo.** Sono esclusivamente prestazioni
 professionali: consulenza regolatoria, redazione delle procedure, audit interno commissionato,
 conduzione delle valutazioni di usabilità, redazione clinica, prova di penetrazione indipendente.
 Per ciascuna la variabile dominante **non è la tariffa oraria ma la quantità di lavoro**, che
-dipende da quanto materiale il progetto porta già pronto — ed è la ragione economica, oltre che
+dipende da quanto materiale il progetto porta già pronto - ed è la ragione economica, oltre che
 regolatoria, dei §§ 5 e 7.
 
-**Blocco C — non stimabile, e va detto invece di inventare un numero.**
+**Blocco C - non stimabile, e va detto invece di inventare un numero.**
 
 | Voce | Perché non è stimabile |
 |---|---|
@@ -458,8 +457,8 @@ l'esito migliore come esito atteso.
 
 1. **Chiedere il calcolo, non il prezzo**: le giornate previste per ciascuna attività e il metodo
    con cui sono calcolate, con riferimento alla tariffa pubblicata.
-2. **Chiedere impegni sui tempi delle singole fasi** — verifica di completezza, primo ciclo di
-   quesiti, tempo di risposta alle repliche — e i rimedi in caso di scostamento. Un'offerta priva
+2. **Chiedere impegni sui tempi delle singole fasi** - verifica di completezza, primo ciclo di
+   quesiti, tempo di risposta alle repliche - e i rimedi in caso di scostamento. Un'offerta priva
    di impegni sui tempi è un'offerta su un solo asse.
 3. **Chiedere un riesame preliminare a pagamento**, quando offerto: riduce i cicli di non
    conformità, che sono la voce non stimabile più pesante.
@@ -475,8 +474,9 @@ L'errore di pianificazione economica più comune è trattare la marcatura come u
 capitale. Apre invece un **flusso ricorrente** che dura quanto il prodotto: audit di sorveglianza
 almeno annuale, audit senza preavviso non pianificabili ma da mettere a bilancio, sorveglianza e
 rinnovo del certificato del sistema qualità, canone di mantenimento, rinnovo del certificato
-dell'organismo alla scadenza, aggiornamento del rapporto periodico sulla sicurezza almeno ogni due
-anni, aggiornamento della valutazione clinica e del seguito, disponibilità permanente del
+dell'organismo alla scadenza, rapporto periodico di aggiornamento sulla sicurezza mantenuto
+aggiornato almeno ogni due anni, aggiornamento della valutazione clinica e del seguito,
+disponibilità permanente del
 responsabile del rispetto della normativa, sorveglianza dei componenti di terze parti, copertura
 assicurativa.
 
@@ -505,7 +505,7 @@ disponibili e quali si acquistano a progetto**: è la disponibilità permanente 
 essere condotto da chi ha eseguito l'attività auditata**: in una struttura piccola significa, in
 pratica, commissionarlo all'esterno, e non è un lusso ma una condizione di superabilità della
 seconda fase. La **prova di penetrazione deve essere indipendente** da chi ha scritto il codice:
-non tanto per requisito formale quanto per credibilità dell'evidenza — un rapporto prodotto
+non tanto per requisito formale quanto per credibilità dell'evidenza - un rapporto prodotto
 internamente, per un valutatore, non è un rapporto.
 
 ### 9.1 Il responsabile del rispetto della normativa
@@ -522,12 +522,12 @@ imprese** non sono tenute ad avere la persona all'interno della propria organizz
 averla **permanentemente e continuamente a disposizione**. Sono due implicazioni: la disponibilità
 va **contrattualizzata** e verificabile, e la formula esclude il rapporto occasionale a chiamata.
 
-`[NV]` — i requisiti di qualifica e la deroga sono verificati nella sostanza; la corrispondenza con
+`[NV]` - i requisiti di qualifica e la deroga sono verificati nella sostanza; la corrispondenza con
 i numeri di paragrafo dell'art. 15 va confermata sul testo consolidato.
 
-**Le responsabilità dell'articolo** — verifica della conformità prima del rilascio, redazione e
+**Le responsabilità dell'articolo** - verifica della conformità prima del rilascio, redazione e
 aggiornamento della documentazione tecnica e della dichiarazione di conformità, adempimento degli
-obblighi di sorveglianza e di segnalazione — **rendono questa persona il punto di compressione
+obblighi di sorveglianza e di segnalazione - **rendono questa persona il punto di compressione
 dell'intero processo**. Il regolamento stabilisce inoltre che essa non subisca svantaggi
 nell'organizzazione per il corretto adempimento dei propri compiti: è una tutela di indipendenza,
 e ha senso solo se la persona ha autonomia reale rispetto a chi ha interesse a rilasciare.
@@ -541,8 +541,8 @@ candidato appartiene ai primi trenta giorni e non alla fase di ingaggio dell'org
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| `Q-179` | **Se e come pubblicare questo calendario.** Il capitolo contiene date di certificazione riferite a un percorso di terzi. Pubblicarle senza un'avvertenza collocata **sopra** e non sotto è il modo più rapido di produrre esattamente l'affermazione vietata da `V-171`, cioè che il prodotto sarà marcato entro una data. Serve la decisione sulla forma di pubblicazione e sulla sua avvertenza, coerente con `Q-170` e `Q-174` | → Committente |
-| `Q-144` | **CHIUSA da `D55`.** La destinazione d'uso **è congelata** sulla raccolta differita. Il primo punto di decisione irreversibile del § 3.5 è quindi superato. **Resta però una condizione di `D46` non soddisfatta**: la revisione esterna della formulazione, che è l'unica prescrizione di quella decisione eseguibile **senza** il soggetto fabbricante costituito, e va quindi avviata subito (`Q-275`) | **RISOLTA, con una condizione residua** |
+| `Q-179` | **Se e come pubblicare questo calendario.** Il capitolo contiene date di certificazione che sono **pianificazione interna del progetto** (`D57`), non il percorso di un soggetto esterno - e proprio per questo il rischio di lettura è **maggiore**, non minore: una data che il progetto pianifica per sé si legge come un impegno del progetto molto più facilmente di una data attribuita ad altri. Pubblicarle senza un'avvertenza collocata **sopra** e non sotto è il modo più rapido di produrre esattamente l'affermazione vietata da `V-171`, cioè che il prodotto sarà marcato entro una data. Serve la decisione sulla forma di pubblicazione e sulla sua avvertenza, coerente con `Q-170` e `Q-174` | → Committente |
+| `Q-144` | **CHIUSA da `D55`.** La destinazione d'uso **è congelata** sulla raccolta differita. Il **secondo** punto di decisione irreversibile del § 3.5 - il congelamento della destinazione d'uso - è quindi superato; il **primo**, la richiesta di informazioni agli organismi, resta impregiudicato. **Resta però una condizione di `D46` non soddisfatta**: la revisione esterna della formulazione, che è l'unica prescrizione di quella decisione eseguibile **senza** il soggetto fabbricante costituito, e va quindi avviata subito (`Q-275`) | **RISOLTA, con una condizione residua** |
 | `[FONTI SECONDARIE]` | Tutte le cifre del § 2 provengono da indagini di settore non lette sulle pubblicazioni originali: non vanno citate come dati ufficiali | Conformità |
 | `[NV]` | Numerazione dei paragrafi dell'art. 15; obbligo di pubblicazione delle tariffe e collegamento all'elenco mantenuto dalla Commissione (§§ 8.2, 9.1) | Conformità |
-| — | **Nessuna delle date di questo capitolo è un impegno del progetto.** Il progetto ha una sola colonna nel calendario, ed è il § 5 | — |
+| - | **Nessuna delle date di questo capitolo è un impegno del progetto.** Il progetto ha una sola colonna nel calendario, ed è il § 5 | - |

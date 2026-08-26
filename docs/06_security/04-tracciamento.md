@@ -1,7 +1,7 @@
 ---
 title: Tracciamento
 sidebar_position: 5
-description: Il registro immutabile — perché il versionamento delle entità non lo è, catena di impronte e conservazione separata, che cosa si registra e che cosa non si registra, conservazione a 24 e 12 mesi, esportazione con impronta entro il giorno successivo, orologio sincronizzato, accesso al registro stesso.
+description: Il registro immutabile - perché il versionamento delle entità non lo è, catena di impronte e conservazione separata, che cosa si registra e che cosa non si registra, conservazione a 24 e 12 mesi, esportazione con impronta entro il giorno successivo, orologio sincronizzato, accesso al registro stesso.
 ---
 
 # Tracciamento
@@ -9,7 +9,7 @@ description: Il registro immutabile — perché il versionamento delle entità n
 > **Presupposto di lettura.** Che cos'è una catena di impronte, perché lega l'integrità di una
 > sequenza, che cos'è il non ripudio e in che cosa differisce dall'integrità, e perché un
 > registro alterabile non prova nulla:
-> [10 §12 — Crittografia e sicurezza, §§1.5, 5.6, 9](../10_fondamenti/12-crittografia-e-sicurezza.md).
+> [10 §12 - Crittografia e sicurezza, §§1.5, 5.6, 9](../10_fondamenti/12-crittografia-e-sicurezza.md).
 > Qui si descrivono la forma concreta del registro di questo sistema, il suo contenuto e i suoi
 > obblighi.
 
@@ -25,7 +25,7 @@ domande:
 5. **Che nessuno lo ha alterato** dopo la scrittura, o che, se lo ha fatto, è rilevabile.
 
 Il punto 5 è quello che distingue un registro da un elenco di eventi, e il punto 1 nella sua
-versione completa — «con quale garanzia di identità» — è quello che collega questo capitolo al
+versione completa - «con quale garanzia di identità» - è quello che collega questo capitolo al
 capitolo [02 §4](./02-identita-e-accessi.md): un registro che dica «autenticato con livello 2»
 senza dire se il livello è stato **eseguito** o **riferito** risponde alla domanda 1 in modo
 apparente.
@@ -120,7 +120,7 @@ Ogni riga porta l'**identificativo di tenant** (vincolo V4 della base architettu
 l'**esito**: un tentativo respinto è una riga, non un silenzio. Le righe di esito negativo sono
 spesso più informative di quelle positive, perché descrivono ciò che qualcuno ha provato a fare.
 
-### 3.2 Che cosa non si registra — vincolo V-150
+### 3.2 Che cosa non si registra - vincolo V-150
 
 **Il registro immutabile e i log applicativi non contengono contenuto clinico. I log di
 diagnostica non portano identificativi diretti dell'assistito.**
@@ -193,7 +193,7 @@ dal supporto; scrittura singola su oggetto con blocco di ritenzione; firma perio
 temporale. Hanno costi, garanzie e dipendenze diversi. È la **questione Q-150** della bacheca,
 indirizzata all'architettura, e va chiusa con un documento di decisione architetturale.
 
-## 5. Conservazione — vincolo V-152
+## 5. Conservazione - vincolo V-152
 
 | Categoria | Termine | Fonte |
 |---|---|---|
@@ -207,14 +207,14 @@ italiano della telemedicina. Ne discende la regola di composizione: **prevale il
 lungo applicabile**, e per i log di tracciabilità il termine è di 24 mesi.
 
 **I due termini non sono lo stesso termine.** Il registro degli accessi a dato sanitario è
-tracciabilità; il log degli eventi di autenticazione — accessi riusciti e falliti,
-disconnessioni, blocchi di utenza — è dato di accesso. La configurazione predefinita li tiene
+tracciabilità; il log degli eventi di autenticazione - accessi riusciti e falliti,
+disconnessioni, blocchi di utenza - è dato di accesso. La configurazione predefinita li tiene
 distinti, e chi installa può allungarli, mai accorciarli sotto il termine di fonte.
 
 **La conservazione ha un lato che si dimentica: la cancellazione a scadenza deve avvenire.** Un
 registro conservato oltre il termine senza una base è esso stesso un trattamento privo di
-fondamento. La cancellazione a scadenza è quindi un'operazione programmata, verificata, e — con
-una simmetria che merita attenzione — **essa stessa registrata**: la riga che attesta la
+fondamento. La cancellazione a scadenza è quindi un'operazione programmata, verificata, e - con
+una simmetria che merita attenzione - **essa stessa registrata**: la riga che attesta la
 cancellazione del blocco scaduto sopravvive al blocco.
 
 ## 6. Esportazione, orologio e sequenza temporale
@@ -260,15 +260,15 @@ Requisiti:
 - **lo scarto massimo fra i componenti è misurato**, con allarme al superamento della soglia
   configurata. Una divergenza dell'orologio è un evento di sicurezza, non un problema operativo:
   è il presupposto di un'alterazione non rilevabile;
-- gli istanti che il sistema **non ha generato** — quello di rilevazione di una misura riferito
-  da un dispositivo esterno, per esempio — sono conservati **distinti** da quelli generati dal
+- gli istanti che il sistema **non ha generato** - quello di rilevazione di una misura riferito
+  da un dispositivo esterno, per esempio - sono conservati **distinti** da quelli generati dal
   sistema, e mai sovrascritti con essi.
 
 ## 7. Il registro come strumento di rilevazione
 
 Un registro che si consulta solo dopo l'incidente ha già fallito la metà del proprio scopo.
 L'autorità nazionale lo dice, in sostanza, quando lega la tipologia di incidente riservata ai
-soggetti essenziali — accesso non autorizzato o **con abuso dei privilegi concessi** — alla
+soggetti essenziali - accesso non autorizzato o **con abuso dei privilegi concessi** - alla
 definizione di **parametri quali-quantitativi** ai sensi della misura sul monitoraggio continuo,
 e ne offre due esempi: un indicatore quantitativo, «il superamento di una soglia per le
 interrogazioni di una banca dati da parte di un singolo utente»; un indicatore qualitativo,
@@ -277,7 +277,7 @@ interrogazioni di una banca dati da parte di un singolo utente»; un indicatore 
 **Il registro deve quindi essere interrogabile per soglie e per schemi, non solo consultabile.**
 È un requisito funzionale, non una funzione di osservabilità.
 
-Gli indicatori che il progetto fornisce come predefinito — soglie **configurabili per tenant**,
+Gli indicatori che il progetto fornisce come predefinito - soglie **configurabili per tenant**,
 mai cablate:
 
 | Indicatore | Tipo | Che cosa rileva |
@@ -321,8 +321,8 @@ consultato dal professionista Y» è dato relativo alla salute
 4. **L'esportazione del registro è un atto sorvegliato**: soglie, motivazione, notifica al
    responsabile designato.
 
-La ricorsione — la consultazione del registro produce una riga del registro, la cui
-consultazione produce un'altra riga — **termina** perché le righe di consultazione non sono
+La ricorsione - la consultazione del registro produce una riga del registro, la cui
+consultazione produce un'altra riga - **termina** perché le righe di consultazione non sono
 oggetto di consultazione ordinaria: sono materia di riesame periodico, non di interrogazione
 corrente.
 
@@ -349,4 +349,4 @@ Per simmetria con l'onestà richiesta al capitolo [03 §5](./03-protezione-dei-d
 | Q-150 | **Documento di decisione architetturale sul registro immutabile**: catena di impronte applicativa, archiviazione a sola aggiunta, scrittura singola su oggetto, o firma periodica con marca temporale (§4.2) | Architettura |
 | Q-152 | Livelli di servizio attesi ai fini del monitoraggio continuo, distinti da quelli previsti dal decreto sulle infrastrutture regionali: la tipologia di incidente sui livelli di servizio dipende da valori che il cliente definisce, e il prodotto deve saperli misurare | Architettura, roadmap |
 | Q-158 | Punto e periodicità dell'ancoraggio esterno dell'impronta cumulativa (§4.1) | Architettura |
-| — | Soglie predefinite degli indicatori del §7: sono **specifica di prodotto, mai conformità** (V-12), e vanno tarate con chi installa | Funzionale |
+| - | Soglie predefinite degli indicatori del §7: sono **specifica di prodotto, mai conformità** (V-12), e vanno tarate con chi installa | Funzionale |

@@ -1,7 +1,7 @@
 ---
 title: Telemedicine services
 sidebar_position: 3
-description: Regulatory — not commercial — definitions of televisita, teleconsulto, teleconsulenza, teleassistenza, telemonitoraggio, telerefertazione and teleriabilitazione; the Italian chain of legislation up to DM 19 novembre 2025; the PNT/INT/IRT/NIT architecture; the ten health record document types; recurring mistakes.
+description: Regulatory - not commercial - definitions of televisita, teleconsulto, teleconsulenza, teleassistenza, telemonitoraggio, telerefertazione and teleriabilitazione; the Italian chain of legislation up to DM 19 novembre 2025; the PNT/INT/IRT/NIT architecture; the ten health record document types; recurring mistakes.
 ---
 
 # Telemedicine services
@@ -13,7 +13,7 @@ actors, reserved acts, documentary obligations, remuneration rules and express p
 
 Getting a definition wrong does not produce a marketing inaccuracy: it produces a wrong data
 model, invalid clinical documents, authorisations granted to people who could not perform the
-act, rejected reimbursement reporting flows and — in the worst case — an unlawful health act.
+act, rejected reimbursement reporting flows and - in the worst case - an unlawful health act.
 
 Those arriving from computing tend to read «televisita» and «teleconsulto» as stylistic
 synonyms. They are not. What changes is the subject of the service, who is present, who is
@@ -48,13 +48,13 @@ some specific obligations (§ 4.1.6).
 
 A regulatory definition does three things that a commercial name does not:
 
-- **it delimits who may do what.** The televisita is defined as «*a medical act*»: from this
+- **it delimits who may do what.** The remote consultation (televisita) is defined as «*a medical act*»: from this
   qualification it follows that a nurse cannot deliver it, full stop;
-- **it determines what is produced.** The televisita in outpatient specialist care «*must
-  always conclude with a report*»; the teleconsulto «*does not give rise to a report of its
+- **it determines what is produced.** The remote consultation in outpatient specialist care «*must
+  always conclude with a report*»; the specialist-to-specialist consultation (teleconsulto) «*does not give rise to a report of its
   own*». They are two different state machines;
-- **it determines whether and how payment is made.** The televisita is remunerated as a
-  follow-up visit; the teleconsulto is not remunerated at all.
+- **it determines whether and how payment is made.** The remote consultation is remunerated as a
+  follow-up visit; the specialist-to-specialist consultation is not remunerated at all.
 
 ### 1.3 What telemedicine is NOT
 
@@ -102,45 +102,45 @@ is an overstatement.
 | **4. Cross-cutting technical rules for the public administration** | Codice dell'amministrazione digitale (D.lgs. 82/2005); AgID guidelines under art. 71 CAD; ACN determinations; the three-year plan | Full for public administrations | All public administrations and their suppliers |
 
 To these are added two **horizontal and fully binding** bodies of law: Regulation (EU)
-2016/679 (GDPR), dealt with in module [03 — The clinical datum](03-il-dato-clinico.md), and
+2016/679 (GDPR), dealt with in module [03 - The clinical datum](03-il-dato-clinico.md), and
 Regulation (EU) 2017/745 on medical devices (MDR), dealt with in module
-[15 — The regulatory framework from scratch](15-regolatorio-da-zero.md).
+[15 - The regulatory framework from scratch](15-regolatorio-da-zero.md).
 
 ### 2.2 Essential chronology
 
 ```mermaid
 timeline
     title Italian chain of telemedicine legislation
-    2014 : Intesa 16/CSR — National guidance (superseded in its operational content)
-    2020 : Accordo 215/CSR of 17 December — CANONICAL DEFINITIONS of the services
-    2021 : Accordo 231/CSR of 18 November — Telerehabilitation
-    2022 : DM 77 of 23 May — Territorial care : DM 21 September — Functional requirements and service levels : DM 30 September — Procurement, lead Regions, clinical areas (Annex B)
-    2023 : DM 7 September — Electronic health record 2.0
-    2024 : DM 31 December — Establishment of the health data ecosystem
-    2025 : DM 19 November — National telemedicine platform, PNT/INT/IRT/NIT, ten new health record document types
+    2014 : Intesa 16/CSR - National guidance (superseded in its operational content)
+    2020 : Accordo 215/CSR of 17 December - CANONICAL DEFINITIONS of the services
+    2021 : Accordo 231/CSR of 18 November - Telerehabilitation
+    2022 : DM 77 of 23 May - Territorial care : DM 21 September - Functional requirements and service levels : DM 30 September - Procurement, lead Regions, clinical areas (Annex B)
+    2023 : DM 7 September - Electronic health record 2.0
+    2024 : DM 31 December - Establishment of the health data ecosystem
+    2025 : DM 19 November - National telemedicine platform, PNT/INT/IRT/NIT, ten new health record document types
 ```
 
 **What each act imposes on an application**, in one line:
 
-- **Accordo 215/CSR 2020** — it almost never speaks of software, but **it is the source of the
+- **Accordo 215/CSR 2020** - it almost never speaks of software, but **it is the source of the
   definitions** and therefore determines the domain model. It requires: a mandatory report for
   the televisita; recording in the report of the presence of collaborators and of the
   **quality of the connection**; encryption of *all* transfers of voice, video, images and
   files; verified identity of the patient; certification as a medical device «*appropriate to
   the type of service*».
-- **DM 77/2022** — it places telemedicine inside territorial pathways. It does not lay down
+- **DM 77/2022** - it places telemedicine inside territorial pathways. It does not lay down
   software requirements, it determines the context (module
   [01](01-sistema-sanitario-italiano.md), § 8).
-- **DM 21 settembre 2022** — «Approval of the guidelines for telemedicine services —
+- **DM 21 settembre 2022** - «Approval of the guidelines for telemedicine services -
   Functional requirements and service levels», Gazzetta Ufficiale, General Series no. 256 of
   2 November 2022. **It is the technically most prescriptive act**: micro-service architecture,
   *event-driven*, containerised, *cloud native*, multi-tenant, *mobile first*, accessible,
   with 24/7 service levels.
-- **DM 30 settembre 2022** — it governs procurement (lead Regions) and, in **Annex B**, the
+- **DM 30 settembre 2022** - it governs procurement (lead Regions) and, in **Annex B**, the
   clinical areas and clinical requirements.
-- **DM 7 settembre 2023** — electronic health record 2.0: contents, actors, consents, feeding,
+- **DM 7 settembre 2023** - electronic health record 2.0: contents, actors, consents, feeding,
   consultation (module [07](07-fse-e-infrastrutture-nazionali.md)).
-- **DM 19 novembre 2025** — «Rules on the processing of personal data within the
+- **DM 19 novembre 2025** - «Rules on the processing of personal data within the
   infrastructure of the national telemedicine Platform», Gazzetta Ufficiale, General Series
   no. 301 of 30 December 2025, act 25A06938. It formally establishes the national
   architecture, creates **ten new health record document types** dedicated to telemedicine,
@@ -156,8 +156,8 @@ timeline
 This is the first serious obstacle, and it must be faced immediately because the data model
 has to represent it.
 
-**Accordo 215/CSR 2020** lists **five outpatient activities** — televisita, teleconsulto,
-teleconsulenza, teleassistenza, telerefertazione — plus **telecontrollo** and
+**Accordo 215/CSR 2020** lists **five outpatient activities** - televisita, teleconsulto,
+teleconsulenza, teleassistenza, telerefertazione - plus **telecontrollo** and
 **telemonitoraggio** as «operating modes».
 
 **DM 21 settembre 2022**, by contrast, identifies **four «minimum services»** that the
@@ -183,8 +183,8 @@ choose one: the first determines the lawfulness of the act and the reporting, th
 determines admissibility in a tender and the structure of the micro-services.
 
 There also exists, since 29 January 2026, a **National Telemedicine Glossary** published by
-AGENAS in the Business Glossary of the national platform (v. 1.0.0). The project's glossary —
-module [19](19-glossario.md) — must align with it wherever it diverges.
+AGENAS in the Business Glossary of the national platform (v. 1.0.0). The project's glossary -
+module [19](19-glossario.md) - must align with it wherever it diverges.
 
 ---
 
@@ -193,13 +193,13 @@ module [19](19-glossario.md) — must align with it wherever it diverges.
 Every service is described using the same grid, because it is precisely these dimensions that
 change from one to the next:
 
-- **regulatory definition** — verbatim, from the source, in quotation marks;
-- **actors** — who performs the act;
-- **who is present** — is the patient there or not; is it synchronous or asynchronous;
-- **who is responsible** — who is answerable for what;
-- **what is produced** — which document, with which requirements;
-- **what cannot be done** — the express limits;
-- **effects on the data model** — the engineering translation.
+- **regulatory definition** - verbatim, from the source, in quotation marks;
+- **actors** - who performs the act;
+- **who is present** - is the patient there or not; is it synchronous or asynchronous;
+- **who is responsible** - who is answerable for what;
+- **what is produced** - which document, with which requirements;
+- **what cannot be done** - the express limits;
+- **effects on the data model** - the engineering translation.
 
 The definitions in block quotes are reported **verbatim** from Annex A to the State-Regions
 Agreement of 17 December 2020, act no. 215/CSR (version 4.4 of 27 October 2020), unless
@@ -214,13 +214,13 @@ otherwise indicated.
 #### 4.1.1 Definition
 
 > «It is a medical act in which the professional interacts at a distance in real time with the
-> patient, possibly with the support of a *care-giver*. Nevertheless the televisita, as
+> patient, possibly with the support of a *care-giver*. Nevertheless the remote consultation, as
 > provided for also by the code of medical ethics, may never be regarded as the means of
 > conducting the doctor-patient relationship exclusively at a distance, nor may it be regarded
 > as automatically replacing the first in-person medical visit. The doctor is appointed to
-> decide in which situations and to what extent the televisita may be employed in the
+> decide in which situations and to what extent the remote consultation may be employed in the
 > patient's favour, also using telemedicine tools for the activities of remote measurement, or
-> monitoring, of biological parameters and of clinical surveillance. **The televisita is to be
+> monitoring, of biological parameters and of clinical surveillance. **The remote consultation is to be
 > understood as limited to follow-up activity for patients whose diagnosis has already been
 > formulated in the course of an in-person visit.**»
 
@@ -242,14 +242,14 @@ flowchart LR
     M -.records in the report<br/>the presence of collaborators.-> R[(Signed report)]
 ```
 
-- **Doctor** — the act is reserved to the doctor. No other health profession may deliver a
-  televisita.
-- **Patient** — present, **in real time**. The televisita is by definition synchronous: there
-  is no such thing as an asynchronous televisita.
-- **Carer** — optional; they assist, they do not represent. A carer **may not give consent in
+- **Doctor** - the act is reserved to the doctor. No other health profession may deliver a
+  remote consultation.
+- **Patient** - present, **in real time**. The remote consultation is by definition synchronous: there
+  is no such thing as an asynchronous remote consultation.
+- **Carer** - optional; they assist, they do not represent. A carer **may not give consent in
   substitution for a patient with capacity**, in any configuration.
-- **Health worker at the patient's side** — optional. The Agreement expressly provides for it:
-  «*During the televisita a health worker who is near the patient may assist the doctor and/or
+- **Health worker at the patient's side** - optional. The Agreement expressly provides for it:
+  «*During the remote consultation a health worker who is near the patient may assist the doctor and/or
   help the patient*».
 
 #### 4.1.3 The constraint on the first visit: the exact reading
@@ -257,8 +257,8 @@ flowchart LR
 This is the point on which the greatest number of mistaken simplifications circulate, in both
 directions. The text contains **two distinct statements with different intensity**:
 
-1. the televisita **does not automatically replace** the first in-person visit;
-2. the televisita **is to be understood as limited to follow-up activity** for patients
+1. the remote consultation **does not automatically replace** the first in-person visit;
+2. the remote consultation **is to be understood as limited to follow-up activity** for patients
    already diagnosed in person.
 
 The second is more restrictive than the first. It is not, however, an **absolute
@@ -268,18 +268,18 @@ medical responsibility («*the doctor is appointed to decide*»).
 And the picture is articulated further at regional level. The regional Guidance of
 Emilia-Romagna (BUR no. 255 of 17 August 2021, Annex 2) states that «*the possibility of its
 use is not excluded even in cases where the patient is referred for the first time to a
-specialist following a teleconsulto between the MMG/PLS and the specialist*». **This opening
+specialist following a specialist-to-specialist consultation between the MMG/PLS and the specialist*». **This opening
 is regional, not national.**
 
-> **Editorial rule of the project.** Writing «the televisita may never replace the first
-> visit» is **imprecise**. Writing «the televisita is admissible for a first visit after a
-> teleconsulto» is **imprecise in the opposite direction**. The correct formulation is
+> **Editorial rule of the project.** Writing «the remote consultation may never replace the first
+> visit» is **imprecise**. Writing «the remote consultation is admissible for a first visit after a
+> specialist-to-specialist consultation» is **imprecise in the opposite direction**. The correct formulation is
 > stratified: the national rule as a restrictive default, the regional derogation as explicit
 > and tracked configuration, the final decision resting with the doctor and recorded.
 
 #### 4.1.4 Exhaustive conditions of deliverability
 
-Deliverable by televisita are those outpatient services which **do not require the
+Deliverable by remote consultation are those outpatient services which **do not require the
 completeness of the physical examination** (traditionally made up of inspection, palpation,
 percussion and auscultation) **and** where **at least one** of the following conditions is
 present:
@@ -302,8 +302,8 @@ attributed to the doctor, tracked and not modifiable after the fact. In the proj
 terminology this is the **appropriateness gate**.
 
 To this is added a further phase introduced by the most recent methodological document:
-AGENAS's **Guidance model for the delivery of the Televisita** (v. 1.0.25 of 16 April 2026)
-provides for a «feasibility assessment» phase articulated over three dimensions — **clinical
+AGENAS's **Guidance model for the delivery of the remote consultation** (v. 1.0.25 of 16 April 2026)
+provides for a «feasibility assessment» phase articulated over three dimensions - **clinical
 usefulness**, **clinical safety** and **verification of the patient's digital readiness**,
 that is, the ascertainment of their ability to interact with digital systems. The document is
 methodological and not regulatory `[RACCOMANDATO]`, but it is in practice expected in tender
@@ -324,7 +324,7 @@ and from consent to data processing.
 
 #### 4.1.6 What is produced
 
-> «The televisita delivered within outpatient specialist activity **must always conclude with
+> «The remote consultation delivered within outpatient specialist activity **must always conclude with
 > a report**.»
 
 In the report, in addition to the usual information, the following must be recorded:
@@ -342,17 +342,17 @@ Sanitario Elettronico*».
 **The obligation is not, however, unconditional.** DM 30 settembre 2022, Annex B, section
 «Delivery modes», introduces two derogations that depend on the *setting*:
 
-> «**A prescription for the televisita is not necessary** where it is scheduled and delivered
+> «**A prescription for the remote consultation is not necessary** where it is scheduled and delivered
 > directly **by the MMG or the PLS**, and they may be delivered within any type of PDTA.»
 
-> «The televisita **always concludes with a report (except in cases where the televisita is
+> «The remote consultation **always concludes with a report (except in cases where the remote consultation is
 > carried out by the MMG/PLS)** which must be sent to the health record. However, should the
 > patient have difficulty accessing their own health record, on request the report may also be
 > sent in **secure mode, with two-factor authentication**.»
 
 **The domain model must therefore represent the delivery *setting* as a discriminator of
-rules**: televisita in outpatient specialist care → prescription necessary and report
-mandatory; televisita delivered by a general practitioner or a freely chosen paediatrician →
+rules**: remote consultation in outpatient specialist care → prescription necessary and report
+mandatory; remote consultation delivered by a general practitioner or a freely chosen paediatrician →
 prescription not necessary and a digital note in place of the report.
 
 #### 4.1.7 The attestation of the quality of the connection
@@ -374,7 +374,7 @@ is:
 
 1. the legislation requires the doctor to attest to the fitness of the connection;
 2. the attestation requires objective evidence, otherwise it is a bare assertion;
-3. session metrics — round-trip time, packet loss, *jitter*, *bitrate* — **are** that
+3. session metrics - round-trip time, packet loss, *jitter*, *bitrate* - **are** that
    evidence;
 4. the alarm threshold is **a product choice**, configurable per tenant, **not a statutory
    threshold**.
@@ -408,10 +408,10 @@ enumeration**, not a free-text field:
 #### 4.1.9 What cannot be done
 
 - **It is not admissible in urgency/emergency.** DM 30 settembre 2022, Annex B, is explicit:
-  for the patient in urgency/emergency the televisita «*is not advisable, in that it must not
+  for the patient in urgency/emergency the remote consultation «*is not advisable, in that it must not
   constitute a reason for delaying in-person interventions in cases where these guarantee
   greater effectiveness or safety than remote intervention*». The system **must not offer
-  televisita pathways in urgent contexts**.
+  remote consultation pathways in urgent contexts**.
 - **It is not admissible when a complete physical examination is needed.**
 - **It does not automatically replace the first visit** (§ 4.1.3).
 - **It is not advised at home** for patients with acute conditions or ongoing exacerbations
@@ -431,7 +431,7 @@ the conditions found in the patient or otherwise)*» there arises «*the obligat
 reschedule the service in person*».
 
 The AGENAS guidance model adds the operational premise: «*if technical problems prevent
-adequate communication, the doctor must interrupt the televisita*» and organise an in-person
+adequate communication, the doctor must interrupt the remote consultation*» and organise an in-person
 visit, guaranteeing booking on digital diaries «*within times adequate to the patient's
 needs*».
 
@@ -451,10 +451,10 @@ charge. A `catch` that logs and displays «connection lost» does not satisfy th
 > based primarily on the sharing of all the clinical data, reports, images and audio-video
 > material concerning the specific case. All the aforesaid elements must be shared
 > electronically in the form of digital files suitable for the work that the doctors in the
-> teleconsulto deem necessary for it to be adequately carried out. The teleconsulto between
+> specialist-to-specialist consultation deem necessary for it to be adequately carried out. The specialist-to-specialist consultation between
 > professionals **may also take place asynchronously**, when the patient's situation safely
-> permits it. **When the patient is present at the teleconsulto, then it takes place in real
-> time using operating modes analogous to those of a televisita and it takes the form of a
+> permits it. **When the patient is present at the specialist-to-specialist consultation, then it takes place in real
+> time using operating modes analogous to those of a remote consultation and it takes the form of a
 > multidisciplinary visit.**»
 
 #### 4.2.2 Actors, presence, responsibility
@@ -472,20 +472,20 @@ charge. A `catch` that logs and displays «connection lost» does not satisfy th
 
 #### 4.2.3 What is produced: the crucial distinction
 
-> «The teleconsulto **contributes to the definition of the report** that is drawn up at the end
+> «The specialist-to-specialist consultation **contributes to the definition of the report** that is drawn up at the end
 > of the visit delivered to the patient, **but it does not give rise to a report of its own**.»
 
-For years this passage was read as «the teleconsulto produces nothing». **That is a mistaken
+For years this passage was read as «the specialist-to-specialist consultation produces nothing». **That is a mistaken
 reading, and DM 19 novembre 2025 has refuted it.** The decree creates an autonomous health
-record document type — the **collaborative report for the teleconsulto/teleconsulenza**, letter
-q) — with this structural rule (Annex 1, § 2.21):
+record document type - the **collaborative report for the specialist-to-specialist consultation/teleconsulenza**, letter
+q) - with this structural rule (Annex 1, § 2.21):
 
 > «The collaborative report **is conferred on the health record as an attachment to the report
 > document** relating to the service or to the principal event (e.g. specialist visit,
 > hospital admission, visit by the doctor of the single primary care role, etc.) drawn up by
 > the doctor requesting the consultation.»
 
-So: **the teleconsulto does not produce an autonomous report, but it does produce an autonomous
+So: **the specialist-to-specialist consultation does not produce an autonomous report, but it does produce an autonomous
 health record document type, which is attached to the report of the principal event.** In the
 data model these are two distinct things: the prohibition concerns the generation of a
 specialist report; the obligation concerns the production of the collaborative report and its
@@ -493,21 +493,21 @@ correlation via `idRichiesta`.
 
 #### 4.2.4 It is not remunerated
 
-The teleconsulto **is not an autonomous specialist service**: it has no entry in the fee
+The specialist-to-specialist consultation **is not an autonomous specialist service**: it has no entry in the fee
 schedule, it does not involve a prescription at the SSN's expense nor cost-sharing, and it
 falls within the professional's ordinary work. The report of the Istituto Superiore di Sanità,
 the national institute of health (Rapporti ISTISAN 25/16), confirms this verbatim. Some
 Autonomous Provinces had established a code and a tariff of their own, which then became
 inoperative with the entry into force of the new national tariff schedule.
 
-**A business model founded on the volume of teleconsulti within the SSN has no direct source
+**A business model founded on the volume of specialist-to-specialist consultations within the SSN has no direct source
 of revenue.** The project's commercial documentation must not suggest the contrary.
 
-#### 4.2.5 The teleconsulto request
+#### 4.2.5 The specialist-to-specialist consultation request
 
 DM 19 novembre 2025 also types the **request** (letter o), with a precise generation rule:
 
-> «The teleconsulto request **is generated internally to the IRT**. Full operability of the
+> «The specialist-to-specialist consultation request **is generated internally to the IRT**. Full operability of the
 > service in the case of interoperability between IRT of regions or autonomous provinces other
 > than the region of entitlement is guaranteed by the INT, pursuant to article 3, subsection
 > 4.»
@@ -544,25 +544,25 @@ present | without the patient present**.
 > data, reports and images concerning the specific case. **It is an activity on request but
 > always scheduled, and it may not be used to stand in for rescue activities.**»
 
-#### 4.3.2 The four differences from the teleconsulto
+#### 4.3.2 The four differences from the specialist-to-specialist consultation
 
 They are subtle and must be borne in mind, because DM 21 settembre 2022 merges them into a
 single minimum service while the Agreement distinguishes them as acts:
 
 1. **the actors are not necessarily doctors**: they are practitioners of the health
    professions with **different responsibilities** for the case;
-2. **the pre-eminent element is the video call**, not documentary sharing (in the teleconsulto
+2. **the pre-eminent element is the video call**, not documentary sharing (in the specialist-to-specialist consultation
    it is the opposite);
 3. **it is always scheduled**, never impromptu;
 4. there is an **express prohibition** on using it to stand in for rescue activities.
 
-Like the teleconsulto, it is not a service with a fee schedule coding and it is not
+Like the specialist-to-specialist consultation, it is not a service with a fee schedule coding and it is not
 remunerated.
 
 The prohibition in point 4 must be read together with another rule: DM 30 settembre 2022,
-Annex B, states that teleconsulto/teleconsulenza is, by contrast, «*performable also in
+Annex B, states that specialist-to-specialist consultation/teleconsulenza is, by contrast, «*performable also in
 situations of urgency or emergency*». The two statements are not in contradiction: a
-teleconsulto between professionals may be useful in urgent situations, but **it cannot take
+specialist-to-specialist consultation between professionals may be useful in urgent situations, but **it cannot take
 the place of rescue**. The distinction is between supporting the person carrying out the
 rescue and substituting for the rescue.
 
@@ -596,13 +596,13 @@ rescue and substituting for the rescue.
 
 DM 21 settembre 2022 imposes something that at first sight is surprising:
 
-> «It is indeed necessary that the Teleassistenza service also be able to make available **all
-> the functionalities present for the televisita and for the telemonitoraggio**.»
+> «It is indeed necessary that the remote assistance service also be able to make available **all
+> the functionalities present for the remote consultation and for the remote monitoring**.»
 
-On the software plane, teleassistenza is therefore **a hybrid service that reuses the
+On the software plane, remote assistance is therefore **a hybrid service that reuses the
 capabilities of the other two**. It is not an autonomous module: it is a composition. Anyone
 designing the boundaries of the bounded contexts must take account of this, because too rigid
-a separation between televisita and telemonitoraggio makes teleassistenza impossible to
+a separation between remote consultation and remote monitoring makes remote assistance impossible to
 compose.
 
 DM 19 novembre 2025 adds, among the essential micro-services of teleassistenza, the
@@ -638,17 +638,17 @@ arrangements established*».
 
 #### 4.5.3 The rule of attribution
 
-> «telemonitoraggio **does not belong to the sphere of outpatient specialist care, unless it is
-> accompanied by telecontrollo medico, by a televisita or indeed by an in-person visit** in
+> «remote monitoring **does not belong to the sphere of outpatient specialist care, unless it is
+> accompanied by medical remote check, by a remote consultation or indeed by an in-person visit** in
 > which the continuously recorded data are analysed, discussed and communicated to the patient.
-> The results of the telemonitoraggio must be indicated in the report of the periodic follow-up
+> The results of the remote monitoring must be indicated in the report of the periodic follow-up
 > visit.»
 
 Put another way: **collecting data is not a service. It becomes a service when a doctor looks
 at it inside a clinical act.** This is perhaps the single most useful sentence in the module for
 those arriving from computing.
 
-#### 4.5.4 Telemonitoraggio is not «collecting data from a device»
+#### 4.5.4 Remote monitoring is not «collecting data from a device»
 
 It is worth spelling this out because it is the commonest mistake. A compliant remote
 monitoring service comprises, according to DM 19 novembre 2025 (Annex 3, § 4.1), essential
@@ -679,13 +679,13 @@ number of activities per cycle, the frequency («1 measurement/day», «2 measur
 measurement («intermediated» or «closed loop» with direct interoperability), the **alarm
 threshold** and the **rules** describing the behaviour in the event of a threshold breach.
 
-#### 4.5.5 Why telemonitoraggio changes the classification of the software
+#### 4.5.5 Why remote monitoring changes the classification of the software
 
 DM 21 settembre 2022 is explicit:
 
 > «It is also required, in line with what is set out within the *«Guidance on Qualification and
 > Classification of Software in Regulation (EU) 2017/745 – MDR and Regulation (EU) 2017/746»*,
-> that **the regional telemedicine Infrastructure for the minimum service of telemonitoraggio
+> that **the regional telemedicine Infrastructure for the minimum service of remote monitoring
 > must be certified as a medical device**.»
 
 And for advanced remote monitoring: «*a risk class higher than IIa might be required*».
@@ -807,12 +807,12 @@ definition.
 | **Who delivers** | Doctor (reserved act) | Two or more doctors | Two or more health professionals, not necessarily doctors | Non-medical health professional | System + responsible professional | Doctor | Reporting doctor | Rehabilitation professional |
 | **Patient present** | Always | Optional | Optional | Always (or the carer) | No (measurements) | Yes, on the video call | No | Yes |
 | **Synchrony** | Always synchronous | Synchronous or asynchronous | Synchronous or deferred, always scheduled | Synchronous | Continuous/periodic | Synchronous, at set intervals | Asynchronous | Synchronous |
-| **Produces an autonomous report** | **Yes** (except MMG/PLS) | **No** — but it produces an attached collaborative report | **No** — as for teleconsulto | No — concluding clinical and care report | No — measurement reports and final report | It flows into the report of the visit | **It is** the report | Final report |
+| **Produces an autonomous report** | **Yes** (except MMG/PLS) | **No** - but it produces an attached collaborative report | **No** - as for teleconsulto | No - concluding clinical and care report | No - measurement reports and final report | It flows into the report of the visit | **It is** the report | Final report |
 | **Remunerated** | Yes, as a follow-up visit | **No** | **No** | Depending on the setting | **No**, unless accompanied | **Yes**, an entry in the fee schedule | No, it completes the service | Yes, equivalent to in person |
-| **Prescription necessary** | Yes (no if MMG/PLS) | No | No | Depending on the setting | Specialist prescription layout; pharmaceutical for the devices | Yes | — | According to the PRI |
-| **Admissible in urgency** | **No** | Yes | Yes, but **never standing in for rescue** | — | — | — | — | — |
+| **Prescription necessary** | Yes (no if MMG/PLS) | No | No | Depending on the setting | Specialist prescription layout; pharmaceutical for the devices | Yes | - | According to the PRI |
+| **Admissible in urgency** | **No** | Yes | Yes, but **never standing in for rescue** | - | - | - | - | - |
 | **Minimum service under DM 21/09/2022** | Yes | Yes (merged) | Yes (merged) | Yes | Yes | No | No (cross-cutting micro-service) | No |
-| **Health record document type** | letter p) | letter o) request, q) report | letter q) | letter r) | letters s), t), u), v), w) | — | — | letters r), t), w) |
+| **Health record document type** | letter p) | letter o) request, q) report | letter q) | letter r) | letters s), t), u), v), w) | - | - | letters r), t), w) |
 
 ---
 
@@ -827,17 +827,17 @@ Annex 4, § 8, introduces a third that earlier research had not identified.
 ```mermaid
 flowchart TB
     subgraph National
-        INT["INT — National telemedicine infrastructure<br/>controller: AGENAS<br/>enabling services, Business Glossary,<br/>Telemedicine Solutions Manager, dashboard<br/><b>NOT a clinical repository</b>"]
-        NIT["NIT — Interoperability node<br/>multi-tenant SaaS microservices<br/><b>with no data persistence</b><br/>mutual certificate authentication"]
-        PNDT["PN-DT — National platform<br/>for the diffusion of telemedicine<br/>training, catalogue, communication"]
+        INT["INT - National telemedicine infrastructure<br/>controller: AGENAS<br/>enabling services, Business Glossary,<br/>Telemedicine Solutions Manager, dashboard<br/><b>NOT a clinical repository</b>"]
+        NIT["NIT - Interoperability node<br/>multi-tenant SaaS microservices<br/><b>with no data persistence</b><br/>mutual certificate authentication"]
+        PNDT["PN-DT - National platform<br/>for the diffusion of telemedicine<br/>training, catalogue, communication"]
     end
     subgraph Regional
-        IRT1["IRT — Regional infrastructure<br/>controller: Region or Autonomous Province<br/><b>it concretely delivers the services</b>"]
-        IRT2["IRT — another Region"]
+        IRT1["IRT - Regional infrastructure<br/>controller: Region or Autonomous Province<br/><b>it concretely delivers the services</b>"]
+        IRT2["IRT - another Region"]
     end
     subgraph Data ecosystem
-        FSE[("FSE — Electronic health record")]
-        EDS[("EDS — Health data ecosystem")]
+        FSE[("FSE - Electronic health record")]
+        EDS[("EDS - Health data ecosystem")]
     end
     IRT1 <-->|inter-regional<br/>interoperability| NIT
     IRT2 <--> NIT
@@ -847,7 +847,7 @@ flowchart TB
     EDS -->|pseudonymised data<br/>for governance and HTA| INT
 ```
 
-- **INT — Infrastruttura nazionale di telemedicina** (national telemedicine infrastructure).
+- **INT - Infrastruttura nazionale di telemedicina** (national telemedicine infrastructure).
   Controllership and management rest with **AGENAS**. It provides common enabling services, a
   «Telemedicine Solutions Manager» module, a «Business Glossary» with a Terminology Server,
   Authoring Tool and Library Repository, data collection, a workflow engine and governance
@@ -856,10 +856,10 @@ flowchart TB
   data flow directly into the health record and the EDS; the Garante per la protezione dei dati
   personali (the Italian data protection authority, opinion no. 2 of 16 January 2025) imposed
   this choice in order to avoid duplication and desynchronisation.
-- **IRT — Infrastrutture regionali di telemedicina** (regional telemedicine infrastructures).
+- **IRT - Infrastrutture regionali di telemedicina** (regional telemedicine infrastructures).
   Controllership rests with the Regions and the Autonomous Provinces. **These are the
   infrastructures that concretely deliver the services.**
-- **NIT — Nodo di interoperabilità della telemedicina** (telemedicine interoperability node).
+- **NIT - Nodo di interoperabilità della telemedicina** (telemedicine interoperability node).
   Built pursuant to art. 3, subsection 4. «*The NIT guarantees, without any mechanism of data
   persistence, the interoperability of the IRT concerned […] by means of fully automated
   microservices*». It is the inter-regional point of attachment, with precise technical
@@ -867,7 +867,7 @@ flowchart TB
   with a change of status of a compromised certificate **within one hour**, API Management as
   the single point of entry, IAM with *single sign-on*, PAM for administrators, a **prohibition
   on multiple concurrent sessions with the same credentials**.
-- **PN-DT — Piattaforma nazionale per la diffusione della telemedicina** (national platform for
+- **PN-DT - Piattaforma nazionale per la diffusione della telemedicina** (national platform for
   the diffusion of telemedicine). A portal supporting diffusion and training. Its management is
   transferred to AGENAS within ninety days of acceptance testing (art. 17, para. 4).
 
@@ -991,12 +991,12 @@ passed; the actual state of regional implementation has not been ascertained. `[
 It is the central document for the project's perimeter and the record layout is directly
 translatable into a data model. By group:
 
-**Patient** — surname, first name, identifying code (tax code, STP, ENI or other), sex, date
+**Patient** - surname, first name, identifying code (tax code, STP, ENI or other), sex, date
 and municipality of birth, address/postcode/municipality of residence and of domicile,
 province, region and country of residence, landline and mobile telephone contacts, email,
 **certified email address**.
 
-**Professionals and organisation** — surname, first name and tax code of the **reporting
+**Professionals and organisation** - surname, first name and tax code of the **reporting
 doctor**; surname, first name and tax code of the **signing doctor**, *distinct from the
 reporting doctor*; code and description of the **health authority**, of the **site** and of the
 **operating unit**; telephone number of the operating unit, of the CUP or of the authority;
@@ -1004,12 +1004,12 @@ surname, first name and tax code of **any other technical figure involved in per
 procedure**; surname, first name and tax code of the **prescribing doctor** («doctor of the
 single primary care role/PLS or Specialist»).
 
-**Administrative references** — number of the medical prescription; **date of signature of the
+**Administrative references** - number of the medical prescription; **date of signature of the
 report**; **CUP code** of the booking; **identification codes of the correlated objects** («e.g.
 PACS ID, Accession number, DICOM Study»); nosological code; provenance; **access type**
 (scheduled or direct access); outpatient specialist discipline; specialty.
 
-**Clinical content** — code of the **diagnostic question** in **ICD-9-CM** and description;
+**Clinical content** - code of the **diagnostic question** in **ICD-9-CM** and description;
 history; allergies and declared sources; previous tests performed; **AIC/ATC code** of the
 medicine and description of the ongoing therapy; **physical examination**; code and description
 of the service performed; **date and time of start** and **of end of delivery**; code and
@@ -1049,13 +1049,13 @@ A **field-by-field coverage analysis** must also be carried out between the mini
 information set and the national FHIR Implementation Guides of HL7 Italia, which represent the
 televisita report as a `Composition` inside a `Bundle`. The two sources are not alternatives:
 the ministerial set is the regulatory source, the Implementation Guide is the technical
-representation. Module [06 — FHIR from scratch](06-fhir-da-zero.md) develops the point.
+representation. Module [06 - FHIR from scratch](06-fhir-da-zero.md) develops the point.
 
 ### 7.4 The document visibility matrix
 
-DM 19 novembre 2025, Annex 3, § 5.2, defines **six access profiles** — patient; doctor and other
+DM 19 novembre 2025, Annex 3, § 5.2, defines **six access profiles** - patient; doctor and other
 senior health staff; nurse/midwife; technical health professions; assistive and rehabilitation
-health professions; administrative staff — and a visibility matrix per document type.
+health professions; administrative staff - and a visibility matrix per document type.
 
 The most significant fact, because it cannot be deduced from the general health record
 profiles: **the specialist report for the televisita is not accessible for consultation to
@@ -1073,7 +1073,7 @@ This is a fine-grained authorisation rule, to be implemented as such and to be t
 This article changes an implicit assumption that almost everyone makes, and it must be known
 before designing persistence.
 
-> **Art. 12** — «Personal data relating to **authentication and access** to the minimum
+> **Art. 12** - «Personal data relating to **authentication and access** to the minimum
 > telemedicine services offered by the IRT are retained for **twelve months**.» «**The IRT do
 > not retain** the data and documents generated pursuant to art. 4, subsection 4.»
 
@@ -1119,12 +1119,12 @@ There is no «telemedicine» tariff: the tariff of the corresponding service app
 | Service | Prescription | Co-payment | Tariff | Flow |
 |---|---|---|---|---|
 | Televisita in outpatient specialist care | Yes, on the SSN pad | Yes, where due | Code for a **follow-up visit** | Art. 50 flow + DEMA + regional flow |
-| Televisita delivered by MMG/PLS | **No** | — | — | Digital note |
+| Televisita delivered by MMG/PLS | **No** | - | - | Digital note |
 | Teleconsulto | No | No | **No entry in the fee schedule** | Recordable within the authority, not captured in institutional flows |
 | Teleconsulenza | No | No | **No entry in the fee schedule** | As above |
-| Telerefertazione | — | — | It completes the specialist service | — |
+| Telerefertazione | - | - | It completes the specialist service | - |
 | Telecontrollo medico | Yes | Yes | A service in the fee schedule | Specialist flows |
-| Telemonitoraggio | Specialist prescription layout; pharmaceutical for the devices | — | Does not belong to specialist care unless accompanied | Results in the report of the follow-up visit |
+| Telemonitoraggio | Specialist prescription layout; pharmaceutical for the devices | - | Does not belong to specialist care unless accompanied | Results in the report of the follow-up visit |
 | Teleriabilitazione | According to the PRI | According to the PRI | **Equivalent to in person** | Rehabilitation flows |
 
 ### 9.3 The current state, without embellishment
@@ -1173,7 +1173,7 @@ This is the most costly architectural mistake in the domain, and module
   controller and of at least one processor; how to contact the controller and the processor; the
   patient's rights);
 - **consent to the processing of personal data** concerns the processing, has its own legal
-  bases and — for the purpose of care — **is not normally consent**;
+  bases and - for the purpose of care - **is not normally consent**;
 - **consent to the recording of the session** is a further, specific consent, per session and
   revocable.
 
@@ -1197,7 +1197,7 @@ Agreement 215/CSR 2020 requires the patient's identity to be verified. But:
   inferred from the fact that someone has logged in.
 
 The data model must represent both, distinctly. A system that treats authentication as
-identification cannot handle the case — far from rare — in which the carer logs in with their
+identification cannot handle the case - far from rare - in which the carer logs in with their
 own credentials on behalf of an elderly patient.
 
 ### 10.3 The carer does not represent
@@ -1205,8 +1205,8 @@ own credentials on behalf of an elderly patient.
 Assisting is not representing. A carer may be present in the session, may facilitate access,
 may receive instructions; **they may not give consent in place of a patient with capacity**. For
 a person without capacity, titles of representation are needed: a guardian, a support
-administrator — with powers **delimited by the appointing decree**, which may or may not include
-healthcare decisions — or the holder of parental responsibility.
+administrator - with powers **delimited by the appointing decree**, which may or may not include
+healthcare decisions - or the holder of parental responsibility.
 
 DM 30 settembre 2022, Annex B, adds indications by age band: people with disabilities and the
 paediatric age band «*only if mediated by a carer*»; adolescent minors with «*priority to use in
@@ -1220,15 +1220,15 @@ authority*».
 DM 30 settembre 2022, Annex B, section «Population», sets out requirements that are **directly
 functional on the interface**, not generic recommendations:
 
-- **older people** — «*the system for accessing the video call for the televisita must be usable
+- **older people** - «*the system for accessing the video call for the televisita must be usable
   independently*» (or with support from the carer);
-- **children** — usable by the holder of parental responsibility «*in ways that facilitate the
+- **children** - usable by the holder of parental responsibility «*in ways that facilitate the
   simultaneous care of the minor, especially if the minor is ill*»;
-- **people with disabilities** — usable by any kind of carer «*while they continue to care for
+- **people with disabilities** - usable by any kind of carer «*while they continue to care for
   the person with a disability*»;
-- **hearing impairments** — «*systems of written communication superimposed on the video image
+- **hearing impairments** - «*systems of written communication superimposed on the video image
   and of screen sharing are needed*»;
-- **total or partial blindness** — systems that facilitate assistance by the carer, leaving
+- **total or partial blindness** - systems that facilitate assistance by the carer, leaving
   «*the possibility of using any other technological aids*».
 
 The fourth point has a direct effect on the media architecture: the data channel for subtitles
@@ -1243,21 +1243,21 @@ protocol after the fact costs a great deal more.
 DM 21 settembre 2022 contains three express prescriptions that shift the boundary, and they must
 be known by anyone who adds functionality:
 
-1. for **histopathological and radiological teleconsulto**, where synchronous and equivalent
+1. for **histopathological and radiological specialist-to-specialist consultation**, where synchronous and equivalent
    functioning of the clinical data *viewer* is decisive, «*this micro-service together with the
    reporting one shall have to be certified as a medical device*»;
-2. «*Where medical devices are used within the Televisita service […] the software and hardware
+2. «*Where medical devices are used within the remote consultation service […] the software and hardware
    for delivering the service shall have to be certified as a medical device with an adequate
    risk class*»;
-3. for **telemonitoraggio**, certification of the regional infrastructure is required
+3. for **remote monitoring**, certification of the regional infrastructure is required
    unconditionally (§ 4.5.5).
 
 The scenario in point 1 is not hypothetical: the State-Regions *Intesa* of 21 September 2017,
 rep. no. 158, on the National Network for Rare Tumours, requires the «*necessary and
-non-derogable*» presence of histopathological and radiological teleconsulto.
+non-derogable*» presence of histopathological and radiological specialist-to-specialist consultation.
 
 **Rule of design hygiene**: three features of the project are «one user story away» from a change
-of classification — threshold alerting, playback with image enhancement, assisted reporting. They
+of classification - threshold alerting, playback with image enhancement, assisted reporting. They
 must be governed with explicit change control. Module [15](15-regolatorio-da-zero.md) explains
 the mechanism.
 
@@ -1265,15 +1265,15 @@ the mechanism.
 
 ## 13. Recurring mistakes made by those arriving from computing
 
-### 13.1 «Teleconsulto and televisita are the same thing with one more participant»
+### 13.1 «Specialist-to-specialist consultation and remote consultation are the same thing with one more participant»
 
 **No.** What changes is the subject of the service (doctor-patient versus doctor-doctor), the
-synchrony admitted (the televisita is always synchronous, the teleconsulto may be
+synchrony admitted (the remote consultation is always synchronous, the specialist-to-specialist consultation may be
 asynchronous), what is produced (a report versus an attached collaborative report),
 responsibility and remuneration. Modelling them with a single encounter type and a participant
 counter produces a system that can neither report correctly nor report for reimbursement.
 
-### 13.2 «Telemonitoraggio is collecting data from a device»
+### 13.2 «Remote monitoring is collecting data from a device»
 
 **No.** Ingestion is the least regulated part of the service. Compliant remote monitoring
 requires a care plan, thresholds configured by the professional, data quality validation,
@@ -1285,22 +1285,22 @@ evaluation of thresholds is precisely the element that moves the software into C
 **No**, for two reasons. The first: there are two official taxonomies that do not coincide
 (§ 2.3) and the mapping between them is needed. The second: the type of service does not on its
 own determine the rules. The rules depend on the combination **type × setting × profession ×
-presence of the patient × synchrony**. A televisita delivered by a general practitioner has
-different rules from a specialist televisita; a teleconsulto with the patient present behaves
-like a televisita.
+presence of the patient × synchrony**. A remote consultation delivered by a general practitioner has
+different rules from a specialist remote consultation; a specialist-to-specialist consultation with the patient present behaves
+like a remote consultation.
 
 ### 13.4 «The quality of the connection is an observability detail»
 
 **No.** It is mandatory content of a signed health document. The metrics do not live only in the
 monitoring system: they must be capable of being proposed to the doctor, confirmed by them and
-poured into the document. If the metrics system is designed as pure operational telemetry —
-sampled, aggregated, with short retention, without correlation to the act — it cannot discharge
+poured into the document. If the metrics system is designed as pure operational telemetry -
+sampled, aggregated, with short retention, without correlation to the act - it cannot discharge
 this function.
 
 ### 13.5 «Consent is a boolean»
 
-**No**, and this is the most costly mistake. There are at least four distinct objects —
-acceptance of the service, data processing, recording, presence of third parties — with
+**No**, and this is the most costly mistake. There are at least four distinct objects -
+acceptance of the service, data processing, recording, presence of third parties - with
 different legal bases, revocability, effects and retention. Each referred to a **specific
 version** of the text presented: a consent not referred to a versioned text is impossible to
 demonstrate.
@@ -1308,8 +1308,8 @@ demonstrate.
 ### 13.6 «Whoever logged in is the patient»
 
 **No.** Authentication tells you who holds the credential. Identification of the patient is a
-decision of the professional, to be recorded. In the commonest case in the real world — the
-elderly patient assisted by their son or daughter — the two systematically diverge.
+decision of the professional, to be recorded. In the commonest case in the real world - the
+elderly patient assisted by their son or daughter - the two systematically diverge.
 
 ### 13.7 «Let's save everything, we'll decide later»
 
@@ -1332,7 +1332,7 @@ no longer end-to-end**.
 
 **No.** No Italian rule fixes resolution, frame rate, bandwidth or latency. The project's
 thresholds are product-specific. Presenting them as regulatory compliance is a mistake
-verifiable by anyone who reads the sources — and it becomes a serious problem the moment those
+verifiable by anyone who reads the sources - and it becomes a serious problem the moment those
 same thresholds enter into the intended purpose for the purposes of the medical device regime.
 
 ### 13.10 «If the connection drops, we show an error»
@@ -1347,19 +1347,19 @@ hooked to the booking.
 
 1. **The definitions are regulatory, not commercial.** What changes is the actors, the reserved
    acts, the documents produced, responsibility and remuneration.
-2. **The televisita is a medical act, always synchronous, with the patient present, and it
-   closes with a report** — except when it is delivered by the general practitioner or by the
+2. **The remote consultation is a medical act, always synchronous, with the patient present, and it
+   closes with a report** - except when it is delivered by the general practitioner or by the
    freely chosen paediatrician.
-3. **The teleconsulto is doctor-to-doctor**, it may be asynchronous, the patient need not be
+3. **The specialist-to-specialist consultation is doctor-to-doctor**, it may be asynchronous, the patient need not be
    there, and **it does not produce an autonomous report but does produce a collaborative report
    attached** to the report of the principal event.
 4. **Teleconsulenza admits non-medical professions with different responsibilities**, it is
    always scheduled and it cannot stand in for rescue.
-5. **Telemonitoraggio is not the ingestion of measurements**: it is a service with a plan,
+5. **Remote monitoring is not the ingestion of measurements**: it is a service with a plan,
    thresholds configured by the professional, validation, training and five documents. And it is
    what takes the software into Class IIa.
-6. **There are two official taxonomies that do not coincide** — the five services of the 2020
-   Agreement and the four minimum services of DM 21 settembre 2022 — and the model must
+6. **There are two official taxonomies that do not coincide** - the five services of the 2020
+   Agreement and the four minimum services of DM 21 settembre 2022 - and the model must
    represent both together with the mapping.
 7. **Since DM 19 novembre 2025 there are ten dedicated health record document types**, with an
    information set published in the Gazzetta. CDA2 templates and codes are not yet obtainable:
@@ -1401,7 +1401,7 @@ hooked to the booking.
 | **Teleassistenza (remote assistance)** | A professional act pertaining to the non-medical health professions, with the patient or the carer, scheduled and repeatable |
 | **Teleconsulenza medico-sanitaria (tele-advice)** | Remote support between professionals with different responsibilities, always scheduled, never standing in for rescue |
 | **Teleconsulto (specialist-to-specialist consultation)** | A medical act between two or more doctors on a patient's clinical situation; synchronous or asynchronous; it does not produce an autonomous report |
-| **Telecontrollo medico (medical remote check)** | A series of scheduled medical contacts by video call with the sharing of clinical data; a **tariffed** service. The shortened form «telecontrollo» appears in the synoptic tables for reasons of column width: the correct name is the full one, and the adjective is not ornamental — it says whose competence it is |
+| **Telecontrollo medico (medical remote check)** | A series of scheduled medical contacts by video call with the sharing of clinical data; a **tariffed** service. The shortened form «telecontrollo» appears in the synoptic tables for reasons of column width: the correct name is the full one, and the adjective is not ornamental - it says whose competence it is |
 | **Telecooperazione sanitaria (health telecooperation)** | Remote assistance to a worker engaged in an act in progress; outside the perimeter in the current version |
 | **Telemonitoraggio (remote monitoring)** | The remote measurement and transmission of vital and clinical parameters through sensors, inside a plan and with thresholds configured by the professional |
 | **Telerefertazione (tele-reporting)** | The act of reporting at a distance on an examination already acquired, with a validated digital signature; it is not the transport of the report |

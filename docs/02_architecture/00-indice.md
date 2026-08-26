@@ -1,17 +1,17 @@
 ---
-title: Architettura — indice dell'area
+title: Architettura - indice dell'area
 sidebar_position: 1
 description: Mappa dell'area architetturale di Telemedic, ordine di lettura per profilo, rapporto con la guida dei fondamenti e con i registri delle decisioni, convenzioni di lettura e regole di precedenza fra i documenti.
 ---
 
-# Architettura — indice dell'area
+# Architettura - indice dell'area
 
 Quest'area descrive **come è fatto Telemedic**: quali sono i suoi confini interni, quali
 invarianti regge, quali dati custodisce e in che forma, come propaga il contesto di tenant, come
 si scambiano messaggi le sue parti, come si dimostra ciò che è accaduto e in quali assetti si
 installa.
 
-Non descrive *cosa fa* il sistema — quello è l'area funzionale — né *come si scrive il codice* —
+Non descrive *cosa fa* il sistema - quello è l'area funzionale - né *come si scrive il codice* -
 quello è l'area tecnica. Descrive la struttura che rende possibili l'una e l'altra, e le ragioni
 per cui quella struttura è com'è invece che in un altro modo.
 
@@ -62,21 +62,21 @@ documentazione**, non una scorciatoia ammessa.
    Quest'area **presuppone** quel modulo e non ne ripete i concetti: consistenza, saga, outbox,
    idempotenza, aggregato, contesto delimitato, sicurezza a livello di riga, percentili sono già
    spiegati lì.
-2. [01 — Visione architetturale](01-visione-architetturale.md).
-3. [02 — Contesti delimitati](02-contesti-delimitati.md), almeno la mappa e la tabella di sintesi.
+2. [01 - Visione architetturale](01-visione-architetturale.md).
+3. [02 - Contesti delimitati](02-contesti-delimitati.md), almeno la mappa e la tabella di sintesi.
 4. Il documento dell'area che riguarda il proprio lavoro.
 
 ### 3.2 Chi deve implementare una funzione
 
 01 → 02 (solo il contesto interessato e i suoi confinanti) → 03 → il documento specifico
 (04, 05, 06, 07 secondo il caso) → gli ADR citati nel testo. Prima di aprire una pull request:
-[09 — Decisioni rinviate](09-decisioni-rinviate.md), per verificare di non stare decidendo
+[09 - Decisioni rinviate](09-decisioni-rinviate.md), per verificare di non stare decidendo
 d'ufficio qualcosa che è deliberatamente aperto.
 
 ### 3.3 Chi valuta il progetto per un'installazione
 
-01 → [08 — Viste di deployment](08-viste-di-deployment.md) → [05 — Multi-tenancy](05-multi-tenancy.md)
-→ [07 — Tracciamento](07-tracciamento-e-registro-immutabile.md). Sono i quattro documenti che
+01 → [08 - Viste di deployment](08-viste-di-deployment.md) → [05 - Multi-tenancy](05-multi-tenancy.md)
+→ [07 - Tracciamento](07-tracciamento-e-registro-immutabile.md). Sono i quattro documenti che
 determinano che cosa il soggetto che installa deve garantire per proprio conto, e che cosa
 eredita dal progetto.
 
@@ -117,7 +117,7 @@ riportato al rinvio.
 - I nomi di risorsa e di elemento FHIR restano in forma originale (`Encounter`, `Composition`,
   `Patient.identifier`). I nomi di concetto di dominio sono in italiano. Dove le due lingue
   collidono, prevale il nome del linguaggio ubiquo definito in
-  [03 — Modello di dominio](03-modello-di-dominio.md).
+  [03 - Modello di dominio](03-modello-di-dominio.md).
 - I diagrammi sono in Mermaid. Un diagramma non sostituisce il testo: se un vincolo esiste solo
   nel diagramma, non esiste.
 - Tutti i dati negli esempi sono **sintetici**. Non compare alcun dato reale, né alcun nome di

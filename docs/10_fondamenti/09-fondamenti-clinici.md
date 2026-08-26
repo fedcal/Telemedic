@@ -1,12 +1,12 @@
 ---
 title: Il corpo, i parametri, il ragionamento clinico
 sidebar_position: 10
-description: La medicina minima ma reale che serve per scrivere questo software — anatomia e fisiologia essenziali, parametri vitali uno per uno con unità e trappole di misura, il tempo nel dato clinico, il ragionamento diagnostico e la probabilità, cosa si perde a distanza, farmaci, referti e la costruzione delle parole mediche.
+description: La medicina minima ma reale che serve per scrivere questo software - anatomia e fisiologia essenziali, parametri vitali uno per uno con unità e trappole di misura, il tempo nel dato clinico, il ragionamento diagnostico e la probabilità, cosa si perde a distanza, farmaci, referti e la costruzione delle parole mediche.
 ---
 
 # Il corpo, i parametri, il ragionamento clinico
 
-:::warning Avviso vincolante — natura di questo modulo
+:::warning Avviso vincolante - natura di questo modulo
 
 **Questo modulo è formazione tecnica per chi sviluppa. Non è materiale clinico e non è una
 guida alla pratica medica.**
@@ -21,7 +21,7 @@ Tutti i valori numerici citati sono **indicativi e didattici**. Variano per font
 età, sesso, quota altimetrica, comorbilità, terapia in corso e metodo di misura. **Il progetto
 non cabla soglie cliniche nel codice**: ogni soglia è configurazione clinica sotto
 responsabilità del professionista, come impone il perimetro adottato per il telemonitoraggio
-(vedi [02 — Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md), § 4.5.5). Un
+(vedi [02 - Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md), § 4.5.5). Un
 numero che compare in questo testo è un esempio didattico, mai un valore predefinito di
 prodotto.
 
@@ -31,11 +31,11 @@ Questo è il modulo che chi arriva dall'informatica è più tentato di saltare. 
 paga di più, perché la classe di difetti che previene non è visibile nei test: sono difetti che
 producono numeri plausibili e sbagliati.
 
-Il modulo presuppone [02 — Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md),
+Il modulo presuppone [02 - Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md),
 perché usa il vocabolario delle prestazioni senza ridefinirlo, e si legge prima di
-[10 — Percorsi di cura e sicurezza del paziente](10-percorsi-di-cura-e-sicurezza.md), che
+[10 - Percorsi di cura e sicurezza del paziente](10-percorsi-di-cura-e-sicurezza.md), che
 tratta punteggi, triage e rischio clinico. La rappresentazione tecnica delle misure in FHIR è
-nel modulo [06 — FHIR da zero](06-fhir-da-zero.md); qui si spiega **cosa** si sta
+nel modulo [06 - FHIR da zero](06-fhir-da-zero.md); qui si spiega **cosa** si sta
 rappresentando, non come.
 
 ---
@@ -74,8 +74,8 @@ litro. Il fattore di conversione è circa 18 (§ 3.6.3). Un valore di 5,5 in una
 di 5,5 nell'altra descrivono due situazioni cliniche incompatibili.
 
 Il difetto tipico non è la conversione sbagliata: è **la conversione assente**. Un campo
-numerico senza unità, alimentato da due sorgenti che usano convenzioni diverse — un dispositivo
-domiciliare e un referto di laboratorio — produce una serie temporale in cui i valori sono
+numerico senza unità, alimentato da due sorgenti che usano convenzioni diverse - un dispositivo
+domiciliare e un referto di laboratorio - produce una serie temporale in cui i valori sono
 mescolati. Nessun controllo di dominio se ne accorge, perché entrambi i valori sono numeri
 positivi e finiti.
 
@@ -101,8 +101,8 @@ corretta e clinicamente priva di senso, per tre ragioni distinte:
    quel momento.
 
 Aggravante frequente: la media nasconde gli estremi, ed è agli estremi che sta l'informazione
-clinica. Due pazienti con la stessa media possono avere andamenti opposti — uno stabile, uno con
-oscillazioni ampie — e la variabilità è essa stessa un dato.
+clinica. Due pazienti con la stessa media possono avere andamenti opposti - uno stabile, uno con
+oscillazioni ampie - e la variabilità è essa stessa un dato.
 
 ### 1.4 Difetto: l'allarme su valore isolato
 
@@ -114,14 +114,14 @@ Un valore isolato fuori intervallo, in quasi tutte le grandezze fisiologiche, è
 probabilmente un **errore di misura** che un evento clinico: bracciale mal posizionato, dito
 freddo, paziente che ha appena camminato, bilancia su tappeto, sensore mal aderente. La
 proporzione fra veri e falsi positivi dipende dalla prevalenza dell'evento nella popolazione
-monitorata, ed è precisamente il calcolo del § 5.5 — quello che gli informatici sbagliano più
+monitorata, ed è precisamente il calcolo del § 5.5 - quello che gli informatici sbagliano più
 spesso.
 
 L'effetto pratico di un sistema che allerta su valore isolato non è un eccesso di sicurezza: è
 la **desensibilizzazione all'allarme**, cioè la progressiva perdita di attenzione di chi riceve
 segnali per lo più falsi. È un rischio nel senso proprio della ISO 14971, e va trattato come tale
-nel modulo [10](10-percorsi-di-cura-e-sicurezza.md). Il progetto non decide la regola —
-persistenza, numero di misure consecutive, finestra temporale, obbligo di conferma — perché la
+nel modulo [10](10-percorsi-di-cura-e-sicurezza.md). Il progetto non decide la regola -
+persistenza, numero di misure consecutive, finestra temporale, obbligo di conferma - perché la
 regola è configurazione clinica; deve però **rendere esprimibili** regole che non siano soglie
 istantanee, altrimenti il professionista non ha alternativa.
 
@@ -186,8 +186,8 @@ male. Non è un compendio: è la quantità di fisiologia che rende comprensibili
 
 ### 2.1 Il principio che tiene insieme tutto: omeostasi e compenso
 
-Il corpo umano mantiene costanti alcune grandezze — temperatura interna, concentrazione di
-glucosio nel sangue, pH, volume di liquidi, pressione di perfusione degli organi — entro
+Il corpo umano mantiene costanti alcune grandezze - temperatura interna, concentrazione di
+glucosio nel sangue, pH, volume di liquidi, pressione di perfusione degli organi - entro
 intervalli stretti, nonostante le condizioni esterne cambino continuamente. Questo mantenimento
 attivo si chiama **omeostasi**.
 
@@ -244,9 +244,9 @@ riempita di un fluido (il sangue).
 Il cuore ha quattro cavità: due **atri** (che ricevono) e due **ventricoli** (che espellono). Il
 circuito è doppio e in serie:
 
-- **circolo polmonare** — il ventricolo destro spinge il sangue povero di ossigeno nei polmoni,
+- **circolo polmonare** - il ventricolo destro spinge il sangue povero di ossigeno nei polmoni,
   dove si carica di ossigeno e cede anidride carbonica;
-- **circolo sistemico** — il ventricolo sinistro spinge il sangue ricco di ossigeno a tutti gli
+- **circolo sistemico** - il ventricolo sinistro spinge il sangue ricco di ossigeno a tutti gli
   organi.
 
 Il fatto che i due circoli siano in serie ha una conseguenza pratica costante: **un problema a
@@ -261,14 +261,14 @@ cardiologico**, cosa che sorprende chi lo considera un dato antropometrico (§ 3
 La grandezza che conta davvero per gli organi non è misurabile a distanza: è la **perfusione**,
 cioè quanto sangue arriva effettivamente ai tessuti. Ciò che si misura sono grandezze correlate.
 
-- **Gittata sistolica** — volume espulso dal ventricolo a ogni battito.
-- **Portata cardiaca** — volume espulso al minuto. È il prodotto di gittata sistolica per
+- **Gittata sistolica** - volume espulso dal ventricolo a ogni battito.
+- **Portata cardiaca** - volume espulso al minuto. È il prodotto di gittata sistolica per
   frequenza cardiaca. Da qui una relazione che spiega molti andamenti osservati nel
   telemonitoraggio: **se la gittata cala, la frequenza sale per mantenere la portata.** La
   tachicardia è spesso un compenso, non una malattia in sé.
-- **Resistenze periferiche** — opposizione dei vasi al flusso, regolata dal calibro delle
+- **Resistenze periferiche** - opposizione dei vasi al flusso, regolata dal calibro delle
   arteriole.
-- **Pressione arteriosa** — approssimativamente il prodotto di portata cardiaca per resistenze
+- **Pressione arteriosa** - approssimativamente il prodotto di portata cardiaca per resistenze
   periferiche. È l'identità da tenere a mente perché smonta l'idea che la pressione misuri la
   forza del cuore: una pressione normale è compatibile con una portata bassa e resistenze alte,
   cioè con una situazione peggiore di una pressione un po' più bassa con vasi dilatati.
@@ -293,11 +293,11 @@ non per il suo valore assoluto (§ 4.1).
 
 Le altre condizioni cardiocircolatorie rilevanti per il perimetro:
 
-- **ipertensione arteriosa** — pressione stabilmente elevata; il danno è d'organo e silenzioso
+- **ipertensione arteriosa** - pressione stabilmente elevata; il danno è d'organo e silenzioso
   per anni, quindi il valore singolo conta poco e la serie conta molto;
-- **fibrillazione atriale** — attività elettrica atriale caotica; produce un polso irregolare e
+- **fibrillazione atriale** - attività elettrica atriale caotica; produce un polso irregolare e
   **degrada l'affidabilità dei misuratori automatici di pressione** (§ 3.1.5);
-- **cardiopatia ischemica** — insufficiente apporto di sangue al muscolo cardiaco stesso.
+- **cardiopatia ischemica** - insufficiente apporto di sangue al muscolo cardiaco stesso.
 
 ### 2.3 Apparato respiratorio
 
@@ -313,15 +313,15 @@ dell'aria è prodotto dal diaframma e dai muscoli intercostali.
 
 #### 2.3.2 Le grandezze
 
-- **Frequenza respiratoria** — atti respiratori al minuto.
-- **Volume corrente** — aria mossa a ogni atto.
-- **Ventilazione al minuto** — prodotto dei due. Anche qui vale la relazione di compenso: chi ha
+- **Frequenza respiratoria** - atti respiratori al minuto.
+- **Volume corrente** - aria mossa a ogni atto.
+- **Ventilazione al minuto** - prodotto dei due. Anche qui vale la relazione di compenso: chi ha
   volumi ridotti aumenta la frequenza.
-- **Pressione parziale di ossigeno nel sangue arterioso** — quantità di ossigeno disciolto,
+- **Pressione parziale di ossigeno nel sangue arterioso** - quantità di ossigeno disciolto,
   misurabile solo con un prelievo arterioso, non a distanza.
-- **Saturazione di ossigeno dell'emoglobina** — percentuale di siti di legame dell'emoglobina
+- **Saturazione di ossigeno dell'emoglobina** - percentuale di siti di legame dell'emoglobina
   occupati da ossigeno. È la grandezza che l'ossimetro stima (§ 3.3).
-- **Pressione parziale di anidride carbonica** — indice di quanto la ventilazione stia
+- **Pressione parziale di anidride carbonica** - indice di quanto la ventilazione stia
   eliminando anidride carbonica. **Non è stimabile con un ossimetro.**
 
 #### 2.3.3 La curva di dissociazione, e perché cambia il modo di disegnare un'interfaccia
@@ -351,13 +351,13 @@ problema, e va progettato sapendolo.
 
 #### 2.3.4 Cosa succede quando si scompensa
 
-- **Insufficienza respiratoria** — incapacità di mantenere scambi adeguati. Può riguardare solo
+- **Insufficienza respiratoria** - incapacità di mantenere scambi adeguati. Può riguardare solo
   l'ossigenazione o anche l'eliminazione di anidride carbonica.
-- **Broncopneumopatia cronica ostruttiva** — ostruzione cronica al flusso aereo, tipicamente con
+- **Broncopneumopatia cronica ostruttiva** - ostruzione cronica al flusso aereo, tipicamente con
   riacutizzazioni. È la popolazione in cui l'intervallo di riferimento della saturazione va
   personalizzato (§ 1.5).
-- **Asma** — ostruzione reversibile e variabile.
-- **Polmonite, edema polmonare, embolia polmonare** — condizioni acute con presentazioni
+- **Asma** - ostruzione reversibile e variabile.
+- **Polmonite, edema polmonare, embolia polmonare** - condizioni acute con presentazioni
   parzialmente sovrapponibili, che è precisamente il tema della diagnosi differenziale (§ 5.2).
 
 ### 2.4 Sistema nervoso
@@ -371,9 +371,9 @@ regola le funzioni non volontarie.
 
 Ha due componenti con effetti largamente opposti:
 
-- **simpatico** — prepara alla reazione: aumenta frequenza cardiaca e forza di contrazione,
+- **simpatico** - prepara alla reazione: aumenta frequenza cardiaca e forza di contrazione,
   restringe alcuni vasi, dilata le vie aeree, aumenta la sudorazione, mobilita glucosio;
-- **parasimpatico** — prevale a riposo: rallenta la frequenza cardiaca, favorisce digestione e
+- **parasimpatico** - prevale a riposo: rallenta la frequenza cardiaca, favorisce digestione e
   recupero.
 
 **Questo è il motivo fisiologico per cui quasi ogni parametro vitale è influenzato dallo stato
@@ -402,9 +402,9 @@ persona** invece ne ha.
 
 Ictus, crisi epilettiche, stati confusionali, decadimento cognitivo. Rilevante per il progetto
 soprattutto per due ragioni indirette: il **decadimento cognitivo** incide sulla capacità del
-paziente di usare gli strumenti digitali e di eseguire correttamente una misura — è la ragione
+paziente di usare gli strumenti digitali e di eseguire correttamente una misura - è la ragione
 clinica dietro il requisito di verifica della capacità del paziente di interagire con i sistemi
-digitali — e i **disturbi dell'attenzione o della vigilanza** rendono inaffidabile
+digitali - e i **disturbi dell'attenzione o della vigilanza** rendono inaffidabile
 l'autocompilazione dei questionari.
 
 ### 2.5 Sistema endocrino
@@ -420,13 +420,13 @@ più lunghe e con effetti più duraturi.
 Il glucosio nel sangue è la fonte di energia immediata delle cellule e la sua concentrazione è
 mantenuta entro un intervallo stretto da due ormoni prodotti dal pancreas con effetti opposti:
 
-- **insulina** — abbassa la glicemia facendo entrare il glucosio nelle cellule e favorendone il
+- **insulina** - abbassa la glicemia facendo entrare il glucosio nelle cellule e favorendone il
   deposito. Viene rilasciata quando la glicemia sale, tipicamente dopo un pasto;
-- **glucagone** — alza la glicemia mobilitando le riserve, quando la glicemia scende.
+- **glucagone** - alza la glicemia mobilitando le riserve, quando la glicemia scende.
 
 Il **diabete mellito** è la condizione in cui questa regolazione fallisce. Le due forme
-principali hanno meccanismi diversi — assenza di produzione di insulina in un caso, ridotta
-efficacia dell'insulina prodotta nell'altro — e questo cambia radicalmente la struttura dei dati
+principali hanno meccanismi diversi - assenza di produzione di insulina in un caso, ridotta
+efficacia dell'insulina prodotta nell'altro - e questo cambia radicalmente la struttura dei dati
 raccolti: nel primo caso servono più misure al giorno, correlate ai pasti e alle dosi di
 insulina, mentre nel secondo il monitoraggio può essere molto meno fitto.
 
@@ -444,11 +444,11 @@ Due nozioni indispensabili per non sbagliare il modello dati:
 
 #### 2.5.3 Altri assi ormonali che compaiono nei dati
 
-- **tiroide** — regola il metabolismo di base; influenza frequenza cardiaca, temperatura, peso.
+- **tiroide** - regola il metabolismo di base; influenza frequenza cardiaca, temperatura, peso.
   Una disfunzione tiroidea può spiegare alterazioni di parametri apparentemente cardiologici;
-- **surrene** — produce cortisolo, che ha un marcato ritmo circadiano ed è uno dei responsabili
+- **surrene** - produce cortisolo, che ha un marcato ritmo circadiano ed è uno dei responsabili
   fisiologici delle variazioni giornaliere di pressione e glicemia (§ 4.2);
-- **ipofisi** — coordina gli altri assi.
+- **ipofisi** - coordina gli altri assi.
 
 ### 2.6 Apparato renale
 
@@ -503,7 +503,7 @@ sequenza tipica dei segnali osservabili a distanza è:
 3. la **frequenza cardiaca** aumenta come compenso alla ridotta gittata;
 4. la **frequenza respiratoria** aumenta per il ristagno nei polmoni; il paziente riferisce
    affanno prima sotto sforzo, poi da sdraiato;
-5. la **saturazione** scende — ed è tardi, perché la curva del § 2.3.3 la mantiene alta finché
+5. la **saturazione** scende - ed è tardi, perché la curva del § 2.3.3 la mantiene alta finché
    può;
 6. la **pressione** può salire, restare stabile o scendere a seconda della fase e della terapia:
    non è un indicatore univoco.
@@ -527,11 +527,11 @@ Tre insegnamenti per chi progetta:
 Ogni parametro è descritto con la stessa griglia, perché sono esattamente queste dimensioni a
 determinare il modello dati:
 
-- **cosa misura fisicamente** — la grandezza reale, non il nome commerciale del sensore;
-- **come si misura** — il metodo, perché metodi diversi producono valori non intercambiabili;
-- **unità di misura** — con il codice UCUM, che è la forma in cui l'unità entra nel sistema;
-- **intervalli di riferimento e loro dipendenza dal contesto** — sempre indicativi, mai cablati;
-- **fonti di errore** — l'elenco delle ragioni per cui un valore può essere sbagliato pur
+- **cosa misura fisicamente** - la grandezza reale, non il nome commerciale del sensore;
+- **come si misura** - il metodo, perché metodi diversi producono valori non intercambiabili;
+- **unità di misura** - con il codice UCUM, che è la forma in cui l'unità entra nel sistema;
+- **intervalli di riferimento e loro dipendenza dal contesto** - sempre indicativi, mai cablati;
+- **fonti di errore** - l'elenco delle ragioni per cui un valore può essere sbagliato pur
   essendo plausibile;
 - **cosa rende un valore clinicamente significativo**;
 - **perché il singolo valore quasi mai basta**.
@@ -554,8 +554,8 @@ flowchart TB
 ```
 
 I due anelli evidenziati sono quelli che il progetto non controlla e che introducono la maggior
-parte dell'errore: **le condizioni di misura** e **la trascrizione**. Il perimetro adottato —
-ingestione da gateway di terze parti, inserimento manuale, questionari — implica che il progetto
+parte dell'errore: **le condizioni di misura** e **la trascrizione**. Il perimetro adottato -
+ingestione da gateway di terze parti, inserimento manuale, questionari - implica che il progetto
 **non risponde dell'accuratezza della catena hardware**, ma deve rendere ricostruibile ciò che è
 successo: chi ha inserito il valore, con quale dispositivo dichiarato, in quali condizioni
 dichiarate.
@@ -568,13 +568,13 @@ La forza esercitata dal sangue sulla parete delle arterie. Non è un numero solo
 ciclo cardiaco la pressione oscilla fra un massimo e un minimo, e da questi due valori se ne
 derivano altri due.
 
-- **Pressione sistolica** — il valore massimo, raggiunto durante la contrazione del ventricolo
+- **Pressione sistolica** - il valore massimo, raggiunto durante la contrazione del ventricolo
   sinistro (*sistole*).
-- **Pressione diastolica** — il valore minimo, durante il rilasciamento (*diastole*).
-- **Pressione differenziale** (in inglese *pulse pressure*) — la differenza fra sistolica e
+- **Pressione diastolica** - il valore minimo, durante il rilasciamento (*diastole*).
+- **Pressione differenziale** (in inglese *pulse pressure*) - la differenza fra sistolica e
   diastolica. Riflette in buona parte la rigidità delle grandi arterie e il volume espulso a ogni
   battito. È un valore **derivato**, non misurato.
-- **Pressione arteriosa media** — il valore medio nel tempo lungo un ciclo cardiaco, che è la
+- **Pressione arteriosa media** - il valore medio nel tempo lungo un ciclo cardiaco, che è la
   grandezza fisicamente più vicina alla pressione di perfusione degli organi. Poiché il ciclo non
   è simmetrico (la diastole dura più della sistole), non è la media aritmetica dei due valori: si
   approssima con formule del tipo *diastolica + un terzo della differenziale*. Il dettaglio è
@@ -585,12 +585,12 @@ derivano altri due.
 
 Due metodi non invasivi, che non danno gli stessi numeri.
 
-- **Auscultatorio** — un bracciale gonfiato comprime l'arteria del braccio; sgonfiando
+- **Auscultatorio** - un bracciale gonfiato comprime l'arteria del braccio; sgonfiando
   lentamente, un operatore ascolta con lo stetoscopio la comparsa e la scomparsa di rumori
   caratteristici e legge i due valori su un manometro. È il metodo storico di riferimento e
   **richiede un operatore addestrato**: non è eseguibile dal paziente da solo, e non è eseguibile
   attraverso uno schermo.
-- **Oscillometrico** — un bracciale automatico rileva le oscillazioni di pressione trasmesse dal
+- **Oscillometrico** - un bracciale automatico rileva le oscillazioni di pressione trasmesse dal
   vaso e **calcola** i valori con un algoritmo proprietario. È il metodo di quasi tutti i
   misuratori domiciliari. Punto essenziale: l'apparecchio oscillometrico **misura direttamente
   una grandezza vicina alla pressione media e deriva sistolica e diastolica per stima**. Ne
@@ -650,16 +650,16 @@ paragonabile alla differenza fra le categorie cliniche.
   sistematicamente più alta.
 - **Parlare durante la misura.** Alza il valore.
 - **Fumo, caffeina, pasto recente.**
-- **Effetto camice bianco** — pressione più alta in presenza del personale sanitario che a
+- **Effetto camice bianco** - pressione più alta in presenza del personale sanitario che a
   domicilio. Ha un corrispettivo in telemedicina che non è stato oggetto di quantificazione
   affidabile: l'effetto di essere osservati attraverso una videocamera durante la misura. `[NV]`
-- **Ipertensione mascherata** — il fenomeno opposto: valori normali in ambulatorio ed elevati a
+- **Ipertensione mascherata** - il fenomeno opposto: valori normali in ambulatorio ed elevati a
   domicilio. È la ragione principale per cui l'automisurazione ha valore autonomo e non è un
   ripiego.
 - **Differenza fra le due braccia.** Può essere fisiologica entro un certo margine e patologica
   oltre. Conseguenza operativa: **il braccio usato è un dato**, e le misure su braccia diverse non
   vanno inserite nella stessa serie senza qualificarle.
-- **Aritmia.** In presenza di battito irregolare — tipicamente la fibrillazione atriale — gli
+- **Aritmia.** In presenza di battito irregolare - tipicamente la fibrillazione atriale - gli
   apparecchi oscillometrici perdono affidabilità, perché l'algoritmo assume una certa regolarità
   del segnale. Molti dispositivi segnalano l'irregolarità: **quella segnalazione è un dato da
   conservare**, non un messaggio da mostrare e scartare.
@@ -697,8 +697,8 @@ regola di tendenza e una regola di valore estremo.
 Il numero di cicli cardiaci per unità di tempo. Attenzione a una distinzione che il linguaggio
 comune cancella:
 
-- **frequenza cardiaca** — battiti elettrici o meccanici del cuore al minuto;
-- **frequenza del polso** — pulsazioni percepibili in periferia al minuto.
+- **frequenza cardiaca** - battiti elettrici o meccanici del cuore al minuto;
+- **frequenza del polso** - pulsazioni percepibili in periferia al minuto.
 
 Coincidono nella maggior parte dei casi, ma **non sempre**: se alcune contrazioni sono troppo
 deboli per generare un'onda pulsatile percepibile, il polso è più lento della frequenza cardiaca.
@@ -708,15 +708,15 @@ al sistema è la frequenza del polso anche quando l'etichetta dice «frequenza c
 
 #### 3.2.2 Come si misura
 
-- **Palpazione manuale** — conteggio su un'arteria periferica per un tempo definito. Semplice,
+- **Palpazione manuale** - conteggio su un'arteria periferica per un tempo definito. Semplice,
   e l'unico metodo che permette di apprezzare **la regolarità e l'ampiezza** oltre alla
   frequenza.
-- **Ossimetria a impulsi** — quasi tutti gli ossimetri restituiscono anche la frequenza del
+- **Ossimetria a impulsi** - quasi tutti gli ossimetri restituiscono anche la frequenza del
   polso, ricavata dalla componente pulsatile del segnale ottico.
-- **Misuratore automatico di pressione** — restituisce la frequenza rilevata durante la misura.
-- **Elettrocardiogramma** — misura l'attività elettrica; è l'unico metodo che descrive il
+- **Misuratore automatico di pressione** - restituisce la frequenza rilevata durante la misura.
+- **Elettrocardiogramma** - misura l'attività elettrica; è l'unico metodo che descrive il
   **ritmo** e non solo la frequenza.
-- **Sensori indossabili** — fotopletismografia al polso o al dito. Precisione fortemente
+- **Sensori indossabili** - fotopletismografia al polso o al dito. Precisione fortemente
   dipendente dal movimento, dall'aderenza e dalla perfusione.
 
 **Metodi diversi non producono lo stesso dato**, e la differenza non è solo di accuratezza: è di
@@ -738,7 +738,7 @@ Per l'adulto a riposo si cita comunemente un intervallo attorno a 60–100 batti
 - **l'allenamento**: in una persona molto allenata una frequenza a riposo sotto il limite
   inferiore dell'intervallo dell'adulto medio è attesa, non patologica;
 - **la terapia**: alcune classi di farmaci cardiologici riducono deliberatamente la frequenza. In
-  un paziente in terapia il valore atteso è più basso, e — punto meno ovvio — **l'aumento
+  un paziente in terapia il valore atteso è più basso, e - punto meno ovvio - **l'aumento
   compensatorio in caso di peggioramento è attenuato**, quindi il segnale che ci si aspetterebbe
   può non comparire;
 - **la febbre** aumenta la frequenza;
@@ -749,14 +749,14 @@ Per l'adulto a riposo si cita comunemente un intervallo attorno a 60–100 batti
 #### 3.2.5 Fonti di errore
 
 - **Movimento** durante la misura, in particolare con sensori ottici.
-- **Perfusione periferica scarsa** — mani fredde, vasocostrizione: il segnale ottico si degrada e
+- **Perfusione periferica scarsa** - mani fredde, vasocostrizione: il segnale ottico si degrada e
   l'algoritmo può agganciare artefatti.
-- **Aritmie** — un battito irregolare rende ambiguo il concetto stesso di "frequenza" su una
+- **Aritmie** - un battito irregolare rende ambiguo il concetto stesso di "frequenza" su una
   finestra breve.
-- **Conteggio su tempo breve moltiplicato** — contare per quindici secondi e moltiplicare per
+- **Conteggio su tempo breve moltiplicato** - contare per quindici secondi e moltiplicare per
   quattro amplifica per quattro l'errore di conteggio ed è particolarmente inadatto in presenza
   di irregolarità.
-- **Doppio conteggio o dimezzamento** — alcuni algoritmi possono agganciare l'armonica sbagliata
+- **Doppio conteggio o dimezzamento** - alcuni algoritmi possono agganciare l'armonica sbagliata
   del segnale, restituendo il doppio o la metà del valore reale. Sono valori plausibili: nessun
   controllo di intervallo li intercetta.
 
@@ -815,11 +815,11 @@ arterioso che non è avvenuto.
 
 #### 3.3.4 Fonti di errore
 
-- **Perfusione periferica scarsa** — freddo, vasocostrizione, ipotensione. Il segnale pulsatile
+- **Perfusione periferica scarsa** - freddo, vasocostrizione, ipotensione. Il segnale pulsatile
   si riduce e la stima si degrada. Molti dispositivi espongono un **indice di perfusione**: è un
   indicatore di qualità del dato e, se disponibile, va conservato.
-- **Movimento** — genera componenti pulsatili spurie.
-- **Smalto per unghie, unghie artificiali, sporco** — alterano l'assorbimento ottico.
+- **Movimento** - genera componenti pulsatili spurie.
+- **Smalto per unghie, unghie artificiali, sporco** - alterano l'assorbimento ottico.
 - **Luce ambientale intensa** che raggiunge il sensore.
 - **Emoglobine anomale.** In presenza di monossido di carbonio, l'emoglobina legata al monossido
   assorbe la luce in modo simile a quella ossigenata: **l'ossimetro può leggere una saturazione
@@ -829,10 +829,10 @@ arterioso che non è avvenuto.
   di accuratezza dell'ossimetria in relazione al colore della pelle, con tendenza a sovrastimare
   la saturazione nelle persone con pigmentazione più scura. Il progetto registra il fatto senza
   quantificarlo: `[NV]` sull'entità, che dipende da dispositivo e popolazione. La conseguenza
-  progettuale è però indipendente dalla quantificazione — **è una fonte di iniquità di sistema
+  progettuale è però indipendente dalla quantificazione - **è una fonte di iniquità di sistema
   che va dichiarata nella documentazione destinata al professionista e considerata nella
   gestione del rischio**, non un dettaglio tecnico.
-- **Sede di misura** — dito, orecchio e piede hanno tempi di risposta e affidabilità diversi.
+- **Sede di misura** - dito, orecchio e piede hanno tempi di risposta e affidabilità diversi.
 - **Ossigeno supplementare in corso.** Una saturazione va letta **insieme all'informazione se il
   paziente stia ricevendo ossigeno e a quale flusso**. La stessa cifra con e senza ossigeno
   descrive due situazioni diversissime. Questo è un caso da manuale di **dato che non ha
@@ -856,8 +856,8 @@ Il numero di atti respiratori completi (una inspirazione più una espirazione) a
 
 #### 3.4.2 Come si misura
 
-Osservazione e conteggio dei movimenti del torace per un intervallo di tempo — idealmente un
-minuto intero — **preferibilmente senza che il paziente sappia di essere osservato**, perché la
+Osservazione e conteggio dei movimenti del torace per un intervallo di tempo - idealmente un
+minuto intero - **preferibilmente senza che il paziente sappia di essere osservato**, perché la
 respirazione è sotto controllo parziale volontario e la consapevolezza la altera. È l'unico
 parametro di questa sezione la cui misura corretta richiede che il soggetto **non collabori**
 consapevolmente.
@@ -874,7 +874,7 @@ un dato indispensabile**.
 
 #### 3.4.3 Unità
 
-Atti al minuto. Codice UCUM: `/min` — la stessa unità della frequenza cardiaca, il che rende
+Atti al minuto. Codice UCUM: `/min` - la stessa unità della frequenza cardiaca, il che rende
 **il codice della grandezza l'unico discriminante**. Un modello che si affidi all'unità per
 distinguere i due parametri confonde due serie completamente diverse.
 
@@ -911,7 +911,7 @@ accessibile**, che ne è un'approssimazione con un errore sistematico dipendente
 
 #### 3.5.2 Come si misura, e perché la sede è parte del dato
 
-Le sedi di uso corrente — ascellare, orale, timpanica, rettale, temporale — danno valori
+Le sedi di uso corrente - ascellare, orale, timpanica, rettale, temporale - danno valori
 **sistematicamente diversi fra loro**, con la sede ascellare tipicamente più bassa e quella
 rettale tipicamente più alta rispetto all'orale. L'entità esatta degli scarti varia per fonte e
 per metodo: `[NV]`.
@@ -927,7 +927,7 @@ d'aria.
 
 #### 3.5.3 Unità
 
-Gradi Celsius. Codice UCUM: `Cel` — **non** `°C` come stringa. I gradi Fahrenheit esistono e
+Gradi Celsius. Codice UCUM: `Cel` - **non** `°C` come stringa. I gradi Fahrenheit esistono e
 sono usati in altre convenzioni: la conversione è affine, non moltiplicativa, quindi un errore di
 conversione produce valori plausibili invece che assurdi. È esattamente il difetto del § 1.2.
 
@@ -948,7 +948,7 @@ La soglia che definisce la «febbre» varia per fonte e per sede: è configurazi
 Perché la temperatura ha un ritmo circadiano marcato, perché la sede introduce uno scarto
 sistematico e perché ciò che informa è **l'andamento**: la comparsa, la persistenza,
 l'oscillazione e la risposta alla terapia. Una singola misura è interpretabile solo se si sa
-sede, ora e se il paziente ha assunto farmaci che abbassano la temperatura — ed è il caso più
+sede, ora e se il paziente ha assunto farmaci che abbassano la temperatura - ed è il caso più
 frequente in cui un valore normale nasconde una situazione anormale.
 
 ### 3.6 Glicemia
@@ -958,10 +958,10 @@ frequente in cui un valore normale nasconde una situazione anormale.
 La concentrazione di glucosio in un campione. **In quale campione** è la prima domanda, e non è
 un dettaglio.
 
-- **Sangue capillare** — la goccia ottenuta pungendo un polpastrello, misurata con un
+- **Sangue capillare** - la goccia ottenuta pungendo un polpastrello, misurata con un
   glucometro.
-- **Plasma venoso** — il campione del laboratorio, ottenuto con un prelievo da vena.
-- **Liquido interstiziale** — quello misurato dai sensori a monitoraggio continuo, che non
+- **Plasma venoso** - il campione del laboratorio, ottenuto con un prelievo da vena.
+- **Liquido interstiziale** - quello misurato dai sensori a monitoraggio continuo, che non
   misurano il sangue.
 
 I tre campioni **non danno lo stesso valore**. La maggior parte dei glucometri domiciliari è
@@ -971,11 +971,11 @@ confrontabili.
 
 #### 3.6.2 Come si misura
 
-- **Glucometro capillare** — puntura, striscia reattiva, lettura in pochi secondi. Il valore
+- **Glucometro capillare** - puntura, striscia reattiva, lettura in pochi secondi. Il valore
   dipende dal lotto delle strisce, dalla loro conservazione, dalla scadenza e dalla temperatura
   ambiente.
-- **Laboratorio** — su prelievo venoso, con metodi di riferimento.
-- **Monitoraggio continuo del glucosio** — un sensore sottocutaneo campiona il liquido
+- **Laboratorio** - su prelievo venoso, con metodi di riferimento.
+- **Monitoraggio continuo del glucosio** - un sensore sottocutaneo campiona il liquido
   interstiziale a intervalli molto ravvicinati e produce una serie fitta. Due proprietà da
   conoscere: c'è un **ritardo fisiologico** fra glicemia ematica e interstiziale, dell'ordine di
   alcuni minuti, che si manifesta soprattutto quando il valore cambia rapidamente; e
@@ -984,7 +984,7 @@ confrontabili.
 #### 3.6.3 Unità, e la conversione che va fatta bene
 
 Due unità in uso: **milligrammi per decilitro** (`mg/dL`) e **millimoli per litro** (`mmol/L`).
-Il fattore di conversione per il glucosio è circa **18,0** — più precisamente il rapporto
+Il fattore di conversione per il glucosio è circa **18,0** - più precisamente il rapporto
 determinato dalla massa molare del glucosio `[NV]` sul valore esatto da usare, che va fissato in
 un unico punto del codice e non ripetuto.
 
@@ -1024,7 +1024,7 @@ numerici sono di ordini di grandezza diversi, ma esistono referti che riportano 
 relazione fra le due è affine, non proporzionale `[NV]` sui coefficienti esatti.
 
 Regola: **si conserva il valore con la sua unità come è stato refertato**, e la conversione, se
-serve, è una funzione esplicita, tracciabile e reversibile — mai una normalizzazione silenziosa
+serve, è una funzione esplicita, tracciabile e reversibile - mai una normalizzazione silenziosa
 in ingresso.
 
 ### 3.7 Peso corporeo
@@ -1038,7 +1038,7 @@ informativo (§ 2.7).
 
 Bilancia. Le condizioni contano più di quanto sembri: stessa bilancia, stesso momento della
 giornata (tipicamente al mattino), dopo la minzione, prima di colazione, con abbigliamento
-comparabile, su superficie rigida — una bilancia su tappeto può leggere in modo non ripetibile.
+comparabile, su superficie rigida - una bilancia su tappeto può leggere in modo non ripetibile.
 
 #### 3.7.3 Unità
 
@@ -1055,8 +1055,8 @@ renale: la bilancia diventa uno strumento per stimare il bilancio dei liquidi.
 Ne discendono due conseguenze di modellazione:
 
 - **la grandezza rilevante è la variazione rispetto a un riferimento, non il valore assoluto.** Il
-  riferimento può essere un peso obiettivo definito dal clinico — il **peso secco** nel paziente
-  in dialisi — o il peso di un giorno indice. Il modello deve poter rappresentare il riferimento
+  riferimento può essere un peso obiettivo definito dal clinico - il **peso secco** nel paziente
+  in dialisi - o il peso di un giorno indice. Il modello deve poter rappresentare il riferimento
   e la sua storia, perché il riferimento stesso viene aggiornato dal clinico;
 - **la finestra temporale della variazione è parte della regola.** Criteri del tipo «aumento di
   una certa quantità in un certo numero di giorni» ricorrono nei piani di telemonitoraggio dello
@@ -1074,8 +1074,8 @@ comporta due obblighi: va **ricalcolato** quando cambia una delle due grandezze,
 come derivato, non come misurato. Un indice memorizzato come se fosse una misura diventa
 silenziosamente incoerente con i suoi ingredienti.
 
-L'indice ha inoltre limiti noti — non distingue massa muscolare da massa grassa, ha
-interpretazioni diverse per età e composizione corporea — che la documentazione destinata al
+L'indice ha inoltre limiti noti - non distingue massa muscolare da massa grassa, ha
+interpretazioni diverse per età e composizione corporea - che la documentazione destinata al
 professionista deve riportare senza addolcirli.
 
 ### 3.8 Tabella riepilogativa
@@ -1086,7 +1086,7 @@ professionista deve riportare senza addolcirli.
 pinnato.** Sono i codici comunemente citati nella documentazione dello standard e nei profili
 FHIR per i segni vitali, riportati qui a fini didattici e marcati `[NV]` in blocco. La verifica
 puntuale, con dichiarazione della versione LOINC adottata e attribuzione richiesta dalla licenza,
-è un'attività separata: LOINC è collocato nel regime A della policy terminologica del progetto —
+è un'attività separata: LOINC è collocato nel regime A della policy terminologica del progetto -
 coesistenza piena nei sorgenti con attribuzione. Si ricorda inoltre che **le traduzioni italiane
 di LOINC sono derivati assegnati all'ente che lo mantiene**: le stringhe di interfaccia del
 progetto vanno tenute architetturalmente separate dal campo di visualizzazione del codice.
@@ -1097,9 +1097,9 @@ progetto vanno tenute architetturalmente separate dal campo di visualizzazione d
 |---|---|---|---|---|
 | Pressione sistolica | Pressione massima nel ciclo cardiaco | `mm[Hg]` | 8480-6 | Non è un numero isolato: fa parte di una struttura con la diastolica; il metodo e il braccio cambiano il valore |
 | Pressione diastolica | Pressione minima nel ciclo cardiaco | `mm[Hg]` | 8462-4 | Come sopra; nei misuratori oscillometrici è **derivata da un algoritmo**, non misurata |
-| Pannello pressorio | Contenitore delle due componenti | — | 85354-9 | Rappresentare la pressione come stringa «120/80» rende il dato inutilizzabile |
+| Pannello pressorio | Contenitore delle due componenti | - | 85354-9 | Rappresentare la pressione come stringa «120/80» rende il dato inutilizzabile |
 | Pressione arteriosa media | Media temporale nel ciclo | `mm[Hg]` | 8478-0 | **È una formula**: la formula usata va dichiarata; non è la media aritmetica di sistolica e diastolica |
-| Pressione differenziale | Sistolica meno diastolica | `mm[Hg]` | — `[NV]` | Valore derivato: va ricalcolato, mai memorizzato come misura indipendente |
+| Pressione differenziale | Sistolica meno diastolica | `mm[Hg]` | - `[NV]` | Valore derivato: va ricalcolato, mai memorizzato come misura indipendente |
 | Frequenza cardiaca | Cicli cardiaci al minuto | `/min` | 8867-4 | Stessa unità della frequenza respiratoria: il codice è l'unico discriminante. Quasi sempre è in realtà frequenza **del polso** |
 | Saturazione periferica di ossigeno | Percentuale di emoglobina ossigenata, stimata otticamente | `%` | 59408-5 (ossimetria) / 2708-6 (sangue arterioso) | Scala non lineare; non media; codice diverso da quello del prelievo arterioso; priva di significato senza il dato sull'ossigeno supplementare |
 | Frequenza respiratoria | Atti respiratori al minuto | `/min` | 9279-1 | La consapevolezza di essere osservati altera la misura; campo che resta vuoto se l'inserimento è scomodo |
@@ -1117,7 +1117,7 @@ porta con sé almeno:
 
 | Attributo | Perché è obbligatorio |
 |---|---|
-| **Valore** | — |
+| **Valore** | - |
 | **Unità codificata** | § 1.2 |
 | **Codice della grandezza** | Distingue parametri che condividono l'unità (§ 3.4.3) e varianti che condividono il nome (§ 3.6.4) |
 | **Istante della misura** | Distinto dall'istante di inserimento e da quello di ricezione (§ 4.4) |
@@ -1127,7 +1127,7 @@ porta con sé almeno:
 | **Dispositivo dichiarato** | Identificazione del dispositivo e, quando disponibile, il suo identificativo univoco |
 | **Condizioni dichiarate** | Riposo, posizione, digiuno, ossigeno supplementare, prima o dopo terapia |
 | **Indicatori di qualità del dispositivo** | Indice di perfusione, segnalazione di battito irregolare, avvisi di errore |
-| **Stato della misura** | Preliminare, definitiva, corretta, annullata — con la storia delle correzioni |
+| **Stato della misura** | Preliminare, definitiva, corretta, annullata - con la storia delle correzioni |
 
 Nessuno di questi attributi è recuperabile a posteriori. È la ragione per cui vanno previsti
 prima della prima riga di codice di ingestione, e non aggiunti quando il clinico chiede perché
@@ -1145,11 +1145,11 @@ proprietà temporali che il software deve rispettare.
 
 Le domande cliniche non hanno quasi mai la forma «quanto vale ora?». Hanno la forma:
 
-- **sta migliorando o peggiorando?** — direzione;
-- **quanto rapidamente?** — velocità di variazione;
-- **è stabile o oscilla?** — variabilità;
-- **è tornato al suo valore abituale dopo l'evento?** — recupero;
-- **quanto tempo ha passato fuori dall'obiettivo?** — esposizione cumulata.
+- **sta migliorando o peggiorando?** - direzione;
+- **quanto rapidamente?** - velocità di variazione;
+- **è stabile o oscilla?** - variabilità;
+- **è tornato al suo valore abituale dopo l'evento?** - recupero;
+- **quanto tempo ha passato fuori dall'obiettivo?** - esposizione cumulata.
 
 Nessuna di queste è calcolabile su un singolo punto, e tre di esse non sono calcolabili nemmeno
 su una media. Ne segue una linea guida di prodotto: **l'unità di visualizzazione predefinita di
@@ -1162,7 +1162,7 @@ nella stessa direzione su una finestra temporale definita, che eccede la variabi
 parametro in quel paziente**. Contiene quindi tre parametri che qualcuno deve fissare: la
 finestra, la soglia di consistenza e la variabilità di riferimento. Nessuno dei tre è deducibile
 dal dato: sono configurazione clinica. Un sistema che dichiara «tendenza in peggioramento» senza
-esporre i tre parametri sta emettendo un giudizio non verificabile — e, nel perimetro
+esporre i tre parametri sta emettendo un giudizio non verificabile - e, nel perimetro
 regolatorio del progetto, sta interpretando.
 
 ### 4.2 Variabilità circadiana
@@ -1186,8 +1186,8 @@ Tre conseguenze dirette per il software:
    pulito;
 2. **la finestra di aggregazione va allineata alla fase, non all'orologio del server.** Una media
    giornaliera calcolata da mezzanotte a mezzanotte taglia il ritmo in un punto arbitrario;
-3. **il piano di monitoraggio prescrive spesso una fascia oraria** — le rilevazioni «del
-   mattino», «della sera» — e quella fascia è un attributo della misura, non un filtro
+3. **il piano di monitoraggio prescrive spesso una fascia oraria** - le rilevazioni «del
+   mattino», «della sera» - e quella fascia è un attributo della misura, non un filtro
    dell'interrogazione. Il tracciato del piano di telemonitoraggio previsto dalla normativa
    nazionale contiene infatti la fascia oraria come campo strutturato (vedi
    [02](02-prestazioni-di-telemedicina.md), § 4.5.4).
@@ -1204,31 +1204,31 @@ La media è l'aggregazione più facile da implementare e la più facile da sbagl
 sotto cui una media di misure fisiologiche è interpretabile sono quattro, e vanno verificate
 tutte:
 
-1. **le osservazioni sono comparabili** — stesso metodo, stessa sede, stesso contesto, stessa
+1. **le osservazioni sono comparabili** - stesso metodo, stessa sede, stesso contesto, stessa
    variante del parametro (§ 3.6.4);
-2. **il campionamento è bilanciato rispetto alla struttura del fenomeno** — se il parametro ha
+2. **il campionamento è bilanciato rispetto alla struttura del fenomeno** - se il parametro ha
    un ritmo, servono misure distribuite sul ritmo, non concentrate in una fase (§ 1.3);
-3. **le osservazioni sono sufficientemente indipendenti** — misure ravvicinate della stessa
+3. **le osservazioni sono sufficientemente indipendenti** - misure ravvicinate della stessa
    sequenza sono una sola osservazione ripetuta;
-4. **la media è la statistica che risponde alla domanda** — che è raro. La domanda clinica è più
+4. **la media è la statistica che risponde alla domanda** - che è raro. La domanda clinica è più
    spesso il minimo, il massimo, il tempo trascorso oltre un limite, la proporzione di misure
    entro l'obiettivo, la variabilità.
 
 Casi in cui la media è particolarmente ingannevole:
 
-- **saturazione di ossigeno** — la non linearità della curva (§ 2.3.3) rende la media una
+- **saturazione di ossigeno** - la non linearità della curva (§ 2.3.3) rende la media una
   grandezza senza corrispettivo fisiologico. Se un paziente passa metà del tempo a un valore
   molto basso e metà a un valore alto, la media è un numero che non descrive nessuno dei due
   stati e nasconde precisamente quello pericoloso;
-- **glicemia** — un paziente con oscillazioni ampie fra valori bassi e alti può avere la stessa
+- **glicemia** - un paziente con oscillazioni ampie fra valori bassi e alti può avere la stessa
   media di un paziente stabile. La media nasconde le ipoglicemie, che sono l'evento acuto
   (§ 2.5.2). È la ragione per cui gli indicatori clinicamente affermati per il monitoraggio
   continuo sono basati sul **tempo trascorso entro un intervallo** e sulla variabilità, non
   sulla media;
-- **pressione** — § 1.3;
-- **scale di dolore o di sintomo** — sono ordinali, non cardinali: la media aritmetica di
+- **pressione** - § 1.3;
+- **scale di dolore o di sintomo** - sono ordinali, non cardinali: la media aritmetica di
   un'ordinale non è definita in senso proprio (§ 2.4.2);
-- **peso** — mediare pesi presi in condizioni diverse cancella la variazione, che è il segnale.
+- **peso** - mediare pesi presi in condizioni diverse cancella la variazione, che è il segnale.
 
 **Regola operativa del progetto**: nessuna aggregazione di misure fisiologiche è predefinita nel
 codice. L'aggregazione è specificata insieme al parametro, dichiarata all'utente («media di 3
@@ -1238,7 +1238,7 @@ periodo.
 ### 4.4 Il momento della misura è un dato quanto il valore
 
 Un sistema di telemonitoraggio ha almeno **quattro istanti diversi** per lo stesso record, e
-confonderli produce difetti che si manifestano solo in condizioni rare — cioè in produzione.
+confonderli produce difetti che si manifestano solo in condizioni rare - cioè in produzione.
 
 | Istante | Cosa rappresenta | Chi lo genera |
 |---|---|---|
@@ -1276,11 +1276,11 @@ Due regole sul fuso orario, che vengono sbagliate quasi sempre:
   traduce in rilevazioni contate due volte o mancanti.
 
 Infine, un punto di semantica del dominio: **l'assenza di una misura è un dato.** In un piano che
-prescrive una rilevazione al giorno, il giorno senza rilevazione porta informazione — sul
+prescrive una rilevazione al giorno, il giorno senza rilevazione porta informazione - sul
 paziente, sull'aderenza, sul dispositivo. Un modello che rappresenta solo le misure presenti non
 può esprimere l'aderenza, che è una delle grandezze che il piano di telemonitoraggio richiede.
 L'assenza va quindi derivata dal confronto fra le rilevazioni attese, definite nel piano, e
-quelle ricevute — ed è un altro caso in cui il piano è la fonte, e il codice non deve indovinare.
+quelle ricevute - ed è un altro caso in cui il piano è la fonte, e il codice non deve indovinare.
 
 ---
 
@@ -1293,11 +1293,11 @@ spesso e con le conseguenze più costose.
 
 ### 5.1 Segno e sintomo non sono la stessa cosa
 
-- **Sintomo** — manifestazione **riferita dal paziente**, non osservabile direttamente da altri:
+- **Sintomo** - manifestazione **riferita dal paziente**, non osservabile direttamente da altri:
   dolore, nausea, affanno, prurito, stanchezza, vertigine. È un dato soggettivo, e la sua
   soggettività non lo rende meno reale né meno importante: è spesso il dato che orienta tutto il
   resto.
-- **Segno** — manifestazione **rilevabile dall'osservatore**: un gonfiore, un colorito alterato,
+- **Segno** - manifestazione **rilevabile dall'osservatore**: un gonfiore, un colorito alterato,
   un rumore all'auscultazione, una temperatura misurata, un'asimmetria.
 
 La distinzione ha conseguenze dirette:
@@ -1336,7 +1336,7 @@ flowchart TB
     style F fill:#e7f3ff,stroke:#0b5ed7
 ```
 
-**Anamnesi** — la raccolta della storia. Non è un modulo da compilare: è un'intervista guidata in
+**Anamnesi** - la raccolta della storia. Non è un modulo da compilare: è un'intervista guidata in
 cui l'ordine e la formulazione delle domande dipendono dalle risposte precedenti. Si articola per
 tradizione in anamnesi familiare (malattie dei consanguinei), fisiologica (nascita, sviluppo,
 abitudini di vita, per la donna la storia ostetrica), patologica remota (malattie e interventi
@@ -1349,32 +1349,32 @@ prepara. Rendere obbligatoria la compilazione di ogni campo di un modulo anamnes
 di progettazione: costringe a inventare risposte, e una risposta inventata è peggio di una
 mancante perché è indistinguibile da una vera.
 
-**Esame obiettivo** — la rilevazione diretta dei segni. È il § 6, ed è il punto in cui la
+**Esame obiettivo** - la rilevazione diretta dei segni. È il § 6, ed è il punto in cui la
 telemedicina perde di più.
 
-**Ipotesi diagnostica** — l'insieme delle spiegazioni compatibili con quanto raccolto.
+**Ipotesi diagnostica** - l'insieme delle spiegazioni compatibili con quanto raccolto.
 
-**Diagnosi differenziale** — il confronto sistematico fra le ipotesi. Contiene un criterio che
+**Diagnosi differenziale** - il confronto sistematico fra le ipotesi. Contiene un criterio che
 sorprende chi ragiona per massima verosimiglianza: **non si ordinano le ipotesi solo per
 probabilità, ma anche per gravità delle conseguenze se vengono mancate.** Un'ipotesi poco
 probabile ma pericolosa e trattabile viene esclusa attivamente prima di una più probabile e
 benigna. È un ragionamento di teoria della decisione, con costi asimmetrici, e non di semplice
 inferenza.
 
-**Accertamenti** — gli esami. Il punto che il § 5.4 sviluppa: un esame non serve a «sapere se c'è
+**Accertamenti** - gli esami. Il punto che il § 5.4 sviluppa: un esame non serve a «sapere se c'è
 la malattia», serve a **spostare la probabilità** di un'ipotesi abbastanza da cambiare la
 decisione. Un esame che non cambierebbe la condotta qualunque sia il risultato non va richiesto:
 è il principio di appropriatezza.
 
-**Diagnosi** — la conclusione motivata. Ha gradi: può essere definita, presunta, provvisoria, di
+**Diagnosi** - la conclusione motivata. Ha gradi: può essere definita, presunta, provvisoria, di
 esclusione. Cade in un sistema di classificazione codificato quando deve essere registrata.
 
-**Prognosi** — la previsione dell'evoluzione. È una **distribuzione di probabilità**, non una
+**Prognosi** - la previsione dell'evoluzione. È una **distribuzione di probabilità**, non una
 data. Va rappresentata come tale, e in nessun caso il sistema deve calcolarla.
 
-**Terapia** — l'intervento, farmacologico o non farmacologico (§ 7).
+**Terapia** - l'intervento, farmacologico o non farmacologico (§ 7).
 
-**Follow-up** — la verifica nel tempo, che è precisamente ciò che la telemedicina fa meglio: è la
+**Follow-up** - la verifica nel tempo, che è precisamente ciò che la telemedicina fa meglio: è la
 ragione per cui la televisita è normativamente collocata nel controllo di pazienti già
 diagnosticati.
 
@@ -1395,7 +1395,7 @@ smentito senza che questo costituisca un errore; la diagnosi può essere rivista
 
 Un sistema che colloca sospetto e diagnosi nello stesso campo produce due danni: rende
 impossibile ricostruire il ragionamento e, cosa più seria, può far apparire come diagnosi
-formulata ciò che era solo un'ipotesi di lavoro — con conseguenze sulla persona che possono
+formulata ciò che era solo un'ipotesi di lavoro - con conseguenze sulla persona che possono
 durare anni, dato che il documento finisce nel fascicolo sanitario.
 
 ### 5.4 Il clinico ragiona per probabilità
@@ -1412,14 +1412,14 @@ riferimento) e si applichi un test. Ogni persona cade in una di quattro caselle:
 | **Test positivo** | Vero positivo (VP) | Falso positivo (FP) |
 | **Test negativo** | Falso negativo (FN) | Vero negativo (VN) |
 
-**Proprietà del test** — non dipendono da quanto la malattia sia frequente:
+**Proprietà del test** - non dipendono da quanto la malattia sia frequente:
 
 - **Sensibilità** = VP / (VP + FN). La quota di **malati** che il test riconosce. Un test molto
   sensibile, se negativo, tende a escludere.
 - **Specificità** = VN / (VN + FP). La quota di **sani** che il test riconosce come tali. Un test
   molto specifico, se positivo, tende a confermare.
 
-**Proprietà del risultato in una popolazione** — dipendono in modo decisivo dalla frequenza della
+**Proprietà del risultato in una popolazione** - dipendono in modo decisivo dalla frequenza della
 malattia:
 
 - **Valore predittivo positivo** = VP / (VP + FP). Dato un risultato positivo, la probabilità che
@@ -1429,7 +1429,7 @@ malattia:
 
 E la grandezza che lega le due coppie:
 
-- **Prevalenza** — la proporzione di persone con la malattia nella popolazione a cui il test
+- **Prevalenza** - la proporzione di persone con la malattia nella popolazione a cui il test
   viene applicato. Non è una proprietà universale della malattia: è una proprietà **della
   popolazione testata**. La prevalenza di una condizione fra chi si presenta in un ambulatorio
   specialistico per quel problema è ordini di grandezza superiore a quella nella popolazione
@@ -1444,7 +1444,7 @@ falsa.
 
 Test con **sensibilità 90%** e **specificità 95%**. Numeri fissi, proprietà del test.
 
-#### Scenario A — screening in popolazione generale, prevalenza 1%
+#### Scenario A - screening in popolazione generale, prevalenza 1%
 
 Su 10.000 persone: 100 malate, 9.900 sane.
 
@@ -1465,7 +1465,7 @@ Su 10.000 persone: 100 malate, 9.900 sane.
 Lettura: **di 585 persone che ricevono un risultato positivo, meno di 100 hanno davvero la
 malattia. Circa cinque su sei sono falsi allarmi**, pur con un test dalle prestazioni ottime.
 
-#### Scenario B — stesso test, ambulatorio specialistico, prevalenza 30%
+#### Scenario B - stesso test, ambulatorio specialistico, prevalenza 30%
 
 Su 10.000 persone: 3.000 malate, 7.000 sane.
 
@@ -1508,8 +1508,8 @@ allarme che il sistema esegue.** Una soglia su un parametro vitale è un test di
 sensibilità, una specificità e un valore predittivo che dipende da quanto è frequente l'evento
 nella popolazione monitorata.
 
-Nel telemonitoraggio l'evento che si vuole intercettare — il peggioramento che richiede un
-intervento — è **raro** su base giornaliera. Quindi si è nello scenario A, e una regola di soglia
+Nel telemonitoraggio l'evento che si vuole intercettare - il peggioramento che richiede un
+intervento - è **raro** su base giornaliera. Quindi si è nello scenario A, e una regola di soglia
 istantanea produrrà in larga maggioranza falsi allarmi. Le conseguenze sono tre:
 
 1. **desensibilizzazione all'allarme** (§ 1.4): chi riceve prevalentemente falsi segnali smette
@@ -1520,9 +1520,9 @@ istantanea produrrà in larga maggioranza falsi allarmi. Le conseguenze sono tre
 3. **danno al paziente**: un falso allarme genera ansia, accessi non necessari, accertamenti
    inutili e i loro rischi.
 
-Le risposte progettuali possibili — persistenza su più misure, combinazione di parametri,
+Le risposte progettuali possibili - persistenza su più misure, combinazione di parametri,
 richiesta di conferma, filtro sulla qualità del dato prima della valutazione, soglie
-personalizzate sul singolo paziente — **sono tutte decisioni cliniche**. Il vincolo del progetto è
+personalizzate sul singolo paziente - **sono tutte decisioni cliniche**. Il vincolo del progetto è
 netto: la soglia e la regola sono configurate dal professionista, mai dedotte dal sistema. Il
 compito del software è **rendere esprimibili regole non banali** e **rendere misurabile la
 proporzione di allerte confermate**, perché senza quella misura nessuno può sapere se il servizio
@@ -1547,20 +1547,20 @@ strutturale dell'atto clinico, e che nessun miglioramento del video la restituis
 L'esame obiettivo è la rilevazione diretta dei segni da parte del professionista. Si articola per
 tradizione in quattro manovre, eseguite in quest'ordine.
 
-**Ispezione** — guardare. Colorito della cute e delle mucose, respiro, postura, deambulazione,
+**Ispezione** - guardare. Colorito della cute e delle mucose, respiro, postura, deambulazione,
 espressione, gonfiori, lesioni, medicazioni, asimmetrie, stato di nutrizione, stato di
 coscienza apparente.
 
-**Palpazione** — toccare. Consistenza, temperatura e umidità della cute; dolore evocato dalla
+**Palpazione** - toccare. Consistenza, temperatura e umidità della cute; dolore evocato dalla
 pressione e sua localizzazione precisa; margini e mobilità di un organo o di una tumefazione;
 presenza di gonfiore che lascia l'impronta alla pressione; polsi periferici; tono muscolare;
 resistenza della parete addominale.
 
-**Percussione** — colpire con le dita una superficie corporea e ascoltare il suono prodotto, che
+**Percussione** - colpire con le dita una superficie corporea e ascoltare il suono prodotto, che
 cambia a seconda che sotto ci sia aria, liquido o tessuto solido. Serve a delimitare organi e a
 rilevare raccolte di liquido o di aria dove non dovrebbero esserci.
 
-**Auscultazione** — ascoltare con lo stetoscopio i suoni interni: toni e soffi cardiaci, rumori
+**Auscultazione** - ascoltare con lo stetoscopio i suoni interni: toni e soffi cardiaci, rumori
 respiratori normali e patologici, rumori intestinali, soffi vascolari.
 
 A queste si aggiungono le **manovre semeiologiche** specifiche: movimenti passivi e attivi,
@@ -1583,7 +1583,7 @@ vincolo sulla prima visita** (§ 6.4).
 
 ### 6.3 Il caregiver: cosa può fare e cosa no
 
-Il **caregiver** — la persona che assiste stabilmente il paziente — è la principale risorsa per
+Il **caregiver** - la persona che assiste stabilmente il paziente - è la principale risorsa per
 recuperare parte di ciò che si perde, ed è anche la principale fonte di ambiguità del modello di
 dominio.
 
@@ -1610,8 +1610,8 @@ toglie al clinico uno strumento che in presenza ha per default.
 
 ### 6.4 Perché la normativa limita la prima visita
 
-Il vincolo normativo — la televisita «*è da intendersi limitata alle attività di controllo di
-pazienti la cui diagnosi sia già stata formulata nel corso di visita in presenza*» — non è
+Il vincolo normativo - la televisita «*è da intendersi limitata alle attività di controllo di
+pazienti la cui diagnosi sia già stata formulata nel corso di visita in presenza*» - non è
 diffidenza verso la tecnologia. È la conseguenza diretta dei §§ 5.2 e 6.2, e la logica è la
 seguente.
 
@@ -1621,7 +1621,7 @@ diagnosi differenziale impone di escludere attivamente. In questa fase l'esame o
 strumento che restringe drasticamente il campo, ed è proprio lo strumento che manca.
 
 In un **controllo** di patologia nota la situazione è rovesciata: la diagnosi è formulata, il
-quadro atteso è definito, e la domanda è più stretta — la situazione è stabile? La terapia
+quadro atteso è definito, e la domanda è più stretta - la situazione è stabile? La terapia
 funziona? Ci sono elementi nuovi? La probabilità a priori è concentrata, e il valore
 dell'informazione che l'esame obiettivo aggiungerebbe è minore. È lo stesso ragionamento del
 § 5.5 applicato all'atto anziché all'esame.
@@ -1634,15 +1634,15 @@ tratta sul piano normativo e che qui si leggono sul piano clinico:
 - l'**interruzione e il ripiego in presenza** quando il canale non consente di mantenere il
   contenuto della prestazione sono un esito clinico legittimo e obbligatorio, e vanno modellati
   come tali;
-- la **decisione resta del medico**. Il sistema fornisce le evidenze — comprese le metriche di
-  qualità della sessione — e non emette giudizi di idoneità.
+- la **decisione resta del medico**. Il sistema fornisce le evidenze - comprese le metriche di
+  qualità della sessione - e non emette giudizi di idoneità.
 
 ### 6.5 Le distorsioni introdotte dal canale
 
-Anche la parte di esame obiettivo che sopravvive — l'ispezione — arriva alterata. Le alterazioni
+Anche la parte di esame obiettivo che sopravvive - l'ispezione - arriva alterata. Le alterazioni
 non sono casuali: sono conseguenze prevedibili di scelte tecniche, e conoscerle è ciò che
 distingue un requisito sensato da un claim di marketing. Il funzionamento del trasporto è nel
-modulo [08 — WebRTC da zero](08-webrtc-da-zero.md); qui interessa il loro effetto clinico.
+modulo [08 - WebRTC da zero](08-webrtc-da-zero.md); qui interessa il loro effetto clinico.
 
 **Compressione con perdita.** I codificatori video eliminano l'informazione che l'occhio nota
 meno. Ciò che l'occhio nota meno è spesso ciò che il clinico cerca: variazioni di colore poco
@@ -1665,13 +1665,13 @@ non prevede.
 **Illuminazione.** Luce insufficiente costringe il sensore ad aumentare la sensibilità, il che
 introduce rumore; la riduzione del rumore, applicata a valle, cancella i dettagli fini. Luce da
 dietro rende il viso scuro. Luce a temperatura di colore calda o fredda sposta l'apparenza della
-pelle. Nessuno di questi effetti è correggibile a posteriori senza inventare informazione — e
+pelle. Nessuno di questi effetti è correggibile a posteriori senza inventare informazione - e
 inventarla, in questo dominio, ha un nome tecnico: **miglioramento dell'immagine**, ed è una
 delle funzionalità che sposterebbero la classificazione regolatoria del software.
 
 **Riduzione adattiva della qualità.** Quando la rete degrada, il flusso video riduce risoluzione,
 frequenza dei fotogrammi o entrambe. La conseguenza clinica è duplice: si perde dettaglio
-spaziale, e — cosa meno intuitiva — **si perde il movimento fine**. Un tremore, la frequenza di
+spaziale, e - cosa meno intuitiva - **si perde il movimento fine**. Un tremore, la frequenza di
 un respiro, un'asimmetria del movimento facciale, un'andatura instabile sono segni **temporali**:
 sopravvivono solo se la frequenza dei fotogrammi è sufficiente. Un fermo immagine ad alta
 risoluzione non li contiene.
@@ -1689,8 +1689,8 @@ imporre.
 comunicazioni in tempo reale sono ottimizzati per la **voce**: applicano soppressione del rumore,
 cancellazione dell'eco e controllo automatico del guadagno, e allocano i bit alle bande in cui
 sta l'intelligibilità del parlato. Tutti e tre i meccanismi sono progettati per **eliminare**
-proprio i suoni non vocali. Un rumore respiratorio, un sibilo, un tono cardiaco — che stanno in
-buona parte a frequenze basse e hanno ampiezza modesta — sono esattamente ciò che il soppressore
+proprio i suoni non vocali. Un rumore respiratorio, un sibilo, un tono cardiaco - che stanno in
+buona parte a frequenze basse e hanno ampiezza modesta - sono esattamente ciò che il soppressore
 di rumore rimuove. **Ne segue che non si ausculta attraverso il microfono di uno smartphone, e
 non è una questione di qualità del microfono: è la catena di elaborazione che rimuove il segnale
 per progetto.** `[NV]` sui limiti di banda esatti, che dipendono dal codificatore e dalla
@@ -1701,8 +1701,8 @@ regolata a piacere e sta in un ambiente con illuminazione arbitraria. L'ultimo a
 catena di trasmissione del colore è quindi anch'esso indeterminato.
 
 Da tutto questo discende la formulazione che il progetto adotta e che va usata tale e quale: **la
-qualità del collegamento si dichiara come misura tecnica verificabile — risoluzione, frequenza
-dei fotogrammi, continuità, ritardo, perdita di pacchetti — e non come adeguatezza diagnostica.**
+qualità del collegamento si dichiara come misura tecnica verificabile - risoluzione, frequenza
+dei fotogrammi, continuità, ritardo, perdita di pacchetti - e non come adeguatezza diagnostica.**
 L'adeguatezza dell'atto è un giudizio del medico, che la norma gli attribuisce e che il sistema
 non può assumersi. Il punto normativo è in [02](02-prestazioni-di-telemedicina.md), § 4.1.7.
 
@@ -1799,8 +1799,8 @@ come una misura.
 
 **Seconda cautela: è una grandezza sensibile nel rapporto di cura.** Presentata male diventa un
 giudizio sul paziente. Le ragioni della non aderenza sono in larga parte comprensibili e
-correggibili — effetti indesiderati, costo, complessità dello schema, difficoltà di
-comprensione, dimenticanza, convinzioni sulla malattia — e un sistema che la rappresenta solo
+correggibili - effetti indesiderati, costo, complessità dello schema, difficoltà di
+comprensione, dimenticanza, convinzioni sulla malattia - e un sistema che la rappresenta solo
 come percentuale perde l'informazione utile, che è il **perché**.
 
 Un termine adiacente da fissare: la **riconciliazione terapeutica** è il confronto sistematico
@@ -1811,7 +1811,7 @@ condotto nei passaggi di setting. È il momento in cui emergono le duplicazioni 
 
 Due o più farmaci assunti insieme possono modificare reciprocamente il proprio effetto,
 aumentandolo o riducendolo, oppure sommare effetti indesiderati. Le interazioni riguardano anche
-alimenti, integratori e prodotti da banco — che i pazienti tipicamente non menzionano quando si
+alimenti, integratori e prodotti da banco - che i pazienti tipicamente non menzionano quando si
 chiede «quali farmaci prende», perché non li considerano farmaci. La domanda va quindi formulata
 diversamente, ed è un requisito di progettazione del questionario, non un dettaglio di
 formulazione.
@@ -1836,7 +1836,7 @@ In italiano «prescrizione» copre almeno tre cose diverse:
 Sono tre entità con attori, cicli di vita e regole diverse, e negli standard di interoperabilità
 corrispondono a risorse distinte. Un unico tipo interno che le rappresenti tutte produce campi
 nulli e regole condizionali fragili. Il vocabolario completo del dominio, con le trappole
-semantiche di ciascun termine, è nel modulo [19 — Glossario](19-glossario.md).
+semantiche di ciascun termine, è nel modulo [19 - Glossario](19-glossario.md).
 
 ---
 
@@ -1859,16 +1859,16 @@ rende il referto un documento sanitario invece che un tabulato.
 
 Un referto ha una struttura ricorrente, indipendentemente dalla disciplina:
 
-1. **intestazione** — chi lo ha prodotto, dove, quando, per chi;
-2. **quesito diagnostico o motivo dell'esame** — perché l'esame è stato richiesto, e chi lo ha
+1. **intestazione** - chi lo ha prodotto, dove, quando, per chi;
+2. **quesito diagnostico o motivo dell'esame** - perché l'esame è stato richiesto, e chi lo ha
    richiesto (§ 5.3);
-3. **tecnica di esecuzione** — come è stato eseguito, con quale strumentazione, con quali
+3. **tecnica di esecuzione** - come è stato eseguito, con quale strumentazione, con quali
    eventuali sostanze somministrate;
-4. **descrizione** — ciò che è stato osservato, in linguaggio descrittivo e il più possibile
+4. **descrizione** - ciò che è stato osservato, in linguaggio descrittivo e il più possibile
    neutro;
-5. **conclusioni** — l'interpretazione, che è la parte a cui il richiedente guarda per prima;
-6. **confronto con precedenti** — spesso la parte più informativa (§ 4.1);
-7. **suggerimenti** — eventuali indicazioni per il richiedente;
+5. **conclusioni** - l'interpretazione, che è la parte a cui il richiedente guarda per prima;
+6. **confronto con precedenti** - spesso la parte più informativa (§ 4.1);
+7. **suggerimenti** - eventuali indicazioni per il richiedente;
 8. **firma** del professionista responsabile.
 
 Due punti che chi non ha mai letto un referto tende a sbagliare:
@@ -1879,8 +1879,8 @@ Due punti che chi non ha mai letto un referto tende a sbagliare:
 - **il linguaggio del referto è deliberatamente graduato.** Espressioni come «compatibile con»,
   «non si può escludere», «suggestivo di», «riferibile a» esprimono livelli di certezza diversi e
   scelti. Non sono cautele stilistiche: sono il modo in cui la probabilità del § 5.4 viene
-  comunicata. Qualunque elaborazione automatica che le appiattisca — un estrattore di parole
-  chiave, un riassunto, una classificazione — **cambia il significato clinico del documento**.
+  comunicata. Qualunque elaborazione automatica che le appiattisca - un estrattore di parole
+  chiave, un riassunto, una classificazione - **cambia il significato clinico del documento**.
 
 ### 8.3 L'intervallo di riferimento è del laboratorio, non della grandezza
 
@@ -1967,14 +1967,14 @@ Esempi svolti, che conviene percorrere lentamente perché il metodo si acquisisc
 
 - **cardio-** (cuore) + **-megalia** (ingrandimento) → ingrandimento del cuore;
 - **tachi-** (rapido) + **-cardia** (condizione del cuore) → frequenza cardiaca elevata;
-- **brad-i-** (lento) + **-cardia** → frequenza cardiaca bassa;
+- **bradi-** (lento) + **-cardia** → frequenza cardiaca bassa;
 - **ipo-** (sotto) + **-glic-** (glucosio) + **-emia** (nel sangue) → glucosio basso nel sangue;
 - **iper-** (sopra) + **-tens-** (pressione) + **-ione** → pressione elevata;
 - **dis-** (difficoltà) + **-pnea** (respiro) → difficoltà a respirare;
 - **a-** (assenza) + **-pnea** → assenza di respiro;
 - **nefro-** (rene) + **-patia** (malattia) → malattia del rene;
 - **epato-** (fegato) + **-megalia** → ingrandimento del fegato;
-- **broncho-** (bronco) + **-scopia** (osservare) → osservazione dei bronchi con uno strumento;
+- **bronc(o)-** (bronco) + **-scopia** (osservare) → osservazione dei bronchi con uno strumento;
 - **elettro-** + **cardio-** + **-gramma** (tracciato) → tracciato dell'attività elettrica del
   cuore.
 
@@ -1985,12 +1985,12 @@ Il metodo funziona anche al contrario: incontrando **splenomegalia** si riconosc
 
 | Prefisso | Significato | Esempio |
 |---|---|---|
-| **a-, an-** | assenza, mancanza | anemia (carenza di sangue, cioè di emoglobina o globuli rossi) |
+| **a-, an-** | assenza, mancanza | anemia (letteralmente «assenza di sangue»; la definizione clinica è un'altra: carenza di emoglobina o di globuli rossi) |
 | **dis-** | difficoltà, alterazione | dispnea, disfagia |
 | **iper-** | eccesso, sopra | ipertensione, iperglicemia |
 | **ipo-** | difetto, sotto | ipotensione, ipossia |
 | **tachi-** | rapido | tachicardia, tachipnea |
-| **brad-i-** | lento | bradicardia |
+| **bradi-** | lento | bradicardia |
 | **poli-** | molto, molti | poliuria (urinare molto) |
 | **oligo-** | poco | oliguria (urinare poco) |
 | **peri-** | attorno | pericardio (attorno al cuore) |
@@ -2017,7 +2017,7 @@ Il metodo funziona anche al contrario: incontrando **splenomegalia** si riconosc
 | **cardi(o)-** | cuore | cardiopatia |
 | **angi(o)-**, **vas(o)-** | vaso sanguigno | angiografia, vasodilatazione |
 | **em(o)-, emat(o)-** | sangue | ematoma, emostasi |
-| **pneum(o)-, pulmo-** | polmone, aria | pneumotorace |
+| **pneum(o)-, pulmo-** | polmone, aria | pneumotorace, polmonare |
 | **bronc(o)-** | bronco | broncospasmo |
 | **rin(o)-** | naso | rinite |
 | **laring(o)-** | laringe | laringite |
@@ -2031,18 +2031,17 @@ Il metodo funziona anche al contrario: incontrando **splenomegalia** si riconosc
 | **mi(o)-** | muscolo | miocardio, miopatia |
 | **oste(o)-** | osso | osteoporosi |
 | **artr(o)-** | articolazione | artrite |
-| **derm(o)-, dermat(o)-** | pelle | dermatite |
-| **oftalm(o)-, ocul(o)-** | occhio | oftalmologia |
+| **derm(o)-, dermat(o)-** | pelle | intradermico, dermatite |
+| **oftalm(o)-, ocul(o)-** | occhio | oftalmologia, oculare |
 | **ot(o)-** | orecchio | otite |
 | **tir(o)-** | tiroide | tiroidite |
-| **glic(o)-, gluc(o)-** | zucchero, glucosio | glicemia |
-| **lip(o)-** | grasso | lipidi |
+| **glic(o)-, gluc(o)-** | zucchero, glucosio | glicemia, gluconeogenesi |
+| **lip(o)-** | grasso | lipolisi |
 | **piel(o)-** | pelvi renale | pielonefrite |
-| **col(e)-, colecist-** | bile, cistifellea | colecistite |
-| **osse-, ossi-** | ossigeno | ossimetria, ipossia |
+| **col(e)-, colecist-** | bile, cistifellea | colestasi, colecistite |
+| **oss(i)-** | ossigeno | ossimetria, ipossia |
 | **term(o)-** | temperatura | termometro, ipotermia |
-| **tens-, press-** | pressione | ipertensione |
-| **pne-, -pnea** | respiro | apnea, dispnea |
+| **tens-, press-** | pressione | ipertensione, pressorio |
 
 ### 9.4 Suffissi frequenti
 
@@ -2053,6 +2052,7 @@ Il metodo funziona anche al contrario: incontrando **splenomegalia** si riconosc
 | **-patia** | malattia generica | nefropatia, cardiopatia |
 | **-emia** | presenza nel sangue | iperglicemia, batteriemia |
 | **-uria** | presenza nelle urine, o condizione urinaria | ematuria, poliuria |
+| **-pnea** | respiro | apnea, dispnea |
 | **-algia**, **-dinia** | dolore | mialgia, cardialgia |
 | **-megalia** | ingrandimento | epatomegalia |
 | **-scopia** | osservazione diretta con strumento | endoscopia |
@@ -2085,30 +2085,30 @@ Due avvertenze finali sul metodo:
 
 Le sigle sono il maggiore ostacolo alla leggibilità della documentazione clinica e una fonte di
 ambiguità reale: la stessa sigla ha significati diversi in specialità diverse. La regola
-redazionale di questa guida — ogni sigla sciolta alla prima occorrenza — nasce da qui, e vale
+redazionale di questa guida - ogni sigla sciolta alla prima occorrenza - nasce da qui, e vale
 anche per messaggi di interfaccia, nomi di campo ed etichette.
 
 | Sigla | Scioglimento | Nota |
 |---|---|---|
 | **PA** | Pressione arteriosa | In altri contesti significa altro: sciogliere sempre |
-| **FC** | Frequenza cardiaca | — |
+| **FC** | Frequenza cardiaca | - |
 | **FR** | Frequenza respiratoria | Da non confondere con FC: le due sigle differiscono di una lettera e le unità sono identiche |
 | **SpO₂** | Saturazione periferica di ossigeno | La «p» sta per periferica, misurata con ossimetria |
 | **SaO₂** | Saturazione arteriosa di ossigeno | Misurata su sangue arterioso: **non** è la stessa grandezza |
 | **TC** | Temperatura corporea | Ma anche «tomografia computerizzata»: ambiguità reale |
-| **EO** | Esame obiettivo | — |
-| **APR / APP** | Anamnesi patologica remota / prossima | — |
-| **DD** | Diagnosi differenziale | — |
-| **ECG** | Elettrocardiogramma | — |
-| **BMI** | Indice di massa corporea (dall'inglese *body mass index*) | Valore derivato |
+| **EO** | Esame obiettivo | - |
+| **APR / APP** | Anamnesi patologica remota / prossima | - |
+| **DD** | Diagnosi differenziale | - |
+| **ECG** | Elettrocardiogramma | - |
+| **BMI**, in italiano anche **IMC** | Indice di massa corporea (dall'inglese *body mass index*) | Valore derivato. È l'unica sigla di questa tabella la cui forma corrente in italiano è quella inglese; la sigla italiana `IMC` circola comunque nella documentazione e va riconosciuta |
 | **HbA1c** | Emoglobina glicata | Due unità e due convenzioni (§ 3.6.6) |
 | **BPCO** | Broncopneumopatia cronica ostruttiva | Popolazione con riferimenti di saturazione propri |
-| **IMA** | Infarto miocardico acuto | — |
+| **IMA** | Infarto miocardico acuto | - |
 | **FA** | Fibrillazione atriale | Degrada la misura oscillometrica della pressione |
-| **TAO** | Terapia anticoagulante orale | — |
+| **TAO** | Terapia anticoagulante orale | - |
 | **PAI** | Piano assistenziale individuale | Contesto organizzativo, non clinico |
-| **PDTA** | Percorso diagnostico-terapeutico assistenziale | — |
-| **PRI** | Progetto riabilitativo individuale | — |
+| **PDTA** | Percorso diagnostico-terapeutico assistenziale | - |
+| **PRI** | Progetto riabilitativo individuale | - |
 | **MMG / PLS** | Medico di medicina generale / pediatra di libera scelta | Modulo [01](01-sistema-sanitario-italiano.md) |
 | **UDI** | Identificazione unica del dispositivo | Modulo [02](02-prestazioni-di-telemedicina.md) |
 | **LOINC** | Sistema di codifica di osservazioni e misure di laboratorio e cliniche | § 3.8 |
@@ -2127,8 +2127,8 @@ anche per messaggi di interfaccia, nomi di campo ed etichette.
 3. **La saturazione non è una percentuale come le altre.** Curva sigmoide, poco sensibile in alto,
    priva di significato senza il dato sull'ossigeno supplementare, priva di significato se
    mediata.
-4. **Le unità sono obbligatorie e codificate.** Le conversioni affine — temperatura, emoglobina
-   glicata — producono valori plausibili quando sbagliate, e sono le più pericolose.
+4. **Le unità sono obbligatorie e codificate.** Le conversioni affine - temperatura, emoglobina
+   glicata - producono valori plausibili quando sbagliate, e sono le più pericolose.
 5. **Il momento della misura è un dato quanto il valore.** Quattro istanti distinti, ora locale
    conservata accanto all'istante assoluto, arrivo fuori ordine come caso normale, assenza di
    misura come informazione.

@@ -51,8 +51,8 @@ health data: **the very fact of having registered in order to receive care** is 
 
 ### 1.2 Why almost everything in this system is health data
 
-Let us apply the definition to the project's domain. Data concerning health — with all the
-consequences — also includes:
+Let us apply the definition to the project's domain. Data concerning health - with all the
+consequences - also includes:
 
 - **the existence of an appointment with a particular clinical specialty.** An appointment in
   oncology reveals a suspected or confirmed cancer diagnosis. An appointment at an addiction
@@ -88,7 +88,7 @@ name.
 This is the structural difference from all other personal data. For ordinary data the rule is:
 you may process, provided a legal basis exists among those of art. 6. For special categories
 the rule is: **it is prohibited**, unless one of the exhaustive derogations of art. 9(2)
-applies — **and in addition** a legal basis under art. 6.
+applies - **and in addition** a legal basis under art. 6.
 
 Two **cumulative conditions** are required, not one. It is the commonest mistake in compliance
 self-assessments: identifying the art. 9 derogation and stopping there.
@@ -115,12 +115,12 @@ The GDPR leaves the Member States room to act, and Italy has exercised it with *
 giugno 2003, n. 196** (the Personal Data Protection Code), extensively amended by **D.lgs. 10
 agosto 2018, n. 101**. Two articles matter here:
 
-- **art. 2-*septies*** — the Garante per la protezione dei dati personali (the Italian data
+- **art. 2-*septies*** - the Garante per la protezione dei dati personali (the Italian data
   protection authority) adopts **safeguard measures** for the processing of genetic, biometric
   and health data. These are further binding prescriptions, updated periodically. `[NV]` on the
   list of measures in force as at today's date: they must be checked on the authority's website
   before deriving requirements from them;
-- **art. 2-*sexies*** — it identifies the reasons of substantial public interest that allow
+- **art. 2-*sexies*** - it identifies the reasons of substantial public interest that allow
   public bodies to process special categories, requiring that they be provided for by law or
   regulation.
 
@@ -156,7 +156,7 @@ Now consider what would happen if the processing of data for the purpose of care
 consent:
 
 - the patient could **withdraw it halfway through a course of treatment**, obliging the
-  organisation to cease processing their data — that is, to stop being able to treat them
+  organisation to cease processing their data - that is, to stop being able to treat them
   safely;
 - consent would not be **freely given**, because refusal would entail the impossibility of
   receiving the service: there is no genuine possibility of choice;
@@ -189,7 +189,7 @@ will, each collected, withdrawn and retained separately:
 Two further rules that the project treats as invariants:
 
 - **every consent records the exact version of the privacy notice or of the text presented**,
-  the instant, the channel, the identity of the declarant and — if different — that of the data
+  the instant, the channel, the identity of the declarant and - if different - that of the data
   subject. A consent not referred to a versioned text is **impossible to demonstrate**: in
   litigation one cannot prove *what* the person consented to;
 - **a carer does not give consent in substitution for a patient with capacity**, in any
@@ -223,17 +223,17 @@ permissions**, and a model that unifies them in a single flag is not implementab
 
 ### 3.1 The definitions
 
-- **Data controller** (art. 4(7)) — the party that **determines the purposes and means** of the
+- **Data controller** (art. 4(7)) - the party that **determines the purposes and means** of the
   processing. It is the party answerable to the data subject and to the authority.
-- **Data processor** (art. 4(8)) — the party that processes **on behalf of the controller**, on
+- **Data processor** (art. 4(8)) - the party that processes **on behalf of the controller**, on
   the basis of a contract or other legal act complying with the contents of **art. 28**. It does
   not decide the purposes; it carries out documented instructions.
-- **Joint controllers** (art. 26) — two or more controllers that **jointly determine** the
+- **Joint controllers** (art. 26) - two or more controllers that **jointly determine** the
   purposes and means. They must define their respective responsibilities in a transparent
   arrangement, and the data subject may exercise their rights against each of them.
-- **Sub-processor** (art. 28(2) and (4)) — the processor may engage other processors only with
+- **Sub-processor** (art. 28(2) and (4)) - the processor may engage other processors only with
   the controller's authorisation, and remains fully liable for their performance.
-- **Data protection officer (DPO)** (arts. 37-39) — a supervisory figure and point of contact.
+- **Data protection officer (DPO)** (arts. 37-39) - a supervisory figure and point of contact.
   **Mandatory** where the processing concerns special categories of data on a large scale.
 
 ### 3.2 Who is what in an installation of this project
@@ -336,7 +336,7 @@ reasons:
   the providing organisation makes uniqueness almost certain;
 - **clinical rarity.** A rare diagnosis in a small province identifies the person with nothing
   else needed. It is exactly why aggregation thresholds exist;
-- **longitudinality.** A time series of measurements — blood pressure, blood glucose, weight —
+- **longitudinality.** A time series of measurements - blood pressure, blood glucose, weight -
   is a signature. Two remote monitoring time series are not confusable;
 - **intrinsically identifying data.** Genetic data is so by construction. Images showing the
   face are so. Audio-video recordings are so totally: voice, face, home environment, other
@@ -410,7 +410,7 @@ formation, consent and access profiling with dedicated guidelines. `[NV]` on the
 the current validity of the measure.
 
 **The provider's archive** is the most prosaic and most neglected notion: it is everything an
-organisation retains because it is obliged to by non-health rules — tax, accounting, contractual
+organisation retains because it is obliged to by non-health rules - tax, accounting, contractual
 and document preservation obligations. It is the reason why the «right to erasure» has robust
 limits in this sector (§ 7.3).
 
@@ -436,8 +436,8 @@ excellence: it attests that a test or a visit was performed and what came out of
 
 Formal requirements the project must guarantee:
 
-- unique identification of the patient, of the **reporting doctor** and — a
-  counter-intuitive datum, but one imposed by the ministerial record layout — of the **signing
+- unique identification of the patient, of the **reporting doctor** and - a
+  counter-intuitive datum, but one imposed by the ministerial record layout - of the **signing
   doctor**, who may be a different person;
 - identification of the organisation on three levels: authority, site, operating unit;
 - references to the act that gave rise to it: prescription number, CUP code, date and time of
@@ -452,7 +452,7 @@ at which the document acquires legal effect and becomes unmodifiable by overwrit
 
 ### 6.2 Clinical letter
 
-A discursive communication between professionals about a case — typically from the consultant to
+A discursive communication between professionals about a case - typically from the consultant to
 the treating clinician. **It is not a report**: it does not certify the performance of a test, it
 is not necessarily addressed to the patient, and it does not have the same delivery regime.
 
@@ -519,7 +519,7 @@ its reasoning, not assumed implicitly.
 **Formats.** Signatures are applied to the document in standardised formats: **PAdES** for PDF
 documents, **CAdES** for generic files (extension `.p7m`), **XAdES** for XML. The national
 document standard of the health record is **HL7 CDA Rel. 2**, carried inside a digitally signed
-PDF — an arrangement confirmed by the national interoperability specifications.
+PDF - an arrangement confirmed by the national interoperability specifications.
 
 ### 7.2 Signature, validation and timestamp token are three things
 
@@ -541,7 +541,7 @@ of the signature becomes problematic.
 **compliant digital preservation** protects against challenge, guaranteeing over time the
 authenticity, integrity, reliability, legibility and retrievability of the electronic document.
 It is a process, with a preservation manager, a manual, submission, archival and dissemination
-information packages, and — in the public context — precise technical rules. The AgID guidelines
+information packages, and - in the public context - precise technical rules. The AgID guidelines
 on the formation, management and preservation of the electronic document are the reference
 technical source. `[NV]` on the version and date of last update of the guidelines in force.
 
@@ -553,8 +553,8 @@ technical source. `[NV]` on the version and date of last update of the guideline
 | Authentication and access data for the minimum telemedicine services | **Twelve months** | DM 19 novembre 2025, art. 12 |
 | Operation logs | **Twenty-four months**, with deletion on expiry | DM 19 novembre 2025, Annex 4, § 6 |
 | Documents and data generated by the regional infrastructures | **Not retained** by the IRT | DM 19 novembre 2025, arts. 4, para. 4 and 12 |
-| Hospital clinical record | Unlimited according to settled practice | `[NV]` — the commonly cited source is a 1986 ministerial circular, whose validity and scope have not been verified |
-| Reports and diagnostic documentation | Multi-year terms, differentiated by type | `[NV]` — not verified in the sources consulted |
+| Hospital clinical record | Unlimited according to settled practice | `[NV]` - the commonly cited source is a 1986 ministerial circular, whose validity and scope have not been verified |
+| Reports and diagnostic documentation | Multi-year terms, differentiated by type | `[NV]` - not verified in the sources consulted |
 
 From the fragmentation follows a requirement that admits no shortcuts: **every category of data
 has a declared retention period, applied by a verifiable automatic process, with evidence that
@@ -639,10 +639,10 @@ impact.
 Paragraph 3 lists cases where it is **required in particular**, and two concern this project
 directly:
 
-- letter **a)** — a systematic and extensive evaluation of personal aspects based on automated
+- letter **a)** - a systematic and extensive evaluation of personal aspects based on automated
   processing, on which decisions are based that produce legal effects or similarly significantly
   affect the person;
-- letter **b)** — **processing on a large scale of special categories of data** referred to in
+- letter **b)** - **processing on a large scale of special categories of data** referred to in
   art. 9(1).
 
 A multi-tenant telemedicine platform falls under letter b) beyond any doubt. And **DM 19
@@ -672,13 +672,13 @@ corrupted backup without a recoverable copy is a breach.
 
 The obligations:
 
-- **art. 33** — notification to the supervisory authority **without undue delay and, where
+- **art. 33** - notification to the supervisory authority **without undue delay and, where
   feasible, within 72 hours** of the controller becoming aware of it, unless the breach is
   unlikely to result in a risk to rights and freedoms. If notification exceeds 72 hours, the
   delay must be reasoned. **The processor informs the controller without undue delay**;
-- **art. 34** — communication **to the data subject** without undue delay where the breach is
+- **art. 34** - communication **to the data subject** without undue delay where the breach is
   likely to result in a **high risk**;
-- **art. 33(5)** — the controller **documents any breach**, including the circumstances, the
+- **art. 33(5)** - the controller **documents any breach**, including the circumstances, the
   consequences and the measures taken, even where it does not notify it. This is the **breach
   register**, and it is verifiable by the authority.
 
@@ -692,10 +692,10 @@ context of an Italian healthcare provider at least three regimes coexist:
 
 | Regime | Source | First alert | Notification | Final report |
 |---|---|---|---|---|
-| **Data protection** | GDPR arts. 33-34 | — | **72 hours** to the authority | — |
+| **Data protection** | GDPR arts. 33-34 | - | **72 hours** to the authority | - |
 | **NIS2** | D.lgs. 4 settembre 2024, n. 138 | Early warning **24 hours** to CSIRT Italia | **72 hours** | **1 month** |
-| **L. 90/2024** (public administrations, including ASLs) | L. 28 giugno 2024, n. 90 | Alert **24 hours** to ACN | **72 hours** | — |
-| **National cybersecurity perimeter** | D.L. 105/2019 conv. L. 133/2019 | **From 1 to 6 hours** for serious incidents | 72 hours | — |
+| **L. 90/2024** (public administrations, including ASLs) | L. 28 giugno 2024, n. 90 | Alert **24 hours** to ACN | **72 hours** | - |
+| **National cybersecurity perimeter** | D.L. 105/2019 conv. L. 133/2019 | **From 1 to 6 hours** for serious incidents | 72 hours | - |
 
 On the last row, what the project's research ascertained must be stated precisely: **healthcare
 does not figure among the sectors of the national cybersecurity perimeter** according to the list
@@ -729,18 +729,18 @@ absolute terms.
 
 Because every attenuated form has been tried and fails:
 
-- «*it is only one patient*» — a single item of health data exposed is a notifiable breach;
-- «*I took the name out*» — date of birth, municipality, date of the service, organisation and
+- «*it is only one patient*» - a single item of health data exposed is a notifiable breach;
+- «*I took the name out*» - date of birth, municipality, date of the service, organisation and
   diagnosis remain. That is pseudonymisation, not anonymisation (§ 4.2);
-- «*it is a test environment*» — copying the production database into a testing environment is
+- «*it is a test environment*» - copying the production database into a testing environment is
   one of the most frequent modes of breach of all, because testing typically has weaker access
   controls, less logging and more people with privileges;
-- «*I only pasted it into the issue to explain the bug*» — the issues of a public repository are
+- «*I only pasted it into the issue to explain the bug*» - the issues of a public repository are
   indexed by search engines and archived by third parties permanently. Deletion does not remove
   the copies;
-- «*it is a screenshot, not structured data*» — it is legible to a person, which is exactly the
+- «*it is a screenshot, not structured data*» - it is legible to a person, which is exactly the
   risk;
-- «*I passed it to an assistant to help me diagnose it*» — transferring health data to a
+- «*I passed it to an assistant to help me diagnose it*» - transferring health data to a
   third-party service, often outside the EU, without a legal basis and without an art. 28
   contract, is a completed breach, and it moreover has consequences for the data sovereignty
   constraint adopted by the project.
@@ -799,21 +799,21 @@ The techniques for avoiding this, in order of robustness:
   ones), where the system under test allows it;
 - use the range of identifiers reserved for **temporary registries** (STP for foreign nationals
   temporarily present, ENI for non-registered Europeans), which have their own formats and which
-  the system must in any case be able to handle — indeed it is an opportunity to test a real case
+  the system must in any case be able to handle - indeed it is an opportunity to test a real case
   that is often neglected;
 - mark every generated record with an **explicit synthetic flag** persisted in the datum itself,
   so that it is always possible to verify, with a single query, that an environment contains no
   real data.
 
 **Verifiable in continuous integration.** An automatic check in the *pipeline* that rejects the
-commit when it detects suspicious patterns — sequences conforming to the tax code format,
+commit when it detects suspicious patterns - sequences conforming to the tax code format,
 electronic prescription numbers, email addresses at real domains, precise geographic coordinates
-— closes the channel before the data enters the repository's history. Once it has entered a
+- closes the channel before the data enters the repository's history. Once it has entered a
 commit, the datum is in practice permanent: rewriting the history of a public repository does not
 eliminate the copies already distributed.
 
 **Documented.** The generator is part of the project and is described in module
-[17 — The development environment](17-ambiente-di-sviluppo.md), together with the instructions
+[17 - The development environment](17-ambiente-di-sviluppo.md), together with the instructions
 for populating a complete environment.
 
 ### 10.5 And if real data gets in anyway

@@ -1,10 +1,10 @@
 ---
-title: "ADR-0018 — Il catalogo delle prestazioni: struttura nel prodotto, contenuto per tenant"
+title: "ADR-0018 - Il catalogo delle prestazioni: struttura nel prodotto, contenuto per tenant"
 sidebar_position: 18
 description: Perché il progetto definisce la forma di una voce di catalogo ma non ne distribuisce il contenuto, e perché la doppia codificazione e la validità temporale non sono opzionali.
 ---
 
-# ADR-0018 — Il catalogo delle prestazioni: struttura nel prodotto, contenuto per tenant
+# ADR-0018 - Il catalogo delle prestazioni: struttura nel prodotto, contenuto per tenant
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Origine**: questione posta dal modulo dei fondamenti a quest'area
@@ -26,7 +26,7 @@ presenza. La modalità a distanza è un **modificatore del canale**, non una pre
 
 ## Alternative valutate
 
-### Alternativa 1 — Catalogo incluso nella distribuzione
+### Alternativa 1 - Catalogo incluso nella distribuzione
 
 *Vantaggi*: il sistema funziona subito; nessun caricamento a carico di chi installa; validazione e
 ricerca disponibili immediatamente.
@@ -42,7 +42,7 @@ ricerca disponibili immediatamente.
 
 **Scartata.**
 
-### Alternativa 2 — Esclusivamente riferito, nessuna struttura nel prodotto
+### Alternativa 2 - Esclusivamente riferito, nessuna struttura nel prodotto
 
 *Vantaggi*: nessuna responsabilità sul contenuto; nessuna manutenzione.
 
@@ -50,7 +50,7 @@ ricerca disponibili immediatamente.
 rendere selezionabile una prestazione, non potrebbe verificare che la prestazione sia abilitata a un
 canale. Ogni tenant reimplementerebbe la stessa struttura, con esiti diversi. **Scartata.**
 
-### Alternativa 3 — Struttura nel prodotto, contenuto per tenant
+### Alternativa 3 - Struttura nel prodotto, contenuto per tenant
 
 *Vantaggi*: il prodotto offre la funzione senza assumere la responsabilità del contenuto; ogni
 tenant carica ciò che gli compete con il proprio ciclo.
@@ -62,9 +62,9 @@ caricamento è un passaggio di attivazione in più.
 
 **Si adotta l'alternativa 3.**
 
-Il prodotto definisce la **struttura** di una voce di catalogo — codice, dominio di attribuzione del
+Il prodotto definisce la **struttura** di una voce di catalogo - codice, dominio di attribuzione del
 catalogo, descrizione, branca, canali abilitati, validità temporale, riferimento al codice nazionale
-corrispondente — e le operazioni di caricamento, validazione, ricerca e disattivazione. **Il
+corrispondente - e le operazioni di caricamento, validazione, ricerca e disattivazione. **Il
 contenuto è dato di tenant**, caricato per interfaccia applicativa documentata e versionato con
 validità temporale, mai incluso nella distribuzione.
 
@@ -101,5 +101,5 @@ esterno e territorialmente differenziato.
 
 ## Riferimenti
 
-[04 — Modello dati](../02_architecture/04-modello-dati.md#63-il-catalogo-delle-prestazioni) ·
-[02 — Contesti delimitati](../02_architecture/02-contesti-delimitati.md#ctx-13--amministrazione-tenant)
+[04 - Modello dati](../02_architecture/04-modello-dati.md#63-il-catalogo-delle-prestazioni) ·
+[02 - Contesti delimitati](../02_architecture/02-contesti-delimitati.md#ctx-13---amministrazione-tenant)

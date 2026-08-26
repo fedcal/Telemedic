@@ -76,9 +76,9 @@ nella colonna di destra per le funzioni che gli interessano.
 | **PIXm** | **3.1.0** (4 novembre 2025) | Trial Implementation | Patient Identifier Cross-reference Consumer | **ITI-83** | Per tenant, se esistono più domini di identificazione |
 | **PDQm** | **3.2.0** (4 novembre 2025) | Trial Implementation | Patient Demographics Consumer | **ITI-78** | Per tenant, con i limiti di §7 |
 | **IUA** | rev. **2.5** (18 giugno 2026) | Trial Implementation | Authorization Client, Resource Server | **ITI-71**, **ITI-72**, **ITI-102**, **ITI-103** | Profilazione documentale su quanto già implementato |
-| **BALP** | **1.1.4** (31 ottobre 2025) | Trial Implementation | *content profile* | — | Forma degli eventi prodotti da ATNA |
-| **XUA** | — | — | **Nessuno** | — | Fuori perimetro, vedi §9 |
-| **XDS.b** | — | — | **Nessuno** | — | Fuori perimetro, vedi §9 |
+| **BALP** | **1.1.4** (31 ottobre 2025) | Trial Implementation | *content profile* | - | Forma degli eventi prodotti da ATNA |
+| **XUA** | - | - | **Nessuno** | - | Fuori perimetro, vedi §9 |
+| **XDS.b** | - | - | **Nessuno** | - | Fuori perimetro, vedi §9 |
 
 Due righe portano un'avvertenza esplicita che va ripetuta a chi integra.
 
@@ -153,9 +153,9 @@ visto da tre lati, e va implementato una volta sola.
 ### 4.4 La forma degli eventi
 
 Gli schemi da usare sono quelli del profilo di contenuto dedicato, alla versione **1.1.4**, su
-base R4. Definisce dieci schemi per le operazioni REST — creazione, lettura, aggiornamento,
+base R4. Definisce dieci schemi per le operazioni REST - creazione, lettura, aggiornamento,
 cancellazione e interrogazione, ciascuna in **due varianti**, con e senza assistito identificato
-— più due schemi per la **comunicazione di dati a terzi**, uno dal lato di chi comunica e uno dal
+- più due schemi per la **comunicazione di dati a terzi**, uno dal lato di chi comunica e uno dal
 lato di chi riceve, e sei schemi per l'autorizzazione, che coprono il token opaco, il token del
 profilo di autorizzazione, il token in forma di asserzione nelle varianti completa e minimale, e
 la decisione di autorizzazione.
@@ -181,7 +181,7 @@ il vincolo V-04 esiste per impedire.
 ## 5. Tempo coerente
 
 Attori: server del tempo e client del tempo. Transazione: **ITI-1**. Il profilo richiede l'uso del
-protocollo di sincronizzazione oraria definito da **RFC 1305** — la specifica cita quel documento —
+protocollo di sincronizzazione oraria definito da **RFC 1305** - la specifica cita quel documento -
 con l'ammissione della variante semplificata per certi client non raggruppati con un server.
 L'accuratezza richiesta è un **errore mediano inferiore a un secondo**, che il profilo qualifica
 come sufficiente per la maggior parte degli scopi.
@@ -300,7 +300,7 @@ gateway, non la reimplementazione**.
 
 Il profilo che comunica claim su un principale autenticato attraverso i confini di impresa usa
 un'intestazione di sicurezza dei servizi web con un token di asserzione. Ha tre opzioni
-rilevanti — ruolo del soggetto, riferimento al consenso, finalità d'uso — e richiede il
+rilevanti - ruolo del soggetto, riferimento al consenso, finalità d'uso - e richiede il
 raggruppamento con il profilo di tracciamento.
 
 **È fuori perimetro.** Serve nel mondo dei servizi web basati su buste XML, e introdurre quella
@@ -310,8 +310,8 @@ legacy.
 
 ## 10. Autorizzazione in contesto IHE
 
-Il profilo di autorizzazione definisce tre attori — client di autorizzazione, server di
-autorizzazione, server di risorse — e quattro transazioni: ottenimento del token, incorporazione
+Il profilo di autorizzazione definisce tre attori - client di autorizzazione, server di
+autorizzazione, server di risorse - e quattro transazioni: ottenimento del token, incorporazione
 del token in una transazione, introspezione del token, ottenimento dei metadati del server di
 autorizzazione. Il quadro di riferimento è **OAuth 2.1**, con due tipi di concessione profilati:
 codice di autorizzazione e credenziali del client. I claim richiesti sono `iss`, `sub`,

@@ -20,7 +20,7 @@ l'origine della maggior parte dei problemi di questa famiglia.
 |---|---|---|
 | 1 | **Quale sistema** sta chiamando? | L'autenticazione del client: asserzione firmata con la chiave privata dell'integratore |
 | 2 | **Per conto di quale persona**? | Il soggetto del token, derivato dall'identità che il vostro sistema ha autenticato |
-| 3 | **Con quale garanzia** quella persona è stata identificata? | Il livello di garanzia, e — punto centrale di questo capitolo — **da chi è stato accertato** |
+| 3 | **Con quale garanzia** quella persona è stata identificata? | Il livello di garanzia, e - punto centrale di questo capitolo - **da chi è stato accertato** |
 | 4 | **Che cosa le è consentito fare**? | Gli ambiti concessi, più le regole di dominio del tenant |
 
 La domanda 3 è quella che i sistemi omettono. Un registro degli accessi che sa *chi* ha letto un
@@ -117,14 +117,14 @@ Esempio con lo scambio di token, che è la forma più esplicita:
 
 ```http
 POST /realms/clinic/protocol/openid-connect/token HTTP/1.1
-Host: telemedic.esempio.it
+Host: telemedic.example
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Atoken-exchange
 &subject_token=eyJhbGciOiJFUzM4NCIsImtpZCI6ImludC0yMDI2LTA4In0…
 &subject_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Aaccess_token
 &audience=telemedic-api
-&scope=https%3A%2F%2Ftelemedic.esempio.it%2Fscopes%2Fsession.start%20system%2FEncounter.cu
+&scope=https%3A%2F%2Ftelemedic.example%2Fscopes%2Fsession.start%20system%2FEncounter.cu
 &requested_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Aaccess_token
 &client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
 &client_assertion=eyJhbGciOiJFUzM4NCIsImtpZCI6ImludC0yMDI2LTA4In0…
@@ -136,7 +136,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Atoken-exchange
   "issued_token_type": "urn:ietf:params:oauth:token-type:access_token",
   "token_type": "Bearer",
   "expires_in": 300,
-  "scope": "https://telemedic.esempio.it/scopes/session.start system/Encounter.cu"
+  "scope": "https://telemedic.example/scopes/session.start system/Encounter.cu"
 }
 ```
 
@@ -160,12 +160,12 @@ Il token emesso, con delega:
 
 ```json
 {
-  "iss": "https://telemedic.esempio.it/realms/clinic",
+  "iss": "https://telemedic.example/realms/clinic",
   "aud": "telemedic-api",
   "sub": "https://idp.integratore.example#prof-001",
   "act": {
     "sub": "gestionale-integratore-prod",
-    "iss": "https://telemedic.esempio.it/realms/clinic"
+    "iss": "https://telemedic.example/realms/clinic"
   },
   "acr": "urn:telemedic:acr:asserted-by-issuer",
   "auth_source": {
@@ -177,9 +177,9 @@ Il token emesso, con delega:
   "exp": 1787654621,
   "iat": 1787654321,
   "jti": "0f5b1c2d-9a8e-4b7f-a1c2-3d4e5f6a7b8c",
-  "scope": "https://telemedic.esempio.it/scopes/session.start system/Encounter.cu",
+  "scope": "https://telemedic.example/scopes/session.start system/Encounter.cu",
   "tenant": "asl-nord-01",
-  "fhirUser": "https://api.telemedic.esempio.it/fhir/Practitioner/prc-8812"
+  "fhirUser": "https://api.telemedic.example/fhir/Practitioner/prc-8812"
 }
 ```
 
@@ -197,7 +197,7 @@ Note sui campi:
 
 ### 3.5 Lo stato del supporto, dichiarato
 
-> **`[NV]` — Verifica sul percorso critico.** La disponibilità dello scambio di token nella
+> **`[NV]` - Verifica sul percorso critico.** La disponibilità dello scambio di token nella
 > variante *da emittente esterno a emittente interno*, e lo stato di maturità della concessione
 > per asserzione, **dipendono dalla versione del prodotto di federazione adottato** e vanno
 > verificate sulla versione effettivamente installata prima di dichiarare la funzione come
@@ -336,7 +336,7 @@ Tre conseguenze:
    servizio richiede un livello e l'utente accede con uno inferiore, il rifiuto deve venire
    dall'emittente: il fornitore non ha modo di accorgersene a posteriori.
 
-> **`[NV]` — Verifica empirica raccomandata.** Il punto 1 discende dalle regole tecniche pubblicate
+> **`[NV]` - Verifica empirica raccomandata.** Il punto 1 discende dalle regole tecniche pubblicate
 > ed è verificato su fonte primaria, ma ha conseguenze abbastanza rilevanti da meritare una
 > **verifica in preproduzione** prima di dichiarare in documentazione pubblica come si propaga il
 > livello di garanzia. È una verifica a costo quasi nullo e va messa sul percorso critico.
@@ -345,9 +345,9 @@ Tre conseguenze:
 
 1. **Un'operazione che la normativa lega all'autenticazione forte richiede autenticazione
    eseguita.** Un livello riferito da terzi **non soddisfa** un requisito normativo che grava sul
-   progetto o sul deployer. Questo vale in particolare per l'accesso al fascicolo e per gli
+   progetto o su chi installa. Questo vale in particolare per l'accesso al fascicolo e per gli
    accessi a infrastrutture nazionali.
-2. **Un'operazione clinica interna** — avviare un consulto, redigere un documento — **può**
+2. **Un'operazione clinica interna** - avviare un consulto, redigere un documento - **può**
    accettare l'identità riferita, purché l'ancora di fiducia del tenant lo consenta
    esplicitamente e il livello riferito raggiunga la soglia configurata.
 3. **La configurazione «quali livelli esterni sono accettati per quale operazione» è per
@@ -373,7 +373,7 @@ ciò che il tenant potrà offrirvi.
 
 Il connettore verso i fornitori di identità nazionali configura il contesto di autenticazione
 richiesto **staticamente per istanza di fornitore**. Se il livello deve variare per operazione,
-servono **due istanze per ciascun fornitore** — una per livello. Il numero di fornitori si legge
+servono **due istanze per ciascun fornitore** - una per livello. Il numero di fornitori si legge
 da un registro nazionale e cambia nel tempo, quindi il moltiplicatore agisce su un insieme di
 cardinalità variabile.
 
@@ -390,7 +390,7 @@ Conseguenze operative, verificate:
   richiesta di livello inferiore: la seconda istanza serve solo dove occorre una semantica
   esatta o un livello strettamente superiore.
 
-**Perimetro adottato dal progetto: due soli livelli** — livello 2 come base, livello 3 per
+**Perimetro adottato dal progetto: due soli livelli** - livello 2 come base, livello 3 per
 l'amministrazione del tenant e per le configurazioni che lo impongono. Il fattore è 2, non *n*.
 
 > **`[NV]`.** Non è verificato se il prodotto di federazione, agendo da client verso un emittente
@@ -399,7 +399,7 @@ l'amministrazione del tenant e per le configurazioni che lo impongono. Il fattor
 > un'estensione. Da verificare empiricamente sulla versione adottata.
 
 **Che cosa cambia per voi che integrate: nulla, sul piano dell'interfaccia.** Ciò che cambia è
-che il livello che leggete è quello richiesto, non quello asserito — e che il tenant potrebbe non
+che il livello che leggete è quello richiesto, non quello asserito - e che il tenant potrebbe non
 avere configurato tutti i livelli che vi aspettate.
 
 ## 6. Che cosa deve fare chi installa, verso la federazione nazionale
@@ -448,11 +448,11 @@ clinica. Il progetto lo sostiene **in entrambi i versi**, e sono due implementaz
 ### 7.2 Il verso più utile agli integratori
 
 Se avete una cartella clinica con un server clinico, l'avvio applicativo vi risparmia lavoro:
-il contesto — quale assistito, quale contatto, quale appuntamento — arriva **senza che voi lo
+il contesto - quale assistito, quale contatto, quale appuntamento - arriva **senza che voi lo
 passiate a mano** e senza che l'utente lo selezioni.
 
 ```http
-GET https://embed.telemedic.esempio.it/launch
+GET https://embed.telemedic.example/launch
       ?iss=https%3A%2F%2Fgestionale.integratore.example%2Ffhir
       &launch=xyz123 HTTP/1.1
 ```
@@ -480,7 +480,7 @@ Due regole di sicurezza da applicare comunque:
    consente a un server ostile di farsi emettere token validi per sé.
 
 E un'avvertenza operativa: **l'indirizzo di stile punta a un documento servito da un terzo**.
-Va trattato come input non fidato — recupero con scadenza, limite di dimensione, validazione
+Va trattato come input non fidato - recupero con scadenza, limite di dimensione, validazione
 dello schema, e le stesse contromisure verso richieste indirizzate a risorse interne descritte
 in [04 §4.3](04-integrazione-per-eventi.md).
 

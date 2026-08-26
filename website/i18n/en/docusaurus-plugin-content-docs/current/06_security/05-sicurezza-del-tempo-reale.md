@@ -1,14 +1,14 @@
 ---
 title: Real-time security
 sidebar_position: 6
-description: The media — end-to-end encryption and the absence of key rotation within the session, mandatory short authentication string, the relay with minimum version 4.17.2 and outbound network isolation as the primary defence, the mode with recording and what it obliges you to, metrics and degradation.
+description: The media - end-to-end encryption and the absence of key rotation within the session, mandatory short authentication string, the relay with minimum version 4.17.2 and outbound network isolation as the primary defence, the mode with recording and what it obliges you to, metrics and degradation.
 ---
 
 # Real-time security
 
 > **Reading prerequisite.** Why a video call is a hard problem, and what network traversal,
 > signalling, connectivity candidates, the relay and adaptive degradation are:
-> [10 §08 — WebRTC from scratch](../10_fondamenti/08-webrtc-da-zero.md).
+> [10 §08 - WebRTC from scratch](/10_fondamenti/08-webrtc-da-zero.md).
 > Here only what concerns security is dealt with, and the rest is not repeated.
 
 ## 1. The scope of this chapter
@@ -35,7 +35,7 @@ The cryptographic material for the media is not exchanged over the signalling ch
 itself. The signalling channel carries only the **fingerprints** of the ephemeral certificates
 with which that handshake is authenticated. The property that matters follows: **the signalling
 server does not hold the material with which the media is encrypted**, and cannot decrypt it even
-if it wanted to — on condition that the fingerprints are the right ones, which is the subject of
+if it wanted to - on condition that the fingerprints are the right ones, which is the subject of
 §3.
 
 ### 2.2 There is no key rotation within the session
@@ -92,7 +92,7 @@ project therefore:
 
 Media encryption authenticates the handshake against the **fingerprints** carried by the
 signalling. If someone controls the signalling channel, they can replace the fingerprints with
-their own, establish two encrypted sessions — one with each party — and see everything. Each
+their own, establish two encrypted sessions - one with each party - and see everything. Each
 session is encrypted, the property «nobody can decrypt the traffic» is true for each of the two,
 and confidentiality is lost.
 
@@ -113,14 +113,14 @@ project established this against primary sources:
 | Implementation in the engines | Implemented **by a single engine**. Never implemented by the two largest. Present in a third engine up to the version based on its own old rendering engine and **removed** in the move to the shared engine |
 
 The interface is therefore **functionally single-browser**. Key verification that relied on it
-would work only when **both** participants — professional and patient — use the same engine. In a
+would work only when **both** participants - professional and patient - use the same engine. In a
 service aimed at the public, where the patient uses the browser they have, that amounts to not
 working.
 
 There is a second argument, independent of the first and one that would hold even in a
 hypothetical scenario of universal support: the interface would require a **third-party identity
 provider** to host the mediating script. Introducing it would mean creating a new runtime
-dependency on a third party — in direct tension with the sovereignty constraint — and **moving the
+dependency on a third party - in direct tension with the sovereignty constraint - and **moving the
 point of trust from the signalling server to the identity provider, without eliminating it**. It
 is not an evidently superior solution: it is the same trust in a different place.
 
@@ -148,7 +148,7 @@ classified as having no standard alternative mitigation: there is no other road.
 - the outcome of the verification **cannot be re-themed or hidden** by whoever embeds the component
   (constraint V-23 of the integration area).
 
-The outcome of the verification — performed, not performed, mismatched — is **recorded among the
+The outcome of the verification - performed, not performed, mismatched - is **recorded among the
 session metadata**.
 
 ## 4. The relay server
@@ -186,7 +186,7 @@ advisories, counts **six distinct defects in eight years**:
 | IPv6 address comparison component by component instead of numerically: a denial range **not aligned to a prefix** gets bypassed | 4.16.0 |
 
 **Four of the last four are from the last eight months.** The point is not that the upstream
-project is negligent — on the contrary, the fix cadence is fast. The point is **structural**: the
+project is negligent - on the contrary, the fix cadence is fast. The point is **structural**: the
 defence depends on the correctness of address parsing and normalisation, and that code has an
 error surface that has repeatedly proven not to be exhausted.
 
@@ -198,24 +198,24 @@ not depend on the correctness of the parsing.
 They must be written out in full because they are exactly the points a reasonable configuration
 gets wrong.
 
-**First — the default behaviour is permissive, and there is no global denial switch.** The
+**First - the default behaviour is permissive, and there is no global denial switch.** The
 upstream-documented rule is that, in the absence of a rule for an address, the address **is
 allowed**. Deny-by-default does not exist as an option: it must be **built by enumerating the
 ranges**. A forgotten denial directive means relaying allowed, not relaying denied.
 
-**Second — the list of allowed addresses always prevails over the list of forbidden ones, and
+**Second - the list of allowed addresses always prevails over the list of forbidden ones, and
 therefore must not be used.** The documented rule is that, if an address appears in both, **it is
 treated as allowed, regardless**. A single permissive line cancels any denial, however elaborate.
 **In the healthcare profile the list of allowed addresses is not used**, and this must be written
 into the reference configuration as a prohibition, not as a preference.
 
-**Third — IPv6 ranges must be aligned to a prefix.** This is the mitigation stated in the advisory
+**Third - IPv6 ranges must be aligned to a prefix.** This is the mitigation stated in the advisory
 for the comparison defect: the advisory recommends verbatim avoiding arbitrary boundaries and
 relying on exact addresses or on prefix-aligned ranges, **enforcing the relay's egress
 restrictions through external mechanisms**. That last part is the confirmation, from the upstream
 source, of constraint V-10.
 
-**Fourth — no co-located service, and the infrastructure metadata service must be unreachable.** No
+**Fourth - no co-located service, and the infrastructure metadata service must be unreachable.** No
 database, no management agent listening on the loopback interface, no reachable infrastructure
 metadata endpoint. It is the completion of the isolation: if there is nothing to reach, the
 canonicalisation defect has no target. **The node's own public address** must be denied as well,
@@ -265,13 +265,13 @@ option.
 
 ```mermaid
 flowchart TB
-    subgraph M1["Default mode — without recording"]
+    subgraph M1["Default mode - without recording"]
         A1["End A"] <-->|"end-to-end encrypted<br/>direct or via relay"| B1["End B"]
         R1["Relay"]
         A1 -.->|"already-encrypted packets"| R1
         R1 -.-> B1
     end
-    subgraph M2["Mode with recording — only with explicit consent"]
+    subgraph M2["Mode with recording - only with explicit consent"]
         A2["End A"] <-->|"encrypted up to the component"| C2["Recording component<br/>ENCRYPTION ENDS HERE"]
         C2 <-->|"encrypted from the component"| B2["End B"]
         C2 --> S2[("Store encrypted at rest<br/>per-tenant key")]
@@ -283,7 +283,7 @@ flowchart TB
 All mandatory, all verifiable.
 
 1. **The consent notice explicitly states that the session is no longer end-to-end encrypted.** Not
-   «the recording is encrypted at rest» — which is true and is not the same information. The person
+   «the recording is encrypted at rest» - which is true and is not the same information. The person
    must be able to understand that the property of the session has changed.
 2. **Consent is explicit, separate, not pre-ticked, withdrawable as easily as it was given**, and it
    cannot be a condition for accessing the consultation (prohibition on bundling, Article 7(4)). The
@@ -300,7 +300,7 @@ All mandatory, all verifiable.
    produces effective erasure ([03 §7](./03-protezione-dei-dati.md)).
 7. **The container is negotiated at runtime, never assumed** (constraint V-11). The established
    picture is that neither of the two widespread containers is universal: the first is supported by
-   two engines out of three, the second by the third and — only from a recent version — by one of
+   two engines out of three, the second by the third and - only from a recent version - by one of
    the others too. The actual container is **recorded among the recording's metadata**, as is done
    for the cipher suite. The correct public claim is «recording in a standard container, negotiated
    with the browser and recorded in the metadata, encrypted at rest»: verifiable.
@@ -326,7 +326,7 @@ Requirements that follow:
 - degradation is **announced** to the user in plain language, not silently endured;
 - the event of degradation beyond a threshold is **recorded** among the session metadata, and is
   available for inclusion in the clinical document with the professional's explicit confirmation;
-- there is a **declared fallback** — the telephone channel — and the procedure is known to the
+- there is a **declared fallback** - the telephone channel - and the procedure is known to the
   patient before the session, not communicated during the fault;
 - interruption of the session is a **recorded outcome**, not an absence of data: constraint V-09
   applies here too.
@@ -340,8 +340,8 @@ The reason is in the metadata table of [01 §2.2](./01-modello-di-minaccia.md). 
 ephemeral credential contains, by construction, the opaque session identifier. The relay offers an
 option to label the traffic metrics with the credential's username. Turning it on would (a) blow
 up the cardinality of the series, and (b) **transfer a clinical session identifier into the
-infrastructure metrics system**, breaking the separation between the infrastructure plane — which
-does not process personal data — and the session statistics plane, which fully does. **Not turning
+infrastructure metrics system**, breaking the separation between the infrastructure plane - which
+does not process personal data - and the session statistics plane, which fully does. **Not turning
 it on is a minimisation requirement, not a configuration preference.**
 
 Three operational observations that follow from the verification of the metrics actually exposed:
@@ -351,13 +351,13 @@ Three operational observations that follow from the verification of the metrics 
    flow. Instantaneous traffic must be derived from the per-packet counters.
 2. **The only state metric is the number of current allocations.** It is the one on which the
    saturation alarm is built.
-3. **There is no metric for denied permissions.** The attack signal that matters — a spike of
-   rejected permission requests, which is a scan of the internal network — **cannot be derived from
+3. **There is no metric for denied permissions.** The attack signal that matters - a spike of
+   rejected permission requests, which is a scan of the internal network - **cannot be derived from
    the metrics** and must be extracted from the relay's logs. It is a substantial correction to the
    project's initial assumption, and it determines the form of the alarm rule: it is built on the
    logs, not on the time series.
 
-Client-side session statistics — latency, loss, jitter, bandwidth — belong to the perimeter of
+Client-side session statistics - latency, loss, jitter, bandwidth - belong to the perimeter of
 personal data, are associated with the session and hence with the patient, and follow the retention
 and access rules of the other session metadata. **They are not mixed with the infrastructure
 metrics**: they are two stores with two regimes.
@@ -370,4 +370,4 @@ metrics**: they are two stores with two regimes.
 | `[NV]` | Support status of the most recent version of the datagram transport protocol on the engine for which it has not been established (§2.3) | Empirical verification |
 | `[NV]` | Digest algorithm underlying the computation of the relay's ephemeral credentials: the upstream documentation writes generically «hmac». It must be **verified empirically** with an integration test against the version actually distributed, which is more solid than any documentary citation | Technical |
 | `[NV]` | Support for prefix notation in the denial directives: not verified upstream, so the reference configuration uses exclusively the range form, which is documented (§4.3) | Technical |
-| — | Minimum negotiated protocol version threshold below which the session is refused: it is a **product specification, never compliance** (V-12) | Functional |
+| - | Minimum negotiated protocol version threshold below which the session is refused: it is a **product specification, never compliance** (V-12) | Functional |

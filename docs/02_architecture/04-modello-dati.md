@@ -26,8 +26,8 @@ Le regole di rapporto fra i quattro sono poche e assolute:
 - **Il modello canonico di scambio è una proiezione, mai una fonte.** Le risorse dello standard
   sono costruite da mappatori e non sono mai l'artefatto persistito come tale.
 - **Il dataset canonico è indipendente dalla serializzazione.** Il contenuto informativo di un
-  referto è definito dalla normativa; la forma in cui viaggia — documento strutturato di un tipo o
-  di un altro — è sostituibile e non va cablata.
+  referto è definito dalla normativa; la forma in cui viaggia - documento strutturato di un tipo o
+  di un altro - è sostituibile e non va cablata.
 - **Il modello di persistenza è privato del contesto.** Nessun altro contesto lo legge, nessuna
   interfaccia pubblica lo espone.
 
@@ -59,8 +59,8 @@ flowchart TB
 
 Il modello canonico è **FHIR R4, versione 4.0.1**, profilato secondo le guide di implementazione
 italiane per la telemedicina, che **prevalgono** in caso di divergenza con il modello generico.
-Le guide adottate — televisita, teleconsulto, teleassistenza, telemonitoraggio e il profilo
-nazionale di base — sono tutte su FHIR 4.0.1 e sono, alla data di stesura, in stato preliminare.
+Le guide adottate - televisita, teleconsulto, teleassistenza, telemonitoraggio e il profilo
+nazionale di base - sono tutte su FHIR 4.0.1 e sono, alla data di stesura, in stato preliminare.
 
 Lo stato preliminare è un fatto, non un ostacolo aggirabile. Ne discendono tre obblighi:
 
@@ -136,7 +136,7 @@ Lo standard nella versione adottata offre **un solo elemento semantico** per la 
 un valore di classe dell'atto. Non offre un elemento per l'indirizzo della sessione, non distingue
 sincrono e asincrono, non ha un codice per il tipo di canale. La revisione successiva dello
 standard colma la lacuna con un tipo dedicato, il cui insieme di valori obbligatorio è però
-composto da nomi di piattaforme commerciali di terze parti — insieme che non descrive alcuna
+composto da nomi di piattaforme commerciali di terze parti - insieme che non descrive alcuna
 piattaforma installata in proprio.
 
 Esistono tre modi di uscirne, e la scelta è dichiarata:
@@ -157,7 +157,7 @@ incrociata resta osservato, non adottato, finché è in stato preliminare.
 Un fatto verificato che va segnalato e non nascosto: il profilo nazionale dell'atto di televisita
 **non fissa un valore per la classe dell'atto**, pur avendo un vincolo estensibile sull'insieme di
 valori. Il progetto adotta il valore che rappresenta la modalità virtuale e lo dichiara nel
-proprio profilo di interfaccia. `[NV]` — la conferma che il realm italiano attenda esattamente
+proprio profilo di interfaccia. `[NV]` - la conferma che il realm italiano attenda esattamente
 quel valore va richiesta all'ente di normazione nazionale; il destinatario della richiesta è
 l'area di conformità, che ha già in carico l'interlocuzione per le tipologie documentali.
 
@@ -184,8 +184,8 @@ sua correzione a posteriori richiede di ricodificare lo storico.
 ### 3.1 Perché il contenuto non si modella sulla serializzazione
 
 I documenti destinati all'infrastruttura documentale nazionale hanno un **set informativo definito
-da fonte normativa**. Le rappresentazioni tecniche — i modelli di documento strutturato, i codici
-documentali, i metadati di indicizzazione — **non sono pubblicamente disponibili** alla data di
+da fonte normativa**. Le rappresentazioni tecniche - i modelli di documento strutturato, i codici
+documentali, i metadati di indicizzazione - **non sono pubblicamente disponibili** alla data di
 stesura, e la loro acquisizione è una questione aperta indirizzata all'area di conformità.
 
 Costruire il modello sulla serializzazione significherebbe attendere quel materiale per iniziare, e
@@ -227,15 +227,17 @@ flowchart LR
 ### 3.3 Il punto in cui questa scelta paga
 
 Il momento in cui i modelli tecnici diventeranno disponibili sarà, per il progetto, la scrittura
-di un mappatore e di una suite di prove. Nel modello alternativo — contenuto modellato sulla forma
-— sarebbe stata una migrazione del modello di dominio e dei dati già prodotti.
+di un mappatore e di una suite di prove. Nel modello alternativo - contenuto modellato sulla forma
+- sarebbe stata una migrazione del modello di dominio e dei dati già prodotti.
 
 ## 4. Le serie temporali
 
 ### 4.1 Due serie, non una
 
 Il sistema produce due famiglie di dati a serie temporale, con **regimi giuridici opposti** che
-non ammettono di essere conservate insieme:
+non ammettono di essere conservate **sotto lo stesso regime**: stessa durata, stesso titolo di
+accesso, stesso trattamento della riduzione della risoluzione. Vanno quindi tenute in **strutture
+distinte**, ciascuna con il proprio regime.
 
 | Serie | Che cosa contiene | Natura | Regime |
 |---|---|---|---|
@@ -245,6 +247,18 @@ non ammettono di essere conservate insieme:
 Confonderle produce due difetti simmetrici: se le metriche tecniche ereditano il regime clinico si
 costruisce un archivio di dati di traffico sanitario che nessuno ha chiesto; se i parametri
 clinici ereditano il regime tecnico si perde documentazione sanitaria.
+
+**La separazione è di regime e di struttura, non di componente installato**, e la distinzione va
+tenuta ferma perché è già stata letta nei due modi.
+[ADR-0020](../adr/0020-serie-temporali-in-archivio-dedicato.md) adotta l'alternativa 3 - «due serie
+con regimi distinti, **entrambe** in strutture dedicate a serie temporali» - e scarta l'alternativa
+2 non perché mettesse insieme le due serie, ma perché applicava loro **un regime unico**. Fra le
+conseguenze negative accettate l'ADR conta «**un** archivio in più da installare», al singolare, e
+la vista di dispiegamento è coerente con quel conteggio: un solo archivio a serie temporali
+([08 - Viste di dispiegamento](08-viste-di-deployment.md#21-elenco-e-ruolo) §2.1), che ospita due
+strutture con conservazione, accesso e riduzione della risoluzione distinti. Nulla vieta a
+un'installazione di separarle anche fisicamente; ciò che il progetto non consente è di **confondere
+i due regimi**, che è il difetto contro cui la decisione è stata presa.
 
 ### 4.2 Perché un archivio dedicato
 
@@ -281,7 +295,7 @@ non è mai la forma persistita.
 
 **Nessun identificatore esterno è chiave primaria.** L'identità interna di ogni entità è un
 identificativo opaco generato dal sistema. Gli identificatori esterni sono attributi, sempre
-qualificati dal proprio **dominio di attribuzione** — l'autorità che ha assegnato quel valore in
+qualificati dal proprio **dominio di attribuzione** - l'autorità che ha assegnato quel valore in
 quello spazio di nomi.
 
 Le ragioni sono tre e sono tutte irreversibili se ignorate:
@@ -334,7 +348,7 @@ tutti dentro il livello anticorruzione del contesto di interoperabilità e **mai
 
 Lo stesso registro gestisce gli altri identificatori nazionali per cui esistono rappresentazioni
 multiple. **Punto collegato ma distinto**, che questa decisione non risolve: il codice di tipo
-dell'identificatore nel canale legacy resta contrattuale con l'integratore. `[NV]` — la questione è da sollevare con l'ente di normazione
+dell'identificatore nel canale legacy resta contrattuale con l'integratore. `[NV]` - la questione è da sollevare con l'ente di normazione
 nazionale; il destinatario della richiesta è l'area di conformità, che ha già in carico
 l'interlocuzione.
 
@@ -432,9 +446,9 @@ Le opzioni e le loro conseguenze:
 | Esclusivamente riferito, nessuna struttura nel prodotto | Il prodotto non può validare, non può ricercare, non può rendere selezionabile una prestazione. Ogni tenant reimplementa |
 | **Struttura nel prodotto, contenuto per tenant** | Il prodotto definisce la forma di una voce di catalogo e le operazioni su di essa; il contenuto è dato di configurazione caricato per tenant |
 
-**Decisione adottata: la terza.** Il prodotto definisce la struttura di una voce di catalogo —
+**Decisione adottata: la terza.** Il prodotto definisce la struttura di una voce di catalogo -
 codice, dominio di attribuzione del catalogo, descrizione, branca, canali abilitati, validità
-temporale, riferimento al codice nazionale corrispondente — e le operazioni di caricamento,
+temporale, riferimento al codice nazionale corrispondente - e le operazioni di caricamento,
 validazione, ricerca e disattivazione. **Il contenuto è dato di tenant**, caricato per interfaccia
 applicativa documentata e versionato con validità temporale, mai incluso nella distribuzione.
 
@@ -473,7 +487,7 @@ Il **versionamento automatico delle entità** offerto dal livello di persistenza
 ricostruzione applicativa dello storico ed è adottato dove serve. **Non è il registro degli accessi
 e non lo sostituisce**: chi ha accesso in scrittura alla base dati altera anche le tabelle di
 storico. La distinzione è sviluppata in
-[07 — Tracciamento e registro immutabile](07-tracciamento-e-registro-immutabile.md) e non deve
+[07 - Tracciamento e registro immutabile](07-tracciamento-e-registro-immutabile.md) e non deve
 essere attenuata in nessun documento del progetto.
 
 ## 8. Conservazione e cancellazione

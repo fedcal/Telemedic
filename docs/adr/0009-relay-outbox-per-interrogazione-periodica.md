@@ -1,10 +1,10 @@
 ---
-title: "ADR-0009 — Il relay dell'outbox legge per interrogazione periodica"
+title: "ADR-0009 - Il relay dell'outbox legge per interrogazione periodica"
 sidebar_position: 9
 description: Perché il relay interroga la tabella invece di leggere il registro di replica dell'archivio, quale sia il peso dell'alternativa sull'installazione presso il cliente e a quali condizioni l'alternativa resta disponibile.
 ---
 
-# ADR-0009 — Il relay dell'outbox legge per interrogazione periodica
+# ADR-0009 - Il relay dell'outbox legge per interrogazione periodica
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Origine**: questione rinviata a un ADR dal modulo dei fondamenti informatici
@@ -20,7 +20,7 @@ ha proposto l'interrogazione periodica come predefinita, rinviando la decisione 
 
 ## Alternative valutate
 
-### Alternativa 1 — Interrogazione periodica
+### Alternativa 1 - Interrogazione periodica
 
 Il relay interroga la tabella a intervalli brevi, prende un lotto con un blocco che salta le righe
 già prese da altri, pubblica, marca.
@@ -32,7 +32,7 @@ assetti di distribuzione.
 *Compromessi*: latenza aggiuntiva pari all'intervallo; carico costante sull'archivio anche in
 assenza di eventi; con volumi alti l'intervallo va ridotto e il carico cresce.
 
-### Alternativa 2 — Cattura delle modifiche dal registro di replica
+### Alternativa 2 - Cattura delle modifiche dal registro di replica
 
 Un componente legge il registro delle modifiche dell'archivio e pubblica.
 
@@ -59,7 +59,7 @@ distribuzione.**
 La motivazione decisiva **non è tecnica ma di perimetro**: l'installazione presso il cliente deve
 restare leggera e installabile senza privilegi particolari, e i vantaggi di latenza della seconda
 alternativa non sono richiesti da alcun requisito. Il percorso che ha un requisito di latenza
-stringente — il segnalamento della sessione — **non passa comunque dall'outbox** (ADR-0012), il che
+stringente - il segnalamento della sessione - **non passa comunque dall'outbox** (ADR-0012), il che
 toglie all'argomento della latenza gran parte del suo peso.
 
 La cattura delle modifiche resta **un'opzione dichiarata** per assetti ad alto volume, a due
@@ -93,6 +93,6 @@ modalità. È ciò che consente di cambiare idea senza toccare un solo consumato
 
 ## Riferimenti
 
-[06 — Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#24-come-il-relay-legge) ·
-[09 — Decisioni rinviate](../02_architecture/09-decisioni-rinviate.md#a-2--modalità-di-lettura-delloutbox-in-assetti-ad-alto-volume) ·
+[06 - Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#24-come-il-relay-legge) ·
+[09 - Decisioni rinviate](../02_architecture/09-decisioni-rinviate.md#a-2---modalità-di-lettura-delloutbox-in-assetti-ad-alto-volume) ·
 ADR-0008

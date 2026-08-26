@@ -1,7 +1,7 @@
 ---
 title: Principi e metodo
 sidebar_position: 2
-description: Come si decide che cosa entra e che cosa esce — le quattro classi di attività, i criteri di priorità in ordine lessicografico, le attività retroattivamente irrecuperabili, il debito tecnico e il debito regolatorio, la capacità dichiarata di D54 e la regola con cui l'ambito si riduce invece di far scivolare la data.
+description: Come si decide che cosa entra e che cosa esce - le quattro classi di attività, i criteri di priorità in ordine lessicografico, le attività retroattivamente irrecuperabili, il debito tecnico e il debito regolatorio, la capacità dichiarata di D54 e la regola con cui l'ambito si riduce invece di far scivolare la data.
 ---
 
 # Principi e metodo
@@ -10,7 +10,7 @@ Questo capitolo esiste per una ragione precisa: **una priorità senza un criteri
 una preferenza travestita**, e in un progetto con una data fissa e una capacità piccola le
 preferenze si accumulano fino a produrre un piano che nessuno può difendere. I criteri che
 seguono sono stati fissati **prima** delle decisioni del capitolo
-[02 — Traguardi](./02-traguardi.md), e sono applicati a tutte le voci allo stesso modo.
+[02 - Traguardi](./02-traguardi.md), e sono applicati a tutte le voci allo stesso modo.
 
 ---
 
@@ -35,8 +35,8 @@ date sotto ipotesi. **Ora la capacità è un dato**, e ne discende una regola di
 > Non si negozia la data, non si inventa capacità: **si riduce l'ambito e si dichiara che cosa
 > è stato tolto**, con l'indicazione di che cosa è recuperabile e che cosa no.
 
-È una regola aritmetica, non un giudizio. Tre grandezze legano un piano — data, capacità,
-ambito — e due sono fissate da una decisione del committente. La terza si determina di
+È una regola aritmetica, non un giudizio. Tre grandezze legano un piano - data, capacità,
+ambito - e due sono fissate da una decisione del committente. La terza si determina di
 conseguenza. Un piano che lasciasse l'ambito invariato non produrrebbe più lavoro: produrrebbe
 **una data mancata in pubblico**, che è l'unico esito peggiore di un ambito ridotto.
 
@@ -56,13 +56,13 @@ proprietà che conti in una decisione di sequenza.
 
 | Classe | Definizione | Che cosa accade se si sposta in avanti | Comprimibile? |
 |---|---|---|---|
-| **A — Retroattivamente irrecuperabile** | Il suo risultato non è ricostruibile a posteriori, o lo è a un costo qualitativamente diverso | Il risultato è **perduto**, non ritardato. Nessuna quantità di lavoro successivo lo recupera | No |
-| **B — A tempo di attraversamento lungo** | La durata dipende da un terzo, non dal lavoro che vi si dedica | Il ritardo si trasferisce **integralmente** alla fine della catena | No |
-| **C — Sul percorso critico altrui** | Sblocca altre attività, spesso a costo proprio modesto | Blocca **n** attività a valle, e il costo del ritardo è **n** volte il costo dell'attività | No, ma è breve |
-| **D — Comprimibile** | Produce valore proporzionale al lavoro dedicato, e il valore non si degrada con l'attesa | Il valore arriva più tardi. Nient'altro | Sì |
+| **A - Retroattivamente irrecuperabile** | Il suo risultato non è ricostruibile a posteriori, o lo è a un costo qualitativamente diverso | Il risultato è **perduto**, non ritardato. Nessuna quantità di lavoro successivo lo recupera | No |
+| **B - A tempo di attraversamento lungo** | La durata dipende da un terzo, non dal lavoro che vi si dedica | Il ritardo si trasferisce **integralmente** alla fine della catena | No |
+| **C - Sul percorso critico altrui** | Sblocca altre attività, spesso a costo proprio modesto | Blocca **n** attività a valle, e il costo del ritardo è **n** volte il costo dell'attività | No, ma è breve |
+| **D - Comprimibile** | Produce valore proporzionale al lavoro dedicato, e il valore non si degrada con l'attesa | Il valore arriva più tardi. Nient'altro | Sì |
 
 **La regola di sequenza che ne discende è banale a enunciarsi e difficile a praticarsi**: si
-fanno prima A, B e C — nell'ordine, e a prescindere dal loro valore apparente — e si comprime D.
+fanno prima A, B e C - nell'ordine, e a prescindere dal loro valore apparente - e si comprime D.
 
 È difficile a praticarsi per una ragione psicologica documentabile: le attività di classe A, B e
 C **non si vedono**. Un registro degli identificativi di requisito non si dimostra a nessuno;
@@ -101,7 +101,7 @@ la consegna.
 
 **La sicurezza del paziente precede l'irrecuperabilità, ma raramente vi entra in conflitto.**
 Nella quasi totalità dei casi le due spingono nella stessa direzione, perché ciò che rende un
-sistema sanitario sicuro — tracciabilità, gestione del rischio, verificabilità delle esclusioni —
+sistema sanitario sicuro - tracciabilità, gestione del rischio, verificabilità delle esclusioni -
 è precisamente ciò che non si ricostruisce a posteriori.
 
 **La legittimità è terza e non prima** perché, nello stato attuale del progetto, è già
@@ -118,17 +118,19 @@ disclaimer.
 ### 4.1 Perché la stima non si può fare, e che cosa si fa al suo posto
 
 Una stima di costo richiede una capacità nota, una produttività osservata e un'unità di misura
-condivisa. Al 25 agosto 2026 il progetto ha la prima — `D54` dichiara **un contributore unico a
-tempo parziale** — e **non ha le altre due**: non ha cronologia di consegna su cui calibrare, e
+condivisa. Al 25 agosto 2026 il progetto ha la prima - `D54` dichiara **un contributore unico a
+tempo parziale** - e **non ha le altre due**: non ha cronologia di consegna su cui calibrare, e
 non ha un'unità che attraversi lavori tanto diversi quanto la stesura di un capitolo, la
 traduzione di un corpus, la scrittura di un motore di validazione e una sessione di prova con
 utenti rappresentativi.
 
-Va aggiunto un fatto che `D54` dichiara e che nessuna aritmetica supera: **«a tempo parziale»
-non è quantificato**. `[NV]` — il numero di ore settimanali non è dichiarato, e quest'area non lo
-inventa. Ne discende che le durate del capitolo [02](./02-traguardi.md) **non sono stime**: sono
-**allocazioni del calendario residuo** a una sequenza vincolata. La differenza è sostanziale e va
-capita, perché determina che cosa protegge la data:
+`D62`, il 26 agosto 2026, ha quantificato la capacità in **dieci-venti ore a settimana**,
+chiudendo il `[NV]` che quest'area portava. **Restano mancanti le altre due condizioni**: non
+esiste ancora una cronologia di consegna su cui calibrare, e non esiste un'unità di misura
+condivisa. Ne discende che le durate del capitolo [02](./02-traguardi.md) **restano allocazioni
+del calendario residuo** a una sequenza vincolata, e non diventano stime per il solo fatto che le
+ore siano note. La differenza è sostanziale e va capita, perché determina che cosa protegge la
+data:
 
 > Una stima protegge la data prevedendo lo sforzo. Un'allocazione di calendario **non prevede
 > nulla**: protegge la data soltanto se esiste, dichiarato in anticipo, **l'ordine in cui
@@ -142,8 +144,8 @@ discostarsi proprio perché scriverla dopo significherebbe scegliere sotto press
 **Ciò che si fa al posto della stima** è dichiarare tre grandezze che sono osservabili anche
 senza cronologia:
 
-1. **L'ordine di grandezza relativo**, in classi discrete e dichiarate — giorni, settimane,
-   mesi, trimestri — mai numeri.
+1. **L'ordine di grandezza relativo**, in classi discrete e dichiarate - giorni, settimane,
+   mesi, trimestri - mai numeri.
 2. **La forma della curva di costo**: lineare nel volume (traduzione), a gradino (un componente
    in più da installare e sorvegliare), a soglia (una verifica che o passa o richiede un ciclo
    completo), o **non comprimibile** (attesa di un terzo).
@@ -162,7 +164,7 @@ composizione del primo rilascio, che il capitolo
 > possibile di funzioni.**
 
 Un percorso verticale completo produce beneficio dal primo giorno in cui esiste, si può provare
-per intero, si può mostrare, e — proprietà decisiva per un progetto regolato — **si può
+per intero, si può mostrare, e - proprietà decisiva per un progetto regolato - **si può
 tracciare per intero dal requisito alla prova**. Un insieme largo di funzioni incomplete non ha
 nessuna di queste proprietà, e in più non consente di dire che cosa è fatto.
 
@@ -221,8 +223,8 @@ secondo la fonte richiamata da `D45`, **da tre a cinque volte** il costo di cens
 entrano. La ragione è che una dipendenza entrata senza valutazione porta con sé le proprie
 transitive, e il grafo va ricostruito quando nessuno ricorda perché una libreria è lì.
 *Conseguenza operativa*, posta come vincolo `V-182`: **la prima pipeline precede il primo codice
-applicativo.** Non «accompagna»: precede. Il controllo `G5` — un componente presente nella
-distinta e assente dalle annotazioni fa fallire la costruzione — è ciò che rende la regola
+applicativo.** Non «accompagna»: precede. Il controllo `G5` - un componente presente nella
+distinta e assente dalle annotazioni fa fallire la costruzione - è ciò che rende la regola
 effettiva invece che esortativa.
 
 **3. Controllo dei documenti, prima di produrre altri documenti.**
@@ -233,9 +235,9 @@ registrazione dell'atto.
 Ogni giorno in cui il controllo non esiste aumenta il volume da riemettere. **È l'attività di
 classe A con il costo di omissione che cresce più rapidamente**, ed è la ragione per cui compare
 nel primo traguardo del capitolo 02 e non in un traguardo successivo.
-*Mitigazione realistica*: la forma proposta è quella **documenti come codice** — procedure
+*Mitigazione realistica*: la forma proposta è quella **documenti come codice** - procedure
 versionate nel repository, approvazione tramite proposta di modifica con revisori nominati,
-immutabilità garantita dalla protezione dei rami e dalla firma delle revisioni — che soddisfa i
+immutabilità garantita dalla protezione dei rami e dalla firma delle revisioni - che soddisfa i
 requisiti di controllo dei documenti e delle registrazioni in modo più robusto di un archivio di
 file, **a condizione** che sia validata come strumento e che esista la procedura che spiega a chi
 verifica come la corrispondenza fra revisione, revisore e approvazione costituisce la
@@ -263,7 +265,7 @@ Chiude `Q-144`.
 *Conseguenza permanente, che sostituisce quella precedente*: non è più un rischio di riscrittura,
 è un **divieto**. Nessuna funzione può essere aggiunta se sposta il sistema verso il tempo reale
 clinico, e **la valutazione va fatta prima di scrivere la funzione, non dopo**. È il caso in cui
-il §6 di questo capitolo — come si dice di no — smette di essere una procedura e diventa un
+il §6 di questo capitolo - come si dice di no - smette di essere una procedura e diventa un
 confine.
 
 ### 5.2 Le attività di classe B che il progetto assume con `D58`
@@ -278,21 +280,21 @@ costituito. Le attività che `D45` attribuiva a «chi intende certificare» dive
 3. **Richieste di informazioni agli organismi notificati.**
 4. **Avvio del piano di valutazione clinica.**
 
-Sono tutte e quattro di **classe B**: la loro durata è determinata da terzi — procedimenti
-amministrativi, code di organismi, disponibilità di competenza clinica documentabile — e **non si
+Sono tutte e quattro di **classe B**: la loro durata è determinata da terzi - procedimenti
+amministrativi, code di organismi, disponibilità di competenza clinica documentabile - e **non si
 comprime dedicandovi più lavoro**. Ne discende la conseguenza di sequenza più importante di
 questo capitolo, e va enunciata senza attenuazioni:
 
 > **Le attività di `D58` costano poche ore e molti mesi. Vanno quindi avviate adesso, non dopo
-> il primo rilascio.** Sono l'unico blocco di lavoro che `D54` non penalizza — un contributore a
+> il primo rilascio.** Sono l'unico blocco di lavoro che `D54` non penalizza - un contributore a
 > tempo parziale può inviare una richiesta di informazioni e attendere esattamente come potrebbe
-> farlo un ufficio — e ogni settimana in cui non partono si trasferisce **integralmente** in
+> farlo un ufficio - e ogni settimana in cui non partono si trasferisce **integralmente** in
 > fondo alla catena, dove nessun aumento di capacità la recupera.
 
 Sono a calendario in [02 §5](./02-traguardi.md), con il progetto come titolare, e con una
 avvertenza che accompagna ogni data di quel paragrafo e non si separa mai da essa: **sono date di
-pianificazione interna, non promesse di esito.** Il divieto di `V-171` resta intero — **in nessun
-luogo si scrive che il prodotto sarà marcato entro una data** — e resta intero lo stato di fatto:
+pianificazione interna, non promesse di esito.** Il divieto di `V-171` resta intero - **in nessun
+luogo si scrive che il prodotto sarà marcato entro una data** - e resta intero lo stato di fatto:
 oggi il prodotto **non reca marcatura CE** e chi lo installa o lo mette in servizio assume
 comunque gli obblighi che ne derivano.
 
@@ -304,20 +306,20 @@ di aver documentato un comportamento inesistente**.
 
 | Verifica | Che cosa sblocca | Che cosa costa averla omessa | Nel perimetro ridotto |
 |---|---|---|---|
-| Scambio di token nel gateway con delega esplicita (`D18`) | L'intera modalità di identità federata verso l'integratore | Riprogettazione del confine di autorizzazione dopo che il codice esiste | **Sì** — è il percorso di ingresso di `RU-1` |
+| Scambio di token nel gateway con delega esplicita (`D18`) | L'intera modalità di identità federata verso l'integratore | Riprogettazione del confine di autorizzazione dopo che il codice esiste | **Sì** - è il percorso di ingresso di `RU-1` |
 | Ripiego a token d'ingresso a uso singolo, emesso su canale posteriore (`D18`) | L'avvio della sessione da parte dell'integratore **senza componente incorporabile** | L'assenza di ogni via di integrazione, una volta tagliato l'incorporamento | **Sì**, e con peso maggiore di prima: nel perimetro ridotto non è un ripiego, è **la** modalità |
-| Isolamento di rete in uscita del nodo di relay | La postura di sicurezza del componente più esposto | Una via di uscita verso le reti interne di chi installa | **Sì** — difesa primaria (`V-10`) |
+| Isolamento di rete in uscita del nodo di relay | La postura di sicurezza del componente più esposto | Una via di uscita verso le reti interne di chi installa | **Sì** - difesa primaria (`V-10`) |
 | Difetti noti del prodotto di federazione (`D37`) chiusi in configurazione e sorvegliati da prova | La postura di sicurezza dell'identità | Una via di scalata di privilegio che ritorna al primo aggiornamento | **Sì** |
-| Inoltro del contesto di autenticazione richiesto attraverso l'intermediazione (`Q-160`, `B-8`) | La propagazione del livello di garanzia, e la sua descrizione pubblica | **Rettifica di documentazione pubblica su un meccanismo di sicurezza** | **No** — segue la conformità sull'identità digitale nazionale, fuori dal perimetro ridotto. **La regola resta**: finché l'esito non è registrato, la documentazione pubblica non descrive il meccanismo |
-| Contenitore di registrazione negoziato a runtime (`V-11`, `V-115`, `C-3`) | La formulazione pubblica sulla registrazione | Un'affermazione falsa per una parte del parco installato | **No** — segue la registrazione della sessione, tagliata da `RU-1` |
-| Comportamento del broker in assetto a nodo singolo | Le garanzie dichiarabili nell'installazione presso il cliente | Requisiti funzionali che dipendono da garanzie non disponibili | **No** — il broker è tagliato da `RU-1` (taglio reversibile, [03 §5](./03-primo-rilascio-utilizzabile.md)) |
+| Inoltro del contesto di autenticazione richiesto attraverso l'intermediazione (`Q-160`, `B-8`) | La propagazione del livello di garanzia, e la sua descrizione pubblica | **Rettifica di documentazione pubblica su un meccanismo di sicurezza** | **No** - segue la conformità sull'identità digitale nazionale, fuori dal perimetro ridotto. **La regola resta**: finché l'esito non è registrato, la documentazione pubblica non descrive il meccanismo |
+| Contenitore di registrazione negoziato a runtime (`V-11`, `V-115`, `C-3`) | La formulazione pubblica sulla registrazione | Un'affermazione falsa per una parte del parco installato | **No** - segue la registrazione della sessione, tagliata da `RU-1` |
+| Comportamento del broker in assetto a nodo singolo | Le garanzie dichiarabili nell'installazione presso il cliente | Requisiti funzionali che dipendono da garanzie non disponibili | **No** - il broker è tagliato da `RU-1` (taglio reversibile, [03 §5](./03-primo-rilascio-utilizzabile.md)) |
 
 `D18` è esplicita sulla collocazione della prima: **spike di verifica nella prima settimana di
 sviluppo, prima di ogni altra attività.** La roadmap la recepisce senza attenuazioni.
 
 **La regola che governa l'ultima colonna**, e che vale ogni volta che l'ambito si riduce: una
 verifica empirica serve a rimuovere un'incertezza da cui dipende una decisione costosa. Se la
-decisione è stata rinviata insieme alla funzione, **la verifica si rinvia con essa** — ma **la
+decisione è stata rinviata insieme alla funzione, **la verifica si rinvia con essa** - ma **la
 regola che essa presidiava resta in vigore**, e il documento lo dice riga per riga invece di
 lasciare che la verifica sparisca portandosi via il divieto.
 
@@ -333,16 +335,16 @@ Il progetto ha già lo strumento e non ne costruisce un secondo:
 la procedura di ampliamento del perimetro, con un costo **proporzionato alla categoria
 dell'esclusione**. La roadmap vi aggiunge tre regole di sequenza.
 
-**Prima — la proposta parte da un caso d'uso con un attore, non da una capacità tecnica.** «Sarebbe
+**Prima - la proposta parte da un caso d'uso con un attore, non da una capacità tecnica.** «Sarebbe
 utile calcolare un punteggio» non è una proposta. La formulazione corretta nomina chi ha il
 problema, che decisione deve prendere e che cosa gli manca oggi.
 
-**Seconda — per le esclusioni di categoria `QUAL` la valutazione di impatto regolatorio precede
+**Seconda - per le esclusioni di categoria `QUAL` la valutazione di impatto regolatorio precede
 la stima dello sforzo.** L'ordine è vincolante: valutazione, poi decisione, poi pianificazione.
 Stimare per primo produce l'effetto sistematico di far apparire economica una modifica che
 comporta una rivalutazione di conformità.
 
-**Terza — tre funzionalità sono a una singola storia utente dall'innalzamento di classe** e sono
+**Terza - tre funzionalità sono a una singola storia utente dall'innalzamento di classe** e sono
 sotto controllo delle modifiche per `D26` e `OUT-21`: allerta su soglia, elaborazione
 dell'immagine, refertazione assistita. Una proposta che le tocchi non è una proposta di
 funzione: è una proposta di modifica del dispositivo, e segue quel percorso.
@@ -354,11 +356,11 @@ funzione: è una proposta di modifica del dispositivo, e segue quel percorso.
 ### 7.1 Definizione operativa
 
 Debito tecnico è una scelta realizzativa che **riduce il costo oggi e lo aumenta domani**. Non è
-un difetto — un difetto va corretto — e non è una scorciatoia inconfessata: è una decisione con
+un difetto - un difetto va corretto - e non è una scorciatoia inconfessata: è una decisione con
 un interesse, e come tale si registra.
 
-Il progetto adotta la classificazione a due assi — deliberato o inavvertito, prudente o
-imprudente — e ne trae una regola per ciascun quadrante.
+Il progetto adotta la classificazione a due assi - deliberato o inavvertito, prudente o
+imprudente - e ne trae una regola per ciascun quadrante.
 
 | | **Prudente** | **Imprudente** |
 |---|---|---|
@@ -429,8 +431,8 @@ non esiste la possibilità di dichiararlo accettabile: l'accettabilità la decid
 La differenza fra le due cose non è formale. Un debito contratto è invisibile e si scopre in
 sede di verifica; una lacuna dichiarata è una riga nel rapporto di tracciabilità, con la sua
 motivazione, ed è precisamente la forma che chi verifica si aspetta di trovare. Un requisito
-senza prova **non blocca** la costruzione — bloccare produrrebbe l'effetto opposto, cioè prove
-finte scritte per soddisfare il controllo — ma **compare nel rapporto e va giustificato al
+senza prova **non blocca** la costruzione - bloccare produrrebbe l'effetto opposto, cioè prove
+finte scritte per soddisfare il controllo - ma **compare nel rapporto e va giustificato al
 rilascio**.
 
 ### 8.3 Il debito regolatorio già in essere, al 25 agosto 2026
@@ -445,7 +447,7 @@ Onestà minima: il progetto ne ha già. Elencarlo è la prima rata.
 | Versione inglese assente per la maggior parte del corpus, con obbligo di integralità (`D50`) | Dall'inizio | `D56`: traduzione assistita area per area, **parallela allo sviluppo**. Prerequisiti non rinviabili: avvertenze pubbliche, guida dei fondamenti, aree di conformità e sicurezza |
 | Numerosi `[NV]` aperti nelle aree già scritte, ciascuno con destinatario dichiarato | Progressivamente | Le aree destinatarie |
 | Pagina pubblica non allineata alle riformulazioni approvate (`D19`, `D29`) | Dall'approvazione di `D19` | `Q-185` → `PROD`, `ORCH` |
-| **Registrazioni a ruoli distinti non producibili** — audit interno, riesame del rilascio, verifica di configurazione eseguita da chi non ha scritto il codice | Da `D54` | **Nessuno internamente.** Non è un problema di ore: `Q-189` decide quale sottoinsieme si accetta come lacuna dichiarata e quale si copre acquisendo la funzione all'esterno |
+| **Registrazioni a ruoli distinti non producibili** - audit interno, riesame del rilascio, verifica di configurazione eseguita da chi non ha scritto il codice | Da `D54` | **Nessuno internamente.** Non è un problema di ore: `Q-189` decide quale sottoinsieme si accetta come lacuna dichiarata e quale si copre acquisendo la funzione all'esterno |
 | **Ruolo di fabbricante non ancora costituito**, mentre `D58` lo attribuisce al progetto e più passi del calendario lo presuppongono formalmente | Da `D58` | Committente, con `Q-280`. È di classe `B`: la sua durata non dipende dalla capacità di lavoro |
 
 Le ultime due righe non sono come le altre, e la differenza va detta. Le prime cinque sono lacune
@@ -503,8 +505,8 @@ e nessuna quantità di lavoro individuale le produce:
 > non si pianifica come attività. Pianificare un'attività non producibile è il modo più efficace
 > di farla sparire dalla vista.
 
-La ripartizione — quale sottoinsieme si accetta come lacuna dichiarata e quale si copre
-acquisendo la funzione all'esterno — è **decisione del committente** e resta aperta come `Q-189`.
+La ripartizione - quale sottoinsieme si accetta come lacuna dichiarata e quale si copre
+acquisendo la funzione all'esterno - è **decisione del committente** e resta aperta come `Q-189`.
 Il capitolo [03 §5](./03-primo-rilascio-utilizzabile.md) la elenca fra i tagli **irreversibili**,
 perché una registrazione datata a un periodo non si produce dopo che il periodo è passato.
 
@@ -567,7 +569,7 @@ costruisce.
 | **Attività di classe `B`** (durata di terzi) | **Si avviano subito**, perché costano poche ore e molti mesi. È l'unico blocco che `D54` non penalizza. Vi rientrano per intero le attività di `D58` (§5.2) |
 | **Attività di classe `C`** (sbloccanti) | Ridotte al sottoinsieme che serve al perimetro effettivo del primo rilascio. Una verifica empirica su una funzione tagliata **è essa stessa una funzione tagliata** |
 | **Attività di classe `D`** (comprimibili) | È da qui che viene tutta la riduzione di ambito. L'ordine è dichiarato in [03 §6](./03-primo-rilascio-utilizzabile.md) |
-| **Competenze specialistiche** — usabilità, sicurezza offensiva, redazione clinica, traduzione | **Non presenti internamente.** Ciascuna è o acquisita all'esterno, o dichiarata come lacuna. Non esiste una terza possibilità, e in particolare non esiste quella di supplirvi con più ore |
+| **Competenze specialistiche** - usabilità, sicurezza offensiva, redazione clinica, traduzione | **Non presenti internamente.** Ciascuna è o acquisita all'esterno, o dichiarata come lacuna. Non esiste una terza possibilità, e in particolare non esiste quella di supplirvi con più ore |
 | **Registrazioni a ruoli distinti** | **Non producibili**, per il §9-bis. `Q-189` |
 
 ### 11.2 La differenza fra questa formulazione e la precedente
@@ -591,7 +593,7 @@ La definizione vale per ogni traguardo della roadmap e per ogni voce che vi entr
 
 Un traguardo è **fatto** quando:
 
-1. **tutti** i suoi criteri di completamento sono soddisfatti — non la maggioranza, non i più
+1. **tutti** i suoi criteri di completamento sono soddisfatti - non la maggioranza, non i più
    importanti;
 2. ciascun criterio è **verificabile da un terzo** che non ha partecipato al lavoro, con una
    procedura descritta nel traguardo stesso;
@@ -613,13 +615,13 @@ produce o un piano impossibile o un piano compiacente.
 
 | Il criterio 2 richiede | Il criterio 2 **non** richiede |
 |---|---|
-| Che il criterio sia formulato in modo che **chiunque** possa accertarlo con la procedura descritta — eseguendo un comando, leggendo un artefatto pubblicato, provocando deliberatamente un fallimento | Che l'accertamento sia **stato eseguito** da una persona diversa da chi ha svolto il lavoro |
+| Che il criterio sia formulato in modo che **chiunque** possa accertarlo con la procedura descritta - eseguendo un comando, leggendo un artefatto pubblicato, provocando deliberatamente un fallimento | Che l'accertamento sia **stato eseguito** da una persona diversa da chi ha svolto il lavoro |
 
 La prima proprietà è **producibile** con un contributore unico e non è negoziabile: è ciò che
 rende la roadmap controllabile dall'esterno, e un criterio che non la soddisfa va riformulato.
 La seconda **non è producibile** (§9-bis) e non entra nei criteri di completamento: dove una
-fonte la richiede — riesame del rilascio, audit interno, verifica di configurazione da parte di
-chi non ha scritto il codice — la roadmap **non finge di soddisfarla**. La dichiara come lacuna,
+fonte la richiede - riesame del rilascio, audit interno, verifica di configurazione da parte di
+chi non ha scritto il codice - la roadmap **non finge di soddisfarla**. La dichiara come lacuna,
 la marca come **irreversibile** in [03 §5](./03-primo-rilascio-utilizzabile.md), e ne rinvia la
 ripartizione a `Q-189`.
 
@@ -664,5 +666,5 @@ fa sparire dal calendario attività che sono nostre e che hanno tempi di attrave
 
 ---
 
-**Prosegue in**: [02 — Traguardi](./02-traguardi.md), dove questi criteri diventano una sequenza
+**Prosegue in**: [02 - Traguardi](./02-traguardi.md), dove questi criteri diventano una sequenza
 datata con criteri binari, un innesco e un titolare per ciascun traguardo.

@@ -161,6 +161,22 @@ button:focus-visible,
   margin-bottom: 0.7rem;
   font-size: 0.96rem;
 }
+/* Avviso di traduzione in corso (criterio 3 di T-07). Stessa famiglia visiva di .tmWarn - un
+   richiamo che non deve gridare, ma deve staccarsi dal testo che segue, perché quel testo è
+   nella lingua sbagliata rispetto a quella dichiarata dalla pagina. */
+.tmTranslationNotice {
+  max-width: 46rem;
+  margin: 0 auto 1.6rem;
+  background: var(--tm-callout-bg);
+  border-left: 4px solid #b45309;
+  border-radius: 0 4px 4px 0;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.96rem;
+}
+[data-theme='dark'] .tmTranslationNotice {
+  border-left-color: #f59e0b;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;

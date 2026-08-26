@@ -1,10 +1,10 @@
 ---
-title: "ADR-0016 — Gateway terminologico unico, disattivabile, senza cache persistita e senza identificativi"
+title: "ADR-0016 - Gateway terminologico unico, disattivabile, senza cache persistita e senza identificativi"
 sidebar_position: 16
 description: Come il sistema accede alle terminologie cliniche, perché resta pienamente funzionale senza quelle a licenza onerosa, e perché la sovranità di questa dipendenza si soddisfa per assenza di dato.
 ---
 
-# ADR-0016 — Gateway terminologico unico, disattivabile, senza cache persistita e senza identificativi
+# ADR-0016 - Gateway terminologico unico, disattivabile, senza cache persistita e senza identificativi
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Decisioni di riferimento**: D31, D32, D33; vincolo V-03 di bacheca; V-151 e V-157 posti dall'area di sicurezza
@@ -30,7 +30,7 @@ gateway**.
 
 ## Alternative valutate
 
-### Alternativa 1 — Ogni contesto interroga la propria fonte
+### Alternativa 1 - Ogni contesto interroga la propria fonte
 
 *Vantaggi*: nessun componente intermedio; ogni contesto ottimizza il proprio accesso.
 
@@ -39,7 +39,7 @@ sistema di codifica richiederebbe N modifiche; il divieto di cache persistita sa
 solo ispezionando ogni contesto; il divieto di trasmettere identificativi andrebbe imposto N volte.
 **Scartata.**
 
-### Alternativa 2 — Contenuto terminologico incluso nella distribuzione
+### Alternativa 2 - Contenuto terminologico incluso nella distribuzione
 
 *Vantaggi*: nessuna dipendenza a esercizio; nessuna latenza.
 
@@ -48,7 +48,7 @@ distributore di contenuto altrui; per almeno un caso la condizione che il conten
 accessibile se non a utenti autorizzati è **incompatibile con un repository pubblico**.
 **Scartata.**
 
-### Alternativa 3 — Gateway unico, con politica per sistema di codifica
+### Alternativa 3 - Gateway unico, con politica per sistema di codifica
 
 *Vantaggi*: un solo punto in cui la politica è applicata, verificata e modificata; disattivazione
 per sistema; contratto stabile che nasconde la diversità delle fonti.
@@ -77,8 +77,8 @@ progettare con un degrado dichiarato.
    validazione non ripetibile non è un'evidenza.
 
 **Degrado dichiarato**: se il gateway è irraggiungibile, il sistema **si avvia comunque** e i
-percorsi che dipendono dalla validazione applicano la politica di degrado configurata — accettare
-con marcatura di non validato, oppure rifiutare — mai fallire in modo indistinto.
+percorsi che dipendono dalla validazione applicano la politica di degrado configurata - accettare
+con marcatura di non validato, oppure rifiutare - mai fallire in modo indistinto.
 
 ## Conseguenze
 
@@ -103,6 +103,6 @@ con marcatura di non validato, oppure rifiutare — mai fallire in modo indistin
 
 ## Riferimenti
 
-[02 — Contesti delimitati](../02_architecture/02-contesti-delimitati.md#ctx-10--terminologie) ·
-[04 — Modello dati](../02_architecture/04-modello-dati.md#6-terminologie-nel-modello-dati) ·
+[02 - Contesti delimitati](../02_architecture/02-contesti-delimitati.md#ctx-10---terminologie) ·
+[04 - Modello dati](../02_architecture/04-modello-dati.md#6-terminologie-nel-modello-dati) ·
 ADR-0019

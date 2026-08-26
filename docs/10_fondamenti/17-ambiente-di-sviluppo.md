@@ -11,8 +11,8 @@ description: Dal clone a un sistema che gira in locale, e poi a un sistema che s
 > [`docs/01_technical/`](../01_technical/00-indice.md). Serve a chi si siede la prima volta e
 > non ha mai visto questo insieme di tecnologie: spiega **che cosa si installa, in che ordine
 > si accendono le cose, che cosa si deve vedere a ogni passo e che cosa si fa quando non si
-> vede**. Non ripete le motivazioni delle scelte tecniche — quelle stanno in
-> [`01-stack-e-motivazioni.md`](../01_technical/01-stack-e-motivazioni.md) — e non sostituisce
+> vede**. Non ripete le motivazioni delle scelte tecniche - quelle stanno in
+> [`01-stack-e-motivazioni.md`](../01_technical/01-stack-e-motivazioni.md) - e non sostituisce
 > il manuale di installazione destinato a chi mette in esercizio il sistema, che è un
 > documento diverso, con destinatari diversi e obblighi diversi.
 
@@ -24,8 +24,8 @@ description: Dal clone a un sistema che gira in locale, e poi a un sistema che s
 > fissarlo, invece di inventarlo.** Un modulo che promettesse comandi inesistenti sarebbe
 > peggio di un modulo incompleto: farebbe perdere un pomeriggio a ogni lettore, e il primo
 > pomeriggio perso è quello in cui la maggior parte delle persone abbandona. I nomi degli
-> strumenti generali — il sistema di controllo di versione, il motore di contenitori, il
-> client della base dati, la disciplina di coda del kernel — sono invece reali, perché non
+> strumenti generali - il sistema di controllo di versione, il motore di contenitori, il
+> client della base dati, la disciplina di coda del kernel - sono invece reali, perché non
 > dipendono da una decisione del progetto.
 
 Ci sono due modi di scrivere una guida all'ambiente di sviluppo. Il primo elenca i comandi in
@@ -52,7 +52,7 @@ e non solo che si accende*, e *cosa faccio quando non funziona*.
 
 Ogni prerequisito di questo elenco esiste per una ragione tecnica scritta accanto. Un elenco di
 installazioni senza ragioni produce due effetti indesiderati: chi legge installa cose che non
-gli servono, e — molto peggio — quando qualcosa non funziona non ha modo di capire **quale**
+gli servono, e - molto peggio - quando qualcosa non funziona non ha modo di capire **quale**
 pezzo manca, perché non sa a che cosa serviva ciascun pezzo.
 
 C'è poi un criterio che vale specificamente per questo progetto e che va enunciato prima di
@@ -62,7 +62,7 @@ tutto il resto. Il criterio **C7** di
 che l'ambiente di sviluppo di Telemedic deve poter essere avviato **su una macchina disconnessa
 da tutto**, senza un account, senza una chiave di un fornitore, senza un servizio remoto che
 risponda. Un ambiente che per funzionare richiede un servizio di terzi è un ambiente che impone
-dati di prova sul sistema di qualcun altro — cioè un ambiente che viola la regola più importante
+dati di prova sul sistema di qualcun altro - cioè un ambiente che viola la regola più importante
 del progetto (§5.1) senza che nessuno se ne accorga.
 
 Da questo criterio discende una conseguenza pratica utile a chi legge: **se una procedura di
@@ -79,17 +79,17 @@ configurazione.
 | **Piattaforma Java, versione a supporto esteso 21** | **21** | È la piattaforma del servizio. La soglia non è estetica: i thread virtuali e il pattern matching esaustivo sono finalizzati nella 21 e sono usati dal dominio clinico | Il servizio non compila |
 | **Costruttore del progetto** | Quella dichiarata dal file di blocco | Compilazione, esecuzione delle prove, produzione degli artefatti. Il progetto usa il **costruttore incapsulato nel repository** (*wrapper*), quindi non va installato a parte: si usa quello versionato | La costruzione non è riproducibile |
 | **Ambiente di esecuzione dell'interfaccia** | Quella dichiarata nel file di blocco del quadro di lavoro dell'interfaccia `[NV]` | Costruzione e servizio di sviluppo dell'applicazione web | L'interfaccia non parte |
-| **Motore di contenitori con orchestrazione locale** | Specifica di composizione v2 | Avvia base dati, prodotto di federazione, broker, nodo di relay senza installarli sulla macchina | Bisogna installare a mano cinque servizi: praticamente impossibile |
+| **Motore di contenitori con orchestrazione locale** | Specifica di composizione v2 | Avvia base dati, prodotto di federazione, broker, nodo di relay senza installarli sulla macchina | Bisogna installare a mano quattro servizi: praticamente impossibile |
 | **Client della base dati a riga di comando** | Corrispondente alla versione maggiore del motore | Ispezione, diagnosi, verifica delle politiche di sicurezza a livello di riga | Si diagnostica alla cieca |
 | **Due motori di navigazione distinti** | Versioni correnti | Le prove media **devono** girare su più di un motore: il comportamento diverge, ed è la fonte di difetti più costosa di quest'area | Si scoprono i difetti dagli utenti |
 | **Disciplina di coda del kernel per l'emulazione di rete** | Presente nel sistema | Simulazione di banda, ritardo, jitter e perdita. Su Linux fa parte della configurazione di rete di sistema | Non si può provare il degrado, cioè il caso che conta |
-| **Editor con supporto alle convenzioni del repository** | — | Il repository contiene un file di configurazione dell'editor versionato: rispettarlo evita differenze inutili nelle proposte di modifica | Differenze di sole fini riga in ogni modifica |
+| **Editor con supporto alle convenzioni del repository** | - | Il repository contiene un file di configurazione dell'editor versionato: rispettarlo evita differenze inutili nelle proposte di modifica | Differenze di sole fini riga in ogni modifica |
 
 Tre precisazioni che evitano tre errori frequenti.
 
 **Il costruttore non si installa.** Il progetto versiona nel repository lo *strumento di
 avvio del costruttore*: si invoca quello, e scarica ed esegue la versione esatta dichiarata. È
-la stessa ragione per cui esiste il file di blocco delle dipendenze — **la costruzione deve
+la stessa ragione per cui esiste il file di blocco delle dipendenze - **la costruzione deve
 essere riproducibile**, e una costruzione che dipende da quale versione dello strumento hai
 installato tu non lo è. Il dettaglio sta in
 [`09-integrazione-continua-e-rilascio.md`](../01_technical/09-integrazione-continua-e-rilascio.md)
@@ -127,7 +127,7 @@ strumento.
 
 ### 1.4 Memoria e disco: il metodo, non un numero inventato
 
-`[NV]` — **il progetto non ha misurato il consumo di risorse dell'ambiente locale, e questo
+`[NV]` - **il progetto non ha misurato il consumo di risorse dell'ambiente locale, e questo
 modulo non pubblica cifre non misurate.** Ciò che pubblica è il **metodo per calcolarle sulla
 propria macchina**, che è più utile di una cifra sbagliata e resta valido quando il numero dei
 servizi cambia.
@@ -166,8 +166,8 @@ non come eccezione. Cinque strategie, in ordine di efficacia.
 
 **Non accendere ciò che non ti serve.** Il primo errore è avviare tutto per lavorare su una
 funzionalità che tocca un contesto solo. Il profilo di avvio dovrebbe essere **selettivo per
-gruppi di servizi** — base dati sola; base dati più servizio applicativo; insieme completo con
-media e federazione — e ogni gruppo dovrebbe essere avviabile in autonomia. `[NV]` — la
+gruppi di servizi** - base dati sola; base dati più servizio applicativo; insieme completo con
+media e federazione - e ogni gruppo dovrebbe essere avviabile in autonomia. `[NV]` - la
 definizione esatta dei gruppi e i loro nomi spettano all'area tecnica insieme alla stesura del
 file di composizione: la questione è aperta in bacheca (**Q-190**).
 
@@ -206,8 +206,8 @@ funzionalità **di Linux**. Su altri sistemi operativi:
 
 - l'equivalente nativo esiste in forma diversa e con sintassi diversa, e **i profili non sono
   trasferibili numero per numero**;
-- la strada praticabile e riproducibile è **eseguire la simulazione dentro un ambiente Linux** —
-  contenitore con privilegi di rete, oppure macchina virtuale — e collocarvi almeno uno dei due
+- la strada praticabile e riproducibile è **eseguire la simulazione dentro un ambiente Linux** -
+  contenitore con privilegi di rete, oppure macchina virtuale - e collocarvi almeno uno dei due
   estremi della sessione.
 
 La conseguenza operativa da accettare subito: **i profili di rete sono costanti condivise della
@@ -217,7 +217,7 @@ un emulatore diverso non si confronta con le altre: si annota come tale.
 
 #### Architettura del processore
 
-Sulle macchine con processore ad architettura ARM — comuni fra i portatili recenti — non tutte
+Sulle macchine con processore ad architettura ARM - comuni fra i portatili recenti - non tutte
 le immagini di contenitore esistono per quell'architettura. Quando manca, il motore le esegue in
 emulazione, con due conseguenze da conoscere: **rallentamento sensibile**, che si manifesta come
 prove di integrazione che scadono per timeout, e **differenze di comportamento** in casi limite.
@@ -227,7 +227,7 @@ possibile, il fatto va dichiarato nella documentazione della composizione.
 #### Fini riga e permessi dei file
 
 Su Windows la conversione automatica delle fini riga produce differenze enormi e prive di
-contenuto nelle proposte di modifica, e — peggio — può rendere non eseguibili gli script del
+contenuto nelle proposte di modifica, e - peggio - può rendere non eseguibili gli script del
 repository. Il file di configurazione dell'editor versionato nel repository serve esattamente a
 questo. Verifica che il tuo editor lo rispetti **prima** della prima modifica, non dopo la prima
 proposta illeggibile.
@@ -252,9 +252,9 @@ dell'applicazione, e non lo è. È spiegato per esteso nel modulo
 [08 §13.5](08-webrtc-da-zero.md); qui basti sapere che è il **primo** controllo da fare.
 
 Ne discende anche il problema, reale, di provare fra **due dispositivi diversi** sulla stessa
-rete locale — il portatile e un telefono, che è lo scenario del prodotto: in quel caso
+rete locale - il portatile e un telefono, che è lo scenario del prodotto: in quel caso
 l'indirizzo di loopback non serve, e serve un certificato per l'origine locale, ottenuto da
-un'autorità di certificazione locale creata a posteriori sulla macchina di sviluppo. `[NV]` — la
+un'autorità di certificazione locale creata a posteriori sulla macchina di sviluppo. `[NV]` - la
 procedura esatta adottata dal progetto non è ancora fissata, ed è aperta in bacheca all'area
 tecnica insieme al resto della composizione locale (**Q-190**).
 
@@ -282,7 +282,7 @@ successivo. Se un passo non produce l'esito atteso, si risolve prima di prosegui
 con un passo fallito è la causa numero uno delle sessioni di diagnosi lunghe e infruttuose,
 perché il sintomo si manifesta tre passi più avanti, lontano dalla causa.
 
-### 2.2 Passo 0 — Leggere le regole vincolanti
+### 2.2 Passo 0 - Leggere le regole vincolanti
 
 Non è un passo di cortesia. Tre documenti del repository contengono regole che, se violate,
 producono conseguenze **non annullabili con una modifica successiva**:
@@ -296,7 +296,7 @@ producono conseguenze **non annullabili con una modifica successiva**:
 Se hai poco tempo, leggi almeno le cinque regole di `CONTRIBUTING.md`. Sono meno di due pagine
 e sono le uniche il cui costo di violazione non è recuperabile.
 
-### 2.3 Passo 1 — Clone e identità del contributo
+### 2.3 Passo 1 - Clone e identità del contributo
 
 ```bash
 git clone git@github.com:fedcal/Telemedic.git
@@ -323,9 +323,9 @@ Il dominio `.invalid` usato nell'esempio è riservato dalla specifica dei nomi a
 per gli esempi che non devono risolvere: in questo modulo, come in tutto il progetto, **anche i
 dati degli esempi sono sintetici** (§5).
 
-### 2.4 Passo 2 — Verifica dei prerequisiti
+### 2.4 Passo 2 - Verifica dei prerequisiti
 
-`[NV]` — il progetto prevede uno **script di verifica dei prerequisiti** che controlli, in un
+`[NV]` - il progetto prevede uno **script di verifica dei prerequisiti** che controlli, in un
 colpo solo, presenza e versione di ciascun componente di §1.2 e dichiari che cosa manca in
 linguaggio comprensibile. Nome, collocazione e forma spettano all'area tecnica (**Q-190**).
 
@@ -338,11 +338,11 @@ diverse in un unico messaggio.
 Nel frattempo, la verifica manuale è la lettura delle versioni dei componenti della tabella di
 §1.2, confrontate con la colonna «versione minima».
 
-### 2.5 Passo 3 — Configurazione locale
+### 2.5 Passo 3 - Configurazione locale
 
 Il repository non contiene segreti, e non ne conterrà mai. Contiene invece un file di **esempio
 della configurazione locale**, esplicitamente escluso dalle regole di esclusione del sistema di
-controllo di versione — è il motivo per cui il file di esclusione del progetto elenca `.env` fra
+controllo di versione - è il motivo per cui il file di esclusione del progetto elenca `.env` fra
 i file mai versionati e `.env.example` fra le eccezioni.
 
 ```bash
@@ -361,15 +361,15 @@ Poi si compila. Le regole sono tre, e sono le stesse che varranno per l'intero p
    che questo progetto considera più grave (§11.1).
 
 ```bash
-# Esempio di generazione di un segreto locale — solo per l'ambiente di sviluppo.
+# Esempio di generazione di un segreto locale - solo per l'ambiente di sviluppo.
 openssl rand -base64 32
 ```
 
-`[NV]` — l'elenco esatto delle variabili, i loro nomi e i valori predefiniti sono definiti dal
+`[NV]` - l'elenco esatto delle variabili, i loro nomi e i valori predefiniti sono definiti dal
 file di esempio quando la composizione sarà scritta. Questo modulo **non li anticipa** e non ne
 inventa i nomi.
 
-### 2.6 Passo 4 — Avvio dei servizi in contenitore
+### 2.6 Passo 4 - Avvio dei servizi in contenitore
 
 ```bash
 docker compose up -d
@@ -397,7 +397,7 @@ L'ultima riga della tabella merita una sottolineatura, perché è il malinteso p
 tutto il modulo: **in locale la videochiamata funziona anche se il nodo di relay è spento.** Non
 è una buona notizia: è il motivo per cui una prova locale ingenua non dimostra quasi nulla.
 
-### 2.7 Passo 5 — Migrazioni e dati sintetici
+### 2.7 Passo 5 - Migrazioni e dati sintetici
 
 Due operazioni distinte, che vanno tenute distinte anche mentalmente:
 
@@ -406,9 +406,9 @@ Due operazioni distinte, che vanno tenute distinte anche mentalmente:
    ([`03-persistenza.md`](../01_technical/03-persistenza.md) §3.1). Girano prima su `platform`
    e `reference`, poi sugli schemi di ciascun tenant.
 2. **La generazione dei dati sintetici** popola l'ambiente. Non fa parte delle migrazioni e non
-   deve mai farne parte: una migrazione che inserisca dati di esempio finirebbe in produzione.
+   deve mai farne parte: una migrazione che inserisca dati di esempio finirebbe in esercizio.
 
-`[NV]` — i comandi esatti dipendono dallo strumento di migrazione scelto dall'area tecnica e dal
+`[NV]` - i comandi esatti dipendono dallo strumento di migrazione scelto dall'area tecnica e dal
 nome del generatore, entrambi non ancora fissati (**Q-190**). Ciò che è già deciso e non cambia
 è la **semantica**: migrazioni solo in avanti, mai modificate a posteriori, con lo stato
 registrato per tenant in `platform.migration_state`.
@@ -419,11 +419,11 @@ fallimenti, e una interrogazione di controllo sulla base dati mostra gli schemi 
 ```sql
 -- Verifica manuale, in attesa del comando di progetto.
 \dn
--- Ci si aspetta: platform, reference, e una terna di schemi per ciascun tenant sintetico,
+-- Ci si aspetta: platform, reference, e sei schemi per ciascun tenant sintetico,
 -- nella forma t0001_identity, t0001_registry, t0001_encounter, …
 ```
 
-### 2.8 Passo 6 — Avvio del servizio applicativo
+### 2.8 Passo 6 - Avvio del servizio applicativo
 
 ```bash
 ./mvnw spring-boot:run
@@ -445,10 +445,10 @@ curl -s http://localhost:<porta>/actuator/health/liveness
 curl -s http://localhost:<porta>/actuator/health/readiness
 ```
 
-`[NV]` — porta e percorsi esatti sono definiti dalla configurazione dell'applicazione, non
+`[NV]` - porta e percorsi esatti sono definiti dalla configurazione dell'applicazione, non
 ancora scritta.
 
-### 2.9 Passo 7 — Avvio dell'interfaccia
+### 2.9 Passo 7 - Avvio dell'interfaccia
 
 ```bash
 npm ci      # installazione riproducibile dal file di blocco, non "install"
@@ -459,16 +459,16 @@ Due note che valgono più del comando.
 
 **L'installazione riproducibile non è l'installazione normale.** Il comando che risolve le
 versioni al momento produce un albero di dipendenze potenzialmente diverso dal tuo collega e
-dall'integrazione continua, e rende non riproducibile la costruzione — che è un requisito, non
+dall'integrazione continua, e rende non riproducibile la costruzione - che è un requisito, non
 una preferenza. Si usa sempre la forma che **installa esattamente il file di blocco** e fallisce
 se il file di blocco e il manifesto divergono.
 
 **Il servizio di sviluppo non è il modo in cui l'applicazione viene distribuita.** Serve alla
-ricostruzione incrementale mentre si scrive; la costruzione di produzione ha altre proprietà. Un
-difetto che si manifesta solo in costruzione di produzione esiste e va cercato lì, non nel
+ricostruzione incrementale mentre si scrive; la costruzione per l'esercizio ha altre proprietà. Un
+difetto che si manifesta solo nella costruzione per l'esercizio esiste e va cercato lì, non nel
 servizio di sviluppo.
 
-### 2.10 Passo 8 — Verifica di sanità
+### 2.10 Passo 8 - Verifica di sanità
 
 Non «l'interfaccia si apre». Quattro verifiche osservabili, in ordine:
 
@@ -477,7 +477,7 @@ Non «l'interfaccia si apre». Quattro verifiche osservabili, in ordine:
 | 1 | I due endpoint di stato rispondono e la prontezza è positiva | Il servizio è avviato e ha completato le migrazioni |
 | 2 | L'accesso con un'utenza sintetica del prodotto di federazione riesce | La catena di identità è configurata: realm, client, ruoli |
 | 3 | Una lettura autenticata restituisce dati sintetici **non vuoti** | Il contesto di tenant è risolto e la sicurezza a livello di riga **non sta negando tutto** (§4.7) |
-| 4 | Una scrittura produce una riga in `platform.outbox` | Il percorso transazionale del dominio e dell'outbox è integro |
+| 4 | Una scrittura produce una riga nella tabella dell'outbox del contesto | Il percorso transazionale del dominio e dell'outbox è integro |
 
 La terza riga è quella che intercetta il malinteso più insidioso dell'intero ambiente: un elenco
 vuoto **non è** un ambiente senza dati, quasi sempre è un contesto di tenant non risolto. La
@@ -485,7 +485,7 @@ politica di sicurezza a livello di riga, in assenza di contesto, **nega tutto**:
 comportamento voluto ([`03-persistenza.md`](../01_technical/03-persistenza.md) §2.3), e produce
 esattamente lo stesso sintomo di una base dati vuota.
 
-### 2.11 Passo 9 — La prima videochiamata locale
+### 2.11 Passo 9 - La prima videochiamata locale
 
 Si tratta in §6, perché richiede una premessa che merita una sezione a sé: **il caso locale è
 ingannevolmente facile**, e una videochiamata che funziona fra due schede dello stesso browser
@@ -501,10 +501,10 @@ abbandona. Le voci sono ordinate per frequenza attesa, non per gravità.
 | 1 | La telecamera non parte, o l'offerta non contiene sezioni media | L'interfaccia è aperta su un'origine **non sicura**: indirizzo di rete della macchina invece dell'indirizzo di loopback | Aprire l'origine di loopback; per la prova fra dispositivi diversi serve un certificato locale (§1.6) |
 | 2 | Ogni lettura restituisce un elenco vuoto, senza errori | Contesto di tenant non risolto: la politica di sicurezza a livello di riga **nega tutto** in assenza di contesto | Verificare che la richiesta porti il tenant e che la transazione imposti la variabile con `SET LOCAL` (§4.7) |
 | 3 | La base dati «non risponde» al primo avvio | Il servizio è in esecuzione ma non ha finito l'inizializzazione; oppure il volume contiene lo stato di un tentativo precedente fallito | Attendere il controllo di salute; se persiste, azzerare volume e ricreare (§4.5) |
-| 4 | Le migrazioni falliscono con un errore di impronta | Una migrazione già applicata è stata **modificata** — è vietato: si scrive la successiva | Azzerare la base dati locale e riapplicare; in un ambiente reale sarebbe un incidente |
+| 4 | Le migrazioni falliscono con un errore di impronta | Una migrazione già applicata è stata **modificata** - è vietato: si scrive la successiva | Azzerare la base dati locale e riapplicare; in un ambiente reale sarebbe un incidente |
 | 5 | Il servizio parte e si spegne subito | Configurazione locale incompleta: una proprietà obbligatoria non ha valore. Il collegamento tipizzato della configurazione fallisce all'avvio **di proposito** | Leggere la prima eccezione, non l'ultima: indica la proprietà mancante |
 | 6 | L'accesso fallisce con un errore di identità | Realm, client o utenze sintetiche non importati; oppure l'emittente atteso dal servizio non coincide con quello del prodotto di federazione | Verificare che l'emittente configurato nel servizio e quello del token coincidano **carattere per carattere**, incluso lo schema e la porta |
-| 7 | L'interfaccia mostra errori di origine incrociata | Origine dell'interfaccia non ammessa dalla configurazione del servizio, o porta diversa da quella attesa | Allineare le origini ammesse; **non** disattivare i controlli: è una scorciatoia che il controllo di profilo di produzione deve impedire (§9) |
+| 7 | L'interfaccia mostra errori di origine incrociata | Origine dell'interfaccia non ammessa dalla configurazione del servizio, o porta diversa da quella attesa | Allineare le origini ammesse; **non** disattivare i controlli: è una scorciatoia che il controllo di profilo di esercizio deve impedire (§9) |
 | 8 | Le prove di integrazione scadono per timeout | Contenitori effimeri in emulazione su architettura non nativa (§1.6), oppure macchina satura perché l'ambiente completo è acceso | Spegnere ciò che non serve; verificare l'architettura delle immagini |
 | 9 | La videochiamata «funziona» ma non prova nulla | Entrambi gli estremi sulla stessa macchina: candidati di tipo locale, nessun NAT, banda praticamente infinita | §6: forzare il percorso di relay e simulare la rete |
 | 10 | Nessun candidato oltre quelli locali | Nodo di relay non raggiungibile, credenziali scadute o segreto condiviso diverso fra servizio e nodo | Verificare che il segreto del nodo di relay e quello con cui il servizio firma le credenziali siano lo stesso valore |
@@ -527,7 +527,7 @@ mezz'ora a chiunque arrivi dopo.
 ### 3.1 Il criterio: si separa per dominio, non per natura tecnica
 
 Prima dell'albero, la regola che lo spiega. Il progetto **non** organizza il codice per natura
-tecnica — tutti i controllori insieme, tutti i servizi insieme, tutti i repositori insieme —
+tecnica - tutti i controllori insieme, tutti i servizi insieme, tutti i repositori insieme -
 perché quella disposizione sparpaglia ogni funzionalità in cinque punti e non consente di
 vietare alcuna dipendenza: tutto sta allo stesso livello di tutto. Si organizza invece per
 **contesto delimitato**, secondo la tabella della base architetturale, e ogni contesto è un
@@ -558,8 +558,8 @@ Telemedic/
 └─ .telemedic/                    materiale di lavoro dell'orchestrazione, non pubblicato nel sito
 ```
 
-I quattro documenti in testa — destinazione d'uso, non-dispositivo, politica di distribuzione,
-regole di contribuzione — **non sono formalità**. La decisione **D51** impone che la
+I quattro documenti in testa - destinazione d'uso, non-dispositivo, politica di distribuzione,
+regole di contribuzione - **non sono formalità**. La decisione **D51** impone che la
 dichiarazione «questo repository non è un dispositivo medico», la destinazione d'uso e i limiti
 d'uso siano presenti e visibili **in ogni momento in cui il repository è accessibile**: non
 pubblicabili più avanti. Sono, letteralmente, la prima cosa che è stata scritta.
@@ -610,12 +610,14 @@ telemedic/                        il servizio
 │  ├─ security/                   confine di autorizzazione, scambio di token, livello di garanzia
 │  ├─ outbox/                     tabella, relay, buste degli eventi
 │  ├─ problem/                    catalogo degli errori e loro rappresentazione
-│  ├─ observability/              correlazione, redazione, misure
-│  └─ terminology-gateway/        punto unico di accesso alle terminologie
-├─ contexts/                      un modulo per contesto delimitato
+│  └─ observability/              correlazione, redazione, misure
+├─ contexts/                      un modulo per contesto delimitato, tredici in tutto
 │  ├─ identity/  registry/  scheduling/  encounter/  media-session/
 │  ├─ clinical-document/  monitoring/  alerting/  consent/
-│  └─ outbound/  audit/  tenant-admin/
+│  ├─ outbound/  audit/  tenant-admin/
+│  └─ terminology/                punto unico di risoluzione e validazione dei
+│                                 codici clinici (CTX-10), disattivabile per
+│                                 sistema di codifica
 ├─ interfaces/
 │  ├─ rest-api/                   interfaccia applicativa di progetto
 │  ├─ fhir-facade/                facciata di interoperabilità
@@ -633,8 +635,8 @@ web/                              l'interfaccia
 └─ app/                           assemblaggio, instradamento, avvio
 ```
 
-**Ogni contesto ha la stessa forma interna** — `api`, `domain`, `application`,
-`infrastructure` — e la ripetizione è voluta: chi apre un contesto che non conosce sa già dove
+**Ogni contesto ha la stessa forma interna** - `api`, `domain`, `application`,
+`infrastructure` - e la ripetizione è voluta: chi apre un contesto che non conosce sa già dove
 guardare. `api` è il contratto verso gli altri contesti; `domain` non ha effetti collaterali e
 si prova senza infrastruttura; `application` è l'unico livello con la transazione;
 `infrastructure` è sostituibile per definizione.
@@ -657,12 +659,12 @@ si prova senza infrastruttura; `application` è l'unico livello con la transazio
 
 ### 3.6 Le due directory che sorprendono
 
-**`third-party/`** — non esiste per comodità. Esiste perché la policy terminologica del progetto
+**`third-party/`** - non esiste per comodità. Esiste perché la policy terminologica del progetto
 colloca alcuni contenuti in un **regime B**: riusabili, ma con licenza propria che va tenuta
 separata da quella del progetto. Ciò che sta lì dentro **non è sotto la licenza del repository**
 e ha un file di licenza proprio. Non è il posto dove mettere una libreria comoda.
 
-**`.telemedic/`** — materiale di lavoro dell'orchestrazione: contesto condiviso fra chi scrive,
+**`.telemedic/`** - materiale di lavoro dell'orchestrazione: contesto condiviso fra chi scrive,
 bacheca inter-agenti, ricerche. Non è documentazione pubblicata e non finisce nel sito. È utile
 leggerla quando ci si chiede *perché una decisione è quella e non un'altra*: la risposta è quasi
 sempre in una riga della bacheca o in un documento di ricerca.
@@ -674,7 +676,7 @@ sempre in una riga della bacheca o in un documento di ricerca.
 ### 4.1 Che cosa gira in locale
 
 Una sola base dati relazionale, che contiene tutto: i dati di dominio, l'outbox degli eventi, il
-registro delle migrazioni e — in locale — anche il registro immutabile, che **in esercizio è
+registro delle migrazioni e - in locale - anche il registro immutabile, che **in esercizio è
 invece conservato separatamente**, con credenziali e salvataggio distinti
 ([`03-persistenza.md`](../01_technical/03-persistenza.md) §8.2).
 
@@ -687,13 +689,13 @@ dal solo avvio locale**, e va verificata dove è reale.
 
 ```
 telemedic (base dati)
-├─ platform            outbox, catalogo dei tenant, registro delle migrazioni, chiavi
+├─ platform            catalogo dei tenant, registro delle migrazioni, chiavi
 ├─ reference           dati di riferimento non clinici e non specifici di tenant
 ├─ t0001_identity      ── un tenant sintetico
 ├─ t0001_registry
 ├─ t0001_encounter
 ├─ t0001_media_session
-├─ t0001_clinical_document
+├─ t0001_clinical_document     (contiene outbox per i documenti clinici)
 ├─ t0001_monitoring
 └─ t0002_…             ── un secondo tenant sintetico
 ```
@@ -735,7 +737,7 @@ due o tre tenant sintetici, il processo dura secondi; in esercizio, con centinai
 un'operazione lunga di cui **va osservato l'avanzamento**. La proprietà che conta anche in
 locale è che **il fallimento su un tenant non blocca gli altri**: quel tenant viene marcato come
 non allineato e non riceve traffico dalla versione nuova. È il motivo per cui la verifica di
-compatibilità fra versioni consecutive non è opzionale — durante una migrazione lunga, tenant su
+compatibilità fra versioni consecutive non è opzionale - durante una migrazione lunga, tenant su
 versioni di schema diverse **coesistono per costruzione**.
 
 ### 4.5 Ripartire da zero
@@ -751,7 +753,7 @@ docker compose up -d        # ricrea da zero
 ```
 
 L'opzione che elimina i volumi è quella che distingue «riavviare» da «ripartire». Senza di
-essa, la base dati mantiene lo stato precedente — comprese le migrazioni parzialmente applicate
+essa, la base dati mantiene lo stato precedente - comprese le migrazioni parzialmente applicate
 del tentativo fallito, che sono precisamente il residuo che produce l'errore di impronta della
 riga 4 di §2.12.
 
@@ -770,9 +772,9 @@ Le interrogazioni che servono davvero il primo giorno:
 -- Quali schemi esistono: si vedono i tenant sintetici e i due schemi trasversali.
 \dn
 
--- La coda dell'outbox: righe non ancora pubblicate.
+-- La coda dell'outbox del contesto di documentazione clinica del tenant t0001: righe non ancora pubblicate.
 SELECT tipo, chiave, creato_il, tentativi, ultimo_errore
-FROM platform.outbox
+FROM t0001_clinical_document.outbox
 WHERE pubblicato_il IS NULL
 ORDER BY creato_il
 LIMIT 20;
@@ -833,8 +835,8 @@ documentazione e negli esempi compaiono esclusivamente dati sintetici.**
 
 È l'unica regola di questa guida formulata in termini assoluti. Il modulo
 [03 §10](03-il-dato-clinico.md) ne spiega la ragione giuridica e smonta una per una le forme
-attenuate — «è un solo paziente», «ho tolto il nome», «è solo un ambiente di prova», «è uno
-screenshot» — e **non si ripete qui**. Qui si sta sul piano operativo: **come si generano dati
+attenuate - «è un solo paziente», «ho tolto il nome», «è solo un ambiente di prova», «è uno
+screenshot» - e **non si ripete qui**. Qui si sta sul piano operativo: **come si generano dati
 che siano insieme sintetici e utili**, che è il problema vero.
 
 Una precisazione che chiude in anticipo la discussione ricorrente: la regola del progetto è
@@ -909,8 +911,8 @@ validazione del formato.
    alcun luogo reale**, quindi non può coincidere con quello di una persona.
 2. **Date di nascita impossibili per una persona vivente registrata**, quando il sistema sotto
    prova lo consente.
-3. **Uso degli intervalli riservati alle anagrafiche temporanee** — i codici per stranieri
-   temporaneamente presenti e per europei non iscritti — che hanno formati propri e che il
+3. **Uso degli intervalli riservati alle anagrafiche temporanee** - i codici per stranieri
+   temporaneamente presenti e per europei non iscritti - che hanno formati propri e che il
    sistema **deve comunque saper trattare**. È anzi l'occasione per provare un caso reale
    spesso trascurato, invece di un caso finto.
 4. **Marcatore di sinteticità persistito** accanto all'identificativo, come da §5.2.
@@ -964,8 +966,8 @@ il sistema apprende il dato distano ore o giorni, e casi in cui i dati arrivano 
 È il comportamento normale di un gateway domestico che si riconnette, ed è la condizione in cui
 si rompono le valutazioni di soglia scritte assumendo l'arrivo cronologico.
 
-Le proprietà cliniche dei singoli parametri — che cosa misurano, in quali unità, quali
-trappole hanno, che cosa deve accompagnare ogni misura per renderla utilizzabile — sono nel
+Le proprietà cliniche dei singoli parametri - che cosa misurano, in quali unità, quali
+trappole hanno, che cosa deve accompagnare ogni misura per renderla utilizzabile - sono nel
 modulo [09 §3](09-fondamenti-clinici.md) e non si ripetono. Chi scrive un generatore di serie
 **deve** leggere quella sezione prima: senza, produrrà numeri corretti e clinicamente insensati.
 
@@ -995,8 +997,8 @@ Questa è la sezione che giustifica tutte le precedenti. **Un sistema provato so
 perfetti fallisce sul primo caso reale**, e fallisce in modo tanto più costoso quanto più il
 dominio è delicato.
 
-Un dataset «pulito» — nomi brevi e senza accenti, un identificativo per persona, misure
-puntuali e complete, documenti brevi, un solo indirizzo, date lontane dai confini — nasconde
+Un dataset «pulito» - nomi brevi e senza accenti, un identificativo per persona, misure
+puntuali e complete, documenti brevi, un solo indirizzo, date lontane dai confini - nasconde
 tutta la seguente classe di difetti:
 
 | Difetto che resta nascosto | Che cosa lo fa emergere |
@@ -1020,13 +1022,13 @@ contengono anagrafiche **statisticamente indistinguibili** rende la fuga visibil
 cerca con una prova deliberata. La seconda forma è quella corretta.
 
 **La conclusione operativa**: il generatore deve avere, accanto ai profili ordinari, un profilo
-di **dati avversi** — la raccolta sistematica dei casi difficili — e quel profilo va usato nelle
+di **dati avversi** - la raccolta sistematica dei casi difficili - e quel profilo va usato nelle
 prove, non tenuto come curiosità. Un caso difficile che non entra mai in una prova non è
 coperto.
 
 ### 5.8 Come si usa il generatore
 
-`[NV]` — nome del comando, forma degli argomenti e nomi dei profili spettano all'area tecnica
+`[NV]` - nome del comando, forma degli argomenti e nomi dei profili spettano all'area tecnica
 (**Q-190**). Ciò che questo modulo fissa è **la semantica che il generatore deve avere**, perché
 è quella che riguarda chi lo usa:
 
@@ -1082,13 +1084,13 @@ perché ogni condizione difficile del mondo reale è stata eliminata:
 
 Ne discende la regola che governa tutta questa sezione: **una sessione che funziona in locale
 dimostra che il codice di segnalazione non è rotto. Non dimostra nient'altro.** Tutto ciò che
-il prodotto promette — che il collegamento si stabilisca dietro NAT, che degradi in modo
-comprensibile su rete scarsa, che avvisi quando le condizioni non sono adatte — si prova
+il prodotto promette - che il collegamento si stabilisca dietro NAT, che degradi in modo
+comprensibile su rete scarsa, che avvisi quando le condizioni non sono adatte - si prova
 **solo** rendendo il caso locale artificialmente difficile.
 
-I fondamenti di ciò che segue — che cos'è un candidato, perché serve un relay, come si negozia
-la sicurezza del flusso, che cosa dicono le statistiche — stanno nel modulo
-[08 — WebRTC da zero](08-webrtc-da-zero.md), che va letto prima. Qui si sta sull'operatività.
+I fondamenti di ciò che segue - che cos'è un candidato, perché serve un relay, come si negozia
+la sicurezza del flusso, che cosa dicono le statistiche - stanno nel modulo
+[08 - WebRTC da zero](08-webrtc-da-zero.md), che va letto prima. Qui si sta sull'operatività.
 
 ### 6.2 Che cosa serve
 
@@ -1114,7 +1116,7 @@ cambiano il modo in cui si scrive la suite, e che l'area tecnica ha recepito com
 **Il flag corretto non è quello più usato.** Esiste un'opzione che accetta automaticamente i
 permessi di camera e microfono **senza** accettare la cattura dello schermo, e un'opzione più
 nota che accetta anche quella. Il progetto usa la prima, perché il flusso di consenso alla
-condivisione dello schermo — «mostro il referto all'assistito» — è un caso d'uso reale del
+condivisione dello schermo - «mostro il referto all'assistito» - è un caso d'uso reale del
 prodotto e va provato, non aggirato. Usare la seconda produce **falsi positivi proprio sul
 consenso**.
 
@@ -1156,8 +1158,8 @@ che **degradi con grazia e lo dica all'utente**: che l'audio venga preservato pr
 che l'avviso di condizioni non adatte venga emesso, che il controllo di rischio corrispondente
 venga registrato. È il profilo che dà il valore maggiore e quello che viene saltato per primo.
 
-**Dove si applica la degradazione conta.** Applicarla sull'interfaccia sbagliata — per esempio
-su quella di loopback quando il traffico passa da un'altra — produce una prova che non degrada
+**Dove si applica la degradazione conta.** Applicarla sull'interfaccia sbagliata - per esempio
+su quella di loopback quando il traffico passa da un'altra - produce una prova che non degrada
 nulla e che passa sempre. Vale la pena verificare, la prima volta, che la degradazione abbia
 effetto: si guarda una statistica che deve peggiorare, non si dà per scontato.
 
@@ -1167,7 +1169,7 @@ un estremo dentro un ambiente Linux.
 ### 6.5 Il caso difficile: il NAT
 
 Il caso che il prodotto deve garantire è quello in cui i due estremi sono dietro traduzioni di
-indirizzo che non consentono un collegamento diretto — la condizione ordinaria di un assistito
+indirizzo che non consentono un collegamento diretto - la condizione ordinaria di un assistito
 su rete mobile e di un professionista dentro la rete di una struttura. In locale non si presenta
 mai spontaneamente, e va costruito. Due approcci, **complementari e non alternativi**.
 
@@ -1175,13 +1177,13 @@ mai spontaneamente, e va costruito. Due approcci, **complementari e non alternat
 negoziazione in modo che il navigatore scarti tutti i candidati che non siano di relay. Se la
 sessione si stabilisce lo stesso, il percorso attraverso il relay funziona. **Verifica
 obbligatoria**: entrambi i tipi di candidato della coppia selezionata devono risultare di relay
-— controllarne uno solo è la scorciatoia che lascia passare una prova falsa. È abbastanza veloce
+- controllarne uno solo è la scorciatoia che lascia passare una prova falsa. È abbastanza veloce
 da girare su ogni proposta di modifica.
 
 **Il secondo, realistico: reti separate.** In un ambiente a contenitori si collocano i due
 estremi in reti distinte e si blocca il traffico diretto fra loro, lasciando aperto solo il
-percorso verso il relay. Questo verifica il comportamento **reale** della negoziazione — che
-provi, fallisca e ripieghi — e non un percorso forzato a monte. È una prova di integrazione da
+percorso verso il relay. Questo verifica il comportamento **reale** della negoziazione - che
+provi, fallisca e ripieghi - e non un percorso forzato a monte. È una prova di integrazione da
 fascia pianificata, non da eseguire a ogni modifica.
 
 **Servono entrambi**, e per ragioni diverse: il primo dice che il relay è raggiungibile e
@@ -1215,8 +1217,8 @@ prima non implica la seconda. Le verifiche, in ordine di forza crescente:
 | 5 | Con una credenziale valida, i tentativi di raggiungere indirizzi interni **falliscono tutti** | Che il nodo sia confinato. È una prova di sicurezza collegata al file di gestione del rischio, non una prova come le altre |
 
 L'ultima riga merita di essere presa sul serio anche in locale. La famiglia di vulnerabilità che
-storicamente affligge i nodi di relay è sempre la stessa — inoltro verso indirizzi interni
-ottenuto aggirando le liste di indirizzi vietati con forme alternative o non normalizzate — e ha
+storicamente affligge i nodi di relay è sempre la stessa - inoltro verso indirizzi interni
+ottenuto aggirando le liste di indirizzi vietati con forme alternative o non normalizzate - e ha
 prodotto **sei vulnerabilità distinte in otto anni**, quattro delle quali negli ultimi otto
 mesi. Ne discende il vincolo del progetto, che va conosciuto perché condiziona anche la
 configurazione locale: **la lista di indirizzi vietati è difesa in profondità; la difesa primaria
@@ -1247,11 +1249,11 @@ sbagliata.
 
 **La cattura dello schermo non si comporta come il flusso da telecamera.** Due differenze
 pratiche nei test automatici. La prima è quella di §6.3: esistono due flag di accettazione
-automatica dei permessi, e solo uno **non** tocca la cattura dello schermo — usare l'altro
+automatica dei permessi, e solo uno **non** tocca la cattura dello schermo - usare l'altro
 falsifica proprio la prova del consenso. La seconda riguarda il flusso in sé: la sorgente da
-cattura schermo ha caratteristiche diverse da quella da telecamera — frequenza di aggiornamento
+cattura schermo ha caratteristiche diverse da quella da telecamera - frequenza di aggiornamento
 variabile e spesso bassa, risoluzione legata alla superficie catturata, contenuto statico per
-lunghi tratti — e il controllore di qualità del navigatore reagisce di conseguenza. Le
+lunghi tratti - e il controllore di qualità del navigatore reagisce di conseguenza. Le
 asserzioni sui fotogrammi al secondo e sui congelamenti tarate sul flusso da telecamera **non
 valgono** sulla condivisione dello schermo, e una prova che le riusa fallisce in modo
 apparentemente casuale.
@@ -1273,7 +1275,7 @@ un'affermazione di sicurezza in un fatto verificato a ogni esecuzione.
 Va scritto, perché la tentazione di concludere troppo è forte:
 
 - **non dimostra la latenza reale**, che dipende da telecamera, calcolo, schermo, rete e stato
-  del buffer di jitter — fattori quasi tutti fuori dal controllo del progetto. Il sistema la
+  del buffer di jitter - fattori quasi tutti fuori dal controllo del progetto. Il sistema la
   **misura** e la registra, non la garantisce;
 - **non dimostra la quota di sessioni che finiranno sul relay**, che dipende dal parco reti dei
   clienti e che il progetto misura sul proprio traffico invece di citare stime altrui;
@@ -1291,9 +1293,9 @@ Il modello dati canonico del progetto è profilato secondo le guide di implement
 che **prevalgono** in caso di divergenza con il modello generico. «Validare una risorsa» significa
 quindi due cose distinte, e confonderle è la fonte del malinteso più comune di quest'area:
 
-1. **Conformità allo standard di base** — la risorsa è ben formata e rispetta le regole generali
+1. **Conformità allo standard di base** - la risorsa è ben formata e rispetta le regole generali
    del tipo;
-2. **Conformità al profilo** — la risorsa rispetta i vincoli aggiuntivi della guida di
+2. **Conformità al profilo** - la risorsa rispetta i vincoli aggiuntivi della guida di
    implementazione dichiarata: cardinalità, insiemi di valori, estensioni, obbligatorietà.
 
 Una risorsa può superare la prima e fallire la seconda, ed è precisamente il caso che conta,
@@ -1309,15 +1311,15 @@ Due regole di progetto governano la validazione locale:
   profili fissati nel repository, non li scarica al momento.
 - **Lo strumento di validazione è a sua volta un componente da qualificare.** Uno strumento che
   valida artefatti regolatori entra nell'inventario dei componenti di terze parti con versione
-  esatta. `[NV]` — nome, versione e modalità di invocazione **non sono ancora fissati** e questo
+  esatta. `[NV]` - nome, versione e modalità di invocazione **non sono ancora fissati** e questo
   modulo non li inventa: la questione è aperta dall'area protocolli (**Q-163**) e ripresa qui
   come necessità del contributore (**Q-193**).
 
 ### 7.2 Un server terminologico per lo sviluppo
 
 Serve a risolvere codici, validare che un codice appartenga a un insieme di valori ed espandere
-un insieme di valori. In locale si usa un'istanza propria, e valgono **quattro regole non
-negoziabili**.
+un insieme di valori. In locale si usa un'istanza propria, e valgono **tre divieti non
+negoziabili**, seguiti da ciò che invece si può usare senza alcun problema.
 
 **Nessun contenuto a licenza vincolata viene scaricato.** È il punto su cui l'intera posizione
 del progetto poggia: la licenza di alcuni sistemi di codifica **si perfeziona scaricando o
@@ -1339,7 +1341,7 @@ portasse un identificativo riferibile a una persona sarebbe un trasferimento. La
 questo insieme», non «questo codice del paziente *X*».
 
 **Ciò che si può usare in locale senza problemi** è il contenuto in regime di coesistenza piena
-— i sistemi di codifica del nucleo dello standard e quelli riusabili con attribuzione — più i
+- i sistemi di codifica del nucleo dello standard e quelli riusabili con attribuzione - più i
 contenuti in regime di riuso con licenza propria che il progetto colloca in `third-party/`. Il
 quadro completo, terminologia per terminologia, è nel documento di policy.
 
@@ -1370,14 +1372,14 @@ sostiene che disattivare le terminologie a licenza vincolata sia gratuito. Sosti
 è **dichiarato, limitato e preferibile** all'alternativa, che comporterebbe obblighi di licenza
 incompatibili con un repository pubblico e con la licenza scelta.
 
-**Come si prova.** Con due esecuzioni della suite: una nella configurazione predefinita — senza
-i sistemi vincolati — e una con un sistema abilitato contro un'istanza locale, per verificare che
+**Come si prova.** Con due esecuzioni della suite: una nella configurazione predefinita - senza
+i sistemi vincolati - e una con un sistema abilitato contro un'istanza locale, per verificare che
 il percorso completo funzioni quando il contenuto c'è. La prima è quella che gira sempre.
 
 ### 7.4 Il resto dell'interoperabilità in locale
 
-Verso i sistemi esterni — prodotto di federazione, gateway delle terminologie, sistemi
-regionali — le prove usano **doppi di prova costruiti sulla specifica pubblicata, non
+Verso i sistemi esterni - prodotto di federazione, gateway delle terminologie, sistemi
+regionali - le prove usano **doppi di prova costruiti sulla specifica pubblicata, non
 sull'osservazione empirica**. La differenza non è filosofica: un doppio costruito osservando ciò
 che il sistema reale faceva quel giorno codifica anche i suoi difetti e le sue tolleranze, e
 quando il sistema reale cambia il doppio continua a passare. Un doppio costruito sulla specifica
@@ -1423,7 +1425,7 @@ proposta di modifica, estesa su pianificazione, di rilascio su procedura esplici
 2. **Prove di integrazione del contesto che stai toccando**, non l'intera suite, prima di
    fermarti.
 3. **Suite completa più controlli obbligatori** prima di aprire la proposta di modifica (§9).
-4. **Prove media e da estremo a estremo** solo se hai toccato quelle aree — sono le più lente e
+4. **Prove media e da estremo a estremo** solo se hai toccato quelle aree - sono le più lente e
    le più fragili all'ambiente.
 
 Eseguire sempre tutto è un modo elegante di non eseguire mai niente: il ciclo diventa così lungo
@@ -1456,9 +1458,9 @@ il perimetro significa congelare per sbaglio dettagli interni, ed è un errore c
 irreversibile in pratica.
 
 **Come fornitore**, la suite verifica che l'interfaccia esposta corrisponda al documento
-versionato e che le modifiche siano **additive**. Una differenza non additiva — rimozione di un
+versionato e che le modifiche siano **additive**. Una differenza non additiva - rimozione di un
 campo, restringimento di un tipo, aggiunta di un obbligo, rimozione di un valore da
-un'enumerazione — **fa fallire la costruzione**, a meno che la modifica non dichiari
+un'enumerazione - **fa fallire la costruzione**, a meno che la modifica non dichiari
 esplicitamente una nuova versione maggiore. Se ti capita, la domanda giusta non è «come
 disattivo il controllo»: è «questa modifica rompe qualcuno?». Quasi sempre la risposta è sì.
 
@@ -1487,7 +1489,7 @@ produce assuefazione all'allarme.
 Tre livelli, e il primo non basta.
 
 **Automatico.** Regole applicate al DOM renderizzato di ogni schermata **e di ogni stato
-significativo** — non solo lo stato iniziale: modale aperta, errore mostrato, elenco vuoto,
+significativo** - non solo lo stato iniziale: modale aperta, errore mostrato, elenco vuoto,
 elenco lungo, caricamento in corso. Gira su ogni proposta di modifica e **blocca**.
 
 **Manuale strutturato.** Percorsi completi con la sola tastiera; percorsi completi con lettore di
@@ -1509,8 +1511,8 @@ ha più bisogno.
 
 ### 8.7 Carico e resistenza
 
-Non si eseguono sulla macchina di sviluppo. Il risultato sarebbe privo di significato — la
-macchina è satura, condivisa con l'ambiente di sviluppo, e i numeri non sono confrontabili — e
+Non si eseguono sulla macchina di sviluppo. Il risultato sarebbe privo di significato - la
+macchina è satura, condivisa con l'ambiente di sviluppo, e i numeri non sono confrontabili - e
 la macchina risulterebbe inutilizzabile per ore. Girano in ambiente dedicato, su pianificazione,
 e servono a determinare limiti che il progetto poi **dichiara**, come il numero di tenant per
 installazione o l'intervallo di partizionamento delle serie temporali, entrambi oggi `[NV]`
@@ -1526,7 +1528,7 @@ Le sei regole di scrittura del progetto, con il perché di ciascuna:
    prova instabile insegna a ignorare i fallimenti, e questo costa più di quanto valga la prova.
 2. **Orologio iniettato.** Nessuna chiamata diretta all'ora corrente nel codice di produzione. È
    ciò che rende provabili scadenze, finestre di attesa, validità temporali dei consensi e dei
-   ruoli — cioè gran parte del dominio di questo progetto.
+   ruoli - cioè gran parte del dominio di questo progetto.
 3. **Nessuna attesa a tempo fisso.** Si attende una **condizione**, con un limite. Un'attesa a
    tempo fisso è instabilità garantita su una macchina più lenta della tua, e la macchina
    dell'integrazione continua è quasi sempre più lenta della tua.
@@ -1564,8 +1566,8 @@ può fare, e sono quelle che proteggono le proprietà dichiarate pubblicamente.
 **La copertura è una condizione necessaria, non sufficiente.** Misura quali righe sono state
 eseguite, non se il comportamento è stato verificato: una suite che esegue tutto il codice senza
 asserire nulla raggiunge una copertura eccellente e non prova niente. La soglia del progetto è
-**differenziata**, non uniforme — sostanzialmente totale sul percorso di decisione del confine di
-autorizzazione, alta con copertura dei rami sul dominio clinico, generale altrove — e sui moduli
+**differenziata**, non uniforme - sostanzialmente totale sul percorso di decisione del confine di
+autorizzazione, alta con copertura dei rami sul dominio clinico, generale altrove - e sui moduli
 critici si aggiunge la **copertura per mutazione**, che introduce modifiche automatiche al codice
 e verifica che le prove le rilevino. È la sola misura che distingua una suite che verifica da una
 suite che esegue.
@@ -1600,19 +1602,19 @@ fascia.
 | **G9** | **Riferimenti interni** | Collegamento interno rotto | Un sito di documentazione con collegamenti rotti non è navigabile, e la navigabilità è condizione di chiusura di un'area | Correggi il collegamento o rimuovilo |
 | **G10** | **Dati non sintetici** | Forme riconoscibili di identificativo reale nei sorgenti, nelle fixture e negli esempi | È l'ultima rete prima che un dato personale entri nella cronologia | Sostituisci con dati generati (§5). Se è un falso positivo del generatore, è il generatore da correggere |
 | **G11** | **Regola di riservatezza** | Nomi di aziende, marchi, prodotti commerciali o domini nell'elenco vietato | Traduzione automatizzata della regola **R0**: esistono ragioni di riservatezza che non sono tue da valutare | Riformula in categoria generica: «un gestionale sanitario cloud», «l'integratore» |
-| **G12** | **Profilo di produzione** | Configurazione dell'immagine che attivi una scorciatoia di sviluppo | Una scorciatoia comoda in locale è una vulnerabilità in esercizio | Rendi la scorciatoia condizionata al profilo di sviluppo, mai attiva altrove |
+| **G12** | **Profilo di esercizio** | Configurazione dell'immagine che attivi una scorciatoia di sviluppo | Una scorciatoia comoda in locale è una vulnerabilità in esercizio | Rendi la scorciatoia condizionata al profilo di sviluppo, mai attiva altrove |
 | **G13** | **Regole di dipendenza** | Violazione dei confini fra moduli del servizio e dell'interfaccia | I confini fra contesti sono la struttura del sistema: se si erodono, si erodono in silenzio | Comunica per interfaccia o per evento, non per accesso diretto |
 
 ### 9.3 Le tre note che valgono più della tabella
 
 **G1 controlla la cronologia, non solo lo stato corrente.** Un segreto rimosso con una modifica
-successiva **resta nella cronologia** di un repository pubblico, ed è lì che viene trovato — da
+successiva **resta nella cronologia** di un repository pubblico, ed è lì che viene trovato - da
 strumenti automatici, in pochi minuti dalla pubblicazione. La conseguenza operativa è che il
 rilevamento non basta: serve la **rotazione** del segreto esposto, ed è una procedura
 documentata, non una decisione del momento.
 
 **G3 non è un controllo di stile.** Se blocca la tua proposta, significa che il contributo
-introduce contenuto la cui provenienza contraddice la licenza dichiarata dal progetto — la cosa
+introduce contenuto la cui provenienza contraddice la licenza dichiarata dal progetto - la cosa
 esatta che un integratore commerciale verifica prima di adottare, e che se trovata fa saltare
 l'adozione. Il costo di rimuoverlo ora è una modifica; il costo di rimuoverlo dopo è una
 riscrittura della cronologia e una comunicazione a chi ha già installato.
@@ -1653,11 +1655,11 @@ La regola pratica è semplice: **tutto ciò che blocca in pipeline deve poter es
 prima**. Scoprire un blocco dopo aver aperto la proposta costa un ciclo di attesa a te e una
 notifica a chi rivede.
 
-`[NV]` — il comando aggregato che esegue in locale l'insieme dei controlli obbligatori è previsto
+`[NV]` - il comando aggregato che esegue in locale l'insieme dei controlli obbligatori è previsto
 ma non ancora fissato (**Q-190**). Nel frattempo, la sequenza minima prima di proporre è:
 costruzione completa, suite di prove del perimetro toccato, controllo dei segreti, controllo
-delle terminologie, verifica automatica di accessibilità se hai toccato l'interfaccia, e — se
-hai toccato un documento italiano — **l'aggiornamento del corrispondente inglese**.
+delle terminologie, verifica automatica di accessibilità se hai toccato l'interfaccia, e - se
+hai toccato un documento italiano - **l'aggiornamento del corrispondente inglese**.
 
 ---
 
@@ -1690,9 +1692,9 @@ flowchart TB
     S --> D[La sessione media non si stabilisce]
     S --> E[Audio sì, video no]
     S --> F[Passa in locale, fallisce in integrazione continua]
-    A --> A1["Prima eccezione nel registro,<br/>non l'ultima — quasi sempre configurazione"]
+    A --> A1["Prima eccezione nel registro,<br/>non l'ultima - quasi sempre configurazione"]
     B --> B1[Identità, origini ammesse,<br/>versione dell'artefatto]
-    C --> C1["Contesto di tenant —<br/>la politica nega tutto"]
+    C --> C1["Contesto di tenant -<br/>la politica nega tutto"]
     D --> D1[Segnalazione → candidati →<br/>consegna → impronte → byte]
     E --> E1[Permessi, codec, banda,<br/>limitazione di qualità]
     F --> F1[Tempo, ordine, risorse,<br/>stato residuo, dipendenze]
@@ -1726,7 +1728,7 @@ Nell'ultimo caso il sintomo tipico è un'attesa lunga seguita da un errore di ti
 rifiuto immediato.
 
 *Risponde vuoto*: quasi sempre **il contesto di tenant non è risolto**, e la politica di
-sicurezza a livello di riga **nega tutto** — che è il comportamento voluto. La verifica è quella
+sicurezza a livello di riga **nega tutto** - che è il comportamento voluto. La verifica è quella
 di §4.7: leggere la variabile di contesto dentro la stessa transazione. Se è nulla, il problema
 non è nei dati: è nel percorso che avrebbe dovuto impostarla.
 
@@ -1743,16 +1745,16 @@ precedente:
 1. **La segnalazione arriva?** Se i messaggi non transitano, non c'è nulla da negoziare. Si
    guarda il canale di segnalazione prima di ogni altra cosa.
 2. **L'offerta contiene sezioni media?** Se non le contiene, l'acquisizione da camera e
-   microfono è fallita: permessi negati, dispositivo occupato, oppure — il caso più frequente in
-   sviluppo — **contesto non sicuro** (§1.6).
+   microfono è fallita: permessi negati, dispositivo occupato, oppure - il caso più frequente in
+   sviluppo - **contesto non sicuro** (§1.6).
 3. **I candidati vengono prodotti?** Se compare solo il tipo locale, il nodo di relay non è
    raggiungibile o le credenziali sono scadute o firmate con un segreto diverso.
 4. **I candidati arrivano all'altro lato, una volta sola e nell'ordine?** È il requisito di
    consegna esattamente una volta e nello stesso ordine, e un difetto qui produce sessioni che
-   «a volte» non si stabiliscono — il tipo di difetto più costoso da diagnosticare, perché
+   «a volte» non si stabiliscono - il tipo di difetto più costoso da diagnosticare, perché
    dipende dal carico.
 5. **Le impronte corrispondono?** Un handshake che fallisce per impronte discordi significa che
-   qualcosa ha alterato la descrizione lungo il percorso o — molto più spesso — che il codice ha
+   qualcosa ha alterato la descrizione lungo il percorso o - molto più spesso - che il codice ha
    applicato due descrizioni appartenenti a **negoziazioni diverse**. Vedi anche la regola sulle
    generazioni: dopo la fine della raccolta non si inviano altri candidati per quella
    generazione, e i candidati di generazioni diverse non si mescolano.
@@ -1797,7 +1799,7 @@ La famiglia di guasti più frustrante, e quasi sempre riconducibile a otto cause
 
 **Allega**: che cosa ti aspettavi, che cosa è successo, come riprodurlo, **il seme e il profilo
 del generatore** (§5.8), la versione e l'identificativo di costruzione, il sistema operativo e
-il navigatore, e — per i problemi di comunicazione audio-video — il tipo di rete e le statistiche
+il navigatore, e - per i problemi di comunicazione audio-video - il tipo di rete e le statistiche
 della sessione.
 
 **Non allegare mai**: dati di persone reali, nemmeno parziali, nemmeno tuoi; registri non
@@ -1835,8 +1837,18 @@ Quattro regole operative:
 |---|---|---|
 | Sviluppo | Lavoro quotidiano | **Sintetici generati** |
 | Integrazione | Fascia completa delle prove | **Sintetici generati** |
-| Collaudo | Fascia estesa, verifica manuale di accessibilità, verifica del deployer | **Sintetici. Mai esportazioni di produzione** |
+| Collaudo | Fascia estesa, verifica manuale di accessibilità, verifica a cura di chi installa | **Sintetici. Mai esportazioni di produzione** |
 | Esercizio | Erogazione | Reali |
+
+**L'ambiente di erogazione ha un nome solo, ed è «esercizio».** Il modulo non usa «produzione»
+come sinonimo: non esiste un «profilo di produzione» distinto dal profilo di esercizio, né una
+«costruzione di produzione» distinta dalla costruzione per l'esercizio. Le due sole locuzioni in
+cui la parola sopravvive - «codice di produzione», che si contrappone al codice di prova e non
+nomina un ambiente, e «mai esportazioni di produzione» - sono riportate alla lettera da
+[`08-qualita-e-test.md`](../01_technical/08-qualita-e-test.md) §2 e da
+[`09-integrazione-continua-e-rilascio.md`](../01_technical/09-integrazione-continua-e-rilascio.md)
+§9, dove la stessa regola è scritta con quelle parole: cambiarle qui e non lì aprirebbe fra due
+aree la divergenza che questa uniformazione serve a chiudere.
 
 **La riga del collaudo è quella che viene violata**, ed è per questo che va ripetuta ovunque. Il
 collaudo popolato con un'esportazione «anonimizzata» dell'esercizio è, statisticamente, uno dei
@@ -1848,8 +1860,8 @@ che è stato provato è esattamente ciò che va avanti, byte per byte. Ricostrui
 successivo significa mettere in esercizio un artefatto che nessuno ha provato.
 
 E vale il controllo **G12**: **nessuna scorciatoia di sviluppo può sopravvivere al profilo di
-esercizio**. Le scorciatoie sono legittime in locale — un'utenza precaricata, un controllo
-allentato, un servizio simulato — a condizione che siano condizionate al profilo e che una
+esercizio**. Le scorciatoie sono legittime in locale - un'utenza precaricata, un controllo
+allentato, un servizio simulato - a condizione che siano condizionate al profilo e che una
 verifica lo accerti all'avvio e in pipeline.
 
 ### 11.3 Come si ripulisce
@@ -1911,8 +1923,8 @@ comando che scrive: **l'unico momento in cui questo problema è gratuito è prim
   il corpo che spiega **perché** e non **cosa**: il cosa si legge nella differenza.
 - **Una proposta che tocca contenuto italiano non è completa finché non aggiorna l'inglese**
   (controllo G8).
-- **Se tocchi un'area a rischio clinico** — soglie e allarmi, contenuto dei documenti clinici,
-  consenso e identificazione, tracciamento, cifratura del media e verifica della sessione — il
+- **Se tocchi un'area a rischio clinico** - soglie e allarmi, contenuto dei documenti clinici,
+  consenso e identificazione, tracciamento, cifratura del media e verifica della sessione - il
   modello di proposta te lo chiederà esplicitamente. Non significa che il contributo sia
   sgradito: significa che serve una descrizione dell'impatto e che la revisione coinvolgerà anche
   il fronte regolatorio.
@@ -1953,7 +1965,7 @@ decisione.
    politica di sicurezza a livello di riga nega tutto in assenza di contesto, e lo fa di
    proposito.
 4. **`SET LOCAL`, non `SET`.** Il contesto impostato senza `LOCAL` resta attaccato alla
-   connessione e la connessione successiva — di un altro tenant — lo eredita. È la fuga più
+   connessione e la connessione successiva - di un altro tenant - lo eredita. È la fuga più
    insidiosa che esista, perché non produce errori: produce risultati sbagliati.
 5. **Una migrazione applicata non si modifica mai.** Si scrive la successiva. E nessun rilascio è
    insieme distruttivo e funzionale: due versioni consecutive devono poter convivere sulla stessa
@@ -2000,13 +2012,13 @@ decisione.
 | **Controllo obbligatorio (di pipeline)** | Verifica che **blocca** l'integrazione invece di emettere un avviso; è condizione di ammissibilità, non giudizio di qualità |
 | **Copertura per mutazione** | Misura che introduce modifiche automatiche al codice e verifica che le prove le rilevino; distingue una suite che verifica da una che esegue |
 | **Costruzione riproducibile** | Proprietà per cui due costruzioni della stessa revisione, su macchine e in momenti diversi, producono artefatti identici byte per byte |
-| **Dati avversi (profilo)** | Insieme di dati sintetici deliberatamente difficili — nomi con accenti, serie con buchi, misure fuori ordine — usato nelle prove e non tenuto come curiosità |
+| **Dati avversi (profilo)** | Insieme di dati sintetici deliberatamente difficili - nomi con accenti, serie con buchi, misure fuori ordine - usato nelle prove e non tenuto come curiosità |
 | **Dato sintetico** | Dato generato dal progetto, non derivato da persone reali; l'unico ammesso in ogni artefatto e in ogni ambiente non di esercizio |
 | **Determinismo del generatore** | Proprietà per cui, a parità di seme, il dataset prodotto è identico; è ciò che rende riproducibile una segnalazione |
 | **Disciplina di coda (emulazione di rete)** | Meccanismo del kernel che introduce ritardo, variabilità, perdita e limite di banda; strumento con cui si simulano le reti degradate |
 | **Distinta dei materiali** | Elenco leggibile da macchina di tutti i componenti di un artefatto, con versione, licenza e impronta; generata a ogni costruzione |
 | **Doppio di prova** | Sostituto di un sistema esterno usato nelle prove; nel progetto è costruito **sulla specifica pubblicata**, non sull'osservazione empirica |
-| **Espandi e contrai** | Regola di evoluzione dello schema in tre rilasci — aggiungi, migra la lettura, rimuovi — che consente la convivenza di due versioni dell'applicazione |
+| **Espandi e contrai** | Regola di evoluzione dello schema in tre rilasci - aggiungi, migra la lettura, rimuovi - che consente la convivenza di due versioni dell'applicazione |
 | **Fabbrica di dati di prova** | Componente versionato che costruisce oggetti di prova con valori predefiniti sensati e sostituzione esplicita di ciò che la prova verifica |
 | **Fascia della pipeline** | Raggruppamento delle verifiche per tempo di esecuzione: rapida a ogni invio, completa a ogni proposta, estesa su pianificazione, di rilascio su procedura |
 | **File di blocco delle dipendenze** | File versionato che fissa le versioni esatte, dirette e transitive; senza, la costruzione non è riproducibile |
@@ -2033,7 +2045,7 @@ decisione.
 
 ---
 
-**Prosegue in**: [18 — Cosa sapere per contribuire](18-contribuire-per-area.md), che dice,
+**Prosegue in**: [18 - Contribuire, area per area](18-contribuire-per-area.md), che dice,
 area per area, quali conoscenze servono prima di toccarla. Per il dettaglio tecnico di ciò che
 questo modulo mette in pratica: [`docs/01_technical/08-qualita-e-test.md`](../01_technical/08-qualita-e-test.md)
 e [`docs/01_technical/09-integrazione-continua-e-rilascio.md`](../01_technical/09-integrazione-continua-e-rilascio.md).

@@ -1,18 +1,18 @@
 ---
-title: "ADR-0025 — Formato dei token verso l'esterno"
+title: "ADR-0025 - Formato dei token verso l'esterno"
 sidebar_position: 25
 description: Perché i token consegnati all'esterno sono opachi e tradotti in token autoportanti dal gateway, quale costo comporta e perché la finestra di revoca è il criterio decisivo in questo dominio.
 ---
 
-# ADR-0025 — Formato dei token verso l'esterno
+# ADR-0025 - Formato dei token verso l'esterno
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Origine**: questione posta dall'area dei protocolli
 
 ## Contesto
 
-Un token di accesso può essere **autoportante** — contiene i propri claim, firmati, e chi lo riceve
-lo verifica senza interrogare nessuno — oppure **opaco**, cioè un riferimento privo di significato
+Un token di accesso può essere **autoportante** - contiene i propri claim, firmati, e chi lo riceve
+lo verifica senza interrogare nessuno - oppure **opaco**, cioè un riferimento privo di significato
 che il destinatario risolve interrogando chi lo ha emesso.
 
 La scelta ha una conseguenza che in questo dominio pesa più di tutte le altre: **la finestra di
@@ -23,7 +23,7 @@ emesso**.
 
 ## Alternative valutate
 
-### Alternativa 1 — Token autoportanti verso l'esterno
+### Alternativa 1 - Token autoportanti verso l'esterno
 
 *Vantaggi*: verifica locale, quindi nessuna chiamata aggiuntiva sul percorso critico e nessun punto
 singolo di guasto; scala orizzontalmente senza stato condiviso; è il modello che ogni integratore
@@ -40,7 +40,7 @@ si aspetta.
 - La dimensione dell'intestazione cresce con i claim e diventa variabile, con effetti sui limiti
   dei componenti intermedi.
 
-### Alternativa 2 — Token opachi verso l'esterno, autoportanti all'interno
+### Alternativa 2 - Token opachi verso l'esterno, autoportanti all'interno
 
 Il gateway riceve il riferimento opaco, lo risolve e lo traduce in un token autoportante che
 circola **solo** dentro il perimetro.
@@ -52,7 +52,7 @@ dimensione costante; il perimetro interno conserva i vantaggi della verifica loc
 sul percorso di ogni richiesta, con la sua latenza; l'integratore deve accettare un formato che non
 può ispezionare.
 
-### Alternativa 3 — Autoportanti, con introspezione su tutte le operazioni
+### Alternativa 3 - Autoportanti, con introspezione su tutte le operazioni
 
 *Compromesso*: paga il costo della risoluzione senza averne i vantaggi sulla riservatezza dei
 claim, e su ogni operazione anziché su quelle che lo giustificano. **Scartata.**
@@ -64,8 +64,8 @@ gateway; i token autoportanti non lasciano mai il perimetro.**
 
 La motivazione decisiva è la **revoca effettiva**. In un sistema che tratta dati sanitari, la
 domanda «da quando ha smesso di poter accedere?» deve avere come risposta un istante, non un
-intervallo. Le tre situazioni che la pongono — dispositivo perduto, integratore sospeso, consenso
-revocato — non sono ipotesi remote: sono eventi ordinari del ciclo di vita.
+intervallo. Le tre situazioni che la pongono - dispositivo perduto, integratore sospeso, consenso
+revocato - non sono ipotesi remote: sono eventi ordinari del ciclo di vita.
 
 Quattro conseguenze operative:
 

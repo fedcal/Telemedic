@@ -25,7 +25,7 @@ description: Cronicità e patologie bersaglio del telemonitoraggio, PDTA e piani
 Chi arriva dall'informatica affronta il telemonitoraggio con un modello mentale preciso e
 sbagliato: *un dispositivo produce misure, un servizio le ingerisce, una regola le confronta
 con una soglia, un canale notifica qualcuno*. È il modello di un sistema di monitoraggio
-infrastrutturale — CPU, memoria, latenza — trapiantato su un corpo umano. Funziona finché non
+infrastrutturale - CPU, memoria, latenza - trapiantato su un corpo umano. Funziona finché non
 succede nulla, e fallisce esattamente nel momento in cui serve.
 
 Fallisce per ragioni che non sono tecniche:
@@ -43,17 +43,17 @@ Fallisce per ragioni che non sono tecniche:
   precisamente l'atto che qualifica il software come dispositivo medico e ne determina la
   classe di rischio.
 
-Il modulo [09 — Il corpo, i parametri, il ragionamento clinico](09-fondamenti-clinici.md)
+Il modulo [09 - Il corpo, i parametri, il ragionamento clinico](09-fondamenti-clinici.md)
 spiega *che cosa* si misura e come si ragiona su una misura isolata. Questo modulo spiega
 *come si organizza la cura nel tempo* e *come si sbaglia in medicina*: le due conoscenze che
 trasformano un'ingestione di dati in un servizio di telemonitoraggio, e un difetto di
 usabilità in un rischio clinico.
 
-L'organizzazione del sistema sanitario italiano — chi eroga, chi paga, quali strutture
-territoriali esistono — è trattata nel modulo
-[01 — Il sistema sanitario italiano](01-sistema-sanitario-italiano.md). Le definizioni
-normative delle prestazioni — televisita, teleconsulto, telemonitoraggio, telecontrollo — sono
-nel modulo [02 — Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md). Qui non
+L'organizzazione del sistema sanitario italiano - chi eroga, chi paga, quali strutture
+territoriali esistono - è trattata nel modulo
+[01 - Il sistema sanitario italiano](01-sistema-sanitario-italiano.md). Le definizioni
+normative delle prestazioni - televisita, teleconsulto, telemonitoraggio, telecontrollo - sono
+nel modulo [02 - Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md). Qui non
 si ripetono: si rinvia.
 
 ---
@@ -75,8 +75,8 @@ lavoro discrete, contabilizzabili, chiudibili.
 
 ### 1.2 La malattia cronica
 
-Una malattia **cronica** non ha una fine. Ha un momento di diagnosi — spesso arbitrario,
-perché la condizione preesisteva alla sua individuazione — e da lì in avanti accompagna la
+Una malattia **cronica** non ha una fine. Ha un momento di diagnosi - spesso arbitrario,
+perché la condizione preesisteva alla sua individuazione - e da lì in avanti accompagna la
 persona per il resto della vita. Diabete, ipertensione arteriosa, broncopneumopatia cronica
 ostruttiva, scompenso cardiaco, insufficienza renale cronica, artrite reumatoide, molte
 malattie neurologiche degenerative.
@@ -128,7 +128,7 @@ cadere un anziano) e i percorsi di cura, scritti ciascuno per una singola patolo
 sovrappongono in modo incoerente.
 
 La **fragilità** è una condizione di ridotta riserva funzionale: la persona fragile risponde a
-uno stress modesto — un'infezione banale, un cambio di terapia, un ricovero breve — con un
+uno stress modesto - un'infezione banale, un cambio di terapia, un ricovero breve - con un
 peggioramento sproporzionato e spesso non reversibile. Non coincide con l'età né con la
 malattia: esistono ottantenni non fragili e sessantenni fragili.
 
@@ -150,7 +150,7 @@ a distanza è realizzabile per quella persona, e va valutata **prima** dell'arru
 La ragione è demografica e aritmetica. Una popolazione che invecchia sposta il carico
 assistenziale dagli episodi acuti alla gestione continuativa: la quota maggioritaria della
 spesa sanitaria e della domanda di assistenza riguarda persone con una o più condizioni
-croniche. Un sistema costruito attorno all'ospedale — cioè attorno all'episodio acuto — non
+croniche. Un sistema costruito attorno all'ospedale - cioè attorno all'episodio acuto - non
 regge quel carico, perché usa la risorsa più costosa che possiede (il posto letto per acuti)
 per un problema che quella risorsa non risolve: il posto letto stabilizza una riacutizzazione,
 non gestisce una traiettoria.
@@ -256,7 +256,7 @@ dipende dalla tecnologia. È anche quello che decide se il servizio funziona.
 **Che cos'è, in due righe utili a un informatico.** Il cuore non riesce a spingere in circolo
 una quantità di sangue adeguata alle richieste dell'organismo. Il corpo compensa trattenendo
 liquidi; i liquidi si accumulano nei polmoni e negli arti inferiori; l'accumulo peggiora la
-funzione respiratoria e cardiaca. La riacutizzazione — lo *scompenso acuto* — è tipicamente
+funzione respiratoria e cardiaca. La riacutizzazione - lo *scompenso acuto* - è tipicamente
 una crisi di congestione, e la congestione **si costruisce nell'arco di giorni**.
 
 **Che cosa si misura, e perché.**
@@ -286,7 +286,7 @@ che possono portare a insufficienza respiratoria.
 
 | Parametro | Perché proprio questo |
 |---|---|
-| **Saturazione periferica di ossigeno** | Misura non invasiva della quantità di ossigeno trasportata dal sangue. È il parametro cardine, ed è anche il parametro su cui si commette l'errore di soglia più grave descritto al § 7.11 |
+| **Saturazione periferica di ossigeno** | Misura non invasiva della quantità di ossigeno trasportata dal sangue. È il parametro cardine, ed è anche il parametro su cui si commette l'errore di soglia più grave descritto al § 7.10 |
 | **Frequenza respiratoria** | Aumenta precocemente nel deterioramento respiratorio, spesso prima della saturazione. È anche il parametro più difficile da autorilevare correttamente |
 | **Sintomi strutturati**: variazione della tosse, colore e quantità dell'espettorato, affanno, uso del farmaco al bisogno | L'esacerbazione è definita clinicamente su base sintomatologica prima che strumentale |
 | **Numero di erogazioni del broncodilatatore al bisogno** | Proxy di aderenza e di instabilità: l'aumento del ricorso al farmaco di soccorso precede l'esacerbazione |
@@ -370,8 +370,8 @@ sostitutiva: dialisi o trapianto.
 quadro clinico **non è misurabile a casa**. Il sistema deve rappresentare esplicitamente il
 fatto che ciò che monitora è un sottoinsieme del quadro, e che un profilo «tutto verde» sui
 parametri domiciliari **non significa stabilità clinica**. È il caso più chiaro in cui una
-dashboard rassicurante è un rischio: si chiama *falsa rassicurazione* ed è uno scenario d'uso
-pericoloso da inserire nel file di rischio (§ 9.9).
+cruscotto rassicurante è un rischio: si chiama *falsa rassicurazione* ed è uno scenario d'uso
+pericoloso da inserire nel file di rischio (§ 9.8).
 
 ### 2.7 Tabella di sintesi
 
@@ -386,7 +386,7 @@ pericoloso da inserire nel file di rischio (§ 9.9).
 > `[NV]` Le latenze indicate sono ordini di grandezza a fini didattici, ricavati dalla logica
 > fisiopatologica e non da fonti primarie verificate nel corso di questa redazione. Non vanno
 > usate per dimensionare finestre di allarme: quelle sono decisioni cliniche del piano di
-> monitoraggio (§ 7.10).
+> monitoraggio (§ 7.9).
 
 ### 2.8 Quattro conseguenze progettuali che discendono già da qui
 
@@ -422,10 +422,10 @@ criteri di uscita, e con quali indicatori si misura se il percorso funziona.
 
 Le tre lettere non sono ridondanti e sciogliere la sigla serve a capire il perimetro:
 
-- **diagnostico** — la parte di accertamento: che cosa si fa per stabilire la condizione e per
+- **diagnostico** - la parte di accertamento: che cosa si fa per stabilire la condizione e per
   stadiarla;
-- **terapeutico** — la parte di trattamento: farmaci, procedure, interventi;
-- **assistenziale** — la parte di presa in carico continuativa: educazione, follow-up,
+- **terapeutico** - la parte di trattamento: farmaci, procedure, interventi;
+- **assistenziale** - la parte di presa in carico continuativa: educazione, follow-up,
   supporto, coordinamento. È la parte che in un modello ospedalocentrico non esisteva ed è
   quella dentro cui vive la telemedicina.
 
@@ -446,9 +446,9 @@ patologia perché una ha un ambulatorio dedicato e l'altra no.
 
 ### 3.2 Chi lo scrive e con quale forza
 
-Il PDTA viene redatto da un gruppo di lavoro multiprofessionale — specialisti della branca,
+Il PDTA viene redatto da un gruppo di lavoro multiprofessionale - specialisti della branca,
 medici di medicina generale, infermieri, farmacisti, professionisti della riabilitazione,
-direzione sanitaria, spesso rappresentanti dei pazienti — e viene **adottato con un atto
+direzione sanitaria, spesso rappresentanti dei pazienti - e viene **adottato con un atto
 formale** dell'organizzazione: una deliberazione regionale, una delibera aziendale, un
 provvedimento del direttore sanitario.
 
@@ -467,7 +467,7 @@ data di decorrenza. L'ambito è un attributo del percorso, non del paziente.
 legittimamente deviarne, perché la clinica reale non è mai identica al modello. La **deviazione
 motivata è la norma, non l'eccezione**, e un sistema che la impedisce o che la rende costosa
 da registrare produce due effetti, entrambi dannosi: i professionisti aggirano il sistema, e la
-documentazione perde il motivo per cui si è deviato — che è esattamente l'informazione clinica
+documentazione perde il motivo per cui si è deviato - che è esattamente l'informazione clinica
 più preziosa.
 
 ### 3.3 Come è strutturato
@@ -475,19 +475,19 @@ più preziosa.
 La struttura ricorrente, indipendentemente dalla patologia, è composta da elementi che hanno
 tutti una controparte nel modello dati:
 
-1. **Popolazione target e criteri di inclusione ed esclusione** — chi entra nel percorso e chi
+1. **Popolazione target e criteri di inclusione ed esclusione** - chi entra nel percorso e chi
    no. Sono predicati valutabili, non descrizioni.
-2. **Nodi del percorso** — le attività previste: valutazioni, accertamenti, contatti,
+2. **Nodi del percorso** - le attività previste: valutazioni, accertamenti, contatti,
    interventi educativi. Ciascuna con un attore, una cadenza attesa e un esito atteso.
-3. **Punti di decisione** — i momenti in cui il percorso si biforca in base a un esito. È qui
+3. **Punti di decisione** - i momenti in cui il percorso si biforca in base a un esito. È qui
    che un percorso si distingue da una lista di attività.
-4. **Responsabilità** — chi fa che cosa. Include tipicamente l'individuazione di un
+4. **Responsabilità** - chi fa che cosa. Include tipicamente l'individuazione di un
    professionista di riferimento per la continuità (§ 4.5).
-5. **Tempi e finestre** — entro quanto ciascuna attività deve avvenire dopo l'evento che la
+5. **Tempi e finestre** - entro quanto ciascuna attività deve avvenire dopo l'evento che la
    innesca. Sono i vincoli che generano i solleciti e i mancati adempimenti.
-6. **Criteri di transizione e di uscita** — quando il paziente passa a un altro percorso,
+6. **Criteri di transizione e di uscita** - quando il paziente passa a un altro percorso,
    quando esce, quando si conclude.
-7. **Indicatori** — di processo (quante delle attività previste sono state eseguite nei tempi)
+7. **Indicatori** - di processo (quante delle attività previste sono state eseguite nei tempi)
    e di esito (che cosa è successo ai pazienti). Servono a valutare il percorso, non il
    paziente.
 
@@ -522,8 +522,8 @@ non riesce a rappresentare un paziente reale.
 |---|---|---|---|
 | **PDTA** | il **modello** del percorso per una condizione, in un'organizzazione | popolazione | gruppo di lavoro, adottato con atto formale |
 | **Piano di cura** | l'**istanza** sul singolo paziente: che cosa si è deciso di fare per lui, con quali obiettivi e con quale calendario | individuale | il professionista o l'équipe che lo ha in carico |
-| **PAI — piano assistenziale individuale** | il piano della presa in carico **integrata** di un paziente, tipicamente complesso o in assistenza domiciliare, redatto da un'équipe multiprofessionale; comprende la dimensione sanitaria e quella sociale | individuale | unità di valutazione multidimensionale / équipe |
-| **PRI — progetto riabilitativo individuale** | il contenitore obbligatorio delle prestazioni di riabilitazione, teleriabilitazione compresa (modulo [02, § 4.7](02-prestazioni-di-telemedicina.md)) | individuale | professionista della riabilitazione, con il medico |
+| **PAI - piano assistenziale individuale** | il piano della presa in carico **integrata** di un paziente, tipicamente complesso o in assistenza domiciliare, redatto da un'équipe multiprofessionale; comprende la dimensione sanitaria e quella sociale | individuale | unità di valutazione multidimensionale / équipe |
+| **PRI - progetto riabilitativo individuale** | il contenitore obbligatorio delle prestazioni di riabilitazione, teleriabilitazione compresa (modulo [02, § 4.7](02-prestazioni-di-telemedicina.md)) | individuale | professionista della riabilitazione, con il medico |
 | **Piano di telemonitoraggio** | il documento che definisce *operativamente* il monitoraggio a distanza: cicli, durata, attività per ciclo, frequenza delle rilevazioni, fascia oraria, tipo di rilevazione, **soglie di allarme** e **regole di comportamento** in caso di violazione | individuale | il professionista responsabile |
 
 L'ultimo è quello che tocca direttamente il codice. Il modulo
@@ -542,12 +542,12 @@ di un documento sanitario individuale.
 
 ```mermaid
 flowchart TB
-    subgraph MOD["Livello del modello — popolazione"]
+    subgraph MOD["Livello del modello - popolazione"]
         LG["Linea guida<br/><i>che cosa è appropriato</i>"]
         PDTA["PDTA aziendale o regionale<br/><b>versionato, datato, con ambito</b><br/>FHIR: PlanDefinition"]
         LG -->|traduzione locale<br/>vincolata dalle risorse| PDTA
     end
-    subgraph IST["Livello dell'istanza — singolo paziente"]
+    subgraph IST["Livello dell'istanza - singolo paziente"]
         PC["Piano di cura / PAI / PRI<br/>FHIR: CarePlan"]
         PTM["Piano di telemonitoraggio<br/>cicli, frequenze, fasce orarie,<br/><b>soglie e regole</b><br/>documento FSE lett. t)"]
         ATT["Attività eseguite e misure<br/>FHIR: Encounter, Observation,<br/>Procedure, QuestionnaireResponse"]
@@ -593,13 +593,13 @@ sette cose.
    (vincolo **V4** del progetto). Il catalogo dei percorsi di un tenant non è visibile agli
    altri, e un percorso «nazionale» che valga per tutti è una configurazione, non un
    presupposto.
-5. **Validazione al caricamento, non all'esecuzione.** Un percorso incoerente — un nodo
-   irraggiungibile, una cadenza senza unità, una soglia senza parametro, un ciclo infinito —
+5. **Validazione al caricamento, non all'esecuzione.** Un percorso incoerente - un nodo
+   irraggiungibile, una cadenza senza unità, una soglia senza parametro, un ciclo infinito -
    deve essere rifiutato al momento della pubblicazione, con un messaggio comprensibile a chi
    lo ha redatto, non fallire quando un paziente ci passa dentro.
 6. **Nessuna soglia nel percorso di popolazione.** Il PDTA può indicare intervalli di
    riferimento e regole generali, ma la soglia che governa l'allarme di un paziente è nel
-   **suo** piano (§ 7.10). Il percorso propone; il piano individuale dispone.
+   **suo** piano (§ 7.9). Il percorso propone; il piano individuale dispone.
 7. **Tracciabilità del perché.** Per ogni attività eseguita deve essere ricostruibile da quale
    nodo del percorso derivava, e per ogni attività non eseguita deve essere ricostruibile se
    era prevista e non è avvenuta (§ 8).
@@ -654,7 +654,7 @@ l'unico che il software non deve mai valutare da sé.
 **Criteri tecnologici.** Esiste al domicilio una connettività sufficiente e stabile; i
 dispositivi previsti dal piano sono disponibili, funzionanti, tarati e assegnati (in Italia con
 un documento dedicato, il *tesserino dispositivi*, che riporta l'identificativo unico del
-dispositivo e il fabbricante — modulo
+dispositivo e il fabbricante - modulo
 [02, § 4.5.4](02-prestazioni-di-telemedicina.md)); esiste un dispositivo di accesso
 all'interfaccia; esiste un'alimentazione affidabile.
 
@@ -673,14 +673,14 @@ percorso a distanza è realizzabile, indipendentemente dal fatto che sia clinica
 
 > **Distinzione da non perdere.** L'**eleggibilità** è la verifica che *questo paziente* possa
 > ricevere *quella prestazione* in *quel canale*: è una valutazione clinico-organizzativa. Il
-> **diritto amministrativo alla prestazione** — esenzione, copertura, titolo di accesso — è
+> **diritto amministrativo alla prestazione** - esenzione, copertura, titolo di accesso - è
 > tutt'altro, si valuta altrove e con altri dati. Sono due controlli distinti che il linguaggio
 > corrente confonde e che il modello dati non deve confondere.
 
 ### 4.3 I consensi: quali e perché sono più d'uno
 
 L'arruolamento richiede manifestazioni di volontà distinte, con basi giuridiche, revocabilità
-ed effetti diversi. Il modulo [03 — Il dato clinico](03-il-dato-clinico.md) le tratta a fondo e
+ed effetti diversi. Il modulo [03 - Il dato clinico](03-il-dato-clinico.md) le tratta a fondo e
 il modulo [02, § 10](02-prestazioni-di-telemedicina.md) ne riassume la disciplina di settore.
 Qui basta la mappa e la ragione per cui unificarle è l'errore più costoso del dominio:
 
@@ -697,8 +697,8 @@ vigente al momento**: un consenso non riferito a un testo versionato è indimost
 
 ### 4.4 Chi segue e chi risponde
 
-Un servizio di telemonitoraggio senza risposta non è un servizio. La domanda operativa — *chi
-guarda i dati, chi risponde all'allarme, entro quanto* — ha una risposta organizzativa che il
+Un servizio di telemonitoraggio senza risposta non è un servizio. La domanda operativa - *chi
+guarda i dati, chi risponde all'allarme, entro quanto* - ha una risposta organizzativa che il
 software deve rappresentare, non presupporre.
 
 Le figure ricorrenti:
@@ -706,14 +706,14 @@ Le figure ricorrenti:
 - **il professionista responsabile del piano**, che lo redige, ne fissa le soglie e ne risponde
   clinicamente. Tipicamente il medico specialista o il medico di medicina generale a seconda
   del percorso;
-- **il case manager**, figura di coordinamento della presa in carico — frequentemente un
-  infermiere — che è il punto di contatto continuativo del paziente, sorveglia l'andamento,
+- **il case manager**, figura di coordinamento della presa in carico - frequentemente un
+  infermiere - che è il punto di contatto continuativo del paziente, sorveglia l'andamento,
   esegue i contatti programmati e attiva chi serve. È elencato fra i micro-servizi essenziali
   del telemonitoraggio dal DM 19 novembre 2025 (modulo
   [02, § 6.3](02-prestazioni-di-telemedicina.md));
 - **il centro erogatore**, con compiti sanitari, che gestisce gli **alert sanitari**;
-- **il centro servizi**, con compiti tecnici — manutenzione, account, help desk, distribuzione
-  e sanificazione dei dispositivi — che gestisce gli **alert tecnici**.
+- **il centro servizi**, con compiti tecnici - manutenzione, account, help desk, distribuzione
+  e sanificazione dei dispositivi - che gestisce gli **alert tecnici**.
 
 L'ultima distinzione è normativa e non organizzativa a discrezione: il DM 21 settembre 2022
 separa i due centri e attribuisce a ciascuno una categoria di allarmi (modulo
@@ -737,8 +737,8 @@ La tentazione, per chi arriva dal software commerciale, è leggere la copertura 
 parametro di listino: più copertura, più costo, più valore. **In un servizio clinico non è
 così, e la ragione è strutturale.**
 
-Nel momento in cui un paziente viene arruolato, gli si dice — esplicitamente o
-implicitamente — che qualcuno guarderà i suoi dati. Da quel momento il paziente **modifica il
+Nel momento in cui un paziente viene arruolato, gli si dice - esplicitamente o
+implicitamente - che qualcuno guarderà i suoi dati. Da quel momento il paziente **modifica il
 proprio comportamento**: attribuisce al servizio una funzione di sorveglianza, e in una certa
 misura smette di essere l'unico sorvegliante di sé stesso. Questo fenomeno ha un nome, si
 chiama **falsa rassicurazione**, ed è la ragione per cui la copertura è un elemento di
@@ -746,8 +746,8 @@ sicurezza:
 
 - se la copertura è **dichiarata correttamente**, il paziente sa che di notte deve rivolgersi
   altrove e lo fa. Il servizio ha ridotto il rischio;
-- se la copertura è **dichiarata in modo ambiguo** — o non dichiarata affatto, che è la stessa
-  cosa — il paziente attende una risposta che non arriverà, e ritarda l'accesso al canale
+- se la copertura è **dichiarata in modo ambiguo** - o non dichiarata affatto, che è la stessa
+  cosa - il paziente attende una risposta che non arriverà, e ritarda l'accesso al canale
   corretto. **Il servizio ha aumentato il rischio rispetto alla situazione in cui non
   esisteva.**
 
@@ -778,8 +778,8 @@ Le conseguenze progettuali sono precise:
 > **Formula da usare, e da non annacquare.** «Il servizio non sostituisce il sistema di
 > emergenza. Fuori dagli orari indicati i dati non vengono valutati da un professionista. In
 > caso di malessere rivolgersi a [canale]». È un messaggio informativo, che ai sensi di
-> ISO 14971 è una **misura di controllo del rischio del terzo livello** — quindi la più debole
-> della gerarchia (§ 9.7) — e proprio per questo va scritta, verificata con utenti reali e
+> ISO 14971 è una **misura di controllo del rischio del terzo livello** - quindi la più debole
+> della gerarchia (§ 9.6) - e proprio per questo va scritta, verificata con utenti reali e
 > resa impossibile da non vedere.
 
 ### 4.6 Il ciclo completo
@@ -829,8 +829,8 @@ possibili, perché nessuno se ne sta occupando e nessuno sa che nessuno se ne st
 
 ### 5.1 Che cosa sono e perché esistono
 
-Una **scala clinica** è uno strumento che trasforma osservazioni — misure, segni, sintomi,
-risposte del paziente, valutazioni dell'operatore — in un **valore ordinale o numerico**
+Una **scala clinica** è uno strumento che trasforma osservazioni - misure, segni, sintomi,
+risposte del paziente, valutazioni dell'operatore - in un **valore ordinale o numerico**
 confrontabile. Un **punteggio** (*score*) è il risultato di quella trasformazione.
 
 Esistono per quattro ragioni, tutte pertinenti a chi progetta software.
@@ -848,7 +848,7 @@ all'errore di omissione.
 
 **Innescano azioni organizzative.** Molte scale sono legate a un protocollo: al superamento di
 un valore corrisponde una frequenza di rivalutazione, un livello di sorveglianza, la
-chiamata di una figura. È qui che una scala smette di essere una misura e diventa una regola —
+chiamata di una figura. È qui che una scala smette di essere una misura e diventa una regola -
 ed è esattamente il punto in cui il software che la calcola diventa un dispositivo medico
 (§ 5.7).
 
@@ -868,7 +868,7 @@ ed è esattamente il punto in cui il software che la calcola diventa un disposit
 L'ultima riga non è un dettaglio legale. Il progetto adotta una policy a regimi differenziati
 per le terminologie e i contenuti di terzi (decisioni D31–D34 del progetto): **una scala non
 può essere inclusa nei sorgenti senza aver verificato la licenza primaria**, e alcune vanno
-trattate come contenuto acquisito dal deployer anziché distribuito. Chi implementa una scala
+trattate come contenuto acquisito da chi installa anziché distribuito. Chi implementa una scala
 apre una questione di licenza prima ancora che di codice.
 
 ### 5.3 Primo esempio: una scala di allerta precoce
@@ -884,7 +884,7 @@ La più diffusa in ambito anglosassone è il **National Early Warning Score** ne
 edizione (**NEWS2**), pubblicato dal Royal College of Physicians del Regno Unito. La sua
 struttura, che è ciò che interessa qui:
 
-- prende un insieme di parametri vitali di base — tipicamente frequenza respiratoria,
+- prende un insieme di parametri vitali di base - tipicamente frequenza respiratoria,
   saturazione di ossigeno, pressione arteriosa sistolica, frequenza cardiaca, livello di
   coscienza e temperatura;
 - assegna a ciascun parametro un punteggio parziale in base alla fascia in cui cade il valore,
@@ -911,7 +911,7 @@ Due elementi di questa struttura sono lezioni progettuali generali.
 
 **L'esistenza di una scala alternativa per una sottopopolazione** dimostra sul campo che
 «normale» non è una proprietà del parametro ma della coppia parametro-paziente. È lo stesso
-principio che al § 7.11 rende inaccettabile una soglia predefinita di saturazione.
+principio che al § 7.10 rende inaccettabile una soglia predefinita di saturazione.
 
 **Il modificatore sull'ossigeno supplementare** dimostra che il punteggio dipende da un dato di
 contesto che non è una misura. Un motore che calcola punteggi solo su serie di misure non può
@@ -943,8 +943,8 @@ supporto grafico e una capacità di astrazione maggiore.
 
 **Scale osservazionali per pazienti che non possono riferire.** Persone con grave deficit
 cognitivo, pazienti non collaboranti, bambini molto piccoli. In questi casi il punteggio deriva
-dall'osservazione di comportamenti — espressione del volto, vocalizzazione, postura, movimenti
-corporei, consolabilità — da parte di un operatore addestrato o di un caregiver istruito. Sono
+dall'osservazione di comportamenti - espressione del volto, vocalizzazione, postura, movimenti
+corporei, consolabilità - da parte di un operatore addestrato o di un caregiver istruito. Sono
 scale **eterosomministrate**, con proprietà diverse dalle autosomministrate. `[NV]` sui nomi,
 sulle versioni e sui cut-off delle singole scale osservazionali.
 
@@ -956,8 +956,8 @@ autosomministrato ed eterosomministrato ha effetti immediati sul modello dati:
 - **la scala usata** deve essere registrata insieme al valore. Un `pain_score = 7` senza
   l'indicazione della scala e della sua versione è un numero senza unità di misura;
 - **la variazione conta più del livello**, come per quasi tutto in cronicità;
-- **il dolore che cambia carattere** — nuovo, diverso, in una nuova sede, associato ad altri
-  sintomi — è un segnale d'allarme e non una variazione di punteggio (§ 6.4). Una scala misura
+- **il dolore che cambia carattere** - nuovo, diverso, in una nuova sede, associato ad altri
+  sintomi - è un segnale d'allarme e non una variazione di punteggio (§ 6.4). Una scala misura
   l'intensità di un dolore noto; non riconosce un dolore nuovo.
 
 ### 5.5 Terzo esempio: una scala di autonomia funzionale
@@ -969,10 +969,10 @@ assistenziali profondamente diversi.
 
 Le famiglie principali:
 
-- **Attività di base della vita quotidiana** (*ADL — activities of daily living*): lavarsi,
+- **Attività di base della vita quotidiana** (*ADL - activities of daily living*): lavarsi,
   vestirsi, usare il bagno, spostarsi, controllo degli sfinteri, alimentarsi. Sono le funzioni
   la cui perdita rende necessaria l'assistenza diretta di una persona.
-- **Attività strumentali della vita quotidiana** (*IADL — instrumental activities of daily
+- **Attività strumentali della vita quotidiana** (*IADL - instrumental activities of daily
   living*): usare il telefono, fare la spesa, preparare i pasti, gestire la casa, usare i
   mezzi di trasporto, **gestire i farmaci**, gestire il denaro. Si perdono prima delle attività
   di base, e la loro valutazione è quindi più sensibile nelle fasi iniziali.
@@ -1023,14 +1023,14 @@ riga per riga.
 
 Un software che **raccoglie** un dato clinico, lo **conserva**, lo **trasmette** e lo
 **visualizza** senza modificarlo svolge una funzione di archiviazione e comunicazione. Un
-software che **combina** dati clinici secondo una regola per produrre una nuova informazione —
-un punteggio, una categoria di rischio, un allarme — sta compiendo un'operazione di
+software che **combina** dati clinici secondo una regola per produrre una nuova informazione -
+un punteggio, una categoria di rischio, un allarme - sta compiendo un'operazione di
 **interpretazione**, e l'informazione che produce è destinata a essere usata per decisioni
 diagnostiche o terapeutiche.
 
 È precisamente questa distinzione che governa la qualificazione come dispositivo medico ai
 sensi del **Regolamento (UE) 2017/745** e la classificazione ai sensi della **Regola 11**
-dell'Allegato VIII. Il modulo [15 — Il quadro regolatorio da zero](15-regolatorio-da-zero.md)
+dell'Allegato VIII. Il modulo [15 - Il quadro regolatorio da zero](15-regolatorio-da-zero.md)
 sviluppa il meccanismo, l'albero decisionale della guida MDCG 2019-11 e le conseguenze.
 
 Per il progetto Telemedic la questione non è aperta: la decisione **D26** stabilisce che il
@@ -1038,8 +1038,8 @@ sistema dichiara una finalità medica propria e accetta la classificazione in **
 con Organismo Notificato e sistema di gestione qualità certificato, e individua nella
 **valutazione automatica delle soglie del telemonitoraggio** l'elemento che fonda la
 qualificazione. La stessa decisione elenca **tre funzionalità che sono «a una user story»** da
-un ulteriore innalzamento di classe — l'allerta su soglia, la riproduzione con miglioramento
-dell'immagine, la refertazione assistita — e impone di governarle con controllo delle modifiche
+un ulteriore innalzamento di classe - l'allerta su soglia, la riproduzione con miglioramento
+dell'immagine, la refertazione assistita - e impone di governarle con controllo delle modifiche
 esplicito.
 
 Le regole operative che ne discendono, e che valgono per qualunque punteggio il sistema
@@ -1052,7 +1052,7 @@ calcoli:
    progetto): la differenza fra «monitoraggio in tempo reale dei parametri vitali» e «raccolta
    differita di parametri per la revisione periodica del professionista» sposta la
    classificazione e la classe di sicurezza del software. Il modo in cui un punteggio viene
-   presentato all'utente — proposta da confermare oppure conclusione — è parte di quella
+   presentato all'utente - proposta da confermare oppure conclusione - è parte di quella
    dichiarazione.
 3. **Il calcolo deve essere tracciabile per intero.** Per ogni punteggio persistito devono
    essere ricostruibili: identificativo e versione della scala; valore di ciascun item;
@@ -1099,11 +1099,11 @@ La struttura generale, comune a tutti i sistemi a cinque livelli:
 
 | Livello | Significato operativo |
 |---|---|
-| 1 — massima priorità | funzione vitale compromessa; accesso immediato |
+| 1 - massima priorità | funzione vitale compromessa; accesso immediato |
 | 2 | rischio elevato di compromissione a breve; accesso molto rapido |
 | 3 | condizione stabile con potenziale evolutività; attesa contenuta |
 | 4 | condizione stabile senza rischio evolutivo; attesa prolungata accettabile |
-| 5 — minima priorità | problema non urgente, gestibile in altro setting |
+| 5 - minima priorità | problema non urgente, gestibile in altro setting |
 
 Tre proprietà di questo strumento hanno conseguenze dirette sul software.
 
@@ -1112,14 +1112,14 @@ cambia. Un modello che tratti la priorità come attributo immutabile assegnato a
 sbagliato; la priorità è una serie di valutazioni datate, ciascuna con il suo autore.
 
 **Il codice è assegnato da un professionista abilitato**, sulla base di una valutazione che
-comprende elementi non digitalizzabili — l'aspetto della persona, il colorito, il modo in cui
+comprende elementi non digitalizzabili - l'aspetto della persona, il colorito, il modo in cui
 respira, il modo in cui parla. Gli strumenti informatici di supporto al triage esistono, ma la
 decisione resta umana e va registrata come decisione umana.
 
 **Il codice di triage non è il codice di priorità della prestazione.** Sono due oggetti diversi
 con lo stesso nome colloquiale: il primo ordina l'accesso immediato in una struttura di
-emergenza; il secondo — quello che compare su una prescrizione e determina il tempo massimo di
-erogazione di una visita o di un esame — appartiene al mondo della programmazione ambulatoriale
+emergenza; il secondo - quello che compare su una prescrizione e determina il tempo massimo di
+erogazione di una visita o di un esame - appartiene al mondo della programmazione ambulatoriale
 ed è descritto nel modulo [01, § 7](01-sistema-sanitario-italiano.md). Modellarli con lo stesso
 tipo produce confusione permanente.
 
@@ -1137,8 +1137,8 @@ valutazione deciso dal professionista, con la sua motivazione e la sua ora, e no
 
 ### 6.4 I segnali d'allarme
 
-Un **segnale d'allarme** (in letteratura anglosassone *red flag*) è un elemento clinico —
-sintomo, segno o combinazione — la cui presenza indica che il quadro potrebbe **non essere**
+Un **segnale d'allarme** (in letteratura anglosassone *red flag*) è un elemento clinico -
+sintomo, segno o combinazione - la cui presenza indica che il quadro potrebbe **non essere**
 quello che sembra, e che potrebbe trattarsi di una condizione grave e tempo-dipendente.
 
 Ha proprietà che lo rendono diverso da un valore fuori soglia, e queste proprietà governano il
@@ -1168,8 +1168,8 @@ dal caregiver. Il sistema deve poterlo intercettare da più punti d'ingresso con
 conseguenza.
 
 `[NV]` **Questo modulo non elenca segnali d'allarme specifici per patologia.** Non perché non
-esistano — sono contenuto standard delle linee guida e dei materiali di educazione terapeutica
-— ma perché il loro elenco è contenuto clinico che appartiene al percorso e al piano, redatto e
+esistano - sono contenuto standard delle linee guida e dei materiali di educazione terapeutica
+- ma perché il loro elenco è contenuto clinico che appartiene al percorso e al piano, redatto e
 firmato da un professionista, non a un documento tecnico. Il sistema li **configura**, non li
 **contiene**.
 
@@ -1248,10 +1248,10 @@ Un **allarme clinico** è un segnale che comunica a un professionista che la con
 paziente richiede attenzione entro un tempo definito. Ha quattro componenti obbligatorie, e
 l'assenza di una qualunque di esse lo rende inefficace:
 
-1. **una condizione** che lo genera — verificabile e ricostruibile a posteriori;
-2. **un destinatario** — una persona o un ruolo, individuabile *in quel momento*;
-3. **un tempo di riscontro atteso** — entro quanto qualcuno deve prenderlo in carico;
-4. **una conseguenza in caso di mancato riscontro** — che cosa succede se nessuno risponde.
+1. **una condizione** che lo genera - verificabile e ricostruibile a posteriori;
+2. **un destinatario** - una persona o un ruolo, individuabile *in quel momento*;
+3. **un tempo di riscontro atteso** - entro quanto qualcuno deve prenderlo in carico;
+4. **una conseguenza in caso di mancato riscontro** - che cosa succede se nessuno risponde.
 
 La quarta è quella che manca praticamente sempre nelle prime implementazioni, ed è quella che
 distingue un allarme da una notifica. **Un allarme senza escalation non è un allarme: è un
@@ -1259,7 +1259,7 @@ registro con un suono.**
 
 ### 7.2 Sensibilità, specificità e la trappola del valore predittivo
 
-Le due proprietà fondamentali di qualunque test — e un allarme *è* un test — sono:
+Le due proprietà fondamentali di qualunque test - e un allarme *è* un test - sono:
 
 - **sensibilità**: fra tutti i casi in cui la condizione è realmente presente, la quota in cui
   il test risulta positivo. Alta sensibilità significa pochi **falsi negativi**: pochi eventi
@@ -1284,7 +1284,7 @@ riferimento clinico:
 
 > Un servizio monitora 1.000 pazienti. L'evento che si vuole intercettare si verifica in 10 di
 > loro nel periodo considerato (prevalenza dell'1%). L'allarme ha sensibilità del 90% e
-> specificità del 90% — valori che in un contesto ingegneristico sarebbero considerati ottimi.
+> specificità del 90% - valori che in un contesto ingegneristico sarebbero considerati ottimi.
 >
 > - Veri positivi: 90% di 10 = **9**.
 > - Falsi positivi: 10% di 990 = **99**.
@@ -1418,7 +1418,7 @@ I punti in cui le implementazioni reali si rompono, in ordine di frequenza:
 
 ### 7.6 Presa in carico e mancato riscontro
 
-La **presa in carico** dell'allarme — in inglese *acknowledgement* — è l'atto con cui una
+La **presa in carico** dell'allarme - in inglese *acknowledgement* - è l'atto con cui una
 persona identificata dichiara di aver ricevuto l'allarme e di occuparsene. Deve avere quattro
 proprietà:
 
@@ -1478,14 +1478,14 @@ Requisiti che rendono l'escalation reale e non decorativa:
 
 ### 7.8 Soppressione, raggruppamento, isteresi: strumenti utili e pericolosi
 
-Le tecniche che riducono il rumore sono necessarie — senza di esse l'affaticamento da allarme è
-garantito — ma ciascuna introduce un rischio che va dichiarato.
+Le tecniche che riducono il rumore sono necessarie - senza di esse l'affaticamento da allarme è
+garantito - ma ciascuna introduce un rischio che va dichiarato.
 
 | Tecnica | A che cosa serve | Rischio introdotto | Requisito che ne discende |
 |---|---|---|---|
-| **Isteresi** — soglie diverse per attivare e per rientrare | evita l'oscillazione attorno al valore limite | ritarda il rientro, e con soglie mal poste può ritardare la riattivazione | entrambe le soglie sono configurate e visibili al clinico |
-| **Persistenza** — la condizione deve durare N rilevazioni o N minuti | filtra i valori spuri | ritarda la generazione di un tempo pari alla finestra | il ritardo introdotto è dichiarato ed è un parametro del piano |
-| **Raggruppamento** — più allarmi correlati in una sola notifica | riduce il carico | un allarme grave può nascondersi dentro un gruppo di allarmi banali | il raggruppamento non abbassa mai la severità: il gruppo eredita la severità massima |
+| **Isteresi** - soglie diverse per attivare e per rientrare | evita l'oscillazione attorno al valore limite | ritarda il rientro, e con soglie mal poste può ritardare la riattivazione | entrambe le soglie sono configurate e visibili al clinico |
+| **Persistenza** - la condizione deve durare N rilevazioni o N minuti | filtra i valori spuri | ritarda la generazione di un tempo pari alla finestra | il ritardo introdotto è dichiarato ed è un parametro del piano |
+| **Raggruppamento** - più allarmi correlati in una sola notifica | riduce il carico | un allarme grave può nascondersi dentro un gruppo di allarmi banali | il raggruppamento non abbassa mai la severità: il gruppo eredita la severità massima |
 | **Soppressione dei duplicati** | evita la ripetizione della stessa condizione | una condizione che persiste smette di essere segnalata e sembra risolta | la persistenza della condizione resta rappresentata nello stato e va ripresentata al cambio di destinatario o di turno |
 | **Sospensione temporanea** | consente di gestire una condizione nota | l'allarme non torna | durata massima codificata, riattivazione automatica, attribuzione e tracciamento |
 | **Finestra di silenzio notturno** | rispetta il riposo | una condizione grave non viene segnalata | applicabile solo alle severità basse, mai a quelle alte, e la regola è dichiarata al paziente |
@@ -1503,24 +1503,24 @@ mai dedotte dal sistema** (decisione **D21**).
 
 Le ragioni sono quattro, e sono cumulative.
 
-**Prima ragione — clinica.** La normalità è individuale. Lo stesso valore di saturazione, di
+**Prima ragione - clinica.** La normalità è individuale. Lo stesso valore di saturazione, di
 pressione, di frequenza cardiaca o di peso è adeguato per una persona e inaccettabile per
 un'altra, in funzione della patologia, dello stadio, delle terapie in corso, dell'età e della
 storia. Il valore clinicamente utile in cronicità è spesso lo **scostamento dal valore abituale
 di quella persona**, non un intervallo di popolazione.
 
-**Seconda ragione — organizzativa.** La soglia determina il carico di lavoro del servizio. Una
+**Seconda ragione - organizzativa.** La soglia determina il carico di lavoro del servizio. Una
 soglia stretta genera allarmi che qualcuno deve gestire; se quel qualcuno non esiste, la soglia
 non è configurabile in astratto ma solo in rapporto alla capacità di risposta dichiarata
 (§ 4.5). È una decisione che appartiene a chi organizza il servizio, non a chi scrive il
 motore.
 
-**Terza ragione — regolatoria.** La soglia è contenuto del **piano di telemonitoraggio**, che è
+**Terza ragione - regolatoria.** La soglia è contenuto del **piano di telemonitoraggio**, che è
 un documento sanitario individuale, redatto e firmato da un professionista, con un contenuto
 informativo definito dal DM 19 novembre 2025 (§ 3.5). Una soglia nel codice sorgente è una
 parte di un documento sanitario scritta da uno sviluppatore.
 
-**Quarta ragione — di responsabilità.** Se la soglia è del sistema, il sistema ha deciso. Se la
+**Quarta ragione - di responsabilità.** Se la soglia è del sistema, il sistema ha deciso. Se la
 soglia è del professionista, il professionista ha deciso e il sistema ha eseguito. È la
 differenza fra un dispositivo che supporta una decisione e un dispositivo che la assume, e ha
 conseguenze sulla classificazione, sulla valutazione clinica e sulla responsabilità.
@@ -1553,7 +1553,7 @@ tre motivi.
 **Primo: un valore predefinito viene accettato.** È l'effetto meglio documentato di tutta
 l'interazione uomo-macchina. Un valore proposto dal sistema viene confermato dalla maggior
 parte degli utenti, specialmente sotto pressione di tempo. Proporre una soglia equivale, nella
-pratica, a stabilirla — con l'aggravante che la responsabilità appare formalmente di chi ha
+pratica, a stabilirla - con l'aggravante che la responsabilità appare formalmente di chi ha
 confermato.
 
 **Secondo: esistono popolazioni per cui il valore «normale» è pericoloso.** Il caso più noto e
@@ -1580,14 +1580,14 @@ Esempi analoghi si ripetono in tutte e cinque le condizioni del § 2:
   raggiungibili né desiderabili.
 
 **Terzo: un valore predefinito è una dichiarazione clinica non firmata.** Se il sistema propone
-una soglia, quel valore proviene da qualcuno: da una linea guida — quale, in quale versione,
-per quale popolazione? — oppure da nessuno. Nel primo caso servono la fonte e la sua licenza;
+una soglia, quel valore proviene da qualcuno: da una linea guida - quale, in quale versione,
+per quale popolazione? - oppure da nessuno. Nel primo caso servono la fonte e la sua licenza;
 nel secondo il sistema sta producendo contenuto clinico anonimo, che è precisamente ciò che il
 progetto non fa.
 
 > **La forma corretta.** Il campo soglia parte **vuoto e obbligatorio**. Il sistema può mostrare
 > accanto, in sola lettura e chiaramente attribuiti, i valori indicati dal percorso adottato
-> dall'organizzazione — con citazione della fonte e della versione — e può offrire un'azione
+> dall'organizzazione - con citazione della fonte e della versione - e può offrire un'azione
 > esplicita di copia. Ciò che il sistema non fa è **precompilare**. La differenza fra «mostrare
 > un riferimento attribuito» e «precompilare un campo» è invisibile a chi scrive il codice e
 > decisiva per chi ne risponde.
@@ -1609,7 +1609,7 @@ irreversibile:
 | Chiusura | esito tipizzato, azione intrapresa, eventuale collegamento alla revisione del piano |
 | Configurazione della copertura | versionata, perché determina se un mancato riscontro era atteso o anomalo |
 
-Tutto questo ricade sotto il vincolo **V5** del progetto — auditabilità immutabile — con
+Tutto questo ricade sotto il vincolo **V5** del progetto - auditabilità immutabile - con
 l'avvertenza registrata nella decisione **D42**: il versionamento delle entità **non è**
 immutabilità, e la non alterabilità richiede catena di impronte e conservazione separata dal
 sistema che genera gli eventi.
@@ -1687,7 +1687,7 @@ intervenire. Distinguerle è, in gran parte, un problema tecnico risolvibile.
 > progettazione dell'interfaccia** che si manifesta nel comportamento di chi la usa. Se una
 > persona non conferma la misura, la domanda corretta non è perché non l'abbia fatto, ma perché
 > l'interfaccia abbia reso possibile non farlo. Il modulo
-> [15 — Regolatorio da zero](./15-regolatorio-da-zero.md) tratta la nozione per esteso, ed è
+> [15 - Regolatorio da zero](./15-regolatorio-da-zero.md) tratta la nozione per esteso, ed è
 > quella che vale.
 
 L'ultima riga è il punto. **L'ultima categoria non è distinguibile con mezzi tecnici**, e quindi
@@ -1725,7 +1725,7 @@ Le tecniche, in ordine di efficacia.
 **Una regola trasversale che vale in tutti e sei i casi:** il sistema deve distinguere fra
 *misura non pervenuta* e *misura non attesa*. Un paziente il cui piano prevede due rilevazioni
 a settimana non è silente il martedì. La finestra di attesa deriva dal piano, con la sua
-frequenza codificata e la sua fascia oraria — che sono, come si è visto al § 3.5, esattamente
+frequenza codificata e la sua fascia oraria - che sono, come si è visto al § 3.5, esattamente
 gli attributi che il piano di telemonitoraggio contiene.
 
 ### 8.5 Il guasto sistemico è il caso peggiore
@@ -1771,8 +1771,8 @@ vecchio dell'ultimo valutato deve poter innescare una **rivalutazione**, con la 
 che una rivalutazione che genera un allarme su un fatto di tre giorni prima ha un valore
 clinico limitato e va segnalata come tale.
 
-**Dato duplicato.** La stessa misura ritrasmessa. Serve un criterio di identità della misura —
-dispositivo, parametro, istante, valore — e un comportamento idempotente. Un duplicato che
+**Dato duplicato.** La stessa misura ritrasmessa. Serve un criterio di identità della misura -
+dispositivo, parametro, istante, valore - e un comportamento idempotente. Un duplicato che
 genera un secondo allarme identico è, per il destinatario, un difetto di affidabilità che
 riduce la fiducia nell'intero sistema.
 
@@ -1827,14 +1827,13 @@ Tre nozioni che vanno tenute distinte, perché hanno destini organizzativi diver
 | Termine | Definizione operativa | Che cosa comporta |
 |---|---|---|
 | **Evento avverso** | un danno subito dal paziente causato dalla gestione sanitaria e non dalla sua condizione clinica | analisi, segnalazione secondo le procedure dell'organizzazione, azioni correttive |
-| **Evento avverso prevenibile** | evento avverso che sarebbe stato evitabile con una gestione conforme allo stato dell'arte | è la parte su cui si può agire, ed è l'oggetto proprio della gestione del rischio |
 | **Quasi evento** (*near miss*) | un evento che avrebbe potuto causare un danno ma non lo ha causato, per intercettazione o per caso | **è la fonte di apprendimento più preziosa**: stessa dinamica, nessun danno, nessuna pressione difensiva |
 | **Evento sentinella** | evento avverso di particolare gravità, potenzialmente indicativo di un grave malfunzionamento del sistema, tale da richiedere un'indagine immediata | avvia un'indagine strutturata e, nell'ordinamento italiano, un obbligo di segnalazione secondo il sistema nazionale di riferimento `[NV]` sugli estremi normativi e sull'elenco ufficiale degli eventi |
 
 **Il quasi evento è la categoria che il software può moltiplicare.** Un sistema che registra i
-tentativi bloccati — la firma rifiutata perché il documento non era completo, l'allarme non
+tentativi bloccati - la firma rifiutata perché il documento non era completo, l'allarme non
 consegnato e riconsegnato per escalation, il valore fuori limite rifiutato in fase di
-configurazione, il paziente sbagliato individuato prima della sessione — sta producendo un
+configurazione, il paziente sbagliato individuato prima della sessione - sta producendo un
 flusso continuo di quasi eventi. Se quel flusso viene conservato e analizzato, il servizio
 migliora; se viene scartato perché «non è successo niente», si butta via l'unica sorgente di
 informazione a costo zero che il sistema possiede.
@@ -1872,8 +1871,8 @@ individuata **impedisce il ripetersi dell'evento anche con persone diverse**. «
 personale» e «richiamo all'attenzione» sono i due esiti che segnalano che l'analisi si è
 fermata troppo presto, perché non modificano il sistema.
 
-Accanto all'analisi retrospettiva esiste quella **prospettica** — l'analisi dei modi di guasto
-e dei loro effetti — che esamina un processo *prima* che accada qualcosa, individua i punti in
+Accanto all'analisi retrospettiva esiste quella **prospettica** - l'analisi dei modi di guasto
+e dei loro effetti - che esamina un processo *prima* che accada qualcosa, individua i punti in
 cui può fallire, ne stima gravità, probabilità e rilevabilità, e ne ordina la priorità di
 correzione. È la controparte metodologica dell'analisi del rischio di ISO 14971 nel mondo
 organizzativo sanitario, e i due esercizi si alimentano a vicenda.
@@ -1881,15 +1880,15 @@ organizzativo sanitario, e i due esercizi si alimentano a vicenda.
 ### 9.5 La cultura della segnalazione è non punitiva, e la ragione è tecnica
 
 Un sistema di sicurezza si nutre di segnalazioni. Se le segnalazioni producono conseguenze per
-chi le fa, le segnalazioni si fermano — e l'organizzazione, priva di dati, conclude che i
+chi le fa, le segnalazioni si fermano - e l'organizzazione, priva di dati, conclude che i
 problemi sono diminuiti. È la dinamica più documentata e più prevedibile della sicurezza
 organizzativa.
 
 Per questo i sistemi di segnalazione sono progettati come **non punitivi**: la segnalazione di
 un evento o di un quasi evento non è un'ammissione di colpa e non innesca procedimenti
 disciplinari. La formula corrente è **cultura giusta** (*just culture*), che distingue l'errore
-umano — trattato con la riprogettazione del sistema — dal comportamento a rischio — trattato con
-il supporto e la correzione — dalla violazione consapevole e ingiustificata delle regole, che
+umano - trattato con la riprogettazione del sistema - dal comportamento a rischio - trattato con
+il supporto e la correzione - dalla violazione consapevole e ingiustificata delle regole, che
 resta sanzionabile. Non è impunità: è la separazione fra apprendimento e sanzione.
 
 **Traduzione per chi progetta software**, perché questa cultura ha requisiti tecnici precisi:
@@ -1964,15 +1963,15 @@ Due avvertenze che il progetto ha già registrato nella propria ricerca.
 progettazione; (b) misure di protezione nel dispositivo o nel processo; (c) informazioni per la
 sicurezza ed eventuale addestramento. Non si può saltare al terzo livello perché è il più
 economico. Un avviso nella documentazione è la misura più debole, e va usato solo per ciò che
-non è eliminabile per progetto — come nel caso della dichiarazione di copertura oraria del
+non è eliminabile per progetto - come nel caso della dichiarazione di copertura oraria del
 § 4.5, dove il rischio è per costruzione informativo.
 
 **ISO 14971 riguarda il danno alle persone, non il rischio per i diritti e le libertà degli
 interessati ai sensi dell'art. 35 del GDPR.** Sono due valutazioni distinte, con metodi e
-criteri diversi, che **non vanno fuse** — è l'errore più comune nei progetti di sanità digitale
-— ma vanno **collegate**, perché una violazione di riservatezza può produrre un danno alla
+criteri diversi, che **non vanno fuse** - è l'errore più comune nei progetti di sanità digitale
+- ma vanno **collegate**, perché una violazione di riservatezza può produrre un danno alla
 persona e alcuni scenari compaiono legittimamente in entrambi i file. Il modulo
-[03 — Il dato clinico](03-il-dato-clinico.md) tratta il versante privacy.
+[03 - Il dato clinico](03-il-dato-clinico.md) tratta il versante privacy.
 
 ### 9.7 IEC 62366-1: che cos'è un errore d'uso
 
@@ -2022,7 +2021,7 @@ di usabilità con collegamento incrociato al file di rischio.
 
 ### 9.8 Scenari d'uso pericolosi propri del telemonitoraggio
 
-Il progetto dispone già di un elenco di scenari relativi alla sessione video — paziente
+Il progetto dispone già di un elenco di scenari relativi alla sessione video - paziente
 sbagliato, stato di registrazione mal percepito, qualità degradata non riconosciuta, referto
 creduto trasmesso, accesso fallito, controllo non individuabile da screen reader. Il
 telemonitoraggio ne aggiunge una famiglia propria, che discende direttamente dai paragrafi
@@ -2131,8 +2130,8 @@ dimostrarla, non è soddisfatta. Le voci in **grassetto** sono divieti assoluti.
     generazione e persistiti; mai dedotti alla notifica.
 34. Un allarme tecnico non risolto entro un tempo definito **si converte** in allarme clinico
     di assenza di sorveglianza.
-35. Ogni tecnica di riduzione del rumore — isteresi, persistenza, raggruppamento, soppressione,
-    sospensione, silenzio notturno — è configurata da un clinico, dichiarata, tracciata e
+35. Ogni tecnica di riduzione del rumore - isteresi, persistenza, raggruppamento, soppressione,
+    sospensione, silenzio notturno - è configurata da un clinico, dichiarata, tracciata e
     valutata nel file di rischio con il ritardo che introduce.
 36. Il raggruppamento eredita la severità massima del gruppo. **Mai la media, mai la prima.**
 37. La catena di escalation è provabile a freddo, e la prova è periodica.
@@ -2163,8 +2162,8 @@ dimostrarla, non è soddisfatta. Le voci in **grassetto** sono divieti assoluti.
     orario, non costanti.
 48. Gli item che innescano l'uscita dal canale sono redatti da un clinico e marcati nel piano;
     il sistema li riconosce, non li inferisce.
-49. Le tre funzionalità sotto controllo delle modifiche — allerta su soglia, riproduzione con
-    miglioramento dell'immagine, refertazione assistita — non si toccano senza valutazione di
+49. Le tre funzionalità sotto controllo delle modifiche - allerta su soglia, riproduzione con
+    miglioramento dell'immagine, refertazione assistita - non si toccano senza valutazione di
     impatto regolatorio (decisione **D26**).
 
 ### 10.8 Sicurezza, tracciabilità, processo
@@ -2174,7 +2173,7 @@ dimostrarla, non è soddisfatta. Le voci in **grassetto** sono divieti assoluti.
 51. Ogni entità, evento e riga di audit porta l'identificativo di tenant (V4).
 52. Esiste un canale di segnalazione dentro il prodotto, distinto dall'assistenza tecnica, con
     un tempo di risposta al segnalante.
-53. I quasi eventi — tentativi bloccati, rifiuti di validazione, escalation riuscite — sono
+53. I quasi eventi - tentativi bloccati, rifiuti di validazione, escalation riuscite - sono
     conservati e analizzati, non scartati.
 54. Ogni requisito che discende da questo modulo porta un identificativo stabile e non viene
     mai rinumerato: la tracciabilità richiesta da IEC 62304 non si ricostruisce a posteriori
@@ -2253,7 +2252,7 @@ dimostrarla, non è soddisfatta. Le voci in **grassetto** sono divieti assoluti.
 | **Attività di base della vita quotidiana (ADL)** | Funzioni la cui perdita rende necessaria l'assistenza diretta: igiene, vestirsi, spostarsi, alimentarsi, continenza |
 | **Attività strumentali della vita quotidiana (IADL)** | Funzioni più complesse che si perdono per prime: telefono, spesa, pasti, trasporti, **gestione dei farmaci**, denaro |
 | **Case manager** | Figura di coordinamento continuativo della presa in carico, punto di contatto del paziente; micro-servizio essenziale del telemonitoraggio |
-| **Complessità assistenziale** | Insieme delle dimensioni non cliniche — sociali, abitative, cognitive, di alfabetizzazione — che determinano la realizzabilità di un percorso a distanza |
+| **Complessità assistenziale** | Insieme delle dimensioni non cliniche - sociali, abitative, cognitive, di alfabetizzazione - che determinano la realizzabilità di un percorso a distanza |
 | **Condizione latente** | Falla introdotta a monte da decisioni di progettazione o organizzazione, innocua finché non incontra la circostanza che la attiva |
 | **Copertura del servizio** | Fasce orarie e giorni in cui esiste una risposta professionale agli allarmi, con i relativi tempi; è un requisito di sicurezza e un dato configurato |
 | **Cronico (malattia)** | Condizione che non si risolve e si accompagna alla persona; si controlla, non si guarisce |
@@ -2264,6 +2263,7 @@ dimostrarla, non è soddisfatta. Le voci in **grassetto** sono divieti assoluti.
 | **Evento avverso** | Danno subito dal paziente causato dalla gestione sanitaria e non dalla sua condizione clinica |
 | **Evento sentinella** | Evento avverso di particolare gravità, indicativo di un malfunzionamento del sistema, che richiede indagine immediata |
 | **Falsa rassicurazione** | Riduzione della vigilanza della persona indotta dall'esistenza di un servizio che essa percepisce come sorveglianza |
+| **Finestra di attesa** | Intervallo, derivato dal piano, entro cui una misura è attesa; il suo decorso senza misura è un evento clinico |
 | **Fragilità** | Ridotta riserva funzionale: risposta sproporzionata e spesso non reversibile a uno stress modesto |
 | **Isteresi (di un allarme)** | Uso di soglie diverse per l'attivazione e per il rientro, per evitare l'oscillazione |
 | **Multimorbilità** | Coesistenza di due o più condizioni croniche; condizione a sé, non somma delle malattie |
@@ -2286,7 +2286,6 @@ dimostrarla, non è soddisfatta. Le voci in **grassetto** sono divieti assoluti.
 | **Triage** | Processo di assegnazione della priorità temporale di valutazione in base al rischio di deterioramento nell'attesa; in Italia a cinque livelli `[NV]` |
 | **Uso anomalo** (*abnormal use*, IEC 62366-1) | Violazione intenzionale e ingiustificabile dell'uso previsto; fuori dal perimetro della norma, dentro quello della gestione del rischio |
 | **Valore predittivo positivo** | Probabilità che, dato un allarme, l'evento sia realmente in corso; dipende dalla prevalenza e non dalla sola sensibilità |
-| **Finestra di attesa** | Intervallo, derivato dal piano, entro cui una misura è attesa; il suo decorso senza misura è un evento clinico |
 
 
 ---

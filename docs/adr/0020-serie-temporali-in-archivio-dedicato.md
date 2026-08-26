@@ -1,18 +1,18 @@
 ---
-title: "ADR-0020 — Serie temporali in archivio dedicato; le metriche del canale non sono osservazioni cliniche"
+title: "ADR-0020 - Serie temporali in archivio dedicato; le metriche del canale non sono osservazioni cliniche"
 sidebar_position: 20
 description: Perché parametri clinici e metriche di canale sono due serie con regimi opposti, perché non stanno in tabelle relazionali generiche e perché una metrica di rete non deve entrare nella cartella clinica.
 ---
 
-# ADR-0020 — Serie temporali in archivio dedicato; le metriche del canale non sono osservazioni cliniche
+# ADR-0020 - Serie temporali in archivio dedicato; le metriche del canale non sono osservazioni cliniche
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Vincoli di riferimento**: V2; V-155 dell'area sicurezza
 
 ## Contesto
 
-Il sistema produce due famiglie di dati a serie temporale: i **parametri clinici** — misure di
-telemonitoraggio e risposte a questionari — e le **metriche del canale** — ritardo, perdita,
+Il sistema produce due famiglie di dati a serie temporale: i **parametri clinici** - misure di
+telemonitoraggio e risposte a questionari - e le **metriche del canale** - ritardo, perdita,
 variazione del ritardo, ritmo di trasmissione, tipo di percorso di rete.
 
 Superficialmente si assomigliano: numeri con un istante, prodotti a ritmo elevato, consultati per
@@ -21,7 +21,7 @@ confusione.
 
 ## Alternative valutate
 
-### Alternativa 1 — Entrambe come osservazioni cliniche nel formato di scambio, persistite in tabelle relazionali
+### Alternativa 1 - Entrambe come osservazioni cliniche nel formato di scambio, persistite in tabelle relazionali
 
 *Vantaggi*: un solo meccanismo; le metriche diventano immediatamente esponibili nel piano clinico;
 nessun archivio aggiuntivo.
@@ -42,13 +42,13 @@ nessun archivio aggiuntivo.
 
 **Scartata.**
 
-### Alternativa 2 — Entrambe in archivio a serie temporali, con lo stesso regime
+### Alternativa 2 - Entrambe in archivio a serie temporali, con lo stesso regime
 
 *Vantaggi*: un solo archivio; operazioni native adeguate.
 
 *Compromessi*: resta il problema del regime unico. **Scartata.**
 
-### Alternativa 3 — Due serie con regimi distinti, entrambe in strutture dedicate a serie temporali,
+### Alternativa 3 - Due serie con regimi distinti, entrambe in strutture dedicate a serie temporali,
 rappresentazione clinica come proiezione costruita su richiesta
 
 *Vantaggi*: ciascuna famiglia ha il proprio regime; le operazioni sono native; la cartella clinica
@@ -99,6 +99,6 @@ Sei invarianti:
 
 ## Riferimenti
 
-[04 — Modello dati](../02_architecture/04-modello-dati.md#4-le-serie-temporali) ·
-[03 — Modello di dominio](../02_architecture/03-modello-di-dominio.md#47-contesto-telemonitoraggio) ·
+[04 - Modello dati](../02_architecture/04-modello-dati.md#4-le-serie-temporali) ·
+[03 - Modello di dominio](../02_architecture/03-modello-di-dominio.md#47-contesto-telemonitoraggio) ·
 ADR-0006

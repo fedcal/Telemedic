@@ -31,9 +31,9 @@ se è ben implementata e utile (vincolo `V-170`). Saperlo prima di scrivere il c
 differenza fra una discussione di dieci minuti e due settimane buttate.
 
 > **Prerequisito.** Questo modulo presuppone che tu abbia già letto
-> [00 — Come usare questa guida](00-come-usare-questa-guida.md) e che tu abbia percorso almeno il
+> [00 - Come usare questa guida](00-come-usare-questa-guida.md) e che tu abbia percorso almeno il
 > percorso di lettura del tuo profilo. Presuppone inoltre
-> [17 — L'ambiente di sviluppo](17-ambiente-di-sviluppo.md) per tutto ciò che riguarda
+> [17 - L'ambiente di sviluppo](17-ambiente-di-sviluppo.md) per tutto ciò che riguarda
 > l'esecuzione locale dei controlli.
 
 ---
@@ -46,32 +46,32 @@ risulterà compatta fino all'incomprensibilità.
 
 | Se ti interessa… | Area | Sezione di questo modulo | Primo modulo da leggere |
 |---|---|---|---|
-| Videochiamata, codec, qualità del media, relay | Tecnica | [§4](#4-area-tecnica) | [08 — WebRTC da zero](08-webrtc-da-zero.md) |
-| Struttura dei moduli del servizio, transazioni, concorrenza | Tecnica | [§4](#4-area-tecnica) | [11 — Fondamenti informatici](11-fondamenti-informatici.md) |
+| Videochiamata, codec, qualità del media, relay | Tecnica | [§4](#4-area-tecnica) | [08 - WebRTC da zero](08-webrtc-da-zero.md) |
+| Struttura dei moduli del servizio, transazioni, concorrenza | Tecnica | [§4](#4-area-tecnica) | [11 - Fondamenti informatici](11-fondamenti-informatici.md) |
 | Interfaccia utente, accessibilità, resa su schermo piccolo | Tecnica | [§4](#4-area-tecnica) | [11](11-fondamenti-informatici.md) §sull'interfaccia, poi [09](09-fondamenti-clinici.md) |
-| Base dati, migrazioni, isolamento fra tenant | Tecnica | [§4](#4-area-tecnica) | [11 — Fondamenti informatici](11-fondamenti-informatici.md) |
-| Perché i confini interni sono quelli e non altri | Architettura | [§5](#5-area-architetturale) | [11 — Fondamenti informatici](11-fondamenti-informatici.md) |
+| Base dati, migrazioni, isolamento fra tenant | Tecnica | [§4](#4-area-tecnica) | [11 - Fondamenti informatici](11-fondamenti-informatici.md) |
+| Perché i confini interni sono quelli e non altri | Architettura | [§5](#5-area-architetturale) | [11 - Fondamenti informatici](11-fondamenti-informatici.md) |
 | Eventi, outbox, idempotenza, ordinamento | Architettura | [§5](#5-area-architetturale) | [11](11-fondamenti-informatici.md), poi [13](13-protocolli.md) |
-| Registro immutabile, catena di impronte | Architettura e sicurezza | [§5](#5-area-architetturale), [§9](#9-area-sicurezza) | [12 — Crittografia e sicurezza](12-crittografia-e-sicurezza.md) |
-| Che cosa fa il sistema, per chi, con quali regole | Funzionale | [§6](#6-area-funzionale) | [02 — Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md) |
-| Allarmi, soglie, silenzio del paziente, escalation | Funzionale | [§6](#6-area-funzionale) | [10 — Percorsi di cura e sicurezza](10-percorsi-di-cura-e-sicurezza.md) |
+| Registro immutabile, catena di impronte | Architettura e sicurezza | [§5](#5-area-architetturale), [§9](#9-area-sicurezza) | [12 - Crittografia e sicurezza](12-crittografia-e-sicurezza.md) |
+| Che cosa fa il sistema, per chi, con quali regole | Funzionale | [§6](#6-area-funzionale) | [02 - Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md) |
+| Allarmi, soglie, silenzio del paziente, escalation | Funzionale | [§6](#6-area-funzionale) | [10 - Percorsi di cura e sicurezza del paziente](10-percorsi-di-cura-e-sicurezza.md) |
 | Accessibilità come requisito verificabile | Funzionale | [§6](#6-area-funzionale) | [10](10-percorsi-di-cura-e-sicurezza.md) §sull'errore d'uso |
-| FHIR, profili, risorse, ricerche | Protocolli | [§7](#7-area-protocolli) | [06 — FHIR da zero](06-fhir-da-zero.md) |
-| Messaggistica ospedaliera, profili di interoperabilità | Protocolli | [§7](#7-area-protocolli) | [05 — Gli standard di interoperabilità](05-standard-di-interoperabilita.md) |
-| Buste degli eventi, firma dei messaggi uscenti | Protocolli | [§7](#7-area-protocolli) | [13 — I protocolli](13-protocolli.md) |
-| Che cos'è clinicamente un referto, una misura, un consenso | Dominio | [§8](#8-area-dominio) | [03 — Il dato clinico](03-il-dato-clinico.md) |
-| Macchine a stati delle prestazioni, esiti, catalogo | Dominio | [§8](#8-area-dominio) | [02 — Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md) |
-| Terminologie cliniche e loro licenze | Dominio | [§8](#8-area-dominio) | [05 §8 — Le terminologie cliniche](05-standard-di-interoperabilita.md) |
-| Modello di minaccia, autorizzazione, cifratura | Sicurezza | [§9](#9-area-sicurezza) | [12 — Crittografia e sicurezza](12-crittografia-e-sicurezza.md) |
+| FHIR, profili, risorse, ricerche | Protocolli | [§7](#7-area-protocolli) | [06 - FHIR da zero](06-fhir-da-zero.md) |
+| Messaggistica ospedaliera, profili di interoperabilità | Protocolli | [§7](#7-area-protocolli) | [05 - Gli standard di interoperabilità](05-standard-di-interoperabilita.md) |
+| Buste degli eventi, firma dei messaggi uscenti | Protocolli | [§7](#7-area-protocolli) | [13 - I protocolli](13-protocolli.md) |
+| Che cos'è clinicamente un referto, una misura, un consenso | Dominio | [§8](#8-area-dominio) | [03 - Il dato clinico](03-il-dato-clinico.md) |
+| Macchine a stati delle prestazioni, esiti, catalogo | Dominio | [§8](#8-area-dominio) | [02 - Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md) |
+| Terminologie cliniche e loro licenze | Dominio | [§8](#8-area-dominio) | [05 §8 - Le terminologie cliniche](05-standard-di-interoperabilita.md) |
+| Modello di minaccia, autorizzazione, cifratura | Sicurezza | [§9](#9-area-sicurezza) | [12 - Crittografia e sicurezza](12-crittografia-e-sicurezza.md) |
 | Tracciamento degli accessi e sua dimostrabilità | Sicurezza | [§9](#9-area-sicurezza) | [12](12-crittografia-e-sicurezza.md) §sulle catene di impronte |
-| Identità digitale nazionale, livelli di garanzia | Sicurezza e integrazione | [§9](#9-area-sicurezza), [§10](#10-area-integrazione) | [04 — Identità e anagrafiche](04-identita-e-anagrafiche.md) |
-| Collegare un gestionale esistente | Integrazione | [§10](#10-area-integrazione) | [14 — I flussi funzionali](14-flussi-funzionali.md) |
-| Componente incorporabile, tema, marchio bianco | Integrazione | [§10](#10-area-integrazione) | [13 — I protocolli](13-protocolli.md) |
-| Fascicolo tecnico, gestione del rischio, usabilità regolatoria | Conformità | [§11](#11-area-conformita) | [15 — Il quadro regolatorio da zero](15-regolatorio-da-zero.md) |
-| Verificare che una fonte citata sia esatta e vigente | Conformità e guida | [§11](#11-area-conformita), [§12](#12-guida-dei-fondamenti) | [20 — Fonti primarie](20-fonti-primarie.md) |
-| Spiegare qualcosa a chi parte da zero | Guida | [§12](#12-guida-dei-fondamenti) | [00 — Come usare questa guida](00-come-usare-questa-guida.md) |
-| Traduzione integrale in inglese | Guida e sito | [§12](#12-guida-dei-fondamenti), [§13](#13-sito-di-documentazione) | [19 — Glossario](19-glossario.md) |
-| Navigazione, ricerca, cambio lingua, costruzione del sito | Sito | [§13](#13-sito-di-documentazione) | [17 §9 — I controlli](17-ambiente-di-sviluppo.md) |
+| Identità digitale nazionale, livelli di garanzia | Sicurezza e integrazione | [§9](#9-area-sicurezza), [§10](#10-area-integrazione) | [04 - Identità e anagrafiche](04-identita-e-anagrafiche.md) |
+| Collegare un gestionale esistente | Integrazione | [§10](#10-area-integrazione) | [14 - I flussi funzionali](14-flussi-funzionali.md) |
+| Componente incorporabile, tema, marchio bianco | Integrazione | [§10](#10-area-integrazione) | [13 - I protocolli](13-protocolli.md) |
+| Fascicolo tecnico, gestione del rischio, usabilità regolatoria | Conformità | [§11](#11-area-conformita) | [15 - Il quadro regolatorio da zero](15-regolatorio-da-zero.md) |
+| Verificare che una fonte citata sia esatta e vigente | Conformità e guida | [§11](#11-area-conformita), [§12](#12-guida-dei-fondamenti) | [20 - Fonti primarie](20-fonti-primarie.md) |
+| Spiegare qualcosa a chi parte da zero | Guida | [§12](#12-guida-dei-fondamenti) | [00 - Come usare questa guida](00-come-usare-questa-guida.md) |
+| Traduzione integrale in inglese | Guida e sito | [§12](#12-guida-dei-fondamenti), [§13](#13-sito-di-documentazione) | [19 - Glossario](19-glossario.md) |
+| Navigazione, ricerca, cambio lingua, costruzione del sito | Sito | [§13](#13-sito-di-documentazione) | [17 §9 - I controlli](17-ambiente-di-sviluppo.md) |
 
 Due voci non compaiono nella tabella perché non sono aree ma **attraversano tutte**: la
 roadmap, che raccoglie il quando e non il che cosa
@@ -115,21 +115,21 @@ questa guida esiste per ridurre.
 Prima delle sezioni specifiche, ciò che non cambia. Sono in ordine di frequenza con cui vengono
 violate.
 
-**Prima — nessun dato reale, in nessun artefatto.** Vale per codice, prove, esempi di
+**Prima - nessun dato reale, in nessun artefatto.** Vale per codice, prove, esempi di
 documentazione, segnalazioni, immagini di schermata, messaggi di commit e cronologia. Vale anche
 per i tuoi dati. La ragione, la tecnica di generazione e il marcatore di sinteticità persistito
 nel dato sono in [03 §10](03-il-dato-clinico.md) e in
 [17 §5](17-ambiente-di-sviluppo.md). Il controllo `G10` è l'ultima rete, non la prima: se scatta,
 qualcosa a monte è già andato storto.
 
-**Seconda — la regola di riservatezza `R0`.** Nessun nome di azienda, marchio, prodotto
+**Seconda - la regola di riservatezza `R0`.** Nessun nome di azienda, marchio, prodotto
 commerciale o dominio di potenziali partner compare in alcun artefatto del progetto. Si scrive
 sempre «un gestionale sanitario cloud», «un sistema di cartella clinica di terze parti»,
 «l'integratore». Il controllo `G11` la traduce in verifica automatica. Non è una preferenza
 editoriale: esistono ragioni di riservatezza che non spetta a chi contribuisce valutare.
 
-**Terza — le formule che nessun artefatto pubblico può usare.** Nessun testo del progetto —
-pagina, titolo di sezione, descrizione di interfaccia, messaggio di errore, nota di rilascio —
+**Terza - le formule che nessun artefatto pubblico può usare.** Nessun testo del progetto -
+pagina, titolo di sezione, descrizione di interfaccia, messaggio di errore, nota di rilascio -
 può affermare o lasciare intendere una conformità, una marcatura o una certificazione che non
 esistono. La tabella delle formule vietate e di quelle ammesse è in
 [`docs/08_compliance/01-inquadramento-normativo.md`](../08_compliance/01-inquadramento-normativo.md)
@@ -139,18 +139,18 @@ specifiche informative o a bozze scadute, è in
 [`docs/04_protocols/10-conformita-e-prove.md`](../04_protocols/10-conformita-e-prove.md) §2
 (`V-133`).
 
-**Quarta — gli identificativi non si rinumerano.** `RF-*`, `RNF-*`, `BR-*`, `ATT-*`, `UC-*`,
+**Quarta - gli identificativi non si rinumerano.** `RF-*`, `RNF-*`, `BR-*`, `ATT-*`, `UC-*`,
 `OUT-*` e i codici di esito sono congelati. Un identificativo riusato per un requisito diverso
-rende inservibile l'intera matrice di tracciabilità, che è una delle attività
-**retroattivamente irrecuperabili** della decisione `D45`. Gli intervalli liberi si chiedono in
+rende inservibile l'intera matrice di tracciabilità, e mantenere la tracciabilità è una delle
+attività **retroattivamente irrecuperabili** della decisione `D45`. Gli intervalli liberi si chiedono in
 bacheca prima dell'uso (`V-120`).
 
-**Quinta — una proposta che tocca il contenuto italiano non è completa finché non aggiorna
+**Quinta - una proposta che tocca il contenuto italiano non è completa finché non aggiorna
 l'inglese.** Il controllo `G8` blocca la divergenza. Non è un rischio di traduzione: è contenuto
 normativo diverso in due lingue, che in un contesto di dispositivo medico è un difetto
 documentale.
 
-**Sesta — i controlli obbligatori non si aggirano.** Sono condizioni di ammissibilità, non
+**Sesta - i controlli obbligatori non si aggirano.** Sono condizioni di ammissibilità, non
 giudizi di qualità: aggirarne uno produce un artefatto che non avrebbe potuto essere prodotto e
 che porta con sé una dichiarazione falsa. Se un controllo blocca legittimamente uno sviluppo
 legittimo, **si corregge il controllo con la procedura prevista**, non lo si disattiva per la
@@ -180,8 +180,10 @@ diverse volte tanto.
 
 Il secondo è l'**interfaccia**, dove i criteri di accettazione esistono già in forma verificabile
 (`M1`–`M8` per la resa su schermo piccolo, `A1`–`A10` per l'accessibilità) e mancano le
-implementazioni. È il fronte con la barriera d'ingresso più bassa e l'impatto più alto, perché il
-vincolo trasversale `V-06` rende ogni schermata non accessibile una schermata non completa.
+implementazioni. È il fronte con la barriera d'ingresso più bassa e l'impatto più alto, perché ogni
+schermata che viola uno dei criteri `A1`–`A10` non è completabile nel senso di
+[`01_technical/04-frontend.md`](../01_technical/04-frontend.md) §7.2, e quindi non è una
+schermata terminata.
 
 Il terzo è la **misura**: il piano media espone contatori grezzi che vanno differenziati fra
 campioni consecutivi prima di significare qualcosa (`V-113`), e il dispositivo di riferimento su
@@ -193,7 +195,7 @@ facendo.
 
 In quest'ordine, e l'ordine conta.
 
-1. [11 — Fondamenti informatici](11-fondamenti-informatici.md) per intero se non hai familiarità
+1. [11 - Fondamenti informatici](11-fondamenti-informatici.md) per intero se non hai familiarità
    con consistenza, aggregati, idempotenza, contropressione, percentili e sicurezza a livello di
    riga. L'area tecnica **presuppone** questo modulo e non ne ripete un concetto.
 2. [`docs/01_technical/01-stack-e-motivazioni.md`](../01_technical/01-stack-e-motivazioni.md),
@@ -205,12 +207,12 @@ In quest'ordine, e l'ordine conta.
    perché la soglia di copertura è differenziata per ambito e la tracciabilità requisito → prova
    è una condizione di certificabilità, non una buona pratica.
 
-Se tocchi il **media**, aggiungi [08 — WebRTC da zero](08-webrtc-da-zero.md) per intero **prima**
+Se tocchi il **media**, aggiungi [08 - WebRTC da zero](08-webrtc-da-zero.md) per intero **prima**
 del capitolo 05, e leggi il §1 di quel capitolo per primo: distingue ciò che il progetto realizza
 da ciò che appartiene al protocollo e al navigatore, ed è la distinzione che risparmia i due
 errori più costosi dell'area.
 
-Se tocchi l'**interfaccia**, aggiungi [09 — Il corpo, i parametri, il ragionamento
+Se tocchi l'**interfaccia**, aggiungi [09 - Il corpo, i parametri, il ragionamento
 clinico](09-fondamenti-clinici.md). Non è un capriccio: chi progetta il campo in cui si inserisce
 una saturazione senza sapere che cosa misura una saturazione produce un campo che accetta valori
 impossibili e rifiuta valori legittimi.
@@ -224,8 +226,8 @@ automatica, prova manuale con tecnologia assistiva, aggiornamento della document
 inglese, controlli obbligatori in locale.
 
 Alternativa di pari dimensione sul lato servizio: **aggiungi la scheda di un componente di terze
-parti mancante** alla distinta dei materiali — funzione nel sistema, alternativa nota, canale
-degli avvisi, impatto sul rischio — e fai passare il controllo `G5`. È il tipo di lavoro che
+parti mancante** alla distinta dei materiali - funzione nel sistema, alternativa nota, canale
+degli avvisi, impatto sul rischio - e fai passare il controllo `G5`. È il tipo di lavoro che
 sembra burocratico e che, se non fatto ora, non si fa più.
 
 ### 4.4 Errori tipici di chi arriva da un altro dominio
@@ -282,7 +284,7 @@ minima e le vie d'uscita quando un controllo fallisce sono in
 Due verifiche in più che l'automazione non fa e che quest'area richiede comunque. La prima:
 **prova manuale con una tecnologia assistiva reale**, perché la verifica automatizzata intercetta
 una minoranza dei difetti di accessibilità. La seconda: se hai toccato il media, **prova in rete
-degradata**, con perdita e ritardo simulati, e non solo in rete locale — dove tutto funziona
+degradata**, con perdita e ritardo simulati, e non solo in rete locale - dove tutto funziona
 sempre.
 
 ---
@@ -311,7 +313,7 @@ deliberatamente non è deciso con i criteri per deciderlo. È il posto giusto da
 
 ### 5.2 Che cosa sapere prima
 
-1. [11 — Fondamenti informatici](11-fondamenti-informatici.md), integralmente. Quest'area
+1. [11 - Fondamenti informatici](11-fondamenti-informatici.md), integralmente. Quest'area
    presuppone contesto delimitato, aggregato, outbox transazionale, idempotenza, consistenza,
    sicurezza a livello di riga e percentili come vocabolario acquisito.
 2. [`docs/02_architecture/01-visione-architetturale.md`](../02_architecture/01-visione-architetturale.md),
@@ -324,8 +326,8 @@ deliberatamente non è deciso con i criteri per deciderlo. È il posto giusto da
    che è deliberatamente aperto.
 
 Se il tuo contributo tocca il registro immutabile, aggiungi
-[12 — Crittografia e sicurezza](12-crittografia-e-sicurezza.md), le sezioni su funzioni di hash e
-catene di impronte. Se tocca il modello dati, aggiungi [06 — FHIR da zero](06-fhir-da-zero.md),
+[12 - Crittografia e sicurezza](12-crittografia-e-sicurezza.md), le sezioni su funzioni di hash e
+catene di impronte. Se tocca il modello dati, aggiungi [06 - FHIR da zero](06-fhir-da-zero.md),
 perché il rapporto fra modello canonico e rappresentazione standard è il punto in cui l'area si
 gioca la propria sostituibilità.
 
@@ -333,7 +335,7 @@ gioca la propria sostituibilità.
 
 **Prendi una decisione già presa e verifica che il documento che la registra sia completo.** Un
 documento di decisione utile contiene quattro cose: il contesto, le alternative **con la ragione
-per cui sono state scartate**, la decisione e le conseguenze — comprese quelle sfavorevoli. Ne
+per cui sono state scartate**, la decisione e le conseguenze - comprese quelle sfavorevoli. Ne
 mancano regolarmente una o due. Aggiungere l'alternativa scartata che manca, o la conseguenza
 operativa che nessuno aveva scritto, è un contributo piccolo e di valore sproporzionato, perché è
 esattamente ciò che sei mesi dopo nessuno ricorda.
@@ -418,7 +420,7 @@ e metodo di verifica.
 
 Il lavoro aperto oggi è di due tipi. Il primo è la **copertura dei flussi di errore**: i flussi
 principali sono descritti, i flussi alternativi e di errore lo sono in modo diseguale, e in questo
-dominio è nei flussi di errore che si annida il danno — il paziente che non riesce a collegarsi
+dominio è nei flussi di errore che si annida il danno - il paziente che non riesce a collegarsi
 non è il paziente che non si è presentato, e i due casi hanno effetti amministrativi opposti
 (`V-141`). Il secondo è la **verifica dei criteri di accettazione contro utenti reali**, che oggi
 non è stata fatta e che senza un dispositivo di riferimento dichiarato non è nemmeno
@@ -426,14 +428,14 @@ completamente eseguibile (`Q-115`).
 
 ### 6.2 Che cosa sapere prima
 
-1. [02 — Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md). Senza questo modulo
+1. [02 - Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md). Senza questo modulo
    metà delle scelte dell'area sembra arbitraria: le definizioni sono normative, non commerciali,
    e la differenza fra televisita, teleconsulto e teleconsulenza cambia gli attori ammessi.
-2. [10 — Percorsi di cura e sicurezza del paziente](10-percorsi-di-cura-e-sicurezza.md),
+2. [10 - Percorsi di cura e sicurezza del paziente](10-percorsi-di-cura-e-sicurezza.md),
    **obbligatorio** se tocchi soglie, allarmi, silenzio del paziente o copertura oraria. È il
    modulo che spiega perché una scala clinica non è una formula e perché l'errore d'uso è una
    categoria distinta dal difetto.
-3. [14 — I flussi funzionali](14-flussi-funzionali.md), per vedere come i pezzi si incastrano
+3. [14 - I flussi funzionali](14-flussi-funzionali.md), per vedere come i pezzi si incastrano
    end-to-end, ripieghi compresi.
 4. [`docs/03_functional/07-fuori-perimetro.md`](../03_functional/07-fuori-perimetro.md), **prima**
    di proporre una funzionalità. Contiene ciò che il sistema deliberatamente non fa, con la
@@ -550,28 +552,28 @@ la richiesta di validare le risorse prima di aprire una proposta non è eseguibi
 
 ### 7.2 Che cosa sapere prima
 
-1. [05 — Gli standard di interoperabilità](05-standard-di-interoperabilita.md), che spiega perché
+1. [05 - Gli standard di interoperabilità](05-standard-di-interoperabilita.md), che spiega perché
    esistono, chi li scrive e come si leggono. Il §9 di quel modulo, su come si legge uno standard,
    è la parte che risparmia più tempo.
-2. [06 — FHIR da zero](06-fhir-da-zero.md) per intero se tocchi il piano clinico.
-3. [13 — I protocolli, uno per uno](13-protocolli.md), che contiene il catalogo ragionato con
+2. [06 - FHIR da zero](06-fhir-da-zero.md) per intero se tocchi il piano clinico.
+3. [13 - I protocolli, uno per uno](13-protocolli.md), che contiene il catalogo ragionato con
    stato e versione di ciascuna specifica. Il §9 è la tabella riassuntiva.
 4. [`docs/04_protocols/01-principi-di-interoperabilita.md`](../04_protocols/01-principi-di-interoperabilita.md),
    che dice quali versioni sono fissate, che cosa succede quando cambiano e che cosa è promesso a
    chi integra.
 
-Se tocchi il tempo reale, [08 — WebRTC da zero](08-webrtc-da-zero.md) è prerequisito e non
+Se tocchi il tempo reale, [08 - WebRTC da zero](08-webrtc-da-zero.md) è prerequisito e non
 sostituto: il capitolo 09 dell'area presuppone quel modulo integralmente.
 
 ### 7.3 Il primo contributo sensato
 
 **Prendi una specifica citata nell'area e verifica sul testo primario che la citazione sia
-esatta**: numero, sezione, stato, e — soprattutto — se la specifica sia stata superata da una più
+esatta**: numero, sezione, stato, e - soprattutto - se la specifica sia stata superata da una più
 recente. È un contributo che non richiede di scrivere codice, richiede di leggere con attenzione,
 e produce esattamente il tipo di correzione che nessuno trova per caso.
 
 Il secondo contributo di pari valore: **aggiungi una prova negativa**. Le prove negative di
-quest'area sono peculiari e insostituibili — verificano che qualcosa **non** accada. Che
+quest'area sono peculiari e insostituibili - verificano che qualcosa **non** accada. Che
 un'intestazione vietata dalla specifica non compaia; che un token privo del claim dell'attore non
 venga mai emesso; che un codice non catalogato non possa essere prodotto. Una prova negativa
 mancante è un divieto che esiste solo nella prosa.
@@ -614,13 +616,13 @@ schemi documentati; profili pubblicati e documento di capacità; tipi di evento 
 dato; ambiti di autorizzazione; identificatori dei tipi di problema e codici di esito; interfacce
 dei moduli sostituibili; protocollo di messaggistica del componente incorporabile. Tutto ciò è
 soggetto a un processo di dismissione a dodici mesi, e una modifica non additiva richiede una
-versione maggiore dichiarata — il controllo `G6` la intercetta.
+versione maggiore dichiarata - il controllo `G6` la intercetta.
 
 Non si toccano senza discussione neppure: la versione fissata di una guida o di un profilo; il
 catalogo unico dei codici di errore, che è generato e non scritto a mano (`V-130`); la forma della
 firma dei messaggi in uscita, che è asimmetrica per scelta motivata (`V-162`).
 
-Dove si discute: bacheca inter-agenti verso l'area competente, e — per ciò che è contratto —
+Dove si discute: bacheca inter-agenti verso l'area competente, e - per ciò che è contratto -
 documento di decisione registrato, perché la modifica ha effetti su soggetti esterni al progetto.
 
 ### 7.6 Come si verifica il proprio lavoro
@@ -630,7 +632,7 @@ costruzione e non scaricati al momento: un cambiamento a monte non può cambiare
 validazione già eseguita. Distinguere sempre, nel rapporto, la conformità al modello di base dalla
 conformità al profilo: è la distinzione che conta all'atto pratico.
 
-`[NV]` — nomi, versioni e modalità di invocazione degli strumenti non sono fissati (`Q-133`,
+`[NV]` - nomi, versioni e modalità di invocazione degli strumenti non sono fissati (`Q-133`,
 `Q-193`). Finché non lo sono, la verifica minima è: citazione controllata sul testo primario,
 prova negativa dove esiste un divieto, e dichiarazione esplicita di ciò che è scelta di progetto.
 
@@ -662,15 +664,15 @@ tradisce il concetto reale.
 
 ### 8.2 Che cosa sapere prima
 
-1. [03 — Il dato clinico](03-il-dato-clinico.md): che cos'è un dato relativo alla salute, perché è
+1. [03 - Il dato clinico](03-il-dato-clinico.md): che cos'è un dato relativo alla salute, perché è
    una categoria particolare, che cosa comporta trattarlo.
-2. [02 — Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md), per le definizioni
+2. [02 - Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md), per le definizioni
    normative e le condizioni di erogabilità.
-3. [09 — Il corpo, i parametri, il ragionamento clinico](09-fondamenti-clinici.md), che è il
+3. [09 - Il corpo, i parametri, il ragionamento clinico](09-fondamenti-clinici.md), che è il
    modulo che chi arriva dall'informatica è più tentato di saltare ed è quello che paga di più.
    Senza sapere che cosa misura una saturazione e perché un valore isolato non significa nulla si
    scrive codice che tratta un parametro vitale come un numero qualsiasi.
-4. [04 — Identità e anagrafiche](04-identita-e-anagrafiche.md), se tocchi soggetti, ruoli o
+4. [04 - Identità e anagrafiche](04-identita-e-anagrafiche.md), se tocchi soggetti, ruoli o
    deleghe.
 5. [`docs/05_domain/01-linguaggio-ubiquo.md`](../05_domain/01-linguaggio-ubiquo.md), che contiene
    i termini che sembrano sinonimi e non lo sono, e la regola di precedenza fra le fonti di
@@ -696,8 +698,8 @@ manca più spesso.
 
 **Chi arriva dall'informatica gestionale.**
 
-- **Riduce la misura a valore più istante.** Senza contesto — chi ha misurato, con quale
-  strumento, in quali condizioni, con quale unità, con quale affidabilità — la misura non è
+- **Riduce la misura a valore più istante.** Senza contesto - chi ha misurato, con quale
+  strumento, in quali condizioni, con quale unità, con quale affidabilità - la misura non è
   interpretabile. E istante di misura e istante di ricezione sono **due campi distinti
   obbligatori**: le regole operano sul primo (`V-124`).
 - **Tratta il ruolo come attributo della persona.** Lo stesso professionista opera in più
@@ -707,8 +709,8 @@ manca più spesso.
   con catena ricostruibile. Una modifica in luogo distrugge l'integrità proprio dove serve.
 - **Costruisce l'oscuramento nei consumatori.** L'oscuramento è applicato dal motore di
   autorizzazione, in un unico punto che filtra e calcola i totali sull'insieme filtrato; i sei
-  canali di inferenza — numerazione, conteggi, paginazione, notifiche, differenze fra
-  interrogazioni, messaggi d'errore — vanno chiusi tutti (`V-149`).
+  canali di inferenza - numerazione, conteggi, paginazione, notifiche, differenze fra
+  interrogazioni, messaggi d'errore - vanno chiusi tutti (`V-149`).
 - **Crea un solo tipo di «prestazione» che copre richiesta, esecuzione e addebito.** Produce campi
   nulli, regole condizionali fragili e rendicontazione impossibile.
 
@@ -741,9 +743,9 @@ manca più spesso.
 ### 8.6 Come si verifica il proprio lavoro
 
 **Prima verifica, di verità:** il modello che proponi sa distinguere i due casi che hanno effetti
-opposti? Prendi la coppia più vicina al tuo contributo — non presentato contro fallimento tecnico,
+opposti? Prendi la coppia più vicina al tuo contributo - non presentato contro fallimento tecnico,
 bozza contro firmato, revoca di un consenso contro revoca di un altro, assenza di misura contro
-misura nulla — e verifica che il modello li distingua.
+misura nulla - e verifica che il modello li distingua.
 
 **Seconda, di licenza:** il contributo introduce contenuto terminologico? Il controllo `G3` lo
 intercetta, ma è meglio saperlo prima: codice e identificatore di sistema sono sempre ammessi,
@@ -765,7 +767,7 @@ Perimetro: [`docs/06_security/`](../06_security/00-indice.md). Codice: `telemedi
 Quest'area **non è un elenco di misure**. Un elenco di misure è utile a chi ha già in testa il
 modello che le giustifica ed è dannoso a chi non ce l'ha, perché induce a credere che applicare la
 misura equivalga a ottenere la proprietà. Ogni misura arriva dopo il bene che protegge,
-l'avversario da cui lo protegge e la conseguenza — **clinica**, non solo informatica — del suo
+l'avversario da cui lo protegge e la conseguenza - **clinica**, non solo informatica - del suo
 fallimento.
 
 Tre fatti governano l'area e vanno letti prima di contribuirvi. **Non esistono dati non sensibili
@@ -784,17 +786,17 @@ quali la prova non è scrivibile e il vincolo resta una dichiarazione (`Q-196`).
 
 ### 9.2 Che cosa sapere prima
 
-1. [12 — Crittografia e sicurezza](12-crittografia-e-sicurezza.md). È il prerequisito integrale:
+1. [12 - Crittografia e sicurezza](12-crittografia-e-sicurezza.md). È il prerequisito integrale:
    riservatezza e integrità e non ripudio, modelli di minaccia, cifratura simmetrica e
    asimmetrica, funzioni di hash e catene di impronte, firma, infrastruttura a chiave pubblica,
    revoca, marca temporale, autenticazione e autorizzazione, accesso d'emergenza.
-2. [04 — Identità e anagrafiche](04-identita-e-anagrafiche.md), se tocchi identità, livelli di
+2. [04 - Identità e anagrafiche](04-identita-e-anagrafiche.md), se tocchi identità, livelli di
    garanzia o federazione.
-3. [13 — I protocolli](13-protocolli.md), le sezioni su autorizzazione delegata, scambio di token
+3. [13 - I protocolli](13-protocolli.md), le sezioni su autorizzazione delegata, scambio di token
    e firma dei messaggi.
 4. [`docs/06_security/01-modello-di-minaccia.md`](../06_security/01-modello-di-minaccia.md),
    sempre, perché è il documento da cui ogni misura dell'area discende.
-5. [08 — WebRTC da zero](08-webrtc-da-zero.md), se tocchi il piano media.
+5. [08 - WebRTC da zero](08-webrtc-da-zero.md), se tocchi il piano media.
 
 ### 9.3 Il primo contributo sensato
 
@@ -805,7 +807,7 @@ claim dell'attore non deve essere accettato; un messaggio d'errore non deve rive
 di un documento oscurato.
 
 È il contributo giusto per cominciare per tre ragioni: è piccolo, è verificabile, e in
-quest'area la prova negativa mancante è la forma più comune di difetto — il divieto è scritto
+quest'area la prova negativa mancante è la forma più comune di difetto - il divieto è scritto
 nella prosa e non esiste nel codice.
 
 ### 9.4 Errori tipici di chi arriva da un altro dominio
@@ -859,7 +861,7 @@ settoriale (`V-152`); la struttura del registro immutabile; la difesa primaria d
 che è l'isolamento di rete in uscita e non la lista di indirizzi vietati (`V-10`); la separazione
 fra chi gestisce gli allarmi tecnici e chi accede al contenuto clinico (`V-125`).
 
-Dove si discute: bacheca, e — per le vulnerabilità — **mai in una segnalazione pubblica**. La
+Dove si discute: bacheca, e - per le vulnerabilità - **mai in una segnalazione pubblica**. La
 procedura riservata è in
 [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md).
 
@@ -894,20 +896,20 @@ nessun esempio. Un passo del primo avvio che presuppone una conoscenza non dichi
 integratore la stessa mezza giornata.
 
 Il lavoro aperto: la **suite di prove di integrazione che esercita almeno due tenant e due
-integratori distinti**, con configurazioni deliberatamente divergenti — una prova che passa con un
+integratori distinti**, con configurazioni deliberatamente divergenti - una prova che passa con un
 solo integratore configurato non dimostra la proprietà multi-integratore (`V-188`); e il
 **contratto minimo del gateway di misure di terze parti**, di cui due elementi richiesti dal
 modello di sicurezza non è verificato che i gateway di mercato espongano (`Q-122`).
 
 ### 10.2 Che cosa sapere prima
 
-1. [14 — I flussi funzionali](14-flussi-funzionali.md), che descrive i percorsi end-to-end e
+1. [14 - I flussi funzionali](14-flussi-funzionali.md), che descrive i percorsi end-to-end e
    quindi il punto in cui l'integrazione si innesta.
-2. [02 — Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md) e
-   [04 — Identità e anagrafiche](04-identita-e-anagrafiche.md): il primo perché la distinzione fra
+2. [02 - Le prestazioni di telemedicina](02-prestazioni-di-telemedicina.md) e
+   [04 - Identità e anagrafiche](04-identita-e-anagrafiche.md): il primo perché la distinzione fra
    i tipi di prestazione cambia il modello dati, il secondo perché la riconciliazione delle
    anagrafiche è il punto in cui la maggior parte delle integrazioni si complica.
-3. [13 — I protocolli](13-protocolli.md), le sezioni su autorizzazione, scambio di token, buste
+3. [13 - I protocolli](13-protocolli.md), le sezioni su autorizzazione, scambio di token, buste
    degli eventi e firma dei messaggi.
 4. [`docs/07_integration/09-obblighi-di-chi-integra.md`](../07_integration/09-obblighi-di-chi-integra.md),
    **prima di ogni altra cosa dell'area**, perché contiene la ripartizione delle responsabilità e
@@ -923,7 +925,7 @@ e in particolare i limiti invalicabili alla personalizzazione.
 sei fermato.** Poi apri una segnalazione per ciascuno. Le tre informazioni più utili, in ordine:
 l'esempio che non funziona; il punto in cui ti sei bloccato e per quanto tempo; **la cosa che
 avevi assunto e che si è rivelata falsa**. La terza è la più preziosa, perché indica dove la
-documentazione dice qualcosa di ambiguo invece di qualcosa di sbagliato — che è più difficile da
+documentazione dice qualcosa di ambiguo invece di qualcosa di sbagliato - che è più difficile da
 trovare.
 
 Se preferisci un contributo di codice: **aggiungi un esempio eseguibile e verificato in
@@ -942,8 +944,8 @@ si scopre solo quando qualcuno ci perde una giornata.
   è successo qualcosa e dove trovarlo (`V-161`). Non è una limitazione da negoziare, è una regola
   di progetto senza eccezioni.
 - **Tratta il pagatore come un consultatore.** Un fondo, una mutua o una polizza che paga la
-  prestazione ottiene l'**esito amministrativo**, non il contenuto clinico, e nessun percorso —
-  diretto o mediato da un professionista — può costituire un accesso al fascicolo (`V-08`,
+  prestazione ottiene l'**esito amministrativo**, non il contenuto clinico, e nessun percorso -
+  diretto o mediato da un professionista - può costituire un accesso al fascicolo (`V-08`,
   `V-166`). È un equivoco che si commette in buona fede, perché il pagatore è un soggetto
   legittimo del percorso.
 - **Presenta come standard un nome di intestazione che è una scelta di progetto.** L'area marca
@@ -1010,8 +1012,9 @@ quando.*
 Il presupposto che governa tutto: il progetto pubblica codice sorgente; chi lo prende, lo integra,
 lo distribuisce o lo mette in servizio eroga prestazioni sanitarie. Sono due posizioni giuridiche
 diverse, e quasi tutte le fonti dell'area si rivolgono alla seconda. **Il progetto non è
-fabbricante e non appone la marcatura CE**; produce il materiale regolatorio come pacchetto per chi
-certifica, e si ferma dove comincia un atto che presuppone un soggetto giuridico e una firma.
+fabbricante e non appone la marcatura CE**; produce il materiale regolatorio come pacchetto per
+il soggetto fabbricante, da costituire, e si ferma dove comincia un atto che presuppone un soggetto
+giuridico e una firma.
 
 Il lavoro aperto è quasi tutto **verifica di fonti**: l'area ha un numero non trascurabile di voci
 marcate come non verificate, ciascuna con l'indicazione di che cosa va controllato. Chiuderne una,
@@ -1020,13 +1023,13 @@ d'ingresso bassa.
 
 ### 11.2 Che cosa sapere prima
 
-1. [15 — Il quadro regolatorio da zero](15-regolatorio-da-zero.md) per intero. Spiega che cos'è un
+1. [15 - Il quadro regolatorio da zero](15-regolatorio-da-zero.md) per intero. Spiega che cos'è un
    dispositivo medico, una destinazione d'uso, una classe di rischio, un organismo notificato, una
    norma armonizzata, e perché questo repository non è un fabbricante. Chi salta questo modulo
    trova l'area compatta fino all'incomprensibilità, e non è un difetto dell'area.
-2. [10 — Percorsi di cura e sicurezza del paziente](10-percorsi-di-cura-e-sicurezza.md), per
+2. [10 - Percorsi di cura e sicurezza del paziente](10-percorsi-di-cura-e-sicurezza.md), per
    pericolo, situazione pericolosa, errore d'uso e rischio residuo.
-3. [20 — Fonti primarie](20-fonti-primarie.md), che dice dove si reperisce ciascun testo e come si
+3. [20 - Fonti primarie](20-fonti-primarie.md), che dice dove si reperisce ciascun testo e come si
    verifica che sia ancora vigente.
 4. [`docs/08_compliance/02-qualificazione-e-classificazione.md`](../08_compliance/02-qualificazione-e-classificazione.md)
    §6, se contribuisci al codice: contiene le richieste ragionevoli che sposterebbero la
@@ -1039,7 +1042,7 @@ terze parti; la tabella delle formule vietate.
 ### 11.3 Il primo contributo sensato
 
 **Chiudi una voce non verificata.** Prendi una marcatura `[NV]`, reperisci il testo primario,
-verifica la citazione — numero dell'articolo, comma, allegato, sezione, data di pubblicazione — e
+verifica la citazione - numero dell'articolo, comma, allegato, sezione, data di pubblicazione - e
 proponi la correzione **con l'indicazione della fonte consultata e della data di consultazione**.
 Se la verifica smentisce ciò che è scritto, tanto meglio: è esattamente il caso per cui la
 marcatura esiste.
@@ -1092,8 +1095,8 @@ politica regolatoria (`V-170`); e qualunque affermazione sullo stato di armonizz
 norma, che va verificato **alla data d'uso** e non una volta per sempre.
 
 Dove si discute: bacheca verso l'area di conformità, e per le decisioni che richiedono una scelta
-imprenditoriale — monetizzazione, costituzione di un soggetto giuridico, periodo di supporto
-dichiarato — la questione si porta alla persona, non si decide d'ufficio.
+imprenditoriale - monetizzazione, costituzione di un soggetto giuridico, periodo di supporto
+dichiarato - la questione si porta alla persona, non si decide d'ufficio.
 
 ### 11.6 Come si verifica il proprio lavoro
 
@@ -1115,7 +1118,7 @@ dell'area che nessuna verifica automatica intercetta (`Q-174`).
 
 ## 12. Guida dei fondamenti
 
-Perimetro: [`docs/10_fondamenti/`](00-come-usare-questa-guida.md) — questa guida.
+Perimetro: [`docs/10_fondamenti/`](00-come-usare-questa-guida.md) - questa guida.
 
 ### 12.1 Che cosa si fa qui
 
@@ -1126,13 +1129,13 @@ codice. È prerequisito dichiarato di
 [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md).
 
 Le regole redazionali sono cinque e sono in
-[00 — Come usare questa guida](00-come-usare-questa-guida.md): ogni sigla sciolta alla prima
+[00 - Come usare questa guida](00-come-usare-questa-guida.md): ogni sigla sciolta alla prima
 occorrenza, ogni concetto sanitario spiegato a un informatico e ogni concetto informatico a un
 clinico, ogni affermazione normativa con la fonte, ciò che non è verificato dichiarato tale,
 nessun dato reale.
 
 Il lavoro aperto: **completare i moduli mancanti**; **verificare che ciascun modulo regga la
-prova del lettore che parte da zero**; e — il fronte più grande in assoluto — la **traduzione
+prova del lettore che parte da zero**; e - il fronte più grande in assoluto - la **traduzione
 inglese integrale**, che per decisione esplicita non è una sintesi e che ha come rischio reale non
 la traduzione mancante ma **la divergenza fra le due versioni**.
 
@@ -1140,14 +1143,14 @@ la traduzione mancante ma **la divergenza fra le due versioni**.
 
 Meno di quanto si pensi, e in un ordine diverso dal solito.
 
-1. [00 — Come usare questa guida](00-come-usare-questa-guida.md), per le regole redazionali e i
+1. [00 - Come usare questa guida](00-come-usare-questa-guida.md), per le regole redazionali e i
    percorsi di lettura per profilo.
 2. Il modulo che intendi toccare, **per intero**, prima di modificarne un paragrafo. I moduli di
    questa guida sono costruiti come percorsi: una modifica locale che ignora il percorso rompe
    l'ordine di introduzione dei concetti.
 3. I moduli che vi rinviano. Un concetto spostato o rinominato qui si ripercuote sulle aree, che
    citano questa guida invece di riscriverla.
-4. [19 — Glossario](19-glossario.md), se introduci un termine nuovo: la guida ha un glossario
+4. [19 - Glossario](19-glossario.md), se introduci un termine nuovo: la guida ha un glossario
    esaustivo bilingue con rinvii incrociati, e un termine introdotto senza voce di glossario è un
    termine che qualcuno cercherà invano.
 
@@ -1219,7 +1222,7 @@ l'internazionalizzazione e la pubblicazione.
 
 La sequenza di lavoro approvata è netta: si completa **tutta** la documentazione, poi si
 costruisce il sito con internazionalizzazione, lo si pubblica e se ne **verifica il funzionamento
-reale** — navigazione, ricerca, cambio lingua, collegamenti interni, costruzione riproducibile.
+reale** - navigazione, ricerca, cambio lingua, collegamenti interni, costruzione riproducibile.
 **Nessuna area si considera chiusa finché non è navigabile online nelle due lingue** (`V-183`).
 
 Ne discende che il lavoro sul sito non è cosmesi finale: è la condizione di chiusura di tutto il
@@ -1236,10 +1239,10 @@ assoluti verso il repository proprio perché la duplicazione dentro la documenta
 
 ### 13.2 Che cosa sapere prima
 
-1. [00 — Come usare questa guida](00-come-usare-questa-guida.md) e gli indici delle nove aree, per
+1. [00 - Come usare questa guida](00-come-usare-questa-guida.md) e gli indici delle nove aree, per
    capire la struttura che il sito deve rendere navigabile. Non è un dettaglio: la struttura non
    la decide chi costruisce il sito.
-2. [17 §9 — I controlli che devono passare](17-ambiente-di-sviluppo.md), perché `G8` e `G9` sono i
+2. [17 §9 - I controlli che devono passare](17-ambiente-di-sviluppo.md), perché `G8` e `G9` sono i
    due controlli che il sito rende esigibili.
 3. Le convenzioni di scrittura del progetto: frontmatter con titolo, posizione e descrizione;
    diagrammi in un linguaggio testuale versionabile; blocchi di codice con linguaggio dichiarato;
@@ -1333,8 +1336,8 @@ sapere che cos'è una pull request: la segnalazione basta.
 
 ### 14.2 Verifica delle fonti normative
 
-**Che cos'è.** Prendere una citazione — un decreto, un articolo, un allegato, una norma tecnica,
-una specifica — reperire il testo primario, e verificare che il riferimento sia esatto e che la
+**Che cos'è.** Prendere una citazione - un decreto, un articolo, un allegato, una norma tecnica,
+una specifica - reperire il testo primario, e verificare che il riferimento sia esatto e che la
 fonte sia ancora vigente.
 
 **Perché vale tanto.** Una citazione sbagliata in un documento regolatorio si propaga: viene
@@ -1373,7 +1376,7 @@ abbastanza da non tradurre un termine tecnico con un sinonimo apparente.
 
 ### 14.4 Prove di accessibilità con tecnologie assistive reali
 
-**Che cos'è.** Usare il sistema — o, oggi, i suoi prototipi e la sua documentazione — con un
+**Che cos'è.** Usare il sistema - o, oggi, i suoi prototipi e la sua documentazione - con un
 lettore di schermo, con la sola tastiera, con ingrandimento elevato, con contrasto elevato, con
 preferenza di movimento ridotto, su un apparecchio modesto e in rete limitata.
 
@@ -1383,7 +1386,7 @@ trova in dieci minuti difetti che una verifica automatica non troverà mai. Gli 
 rappresentativi di questo sistema comprendono persone anziane e persone con disabilità: non sono
 un caso limite, sono la popolazione di riferimento.
 
-**Come si fa in concreto.** Si esegue un percorso completo — non una schermata — e si annota dove
+**Come si fa in concreto.** Si esegue un percorso completo - non una schermata - e si annota dove
 ci si perde, che cosa non viene annunciato, quale ordine di attraversamento è illogico, quale
 informazione è veicolata dal solo colore, quale messaggio non è comprensibile. La forma del
 contributo è una segnalazione per percorso, con il nome della tecnologia usata e la sua versione.
@@ -1412,9 +1415,15 @@ priorità.
 
 ### 14.6 Perché queste cinque cose sono scarse, e che cosa ne consegue
 
-Sono scarse perché il modello mentale del contributo open source è il codice, e chi possiede le
-competenze necessarie ai punti 14.1, 14.2 e 14.4 spesso non si considera un potenziale
-contributore. È un fraintendimento, e questo modulo esiste anche per dissolverlo.
+Sono scarse tutte e cinque, ma **per due ragioni diverse**, e conviene distinguerle perché si
+correggono in modi diversi. I punti 14.1, 14.2 e 14.4 richiedono competenze che il modello mentale
+del contributo open source non associa a un progetto software: chi le possiede - il professionista
+sanitario, chi sa reperire un testo normativo alla fonte, chi usa quotidianamente una tecnologia
+assistiva - spesso non si considera un potenziale contributore. È un fraintendimento, e questo
+modulo esiste anche per dissolverlo. I punti 14.3 e 14.5 sono scarsi per la ragione opposta:
+**non** richiedono competenze rare, e il testo dei due paragrafi lo dice esso stesso; sono scarsi
+perché sono lavoro di volume e di pazienza il cui risultato è invisibile quando è fatto bene, e
+nessuno lo propone spontaneamente perché non somiglia a un contributo.
 
 Ne consegue una regola pratica per chi rivede: **una segnalazione ben fatta di uno dei cinque tipi
 va trattata con la stessa serietà di una proposta di codice**, con un esito registrato e una
@@ -1437,32 +1446,32 @@ che diventano obbligatori a una condizione.
 | `platform/security` | [12](12-crittografia-e-sicurezza.md), [13](13-protocolli.md) | tocchi identità nazionale → [04](04-identita-e-anagrafiche.md) |
 | `platform/outbox` | [11](11-fondamenti-informatici.md) | tocchi le buste → [13](13-protocolli.md) |
 | `platform/problem` | [13](13-protocolli.md) | esponi errori sul piano clinico → [06](06-fhir-da-zero.md) |
-| `platform/observability` | [12](12-crittografia-e-sicurezza.md), [03](03-il-dato-clinico.md) | — |
-| `platform/terminology-gateway` | [05 §8](05-standard-di-interoperabilita.md) | tocchi la licenza → [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md) |
+| `platform/observability` | [12](12-crittografia-e-sicurezza.md), [03](03-il-dato-clinico.md) | - |
+| `contexts/terminology` | [05 §8](05-standard-di-interoperabilita.md) | tocchi la licenza → [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md) |
 | `contexts/identity` | [04](04-identita-e-anagrafiche.md), [12](12-crittografia-e-sicurezza.md) | tocchi la federazione → [13](13-protocolli.md) |
-| `contexts/registry` | [04](04-identita-e-anagrafiche.md), [03](03-il-dato-clinico.md) | — |
-| `contexts/scheduling` | [02](02-prestazioni-di-telemedicina.md), [14](14-flussi-funzionali.md) | — |
+| `contexts/registry` | [04](04-identita-e-anagrafiche.md), [03](03-il-dato-clinico.md) | - |
+| `contexts/scheduling` | [02](02-prestazioni-di-telemedicina.md), [14](14-flussi-funzionali.md) | - |
 | `contexts/encounter` | [02](02-prestazioni-di-telemedicina.md), [03](03-il-dato-clinico.md), [09](09-fondamenti-clinici.md) | tocchi il referto → [06](06-fhir-da-zero.md), [07](07-fse-e-infrastrutture-nazionali.md) |
 | `contexts/media-session` | [08](08-webrtc-da-zero.md) integrale | tocchi la cifratura → [12](12-crittografia-e-sicurezza.md) |
 | `contexts/clinical-document` | [03](03-il-dato-clinico.md), [06](06-fhir-da-zero.md), [07](07-fse-e-infrastrutture-nazionali.md) | tocchi la firma → [12](12-crittografia-e-sicurezza.md) |
 | `contexts/monitoring` | [09](09-fondamenti-clinici.md), [10](10-percorsi-di-cura-e-sicurezza.md) | **sempre**: è l'area a rischio clinico più alto |
 | `contexts/alerting` | [10](10-percorsi-di-cura-e-sicurezza.md) integrale | tocchi l'escalation → [14](14-flussi-funzionali.md) |
 | `contexts/consent` | [03](03-il-dato-clinico.md), [02](02-prestazioni-di-telemedicina.md) | tocchi l'oscuramento → [07](07-fse-e-infrastrutture-nazionali.md) |
-| `contexts/outbound` | [13](13-protocolli.md), [12](12-crittografia-e-sicurezza.md) | — |
-| `contexts/audit` | [12](12-crittografia-e-sicurezza.md), [03](03-il-dato-clinico.md) | — |
+| `contexts/outbound` | [13](13-protocolli.md), [12](12-crittografia-e-sicurezza.md) | - |
+| `contexts/audit` | [12](12-crittografia-e-sicurezza.md), [03](03-il-dato-clinico.md) | - |
 | `contexts/tenant-admin` | [11](11-fondamenti-informatici.md) | tocchi la copertura oraria → [10](10-percorsi-di-cura-e-sicurezza.md) |
-| `interfaces/rest-api` | [13](13-protocolli.md) | — |
+| `interfaces/rest-api` | [13](13-protocolli.md) | - |
 | `interfaces/fhir-facade` | [06](06-fhir-da-zero.md) integrale, [05](05-standard-di-interoperabilita.md) | tocchi i documenti → [07](07-fse-e-infrastrutture-nazionali.md) |
-| `interfaces/signaling` | [08](08-webrtc-da-zero.md) integrale, [13](13-protocolli.md) | — |
-| `interfaces/webhooks` | [13](13-protocolli.md) | — |
+| `interfaces/signaling` | [08](08-webrtc-da-zero.md) integrale, [13](13-protocolli.md) | - |
+| `interfaces/webhooks` | [13](13-protocolli.md) | - |
 | `web/core`, `web/design-system` | [11](11-fondamenti-informatici.md) | **sempre** i criteri di accessibilità dell'area funzionale |
-| `web/features` (consulto) | [08](08-webrtc-da-zero.md), [02](02-prestazioni-di-telemedicina.md) | — |
-| `web/features` (consenso, refertazione) | [03](03-il-dato-clinico.md), [09](09-fondamenti-clinici.md) | — |
-| `web/features` (monitoraggio) | [09](09-fondamenti-clinici.md), [10](10-percorsi-di-cura-e-sicurezza.md) | — |
-| `web/embeddable` | [13](13-protocolli.md), area integrazione cap. 5 | — |
-| Catena di costruzione e controlli | [17 §9](17-ambiente-di-sviluppo.md), [15](15-regolatorio-da-zero.md) §sulla configurazione | — |
+| `web/features` (consulto) | [08](08-webrtc-da-zero.md), [02](02-prestazioni-di-telemedicina.md) | - |
+| `web/features` (consenso, refertazione) | [03](03-il-dato-clinico.md), [09](09-fondamenti-clinici.md) | - |
+| `web/features` (monitoraggio) | [09](09-fondamenti-clinici.md), [10](10-percorsi-di-cura-e-sicurezza.md) | - |
+| `web/embeddable` | [13](13-protocolli.md), area integrazione cap. 5 | - |
+| Catena di costruzione e controlli | [17 §9](17-ambiente-di-sviluppo.md), [15](15-regolatorio-da-zero.md) §sulla configurazione | - |
 
-Tre righe meritano di essere lette come avvertenze e non come voci di tabella. `contexts/monitoring`
+Quattro righe meritano di essere lette come avvertenze e non come voci di tabella. `contexts/monitoring`
 e `contexts/alerting` sono le zone in cui un difetto produce un danno clinico diretto, ed è la
 ragione per cui i moduli clinici vi sono obbligatori senza condizioni. `contexts/media-session`
 richiede il modulo sul tempo reale **integrale** e non a spizzichi, perché la maggior parte dei
@@ -1516,8 +1525,8 @@ Elencati qui perché una lacuna dichiarata è utilizzabile e una lacuna implicit
 | `[NV]` | Gli **intervalli di indirizzi vietati** per la prova di confinamento del nodo di relay non sono elencati: senza l'elenco la prova non è scrivibile (`Q-196`) | Area sicurezza |
 | `[NV]` | Il **profilo minimo praticabile** di macchina per l'ambiente locale non è misurato: chi ha una macchina modesta non sa in anticipo se può partecipare (`Q-191`) | Aree tecnica e roadmap |
 | `Q-195` | Non esiste un **elenco pubblico e mantenuto dei contributi di primo ingresso** per area, coerente con le sezioni «il primo contributo sensato» di questo modulo. Senza di esso le indicazioni restano descrittive e non azionabili | → orchestrazione, con le aree |
-| `Q-197` | Non è definito **chi risponde alle segnalazioni non di codice** — revisione clinica, verifica delle fonti, prove di accessibilità — né entro quanto. È la condizione perché il §14 produca contributi ripetuti invece che singoli | → orchestrazione, con la governance |
-| `Q-198` | La **doppia denominazione di questo modulo** nei rinvii esistenti va risolta una volta sola: i rinvii di `CONTRIBUTING.md` e del modulo 00 sono stati allineati al nome del file, ma la verifica di raggiungibilità va inserita fra i controlli bloccanti prima del primo deploy (si salda con `Q-26`) | Guida e sito |
+| `Q-197` | Non è definito **chi risponde alle segnalazioni non di codice** - revisione clinica, verifica delle fonti, prove di accessibilità - né entro quanto. È la condizione perché il §14 produca contributi ripetuti invece che singoli | → orchestrazione, con la governance |
+| `Q-198` | La **doppia denominazione di questo modulo** nei rinvii esistenti è risolta sul testo: `CONTRIBUTING.md` - nel blocco italiano e in quello inglese - il modulo 00 e il modulo 17 sono stati allineati al `title` del file, «Contribuire, area per area», che è la denominazione autorevole; il glossario vi era già allineato. Resta la parte non redazionale: la **verifica automatica di raggiungibilità** dei rinvii va inserita fra i controlli bloccanti prima del primo deploy (si salda con `Q-26`) | Guida e sito |
 
 ---
 

@@ -6,11 +6,11 @@ description: "Segnalazione di progetto, negoziazione, credenziali temporanee del
 
 # Tempo reale
 
-> **Prerequisito di lettura.** I fondamenti del media in tempo reale — perché una videochiamata
+> **Prerequisito di lettura.** I fondamenti del media in tempo reale - perché una videochiamata
 > è un problema difficile, che cosa sono la traduzione degli indirizzi e i suoi tipi, come
 > funzionano la raccolta dei candidati e la scelta del percorso, che cosa la cifratura garantisce e
 > che cosa non garantisce, perché l'impronta del certificato da sola non basta, come si misura la
-> qualità — sono nel modulo [«WebRTC da zero»](../10_fondamenti/08-webrtc-da-zero.md). Questo
+> qualità - sono nel modulo [«WebRTC da zero»](../10_fondamenti/08-webrtc-da-zero.md). Questo
 > capitolo **non li ripete** e descrive soltanto il protocollo di progetto.
 
 ## 1. Perché qui esiste un protocollo di progetto
@@ -28,8 +28,8 @@ intero**: trasporto, buste, catalogo dei messaggi, macchina a stati, versionamen
 ## 2. Il trasporto della segnalazione
 
 Il trasporto è un **canale a socket web** su connessione protetta, con un protocollo applicativo
-JSON **versionato e validato a schema**. Le alternative — un livello di messaggistica sovrastante,
-un ripiego su richieste HTTP ripetute, l'adozione di un protocollo di telefonia — aggiungono
+JSON **versionato e validato a schema**. Le alternative - un livello di messaggistica sovrastante,
+un ripiego su richieste HTTP ripetute, l'adozione di un protocollo di telefonia - aggiungono
 complessità o vincoli di affinità di sessione senza beneficio in una sessione a due partecipanti.
 
 ### 2.1 Il requisito normativo che vincola l'architettura
@@ -84,7 +84,7 @@ riceve un rifiuto esplicito, non un canale che funziona a metà.
 | `offer` | client → servizio → controparte | Descrizione di sessione dell'offerente | Inoltrata, non interpretata |
 | `answer` | client → servizio → controparte | Descrizione di sessione del rispondente | Inoltrata, non interpretata |
 | `candidate` | bidirezionale | Candidato di connettività | Ordine e unicità garantiti, §2.1 |
-| `candidate-end` | bidirezionale | Fine della raccolta | — |
+| `candidate-end` | bidirezionale | Fine della raccolta | - |
 | `restart` | bidirezionale | Richiesta di rinegoziazione della connettività | Dopo una caduta |
 | `verification-code` | servizio → entrambi | Codice breve di verifica della sessione | §5 |
 | `verification-result` | client → servizio | Esito del confronto dichiarato dall'utente | Tracciato |
@@ -140,8 +140,8 @@ inutile.
 
 La cifratura del media protegge il canale fra i due estremi, ma **non dice chi è l'estremo**.
 L'associazione fra la chiave e l'interlocutore passa dalla segnalazione, e chi controlla la
-segnalazione può sostituirla. La contromisura che la specifica prevedeva — un'interfaccia che
-consente a un fornitore d'identità di attestare le chiavi — è stata verificata come **non
+segnalazione può sostituirla. La contromisura che la specifica prevedeva - un'interfaccia che
+consente a un fornitore d'identità di attestare le chiavi - è stata verificata come **non
 utilizzabile**:
 
 - il documento che la definisce è fermo allo stadio di raccomandazione candidata **dal 27
@@ -150,8 +150,8 @@ utilizzabile**:
 - **è funzionalmente monobrowser**: un solo motore la implementa, dal 2015; due non l'hanno mai
   implementata; il terzo l'aveva e l'ha persa cambiando motore nel 2020;
 - anche ammesso il supporto universale, richiederebbe un **fornitore d'identità terzo** che ospiti
-  lo script di attestazione, il che creerebbe una dipendenza di esecuzione da un terzo — in
-  tensione diretta con il vincolo di sovranità — e sposterebbe l'ancora di fiducia dal servizio di
+  lo script di attestazione, il che creerebbe una dipendenza di esecuzione da un terzo - in
+  tensione diretta con il vincolo di sovranità - e sposterebbe l'ancora di fiducia dal servizio di
   segnalazione al fornitore, senza eliminarla.
 
 > **Conclusione, senza attenuazioni: la stringa breve di verifica non è una fra due strade. È
@@ -193,7 +193,7 @@ Il progetto ha **due modalità di sessione**, e la differenza è dichiarata inve
 
 | Modalità | Percorso del media | Cifratura fino agli estremi | Quando |
 |---|---|---|---|
-| **Senza registrazione** — predefinita | Diretto quando la rete lo consente, altrimenti instradato da un relay che non decifra | **Sì** | Sempre, salvo consenso esplicito |
+| **Senza registrazione** - predefinita | Diretto quando la rete lo consente, altrimenti instradato da un relay che non decifra | **Sì** | Sempre, salvo consenso esplicito |
 | **Con registrazione** | Terminato su un componente del servizio | **No** | Solo con consenso esplicito dell'assistito |
 
 **La conseguenza è inderogabile e va scritta ovunque: quando la registrazione è attiva la
@@ -252,9 +252,9 @@ validare qualunque credenziale.
 **Questo meccanismo non è uno standard.** Deriva da un Internet-Draft individuale **scaduto**. Lo
 standard vero per l'autorizzazione di terza parte tramite token è **RFC 7635**. Il meccanismo qui
 descritto è però l'unico con supporto universale nei browser e nei server di relay: si adotta, e
-**lo si documenta per ciò che è — una convenzione di fatto**.
+**lo si documenta per ciò che è - una convenzione di fatto**.
 
-> **`[NV]` — algoritmo di hash sottostante.** La documentazione del server di relay indica
+> **`[NV]` - algoritmo di hash sottostante.** La documentazione del server di relay indica
 > genericamente la funzione di autenticazione del messaggio senza dichiarare l'algoritmo di hash.
 > **Il modo corretto di risolvere il dubbio non è una citazione documentale ma un collaudo di
 > integrazione**: emettere una credenziale con l'implementazione del progetto, tentare
@@ -312,8 +312,8 @@ e non usarlo costa poco; aggiungerlo dopo, a protocollo pubblicato, costa una ve
 
 | Non fa | Perché | Dove sta |
 |---|---|---|
-| Non trasporta il media | Il media è punto a punto, o passa dal relay | — |
-| Non interpreta le descrizioni di sessione | Interpretarle significherebbe poterle modificare | — |
+| Non trasporta il media | Il media è punto a punto, o passa dal relay | - |
+| Non interpreta le descrizioni di sessione | Interpretarle significherebbe poterle modificare | - |
 | Non trasporta contenuto clinico | Non è un canale clinico | Piano clinico, capitolo [02](./02-fhir.md) |
 | Non trasporta immagini diagnostiche | La compressione del video non è controllata: ciò che il professionista remoto vedrebbe non è il dato diagnostico | Recupero dall'archivio del partner, verso il visualizzatore |
 | Non è un'interfaccia pubblica versionata come le altre | È un protocollo di sessione fra il client del progetto e il proprio servizio | La sua stabilità è dichiarata a parte |

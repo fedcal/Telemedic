@@ -7,8 +7,8 @@ description: Segnalazione, negoziazione, relay, sicurezza del flusso, misura del
 # Media e tempo reale
 
 Questa è la parte del sistema in cui gli errori si pagano più cari e in cui le affermazioni non
-verificate si notano di più. I fondamenti — NAT, candidati, cifratura del flusso, codec,
-controllo della congestione, topologie — stanno in
+verificate si notano di più. I fondamenti - NAT, candidati, cifratura del flusso, codec,
+controllo della congestione, topologie - stanno in
 [`docs/10_fondamenti/08-webrtc-da-zero.md`](../10_fondamenti/08-webrtc-da-zero.md) e **non si
 ripetono**. Qui si descrive che cosa Telemedic realizza, con quali vincoli e con quali limiti.
 
@@ -27,7 +27,7 @@ comunicazione pubblica del progetto ne ha bisogno.
 | Occultamento della perdita di pacchetti, buffer di jitter adattivo, ritrasmissione | **Il navigatore** |
 | Segnalazione e macchina a stati della sessione | **Telemedic** |
 | Emissione delle credenziali di relay e loro perimetro | **Telemedic** |
-| Configurazione e messa in sicurezza del nodo di relay | **Telemedic** (e il deployer) |
+| Configurazione e messa in sicurezza del nodo di relay | **Telemedic** (e chi installa) |
 | Verifica delle chiavi da parte degli interlocutori | **Telemedic** |
 | Misura, registrazione e conseguenza clinica della qualità | **Telemedic** |
 | Registrazione della sessione e suo ciclo di vita | **Telemedic** |
@@ -53,7 +53,7 @@ Le tre ragioni, in ordine di peso:
    percorso critico della negoziazione.
 2. Le librerie di ripiego su trasporti multi-richiesta **impongono l'affinità di sessione al
    bilanciatore**, che è precisamente il vincolo di scalabilità che si vuole evitare.
-3. Un protocollo proprio, versionato e descritto da uno schema, è **validabile al confine** —
+3. Un protocollo proprio, versionato e descritto da uno schema, è **validabile al confine** -
    requisito di validazione dell'ingresso di [`02-backend.md`](./02-backend.md) §6.
 
 Se in futuro l'attraversamento di reti aziendali ostili risultasse un problema **misurato**, il
@@ -112,8 +112,8 @@ flowchart LR
     Q -->|hashing consistente su idSessione| N1
 ```
 
-Le opzioni sono tre — affinità al bilanciatore, diffusore fra istanze, instradamento
-deterministico della sessione al nodo proprietario — e **la scelta è strutturale, con effetti su
+Le opzioni sono tre - affinità al bilanciatore, diffusore fra istanze, instradamento
+deterministico della sessione al nodo proprietario - e **la scelta è strutturale, con effetti su
 aggiornamento senza interruzione, dimensionamento e modalità di guasto**. Questa area **non la
 decide**: è aperta in bacheca ad `ARCH` e va registrata come decisione architetturale. Ciò che
 questa area afferma è il vincolo tecnico che qualunque scelta deve soddisfare: **consegna
@@ -182,7 +182,7 @@ parte a token, ma non ha supporto nei navigatori. Si adotta la convenzione perch
 funziona, e la si documenta come convenzione. La stessa onestà vale per l'algoritmo: la funzione
 di impronta usata è imposta dal meccanismo di autenticazione a lungo termine del protocollo, non
 scelta dal progetto, e va dichiarata esplicitamente in ogni documento che parli di suite
-crittografiche — perché contraddice qualunque narrativa di «solo algoritmi moderni». Non è una
+crittografiche - perché contraddice qualunque narrativa di «solo algoritmi moderni». Non è una
 vulnerabilità; è un fatto.
 
 ### 4.2 I tre vincoli sull'emissione
@@ -205,7 +205,7 @@ completa e verificata su fonte primaria è in
 conseguenze architetturali, non l'intero file.
 
 ```ini
-# Illustrativo — estratto commentato. Versione minima 4.17.2.
+# Illustrativo - estratto commentato. Versione minima 4.17.2.
 # Nessun segreto in chiaro: solo riferimenti risolti dal gestore dei segreti.
 
 # I listener si vincolano esplicitamente. Mai l'indirizzo generico: legherebbe
@@ -230,7 +230,7 @@ stateless-nonce-secret=<SEGNAPOSTO_RISOLTO_DAL_GESTORE_DEI_SEGRETI>
 # protetto su flusso, e non attivarli elimina un'intera superficie d'attacco.
 # NON attivare senza un requisito misurato.
 
-# Irrigidimento del relay — difesa IN PROFONDITÀ, non difesa primaria (vedi 4.4)
+# Irrigidimento del relay - difesa IN PROFONDITÀ, non difesa primaria (vedi 4.4)
 no-tcp-relay
 no-multicast-peers
 unauthorized-ratelimit
@@ -284,7 +284,7 @@ Conseguenze operative:
   sovrabbondante di ordini di grandezza.
 - **Il picco va dimensionato sul caso avverso, non sulla media.** La quota di sessioni instradate
   dal relay dipende dal parco reti dei clienti e **non è nota a priori**: Telemedic la **misura**
-  sul proprio traffico (§6.4) e non cita stime di terzi. `[NV]` — nessuna percentuale è
+  sul proprio traffico (§6.4) e non cita stime di terzi. `[NV]` - nessuna percentuale è
   dichiarata in questo documento perché nessuna è stata misurata dal progetto.
 - **Il nodo è limitato dall'ingresso e uscita, non dal calcolo**, salvo il trasporto protetto su
   flusso, che aggiunge una cifratura del tunnel **oltre** a quella del flusso.
@@ -349,8 +349,8 @@ Un effetto collaterale favorevole va valorizzato nella valutazione d'impatto: i 
 sostituiscono gli indirizzi privati dei candidati locali con nomi effimeri, quindi **gli
 indirizzi interni dei dispositivi clinici non finiscono nei registri del server di
 segnalazione**. Riduce la quantità di dati personali trattati. Ha però un costo, che va
-dichiarato: nello scenario del consulto sulla stessa rete locale — professionista e assistito
-nella stessa struttura — se la risoluzione di quei nomi è bloccata dagli apparati, il
+dichiarato: nello scenario del consulto sulla stessa rete locale - professionista e assistito
+nella stessa struttura - se la risoluzione di quei nomi è bloccata dagli apparati, il
 collegamento diretto locale non si forma e si finisce sul relay per una sessione che poteva
 restare su uno switch.
 
@@ -377,7 +377,7 @@ più diffusa in questo ambito:
 
 > **Il tempo di andata e ritorno non sta fra le statistiche di trasmissione.** Sta nel dizionario
 > che riporta ciò che il **partecipante remoto** ha osservato ricevendo il nostro flusso. È
-> quindi il vero indicatore della qualità **percepita dall'altra parte** — l'unica che conti in
+> quindi il vero indicatore della qualità **percepita dall'altra parte** - l'unica che conti in
 > un consulto.
 
 Le famiglie usate dal progetto: statistiche del flusso in ingresso (perdita, jitter, frame al
@@ -399,7 +399,7 @@ e ruolo dell'handshake, versione, suite di cifratura del flusso e del canale).
    differenze: il ritardo medio del buffer è la differenza del ritardo cumulato divisa per la
    differenza del conteggio dei campioni emessi.
 3. **Si aggrega prima di inviare.** Non un campione al secondo verso il server, ma una sintesi
-   per finestra — minimo, media, percentile alto, massimo — con l'eccezione degli **eventi**, che
+   per finestra - minimo, media, percentile alto, massimo - con l'eccezione degli **eventi**, che
    partono subito: cambio del motivo di limitazione, superamento di soglia, congelamento.
 
 Questa regola è un vincolo che questa area pone alle altre e che è scritto in bacheca: **nessuna
@@ -433,7 +433,7 @@ congelamenti.
 
 Va catturata anche la **concentrazione della perdita**: il cinque per cento distribuito
 uniformemente e il cinque per cento concentrato in due raffiche hanno effetti percettivi
-completamente diversi — il primo è quasi impercettibile con la correzione d'errore in avanti, il
+completamente diversi - il primo è quasi impercettibile con la correzione d'errore in avanti, il
 secondo produce due interruzioni udibili. Si approssima con la varianza della perdita fra campioni
 consecutivi, senza bisogno di estensioni di reportistica che i navigatori non supportano.
 
@@ -450,7 +450,7 @@ valutazione in corso e offre l'opzione di rinviare. È un **controllo di rischio
 come tale: registrato, tracciabile, con l'esito della decisione del professionista conservato.
 La questione è aperta in bacheca a `COMP` per l'inserimento nel file di gestione del rischio.
 
-Si registra inoltre, per ogni sessione, **se il flusso è transitato dal relay** — leggibile dal
+Si registra inoltre, per ogni sessione, **se il flusso è transitato dal relay** - leggibile dal
 tipo dei candidati della coppia selezionata. Alimenta due decisioni: il dimensionamento del nodo
 di relay e la diagnosi, perché una sessione instradata ha un profilo di latenza diverso e va
 confrontata con il proprio gruppo, non con le sessioni dirette.
@@ -467,7 +467,7 @@ Elenco onesto, con lo stato normativo di ciascuna.
 | **Preferenza di degrado** | Sceglie se sacrificare risoluzione o fluidità | **Definita da una specifica in bozza di lavoro**, non dalla raccomandazione principale. Va trattata come «al meglio»: si imposta, si rilegge il parametro per verificare che sia stato accettato, non si assume |
 | **Obiettivo del buffer di jitter** | **È l'unica leva dell'applicazione sul contributo dominante alla latenza** | Nella raccomandazione principale, supporto ampio nei tre motori |
 | Correzione d'errore in avanti dell'audio | Recupera perdite isolate senza giro aggiuntivo | Raccomandata dalla specifica di riferimento. **Attivata**: l'intelligibilità della voce dell'assistito è funzionalmente critica |
-| Trasmissione discontinua | Sospende la trasmissione nel silenzio | **Disattivata di default per ragione clinica**: introduce artefatti sull'attacco della parola e i rumori di fondo possono avere valore semeiologico — respiro, tosse, sibili, tremore vocale |
+| Trasmissione discontinua | Sospende la trasmissione nel silenzio | **Disattivata di default per ragione clinica**: introduce artefatti sull'attacco della parola e i rumori di fondo possono avere valore semeiologico - respiro, tosse, sibili, tremore vocale |
 | Scalabilità temporale su singolo strato | Resilienza al congelamento a costo marginale | Da valutare e **misurare**, non da adottare per fede |
 | Preferenza di codifica | Ordina i codec | **Non forzata nella v1.0.** Si lascia negoziare e si **misura** quale codec viene realmente usato nel parco installato: le decisioni si prendono sui dati, non sulle tabelle di efficienza teorica |
 
@@ -505,12 +505,12 @@ modalità sola:
 
 ```mermaid
 flowchart TB
-    subgraph A[Modalità predefinita — nessuna registrazione]
+    subgraph A[Modalità predefinita - nessuna registrazione]
       P1[Professionista] <-->|flusso cifrato fino agli estremi| P2[Assistito]
       P1 -.->|solo inoltro, nessuna chiave| R[(Relay)]
       P2 -.-> R
     end
-    subgraph B[Modalità con registrazione — consenso esplicito]
+    subgraph B[Modalità con registrazione - consenso esplicito]
       Q1[Professionista] <-->|handshake proprio| REC[Componente di registrazione]
       Q2[Assistito] <-->|handshake proprio| REC
       REC --> S[(Archivio cifrato a riposo, chiavi per tenant)]
@@ -531,8 +531,8 @@ Obblighi che ne discendono, tutti verificabili:
 5. **Il componente di registrazione è un servizio distinto**, con perimetro, credenziali,
    registri e sorveglianza propri. Non è una funzione del servizio applicativo.
 
-La questione Q-08 in bacheca — l'incompatibilità fra registrazione lato server e cifratura fino
-agli estremi, e i suoi effetti sul modello dati — è indirizzata ad `ARCH` e resta aperta. Questa
+La questione Q-08 in bacheca - l'incompatibilità fra registrazione lato server e cifratura fino
+agli estremi, e i suoi effetti sul modello dati - è indirizzata ad `ARCH` e resta aperta. Questa
 area **non la anticipa**: recepisce D23 e descrive le conseguenze tecniche.
 
 ### 8.2 Il contenitore si negozia, non si assume
@@ -541,8 +541,8 @@ Il vincolo V-11 è esplicito e questa area lo applica anche alla registrazione l
 non è ovvio che si applichi.
 
 Il contenitore risultante **dipende dai codec effettivamente negoziati nella sessione**, che
-variano per navigatore, per piattaforma e per condizioni. Un contenitore assunto a priori — «il
-file è in un certo formato» — è un'affermazione che sarà falsa per una parte del parco
+variano per navigatore, per piattaforma e per condizioni. Un contenitore assunto a priori - «il
+file è in un certo formato» - è un'affermazione che sarà falsa per una parte del parco
 installato. La realizzazione corretta:
 
 1. il componente di registrazione **legge i codec effettivamente negoziati** dalla sessione;
@@ -576,7 +576,7 @@ determinano la configurazione:
   d'uso reale (mostrare un referto all'assistito);
 - la sorgente video da file accetta un formato non compresso specifico; la sorgente audio da file
   accetta un formato non compresso specifico, **richiede la disattivazione dell'elaborazione
-  audio** — altrimenti il file viene riprodotto distorto — e **deve essere combinata** con
+  audio** - altrimenti il file viene riprodotto distorto - e **deve essere combinata** con
   l'attivazione dei dispositivi sintetici. Esiste una forma che riproduce il file una sola volta
   invece che in ciclo, ed è quella che serve quando il file contiene un riferimento temporale;
 - **asimmetria da dichiarare**: uno dei tre motori **non ha un equivalente** della riproduzione da
@@ -632,7 +632,7 @@ Il dettaglio dell'organizzazione della suite è in
 | Rotazione delle chiavi durante la sessione | **Non esiste** nella tecnologia. Non si rivendica |
 | Cifratura fino agli estremi in modalità con registrazione | **Non sussiste**, per costruzione. Dichiarata nel consenso e nell'interfaccia |
 | Misura automatica della latenza da obiettivo a schermo | Realizzabile su un solo motore di navigazione |
-| Quota di sessioni instradate dal relay | `[NV]` — da misurare sul traffico proprio, mai citata da stime altrui |
+| Quota di sessioni instradate dal relay | `[NV]` - da misurare sul traffico proprio, mai citata da stime altrui |
 | Sottotitoli in tempo reale | Non conformità dichiarata su un criterio di accessibilità (D24), con misura alternativa e canale dati comunque definito nel protocollo |
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: Tracciamento e registro immutabile
 sidebar_position: 8
-description: Come è costruito il registro degli accessi e delle operazioni di Telemedic — catena di impronte, ancoraggio, conservazione separata, che cosa si registra e che cosa no, come si dimostra l'integrità, perché il versionamento delle entità non lo sostituisce.
+description: Come è costruito il registro degli accessi e delle operazioni di Telemedic - catena di impronte, ancoraggio, conservazione separata, che cosa si registra e che cosa no, come si dimostra l'integrità, perché il versionamento delle entità non lo sostituisce.
 ---
 
 # Tracciamento e registro immutabile
@@ -16,7 +16,7 @@ storico.
 compiuta. Richiede che l'identità sia accertata al momento dell'operazione e registrata con il
 livello di garanzia con cui è stata accertata, e che la registrazione sia opponibile.
 
-**Non alterabile** significa che nessuno — **incluso chi amministra il sistema** — può modificare o
+**Non alterabile** significa che nessuno - **incluso chi amministra il sistema** - può modificare o
 cancellare una voce senza che l'alterazione sia rilevabile. È il requisito difficile, perché il
 modello di minaccia comprende l'operatore stesso.
 
@@ -83,8 +83,8 @@ una voce senza riscrivere tutta la coda.
 
 Due decisioni di forma:
 
-**La catena è per tenant, non globale.** Una catena globale creerebbe una dipendenza fra tenant —
-la verifica dell'integrità del tenant A richiederebbe le voci del tenant B — che contraddice
+**La catena è per tenant, non globale.** Una catena globale creerebbe una dipendenza fra tenant -
+la verifica dell'integrità del tenant A richiederebbe le voci del tenant B - che contraddice
 l'isolamento fra titolari autonomi e renderebbe impossibile consegnare a un titolare l'evidenza dei
 propri accessi senza esporgli l'esistenza degli altri.
 
@@ -99,7 +99,7 @@ A intervalli regolari, l'impronta della testa della catena è **firmata e marcat
 e l'attestazione è conservata separatamente dalla catena stessa. L'ancoraggio è ciò che rende la
 riscrittura della storia contraddittoria con un'attestazione già emessa e datata.
 
-`[NV]` — L'intervallo di ancoraggio, la scelta fra marcatura temporale da un servizio qualificato
+`[NV]` - L'intervallo di ancoraggio, la scelta fra marcatura temporale da un servizio qualificato
 e altre forme di attestazione, e la conservazione degli ancoraggi sono decisioni che appartengono
 all'area di sicurezza e all'area di conformità: quest'area ne fissa la necessità e la collocazione
 architetturale, non i parametri. La domanda è aperta in bacheca.
@@ -116,7 +116,7 @@ Questo punto va detto con onestà nella documentazione destinata a chi installa:
 fornisce il meccanismo, non può imporre la separazione dei ruoli in un'organizzazione che non
 controlla**. Ciò che può fare, e fa, è: rendere la separazione la configurazione predefinita,
 rilevare e segnalare la configurazione in cui i due archivi condividono le credenziali, e
-documentare la conseguenza — in quella configurazione, la garanzia si riduce a quella della sola
+documentare la conseguenza - in quella configurazione, la garanzia si riduce a quella della sola
 catena applicativa.
 
 ## 3. Che cosa si registra
@@ -186,7 +186,7 @@ titolare, e l'identificativo esterno è una chiave verso un altro archivio.
 
 Sulla registrazione dell'origine della richiesta esiste una tensione reale: da un lato è
 un'informazione utile alla sorveglianza, dall'altro l'indirizzo di rete di un assistito è dato
-personale e, nel contesto, dato relativo alla salute — perché la sua sola presenza attesta un
+personale e, nel contesto, dato relativo alla salute - perché la sua sola presenza attesta un
 contatto sanitario. La forma minima adottata e le sue eventuali riduzioni appartengono all'area di
 sicurezza; quest'area registra che la tensione esiste e va risolta esplicitamente, non ignorata.
 
@@ -205,7 +205,7 @@ esplicitamente.
 
 **L'indisponibilità del registro è indisponibilità del sistema.** Se il registro non è scrivibile,
 le operazioni su dato clinico non sono eseguibili. È una scelta severa e deliberata: l'alternativa
-— proseguire senza traccia e riconciliare dopo — produce una finestra di accessi non dimostrabili,
+- proseguire senza traccia e riconciliare dopo - produce una finestra di accessi non dimostrabili,
 e la finestra coincide con l'incidente, cioè con il momento in cui la dimostrabilità serve di più.
 
 **La copia sull'archivio a sola scrittura è invece asincrona**, con ritardo sorvegliato. È la

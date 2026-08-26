@@ -1,10 +1,10 @@
 ---
-title: "ADR-0026 — Rappresentazione ed esecuzione delle regole del piano di telemonitoraggio"
+title: "ADR-0026 - Rappresentazione ed esecuzione delle regole del piano di telemonitoraggio"
 sidebar_position: 26
 description: Perché le regole del piano sono un linguaggio dichiarativo ristretto e versionato, valutato in modo deterministico contro la versione vigente all'istante di misura, e perché non sono codice né un motore di regole generico.
 ---
 
-# ADR-0026 — Rappresentazione ed esecuzione delle regole del piano di telemonitoraggio
+# ADR-0026 - Rappresentazione ed esecuzione delle regole del piano di telemonitoraggio
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Origine**: questione posta dall'area funzionale a quest'area e all'area di conformità
@@ -19,12 +19,12 @@ sull'allarme, e che il determinismo sia verificabile con vettori di prova.
 
 Il linguaggio deve essere abbastanza espressivo da coprire soglia, andamento, persistenza,
 isteresi, finestra e condizioni di applicabilità; e abbastanza **ristretto** da non diventare un
-modo per introdurre logica clinica arbitraria — che è precisamente ciò che il perimetro del
+modo per introdurre logica clinica arbitraria - che è precisamente ciò che il perimetro del
 progetto esclude.
 
 ## Alternative valutate
 
-### Alternativa 1 — Regole come codice
+### Alternativa 1 - Regole come codice
 
 Ogni regola è una classe, e aggiungere una regola è un rilascio.
 
@@ -36,21 +36,21 @@ regola non versionabile con il piano**, perché il codice ha la versione del ril
 del piano individuale. Con il codice, «quale regola era vigente all'istante di quella misura» non
 ha risposta. **Scartata.**
 
-### Alternativa 2 — Motore di regole generico o linguaggio di espressione clinica
+### Alternativa 2 - Motore di regole generico o linguaggio di espressione clinica
 
 *Vantaggi*: espressività alta; standard esistenti; la piattaforma nazionale prevede il consumo di
 protocolli con logica espressa in un linguaggio di espressione clinica.
 
 *Compromessi decisivi*: **un esecutore di logica clinica generica è esattamente il componente che
-il perimetro esclude**. Il progetto distingue le due capacità — consumare terminologie e
-consumare logica eseguibile — e progetta perché l'esecutore **sia assente per costruzione, non
+il perimetro esclude**. Il progetto distingue le due capacità - consumare terminologie e
+consumare logica eseguibile - e progetta perché l'esecutore **sia assente per costruzione, non
 disattivato per configurazione**. Un motore generale, anche se usato per soglie semplici, è un
 esecutore presente. **Scartata.**
 
-### Alternativa 3 — Linguaggio dichiarativo ristretto, chiuso e versionato
+### Alternativa 3 - Linguaggio dichiarativo ristretto, chiuso e versionato
 
-Un insieme **chiuso** di costrutti — soglia, intervallo di normalità, andamento su finestra,
-persistenza oltre una durata, isteresi di rientro, condizione di applicabilità — combinabili ma non
+Un insieme **chiuso** di costrutti - soglia, intervallo di normalità, andamento su finestra,
+persistenza oltre una durata, isteresi di rientro, condizione di applicabilità - combinabili ma non
 estendibili dall'utente.
 
 *Vantaggi*: copre i casi richiesti; è versionabile con il piano; è deterministico e verificabile
@@ -103,5 +103,5 @@ la destinazione d'uso congelata.
 
 ## Riferimenti
 
-[03 — Modello di dominio](../02_architecture/03-modello-di-dominio.md#47-contesto-telemonitoraggio) ·
+[03 - Modello di dominio](../02_architecture/03-modello-di-dominio.md#47-contesto-telemonitoraggio) ·
 ADR-0024 · ADR-0030

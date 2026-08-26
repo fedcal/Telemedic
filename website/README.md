@@ -26,8 +26,8 @@ indentazione che non ha nulla a che vedere con l'indentazione.
 percorso relativo che esce da `docs/` funziona su GitHub ma non sul sito.
 
 **Gli URL non contengono i prefissi numerici.** Docusaurus li rimuove: `docs/06_security/00-indice.md`
-diventa `/docs/security/indice`. I collegamenti scritti nella configurazione del sito — barra di
-navigazione, piè di pagina, pagina iniziale — devono usare la forma senza prefissi. I collegamenti
+diventa `/docs/security/indice`. I collegamenti scritti nella configurazione del sito - barra di
+navigazione, piè di pagina, pagina iniziale - devono usare la forma senza prefissi. I collegamenti
 *dentro* i documenti restano relativi al file, e Docusaurus li risolve da sé.
 
 ## Anomalia nota nelle dipendenze

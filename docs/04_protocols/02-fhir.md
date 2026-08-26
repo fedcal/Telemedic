@@ -117,7 +117,7 @@ tipi di servizio che il professionista può erogare per un'organizzazione. Refer
 **Il tracciamento è esposto in sola lettura.** Un `AuditEvent` scrivibile da un client è un
 registro falsificabile. La sorgente degli eventi di tracciamento è interna; l'API li espone per
 la consultazione e l'esportazione, mai per la scrittura. Il registro immutabile in senso proprio
-— catena di impronte e conservazione separata — è cosa diversa dalla risorsa FHIR e non è
+- catena di impronte e conservazione separata - è cosa diversa dalla risorsa FHIR e non è
 sostituito da essa: è il vincolo V-04, e appartiene all'area di sicurezza.
 
 ### 3.2 La classe del contatto assistenziale
@@ -130,7 +130,7 @@ Telemedic valorizza la classe con il codice della modalità virtuale del sistema
 `http://terminology.hl7.org/CodeSystem/v3-ActCode`, la cui definizione è *«A patient encounter
 where the patient and the practitioner(s) are not in the same physical location»*. È l'unico
 codice del vocabolario che denoti la modalità non compresente, quindi la scelta è conforme e
-difendibile — **ma è una decisione di progetto, non una prescrizione della guida**, e va
+difendibile - **ma è una decisione di progetto, non una prescrizione della guida**, e va
 formalizzata come record di decisione architetturale. La domanda va inoltre posta all'ente che
 pubblica la guida.
 
@@ -162,8 +162,8 @@ Nessuna estensione del legame è necessaria: i codici stanno tutti nel vocabolar
 
 Gli stati del contatto assistenziale sono nove e il legame è vincolante. La traiettoria della
 prestazione è persistita in `Encounter.statusHistory`, che porta stato e intervallo temporale
-obbligatori. Questa è la rappresentazione **interoperabile** della traiettoria e si affianca —
-senza sostituirlo — al versionamento interno delle entità e al registro immutabile, che
+obbligatori. Questa è la rappresentazione **interoperabile** della traiettoria e si affianca -
+senza sostituirlo - al versionamento interno delle entità e al registro immutabile, che
 rispondono a domande diverse.
 
 ```mermaid
@@ -269,7 +269,7 @@ Esempio di istanza, con dati sintetici:
 }
 ```
 
-> **`[NV]` — forma esatta della sotto-estensione dell'indirizzo.** La definizione pubblicata
+> **`[NV]` - forma esatta della sotto-estensione dell'indirizzo.** La definizione pubblicata
 > espone `address` come **estensione complessa** su un tipo di contatto esteso, non come valore
 > semplice. La forma puntuale delle sue sotto-estensioni non è stata verificata elemento per
 > elemento. Prima di scrivere un indirizzo in quella sotto-estensione va risolto il pacchetto
@@ -295,8 +295,8 @@ questa raccomandazione, deliberatamente e in modo dichiarato**: il comportamento
 la **gestione stretta**, e un parametro non riconosciuto produce un errore invece di essere
 ignorato.
 
-La motivazione è di sicurezza clinica, non di purismo. Un client che invia un filtro sbagliato —
-per esempio un parametro di restrizione al tenant scritto male — riceverebbe silenziosamente
+La motivazione è di sicurezza clinica, non di purismo. Un client che invia un filtro sbagliato -
+per esempio un parametro di restrizione al tenant scritto male - riceverebbe silenziosamente
 **più dati del previsto**. In un sistema sanitario multi-tenant questo è un incidente di
 divulgazione, non un fastidio. Il costo è che un client che invia un parametro superfluo riceve
 un errore invece che una risposta: è un costo accettabile e va documentato all'integratore.
@@ -389,7 +389,7 @@ restituirebbe tutto, e ometterlo è esattamente ciò che un client sbagliato fa.
 | `$get-ws-binding-token` | sistema, istanza | **Non esposta in v1.0** | Il canale a socket web per le notifiche non è nel perimetro |
 | `$export` | **solo su gruppo** | Esposta con restrizioni severe | Vedi §6.2 |
 | `$ihe-pix` su `Patient` | tipo | **Consumata, non esposta** | Telemedic è consumatore, non gestore della correlazione (capitolo [05](./05-ihe.md)) |
-| `$expand`, `$lookup`, `$validate-code` | — | **Non esposte** | Telemedic non è un servizio terminologico: le inoltra al servizio configurato |
+| `$expand`, `$lookup`, `$validate-code` | - | **Non esposte** | Telemedic non è un servizio terminologico: le inoltra al servizio configurato |
 
 ### 6.1 La validazione come operazione
 
@@ -431,7 +431,7 @@ suggerito e di avanzamento, e `200` con il manifesto al completamento. I paramet
 sono quelli della versione fissata, compresi quelli introdotti dalla 3.0.0.
 
 > **Regola dichiarata:** il progetto implementa il manifesto **nella forma pubblicata nella
-> 3.0.0**. La costruzione continua della guida presenta un manifesto strutturalmente diverso —
+> 3.0.0**. La costruzione continua della guida presenta un manifesto strutturalmente diverso -
 > rinomina il campo degli errori, ne aggiunge cinque, ne rimuove uno. Non è materiale su cui
 > implementare, e implementarvi produrrebbe un sistema che non interopera con nessuno.
 
@@ -472,8 +472,8 @@ documento di capacità emessa solo per compatibilità con client datati e marcat
 | Terminologico | Esistenza dei codici e appartenenza agli insiemi di valori | A ogni scrittura, **se il servizio è attivo** | Servizio terminologico |
 
 Il terzo livello porta un costo dichiarato dalla politica terminologica del progetto. Con la
-funzione della terminologia clinica internazionale disattivata — che è la configurazione
-predefinita e pienamente supportata per vincolo V-03 — **i legami che dipendono da quella
+funzione della terminologia clinica internazionale disattivata - che è la configurazione
+predefinita e pienamente supportata per vincolo V-03 - **i legami che dipendono da quella
 terminologia non si validano**. La misura è nota: il legame sui motivi del contatto assistenziale
 ha forza *preferred* e si espande su circa quattromila codici. Il progetto lo dichiara invece di
 scoprirlo: un motivo di contatto espresso con quella terminologia viene accettato senza verifica
@@ -481,14 +481,14 @@ del codice, e la risposta di validazione riporta una segnalazione di severità i
 dice esplicitamente.
 
 Nessun percorso principale del sistema richiede quella terminologia. Le codifiche su cui il
-progetto si appoggia — la classificazione delle sezioni del referto, la classificazione italiana
-delle diagnosi e il catalogo nazionale delle prestazioni — non hanno quel vincolo.
+progetto si appoggia - la classificazione delle sezioni del referto, la classificazione italiana
+delle diagnosi e il catalogo nazionale delle prestazioni - non hanno quel vincolo.
 
 In integrazione continua la validazione è un **gate**: se un esempio del repository non valida
 contro il profilo che dichiara, la costruzione fallisce. Un esempio che non valida è peggio di
 nessun esempio, perché insegna a sbagliare.
 
-> **`[NV]` — strumenti concreti di validazione.** I nomi, le versioni e le modalità di
+> **`[NV]` - strumenti concreti di validazione.** I nomi, le versioni e le modalità di
 > invocazione degli strumenti di validazione e di pubblicazione delle guide non sono stati
 > verificati su fonte primaria. Vanno accertati e fissati nella configurazione di costruzione.
 > **Da chiedere a**: chi cura la catena di costruzione, in raccordo con l'area tecnica.
@@ -612,8 +612,8 @@ integra senza conoscerli produce dati che non si riconciliano.
 
 La famiglia della telemedicina è alla **0.2.0**, dichiarata *trial-use* e *draft*. Dichiarare
 conformità a uno standard non ancora stabile è una scelta con conseguenze di manutenzione: se la
-0.3.0 cambia un profilo, cambia il progetto. La scelta resta corretta, perché l'alternativa —
-inventare profili propri per un dominio che ha già una guida nazionale — è peggiore. Ma il fatto
+0.3.0 cambia un profilo, cambia il progetto. La scelta resta corretta, perché l'alternativa -
+inventare profili propri per un dominio che ha già una guida nazionale - è peggiore. Ma il fatto
 va scritto nel contratto verso l'integratore, non nascosto dietro la parola «conforme».
 
 ### 9.2 Campi di pubblicazione lasciati ai valori predefiniti
@@ -644,7 +644,7 @@ fallisce, perché un'istanza valida per una guida non lo è per l'altra; il cons
 riconosce l'identificatore e finisce per riconciliare su nome e data di nascita, cioè nel modo
 peggiore possibile.
 
-> **Q-06 — questione aperta verso l'area di architettura e l'area tecnica. Quest'area non
+> **Q-06 - questione aperta verso l'area di architettura e l'area tecnica. Quest'area non
 > decide e non cabla.**
 >
 > Gli esempi normativi di questo capitolo **non contengono l'identificatore del codice fiscale**,
@@ -673,7 +673,7 @@ tracciabile a un'edizione.
 
 **Regola di progetto: Telemedic non dichiara un'edizione.** Dichiarare ciò che non si può
 verificare è peggio che dichiarare l'incertezza. Si aggiunge che esistono **due URI concorrenti**
-per la stessa classificazione — quello della specifica internazionale e quello definito dalla
+per la stessa classificazione - quello della specifica internazionale e quello definito dalla
 guida italiana. Il progetto dichiara quale usa e per quale scopo, e non li mescola mai nella
 stessa risorsa.
 
@@ -732,7 +732,7 @@ sostituiti dal riferimento documentale. Modellarvi la registrazione significhere
 oggi una struttura che non esiste domani, e sarebbe l'unico debito R4 davvero irrecuperabile.
 
 Telemedic modella la registrazione su `DocumentReference`, con il tipo di contenuto
-dell'allegato **negoziato a runtime e mai assunto** — è il vincolo V-11, e la ragione tecnica
+dell'allegato **negoziato a runtime e mai assunto** - è il vincolo V-11, e la ragione tecnica
 sta nella divergenza verificata del contenitore prodotto dai diversi ambienti di esecuzione
 (modulo [«WebRTC da zero», §12](../10_fondamenti/08-webrtc-da-zero.md)).
 
@@ -748,6 +748,6 @@ sta nella divergenza verificata del contenitore prodotto dai diversi ambienti di
 
 La riga sulle metriche merita enfasi perché la tentazione è forte e l'errore è comune: un valore
 di variazione del ritardo di rete non è un dato clinico, e la sua presenza nella cartella di un
-assistito non è un dettaglio. Se e quando servisse esporre metriche in FHIR — per esempio per un
-rapporto sulla qualità del servizio — il soggetto sarebbe il dispositivo o il luogo, mai la
+assistito non è un dettaglio. Se e quando servisse esporre metriche in FHIR - per esempio per un
+rapporto sulla qualità del servizio - il soggetto sarebbe il dispositivo o il luogo, mai la
 persona assistita.

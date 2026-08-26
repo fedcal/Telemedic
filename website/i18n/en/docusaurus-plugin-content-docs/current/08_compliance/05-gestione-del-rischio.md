@@ -1,5 +1,5 @@
 ---
-title: Risk management — ISO 14971 applied to this system
+title: Risk management - ISO 14971 applied to this system
 sidebar_position: 6
 description: The project's risk management process under ISO 14971:2019, the risk register with real examples from the domain (parameter not received, session interrupted, wrong identity, missing terminology data, unreliable clock), the hierarchy of control measures, the double verification of implementation and effectiveness, the declared residual risk and the connection with the security threat model.
 ---
@@ -8,9 +8,9 @@ description: The project's risk management process under ISO 14971:2019, the ris
 
 > **What this chapter does not contain.** It does not contain the explanation of what a hazard, a
 > hazardous situation or a residual risk is: that is in module
-> [10 — Care pathways and safety](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md), § 9.6, and
+> [10 - Care pathways and patient safety](/10_fondamenti/10-percorsi-di-cura-e-sicurezza.md), § 9.6, and
 > in module
-> [15 — The regulatory framework from scratch](../10_fondamenti/15-regolatorio-da-zero.md), § 5.5,
+> [15 - The regulatory framework from scratch](/10_fondamenti/15-regolatorio-da-zero.md), § 5.5,
 > and it is written for someone who has never seen the standard. **Here it is applied.** Anyone who
 > has not read those two paragraphs will find this chapter compact to the point of
 > unintelligibility, and that is not a defect of this chapter.
@@ -22,19 +22,23 @@ implement and maintain a risk management system; **section 3 of Annex I** descri
 an iterative process throughout the device's entire lifecycle. **EN ISO 14971:2019** is the standard
 that describes that process and it is harmonised under the regulation.
 
-`[NV]` — **Whether the published reference is `EN ISO 14971:2019` or `EN ISO 14971:2019+A11:2021`
+`[NV]` - **Whether the published reference is `EN ISO 14971:2019` or `EN ISO 14971:2019+A11:2021`
 must be verified against the Commission's consolidated list**, and the difference is not
 nominalistic: it is amendment A11 that contains the annexes stating the deviations between the
 standard and the regulation (§ 3.4). The verification falls on whoever compiles the general safety
 and performance requirements matrix.
 
-**The allocation, which holds for the whole chapter.** Under `D28` and `D49` the project **is not a
-manufacturer** and does not affix the CE marking: it does not sign the risk management report, does
-not determine the acceptability of the overall residual risk and does not assume responsibility for
-the benefit/risk ratio. It does however produce **the material on which those determinations are
-made**, and it produces it now because part of it is retroactively unrecoverable.
+**The allocation, which holds for the whole chapter.** From `D58` the project intends to
+assume the role of manufacturer, and with `D63` that assumption is a **product requirement**; the
+legal entity is still to be constituted. Under `D58` the
+project does not sign today the risk management report, does not determine today the acceptability
+of the overall residual risk and does not assume today responsibility for the benefit/risk ratio.
+It does however produce **the material on which those determinations will be made**, and it produces
+it now because part of it is retroactively unrecoverable. When the manufacturer entity is
+constituted, it will assume all the acts reserved to that role, including the signing of the report
+and the determination of acceptability.
 
-| Activity | Project | Whoever certifies |
+| Activity | Project | The manufacturer |
 |---|---|---|
 | Risk management plan, acceptability criteria | Technical draft and proposed method | **Approves, dates and signs** |
 | Identification of hazards and hazardous situations | **In full** | Reviews and supplements |
@@ -47,7 +51,7 @@ made**, and it produces it now because part of it is retroactively unrecoverable
 | Production and post-production activities | Product capabilities | **Its own process** |
 
 The most important row is the penultimate one and it is dealt with in § 8: **the determination of
-acceptability cannot be delegated** — not to a supplier, not to a consultant, not to a table.
+acceptability cannot be delegated** - not to a supplier, not to a consultant, not to a table.
 
 ## 2. The process, and where it plugs into daily work
 
@@ -115,10 +119,10 @@ for the technical reason in § 3.3.
 
 | Severity class | Description in the domain | Proposed criterion |
 |---|---|---|
-| **G4 — critical** | Death or permanent harm | No residual risk is acceptable without a level 1 or 2 measure with verified effectiveness **and** an explicit statement to the user |
-| **G3 — serious** | Hospitalisation, intervention, reversible but significant deterioration, diagnostic delay on a time-dependent condition | A level 1 or 2 measure is mandatory; level 3 is admitted **only in addition** and never on its own |
-| **G2 — moderate** | Service missed or postponed, repetition of the act, significant discomfort | Level 2 or 3 measure, with verification of effectiveness |
-| **G1 — minor** | Discomfort, need to repeat an action in the interface | Handled within product quality, with a record |
+| **G4 - critical** | Death or permanent harm | No residual risk is acceptable without a level 1 or 2 measure with verified effectiveness **and** an explicit statement to the user |
+| **G3 - serious** | Hospitalisation, intervention, reversible but significant deterioration, diagnostic delay on a time-dependent condition | A level 1 or 2 measure is mandatory; level 3 is admitted **only in addition** and never on its own |
+| **G2 - moderate** | Service missed or postponed, repetition of the act, significant discomfort | Level 2 or 3 measure, with verification of effectiveness |
+| **G1 - minor** | Discomfort, need to repeat an action in the interface | Handled within product quality, with a record |
 
 ### 3.3 Probability in software: why the two-dimensional grid does not hold
 
@@ -140,7 +144,7 @@ The method adopted by the project, to be taken up in the plan:
 4. **the matrix, if adopted, is a tool for communication and for ordering priorities**, not a
    decision criterion.
 
-`[NV]` — The approach is consistent with the framework of IEC 62304, which determines the safety
+`[NV]` - The approach is consistent with the framework of IEC 62304, which determines the safety
 class on the **possible harm** and not on the probability of the defect, and it is indicated as
 practicable by the technical report accompanying ISO 14971. **The precise reference to the section
 of that report must be verified against the text**, which is behind a paywall and has not been read:
@@ -154,9 +158,9 @@ falls within the criteria the manufacturer has set itself. It is the point on wh
 correspondence annexes of amendment A11 to the standard flag a **deviation**: the standard allows
 the manufacturer to stop at its own acceptability criteria, the regulation does not.
 
-`[NV]` — **The literal wording and the numbering of the Annex I section must be verified against the
-consolidated text.** The substance — reduction "as far as possible" without economic considerations,
-and not "to a reasonably practicable level" — is settled and is to be adopted.
+`[NV]` - **The literal wording and the numbering of the Annex I section must be verified against the
+consolidated text.** The substance - reduction "as far as possible" without economic considerations,
+and not "to a reasonably practicable level" - is settled and is to be adopted.
 
 Three editorial rules for the register follow, binding on the project:
 
@@ -170,7 +174,7 @@ Three editorial rules for the register follow, binding on the project:
 ## 4. What a row of the register looks like, and why it is not written on hazards
 
 The commonest error in small manufacturers' risk files is building the register on **hazards**
-instead of on **hazardous situations**. A row saying "hazard: data loss — severity: high —
+instead of on **hazardous situations**. A row saying "hazard: data loss - severity: high -
 probability: low" contains no usable information: it does not say which data, in which circumstance,
 who is exposed, which clinical decision depends on it. It allows neither estimation nor design.
 
@@ -204,10 +208,10 @@ engineering.
 
 The order is binding and is not a list of equivalent options:
 
-1. **inherently safe design** — eliminate the hazard or make it structurally impossible;
-2. **protective measures in the device or in the process** — barriers, checks, confirmations,
+1. **inherently safe design** - eliminate the hazard or make it structurally impossible;
+2. **protective measures in the device or in the process** - barriers, checks, confirmations,
    notifications;
-3. **information for safety** — warnings, instructions for use, training.
+3. **information for safety** - warnings, instructions for use, training.
 
 The third level is the cheapest and the weakest, and it is the one resorted to under deadline
 pressure. **A warning that solves a problem solvable by design is a non-conformity**, not a
@@ -219,14 +223,14 @@ most measures are level 3 says, unintentionally, that the product was not design
 documented for safety. It is one of the first things an experienced assessor counts, and it is a
 metric the project undertakes to publish alongside the register.
 
-## 6. The risk register — real examples from the domain
+## 6. The risk register - real examples from the domain
 
 What follows **is not a didactic example**: these are rows built on the domain model, on the
 functional requirements and on the actual architectural constraints of the project, and it is the
 form in which the `RM-FILE-001` register is to be compiled. The `RM-*` identifiers used here are
 provisional and are to be frozen together with the plan.
 
-### 6.1 `RM-01` — The parameter that does not arrive
+### 6.1 `RM-01` - The parameter that does not arrive
 
 | Field | Content |
 |---|---|
@@ -241,7 +245,7 @@ provisional and are to be frozen together with the plan.
 
 | Level | Measure | Acts on |
 |---|---|---|
-| **1** | **The measurement expectation is an entity**: the absence of a measurement is a row declaring the absence — with the expected window, the expiry instant and the cause where known — not the absence of a row. It is the operational form of the principle that silence is never normality, and it is what makes adherence a defined quantity instead of a count of what arrived | Makes the sequence structurally interruptible |
+| **1** | **The measurement expectation is an entity**: the absence of a measurement is a row declaring the absence - with the expected window, the expiry instant and the cause where known - not the absence of a row. It is the operational form of the principle that silence is never normality, and it is what makes adherence a defined quantity instead of a count of what arrived | Makes the sequence structurally interruptible |
 | **2** | Event generated by the expiry of the window, distinguishing between a **measurement not expected** and a **measurement not received**: they are two different things and collapsing them produces both false alerts and silences | Probability |
 | **2** | **Age of the last datum always visible** and graphically highlighted in every view presenting parameters; no summary view may show a value without its age | Probability |
 | **2** | **Monitoring of the expected volume**: a failure of the acquisition chain produces a collective silence that resembles normality. Detection must precede the expiry of the first individual window | Probability |
@@ -265,7 +269,7 @@ compensation that the **overall** residual risk evaluation must catch.
 window and the case being taken on remains, and so does the case of the patient who does not
 transmit **because** they are unwell. The residual is declared to the user.
 
-### 6.2 `RM-02` — The session that is interrupted
+### 6.2 `RM-02` - The session that is interrupted
 
 | Field | Content |
 |---|---|
@@ -299,7 +303,7 @@ is a trade-off with a clinical consequence and must be minuted, not chosen impli
 declared and the compensating measure is organisational: the existence of an alternative channel at
 the provider.
 
-### 6.3 `RM-03` — The wrong identity
+### 6.3 `RM-03` - The wrong identity
 
 | Field | Content |
 |---|---|
@@ -322,8 +326,8 @@ the provider.
 
 **Verification of effectiveness.** Negative cross-tenant test **on every entry point**, without
 exception; reconciliation test with an explicit assigning authority; test that the attribute
-modification interfaces respond with a refusal for a federated user. Negative tests — those
-verifying that the prohibited action **fails** — are here the only valid form: a positive test on a
+modification interfaces respond with a refusal for a federated user. Negative tests - those
+verifying that the prohibited action **fails** - are here the only valid form: a positive test on a
 correct case demonstrates nothing.
 
 **New risks introduced.** The explicit confirmation at the opening of the session adds a step that,
@@ -339,7 +343,7 @@ communicated to the integrator as an **obligation of upstream control**, and the
 of the allocation of responsibility is dealt with in chapter
 [09](./09-percorso-e-calendario.md), § 7.
 
-### 6.4 `RM-04` — The missing terminology datum
+### 6.4 `RM-04` - The missing terminology datum
 
 | Field | Content |
 |---|---|
@@ -361,7 +365,7 @@ risk file**, and it is to be treated as such instead of remaining a note in the 
 |---|---|---|
 | **1** | **No main path requires the fee-bearing coding system.** An unavailable external service cannot block a clinical act | Eliminates branch (b) on the main path |
 | **1** | **Every coded concept carries its coding system explicitly** and preserves the textual representation alongside the code: clinical information is never carried by the code alone | Severity |
-| **2** | **The validation outcome is a tracked datum with three distinct states** — validated, not validatable, rejected — and "not validatable" **is never treated as validated**. The distinction is propagated to the recipient | Probability |
+| **2** | **The validation outcome is a tracked datum with three distinct states** - validated, not validatable, rejected - and "not validatable" **is never treated as validated**. The distinction is propagated to the recipient | Probability |
 | **2** | **Single gateway** towards the terminologies, with per-coding-system disabling and declared behaviour in case of unavailability; **no cache persisted to disk** where the licence does not allow derivatives | Probability |
 | **2** | Queries to the external terminology service **carry no patient identifiers**: sovereignty is satisfied by the absence of the datum, not by its location | Concerns a distinct risk, of confidentiality |
 | **3** | Documentation for the deployer: which coding systems are active under which regime, what content does not validate, and what consequences follow for interoperability | Probability |
@@ -378,7 +382,7 @@ and is ignored, exactly like a non-actionable alert. The protective measure must
 binding cannot be validated. The residual is declared, quantified and communicated to the deployer,
 who is the party able to remove it by acquiring the licence.
 
-### 6.5 `RM-05` — The clock that is not reliable
+### 6.5 `RM-05` - The clock that is not reliable
 
 | Field | Content |
 |---|---|
@@ -429,18 +433,18 @@ identified, with their origin declared, and are to be developed in the same form
 
 | # | Hazardous situation | Severity | Highest-level measure available | Origin |
 |---|---|---|---|---|
-| `RM-06` | The professional confirms a pre-filled threshold without assessing it | `G3` | **1** — the threshold field starts empty and mandatory; no pre-filling, not even with the values of the pathway or of the last plan; references are shown with attribution and read-only | Analysis + foundations |
-| `RM-07` | One of the participants believes recording is on when it is not, or vice versa | `G2` clinically, with an autonomous legal consequence | **2** — persistent indicator, neither concealable nor themeable; switching between modes logged | Analysis + security |
-| `RM-08` | The clinical document stays in draft and the professional believes it has been transmitted | `G3` | **2** — explicit transmission status and confirmation that the recipient has taken it on; no ambiguous intermediate status | Analysis |
-| `RM-09` | The carer enters measurements attributing them to the wrong patient | `G3` | **2** — permanent, unambiguous subject context; explicit confirmation on switching | Foundations |
-| `RM-10` | A measurement corrected by the patient leaves the already-assessed wrong value in circulation | `G2`–`G3` | **1** — the measurement is immutable and versioned; **2** — explicit reconciliation of the alerts already generated | Foundations |
-| `RM-11` | An alert is not noticed because it is buried under non-actionable alerts | `G3` | **2** — measurement of the predictive value per rule, cap on alerts per operator, periodic review of the thresholds | Foundations + `RM-01` |
-| `RM-12` | The patient believes they are under uninterrupted surveillance and delays contacting the emergency services | `G4` | **2** — persistent, non-concealable statement of the current status of the service and of the alternative channel; **3** — instructions | Foundations + functional |
-| `RM-13` | An alert is taken on and never resolved, and nobody notices | `G3` | **1** — taking on and resolution are distinct transitions; **2** — monitoring of alerts taken on and not resolved | Foundations |
-| `RM-14` | A screen reader user does not locate the consent, recording or end-of-session control | `G2`–`G3` | **1** — components accessible by construction; **2** — manual verification with assistive technologies | Usability and accessibility |
-| `RM-15` | The professional amends the plan believing it takes immediate effect, while the patient still sees the previous one | `G3` | **2** — the plan's effectiveness status visible to both, with confirmation of the active version | Foundations |
-| `RM-16` | Obscured clinical content is inferred from a side channel (counts, numbering, pagination, notifications, error messages) | `G2` with harm from disclosure | **1** — obscuring is applied by the authorisation engine, not by the consumers, with totals computed on the filtered set | Domain + security |
-| `RM-17` | A defect of the federation product allows the user to alter their own personal-data attributes, to change their email address without verification or to give themselves a local credential | `G3`–`G4` by way of `RM-03` | **2** — configuration checks with negative tests in continuous integration | **Threat model** (§ 9) |
+| `RM-06` | The professional confirms a pre-filled threshold without assessing it | `G3` | **1** - the threshold field starts empty and mandatory; no pre-filling, not even with the values of the pathway or of the last plan; references are shown with attribution and read-only | Analysis + foundations |
+| `RM-07` | One of the participants believes recording is on when it is not, or vice versa | `G2` clinically, with an autonomous legal consequence | **2** - persistent indicator, neither concealable nor themeable; switching between modes logged | Analysis + security |
+| `RM-08` | The clinical document stays in draft and the professional believes it has been transmitted | `G3` | **2** - explicit transmission status and confirmation that the recipient has taken it on; no ambiguous intermediate status | Analysis |
+| `RM-09` | The carer enters measurements attributing them to the wrong patient | `G3` | **2** - permanent, unambiguous subject context; explicit confirmation on switching | Foundations |
+| `RM-10` | A measurement corrected by the patient leaves the already-assessed wrong value in circulation | `G2`–`G3` | **1** - the measurement is immutable and versioned; **2** - explicit reconciliation of the alerts already generated | Foundations |
+| `RM-11` | An alert is not noticed because it is buried under non-actionable alerts | `G3` | **2** - measurement of the predictive value per rule, cap on alerts per operator, periodic review of the thresholds | Foundations + `RM-01` |
+| `RM-12` | The patient believes they are under uninterrupted surveillance and delays contacting the emergency services | `G4` | **2** - persistent, non-concealable statement of the current status of the service and of the alternative channel; **3** - instructions | Foundations + functional |
+| `RM-13` | An alert is taken on and never resolved, and nobody notices | `G3` | **1** - taking on and resolution are distinct transitions; **2** - monitoring of alerts taken on and not resolved | Foundations |
+| `RM-14` | A screen reader user does not locate the consent, recording or end-of-session control | `G2`–`G3` | **1** - components accessible by construction; **2** - manual verification with assistive technologies | Usability and accessibility |
+| `RM-15` | The professional amends the plan believing it takes immediate effect, while the patient still sees the previous one | `G3` | **2** - the plan's effectiveness status visible to both, with confirmation of the active version | Foundations |
+| `RM-16` | Obscured clinical content is inferred from a side channel (counts, numbering, pagination, notifications, error messages) | `G2` with harm from disclosure | **1** - obscuring is applied by the authorisation engine, not by the consumers, with totals computed on the filtered set | Domain + security |
+| `RM-17` | A defect of the federation product allows the user to alter their own personal-data attributes, to change their email address without verification or to give themselves a local credential | `G3`–`G4` by way of `RM-03` | **2** - configuration checks with negative tests in continuous integration | **Threat model** (§ 9) |
 
 ## 7. The double verification, and the risks introduced by the measures
 
@@ -529,7 +533,7 @@ and risk of possible relevance for the use of the device according to the declar
 Section 1 of Annex I requires risks to be acceptable **when weighed against the benefits to the
 patient**.
 
-`[NV]` — the precise numbering of the point in Article 2 and of the sections of Annex I must be
+`[NV]` - the precise numbering of the point in Article 2 and of the sections of Annex I must be
 verified against the consolidated text.
 
 **The point with organisational consequences.** The benefit is a **clinical** fact. The numerator is
@@ -538,7 +542,7 @@ that:
 
 1. the ratio **requires the clinical data** coming from the clinical evaluation and a competent
    clinical judgement. It is the point at which the risk file and the clinical evaluation touch, and
-   a risk management report that does not cite the clinical evaluation report — or vice versa — is,
+   a risk management report that does not cite the clinical evaluation report - or vice versa - is,
    in both directions, a finding;
 2. **the benefit declared in the intended purpose is the ceiling of the numerator**: every word
    added is further clinical evidence to produce, every word removed lowers the numerator, making
@@ -585,8 +589,8 @@ this chapter's, and they do not merge.**
 | Effect of mitigation | Reduces probability or severity | Increases the cost to the attacker |
 
 A third file, distinct again, is the data protection impact assessment: it concerns the **risks to
-the rights and freedoms of data subjects**, not physical harm. **The three must not be merged** — it
-is the commonest error in digital healthcare — but they must be **linked**, because some scenarios
+the rights and freedoms of data subjects**, not physical harm. **The three must not be merged** - it
+is the commonest error in digital healthcare - but they must be **linked**, because some scenarios
 legitimately appear in more than one.
 
 ### 9.2 What enters, and under what rule
@@ -596,9 +600,9 @@ consequence** with each threat: the rows with a non-empty clinical consequence a
 that enters the device's risk file, as sequences of events.
 
 The connection is already written in the security area and **is not to be reformulated here**: it is
-to be **imported**. Chapter [01 — Threat model](../06_security/01-modello-di-minaccia.md), § 5,
+to be **imported**. Chapter [01 - Threat model](/06_security/01-modello-di-minaccia.md), § 5,
 contains the table of fifteen threats with their clinical consequence; chapter
-[02 — Identity and access](../06_security/02-identita-e-accessi.md), § 7, already treats **as
+[02 - Identity and access](/06_security/02-identita-e-accessi.md), § 7, already treats **as
 product risks within the meaning of the standard on medical device risk management** the three
 defects of the federation product, with the mandatory controls and the tests verifying their
 effectiveness.
@@ -622,9 +626,9 @@ Correspondence between the two sides, for the threats that generate rows:
 
 **What the threat model does not cover.** It does not cover hazardous situations **without an
 adversary**: use error, absence of data, failure, the out-of-sync clock, missing terminology, the
-pre-filled threshold. The project's threat model has already been extended beyond current practice —
+pre-filled threshold. The project's threat model has already been extended beyond current practice -
 the rows on the dropping of the session, on the loss of an alert and on wrongly declared coverage do
-not belong to a standard threat model, and their presence is to that area's credit — but it remains
+not belong to a standard threat model, and their presence is to that area's credit - but it remains
 a model built on adversaries, and five of the six extended rows of this chapter do not derive from
 it.
 
@@ -635,9 +639,9 @@ adversary performs an action would produce groundless numbers, for the same reas
 **The operational consequence is a bidirectional maintenance rule**, to be written into the risk
 management procedure:
 
-1. **every review of the threat model** — at every new trust boundary, at every relevant
+1. **every review of the threat model** - at every new trust boundary, at every relevant
    vulnerability in a component of the main path, after every incident, and in any case at least
-   annually — **produces a review of the imported rows** in the device risk file;
+   annually - **produces a review of the imported rows** in the device risk file;
 2. **every new row of the risk file with an intentional external cause** is proposed to the security
    area for inclusion in the threat model;
 3. **a divergence between the two files is a defect**, and it must be detected automatically: the
@@ -695,7 +699,7 @@ six months later, a false document.
 
 ## 11. The ten recurrent findings, as a self-check list
 
-To be used before considering the file closed. `[NV]` — the list derives from industry literature on
+To be used before considering the file closed. `[NV]` - the list derives from industry literature on
 recurrent findings, not from an institutional document, and it is ordered by expected frequency.
 
 | # | Finding | Where it is dealt with |
@@ -728,7 +732,7 @@ recurrent findings, not from an institutional document, and it is ordered by exp
    determined** (§ 6.5). It is a product threshold, not a compliance one, and it must be determined
    experimentally on the sources actually supported.
 6. **The quantification of the terminology residual** (§ 8.4, row 4) is known as an order of
-   magnitude — about four thousand codes of the encounter-reason binding — and must be verified
+   magnitude - about four thousand codes of the encounter-reason binding - and must be verified
    against the version of the implementation guide actually adopted.
 7. **The determination of the acceptability of the overall residual risk is not the project's**
    (§ 1). The project supplies the three inputs of § 8.2 and stops there.

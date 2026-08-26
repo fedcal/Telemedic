@@ -26,7 +26,7 @@ The corollary is less obvious and it is the one that costs: **if the standard ex
 you use the standard**. FHIR search is more complicated than a hand-rolled REST query, the input
 and output `Parameters` of FHIR operations are more verbose than a JSON body, the positional format
 of HL7 v2 is unreadable. These are ergonomics costs, not correctness costs, and they are paid
-because the benefit — a third-party system that already knows how to speak — is of the order of
+because the benefit - a third-party system that already knows how to speak - is of the order of
 months of work saved on every integration.
 
 ### 1.2 It is compatible with data sovereignty
@@ -36,8 +36,8 @@ service that is not substitutable or that is established outside the European Un
 protocols, it produces three concrete consequences.
 
 First: no protocol on the main path may require a central service operated by a third party. It is
-the reason why the media relay is self-hosted and why the WebRTC Identity Provider API — which
-would require a third-party identity provider to host the proxy script — is excluded regardless of
+the reason why the media relay is self-hosted and why the WebRTC Identity Provider API - which
+would require a third-party identity provider to host the proxy script - is excluded regardless of
 its adoption status (chapter [09](./09-tempo-reale.md)).
 
 Second: an external terminology service is admitted only as an **optional** component, with the
@@ -70,8 +70,8 @@ is the reason why a REST application plane and a FHIR clinical plane coexist (ch
 
 An adopted protocol must have a published answer to: what happens if the message arrives twice, if
 it does not arrive, if it arrives out of order, if the recipient is slow, if the recipient is
-unreachable for a day. Where the specification has no answer — as is the case for FHIR R4
-`Subscription`, which defines neither retries nor a dead-letter queue — the project answers and
+unreachable for a day. Where the specification has no answer - as is the case for FHIR R4
+`Subscription`, which defines neither retries nor a dead-letter queue - the project answers and
 **declares that the answer is its own**.
 
 ### 1.6 It is observable and diagnosable
@@ -134,7 +134,7 @@ what it is: **a project convention inspired by an expired Internet-Draft**. Any 
 with an IETF standard on this point would be false.
 
 **The rate limiting headers have changed shape.** The current revision of the draft defines **two**
-Structured Fields — `RateLimit` and `RateLimit-Policy` — and **replaces** the three headers
+Structured Fields - `RateLimit` and `RateLimit-Policy` - and **replaces** the three headers
 `RateLimit-Limit`, `RateLimit-Remaining`, `RateLimit-Reset` of the early versions. Citing the three
 headers as «standard» is doubly wrong: they are not a standard and they are not the current form.
 The project emits the current form and, for compatibility, the historical one too, declaring the
@@ -178,7 +178,7 @@ values, a diagnosis code system that **does not declare the edition** represente
 whose name does not match its content, a care encounter profile that **does not fix** the value of
 the class while nonetheless making it mandatory, and a declared dependency on a terminology whose
 licence is the deployer's responsibility. The complete list, with sources, is in the module
-[«FHIR from scratch», §8.4](../10_fondamenti/06-fhir-da-zero.md); the operational consequences are
+[«FHIR from scratch», §8.4](/10_fondamenti/06-fhir-da-zero.md); the operational consequences are
 in chapter [02](./02-fhir.md).
 
 ### 4.2 Two guides from the same body use different URIs for the tax code
@@ -191,7 +191,7 @@ to a machine, two different identifiers. The consequences are searches that do n
 deduplication that fails, validation that fails, and a consumer reconciling on name and date of
 birth, that is to say in the worst possible way.
 
-> **Open question Q-06 — not decided in this area.**
+> **Open question Q-06 - not decided in this area.**
 > The choice of the URI to write, and the point at which any translation takes place, are data model
 > decisions and belong to the architecture area, together with the technical area. This area
 > **documents the problem, its size and the recommendation**, and hard-codes no value in its own
@@ -215,8 +215,8 @@ anticipate future work.
 
 ### 4.4 Some mappings exist but are not normative
 
-All the maps of the HL7 v2 to FHIR mapping guide — thirteen at message level and seventy-seven at
-segment level — have *Informative* status. They are used as a reference, they are **not declared as
+All the maps of the HL7 v2 to FHIR mapping guide - thirteen at message level and seventy-seven at
+segment level - have *Informative* status. They are used as a reference, they are **not declared as
 conformance**, and for errors there is no map at all: translating the v2 error segment into the
 FHIR operation outcome is the implementation's responsibility, with no normative cover (chapter
 [04](./04-hl7-v2.md)).
@@ -244,9 +244,9 @@ errors that propagate once made:
   specification of its foundation, and they are cited by name and version.
 
 For the same reasons, when this area cites transport protocols it does so with the documents in
-force — **RFC 9293** for TCP, **RFC 9112** for HTTP/1.1 syntax — and not with the historical
+force - **RFC 9293** for TCP, **RFC 9112** for HTTP/1.1 syntax - and not with the historical
 numbers that have been obsoleted. The explanation of what they are is in the module
-[«The protocols, one by one»](../10_fondamenti/13-protocolli.md), which this area does not repeat.
+[«The protocols, one by one»](/10_fondamenti/13-protocolli.md), which this area does not repeat.
 
 ## 5. The ten choices awaiting an architectural decision
 
@@ -262,7 +262,7 @@ for the architecture area.
 | P-02 | Status code when the concurrency validator is missing on a clinical resource | **`428 Precondition Required`** on clinical writes, not silent last-writer-wins | An untracked overwrite of a clinical resource is undetectable data loss, incompatible with V5. The FHIR specification permits refusal but does not require it: it is a project choice. Cost: it breaks clients that do not send the validator | [06 §5](./06-api-di-progetto.md) |
 | P-03 | Response when the resource exists but the caller is not authorised to see it | **Not found**, not forbidden, on resources referring to a patient | Distinguishing «it does not exist» from «you may not see it» is an enumeration oracle over a patient base. Cost: harder diagnosis for the integrator, mitigated by the error code in the body | [06 §6](./06-api-di-progetto.md) |
 | P-04 | Retention of idempotency keys | **Twenty-four hours**, scoped to `(tenant, client, operation, key)` | It covers the longest retry cycle provided for synchronous writes without turning the log into an archive. Cost: a retry after 24 hours creates a duplicate | [06 §4](./06-api-di-progetto.md) |
-| P-05 | Dual emission of the rate limiting headers | **Yes, for a declared period**: current form plus historical form marked as deprecated | The current form is not yet an RFC and widely used libraries still read the historical one. Cost: redundant headers and an end date to keep to | [06 §8](./06-api-di-progetto.md) |
+| P-05 | Dual emission of the rate limiting headers | **No**: only headers in the current form are emitted | The historical form was never standard and is superseded; emitting a never-standardised form would legitimise it. Dual emission for compatibility is not adopted | [ADR-0021 §5](../adr/0021-convenzioni-delle-interfacce-pubbliche.md) |
 | P-06 | Notice period for decommissioning a major version | **Twelve months**, with two scheduled brownout windows at nine and eleven months | Twelve months is the typical planning cycle of a healthcare management system; the windows surface the integrations that have not migrated while there is still time. Cost: two major versions to maintain in parallel | [06 §7](./06-api-di-progetto.md) |
 | P-07 | Content of the event payload | **References, not clinical content** | Minimisation, harm reduction if a destination is misconfigured, consistency with the id-only level of the FHIR model. Cost: the recipient has to make one more authenticated call | [07 §2](./07-eventi-e-webhook.md) |
 | P-08 | Webhook retry policy | **Exponential backoff with mandatory jitter**, twelve attempts over roughly seventy-two hours, then a dead-letter queue | Jitter is not decorative: without it, a recipient coming back up produces a synchronised burst that is an involuntary attack on the partner. Cost: high delivery latency in the worst cases | [07 §5](./07-eventi-e-webhook.md) |
@@ -322,15 +322,15 @@ constraint.
 
 ```mermaid
 flowchart LR
-    A["T0 — Announcement<br/>changelog, notice to integrators,<br/>migration guide published"]
-    B["T0 → T0+12m — Deprecation<br/>deprecation and sunset headers,<br/>link to the guide, telemetry per version"]
-    C["T0+9m and T0+11m — Brownouts<br/>announced windows in which the deprecated<br/>version answers 'no longer available'"]
-    D["≥ T0+12m — Decommissioning<br/>'no longer available' response<br/>pointing to the migration guide"]
+    A["T0 - Announcement<br/>changelog, notice to integrators,<br/>migration guide published"]
+    B["T0 → T0+12m - Deprecation<br/>deprecation and sunset headers,<br/>link to the guide, telemetry per version"]
+    C["T0+9m and T0+11m - Brownouts<br/>announced windows in which the deprecated<br/>version answers 'no longer available'"]
+    D["≥ T0+12m - Decommissioning<br/>'no longer available' response<br/>pointing to the migration guide"]
     A --> B --> C --> D
 ```
 
 Additional rules: at least **two major versions active** at the same time; no decommissioning
-without having contacted the integrators still active on that version — usage telemetry per version
+without having contacted the integrators still active on that version - usage telemetry per version
 exists for exactly this purpose; the deprecation of an **authorisation scope** or of an **event
 type** follows the same process as the deprecation of a version; a security vulnerability may
 shorten the periods, but the emergency path is documented in advance, with a declared minimum

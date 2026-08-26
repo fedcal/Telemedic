@@ -8,7 +8,7 @@ description: "Che cosa contiene il fascicolo tecnico dell'Allegato II e dell'All
 
 > **Presupposto di lettura.** Che cosa sia un fascicolo tecnico, perché esista, che rapporto abbia
 > con la marcatura CE e con l'organismo notificato è spiegato da zero in
-> [10 §15 — Il quadro regolatorio da zero, §4](../10_fondamenti/15-regolatorio-da-zero.md).
+> [10 §15 - Il quadro regolatorio da zero, §4](../10_fondamenti/15-regolatorio-da-zero.md).
 > **Qui non si ripete: si mappa.** Questo capitolo risponde a una sola domanda, ripetuta per ogni
 > voce dell'Allegato II e dell'Allegato III: *quale documento la soddisfa, esiste già, e chi può
 > produrlo*.
@@ -24,7 +24,7 @@ description: "Che cosa contiene il fascicolo tecnico dell'Allegato II e dell'All
 > assumere il ruolo di fabbricante, e **il soggetto giuridico che lo eserciterebbe non è ancora
 > costituito**. Comporre il fascicolo,
 > firmare la dichiarazione di conformità e apporre la marcatura restano **atti riservati a quel
-> ruolo formale** — lo restano **anche quando il ruolo sarà il nostro**. È esattamente questa
+> ruolo formale** - lo restano **anche quando il ruolo sarà il nostro**. È esattamente questa
 > distinzione che rende leggibile perché le voci del § 12 non si possono anticipare: non è
 > ritrosia, è che l'atto presuppone il soggetto. Ciò che `D58` cambia è che quelle voci **da oggi
 > gravano su di noi**, il che le rende più urgenti, non meno.
@@ -48,7 +48,7 @@ dall'**Allegato II** del Regolamento (UE) 2017/745, integrata dall'**Allegato II
 di sorveglianza post-commercializzazione. L'**art. 10, paragrafo 4** impone di redigerlo e di
 **tenerlo aggiornato**: non è un adempimento di consegna, è un obbligo continuativo che dura
 quanto il dispositivo. Il regolamento impone inoltre di tenerlo a disposizione delle autorità per
-un periodo di anni successivo all'immissione sul mercato dell'ultimo dispositivo `[NV]` — la
+un periodo di anni successivo all'immissione sul mercato dell'ultimo dispositivo `[NV]` - la
 durata esatta e il paragrafo che la stabilisce vanno riverificati sul testo consolidato.
 
 Tre equivoci vanno tolti di mezzo subito, perché tutti e tre sono frequenti in un gruppo di
@@ -59,11 +59,11 @@ documentazione tecnica eccellente, come quella che questo repository produce, **
 fascicolo tecnico e non lo diventa per accumulo. La differenza non sta nella qualità del
 contenuto ma in tre proprietà formali che il contenuto non possiede da solo:
 
-1. **è controllato** — ogni documento ha un identificativo, una revisione, un autore, un
+1. **è controllato** - ogni documento ha un identificativo, una revisione, un autore, un
    approvatore, una data di approvazione e una procedura che governa la sua modifica;
-2. **è navigabile** — esiste un punto d'ingresso, la matrice dei requisiti generali di sicurezza e
+2. **è navigabile** - esiste un punto d'ingresso, la matrice dei requisiti generali di sicurezza e
    prestazione, da cui si raggiunge ogni evidenza con un riferimento a una revisione **esatta**;
-3. **è attribuito** — ha un soggetto che se ne assume la responsabilità, e quel soggetto è il
+3. **è attribuito** - ha un soggetto che se ne assume la responsabilità, e quel soggetto è il
    fabbricante.
 
 Nessuna delle tre proprietà appartiene alla documentazione pubblicata in queste pagine. È il
@@ -75,8 +75,8 @@ si scrive, non il documento.
 **Secondo equivoco: il fascicolo non è un archivio, è una dimostrazione.** L'organismo notificato
 non legge il fascicolo dall'inizio alla fine. Entra dalla matrice dei requisiti generali (sezione
 4 dell'Allegato II), sceglie alcune righe e le percorre fino all'evidenza. Se il percorso si
-interrompe — riferimento a un documento senza revisione, revisione che non corrisponde, evidenza
-che dimostra qualcosa di diverso da ciò che la riga afferma — il rilievo non riguarda la riga:
+interrompe - riferimento a un documento senza revisione, revisione che non corrisponde, evidenza
+che dimostra qualcosa di diverso da ciò che la riga afferma - il rilievo non riguarda la riga:
 riguarda **l'affidabilità dell'intero fascicolo**, perché il campione era casuale. Un fascicolo
 completo e non navigabile produce più rilievi di un fascicolo più magro e coerente.
 
@@ -94,10 +94,10 @@ loro valutazione. È materiale che si produce **mentre** si sviluppa e che, come
 | **A** | Documentazione tecnica del dispositivo, sezioni 1–6 | Allegato II | Fabbricante, con materiale del progetto |
 | **B** | Documentazione tecnica sulla sorveglianza post-commercializzazione | Allegato III | Fabbricante, con capacità di prodotto del progetto |
 | **C** | Documenti che **non appartengono** al fascicolo ma che l'organismo notificato richiede con la domanda | Allegato IX, artt. 15, 19; ISO 13485 | **Solo** il fabbricante |
-| **D** | Materiale che il progetto produce e che **non è** un documento del fascicolo, ma da cui i documenti del fascicolo si redigono | — | Progetto |
+| **D** | Materiale che il progetto produce e che **non è** un documento del fascicolo, ma da cui i documenti del fascicolo si redigono | - | Progetto |
 
 L'insieme D è la ragione per cui questo capitolo esiste. Se il progetto pubblicasse solo codice,
-chi volesse certificare — noi compresi, una volta costituito il soggetto — dovrebbe **ricostruire
+chi volesse certificare - noi compresi, una volta costituito il soggetto - dovrebbe **ricostruire
 per inferenza** il ragionamento di progetto, di rischio e di verifica: operazione interpretativa
 che un organismo notificato non ha motivo di accettare. Se invece il progetto pubblica l'analisi,
 **il fabbricante la riesamina, la corregge, la approva e la firma**: è un'operazione di ordini di
@@ -134,9 +134,9 @@ produrre.
 > finché il soggetto fabbricante non sarà costituito e il sistema di gestione della qualità non
 > sarà istituito. È la stessa ragione, argomentata per esteso, del
 > [02 §5.2](./02-qualificazione-e-classificazione.md): la mancanza non è più di soggetto, è di
-> **sistema** — e il sistema è a nostro carico.
+> **sistema** - e il sistema è a nostro carico.
 
-## 4. Allegato II, sezione 1 — Descrizione e specifica del dispositivo
+## 4. Allegato II, sezione 1 - Descrizione e specifica del dispositivo
 
 È la sezione che definisce **di che cosa si sta parlando**. Ogni errore commesso qui si propaga a
 tutto il resto: la destinazione d'uso determina la classe, la classe determina la procedura, la
@@ -145,7 +145,7 @@ procedura determina i tempi e i costi.
 | Voce | Contenuto richiesto | Documento regolatorio | Alimentato da | Attr. | Stato |
 |---|---|---|---|:-:|:-:|
 | 1.1 a | Denominazione del prodotto e descrizione generale, con destinazione d'uso e utilizzatori previsti | `MDR-IU-001` | [02 §5.1](./02-qualificazione-e-classificazione.md) (struttura della traccia), [03_functional/01](../03_functional/01-attori-e-ruoli.md) | P/F | ◐ |
-| 1.1 b | **UDI-DI di base** attribuito dal fabbricante | `UDI-001` | — | **F** | ☐ |
+| 1.1 b | **UDI-DI di base** attribuito dal fabbricante | `UDI-001` | - | **F** | ☐ |
 | 1.1 c | Popolazione di pazienti, condizioni cliniche, indicazioni, controindicazioni, avvertenze | `MDR-IU-001` §§ 3, 5, 9 | [05_domain/02](../05_domain/02-le-prestazioni-modellate.md), [05_domain/08](../05_domain/08-percorsi-e-piani-di-cura.md), [03_functional/07](../03_functional/07-fuori-perimetro.md) | P/F | ◐ |
 | 1.1 d | Principio di funzionamento e modo d'azione | `MDR-IU-001` § 7 | [02_architecture/01](../02_architecture/01-visione-architetturale.md), [02_architecture/02](../02_architecture/02-contesti-delimitati.md) | P | ◐ |
 | 1.1 e | **Motivazione della qualificazione** come dispositivo medico | `MDR-CLS-001` § 2 | [02 §§1–3](./02-qualificazione-e-classificazione.md) | P | ☑ |
@@ -154,9 +154,9 @@ procedura determina i tempi e i costi.
 | 1.1 h | Accessori, altri dispositivi e prodotti non-dispositivi usati in combinazione | `MDR-COMB-001` | [05_domain/05](../05_domain/05-parametri-e-osservazioni.md), [07_integration/01](../07_integration/01-modalita-di-integrazione.md) | P/F | ☐ |
 | 1.1 i | Elenco completo di **configurazioni e varianti** | `MDR-CONF-001` | [02_architecture/08](../02_architecture/08-viste-di-deployment.md), [07_integration/08](../07_integration/08-moduli-sostituibili.md) | P/F | ◐ |
 | 1.1 j | Elementi funzionali chiave, con rappresentazioni figurate | `SW-SAD-001` | [02_architecture/01](../02_architecture/01-visione-architetturale.md)…[06](../02_architecture/06-eventi-e-integrazione-interna.md), [01_technical/02](../01_technical/02-backend.md), [01_technical/04](../01_technical/04-frontend.md), [01_technical/05](../01_technical/05-media-e-tempo-reale.md) | P | ◐ |
-| 1.1 k | Materie prime a contatto con il corpo | **Non applicabile** | — | P/F | ☐ |
+| 1.1 k | Materie prime a contatto con il corpo | **Non applicabile** | - | P/F | ☐ |
 | 1.1 l | **Specifiche tecniche**: caratteristiche, prestazioni, varianti | `MDR-SPEC-001`, `MDR-ENV-001` | [01_technical/07](../01_technical/07-prestazioni-e-capacita.md), [01_technical/04](../01_technical/04-frontend.md) | P | ◐ |
-| 1.2 | Generazioni precedenti e dispositivi analoghi del fabbricante | `MDR-TD-001` § 1.2 | — | **F** | ☐ |
+| 1.2 | Generazioni precedenti e dispositivi analoghi del fabbricante | `MDR-TD-001` § 1.2 | - | **F** | ☐ |
 
 **Tre righe meritano una nota, perché sono quelle in cui il modello duale del progetto (`D17`)
 produce conseguenze concrete.**
@@ -170,8 +170,8 @@ questione `Q-172` del § 17.
 
 **La riga 1.1 k.** «Non applicabile» non è una risposta: è una **motivazione da scrivere**. Un
 fascicolo che salta le voci non applicabili è un fascicolo incompleto, non un fascicolo snello.
-La forma corretta è la voce presente, con la dichiarazione di non applicabilità e la ragione —
-software privo di parti applicate, nessun contatto con il corpo, nessuna azione fisica o chimica —
+La forma corretta è la voce presente, con la dichiarazione di non applicabilità e la ragione -
+software privo di parti applicate, nessun contatto con il corpo, nessuna azione fisica o chimica -
 in una riga di testo.
 
 **La riga 1.2.** È l'unico punto della sezione 1 in cui va dichiarato per iscritto il rapporto fra
@@ -184,19 +184,19 @@ sostiene questa posizione è
 e
 [`DISTRIBUTION-POLICY.md`](https://github.com/fedcal/Telemedic/blob/main/DISTRIBUTION-POLICY.md).
 
-## 5. Allegato II, sezione 2 — Informazioni fornite dal fabbricante
+## 5. Allegato II, sezione 2 - Informazioni fornite dal fabbricante
 
 | Voce | Contenuto | Documento | Alimentato da | Attr. | Stato |
 |---|---|---|---|:-:|:-:|
-| 2 | **Etichette** sul dispositivo e sull'imballaggio, nelle lingue accettate negli Stati membri di commercializzazione | `MDR-LBL-001` | — | **F** | ☐ |
+| 2 | **Etichette** sul dispositivo e sull'imballaggio, nelle lingue accettate negli Stati membri di commercializzazione | `MDR-LBL-001` | - | **F** | ☐ |
 | 2 | **Istruzioni per l'uso**, nelle lingue accettate | `MDR-IFU-001` | [03_functional/06](../03_functional/06-accessibilita-e-usabilita.md), [07_integration/02](../07_integration/02-primo-avvio.md), [07_integration/09](../07_integration/09-obblighi-di-chi-integra.md) | P/F | ☐ |
 
 **Per un software, l'etichetta è una schermata.** L'insieme di informazioni che per un dispositivo
-fisico sta sulla confezione — nome e indirizzo del fabbricante, identificativo unico, versione,
-marcatura CE con il numero dell'organismo notificato, simboli normalizzati — per un software vive
+fisico sta sulla confezione - nome e indirizzo del fabbricante, identificativo unico, versione,
+marcatura CE con il numero dell'organismo notificato, simboli normalizzati - per un software vive
 in una schermata «Informazioni sul dispositivo» raggiungibile senza autenticazione e senza
 percorsi profondi. Le norme di riferimento sono **EN ISO 20417** per le informazioni fornite dal
-fabbricante ed **EN ISO 15223-1** per i simboli `[NV]` — la loro presenza nell'elenco consolidato
+fabbricante ed **EN ISO 15223-1** per i simboli `[NV]` - la loro presenza nell'elenco consolidato
 delle norme armonizzate va verificata alla data d'uso.
 
 **Che cosa il progetto può e deve fare, pur non essendo fabbricante.** Predisporre lo **spazio**:
@@ -204,11 +204,11 @@ la schermata esiste, è raggiungibile, è accessibile, e i campi che dovrà cont
 configurabili per distribuzione invece che scritti nel codice. Un prodotto che non ha previsto
 quella schermata costringe **il fabbricante** a una modifica dell'interfaccia in fase avanzata,
 quando ogni modifica dell'interfaccia riapre la valutazione dell'usabilità. È l'esempio più chiaro
-di un costo che il progetto può azzerare **oggi**, a costo quasi nullo, e che diventa caro dopo —
+di un costo che il progetto può azzerare **oggi**, a costo quasi nullo, e che diventa caro dopo -
 e, da `D58`, è un costo che ricadrebbe **su di noi**.
 
 **La lingua non è una scelta editoriale.** Le istruzioni per l'uso destinate al mercato italiano
-devono essere in italiano `[NV]` — l'obbligo discende dal decreto legislativo di adeguamento
+devono essere in italiano `[NV]` - l'obbligo discende dal decreto legislativo di adeguamento
 nazionale, e il riferimento puntuale all'articolo va verificato sul testo pubblicato prima di
 comparire in un documento controllato. Il progetto adotta comunque italiano e inglese integrali
 (`D50`), il che copre la condizione minima ma non esaurisce l'obbligo: gli Stati membri in cui la
@@ -223,7 +223,7 @@ modifica al fascicolo. È la stessa ragione per cui esiste il vincolo `V-171` su
 ([01 §11](./01-inquadramento-normativo.md)) e per cui `V-163` di `INTEG` rende quei testi **non
 tematizzabili né occultabili** dall'integratore.
 
-## 6. Allegato II, sezione 3 — Informazioni su progettazione e fabbricazione
+## 6. Allegato II, sezione 3 - Informazioni su progettazione e fabbricazione
 
 | Voce | Contenuto | Documento | Alimentato da | Attr. | Stato |
 |---|---|---|---|:-:|:-:|
@@ -263,10 +263,10 @@ l'identificazione degli esecutori della catena di costruzione, del registro dell
 servizio di firma e di ogni fornitore critico, con la sede legale e il Paese: sono dati che
 dipendono da dove il fabbricante ospita la propria infrastruttura, non da dove il progetto ospita
 la propria. Il progetto fornisce il **metodo** e i requisiti che quei fornitori devono soddisfare
-— sovranità del dato (`V1`), assenza di dipendenze di runtime fuori dall'Unione, dichiarabilità
-del fornitore rilevante all'autorità (`D40`) — e nulla più.
+- sovranità del dato (`V1`), assenza di dipendenze di runtime fuori dall'Unione, dichiarabilità
+del fornitore rilevante all'autorità (`D40`) - e nulla più.
 
-## 7. Allegato II, sezione 4 — Requisiti generali di sicurezza e prestazione
+## 7. Allegato II, sezione 4 - Requisiti generali di sicurezza e prestazione
 
 | Voce | Contenuto | Documento | Alimentato da | Attr. | Stato |
 |---|---|---|---|:-:|:-:|
@@ -282,7 +282,7 @@ elettronici programmabili**: ripetibilità, affidabilità e prestazioni conformi
 sviluppo secondo lo stato dell'arte con ciclo di vita, gestione del rischio, verifica e
 validazione; requisiti minimi di hardware e di rete; misure di sicurezza informatica compresa la
 protezione contro l'accesso non autorizzato. La seconda è quella della **riduzione dei rischi
-legati all'errore d'uso**. `[NV]` — la numerazione puntuale delle sezioni dell'Allegato I va
+legati all'errore d'uso**. `[NV]` - la numerazione puntuale delle sezioni dell'Allegato I va
 riletta sul testo consolidato prima di comparire nella matrice.
 
 **Il limite strutturale del contributo del progetto, e va detto senza attenuazioni.** La colonna
@@ -296,12 +296,12 @@ documento approvato.
 Questa non è una limitazione secondaria: è **il punto di giunzione dell'intero modello di `D49`**,
 e `D58` non la rimuove. Il progetto costruisce l'impalcatura completa e verificabile di un
 fascicolo; l'atto che la trasforma in fascicolo è l'inserimento di ciascun rinvio dentro un sistema
-di controllo dei documenti, e quell'atto **è un atto del fabbricante** — riservato al ruolo anche
+di controllo dei documenti, e quell'atto **è un atto del fabbricante** - riservato al ruolo anche
 quando il ruolo sarà nostro, perché ciò che lo rende possibile non è la volontà ma il sistema. Chi legge questa documentazione sperando di
 trovarvi un fascicolo pronto all'uso troverà invece **tutto ciò che serve per scriverne uno in
 mesi invece che in anni**, che è una cosa diversa e va detta com'è.
 
-## 8. Allegato II, sezione 5 — Analisi benefici-rischi e gestione del rischio
+## 8. Allegato II, sezione 5 - Analisi benefici-rischi e gestione del rischio
 
 | Voce | Contenuto | Documento | Alimentato da | Attr. | Stato |
 |---|---|---|---|:-:|:-:|
@@ -309,7 +309,7 @@ mesi invece che in anni**, che è una cosa diversa e va detta com'è.
 | 5.2 | Soluzioni adottate e **risultati della gestione del rischio** | `RM-PLAN-001`, `RM-FILE-001`, `RM-REP-001` | [05](./05-gestione-del-rischio.md) integrale | P/F | ◐ |
 
 Il contenuto sostanziale di questa sezione è nel capitolo
-[05 — Gestione del rischio](./05-gestione-del-rischio.md) e **non si duplica qui**. Ai fini della
+[05 - Gestione del rischio](./05-gestione-del-rischio.md) e **non si duplica qui**. Ai fini della
 mappatura del fascicolo contano tre fatti, che quel capitolo stabilisce e che qui si registrano.
 
 **Primo.** Il file di rischio non esiste ancora come documento: esistono le sue **voci
@@ -325,10 +325,10 @@ attribuisce al fabbricante. È l'unica riga della sezione 5 marcata **F** senza 
 coerenti: ogni misura di controllo del rischio che compare nel file di rischio deve comparire come
 prova di una riga della matrice dei requisiti generali, e viceversa. Due documenti costruiti
 separatamente divergono al secondo aggiornamento. Il presidio è che la matrice sia **generata** a
-partire dagli stessi identificativi, non redatta a mano — la stessa regola che
+partire dagli stessi identificativi, non redatta a mano - la stessa regola che
 [03 §7.3](./03-sistema-di-gestione-della-qualita.md) applica alla tracciabilità.
 
-## 9. Allegato II, sezione 6 — Verifica e convalida del prodotto
+## 9. Allegato II, sezione 6 - Verifica e convalida del prodotto
 
 È la sezione più voluminosa per un software e quella in cui il progetto contribuisce di più.
 
@@ -337,16 +337,16 @@ partire dagli stessi identificativi, non redatta a mano — la stessa regola che
 | 6.1 | Risultati e analisi critica di **verifiche e prove** e delle prove di convalida | `SW-VVP-001`, `SW-VVR-001`, `SW-TRACE-001` | [01_technical/08](../01_technical/08-qualita-e-test.md), [01_technical/09](../01_technical/09-integrazione-continua-e-rilascio.md) | P | ◐ |
 | 6.1 b | **Verifica e convalida del software** prima del rilascio definitivo, su tutte le configurazioni e i sistemi operativi dichiarati | `SW-VVR-001`, `MDR-ENV-001` | [01_technical/08](../01_technical/08-qualita-e-test.md), [01_technical/04](../01_technical/04-frontend.md), [01_technical/05](../01_technical/05-media-e-tempo-reale.md) | P | ◐ |
 | 6.1 | **Stabilità e durata di vita** | `MDR-LIFE-001` | [03 §9.4](./03-sistema-di-gestione-della-qualita.md) | P/F | ☐ |
-| 6.1 | Biocompatibilità, sterilità, sostanze, radiazioni | **Non applicabili** | — | P/F | ☐ |
-| 6.1 | **Dati clinici**: piano e rapporto di valutazione clinica, seguito clinico post-commercializzazione | `CE-PLAN-001`, `CE-REP-001`, `PMCF-PLAN-001` | [07 — Valutazione clinica](./07-valutazione-clinica.md) | **F** | ☐ |
+| 6.1 | Biocompatibilità, sterilità, sostanze, radiazioni | **Non applicabili** | - | P/F | ☐ |
+| 6.1 | **Dati clinici**: piano e rapporto di valutazione clinica, seguito clinico post-commercializzazione | `CE-PLAN-001`, `CE-REP-001`, `PMCF-PLAN-001` | [07 - Valutazione clinica](./07-valutazione-clinica.md) | **F** | ☐ |
 | 6.2 | Casi specifici, fra cui i dispositivi con **funzione di misura** | `MDR-TD-001` § 6.2 | [02 §12](./02-qualificazione-e-classificazione.md), questione `Q-173` | P/F | ☐ |
-| — | **Sicurezza informatica**: modello di minaccia, requisiti, prove, gestione delle vulnerabilità, divulgazione coordinata, distinta dei materiali | `SEC-TM-001`, `SEC-RMF-001`, `SEC-PT-001`, `SEC-LC-001` | [06_security/01](../06_security/01-modello-di-minaccia.md), [06](../06_security/06-sicurezza-applicativa.md), [07](../06_security/07-catena-di-fornitura.md), [10](../06_security/10-risposta-agli-incidenti.md), [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md) | P | ◐ |
-| — | **File di ingegneria dell'usabilità** | `UEF-001` e i documenti collegati | [06 — Usabilità e accessibilità](./06-usabilita-e-accessibilita.md), [03_functional/06](../03_functional/06-accessibilita-e-usabilita.md) | P/F | ☐ |
-| — | **Documentazione di ciclo di vita del software** completa | `SW-*` | [03 §§6–8](./03-sistema-di-gestione-della-qualita.md) | P | ◐ |
+| - | **Sicurezza informatica**: modello di minaccia, requisiti, prove, gestione delle vulnerabilità, divulgazione coordinata, distinta dei materiali | `SEC-TM-001`, `SEC-RMF-001`, `SEC-PT-001`, `SEC-LC-001` | [06_security/01](../06_security/01-modello-di-minaccia.md), [06](../06_security/06-sicurezza-applicativa.md), [07](../06_security/07-catena-di-fornitura.md), [10](../06_security/10-risposta-agli-incidenti.md), [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md) | P | ◐ |
+| - | **File di ingegneria dell'usabilità** | `UEF-001` e i documenti collegati | [06 - Usabilità e accessibilità](./06-usabilita-e-accessibilita.md), [03_functional/06](../03_functional/06-accessibilita-e-usabilita.md) | P/F | ☐ |
+| - | **Documentazione di ciclo di vita del software** completa | `SW-*` | [03 §§6–8](./03-sistema-di-gestione-della-qualita.md) | P | ◐ |
 
 **Quattro avvertenze su questa sezione, tutte nate da fatti di questo progetto.**
 
-**Prima — «prima del rilascio definitivo» è una condizione temporale, non una formula.** La norma
+**Prima - «prima del rilascio definitivo» è una condizione temporale, non una formula.** La norma
 chiede la sintesi dei risultati di tutte le verifiche eseguite **prima** del rilascio. Un rapporto
 prodotto dopo, che descrive prove eseguite prima, è ammissibile solo se le prove erano
 tracciabili alla versione rilasciata. È la ragione per cui il record 4 di
@@ -354,35 +354,35 @@ tracciabili alla versione rilasciata. È la ragione per cui il record 4 di
 **versione dell'oggetto verificato**: senza quel campo, un esito di verifica automatica non è
 attribuibile a un rilascio e vale zero nel fascicolo.
 
-**Seconda — la matrice degli ambienti supportati non esiste e non è inventabile.** La voce 6.1 b
+**Seconda - la matrice degli ambienti supportati non esiste e non è inventabile.** La voce 6.1 b
 richiede la verifica su tutte le configurazioni dichiarate. Le configurazioni dichiarate
-discendono da `MDR-ENV-001`, che a sua volta discende dalle soglie dell'ambiente operativo — banda
-minima, latenza, perdita, variazione del ritardo — e dal **dispositivo di riferimento** su cui i
+discendono da `MDR-ENV-001`, che a sua volta discende dalle soglie dell'ambiente operativo - banda
+minima, latenza, perdita, variazione del ritardo - e dal **dispositivo di riferimento** su cui i
 criteri mobile first si verificano. Nessuna di queste grandezze è oggi misurata: è la questione
 `Q-115`, aperta dall'area tecnica verso prodotto e funzionale. Finché resta aperta, la sezione 10
 della destinazione d'uso non è compilabile ([02 §5.1](./02-qualificazione-e-classificazione.md)) e
 **la voce 6.1 b non ha un perimetro di prova definito**. Non è un ritardo documentale: è
 l'impossibilità di sapere che cosa si deve provare.
 
-**Terza — i dati clinici sono marcati F, e la marcatura è sostanziale.** Il progetto può produrre
+**Terza - i dati clinici sono marcati F, e la marcatura è sostanziale.** Il progetto può produrre
 il metodo, la strategia di ricerca della letteratura e la struttura del piano; non può condurre la
 valutazione clinica, che presuppone un valutatore qualificato e una responsabilità che
 appartengono al fabbricante (`D49`). Il capitolo [07](./07-valutazione-clinica.md) tratta
 l'argomento; qui si registra solo che è, insieme all'organismo notificato, il secondo percorso a
 tempo lungo del calendario.
 
-**Quarta — la voce 6.2 è aperta e la sua chiusura non dipende da quest'area.** Se la presentazione
+**Quarta - la voce 6.2 è aperta e la sua chiusura non dipende da quest'area.** Se la presentazione
 di parametri misurati costituisca «funzione di misura» ai sensi dell'MDR dipende da un fatto:
 se il sistema converta unità, arrotondi o trasformi i valori ricevuti, oppure li presenti come
 ricevuti. È la questione `Q-173`, indirizzata alle aree di dominio e funzionale. La risposta
 determina l'applicabilità di un blocco di requisiti metrologici dell'Allegato I, e quindi righe
 intere della matrice della sezione 4.
 
-## 10. Allegato III — Documentazione tecnica sulla sorveglianza post-commercializzazione
+## 10. Allegato III - Documentazione tecnica sulla sorveglianza post-commercializzazione
 
 | Voce | Contenuto | Documento | Alimentato da | Attr. | Stato |
 |---|---|---|---|:-:|:-:|
-| 1.1 | **Piano di sorveglianza post-commercializzazione** ai sensi dell'art. 84: raccolta dei dati, indicatori e valori soglia per la rivalutazione dei rischi, indagine sui reclami, gestione degli eventi soggetti a rapporto di andamento, comunicazione con utilizzatori e distributori, verifica delle azioni preventive e correttive, strumenti di tracciabilità, piano di seguito clinico o motivazione della sua non applicabilità | `PMS-PLAN-001` | [08 — Sorveglianza post-commercializzazione](./08-sorveglianza-post-commercializzazione.md), [06_security/10](../06_security/10-risposta-agli-incidenti.md) | P/F | ☐ |
+| 1.1 | **Piano di sorveglianza post-commercializzazione** ai sensi dell'art. 84: raccolta dei dati, indicatori e valori soglia per la rivalutazione dei rischi, indagine sui reclami, gestione degli eventi soggetti a rapporto di andamento, comunicazione con utilizzatori e distributori, verifica delle azioni preventive e correttive, strumenti di tracciabilità, piano di seguito clinico o motivazione della sua non applicabilità | `PMS-PLAN-001` | [08 - Sorveglianza post-commercializzazione](./08-sorveglianza-post-commercializzazione.md), [06_security/10](../06_security/10-risposta-agli-incidenti.md) | P/F | ☐ |
 | 1.2 | **Rapporto periodico di aggiornamento sulla sicurezza** e rapporto sulla sorveglianza | `PSUR-00n` | [08](./08-sorveglianza-post-commercializzazione.md) | **F** | ☐ |
 
 **L'Allegato III è la parte del fascicolo che si dimentica sistematicamente**, per una ragione
@@ -451,20 +451,20 @@ nessuna forma, nemmeno in bozza, nemmeno con l'aiuto di un consulente. Ciascuna 
 soggetto giuridico, un atto di volontà o una responsabilità che **oggi non esistono**.
 
 > **Perché questa sezione non si è accorciata con `D58`, e non poteva.** `D58` stabilisce che il
-> progetto **intende** assumere il ruolo di fabbricante — con il soggetto che lo eserciterebbe
-> **ancora da costituire** — ed emenda `D28`, `D49` e `V-06` **nel destinatario**, non nella
+> progetto **intende** assumere il ruolo di fabbricante - con il soggetto che lo eserciterebbe
+> **ancora da costituire** - ed emenda `D28`, `D49` e `V-06` **nel destinatario**, non nella
 > sostanza tecnica. Le quindici voci restano quindici, per una ragione
 > che non è formale: sono **atti che la norma riserva al ruolo di fabbricante**, e restano
 > riservati a quel ruolo **anche quando il ruolo sarà il nostro**. Apporre la marcatura, firmare
 > la dichiarazione di conformità, nominare la persona responsabile del rispetto della normativa,
 > presentare la domanda all'organismo: nessuno di questi atti diventa anticipabile perché
-> l'intenzione è stata dichiarata. **L'intenzione non è il soggetto**, e il soggetto — voce 1 — è
+> l'intenzione è stata dichiarata. **L'intenzione non è il soggetto**, e il soggetto - voce 1 - è
 > il vincolo più a monte di tutti gli altri.
 >
 > **Che cosa `D58` cambia davvero.** Cambia la colonna implicita «a chi tocca»: queste quindici
 > voci non sono più il manuale di un terzo, sono **il nostro elenco di adempimenti**. Diventano
-> quindi materia della pianificazione interna del progetto (`D57`), e la voce 1 — la costituzione
-> del soggetto — è un **prerequisito interno con un proprio tempo**, non un'attesa.
+> quindi materia della pianificazione interna del progetto (`D57`), e la voce 1 - la costituzione
+> del soggetto - è un **prerequisito interno con un proprio tempo**, non un'attesa.
 >
 > **Che cosa `D58` non cambia.** Il prodotto oggi **non reca marcatura CE**, non è coperto da
 > alcuna dichiarazione di conformità e **chi lo installa, lo integra o lo mette in servizio assume
@@ -494,8 +494,8 @@ soggetto giuridico, un atto di volontà o una responsabilità che **oggi non esi
 non ispeziona un repository: ispeziona **un'organizzazione**. Verifica in loco chi ha accesso in
 scrittura, come si autorizza un rilascio, chi firma gli artefatti, dove sono le chiavi, come si
 dimostra che la procedura scritta corrisponde alla prassi. Un progetto aperto può rendere questa
-verifica facile — pubblicando la catena di costruzione, i controlli bloccanti, le regole di
-revisione e la loro applicazione effettiva — ma non può sostituirvisi. **La differenza fra rendere
+verifica facile - pubblicando la catena di costruzione, i controlli bloccanti, le regole di
+revisione e la loro applicazione effettiva - ma non può sostituirvisi. **La differenza fra rendere
 facile e sostituirsi è l'intera distanza fra ciò che il progetto è oggi e la marcatura CE**, e
 `D58` non accorcia quella distanza di un metro: dichiara soltanto chi intende percorrerla. Da cui
 una conseguenza operativa che ora riguarda noi e non un terzo: **l'organizzazione che l'organismo
@@ -518,7 +518,7 @@ versione esatta in cui è stato valutato**: non si estende ai sorgenti da cui è
 alcuna costruzione eseguita da altri, né a una versione successiva non valutata.
 
 Ne discende, senza attenuazioni, che **chi ricompila i sorgenti produce un artefatto proprio, del
-quale il fabbricante è lui**, con tutti gli obblighi che il § 12 elenca — e li assume per intero
+quale il fabbricante è lui**, con tutti gli obblighi che il § 12 elenca - e li assume per intero
 anche il giorno in cui una distribuzione identificata fosse marcata. È la ragione tecnica per cui
 la voce 4 e la voce 15 del § 12 non sono sostituibili da alcuna proprietà del codice: nessuna
 riproducibilità della costruzione produce un controllo dei documenti, e nessun determinismo del
@@ -526,9 +526,9 @@ compilatore sostituisce un'organizzazione ispezionabile.
 
 ## 13. L'organismo notificato: che cosa fa, e che cosa non fa
 
-Nella procedura applicabile alla Classe IIa — valutazione basata sul sistema di gestione della
+Nella procedura applicabile alla Classe IIa - valutazione basata sul sistema di gestione della
 qualità, **Allegato IX, Capi I e III**, con la valutazione della documentazione tecnica della
-**sezione 4** per almeno un dispositivo rappresentativo per categoria (art. 52, par. 6) —
+**sezione 4** per almeno un dispositivo rappresentativo per categoria (art. 52, par. 6) -
 l'organismo svolge quattro attività distinte.
 
 | # | Attività | Base | Che cosa significa per un software |
@@ -551,13 +551,13 @@ in entrambi i casi la sua offerta è un segnale di allarme, non un vantaggio.
 organismi per legislazione, Stato membro e **ambito di designazione**, ed è oggi raggiungibile
 attraverso il portale unico di conformità del mercato interno. Per ciascun candidato vanno lette
 due sezioni distinte e indipendenti: le **procedure di valutazione della conformità** per cui è
-designato — deve comparire l'Allegato IX, Capi I e III — e i **codici di designazione** relativi
+designato - deve comparire l'Allegato IX, Capi I e III - e i **codici di designazione** relativi
 ai tipi di dispositivo, stabiliti dal **Regolamento di esecuzione (UE) 2017/2185**. Un software
 dispositivo medico autonomo è un dispositivo attivo e ricade in un codice della famiglia `MDA`
 corrispondente alla funzione clinica, affiancato da un codice orizzontale della famiglia `MDS`
 relativo ai dispositivi che incorporano software.
 
-> **`[NV]` — I codici esatti non sono stati confermati su fonte primaria.** Il numero del codice
+> **`[NV]` - I codici esatti non sono stati confermati su fonte primaria.** Il numero del codice
 > `MDA` applicabile a un software di telemedicina e telemonitoraggio e la formulazione letterale
 > del codice orizzontale vanno ricavati dall'allegato al regolamento di esecuzione. In ogni caso,
 > e indipendentemente da quella verifica, la strada affidabile è **chiedere a ciascun organismo
@@ -575,10 +575,10 @@ designazione ha effetto in tutta l'Unione e la lingua di lavoro è negoziabile. 
 L'**Allegato VII, sezione 1.2.8**, obbliga gli organismi notificati a rendere pubblicamente
 disponibile l'elenco delle proprie tariffe standard, e la Commissione mantiene l'elenco dei
 collegamenti alle tariffe pubblicate. Stimare in presenza di una fonte pubblica sarebbe un errore
-di metodo. Ciò che si può dire è la **struttura** del costo — quota di apertura del fascicolo,
+di metodo. Ciò che si può dire è la **struttura** del costo - quota di apertura del fascicolo,
 valutazione della documentazione, audit iniziale in due fasi, cicli di riesame delle risposte alle
 non conformità, canone di mantenimento, sorveglianza annuale, audit senza preavviso, valutazione
-delle modifiche sostanziali — e un'avvertenza sul confronto delle offerte: **confrontare le tariffe
+delle modifiche sostanziali - e un'avvertenza sul confronto delle offerte: **confrontare le tariffe
 giornaliere è fuorviante**, perché l'organismo più economico per giornata può risultare il più
 costoso in totale se genera più cicli di non conformità o se ha code più lunghe.
 
@@ -613,7 +613,7 @@ accettato più facilmente, ed è precisamente il materiale che questo capitolo m
 
 **Le date non stanno qui.** Gli scenari temporali, il calcolo all'indietro, i punti di decisione
 irreversibili e il calendario delle fasi sono nel capitolo
-[09 — Percorso e calendario](./09-percorso-e-calendario.md), che è la sede unica in cui questa
+[09 - Percorso e calendario](./09-percorso-e-calendario.md), che è la sede unica in cui questa
 documentazione colloca le date. Ripeterle qui produrrebbe due calendari destinati a divergere, che
 è il difetto documentale che [03](./03-sistema-di-gestione-della-qualita.md) chiama per nome. Il
 solo termine che questo capitolo ribadisce è quello del progetto: **al 30 novembre 2026 il

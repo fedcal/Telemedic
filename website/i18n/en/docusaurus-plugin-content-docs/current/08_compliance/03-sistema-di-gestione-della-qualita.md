@@ -8,7 +8,7 @@ description: "What a quality management system means when contributors are not e
 
 > **Reading premise.** What a technical standard, a harmonised standard, a quality management
 > system, the software lifecycle and traceability are is explained from scratch in
-> [10 §15 — The regulatory framework from scratch, §§5–6](../10_fondamenti/15-regolatorio-da-zero.md).
+> [10 §15 - The regulatory framework from scratch, §§5–6](/10_fondamenti/15-regolatorio-da-zero.md).
 > **Here it is not repeated: it is applied to an open project**, which is the case neither of the
 > two standards was written for.
 >
@@ -33,8 +33,8 @@ description: "What a quality management system means when contributors are not e
 > the system, having it certified by an accredited body and operating it remain acts that
 > presuppose the **formal manufacturer role**, and they do not become capable of being brought
 > forward because that role will be ours. **Nor does it change** the limit set by `D54`: some
-> records — internal audit, release review, configuration verification carried out by someone who
-> did not write the code — **require distinct persons**, and no quantity of individual work makes
+> records - internal audit, release review, configuration verification carried out by someone who
+> did not write the code - **require distinct persons**, and no quantity of individual work makes
 > them producible internally (§ 4.1, first warning).
 >
 > **And the gap this warning could open, closed here.** Whoever reads that the project intends to
@@ -87,14 +87,14 @@ why they satisfy the clause**.
 **The row on competence is the one that needs explaining, because it is the only interpretative
 one.** The standard requires personnel performing activities affecting product quality to be
 competent, and the competence to be documented. In an open project the correct translation is not
-"document the competence of all contributors" — which is impossible and meaningless — but
+"document the competence of all contributors" - which is impossible and meaningless - but
 **document the competence of whoever has the authority to accept**. Whoever proposes has no
 authority; whoever accepts does, and that is a small, stable, documentable set.
 
 **The point at which this construction is fragile, and it must be said:** it works as long as the
 set of those who accept is small and stable. A project that, to go faster, widens the set of
 reviewers without updating the competence dossiers **loses the property at the exact moment it does
-so**, and loses it in a way that cannot be reconstructed after the fact — because the missing
+so**, and loses it in a way that cannot be reconstructed after the fact - because the missing
 evidence is the qualification of whoever approved a change on a past date.
 
 ### 1.2 The question the notified body will ask first
@@ -129,14 +129,14 @@ and field safety corrective actions; management of corrective and preventive act
 monitoring of their effectiveness; the monitoring and measurement processes, data analysis and
 improvement.
 
-**What ISO 13485 does not cover.** It is a **harmonised** standard under the MDR — the reference is
-published in the annex of a Commission implementing decision, amended several times — and its
+**What ISO 13485 does not cover.** It is a **harmonised** standard under the MDR - the reference is
+published in the annex of a Commission implementing decision, amended several times - and its
 application confers a **presumption of conformity** for the requirements covered (Article 8 MDR).
 **But the coverage is not total**: ISO 13485 does not of itself cover the clinical evaluation of
 Article 61, post-market surveillance in the form of Articles 83–86, or the vigilance obligations of
 Articles 87–92. Additional procedures are needed, and that is block B of § 4.
 
-**`[NV]`** — the harmonisation status must be verified against the consolidated list published by
+**`[NV]`** - the harmonisation status must be verified against the consolidated list published by
 the Commission **at the date of use**, not from memory: the list is amended frequently, and a
 presumption of conformity invoked on a version no longer cited is a presumption that does not
 operate.
@@ -151,9 +151,9 @@ every time, it must be rewritten, not worked around.**
 
 ### 3.1 Why the repository is the right place
 
-A quality management system kept as versioned documentation in the repository — procedures under
+A quality management system kept as versioned documentation in the repository - procedures under
 version control, approval through a change proposal with named reviewers, immutability guaranteed
-by branch protection and by the signing of changes — satisfies clauses 4.2.4 (control of documents)
+by branch protection and by the signing of changes - satisfies clauses 4.2.4 (control of documents)
 and 4.2.5 (control of records) **more robustly than a document archive on a shared drive**, for a
 simple reason: the history cannot be altered without trace and approval is a verifiable fact, not a
 signature on a sheet of paper.
@@ -186,8 +186,8 @@ has a broad and precise perimeter:
 **What validating means in practice.** Not "demonstrating that the tool is correct", which is
 impossible. It means: defining the tool's intended use within the system, identifying what would
 happen if the tool got it wrong, defining and **running** tests demonstrating that in the intended
-use the tool does what it must — for example, that a change lacking traceability **is actually
-rejected**, and not merely flagged — and recording the outcome with the exact version of the tool.
+use the tool does what it must - for example, that a change lacking traceability **is actually
+rejected**, and not merely flagged - and recording the outcome with the exact version of the tool.
 The negative test is worth more than the positive one: a block is validated by demonstrating that
 it blocks.
 
@@ -214,7 +214,7 @@ effects at a distance on the perimeter of the system.
 Three blocks. The first is imposed by ISO 13485, the second by the MDR and is not covered by the
 first, the third by the software lifecycle standards.
 
-**Block A — required by ISO 13485:2016.** Control of documents (4.2.4) · Control of records (4.2.5)
+**Block A - required by ISO 13485:2016.** Control of documents (4.2.4) · Control of records (4.2.5)
 · Management review (5.6.1) · Human resources, competence, training (6.2) · Infrastructure and work
 environment (6.3, 6.4.1) · Risk management in product realisation (7.1) · Review of product
 requirements and communication with the customer (7.2) · Design and development (7.3.1–7.3.8) ·
@@ -225,7 +225,7 @@ provision, identification and traceability (7.5.1, 7.5.8, 7.5.9) · Validation o
 product (8.3) · Analysis of data (8.4) · Corrective and preventive actions (8.5.2, 8.5.3) ·
 Validation of software used in the system (4.1.6).
 
-**Block B — imposed by the MDR and not covered by ISO 13485.** Regulatory compliance strategy and
+**Block B - imposed by the MDR and not covered by ISO 13485.** Regulatory compliance strategy and
 management of modifications (Article 10(9)(a)) · Identification and maintenance of the applicable
 general requirements (Annex I) · Management of the technical file (Article 10(4), Annexes II and
 III) · Clinical evaluation and its follow-up (Article 61, Annex XIV) · Post-market surveillance and
@@ -235,15 +235,15 @@ registrations (Articles 27, 29, 31) · Communication with the notified body and 
 (Article 10(9)(l)) · Device release and declaration of conformity (Articles 19, 20) · Role, tasks
 and independence of the person responsible for regulatory compliance (Article 15).
 
-**Block C — software-specific.** Lifecycle and safety classification (IEC 62304 §§ 4.3, 5) ·
+**Block C - software-specific.** Lifecycle and safety classification (IEC 62304 §§ 4.3, 5) ·
 Management of third-party components (IEC 62304 §§ 5.3.3, 5.3.4, 7.1.2–7.1.3, 8.1.2) ·
 Configuration management and reproducible build (IEC 62304 § 8) · Software problem resolution
 (IEC 62304 § 9) · Usability engineering (IEC 62366-1 § 5) · Cybersecurity in the lifecycle and
 coordinated vulnerability disclosure (ISO/IEC 81001-5-1; MDCG 2019-16 Rev.1).
 
-**Total: about thirty-six procedures.** For a small operation it is realistic to merge some — human
+**Total: about thirty-six procedures.** For a small operation it is realistic to merge some - human
 resources with infrastructure, production with process validation and servicing, data analysis with
-corrective actions — coming down to **twenty-five or twenty-eight documents**. **It is not
+corrective actions - coming down to **twenty-five or twenty-eight documents**. **It is not
 realistic to go below twenty**, and a system that manages it has usually simply omitted block B.
 
 ### 4.1 Three warnings about form
@@ -257,16 +257,16 @@ validity.
 **Second.** The system must **run for at least one full cycle before the certification audit**: real
 design and development records, at least one design review, at least one corrective action, at
 least one controlled release, an internal audit covering all processes and a management review.
-Without these, stage two of the audit cannot be passed — not because the auditor is severe, but
+Without these, stage two of the audit cannot be passed - not because the auditor is severe, but
 because **there is nothing to audit**. It follows that the date on which operation starts
 determines, with a lag of around six months, the earliest date at which certification is possible.
 **From `D58` it follows that this start date is a decision of ours, not a wait**: it is a delay the
 project inflicts on itself if it does not start operating. This does not authorise writing a
-marking date anywhere — `V-171` prohibits it without exception, and internal planning does not
-become a promise because it is ours — but it moves the cost of postponement from a third party's
+marking date anywhere - `V-171` prohibits it without exception, and internal planning does not
+become a promise because it is ours - but it moves the cost of postponement from a third party's
 account to ours.
 
-**Third — and it concerns this area directly.** The procedures are **controlled documents**; the
+**Third - and it concerns this area directly.** The procedures are **controlled documents**; the
 documentation published on these pages **is not**. This is constraint `V-174`: no chapter of this
 documentation is a quality management system procedure, and no area may present one of its chapters
 as such. The chapters are **inputs**: they contain the analysis from which a procedure is written,
@@ -308,18 +308,18 @@ is what goes into the document.
 
 | Software item | Class | Rationale |
 |---|:-:|---|
-| Acquisition, transmission, persistence and presentation of parameters; highlighting of values outside the configured threshold | **B** | The external measures — restricted intended purpose, scheduled periodic review, organisational presence of the *Centro erogatore* (delivering centre), instruction to the patient about emergencies — reduce the possible harm to **non-serious**. **If even one of them were not documentable and verifiable, the item moves to C** |
+| Acquisition, transmission, persistence and presentation of parameters; highlighting of values outside the configured threshold | **B** | The external measures - restricted intended purpose, scheduled periodic review, organisational presence of the *Centro erogatore* (delivering centre), instruction to the patient about emergencies - reduce the possible harm to **non-serious**. **If even one of them were not documentable and verifiable, the item moves to C** |
 | Association between the patient's identity, the session, the data and the clinical document | **B**, treated as a priority risk | Person-to-data mis-association is the worst hazardous situation in the architecture. It remains B **only** because the professional verifies identity at the opening of the session: the verification must be **enforced by the interface**, not left to habit |
 | Media transport, signalling, network traversal, quality indicators | **B** | A failure produces interruption or degradation; the professional stops and reschedules. The outcome is an encounter not completed, not a false datum |
 | Drafting, signing and transmission of clinical content | **B** | The loss or alteration of a document delays decisions; the signature and the explicit confirmation are controls |
 | Identity, authorisations, tenant isolation, immutable audit trail | **B** | Unauthorised disclosure: harm to the person possible, not serious in physical terms |
 | Quality metrics, dashboards, technical telemetry | **A** | No contribution to a clinical hazardous situation, **subject to documented segregation** |
-| Informational interface, documentation, internationalisation, public portal | **A** | — |
+| Informational interface, documentation, internationalisation, public portal | **A** | - |
 
 **Declared class of the software system: B**, with isolated class A items and **documented
 segregation** under clause 5.3.5. The standard requires the architecture to **demonstrate the
 effectiveness of the segregation**, not to assert it: an assertion of segregation unaccompanied by
-the mechanism that achieves it — process boundary, network boundary, absence of a data path — is a
+the mechanism that achieves it - process boundary, network boundary, absence of a data path - is a
 guaranteed finding.
 
 **A warning to be put in writing in the determination document, and not in a footnote.** Class B is
@@ -375,7 +375,7 @@ is verification of effectiveness. Clause 7.3.3 of IEC 62304 requires the second.
 Forwards, to demonstrate that **every requirement has been verified**. Backwards, to demonstrate
 that **every line of code answers a requirement**. The backward direction is the surprising one: it
 serves to demonstrate the absence of unrequested functionality, which in a medical device is not
-useless code — it is **functionality not assessed in the risk file, not described in the intended
+useless code - it is **functionality not assessed in the risk file, not described in the intended
 purpose and not verified**. It is, literally, the mechanism by which one of the functions in § 6.1
 of the preceding chapter would enter the product without anyone declaring it.
 
@@ -416,7 +416,7 @@ is missing, and the criterion is not stylistic: each one is required by a clause
 **The two rows that get forgotten are 4 and 6**, and it is worth saying why.
 
 Row 4: **residual anomalies are not hidden, they are assessed**. The standard does not require
-release without defects — that would be an unachievable condition —: it requires **listing the
+release without defects - that would be an unachievable condition -: it requires **listing the
 defects known at the time of release and documenting the assessment of their safety relevance**. A
 release without a list of residual anomalies is not a clean release: it is an undocumented release.
 
@@ -439,9 +439,9 @@ uniquely (clause 8.1.2), and treating those that matter with proportionate rigou
 
 | Level | Membership criterion | Treatment |
 |---|---|---|
-| **L1 — critical** | The component implements or directly supports a risk control measure, or a failure of it may contribute to a hazardous situation: cryptographic library, real-time media stack, relay node, federation product, database engine and driver, clinical interchange model library, signature library, authorisation framework, runtime | Full record: producer, **exact version**, function performed, **expected functional and performance requirements** (5.3.3), **runtime environment requirements** (5.3.4), assessment of published anomalies (7.1.2–7.1.3), advisory source monitored, update criterion and cadence, impact assessment of **every** update |
-| **L2 — platform** | Infrastructure components not directly involved in control measures | Reduced record: identification, version, function, advisory source, update policy. No individual functional analysis |
-| **L3 — transitive** | Everything else | **Coverage by bill of materials** generated at every build, signed, attached to the release, with a blocking automated check on known vulnerabilities. It is the implementation of clause 8.1.2 across thousands of components |
+| **L1 - critical** | The component implements or directly supports a risk control measure, or a failure of it may contribute to a hazardous situation: cryptographic library, real-time media stack, relay node, federation product, database engine and driver, clinical interchange model library, signature library, authorisation framework, runtime | Full record: producer, **exact version**, function performed, **expected functional and performance requirements** (5.3.3), **runtime environment requirements** (5.3.4), assessment of published anomalies (7.1.2–7.1.3), advisory source monitored, update criterion and cadence, impact assessment of **every** update |
+| **L2 - platform** | Infrastructure components not directly involved in control measures | Reduced record: identification, version, function, advisory source, update policy. No individual functional analysis |
+| **L3 - transitive** | Everything else | **Coverage by bill of materials** generated at every build, signed, attached to the release, with a blocking automated check on known vulnerabilities. It is the implementation of clause 8.1.2 across thousands of components |
 
 **The register is not drafted: it is generated from the bill of materials and enriched.** The bill
 contains name, producer and version; it does not contain the function within the system, the known
@@ -455,7 +455,7 @@ already been established by the technical area as the outcome of question `Q-17`
 It is not an operational preference and it is not a question of build reproducibility, although it
 is that too. It is **a direct breach of a normative clause**.
 
-Clause 8.1.2 of IEC 62304 requires each configuration item — including third-party components — to
+Clause 8.1.2 of IEC 62304 requires each configuration item - including third-party components - to
 be uniquely identified by **title, producer and version**. A reference to a floating tag:
 
 1. **does not identify a version**: it identifies a different version at every build;
@@ -489,20 +489,20 @@ service level expressed in days from publication of the advisory and differentia
 
 **Two clarifications that make these numbers usable rather than decorative.**
 
-**First — the clock starts from publication of the advisory, not from knowledge.** A commitment
+**First - the clock starts from publication of the advisory, not from knowledge.** A commitment
 running from knowledge is a commitment the supplier controls, and as such of no value to the
 customer.
 
 **Second, and it must be said because the confusion is frequent: these windows have nothing to do
 with the corrective maintenance service levels of DM 21 settembre 2022** (the Ministerial Decree of
 21 September 2022), which concern taking on and restoring an **incident in operation** with times
-of the order of tens of minutes. They are two different clocks, with two different objects — the
-defect of a component versus the unavailability of a service — and two different addressees. Merging
+of the order of tens of minutes. They are two different clocks, with two different objects - the
+defect of a component versus the unavailability of a service - and two different addressees. Merging
 them produces a commitment no supplier can meet: nobody fixes a library vulnerability in sixty
 minutes.
 
 **A reality check that justifies the choice of expressing the windows in days and not in months.**
-One single critical component of the architecture — the relay node — had **fourteen releases in a
+One single critical component of the architecture - the relay node - had **fourteen releases in a
 little over seven months, five in the month of August 2026 alone**, with a critical vulnerability
 fixed halfway through. A commitment expressed in months, on a component with this cadence,
 describes no behaviour at all.
@@ -537,7 +537,7 @@ managed service to third parties.
    affixed to a container **does not dispose of third parties' rights over the content included**,
    and the verification must be done **artefact by artefact**.
 
-**`[NV]`** — the reading of the text of the primary licence, artefact by artefact and version by
+**`[NV]`** - the reading of the text of the primary licence, artefact by artefact and version by
 version, **has not been carried out** and this area does not substitute a reconstruction for it.
 Until it is carried out, no document of the project may assert either that the component is open
 source or that it is not. The question therefore remains open in its verification part.
@@ -584,8 +584,8 @@ it falls into its L1 level. It must therefore produce the record for it: functio
 expected functional and performance requirements, runtime environment requirements, assessment of
 published anomalies, update criterion.
 
-**Publishing the lifecycle artefacts** — development plan, requirements specification,
-architecture, verification evidence, signed bill of materials, end-of-support statement —
+**Publishing the lifecycle artefacts** - development plan, requirements specification,
+architecture, verification evidence, signed bill of materials, end-of-support statement -
 **directly and measurably reduces the regulatory burden on the integrator**. It is not a pure cost
 borne out of virtue: it is the difference between being a qualifiable component and being code of
 unknown provenance, which on a manufacturer's path is a difference of months.

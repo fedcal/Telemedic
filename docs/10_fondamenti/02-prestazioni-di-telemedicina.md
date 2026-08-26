@@ -1,7 +1,7 @@
 ---
 title: Le prestazioni di telemedicina
 sidebar_position: 3
-description: Definizioni normative — non commerciali — di televisita, teleconsulto, teleconsulenza, teleassistenza, telemonitoraggio, telerefertazione e teleriabilitazione; catena normativa italiana fino al DM 19 novembre 2025; architettura PNT/INT/IRT/NIT; le dieci tipologie documentali FSE; errori ricorrenti.
+description: Definizioni normative - non commerciali - di televisita, teleconsulto, teleconsulenza, teleassistenza, telemonitoraggio, telerefertazione e teleriabilitazione; catena normativa italiana fino al DM 19 novembre 2025; architettura PNT/INT/IRT/NIT; le dieci tipologie documentali FSE; errori ricorrenti.
 ---
 
 # Le prestazioni di telemedicina
@@ -14,7 +14,7 @@ divieti espressi.
 
 Sbagliare una definizione non produce un'imprecisione di marketing: produce un modello dati
 sbagliato, documenti clinici invalidi, autorizzazioni concesse a chi non poteva compiere
-l'atto, flussi di rendicontazione rifiutati e — nel caso peggiore — un atto sanitario
+l'atto, flussi di rendicontazione rifiutati e - nel caso peggiore - un atto sanitario
 illegittimo.
 
 Chi arriva dall'informatica tende a leggere «televisita» e «teleconsulto» come sinonimi
@@ -105,46 +105,46 @@ un'esagerazione.
 
 A questi si aggiungono due corpi normativi **orizzontali e pienamente vincolanti**: il
 Regolamento (UE) 2016/679 (GDPR), trattato nel modulo
-[03 — Il dato clinico](03-il-dato-clinico.md), e il Regolamento (UE) 2017/745 sui dispositivi
+[03 - Il dato clinico](03-il-dato-clinico.md), e il Regolamento (UE) 2017/745 sui dispositivi
 medici (MDR), trattato nel modulo
-[15 — Il quadro regolatorio da zero](15-regolatorio-da-zero.md).
+[15 - Il quadro regolatorio da zero](15-regolatorio-da-zero.md).
 
 ### 2.2 Cronologia essenziale
 
 ```mermaid
 timeline
     title Catena normativa italiana della telemedicina
-    2014 : Intesa 16/CSR — Linee di indirizzo nazionali (superata nei contenuti operativi)
-    2020 : Accordo 215/CSR del 17 dicembre — DEFINIZIONI CANONICHE delle prestazioni
-    2021 : Accordo 231/CSR del 18 novembre — Teleriabilitazione
-    2022 : DM 77 del 23 maggio — Assistenza territoriale : DM 21 settembre — Requisiti funzionali e livelli di servizio : DM 30 settembre — Procurement, Regioni capofila, aree cliniche (All. B)
-    2023 : DM 7 settembre — Fascicolo sanitario elettronico 2.0
-    2024 : DM 31 dicembre — Istituzione dell Ecosistema dati sanitari
-    2025 : DM 19 novembre — Piattaforma nazionale di telemedicina, PNT/INT/IRT/NIT, dieci nuove tipologie documentali FSE
+    2014 : Intesa 16/CSR - Linee di indirizzo nazionali (superata nei contenuti operativi)
+    2020 : Accordo 215/CSR del 17 dicembre - DEFINIZIONI CANONICHE delle prestazioni
+    2021 : Accordo 231/CSR del 18 novembre - Teleriabilitazione
+    2022 : DM 77 del 23 maggio - Assistenza territoriale : DM 21 settembre - Requisiti funzionali e livelli di servizio : DM 30 settembre - Procurement, Regioni capofila, aree cliniche (All. B)
+    2023 : DM 7 settembre - Fascicolo sanitario elettronico 2.0
+    2024 : DM 31 dicembre - Istituzione dell Ecosistema dati sanitari
+    2025 : DM 19 novembre - Piattaforma nazionale di telemedicina, PNT/INT/IRT/NIT, dieci nuove tipologie documentali FSE
 ```
 
 **Cosa impone ciascun atto a un applicativo**, in una riga:
 
-- **Accordo 215/CSR 2020** — non parla quasi mai di software, ma **è la fonte delle
+- **Accordo 215/CSR 2020** - non parla quasi mai di software, ma **è la fonte delle
   definizioni** e quindi determina il modello di dominio. Impone: referto obbligatorio per la
   televisita; registrazione nel referto della presenza di collaboratori e della **qualità del
   collegamento**; cifratura di *tutti* i trasferimenti di voce, video, immagini e file;
   identità verificata del paziente; certificazione come dispositivo medico «*idonea alla
   tipologia di prestazione*».
-- **DM 77/2022** — colloca la telemedicina dentro i percorsi territoriali. Non detta
+- **DM 77/2022** - colloca la telemedicina dentro i percorsi territoriali. Non detta
   requisiti software, determina il contesto (modulo
   [01](01-sistema-sanitario-italiano.md), § 8).
-- **DM 21 settembre 2022** — «Approvazione delle linee guida per i servizi di telemedicina —
+- **DM 21 settembre 2022** - «Approvazione delle linee guida per i servizi di telemedicina -
   Requisiti funzionali e livelli di servizio», Gazzetta Ufficiale Serie generale n. 256 del
   2 novembre 2022. **È l'atto tecnicamente più prescrittivo**: architettura a micro-servizi,
   *event-driven*, containerizzata, *cloud native*, multi-tenant, *mobile first*, accessibile,
   con livelli di servizio H24 7/7.
-- **DM 30 settembre 2022** — disciplina l'acquisto (Regioni capofila) e, nell'**Allegato B**,
+- **DM 30 settembre 2022** - disciplina l'acquisto (Regioni capofila) e, nell'**Allegato B**,
   le aree cliniche e i requisiti clinici.
-- **DM 7 settembre 2023** — fascicolo sanitario elettronico 2.0: contenuti, soggetti,
+- **DM 7 settembre 2023** - fascicolo sanitario elettronico 2.0: contenuti, soggetti,
   consensi, alimentazione, consultazione (modulo
   [07](07-fse-e-infrastrutture-nazionali.md)).
-- **DM 19 novembre 2025** — «Disciplina del trattamento dei dati personali nell'ambito della
+- **DM 19 novembre 2025** - «Disciplina del trattamento dei dati personali nell'ambito della
   infrastruttura della Piattaforma nazionale telemedicina», Gazzetta Ufficiale Serie generale
   n. 301 del 30 dicembre 2025, atto 25A06938. Istituisce formalmente l'architettura
   nazionale, crea **dieci nuove tipologie documentali del FSE** dedicate alla telemedicina,
@@ -160,8 +160,8 @@ timeline
 Questo è il primo scoglio serio, e va affrontato subito perché il modello dati deve
 rappresentarlo.
 
-L'**Accordo 215/CSR 2020** elenca **cinque attività ambulatoriali** — televisita, teleconsulto,
-teleconsulenza, teleassistenza, telerefertazione — più **telecontrollo** e **telemonitoraggio**
+L'**Accordo 215/CSR 2020** elenca **cinque attività ambulatoriali** - televisita, teleconsulto,
+teleconsulenza, teleassistenza, telerefertazione - più **telecontrollo** e **telemonitoraggio**
 come «modalità operative».
 
 Il **DM 21 settembre 2022** individua invece **quattro «servizi minimi»** che l'infrastruttura
@@ -188,7 +188,7 @@ seconda determina l'ammissibilità in gara e la struttura dei micro-servizi.
 
 Esiste inoltre, dal 29 gennaio 2026, un **Glossario nazionale di Telemedicina** pubblicato da
 AGENAS nel Business Glossary della Piattaforma nazionale (v. 1.0.0). Il glossario del
-progetto — modulo [19](19-glossario.md) — deve allinearsi a quello, ove diverga.
+progetto - modulo [19](19-glossario.md) - deve allinearsi a quello, ove diverga.
 
 ---
 
@@ -197,13 +197,13 @@ progetto — modulo [19](19-glossario.md) — deve allinearsi a quello, ove dive
 Ogni prestazione è descritta con la stessa griglia, perché sono precisamente queste
 dimensioni a cambiare da una all'altra:
 
-- **definizione normativa** — testuale, dalla fonte, tra virgolette;
-- **attori** — chi compie l'atto;
-- **chi è presente** — il paziente c'è o no; è sincrono o asincrono;
-- **chi è responsabile** — di cosa risponde chi;
-- **cosa viene prodotto** — quale documento, con quali requisiti;
-- **cosa non può essere fatto** — i limiti espressi;
-- **effetti sul modello dati** — la traduzione ingegneristica.
+- **definizione normativa** - testuale, dalla fonte, tra virgolette;
+- **attori** - chi compie l'atto;
+- **chi è presente** - il paziente c'è o no; è sincrono o asincrono;
+- **chi è responsabile** - di cosa risponde chi;
+- **cosa viene prodotto** - quale documento, con quali requisiti;
+- **cosa non può essere fatto** - i limiti espressi;
+- **effetti sul modello dati** - la traduzione ingegneristica.
 
 Le definizioni in blocco citazione sono riportate **verbatim** dall'Allegato A all'Accordo
 Stato-Regioni 17 dicembre 2020, rep. atti n. 215/CSR (versione 4.4 del 27 ottobre 2020),
@@ -246,13 +246,13 @@ flowchart LR
     M -.registra nel referto<br/>la presenza dei collaboratori.-> R[(Referto firmato)]
 ```
 
-- **Medico** — l'atto è riservato al medico. Nessun'altra professione sanitaria può erogare
+- **Medico** - l'atto è riservato al medico. Nessun'altra professione sanitaria può erogare
   una televisita.
-- **Paziente** — presente, **in tempo reale**. La televisita è per definizione sincrona: non
+- **Paziente** - presente, **in tempo reale**. La televisita è per definizione sincrona: non
   esiste una televisita asincrona.
-- **Caregiver** — facoltativo; assiste, non rappresenta. Un caregiver **non può prestare
+- **Caregiver** - facoltativo; assiste, non rappresenta. Un caregiver **non può prestare
   consenso in sostituzione di un paziente capace**, in nessuna configurazione.
-- **Operatore sanitario presso il paziente** — facoltativo. L'Accordo lo prevede
+- **Operatore sanitario presso il paziente** - facoltativo. L'Accordo lo prevede
   espressamente: «*Durante la televisita un operatore sanitario che si trovi vicino al
   paziente può assistere il medico e/o aiutare il paziente*».
 
@@ -306,7 +306,7 @@ Nella terminologia del progetto è il **gate di appropriatezza**.
 
 A questo si aggiunge una fase ulteriore introdotta dal documento metodologico più recente:
 il **Modello orientativo di erogazione della Televisita** di AGENAS (v. 1.0.25 del 16 aprile
-2026) prevede una fase di «verifica di eseguibilità» articolata su tre dimensioni — **utilità
+2026) prevede una fase di «verifica di eseguibilità» articolata su tre dimensioni - **utilità
 clinica**, **sicurezza clinica** e **verifica della compliance digitale del paziente**, cioè
 l'accertamento della sua capacità di interagire con i sistemi digitali. Il documento è
 metodologico e non normativo `[RACCOMANDATO]`, ma è di fatto atteso in sede di gara: la
@@ -378,8 +378,8 @@ scorciatoie, è:
 
 1. la norma impone al medico di attestare l'idoneità del collegamento;
 2. l'attestazione richiede evidenza oggettiva, altrimenti è un'affermazione nuda;
-3. le metriche di sessione — tempo di andata e ritorno, perdita di pacchetti, *jitter*,
-   *bitrate* — **sono** quell'evidenza;
+3. le metriche di sessione - tempo di andata e ritorno, perdita di pacchetti, *jitter*,
+   *bitrate* - **sono** quell'evidenza;
 4. la soglia di allarme è **una scelta del prodotto**, configurabile per tenant, **non una
    soglia di legge**.
 
@@ -482,8 +482,8 @@ persa» non soddisfa la norma.
 
 Per anni questo passaggio è stato letto come «il teleconsulto non produce nulla». **È una
 lettura errata, e il DM 19 novembre 2025 la ha smentita.** Il decreto crea una tipologia
-documentale FSE autonoma — la **relazione collaborativa per il teleconsulto/teleconsulenza**,
-lettera q) — con questa regola strutturale (Allegato 1, § 2.21):
+documentale FSE autonoma - la **relazione collaborativa per il teleconsulto/teleconsulenza**,
+lettera q) - con questa regola strutturale (Allegato 1, § 2.21):
 
 > «La relazione collaborativa **viene conferita al FSE come allegato del documento di referto**
 > relativo alla prestazione o all'evento principale (es. visita specialistica, ricovero,
@@ -810,12 +810,12 @@ perimetro della versione corrente. `[NV]` su una definizione normativa nazionale
 | **Chi eroga** | Medico (atto riservato) | Due o più medici | Due o più professionisti sanitari, anche non medici | Professionista sanitario non medico | Sistema + professionista responsabile | Medico | Medico refertante | Professionista della riabilitazione |
 | **Paziente presente** | Sempre | Facoltativo | Facoltativo | Sempre (o caregiver) | No (misure) | Sì, in videochiamata | No | Sì |
 | **Sincronia** | Sempre sincrona | Sincrona o asincrona | Sincrona o differita, sempre programmata | Sincrona | Continua/periodica | Sincrona cadenzata | Asincrona | Sincrona |
-| **Produce referto autonomo** | **Sì** (salvo MMG/PLS) | **No** — ma produce relazione collaborativa allegata | **No** — come teleconsulto | No — relazione clinico-assistenziale conclusiva | No — report rilevazioni e relazione finale | Confluisce nel referto della visita | **È** il referto | Relazione finale |
+| **Produce referto autonomo** | **Sì** (salvo MMG/PLS) | **No** - ma produce relazione collaborativa allegata | **No** - come teleconsulto | No - relazione clinico-assistenziale conclusiva | No - report rilevazioni e relazione finale | Confluisce nel referto della visita | **È** il referto | Relazione finale |
 | **Remunerata** | Sì, come visita di controllo | **No** | **No** | Secondo il setting | **No**, se non affiancata | **Sì**, voce a nomenclatore | No, completa la prestazione | Sì, equivalente alla presenza |
-| **Prescrizione necessaria** | Sì (no se MMG/PLS) | No | No | Secondo il setting | Tracciato prescrizione specialistica; farmaceutica per i dispositivi | Sì | — | Secondo il PRI |
-| **Ammessa in urgenza** | **No** | Sì | Sì, ma **mai in surroga del soccorso** | — | — | — | — | — |
+| **Prescrizione necessaria** | Sì (no se MMG/PLS) | No | No | Secondo il setting | Tracciato prescrizione specialistica; farmaceutica per i dispositivi | Sì | - | Secondo il PRI |
+| **Ammessa in urgenza** | **No** | Sì | Sì, ma **mai in surroga del soccorso** | - | - | - | - | - |
 | **Servizio minimo DM 21/09/2022** | Sì | Sì (unificato) | Sì (unificato) | Sì | Sì | No | No (micro-servizio trasversale) | No |
-| **Tipologia documentale FSE** | lett. p) | lett. o) richiesta, q) relazione | lett. q) | lett. r) | lett. s), t), u), v), w) | — | — | lett. r), t), w) |
+| **Tipologia documentale FSE** | lett. p) | lett. o) richiesta, q) relazione | lett. q) | lett. r) | lett. s), t), u), v), w) | - | - | lett. r), t), w) |
 
 ---
 
@@ -830,17 +830,17 @@ terza che le ricerche precedenti non avevano individuato.
 ```mermaid
 flowchart TB
     subgraph Nazionale
-        INT["INT — Infrastruttura nazionale di telemedicina<br/>titolare: AGENAS<br/>servizi abilitanti, Business Glossary,<br/>Gestore Soluzioni di Telemedicina, cruscotto<br/><b>NON è un repository clinico</b>"]
-        NIT["NIT — Nodo di interoperabilità<br/>microservizi SaaS multi-tenant<br/><b>senza persistenza di dati</b><br/>mutua autenticazione a certificati"]
-        PNDT["PN-DT — Piattaforma nazionale<br/>per la diffusione della telemedicina<br/>formazione, catalogo, comunicazione"]
+        INT["INT - Infrastruttura nazionale di telemedicina<br/>titolare: AGENAS<br/>servizi abilitanti, Business Glossary,<br/>Gestore Soluzioni di Telemedicina, cruscotto<br/><b>NON è un repository clinico</b>"]
+        NIT["NIT - Nodo di interoperabilità<br/>microservizi SaaS multi-tenant<br/><b>senza persistenza di dati</b><br/>mutua autenticazione a certificati"]
+        PNDT["PN-DT - Piattaforma nazionale<br/>per la diffusione della telemedicina<br/>formazione, catalogo, comunicazione"]
     end
     subgraph Regionale
-        IRT1["IRT — Infrastruttura regionale<br/>titolare: Regione o P.A.<br/><b>eroga concretamente le prestazioni</b>"]
-        IRT2["IRT — altra Regione"]
+        IRT1["IRT - Infrastruttura regionale<br/>titolare: Regione o P.A.<br/><b>eroga concretamente le prestazioni</b>"]
+        IRT2["IRT - altra Regione"]
     end
     subgraph Ecosistema dati
-        FSE[("FSE — Fascicolo sanitario elettronico")]
-        EDS[("EDS — Ecosistema dati sanitari")]
+        FSE[("FSE - Fascicolo sanitario elettronico")]
+        EDS[("EDS - Ecosistema dati sanitari")]
     end
     IRT1 <-->|interoperabilità<br/>interregionale| NIT
     IRT2 <--> NIT
@@ -850,7 +850,7 @@ flowchart TB
     EDS -->|dati pseudonimizzati<br/>per governo e HTA| INT
 ```
 
-- **INT — Infrastruttura nazionale di telemedicina.** Titolarità e gestione ad **AGENAS**.
+- **INT - Infrastruttura nazionale di telemedicina.** Titolarità e gestione ad **AGENAS**.
   Fornisce servizi abilitanti comuni, un modulo «Gestore Soluzioni di Telemedicina», un
   «Business Glossary» con Terminology Server, Authoring Tool e Library Repository, raccolta
   dati, motore di workflow, funzioni di governo. **Regola fondamentale**: «*La INT non
@@ -858,9 +858,9 @@ flowchart TB
   un repository clinico.** I dati clinici confluiscono direttamente in FSE ed EDS; il Garante
   per la protezione dei dati personali (parere n. 2 del 16 gennaio 2025) ha imposto questa
   scelta per evitare duplicazione e desincronizzazione.
-- **IRT — Infrastrutture regionali di telemedicina.** Titolarità delle Regioni e delle
+- **IRT - Infrastrutture regionali di telemedicina.** Titolarità delle Regioni e delle
   Province autonome. **Sono le infrastrutture che erogano concretamente le prestazioni.**
-- **NIT — Nodo di interoperabilità della telemedicina.** Realizzato ai sensi dell'art. 3,
+- **NIT - Nodo di interoperabilità della telemedicina.** Realizzato ai sensi dell'art. 3,
   comma 4. «*Il NIT garantisce, senza meccanismi di persistenza di dati, l'interoperabilità
   delle IRT interessate […] mediante microservizi completamente automatizzati*». È il punto di
   aggancio interregionale, con requisiti tecnici puntuali: mutua autenticazione con
@@ -868,7 +868,7 @@ flowchart TB
   **entro un'ora**, API Management come unico punto di ingresso, IAM con *single sign-on*,
   PAM per gli amministratori, **divieto di sessioni multiple contemporanee con le stesse
   credenziali**.
-- **PN-DT — Piattaforma nazionale per la diffusione della telemedicina.** Portale di supporto
+- **PN-DT - Piattaforma nazionale per la diffusione della telemedicina.** Portale di supporto
   alla diffusione e alla formazione. La gestione è trasferita ad AGENAS entro novanta giorni
   dal collaudo (art. 17, c. 4).
 
@@ -995,12 +995,12 @@ non è stato accertato. `[NV]`
 È il documento centrale per il perimetro del progetto e il tracciato è direttamente
 traducibile in modello dati. Per gruppi:
 
-**Assistito** — cognome, nome, codice identificativo (codice fiscale, STP, ENI o altro),
+**Assistito** - cognome, nome, codice identificativo (codice fiscale, STP, ENI o altro),
 sesso, data e comune di nascita, indirizzo/CAP/comune di residenza e di domicilio, provincia,
 regione e stato di residenza, recapito telefonico fisso e mobile, posta elettronica, **posta
 elettronica certificata**.
 
-**Professionisti e struttura** — cognome, nome e codice fiscale del **medico refertante**;
+**Professionisti e struttura** - cognome, nome e codice fiscale del **medico refertante**;
 cognome, nome e codice fiscale del **medico firmatario**, *distinto dal refertante*; codice e
 descrizione dell'**azienda sanitaria**, del **presidio** e dell'**unità operativa**; numero di
 telefono dell'unità operativa, del CUP o dell'azienda; cognome, nome e codice fiscale di
@@ -1008,12 +1008,12 @@ telefono dell'unità operativa, del CUP o dell'azienda; cognome, nome e codice f
 fiscale del **medico prescrittore** («medico del ruolo unico di assistenza primaria/PLS o
 Specialista»).
 
-**Riferimenti amministrativi** — numero della ricetta medica; **data di firma del referto**;
+**Riferimenti amministrativi** - numero della ricetta medica; **data di firma del referto**;
 **codice CUP** della prenotazione; **codici di identificazione degli oggetti correlati** («es.
 ID PACS, Accession number, Studio DICOM»); codice nosologico; provenienza; **tipologia di
 accesso** (programmata o ad accesso diretto); disciplina specialistica ambulatoriale; branca.
 
-**Contenuto clinico** — codice del **quesito diagnostico** in **ICD-9-CM** e descrizione;
+**Contenuto clinico** - codice del **quesito diagnostico** in **ICD-9-CM** e descrizione;
 anamnesi; allergie e fonti dichiarate; precedenti esami eseguiti; **codice AIC/ATC** del
 farmaco e descrizione della terapia in atto; **esame obiettivo**; codice e descrizione della
 prestazione eseguita; **data e ora di inizio** e **di fine erogazione**; codice e descrizione
@@ -1054,13 +1054,13 @@ Va inoltre eseguita una **analisi di copertura campo per campo** fra il set info
 ministeriale e le Implementation Guide FHIR nazionali di HL7 Italia, che rappresentano il
 referto di televisita come `Composition` dentro un `Bundle`. Le due fonti non sono
 alternative: il set ministeriale è la fonte normativa, la Implementation Guide è la
-rappresentazione tecnica. Il modulo [06 — FHIR da zero](06-fhir-da-zero.md) sviluppa il punto.
+rappresentazione tecnica. Il modulo [06 - FHIR da zero](06-fhir-da-zero.md) sviluppa il punto.
 
 ### 7.4 La matrice di visibilità documentale
 
-Il DM 19 novembre 2025, Allegato 3, § 5.2, definisce **sei profili di accesso** — assistito;
+Il DM 19 novembre 2025, Allegato 3, § 5.2, definisce **sei profili di accesso** - assistito;
 medico e altri dirigenti sanitari; infermiere/ostetrica; professioni tecnico sanitarie;
-professioni sanitarie assistenziali e della riabilitazione; personale amministrativo — e una
+professioni sanitarie assistenziali e della riabilitazione; personale amministrativo - e una
 matrice di visibilità per tipologia documentale.
 
 Il dato più significativo, perché non deducibile dai profili generali del FSE: **il referto di
@@ -1078,7 +1078,7 @@ Questa è una regola di autorizzazione fine, da implementare come tale e da test
 Questo articolo modifica un'assunzione implicita che quasi tutti fanno, e va conosciuto prima
 di progettare la persistenza.
 
-> **Art. 12** — «I dati personali relativi all'**autenticazione e all'accesso** ai servizi
+> **Art. 12** - «I dati personali relativi all'**autenticazione e all'accesso** ai servizi
 > minimi di telemedicina, offerti dalla IRT, sono conservati per **dodici mesi**.» «**Le IRT
 > non conservano** i dati e documenti generati ai sensi dell'art. 4, comma 4.»
 
@@ -1123,12 +1123,12 @@ Non esiste una tariffa «di telemedicina»: si applica quella della prestazione 
 | Prestazione | Prescrizione | Ticket | Tariffa | Flusso |
 |---|---|---|---|---|
 | Televisita in specialistica ambulatoriale | Sì, su ricettario SSN | Sì, se dovuto | Codice di **visita di controllo** | Flusso art. 50 + DEMA + flusso regionale |
-| Televisita erogata da MMG/PLS | **No** | — | — | Annotazione digitale |
+| Televisita erogata da MMG/PLS | **No** | - | - | Annotazione digitale |
 | Teleconsulto | No | No | **Nessuna voce a nomenclatore** | Registrabile in azienda, non rilevato nei flussi istituzionali |
 | Teleconsulenza | No | No | **Nessuna voce a nomenclatore** | Come sopra |
-| Telerefertazione | — | — | Completa la prestazione specialistica | — |
+| Telerefertazione | - | - | Completa la prestazione specialistica | - |
 | Telecontrollo medico | Sì | Sì | Prestazione del nomenclatore | Flussi specialistica |
-| Telemonitoraggio | Tracciato prescrizione specialistica; farmaceutica per i dispositivi | — | Non afferisce alla specialistica salvo affiancamento | Risultati nel referto della visita di controllo |
+| Telemonitoraggio | Tracciato prescrizione specialistica; farmaceutica per i dispositivi | - | Non afferisce alla specialistica salvo affiancamento | Risultati nel referto della visita di controllo |
 | Teleriabilitazione | Secondo il PRI | Secondo il PRI | **Equivalente alla presenza** | Flussi riabilitazione |
 
 ### 9.3 Lo stato attuale, senza abbellimenti
@@ -1178,7 +1178,7 @@ Questo è l'errore architetturale più costoso del dominio, e il modulo
   responsabilità; estremi del titolare e di almeno un responsabile; modalità per rivolgersi a
   titolare e responsabile; diritti dell'assistito);
 - il **consenso al trattamento dei dati personali** riguarda il trattamento, ha basi
-  giuridiche proprie e — per la finalità di cura — **non è normalmente il consenso**;
+  giuridiche proprie e - per la finalità di cura - **non è normalmente il consenso**;
 - il **consenso alla registrazione della sessione** è ulteriore, specifico, per sessione e
   revocabile.
 
@@ -1202,7 +1202,7 @@ L'Accordo 215/CSR 2020 richiede l'identità verificata del paziente. Ma:
   dal fatto che qualcuno abbia effettuato l'accesso.
 
 Il modello dati deve rappresentare entrambe, distintamente. Un sistema che tratti
-l'autenticazione come identificazione non può gestire il caso — tutt'altro che raro — in cui
+l'autenticazione come identificazione non può gestire il caso - tutt'altro che raro - in cui
 il caregiver accede con le proprie credenziali per conto di un paziente anziano.
 
 ### 10.3 Il caregiver non rappresenta
@@ -1210,8 +1210,8 @@ il caregiver accede con le proprie credenziali per conto di un paziente anziano.
 Assistere non è rappresentare. Un caregiver può essere presente in sessione, può facilitare
 l'accesso, può ricevere istruzioni; **non può prestare consenso al posto di un paziente
 capace**. Per l'incapace servono i titoli di rappresentanza: tutore, amministratore di
-sostegno — con poteri **delimitati dal decreto di nomina**, che possono o meno includere le
-decisioni sanitarie — esercente la responsabilità genitoriale.
+sostegno - con poteri **delimitati dal decreto di nomina**, che possono o meno includere le
+decisioni sanitarie - esercente la responsabilità genitoriale.
 
 Il DM 30 settembre 2022, Allegato B, aggiunge indicazioni per fascia: disabili ed età
 pediatrica «*solo se mediate da caregiver*»; adolescenti minorenni con «*priorità all'uso in
@@ -1224,15 +1224,15 @@ prima persona […] ma in presenza o con autorizzazione dell'esercente la patria
 Il DM 30 settembre 2022, Allegato B, sezione «Popolazione», enuncia requisiti che sono
 **funzionali diretti sull'interfaccia**, non raccomandazioni generiche:
 
-- **anziani** — «*il sistema di accesso alla videochiamata per la televisita deve essere
+- **anziani** - «*il sistema di accesso alla videochiamata per la televisita deve essere
   fruibile in autonomia*» (o anche supportati dal caregiver);
-- **bambini** — utilizzabile dall'esercente la responsabilità genitoriale «*con modalità che
+- **bambini** - utilizzabile dall'esercente la responsabilità genitoriale «*con modalità che
   facilitino il contemporaneo accudimento del minore, specie se malato*»;
-- **disabili** — utilizzabile da qualsiasi tipo di caregiver «*mentre egli prosegue ad
+- **disabili** - utilizzabile da qualsiasi tipo di caregiver «*mentre egli prosegue ad
   accudire il disabile*»;
-- **disabilità uditive** — «*occorrono sistemi di comunicazione scritta in sovrapposizione
+- **disabilità uditive** - «*occorrono sistemi di comunicazione scritta in sovrapposizione
   all'immagine video e di condivisione schermo*»;
-- **cecità totale o parziale** — sistemi che facilitino l'assistenza del caregiver, lasciando
+- **cecità totale o parziale** - sistemi che facilitino l'assistenza del caregiver, lasciando
   «*la possibilità di uso di altri eventuali supporti tecnologici*».
 
 Il quarto punto ha un effetto diretto sull'architettura del media: il canale dati per i
@@ -1261,7 +1261,7 @@ n. 158, sulla Rete nazionale dei tumori rari, richiede la presenza «*necessaria
 inderogabile*» del teleconsulto istopatologico e radiologico.
 
 **Regola di igiene progettuale**: tre funzionalità del progetto sono «a una user story» dal
-cambio di classificazione — allerta su soglia, riproduzione con miglioramento dell'immagine,
+cambio di classificazione - allerta su soglia, riproduzione con miglioramento dell'immagine,
 refertazione assistita. Vanno governate con controllo delle modifiche esplicito. Il modulo
 [15](15-regolatorio-da-zero.md) spiega il meccanismo.
 
@@ -1299,21 +1299,21 @@ una televisita.
 **No.** È contenuto obbligatorio di un documento sanitario firmato. Le metriche non vivono
 solo nel sistema di monitoraggio: devono poter essere proposte al medico, confermate da lui e
 riversate nel documento. Se il sistema di metriche è progettato come telemetria operativa
-pura — campionata, aggregata, con conservazione breve, senza correlazione con l'atto — non
+pura - campionata, aggregata, con conservazione breve, senza correlazione con l'atto - non
 può assolvere a questa funzione.
 
 ### 13.5 «Il consenso è un booleano»
 
-**No**, e questo è l'errore più costoso. Sono almeno quattro oggetti distinti — adesione
-alla prestazione, trattamento dei dati, registrazione, presenza di terzi — con basi giuridiche,
+**No**, e questo è l'errore più costoso. Sono almeno quattro oggetti distinti - adesione
+alla prestazione, trattamento dei dati, registrazione, presenza di terzi - con basi giuridiche,
 revocabilità, effetti e conservazione diverse. Ciascuno riferito a una **versione specifica**
 del testo presentato: un consenso non riferito a un testo versionato è indimostrabile.
 
 ### 13.6 «Chi ha fatto login è il paziente»
 
 **No.** L'autenticazione dice chi possiede la credenziale. L'identificazione del paziente è
-una decisione del professionista, da registrare. Nel caso più comune del mondo reale — il
-paziente anziano assistito dal figlio — le due cose divergono sistematicamente.
+una decisione del professionista, da registrare. Nel caso più comune del mondo reale - il
+paziente anziano assistito dal figlio - le due cose divergono sistematicamente.
 
 ### 13.7 «Salviamo tutto, poi decideremo»
 
@@ -1336,7 +1336,7 @@ server e la sessione non è più end-to-end**.
 
 **No.** Nessuna norma italiana fissa risoluzione, frame rate, banda o latenza. Le soglie del
 progetto sono specifiche di prodotto. Presentarle come conformità normativa è un errore
-verificabile da chiunque legga le fonti — e diventa un problema serio nel momento in cui
+verificabile da chiunque legga le fonti - e diventa un problema serio nel momento in cui
 quelle stesse soglie entrano nella destinazione d'uso ai fini della disciplina dei dispositivi
 medici.
 
@@ -1353,7 +1353,7 @@ agganciata alla prenotazione.
 1. **Le definizioni sono normative, non commerciali.** Cambiano attori, atti riservati,
    documenti prodotti, responsabilità e remunerazione.
 2. **La televisita è atto medico, sempre sincrona, con paziente presente, e si chiude con un
-   referto** — salvo quando la eroga il medico di medicina generale o il pediatra di libera
+   referto** - salvo quando la eroga il medico di medicina generale o il pediatra di libera
    scelta.
 3. **Il teleconsulto è medico-medico**, può essere asincrono, il paziente può non esserci, e
    **non produce referto autonomo ma produce una relazione collaborativa allegata** al referto
@@ -1363,8 +1363,8 @@ agganciata alla prenotazione.
 5. **Il telemonitoraggio non è ingestione di misure**: è un servizio con piano, soglie
    configurate dal professionista, validazione, formazione e cinque documenti. Ed è ciò che
    porta il software in Classe IIa.
-6. **Esistono due tassonomie ufficiali non coincidenti** — cinque prestazioni dell'Accordo
-   2020 e quattro servizi minimi del DM 21 settembre 2022 — e il modello deve rappresentarle
+6. **Esistono due tassonomie ufficiali non coincidenti** - cinque prestazioni dell'Accordo
+   2020 e quattro servizi minimi del DM 21 settembre 2022 - e il modello deve rappresentarle
    entrambe con la mappatura.
 7. **Dal DM 19 novembre 2025 esistono dieci tipologie documentali FSE dedicate**, con set
    informativo pubblicato in Gazzetta. Template CDA2 e codici non sono ancora reperibili:
@@ -1406,7 +1406,7 @@ agganciata alla prenotazione.
 | **Teleassistenza** | Atto professionale di pertinenza delle professioni sanitarie non mediche, con paziente o caregiver, programmato e ripetibile |
 | **Teleconsulenza medico-sanitaria** | Supporto a distanza fra professionisti con responsabilità differenti, sempre programmato, mai in surroga del soccorso |
 | **Teleconsulto** | Atto medico fra due o più medici sulla situazione clinica di un paziente; sincrono o asincrono; non produce referto autonomo |
-| **Telecontrollo medico** | Serie cadenzata di contatti medici in videochiamata con condivisione di dati clinici; prestazione **tariffata**. La forma abbreviata «telecontrollo» compare nelle tabelle sinottiche per ragioni di larghezza: il nome corretto è quello esteso, e l'aggettivo non è ornamentale — dice di chi è la pertinenza |
+| **Telecontrollo medico** | Serie cadenzata di contatti medici in videochiamata con condivisione di dati clinici; prestazione **tariffata**. La forma abbreviata «telecontrollo» compare nelle tabelle sinottiche per ragioni di larghezza: il nome corretto è quello esteso, e l'aggettivo non è ornamentale - dice di chi è la pertinenza |
 | **Telecooperazione sanitaria** | Assistenza a distanza a un operatore impegnato in un atto in corso; fuori perimetro nella versione corrente |
 | **Telemonitoraggio** | Rilevamento e trasmissione a distanza di parametri vitali e clinici tramite sensori, dentro un piano e con soglie configurate dal professionista |
 | **Telerefertazione** | Atto di refertare a distanza un esame già acquisito, con firma digitale validata; non è il trasporto del referto |

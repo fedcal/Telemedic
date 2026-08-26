@@ -1,5 +1,5 @@
 ---
-title: Area funzionale — indice
+title: Area funzionale - indice
 sidebar_position: 1
 description: "Mappa dell'area funzionale di Telemedic: attori e ruoli, catalogo dei requisiti con identificativi congelati, casi d'uso con flussi alternativi e di errore, regole di business, gestione degli allarmi, accessibilità e usabilità verificabili, perimetro escluso."
 ---
@@ -16,32 +16,32 @@ rinviano, non si riassumono.
 
 | Se sei… | Leggi in quest'ordine | Perché |
 |---|---|---|
-| Sviluppatore che deve implementare una storia | [02 — Catalogo dei requisiti](02-catalogo-dei-requisiti.md) → [03 — Casi d'uso](03-casi-d-uso.md) → [04 — Regole di business](04-regole-di-business.md) | il requisito dice *cosa*, il caso d'uso dice *in che ordine*, la regola dice *cosa non è mai lecito* |
-| Analista o product owner | [01 — Attori e ruoli](01-attori-e-ruoli.md) → [03](03-casi-d-uso.md) → [07 — Fuori perimetro](07-fuori-perimetro.md) | prima di aggiungere qualcosa, sapere chi la userà e perché qualcosa è stato deliberatamente escluso |
-| Responsabile qualità o valutatore di conformità | [02](02-catalogo-dei-requisiti.md) §§ 12-13 (tracciabilità e mappatura) → [04](04-regole-di-business.md) → [05 — Allarmi](05-gestione-degli-allarmi.md) → [06 — Accessibilità e usabilità](06-accessibilita-e-usabilita.md) | è la catena requisito → regola → criterio di accettazione → prova |
+| Sviluppatore che deve implementare una storia | [02 - Catalogo dei requisiti](02-catalogo-dei-requisiti.md) → [03 - Casi d'uso](03-casi-d-uso.md) → [04 - Regole di business](04-regole-di-business.md) | il requisito dice *cosa*, il caso d'uso dice *in che ordine*, la regola dice *cosa non è mai lecito* |
+| Analista o product owner | [01 - Attori e ruoli](01-attori-e-ruoli.md) → [03](03-casi-d-uso.md) → [07 - Fuori perimetro](07-fuori-perimetro.md) | prima di aggiungere qualcosa, sapere chi la userà e perché qualcosa è stato deliberatamente escluso |
+| Responsabile qualità o valutatore di conformità | [02](02-catalogo-dei-requisiti.md) §§ 12-13 (tracciabilità e mappatura) → [04](04-regole-di-business.md) → [05 - Allarmi](05-gestione-degli-allarmi.md) → [06 - Accessibilità e usabilità](06-accessibilita-e-usabilita.md) | è la catena requisito → regola → criterio di accettazione → prova |
 | Integratore | [01](01-attori-e-ruoli.md) § 6 (attori non umani) → [02](02-catalogo-dei-requisiti.md) § 12 → [07](07-fuori-perimetro.md) | quali capacità sono esposte, quali limiti non sono aggirabili per configurazione |
 | Clinico o direzione sanitaria | [05](05-gestione-degli-allarmi.md) → [04](04-regole-di-business.md) → [07](07-fuori-perimetro.md) | il perimetro di ciò che il sistema decide e di ciò che resta atto professionale |
 
 Chi non ha mai lavorato in sanità digitale deve leggere **prima** i moduli
-[02 — Le prestazioni di telemedicina](../10_fondamenti/02-prestazioni-di-telemedicina.md) e
-[10 — Percorsi di cura e sicurezza del paziente](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md)
+[02 - Le prestazioni di telemedicina](../10_fondamenti/02-prestazioni-di-telemedicina.md) e
+[10 - Percorsi di cura e sicurezza del paziente](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md)
 della guida dei fondamenti. Senza quei due moduli, metà delle scelte documentate qui sembra
 arbitraria: in particolare tutto ciò che riguarda soglie, allarmi, silenzio del paziente e
 copertura oraria del servizio. Il percorso end-to-end dei processi, con i diagrammi dei flussi
 principali e di ripiego, è nel modulo
-[14 — Flussi funzionali](../10_fondamenti/14-flussi-funzionali.md).
+[14 - Flussi funzionali](../10_fondamenti/14-flussi-funzionali.md).
 
 ## 2. I documenti
 
 | File | Contenuto | Identificativi introdotti |
 |---|---|---|
-| [01 — Attori e ruoli](01-attori-e-ruoli.md) | chi usa il sistema, con quale obiettivo, in quale veste, con quali vincoli reali di tempo, competenza digitale, dispositivo e rete; matrice attore × capacità | `ATT-20` … `ATT-26` |
-| [02 — Catalogo dei requisiti](02-catalogo-dei-requisiti.md) | requisiti funzionali e non funzionali con criteri di accettazione verificabili, priorità MoSCoW, tracciabilità verso casi d'uso e regole; mappatura delle 58 conseguenze progettuali del modulo 10 | `RF-230` … `RF-352`, `RNF-090` … `RNF-110` |
-| [03 — Casi d'uso](03-casi-d-uso.md) | casi d'uso con precondizioni, flusso principale, flussi alternativi, flussi di errore, postcondizioni, esiti tipizzati | `UC-01` … `UC-24`, `EX-TM-*` |
-| [04 — Regole di business](04-regole-di-business.md) | regole con fonte normativa dove esiste e conseguenza della violazione | `BR-100` … `BR-185` |
-| [05 — Gestione degli allarmi](05-gestione-degli-allarmi.md) | soglie come configurazione per assistito, ciclo di vita dell'allarme, presa in carico, mancato riscontro, escalation, silenzio del paziente, guasto sistemico | rinvia a `RF-269` … `RF-306` |
-| [06 — Accessibilità e usabilità](06-accessibilita-e-usabilita.md) | requisiti verificabili con metodo di verifica e criterio di accettazione operativo; profili di utente reali | rinvia a `RNF-044` … `RNF-054`, `RNF-105` … `RNF-107` |
-| [07 — Fuori perimetro](07-fuori-perimetro.md) | ciò che il sistema non fa, perché, e il collegamento alla destinazione d'uso | `OUT-01` … `OUT-24` |
+| [01 - Attori e ruoli](01-attori-e-ruoli.md) | chi usa il sistema, con quale obiettivo, in quale veste, con quali vincoli reali di tempo, competenza digitale, dispositivo e rete; matrice attore × capacità | `ATT-20` … `ATT-26` |
+| [02 - Catalogo dei requisiti](02-catalogo-dei-requisiti.md) | requisiti funzionali e non funzionali con criteri di accettazione verificabili, priorità MoSCoW, tracciabilità verso casi d'uso e regole; mappatura delle 58 conseguenze progettuali del modulo 10 | `RF-230` … `RF-352`, `RNF-090` … `RNF-110` |
+| [03 - Casi d'uso](03-casi-d-uso.md) | casi d'uso con precondizioni, flusso principale, flussi alternativi, flussi di errore, postcondizioni, esiti tipizzati | `UC-01` … `UC-24`, `EX-TM-*` |
+| [04 - Regole di business](04-regole-di-business.md) | regole con fonte normativa dove esiste e conseguenza della violazione | `BR-100` … `BR-185` |
+| [05 - Gestione degli allarmi](05-gestione-degli-allarmi.md) | soglie come configurazione per assistito, ciclo di vita dell'allarme, presa in carico, mancato riscontro, escalation, silenzio del paziente, guasto sistemico | rinvia a `RF-269` … `RF-306` |
+| [06 - Accessibilità e usabilità](06-accessibilita-e-usabilita.md) | requisiti verificabili con metodo di verifica e criterio di accettazione operativo; profili di utente reali | rinvia a `RNF-044` … `RNF-054`, `RNF-105` … `RNF-107` |
+| [07 - Fuori perimetro](07-fuori-perimetro.md) | ciò che il sistema non fa, perché, e il collegamento alla destinazione d'uso | `OUT-01` … `OUT-24` |
 
 ## 3. Che cosa continua a valere dalla fase di ricerca
 
@@ -54,7 +54,7 @@ da IEC 62304 §5.1.1 non si ricostruisce a posteriori, e un identificativo riusa
 requisito diverso rende inservibile l'intera matrice.
 
 Quest'area **estende** quel catalogo su sei aree che erano dichiarate scoperte e che riguardano
-la parte più delicata del dominio — il telemonitoraggio e la sicurezza del paziente:
+la parte più delicata del dominio - il telemonitoraggio e la sicurezza del paziente:
 
 1. il **piano di telemonitoraggio versionato** e il suo rapporto con il percorso di popolazione;
 2. la **finestra di attesa** di una misura e il trattamento della sua scadenza;
@@ -99,9 +99,12 @@ Non è un manuale d'uso: quello si scrive sul prodotto finito e ha obblighi prop
 contenuto ai sensi dell'Allegato I MDR. Non è la destinazione d'uso: la dichiarazione formale
 di destinazione d'uso e di limiti d'uso è un artefatto autonomo del pacchetto regolatorio
 (`MDR-IU-001`), ed è il documento da cui questa area **discende**, non il contrario. Il
-capitolo [07 — Fuori perimetro](07-fuori-perimetro.md) è il punto di raccordo fra i due.
+capitolo [07 - Fuori perimetro](07-fuori-perimetro.md) è il punto di raccordo fra i due.
 
-> **Avvertenza che vale su tutta l'area.** Il repository non è un dispositivo medico e il
-> progetto non appone marcatura CE (decisioni D28, D49, vincolo V-06). Nessun requisito di
-> questo catalogo può essere letto come attestazione di conformità: sono specifiche di prodotto,
-> verificabili, prodotte anche per essere utilizzabili da chi vorrà certificare.
+> **Avvertenza che vale su tutta l'area.** Il repository non è un dispositivo medico e oggi il
+> progetto non appone marcatura CE (decisioni D28, D49, vincolo V-06). Con la decisione D63
+> del 26 agosto 2026 il progetto intende assumere il ruolo di fabbricante, ancora da costituire
+> come soggetto giuridico: il percorso è avviato e la marcatura è un requisito di prodotto.
+> Nessun requisito di questo catalogo può essere letto come attestazione di conformità: sono
+> specifiche di prodotto, verificabili, prodotte per l'intero percorso di sviluppo e
+> certificazione.

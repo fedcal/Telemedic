@@ -9,7 +9,7 @@ description: Cifratura in transito e a riposo con l'obbligo dell'Accordo Stato-R
 > **Presupposto di lettura.** Che cosa proteggono davvero la cifratura in transito e la
 > cifratura a riposo, perché sono due misure contro due minacce diverse, che cosa significa
 > cifratura autenticata, perché la gestione delle chiavi è il problema vero e non un dettaglio
-> operativo: [10 §12 — Crittografia e sicurezza, §§3, 4, 7](../10_fondamenti/12-crittografia-e-sicurezza.md).
+> operativo: [10 §12 - Crittografia e sicurezza, §§3, 4, 7](../10_fondamenti/12-crittografia-e-sicurezza.md).
 > Qui si descrivono le scelte di questo sistema, i loro limiti e i punti in cui il dato è in
 > chiaro comunque.
 
@@ -20,9 +20,9 @@ durate di validità o soglie di robustezza. Non per prudenza redazionale: per un
 merito, che va enunciata perché è controintuitiva.
 
 Un parametro crittografico scritto in un documento di architettura ha tre difetti. **Invecchia**
-— la stessa scelta che oggi è stato dell'arte fra tre anni è debole, e il documento resta.
-**Non è verificabile dal lettore** — chi legge non ha modo di sapere se il numero proviene da
-una raccomandazione o dall'abitudine di chi ha scritto. **Compete con la fonte** — se il
+- la stessa scelta che oggi è stato dell'arte fra tre anni è debole, e il documento resta.
+**Non è verificabile dal lettore** - chi legge non ha modo di sapere se il numero proviene da
+una raccomandazione o dall'abitudine di chi ha scritto. **Compete con la fonte** - se il
 documento dice una cosa e la raccomandazione dell'ente competente ne dice un'altra,
 l'installazione si trova con due obblighi.
 
@@ -58,7 +58,7 @@ canale che trasporta una delle quattro categorie è dentro l'obbligo.
 
 Convergono sullo stesso punto: la misura sulla protezione dei dati in transito delle specifiche
 di base dell'autorità nazionale per la cybersicurezza (codice `PR.DS-02`) e quella sulle
-comunicazioni protette riservata ai soggetti essenziali (`PR.IR-03`) — il **contenuto puntuale
+comunicazioni protette riservata ai soggetti essenziali (`PR.IR-03`) - il **contenuto puntuale
 dei relativi requisiti non è citato qui**, per la ragione esposta in
 [08 §2](./08-quadro-normativo-e-misure.md); i requisiti R13, R24 e R36 dell'appendice sui
 requisiti di sicurezza eleggibili delle linee guida nazionali sulla sicurezza negli
@@ -96,7 +96,7 @@ un'affermazione sul trasporto resta vera dopo il primo aggiornamento di libreria
 quale suite crittografica sia in uso su una sessione. **La misura per sessione e la registra.**
 
 La ragione è che una parte della negoziazione avviene fra due estremi che il progetto non
-controlla — il browser dell'assistito e quello del professionista — e il cui comportamento
+controlla - il browser dell'assistito e quello del professionista - e il cui comportamento
 dipende dal motore, dalla versione, dalla configurazione della libreria crittografica
 sottostante e da impostazioni sperimentali. Il quadro accertato nella ricerca di verifica del
 progetto è che due motori su tre negoziano per impostazione predefinita la versione più recente
@@ -213,8 +213,8 @@ blocca l'integrazione al riscontro. Un segreto che sia comparso in una cronologi
 **compromesso**, e la procedura è la rotazione, non la rimozione dalla cronologia: la rimozione
 dalla cronologia non recupera le copie già distribuite.
 
-**Perdere la chiave è perdere il dato.** Il rischio M-15 del modello di minaccia — perdita
-irreversibile del materiale di chiave — è un rischio di **disponibilità di documentazione
+**Perdere la chiave è perdere il dato.** Il rischio M-15 del modello di minaccia - perdita
+irreversibile del materiale di chiave - è un rischio di **disponibilità di documentazione
 sanitaria**, e va trattato con la stessa serietà della compromissione. Ne discende un requisito
 che si dimentica: la procedura di ripristino da copia di sicurezza deve comprendere il
 **ripristino del materiale di chiave**, e la prova periodica di ripristino deve verificare che
@@ -222,7 +222,7 @@ il dato ripristinato sia effettivamente **leggibile**, non solo presente.
 
 ## 5. L'inventario onesto dei punti in chiaro
 
-Questa sezione esiste perché il suo contrario — il silenzio — è la forma più comune di
+Questa sezione esiste perché il suo contrario - il silenzio - è la forma più comune di
 disonestà tecnica nella documentazione dei sistemi di comunicazione. **Un sistema che dichiara
 la cifratura fino agli estremi e non elenca i punti in cui qualcosa è comunque visibile sta
 lasciando dedurre una proprietà che non ha.**
@@ -231,10 +231,10 @@ lasciando dedurre una proprietà che non ha.**
 |---|---|---|---|
 | **Segnalazione della sessione** | Chi partecipa, quando, per quanto, con quale tenant; i descrittori di sessione e i candidati di connettività, **compresi gli indirizzi di rete locale** | Il contenuto audio-video | Trasporto cifrato; **conservazione breve** dei candidati; nessun candidato nei log di diagnostica; dichiarazione nell'informativa |
 | **Server di relay** | **Gli indirizzi di rete di entrambe le parti**, il volume e l'andamento del traffico, la durata dell'allocazione | Il contenuto: inoltra pacchetti già cifrati | Relay **gestito da chi installa, nell'Unione**; nessuna etichettatura delle metriche con l'identificativo di sessione (V-155); conservazione breve dei log del relay |
-| **Componente di registrazione** (solo in modalità con registrazione) | **Tutto**: la cifratura è terminata sul componente | — | La modalità è **distinta, dichiarata nel consenso e segnalata in modo persistente**: [05 §5](./05-sicurezza-del-tempo-reale.md) |
-| **I due dispositivi** | Tutto ciò che l'utente vede e sente | — | Fuori dal controllo del progetto: **rischio residuo dichiarato** ([01 §6](./01-modello-di-minaccia.md)) |
+| **Componente di registrazione** (solo in modalità con registrazione) | **Tutto**: la cifratura è terminata sul componente | - | La modalità è **distinta, dichiarata nel consenso e segnalata in modo persistente**: [05 §5](./05-sicurezza-del-tempo-reale.md) |
+| **I due dispositivi** | Tutto ciò che l'utente vede e sente | - | Fuori dal controllo del progetto: **rischio residuo dichiarato** ([01 §6](./01-modello-di-minaccia.md)) |
 | **Motore della base dati** | Il contenuto applicativo che gli passa | Ciò che è cifrato al livello applicativo | Cifratura per artefatto; separazione delle utenze; registro separato |
-| **Mediatore unico di uscita** | Le destinazioni e il contenuto delle richieste in uscita | — | Nessun contenuto clinico (V-21); nessun identificativo dell'assistito verso la terminologia (V-151); [06 §8](./06-sicurezza-applicativa.md) |
+| **Mediatore unico di uscita** | Le destinazioni e il contenuto delle richieste in uscita | - | Nessun contenuto clinico (V-21); nessun identificativo dell'assistito verso la terminologia (V-151); [06 §8](./06-sicurezza-applicativa.md) |
 | **Osservabilità e metriche** | Ciò che l'applicazione decide di mandarle | Ciò che l'applicazione non manda | **Divieto** di contenuto clinico e di identificativi diretti nei log di diagnostica (V-150) |
 
 Due punti meritano di essere scritti per esteso, perché sono quelli che vengono attenuati.
@@ -277,7 +277,7 @@ Le altre applicazioni del principio, ciascuna con la sua verifica:
 | Messaggi in uscita | Trasportano identificativi e riferimenti, **mai contenuto clinico**; il contenuto si rilegge con una chiamata autenticata sotto l'autorizzazione del ricevente (V-21) | Ispezione degli schemi degli eventi pubblicati |
 | Log di diagnostica | Nessun identificativo diretto dell'assistito, nessun contenuto clinico (V-150) | Analisi automatica dei log di un'esecuzione di prova contro un dizionario di schemi |
 | Metriche infrastrutturali | Nessuna etichetta con l'identificativo di sessione (V-155) | Ispezione della configurazione dell'esportatore |
-| Attributi richiesti alla federazione | Solo quelli necessari, per la ragione di §3.1 di [02](./02-identita-e-accessi.md) — che ha anche un prezzo | Confronto fra gli attributi dichiarati e quelli effettivamente usati |
+| Attributi richiesti alla federazione | Solo quelli necessari, per la ragione di §3.1 di [02](./02-identita-e-accessi.md) - che ha anche un prezzo | Confronto fra gli attributi dichiarati e quelli effettivamente usati |
 | Riconoscimento biometrico | **Escluso per progettazione.** Il flusso video contiene il volto ma non è per ciò solo dato biometrico ai sensi dell'art. 4, punto 14: la qualificazione richiede un trattamento tecnico finalizzato all'identificazione univoca. Introdurlo aprirebbe una **seconda** via all'art. 9 con requisiti autonomi | L'esclusione è documentata, non implicita |
 | Impostazioni predefinite | Registrazione **disattivata**; conservazione minima; telemetria a adesione esplicita; log senza contenuto clinico | Prova sulla configurazione iniziale |
 
@@ -348,7 +348,7 @@ invece di lasciarla implicita:
 
 Esiste un caso in cui la cancellazione **non deve** avvenire: quando l'artefatto è oggetto di
 una contestazione, di un accertamento o di un procedimento. Ne discende che ogni artefatto ha
-uno **stato del ciclo di vita** — attivo, sospeso, in attesa di cancellazione, cancellato — e
+uno **stato del ciclo di vita** - attivo, sospeso, in attesa di cancellazione, cancellato - e
 che lo stato di sospensione:
 
 - **prevale** sulla scadenza della conservazione;
@@ -367,8 +367,8 @@ che lo stato di sospensione:
 | Portabilità (art. 20) | Applicabile: trattamento fondato sul consenso e automatizzato | Esportazione in formato di uso comune, con i metadati della sessione |
 | Opposizione (art. 21) | Non applicabile ai trattamenti fondati sul consenso | Rilevante solo per eventuali trattamenti su legittimo interesse |
 
-**Requisito derivato, e non minore**: ogni artefatto — sessione, documento, registrazione, riga
-di registro — porta un **identificativo dell'interessato** e uno **stato del ciclo di vita**, e
+**Requisito derivato, e non minore**: ogni artefatto - sessione, documento, registrazione, riga
+di registro - porta un **identificativo dell'interessato** e uno **stato del ciclo di vita**, e
 i diritti sono **eseguibili da interfaccia applicativa**. Il vincolo di integrabilità totale non
 è quindi solo una scelta di prodotto: è la condizione perché i diritti siano esercitabili in
 tempi utili.
@@ -380,5 +380,5 @@ tempi utili.
 | `[NV]` | Estremi e revisione vigente delle raccomandazioni crittografiche europee e nazionali da citare nella matrice di conformità (§1) | Conformità |
 | `[NV]` | Termini di conservazione della documentazione sanitaria applicabili, per tipo di documento e per disciplina regionale (§7.1) | Dominio, conformità |
 | `[NV]` | Stato del supporto della versione più recente del protocollo di trasporto per il datagramma sul terzo motore (§2.3) | Verifica empirica |
-| — | Collocazione del deposito delle chiavi e sua interfaccia: componente proprio dell'installazione o servizio dell'infrastruttura (§4) | Architettura |
+| - | Collocazione del deposito delle chiavi e sua interfaccia: componente proprio dell'installazione o servizio dell'infrastruttura (§4) | Architettura |
 | Q-157 | Oscuramento selettivo del video ai fini del diritto di accesso: capacità da progettare o esclusione da motivare (§7.5) | Funzionale, conformità |

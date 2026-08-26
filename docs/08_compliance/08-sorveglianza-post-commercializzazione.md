@@ -1,16 +1,16 @@
 ---
 title: Sorveglianza post-commercializzazione e vigilanza
 sidebar_position: 9
-description: "Due processi con logiche opposte: la sorveglianza che rileva e la vigilanza che segnala. Il piano dell'Allegato III tradotto in capacità di prodotto, gli indicatori e le soglie che riaprono il file di rischio, il rapporto periodico sulla sicurezza e il problema del modello aperto, incidenti gravi e termini, azioni correttive sul campo, il modello a due velocità delle modifiche, chi è titolare degli obblighi quando il software è aperto ora che il progetto intende assumere il ruolo di fabbricante con il soggetto giuridico ancora da costituire, e il raccordo con la risposta agli incidenti di sicurezza, che ha orologi diversi."
+description: "Due processi con logiche opposte: la sorveglianza che rileva e la vigilanza che segnala. Il piano dell'Allegato III tradotto in capacità di prodotto, gli indicatori e le soglie che riaprono il file di rischio, il rapporto periodico di aggiornamento sulla sicurezza e il problema del modello aperto, incidenti gravi e termini, azioni correttive sul campo, il modello a due velocità delle modifiche, chi è titolare degli obblighi quando il software è aperto ora che il progetto intende assumere il ruolo di fabbricante con il soggetto giuridico ancora da costituire, e il raccordo con la risposta agli incidenti di sicurezza, che ha orologi diversi."
 ---
 
 # Sorveglianza post-commercializzazione e vigilanza
 
 > **Che cosa questo capitolo non contiene.** Non contiene i termini di notifica dei regimi di
 > sicurezza informatica e di protezione dei dati: sono in
-> [06 §10 — Risposta agli incidenti](../06_security/10-risposta-agli-incidenti.md), con i quattro
+> [06 §10 - Risposta agli incidenti](../06_security/10-risposta-agli-incidenti.md), con i quattro
 > orologi e il quinto, il momento di decorrenza dall'acquisizione dell'evidenza e le capacità che
-> il prodotto deve fornire. **Quel capitolo non va riformulato qui.** Il § 8 di questo capitolo vi
+> il prodotto deve fornire. **Quel capitolo non va riformulato qui.** Il § 9 di questo capitolo vi
 > aggiunge la sola prospettiva mancante, che è quella del fabbricante di dispositivo.
 >
 > **Avvertenza che governa l'intero capitolo, e va letta prima di ogni termine.** **Il prodotto
@@ -22,7 +22,7 @@ description: "Due processi con logiche opposte: la sorveglianza che rileva e la 
 > capitolo parte, e nessuna riga di ciò che segue lo attenua.
 >
 > **La titolarità degli obblighi non cambia; cambia chi sarà titolare.** Sorveglianza e vigilanza
-> gravano sul **fabbricante della distribuzione identificata marcata CE** — è il vincolo `V-06`, e
+> gravano sul **fabbricante della distribuzione identificata marcata CE** - è il vincolo `V-06`, e
 > `D58` non lo tocca in questa parte. Ciò che `D58` cambia è che quel ruolo **il progetto intende
 > assumerlo**, e **il soggetto giuridico che lo eserciterebbe è ancora da costituire**: gli
 > obblighi dei §§ 2–7 non gravano oggi sul progetto perché non esiste né il soggetto né la
@@ -31,9 +31,9 @@ description: "Due processi con logiche opposte: la sorveglianza che rileva e la 
 >
 > **La conseguenza operativa è la sola ragione per cui questa avvertenza sta in testa.** Da quando
 > quegli obblighi saranno nostri, le **capacità di prodotto** che li rendono materialmente
-> soddisfacibili — tassonomia stabile degli eventi contati, conservazione della diagnostica pari
+> soddisfacibili - tassonomia stabile degli eventi contati, conservazione della diagnostica pari
 > alla finestra di vigilanza, tracciabilità delle versioni installate, indicatori che chiudono su
-> righe del registro dei rischi — smettono di essere un servizio reso a un terzo e diventano
+> righe del registro dei rischi - smettono di essere un servizio reso a un terzo e diventano
 > **infrastruttura del nostro percorso**. Vanno perciò **costruite, non soltanto documentate**, e
 > vanno costruite prima di servire: nessuna di esse è recuperabile a posteriori, perché contano
 > eventi che nel frattempo sono già accaduti o non accaduti (§ 5.2, `V-178`; § 3).
@@ -45,12 +45,12 @@ description: "Due processi con logiche opposte: la sorveglianza che rileva e la 
 > **Nessuno sorveglia le installazioni odierne**: non esiste un canale verso l'autorità, non
 > esiste un rapporto periodico, non esiste un obbligo di notifica di sicurezza sul campo che
 > qualcuno stia adempiendo. Chi installa, integra o mette in servizio il software oggi assume per
-> intero gli obblighi che ne derivano — **e, se costruisce un dispositivo e lo immette sul
+> intero gli obblighi che ne derivano - **e, se costruisce un dispositivo e lo immette sul
 > mercato, è il fabbricante di quel dispositivo** (§ 8.1), con gli obblighi dei §§ 2–7 addosso.
 > L'intenzione del progetto non gliene toglie nessuno.
 >
 > **Sui termini che questo capitolo contiene.** Sono **termini normativi del regime di vigilanza**
-> — ore e giorni dalla conoscenza di un evento — e obblighi contrattuali verso l'utilizzatore:
+> - ore e giorni dalla conoscenza di un evento - e obblighi contrattuali verso l'utilizzatore:
 > non sono date del progetto e non ne implicano alcuna. Il vincolo `V-171` vieta di affermare o
 > lasciare intendere che il prodotto sarà marcato entro un termine, e questa è l'unica occorrenza
 > ammessa di quella parola in tal senso. Le date del progetto stanno unicamente in
@@ -74,7 +74,7 @@ che nessuno se ne accorga.
 **Il collegamento fra i due.** La sorveglianza è il processo che **rileva**; la vigilanza è il
 processo che **segnala**. Un sistema di sorveglianza che non alimenta la vigilanza produce
 inadempimenti; una vigilanza senza sorveglianza a monte reagisce soltanto a ciò che qualcun altro
-le porta — cioè arriva sempre dopo, e sempre da un canale che non controlla.
+le porta - cioè arriva sempre dopo, e sempre da un canale che non controlla.
 
 ## 2. Il piano di sorveglianza, tradotto in capacità di prodotto
 
@@ -101,14 +101,14 @@ conseguenza tecnica che va progettata prima e non dopo.
 **Le due righe in grassetto non si risolvono con una procedura: richiedono una capacità di
 prodotto e un obbligo contrattuale.** Le soglie richiedono che i dati esistano e siano
 confrontabili fra installazioni e nel tempo; la tracciabilità delle versioni richiede di sapere
-quali installazioni esistono e a quale versione si trovano — e in un modello di distribuzione
-aperta **quel dato non esiste per costruzione**. È il § 6.
+quali installazioni esistono e a quale versione si trovano - e in un modello di distribuzione
+aperta **quel dato non esiste per costruzione**. È il § 8.2.
 
 ## 3. Gli indicatori e le soglie: numeri, non intenzioni
 
 Un piano senza soglie numeriche non è un piano di sorveglianza: è una dichiarazione di intenti che
 rende impossibile persino accorgersi che qualcosa sta peggiorando, perché «aumento significativo»
-senza una soglia predefinita è un giudizio formulabile solo a posteriori — e a posteriori significa
+senza una soglia predefinita è un giudizio formulabile solo a posteriori - e a posteriori significa
 dopo che l'evento è accaduto.
 
 Le soglie plausibili per questo prodotto derivano direttamente dalle righe del registro dei rischi
@@ -134,7 +134,7 @@ riconosciuta sarebbe una dichiarazione infondata ai sensi di `V-171`.
 
 **Una soglia superata non è un allarme operativo: è la riapertura di un file.** La conseguenza
 dichiarata deve essere scritta nel piano per ciascun indicatore, e deve essere un'attività con un
-responsabile e un termine — non «si valuta».
+responsabile e un termine - non «si valuta».
 
 ## 4. Il rapporto periodico di aggiornamento sulla sicurezza
 
@@ -145,7 +145,7 @@ le conclusioni della determinazione del **rapporto benefici/rischi**, i principa
 **seguito clinico** e il **volume di vendite** con la stima della popolazione che utilizza il
 dispositivo e la frequenza d'uso ove praticabile.
 
-`[NV]` — la ripartizione fra i paragrafi dell'art. 86 in funzione della classe, e in particolare
+`[NV]` - la ripartizione fra i paragrafi dell'art. 86 in funzione della classe, e in particolare
 la modalità e il destinatario della trasmissione per la Classe IIa, vanno verificate sul testo
 consolidato prima di scrivere la procedura.
 
@@ -164,7 +164,7 @@ vuote e la lacuna non sarebbe sanabile a posteriori.
 
 È la questione `Q-177`, indirizzata al committente, e va tenuta distinta da una scelta di
 licenza: **il repository resta pubblico e aperto** (`D51`); ciò che si decide è se la
-**distribuzione marcata** — che è un altro artefatto, con un altro nome e un altro ciclo di vita —
+**distribuzione marcata** - che è un altro artefatto, con un altro nome e un altro ciclo di vita -
 sia disponibile solo attraverso un canale che identifica il destinatario.
 
 ## 5. La vigilanza: incidenti gravi, termini, e il nesso difficile
@@ -178,7 +178,7 @@ a dispositivi messi a disposizione sul mercato dell'Unione.
 | **Decesso** o **grave deterioramento imprevisto** dello stato di salute | **non oltre 10 giorni** |
 | **Minaccia grave per la salute pubblica** | **immediatamente**, e comunque **non oltre 2 giorni** |
 
-`[NV]` — i termini sono verificati; la corrispondenza con i numeri di paragrafo dell'art. 87 va
+`[NV]` - i termini sono verificati; la corrispondenza con i numeri di paragrafo dell'art. 87 va
 confermata sul testo consolidato. La definizione di **incidente grave** è nell'art. 2, punto 65:
 un incidente che ha direttamente o indirettamente causato, può aver causato o può causare il
 decesso di un paziente, di un utilizzatore o di altre persone, il grave deterioramento temporaneo
@@ -239,8 +239,8 @@ impone un requisito al progetto oggi.
 > incidente può emergere a distanza di settimane e i registri di diagnostica durano giorni, la
 > ricostruzione è impossibile e l'obbligo non è soddisfacibile. **Il termine di conservazione
 > della diagnostica è quindi determinato dagli obblighi di vigilanza, non dal fabbisogno
-> operativo**, ed è **distinto** dai termini di `V-152` — ventiquattro mesi per i registri di
-> tracciabilità, dodici per i dati di accesso e autenticazione — che rispondono ad altra fonte e
+> operativo**, ed è **distinto** dai termini di `V-152` - ventiquattro mesi per i registri di
+> tracciabilità, dodici per i dati di accesso e autenticazione - che rispondono ad altra fonte e
 > ad altra finalità.
 
 **Determinazione del valore, che è ciò che la questione `Q-116` chiedeva.** Il termine minimo si
@@ -248,7 +248,7 @@ ricava per composizione, non per scelta: latenza massima realistica fra evento e
 dell'utilizzatore, più il termine contrattuale entro cui l'utilizzatore è tenuto a segnalare al
 fabbricante, più il tempo di indagine necessario a integrare la segnalazione iniziale. Il progetto
 propone **dodici mesi** come valore configurabile predefinito per i segnali di diagnostica
-riferibili a una prestazione o a un allarme — non per i registri applicativi generali — e dichiara
+riferibili a una prestazione o a un allarme - non per i registri applicativi generali - e dichiara
 che **la determinazione finale è del fabbricante**, perché dipende dal termine contrattuale che
 egli impone ai propri utilizzatori. `[NV]` sul valore: è una proposta motivata, non un obbligo
 normativo, e nessuna fonte fissa un termine per la diagnostica.
@@ -312,7 +312,7 @@ la modifica:
 significative sono ampiamente usati anche per i dispositivi certificati sotto il regolamento, ma
 il loro **ambito proprio è la disciplina transitoria dei dispositivi preesistenti**: applicarli
 per analogia è prassi diffusa e ragionevole, **non è un fondamento normativo**. Vanno presentati
-per ciò che sono — metodo adottato dal fabbricante, motivato — e le condizioni concrete vanno
+per ciò che sono - metodo adottato dal fabbricante, motivato - e le condizioni concrete vanno
 **concordate per iscritto con l'organismo** in sede contrattuale. `[NV]` sull'ambito dichiarato e
 sulla revisione corrente del documento.
 
@@ -324,7 +324,7 @@ e va progettata ora.**
 | Ritmo | Il proprio, senza vincoli regolatori | Cadenza più lenta, con valutazione delle modifiche |
 | Licenza e dichiarazione | Apache-2.0, con la dichiarazione permanente che **non è un dispositivo** | Artefatto con fabbricante, versione e ciclo di vita propri |
 | Stato di configurazione | Cronologia del controllo di versione | **Registro dello stato di configurazione per ogni versione** |
-| Correzioni di sicurezza | Al momento | **Fuori cadenza**, senza aprire la procedura di modifica sostanziale — il che richiede che siano, **per costruzione, prive di impatto funzionale** |
+| Correzioni di sicurezza | Al momento | **Fuori cadenza**, senza aprire la procedura di modifica sostanziale - il che richiede che siano, **per costruzione, prive di impatto funzionale** |
 
 L'ultima cella è un requisito di ingegneria, non una policy: una correzione di sicurezza che
 cambia comportamento funzionale **non è distribuibile fuori cadenza**, e scoprirlo al momento
@@ -343,8 +343,8 @@ esiste né una distribuzione marcata né il soggetto che potrebbe esserne fabbri
 
 **Che cosa `D58` cambia in questa frase, e che cosa deliberatamente no.** Non cambia il **criterio
 di imputazione**: gli obblighi seguono il ruolo, e il ruolo segue chi immette sul mercato una
-distribuzione identificata. Cambia che il progetto **intende** essere uno di quei soggetti — con
-il **soggetto giuridico ancora da costituire** — e che quindi **i §§ 2–7 descrivono obblighi che
+distribuzione identificata. Cambia che il progetto **intende** essere uno di quei soggetti - con
+il **soggetto giuridico ancora da costituire** - e che quindi **i §§ 2–7 descrivono obblighi che
 assumeremo**, non obblighi di terzi che il progetto illustra per cortesia. La differenza non è di
 tono: è che ogni riga di quei paragrafi che richiede una capacità di prodotto diventa un
 **requisito nostro con una scadenza logica anteriore** al momento in cui l'obbligo scatta, perché
@@ -358,7 +358,7 @@ percorso proprio da costruire, dall'altro una posizione di **fornitore a monte**
 (§ 8.4), e le due vesti hanno obblighi di natura diversa che non vanno confusi.
 
 Ne discendono cinque conseguenze, tutte da documentare nel materiale per chi integra
-([07 §09 — Obblighi di chi integra](../07_integration/09-obblighi-di-chi-integra.md)).
+([07 §09 - Obblighi di chi integra](../07_integration/09-obblighi-di-chi-integra.md)).
 
 ### 8.1 Chi costruisce un dispositivo a partire dal codice **è** il fabbricante di quel dispositivo
 
@@ -377,7 +377,7 @@ Va risolto con **tre misure combinate**, e nessuna delle tre da sola è sufficie
 1. distribuzione della versione certificata attraverso un **canale che identifica il destinatario**
    (§ 4.1, questione `Q-177`);
 2. **obbligo contrattuale dell'utilizzatore** di segnalare gli incidenti al fabbricante entro un
-   termine compatibile con quelli dell'art. 87 — cioè **inferiore** ad essi, perché il termine del
+   termine compatibile con quelli dell'art. 87 - cioè **inferiore** ad essi, perché il termine del
    fabbricante decorre dalla sua conoscenza e un utilizzatore che segnala al quattordicesimo
    giorno lascia un giorno per valutare, indagare e segnalare;
 3. **capacità del prodotto** di produrre l'evidenza tecnica necessaria a ricostruire una sequenza
@@ -422,7 +422,7 @@ proprio inventario ai sensi di IEC 62304.
 
 **La colonna che segue è cambiata di natura, ed è il punto centrale di questo paragrafo.** Fino a
 `D58` elencava obblighi del progetto **verso un terzo** che avrebbe certificato: era, in
-sostanza, una cortesia motivata. Ora elenca **obblighi che assumiamo**, e li assumiamo due volte —
+sostanza, una cortesia motivata. Ora elenca **obblighi che assumiamo**, e li assumiamo due volte -
 una come fornitore a monte di chi integra, una come **futuro fabbricante di noi stessi**. La
 conseguenza è che nessuna di queste righe è soddisfatta scrivendola: sono **capacità che vanno
 costruite**, e la loro assenza si scopre nel momento in cui servono, quando è tardi per
@@ -432,10 +432,10 @@ costruirle.
 |---|---|
 | Canale di segnalazione funzionante, con destinatario e tempo di riscontro dichiarati | Senza di esso **chi integra** non può rispettare il proprio termine di ventiquattro ore. È la stessa infrastruttura che servirà **a noi** quando il soggetto fabbricante sarà costituito: costruirla due volte non ha senso, costruirla dopo nemmeno |
 | **Politica di divulgazione coordinata** con tempi dichiarati | È requisito di **chi integra** prima che obbligo proprio ([06 §10 §2.5](../06_security/10-risposta-agli-incidenti.md)); diventa obbligo proprio con il ruolo di fabbricante, e la politica non si improvvisa alla prima segnalazione |
-| **Distinta dei materiali software firmata** per ogni rilascio | È l'ingresso dell'inventario dei componenti di terze parti del fabbricante — **di chi integra oggi, nostro poi** — ed è la seconda delle attività retroattivamente irrecuperabili di `D45` |
+| **Distinta dei materiali software firmata** per ogni rilascio | È l'ingresso dell'inventario dei componenti di terze parti del fabbricante - **di chi integra oggi, nostro poi** - ed è la seconda delle attività retroattivamente irrecuperabili di `D45` |
 | Comunicazione tempestiva delle vulnerabilità nei componenti di terze parti | Il fabbricante non sorveglia i componenti del progetto: **sorveglia il progetto**. La sorveglianza a monte resta un'attività a monte anche quando le due vesti coincidono nello stesso soggetto, e va tenuta distinta nelle registrazioni |
 | Artefatti di ciclo di vita pubblicati e identificabili per versione | Senza di essi il fabbricante deve ricostruirli, e ciò che è retroattivamente irrecuperabile **non lo può ricostruire affatto** (`D45`). Con `D58` il fabbricante che si troverebbe a doverlo fare **siamo noi**, il che rende l'omissione un danno diretto e non un'ipotesi |
-| **Capacità di prodotto del § 5.2** — tassonomia stabile degli eventi contati e conservazione della diagnostica pari alla finestra di vigilanza (`V-178`) | Riga aggiunta perché con `D58` non è più una fornitura ma un **prerequisito nostro**: sono capacità che **contano eventi**, quindi non si accendono retroattivamente. Non figurano fra le quattro attività irrecuperabili di `D45` e hanno la stessa proprietà — è la questione `Q-276` |
+| **Capacità di prodotto del § 5.2** - tassonomia stabile degli eventi contati e conservazione della diagnostica pari alla finestra di vigilanza (`V-178`) | Riga aggiunta perché con `D58` non è più una fornitura ma un **prerequisito nostro**: sono capacità che **contano eventi**, quindi non si accendono retroattivamente. Non figurano fra le quattro attività irrecuperabili di `D45` e hanno la stessa proprietà - è la questione `Q-276` |
 
 ### 8.5 Il caso che nessuna delle misure precedenti copre
 
@@ -447,7 +447,7 @@ Ciò che il progetto può fare è **rendere impossibile l'equivoco**: la dichiar
 il repository non è un dispositivo medico, la destinazione d'uso e i limiti d'uso visibili in ogni
 momento in cui il repository è accessibile (`D51`), e la politica di distribuzione che tiene i due
 artefatti separati per nome, versione e ciclo di vita. Ciò che **non** può fare è impedire a un
-terzo di immettere sul mercato un derivato non conforme — e la circostanza che quel terzo diventi
+terzo di immettere sul mercato un derivato non conforme - e la circostanza che quel terzo diventi
 per ciò stesso fabbricante, con tutti gli obblighi che ne discendono, è la sola risposta
 disponibile.
 
@@ -475,7 +475,7 @@ capitolo non poteva assumere.
 
 | Regime | Termine più stringente | Chi è obbligato | Innesco |
 |---|---|---|---|
-| Vigilanza sui dispositivi medici | **2 giorni** | Il **fabbricante** della distribuzione marcata — ruolo che il progetto **intende** assumere, con il soggetto **ancora da costituire** | Conoscenza dell'incidente grave e del **possibile** nesso |
+| Vigilanza sui dispositivi medici | **2 giorni** | Il **fabbricante** della distribuzione marcata - ruolo che il progetto **intende** assumere, con il soggetto **ancora da costituire** | Conoscenza dell'incidente grave e del **possibile** nesso |
 | Resilienza informatica | **24 ore** | Il fabbricante del prodotto con elementi digitali | Vulnerabilità attivamente sfruttata o incidente grave |
 | Sicurezza delle reti | Termini brevi dalla conoscenza | Il **soggetto** che eroga il servizio | Incidente significativo |
 | Protezione dei dati personali | 72 ore | Il **titolare** del trattamento | Conoscenza della violazione |
@@ -494,7 +494,7 @@ durante il primo incidente reale.
 lungo.** Le ventiquattro ore della resilienza informatica sono impegnative sul piano
 **organizzativo**: si risolvono con reperibilità e modulistica pronta. I **due giorni** della
 vigilanza sono impegnativi sul piano **valutativo**, perché richiedono di stabilire un nesso fra
-un evento tecnico e una conseguenza clinica — cioè di rispondere in poche ore alla domanda
+un evento tecnico e una conseguenza clinica - cioè di rispondere in poche ore alla domanda
 «questo evento può aver danneggiato una persona?». La sola struttura, in tutta la documentazione
 del progetto, che consenta di rispondere è la tabella delle conseguenze cliniche del modello di
 minaccia ([06 §01 §5](../06_security/01-modello-di-minaccia.md)), che a quel punto smette di

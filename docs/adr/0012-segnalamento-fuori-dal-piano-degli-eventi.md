@@ -1,10 +1,10 @@
 ---
-title: "ADR-0012 — Il segnalamento della sessione non transita per l'outbox né per il broker"
+title: "ADR-0012 - Il segnalamento della sessione non transita per l'outbox né per il broker"
 sidebar_position: 12
 description: Perché il piano del tempo reale ha un meccanismo proprio, che cosa attraversa comunque il confine, e quale vincolo ne discende sulla distribuzione del carico.
 ---
 
-# ADR-0012 — Il segnalamento della sessione non transita per l'outbox né per il broker
+# ADR-0012 - Il segnalamento della sessione non transita per l'outbox né per il broker
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Origine**: questione sollevata dal modulo dei fondamenti informatici; risponde inoltre alle
@@ -18,12 +18,12 @@ Stabilito che l'outbox è l'unica sorgente degli eventi (ADR-0008), la conseguen
 tutto passi di lì. È una semplificazione attraente: un solo meccanismo, una sola sorveglianza, un
 solo insieme di garanzie.
 
-Il segnalamento della sessione media — lo scambio delle descrizioni e dei candidati di rete fra i
-partecipanti — non tollera quel percorso, per due ragioni indipendenti e ciascuna sufficiente.
+Il segnalamento della sessione media - lo scambio delle descrizioni e dei candidati di rete fra i
+partecipanti - non tollera quel percorso, per due ragioni indipendenti e ciascuna sufficiente.
 
 ## Alternative valutate
 
-### Alternativa 1 — Tutto passa dall'outbox e dal broker
+### Alternativa 1 - Tutto passa dall'outbox e dal broker
 
 *Vantaggi*: un solo meccanismo da capire, sorvegliare e provare; nessun secondo sistema.
 
@@ -36,19 +36,19 @@ partecipanti — non tollera quel percorso, per due ragioni indipendenti e ciasc
   richiede che il protocollo di trasporto li consegni **esattamente una volta e nello stesso
   ordine** in cui sono stati prodotti. Un canale di pubblicazione generico non lo garantisce: un
   candidato duplicato o fuori ordine produce fallimenti di negoziazione **intermittenti e non
-  diagnosticabili** — la categoria di difetti più costosa da correggere, perché la sessione si
+  diagnosticabili** - la categoria di difetti più costosa da correggere, perché la sessione si
   stabilisce nove volte su dieci e il difetto non si riproduce su richiesta.
 
 **Scartata.**
 
-### Alternativa 2 — Canale di pubblicazione semplice come dorsale fra i nodi di segnalamento
+### Alternativa 2 - Canale di pubblicazione semplice come dorsale fra i nodi di segnalamento
 
 *Vantaggi*: consente di instradare i partecipanti su nodi diversi.
 
 *Compromessi*: un canale di pubblicazione senza persistenza non garantisce né la consegna né
 l'ordine; aggiunge un salto sul percorso critico; sposta il problema senza risolverlo. **Scartata.**
 
-### Alternativa 3 — Affinità di connessione al bilanciatore
+### Alternativa 3 - Affinità di connessione al bilanciatore
 
 Il bilanciatore mantiene il partecipante sullo stesso nodo per la durata della connessione.
 
@@ -59,7 +59,7 @@ il problema dello stato condiviso resta intero; un rilascio tronca tutte le sess
 nodo che si aggiorna; il ridimensionamento non ridistribuisce il carico esistente. Ammessa **solo
 come debito tecnico dichiarato** con strategia di uscita scritta.
 
-### Alternativa 4 — Meccanismo proprio con distribuzione deterministica
+### Alternativa 4 - Meccanismo proprio con distribuzione deterministica
 
 La macchina a stati di una sessione vive in un solo processo, determinato in modo deterministico
 dall'identificativo della sessione. I due partecipanti alla stessa sessione raggiungono lo stesso
@@ -119,6 +119,6 @@ garanzie. Il **traffico** che li ha prodotti resta interno.
 
 ## Riferimenti
 
-[06 — Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#8-il-confine-con-il-piano-del-tempo-reale) ·
-[02 — Contesti delimitati](../02_architecture/02-contesti-delimitati.md#6-regole-di-attraversamento-dei-confini) ·
+[06 - Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#8-il-confine-con-il-piano-del-tempo-reale) ·
+[02 - Contesti delimitati](../02_architecture/02-contesti-delimitati.md#6-regole-di-attraversamento-dei-confini) ·
 ADR-0008

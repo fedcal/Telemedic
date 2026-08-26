@@ -1,14 +1,14 @@
 ---
 title: Threat model
 sidebar_position: 2
-description: The protected assets — clinical content, session metadata, key material, audit trail, build chain — the realistic adversaries with the insider as the primary adversary, the trust boundaries, and the clinical consequences of the failure of each protection.
+description: The protected assets - clinical content, session metadata, key material, audit trail, build chain - the realistic adversaries with the insider as the primary adversary, the trust boundaries, and the clinical consequences of the failure of each protection.
 ---
 
 # Threat model
 
 > **Reading prerequisite.** What a threat model is, and what STRIDE, the attack surface and trust
 > boundaries are, is explained in
-> [10 §12 — Cryptography and security, §2](../10_fondamenti/12-crittografia-e-sicurezza.md).
+> [10 §12 - Cryptography and security, §2](/10_fondamenti/12-crittografia-e-sicurezza.md).
 > Here that method is applied to this system, and not repeated.
 
 ## 1. Why this chapter comes before all the others
@@ -20,9 +20,9 @@ derive from here has no justification and must be removed; an asset listed here 
 control is an untreated risk, and must be declared as such.
 
 This chapter is also the point of connection with the **risk management file** under the standard
-on risk management for medical devices. The two disciplines do not coincide — device risk
+on risk management for medical devices. The two disciplines do not coincide - device risk
 management assesses **harm to the patient**, information security assesses the **compromise of
-the system's properties** — but in this domain they intersect continuously, and the intersection
+the system's properties** - but in this domain they intersect continuously, and the intersection
 is the content of §5. The technical standard on security activities in the life cycle of health
 software, which is the reference of choice for demonstrating the state of the art under Annex I
 § 17.2 of Regulation (EU) 2017/745, expressly requires a cybersecurity risk management process
@@ -46,7 +46,7 @@ content already produced, and matters enormously for content being produced: a r
 unreachable for an hour is a disruption, a session that drops halfway through a psychiatric
 consultation is a clinical event.
 
-### 2.2 Session metadata — the asset that gets forgotten
+### 2.2 Session metadata - the asset that gets forgotten
 
 **The mere fact that a person has had a session with a specialist is data concerning health.**
 This is not an expansive reading: Article 4(15) of Regulation (EU) 2016/679 defines data
@@ -125,7 +125,7 @@ An adversary is described by three elements: **who they are**, **what they can d
 produces disproportionate controls; an adversary described without motivation produces controls
 that protect what nobody wants.
 
-### 3.1 The insider — primary adversary
+### 3.1 The insider - primary adversary
 
 **This is the adversary the design starts from, not one among many.**
 
@@ -147,7 +147,7 @@ that is exactly what makes this category frequent.
 
 1. In the annexes on baseline significant incidents of Determinazione n. 379907 of 19 December
    2025 (a determination of the Italian national cybersecurity authority), that authority has
-   constructed an **autonomous incident type** — the one reserved for essential entities —
+   constructed an **autonomous incident type** - the one reserved for essential entities -
    defined as «unauthorised access **or access with abuse of granted privileges**» to digital
    data. Abuse of privileges is defined by the authority as the condition in which the user «has
    the technical authorisation (possession of credentials that are configured to access the data)
@@ -195,7 +195,7 @@ of [07 §8](./07-catena-di-fornitura.md) cover this adversary.
 that has assessed the ransom value of a care provider organisation, someone interested in the
 data of a specific person.
 
-*Capability.* They study the system. They read the public documentation — this. They analyse the
+*Capability.* They study the system. They read the public documentation - this. They analyse the
 code, which is open. They look for the point where the documentation promises more than the code
 does. They try the supply chain if the perimeter holds.
 
@@ -213,8 +213,8 @@ becomes the build chain.
 *Who they are.* One of the two parties to the session, or a third party presenting themselves as
 such.
 
-*Capability.* Recording what they see and hear by means external to the system — a camera pointed
-at the screen — something **no technical control can prevent** and which must be stated instead
+*Capability.* Recording what they see and hear by means external to the system - a camera pointed
+at the screen - something **no technical control can prevent** and which must be stated instead
 of being implicitly denied by the encryption claim. Or else attempting to join someone else's
 session, or to pass themselves off as the other party.
 
@@ -255,24 +255,24 @@ be done by the receiving side**, never by the sending side.
 
 ```mermaid
 flowchart TB
-    subgraph C0["Zone 0 — untrusted"]
+    subgraph C0["Zone 0 - untrusted"]
         BR["Browser of the patient<br/>and of the professional"]
         INT["Integrator's system"]
         EXT["External services:<br/>terminology, national infrastructures"]
     end
-    subgraph C1["Zone 1 — edge"]
+    subgraph C1["Zone 1 - edge"]
         GW["Application ingress:<br/>TLS termination, authentication,<br/>rate limiting"]
         REL["Relay server<br/>(egress-isolated network)"]
     end
-    subgraph C2["Zone 2 — application"]
+    subgraph C2["Zone 2 - application"]
         APP["Application contexts"]
         MED["Single egress broker"]
     end
-    subgraph C3["Zone 3 — data"]
+    subgraph C3["Zone 3 - data"]
         DB[("Per-tenant<br/>database")]
         OBJ[("Encrypted<br/>object store")]
     end
-    subgraph C4["Zone 4 — audit trail"]
+    subgraph C4["Zone 4 - audit trail"]
         LOG[("Append-only log<br/>separately retained")]
     end
 
@@ -289,12 +289,12 @@ flowchart TB
 
 | Boundary | What crosses it | What the receiving side checks |
 |---|---|---|
-| **A** — browser → ingress | Application requests, drafted content, uploaded files | Authentication, level of assurance, authorisation on the specific object, schema and size of the body, real type of the file, per-actor rate limiting |
-| **B** — integrator → ingress | Delegated identity token, application calls, references | Issuer admitted for that tenant, signature, admitted algorithm, expected audience, scope, **marking of the level as reported and not performed** |
-| **C** — ingress → application | Request context | Tenant resolved: **no query without a tenant**; identity propagated in non-forgeable form |
-| **D** — application → broker | Egress request with destination | Scheme, port, size, time, hop count against closed lists; **resolved address checked** |
-| **E** — broker → external | Queries, notifications, retrieval of material | No clinical content ([V-21](./06-sicurezza-applicativa.md)); no patient identifier towards terminology ([V-151](./03-protezione-dei-dati.md)); asymmetric signature on egress ([V-22](./06-sicurezza-applicativa.md)) |
-| **media** — browser → relay | Encrypted transport packets | Valid ephemeral credential; destination not belonging to the forbidden address ranges; **outbound network isolation as the primary defence** ([05 §4](./05-sicurezza-del-tempo-reale.md)) |
+| **A** - browser → ingress | Application requests, drafted content, uploaded files | Authentication, level of assurance, authorisation on the specific object, schema and size of the body, real type of the file, per-actor rate limiting |
+| **B** - integrator → ingress | Delegated identity token, application calls, references | Issuer admitted for that tenant, signature, admitted algorithm, expected audience, scope, **marking of the level as reported and not performed** |
+| **C** - ingress → application | Request context | Tenant resolved: **no query without a tenant**; identity propagated in non-forgeable form |
+| **D** - application → broker | Egress request with destination | Scheme, port, size, time, hop count against closed lists; **resolved address checked** |
+| **E** - broker → external | Queries, notifications, retrieval of material | No clinical content ([V-21](./06-sicurezza-applicativa.md)); no patient identifier towards terminology ([V-151](./03-protezione-dei-dati.md)); asymmetric signature on egress ([V-22](./06-sicurezza-applicativa.md)) |
+| **media** - browser → relay | Encrypted transport packets | Valid ephemeral credential; destination not belonging to the forbidden address ranges; **outbound network isolation as the primary defence** ([05 §4](./05-sicurezza-del-tempo-reale.md)) |
 
 Two observations that the table does not convey on its own.
 
@@ -321,7 +321,7 @@ person**.
 | M-05 | Recording started without consent, or consent that cannot be withdrawn | Clinical content | Processing without a legal basis | Harm to the person; **chilling effect** on the consultation if the patient suspects being recorded |
 | M-06 | Alteration of a signed clinical document | Clinical content | Loss of integrity | **Therapeutic decision on a false datum.** It is the threat with the worst potential outcome in the whole list |
 | M-07 | Alteration of a vital sign measurement or of its time-stamp | Clinical content | Loss of integrity | Threshold assessment on a false datum; alert missed or alert unjustified |
-| M-08 | Loss of an alarm or of a threshold-breach notification | Availability | Message lost | **Failure to intervene** on a clinical deterioration. Constraint V-09 — silence is never normality — is born here |
+| M-08 | Loss of an alarm or of a threshold-breach notification | Availability | Message lost | **Failure to intervene** on a clinical deterioration. Constraint V-09 - silence is never normality - is born here |
 | M-09 | Service hours declared differently from the actual ones | Integrity of the information | None, on the technical plane | **False reassurance.** A person who believes they are being monitored and is not is in a worse condition than a declared absence of service |
 | M-10 | Confusion between patients: a datum attributed to the wrong person | Clinical content | Loss of integrity | Report or measurement in the wrong record: **two people harmed** by a single error |
 | M-11 | Data leakage between tenants | Clinical content, metadata | Loss of confidentiality | As M-01, with mass exposure and with no identifiable actor |
@@ -362,7 +362,7 @@ obligation: what is not mitigated must be declared as residual risk.
 
 A threat with no test that verifies its mitigation is an assertion. The rule of this area is that
 **every row of §5 must have at least one requirement and at least one automated test**, and that
-the test must be a **negative** test — one that verifies that the forbidden action fails — and
+the test must be a **negative** test - one that verifies that the forbidden action fails - and
 not just a positive one.
 
 | Threat | Form of the test |

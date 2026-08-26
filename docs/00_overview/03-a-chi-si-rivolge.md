@@ -1,7 +1,7 @@
 ---
 title: A chi si rivolge
 sidebar_position: 4
-description: "I destinatari reali del progetto — struttura sanitaria, professionista, assistito e caregiver, integratore, ente regionale — con ciò che ciascuno ottiene, ciò che deve mettere di suo e ciò che il progetto deliberatamente non gli dà."
+description: "I destinatari reali del progetto - struttura sanitaria, professionista, assistito e caregiver, integratore, ente regionale - con ciò che ciascuno ottiene, ciò che deve mettere di suo e ciò che il progetto deliberatamente non gli dà."
 ---
 
 # A chi si rivolge
@@ -30,7 +30,7 @@ installa il sistema o lo riceve da un integratore e lo porta in esercizio.
 ### 1.1 Che cosa ottiene
 
 **Un sistema installabile presso di sé, non solo utilizzabile.** Sono documentati e supportati due
-assetti — installazione presso il cliente e servizio gestito multi-tenant — con **stesso codice e
+assetti - installazione presso il cliente e servizio gestito multi-tenant - con **stesso codice e
 stessa struttura**: l'installazione a tenant unico è il caso degenere del modello multi-tenant, non
 un ramo separato che diverge alla seconda versione.
 
@@ -53,7 +53,7 @@ mettere accanto a un capitolato.
 
 **Artefatti che rendono possibile un adempimento invece di prometterlo**: distinta dei materiali
 firmata per ogni artefatto, attestazioni di rilascio con provenienza ed esito delle prove,
-procedura eseguibile di verifica lato deployer, procedura di copia e ripristino con almeno
+procedura eseguibile di verifica a cura di chi installa, procedura di copia e ripristino con almeno
 un'esecuzione documentata, procedura di verifica dell'integrità del registro, modello di rapporto
 di incidente, **scheda dei dati per la dichiarazione dei fornitori rilevanti** all'autorità
 nazionale (denominazione, identificativo fiscale, Paese della sede legale, codici della
@@ -77,7 +77,7 @@ di scoprirlo dopo. I sei che si sottovalutano più spesso:
 
 Sul piano degli adempimenti, tre restano interamente suoi e **nessuna clausola contrattuale li
 sposta**: la valutazione d'impatto sulla protezione dei dati, che precede il trattamento; la
-notifica degli incidenti alle autorità, con i propri termini — il progetto notifica **al cliente**
+notifica degli incidenti alle autorità, con i propri termini - il progetto notifica **al cliente**
 e fornisce l'evidenza, non notifica all'autorità al posto suo; l'approvazione dei piani da parte
 degli organi di amministrazione.
 
@@ -113,7 +113,7 @@ questo sistema, ed è composta di regole verificabili:
   professionista; in sua assenza il contatto resta sospeso ed è segnalato. Un sistema che chiude da
   solo attribuisce un esito clinico;
 - **nessun atto si conclude per scadenza di un termine.** Il tempo può produrre uno stato terminale
-  **non** nominale — mancata presentazione, scadenza —, non concludere un atto sanitario;
+  **non** nominale - mancata presentazione, scadenza -, non concludere un atto sanitario;
 - **nessun contenuto clinico interpretativo è precompilato** all'apertura di un documento: la
   precompilazione riguarda dati anagrafici, amministrativi e temporali (`OUT-07`);
 - **nessuna soglia è dedotta o proposta.** Il campo parte vuoto e obbligatorio, senza
@@ -124,7 +124,7 @@ questo sistema, ed è composta di regole verificabili:
   sospensione dopo una riconnessione fallita oltre la finestra configurata.
 
 **Strumenti che riflettono la realtà dell'atto a distanza.** La sala d'attesa ha **due controlli
-distinti con esito separato e visibile separatamente** — tecnico e amministrativo — perché un
+distinti con esito separato e visibile separatamente** - tecnico e amministrativo - perché un
 semaforo unico costringe l'operatore a indovinare quale dei due manca. L'ammissione in sessione è
 **sempre esplicita**. La lista dei partecipanti, con nome e qualifica, è visibile per l'intera
 durata **senza possibilità di occultamento**. La stanza laterale fra professionisti è un periodo
@@ -144,7 +144,7 @@ perché l'indirizzo di residenza è inutile in emergenza.
 
 **L'atto professionale, per intero.** Le decisioni che il sistema non prende sono le sue: se la
 prestazione sia erogabile a distanza; l'identificazione dell'assistito, che è atto suo e non esito
-di un algoritmo — il progetto non esegue riconoscimento biometrico né rilevazione automatica di
+di un algoritmo - il progetto non esegue riconoscimento biometrico né rilevazione automatica di
 volti (`OUT-14`); l'attestazione di idoneità della qualità del collegamento, che il sistema misura
 e **lui conferma**; la soglia individuale e la regola di allerta; l'esito clinico, compreso il
 codice di priorità, che il sistema registra e non calcola (`OUT-03`); la decisione di proseguire,
@@ -189,12 +189,12 @@ un motore di trascrizione senza riprogettare (`D24`).
 
 **Degradazione comprensibile invece di un errore.** Banda scarsa, rete intermittente, dispositivo
 modesto: **audio prima del video, sempre**, avvisi chiari, ripresa della sessione, e un **ripiego
-telefonico** che è esito tipizzato obbligatorio — con la registrazione del cambio di canale, perché
+telefonico** che è esito tipizzato obbligatorio - con la registrazione del cambio di canale, perché
 può incidere sulla natura dell'atto.
 
 **Consensi che sono fatti, non caselle.** Cinque oggetti di consenso distinti con cicli di vita
-indipendenti — atto sanitario, trattamento dei dati ove applicabile, registrazione, presenza di
-terzi, trasmissione a sistemi esterni — e la revoca di uno non tocca gli altri. **Non esiste, nel
+indipendenti - atto sanitario, trattamento dei dati ove applicabile, registrazione, presenza di
+terzi, trasmissione a sistemi esterni - e la revoca di uno non tocca gli altri. **Non esiste, nel
 modello, un «consenso alla piattaforma»** (vincolo `V-146`).
 
 **Una verifica delle chiavi pensata per essere usata da lui.** Il codice breve derivato dalle
@@ -222,7 +222,7 @@ fatto con conseguenze giuridiche.
 Il meno possibile, ed è un obiettivo di progetto. Nessun passaggio obbligato può presupporre
 competenze informatiche; la verifica tecnica precede la sessione invece di fallire durante; il
 ripiego telefonico esiste. Restano indispensabili un dispositivo con telecamera e microfono, una
-connessione, e — quando la struttura lo richiede — un'identità digitale nazionale, il cui
+connessione, e - quando la struttura lo richiede - un'identità digitale nazionale, il cui
 riconoscimento è però adempimento di chi eroga il servizio, non suo.
 
 ### 3.3 Che cosa il progetto non gli dà
@@ -239,7 +239,7 @@ riconoscimento è però adempimento di chi eroga il servizio, non suo.
 - **Non gli dà sottotitoli in tempo reale**, come sopra.
 - **Non gli dà una sessione cifrata fino agli estremi quando la registrazione è attiva.** È il
   punto più importante di questa sezione, ed è trattato per esteso in
-  [04 — Stato e limiti](./04-stato-e-limiti.md) §5: la registrazione avviene lato server, e in
+  [04 - Stato e limiti](./04-stato-e-limiti.md) §5: la registrazione avviene lato server, e in
   quella modalità la cifratura è terminata sul server. L'informativa di consenso **lo dichiara
   esplicitamente**.
 
@@ -252,7 +252,7 @@ del progetto.
 ### 4.1 Che cosa ottiene
 
 **Quattro modalità di integrazione, non alternative ma strati.** Servizio autonomo; interfacce
-applicative; componente incorporabile; moduli sostituibili — refertazione, agenda, fatturazione,
+applicative; componente incorporabile; moduli sostituibili - refertazione, agenda, fatturazione,
 risoluzione degli identificativi, destinazione dell'archiviazione. Il capitolo
 [`docs/07_integration/01-modalita-di-integrazione.md`](../07_integration/01-modalita-di-integrazione.md)
 le descrive con la parte che conta di più: **quando ciascuna è la scelta sbagliata**.
@@ -262,8 +262,8 @@ interfaccia; non impone la propria autenticazione; **non diventa il dato di rife
 per riferimento sugli identificatori del suo dominio di attribuzione e restituisce al sistema di
 origine ciò che produce.
 
-**Un perimetro contrattuale dichiarato.** È contratto — e cambia solo con dodici mesi di preavviso,
-con due oscuramenti programmati a nove e undici mesi — l'interfaccia applicativa documentata, i
+**Un perimetro contrattuale dichiarato.** È contratto - e cambia solo con dodici mesi di preavviso,
+con due oscuramenti programmati a nove e undici mesi - l'interfaccia applicativa documentata, i
 profili pubblicati e il documento di capacità, i tipi di evento e i loro schemi, gli ambiti di
 autorizzazione, gli identificatori dei tipi di problema e i codici di esito, le interfacce dei
 moduli sostituibili, il protocollo del componente incorporabile e l'insieme chiuso delle proprietà
@@ -319,7 +319,7 @@ va letto **prima** della firma di un contratto, non dopo.
 - **Non gli dà alcun percorso verso il fascicolo per un pagatore.** Se il suo cliente è un fondo,
   una mutua o una polizza, il profilo di integrazione è **amministrativo per costruzione**:
   identificativo della prestazione, esito amministrativo, importo. Nessun ambito, evento o modulo
-  può costituire un percorso — diretto o mediato da un professionista — verso il contenuto clinico
+  può costituire un percorso - diretto o mediato da un professionista - verso il contenuto clinico
   (vincolo `V-166`, `OUT-18`).
 - **Non gli dà un kit di sviluppo nel primo rilascio.** L'interfaccia applicativa versionata è
   sufficiente alla prima integrazione; il kit è comodità, non capacità.
@@ -338,7 +338,7 @@ quello spazio: non sostituisce l'infrastruttura nazionale, si progetta per parla
 **Recepimento esplicito dei requisiti del DM 21 settembre 2022**, che è l'atto tecnicamente più
 prescrittivo del quadro: architettura a micro-servizi, orientata agli eventi, in contenitori,
 multi-tenant, **mobile first**, accessibile, multilingua. E il recepimento del divieto di
-duplicazione: dove esiste un modulo regionale — refertazione e firma in primo luogo — il sistema si
+duplicazione: dove esiste un modulo regionale - refertazione e firma in primo luogo - il sistema si
 **integra invece di duplicare**, e i moduli propri sono disattivabili e sostituibili per
 configurazione (`D14`).
 
@@ -356,8 +356,8 @@ rilascio con i suoi limiti dichiarati
 
 **Un catalogo delle prestazioni che non lo lega alla cadenza di rilascio del fornitore.** La
 struttura di una voce di catalogo è nel prodotto; il **contenuto è dato di tenant**, caricato per
-interfaccia documentata. Con doppia codificazione nativa — codice del catalogo regionale e codice
-nazionale — e **validità temporale obbligatoria**, senza la quale la rendicontazione storica è
+interfaccia documentata. Con doppia codificazione nativa - codice del catalogo regionale e codice
+nazionale - e **validità temporale obbligatoria**, senza la quale la rendicontazione storica è
 irriproducibile.
 
 ### 5.2 Che cosa deve mettere di suo
@@ -381,8 +381,8 @@ cliente.
 - **Non gli dà, oggi, il conferimento ai repository documentali nazionali e regionali.** I modelli
   documentali, i codici di tipologia e i metadati di indicizzazione delle dieci tipologie della
   telemedicina **non sono pubblicamente disponibili** (questione `Q-07`). La risposta strutturale
-  esiste — dataset canonico e serializzazione sostituibile, con l'adattatore come punto di
-  estensione a contratto dichiarato — ma **manca il contenuto, non il progetto**, e nessun modello
+  esiste - dataset canonico e serializzazione sostituibile, con l'adattatore come punto di
+  estensione a contratto dichiarato - ma **manca il contenuto, non il progetto**, e nessun modello
   documentale è cablato (vincolo `V-136`).
 - **Non gli dà una data per un esito che non dipende soltanto dal progetto.** Per
   l'accreditamento presso la federazione delle identità, per il termine di adeguamento alle misure
@@ -393,7 +393,7 @@ cliente.
   regolatorio datato produce un effetto che l'intenzione non produce. Di ciascuno il progetto
   dichiara **le condizioni** e **ciò che fornisce**; mai la data.
 - **Non gli dà una voce `[INTENZIONE]` presentata come `[IMPEGNO]`.** Nessun materiale del progetto
-  — documentazione, sito, risposta a gara, nota di rilascio — può farlo (vincolo `V-184`). Una voce
+  - documentazione, sito, risposta a gara, nota di rilascio - può farlo (vincolo `V-184`). Una voce
   della coda successiva al primo rilascio non è **pianificata** se non ha insieme criterio di
   completamento binario, innesco dichiarato e titolare nominato: in assenza anche di uno solo dei
   tre è **desiderabile**, e va marcata tale anche in una risposta a capitolato (vincolo `V-187`).
@@ -423,7 +423,7 @@ contesto.
 
 ## Dove continuare
 
-- [04 — Stato e limiti](./04-stato-e-limiti.md): che cosa esiste oggi, che cosa non esiste, le
+- [04 - Stato e limiti](./04-stato-e-limiti.md): che cosa esiste oggi, che cosa non esiste, le
   tensioni accettate consapevolmente e ciò che va saputo prima di decidere.
 - [`docs/07_integration/00-indice.md`](../07_integration/00-indice.md): l'albero decisionale per
   scegliere la modalità di integrazione e le tre avvertenze che non si possono rinviare.

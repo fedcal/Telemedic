@@ -22,8 +22,8 @@ Ogni caso d'uso è descritto con la stessa struttura, e le sezioni **non sono fa
 
 **Sui flussi di errore.** Sono la metà del dominio, non un'appendice. In telemedicina la
 maggioranza dei casi non nominali determina la percezione di affidabilità del servizio, e in
-telemonitoraggio alcuni percorsi di errore — l'assenza di dato, il guasto della catena di
-ingestione — sono **percorsi clinici a tutti gli effetti**, non gestioni di eccezione. Un flusso
+telemonitoraggio alcuni percorsi di errore - l'assenza di dato, il guasto della catena di
+ingestione - sono **percorsi clinici a tutti gli effetti**, non gestioni di eccezione. Un flusso
 di errore senza esito registrabile non è progettato: è un `catch` che scrive in un registro.
 
 **Esiti tipizzati.** La prestazione sincrona usa i codici di esito già congelati (`EX-NOSHOW`,
@@ -53,7 +53,7 @@ introduce qui una famiglia propria, da questo momento congelata:
 
 ## 2. Casi d'uso della prestazione sincrona
 
-### UC-01 — Prenotazione di una prestazione a distanza da un sistema esterno
+### UC-01 - Prenotazione di una prestazione a distanza da un sistema esterno
 
 **Attore primario**: integratore (`ATT-15`). **Secondari**: front-office (`ATT-10`), paziente
 (`ATT-01`).
@@ -79,23 +79,23 @@ tenant ha una configurazione di relay valida e raggiungibile per l'area di eroga
 
 **Flussi alternativi.**
 
-- **A1 — Prestazione che richiede diagnosi già formulata e assistito privo di episodio attivo.** Il
+- **A1 - Prestazione che richiede diagnosi già formulata e assistito privo di episodio attivo.** Il
   sistema richiede una deroga motivata da un professionista; se la deroga è registrata la
   prenotazione procede e genera un evento di audit di severità alta (`RF-346`).
-- **A2 — Agenda di proprietà del sistema esterno.** Ogni modifica locale è rifiutata con
+- **A2 - Agenda di proprietà del sistema esterno.** Ogni modifica locale è rifiutata con
   l'indicazione del sistema autoritativo (`RF-040`).
-- **A3 — Contatto multi-professionista.** Il sistema verifica la disponibilità simultanea di tutte
+- **A3 - Contatto multi-professionista.** Il sistema verifica la disponibilità simultanea di tutte
   le agende coinvolte e propone solo gli intervalli comuni (`RF-049`).
 
 **Flussi di errore.**
 
-- **E1 — Slot occupato da richiesta concorrente.** Una richiesta ottiene conferma, l'altra un
+- **E1 - Slot occupato da richiesta concorrente.** Una richiesta ottiene conferma, l'altra un
   conflitto esplicito con proposta di alternative. Non esistono due conferme (`BR-020`).
-- **E2 — Configurazione di relay assente o non raggiungibile.** La prenotazione è rifiutata:
+- **E2 - Configurazione di relay assente o non raggiungibile.** La prenotazione è rifiutata:
   prenotare ciò che non si può erogare è un difetto di dominio (`BR-021`).
-- **E3 — Richiesta marcata come urgente.** Rifiutata con indicazione del canale corretto: non
+- **E3 - Richiesta marcata come urgente.** Rifiutata con indicazione del canale corretto: non
   esistono percorsi di televisita in urgenza (`RF-347`).
-- **E4 — Prestazione non ammessa nel canale.** Rifiutata indicando i canali ammessi (`RF-030`).
+- **E4 - Prestazione non ammessa nel canale.** Rifiutata indicando i canali ammessi (`RF-030`).
 
 **Postcondizioni.** *Successo*: esiste un contatto in stato prenotato, con collegamenti validi e
 notifica inviata. *Fallimento*: nessuna risorsa parziale è stata creata; il motivo del rifiuto è
@@ -104,7 +104,7 @@ restituito in forma strutturata e registrato.
 **Requisiti e regole**: `RF-020`, `RF-038`, `RF-039`, `RF-041`, `RF-052`, `RF-346`, `RF-347`,
 `BR-001`, `BR-002`, `BR-020`, `BR-021`, `BR-028`.
 
-### UC-02 — Verifica di eseguibilità e registrazione delle condizioni di erogabilità
+### UC-02 - Verifica di eseguibilità e registrazione delle condizioni di erogabilità
 
 **Attore primario**: medico (`ATT-04`). **Secondari**: front-office, infermiere.
 **Portata**: prestazione clinica.
@@ -122,18 +122,18 @@ restituito in forma strutturata e registrato.
 
 **Flussi alternativi.**
 
-- **A1 — Capacità di interazione digitale insufficiente ma caregiver disponibile.** La dimensione
+- **A1 - Capacità di interazione digitale insufficiente ma caregiver disponibile.** La dimensione
   resta negativa, il percorso prosegue con il coinvolgimento formale del caregiver e la generazione
   di un collegamento di accesso dedicato (`RF-345`).
-- **A2 — Esito negativo su utilità o sicurezza clinica.** Il contatto è instradato verso la
+- **A2 - Esito negativo su utilità o sicurezza clinica.** Il contatto è instradato verso la
   prestazione in presenza; l'esito negativo resta consultabile e non è confuso con un rifiuto
   amministrativo.
 
 **Flussi di errore.**
 
-- **E1 — Tentativo di avviare l'atto senza dichiarazione registrata.** Avvio impedito con
+- **E1 - Tentativo di avviare l'atto senza dichiarazione registrata.** Avvio impedito con
   indicazione della registrazione mancante (`RF-343`).
-- **E2 — Tentativo di modificare la dichiarazione dopo l'atto.** Rifiutato; l'eventuale
+- **E2 - Tentativo di modificare la dichiarazione dopo l'atto.** Rifiutato; l'eventuale
   correzione è una nuova dichiarazione che non cancella la precedente.
 
 **Postcondizioni.** *Successo*: il contatto porta la dichiarazione di erogabilità e l'esito della
@@ -142,7 +142,7 @@ erogabile.
 
 **Requisiti e regole**: `RF-343`, `RF-344`, `RF-345`, `BR-180`, `BR-181`, `BR-182`.
 
-### UC-03 — Verifica tecnica preventiva del paziente
+### UC-03 - Verifica tecnica preventiva del paziente
 
 **Attore primario**: paziente (`ATT-01`) o caregiver (`ATT-02`). **Secondario**: front-office.
 **Portata**: sessione media e sala d'attesa.
@@ -159,20 +159,20 @@ erogabile.
 
 **Flussi alternativi.**
 
-- **A1 — Permesso di dispositivo non concesso.** Il sistema mostra istruzioni specifiche per il
+- **A1 - Permesso di dispositivo non concesso.** Il sistema mostra istruzioni specifiche per il
   browser e il sistema operativo rilevati, con l'immagine della richiesta effettiva, e consente la
   riesecuzione del test senza ripartire dall'inizio (`RF-055`, `RF-060`).
-- **A2 — Dispositivo o browser non supportati.** Rilevazione precoce con indicazione
+- **A2 - Dispositivo o browser non supportati.** Rilevazione precoce con indicazione
   dell'alternativa concreta e tempo utile per cambiare dispositivo prima dell'appuntamento.
-- **A3 — Diagnostica assistita dal front-office.** Su consenso dell'utente, l'operatore avvia da
+- **A3 - Diagnostica assistita dal front-office.** Su consenso dell'utente, l'operatore avvia da
   remoto una diagnostica che restituisce solo informazioni tecniche (`RF-168`).
 
 **Flussi di errore.**
 
-- **E1 — Esito negativo persistente a ridosso dell'appuntamento.** Il contatto compare nella vista
+- **E1 - Esito negativo persistente a ridosso dell'appuntamento.** Il contatto compare nella vista
   dei rischi della giornata; il front-office interviene proattivamente, propone il ripiego
   telefonico o riprogramma.
-- **E2 — Verifica mai eseguita.** I promemoria la richiamano; l'assenza di verifica è visibile al
+- **E2 - Verifica mai eseguita.** I promemoria la richiamano; l'assenza di verifica è visibile al
   front-office e non produce da sola alcun effetto amministrativo a carico del paziente.
 
 **Postcondizioni.** L'esito e la sua data sono associati al contatto; il front-office dispone della
@@ -180,7 +180,7 @@ vista dei rischi aggiornata.
 
 **Requisiti e regole**: `RF-055`, `RF-060`, `RF-161`, `RF-162`, `RF-168`, `BR-024`.
 
-### UC-04 — Raccolta delle manifestazioni di volontà
+### UC-04 - Raccolta delle manifestazioni di volontà
 
 **Attore primario**: paziente (`ATT-01`) o rappresentante legale (`ATT-03`).
 **Portata**: consenso.
@@ -201,21 +201,21 @@ dichiara quali manifestazioni sono obbligatorie.
 
 **Flussi alternativi.**
 
-- **A1 — Manifestazione resa da un rappresentante legale.** Il sistema verifica che l'ambito dei
+- **A1 - Manifestazione resa da un rappresentante legale.** Il sistema verifica che l'ambito dei
   poteri registrati copra l'atto; registra titolo, estremi del provvedimento e validità temporale
   (`RF-117`).
-- **A2 — Raccolta in sessione.** La raccolta avviene con lettura del testo e manifestazione
+- **A2 - Raccolta in sessione.** La raccolta avviene con lettura del testo e manifestazione
   esplicita durante la sessione, prima dell'inizio dell'atto (`RF-113`).
-- **A3 — Revoca.** Ha effetto immediato sui trattamenti futuri, non richiede motivazione e non
+- **A3 - Revoca.** Ha effetto immediato sui trattamenti futuri, non richiede motivazione e non
   travolge le altre manifestazioni (`RF-115`).
 
 **Flussi di errore.**
 
-- **E1 — Manifestazione obbligatoria mancante all'ammissione.** Il sistema la segnala al
+- **E1 - Manifestazione obbligatoria mancante all'ammissione.** Il sistema la segnala al
   professionista e propone la raccolta immediata prima dell'inizio dell'atto (`RF-114`).
-- **E2 — Caregiver che tenta di prestare consenso per un paziente capace.** Rifiutato in ogni
+- **E2 - Caregiver che tenta di prestare consenso per un paziente capace.** Rifiutato in ogni
   configurazione, con messaggio che distingue assistenza e rappresentanza (`BR-062`).
-- **E3 — Ambito dei poteri non comprensivo dell'atto sanitario.** Rifiutato con segnalazione al
+- **E3 - Ambito dei poteri non comprensivo dell'atto sanitario.** Rifiutato con segnalazione al
   front-office (`RF-117`).
 
 **Postcondizioni.** Esiste, per ciascuna manifestazione, un'evidenza riferita a una versione
@@ -223,7 +223,7 @@ immutabile di testo, consultabile dal paziente e dal responsabile della protezio
 
 **Requisiti e regole**: `RF-110` … `RF-117`, `RF-237`, `BR-060` … `BR-063`.
 
-### UC-05 — Ingresso in sala d'attesa e ammissione
+### UC-05 - Ingresso in sala d'attesa e ammissione
 
 **Attore primario**: paziente. **Secondario**: medico, front-office.
 **Portata**: sala d'attesa e prestazione clinica.
@@ -239,24 +239,24 @@ immutabile di testo, consultabile dal paziente e dal responsabile della protezio
 
 **Flussi alternativi.**
 
-- **A1 — Ritardo del professionista oltre la soglia.** Il paziente riceve automaticamente in sala
+- **A1 - Ritardo del professionista oltre la soglia.** Il paziente riceve automaticamente in sala
   d'attesa il ritardo stimato, aggiornato periodicamente (`RF-058`).
-- **A2 — Uscita e rientro entro la finestra.** La posizione in coda e l'esito tecnico sono
+- **A2 - Uscita e rientro entro la finestra.** La posizione in coda e l'esito tecnico sono
   preservati (`RF-061`).
-- **A3 — Contatto multi-professionista.** Il consulente attende in un'area professionale distinta,
+- **A3 - Contatto multi-professionista.** Il consulente attende in un'area professionale distinta,
   non visibile al paziente finché la sessione condivisa non inizia (`RF-063`).
 
 **Flussi di errore.**
 
-- **E1 — Accesso fuori finestra.** Rifiutato con messaggio che indica l'orario corretto, mai con un
+- **E1 - Accesso fuori finestra.** Rifiutato con messaggio che indica l'orario corretto, mai con un
   errore generico (`BR-029`).
-- **E2 — Paziente mai connesso entro la tolleranza.** Esito `EX-NOSHOW`, ma **solo** se la
+- **E2 - Paziente mai connesso entro la tolleranza.** Esito `EX-NOSHOW`, ma **solo** se la
   telemetria non registra alcun tentativo di connessione (`BR-024`).
-- **E3 — Paziente connesso, tecnicamente bloccato.** Esito `EX-TECH-PATIENT`: non è una mancata
+- **E3 - Paziente connesso, tecnicamente bloccato.** Esito `EX-TECH-PATIENT`: non è una mancata
   presentazione, non produce effetti amministrativi e apre il percorso di riprogrammazione.
-- **E4 — Paziente entrato e uscito senza essere ammesso.** Esito di abbandono in attesa, con gli
+- **E4 - Paziente entrato e uscito senza essere ammesso.** Esito di abbandono in attesa, con gli
   istanti registrati; distinto dalla mancata presentazione (`RF-062`).
-- **E5 — Chiusura della finestra con paziente ancora presente.** Messaggio esplicativo con
+- **E5 - Chiusura della finestra con paziente ancora presente.** Messaggio esplicativo con
   riferimento del front-office e proposta di riprogrammazione, mai una disconnessione muta
   (`RF-064`).
 
@@ -265,7 +265,7 @@ tipizzato che distingue la responsabilità e non produce addebiti impropri.
 
 **Requisiti e regole**: `RF-055` … `RF-064`, `BR-024`, `BR-029`.
 
-### UC-06 — Identificazione del paziente
+### UC-06 - Identificazione del paziente
 
 **Attore primario**: medico. **Portata**: prestazione clinica.
 
@@ -280,22 +280,22 @@ identificazione**: certifica chi possiede la credenziale, non chi è davanti all
 
 **Flussi alternativi.**
 
-- **A1 — Metodo alternativo configurato.** Riconoscimento da parte del curante che conosce il
+- **A1 - Metodo alternativo configurato.** Riconoscimento da parte del curante che conosce il
   paziente, accesso con identità digitale di livello elevato, presenza di un operatore presso il
   punto di erogazione. Il metodo effettivamente usato è registrato nominativamente e riportato nel
   documento (`RF-080`).
-- **A2 — Terzo presente non previsto.** Il professionista lo dichiara, il sistema chiede al paziente
+- **A2 - Terzo presente non previsto.** Il professionista lo dichiara, il sistema chiede al paziente
   conferma esplicita, l'ingresso e l'uscita sono registrati con gli orari. Il sistema **non** esegue
   rilevazione automatica di volti.
 
 **Flussi di errore.**
 
-- **E1 — Documento non leggibile o discordanza minore.** Il sistema propone il metodo alternativo
+- **E1 - Documento non leggibile o discordanza minore.** Il sistema propone il metodo alternativo
   configurato; l'esito è registrato.
-- **E2 — Discordanza sostanziale.** Esito `EX-IDENT-FAIL`: l'atto non è eseguibile, il contatto è
+- **E2 - Discordanza sostanziale.** Esito `EX-IDENT-FAIL`: l'atto non è eseguibile, il contatto è
   annullato senza addebito, la motivazione è registrata.
-- **E3 — Apertura della bozza senza identificazione registrata.** Impedita (`RF-077`).
-- **E4 — Soggetto minore o incapace senza titolo valido.** Esito `EX-CAPACITY`: contatto sospeso in
+- **E3 - Apertura della bozza senza identificazione registrata.** Impedita (`RF-077`).
+- **E4 - Soggetto minore o incapace senza titolo valido.** Esito `EX-CAPACITY`: contatto sospeso in
   attesa del titolo, senza addebito.
 
 **Postcondizioni.** L'atto di identificazione esiste come fatto autonomo, distinto
@@ -303,7 +303,7 @@ dall'autenticazione, con metodo, esito, autore e istante.
 
 **Requisiti e regole**: `RF-077`, `RF-080`, `BR-031`.
 
-### UC-07 — Svolgimento della prestazione a distanza
+### UC-07 - Svolgimento della prestazione a distanza
 
 **Attore primario**: medico. **Secondari**: paziente, caregiver, interprete, consulente.
 **Portata**: prestazione clinica e sessione media.
@@ -322,19 +322,19 @@ confermato.
 
 **Flussi alternativi.**
 
-- **A1 — Estensione oltre la durata pianificata.** Il sistema mostra il ritardo indotto e informa il
+- **A1 - Estensione oltre la durata pianificata.** Il sistema mostra il ritardo indotto e informa il
   paziente successivo in attesa (`RF-085`).
-- **A2 — Stanza laterale fra professionisti.** Sempre annunciata al paziente con messaggio esplicito
+- **A2 - Stanza laterale fra professionisti.** Sempre annunciata al paziente con messaggio esplicito
   e registrata; non esiste modalità silenziosa (`BR-068`).
-- **A3 — Trasferimento a un altro professionista.** Il paziente è informato con nome e qualifica del
+- **A3 - Trasferimento a un altro professionista.** Il paziente è informato con nome e qualifica del
   subentrante; il contatto registra entrambi con i rispettivi intervalli (`RF-086`).
 
 **Flussi di errore.**
 
-- **E1 — Emergenza clinica.** Vedi `UC-09`, flusso dedicato.
-- **E2 — Chiusura senza esito.** Impedita: il contatto resta sospeso e viene segnalato; il sistema
+- **E1 - Emergenza clinica.** Vedi `UC-09`, flusso dedicato.
+- **E2 - Chiusura senza esito.** Impedita: il contatto resta sospeso e viene segnalato; il sistema
   non attribuisce esiti clinici (`BR-032`).
-- **E3 — Disattivazione amministrativa dell'utente durante la sessione.** La sessione media è
+- **E3 - Disattivazione amministrativa dell'utente durante la sessione.** La sessione media è
   terminata entro il tempo previsto, i partecipanti ricevono una notifica di interruzione
   amministrativa e il contatto resta sospeso (`RF-011`).
 
@@ -343,7 +343,7 @@ tecnico di sessione è disponibile.
 
 **Requisiti e regole**: `RF-078` … `RF-086`, `RF-352`, `BR-032`, `BR-038`, `BR-039`.
 
-### UC-08 — Degrado del canale, ripiego e riconnessione
+### UC-08 - Degrado del canale, ripiego e riconnessione
 
 **Attore primario**: sistema. **Secondari**: medico, paziente.
 **Portata**: sessione media, con effetti sulla prestazione clinica.
@@ -361,23 +361,23 @@ tecnico di sessione è disponibile.
 
 **Flussi alternativi.**
 
-- **A1 — Degrado rientrato.** Ripristino del profilo nominale, con il cambio registrato.
-- **A2 — Sola fonia.** Il video è sospeso, l'audio prosegue senza interruzioni percepibili, entrambi
+- **A1 - Degrado rientrato.** Ripristino del profilo nominale, con il cambio registrato.
+- **A2 - Sola fonia.** Il video è sospeso, l'audio prosegue senza interruzioni percepibili, entrambi
   i partecipanti sono avvisati (`RF-073`).
-- **A3 — Ripiego su canale telefonico.** Il cambio di canale e la motivazione sono registrati e
+- **A3 - Ripiego su canale telefonico.** Il cambio di canale e la motivazione sono registrati e
   riportati nel documento: un atto svolto senza componente visiva può non soddisfare i requisiti
   della prestazione prevista (`BR-006`, `RF-076`).
 
 **Flussi di errore.**
 
-- **E1 — Perdita di connettività.** Il contatto **non cambia stato**: la sessione media passa a
+- **E1 - Perdita di connettività.** Il contatto **non cambia stato**: la sessione media passa a
   riconnessione, il paziente vede un conto alla rovescia con azioni disponibili, il professionista
   vede il tempo residuo di attesa (`BR-030`, `RF-074`, `RF-075`).
-- **E2 — Riconnessione riuscita entro la finestra.** Esito `EX-TECH-DROP`: stessa sessione clinica,
+- **E2 - Riconnessione riuscita entro la finestra.** Esito `EX-TECH-DROP`: stessa sessione clinica,
   interruzione e durata annotate nel contatto.
-- **E3 — Riconnessione non riuscita.** Esito `EX-TECH-FAIL`: si propone il ripiego in fonia o la
+- **E3 - Riconnessione non riuscita.** Esito `EX-TECH-FAIL`: si propone il ripiego in fonia o la
   riprogrammazione con priorità.
-- **E4 — Qualità sotto la soglia clinicamente accettabile per quel tipo di prestazione.** Esito
+- **E4 - Qualità sotto la soglia clinicamente accettabile per quel tipo di prestazione.** Esito
   `EX-QOS`: l'atto è sospeso o degradato per decisione del professionista.
 
 **Postcondizioni.** Ogni cambio di canale, interruzione e ripresa è registrato con istanti e durate,
@@ -386,7 +386,7 @@ ed è disponibile per il documento e per la gestione dei reclami.
 **Requisiti e regole**: `RF-072` … `RF-076`, `RF-166`, `RF-167`, `RF-172`, `BR-006`, `BR-030`,
 `BR-033`, `BR-034`.
 
-### UC-09 — Emergenza clinica e interruzione con riprogrammazione in presenza
+### UC-09 - Emergenza clinica e interruzione con riprogrammazione in presenza
 
 **Attore primario**: medico. **Secondari**: front-office, caregiver.
 **Portata**: prestazione clinica.
@@ -414,17 +414,17 @@ logistico, non supporto decisionale clinico.
 
 **Flussi alternativi.**
 
-- **A1 — Escalation clinica decisa dal professionista.** Esito `EX-ESCALATE`: la prestazione è
+- **A1 - Escalation clinica decisa dal professionista.** Esito `EX-ESCALATE`: la prestazione è
   erogata e conclusa, e ne nasce una nuova richiesta. È un esito legittimo, da misurare come
   indicatore e non da minimizzare.
-- **A2 — Caregiver presente.** Il professionista impartisce istruzioni operative; la presenza è
+- **A2 - Caregiver presente.** Il professionista impartisce istruzioni operative; la presenza è
   registrata.
 
 **Flussi di errore.**
 
-- **E1 — Nessuno slot disponibile per la prestazione in presenza.** Il caso entra in una coda di
+- **E1 - Nessuno slot disponibile per la prestazione in presenza.** Il caso entra in una coda di
   intervento del front-office con priorità, e non si chiude come «riprogrammazione proposta».
-- **E2 — Recapiti telefonici assenti o non verificati.** Il sistema lo segnala **prima** dell'inizio
+- **E2 - Recapiti telefonici assenti o non verificati.** Il sistema lo segnala **prima** dell'inizio
   della sessione, nella vista dei rischi, perché in emergenza è troppo tardi.
 
 **Postcondizioni.** Esiste una traccia completa dell'evento con istanti e azioni; nel caso di
@@ -432,7 +432,7 @@ interruzione esiste una richiesta di prestazione in presenza collegata.
 
 **Requisiti e regole**: `RF-081`, `RF-082`, `RF-156`, `RF-348`, `BR-039`, `BR-183`.
 
-### UC-10 — Refertazione, firma e consegna
+### UC-10 - Refertazione, firma e consegna
 
 **Attore primario**: medico. **Secondari**: paziente, integratore.
 **Portata**: documentazione clinica.
@@ -457,30 +457,30 @@ associato al tipo di prestazione.
 
 **Flussi alternativi.**
 
-- **A1 — Erogazione da parte del medico di assistenza primaria.** Prescrizione non necessaria e
+- **A1 - Erogazione da parte del medico di assistenza primaria.** Prescrizione non necessaria e
   annotazione digitale in luogo del referto (`RF-349`).
-- **A2 — Consegna differita motivata.** Il paziente vede l'indicazione che l'esito sarà illustrato
+- **A2 - Consegna differita motivata.** Il paziente vede l'indicazione che l'esito sarà illustrato
   in un colloquio programmato; il differimento è registrato con l'identità di chi lo ha disposto
   (`RF-132`).
-- **A3 — Riservatezza rafforzata.** Il documento è escluso dalla condivisione automatica e dalle
+- **A3 - Riservatezza rafforzata.** Il documento è escluso dalla condivisione automatica e dalle
   notifiche esterne; la trasmissione richiede un'azione esplicita motivata (`RF-135`).
-- **A4 — Teleconsulto con documenti multipli.** Relazione del consulente e documento del curante
+- **A4 - Teleconsulto con documenti multipli.** Relazione del consulente e documento del curante
   restano distinti, con autori distinti, collegati allo stesso contatto (`RF-133`).
-- **A5 — Difficoltà di accesso al fascicolo dichiarata dall'assistito.** Consegna su canale sicuro
+- **A5 - Difficoltà di accesso al fascicolo dichiarata dall'assistito.** Consegna su canale sicuro
   con doppia autenticazione, su richiesta registrata (`RF-351`).
 
 **Flussi di errore.**
 
-- **E1 — Sezione obbligatoria non compilata.** Firma impedita con indicazione della sezione
+- **E1 - Sezione obbligatoria non compilata.** Firma impedita con indicazione della sezione
   mancante (`RF-125`).
-- **E2 — Certificato scaduto o revocato.** Firma rifiutata con messaggio specifico; il documento
+- **E2 - Certificato scaduto o revocato.** Firma rifiutata con messaggio specifico; il documento
   resta bozza (`RF-127`).
-- **E3 — Consenso alla trasmissione assente.** La trasmissione non parte; il fatto è registrato come
+- **E3 - Consenso alla trasmissione assente.** La trasmissione non parte; il fatto è registrato come
   condizione nota e comunicato al professionista, non come errore tecnico (`RF-120`).
-- **E4 — Fallimento della trasmissione al sistema di origine.** Il caso entra nella coda di
+- **E4 - Fallimento della trasmissione al sistema di origine.** Il caso entra nella coda di
   riconciliazione visibile, con causa, numero di tentativi e possibilità di rilancio; non è un
   errore silenzioso (`RF-215`, `BR-048`).
-- **E5 — Termine di refertazione superato.** Sollecito al professionista e segnalazione al
+- **E5 - Termine di refertazione superato.** Sollecito al professionista e segnalazione al
   responsabile del servizio (`RF-130`).
 
 **Postcondizioni.** *Successo*: esiste un documento firmato, immodificabile, disponibile al paziente
@@ -489,7 +489,7 @@ esplicito e tracciato.
 
 **Requisiti e regole**: `RF-124` … `RF-136`, `RF-215`, `RF-349` … `RF-351`, `BR-040` … `BR-049`.
 
-### UC-11 — Rettifica di un documento firmato
+### UC-11 - Rettifica di un documento firmato
 
 **Attore primario**: medico. **Portata**: documentazione clinica.
 
@@ -505,16 +505,16 @@ esplicito e tracciato.
 
 **Flussi alternativi.**
 
-- **A1 — Rettifica di un documento già trasmesso all'esterno.** La trasmissione della nuova versione
+- **A1 - Rettifica di un documento già trasmesso all'esterno.** La trasmissione della nuova versione
   include il riferimento a quella sostituita, e l'esito della sostituzione presso il destinatario è
   tracciato.
 
 **Flussi di errore.**
 
-- **E1 — Tentativo di modifica in luogo di rettifica.** Rifiutato: un documento firmato è
+- **E1 - Tentativo di modifica in luogo di rettifica.** Rifiutato: un documento firmato è
   immutabile (`BR-044`).
-- **E2 — Rettifica senza motivazione.** Rifiutata.
-- **E3 — Notifica al paziente che rivela il contenuto della correzione.** Impedita dalla regola sul
+- **E2 - Rettifica senza motivazione.** Rifiutata.
+- **E3 - Notifica al paziente che rivela il contenuto della correzione.** Impedita dalla regola sul
   contenuto minimo delle notifiche esterne (`BR-050`).
 
 **Postcondizioni.** La catena documentale è integra e ricostruibile; nessuna versione è andata
@@ -522,7 +522,7 @@ perduta.
 
 **Requisiti e regole**: `RF-128`, `BR-044`, `BR-050`.
 
-### UC-12 — Teleconsulto fra professionisti
+### UC-12 - Teleconsulto fra professionisti
 
 **Attore primario**: medico richiedente (`ATT-04`, `ATT-05`). **Secondario**: consulente (`ATT-06`).
 **Portata**: prestazione clinica e documentazione.
@@ -543,20 +543,20 @@ allegare è selezionabile.
 
 **Flussi alternativi.**
 
-- **A1 — Teleconsulto sincrono con paziente presente.** Il paziente è informato della presenza del
+- **A1 - Teleconsulto sincrono con paziente presente.** Il paziente è informato della presenza del
   terzo professionista e ne presta consenso; l'elenco dei partecipanti con nome e qualifica è
   visibile per tutta la durata; esiste un conduttore identificato con i poteri di moderazione.
-- **A2 — Secondo parere richiesto dall'assistito.** Non è un teleconsulto: il richiedente è il
+- **A2 - Secondo parere richiesto dall'assistito.** Non è un teleconsulto: il richiedente è il
   paziente e il consulente non entra nella presa in carico. Il percorso è distinto e la fattispecie
   documentale è diversa.
 
 **Flussi di errore.**
 
-- **E1 — Rifiuto o scadenza.** L'ambito è revocato immediatamente; il richiedente è notificato con
+- **E1 - Rifiuto o scadenza.** L'ambito è revocato immediatamente; il richiedente è notificato con
   la motivazione.
-- **E2 — Tentativo del consulente di accedere fuori ambito.** Rifiutato e registrato come tentativo
+- **E2 - Tentativo del consulente di accedere fuori ambito.** Rifiutato e registrato come tentativo
   di accesso non autorizzato (`BR-014`).
-- **E3 — Ambito ancora attivo oltre il termine.** Anomalia rilevata e chiusa automaticamente, con
+- **E3 - Ambito ancora attivo oltre il termine.** Anomalia rilevata e chiusa automaticamente, con
   evento di sicurezza.
 
 **Postcondizioni.** Esistono una richiesta e una relazione collegate, con autori distinti; l'ambito
@@ -566,7 +566,7 @@ di accesso del consulente è chiuso.
 
 ## 3. Casi d'uso del telemonitoraggio
 
-### UC-13 — Pubblicazione di un percorso di cura
+### UC-13 - Pubblicazione di un percorso di cura
 
 **Attore primario**: redattore e approvatore del percorso (`ATT-25`).
 **Portata**: percorso di cura.
@@ -584,27 +584,27 @@ di accesso del consulente è chiuso.
 
 **Flussi alternativi.**
 
-- **A1 — Sostituzione di una versione in vigore.** La nuova versione entra in vigore alla data
+- **A1 - Sostituzione di una versione in vigore.** La nuova versione entra in vigore alla data
   dichiarata; le istanze in corso restano agganciate alla versione precedente e la loro migrazione
   è un atto esplicito di un professionista (`RF-232`).
-- **A2 — Ritiro di una versione.** La versione non è più istanziabile; le istanze esistenti
+- **A2 - Ritiro di una versione.** La versione non è più istanziabile; le istanze esistenti
   proseguono e sono elencate per la valutazione della migrazione.
 
 **Flussi di errore.**
 
-- **E1 — Percorso incoerente.** Pubblicazione rifiutata con l'elenco puntuale degli elementi non
+- **E1 - Percorso incoerente.** Pubblicazione rifiutata con l'elenco puntuale degli elementi non
   validi, in linguaggio comprensibile a chi lo ha redatto; nessuna versione parziale è creata
   (`RF-231`).
-- **E2 — Percorso che contiene soglie individuali.** Rifiutato: il percorso può indicare
+- **E2 - Percorso che contiene soglie individuali.** Rifiutato: il percorso può indicare
   riferimenti attribuiti, non stabilire la soglia di un assistito (`BR-130`, `BR-131`).
-- **E3 — Tentativo di pubblicare in un ambito non di competenza.** Rifiutato e registrato.
+- **E3 - Tentativo di pubblicare in un ambito non di competenza.** Rifiutato e registrato.
 
 **Postcondizioni.** Esiste una versione di percorso immutabile, con ambito e decorrenza, disponibile
 solo al proprio tenant.
 
 **Requisiti e regole**: `RF-230` … `RF-232`, `BR-100`, `BR-101`, `BR-104`, `BR-105`.
 
-### UC-14 — Arruolamento e redazione del piano di telemonitoraggio
+### UC-14 - Arruolamento e redazione del piano di telemonitoraggio
 
 **Attore primario**: professionista responsabile del piano (`ATT-20`). **Secondari**: paziente,
 caregiver, case manager, centro servizi, formatore.
@@ -632,22 +632,22 @@ copertura del servizio è dichiarata e vigente.
 
 **Flussi alternativi.**
 
-- **A1 — Non eleggibile.** Il percorso si chiude con motivazione registrata e con l'indicazione del
+- **A1 - Non eleggibile.** Il percorso si chiude con motivazione registrata e con l'indicazione del
   percorso alternativo; l'esito negativo resta consultabile.
-- **A2 — Eleggibile con caregiver.** L'autonomia insufficiente è compensata dal caregiver, che
+- **A2 - Eleggibile con caregiver.** L'autonomia insufficiente è compensata dal caregiver, che
   diventa parte del piano con proprio collegamento e proprie istruzioni.
-- **A3 — Deviazione dal percorso.** Il professionista imposta cadenze o parametri diversi da quelli
+- **A3 - Deviazione dal percorso.** Il professionista imposta cadenze o parametri diversi da quelli
   del percorso, registrando la motivazione; l'operazione non è bloccata (`RF-234`).
 
 **Flussi di errore.**
 
-- **E1 — Tentativo di auto-attivazione da parte del paziente.** La funzione non esiste
+- **E1 - Tentativo di auto-attivazione da parte del paziente.** La funzione non esiste
   nell'interfaccia e la chiamata applicativa è rifiutata (`RF-236`).
-- **E2 — Soglia fuori dai limiti di ammissibilità.** Rifiutata con l'indicazione dell'intervallo; il
+- **E2 - Soglia fuori dai limiti di ammissibilità.** Rifiutata con l'indicazione dell'intervallo; il
   tentativo è registrato come quasi evento (`RF-241`).
-- **E3 — Documento di assegnazione del dispositivo incompleto.** Generazione rifiutata con
+- **E3 - Documento di assegnazione del dispositivo incompleto.** Generazione rifiutata con
   l'indicazione del campo mancante (`RF-238`).
-- **E4 — Dimensione di eleggibilità non valutata.** Il passaggio alla redazione del piano è impedito
+- **E4 - Dimensione di eleggibilità non valutata.** Il passaggio alla redazione del piano è impedito
   (`RF-235`).
 
 **Postcondizioni.** *Successo*: esiste un piano firmato, non ancora attivo, completo di soglie,
@@ -656,7 +656,7 @@ eleggibilità con esito e motivazione, e nessun piano attivo.
 
 **Requisiti e regole**: `RF-233` … `RF-241`, `BR-102`, `BR-103`, `BR-106`, `BR-131`, `BR-132`.
 
-### UC-15 — Attivazione del piano
+### UC-15 - Attivazione del piano
 
 **Attore primario**: professionista responsabile. **Portata**: percorso di cura.
 
@@ -675,17 +675,17 @@ verifica positiva; formazione registrata.
 
 **Flussi alternativi.**
 
-- **A1 — Attivazione differita.** L'attivazione è programmata a una data futura; fino ad allora il
+- **A1 - Attivazione differita.** L'attivazione è programmata a una data futura; fino ad allora il
   piano non genera assenze e compare fra i piani firmati e non attivi.
 
 **Flussi di errore.**
 
-- **E1 — Condizione di attivabilità non soddisfatta.** Attivazione rifiutata con l'elenco puntuale;
+- **E1 - Condizione di attivabilità non soddisfatta.** Attivazione rifiutata con l'elenco puntuale;
   nessuna configurazione consente di superare il controllo (`RF-243`).
-- **E2 — Copertura non dichiarata.** Caso particolare del precedente, e il più importante: un
+- **E2 - Copertura non dichiarata.** Caso particolare del precedente, e il più importante: un
   servizio che promette sorveglianza senza dichiarare quando la esercita è più pericoloso
   dell'assenza di servizio (`BR-160`).
-- **E3 — Piano firmato e mai attivato oltre il tempo previsto.** Compare in una coda dedicata con
+- **E3 - Piano firmato e mai attivato oltre il tempo previsto.** Compare in una coda dedicata con
   l'indicazione del tempo trascorso; non decade da solo (`RF-242`).
 
 **Postcondizioni.** Il piano è attivo con un istante preciso; la sorveglianza è iniziata; il
@@ -693,7 +693,7 @@ paziente conosce la copertura e il canale alternativo.
 
 **Requisiti e regole**: `RF-242`, `RF-243`, `RF-309`, `RF-310`, `BR-107`, `BR-160`, `BR-161`.
 
-### UC-16 — Rilevazione e acquisizione di una misura
+### UC-16 - Rilevazione e acquisizione di una misura
 
 **Attore primario**: paziente (`ATT-01`), caregiver (`ATT-02`) o gateway (`ATT-24`).
 **Portata**: telemonitoraggio.
@@ -723,30 +723,30 @@ piano.
 
 **Flussi alternativi.**
 
-- **A1 — Caregiver che assiste più persone.** Il soggetto corrente è indicato in modo permanente; il
+- **A1 - Caregiver che assiste più persone.** Il soggetto corrente è indicato in modo permanente; il
   cambio richiede una conferma che nomina il soggetto di destinazione (`RF-264`).
-- **A2 — Misura fuori dalle condizioni previste.** Acquisita e marcata come incompleta rispetto al
+- **A2 - Misura fuori dalle condizioni previste.** Acquisita e marcata come incompleta rispetto al
   protocollo; l'incompletezza è visibile a chi la valuta.
-- **A3 — Connettività assente durante l'inserimento.** La misura è conservata localmente e trasmessa
+- **A3 - Connettività assente durante l'inserimento.** La misura è conservata localmente e trasmessa
   al ripristino, con istante di misura preservato (`RNF-107`).
-- **A4 — Dato in ritardo.** Concorre alla serie del giorno della misura, non del giorno della
+- **A4 - Dato in ritardo.** Concorre alla serie del giorno della misura, non del giorno della
   ricezione; se esiste un allarme di assenza per quella finestra, viene riconciliato con esito
   `EX-TM-LATE` (`RF-254`, `RF-304`).
-- **A5 — Dato fuori ordine.** Innesca la rivalutazione della finestra interessata; un eventuale
+- **A5 - Dato fuori ordine.** Innesca la rivalutazione della finestra interessata; un eventuale
   allarme generato è marcato come tardivo con l'età del dato (`RF-262`, `RF-263`).
 
 **Flussi di errore.**
 
-- **E1 — Valore tecnicamente impossibile.** Esito `EX-TM-IMPLAUS`: allarme tecnico, la misura non
+- **E1 - Valore tecnicamente impossibile.** Esito `EX-TM-IMPLAUS`: allarme tecnico, la misura non
   entra nella serie clinica (`RF-259`).
-- **E2 — Unità di misura assente o conversione non definita.** Misura rifiutata invece di essere
+- **E2 - Unità di misura assente o conversione non definita.** Misura rifiutata invece di essere
   acquisita con unità presunta; rifiuto restituito al gateway e generato come allarme tecnico
   (`RF-256`).
-- **E3 — Duplicato.** Nessun secondo punto nella serie, nessun secondo allarme; il duplicato è
+- **E3 - Duplicato.** Nessun secondo punto nella serie, nessun secondo allarme; il duplicato è
   contato nella telemetria tecnica (`RF-260`).
-- **E4 — Rilevazione iniziata e non completata.** Esito `EX-TM-USEERR`: il tentativo è registrato con
+- **E4 - Rilevazione iniziata e non completata.** Esito `EX-TM-USEERR`: il tentativo è registrato con
   la fase di interruzione e concorre a qualificare il silenzio (`RF-266`).
-- **E5 — Dispositivo con carica insufficiente o taratura scaduta.** Esito `EX-TM-DEVICE`: allarme
+- **E5 - Dispositivo con carica insufficiente o taratura scaduta.** Esito `EX-TM-DEVICE`: allarme
   tecnico generato **prima** che le misure si interrompano (`RF-265`).
 
 **Postcondizioni.** *Successo*: la serie contiene una misura immutabile con il proprio contesto
@@ -755,7 +755,7 @@ serie clinica non è stata contaminata.
 
 **Requisiti e regole**: `RF-251` … `RF-266`, `BR-110` … `BR-115`.
 
-### UC-17 — Somministrazione di un questionario e calcolo di un punteggio
+### UC-17 - Somministrazione di un questionario e calcolo di un punteggio
 
 **Attore primario**: paziente o caregiver; in eterosomministrazione, professionista.
 **Portata**: telemonitoraggio e punteggi.
@@ -775,29 +775,29 @@ popolazione, regola di calcolo, trattamento dei mancanti, regola interpretativa 
 
 **Flussi alternativi.**
 
-- **A1 — Item marcato come uscita dal canale.** Il flusso si interrompe e si passa a `UC-20` prima di
+- **A1 - Item marcato come uscita dal canale.** Il flusso si interrompe e si passa a `UC-20` prima di
   qualunque altra interazione; le risposte già fornite sono conservate.
-- **A2 — Somministrazione da parte del caregiver.** La modalità è registrata e resta distinguibile:
+- **A2 - Somministrazione da parte del caregiver.** La modalità è registrata e resta distinguibile:
   un valore riferito dalla persona e uno stimato da un terzo non sono lo stesso dato.
-- **A3 — Scala che ammette imputazione dei mancanti.** Il punteggio è calcolato e **marcato come
+- **A3 - Scala che ammette imputazione dei mancanti.** Il punteggio è calcolato e **marcato come
   parziale**, e non è confrontato con punteggi pieni senza dichiararlo.
 
 **Flussi di errore.**
 
-- **E1 — Item mancante con scala che non ammette imputazione.** Nessun punteggio è prodotto; il
+- **E1 - Item mancante con scala che non ammette imputazione.** Nessun punteggio è prodotto; il
   sistema mostra quali item mancano (`RF-326`).
-- **E2 — Scala priva di riferimento alla licenza.** Non abilitabile (`RF-323`).
-- **E3 — Discordanza fra due presentazioni dello stesso punteggio.** Deve essere impossibile:
+- **E2 - Scala priva di riferimento alla licenza.** Non abilitabile (`RF-323`).
+- **E3 - Discordanza fra due presentazioni dello stesso punteggio.** Deve essere impossibile:
   aritmetica esatta e assenza di arrotondamenti divergenti sono verificate automaticamente
   (`RF-328`).
-- **E4 — Punteggio non validato usato in un documento firmato.** Impedito (`RF-331`).
+- **E4 - Punteggio non validato usato in un documento firmato.** Impedito (`RF-331`).
 
 **Postcondizioni.** Esiste un punteggio con otto elementi di tracciabilità e un validatore
 identificato, oppure non esiste alcun punteggio e la ragione è esplicita.
 
 **Requisiti e regole**: `RF-253`, `RF-323` … `RF-332`, `BR-120` … `BR-127`.
 
-### UC-18 — Generazione, consegna e presa in carico di un allarme
+### UC-18 - Generazione, consegna e presa in carico di un allarme
 
 **Attore primario**: sistema. **Secondari**: case manager (`ATT-21`), professionista responsabile
 (`ATT-20`), centro servizi (`ATT-22`), centro erogatore (`ATT-23`).
@@ -820,27 +820,27 @@ per fascia oraria e severità.
 
 **Flussi alternativi.**
 
-- **A1 — Nessuna condizione soddisfatta.** La valutazione si chiude senza allarme, e il fatto della
+- **A1 - Nessuna condizione soddisfatta.** La valutazione si chiude senza allarme, e il fatto della
   valutazione resta registrato.
-- **A2 — Raggruppamento.** Più allarmi correlati sono notificati insieme; il gruppo eredita la
+- **A2 - Raggruppamento.** Più allarmi correlati sono notificati insieme; il gruppo eredita la
   **severità massima** e la scadenza dell'allarme più severo (`RF-286`).
-- **A3 — Sospensione temporanea.** Attribuita, motivata, con durata massima codificata e
+- **A3 - Sospensione temporanea.** Attribuita, motivata, con durata massima codificata e
   riattivazione automatica; alla riattivazione la condizione eventualmente persistente è
   ripresentata (`RF-287`).
-- **A4 — Allarme tecnico.** Instradato al centro servizi, che non accede al contenuto clinico.
+- **A4 - Allarme tecnico.** Instradato al centro servizi, che non accede al contenuto clinico.
 
 **Flussi di errore.**
 
-- **E1 — Consegna non confermata entro il tempo previsto per il canale.** Evento di consegna non
+- **E1 - Consegna non confermata entro il tempo previsto per il canale.** Evento di consegna non
   confermata, tentativo del canale successivo, episodio visibile nella storia (`RF-277`).
-- **E2 — Nessun destinatario attivo in quella fascia.** L'allarme è marcato `EX-TM-OUTOFHOURS` e
+- **E2 - Nessun destinatario attivo in quella fascia.** L'allarme è marcato `EX-TM-OUTOFHOURS` e
   trattato secondo la politica di copertura; non risulta in alcuno stato che lasci intendere una
   presa in carico avvenuta (`RF-312`).
-- **E3 — Presa in carico senza risoluzione oltre il tempo massimo.** L'allarme entra nella coda
+- **E3 - Presa in carico senza risoluzione oltre il tempo massimo.** L'allarme entra nella coda
   degli assunti e non chiusi, visibile al responsabile del servizio (`RF-279`, `RF-280`).
-- **E4 — Allarme tecnico non risolto entro il tempo definito.** Genera un allarme **clinico** di
+- **E4 - Allarme tecnico non risolto entro il tempo definito.** Genera un allarme **clinico** di
   assenza di sorveglianza, collegato al primo (`RF-288`).
-- **E5 — Tentativo di chiusura senza esito tipizzato.** Rifiutato: senza esito non si può misurare la
+- **E5 - Tentativo di chiusura senza esito tipizzato.** Rifiutato: senza esito non si può misurare la
   quota di allarmi che producono azione (`RF-289`).
 
 **Postcondizioni.** *Successo*: l'allarme è chiuso con esito e azione, e la sua storia è integralmente
@@ -849,7 +849,7 @@ chiusura implicita.
 
 **Requisiti e regole**: `RF-269` … `RF-290`, `BR-133` … `BR-143`.
 
-### UC-19 — Mancato riscontro ed escalation
+### UC-19 - Mancato riscontro ed escalation
 
 **Attore primario**: sistema. **Secondari**: catena dei destinatari, responsabile del servizio.
 **Portata**: allarmi.
@@ -868,22 +868,22 @@ escalation configurata per tenant, percorso e severità, consapevole delle fasce
 
 **Flussi alternativi.**
 
-- **A1 — Aumento di severità.** L'escalation può muoversi lungo severità, destinatario, canale e
+- **A1 - Aumento di severità.** L'escalation può muoversi lungo severità, destinatario, canale e
   perimetro: le quattro dimensioni sono ortogonali e configurabili.
-- **A2 — Anello fuori copertura.** Saltato con registrazione del motivo; la catena prosegue verso un
+- **A2 - Anello fuori copertura.** Saltato con registrazione del motivo; la catena prosegue verso un
   destinatario attivo (`RF-281`).
 
 **Flussi di errore.**
 
-- **E1 — Catena esaurita senza presa in carico.** Esito `EX-TM-ESCFAIL`: viene generato un
+- **E1 - Catena esaurita senza presa in carico.** Esito `EX-TM-ESCFAIL`: viene generato un
   **fallimento dichiarato della gestione**, con severità propria e notifica al responsabile del
   servizio. L'allarme **resta aperto**; non viene chiuso per scadenza (`RF-282`).
-- **E2 — Canale di notifica indisponibile.** L'assenza di consegna è rilevata e trattata: una
+- **E2 - Canale di notifica indisponibile.** L'assenza di consegna è rilevata e trattata: una
   escalation che si interrompe in silenzio quando cade un servizio esterno riproduce esattamente il
   problema che doveva risolvere (`RF-277`).
-- **E3 — Anello che punta allo stesso destinatario che non ha risposto.** Configurazione rifiutata
+- **E3 - Anello che punta allo stesso destinatario che non ha risposto.** Configurazione rifiutata
   alla definizione della catena, non tollerata a tempo di esecuzione.
-- **E4 — Catena mai provata a freddo entro la periodicità dichiarata.** Segnalata come tale: una
+- **E4 - Catena mai provata a freddo entro la periodicità dichiarata.** Segnalata come tale: una
   catena mai provata è, statisticamente, una catena rotta (`RF-284`, `RNF-097`).
 
 **Postcondizioni.** Ogni passaggio è persistito; l'eventuale fallimento della gestione è un fatto
@@ -892,7 +892,7 @@ registrato e visibile, non un silenzio.
 **Requisiti e regole**: `RF-274`, `RF-281` … `RF-284`, `RNF-096`, `RNF-097`, `BR-133`, `BR-134`,
 `BR-141`, `BR-142`.
 
-### UC-20 — Uscita dal canale e instradamento
+### UC-20 - Uscita dal canale e instradamento
 
 **Attore primario**: paziente o caregiver. **Secondario**: team clinico.
 **Portata**: telemonitoraggio, copertura, notifiche.
@@ -913,21 +913,21 @@ relativi testi di instradamento configurati per territorio e per orario.
 
 **Flussi alternativi.**
 
-- **A1 — Evento fuori copertura.** L'istruzione al paziente è identica e immediata; la notifica al
+- **A1 - Evento fuori copertura.** L'istruzione al paziente è identica e immediata; la notifica al
   team è accodata secondo la politica dichiarata (`RF-318`).
-- **A2 — Rilevazione da un canale diverso.** L'uscita può emergere da un questionario, da un valore
+- **A2 - Rilevazione da un canale diverso.** L'uscita può emergere da un questionario, da un valore
   inserito, da un'interazione in sessione: il sistema deve intercettarla da più punti d'ingresso con
   la stessa conseguenza.
 
 **Flussi di errore.**
 
-- **E1 — Testo di instradamento non configurato per il territorio o l'orario.** Il piano non è
+- **E1 - Testo di instradamento non configurato per il territorio o l'orario.** Il piano non è
   attivabile; se l'anomalia emerge in esercizio, il sistema mostra il testo di livello superiore
   configurato e genera un allarme di configurazione con severità alta.
-- **E2 — Messaggio che promette un richiamo in luogo dell'istruzione.** Impedito: la verifica
+- **E2 - Messaggio che promette un richiamo in luogo dell'istruzione.** Impedito: la verifica
   automatica del catalogo dei messaggi fallisce se un messaggio di uscita non contiene canale,
   recapito e urgenza (`RF-319`, `RNF-105`).
-- **E3 — Tentativo di dedurre l'uscita da testo libero o da combinazioni non dichiarate.** La
+- **E3 - Tentativo di dedurre l'uscita da testo libero o da combinazioni non dichiarate.** La
   verifica di conformità architetturale fallisce: il sistema riconosce, non inferisce (`RF-315`).
 
 **Postcondizioni.** Il paziente ha ricevuto un'istruzione operativa immediata e inequivocabile; il
@@ -935,7 +935,7 @@ fatto è documentato ed è al tempo stesso documentazione clinica e prova di ade
 
 **Requisiti e regole**: `RF-311`, `RF-313`, `RF-315` … `RF-320`, `BR-162` … `BR-165`.
 
-### UC-21 — Silenzio del paziente
+### UC-21 - Silenzio del paziente
 
 **Attore primario**: sistema. **Secondari**: case manager, centro servizi, paziente.
 **Portata**: telemonitoraggio e allarmi.
@@ -959,25 +959,25 @@ fascia oraria.
 
 **Flussi alternativi.**
 
-- **A1 — Misura non attesa.** Nessun evento è generato; la vista clinica indica che in quel momento
+- **A1 - Misura non attesa.** Nessun evento è generato; la vista clinica indica che in quel momento
   la misura non era attesa, e non lascia una lacuna ambigua (`RF-295`).
-- **A2 — Assenza dichiarata.** Esito `EX-TM-DECLARED`: l'evento è generato con causa dichiarata e
+- **A2 - Assenza dichiarata.** Esito `EX-TM-DECLARED`: l'evento è generato con causa dichiarata e
   severità ridotta secondo il piano, **non soppresso**; alla fine del periodo la severità torna
   ordinaria senza alcuna azione (`RF-297`).
-- **A3 — Assenza spiegata da un evento amministrativo.** Esito `EX-TM-ADMIN`: la causa presunta e la
+- **A3 - Assenza spiegata da un evento amministrativo.** Esito `EX-TM-ADMIN`: la causa presunta e la
   sua fonte sono riportate, e il destinatario la conferma o la smentisce registrando l'esito.
-- **A4 — Dato che arriva in ritardo.** L'allarme è chiuso con `EX-TM-LATE` e la misura è valutata
+- **A4 - Dato che arriva in ritardo.** L'allarme è chiuso con `EX-TM-LATE` e la misura è valutata
   (`RF-304`).
 
 **Flussi di errore.**
 
-- **E1 — Silenzio persistente senza spiegazione né contatto riuscito.** Esito `EX-TM-DROPOUT` solo
+- **E1 - Silenzio persistente senza spiegazione né contatto riuscito.** Esito `EX-TM-DROPOUT` solo
   dopo l'esaurimento documentato dei tentativi di contatto e con decisione del professionista; **mai
   per decorso del tempo** (`RF-247`).
-- **E2 — Assenza trattata come normalità da una vista clinica.** Difetto di sicurezza: ogni vista
+- **E2 - Assenza trattata come normalità da una vista clinica.** Difetto di sicurezza: ogni vista
   espone l'età dell'ultimo dato in evidenza, e l'assenza è rappresentata come tale nei report
   (`RF-248`, `RF-303`).
-- **E3 — Sospensione della sorveglianza per ridurre il rumore.** Vietata: la riduzione del rumore
+- **E3 - Sospensione della sorveglianza per ridurre il rumore.** Vietata: la riduzione del rumore
   agisce sulla severità e sull'instradamento, mai sulla generazione dell'evento di assenza
   (`BR-150`).
 
@@ -986,7 +986,7 @@ per causa, con un responsabile della sua chiusura.
 
 **Requisiti e regole**: `RF-293` … `RF-299`, `RF-304`, `BR-150` … `BR-154`.
 
-### UC-22 — Guasto sistemico dell'ingestione
+### UC-22 - Guasto sistemico dell'ingestione
 
 **Attore primario**: sistema. **Secondari**: amministratore di sistema, centro servizi, servizio
 clinico.
@@ -1014,19 +1014,19 @@ servizio proprio nel momento in cui i dati mancano.
 
 **Flussi alternativi.**
 
-- **A1 — Scostamento attribuibile a una singola sorgente.** L'allarme è circoscritto a quella
+- **A1 - Scostamento attribuibile a una singola sorgente.** L'allarme è circoscritto a quella
   sorgente e ai suoi soggetti, senza sospendere la sorveglianza degli altri.
-- **A2 — Variazione fisiologica del volume.** La soglia di scostamento e la finestra di osservazione
+- **A2 - Variazione fisiologica del volume.** La soglia di scostamento e la finestra di osservazione
   sono configurabili proprio per distinguere la variazione attesa dal guasto.
 
 **Flussi di errore.**
 
-- **E1 — Guasto rilevato dopo la scadenza delle finestre individuali.** Il requisito è violato:
+- **E1 - Guasto rilevato dopo la scadenza delle finestre individuali.** Il requisito è violato:
   `RNF-092` impone la rilevazione **prima** della scadenza della prima finestra individuale del
   piano più stretto in esercizio.
-- **E2 — Soppressione degli allarmi individuali invece della loro qualificazione.** Vietata: la
+- **E2 - Soppressione degli allarmi individuali invece della loro qualificazione.** Vietata: la
   qualificazione conserva l'informazione, la soppressione la distrugge (`RF-302`).
-- **E3 — Comunicazione al solo gruppo tecnico.** Difetto: è il servizio clinico che deve decidere se
+- **E3 - Comunicazione al solo gruppo tecnico.** Difetto: è il servizio clinico che deve decidere se
   attivare un canale alternativo per i pazienti più instabili, e può farlo solo se sa (`RF-303`).
 
 **Postcondizioni.** Esiste un unico allarme di piattaforma con perimetro esplicito; il servizio
@@ -1034,7 +1034,7 @@ clinico è informato; nessun allarme individuale è andato perduto.
 
 **Requisiti e regole**: `RF-300` … `RF-303`, `RNF-092`, `BR-155`.
 
-### UC-23 — Revisione e conclusione del piano
+### UC-23 - Revisione e conclusione del piano
 
 **Attore primario**: professionista responsabile. **Secondari**: paziente, caregiver, centro
 servizi, medico curante.
@@ -1058,20 +1058,20 @@ servizi, medico curante.
 
 **Flussi alternativi.**
 
-- **A1 — Migrazione a una nuova versione di percorso.** Atto esplicito e tracciato, che non avviene
+- **A1 - Migrazione a una nuova versione di percorso.** Atto esplicito e tracciato, che non avviene
   mai per effetto della pubblicazione della nuova versione (`RF-232`).
-- **A2 — Sospensione temporanea del piano.** Con durata dichiarata, motivazione e ripresa
+- **A2 - Sospensione temporanea del piano.** Con durata dichiarata, motivazione e ripresa
   automatica; il paziente è informato che in quel periodo non è sorvegliato.
 
 **Flussi di errore.**
 
-- **E1 — Versione non presa in carico dal lato paziente.** Esito `EX-TM-PLANSTALE`: il professionista
+- **E1 - Versione non presa in carico dal lato paziente.** Esito `EX-TM-PLANSTALE`: il professionista
   vede lo stato «in attesa di presa in carico» con l'istante dell'ultimo tentativo, e **non** uno
   stato che lasci intendere che la modifica sia operativa (`RF-245`).
-- **E2 — Tentativo di modifica sul posto.** Rifiutato: ogni modifica è una nuova versione (`RF-244`).
-- **E3 — Piano che smette di ricevere dati e nessuno lo conclude.** Non è concluso, è **abbandonato**,
+- **E2 - Tentativo di modifica sul posto.** Rifiutato: ogni modifica è una nuova versione (`RF-244`).
+- **E3 - Piano che smette di ricevere dati e nessuno lo conclude.** Non è concluso, è **abbandonato**,
   che è la condizione peggiore: resta attivo con anomalia persistente in evidenza (`RF-247`).
-- **E4 — Conclusione senza relazione finale.** La conclusione è registrata ma il percorso resta
+- **E4 - Conclusione senza relazione finale.** La conclusione è registrata ma il percorso resta
   incompleto e compare fra le pendenze documentali del servizio.
 
 **Postcondizioni.** Esiste una catena di versioni del piano integralmente ricostruibile; alla
@@ -1080,7 +1080,7 @@ dispositivi.
 
 **Requisiti e regole**: `RF-244` … `RF-248`, `BR-102`, `BR-108`, `BR-109`.
 
-### UC-24 — Correzione di una misura e riconciliazione degli allarmi
+### UC-24 - Correzione di una misura e riconciliazione degli allarmi
 
 **Attore primario**: paziente, caregiver o professionista.
 **Portata**: telemonitoraggio e allarmi.
@@ -1101,17 +1101,17 @@ allarme.
 
 **Flussi alternativi.**
 
-- **A1 — Correzione dopo la chiusura dell'allarme.** L'allarme chiuso resta chiuso; la correzione è
+- **A1 - Correzione dopo la chiusura dell'allarme.** L'allarme chiuso resta chiuso; la correzione è
   collegata e visibile nella sua storia.
-- **A2 — Correzione che riguarda un dato già confluito in un report periodico.** Il report non è
+- **A2 - Correzione che riguarda un dato già confluito in un report periodico.** Il report non è
   riscritto: si emette una versione successiva che riporta la correzione.
 
 **Flussi di errore.**
 
-- **E1 — Tentativo di cancellare la misura.** Rifiutato in ogni ruolo (`RF-261`).
-- **E2 — Correzione che non riconcilia gli allarmi.** Difetto: è lo scenario d'uso pericoloso che
+- **E1 - Tentativo di cancellare la misura.** Rifiutato in ogni ruolo (`RF-261`).
+- **E2 - Correzione che non riconcilia gli allarmi.** Difetto: è lo scenario d'uso pericoloso che
   lascia in circolo un valore errato già valutato.
-- **E3 — Rivalutazione che genera un allarme su un fatto vecchio.** Ammessa ma **marcata come
+- **E3 - Rivalutazione che genera un allarme su un fatto vecchio.** Ammessa ma **marcata come
   tardiva** con l'età del dato, e chiudibile con esito dedicato senza alterare le statistiche di
   riscontro (`RF-263`).
 

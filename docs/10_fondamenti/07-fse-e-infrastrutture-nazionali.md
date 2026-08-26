@@ -1,7 +1,7 @@
 ---
 title: FSE e infrastrutture nazionali
 sidebar_position: 8
-description: Fascicolo sanitario elettronico, EDS, INI, PDND e ModI spiegati da zero — chi alimenta, chi indicizza, chi consulta, chi qualifica; il flusso reale di un documento dall'erogatore al fascicolo; attori istituzionali; identità digitale come porta d'accesso; cosa spetta al progetto e cosa a chi installa; EHDS.
+description: Fascicolo sanitario elettronico, EDS, INI, PDND e ModI spiegati da zero - chi alimenta, chi indicizza, chi consulta, chi qualifica; il flusso reale di un documento dall'erogatore al fascicolo; attori istituzionali; identità digitale come porta d'accesso; cosa spetta al progetto e cosa a chi installa; EHDS.
 ---
 
 # FSE e infrastrutture nazionali
@@ -16,8 +16,8 @@ quali interfacce e sotto la responsabilità di chi.**
 amministrazione italiana si trova davanti a un panorama che non somiglia a nulla di ciò che
 conosce. Non c'è un'API centrale con una documentazione OpenAPI da leggere. Non c'è un
 *vendor* con un portale sviluppatori. C'è un insieme stratificato di infrastrutture pubbliche
-— alcune nazionali, alcune regionali, alcune realizzate da un ministero per conto di un altro
-— con basi legali distinte, titolari del trattamento distinti e specifiche tecniche che in
+- alcune nazionali, alcune regionali, alcune realizzate da un ministero per conto di un altro
+- con basi legali distinte, titolari del trattamento distinti e specifiche tecniche che in
 parte sono pubblicate in Gazzetta Ufficiale, in parte sono su portali tecnici, e in parte
 **non sono pubbliche affatto**.
 
@@ -39,8 +39,8 @@ mancante ogni volta che manca, indicando dove va richiesta.
 Prima di entrare negli acronimi conviene fissare quattro affermazioni. Sono la struttura
 portante di tutto il resto e, se le si tiene ferme, il panorama smette di sembrare arbitrario.
 
-**Prima: il fascicolo non è un database, è un indice più dei repository.** L'idea intuitiva —
-«esiste un grande archivio nazionale dove finiscono tutti i referti degli italiani» — è
+**Prima: il fascicolo non è un database, è un indice più dei repository.** L'idea intuitiva -
+«esiste un grande archivio nazionale dove finiscono tutti i referti degli italiani» - è
 sbagliata. I documenti restano, in larga misura, presso chi li ha prodotti o presso il
 repository della Regione competente. Ciò che è nazionale è **l'indice dei metadati** che
 consente di trovarli, più l'anagrafe dei consensi che stabilisce chi può vederli.
@@ -83,7 +83,7 @@ l'assistito**. Tre elementi di quella formula meritano attenzione:
   contenuto, non per l'infrastruttura che lo realizza. Le infrastrutture sono strumenti;
   quando cambiano, il fascicolo resta lo stesso oggetto giuridico;
 - **«generati da eventi clinici»**: il fascicolo si popola per effetto di prestazioni
-  effettivamente erogate. Non è un contenitore che il cittadino riempie a piacere — salvo la
+  effettivamente erogate. Non è un contenitore che il cittadino riempie a piacere - salvo la
   sezione che gli è espressamente riservata, il *taccuino* (§ 2.3);
 - **«riguardanti l'assistito»**: il perimetro è la persona, non l'episodio né la struttura.
   È ciò che rende il fascicolo diverso da una cartella clinica, che è per definizione
@@ -105,7 +105,7 @@ Il riferimento operativo da tenere aperto mentre si scrive codice è il **DM 7 s
 
 ### 2.2 A chi appartiene il fascicolo
 
-Domanda apparentemente banale, risposta stratificata — e la stratificazione ha conseguenze
+Domanda apparentemente banale, risposta stratificata - e la stratificazione ha conseguenze
 dirette sul modello di autorizzazione.
 
 Il fascicolo **riguarda** l'assistito, che ne è l'**interessato** ai sensi del GDPR e ha
@@ -138,7 +138,7 @@ percorso di un documento verso il fascicolo attraversa almeno tre titolarità di
 
 L'**art. 3, comma 1, del DM 7 settembre 2023** elenca i contenuti, il cui dettaglio
 informativo è definito nell'**Allegato A**. Il fascicolo contiene questi contenuti **anche per
-prestazioni erogate al di fuori del Servizio sanitario nazionale** — punto spesso trascurato,
+prestazioni erogate al di fuori del Servizio sanitario nazionale** - punto spesso trascurato,
 che estende l'obbligo di alimentazione al privato puro:
 
 | Lett. | Contenuto |
@@ -231,8 +231,8 @@ per permessi individuali:
 - **medico di medicina generale e pediatra di libera scelta**: per tutta la durata del
   rapporto di assistenza;
 - **medico diverso**, che ha in cura l'assistito per visite, esami o ricovero:
-  **limitatamente al tempo in cui si articola il processo di cura**, e — questo è il punto
-  tecnicamente più interessante — «*previa dichiarazione che tale processo di cura è in atto
+  **limitatamente al tempo in cui si articola il processo di cura**, e - questo è il punto
+  tecnicamente più interessante - «*previa dichiarazione che tale processo di cura è in atto
   al momento della consultazione del FSE e assunzione della relativa responsabilità ai sensi
   dell'art. 47 del D.P.R. 28 dicembre 2000, n. 445*»;
 - **infermiere, ostetrica e farmacista**: con perimetro documentale limitato, definito
@@ -265,7 +265,7 @@ convenzionati, non la consultazione del fascicolo dell'assistito.
 Una regola trasversale chiude il quadro: «*i dati e i documenti presenti nel FSE sono sempre
 consultabili, oltre che dall'assistito, dai soggetti che li hanno prodotti*» (art. 8, comma 7,
 e art. 15, comma 5). **Chi ha prodotto un documento lo vede sempre**, indipendentemente dai
-consensi e — secondo la lettura corrente — dall'oscuramento successivo, perché il documento
+consensi e - secondo la lettura corrente - dall'oscuramento successivo, perché il documento
 resta nei suoi sistemi di origine.
 
 Infine l'**art. 20** disciplina l'**accesso in emergenza**: consultazione ammessa in
@@ -301,7 +301,7 @@ l'assistito ha effettuato tale scelta***».
 Detto in termini ingegneristici: **l'oscuramento non può manifestarsi come un buco visibile**.
 Non si può mostrare un elemento in elenco con l'etichetta «documento oscurato», né lasciare un
 salto negli identificativi progressivi, né restituire un `403` distinguibile da un `404`. È un
-requisito di *indistinguibilità*, e va progettato come tale — con conseguenze anche sui
+requisito di *indistinguibilità*, e va progettato come tale - con conseguenze anche sui
 messaggi di errore, sui contatori e sui *log* esposti.
 
 Regola di propagazione (comma 7): **l'oscuramento della prescrizione determina l'oscuramento
@@ -324,7 +324,7 @@ una proprietà del documento.
 **Registrazione delle operazioni** (art. 21). Sono registrate: alimentazione, oscuramento,
 revoca dell'oscuramento, consultazione da parte del soggetto produttore, consultazione da
 parte dell'assistito o del suo delegato, consultazione da parte di altro soggetto e
-consultazione in emergenza — con dato o documento, tipologia di operazione, categoria di
+consultazione in emergenza - con dato o documento, tipologia di operazione, categoria di
 soggetto, data e ora, e, **per le sole consultazioni, la finalità**.
 
 **Conservazione** (art. 10). L'indice è cancellato **decorsi trent'anni dalla data del
@@ -358,7 +358,7 @@ componenti che consentono a un assistito di Regione A di essere curato in Region
 i documenti debbano essere spostati.
 
 **4. È comparso l'ecosistema dei dati.** Il fascicolo non è più solo un fascicolo: è la fonte
-di alimentazione di un repository centrale — l'EDS — costruito per l'analisi, il monitoraggio
+di alimentazione di un repository centrale - l'EDS - costruito per l'analisi, il monitoraggio
 e la ricerca su dati pseudonimizzati.
 
 **5. Sono state introdotte soluzioni tecnologiche nazionali per l'alimentazione.** Il comma
@@ -395,7 +395,7 @@ Il fascicolo, come si è detto, è un contenuto giuridico. Le infrastrutture che
 sono altra cosa, e sono tre livelli: **nazionale di interoperabilità** (INI), **nazionale di
 analisi** (EDS), **regionale di esercizio** (i FSE regionali e, per la telemedicina, le IRT).
 
-### 3.1 INI — Infrastruttura nazionale per l'interoperabilità
+### 3.1 INI - Infrastruttura nazionale per l'interoperabilità
 
 **Base legale.** L'INI è istituita dal **comma 15-*ter* dell'art. 12 del D.L. 179/2012** ed è
 **realizzata dal Ministero dell'economia e delle finanze attraverso l'infrastruttura del
@@ -404,7 +404,7 @@ Sistema Tessera Sanitaria**, quella di cui all'art. 50 del D.L. 30 settembre 200
 Questa frase merita di essere sciolta, perché contiene un'informazione che spiazza chi arriva
 da fuori: **l'infrastruttura di interoperabilità del fascicolo sanitario non è del Ministero
 della salute.** È del Ministero dell'economia, e riusa la piattaforma nata per finalità
-fiscali e di controllo della spesa sanitaria — la stessa che gestisce la ricetta
+fiscali e di controllo della spesa sanitaria - la stessa che gestisce la ricetta
 dematerializzata e la trasmissione delle spese sanitarie per la dichiarazione dei redditi
 precompilata. Non è un'anomalia: è il riuso di un'infrastruttura che aveva già l'anagrafe
 degli assistiti, la connettività con tutte le strutture e un modello di sicurezza collaudato.
@@ -413,7 +413,7 @@ degli assistiti, la connettività con tutte le strutture e un modello di sicurez
 
 | Componente | Base | Funzione |
 |---|---|---|
-| **FSE-INI** | — | Infrastruttura e servizi telematici di cui Regioni, Province autonome e Ministero della salute **si avvalgono in sussidiarietà**: chi non ha un proprio FSE regionale operativo usa quello nazionale |
+| **FSE-INI** | - | Infrastruttura e servizi telematici di cui Regioni, Province autonome e Ministero della salute **si avvalgono in sussidiarietà**: chi non ha un proprio FSE regionale operativo usa quello nazionale |
 | **Anagrafe consensi e revoche** | comma 15-*ter*, punto 4-*bis* | Registro nazionale dei consensi alla consultazione e delle relative revoche |
 | **Indice nazionale FSE** | comma 15-*ter*, punto 4-*ter* | **Indice nazionale dei metadati dei documenti**. Per gli assistiti privi di Regione di assistenza gestisce direttamente l'indice; all'associazione di una Regione di assistenza **trasferisce l'indice dei metadati all'indice della RdA** (art. 24) |
 | **Portale nazionale FSE** | comma 15-*ter*, punto 4-*quater* | Accesso *online* al fascicolo per assistito e operatori |
@@ -426,18 +426,18 @@ la lista dei riferimenti, e recupera il documento dal repository che lo custodis
 
 Due sigle amministrative che ricorrono ovunque e vanno sciolte:
 
-- **RdA — Regione di assistenza**: la Regione presso cui l'assistito è iscritto al Servizio
+- **RdA - Regione di assistenza**: la Regione presso cui l'assistito è iscritto al Servizio
   sanitario, quella che gli assegna il medico di medicina generale;
-- **RdE — Regione di erogazione**: la Regione in cui la prestazione viene materialmente
+- **RdE - Regione di erogazione**: la Regione in cui la prestazione viene materialmente
   erogata.
 
-Coincidono nella maggior parte dei casi, ma non sempre — ed è esattamente nella
+Coincidono nella maggior parte dei casi, ma non sempre - ed è esattamente nella
 non-coincidenza che l'infrastruttura nazionale serve a qualcosa. Un assistito lombardo curato
 in Puglia genera un documento nella RdE Puglia che deve comparire nel fascicolo gestito dalla
 RdA Lombardia. **Il modello dati deve portare entrambe le informazioni su ogni documento**, e
 non deducibili l'una dall'altra.
 
-### 3.2 EDS — Ecosistema dati sanitari
+### 3.2 EDS - Ecosistema dati sanitari
 
 **Base legale.** Istituito con il **DM 31 dicembre 2024** (GU Serie generale n. 53 del 5 marzo
 2025, atto 25A01321). **Titolare del trattamento: il Ministero della salute. Gestione
@@ -482,10 +482,10 @@ gli elementi identificativi diretti**, estrae i dati pertinenti e li restituisce
 
 **Il punto che riguarda direttamente chi scrive il software.** La piattaforma di telemedicina
 **non parla con l'EDS**. Alimenta il fascicolo; l'EDS estrae. Ma le dimensioni di analisi
-ammesse — base temporale, caratteristiche anagrafiche (sesso, classe di età, ASL di
+ammesse - base temporale, caratteristiche anagrafiche (sesso, classe di età, ASL di
 assistenza), caratteristiche sanitarie (codici di esenzione, patologie in essere o pregresse),
 base distrettuale (ASL di erogazione), **tipologia di servizio minimo erogato**,
-**caratteristica del regime di erogazione e assistenza** — **devono esistere come attributi
+**caratteristica del regime di erogazione e assistenza** - **devono esistere come attributi
 strutturati nei documenti prodotti**, altrimenti il dato non è estraibile. Gli ultimi due
 diventano, di fatto, attributi obbligatori di ogni documento di telemedicina.
 
@@ -516,7 +516,7 @@ un'infrastruttura propria operativa **si avvale in sussidiarietà del FSE-INI**.
 pratica è che **non esiste una singola interfaccia di alimentazione**: esiste il percorso
 nazionale e ne esistono venti declinazioni regionali, con differenze reali di endpoint,
 autenticazione, formati accettati e regole di validazione. `[NV]` sulla mappa aggiornata delle
-differenze regionali, che non è pubblicata in forma consolidata e che ogni deployer deve
+differenze regionali, che non è pubblicata in forma consolidata e che chiunque installi deve
 ricostruire per la propria Regione.
 
 **Il ruolo delle Regioni nel controllo dei documenti.** L'art. 13 del DM 7 settembre 2023
@@ -590,7 +590,7 @@ novembre 2025, Allegato 1, § 2.20, ed è dettagliato nel modulo
 nascere già **completo dei metadati di conferimento**, non arricchito in un secondo momento:
 
 - identificativo dell'assistito (codice fiscale, oppure codice STP per lo straniero
-  temporaneamente presente o ENI per l'europeo non iscritto — modulo
+  temporaneamente presente o ENI per l'europeo non iscritto - modulo
   [04](04-identita-e-anagrafiche.md));
 - **Regione di assistenza e Regione di erogazione**;
 - azienda sanitaria, presidio, unità operativa;
@@ -609,8 +609,8 @@ Due precisazioni che evitano confusioni frequenti.
 
 **La firma è del medico, non del sistema.** Un sigillo elettronico dell'organizzazione non
 sostituisce la firma del professionista: la responsabilità del contenuto clinico è personale.
-Il sistema può orchestrare la firma — predisporre il documento, invocare il dispositivo o il
-servizio di firma remota, verificarne l'esito — ma non può firmare al posto del medico.
+Il sistema può orchestrare la firma - predisporre il documento, invocare il dispositivo o il
+servizio di firma remota, verificarne l'esito - ma non può firmare al posto del medico.
 
 **Il formato documentale nazionale del fascicolo è HL7 CDA Rel. 2 («CDA2»)**, veicolato dentro
 un **PDF firmato digitalmente**. È l'impostazione delle specifiche nazionali di
@@ -648,7 +648,7 @@ Due proprietà di questo stadio hanno effetti diretti sull'architettura del prod
   gestito come stato di dominio: documento prodotto, conferimento respinto, motivo,
   rilavorazione. Non come eccezione tecnica.
 
-`[NV]` — **Non sono pubblicamente disponibili le specifiche di interfaccia delle soluzioni
+`[NV]` - **Non sono pubblicamente disponibili le specifiche di interfaccia delle soluzioni
 tecnologiche AGENAS** (endpoint, formato dei messaggi di esito, tassonomia degli errori di
 validazione). Vanno richieste ad AGENAS o alla Regione di riferimento. Il progetto non deve
 inventarne una: deve prevedere un **adattatore con contratto interno stabile** e un'unica
@@ -666,7 +666,7 @@ Questo trasferimento è un dettaglio che vale la pena registrare: **l'indice si 
 documento no**. Un modello che assuma la stabilità della sede dell'indice per tutta la vita
 dell'assistito è sbagliato.
 
-`[NV]` — **I metadati di indicizzazione IHE XDS e i codici di tipologia documentale
+`[NV]` - **I metadati di indicizzazione IHE XDS e i codici di tipologia documentale
 (`typeCode`, `classCode`, e la corrispondente codifica LOINC) per le dieci nuove tipologie di
 telemedicina non sono stati reperiti.** Sono l'informazione che serve per costruire il
 `SubmissionSet` e il `DocumentEntry`. Vanno cercati nell'area tecnica del portale del
@@ -779,9 +779,9 @@ dall'acronimo.
 
 ### 5.1 Il problema
 
-Immagina due enti pubblici italiani. Il primo — poniamo un'azienda sanitaria — ha bisogno di
-sapere se una certa persona è iscritta al Servizio sanitario in quella Regione. Il secondo —
-poniamo l'ente che gestisce quell'anagrafe — ha il dato.
+Immagina due enti pubblici italiani. Il primo - poniamo un'azienda sanitaria - ha bisogno di
+sapere se una certa persona è iscritta al Servizio sanitario in quella Regione. Il secondo -
+poniamo l'ente che gestisce quell'anagrafe - ha il dato.
 
 Nel mondo privato la soluzione è banale: si concorda un'API, ci si scambia una chiave, si
 scrive un contratto. Nel settore pubblico questa strada, moltiplicata per ventimila enti,
@@ -791,11 +791,11 @@ verificabile** di chi ha chiesto cosa a chi, con quale base giuridica e per qual
 Quest'ultimo punto non è burocrazia: quando i dati sono dati sanitari, la tracciabilità della
 finalità di accesso è un requisito del GDPR, non un capriccio.
 
-Le due risposte italiane a questo problema sono **il ModI** — che dice *come* si costruisce
-un'interfaccia fra amministrazioni — e **la PDND** — che dice *chi può chiamare cosa, e come
+Le due risposte italiane a questo problema sono **il ModI** - che dice *come* si costruisce
+un'interfaccia fra amministrazioni - e **la PDND** - che dice *chi può chiamare cosa, e come
 lo si dimostra*.
 
-### 5.2 ModI — il Modello di Interoperabilità
+### 5.2 ModI - il Modello di Interoperabilità
 
 **Cos'è.** Un insieme di regole tecniche che stabiliscono come le pubbliche amministrazioni
 espongono e consumano interfacce applicative. Non è un software, non è un prodotto, non è
@@ -814,15 +814,15 @@ devono rispettare.
 modalità tecniche condivise che **l'erogatore** e il **fruitore** di un servizio implementano
 per rendere interoperabili i rispettivi sistemi. Si articolano su tre assi:
 
-- **pattern di interazione** — la forma della conversazione: richiesta/risposta sincrona,
+- **pattern di interazione** - la forma della conversazione: richiesta/risposta sincrona,
   interazione bloccante o non bloccante, notifica di eventi (*push* o *pull*). Serve a evitare
   che ogni ente reinventi la propria semantica di chiamata;
-- **pattern di sicurezza** — dove sta la fiducia: sul canale (autenticazione dei sistemi con
+- **pattern di sicurezza** - dove sta la fiducia: sul canale (autenticazione dei sistemi con
   certificati, TLS mutuo) oppure **sul messaggio** (il singolo messaggio è firmato e la firma
   è verificabile indipendentemente dal canale che lo ha trasportato). La distinzione è
   importante: la sicurezza a livello di messaggio sopravvive ai *proxy* intermedi e produce
   una prova opponibile a posteriori, cosa che la sicurezza di canale non fa;
-- **pattern di tracciatura** — come si dimostra, dopo, che una certa chiamata è avvenuta, da
+- **pattern di tracciatura** - come si dimostra, dopo, che una certa chiamata è avvenuta, da
   parte di chi e con quali dati.
 
 **Perché a un progetto open source questo interessa.** Se l'installazione è presso una
@@ -831,7 +831,7 @@ amministrazioni, **devono essere descritte e realizzate secondo i pattern ModI**
 scelta stilistica dell'integratore: è un requisito di conformità che ricade sull'ente e che
 l'ente scarica, contrattualmente, sul fornitore.
 
-### 5.3 PDND — Piattaforma Digitale Nazionale Dati
+### 5.3 PDND - Piattaforma Digitale Nazionale Dati
 
 **Base legale.** Art. 50-*ter* del Codice dell'amministrazione digitale. **Linee guida
 sull'infrastruttura tecnologica della Piattaforma Digitale Nazionale Dati per
@@ -907,8 +907,8 @@ televisita fra un medico e un paziente non passa dalla PDND. Il canale della PDN
 scambio di dati **fra amministrazioni**.
 
 **Seconda: diventa un requisito quando l'installazione espone dati verso altre
-amministrazioni.** Se un'azienda sanitaria che ha installato il sistema deve esporre — per
-esempio — un e-service sullo stato di una prestazione o sulla disponibilità di agende verso
+amministrazioni.** Se un'azienda sanitaria che ha installato il sistema deve esporre - per
+esempio - un e-service sullo stato di una prestazione o sulla disponibilità di agende verso
 un'altra amministrazione, quella pubblicazione avviene su PDND. Il DM 19 novembre 2025,
 Allegato 3, § 2, elenca del resto la **PDND** fra i sistemi centrali con cui la Piattaforma
 nazionale di telemedicina garantisce integrazione, insieme a SPID/CIE, FSE nazionale, ANA
@@ -921,7 +921,7 @@ erogatore né fruitore**: può fornire l'implementazione tecnica che consente a 
 esserlo. È esattamente lo stesso principio che vale per SPID (§ 8) e che ritorna nella tabella
 del § 9.
 
-`[NV]` — **Le specifiche operative di dettaglio della PDND** (formato esatto del voucher, la
+`[NV]` - **Le specifiche operative di dettaglio della PDND** (formato esatto del voucher, la
 sua durata, gli algoritmi ammessi, la procedura di *onboarding* dell'ente, gli ambienti di
 collaudo) **non sono state verificate in questa guida.** Sono documentate nelle linee guida
 AgID v2 di maggio 2025 e nella documentazione tecnica della piattaforma, e vanno lette
@@ -941,10 +941,10 @@ che è l'unico criterio utile quando si deve capire a chi chiedere una cosa.
 |---|---|---|
 | **Ministero della salute** | Amministrazione centrale | Titolare del trattamento per l'**EDS**; adotta i decreti su FSE, telemedicina, tariffe; è l'autorità di indirizzo del sistema sanitario |
 | **AGENAS** | Agenzia nazionale per i servizi sanitari regionali; per l'art. 12, comma 15-*undecies*, D.L. 179/2012 anche **Agenzia nazionale per la sanità digitale (ASD)** | Titolare e gestore della **INT**; gestione operativa dell'**EDS**; rende disponibili le **soluzioni tecnologiche** di controllo e conversione (comma 15-*quater*); pubblica il **Business Glossary** e i modelli orientativi; svolge, tramite il **Gestore Soluzioni di Telemedicina**, il **Processo di Validazione** delle soluzioni terze |
-| **MEF — Sistema Tessera Sanitaria** | Ministero dell'economia e delle finanze; infrastruttura ex art. 50 D.L. 269/2003, gestita tecnicamente da Sogei | **Realizza l'INI**; gestisce la ricetta dematerializzata e il flusso delle spese sanitarie |
+| **MEF - Sistema Tessera Sanitaria** | Ministero dell'economia e delle finanze; infrastruttura ex art. 50 D.L. 269/2003, gestita tecnicamente da Sogei | **Realizza l'INI**; gestisce la ricetta dematerializzata e il flusso delle spese sanitarie |
 | **AgID** | Agenzia per l'Italia digitale | Regole tecniche trasversali ex **art. 71 CAD**: **ModI**, **PDND**, accessibilità, riuso del software, documenti informatici. Gestisce la **federazione SPID** e il **Registro SPID**; adotta il **Piano triennale per l'informatica nella PA** |
 | **ACN** | Agenzia per la cybersicurezza nazionale | Dal **19 gennaio 2023** ha assunto da AgID la **qualificazione dei servizi e delle infrastrutture cloud per la PA**; emana le determinazioni sulle misure di sicurezza **NIS2**; ospita il **CSIRT Italia** per la notifica degli incidenti |
-| **PSN — Polo Strategico Nazionale** | Infrastruttura realizzata nell'ambito del PNRR (M1C1) | Ospita **dati e servizi critici e strategici** delle PA su *data center* localizzati sul territorio nazionale |
+| **PSN - Polo Strategico Nazionale** | Infrastruttura realizzata nell'ambito del PNRR (M1C1) | Ospita **dati e servizi critici e strategici** delle PA su *data center* localizzati sul territorio nazionale |
 | **Regioni e Province autonome** | Enti titolari dell'organizzazione sanitaria | Titolari dei **FSE regionali** e delle **IRT**; titolari del trattamento di verifica formale e semantica; acquistano le soluzioni |
 | **Ministero dell'Interno** | Amministrazione centrale | **Gestore dell'identità digitale CIE**, avvalendosi del Poligrafico e Zecca dello Stato |
 | **Garante per la protezione dei dati personali** | Autorità indipendente | Rende i pareri obbligatori sugli schemi di decreto in materia di FSE, EDS e telemedicina; i suoi pareri hanno **modificato in modo sostanziale** l'architettura (§ 6.2) |
@@ -975,7 +975,7 @@ La parola «qualificazione» ricorre continuamente e designa **quattro procedime
 con autorità diverse, oggetti diversi ed effetti diversi. Confonderli produce affermazioni di
 conformità false. Le separiamo.
 
-**1. Qualificazione dei servizi e delle infrastrutture cloud — autorità: ACN.**
+**1. Qualificazione dei servizi e delle infrastrutture cloud - autorità: ACN.**
 L'oggetto **non è il software applicativo**: sono i **servizi cloud** (SaaS, PaaS, IaaS) e le
 **infrastrutture** che li ospitano. Gli atti di riferimento sono la **Determinazione ACN n.
 306 del 18 gennaio 2022** (metodologia di **classificazione dei dati e dei servizi** delle PA
@@ -992,10 +992,10 @@ telemedicina. Il dato sanitario di un'azienda sanitaria ricade con altissima pro
 classe **critici**, con quanto ne consegue in termini di livello di qualificazione richiesto e
 di residenza dei dati.
 
-**2. Accreditamento come fornitore di servizi SPID — autorità: AgID.** Riguarda il soggetto
+**2. Accreditamento come fornitore di servizi SPID - autorità: AgID.** Riguarda il soggetto
 che **eroga servizi in rete**. Se ne parla al § 8: **il progetto non può esserne destinatario**.
 
-**3. Certificazione degli standard tecnici delle soluzioni di telemedicina — autorità:
+**3. Certificazione degli standard tecnici delle soluzioni di telemedicina - autorità:
 AGENAS.** Il DM 19 novembre 2025, art. 3, comma 4, ammette che «*le regioni possono erogare
 telemedicina con infrastrutture, applicativi o strumenti diversi, purché rispettino standard
 tecnici certificati da Agenas e alimentino il Fascicolo Sanitario Elettronico*». La funzione è
@@ -1005,7 +1005,7 @@ alternativa a quelle delle gare capofila, e il modulo
 [02](02-prestazioni-di-telemedicina.md), § 6.2, ne discute la portata strategica. **In cosa
 consista operativamente il Processo di Validazione non è pubblicamente documentato.** `[NV]`
 
-**4. Valutazione della conformità come dispositivo medico — autorità: un Organismo
+**4. Valutazione della conformità come dispositivo medico - autorità: un Organismo
 Notificato.** È tutt'altra cosa: riguarda la sicurezza e le prestazioni del dispositivo ai
 sensi del Regolamento (UE) 2017/745, non l'idoneità all'uso nella pubblica amministrazione. È
 trattata nel modulo [15](15-regolatorio-da-zero.md).
@@ -1020,7 +1020,7 @@ trattata nel modulo [15](15-regolatorio-da-zero.md).
 
 Collegarsi alle infrastrutture nazionali non è solo una questione di formati: comporta
 requisiti su **dove gira il software** e su **come è protetto**. Sono requisiti che ricadono
-sull'installazione, ma che il prodotto deve rendere possibili — e che un prodotto progettato
+sull'installazione, ma che il prodotto deve rendere possibili - e che un prodotto progettato
 male rende impossibili.
 
 ### 7.1 La residenza dei dati è a due livelli, non uno
@@ -1030,16 +1030,16 @@ male rende impossibili.
 - Il **DM 21 settembre 2022** ammette per le infrastrutture regionali di telemedicina tre
   modelli di *deployment*, tutti qualificati «**su territorio nazionale**»: cloud pubblico
   criptato, privato o ibrido su licenza, privato;
-- il **DM 19 novembre 2025, Allegato 4, § 8**, per il **NIT** — il nodo di interoperabilità
-  interregionale — prescrive invece infrastrutture «*residenti sul territorio **UE***».
+- il **DM 19 novembre 2025, Allegato 4, § 8**, per il **NIT** - il nodo di interoperabilità
+  interregionale - prescrive invece infrastrutture «*residenti sul territorio **UE***».
 
 **Le due formulazioni non coincidono e non vanno appiattite.** Il vincolo corretto è: **almeno
 UE per il nodo di interoperabilità, nazionale per le infrastrutture regionali e per la
 piattaforma nazionale**, con l'ulteriore stretta che deriva dalla classificazione ACN dei dati
 sanitari come «critici».
 
-Ne discende la scelta del progetto di documentare **tre profili di *deployment*** — Unione
-europea, territorio italiano, cloud qualificato ACN o Polo Strategico Nazionale — e il vincolo
+Ne discende la scelta del progetto di documentare **tre profili di *deployment*** - Unione
+europea, territorio italiano, cloud qualificato ACN o Polo Strategico Nazionale - e il vincolo
 architetturale che ne è il presupposto: **nessuna dipendenza di esecuzione può impedire il
 profilo più restrittivo**. In concreto: nessun servizio gestito esterno obbligatorio, server
 di *relay* per il media installabile in proprio, base dati e archivio oggetti installabili
@@ -1057,8 +1057,8 @@ sicurezza hardware (HSM)** per la gestione delle chiavi; sistemi di rilevamento 
 delle intrusioni su ogni nodo di accesso alla rete; ***firewall* applicativo web** e sicurezza
 delle API; **cifratura trasparente della base dati**; *hardening* dei sistemi operativi;
 sistemi di correlazione degli eventi e di risposta automatizzata; ***threat intelligence***;
-**gestione privilegiata degli accessi amministrativi**; e — punto che riguarda direttamente un
-progetto open source — la «*conservazione dell'inventario delle componenti software in uso
+**gestione privilegiata degli accessi amministrativi**; e - punto che riguarda direttamente un
+progetto open source - la «*conservazione dell'inventario delle componenti software in uso
 comprensive delle librerie di terzi e/o open source*», cioè la **distinta base del software
 (SBOM)**.
 
@@ -1083,8 +1083,8 @@ requisiti verificabili.
 Vale la pena registrare un'anomalia, perché un contributore la incontrerà prima o poi e
 merita di sapere che non è un errore di lettura.
 
-L'Allegato 4, § 7, impone a **tutte** le infrastrutture regionali di telemedicina — «*ivi
-incluse quelle che non sono state parte della suddetta procedura*» — le misure di sicurezza
+L'Allegato 4, § 7, impone a **tutte** le infrastrutture regionali di telemedicina - «*ivi
+incluse quelle che non sono state parte della suddetta procedura*» - le misure di sicurezza
 previste dal **capitolo 5 del capitolato tecnico di una specifica gara regionale**. Un decreto
 ministeriale, cioè, rende cogente per l'intero territorio nazionale un documento **di gara**,
 non pubblicato in Gazzetta Ufficiale. **Quel capitolo non è stato reperito** nelle ricerche
@@ -1092,7 +1092,7 @@ condotte dal progetto. `[NV]`
 
 Non è un caso isolato: il DM 21 settembre 2022 rinvia a sua volta, per i requisiti funzionali
 dei micro-servizi, a documenti metodologici pubblicati da AGENAS in allegato a un avviso del
-2022, anch'essi non reperiti — sebbene il DM 19 novembre 2025, Allegato 3, ne abbia
+2022, anch'essi non reperiti - sebbene il DM 19 novembre 2025, Allegato 3, ne abbia
 normativizzato in Gazzetta gran parte del contenuto. **È un rischio di tracciabilità dei
 requisiti da dichiarare nella documentazione di conformità**, non da nascondere: un requisito
 che non si può leggere è un requisito che non si può dimostrare di aver soddisfatto.
@@ -1105,10 +1105,10 @@ Tutto ciò che si è descritto finora presuppone che qualcuno sia entrato, e che
 certezza chi è. In Italia il «come si entra» non è una scelta di prodotto: è stabilito dalla
 legge.
 
-Questa sezione è una **sintesi operativa**. La trattazione estesa — profili SAML e OIDC,
+Questa sezione è una **sintesi operativa**. La trattazione estesa - profili SAML e OIDC,
 metadata, attributi, livelli di garanzia, codici di anomalia, integrazione con il gestore
-delle identità, tessera sanitaria e mutua autenticazione TLS — è nel modulo
-[04 — Identità e anagrafiche](04-identita-e-anagrafiche.md).
+delle identità, tessera sanitaria e mutua autenticazione TLS - è nel modulo
+[04 - Identità e anagrafiche](04-identita-e-anagrafiche.md).
 
 ### 8.1 La regola di base
 
@@ -1116,14 +1116,14 @@ L'**art. 64 del Codice dell'amministrazione digitale** (D.lgs. 7 marzo 2005, n. 
 disciplina il sistema pubblico per la gestione dell'identità digitale. Il comma 2-*quater*
 stabilisce che «*l'accesso ai servizi in rete erogati dalle pubbliche amministrazioni che
 richiedono identificazione informatica avviene tramite SPID*», e i canali riconosciuti sono
-**SPID**, **CIE** (carta d'identità elettronica) e **TS-CNS** (tessera sanitaria — carta
+**SPID**, **CIE** (carta d'identità elettronica) e **TS-CNS** (tessera sanitaria - carta
 nazionale dei servizi).
 
 Nel nostro dominio l'obbligo è ribadito due volte, in termini identici:
 
-- **DM 7 settembre 2023, art. 11, comma 1** — per l'accesso al fascicolo sanitario
+- **DM 7 settembre 2023, art. 11, comma 1** - per l'accesso al fascicolo sanitario
   elettronico;
-- **DM 19 novembre 2025, Allegato 4, § 3** — per l'accesso alla Piattaforma nazionale di
+- **DM 19 novembre 2025, Allegato 4, § 3** - per l'accesso alla Piattaforma nazionale di
   telemedicina: «*L'accesso ai dati avviene previo superamento di procedure di autenticazione
   informatica basate sui sistemi nazionali **SPID, CIE e TS-CNS**, sia per i cittadini che per
   gli operatori*».
@@ -1135,7 +1135,7 @@ due canali.
 
 | Canale | Cos'è | Protocollo utilizzabile in produzione | Chi lo usa realisticamente |
 |---|---|---|---|
-| **SPID** | Sistema pubblico di identità digitale: federazione di più gestori di identità accreditati da AgID | **SAML2**. Le linee guida su OpenID Connect esistono e sono integrate dall'Avviso AgID n. 41 v.2 del 23 marzo 2023, **ma nessun gestore di identità SPID lo supporta in produzione**: la fonte è il forum ufficiale presidiato dal team SPID, consultata il 25 agosto 2026, **da riverificare** | Cittadini, in massa |
+| **SPID** | Sistema pubblico di identità digitale: federazione di più gestori di identità accreditati da AgID | **SAML2**. Le linee guida su OpenID Connect esistono e sono integrate dall'Avviso AgID n. 41 v.2 del 23 marzo 2023, **ma nessun gestore di identità SPID lo supporta in produzione**: la fonte è il forum ufficiale presidiato dal gruppo di lavoro SPID, consultato il 25 agosto 2026, **da riverificare** | Cittadini, in massa |
 | **CIE** | Carta d'identità elettronica; il gestore dell'identità è il **Ministero dell'Interno**, che si avvale del Poligrafico | **SAML2 e OIDC**, entrambi operativi in pre-produzione e in produzione | Cittadini; percorso a minor attrito perché il gestore di identità è **uno solo** |
 | **TS-CNS** | Tessera sanitaria con microchip di carta nazionale dei servizi; tecnicamente e normativamente equivalente alla CNS | **Mutua autenticazione TLS**: il browser presenta il certificato della carta, sbloccata con PIN, e il server ne valida la catena contro l'elenco di fiducia nazionale | **Professionisti sanitari**, che hanno già il lettore sulla scrivania. Non è un canale mobile |
 
@@ -1172,8 +1172,8 @@ quale in ogni documento pubblico:
 
 C'è anche una ragione di pianificazione, non solo di correttezza. **I tempi
 dell'accreditamento SPID non sono dichiarati in alcuna fonte primaria**: esistono solo termini
-a valle della firma della convenzione — iscrizione nel Registro SPID entro dieci giorni dalla
-stipula — mentre il tempo che intercorre fra l'invio del metadata ad AgID e la controfirma
+a valle della firma della convenzione - iscrizione nel Registro SPID entro dieci giorni dalla
+stipula - mentre il tempo che intercorre fra l'invio del metadata ad AgID e la controfirma
 **non è normato**. Una scadenza di prodotto che dipenda da un procedimento amministrativo di
 terzi privo di termine dichiarato non è governabile. Una scadenza che dipende dalla conformità
 tecnica verificabile lo è.
@@ -1229,7 +1229,7 @@ contrario.
 
 ---
 
-## 10. EHDS — cosa cambierà, e quando
+## 10. EHDS - cosa cambierà, e quando
 
 Tutto ciò che si è descritto è italiano. Sopra c'è un livello europeo che entra in vigore per
 gradi ed è opportuno conoscere adesso, perché incide su decisioni di modello dati che si
@@ -1243,7 +1243,7 @@ generale dal 26 marzo 2027**, con numerose disposizioni ad applicazione differit
 
 Interessano due assi.
 
-**L'uso primario** — l'accesso della persona ai propri dati sanitari e la loro circolazione
+**L'uso primario** - l'accesso della persona ai propri dati sanitari e la loro circolazione
 per la cura in tutta l'Unione. È il proseguimento naturale dell'infrastruttura di scambio
 transfrontaliero già esistente. In Italia il capitolo è finanziato dall'**art. 1, commi
 405-406, della legge 30 dicembre 2025, n. 199**, dedicato ai «*servizi di scambio
@@ -1252,7 +1252,7 @@ documenti clinici originali, i referti di laboratorio, le schede di dimissione o
 referti di diagnostica per immagini*». L'elenco è, di fatto, il perimetro delle **categorie
 prioritarie** di dati che dovranno circolare.
 
-**L'uso secondario** — l'accesso ai dati sanitari, in forma non identificativa, per ricerca,
+**L'uso secondario** - l'accesso ai dati sanitari, in forma non identificativa, per ricerca,
 innovazione, politiche pubbliche e attività regolatorie, attraverso organismi nazionali
 dedicati. È la ragione per cui l'EDS italiano, con la sua architettura pseudonimizzata,
 è coerente con la direzione europea: la struttura nazionale è stata costruita per potersi
@@ -1264,7 +1264,7 @@ agganciare.
 
 Il **capo III** introduce un regime di conformità per i **sistemi di cartelle cliniche
 elettroniche** («sistemi EHR») fondato su **due componenti software armonizzate obbligatorie**
-— una di **interoperabilità**, una di **registrazione** — con obbligo per il fabbricante di
+- una di **interoperabilità**, una di **registrazione** - con obbligo per il fabbricante di
 redigere **documentazione tecnica**, emettere una **dichiarazione di conformità UE** e apporre
 la **marcatura CE**, secondo la logica del nuovo quadro legislativo europeo ma **senza
 organismo notificato** per la generalità dei casi.
@@ -1283,7 +1283,7 @@ personali appartenenti alle **categorie prioritarie**. Una piattaforma di teleme
 produce referti, li converte in formati di interoperabilità e li scambia con il sistema di un
 integratore compie diverse di quelle operazioni.
 
-**La valutazione del progetto — dichiarata come tale e non come certezza — è che Telemedic
+**La valutazione del progetto - dichiarata come tale e non come certezza - è che Telemedic
 ricadrà con elevata probabilità nell'ambito del capo III**, e che ciò potrebbe comportare una
 marcatura CE ai sensi dell'EHDS **anche indipendentemente dalla disciplina dei dispositivi
 medici**. `[NV]` sulla conclusione, che richiede la lettura diretta delle definizioni
@@ -1301,9 +1301,9 @@ interoperabilità** con un sistema EHR.
 L'orizzonte 2027-2031 è compatibile con una prima versione a fine 2026, ma tre conseguenze
 sono immediate:
 
-1. **il modello dati va progettato oggi sulle categorie prioritarie europee** — profilo
+1. **il modello dati va progettato oggi sulle categorie prioritarie europee** - profilo
    sanitario sintetico, prescrizione elettronica, referti di laboratorio, referti di
-   diagnostica per immagini, lettere di dimissione — e sui formati di scambio europei, basati
+   diagnostica per immagini, lettere di dimissione - e sui formati di scambio europei, basati
    su HL7 FHIR e sui profili IHE (modulo [05](05-standard-di-interoperabilita.md));
 2. **la posizione del progetto rispetto all'EHDS va dichiarata esplicitamente** nella
    documentazione, come la stessa guida europea richiede quando chiede di indicare se il
@@ -1311,7 +1311,7 @@ sono immediate:
    altra legislazione applicabile**;
 3. **la componente di registrazione e la componente di interoperabilità vanno tenute presenti
    come vincoli architetturali futuri**: una separazione netta fra la produzione del contenuto
-   clinico e la sua serializzazione — già imposta dall'incertezza sui template CDA2 (§ 4.2) —
+   clinico e la sua serializzazione - già imposta dall'incertezza sui template CDA2 (§ 4.2) -
    è la stessa che servirà per l'EHDS.
 
 ---
@@ -1348,10 +1348,10 @@ un **adattatore configurabile** e documentata come tale.
 1. **Il fascicolo sanitario elettronico non è un archivio unico: è un indice nazionale più dei
    repository.** Ciò che viaggia sono i metadati; i documenti restano dove sono stati prodotti
    o presso il repository della Regione competente.
-2. **INI ed EDS non sono la stessa cosa.** L'**INI** — realizzata dal Ministero
-   dell'economia attraverso il Sistema Tessera Sanitaria — indicizza i metadati, ospita
-   l'anagrafe dei consensi e il portale nazionale. L'**EDS** — titolare il Ministero della
-   salute, gestione AGENAS — è un repository centrale che opera su **pseudonimi**, aggiornato
+2. **INI ed EDS non sono la stessa cosa.** L'**INI** - realizzata dal Ministero
+   dell'economia attraverso il Sistema Tessera Sanitaria - indicizza i metadati, ospita
+   l'anagrafe dei consensi e il portale nazionale. L'**EDS** - titolare il Ministero della
+   salute, gestione AGENAS - è un repository centrale che opera su **pseudonimi**, aggiornato
    una volta ogni 24 ore, per finalità di governo, monitoraggio, HTA e ricerca.
 3. **Con FSE 2.0 è caduto il consenso all'alimentazione.** Si alimenta per legge, entro
    **cinque giorni** dall'erogazione; il consenso serve per la **consultazione da parte di
@@ -1373,8 +1373,8 @@ un **adattatore configurabile** e documentata come tale.
    eroga il servizio in rete. La formula corretta è *SPID-ready, CIE-ready, TS-CNS-ready*, con
    conformità verificata in integrazione continua. **SPID si usa in SAML2**; **per CIE è
    disponibile anche OIDC**; **TS-CNS si realizza con mutua autenticazione TLS**.
-9. **La residenza dei dati è a due livelli** — territorio nazionale per le infrastrutture
-   regionali e la piattaforma nazionale, almeno UE per il nodo di interoperabilità — e nessuna
+9. **La residenza dei dati è a due livelli** - territorio nazionale per le infrastrutture
+   regionali e la piattaforma nazionale, almeno UE per il nodo di interoperabilità - e nessuna
    dipendenza di esecuzione può impedire il profilo più restrittivo.
 10. **Una parte della documentazione tecnica che serve non è pubblica.** Template CDA2, codici
     documentali, metadati IHE, interfacce delle soluzioni AGENAS, contenuto del Processo di

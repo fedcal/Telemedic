@@ -14,8 +14,8 @@ alimentato, l'infrastruttura documentale va alimentata quando previsto e consent
 rendicontabile va emesso, il registro va scritto. Nessuna di queste conseguenze può essere
 rinunciata; nessuna può far fallire la firma; nessuna può bloccare il professionista in attesa.
 
-La teoria — architettura a eventi, doppia scrittura, outbox, idempotenza, consegna almeno una
-volta — è nel [modulo 11 della guida](../10_fondamenti/11-fondamenti-informatici.md#5-la-doppia-scrittura-e-loutbox-transazionale)
+La teoria - architettura a eventi, doppia scrittura, outbox, idempotenza, consegna almeno una
+volta - è nel [modulo 11 della guida](../10_fondamenti/11-fondamenti-informatici.md#5-la-doppia-scrittura-e-loutbox-transazionale)
 e non viene ripetuta. Questo capitolo stabilisce **come è fatto il meccanismo in Telemedic**, quali
 garanzie offre, quali deliberatamente non offre, e dove passa il confine con il piano del tempo
 reale.
@@ -59,7 +59,7 @@ documento è firmato, ma il sistema di origine non lo saprà mai, l'assistito no
 il fatto rendicontabile non è emesso. Nessuno se ne accorge, perché non c'è nulla che segnali
 l'assenza di un evento che non è mai esistito.
 
-**L'evento fantasma.** L'ordine inverso — pubblicare prima di consolidare — produce il caso opposto:
+**L'evento fantasma.** L'ordine inverso - pubblicare prima di consolidare - produce il caso opposto:
 l'evento è consegnato, la transazione fallisce. Il sistema di origine riceve la notifica di un
 documento firmato che non esiste. È il difetto peggiore dei due, perché produce dati errati in un
 sistema di terzi.
@@ -108,7 +108,7 @@ generale è forte e l'errore è costoso.
 
 Non passano dall'outbox nemmeno: le interrogazioni sincrone fra contesti, che non sono eventi; le
 metriche di esercizio, che hanno un percorso proprio; le voci del registro immutabile, che hanno un
-percorso proprio con garanzie più forti — il fallimento della scrittura di registro fa fallire
+percorso proprio con garanzie più forti - il fallimento della scrittura di registro fa fallire
 l'operazione applicativa, mentre il fallimento di un consumatore di eventi no.
 
 ## 3. La busta
@@ -116,20 +116,20 @@ l'operazione applicativa, mentre il fallimento di un consumatore di eventi no.
 ### 3.1 Il formato
 
 Le buste adottano **CloudEvents in modalità strutturata**: l'intero evento, attributi e dato, in un
-solo corpo JSON. La modalità binaria — attributi negli intestazioni del protocollo di trasporto,
-dato nel corpo — non è adottata come predefinita.
+solo corpo JSON. La modalità binaria - attributi negli intestazioni del protocollo di trasporto,
+dato nel corpo - non è adottata come predefinita.
 
 ```json
 {
   "specversion": "1.0",
   "id": "01J8ZK4Q0000000000000000",
-  "source": "/tenants/tenant-dimostrativo/contexts/documentazione-clinica",
+  "source": "/tenants/t0001/contexts/documentazione-clinica",
   "type": "telemedic.documento.firmato.v1",
   "subject": "documento/doc-000042",
   "time": "2026-08-25T09:14:07.412Z",
   "datacontenttype": "application/json",
   "dataschema": "https://esempio.invalido/schemi/documento-firmato/1.json",
-  "tenantid": "tenant-dimostrativo",
+  "tenantid": "t0001",
   "sequence": "184",
   "correlationid": "01J8ZK4M0000000000000000",
   "data": {
@@ -142,22 +142,42 @@ dato nel corpo — non è adottata come predefinita.
 }
 ```
 
-*Tutti i valori sono sintetici e i domini sono deliberatamente non risolvibili.*
+*Tutti i valori sono sintetici e i domini sono deliberatamente non risolvibili. `t0001` è
+l'identificativo opaco del tenant, non il suo nome: vedi §3.2.*
 
 ### 3.2 Regole sulla busta
 
 | Attributo | Regola |
 |---|---|
 | `id` | Identificativo ordinabile nel tempo. La coppia `source` più `id` è unica per costruzione: è il fondamento della deduplicazione |
-| `source` | Identifica il tenant e il contesto produttore. Non è un indirizzo raggiungibile |
+| `source` | Identifica il tenant e il contesto produttore. Non è un indirizzo raggiungibile. **Il tenant vi compare nella forma opaca**, mai con il nome |
 | `type` | Spazio di nomi invertito con **versione esplicita nel nome**. La versione nel tipo è ciò che consente a una nuova versione di un evento di coesistere con la precedente durante la migrazione dei consumatori |
 | `subject` | Riferimento all'aggregato interessato, nella forma del piano applicativo |
 | `time` | Istante dell'accadimento in forma assoluta con millisecondi |
 | `datacontenttype` | Attributo della busta. **Non esiste una intestazione di protocollo dedicata a questo attributo**: nella modalità strutturata il tipo di contenuto del messaggio è quello della busta stessa; nella modalità binaria l'attributo si mappa sul tipo di contenuto del messaggio, non su un'intestazione con prefisso proprio. Una implementazione che emette un'intestazione dedicata non è conforme |
 | `dataschema` | Riferimento allo schema del dato, **versionato**. Rende la busta autodescrittiva e validabile, e alimenta la generazione dei tipi negli strumenti per gli integratori |
-| `tenantid` | Estensione di progetto. **Obbligatoria, senza eccezioni** |
+| `tenantid` | Estensione di progetto. **Obbligatoria, senza eccezioni**, e porta l'**identificativo opaco** del tenant, mai il nome |
 | `sequence` | Estensione di progetto. Numero monotono crescente **per aggregato**, non globale |
 | `correlationid` | Estensione di progetto. Collega gli eventi originati dalla stessa azione, per la ricostruzione del percorso |
+
+**Il nome del tenant non compare nella busta.** Né in `source` né in `tenantid` né altrove: si usa
+l'identificativo opaco, lo stesso ordinale con cui
+[`03-persistenza.md`](../01_technical/03-persistenza.md#21-la-struttura) §2.1 nomina gli schemi, e
+la corrispondenza fra nome e ordinale resta l'unico punto in cui il legame è noto.
+
+La ragione è già scritta per gli schemi - «il nome è un dato personale nel momento in cui il tenant
+è uno studio medico individuale, e i nomi degli schemi compaiono nei messaggi di errore, nei piani
+di esecuzione e negli strumenti di amministrazione» - e vale **a maggior ragione** per la busta,
+perché la busta non resta nell'archivio: viaggia verso sistemi di terzi, si deposita nei registri
+di diagnostica, nei sistemi di sorveglianza, negli archivi di ritentativo e nella coda dei messaggi
+non elaborabili. È lo stesso elenco di luoghi che §3.3 porta come motivo per cui il dato è magro:
+un contenuto magro dentro una busta che nomina lo studio medico non riduce l'esposizione, la
+sposta.
+
+C'è anche una ragione di contratto, e conviene dirla perché è la sola che ha una scadenza:
+`tenantid` è un attributo **del contratto pubblico**. Cambiarne la forma oggi non costa nulla;
+cambiarla dopo il primo integratore è una modifica non retrocompatibile, con il preavviso di
+dismissione che ne consegue.
 
 ### 3.3 Il contenuto del dato
 
@@ -212,19 +232,52 @@ non è una nuova versione dell'evento ma un evento nuovo, con un nome nuovo.
 | Consegnato **almeno una volta** | **Sì** |
 | Consegnato **esattamente una volta** | **No.** Non è garantibile attraverso il confine di un sistema esterno |
 | Ordine globale fra eventi | **No.** Nessun requisito funzionale può dipendervi |
-| Ordine fra eventi con la stessa chiave di partizionamento | **Sì**, all'interno della partizione |
+| Ordine fra eventi con la stessa chiave di partizionamento | **Condizionato.** Vale solo se valgono insieme le tre condizioni elencate qui sotto; fuori da quelle, **no** |
 | Il dato e l'evento sono atomici | **Sì**, per costruzione dell'outbox |
 
 La riga sull'ordine globale è quella che produce più malintesi negli integratori. **Un evento di
 conclusione può arrivare prima dell'evento di avvio.** È una conseguenza inevitabile dei
 ritentativi e della consegna concorrente, ed è documentata nel contratto pubblico, non nascosta.
 
+**L'ordine per chiave è condizionato, e le condizioni vanno dichiarate perché la realizzazione da
+sola non le produce.** Enunciarlo senza condizioni sarebbe promettere una proprietà che il
+meccanismo non ha, e uno scostamento di questo tipo non si manifesta in prova: si manifesta in
+esercizio, in modo intermittente, presso un integratore. L'ordine fra eventi che portano la stessa
+chiave di partizionamento vale **se e solo se** valgono insieme le tre condizioni seguenti.
+
+1. **Un solo lavoratore per volta detiene le righe di una data chiave.** Il relay preleva le righe
+   dall'outbox con un blocco che **salta quelle già prese** (`03-persistenza.md` §7): è ciò che
+   consente a più istanze di lavorare in parallelo senza coordinatore, ed è anche ciò che consente
+   a due istanze di prendere due lotti che contengono eventi dello stesso aggregato e di
+   pubblicarli in ordine invertito. Non è un difetto di realizzazione: è una proprietà del
+   meccanismo, e va tolta di mezzo assegnando la chiave al lavoratore, non sperando che non
+   accada.
+2. **Il produttore verso il canale è idempotente e limita le richieste in volo verso la stessa
+   destinazione.** Con più richieste in volo, un tentativo fallito e ripetuto può inserirsi dopo un
+   tentativo successivo andato a buon fine, e questo accade **anche con un solo relay**.
+3. **Il numero di partizioni non cambia.** L'aumento delle partizioni in esercizio può spezzare
+   l'ordine per aggregato durante il riassestamento: è il punto `[NV]` già dichiarato in
+   [ADR-0010](../adr/0010-buste-cloudevents-consegna-e-idempotenza.md) e in §4.2, e la verifica è a
+   carico dell'area tecnica **prima** di qualunque ridimensionamento.
+
+Fuori da queste condizioni l'ordine **non è garantito**, e il contratto pubblico lo dichiara come
+non garantito. È la stessa disciplina che l'ADR si impone quando scrive che il contratto è
+esplicito su ciò che non garantisce: una garanzia enunciata e non prodotta è peggio di una
+garanzia assente, perché l'integratore vi si appoggia.
+
+Esiste una lettura consolante di tutto questo, e va respinta: che il numero di sequenza per
+aggregato renda l'ordine irrilevante. Rende irrilevante il **riordino**, non la **lacuna**. Un
+consumatore che riceve il numero 7 dopo il 9 sa di aver ricevuto due eventi in ordine invertito e
+li riordina; un consumatore che non riceve mai il 7 non ha, dal solo numero di sequenza, alcun modo
+di distinguere l'attesa dalla perdita. Le due cose si presidiano in luoghi diversi: il riordino qui,
+la lacuna in §5.4.
+
 ### 4.2 Come si ricostruisce l'ordine
 
 Due meccanismi, complementari.
 
-**Chiave di partizionamento.** La chiave è **l'identificativo dell'aggregato** — la prestazione, il
-documento, il piano di monitoraggio — non il tenant. Partizionare per tenant sembra naturale e
+**Chiave di partizionamento.** La chiave è **l'identificativo dell'aggregato** - la prestazione, il
+documento, il piano di monitoraggio - non il tenant. Partizionare per tenant sembra naturale e
 produce due difetti: partizioni gravemente sbilanciate, perché i tenant hanno dimensioni molto
 diverse; e nessuna garanzia utile, perché l'ordine che serve è quello dei fatti relativi allo stesso
 aggregato, non allo stesso cliente.
@@ -232,9 +285,9 @@ aggregato, non allo stesso cliente.
 **Numero di sequenza per aggregato.** Ogni evento porta un numero monotono crescente per aggregato.
 Il consumatore che ha già applicato il numero `n` scarta ciò che arriva con un numero inferiore o
 uguale. È il meccanismo che rende l'ordine di arrivo **irrilevante** senza costringere a code
-ordinate, che sono costose e fragili — un evento bloccato blocca tutta la chiave.
+ordinate, che sono costose e fragili - un evento bloccato blocca tutta la chiave.
 
-Una nota di prudenza operativa: `[NV]` — l'aumento del numero di partizioni di un argomento in
+Una nota di prudenza operativa: `[NV]` - l'aumento del numero di partizioni di un argomento in
 esercizio può cambiare la funzione di assegnazione e quindi spezzare l'ordine per aggregato durante
 il riassestamento. La verifica sul broker adottato è a carico dell'area tecnica **prima** di
 qualunque ridimensionamento in esercizio.
@@ -256,7 +309,7 @@ Le tre forme, in ordine di preferenza:
 Due effetti in questo sistema **non sono ritrattabili** e vanno protetti con la terza forma: il
 recapito di un messaggio a una persona, e il deposito di un documento in un'infrastruttura
 documentale esterna. Un messaggio inviato due volte a un assistito non è un difetto tecnico
-invisibile: è un'esperienza che genera dubbio su un contenuto sanitario. `[NV]` — la finestra di
+invisibile: è un'esperienza che genera dubbio su un contenuto sanitario. `[NV]` - la finestra di
 conservazione delle chiavi di deduplicazione va fissata dall'area tecnica in coerenza con la
 finestra massima di ritentativo di §5.1 e non può essere inferiore a essa.
 
@@ -377,9 +430,9 @@ cancellazione; rettifica di un documento già trasmesso.
 5. **Il processo ha un termine.** Un processo che resta indefinitamente in un passo intermedio è un
    fallimento silenzioso: dopo la durata dichiarata entra in una coda presidiata.
 
-`[NV]` — Il **meccanismo** di realizzazione dell'orchestrazione — motore dedicato, macchina a stati
-persistita in tabella, componente applicativo — non è deciso in quest'area: la decisione è
-rinviata con i criteri in [09 — Decisioni rinviate](09-decisioni-rinviate.md). Ciò che è deciso è
+`[NV]` - Il **meccanismo** di realizzazione dell'orchestrazione - motore dedicato, macchina a stati
+persistita in tabella, componente applicativo - non è deciso in quest'area: la decisione è
+rinviata con i criteri in [09 - Decisioni rinviate](09-decisioni-rinviate.md). Ciò che è deciso è
 la **strategia**, perché è quella che vincola le altre aree.
 
 ## 7. Eventi verso l'esterno
@@ -446,7 +499,7 @@ distribuzione del carico su questo percorso è per identificativo di sessione e 
 la riassegnazione a seguito della caduta di un nodo termina le sessioni ospitate da quel nodo, che
 si ristabiliscono con una rinegoziazione.
 
-L'alternativa — instradamento casuale con affinità di sessione — è ammessa solo come debito
+L'alternativa - instradamento casuale con affinità di sessione - è ammessa solo come debito
 tecnico dichiarato, con una strategia di uscita scritta, perché sposta il problema sull'affinità
 del bilanciatore senza risolvere l'ordinamento.
 
@@ -466,6 +519,7 @@ del bilanciatore senza risolvere l'ordinamento.
 | EV-10 | Nessun percorso applicativo scrive direttamente sul broker | Unicità della sorgente |
 | EV-11 | Il segnalamento della sessione non attraversa il broker | §8.1 |
 | EV-12 | Gli interruttori automatici agiscono per tenant e per destinazione, non globalmente | SQ-05 |
+| EV-13 | Nessuna busta pubblicata contiene il **nome** di un tenant: `source` e `tenantid` portano l'identificativo opaco, e la verifica confronta il valore con il catalogo dei nomi | §3.2 |
 
 ## 10. Punti non verificati di questa sezione
 

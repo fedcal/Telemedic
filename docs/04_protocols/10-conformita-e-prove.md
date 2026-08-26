@@ -8,8 +8,8 @@ description: "Come si verifica che un'implementazione sia conforme: artefatti, s
 
 Un'area di documentazione sui protocolli che non dica **come si verifica** ciò che afferma è un
 elenco di intenzioni. Questo capitolo chiude l'area indicando che cosa il progetto pubblica come
-prova, che cosa verifica automaticamente, con quali criteri di accettazione, e — con altrettanta
-precisione — **che cosa non può dichiarare**.
+prova, che cosa verifica automaticamente, con quali criteri di accettazione, e - con altrettanta
+precisione - **che cosa non può dichiarare**.
 
 ## 1. Tre significati di «conforme», da non confondere
 
@@ -35,7 +35,7 @@ alle gare, e correggerle dopo è più difficile che non commetterle.
 | «Conforme agli header standard di limitazione del traffico» | Non sono standard, e la forma a tre campi non è nemmeno la forma corrente del draft |
 | «Conforme alla guida italiana» senza indicare la versione | La guida è alla 0.2.0, in stato *trial-use, draft*. Senza versione l'affermazione è vuota |
 | «Certificato» su una revisione in commento pubblico | La revisione adottata del profilo documentale è in *ballot*, non testo definitivo |
-| «Prodotto marcato» | Il progetto non appone marcatura né sottoscrive dichiarazioni di conformità: vincolo V-06 |
+| «Prodotto marcato» | Il progetto non appone marcatura né sottoscrive dichiarazioni di conformità: vincolo V-06. Non il progetto oggi; il soggetto fabbricante, da costituire |
 | «Accreditato» sui canali d'identità nazionali | Il fornitore di servizi è **chi installa**: vincolo V-05. Il progetto è conforme e verificabile |
 | «Cifrato fino agli estremi» senza condizione | Vero solo nella modalità predefinita. Con la registrazione attiva **non lo è** |
 | «Latenza garantita» | È una **metrica misurata, registrata e notificata**, con soglie dichiarate come specifica di prodotto |
@@ -66,9 +66,9 @@ nessuno è scritto a mano e mantenuto per disciplina.
 | Registro delle deviazioni dichiarate | Deviazione, fonte deviata, motivazione, costo | Tutti |
 
 L'ultimo artefatto merita una nota: **le deviazioni dichiarate sono un artefatto pubblico**. Il
-progetto devia in modo consapevole dalla raccomandazione della specifica in almeno tre punti — la
+progetto devia in modo consapevole dalla raccomandazione della specifica in almeno tre punti - la
 gestione stretta dei parametri di ricerca, l'obbligatorietà del validatore di precondizione sulle
-scritture cliniche, la risposta di risorsa inesistente al posto di quella di accesso negato — e
+scritture cliniche, la risposta di risorsa inesistente al posto di quella di accesso negato - e
 ciascuna deviazione è registrata con la propria motivazione e il proprio costo. Una deviazione
 non dichiarata è un difetto; una deviazione dichiarata e motivata è una decisione.
 
@@ -126,7 +126,7 @@ a un obbligo negativo esplicito di una specifica. Nessuna è ipotetica.
 
 ## 6. Gli strumenti
 
-> **`[NV]` — strumenti concreti.** I nomi, le versioni e le modalità di invocazione degli
+> **`[NV]` - strumenti concreti.** I nomi, le versioni e le modalità di invocazione degli
 > strumenti di validazione clinica, di pubblicazione delle guide, di analisi statica del
 > descrittore dell'interfaccia, di confronto di compatibilità e di analisi dei messaggi legacy
 > **non sono stati verificati su fonte primaria** e non vengono inventati qui.
@@ -172,8 +172,7 @@ Regole dei cancelli:
   di sviluppo, perché una libreria pubblicata è un contratto;
 - **la tracciabilità è parte del prodotto della catena**: ogni obbligo di specifica coperto è
   legato alla prova che lo copre, e l'associazione è un artefatto, non una convenzione. È il
-  requisito di tracciabilità che rende il materiale utilizzabile da chi certifica, ai sensi del
-  vincolo V-06.
+  requisito di tracciabilità che rende il materiale utilizzabile nel nostro percorso di valutazione della conformità, ai sensi del vincolo V-06.
 
 ## 8. L'ambiente di prova e i dati
 
@@ -183,8 +182,8 @@ per i registri, per la documentazione e per gli ambienti dimostrativi.
 
 Regole operative:
 
-- i generatori di dati producono valori **sintatticamente validi** — un codice fiscale ben formato
-  che non appartiene a nessuno — perché prove su dati malformati non verificano il percorso reale;
+- i generatori di dati producono valori **sintatticamente validi** - un codice fiscale ben formato
+  che non appartiene a nessuno - perché prove su dati malformati non verificano il percorso reale;
 - i domini usati negli esempi sono segnaposto riservati a scopo documentale;
 - l'ambiente dimostrativo **non accetta** l'inserimento di dati reali: è un controllo, non un
   avviso;
@@ -237,7 +236,7 @@ L'inventario delle specifiche fissate è **ricontrollato prima di ogni rilascio 
 almeno ogni sei mesi**. Il ricontrollo verifica quattro cose e registra l'esito con la data:
 
 1. la versione fissata è ancora quella pubblicata;
-2. lo stato di maturità è cambiato — una guida passata da bozza a stabile, o un draft diventato
+2. lo stato di maturità è cambiato - una guida passata da bozza a stabile, o un draft diventato
    RFC, cambiano ciò che si può dichiarare;
 3. sono stati pubblicati errata o correzioni tecniche;
 4. una dipendenza di licenza è cambiata.
@@ -254,39 +253,39 @@ infra-annuale.
 |---|---|---|
 | Forma esatta della sotto-estensione dell'indirizzo nel servizio virtuale | [02 §4](./02-fhir.md) | Chi implementa lo strato di adattamento clinico, con validazione contro il pacchetto fissato |
 | Strumenti concreti di validazione e di pubblicazione | [02 §8.1](./02-fhir.md), §6 di questo capitolo | Area tecnica |
-| Template, codici documentali e metadati per le tipologie della telemedicina | [03 §4.2](./03-documenti-clinici.md), [03 §5](./03-documenti-clinici.md) | Area di conformità — questione **Q-07** |
+| Template, codici documentali e metadati per le tipologie della telemedicina | [03 §4.2](./03-documenti-clinici.md), [03 §5](./03-documenti-clinici.md) | Area di conformità - questione **Q-07** |
 | Formati di busta di firma, requisiti del certificato e della marca temporale | [03 §6.2](./03-documenti-clinici.md) | Area di conformità e area di sicurezza |
 | Profilo del formato per la conservazione a lungo termine | [03 §4.3](./03-documenti-clinici.md) | Area di conformità |
 | Copertura campo per campo fra set informativo normativo e profilo clinico | [03 §4.1](./03-documenti-clinici.md) | Area di dominio e area di conformità |
 | Lettura diretta della specifica del protocollo di incapsulamento legacy | [04 §5.1](./04-hl7-v2.md) | Chi implementa il modulo |
 | Lunghezze, obbligatorietà e ripetibilità dei campi del segmento di errore legacy | [04 §7](./04-hl7-v2.md) | Chi implementa il modulo |
 | Valori di contesto di autenticazione accettati dal fornitore dell'identità su documento | [08 §6.1](./08-identita-e-autorizzazione.md) | Area di integrazione |
-| Inoltro del livello richiesto attraverso il realm di intermediazione | [08 §6.4](./08-identita-e-autorizzazione.md) | Area di architettura e area tecnica — questione **Q-160** |
+| Inoltro del livello richiesto attraverso il realm di intermediazione | [08 §6.4](./08-identita-e-autorizzazione.md) | Area di architettura e area tecnica - questione **Q-160** |
 | Algoritmo di hash delle credenziali temporanee del relay | [09 §7.4](./09-tempo-reale.md) | Chi implementa il servizio, con collaudo di integrazione |
 
 ### 11.2 Le decisioni che quest'area non prende
 
-**Q-06 — divergenza dell'URI del codice fiscale.** Quest'area documenta il problema, ne misura le
+**Q-06 - divergenza dell'URI del codice fiscale.** Quest'area documenta il problema, ne misura le
 conseguenze e formula una raccomandazione motivata in [02 §9.3](./02-fhir.md), **senza cablare
 alcun valore nei propri esempi normativi**. La decisione spetta all'area di architettura in
 concorso con quella tecnica.
 
-**Q-15 — le dieci scelte enunciate come proposta.** Quest'area le formula, le motiva e ne dichiara
+**Q-15 - le dieci scelte enunciate come proposta.** Quest'area le formula, le motiva e ne dichiara
 il costo in [01 §5](./01-principi-di-interoperabilita.md). La decisione formale, con il relativo
 record di decisione architetturale, spetta all'area di architettura.
 
-**Q-08 — le due modalità della sessione.** Quest'area descrive il protocollo che le governa in
+**Q-08 - le due modalità della sessione.** Quest'area descrive il protocollo che le governa in
 [09 §6](./09-tempo-reale.md) e ne dichiara la conseguenza inderogabile. Gli effetti sul modello
 dati spettano all'area di architettura.
 
-**Q-16, Q-161 — il registro unico delle destinazioni e delle origini fidate, e il punto unico di
+**Q-16, Q-161 - il registro unico delle destinazioni e delle origini fidate, e il punto unico di
 controllo delle richieste uscenti.** Quest'area **sostiene** entrambe le questioni e ne dichiara la
 motivazione in [07 §7](./07-eventi-e-webhook.md) e [06 §10](./06-api-di-progetto.md): registri
 separati divergono, e quattro implementazioni della stessa protezione producono quattro
 comportamenti diversi, di cui conta il più debole. Le decisioni spettano all'area di sicurezza e a
 quella di architettura.
 
-**Q-163 — nessuna capacità di divulgazione verso un pagatore.** Quest'area la recepisce come
+**Q-163 - nessuna capacità di divulgazione verso un pagatore.** Quest'area la recepisce come
 vincolo di catalogo in [07 §3](./07-eventi-e-webhook.md): la variante dell'evento di completamento
 destinata alla liquidazione porta soltanto identificativo della prestazione, esito amministrativo
 e importo. La conferma funzionale spetta all'area funzionale.

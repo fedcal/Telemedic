@@ -1,7 +1,7 @@
 ---
 title: Risposta agli incidenti
 sidebar_position: 11
-description: I quattro orologi distinti — violazione di dati personali, incidenti sui soggetti obbligati, obbligo delle aziende sanitarie, vigilanza sui dispositivi — e il quinto che parte l'11 settembre 2026, con il termine che decorre dall'acquisizione dell'evidenza e le capacità che il prodotto deve fornire.
+description: I quattro orologi distinti - violazione di dati personali, incidenti sui soggetti obbligati, obbligo delle aziende sanitarie, vigilanza sui dispositivi - e il quinto che parte l'11 settembre 2026, con il termine che decorre dall'acquisizione dell'evidenza e le capacità che il prodotto deve fornire.
 ---
 
 # Risposta agli incidenti
@@ -29,7 +29,7 @@ prenotifica di 24 ore verso un altro destinatario, che era già scaduta.
 Un unico manuale operativo che orchestri gli orologi è quindi un deliverable concreto, ed è
 questo capitolo.
 
-## 2. I quattro orologi — e il quinto
+## 2. I quattro orologi - e il quinto
 
 ```mermaid
 timeline
@@ -38,7 +38,7 @@ timeline
     24 ore : Prenotifica sui soggetti obbligati
            : Segnalazione ai sensi della legge nazionale
            : Segnalazione sulla resilienza informatica (dall'11 settembre 2026)
-           : Notifica al deployer da parte del fornitore (obbligo contrattuale)
+           : Notifica a chi installa da parte del fornitore (obbligo contrattuale)
     48 ore : Vigilanza sui dispositivi - minaccia grave per la salute pubblica
     72 ore : Notifica sui soggetti obbligati
            : Notifica ai sensi della legge nazionale
@@ -49,7 +49,7 @@ timeline
     1 mese : Relazione finale sui soggetti obbligati
 ```
 
-### 2.1 Orologio 1 — Violazione di dati personali
+### 2.1 Orologio 1 - Violazione di dati personali
 
 | | |
 |---|---|
@@ -66,13 +66,13 @@ di 72 ore**: la soglia di 72 ore è del titolare, verso l'autorità, e decorre d
 **il titolare** ne è venuto a conoscenza.
 
 Ne discende che, se il fornitore avvisa il cliente alla settantesima ora, il cliente non ha
-alcun ritardo formale — il suo orologio parte in quel momento — ma ha perso ogni possibilità di
+alcun ritardo formale - il suo orologio parte in quel momento - ma ha perso ogni possibilità di
 istruire la notifica in modo utile, e il fornitore ha con ogni probabilità violato il proprio
 obbligo di informare «senza ingiustificato ritardo». **L'accordo sul trattamento deve quindi
 fissare un termine contrattuale concreto e un canale**: il progetto adotta **sotto le 24 ore**,
 e **immediatamente** per gli incidenti di gravità elevata (§4).
 
-### 2.2 Orologio 2 — Incidenti sui soggetti obbligati alla sicurezza delle reti
+### 2.2 Orologio 2 - Incidenti sui soggetti obbligati alla sicurezza delle reti
 
 | | |
 |---|---|
@@ -82,15 +82,15 @@ e **immediatamente** per gli incidenti di gravità elevata (§4).
 | **Decorrenza** | Dall'**acquisizione dell'evidenza** dell'incidente significativo (§3) |
 | **Tassonomia** | Tre tipologie per i soggetti importanti, **quattro** per gli essenziali |
 
-Le quattro tipologie di incidente significativo di base sono costruite su tre elementi —
-**condizione**, **compromissione**, **oggetto della compromissione** — e sono, in sintesi:
+Le quattro tipologie di incidente significativo di base sono costruite su tre elementi -
+**condizione**, **compromissione**, **oggetto della compromissione** - e sono, in sintesi:
 
 | Tipologia | Compromissione | Oggetto | Importanti | Essenziali |
 |---|---|---|:-:|:-:|
 | 1 | Perdita di **riservatezza** verso l'esterno | Dati digitali | ● | ● |
 | 2 | Perdita di **integrità** con impatto verso l'esterno | Dati digitali | ● | ● |
 | 3 | Violazione dei **livelli di servizio attesi** | Servizi e attività | ● | ● |
-| 4 | **Accesso non autorizzato o con abuso dei privilegi concessi** | Dati digitali | — | ● |
+| 4 | **Accesso non autorizzato o con abuso dei privilegi concessi** | Dati digitali | - | ● |
 
 La quarta è quella che riguarda l'avversario primario di questo sistema
 ([01 §3.1](./01-modello-di-minaccia.md)), ed è la ragione per cui la rilevazione descritta in
@@ -100,9 +100,9 @@ Un chiarimento dell'autorità che riguarda direttamente il fornitore in modalit�
 gestito: l'oggetto della compromissione può essere costituito anche da «dati digitali sui quali
 il soggetto esercita il controllo anche parziale», categoria che comprende espressamente i dati
 di cui non si ha la titolarità ma per il cui trattamento si ha una responsabilità in forza di
-contratto — cioè **esattamente la posizione di chi gestisce i sistemi di un cliente**.
+contratto - cioè **esattamente la posizione di chi gestisce i sistemi di un cliente**.
 
-### 2.3 Orologio 3 — L'obbligo delle aziende sanitarie ai sensi della legge nazionale
+### 2.3 Orologio 3 - L'obbligo delle aziende sanitarie ai sensi della legge nazionale
 
 | | |
 |---|---|
@@ -112,17 +112,17 @@ contratto — cioè **esattamente la posizione di chi gestisce i sistemi di un c
 | **Sanzione** | In caso di reiterazione entro cinque anni, sanzione amministrativa **da 25.000 a 125.000 €** e responsabilità disciplinare |
 
 **Perché è un orologio distinto e non una duplicazione del secondo.** Il destinatario è diverso;
-l'ambito soggettivo è diverso — un'azienda sanitaria locale è quasi sempre obbligata a
+l'ambito soggettivo è diverso - un'azienda sanitaria locale è quasi sempre obbligata a
 entrambi; la tassonomia è diversa. Un cliente che sia insieme soggetto obbligato alla sicurezza
 delle reti e azienda sanitaria locale **conta due volte**, e il prodotto deve fornirgli evidenza
 utilizzabile in entrambi i formati.
 
-### 2.4 Orologio 4 — Vigilanza sui dispositivi medici
+### 2.4 Orologio 4 - Vigilanza sui dispositivi medici
 
 | | |
 |---|---|
 | **Destinatario** | Autorità competenti degli Stati membri |
-| **Soggetto obbligato** | Il **fabbricante** del dispositivo. **Non è il progetto** (vincolo V-06): è chi immette sul mercato la distribuzione marcata |
+| **Soggetto obbligato** | Il **fabbricante** del dispositivo. Non è il progetto **oggi** (vincolo V-06): è il **soggetto fabbricante, da costituire**, per la nostra distribuzione, e chi immette sul mercato per ogni derivata |
 | **Termini** | **2 giorni** in caso di minaccia grave per la salute pubblica; **10 giorni** in caso di decesso o grave deterioramento imprevisto dello stato di salute; **15 giorni** per gli altri incidenti gravi (art. 87 del Regolamento (UE) 2017/745) |
 
 **Perché compare in un capitolo di sicurezza.** Perché un incidente di sicurezza può **essere
@@ -136,7 +136,9 @@ innesca richiede di stabilire un nesso fra l'evento tecnico e la conseguenza cli
 in cui la tabella delle conseguenze cliniche di [01 §5](./01-modello-di-minaccia.md) smette di
 essere un esercizio di modellazione e diventa uno strumento operativo di triage.
 
-### 2.5 Il quinto — Resilienza informatica, dall'11 settembre 2026
+**Dichiarazione di `Q-276`.** La riscrittura della riga di soggetto obbligato rende il progetto titolare di due obblighi di vigilanza che richiedono capacità tecniche non ancora progettate: la **tassonomia stabile degli eventi contati** e la **conservazione della diagnostica pari alla finestra di vigilanza**. Entrambi gli obblighi contano eventi; non si accendono a posteriori; la serie storica mancante non si ricostruisce. Con il ruolo di fabbricante, la titolarità di questa lacuna sarà nostra, e va dichiarata esplicitamente come rischio rilevante nel registro delle capacità abilitanti mancanti.
+
+### 2.5 Il quinto - Resilienza informatica, dall'11 settembre 2026
 
 | | |
 |---|---|
@@ -159,6 +161,33 @@ dichiarati e un canale funzionante ([07 §6](./07-catena-di-fornitura.md)). **La
 segnalazione del progetto è quindi un requisito dell'integratore prima ancora che un obbligo
 proprio.**
 
+**Il terzo termine, che il progetto dichiara qui.** Perché quel requisito sia soddisfatto non
+basta che il canale esista: serve un termine, e serve che sia **il termine del progetto verso i
+propri integratori**, distinto dai due che già esistevano e che coprono altro. Il primo è la
+**presa in carico di una segnalazione di vulnerabilità** - tre giorni lavorativi, dichiarati in
+[`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md) - ed è un impegno verso
+**chi segnala**, cioè su un flusso in entrata. Il secondo è la **notifica di un incidente
+rilevato al cliente** - sotto le 24 ore, §4 e misura `RS.CO-02` di
+[09 §9](./09-ripartizione-delle-responsabilita.md) - ed è contrattuale, verso **chi ha
+installato**. Sono obblighi diversi per oggetto, per direzione e per destinatario, e nessuno dei
+due copre l'avviso in uscita verso chi integra il progetto in un proprio prodotto.
+
+> **Il progetto avvisa i propri integratori entro 24 ore dal momento in cui acquisisce l'evidenza**
+> che una vulnerabilità del progetto è attivamente sfruttata, e **immediatamente** quando
+> l'evidenza indica che lo sfruttamento è in corso su installazioni in esercizio. L'avviso è dovuto
+> **indipendentemente dalla disponibilità di una correzione**: rinviarlo fino alla correzione
+> toglierebbe all'integratore proprio il tempo che il suo obbligo gli concede.
+
+Tre precisazioni ne fanno un impegno verificabile invece di una formula. **L'avviso porta
+l'istante in cui il progetto ha acquisito l'evidenza**, perché il termine dell'integratore decorre
+dalla conoscenza **propria** e non dalla nostra, e perché quell'istante è esso stesso un artefatto
+di conformità (§3). **L'avviso porta ciò che serve a decidere, non ciò che serve ad attaccare**:
+componente e versioni interessate, se lo sfruttamento è confermato, mitigazioni temporanee
+disponibili, stato della correzione. E il termine è un **impegno di politica del progetto, non un
+obbligo di legge**: nessun obbligo di segnalazione sorge oggi in capo al progetto, per le ragioni
+appena dette, e questo termine esiste perché senza di esso l'obbligo di un terzo diventa
+inadempibile.
+
 ## 3. Il termine decorre dall'acquisizione dell'evidenza
 
 **Questa è l'informazione operativa più importante del capitolo.**
@@ -169,23 +198,23 @@ trasmissione della prenotifica e della notifica».
 
 Ne discendono tre conseguenze che cambiano il modo di ragionare sui tempi.
 
-**Prima — il prodotto che rileva prima non accorcia il termine: accorcia il ritardo.** Il
+**Prima - il prodotto che rileva prima non accorcia il termine: accorcia il ritardo.** Il
 termine è sempre di 24 ore dall'evidenza. Ciò che il prodotto può fare è far sì che l'evidenza
 arrivi ore o giorni prima, invece che con la segnalazione di un terzo.
 
-**Seconda — l'evidenza si acquisisce in tre modi**, e solo uno è automatizzabile: segnalazione
+**Seconda - l'evidenza si acquisisce in tre modi**, e solo uno è automatizzabile: segnalazione
 di attori esterni, tipicamente la struttura nazionale di risposta; segnalazione di attori
 interni, tipicamente l'utente che chiama il supporto; **analisi degli eventi rilevati dai sistemi
 di monitoraggio**. Il terzo è quello su cui il prodotto può incidere, ed è la giustificazione
 economica degli indicatori di [04 §7](./04-tracciamento.md).
 
-**Terza — il momento dell'acquisizione dell'evidenza va registrato**, perché è il momento da cui
+**Terza - il momento dell'acquisizione dell'evidenza va registrato**, perché è il momento da cui
 il soggetto obbligato dovrà dimostrare di aver contato. Un evento di rilevazione senza istante
 preciso rende indimostrabile la tempestività, ed è un problema anche quando il soggetto è stato
 tempestivo.
 
 Ne discende un requisito che sembra formale e non lo è: **la riga di registro che attesta
-l'acquisizione dell'evidenza — chi, quando, per quale via, su quale segnale — è essa stessa un
+l'acquisizione dell'evidenza - chi, quando, per quale via, su quale segnale - è essa stessa un
 artefatto di conformità**, e va prodotta automaticamente all'attivazione di un allarme.
 
 ## 4. Gli obblighi del fornitore verso chi installa
@@ -215,7 +244,7 @@ sincronizzati, esportabile e con impronta di integrità. È esattamente ciò che
 
 ## 5. Il regime che dipende da un numero che il cliente sceglie
 
-La terza tipologia di incidente significativo — violazione dei **livelli di servizio attesi** —
+La terza tipologia di incidente significativo - violazione dei **livelli di servizio attesi** -
 ha una proprietà che le altre non hanno: **la soglia la definisce il cliente**, ai sensi della
 misura sul monitoraggio continuo, e l'autorità la distingue nettamente dagli accordi
 contrattuali sui livelli di servizio.
@@ -228,7 +257,7 @@ minuti consecutivi; disponibilità limitata di un servizio per oltre il cinque p
 utenti.
 
 **Conseguenza di prodotto, e non è la stessa cosa delle metriche di qualità della sessione.** Le
-metriche già previste — latenza, perdita di pacchetti, variazione del ritardo, banda — sono
+metriche già previste - latenza, perdita di pacchetti, variazione del ritardo, banda - sono
 **necessarie e non sufficienti**: misurano la qualità della singola sessione, non la
 disponibilità del servizio. Serve un indicatore di **disponibilità per tenant e per servizio**,
 storicizzato con granularità sufficiente a riconoscere il superamento di una soglia dell'ordine
@@ -281,8 +310,8 @@ dalla notifica delle 72 ore. È un compromesso che va deciso prima, nella proced
 ## 7. Riesame, esercitazione e miglioramento
 
 - **Ogni incidente produce un riesame**, con esito documentato, che aggiorna il modello di
-  minaccia ([01 §8](./01-modello-di-minaccia.md)), il registro dei rischi del dispositivo e —
-  quando la causa è un difetto — un requisito e una prova che ne verifichino la correzione.
+  minaccia ([01 §8](./01-modello-di-minaccia.md)), il registro dei rischi del dispositivo e -
+  quando la causa è un difetto - un requisito e una prova che ne verifichino la correzione.
 - **La procedura è esercitata almeno annualmente**, con verbale. Una procedura mai esercitata
   non è una procedura: è un documento. L'esercitazione verifica anche i canali di notifica verso
   il cliente, che è la parte che si scopre rotta al primo uso reale.

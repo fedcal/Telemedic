@@ -1,10 +1,10 @@
 ---
-title: Conformità — indice e orientamento
+title: Conformità - indice e orientamento
 sidebar_position: 1
 description: "Come è organizzata l'area di conformità di Telemedic, che cosa contiene e che cosa rinvia altrove. Percorsi di lettura per chi intende certificare, per chi installa e per chi contribuisce; confini rispetto alla sicurezza e alla guida dei fondamenti; vincoli recepiti e imposti; ciò che quest'area deliberatamente non dice; e la nota su che cosa è cambiato con le decisioni D57 e D58 e su che cosa non è cambiato."
 ---
 
-# Conformità — indice e orientamento
+# Conformità - indice e orientamento
 
 > **Quest'area non dichiara una conformità: la attribuisce.** Non esiste in questa documentazione
 > una frase che affermi che il progetto è conforme a qualcosa, e l'assenza è deliberata. Un
@@ -20,16 +20,16 @@ diverse, e quasi tutte le fonti di quest'area si rivolgono alla seconda.
 
 Da qui discendono i tre fatti che nessun capitolo può contraddire.
 
-**Primo — il prodotto non reca marcatura CE, e il progetto non è oggi fabbricante** (`D28`,
+**Primo - il prodotto non reca marcatura CE, e il progetto non è oggi fabbricante** (`D28`,
 `D49` e `V-06`, come emendati da `D58`). Il progetto **intende** assumere il ruolo di fabbricante,
 e **il soggetto giuridico che lo eserciterebbe non è ancora costituito**. Produce e pubblica il
-materiale regolatorio — fascicolo tecnico, ciclo di vita del software, gestione del rischio,
-ingegneria dell'usabilità — **per quel percorso**, e si ferma esattamente dove comincia un atto che
+materiale regolatorio - fascicolo tecnico, ciclo di vita del software, gestione del rischio,
+ingegneria dell'usabilità - **per quel percorso**, e si ferma esattamente dove comincia un atto che
 presuppone un soggetto giuridico, una firma e una responsabilità che oggi non esistono. La ragione
 non è prudenza: è che una parte di quel materiale **non è recuperabile a posteriori** (`D45`), e la
 sua assenza renderebbe impossibile a chiunque certificare in seguito, **noi compresi**.
 
-**Secondo — la distinzione fra il repository e la distribuzione è sostanziale, non retorica**
+**Secondo - la distinzione fra il repository e la distribuzione è sostanziale, non retorica**
 (`D17`). Il repository è codice sorgente e lo dichiara in
 [`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md)
 e in
@@ -38,7 +38,7 @@ Il dispositivo è una **distribuzione identificata**, con un fabbricante, un num
 identificativo unico e un ciclo di vita propri. I due artefatti non hanno lo stesso nome e non
 hanno lo stesso regime.
 
-**Terzo — ciò che non è verificato si dichiara tale.** Ogni affermazione normativa di quest'area
+**Terzo - ciò che non è verificato si dichiara tale.** Ogni affermazione normativa di quest'area
 cita la fonte puntuale; dove la verifica sul testo primario non è stata compiuta, la voce è
 marcata **`[NV]`** con l'indicazione di che cosa va verificato e presso chi. Un riferimento
 inventato in materia regolatoria non è un errore di stile: è un difetto che si propaga in un
@@ -65,16 +65,16 @@ esiste più.
 |---|---|---|
 | Chi intraprende il percorso di certificazione | Un soggetto terzo indefinito, «chi certifica» | **Il progetto nel ruolo di fabbricante**, ruolo che **intende** assumere e il cui soggetto giuridico **è ancora da costituire** (`D58`) |
 | Di chi sono la roadmap e le date | Presentate come percorso di terzi | **Pianificazione interna del progetto** (`D57`), mai il percorso di un soggetto esterno |
-| A chi gravano le attività retroattivamente irrecuperabili di `D45` | «Su chi intende certificare» | **Su di noi**, in modo diretto invece che ipotetico — il che le rende **più** urgenti, non meno |
+| A chi gravano le attività retroattivamente irrecuperabili di `D45` | «Su chi intende certificare» | **Su di noi**, in modo diretto invece che ipotetico - il che le rende **più** urgenti, non meno |
 | Che cosa è il materiale regolatorio pubblicato | Un pacchetto per un terzo | Il materiale **del nostro percorso**, che resta utilizzabile anche da altri |
 
 **Che cosa non è cambiato**, e va letto con la stessa attenzione della tabella precedente, perché
 è la parte che si perde nelle riformulazioni.
 
 1. **La ripartizione tecnica delle responsabilità resta valida per intero.** Gli atti che la norma
-   riserva al ruolo di fabbricante — apporre la marcatura, firmare la dichiarazione di conformità,
+   riserva al ruolo di fabbricante - apporre la marcatura, firmare la dichiarazione di conformità,
    comporre e mantenere il fascicolo, nominare la persona responsabile del rispetto della normativa
-   — **restano riservati a quel ruolo anche quando il ruolo sarà nostro**. La distinzione non è
+   - **restano riservati a quel ruolo anche quando il ruolo sarà nostro**. La distinzione non è
    stata cancellata perché è precisamente ciò che rende leggibile **perché quelle attività non si
    possono anticipare**: l'intenzione non è il soggetto. L'elenco chiuso è in
    [04 §12](./04-fascicolo-tecnico.md), e non si è accorciato di una riga.
@@ -88,7 +88,7 @@ esiste più.
    intendere sarebbe più dannoso del silenzio.
 4. **Nessuna data di marcatura, da nessuna parte** (`V-171`). Non si scrive, e non si lascia
    intendere, che il prodotto sarà marcato entro un termine: una pianificazione interna **non
-   diventa una promessa perché è nostra**. Nessuna data, nessuna finestra, nessun «entro» —
+   diventa una promessa perché è nostra**. Nessuna data, nessuna finestra, nessun «entro» -
    l'unica occorrenza ammessa di quella parola è dentro l'enunciato del divieto stesso.
 5. **La responsabilità verso il danneggiato non è escludibile per contratto** (Direttiva (UE)
    2024/2853, art. 15). Vale ora come prima, e con più forza da quando l'intenzione è nostra.
@@ -99,8 +99,8 @@ certifica» come soggetto terzo **non è più usata**. Al suo posto, a seconda d
 **il fabbricante** dove si parla di un atto che la norma riserva a quel ruolo formale, a prescindere
 da chi lo eserciti; **il soggetto fabbricante, da costituire** dove il passo presuppone l'esistenza
 giuridica che oggi manca; **chi installa** o **chi integra** dove il testo si riferisce a loro. Le
-regole di forma con cui l'intenzione va nominata — verbo «intende», assenza del soggetto ripetuta
-nella stessa frase, stato di fatto negativo in prima posizione, nessuna data — sono in
+regole di forma con cui l'intenzione va nominata - verbo «intende», assenza del soggetto ripetuta
+nella stessa frase, stato di fatto negativo in prima posizione, nessuna data - sono in
 [01 §11](./01-inquadramento-normativo.md) e sono parte di `V-171`.
 
 ## 2. I capitoli
@@ -114,8 +114,9 @@ nella stessa frase, stato di fatto negativo in prima posizione, nessuna data —
 | [05](./05-gestione-del-rischio.md) | **Gestione del rischio** | Come si applica ISO 14971 a questo sistema: criteri di accettabilità, registro con esempi reali del dominio, gerarchia delle misure, rischio residuo dichiarato, raccordo con il modello di minaccia |
 | [06](./06-usabilita-e-accessibilita.md) | **Usabilità e accessibilità** | L'ingegneria dell'usabilità come obbligo regolatorio, la valutazione formativa e quella sommativa, e il rapporto con l'accessibilità, che è un obbligo distinto sulla stessa interfaccia |
 | [07](./07-valutazione-clinica.md) | **Valutazione clinica** | Che cosa si deve dimostrare, con quali dati, in quanto tempo, e perché è il secondo percorso a tempo lungo dopo l'organismo notificato |
-| [08](./08-sorveglianza-post-commercializzazione.md) | **Sorveglianza post-commercializzazione** | I due processi distinti — sorveglianza e vigilanza —, i termini di segnalazione, le modifiche e quando richiedono l'intervento dell'organismo notificato |
+| [08](./08-sorveglianza-post-commercializzazione.md) | **Sorveglianza post-commercializzazione** | I due processi distinti - sorveglianza e vigilanza -, i termini di segnalazione, le modifiche e quando richiedono l'intervento dell'organismo notificato |
 | [09](./09-percorso-e-calendario.md) | **Percorso e calendario** | Gli ottenimenti da conseguire, in quale ordine, con quali prerequisiti, e gli scenari temporali con i punti di decisione irreversibili. **È la sede unica delle date**, che sono **pianificazione interna del progetto** (`D57`) e mai una data di marcatura |
+| [10](./10-controllo-dei-documenti.md) | **Controllo dei documenti** | La procedura di controllo dei documenti approvata: elenco dei documenti, regole di identificazione e versione, revisori per categoria, forma dell'approvazione, ritiro. Come la registrazione di approvazione funziona nel modello «documenti come codice» e la lacuna esplicita dichiarata: redattore e approvatore coincidono, è la prima voce di `Q-189` |
 
 **Una regola di collocazione che vale per tutta l'area: le date stanno solo nel capitolo 09.** Gli
 altri capitoli rinviano. Due calendari in due luoghi divergono al primo aggiornamento, e in
@@ -131,7 +132,7 @@ comporre il fascicolo e immettere sul mercato una distribuzione identificata. **
 lettore è in primo luogo il progetto stesso**, che intende assumere quel ruolo e non ha ancora
 costituito il soggetto che lo eserciterebbe; resta valido anche per un integratore che assuma il
 ruolo sulla propria distribuzione, e le due letture non si escludono. Per entrambi l'area è un
-**manuale operativo**, non un'informativa — con la differenza, non piccola, che per il progetto è
+**manuale operativo**, non un'informativa - con la differenza, non piccola, che per il progetto è
 un elenco di adempimenti propri e non un servizio reso a un terzo.
 
 | Ordine | Capitolo | Perché in questa posizione |
@@ -143,9 +144,9 @@ un elenco di adempimenti propri e non un servizio reso a un terzo.
 | 5 | [03](./03-sistema-di-gestione-della-qualita.md), [05](./05-gestione-del-rischio.md), [06](./06-usabilita-e-accessibilita.md), [07](./07-valutazione-clinica.md), [08](./08-sorveglianza-post-commercializzazione.md) | I cinque flussi di lavoro paralleli, ciascuno con i propri tempi |
 
 **Due avvertenze che gli risparmiano mesi, e che stanno in fondo ai capitoli invece che in
-apertura.** La prima: le attività dei primi trenta giorni — costituzione del soggetto fabbricante,
+apertura.** La prima: le attività dei primi trenta giorni - costituzione del soggetto fabbricante,
 congelamento della destinazione d'uso, individuazione del responsabile del rispetto della
-normativa, primi contatti con gli organismi notificati, avvio del piano di valutazione clinica —
+normativa, primi contatti con gli organismi notificati, avvio del piano di valutazione clinica -
 **non sono delegabili allo sviluppo** e non si recuperano a valle. Da `D58` queste attività
 **gravano sul progetto**: la costituzione del soggetto è un **prerequisito interno con un proprio
 tempo**, non un'attesa di un terzo, e ogni settimana in cui non si avvia è una settimana che il
@@ -182,12 +183,12 @@ tutti e tre hanno una conseguenza immediata su una proposta di modifica.
 
 | Che cosa leggere | Perché una proposta può essere rifiutata per questo |
 |---|---|
-| [02 §6](./02-qualificazione-e-classificazione.md) — le dodici richieste che spostano la qualificazione | Una funzionalità dell'elenco **non viene respinta per merito tecnico, ma per politica di perimetro**. Il rifiuto è regolatorio e la motivazione va scritta come tale (vincolo `V-170`) |
-| [03 §§7, 9](./03-sistema-di-gestione-della-qualita.md) — tracciabilità e componenti di terze parti | Una modifica che non cita il requisito rompe la tracciabilità, che non si ricostruisce. Una dipendenza aggiunta senza scheda e senza versione esatta è un elemento di configurazione non identificato (`V-173`) |
-| [01 §11](./01-inquadramento-normativo.md) — le formule vietate | Una riga di documentazione, un messaggio di errore o un titolo di sezione che affermi una conformità inesistente è un difetto regolatorio (`V-171`), anche se il codice è impeccabile |
+| [02 §6](./02-qualificazione-e-classificazione.md) - le dodici richieste che spostano la qualificazione | Una funzionalità dell'elenco **non viene respinta per merito tecnico, ma per politica di perimetro**. Il rifiuto è regolatorio e la motivazione va scritta come tale (vincolo `V-170`) |
+| [03 §§7, 9](./03-sistema-di-gestione-della-qualita.md) - tracciabilità e componenti di terze parti | Una modifica che non cita il requisito rompe la tracciabilità, che non si ricostruisce. Una dipendenza aggiunta senza scheda e senza versione esatta è un elemento di configurazione non identificato (`V-173`) |
+| [01 §11](./01-inquadramento-normativo.md) - le formule vietate | Una riga di documentazione, un messaggio di errore o un titolo di sezione che affermi una conformità inesistente è un difetto regolatorio (`V-171`), anche se il codice è impeccabile |
 
 Chi non ha mai incontrato questa materia **non deve cominciare da qui**: il modulo
-[10 §15 — Il quadro regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md) è scritto per
+[10 §15 - Il quadro regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md) è scritto per
 chi parte da zero, è prerequisito dichiarato di
 [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md), e quest'area lo
 presuppone in ogni pagina.
@@ -215,7 +216,7 @@ I due perimetri si toccano in tre punti e non si sovrappongono in nessuno.
 
 | Oggetto | Sta in `docs/06_security/` | Sta qui |
 |---|---|---|
-| Minacce, avversari, misure tecniche, incidenti | Integralmente | — |
+| Minacce, avversari, misure tecniche, incidenti | Integralmente | - |
 | **File di rischio** | Il modello di minaccia è un **ingresso** | Il file di rischio ai sensi di ISO 14971 e la regola con cui l'ingresso vi entra: [05 §9](./05-gestione-del-rischio.md) |
 | Obblighi in materia di sicurezza delle reti e di resilienza dei prodotti | Le misure e la loro attuazione: [06_security/08](../06_security/08-quadro-normativo-e-misure.md) | L'attribuzione del soggetto obbligato e la tabella artefatto → regime: [01 §§4–5](./01-inquadramento-normativo.md) |
 | Ripartizione delle responsabilità fra i soggetti | La tabella operativa: [06_security/09](../06_security/09-ripartizione-delle-responsabilita.md) | Il riscontro di conformità su quella tabella, che ne conferma le righe e ne rafforza cinque: [01 §10](./01-inquadramento-normativo.md) |
@@ -283,8 +284,8 @@ una risposta implicita. Quello che segue è ciò che non è stato scritto, e la 
    pubblicata verrebbe letta come previsione dell'esito, che è esattamente l'affermazione vietata
    da `V-171`. La motivazione per esteso è in [01 §13](./01-inquadramento-normativo.md).
 7. **Non decide al posto del committente.** Le decisioni che richiedono una scelta imprenditoriale
-   — monetizzazione, costituzione di un soggetto giuridico, periodo di supporto dichiarato, forma
-   di pubblicazione della traccia di destinazione d'uso — restano aperte e sono marcate come tali.
+   - monetizzazione, costituzione di un soggetto giuridico, periodo di supporto dichiarato, forma
+   di pubblicazione della traccia di destinazione d'uso - restano aperte e sono marcate come tali.
 8. **Non chiude le verifiche che non ha compiuto.** Dove il testo primario non è stato letto, la
    voce è `[NV]`: le più rilevanti riguardano la numerazione puntuale di alcune sezioni degli
    allegati, i codici di designazione applicabili al dispositivo e lo stato di armonizzazione di

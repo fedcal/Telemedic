@@ -32,16 +32,16 @@ testualmente:
 
 Tradotto: **non esiste un regime giuridico speciale della telemedicina**. Esiste il regime della
 prestazione, che si applica anche a distanza, con l'aggiunta di alcuni obblighi specifici. È la
-ragione per cui il catalogo delle prestazioni del progetto porta **due codifiche native** — il
-codice del catalogo del tenant e il codice nazionale — e la modalità a distanza è un **modificatore
+ragione per cui il catalogo delle prestazioni del progetto porta **due codifiche native** - il
+codice del catalogo del tenant e il codice nazionale - e la modalità a distanza è un **modificatore
 di canale**, non una prestazione diversa.
 
 ## 2. Il secondo fatto: due tassonomie che non coincidono
 
 È lo scoglio che un modello dati deve superare per primo, e che quasi nessuno rappresenta.
 
-L'**Accordo 215/CSR 2020** elenca **cinque attività ambulatoriali** — televisita, teleconsulto,
-teleconsulenza, teleassistenza, telerefertazione — più **telecontrollo** e **telemonitoraggio**
+L'**Accordo 215/CSR 2020** elenca **cinque attività ambulatoriali** - televisita, teleconsulto,
+teleconsulenza, teleassistenza, telerefertazione - più **telecontrollo** e **telemonitoraggio**
 come «modalità operative».
 
 Il **DM 21 settembre 2022**, Allegato A, individua invece **quattro «servizi minimi»** che
@@ -86,7 +86,7 @@ Ogni riga in cui due prestazioni divergono è una riga che, se collassata, produ
 | **Sessione media** | obbligatoria | facoltativa | obbligatoria se sincrona | obbligatoria | assente |
 | **Produce** | referto, con eccezioni di setting | **nessun referto autonomo**; relazione collaborativa allegata | documentazione dell'atto richiedente | relazione clinico-assistenziale **conclusiva** | tesserino, piano, report, relazione finale |
 | **Tariffata** | sì, con il codice della prestazione erogata | **no** | **no** | secondo il regime della professione | **non da sola** |
-| **Ammessa in urgenza** | **no** | sì | sì, ma **mai in surroga del soccorso** | — | — |
+| **Ammessa in urgenza** | **no** | sì | sì, ma **mai in surroga del soccorso** | - | - |
 
 Fonti: Accordo Stato-Regioni 17 dicembre 2020, rep. atti n. 215/CSR, All. A; DM 21 settembre 2022,
 All. A; DM 30 settembre 2022, All. B; DM 19 novembre 2025, art. 7 e All. 1.
@@ -118,7 +118,7 @@ l'appropriatezza**: la registra.
 
 ### 4.3 Gli obblighi distinti che porta
 
-**Il referto obbligatorio — ma condizionato al setting.** «La televisita erogata nell'ambito
+**Il referto obbligatorio - ma condizionato al setting.** «La televisita erogata nell'ambito
 dell'attività specialistica ambulatoriale deve sempre concludersi con un referto» (Accordo
 215/CSR 2020, All. A). Il DM 30 settembre 2022, All. B, correttivamente stabilisce però che la
 televisita programmata ed erogata direttamente da medico di medicina generale o pediatra di libera
@@ -127,7 +127,7 @@ Cablare l'obbligo di referto come incondizionato è un errore che si manifesta a
 sia una medicina di gruppo (vincolo `V-145`).
 
 **Contenuti obbligatori propri del referto.** L'Accordo 215/CSR 2020 impone che il referto della
-televisita riporti gli eventuali **collaboratori partecipanti** — caregiver, altro medico — e la
+televisita riporti gli eventuali **collaboratori partecipanti** - caregiver, altro medico - e la
 **qualità del collegamento con conferma dell'idoneità all'esecuzione della prestazione**. Il
 tracciato ministeriale del referto di televisita (DM 19 novembre 2025, All. 1, § 2.20) **non
 prevede un campo dedicato** a quest'ultima: il progetto ne propone la collocazione fra i
@@ -148,7 +148,7 @@ mantenere inalterato il contenuto sostanziale della prestazione da erogare, le A
 erogatori privati sono tenuti a completare la prestazione in modalità tradizionale senza ulteriori
 oneri a carico del SSN e/o utente» (Accordo 215/CSR 2020, All. A). Sul piano del modello questo
 significa che gli esiti di fallimento tecnico, di qualità inidonea e di rinvio **generano un fatto
-successivo** — una nuova richiesta collegata alla precedente — e non si limitano a chiudere il
+successivo** - una nuova richiesta collegata alla precedente - e non si limitano a chiudere il
 contatto. La riprogrammazione in presenza è parte della macchina a stati, non gestione dell'errore.
 
 ### 4.4 La differenza che nessuno vede finché non produce danni
@@ -156,7 +156,7 @@ contatto. La riprogrammazione in presenza è parte della macchina a stati, non g
 Lo **stato** dice dove si trova il contatto; l'**esito** dice che cosa è successo. Sono attributi
 distinti, e il secondo determina gli effetti amministrativi.
 
-Due esiti condividono lo stesso stato terminale — l'assistito non è stato visitato — e hanno
+Due esiti condividono lo stesso stato terminale - l'assistito non è stato visitato - e hanno
 effetti economici **opposti**: la mancata presentazione, rilevabile per assenza di qualunque
 tentativo di connessione, e il fallimento tecnico attribuibile all'assistito, rilevabile per
 telemetria, che **non è** mancata presentazione e comporta riprogrammazione senza addebito.
@@ -184,13 +184,13 @@ soccorso**.» (entrambe: Accordo 215/CSR 2020, All. A)
 
 Sono sottili e vanno tenute a mente, perché un decreto le unifica mentre l'accordo le distingue:
 
-1. **gli attori** — nel teleconsulto sono medici; nella teleconsulenza sono esercenti le
+1. **gli attori** - nel teleconsulto sono medici; nella teleconsulenza sono esercenti le
    professioni sanitarie con responsabilità differenti sul caso;
-2. **l'elemento preminente** — nel teleconsulto è la condivisione documentale; nella
+2. **l'elemento preminente** - nel teleconsulto è la condivisione documentale; nella
    teleconsulenza è la videochiamata, con la condivisione garantita all'occorrenza;
-3. **la programmazione** — il teleconsulto può essere estemporaneo, la teleconsulenza è sempre
+3. **la programmazione** - il teleconsulto può essere estemporaneo, la teleconsulenza è sempre
    programmata;
-4. **il divieto espresso** — solo la teleconsulenza porta il divieto di surrogare il soccorso.
+4. **il divieto espresso** - solo la teleconsulenza porta il divieto di surrogare il soccorso.
 
 I due divieti in materia di urgenza **non coincidono e non si sovrappongono**: il teleconsulto e
 la teleconsulenza sono eseguibili anche in urgenza secondo la stessa fonte che esclude la
@@ -207,7 +207,7 @@ ha selezionato, per il tempo necessario alla risposta.
 
 Quel materiale è modellato come **aggregato con ciclo di vita proprio**: nasce con la richiesta,
 contiene un elenco chiuso di riferimenti documentali, ha una scadenza obbligatoria e decade in tre
-modi — risposta firmata, rifiuto, scadenza. La revoca è un fatto registrato, non l'assenza di un
+modi - risposta firmata, rifiuto, scadenza. La revoca è un fatto registrato, non l'assenza di un
 rinnovo. Ha una conseguenza spesso trascurata: a distanza di anni, la domanda «su che cosa si è
 espresso il consulente» ha una risposta solo se l'insieme è stato registrato come tale, e non
 ricostruito dal registro degli accessi.
@@ -216,8 +216,8 @@ Nella forma sincrona con assistito presente compaiono quattro problemi che la te
 chi è l'erogante, chi documenta, chi conduce la sessione, e se l'assistito sa chi c'è. Il modello
 li risolve con un unico contatto a più partecipanti, un ruolo esplicito di conduttore, documenti
 con autori distinti che il sistema **non fonde**, e una lista dei presenti visibile per l'intera
-durata **senza possibilità di occultamento**. La stanza laterale fra professionisti — colloquio
-riservato che esclude temporaneamente l'assistito — è rappresentata come **periodo dichiarato**
+durata **senza possibilità di occultamento**. La stanza laterale fra professionisti - colloquio
+riservato che esclude temporaneamente l'assistito - è rappresentata come **periodo dichiarato**
 con inizio, fine e annuncio: non esiste modalità silenziosa.
 
 ### 5.4 Gli obblighi distinti
@@ -226,8 +226,8 @@ con inizio, fine e annuncio: non esiste modalità silenziosa.
 definizione del referto che viene redatto al termine della visita erogata al paziente, ma non dà
 luogo ad un referto a sé stante» (Accordo 215/CSR 2020, All. A). Per anni questo passaggio è stato
 letto come «il teleconsulto non produce nulla»: **è una lettura errata**. Il DM 19 novembre 2025
-crea una tipologia documentale FSE autonoma — la relazione collaborativa per il
-teleconsulto/teleconsulenza, lett. q) — con una regola strutturale esplicita (All. 1, § 2.21): «La
+crea una tipologia documentale FSE autonoma - la relazione collaborativa per il
+teleconsulto/teleconsulenza, lett. q) - con una regola strutturale esplicita (All. 1, § 2.21): «La
 relazione collaborativa viene conferita al FSE come allegato del documento di referto relativo
 alla prestazione o all'evento principale […] redatto dal medico richiedente la consulenza».
 
@@ -365,7 +365,7 @@ essa, il peggioramento clinico che impedisce la misura resta invisibile.
 A queste si aggiunge l'**allarme**, che è una sequenza di eventi immutabili con lo stato corrente
 come proiezione (vincolo `V-121`), e che ha tre proprietà che sono decisioni e non dettagli:
 «recapitato» non è «preso in carico»; il mancato riscontro è uno stato da registrare e misurare,
-non un'assenza; **l'escalation può fallire, e il fallimento è dichiarato** — un'escalation che si
+non un'assenza; **l'escalation può fallire, e il fallimento è dichiarato** - un'escalation che si
 esaurisce senza destinatario non deve terminare in silenzio.
 
 ### 7.6 La copertura oraria è un requisito di sicurezza, non un parametro commerciale
@@ -374,10 +374,10 @@ esaurisce senza destinatario non deve terminare in silenzio.
 dell'assenza di servizio, perché produce falsa rassicurazione.**
 
 Nel modello la copertura oraria è un dato di runtime versionato, per cliente e per percorso; è
-**condizione di attivabilità del piano** — un piano senza copertura dichiarata non si attiva, e
+**condizione di attivabilità del piano** - un piano senza copertura dichiarata non si attiva, e
 nessuna configurazione supera il controllo; è visibile in modo persistente all'assistito e al
 caregiver **con lo stato corrente**, non con l'orario teorico, e non è occultabile per
-personalizzazione; **condiziona la validità del destinatario nella catena di escalation** — un
+personalizzazione; **condiziona la validità del destinatario nella catena di escalation** - un
 destinatario fuori copertura non è un destinatario valido (vincolo `V-122`); e la sua riduzione su
 un servizio attivo è un evento di sicurezza con motivazione, elenco dei piani coinvolti e notifica
 agli arruolati.
@@ -424,12 +424,12 @@ scritta e trasmessa per mezzo di sistemi digitali e di telecomunicazione».
 
 Due precisazioni contro altrettanti equivoci. Primo: **la telerefertazione non è l'invio del
 referto per posta elettronica**. È l'atto di refertare a distanza, non il canale di consegna.
-Secondo: **non è una prestazione a sé** e non è tariffata autonomamente — «il referto rappresenta
+Secondo: **non è una prestazione a sé** e non è tariffata autonomamente - «il referto rappresenta
 l'attività di completamento della prestazione specialistica».
 
 Nel DM 21 settembre 2022 non compare fra i servizi minimi: diventa il micro-servizio trasversale
 «refertazione e firma digitale», su cui il decreto pone un divieto con impatto architetturale
-diretto — «non si deve realizzare un modulo *ad hoc* […] ma si deve prevedere l'integrazione con
+diretto - «non si deve realizzare un modulo *ad hoc* […] ma si deve prevedere l'integrazione con
 il modulo regionale, se già presente». Da qui la postura del progetto: moduli propri di
 refertazione, agenda e fatturazione esistono, ma sono **disattivabili e sostituibili per
 configurazione**. Dove esiste un modulo regionale o dell'integratore, il sistema si integra invece
@@ -492,7 +492,7 @@ deciso, con l'identità di chi lo ha deciso e il criterio dichiarato (`OUT-03`).
 | Errore | Che cosa produce |
 |---|---|
 | «Teleconsulto e televisita sono la stessa cosa con un partecipante in più» | Un modello che non sa chi è l'erogante, chi documenta e chi risponde; e che tenta di produrre un referto dove la norma lo vieta |
-| «Il telemonitoraggio è raccogliere dati da un dispositivo» | Un prodotto privo di piano versionato, di attesa di rilevazione, di copertura oraria dichiarata e di escalation con fallimento dichiarato — cioè privo di tutto ciò che lo rende un servizio sanitario invece di un archivio di numeri |
+| «Il telemonitoraggio è raccogliere dati da un dispositivo» | Un prodotto privo di piano versionato, di attesa di rilevazione, di copertura oraria dichiarata e di escalation con fallimento dichiarato - cioè privo di tutto ciò che lo rende un servizio sanitario invece di un archivio di numeri |
 | «Basta un `enum` con i tipi di prestazione» | Campi nulli, regole condizionali fragili, rendicontazione impossibile. Ogni prestazione è la propria macchina a stati, e il tipo la seleziona invece di aggiungere un campo (vincolo `V-140`) |
 | «Il telecontrollo è telemonitoraggio con una videochiamata» | Un errore di rendicontazione: il telecontrollo è tariffato, il telemonitoraggio da solo no |
 | «Un attributo booleano basta per l'uso in urgenza» | Due regole diverse collassate in una: la televisita è esclusa dall'urgenza, la teleconsulenza vi è ammessa ma non può surrogare il soccorso |

@@ -1,20 +1,20 @@
 ---
 title: Usabilità e accessibilità
 sidebar_position: 7
-description: "Due obblighi distinti che si incontrano sulla stessa interfaccia: l'ingegneria dell'usabilità ai sensi di IEC 62366-1 e l'accessibilità ai sensi di EN 301 549 e WCAG 2.1 AA. L'errore d'uso come modo di guasto, i gruppi di utilizzatori e le coorti della validazione sommativa, che cosa il progetto produce oggi e quali atti restano riservati al ruolo di fabbricante — ruolo che il progetto intende assumere e il cui soggetto giuridico è ancora da costituire —, e che cosa significa progettare prima per il dispositivo mobile quando chi usa il sistema è una persona anziana, un familiare che assiste o un operatore sotto pressione."
+description: "Due obblighi distinti che si incontrano sulla stessa interfaccia: l'ingegneria dell'usabilità ai sensi di IEC 62366-1 e l'accessibilità ai sensi di EN 301 549 e WCAG 2.1 AA. L'errore d'uso come modo di guasto, i gruppi di utilizzatori e le coorti della validazione sommativa, che cosa il progetto produce oggi e quali atti restano riservati al ruolo di fabbricante - ruolo che il progetto intende assumere e il cui soggetto giuridico è ancora da costituire -, e che cosa significa progettare prima per il dispositivo mobile quando chi usa il sistema è una persona anziana, un familiare che assiste o un operatore sotto pressione."
 ---
 
 # Usabilità e accessibilità
 
 > **Che cosa questo capitolo non contiene.** Non contiene i requisiti di accessibilità e usabilità
 > del prodotto: quelli sono in
-> [03 §06 — Accessibilità e usabilità](../03_functional/06-accessibilita-e-usabilita.md), con le
+> [03 §06 - Accessibilità e usabilità](../03_functional/06-accessibilita-e-usabilita.md), con le
 > due prove obbligatorie, i dieci percorsi critici, i sei profili di utente reale e la matrice di
 > verifica. **Quel capitolo non va riscritto né contraddetto: qui si legge in chiave regolatoria.**
 > Non contiene la mappa delle fonti sull'accessibilità, che è in
 > [01 §8](./01-inquadramento-normativo.md). Non contiene la spiegazione di che cosa sia un errore
 > d'uso per chi non l'ha mai incontrata, che è nel modulo
-> [15 — Regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md).
+> [15 - Regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md).
 
 > **Avvertenza di perimetro, prima di ogni altra riga e in questa posizione perché è la sola che
 > cambia le decisioni di chi legge.** **Il prodotto non reca marcatura CE**, **non è coperto da
@@ -34,20 +34,20 @@ description: "Due obblighi distinti che si incontrano sulla stessa interfaccia: 
 > precisamente ciò che rende leggibile **perché quegli atti non si possono anticipare**.
 >
 > **E il varco che questa avvertenza potrebbe aprire, chiuso qui.** Chi legge che il progetto
-> intende certificare — o che l'interfaccia è verificata sui criteri di accessibilità — e ne
+> intende certificare - o che l'interfaccia è verificata sui criteri di accessibilità - e ne
 > conclude «allora posso usarlo con pazienti reali» trae una conclusione **sbagliata**, e sotto
 > due profili distinti. **Un'interfaccia accessibile non è un'interfaccia validata**: un requisito
 > generale di sicurezza non dimostrato resta non dimostrato, e la conformità ai criteri di
 > accessibilità non ne dimostra nemmeno una parte (§ 6.2). **E l'intenzione non copre nessuno**:
 > non trasferisce alcun obbligo e non rende utilizzabile una versione non certificata. Chi
-> installa o mette in servizio il software oggi assume per intero gli obblighi che ne derivano —
+> installa o mette in servizio il software oggi assume per intero gli obblighi che ne derivano -
 > compresa la dichiarazione di accessibilità del servizio, che grava su di lui e **non graverà
 > sul progetto nemmeno quando il soggetto fabbricante sarà costituito** (§ 9, `V-273`).
 >
 > **Nessuna data compare in questo capitolo, e nessuna può comparirvi.** Il § 8 parla di
 > sequenza e di condizioni di validità, mai di quando: il vincolo `V-171` vieta di affermare o
-> lasciare intendere che il prodotto sarà marcato entro un termine — questa è l'unica occorrenza
-> ammessa di quella parola — e una pianificazione interna non diventa una promessa solo perché è
+> lasciare intendere che il prodotto sarà marcato entro un termine - questa è l'unica occorrenza
+> ammessa di quella parola - e una pianificazione interna non diventa una promessa solo perché è
 > nostra. Le date del progetto stanno unicamente in
 > [09](./09-percorso-e-calendario.md), e sono pianificazione interna (`D57`).
 
@@ -78,9 +78,9 @@ il ruolo sarà nostro**.
 
 **La riga sull'accessibilità va letta con più attenzione ancora, perché il soggetto obbligato non
 è lo stesso e non lo diventerà.** L'obbligo di dichiarazione grava su **chi eroga il servizio in
-rete**, cioè su chi installa; le **proprietà tecniche** dell'interfaccia — contrasto, ordine di
+rete**, cioè su chi installa; le **proprietà tecniche** dell'interfaccia - contrasto, ordine di
 lettura, annunci di stato, raggiungibilità da tastiera, assenza di precompilazione sui campi a
-rischio — sono invece **nel prodotto**, e né chi installa né chi integra può aggiungerle a valle.
+rischio - sono invece **nel prodotto**, e né chi installa né chi integra può aggiungerle a valle.
 Sono due obblighi su due soggetti, e nessuno dei due si trasferisce all'altro. La ripartizione
 puntuale è al § 9.
 
@@ -94,10 +94,10 @@ meglio o peggio senza che nulla di formale ne dipenda. In un dispositivo medico 
   conoscenze tecniche, dell'esperienza, dell'istruzione, della formazione e, ove applicabile,
   delle condizioni mediche e fisiche degli utilizzatori previsti; e di ridurre per quanto possibile
   i rischi derivanti dall'**ergonomia** e dall'ambiente d'uso previsto.
-  `[NV]` — la numerazione puntuale dei punti della sezione va verificata sul testo consolidato
+  `[NV]` - la numerazione puntuale dei punti della sezione va verificata sul testo consolidato
   prima della citazione nel fascicolo.
 - **EN 62366-1:2015** con l'emendamento **A1:2020** è la norma che descrive il processo con cui si
-  soddisfa quel requisito. `[NV]` — **la presenza e la formulazione esatta del riferimento
+  soddisfa quel requisito. `[NV]` - **la presenza e la formulazione esatta del riferimento
   nell'elenco delle norme armonizzate sotto il regolamento non sono verificate**: non tutte le
   norme di processo dell'era delle direttive sono state ripubblicate. La verifica è documentale, a
   costo nullo, e va fatta prima di compilare la matrice dei requisiti generali di sicurezza e
@@ -106,15 +106,15 @@ meglio o peggio senza che nulla di formale ne dipenda. In un dispositivo medico 
 **La conseguenza operativa è netta e non ammette recuperi.** Un'interfaccia non validata secondo
 un processo di ingegneria dell'usabilità non è un'interfaccia perfettibile: è un requisito
 generale di sicurezza **non dimostrato**. Non esiste modo di sanarla con una revisione interna a
-valle, perché la validazione sommativa richiede quattro cose che si producono solo prima —
+valle, perché la validazione sommativa richiede quattro cose che si producono solo prima -
 un'interfaccia congelata, un protocollo approvato, utilizzatori rappresentativi reclutati, un
-rapporto — e nessuna delle quattro si fabbrica a posteriori.
+rapporto - e nessuna delle quattro si fabbrica a posteriori.
 
 ## 3. L'errore d'uso è un modo di guasto
 
 La norma definisce l'errore d'uso come **azione o omissione dell'utilizzatore che produce un
 risultato diverso da quello inteso dal fabbricante o atteso dall'utilizzatore**. La scelta
-lessicale della versione inglese — *use error*, non *user error* — è deliberata e sposta l'oggetto
+lessicale della versione inglese - *use error*, non *user error* - è deliberata e sposta l'oggetto
 dall'utente all'interazione.
 
 **Non è una posizione ideologica, è una collocazione tecnica.** Nella catena di ISO 14971
@@ -131,8 +131,8 @@ sistema di gestione della qualità, non lasciate alla sensibilità di chi proget
 1. **«L'utente ha sbagliato» non è la conclusione di un'analisi: ne è l'inizio.** La domanda
    successiva è obbligatoria: che cosa, nell'interfaccia, ha reso quel comportamento ragionevole?
    Un'analisi che si ferma prima di quella domanda non ha prodotto nulla di utilizzabile.
-2. **Errore d'uso e uso anomalo vanno distinti, e la distinzione va motivata.** L'uso anomalo —
-   violazione intenzionale e ingiustificabile dell'uso previsto — è fuori dal perimetro della
+2. **Errore d'uso e uso anomalo vanno distinti, e la distinzione va motivata.** L'uso anomalo -
+   violazione intenzionale e ingiustificabile dell'uso previsto - è fuori dal perimetro della
    norma sull'usabilità ma **non è fuori dalla gestione del rischio**: si tratta con misure
    organizzative, di controllo degli accessi e informative. Classificare come «uso anomalo» un
    comportamento che una parte significativa degli utilizzatori adotta spontaneamente è un modo
@@ -147,7 +147,7 @@ di un piano di monitoraggio parte vuoto e obbligatorio, senza alcuna precompilaz
 i valori del percorso o dell'ultimo piano (vincolo `V-123` dell'area funzionale). La ragione non è
 di preferenza: un campo precompilato è **accessibile in modo impeccabile** e produce
 sistematicamente la conferma per inerzia di un valore che nessuno ha valutato. È la riga `RM-06`
-del registro dei rischi ed è una misura di **livello 1** — sicurezza intrinseca per progettazione:
+del registro dei rischi ed è una misura di **livello 1** - sicurezza intrinseca per progettazione:
 l'errore non è possibile perché non c'è nulla da confermare.
 
 ## 4. Gli otto prodotti del processo, e chi li produce
@@ -179,7 +179,7 @@ assumere l'esito sono atti che la norma riserva a quel ruolo, e **la riserva non
 ruolo sarà nostro**: cade quando il soggetto esiste **e** il controllo dei documenti è in
 esercizio, perché senza quest'ultimo ciò che si firma è una firma su un testo e non una
 dichiarazione ([02 §5.2](./02-qualificazione-e-classificazione.md);
-[03 §4](./03-sistema-di-gestione-della-qualita.md), `V-174`). Leggere quella colonna come «lavoro
+[03 §4.1](./03-sistema-di-gestione-della-qualita.md), `V-174`). Leggere quella colonna come «lavoro
 di qualcun altro» era corretto prima di `D58` ed è scorretto ora: è **lavoro nostro non ancora
 eseguibile**, che è una condizione più onerosa e non meno.
 
@@ -219,7 +219,7 @@ condizione di disabilità e l'età avanzata sono **caratteristiche che devono es
 ciascuna coorte pertinente**, non una coorte separata: esistono medici ipovedenti, infermieri con
 limitazioni motorie e operatori che usano ingrandimento di sistema. Una sommativa che collochi
 tutte le persone con disabilità in un'unica coorte «accessibilità» produce due difetti
-simultanei — non copre i gruppi professionali nella loro composizione reale e trasforma
+simultanei - non copre i gruppi professionali nella loro composizione reale e trasforma
 l'accessibilità in un adempimento separato, che è esattamente ciò che il § 6 vieta.
 
 **Il numero di partecipanti.** IEC 62366-1 **non prescrive un numero**. La cifra di quindici
@@ -297,10 +297,10 @@ accessibilità del prodotto sono del **progetto** (§ 1, ultime due righe).
 **Attribuire il secondo inadempimento al fabbricante è un errore di soggetto**, e va corretto
 ovunque compaia. Il fabbricante risponde del requisito generale di sicurezza non dimostrato, non
 della dichiarazione di accessibilità: sono due fonti diverse, con due soggetti obbligati diversi,
-e la coincidenza fra i due ruoli in una stessa organizzazione — possibile, ma non necessaria —
+e la coincidenza fra i due ruoli in una stessa organizzazione - possibile, ma non necessaria -
 non li fonde.
 
-### 6.3 La regola del collegamento bidirezionale — vincolo `V-175`
+### 6.3 La regola del collegamento bidirezionale - vincolo `V-175`
 
 > **`V-175`.** Il fascicolo di ingegneria dell'usabilità dichiara, per **ogni caratteristica
 > dell'interfaccia legata alla sicurezza**, quali criteri di accessibilità la rendono percepibile
@@ -329,8 +329,8 @@ alternativa. Applicando `V-175`:
   caratteristiche legate alla sicurezza elencate al § 6.1, che sono tutte testuali o di stato e
   restano percepibili;
 - **rende però difficoltoso** l'atto clinico stesso per una persona sorda, e questo è un rischio
-  d'uso, non una non conformità: la misura alternativa — l'interprete come partecipante a pieno
-  titolo, più il canale testuale sempre disponibile in sessione — è **precisamente la misura di
+  d'uso, non una non conformità: la misura alternativa - l'interprete come partecipante a pieno
+  titolo, più il canale testuale sempre disponibile in sessione - è **precisamente la misura di
   controllo del rischio** che rende sostenibile la dichiarazione;
 - ne discende che l'interprete **va documentato anche nel fascicolo di usabilità**, non soltanto
   nella dichiarazione di accessibilità. Se comparisse in un solo documento, la dichiarazione
@@ -344,8 +344,8 @@ adempimento di accessibilità che non è visibile da nessuno dei due lati.
 
 ## 7. Progettare prima per il dispositivo mobile, quando l'utilizzatore è chi è
 
-Il metodo di progettazione — schermo piccolo e connessione peggiore per primi, non desktop
-adattato — è già fissato dall'area funzionale e non va ripetuto qui. Quello che va detto è la sua
+Il metodo di progettazione - schermo piccolo e connessione peggiore per primi, non desktop
+adattato - è già fissato dall'area funzionale e non va ripetuto qui. Quello che va detto è la sua
 **qualificazione regolatoria**, che è diversa e più stringente di quella di una scelta di
 prodotto.
 
@@ -357,13 +357,13 @@ su rete mobile, spesso in condizioni di luce sfavorevoli, spesso senza nessuno a
 discendono tre conseguenze che non sono ottimizzazioni.
 
 1. **Il dispositivo di riferimento non è quello di chi sviluppa.** Finché non è dichiarato, la
-   specifica d'uso non è completabile e il requisito `RNF-106` — nove partecipanti su dieci
+   specifica d'uso non è completabile e il requisito `RNF-106` - nove partecipanti su dieci
    completano l'inserimento di una misura al primo tentativo, senza assistenza, su dispositivo di
-   fascia bassa e rete limitata — **non è verificabile**. La scelta è di prodotto (`Q-115`); la
+   fascia bassa e rete limitata - **non è verificabile**. La scelta è di prodotto (`Q-115`); la
    conseguenza regolatoria è di questa area ed è la questione `Q-175`.
-2. **La resilienza è accessibilità, non ottimizzazione.** Degradare in modo comprensibile — audio
+2. **La resilienza è accessibilità, non ottimizzazione.** Degradare in modo comprensibile - audio
    prima del video, avviso chiaro, ripresa della sessione, misura conservata localmente e
-   trasmessa al ripristino — è ciò che rende il servizio utilizzabile da chi ha meno risorse.
+   trasmessa al ripristino - è ciò che rende il servizio utilizzabile da chi ha meno risorse.
    L'assenza di degrado comprensibile produce un errore d'uso: la persona conclude che la
    prestazione è avvenuta quando non lo è, o viceversa.
 3. **Il numero di azioni è un requisito di sicurezza.** Un percorso di ingresso lungo non è
@@ -381,7 +381,7 @@ la popolazione normale del servizio.
 
 L'ultima riga è la meno intuitiva e la più importante: nel dominio reale l'eccesso di campi
 obbligatori **degrada la qualità del dato clinico**. Fanno eccezione i campi la cui assenza è essa
-stessa un rischio — dichiarazione di erogabilità, identificazione, esito, soglia individuale — e
+stessa un rischio - dichiarazione di erogabilità, identificazione, esito, soglia individuale - e
 la lista delle eccezioni va motivata voce per voce, non allungata per prudenza.
 
 ## 8. La validazione sommativa è il vincolo di calendario
@@ -416,7 +416,7 @@ riprogettazione e la sommativa parziale che ne discenderebbe.
 prototipi, **prima** che il soggetto fabbricante sia costituito, senza organismo notificato e
 senza interfaccia congelata: nessuna delle condizioni che bloccano gli altri artefatti le tocca.
 Da `D58` discende che rinviarle non è più un'attesa di un soggetto a valle ma **una perdita
-nostra**, e la perdita è asimmetrica — l'errore d'uso non scoperto in formativa si scopre in
+nostra**, e la perdita è asimmetrica - l'errore d'uso non scoperto in formativa si scopre in
 sommativa, dove costa una riprogettazione e una ripetizione, oppure non si scopre affatto, e
 allora lo incontra una persona.
 
@@ -425,19 +425,19 @@ allora lo incontra una persona.
 | Attività | Il progetto, oggi | A chi resta riservato l'atto |
 |---|---|---|
 | Proprietà tecniche di accessibilità del prodotto | **Integrale**: non sono aggiungibili a valle | Nessuna riserva. **Chi installa** verifica sulla configurazione che ha effettivamente messo in esercizio |
-| Verifica automatica bloccante in integrazione continua | **Integrale** | — |
+| Verifica automatica bloccante in integrazione continua | **Integrale** | - |
 | Verifica manuale con tecnologie assistive | **Integrale sui percorsi critici del prodotto** | **Chi integra** la ripete sulle personalizzazioni che introduce |
 | Specifica d'uso, caratteristiche legate alla sicurezza, scenari pericolosi, specifica dell'interfaccia | **Bozza integrale** | **Il fabbricante** approva, data e firma |
 | Selezione degli scenari da validare | Proposta motivata | **Il fabbricante determina** |
 | Valutazioni formative | **Conduce e pubblica gli esiti**, ora, senza attendere la costituzione del soggetto | **Il fabbricante** le riesamina quando compone il fascicolo |
 | Protocollo di validazione sommativa | Bozza tecnica | **Il fabbricante approva prima dell'esecuzione** |
-| Conduzione della validazione sommativa | — | **Il fabbricante** la conduce o la commissiona, e **ne assume l'esito** |
+| Conduzione della validazione sommativa | - | **Il fabbricante** la conduce o la commissiona, e **ne assume l'esito** |
 | Fascicolo `UEF-001` consolidato | Contributi identificati, con versione, data e impronta verificabile (`V-179`) | **Il fabbricante compone e firma** |
 | **Dichiarazione di accessibilità** del servizio | Modello e contenuti tecnici verificati | **Chi installa la emette**: il soggetto obbligato è chi eroga il servizio in rete, e **non è il fabbricante** |
 
 **Come si legge la terza colonna, e perché non nomina più un terzo.** Dove dice «il fabbricante»
 nomina il **ruolo formale**: il progetto **intende** assumerlo (`D58`) e **il soggetto giuridico
-che lo eserciterebbe è ancora da costituire**, quindi quelle righe **non sono eseguibili oggi** —
+che lo eserciterebbe è ancora da costituire**, quindi quelle righe **non sono eseguibili oggi** -
 non per una scelta di perimetro ma perché manca il soggetto che possa firmare e manca il controllo
 dei documenti che rende una firma una dichiarazione
 ([02 §5.2](./02-qualificazione-e-classificazione.md)). Dove dice «chi installa» o «chi integra»
@@ -447,15 +447,15 @@ nomina invece soggetti **realmente distinti dal progetto**, e la loro parte **no
 **La riga sulla dichiarazione di accessibilità è quella che si sbaglia più spesso, e `D58` la
 rende più facile da sbagliare.** La dichiarazione riguarda **un servizio in rete erogato da un
 soggetto**, non un pacchetto software. Il progetto non può emetterla, non può emetterne una valida
-«per conto di» chi installa — la personalizzazione di tema, i contenuti caricati dal tenant e
-l'ambiente di installazione ne modificano l'esito — e **non potrà emetterla nemmeno quando avrà
+«per conto di» chi installa - la personalizzazione di tema, i contenuti caricati dal tenant e
+l'ambiente di installazione ne modificano l'esito - e **non potrà emetterla nemmeno quando avrà
 costituito il soggetto fabbricante**: il fabbricante di un dispositivo non è, per ciò solo, il
 fornitore del servizio in rete, e i due ruoli hanno fonti, presupposti e destinatari diversi.
 
 > **`V-273`.** **La dichiarazione di accessibilità del servizio non è mai del progetto**, e non lo
 > diventa per effetto di `D58`. Il soggetto obbligato è **chi eroga il servizio in rete**, cioè
 > chi installa e mette in esercizio; il progetto è obbligato alle **proprietà di accessibilità del
-> prodotto**, che sono cosa distinta e che nessun deployer può aggiungere a valle. Nessun
+> prodotto**, che sono cosa distinta e che chi installa non può aggiungere a valle. Nessun
 > artefatto del progetto può contenere, allegare o anticipare una dichiarazione di accessibilità
 > riferita a un servizio, e nessuna riformulazione può lasciare intendere che l'assunzione del
 > ruolo di fabbricante assorba quell'obbligo.
@@ -465,7 +465,7 @@ pomeriggio invece che in un mese**: elenco dei criteri verificati con metodo e d
 non conformità con misura alternativa, elenco dei percorsi critici coperti, versione della norma
 su cui la verifica è stata condotta.
 
-`[NV]` — la versione di EN 301 549 giuridicamente efficace è quella citata nella pubblicazione
+`[NV]` - la versione di EN 301 549 giuridicamente efficace è quella citata nella pubblicazione
 ufficiale dell'Unione a supporto della fonte applicabile, e **non è stata verificata** in questa
 documentazione (vedi [01 §8](./01-inquadramento-normativo.md)). La dichiarazione deve indicare la
 versione su cui la verifica è stata effettivamente condotta, non «EN 301 549» in astratto.
@@ -479,5 +479,5 @@ versione su cui la verifica è stata effettivamente condotta, non «EN 301 549»
 | `[NV]` | Numerazione puntuale dei punti dell'Allegato I sui rischi da errore di utilizzazione e da ergonomia (§ 2) | Conformità |
 | `[NV]` | Versione di EN 301 549 giuridicamente efficace, e conseguente formulazione della dichiarazione (§ 9) | Conformità |
 | `Q-111` | Se la misura del limite di partecipanti escludesse il terzo, la misura alternativa alla non conformità dichiarata cadrebbe (§ 6.4) | Architettura, tecnica |
-| `Q-273` | **Le valutazioni formative con utenti reali sono ora un'attività nostra e non differibile (§ 8), ma non sono producibili da una persona sola.** Osservare un utilizzatore rappresentativo mentre esegue un compito richiede **soggetti distinti** da chi ha progettato l'interfaccia, esattamente come l'audit interno e il riesame del rilascio (`D54`): non è un problema di ore. Va stabilito se la funzione si acquisisce all'esterno o se l'assenza di formative si accetta come rischio dichiarato — sapendo che è il rischio che il § 8 indica come il più costoso | Prodotto, → **ORCH** |
-| — | **Numerosità e composizione delle coorti della sommativa** non sono fissate e non lo saranno finché non c'è un organismo notificato con cui concordarle (§ 5), e ingaggiarlo presuppone il **soggetto fabbricante, da costituire**. Il progetto dichiara il criterio di sufficienza, non il numero | **Il fabbricante**, quando il soggetto sarà costituito |
+| `Q-273` | **Le valutazioni formative con utenti reali sono ora un'attività nostra e non differibile (§ 8), ma non sono producibili da una persona sola.** Osservare un utilizzatore rappresentativo mentre esegue un compito richiede **soggetti distinti** da chi ha progettato l'interfaccia, esattamente come l'audit interno e il riesame del rilascio (`D54`): non è un problema di ore. Va stabilito se la funzione si acquisisce all'esterno o se l'assenza di formative si accetta come rischio dichiarato - sapendo che è il rischio che il § 8 indica come il più costoso | Prodotto, → **ORCH** |
+| - | **Numerosità e composizione delle coorti della sommativa** non sono fissate e non lo saranno finché non c'è un organismo notificato con cui concordarle (§ 5), e ingaggiarlo presuppone il **soggetto fabbricante, da costituire**. Il progetto dichiara il criterio di sufficienza, non il numero | **Il fabbricante**, quando il soggetto sarà costituito |

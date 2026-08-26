@@ -57,9 +57,19 @@ chi scrive questo modulo, e la differenza è dichiarata al [§13](#13-che-cosa-q
 **Che cosa non c'è.** Non ci sono collegamenti diretti alle pagine di pubblicazione. È una scelta:
 gli indirizzi delle banche dati normative e dei siti degli enti di normazione cambiano con
 frequenza superiore a quella di aggiornamento di questa documentazione, e un elenco di
-collegamenti morti è peggio di nessun collegamento. Si indica il canale — la gazzetta ufficiale,
-il registro dell'ente, il catalogo dell'organismo di normazione — e la denominazione esatta con
+collegamenti morti è peggio di nessun collegamento. Si indica il canale - la gazzetta ufficiale,
+il registro dell'ente, il catalogo dell'organismo di normazione - e la denominazione esatta con
 cui cercare.
+
+**Gli enti si nominano.** In questo modulo l'autorità che emana un atto è indicata con il proprio
+nome e la propria sigla - **AgID**, Agenzia per l'Italia digitale, e **ACN**, Agenzia per la
+cybersicurezza nazionale - e non per perifrasi. La reticenza che il progetto tiene altrove esiste
+per non risolvere in nomi propri **prodotti, aziende e terminologie sotto licenza**: un ente
+pubblico normatore non è nessuna di queste cose, e l'autorità emanante è parte degli estremi
+dell'atto quanto il numero e la data. Una perifrasi renderebbe l'atto meno reperibile, cioè
+l'opposto della funzione di questo modulo. Resta l'omonimia segnalata dal modulo
+[01](01-sistema-sanitario-italiano.md): `ACN` indica anche l'accordo collettivo nazionale della
+medicina convenzionata, che con la cybersicurezza non ha nulla a che vedere.
 
 ---
 
@@ -87,13 +97,13 @@ l'albero di qualificazione del software è nella linea guida, e senza di essa la
 dell'Allegato VIII è quasi illeggibile.
 
 **Quinta: quali obblighi ricadono su chi lo installa?** Il **Regolamento (UE) 2016/679**, la
-**Direttiva (UE) 2022/2555** con il decreto che la recepisce, e le **determinazioni
-dell'autorità nazionale** che ne fissano le misure. Qui l'ordine è inverso rispetto all'intuizione:
+**Direttiva (UE) 2022/2555** con il decreto che la recepisce, e le **determinazioni ACN** che ne
+fissano le misure. Qui l'ordine è inverso rispetto all'intuizione:
 la determinazione, che è l'atto più basso nella gerarchia, è quella operativamente decisiva,
 perché contiene il catalogo delle misure.
 
 **Sesta: in che forma si scambia il dato?** **FHIR 4.0.1**, poi le **guide di implementazione
-italiane** che lo profilano, poi — solo se serve — i profili di interoperabilità e la messaggistica
+italiane** che lo profilano, poi - solo se serve - i profili di interoperabilità e la messaggistica
 ospedaliera. Le guide italiane sono in stato di bozza: leggerle prima dello standard di base
 produce la convinzione, sbagliata, che ciò che vi manca non esista.
 
@@ -105,11 +115,11 @@ invece che nascosto.
 
 ---
 
-## 3. Normativa italiana — ordinamento sanitario
+## 3. Normativa italiana - ordinamento sanitario
 
 Sono le fonti che definiscono **chi fa che cosa** nel servizio sanitario. Non riguardano il
 software, e sono il presupposto senza cui non si capisce a chi il software si rivolge. La
-trattazione è in [01 — Il sistema sanitario italiano](01-sistema-sanitario-italiano.md).
+trattazione è in [01 - Il sistema sanitario italiano](01-sistema-sanitario-italiano.md).
 
 | Fonte | Che cosa stabilisce | Dove è usata |
 |---|---|---|
@@ -123,16 +133,16 @@ trattazione è in [01 — Il sistema sanitario italiano](01-sistema-sanitario-it
 | **Legge 22 dicembre 2017, n. 219** | Consenso informato e disposizioni anticipate di trattamento | [03](03-il-dato-clinico.md) |
 | **Decreto legislativo 15 marzo 2024, n. 29** | Disposizioni in materia di politiche in favore delle persone anziane | [01](01-sistema-sanitario-italiano.md) |
 | **Decreto legislativo 31 marzo 2023, n. 36** | Codice dei contratti pubblici: è la via d'accesso al mercato sanitario pubblico | [01](01-sistema-sanitario-italiano.md) |
-| **Legge 30 dicembre 2025, n. 199** | Legge di bilancio 2026; l'art. 1, commi 405-406, finanzia i servizi di scambio transfrontaliero dei documenti sanitari | [01](01-sistema-sanitario-italiano.md), [07 §10](07-fse-e-infrastrutture-nazionali.md) |
-| **Legge 31 dicembre 2025, n. 200** | Citata in [01](01-sistema-sanitario-italiano.md) per il quadro di finanza pubblica sanitaria | [01](01-sistema-sanitario-italiano.md) |
+| **Legge 30 dicembre 2025, n. 199** | Legge di bilancio 2026. Due disposizioni distinte rilevano per il progetto: l'art. 1, **commi 405-406**, finanzia i servizi di scambio transfrontaliero dei documenti sanitari; l'art. 1, **commi 410-412**, assegna 20 milioni di euro per il 2026 ad AGENAS per il potenziamento dei servizi di telemedicina | [07 §10](07-fse-e-infrastrutture-nazionali.md) per i commi 405-406; [01 §9.4](01-sistema-sanitario-italiano.md) per i commi 410-412 |
+| **D.L. 31 dicembre 2025, n. 200**, convertito con modificazioni dalla **legge 27 febbraio 2026, n. 26** (Milleproroghe) | Differisce il termine di vigenza del regime tariffario previgente. `[NV]` sull'articolo e sul comma | [01](01-sistema-sanitario-italiano.md) |
 
-**Come si legge questo blocco.** Non integralmente. Serve la struttura — chi programma, chi
-eroga, chi paga, chi controlla — e quella sta nel modulo 01, che è scritto per non doverli leggere.
+**Come si legge questo blocco.** Non integralmente. Serve la struttura - chi programma, chi
+eroga, chi paga, chi controlla - e quella sta nel modulo 01, che è scritto per non doverli leggere.
 Si torna alla fonte quando si deve rispondere a una domanda puntuale su una competenza.
 
 ---
 
-## 4. Normativa italiana — telemedicina
+## 4. Normativa italiana - telemedicina
 
 È il blocco da cui discendono le **definizioni** e i **requisiti funzionali**. Nessun documento del
 progetto può contraddirlo, e la maggior parte delle regole di dominio vi rinvia.
@@ -161,12 +171,12 @@ le Regioni e le Province autonome.
 *Come si legge*: **per primo, prima di ogni decreto.** Gli atti successivi usano questi termini
 senza ridefinirli.
 
-**Intesa Stato-Regioni 2014, rep. atti n. 16/CSR** — linee di indirizzo nazionali sulla
+**Intesa Stato-Regioni 2014, rep. atti n. 16/CSR** - linee di indirizzo nazionali sulla
 telemedicina, **superata nei contenuti operativi** dall'Accordo del 2020. Si cita per
 ricostruzione storica, mai come fonte vigente di definizioni.
 *Dove è usata*: [02 §2](02-prestazioni-di-telemedicina.md).
 
-**Accordo Stato-Regioni 18 novembre 2021, rep. atti n. 231/CSR** — teleriabilitazione.
+**Accordo Stato-Regioni 18 novembre 2021, rep. atti n. 231/CSR** - teleriabilitazione.
 *Dove è usata*: [02 §2](02-prestazioni-di-telemedicina.md).
 
 *Nota comune sulla forza di questi atti.* Un accordo in Conferenza **si perfeziona con il
@@ -177,13 +187,13 @@ configurazione e non di codice.
 
 ### 4.2 Decreti ministeriali sulla telemedicina
 
-**DM 23 maggio 2022, n. 77** — modelli e standard per lo sviluppo dell'assistenza territoriale.
+**DM 23 maggio 2022, n. 77** - modelli e standard per lo sviluppo dell'assistenza territoriale.
 Colloca la telemedicina dentro il modello organizzativo territoriale. Non detta requisiti software:
 **determina il contesto** in cui la prestazione a distanza è appropriata.
 *Dove è usata*: [01](01-sistema-sanitario-italiano.md), [02](02-prestazioni-di-telemedicina.md),
 [`docs/08_compliance/01 §9`](../08_compliance/01-inquadramento-normativo.md).
 
-**DM 21 settembre 2022** — GU n. 256 del 2 novembre 2022, atto 22A06184, Allegato A.
+**DM 21 settembre 2022** - GU n. 256 del 2 novembre 2022, atto 22A06184, Allegato A.
 È **l'atto tecnicamente più prescrittivo** del quadro italiano. Fissa: i quattro servizi minimi di
 telemedicina; l'architettura a micro-servizi e a eventi; l'interoperabilità su modello FHIR; i
 contenitori; i modelli di distribuzione **su territorio nazionale**; il **paradigma mobile first**;
@@ -206,7 +216,7 @@ visualizzazione e refertazione nei teleconsulti istopatologici e radiologici.
 *Come si legge*: dopo l'Accordo 215/CSR, e con l'avvertenza che **rinvia a documenti metodologici
 non reperiti** `[NV]` ([07 §7.3](07-fse-e-infrastrutture-nazionali.md)).
 
-**DM 30 settembre 2022** — GU n. 298 del 22 dicembre 2022, atto 22A07125.
+**DM 30 settembre 2022** - GU n. 298 del 22 dicembre 2022, atto 22A07125.
 Disciplina la selezione delle soluzioni: piani operativi regionali, commissione tecnica, acquisto
 **esclusivamente attraverso le gare delle regioni capofila** nel perimetro del piano nazionale.
 L'**Allegato B** contiene una regola con effetto diretto sul modello: la televisita programmata ed
@@ -234,7 +244,7 @@ la novella del 2022 è ciò che comunemente si chiama «FSE 2.0».
 per il suo **contenuto** e non per l'infrastruttura che lo realizza, ed è la ragione per cui le
 infrastrutture possono cambiare senza che cambi l'oggetto giuridico.
 
-**DM 7 settembre 2023** — GU n. 249 del 24 ottobre 2023.
+**DM 7 settembre 2023** - GU n. 249 del 24 ottobre 2023.
 Quadro attuativo del fascicolo: contenuti, soggetti, consensi, alimentazione, consultazione,
 profili di accesso per ruolo. Due disposizioni con effetto diretto e non negoziabile sul progetto:
 l'**art. 11, comma 1**, che impone l'autenticazione con i canali nazionali di identità digitale;
@@ -251,16 +261,16 @@ disciplinano l'oscuramento e il divieto che sia inferibile.
 *Come si legge*: l'art. 15 va letto per intero e non per la sola lettura del comma 4: l'elenco dei
 soggetti ammessi e le loro condizioni è la base della matrice di autorizzazione.
 
-**DM 31 dicembre 2024** — GU n. 53 del 5 marzo 2025.
+**DM 31 dicembre 2024** - GU n. 53 del 5 marzo 2025.
 Istituzione dell'ecosistema dei dati sanitari.
 *Dove è usata*: [07](07-fse-e-infrastrutture-nazionali.md),
 [`docs/08_compliance/01 §9`](../08_compliance/01-inquadramento-normativo.md).
 
-**DM 19 novembre 2025** — GU n. 301 del 30 dicembre 2025, atto 25A06938.
+**DM 19 novembre 2025** - GU n. 301 del 30 dicembre 2025, atto 25A06938.
 Disciplina il trattamento dei dati nella piattaforma nazionale di telemedicina. È l'atto più
 recente e quello con il maggior numero di conseguenze di prodotto. Le disposizioni che il progetto
 usa: **art. 7**, che istituisce **dieci nuove tipologie documentali** del fascicolo dedicate alla
-telemedicina, con set informativo pubblicato in gazzetta — è la fonte da cui discende il dataset
+telemedicina, con set informativo pubblicato in gazzetta - è la fonte da cui discende il dataset
 canonico del referto di televisita; **art. 12**, per cui le infrastrutture regionali **non
 conservano** i dati e i documenti generati; **artt. 14-15**, registrazione delle operazioni e
 misure di sicurezza; **Allegato 1, § 2.20**, il set informativo del referto di televisita;
@@ -279,7 +289,7 @@ comprensive delle librerie di terzi e open source**.
 [`08`](../06_security/08-quadro-normativo-e-misure.md).
 *Come si legge*: **gli allegati contano più del corpo.** E l'Allegato 4, § 7, **incorpora per
 rinvio il capitolo di un capitolato tecnico di gara regionale** ed estende le misure ivi previste a
-tutte le infrastrutture regionali. `[NV]` — quel capitolo **non è stato reperito**: finché non lo
+tutte le infrastrutture regionali. `[NV]` - quel capitolo **non è stato reperito**: finché non lo
 si legge, nessuna affermazione di conformità a quelle misure è sostenibile.
 
 ### 4.4 Come questi atti si compongono
@@ -297,16 +307,16 @@ la citazione inverificabile.
 
 ---
 
-## 5. Normativa italiana — amministrazione digitale, identità, sicurezza
+## 5. Normativa italiana - amministrazione digitale, identità, sicurezza
 
 ### 5.1 Codice dell'amministrazione digitale e identità
 
-**Decreto legislativo 7 marzo 2005, n. 82** — Codice dell'amministrazione digitale.
+**Decreto legislativo 7 marzo 2005, n. 82** - Codice dell'amministrazione digitale.
 Gli articoli usati dal progetto: **art. 64**, che disciplina il sistema pubblico per la gestione
 dell'identità digitale e stabilisce, al comma 2-*quater*, che l'accesso ai servizi in rete delle
 pubbliche amministrazioni che richiedono identificazione informatica avviene tramite i canali
 nazionali; **art. 50-*ter***, base legale della piattaforma nazionale per l'interoperabilità dei
-dati; **art. 71**, base delle linee guida dell'agenzia nazionale; **art. 52, comma 2**, sul riuso
+dati; **art. 71**, base delle linee guida AgID; **art. 52, comma 2**, sul riuso
 dei dati delle pubbliche amministrazioni, usato per collocare due terminologie nel regime di
 ridistribuzione condizionata.
 *Dove è usata*: [04](04-identita-e-anagrafiche.md), [07](07-fse-e-infrastrutture-nazionali.md),
@@ -321,11 +331,11 @@ il fornitore di servizi è chi installa.
 *Dove è usata*: [04](04-identita-e-anagrafiche.md), decisione `D36`, vincolo `V-05`,
 [`docs/07_integration/06`](../07_integration/06-identita-e-delega.md).
 
-**Regole tecniche dei canali nazionali di identità digitale** e **avviso dell'agenzia nazionale
-n. 41, versione 2, del 23 marzo 2023** sull'uso di un protocollo di autenticazione alternativo.
+**Regole tecniche dei canali nazionali di identità digitale** e **Avviso AgID n. 41, versione 2,
+del 23 marzo 2023** sull'uso di un protocollo di autenticazione alternativo.
 Il fatto rilevante e verificato: **nessun gestore di identità del sistema pubblico supporta quel
 protocollo in produzione**, quindi il canale utilizzabile resta l'asserzione firmata. La fonte è il
-forum ufficiale presidiato dal gruppo di lavoro, consultata il 25 agosto 2026, **da riverificare**.
+forum ufficiale presidiato dal gruppo di lavoro SPID, consultato il 25 agosto 2026, **da riverificare**.
 *Dove è usata*: [04](04-identita-e-anagrafiche.md),
 [07 §8](07-fse-e-infrastrutture-nazionali.md),
 [`docs/06_security/02`](../06_security/02-identita-e-accessi.md),
@@ -355,7 +365,7 @@ il regolamento rimette agli Stati membri, non una disciplina autonoma.
 
 ### 5.3 Sicurezza informatica nazionale
 
-**Decreto legislativo 4 settembre 2024, n. 138** — recepimento della direttiva europea sulla
+**Decreto legislativo 4 settembre 2024, n. 138** - recepimento della direttiva europea sulla
 sicurezza delle reti e dei sistemi informativi. In vigore dal **16 ottobre 2024**. Individua i
 soggetti **essenziali** e **importanti** per settore: la **sanità** è nell'Allegato I, la
 **fabbricazione di dispositivi medici** nell'Allegato II. L'**art. 24, comma 2, lett. l)** e il
@@ -367,7 +377,7 @@ soggetti **essenziali** e **importanti** per settore: la **sanità** è nell'All
 [`10`](../06_security/10-risposta-agli-incidenti.md),
 [`docs/08_compliance/01 §4`](../08_compliance/01-inquadramento-normativo.md).
 
-**Determinazione dell'autorità nazionale per la cybersicurezza n. 379907 del 19 dicembre 2025**.
+**Determinazione ACN n. 379907 del 19 dicembre 2025**.
 Fissa le specifiche di base di sicurezza e, all'**art. 3, comma 1**, la regola del termine:
 **diciotto mesi dalla ricezione della comunicazione di inserimento** nell'elenco. Applicabile dal
 **15 gennaio 2026** (art. 9, comma 3); sostituisce la determinazione n. 164179 del 14 aprile 2025.
@@ -381,15 +391,15 @@ requisiti** per gli essenziali.
 *Come si legge*: **il termine non è una data.** «Il 31 ottobre 2026» non compare in alcun atto: è
 il limite esterno della prima ondata. Il termine è soggettivo per ciascun destinatario, e questo è
 il fatto che nessuna roadmap può cablare.
-`[NV]` — gli **allegati di dettaglio non sono stati letti riga per riga**: nessun documento del
+`[NV]` - gli **allegati di dettaglio non sono stati letti riga per riga**: nessun documento del
 progetto cita testualmente un requisito puntuale. Si citano i codici delle misure, che sono
 pubblici e verificati.
 
-**Determinazione n. 127434 del 13 aprile 2026** — per i soggetti inseriti nel 2026: misure entro il
+**Determinazione n. 127434 del 13 aprile 2026** - per i soggetti inseriti nel 2026: misure entro il
 **31 luglio 2027**, notifiche dal **1° gennaio 2027**.
-**Determinazione n. 127437 del 2026**, **art. 18** — obbligo di dichiarare nominativamente
-all'autorità i **fornitori rilevanti**, con ragione sociale, codice fiscale, **Paese della sede
-legale**, codici della nomenclatura degli appalti e criterio di rilevanza.
+**Determinazione n. 127437 del 2026**, **art. 18** - obbligo di dichiarare nominativamente ad ACN
+i **fornitori rilevanti**, con ragione sociale, codice fiscale, **Paese della sede legale**, codici
+della nomenclatura degli appalti e criterio di rilevanza.
 *Dove sono usate*: [12](12-crittografia-e-sicurezza.md),
 [`docs/06_security/08`](../06_security/08-quadro-normativo-e-misure.md),
 [`docs/08_compliance/01 §4`](../08_compliance/01-inquadramento-normativo.md),
@@ -398,7 +408,7 @@ legale**, codici della nomenclatura degli appalti e criterio di rilevanza.
 posizionamento a **dato che il cliente deve comunicare a un'autorità**. È il fondamento operativo
 del vincolo sull'assenza di componenti obbligatori extra-UE.
 
-**Legge 28 giugno 2024, n. 90** — disposizioni in materia di rafforzamento della cybersicurezza
+**Legge 28 giugno 2024, n. 90** - disposizioni in materia di rafforzamento della cybersicurezza
 nazionale. Riguarda le pubbliche amministrazioni, incluse le aziende sanitarie. **Art. 1**:
 segnalazione entro ventiquattro ore e notifica completa entro settantadue. **Art. 8**: referente
 per la cybersicurezza. **Art. 14**: contratti pubblici di beni e servizi informatici in contesti
@@ -407,21 +417,21 @@ connessi alla tutela di interessi nazionali strategici.
 [`docs/06_security/10`](../06_security/10-risposta-agli-incidenti.md),
 [`docs/08_compliance/01 §4.1`](../08_compliance/01-inquadramento-normativo.md).
 
-**DPCM 30 aprile 2025** (GU del 5 maggio 2025), come modificato dal **DPCM 2 ottobre 2025** —
+**DPCM 30 aprile 2025** (GU del 5 maggio 2025), come modificato dal **DPCM 2 ottobre 2025** -
 elementi essenziali di cybersicurezza nei contratti pubblici, con criteri di premialità anche
-geografici. `[NV]` — **i testi non sono stati letti su fonte primaria** in nessuna ricerca del
+geografici. `[NV]` - **i testi non sono stati letti su fonte primaria** in nessuna ricerca del
 progetto, e non è verificato se una fornitura di telemedicina ricada nelle categorie tecnologiche
 dell'allegato. Va verificato con un consulente di appalti prima di qualunque uso in gara.
 *Dove è usata*: [`docs/08_compliance/01 §4.1`](../08_compliance/01-inquadramento-normativo.md).
 
-**Circolare dell'agenzia nazionale 18 aprile 2017, n. 2/2017** — misure minime di sicurezza per le
+**Circolare AgID 18 aprile 2017, n. 2/2017** - misure minime di sicurezza per le
 pubbliche amministrazioni, con la classificazione delle misure. Il progetto ne cita i **codici**
 (fra cui `ABSC 2.1.1`, `2.3.3`, `3.5.1`, `4.7.1`, `4.8.1`, `4.8.2`, `5.6.1` e la classe 13), non il
 testo dei singoli requisiti.
 *Dove è usata*: [12](12-crittografia-e-sicurezza.md),
 [`docs/06_security/04`](../06_security/04-tracciamento.md).
 
-**Linee guida dell'agenzia nazionale sulla sicurezza nel procurement ICT**, appendice sui requisiti
+**Linee guida AgID sulla sicurezza nel procurement ICT**, appendice sui requisiti
 di sicurezza eleggibili. Il progetto ne usa i requisiti **R30** (registrazione degli accessi su
 archivio non cancellabile con il reset), **R33** (inventario dei componenti) e **R45**, e le azioni
 `AP2`, `AP3`, `AP4` con il capitolo sulla protezione dei dati personali, che il DM 21 settembre
@@ -466,18 +476,18 @@ fra le norme che le infrastrutture regionali devono rispettare.
 con **Determinazione AgID n. 627/2021** e **aggiornate a maggio 2025** (versione 2). Base legale:
 art. 50-*ter* del Codice dell'amministrazione digitale.
 *Dove sono usate*: [07 §5.3](07-fse-e-infrastrutture-nazionali.md).
-*Come si legge*: il fraintendimento da evitare è documentato nel modulo — la piattaforma **non è un
+*Come si legge*: il fraintendimento da evitare è documentato nel modulo - la piattaforma **non è un
 proxy** e non trasporta i dati: interviene prima, per stabilire l'autorizzazione, e resta fuori dal
 flusso.
 
 ### 5.6 Accessibilità, versante nazionale
 
-**Legge 9 gennaio 2004, n. 4** — disposizioni per favorire e semplificare l'accesso degli utenti e,
+**Legge 9 gennaio 2004, n. 4** - disposizioni per favorire e semplificare l'accesso degli utenti e,
 in particolare, delle persone con disabilità agli strumenti informatici. È l'obbligo **diretto**
 quando il cliente è una pubblica amministrazione, cioè nel caso d'uso principale del progetto.
-**Decreto legislativo 27 maggio 2022, n. 82** — recepimento della direttiva europea
+**Decreto legislativo 27 maggio 2022, n. 82** - recepimento della direttiva europea
 sull'accessibilità dei prodotti e dei servizi.
-**Linee guida dell'agenzia nazionale sull'accessibilità** e **modello di dichiarazione di
+**Linee guida AgID sull'accessibilità** e **modello di dichiarazione di
 accessibilità**.
 *Dove sono usate*: [01 §appendice](01-sistema-sanitario-italiano.md),
 [02 §appendice](02-prestazioni-di-telemedicina.md), [15 §8.5](15-regolatorio-da-zero.md),
@@ -514,7 +524,7 @@ usate nel repository:
 | **Art. 2, punto 12** | Definizione di destinazione d'uso, ricavabile anche dal materiale promozionale | `V-171`, [`08_compliance/01 §11`](../08_compliance/01-inquadramento-normativo.md) |
 | **Art. 2, punto 29** | Messa in servizio | [15 §3](15-regolatorio-da-zero.md), [`08_compliance/01 §12`](../08_compliance/01-inquadramento-normativo.md) |
 | **Art. 2, punto 30** | Definizione di fabbricante, con **due elementi cumulativi** | [15 §3](15-regolatorio-da-zero.md), [`08_compliance/01 §2`](../08_compliance/01-inquadramento-normativo.md) |
-| **Art. 5, paragrafo 5** | Esenzione per i dispositivi fabbricati e usati in istituzioni sanitarie — citata **solo per escluderla** | [`08_compliance/01 §2`](../08_compliance/01-inquadramento-normativo.md) |
+| **Art. 5, paragrafo 5** | Esenzione per i dispositivi fabbricati e usati in istituzioni sanitarie - citata **solo per escluderla** | [`08_compliance/01 §2`](../08_compliance/01-inquadramento-normativo.md) |
 | **Art. 7** | Divieto di dichiarazioni fuorvianti: vale **già oggi** e **non presuppone la marcatura** | `V-171` |
 | **Art. 8** | Presunzione di conformità delle norme armonizzate | [15 §5.1](15-regolatorio-da-zero.md) |
 | **Art. 10** | Obblighi del fabbricante | [`08_compliance/01 §2`](../08_compliance/01-inquadramento-normativo.md) |
@@ -528,7 +538,7 @@ usate nel repository:
 | **Allegato IX** e **Allegato XI** | Procedure di valutazione della conformità | [15 §6](15-regolatorio-da-zero.md), [`08_compliance/04`](../08_compliance/04-fascicolo-tecnico.md), [`09`](../08_compliance/09-percorso-e-calendario.md) |
 | **Allegato XVI** | Prodotti senza finalità medica | [15 §2](15-regolatorio-da-zero.md) |
 
-`[NV]` — la **numerazione puntuale di alcune sezioni** degli Allegati I, IX e XI, i codici di
+`[NV]` - la **numerazione puntuale di alcune sezioni** degli Allegati I, IX e XI, i codici di
 designazione del regolamento di esecuzione, il numero del punto dell'art. 2 sull'incidente grave e
 la ripartizione fra i paragrafi degli artt. 86 e 87 in funzione della classe **non sono stati
 verificati sul testo**.
@@ -536,7 +546,7 @@ verificati sul testo**.
 *Come si legge*: **non da solo.** L'Allegato VIII, Regola 11, senza la linea guida che segue è
 quasi illeggibile per un software.
 
-**Regolamento (UE) 2017/746** — dispositivi medico-diagnostici in vitro. Citato per il confine di
+**Regolamento (UE) 2017/746** - dispositivi medico-diagnostici in vitro. Citato per il confine di
 ambito e per l'esclusione parallela dal regolamento sulla resilienza informatica.
 *Dove è usato*: [15 §2](15-regolatorio-da-zero.md),
 [`06_security/08`](../06_security/08-quadro-normativo-e-misure.md).
@@ -549,7 +559,7 @@ discostarsene richiede una motivazione scritta, e questo le rende operativamente
 |---|---|---|
 | **MDCG 2019-11**, *Qualification and classification of software in Regulation (EU) 2017/745 and Regulation (EU) 2017/746*, **revisione 1 del giugno 2025** | L'albero decisionale di qualificazione in cinque passi; la casistica dell'Allegato I; la scomposizione della Regola 11 in tre sotto-regole al § 4.2.1; la **delimitazione dei moduli** al § 7; la matrice di orientamento dell'Allegato III | [10](10-percorsi-di-cura-e-sicurezza.md), [15](15-regolatorio-da-zero.md), [`08_compliance/01`](../08_compliance/01-inquadramento-normativo.md) e [`02`](../08_compliance/02-qualificazione-e-classificazione.md) |
 | **MDCG 2019-16**, revisione 1 | Come soddisfare i requisiti dell'Allegato I in materia di sicurezza informatica | [12](12-crittografia-e-sicurezza.md), [15 §5.7](15-regolatorio-da-zero.md), [`08_compliance/03`](../08_compliance/03-sistema-di-gestione-della-qualita.md) |
-| **MDCG 2020-1** | Valutazione clinica del software: le **tre componenti dell'evidenza** — validità dell'associazione scientifica, prestazione tecnica o analitica, prestazione clinica. `[NV]` sulla revisione corrente | [15 §7](15-regolatorio-da-zero.md), [`08_compliance/07`](../08_compliance/07-valutazione-clinica.md) |
+| **MDCG 2020-1** | Valutazione clinica del software: le **tre componenti dell'evidenza** - validità dell'associazione scientifica, prestazione tecnica o analitica, prestazione clinica. `[NV]` sulla revisione corrente | [15 §7](15-regolatorio-da-zero.md), [`08_compliance/07`](../08_compliance/07-valutazione-clinica.md) |
 | **MDCG 2018-5** | Criterio di **revisione maggiore** e identificativi unici del software | [15 §§7, 9](15-regolatorio-da-zero.md) |
 | **MDCG 2020-3** | Modifiche significative. `[NV]` su ambito e revisione corrente: i diagrammi decisionali sono ampiamente usati anche per i dispositivi certificati sotto il regolamento, e la trasposizione va verificata | [`08_compliance/08`](../08_compliance/08-sorveglianza-post-commercializzazione.md) |
 
@@ -561,7 +571,7 @@ documentazione del progetto, è che la tabella **non tiene conto del software di
 
 ### 6.2 Protezione dei dati
 
-**Regolamento (UE) 2016/679** — protezione delle persone fisiche con riguardo al trattamento dei
+**Regolamento (UE) 2016/679** - protezione delle persone fisiche con riguardo al trattamento dei
 dati personali. Applicabile dal **25 maggio 2018**.
 Disposizioni usate: **art. 4, punti 7 e 8** (titolare e responsabile), **punto 15** (dato relativo
 alla salute), **art. 9** (categorie particolari), **art. 15, paragrafo 4** (limite al diritto di
@@ -573,12 +583,12 @@ l'efficacia delle misure), **art. 35, paragrafo 3, lettera b)** (valutazione d'i
 [12](12-crittografia-e-sicurezza.md), l'intera area di sicurezza,
 [`08_compliance/01 §3`](../08_compliance/01-inquadramento-normativo.md).
 *Come si legge*: **l'art. 4, punto 15, prima di tutto il resto.** Il presupposto che governa
-l'intera area di sicurezza — il solo fatto che una persona abbia una sessione con uno specialista è
-dato relativo alla salute — discende da lì, non da una valutazione discrezionale.
+l'intera area di sicurezza - il solo fatto che una persona abbia una sessione con uno specialista è
+dato relativo alla salute - discende da lì, non da una valutazione discrezionale.
 
 ### 6.3 Sicurezza delle reti e resilienza dei prodotti
 
-**Direttiva (UE) 2022/2555** — misure per un livello comune elevato di cibersicurezza nell'Unione.
+**Direttiva (UE) 2022/2555** - misure per un livello comune elevato di cibersicurezza nell'Unione.
 Recepita in Italia dal decreto legislativo 4 settembre 2024, n. 138 (§5.3).
 *Dove è usata*: [`06_security/08`](../06_security/08-quadro-normativo-e-misure.md),
 [`08_compliance/01 §4`](../08_compliance/01-inquadramento-normativo.md).
@@ -586,7 +596,7 @@ Recepita in Italia dal decreto legislativo 4 settembre 2024, n. 138 (§5.3).
 progetto lavora sull'attuazione nazionale, e la direttiva serve solo a ricostruire l'origine di una
 regola.
 
-**Regolamento (UE) 2024/2847** — requisiti orizzontali di cibersicurezza per i prodotti con
+**Regolamento (UE) 2024/2847** - requisiti orizzontali di cibersicurezza per i prodotti con
 elementi digitali. In vigore dal **10 dicembre 2024**. Capo sugli organismi di valutazione della
 conformità dall'**11 giugno 2026**; **obblighi di segnalazione dell'art. 14 dall'11 settembre
 2026**; applicazione generale, requisiti essenziali e marcatura dall'**11 dicembre 2027**
@@ -605,7 +615,7 @@ progetto ricadono nel regolamento e quali no. La tabella artefatto → regime ch
 
 ### 6.4 Responsabilità da prodotto
 
-**Direttiva (UE) 2024/2853** — responsabilità per danno da prodotti difettosi. Termine di
+**Direttiva (UE) 2024/2853** - responsabilità per danno da prodotti difettosi. Termine di
 recepimento **9 dicembre 2026**; si applica ai prodotti immessi sul mercato o messi in servizio
 **dopo** tale data. Disposizioni usate: **art. 10** (presunzione di difettosità in caso di non
 conformità a requisiti obbligatori di sicurezza del diritto dell'Unione), **art. 11** (esenzione
@@ -617,21 +627,21 @@ danneggiato).
 *Come si legge*: è l'**unica fonte del quadro che opera verso il danneggiato**, cioè verso una
 persona che non ha accettato alcuna licenza. Le clausole di esclusione di garanzia della licenza
 del progetto valgono fra le parti, non verso il paziente.
-`[NV]` — la formulazione letterale dell'art. 4 e dei considerando sulla nozione di prodotto, e la
+`[NV]` - la formulazione letterale dell'art. 4 e dei considerando sulla nozione di prodotto, e la
 numerazione della norma italiana equivalente dopo il recepimento, **non sono verificate**.
 
 ### 6.5 Accessibilità
 
-**Direttiva (UE) 2019/882** — requisiti di accessibilità dei prodotti e dei servizi. Recepita con
+**Direttiva (UE) 2019/882** - requisiti di accessibilità dei prodotti e dei servizi. Recepita con
 il decreto legislativo 27 maggio 2022, n. 82. Si applica ai prodotti e servizi immessi sul mercato
 dal **28 giugno 2025**.
-`[NV]` — **la telemedicina non è nominata** fra le categorie coperte; la qualificazione di un
+`[NV]` - **la telemedicina non è nominata** fra le categorie coperte; la qualificazione di un
 servizio di videoconsulto come servizio di comunicazione interpersonale indipendente dal numero è
 controversa e non accertata.
 
-**Direttiva (UE) 2016/2102** — accessibilità dei siti web e delle applicazioni mobili degli enti
-pubblici. In Italia opera attraverso la legge 9 gennaio 2004, n. 4, e le linee guida dell'agenzia
-nazionale. Quando il cliente è una pubblica amministrazione, **l'obbligo è diretto**.
+**Direttiva (UE) 2016/2102** - accessibilità dei siti web e delle applicazioni mobili degli enti
+pubblici. In Italia opera attraverso la legge 9 gennaio 2004, n. 4, e le linee guida AgID.
+Quando il cliente è una pubblica amministrazione, **l'obbligo è diretto**.
 *Dove sono usate*: [15 §8.5](15-regolatorio-da-zero.md),
 [`08_compliance/01 §8`](../08_compliance/01-inquadramento-normativo.md) e
 [`06`](../08_compliance/06-usabilita-e-accessibilita.md).
@@ -640,18 +650,18 @@ contenuti web**, e va percorsa in quest'ordine. La norma tecnica è al §9.
 
 ### 6.6 Spazio europeo dei dati sanitari
 
-**Regolamento (UE) 2025/327** — spazio europeo dei dati sanitari. In vigore dal **26 marzo 2025**;
+**Regolamento (UE) 2025/327** - spazio europeo dei dati sanitari. In vigore dal **26 marzo 2025**;
 applicazione generale dal **26 marzo 2027**; il **capo III dal 26 marzo 2029**, e dal **26 marzo
 2031** per i sistemi di cui all'art. 26, paragrafo 2. Il capo III introduce un regime di conformità
-— documentazione tecnica, dichiarazione di conformità, marcatura, di regola **senza organismo
-notificato** — per i **sistemi di cartella clinica elettronica**, definiti in funzione della
+- documentazione tecnica, dichiarazione di conformità, marcatura, di regola **senza organismo
+notificato** - per i **sistemi di cartella clinica elettronica**, definiti in funzione della
 finalità di archiviare, intermediare, esportare, importare, convertire, modificare o visualizzare
 dati sanitari elettronici personali appartenenti alle categorie prioritarie.
 *Dove è usato*: [07 §10](07-fse-e-infrastrutture-nazionali.md), [15 §8.6](15-regolatorio-da-zero.md),
 [`08_compliance/01 §7`](../08_compliance/01-inquadramento-normativo.md).
 *Come si legge*: **è il punto meno intuitivo dell'intero quadro**, perché un prodotto può ricadervi
 **pur non essendo un dispositivo medico**.
-`[NV]` — la **mappatura esatta delle date** per ciascuna disposizione e le definizioni dell'art. 2
+`[NV]` - la **mappatura esatta delle date** per ciascuna disposizione e le definizioni dell'art. 2
 vanno confermate sul testo: le fonti secondarie consultate divergono. È inoltre aperta la questione
 se il progetto debba produrre anche il pacchetto documentale del capo III (`Q-171`).
 
@@ -669,7 +679,7 @@ se il progetto debba produrre anche il pacchetto documentale del capo III (`Q-17
 
 ## 7. Standard di interoperabilità sanitaria
 
-Il modulo che li spiega è [05 — Gli standard di
+Il modulo che li spiega è [05 - Gli standard di
 interoperabilità](05-standard-di-interoperabilita.md); quello che dice **come il progetto li usa**
 è l'[area protocolli](../04_protocols/00-indice.md). Qui ci sono gli estremi.
 
@@ -706,21 +716,21 @@ la verifica va fatta **artefatto per artefatto**.
 
 ### 7.2 Messaggistica e documenti clinici
 
-**HL7 versione 2.5.1** — messaggistica ospedaliera. La versione è fissata alla `2.5.1` perché è
+**HL7 versione 2.5.1** - messaggistica ospedaliera. La versione è fissata alla `2.5.1` perché è
 quella in cui la struttura della schedulazione include il segmento di temporizzazione strutturata,
 assente nelle versioni precedenti alla `2.5`.
-**HL7 Transport Specification: MLLP** — incorniciamento dei messaggi su trasporto a flusso. Nudo è
+**HL7 Transport Specification: MLLP** - incorniciamento dei messaggi su trasporto a flusso. Nudo è
 in chiaro: il progetto lo usa **sempre** con mutua autenticazione a livello di trasporto.
 *Dove sono usati*: [05 §4](05-standard-di-interoperabilita.md),
 [`docs/04_protocols/04`](../04_protocols/04-hl7-v2.md).
 
-**HL7 CDA release 2** — architettura dei documenti clinici. Nel progetto la serializzazione
+**HL7 CDA release 2** - architettura dei documenti clinici. Nel progetto la serializzazione
 documentale è **sostituibile** e il contenuto è modellato come dataset canonico (`V-07`): nessun
 modello documentale è cablato.
 *Dove è usato*: [05 §5](05-standard-di-interoperabilita.md),
 [`docs/04_protocols/03`](../04_protocols/03-documenti-clinici.md),
 [`docs/05_domain/04`](../05_domain/04-documenti-clinici.md).
-`[NV]` — i **modelli, i codici di tipologia e i metadati di indicizzazione** delle dieci tipologie
+`[NV]` - i **modelli, i codici di tipologia e i metadati di indicizzazione** delle dieci tipologie
 documentali della telemedicina **non sono pubblicamente disponibili** (`Q-07`).
 
 ### 7.3 Profili di interoperabilità IHE
@@ -738,12 +748,12 @@ documentali della telemedicina **non sono pubblicamente disponibili** (`Q-07`).
 *Dove sono usati*: [05 §6](05-standard-di-interoperabilita.md),
 [`docs/04_protocols/05`](../04_protocols/05-ihe.md).
 *Come si legge*: **fissare la revisione non è un'ottimizzazione**: è la condizione perché due
-installazioni dello stesso software si comportino allo stesso modo. Tre profili su otto sono in
-implementazione di prova, e uno è in commento pubblico.
+installazioni dello stesso software si comportino allo stesso modo. Quattro profili su sette sono
+in implementazione di prova, e uno è in commento pubblico.
 
 ### 7.4 Immagini
 
-**DICOM PS3.18** — servizi web su immagini. Nel progetto è usato in sola consultazione e mai sul
+**DICOM PS3.18** - servizi web su immagini. Nel progetto è usato in sola consultazione e mai sul
 canale video.
 *Dove è usato*: [05 §7](05-standard-di-interoperabilita.md),
 [`docs/04_protocols/05`](../04_protocols/05-ihe.md).
@@ -753,7 +763,7 @@ canale video.
 ## 8. Standard tecnici generali
 
 Il **catalogo ragionato**, con il problema risolto, il punto del progetto in cui ciascuno è usato e
-lo stato di maturità, è in [13 §9 — I protocolli, tabella
+lo stato di maturità, è in [13 §9 - I protocolli, tabella
 riassuntiva](13-protocolli.md). Non si ripete qui. Questa sezione dice **dove si reperisce il testo
 primario** e **come si verifica che una specifica non sia stata superata**, che è la parte che il
 catalogo non contiene.
@@ -762,7 +772,7 @@ catalogo non contiene.
 
 *Dove si reperiscono*: l'editore ufficiale delle richieste di commento e il tracciatore dei
 documenti dell'ente di standardizzazione. Ogni documento porta, nella propria pagina, lo stato
-corrente e — quando esiste — l'indicazione del documento che lo **obsoleta** o lo **aggiorna**.
+corrente e - quando esiste - l'indicazione del documento che lo **obsoleta** o lo **aggiorna**.
 *Come si verifica la vigenza*: si apre la pagina del documento e si guardano due campi, *Obsoleted
 by* e *Updated by*. È una verifica di trenta secondi che il progetto richiede prima di ogni
 citazione, e che intercetta gli errori più frequenti: la semantica del protocollo web è stata
@@ -796,11 +806,11 @@ rappresenta la delega, e il progetto **non emette mai** un token che ne sia priv
 | **HTML Living Standard**, sezione sugli eventi inviati dal server | WHATWG | standard vivo, **senza versione** | Spinta a senso unico verso il browser |
 | **OpenAPI** | OpenAPI Initiative | 3.1 | Contratto verificabile da una macchina. Schema dei dati `2020-12` |
 | **CloudEvents** | CNCF | 1.0; binding sul protocollo web **1.0.2** | Busta comune degli eventi. Contiene un **obbligo negativo esplicito** su un'intestazione, codificato nel progetto come prova negativa (`V-134`) |
-| **ECMA-404** | Ecma International | — | Sintassi di scambio dei dati, in parallelo alla richiesta di commento corrispondente |
-| **Raccomandazioni sul linguaggio di marcatura estensibile** | W3C | — | Vincolo esterno, non scelta: documenti firmabili in parte |
+| **ECMA-404** | Ecma International | - | Sintassi di scambio dei dati, in parallelo alla richiesta di commento corrispondente |
+| **Raccomandazioni sul linguaggio di marcatura estensibile** | W3C | - | Vincolo esterno, non scelta: documenti firmabili in parte |
 | **Criteri di accessibilità dei contenuti web**, livello AA | W3C | **2.1** | Incorporati nella norma tecnica europea di accessibilità. Il progetto dichiara una sola non conformità, sul criterio **1.2.4** |
-| **Specifiche del protocollo del broker di eventi** | progetto a monte | — | Specifica di **un'implementazione**, non di un ente di normazione: è un componente di terze parti da qualificare |
-| **CycloneDX** | `[NV]` — ente pubblicatore e versione di riferimento non verificati | `[NV]` | Formato della distinta dei materiali software, pubblicata per ogni rilascio e validabile contro lo schema. È il formato adottato dal requisito `SEC-043` |
+| **Specifiche del protocollo del broker di eventi** | progetto a monte | - | Specifica di **un'implementazione**, non di un ente di normazione: è un componente di terze parti da qualificare |
+| **CycloneDX** | `[NV]` - ente pubblicatore e versione di riferimento non verificati | `[NV]` | Formato della distinta dei materiali software, pubblicata per ogni rilascio e validabile contro lo schema. È il formato adottato dal requisito `SEC-043` |
 
 *Come si legge questo blocco*: la colonna «ente» conta quanto la specifica. Una specifica di
 progetto o di implementazione non ha lo stesso valore di uno standard di un organismo riconosciuto,
@@ -818,19 +828,19 @@ catalogo dell'organismo di normazione nazionale o internazionale.
 | Norma | Oggetto | Domanda a cui risponde | Dove è usata |
 |---|---|---|---|
 | **ISO 13485:2016** | Sistema di gestione della qualità per i dispositivi medici | *Come è organizzato chi produce il software?* | [15 §5.3](15-regolatorio-da-zero.md), [`08_compliance/03`](../08_compliance/03-sistema-di-gestione-della-qualita.md), [`09`](../08_compliance/09-percorso-e-calendario.md) |
-| **IEC 62304:2006+A1:2015** | Ciclo di vita del software dei dispositivi medici. La clausola **8.1.2** richiede che ogni elemento di configurazione sia identificato per titolo, produttore e **versione** — è il fondamento del divieto di etichette di versione mobili (`V-173`); la clausola **5.1.1** riguarda la tracciabilità | *Come è stato costruito e verificato?* | [15 §5.4](15-regolatorio-da-zero.md), [`01_technical/01`](../01_technical/01-stack-e-motivazioni.md) e [`09`](../01_technical/09-integrazione-continua-e-rilascio.md), [`08_compliance/03`](../08_compliance/03-sistema-di-gestione-della-qualita.md) |
+| **IEC 62304:2006+A1:2015** | Ciclo di vita del software dei dispositivi medici. La clausola **8.1.2** richiede che ogni elemento di configurazione sia identificato per titolo, produttore e **versione** - è il fondamento del divieto di etichette di versione mobili (`V-173`); la clausola **5.1.1** riguarda la tracciabilità | *Come è stato costruito e verificato?* | [15 §5.4](15-regolatorio-da-zero.md), [`01_technical/01`](../01_technical/01-stack-e-motivazioni.md) e [`09`](../01_technical/09-integrazione-continua-e-rilascio.md), [`08_compliance/03`](../08_compliance/03-sistema-di-gestione-della-qualita.md) |
 | **ISO 14971:2019** | Gestione del rischio per i dispositivi medici | *Quali danni può causare e che cosa si è fatto per evitarli?* | [09](09-fondamenti-clinici.md), [10](10-percorsi-di-cura-e-sicurezza.md), [12](12-crittografia-e-sicurezza.md), [15 §5.5](15-regolatorio-da-zero.md), [`08_compliance/05`](../08_compliance/05-gestione-del-rischio.md) |
 | **IEC 62366-1:2015+A1:2020** | Ingegneria dell'usabilità | *Come è stato progettato perché non lo si usi male?* | [04](04-identita-e-anagrafiche.md), [10](10-percorsi-di-cura-e-sicurezza.md), [15 §5.6](15-regolatorio-da-zero.md), [`01_technical/08`](../01_technical/08-qualita-e-test.md), [`08_compliance/06`](../08_compliance/06-usabilita-e-accessibilita.md) |
 | **IEC 82304-1:2016** | Prodotto software sanitario | *In quale ambiente funziona e con quali limiti?* | [15 §5.7](15-regolatorio-da-zero.md) |
 | **ISO/IEC 81001-5-1:2021** | Sicurezza nel ciclo di vita del software sanitario | *Come si difende, e come si gestiscono le vulnerabilità?* | [12](12-crittografia-e-sicurezza.md), [15 §5.7](15-regolatorio-da-zero.md), [`08_compliance/01 §5`](../08_compliance/01-inquadramento-normativo.md) |
-| **ISO 20417** | Informazioni fornite dal fabbricante | *Che cosa deve dire l'etichetta — che per un software è una schermata* | [`08_compliance/04`](../08_compliance/04-fascicolo-tecnico.md) |
+| **ISO 20417** | Informazioni fornite dal fabbricante | *Che cosa deve dire l'etichetta - che per un software è una schermata* | [`08_compliance/04`](../08_compliance/04-fascicolo-tecnico.md) |
 | **ISO 15223-1** | Simboli da utilizzare nelle informazioni fornite dal fabbricante | idem | [`08_compliance/04`](../08_compliance/04-fascicolo-tecnico.md) |
 | **ISO/IEC 29115** | Quadro di garanzia dell'autenticazione dell'entità | *Quanto è forte l'autenticazione?* I livelli dichiarati dai canali nazionali corrispondono a **LoA2, LoA3 e LoA4** | [04](04-identita-e-anagrafiche.md), [07 §8.2](07-fse-e-infrastrutture-nazionali.md), [13](13-protocolli.md), [`06_security/02`](../06_security/02-identita-e-accessi.md) |
 | **ISO 27799:2016** | Gestione della sicurezza delle informazioni in sanità; interpretazione sanitaria dei controlli di **ISO/IEC 27002**. Tratta espressamente la gestione degli accessi in emergenza | *Che cosa il settore sanitario aggiunge ai controlli generali?* | [12](12-crittografia-e-sicurezza.md) |
 | **ISO 3166** | Codici dei paesi | Campi di indirizzo e identificatori | [04](04-identita-e-anagrafiche.md), [`04_protocols/04`](../04_protocols/04-hl7-v2.md) |
 | **ISO/IEC 7498-1** | Modello di riferimento a strati per l'interconnessione dei sistemi aperti | Vocabolario dei livelli | [13 §1](13-protocolli.md) |
 | **ISO/IEC 14496-10** | Codifica video avanzata | Codec del piano media | [08](08-webrtc-da-zero.md) |
-| **EN 301 549** | Requisiti di accessibilità dei prodotti e servizi ICT; incorpora i criteri di accessibilità dei contenuti web di livello AA nelle clausole 9, 10 e 11. La **clausola 6** impone requisiti propri della comunicazione bidirezionale vocale e della videocomunicazione — qualità audio, comunicazione in tempo reale con testo, identificazione del chiamante, risoluzione e frequenza dei fotogrammi e sincronizzazione labiale sufficienti per la lingua dei segni | *Che cosa serve oltre i criteri web?* | [01](01-sistema-sanitario-italiano.md), [02](02-prestazioni-di-telemedicina.md), [15 §8.5](15-regolatorio-da-zero.md), [`01_technical/04`](../01_technical/04-frontend.md), [`08_compliance/01 §8`](../08_compliance/01-inquadramento-normativo.md) e [`06`](../08_compliance/06-usabilita-e-accessibilita.md) |
+| **EN 301 549** | Requisiti di accessibilità dei prodotti e servizi ICT; incorpora i criteri di accessibilità dei contenuti web di livello AA nelle clausole 9, 10 e 11. La **clausola 6** impone requisiti propri della comunicazione bidirezionale vocale e della videocomunicazione - qualità audio, comunicazione in tempo reale con testo, identificazione del chiamante, risoluzione e frequenza dei fotogrammi e sincronizzazione labiale sufficienti per la lingua dei segni | *Che cosa serve oltre i criteri web?* | [01](01-sistema-sanitario-italiano.md), [02](02-prestazioni-di-telemedicina.md), [15 §8.5](15-regolatorio-da-zero.md), [`01_technical/04`](../01_technical/04-frontend.md), [`08_compliance/01 §8`](../08_compliance/01-inquadramento-normativo.md) e [`06`](../08_compliance/06-usabilita-e-accessibilita.md) |
 | **ETSI TS 119 312** | Suite crittografiche | *Quali meccanismi e quali dimensioni di chiave* | [08](08-webrtc-da-zero.md), [12](12-crittografia-e-sicurezza.md), [13](13-protocolli.md) |
 | **Meccanismi crittografici concordati in ambito SOG-IS** | Riferimento europeo sui meccanismi | idem | [08](08-webrtc-da-zero.md), [12](12-crittografia-e-sicurezza.md) |
 
@@ -838,7 +848,7 @@ catalogo dell'organismo di normazione nazionale o internazionale.
 
 **Prima, sull'armonizzazione.** Una norma **armonizzata** conferisce presunzione di conformità ai
 requisiti coperti (art. 8 del regolamento sui dispositivi medici); una norma non armonizzata resta
-utilizzabile come stato dell'arte ma non conferisce presunzione. `[NV]` — lo stato di
+utilizzabile come stato dell'arte ma non conferisce presunzione. `[NV]` - lo stato di
 armonizzazione di **EN IEC 62304, EN IEC 62366-1, EN IEC 82304-1 ed EN ISO/IEC 81001-5-1 non è
 univocamente accertato**: le fonti secondarie divergono. Risultano invece pacificamente armonizzate
 **EN ISO 13485:2016** ed **EN ISO 14971:2019**. Finché la verifica non è compiuta sull'elenco
@@ -1065,8 +1075,8 @@ un'affermazione di conformità. Riguarda almeno due casi documentati: il capitol
 tecnico incorporato per rinvio da un allegato ministeriale, e i documenti metodologici richiamati
 da un decreto del 2022.
 
-**Le stime al posto di una fonte pubblicata.** Dove esiste un obbligo di pubblicazione — come per
-le tariffe standard degli organismi notificati — il progetto **non stima** e rinvia alla fonte
+**Le stime al posto di una fonte pubblicata.** Dove esiste un obbligo di pubblicazione - come per
+le tariffe standard degli organismi notificati - il progetto **non stima** e rinvia alla fonte
 primaria. In presenza di una fonte, stimare è un errore di metodo.
 
 ---
@@ -1110,7 +1120,7 @@ sapere in un solo passaggio quali documenti ne dipendono. Il meccanismo di regis
 | `[NV]` | Documenti metodologici richiamati dal DM 21 settembre 2022 per i requisiti funzionali dei micro-servizi: **non reperiti** | Conformità |
 | `[NV]` | Allegati di dettaglio della determinazione sulle specifiche di sicurezza di base: non letti riga per riga (`Q-151`) | Conformità |
 | `[NV]` | Testi dei due decreti del Presidente del Consiglio sugli elementi essenziali di cybersicurezza nei contratti pubblici, e verifica dell'applicabilità alle categorie tecnologiche | Conformità, con consulente di appalti |
-| `[NV]` | Numerazione puntuale di alcune sezioni degli Allegati I, IX e XI del regolamento sui dispositivi medici; codici di designazione; numero del punto sull'incidente grave | Conformità |
+| `[NV]` | Numerazione puntuale di alcune sezioni degli Allegati I, IX e XI del regolamento sui dispositivi medici; codici di designazione; numero del punto sull'incidente grave; ripartizione fra i paragrafi degli artt. 86 e 87 in funzione della classe | Conformità |
 | `[NV]` | Definizioni e mappatura delle date del regolamento sullo spazio europeo dei dati sanitari | Conformità |
 | `[NV]` | Stato di armonizzazione di quattro norme tecniche di processo e di due norme sulle informazioni fornite dal fabbricante | Conformità |
 | `[NV]` | Versione della norma tecnica europea di accessibilità citata a supporto della direttiva sui prodotti e servizi | Conformità |

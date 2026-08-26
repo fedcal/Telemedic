@@ -1,10 +1,10 @@
 ---
-title: "ADR-0010 — Buste CloudEvents, consegna almeno una volta, idempotenza per costruzione"
+title: "ADR-0010 - Buste CloudEvents, consegna almeno una volta, idempotenza per costruzione"
 sidebar_position: 10
 description: Il formato della busta degli eventi, la semantica di consegna dichiarata, la chiave di partizionamento, il numero di sequenza per aggregato e la ragione per cui l'ordine globale non è garantito.
 ---
 
-# ADR-0010 — Buste CloudEvents, consegna almeno una volta, idempotenza per costruzione
+# ADR-0010 - Buste CloudEvents, consegna almeno una volta, idempotenza per costruzione
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Base architetturale**: §5 · **Correzione recepita**: C-10 di bacheca
@@ -79,7 +79,7 @@ Ogni consumatore è idempotente, verificato con una prova che consegna due volte
 verifica l'identità dello stato risultante. Tre forme, in ordine di preferenza: operazione
 naturalmente idempotente; chiave di deduplicazione persistita, con conservazione **superiore alla
 finestra massima di ritentativo**; verifica di stato prima dell'effetto, obbligatoria per i due
-effetti non ritrattabili — il recapito di un messaggio a una persona e il deposito di un documento
+effetti non ritrattabili - il recapito di un messaggio a una persona e il deposito di un documento
 in un'infrastruttura esterna.
 
 ## Conseguenze
@@ -97,13 +97,13 @@ in un'infrastruttura esterna.
 - Ogni consumatore, interno ed esterno, deve deduplicare.
 - Il numero di sequenza per aggregato richiede una sorgente monotona per aggregato, quindi un punto
   di serializzazione in scrittura.
-- `[NV]` — l'aumento del numero di partizioni in esercizio può spezzare l'ordine per aggregato
+- `[NV]` - l'aumento del numero di partizioni in esercizio può spezzare l'ordine per aggregato
   durante il riassestamento: verifica a carico dell'area tecnica **prima** di qualunque
   ridimensionamento.
-- `[NV]` — la finestra di conservazione delle chiavi di deduplicazione va fissata dall'area tecnica
+- `[NV]` - la finestra di conservazione delle chiavi di deduplicazione va fissata dall'area tecnica
   e non può essere inferiore alla finestra massima di ritentativo.
 
 ## Riferimenti
 
-[06 — Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#3-la-busta) ·
+[06 - Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#3-la-busta) ·
 ADR-0008 · ADR-0011

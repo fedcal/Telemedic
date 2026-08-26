@@ -1,7 +1,7 @@
 ---
 title: Primo rilascio utilizzabile
 sidebar_position: 4
-description: Il perimetro del primo rilascio installabile del 30 novembre 2026 sotto la capacità dichiarata da D54 — che cosa contiene, che cosa è stato tagliato per rispettare la data con l'indicazione di quali tagli sono irreversibili, l'ordine in cui si taglierebbe ancora, i presupposti di installazione, i limiti dichiarati e i criteri bloccanti di rilascio.
+description: Il perimetro del primo rilascio installabile del 30 novembre 2026 sotto la capacità dichiarata da D54 - che cosa contiene, che cosa è stato tagliato per rispettare la data con l'indicazione di quali tagli sono irreversibili, l'ordine in cui si taglierebbe ancora, i presupposti di installazione, i limiti dichiarati e i criteri bloccanti di rilascio.
 ---
 
 # Primo rilascio utilizzabile
@@ -9,7 +9,7 @@ description: Il perimetro del primo rilascio installabile del 30 novembre 2026 s
 Nel resto della roadmap questo rilascio è il traguardo `T-10`, datato **30 novembre 2026** da
 `D53`. In questo capitolo è designato **`RU-1`**.
 
-> **`[NV]` — la denominazione della distribuzione non è decisa.** `D17` impone che il repository
+> **`[NV]` - la denominazione della distribuzione non è decisa.** `D17` impone che il repository
 > e la distribuzione abbiano **nomi, numeri di versione e cicli di vita distinti**. La sigla
 > `RU-1` è una designazione di pianificazione, non il nome dell'artefatto: il nome della
 > distribuzione va deciso prima della prima pubblicazione. Fino ad allora nessun documento del
@@ -18,8 +18,8 @@ Nel resto della roadmap questo rilascio è il traguardo `T-10`, datato **30 nove
 > **Come è cambiato questo capitolo, e perché.** `D53` conferma il 30 novembre 2026 come primo
 > rilascio installabile; `D54` dichiara la capacità: **un contributore unico a tempo parziale**.
 > Con data e capacità fissate, **l'unica variabile libera è l'ambito**
-> ([01 §1](./01-principi-e-metodo.md)). Il perimetro dei §§3 e 4 è quindi **ridotto**, e il §5 —
-> *che cosa è stato tagliato per rispettare la data* — è la sezione più importante del documento
+> ([01 §1](./01-principi-e-metodo.md)). Il perimetro dei §§3 e 4 è quindi **ridotto**, e il §5 -
+> *che cosa è stato tagliato per rispettare la data* - è la sezione più importante del documento
 > per chi deve decidere se adottare il prodotto. Contiene, per ogni voce uscita, **se il taglio è
 > recuperabile o no**. I tagli non recuperabili sono quattro, sono marcati come tali, e sono
 > l'informazione che questo capitolo esiste per dare.
@@ -102,8 +102,8 @@ Il percorso di `RU-1` è la **televisita programmata a due partecipanti, dall'ap
 per riferimento fino alla chiusura con esito tipizzato e alla restituzione dell'esito al sistema di
 origine.**
 
-Rispetto alla formulazione precedente — che arrivava al **documento clinico validato e restituito**
-— il percorso si ferma **prima della refertazione**. È il taglio `TG-01` del §5, è reversibile, e
+Rispetto alla formulazione precedente - che arrivava al **documento clinico validato e restituito**
+- il percorso si ferma **prima della refertazione**. È il taglio `TG-01` del §5, è reversibile, e
 la sua conseguenza è dichiarata lì.
 
 La scelta del percorso non è di comodità. È quello che, fra tutti quelli catalogati, **attraversa
@@ -120,7 +120,7 @@ il maggior numero di vincoli trasversali con il minor numero di dipendenze da te
 | Nessuna funzionalità raggiungibile solo dall'interfaccia (`V3`, `V-164`) | **Sì**: l'interfaccia consuma le stesse interfacce applicative offerte agli integratori | Piani di esposizione |
 | Eventi con soli riferimenti, mai contenuto clinico (`V-135`, `V-161`) | **Sì**, sull'evento di conclusione della prestazione. **Non tagliabile** (§5.4) | Outbox ed eventi |
 | Esito distinto dallo stato, con effetti amministrativi opposti (`V-141`) | **Sì**: mancata presentazione e fallimento tecnico attribuibile all'assistito condividono lo stato terminale e hanno effetti opposti | Prestazione clinica |
-| Documento immutabile con catena di rettifica | **No**: esce con `TG-01` | — |
+| Documento immutabile con catena di rettifica | **No**: esce con `TG-01` | - |
 | Sistema pienamente funzionale senza le terminologie a licenza vincolata (`V-03`) | **Sì**, ma **in forma degenere**: nel perimetro ridotto non esiste contenuto codificato da risolvere. La verifica va rifatta quando esiste (`TG-05`) | Gateway terminologico disattivato |
 
 Un percorso che attraversa questi vincoli **li prova**. Un insieme largo di funzioni incomplete non
@@ -160,7 +160,7 @@ con cui va verificato. Il catalogo completo dei requisiti è in
 - Federazione con realm distinti per il contesto clinico e per quello dell'assistito.
 - Accettazione di un'identità già autenticata dal sistema dell'integratore, **senza secondo
   accesso**, con delega esplicita, e **avvio della sessione con token d'ingresso a uso singolo
-  emesso su canale posteriore** — che nel perimetro ridotto non è un ripiego ma la modalità
+  emesso su canale posteriore** - che nel perimetro ridotto non è un ripiego ma la modalità
   principale, perché il componente incorporabile è tagliato (`TG-03`).
 - Autorizzazione fondata sulla **relazione di cura**, non sul solo ruolo; ruolo come relazione fra
   persona e organizzazione con validità temporale, non come attributo della persona.
@@ -206,8 +206,8 @@ con cui va verificato. Il catalogo completo dei requisiti è in
 
 ### 3.5 Consenso
 
-- **Tre oggetti di consenso distinti** con cicli di vita indipendenti — atto sanitario, trattamento
-  dei dati ove applicabile, trasmissione dell'esito al sistema esterno — e nessun «consenso alla
+- **Tre oggetti di consenso distinti** con cicli di vita indipendenti - atto sanitario, trattamento
+  dei dati ove applicabile, trasmissione dell'esito al sistema esterno - e nessun «consenso alla
   piattaforma» (`V-146`). Gli altri due oggetti del modello, registrazione e presenza di terzi,
   riguardano funzioni non presenti in `RU-1`: **il modello li prevede, il rilascio non li
   esercita**, e la differenza è dichiarata.
@@ -243,7 +243,7 @@ Sostituisce la sezione sulla documentazione clinica, che esce con `TG-01`.
 
 - Percorso dell'assistito e percorso del professionista, entrambi conformi ai criteri *mobile
   first* e di accessibilità come **criteri di accettazione**, non come rifinitura.
-- **Indicatore di registrazione persistente e non occultabile** quando la registrazione è attiva —
+- **Indicatore di registrazione persistente e non occultabile** quando la registrazione è attiva -
   benché la modalità con registrazione **non sia in `RU-1`**. **È stato deliberatamente escluso
   dai tagli**, e la ragione va detta perché mostra come i tagli sono stati scelti: un presidio che
   arriva insieme alla funzione che deve presidiare non è mai stato messo alla prova. Costa un
@@ -273,7 +273,7 @@ Questa sezione elenca ciò che era **già fuori** dal perimetro prima di `D53`. 
 separate: **confonderle farebbe apparire come conseguenza della fretta ciò che è una scelta di
 prodotto, e viceversa.**
 
-### 4.1 Categoria I — Fuori perimetro in modo definitivo
+### 4.1 Categoria I - Fuori perimetro in modo definitivo
 
 Non sono esclusioni di rilascio: sono esclusioni di prodotto, elencate con identificativo e
 categoria di riapribilità in
@@ -284,14 +284,14 @@ canale di emergenza, il riconoscimento biometrico, l'indice di riconciliazione d
 mediazione dell'accesso di un pagatore al fascicolo, la conservazione a norma.
 
 **Non torneranno in un rilascio successivo.** Alcune sono riapribili solo con una valutazione di
-impatto regolatorio registrata; una — la mediazione dell'accesso di un pagatore — non è riapribile
+impatto regolatorio registrata; una - la mediazione dell'accesso di un pagatore - non è riapribile
 finché la fonte è in vigore.
 
 `D55` aggiunge a questo elenco un **divieto permanente**: nessuna funzione può essere aggiunta se
 sposta il sistema verso il **tempo reale clinico**, e la valutazione va fatta prima di scrivere la
 funzione, non dopo.
 
-### 4.2 Categoria II — Rinviate per sequenza
+### 4.2 Categoria II - Rinviate per sequenza
 
 Sono nel perimetro del prodotto, sono pianificate, e non erano in `RU-1` già prima di `D53` perché
 il criterio di composizione impone un percorso verticale stretto.
@@ -306,27 +306,27 @@ il criterio di composizione impone un percorso verticale stretto.
 | **Kit di sviluppo** in linguaggio di programmazione | L'interfaccia applicativa versionata è sufficiente alla prima integrazione; il kit è comodità, non capacità | [04 §3](./04-oltre-il-primo-rilascio.md) |
 | **Messaggistica ospedaliera e profili di interoperabilità documentale** | Richiedono una controparte con un ambiente di prova | [04 §3](./04-oltre-il-primo-rilascio.md) |
 
-### 4.3 Categoria III — Rinviate per dipendenza esterna non disponibile
+### 4.3 Categoria III - Rinviate per dipendenza esterna non disponibile
 
 Sono nel perimetro, sono pianificate, e **la loro data non dipende dal lavoro del progetto**.
 
 | Esclusa da `RU-1` | Da che cosa dipende |
 |---|---|
-| **Conferimento dei documenti alle infrastrutture documentali nazionali e regionali** | I modelli documentali, i codici di tipologia e i metadati di indicizzazione delle tipologie di telemedicina **non sono pubblicamente disponibili** (`Q-07`). Il progetto ha già la risposta strutturale — dataset canonico e serializzazione sostituibile: **manca il contenuto, non il progetto** |
+| **Conferimento dei documenti alle infrastrutture documentali nazionali e regionali** | I modelli documentali, i codici di tipologia e i metadati di indicizzazione delle tipologie di telemedicina **non sono pubblicamente disponibili** (`Q-07`). Il progetto ha già la risposta strutturale - dataset canonico e serializzazione sostituibile: **manca il contenuto, non il progetto** |
 | **Conformità verificata sull'identità digitale nazionale** in tutti e tre i canali | Richiede ambienti di pre-produzione, credenziali di prova e, per uno dei canali, **due istanze di fornitore di identità per ciascun fornitore** (`D38`): è il lotto sistematicamente sottovalutato |
 | **Soglie di prestazione dell'interfaccia dichiarate** | Il **dispositivo di riferimento non è dichiarato** (`Q-115`, `Q-175`), e senza dispositivo il requisito corrispondente non è verificabile. `RU-1` misura e pubblica le condizioni; non dichiara una soglia non misurata |
 | **Valori di riferimento dei livelli di servizio attesi** | La soglia la sceglie il cliente (`Q-152`, `Q-184`). `RU-1` fornisce la **capacità di misura**, che è il requisito |
 
-### 4.4 Categoria IV — Rinviate per decisione non presa
+### 4.4 Categoria IV - Rinviate per decisione non presa
 
 Non sono escluse per scelta: sono escluse perché **una decisione dichiarata rinviata non si prende
 in una proposta di modifica**.
 
 | Voce | Decisione pendente |
 |---|---|
-| Calcolo di punteggi di scale e questionari clinici validati | `B-3` — regime di licenza degli strumenti. La conseguenza già assunta in via cautelativa è che il dominio **non rappresenta punteggi** |
-| Contesto autonomo della rendicontazione | `C-1` — con l'avvertenza dichiarata al §3.7 |
-| Piano di dismissione delle versioni pubblicato | `C-4`, `Q-186` — è **prerequisito di `T-10`** e non voce di coda: senza il periodo di supporto non è determinabile quante versioni maggiori vanno mantenute |
+| Calcolo di punteggi di scale e questionari clinici validati | `B-3` - regime di licenza degli strumenti. La conseguenza già assunta in via cautelativa è che il dominio **non rappresenta punteggi** |
+| Contesto autonomo della rendicontazione | `C-1` - con l'avvertenza dichiarata al §3.7 |
+| Piano di dismissione delle versioni pubblicato | `C-4`, `Q-186` - è **prerequisito di `T-10`** e non voce di coda: senza il periodo di supporto non è determinabile quante versioni maggiori vanno mantenute |
 | Oscuramento selettivo del contenuto audio-video ai fini del diritto di accesso | Resta a `COMP` stabilire se il rilascio parziale soddisfi l'istanza dell'interessato (`Q-157`) |
 
 ---
@@ -378,7 +378,7 @@ una prova.
 | `TG-09` | **Tre cruscotti versionati** nel repository: salute del servizio, qualità del media, integrità e sicurezza | Sono presentazione di dati che il prodotto già espone | Chi installa **costruisce i propri cruscotti** sull'esportazione delle metriche, di cui il progetto documenta i nomi delle serie. Il tempo di attivazione della sorveglianza si sposta sul cliente |
 | `TG-10` | **Interfaccia di amministrazione** per tenant, registro degli identificatori, registro di fiducia | È un terzo percorso di interfaccia, con i propri obblighi di accessibilità come criterio di accettazione | Ogni operazione di amministrazione avviene per **configurazione dichiarativa versionata** e procedure a riga di comando, quindi **richiede accesso all'installazione** e non è delegabile a un amministratore non tecnico. È il taglio che pesa di più sull'esercizio quotidiano |
 | `TG-11` | **Migrazioni per tenant non bloccanti**, con avanzamento osservabile e fallimento isolato per tenant | La proprietà di non bloccare è una modalità di esecuzione in più da progettare e provare | L'aggiornamento richiede una **finestra di manutenzione dichiarata**. Resta invece **non tagliabile** la proprietà per cui due versioni consecutive convivono sulla stessa base dati (§5.4) |
-| `TG-12` | **Suite di prove media su scala completa di profili di rete** | Ogni profilo è uno scenario da costruire e mantenere | Il degrado dichiarato è **verificato agli estremi — nominale e degradato limite — e non lungo la scala**. Le condizioni di rete intermedie non sono coperte da prova, ed è un limite dichiarato (§9) |
+| `TG-12` | **Suite di prove media su scala completa di profili di rete** | Ogni profilo è uno scenario da costruire e mantenere | Il degrado dichiarato è **verificato agli estremi - nominale e degradato limite - e non lungo la scala**. Le condizioni di rete intermedie non sono coperte da prova, ed è un limite dichiarato (§9) |
 | `TG-13` | **Misura automatica della latenza da obiettivo a schermo** in integrazione continua | È un banco di misura, non una funzione | La latenza è **misurata in sessione e registrata**, ma **non esiste una prova automatica di regressione**: un peggioramento fra due versioni non viene intercettato dalla pipeline |
 | `TG-14` | **Verifica di riproducibilità su tutti gli artefatti**, su esecutori indipendenti | Il controllo di ogni sorgente di non determinismo su ogni artefatto è lavoro proporzionale al numero di artefatti | La verifica di riproducibilità è eseguita **sull'artefatto principale del servizio**, con esito conservato, e **non sugli altri artefatti**. Chi vuole verificare la corrispondenza fra distribuzione e sorgente può farlo per quell'artefatto e non per gli altri: è dichiarato nel fascicolo di rilascio |
 | `TG-15` | **Tutti i controlli obbligatori della pipeline bloccanti dal primo giorno** | Ogni controllo va provato con un caso deliberatamente non conforme prima di poter bloccare | Blocca da subito ogni controllo che presidia una **proprietà irrecuperabile o un divieto pubblico** ([02, `T-03`](./02-traguardi.md)); gli altri esistono **in sola segnalazione, ciascuno con la data dichiarata in cui diventa bloccante**. Un controllo in segnalazione senza quella data non è ammesso |
@@ -395,15 +395,15 @@ una prova.
 > passato non si registra dopo. Tre di esse discendono direttamente da `D54`, e nessuna dipende
 > dal numero di ore disponibili.
 
-#### `TG-20` — Registrazioni che richiedono due soggetti distinti · **IRREVERSIBILE**
+#### `TG-20` - Registrazioni che richiedono due soggetti distinti · **IRREVERSIBILE**
 
 **Che cos'erano.** Tre registrazioni previste dal sistema di gestione della qualità:
 
-- **il riesame documentale del rilascio** — criterio 18 dei criteri bloccanti nella versione
+- **il riesame documentale del rilascio** - criterio 18 dei criteri bloccanti nella versione
   precedente di questo capitolo;
 - **l'audit interno** del sistema di gestione della qualità sul periodo;
 - **la verifica di configurazione eseguita da chi non ha scritto il codice**, compresa
-  l'esecuzione della procedura di verifica lato deployer da parte di un secondo soggetto.
+  l'esecuzione della procedura di verifica a cura di chi installa da parte di un secondo soggetto.
 
 **Perché sono uscite.** Perché `D54` dichiara **un contributore unico**, e ciascuna di esse
 **presuppone soggetti distinti per definizione**: un auditor non audita la propria attività, un
@@ -425,8 +425,8 @@ prodotto in una commissione tecnica trova la dichiarazione nel fascicolo e non d
 
 **Che cosa il progetto fa comunque.** Tutti i criteri di `RU-1` restano **verificabili da
 chiunque**, con la procedura descritta: è la proprietà producibile con un contributore unico, ed è
-non negoziabile ([01 §12.1](./01-principi-e-metodo.md)). Le due affermazioni — «tutti i criteri
-sono verificabili da chiunque» e «nessuna verifica è stata eseguita da un secondo soggetto» — sono
+non negoziabile ([01 §12.1](./01-principi-e-metodo.md)). Le due affermazioni - «tutti i criteri
+sono verificabili da chiunque» e «nessuna verifica è stata eseguita da un secondo soggetto» - sono
 entrambe vere ed entrambe scritte.
 
 **Che cosa resta da decidere.** La **ripartizione**: quale sottoinsieme si accetta come lacuna
@@ -435,7 +435,7 @@ questione `Q-189`, con punto di decisione al **30 settembre 2026**. In assenza d
 predefinito è la lacuna dichiarata, ed è dichiarato in anticipo proprio per non farlo apparire come
 una scelta presa dopo.
 
-#### `TG-21` — Revisione esterna indipendente del codice di sicurezza critico · **IRREVERSIBILE PER IL PERIODO**
+#### `TG-21` - Revisione esterna indipendente del codice di sicurezza critico · **IRREVERSIBILE PER IL PERIODO**
 
 **Che cos'era.** `D18` prescrive che lo scambio di token nel gateway, essendo codice di sicurezza
 critico, sia **sottoposto a revisione esterna indipendente** e a test di abuso dedicati.
@@ -449,8 +449,8 @@ distribuito senza di essa**, e la prescrizione di `D18` è di eseguirla **prima*
 è quindi precisa e non va arrotondata in nessuna delle due direzioni: **recuperabile come attività,
 irrecuperabile come stato del rilascio `RU-1`**.
 
-**Che cosa comporta per chi installa.** Il confine di autorizzazione — validazione del token
-dell'integratore, emissione del token interno, claim dell'attore — **non è stato rivisto da un
+**Che cosa comporta per chi installa.** Il confine di autorizzazione - validazione del token
+dell'integratore, emissione del token interno, claim dell'attore - **non è stato rivisto da un
 terzo** al momento di `RU-1`. Va scritto nelle note di rilascio, ed è un elemento che un
 responsabile della sicurezza deve poter pesare nella propria valutazione.
 
@@ -459,12 +459,12 @@ negativa su tutte le configurazioni supportate**, e il criterio di rilascio bloc
 (§8, criterio 2). Sono verifiche **del comportamento**, e non sostituiscono una revisione del
 codice: la differenza è dichiarata e non attenuata.
 
-#### `TG-22` — Valutazione formativa di usabilità durante lo sviluppo · **IRREVERSIBILE**
+#### `TG-22` - Valutazione formativa di usabilità durante lo sviluppo · **IRREVERSIBILE**
 
 **Che cos'era.** L'ingegneria dell'usabilità ai sensi della norma applicabile, obbligatoria per
 effetto di `D12` e `D25`, prevede **valutazioni formative durante lo sviluppo** con utenti
-rappresentativi — che comprendono assistiti anziani e persone con disabilità, popolazione di
-riferimento e non caso limite — e una **validazione sommativa** prima del rilascio.
+rappresentativi - che comprendono assistiti anziani e persone con disabilità, popolazione di
+riferimento e non caso limite - e una **validazione sommativa** prima del rilascio.
 
 **Perché è uscita.** Perché richiede reclutamento di utenti rappresentativi, un protocollo approvato
 prima dell'esecuzione, e competenza di fattori umani che il progetto **non possiede internamente**.
@@ -487,7 +487,7 @@ tale.** Chiamarla così sarebbe la forma di debito regolatorio più costosa: una
 formalmente presente e sostanzialmente vuota, che è peggiore dell'assenza perché è falsamente
 rassicurante.
 
-#### `TG-23` — Ancoraggio periodico firmato della catena del registro immutabile · **IRREVERSIBILE PER IL PERIODO**
+#### `TG-23` - Ancoraggio periodico firmato della catena del registro immutabile · **IRREVERSIBILE PER IL PERIODO**
 
 **Che cos'era.** Il requisito di non alterabilità del registro degli accessi poggia su strati che
 coprono minacce diverse: catena di impronte applicativa, archivio in sola aggiunta, conservazione a
@@ -504,9 +504,9 @@ acquistano un ancoraggio retroattivo**: per il periodo di `RU-1` la garanzia di 
 resta quella della catena applicativa e della separazione dei privilegi, e **non è dimostrabile
 verso un terzo che non si fidi dell'operatore del sistema**. Attivarlo dopo non retrodata nulla.
 
-**Che cosa comporta per chi installa.** La **copertura** del registro è integrale — ogni accesso a
+**Che cosa comporta per chi installa.** La **copertura** del registro è integrale - ogni accesso a
 dato sanitario del percorso è registrato, e su questo non è ammessa alcuna riduzione
-([01 §7.3](./01-principi-e-metodo.md)) — ma **la garanzia di non alterabilità è ridotta di uno
+([01 §7.3](./01-principi-e-metodo.md)) - ma **la garanzia di non alterabilità è ridotta di uno
 strato**, e la riduzione va dichiarata a chi installa, perché determina che cosa può affermare nei
 propri adempimenti. La **separazione dei privilegi fra archivio applicativo e archivio del
 registro** resta un **presupposto di installazione e non una raccomandazione** (§7.1): in sua
@@ -543,16 +543,16 @@ il calendario residuo. Il margine sta nell'ambito, ed è questo.
 
 ### 6.1 Le tre regole
 
-**Prima — l'ordine si esegue dall'alto, per intero, e ogni esecuzione è registrata** nella revisione
+**Prima - l'ordine si esegue dall'alto, per intero, e ogni esecuzione è registrata** nella revisione
 di [00 §8](./00-indice.md), con la data e la causa. Una riduzione non registrata è un taglio non
 deciso, e fa perdere alla scelta la sola proprietà che `D53` obbliga a garantirle: **essere
 leggibile**.
 
-**Seconda — nell'ordine entrano soltanto tagli reversibili.** È parte del vincolo `V-282`. Un taglio
+**Seconda - nell'ordine entrano soltanto tagli reversibili.** È parte del vincolo `V-282`. Un taglio
 irreversibile non si decide sotto pressione di calendario: si decide con la procedura ordinaria,
 sapendo che cosa costa, oppure non si decide.
 
-**Terza — i criteri di rilascio bloccanti del §8 e l'elenco del §5.4 non entrano mai in questo
+**Terza - i criteri di rilascio bloccanti del §8 e l'elenco del §5.4 non entrano mai in questo
 ordine.** Se l'ambito non è più riducibile senza toccarli, **la data si dichiara mancata** con la
 causa registrata ([01 §10](./01-principi-e-metodo.md)). Non è un fallimento del metodo: è il metodo
 che funziona.
@@ -568,11 +568,12 @@ che funziona.
 | `S-5` | **Ripiego telefonico come esito tipizzato** | Il cambio di canale non è un valore del catalogo degli esiti | Resta registrabile come esito generico con nota: si perde la tipizzazione, non la tracciabilità |
 | `S-6` | **Firma asimmetrica degli eventi in uscita** con identificativo di chiave risolvibile | Gli eventi sono autenticati dal solo canale | **Non è ammesso il segreto condiviso come sostituto** (`V-162`): o la firma asimmetrica, o l'evento non esce verso terzi e resta il recupero per chiamata autenticata |
 | `S-7` | **Conteggio esatto delle parole** del corpus (`T-02` criterio 5) | Il piano di traduzione resta su stime, e l'`[NV]` sul volume resta aperto | La traduzione delle aree prerequisito **non dipende dal conteggio**: si esegue comunque |
+| `S-8` | **Teleconsulto e telemonitoraggio dal percorso verticale dimostrabile** | `RU-1` **non implementa le tre prestazioni del modello di dominio**: implementa la sola televisita programmata a due partecipanti. Chi valuta il progetto vede un solo caso d'uso esercitato, e i modelli delle altre due prestazioni restano progettati nel dominio e nei requisiti senza esercizio nel codice. È il taglio che morde sul criterio 6 di `T-08`, il percorso verticale, portandolo da "completo" a "completo per una sola prestazione" | Teleconsulto e telemonitoraggio restano **integralmente progettati**: modello di dominio, requisiti funzionali (`RF-*`), regole di business (`BR-*`), scenari di test (`ATT-*`), protocollazione. La loro implementazione è rinviata e non annullata. Nel criterio 6 di `T-08` e nella coda di [04](./04-oltre-il-primo-rilascio.md) il rinvio è dichiarato con la conseguenza che due percorsi verticali restano da costruire in rilasci successivi |
 
 **Che cosa non c'è in questa tabella, ed è la sua parte più importante.** Non c'è nessuna voce che
 riduca la copertura del registro degli accessi, la verifica delle chiavi, l'isolamento fra tenant,
 il consenso, l'assenza di contenuto clinico nelle uscite o un criterio di rilascio bloccante. **Se
-l'ordine si esaurisce, si dichiara la data mancata.** L'ordine finisce a `S-7` per costruzione, e la
+l'ordine si esaurisce, si dichiara la data mancata.** L'ordine finisce a `S-8` per costruzione, e la
 sua fine è essa stessa un'informazione.
 
 ---
@@ -607,7 +608,7 @@ saperlo prima vale più di scoprirlo dopo.
 ### 7.2 Che cosa deve fornire chi installa sul piano degli adempimenti
 
 Nessuno degli adempimenti verso le autorità è del fornitore, e nessuna clausola contrattuale li
-sposta — **e questo non cambia con `D58`**. L'elenco completo è in
+sposta - **e questo non cambia con `D58`**. L'elenco completo è in
 [`docs/06_security/09-ripartizione-delle-responsabilita.md`](../06_security/09-ripartizione-delle-responsabilita.md) §11.
 Quest'area ne richiama i tre che si scoprono più spesso troppo tardi:
 
@@ -628,7 +629,7 @@ Quest'area ne richiama i tre che si scoprono più spesso troppo tardi:
 | Verifiche di configurazione bloccanti all'avvio | §3.9 |
 | Distinta dei materiali firmata, per ogni artefatto | Compresi i componenti delle immagini di base |
 | Attestazioni di rilascio | Provenienza, distinta, esito delle prove, tracciabilità, **riproducibilità dell'artefatto principale** (`TG-14`), conformità del profilo di produzione |
-| Procedura eseguibile di verifica lato deployer | Con i comandi. **Eseguibile da chiunque**; non eseguita da un secondo soggetto (`TG-20`) |
+| Procedura eseguibile di verifica a cura di chi installa | Con i comandi. **Eseguibile da chiunque**; non eseguita da un secondo soggetto (`TG-20`) |
 | Procedura di copia e ripristino, materiale di chiave compreso | Con obiettivi dichiarati e almeno un'esecuzione documentata |
 | Procedura di verifica dell'integrità del registro | Su richiesta e programmata, con esito registrato. **Senza ancoraggio esterno** (`TG-23`) |
 | Esportazione delle metriche in formato aperto | Con i nomi delle serie documentati (`TG-09`) |
@@ -669,7 +670,7 @@ la verifica è automatica dove può esserlo.
 **Il criterio 17 è quello che sostituisce il riesame del rilascio, e non lo sostituisce
 davvero.** Nella versione precedente di questo capitolo il criterio 18 chiedeva un **riesame
 documentale del rilascio con responsabile e data**: sotto `D54` non è producibile (`TG-20`). Ciò che
-resta producibile — e che quindi è criterio bloccante — è **la dichiarazione esplicita che il
+resta producibile - e che quindi è criterio bloccante - è **la dichiarazione esplicita che il
 riesame non c'è stato**. Non è la stessa cosa e non va presentata come tale: è il minimo che
 consente a chi riceve l'artefatto di sapere che cosa ha in mano.
 
@@ -703,7 +704,7 @@ in [`docs/01_technical/07-prestazioni-e-capacita.md`](../01_technical/07-prestaz
 | 18 | **Nessuna rotazione delle chiavi durante la sessione** | **Non esiste nella tecnologia.** Non si rivendica |
 | 19 | **Sottotitoli in tempo reale assenti** | Non conformità dichiarata su un criterio di accessibilità, con l'interprete come misura alternativa e il canale dati comunque definito nel protocollo |
 | 20 | **Consegna degli eventi almeno una volta** | I consumatori sono idempotenti per costruzione |
-| 21 | **Numero di tenant per installazione** | `[NV]` — non misurato. Ordine di grandezza dichiarato: centinaia. La misura è un'attività di rilascio, non una stima |
+| 21 | **Numero di tenant per installazione** | `[NV]` - non misurato. Ordine di grandezza dichiarato: centinaia. La misura è un'attività di rilascio, non una stima |
 | 22 | **Riproducibilità verificata sul solo artefatto principale** | Taglio `TG-14`, reversibile |
 | 23 | **Interfaccia verificata rispetto ai criteri di accessibilità, non validata con gli utenti destinatari** | Taglio irreversibile `TG-22` |
 | 24 | **Confine di autorizzazione non rivisto da un terzo indipendente** | Taglio `TG-21`, irreversibile per il periodo |
@@ -751,16 +752,16 @@ esisterà su `RU-1`**, e la esegue chi installa.
 | **Conservazione** | Rendere i termini configurabili, tracciare l'esecuzione, rendere verificabile l'esito | **Determinare i termini**, che sono del titolare del trattamento |
 | **Livelli di servizio** | **Misurarli** e storicizzarli per tenant e per servizio, con allarme al superamento | **Definirli**, perché la soglia determina che cosa è un incidente significativo |
 | **Verifica indipendente** | Fornire una procedura di verifica **eseguibile da chiunque**, e dichiarare che **nessuna verifica è stata eseguita da un secondo soggetto** (`TG-20`) | **Eseguirla.** In `RU-1` è l'unica verifica indipendente che esiste |
-| **Marcatura** | **Nulla, oggi.** Il prodotto non reca marcatura CE e non è coperto da alcuna dichiarazione di conformità. Il progetto **intende assumere il ruolo di fabbricante** (`D58`), con il soggetto ancora da costituire, e ne pubblica la pianificazione interna — **mai una data di marcatura** | Assumere il ruolo di fabbricante se immette sul mercato, con tutti gli obblighi che ne derivano. **L'intenzione del progetto non trasferisce nulla** |
+| **Marcatura** | **Nulla, oggi.** Il prodotto non reca marcatura CE e non è coperto da alcuna dichiarazione di conformità. Il progetto **intende assumere il ruolo di fabbricante** (`D58`), con il soggetto ancora da costituire, e ne pubblica la pianificazione interna - **mai una data di marcatura** | Assumere il ruolo di fabbricante se immette sul mercato, con tutti gli obblighi che ne derivano. **L'intenzione del progetto non trasferisce nulla** |
 
 > **La riga che va letta due volte è l'ultima**, e più attentamente di prima. Che il progetto
 > intenda certificare in futuro **non copre alcuna installazione presente**, non toglie alcun
 > obbligo a chi integra e non anticipa alcun esito. Nessuna clausola della licenza, nessun accordo
 > e nessuna dichiarazione del progetto trasferisce a chi integra una protezione che non esiste, né
-> gli toglie un obbligo che la norma gli attribuisce — e **la responsabilità verso il danneggiato
+> gli toglie un obbligo che la norma gli attribuisce - e **la responsabilità verso il danneggiato
 > non è escludibile per contratto**.
 
 ---
 
-**Prosegue in**: [04 — Oltre il primo rilascio](./04-oltre-il-primo-rilascio.md), dove le voci del
+**Prosegue in**: [04 - Oltre il primo rilascio](./04-oltre-il-primo-rilascio.md), dove le voci del
 §4 e i tagli reversibili del §5 trovano il loro ordine di priorità.

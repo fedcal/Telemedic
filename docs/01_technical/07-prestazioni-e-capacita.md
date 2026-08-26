@@ -19,12 +19,12 @@ esiste per evitare:
 
 | Categoria | Che cos'è | Come si formula |
 |---|---|---|
-| **Obiettivo di servizio** | Un impegno che il deployer assume verso i propri utenti | «Il novantacinquesimo percentile della durata di ingresso in sessione è entro X» |
+| **Obiettivo di servizio** | Un impegno che chi installa assume verso i propri utenti | «Il novantacinquesimo percentile della durata di ingresso in sessione è entro X» |
 | **Limite dichiarato** | Un confine oltre il quale il prodotto non è progettato per funzionare | «Il modello è progettato per un ordine di grandezza di N tenant per installazione» |
 | **Misura** | Un fatto osservato su un'installazione, con la sua data e le sue condizioni | «Su questo insieme di prove, con questo profilo, il valore osservato è stato Y» |
 
 Il progetto produce **limiti dichiarati** e **capacità di misura**. Gli **obiettivi di servizio**
-li fissa il deployer, perché dipendono dalla sua infrastruttura, dalla sua rete e dalla sua
+li fissa chi installa, perché dipendono dalla sua infrastruttura, dalla sua rete e dalla sua
 organizzazione.
 
 ---
@@ -84,7 +84,7 @@ flowchart LR
 | Decodifica | Il navigatore | |
 | Resa | Il dispositivo, la frequenza di aggiornamento | A trenta fotogrammi al secondo, un fotogramma è già un contributo misurabile |
 
-`[NV]` — **i valori numerici di ciascuno stadio non sono riportati.** Il progetto non li ha
+`[NV]` - **i valori numerici di ciascuno stadio non sono riportati.** Il progetto non li ha
 misurati, e riportare ordini di grandezza presi da altrove in un documento tecnico di un
 dispositivo medico significa mettere in circolazione cifre che qualcuno citerà come proprie. La
 misura si fa con la prova automatica descritta in
@@ -97,7 +97,7 @@ le condizioni in cui sono stati ottenuti.
 perdita di pacchetti. È il meccanismo che rende ascoltabile una voce su una rete instabile.
 
 Ne discende che **un obiettivo rigido di latenza è in tensione diretta con la qualità audio**.
-Ridurre l'obiettivo del buffer — che è l'unica leva dell'applicazione su questo stadio — abbassa
+Ridurre l'obiettivo del buffer - che è l'unica leva dell'applicazione su questo stadio - abbassa
 la latenza **al costo di un aumento della perdita udibile sotto jitter elevato**.
 
 Questa è una scelta clinica, non una impostazione tecnica, e va trattata come tale: esposta come
@@ -145,8 +145,8 @@ esterno è asincrona, con esito osservabile, non un'attesa dentro una richiesta.
 ### 4.1 La media non si pubblica
 
 La media di una distribuzione di latenze con coda lunga descrive un caso che non capita a
-nessuno. In un sistema in cui l'evento raro è quello che conta — il consulto che non parte, la
-firma che non passa — la media è attivamente fuorviante.
+nessuno. In un sistema in cui l'evento raro è quello che conta - il consulto che non parte, la
+firma che non passa - la media è attivamente fuorviante.
 
 Si pubblicano e si allertano: **mediana** (il caso tipico), **novantacinquesimo percentile**
 (l'esperienza dell'utente sfortunato ordinario), **novantanovesimo** (la coda), **e il massimo
@@ -203,7 +203,7 @@ direzione; con due allocazioni, otto volte.
 
 Il dimensionamento si costruisce su tre parametri, **tutti da misurare e nessuno da assumere**:
 il bitrate medio per direzione nel proprio parco installato, la quota di sessioni instradate, e il
-picco di sessioni concorrenti. `[NV]` — nessuno dei tre è dichiarato qui, perché il progetto non
+picco di sessioni concorrenti. `[NV]` - nessuno dei tre è dichiarato qui, perché il progetto non
 li ha misurati e le stime di terzi non sono citabili come proprie.
 
 Ciò che si può affermare come regola: **il picco si dimensiona sul caso avverso, non sulla
@@ -227,7 +227,7 @@ Ne discendono tre regole:
    Senza, una saturazione momentanea diventa un accumulo che non si riassorbe.
 3. **Il pool si dimensiona sul lavoro reale**, che dipende dalla durata delle transazioni e non
    dal numero di utenti. Aumentarlo oltre la capacità della base dati sposta la coda, non la
-   elimina — e la sposta in un punto dove costa di più.
+   elimina - e la sposta in un punto dove costa di più.
 
 ### 5.4 Il moltiplicatore dei tenant
 
@@ -270,7 +270,7 @@ lavoro voluminoso di far fallire un consulto.
    sicurezza è più pericoloso di un dispositivo indisponibile.
 2. Si sacrificano per primi: elaborazioni differibili, esportazioni, ricostruzioni di proiezioni,
    reportistica.
-3. Poi: funzioni accessorie della sessione — condivisione di documenti, chat — mantenendo audio e
+3. Poi: funzioni accessorie della sessione - condivisione di documenti, chat - mantenendo audio e
    video.
 4. Poi: il video, mantenendo l'audio. È la base architetturale §9.
 
@@ -290,16 +290,16 @@ Riepilogo trasversale. Ogni riga è un confine di progetto, non una promessa.
 | L2 | Latenza da obiettivo a schermo | Non garantibile, misurata e dichiarata per sessione | Definito |
 | L3 | Tenant per installazione nel modello a schema | Crescita del catalogo della base dati | `[NV]` da misurare; ordine di grandezza: centinaia |
 | L4 | Latenza di consegna degli eventi | Pari all'intervallo di interrogazione del relay dell'outbox | Configurabile, dichiarato nel contratto |
-| L5 | Ordinamento degli eventi | Garantito **solo** all'interno della partizione scelta per chiave | Base architetturale §5. Nessun requisito funzionale può dipendere da un ordine globale |
+| L5 | Ordinamento degli eventi | **Condizionato** all'interno della partizione scelta per chiave, mai globale | Base architetturale §5. Le tre condizioni alle quali l'ordine per chiave vale, e la dichiarazione che fuori da esse non vale, sono in [`02_architecture/06`](../02_architecture/06-eventi-e-integrazione-interna.md#41-ciò-che-si-garantisce-e-ciò-che-non-si-garantisce) §4.1. Nessun requisito funzionale può dipendere da un ordine globale |
 | L6 | Semantica di consegna | **Almeno una volta**; i consumatori sono idempotenti per costruzione | Base architetturale §5 |
-| L7 | Ripristino a un istante preciso | Granularità pari alla frequenza di archiviazione del registro delle transazioni | Configurabile dal deployer |
+| L7 | Ripristino a un istante preciso | Granularità pari alla frequenza di archiviazione del registro delle transazioni | Configurabile da chi installa |
 | L8 | Modalità fuori linea per contenuto clinico | **Assente per scelta** | Dichiarato in [`04-frontend.md`](./04-frontend.md) §4.4 |
 | L9 | Cifratura fino agli estremi con registrazione attiva | **Non sussiste** | Dichiarato nel consenso e nell'interfaccia |
 | L10 | Misura automatica della latenza da obiettivo a schermo | Su un solo motore di navigazione | Vincolo della suite di prove |
 | L11 | Rotazione delle chiavi durante la sessione | **Non esiste** nella tecnologia | Non rivendicata |
 | L12 | Sottotitoli in tempo reale | Non conformità dichiarata, con misura alternativa | D24 |
 
-Un limite dichiarato è una funzionalità del prodotto. Un limite scoperto in produzione è un
+Un limite dichiarato è una funzionalità del prodotto. Un limite scoperto in esercizio è un
 incidente.
 
 ---
@@ -324,9 +324,9 @@ nodo di relay.
 ### 8.2 Le regole
 
 - **Solo dati sintetici.** Vincolo trasversale della base architetturale §11.2, senza eccezioni,
-  incluse le prove di carico, che sono il luogo in cui la tentazione di usare un'esportazione di
-  produzione è più forte.
-- **Il profilo di traffico è dichiarato** e deriva dal comportamento reale atteso — concentrazione
+  incluse le prove di carico, che sono il luogo in cui la tentazione di usare un'esportazione
+  dell'esercizio è più forte.
+- **Il profilo di traffico è dichiarato** e deriva dal comportamento reale atteso - concentrazione
   degli appuntamenti in fasce orarie, non distribuzione uniforme. Un carico uniforme prova un
   sistema che non esiste.
 - **Si misura anche la degradazione**, non solo il punto di rottura: come si comporta il sistema

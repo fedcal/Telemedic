@@ -32,7 +32,7 @@ flowchart LR
 
 **Il registro di uscita transazionale è la sorgente unica.** L'evento è scritto nella stessa
 transazione del dato di dominio e pubblicato da un componente di inoltro. Non esistono eventi
-persi — perché la scrittura è atomica con il dato — né eventi fantasma — perché nessun evento è
+persi - perché la scrittura è atomica con il dato - né eventi fantasma - perché nessun evento è
 prodotto da una seconda scrittura applicativa che potrebbe non corrispondere a un fatto avvenuto.
 
 I tre canali sono alimentati dallo stesso bus. La corrispondenza fra il catalogo del canale
@@ -67,8 +67,8 @@ fatti che l'integratore deve conoscere e che non sono la scrittura di una risors
 ### 2.1 Modalità strutturata
 
 Il corpo è un evento nel formato di busta **CloudEvents 1.0**, in modalità *structured*: l'intero
-evento nel corpo JSON. Gli attributi di contesto obbligatori sono quattro — identificativo,
-sorgente, versione della specifica, tipo — con il vincolo che il produttore **MUST** garantire
+evento nel corpo JSON. Gli attributi di contesto obbligatori sono quattro - identificativo,
+sorgente, versione della specifica, tipo - con il vincolo che il produttore **MUST** garantire
 l'unicità della coppia sorgente e identificativo per ogni evento distinto. Gli attributi
 facoltativi usati sono il tipo di contenuto del dato, lo schema del dato, il soggetto e l'istante.
 
@@ -77,7 +77,7 @@ facoltativi usati sono il tipo di contenuto del dato, lo schema del dato, il sog
 | `specversion` | `1.0` |
 | `id` | Identificativo ordinabile dell'evento, univoco nella sorgente |
 | `source` | `https://telemedic.example/tenants/{tenantId}` |
-| `type` | `telemedic.<dominio>.<fatto>.v<N>` — spazio dei nomi rovesciato con versione esplicita |
+| `type` | `telemedic.<dominio>.<fatto>.v<N>` - spazio dei nomi rovesciato con versione esplicita |
 | `subject` | Riferimento all'aggregato, es. `Encounter/enc-3c8f1a20` |
 | `time` | Istante in formato RFC 3339, con millisecondi e fuso zero |
 | `datacontenttype` | `application/json` |
@@ -88,7 +88,7 @@ direttamente alla generazione dei tipi nelle librerie client.
 
 ### 2.2 Modalità binaria, e il divieto da rispettare
 
-La modalità *binary* — attributi nelle intestazioni, dato applicativo nel corpo — è offerta come
+La modalità *binary* - attributi nelle intestazioni, dato applicativo nel corpo - è offerta come
 opzione per destinazione. La regola di formazione è verbatim:
 
 > *«all CloudEvents context attributes, including extensions, MUST be mapped to HTTP headers with
@@ -132,7 +132,7 @@ Content-Type: application/cloudevents+json; charset=utf-8
 User-Agent: Telemedic-Webhooks/1
 Telemedic-Event-Id: 01J9ZC7Y4Q7K9V0R2M4T8N1B3D
 Telemedic-Event-Type: telemedic.session.completed.v1
-Telemedic-Tenant: tenant-a
+Telemedic-Tenant: t0001
 Telemedic-Delivery-Id: 01J9ZC80B2W5F6H7J8K9L0M1N2
 Telemedic-Delivery-Attempt: 1
 Telemedic-Timestamp: 1789234882
@@ -142,7 +142,7 @@ Content-Digest: sha-256=:X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=:
 {
   "specversion": "1.0",
   "id": "01J9ZC7Y4Q7K9V0R2M4T8N1B3D",
-  "source": "https://telemedic.example/tenants/tenant-a",
+  "source": "https://telemedic.example/tenants/t0001",
   "type": "telemedic.session.completed.v1",
   "subject": "Encounter/enc-3c8f1a20",
   "time": "2026-09-14T10:41:22.481Z",
@@ -150,7 +150,7 @@ Content-Digest: sha-256=:X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=:
   "dataschema": "https://telemedic.example/schemas/session-completed/1.2.0.json",
   "data": {
     "sessionId": "ses_01J9ZC5P",
-    "tenantId": "tenant-a",
+    "tenantId": "t0001",
     "sequence": 412,
     "encounter": { "reference": "Encounter/enc-3c8f1a20" },
     "appointment": { "reference": "Appointment/apt-51b7" },
@@ -226,7 +226,7 @@ dall'area di integrazione e che quest'area recepisce come vincolo di catalogo.
 
 ## 4. La firma
 
-### 4.1 Lo schema simmetrico, predefinito
+### 4.1 Lo schema simmetrico, opzione dichiarata
 
 La base di firma è costruita esplicitamente e non dipende da come il ricevente normalizza le
 intestazioni:
@@ -253,11 +253,11 @@ fonte principale di errori di integrazione:
 4. **Deduplicare sull'identificativo dell'evento**, con una finestra almeno pari a quella di
    rigioco.
 
-### 4.2 Lo schema asimmetrico, per il non ripudio
+### 4.2 Lo schema asimmetrico, predefinito
 
 **RFC 9421**, «HTTP Message Signatures», febbraio 2024, standardizza esattamente questo problema.
-Definisce due campi: uno per i metadati — quali componenti del messaggio sono coperti e con quali
-parametri — e uno per il valore della firma. I componenti derivati utilizzabili comprendono il
+Definisce due campi: uno per i metadati - quali componenti del messaggio sono coperti e con quali
+parametri - e uno per il valore della firma. I componenti derivati utilizzabili comprendono il
 metodo, l'URI di destinazione, l'autorità, il percorso e la stringa di interrogazione, oltre ai
 campi ordinari come il digest del contenuto. I parametri di firma sono la creazione, la scadenza,
 l'identificativo della chiave, l'algoritmo, il numero usato una sola volta e l'etichetta.
@@ -274,12 +274,21 @@ distinti e vanno citati distintamente.
 | Librerie mature nel 2026 | Ubiquitarie | In crescita, non ubiquitarie |
 | Costo per l'integratore di fascia PMI | Basso | Medio-alto |
 
-**Scelta di progetto: entrambi, configurabili per destinazione.** Lo schema simmetrico è
-predefinito, perché è ciò che l'integratore tipico sa consumare. Lo schema asimmetrico è
-**raccomandato e, in contesto pubblico, richiesto**: quando la notifica trasporta l'esito di un
-atto sanitario e alimenta un registro di tracciamento, la differenza fra «posso verificare» e
-«posso dimostrare a un terzo» è sostanziale. Con un segreto condiviso il ricevente non può
-provare a nessuno che il messaggio venisse da Telemedic, perché avrebbe potuto forgiarlo lui.
+**Scelta di progetto: entrambi configurabili per destinazione, con l'asimmetrico predefinito**
+(`V-162`). La ragione è che quando la notifica trasporta l'esito di un atto sanitario e alimenta un
+registro di tracciamento, la differenza fra «posso verificare» e «posso dimostrare a un terzo» è
+sostanziale: con un segreto condiviso il ricevente non può provare a nessuno che il messaggio
+venisse da Telemedic, perché avrebbe potuto forgiarlo lui.
+
+Lo schema simmetrico resta disponibile come **opzione dichiarata per destinazione**, e la ragione
+per cui non è stato eliminato è che l'integratore tipico di fascia PMI sa consumare HMAC e non
+sempre sa consumare RFC 9421. **Il costo di questa scelta non si nasconde**: attivare lo schema
+simmetrico verso una destinazione significa rinunciare al non ripudio per quella destinazione, e la
+rinuncia va registrata insieme alla configurazione, non lasciata implicita. Nel perimetro di `RU-1`
+il segreto condiviso **non è offerto come modalità predefinita** (`V-162`,
+[`09_roadmap/03 §3.7`](../09_roadmap/03-primo-rilascio-utilizzabile.md)), e l'ordine di sacrificio
+dell'ambito dichiara che, se la firma asimmetrica dovesse cadere, **il segreto condiviso non ne è
+il sostituto ammesso**: o la firma asimmetrica, o l'evento non esce verso terzi.
 
 ### 4.3 Rotazione dei segreti
 
@@ -358,7 +367,7 @@ Vanno dichiarati nel contratto, perché sono le due cose che l'integratore assum
 - **Non esiste garanzia di ordine globale.** Con ritentativi e consegna concorrente, un evento di
   conclusione può arrivare prima di uno di avvio.
 - **Esiste una modalità ordinata per chiave, opzionale.** Gli eventi con la stessa chiave di
-  partizione — tipicamente l'identificativo della sessione o della prestazione — sono consegnati
+  partizione - tipicamente l'identificativo della sessione o della prestazione - sono consegnati
   in sequenza, bloccando la coda di quella chiave in caso di fallimento. **Il costo è dichiarato:
   un evento bloccato blocca la chiave.** È offerta come opzione, mai come comportamento
   predefinito.
@@ -385,8 +394,8 @@ la riguardano direttamente:
    questa regola una richiesta indirizzata a risorse interne diventerebbe una richiesta con
    esfiltrazione.
 3. **Il controllo va implementato una volta sola**, in un componente condiviso da tutti i punti di
-   uscita — consegna degli eventi, risoluzione di insiemi di chiavi pubbliche, recupero di
-   documenti, chiamate verso il sistema di origine — e non ripetuto per ciascuno. È la questione
+   uscita - consegna degli eventi, risoluzione di insiemi di chiavi pubbliche, recupero di
+   documenti, chiamate verso il sistema di origine - e non ripetuto per ciascuno. È la questione
    **Q-16** aperta verso l'area di sicurezza e l'area tecnica, e quest'area la sostiene: quattro
    implementazioni della stessa protezione producono quattro comportamenti diversi, e il più
    debole è quello che conta.
@@ -450,8 +459,8 @@ webhook (questione **Q-161**).
 
 ## 9. Il canale di estrazione
 
-Per l'integratore che non può esporre un endpoint pubblico — installazione dietro traduzione di
-indirizzi, politica di sicurezza che non ammette ingressi — esiste un elenco di eventi paginato
+Per l'integratore che non può esporre un endpoint pubblico - installazione dietro traduzione di
+indirizzi, politica di sicurezza che non ammette ingressi - esiste un elenco di eventi paginato
 sul piano applicativo, interrogabile per istante e per cursore. È lo stesso flusso di eventi,
 letto invece che consegnato.
 
@@ -472,12 +481,12 @@ deprecazione; **nessun contenuto clinico nel carico**.
 Ordine per chiave: solo con la modalità ordinata attiva, e con il costo del blocco dichiarato.
 Consegna entro un tempo massimo: la copertura dei ritentativi è dichiarata, ma un ricevente
 irraggiungibile per settantadue ore riceve dalla coda di scarto, non dal flusso. Non ripudio:
-**solo** con lo schema asimmetrico; con lo schema simmetrico predefinito il ricevente può
+**solo** con lo schema asimmetrico; con lo schema simmetrico il ricevente può
 verificare ma non dimostrare a un terzo.
 
 **Che cosa è richiesto al ricevente, e senza cui l'integrazione non funziona.** Idempotenza sulla
 chiave dichiarata. Verifica della firma sui byte grezzi. Risposta rapida: il ricevente accetta e
-accoda, non elabora in linea — un ricevente lento riduce la propria capacità di consegna, non
+accoda, non elabora in linea - un ricevente lento riduce la propria capacità di consegna, non
 quella di Telemedic. Tolleranza ai campi e ai tipi di evento sconosciuti: **un tipo nuovo non è
 una rottura**, e un ricevente che va in errore su un tipo che non conosce si romperà al primo
 arricchimento del catalogo.

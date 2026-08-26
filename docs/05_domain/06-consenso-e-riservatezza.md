@@ -36,7 +36,7 @@ confusione più costosa del dominio. Questo capitolo ne ricava il modello.
 | **Consenso alla presenza di terzi** | l'ammissione di interprete, discente, caregiver | il terzo esce | specifico per sessione o per soggetto |
 | **Consenso alla trasmissione a sistemi esterni** | il conferimento verso repository esterni | la trasmissione non avviene | distinto per destinatario |
 
-> **`DM-70` [MOD]** — I cinque oggetti hanno la **stessa struttura** e **cicli di vita
+> **`DM-70` [MOD]** - I cinque oggetti hanno la **stessa struttura** e **cicli di vita
 > indipendenti**. La revoca di uno non tocca gli altri: chi revoca il consenso alla
 > registrazione non revoca il consenso all'atto, e l'erogazione della prestazione non è
 > impedita (`RF-110`). Un modello che li rappresenti come colonne della stessa riga rende
@@ -61,7 +61,7 @@ terzi, non quello dell'autore.
 
 ### 1.2 Chi non accede mai
 
-> **[BASE] `V-08`, `D48`** — L'art. 15, c. 4 del DM 7 settembre 2023 esclude **sempre** dal
+> **[BASE] `V-08`, `D48`** - L'art. 15, c. 4 del DM 7 settembre 2023 esclude **sempre** dal
 > fascicolo periti, compagnie di assicurazione, datori di lavoro, associazioni e organizzazioni
 > scientifiche, organismi amministrativi anche operanti in ambito sanitario, e il personale
 > medico nell'esercizio di attività medico-legale.
@@ -74,7 +74,7 @@ pagatore non è un consultatore. È un caso in cui il modello deve rendere l'ope
 
 ## 2. La struttura del fatto
 
-> **`DM-71` [MOD] — Forma canonica dell'evidenza di consenso.**
+> **`DM-71` [MOD] - Forma canonica dell'evidenza di consenso.**
 >
 > | Componente | Obbligatorio | Contenuto |
 > |---|---|---|
@@ -173,9 +173,9 @@ stateDiagram-v2
 
 Una transizione che **non** esiste, e la sua ragione:
 
-> **`DM-72` [MOD]** — Non esiste la transizione «annullamento della revoca». Una revoca è un
+> **`DM-72` [MOD]** - Non esiste la transizione «annullamento della revoca». Una revoca è un
 > atto compiuto: se ne può prestare uno nuovo, non si può cancellare quello precedente. La
-> differenza si vede nella cronologia — che deve mostrare revoca, poi nuovo consenso — e non è
+> differenza si vede nella cronologia - che deve mostrare revoca, poi nuovo consenso - e non è
 > pignoleria: la cronologia è ciò che l'interessato ha diritto di consultare (`RF-116`).
 
 ### 4.1 La revoca
@@ -192,7 +192,7 @@ Tre proprietà da rendere operative nel modello:
 | **Senza motivazione** | il campo motivazione esiste ed è facoltativo; il sistema non lo richiede né lo condiziona |
 | **Non retroattiva sui dati già raccolti** | il modello distingue «cessa il trattamento» da «si cancella il dato». La seconda operazione ha regole proprie ed è spesso vietata |
 
-Il frammento già acquisito prima della revoca — tipicamente un pezzo di registrazione — segue la
+Il frammento già acquisito prima della revoca - tipicamente un pezzo di registrazione - segue la
 regola configurata di cancellazione o conservazione, e l'evento è registrato con l'istante
 esatto.
 
@@ -217,8 +217,8 @@ poteri. Qui interessano tre regole che ricadono sul modello del consenso.
 
 Il caso limite che va previsto: **l'affido condiviso**. Possono servire due manifestazioni di
 volontà (`BR-063`). Il modello ammette quindi che **un consenso abbia più dichiaranti**, con la
-regola di composizione dichiarata nel modello di consenso — tutti, uno qualsiasi, uno specifico
-— e non cablata.
+regola di composizione dichiarata nel modello di consenso - tutti, uno qualsiasi, uno specifico
+- e non cablata.
 
 > **[NV]** La disciplina della rappresentanza legale e del consenso per minori e soggetti
 > incapaci è fra le questioni rimesse alla verifica (`R6` § 11.1, voce Q9). Da chiedere all'area
@@ -246,10 +246,10 @@ oscuramento, e l'inferenza passa da almeno sei canali che vanno chiusi tutti.
 | **Differenze fra interrogazioni successive** | i risultati aggregati non devono consentire di dedurre per differenza |
 | **Messaggi di errore** | l'accesso a un documento oscurato produce lo stesso esito dell'accesso a un documento inesistente |
 
-> **`DM-73` [MOD] — L'oscuramento è applicato dal motore di autorizzazione, non dai
+> **`DM-73` [MOD] - L'oscuramento è applicato dal motore di autorizzazione, non dai
 > consumatori.** Ogni interrogazione che restituisca documenti passa da un unico punto che
 > applica il filtro e calcola i totali sull'insieme filtrato. Se il filtro è responsabilità di
-> chi scrive l'interrogazione, prima o poi un'interrogazione lo dimentica — e il difetto non è
+> chi scrive l'interrogazione, prima o poi un'interrogazione lo dimentica - e il difetto non è
 > visibile in prova, perché il documento oscurato non compare comunque nei dati sintetici di
 > collaudo.
 
@@ -311,11 +311,11 @@ strumento difensivo unilaterale, attivato quando qualcosa va storto.
 
 ### 8.1 La conseguenza di `D23` sul consenso
 
-> **[BASE] `D23`** — La registrazione avviene lato server, e ne discende un fatto inderogabile:
+> **[BASE] `D23`** - La registrazione avviene lato server, e ne discende un fatto inderogabile:
 > **quando la registrazione è attiva la cifratura viene terminata sul server e la sessione non è
 > più cifrata fino agli estremi.**
 
-> **`DM-74` [MOD]** — L'informativa di consenso alla registrazione **deve dichiarare
+> **`DM-74` [MOD]** - L'informativa di consenso alla registrazione **deve dichiarare
 > esplicitamente** questa conseguenza. Non è una nota tecnica: è un elemento del contenuto
 > informativo su cui la persona si esprime, e quindi è parte del testo versionato a cui il
 > consenso si riferisce. Un consenso raccolto su un testo che non lo dichiara è un consenso su
@@ -360,12 +360,12 @@ Le proprietà, tutte con un requisito corrispondente:
 |---|---|
 | **Motivazione obbligatoria** | testo, con lunghezza minima verificata (`BR-015`) |
 | **Durata finita e non rinnovabile automaticamente** | il rinnovo è una nuova invocazione, con nuova motivazione |
-| **Notifica** | al responsabile della protezione dei dati e — salvo diversa configurazione motivata — all'interessato |
+| **Notifica** | al responsabile della protezione dei dati e - salvo diversa configurazione motivata - all'interessato |
 | **Registrazione puntuale** | ogni risorsa letta è registrata singolarmente, non l'invocazione soltanto (`RF-019`) |
 | **Coda di revisione** | ogni invocazione entra in una coda e riceve un esito registrato |
 | **Chi controlla è controllato** | la lettura dei registri da parte del responsabile della protezione dei dati è a sua volta registrata (`BR-094`) |
 
-> **`DM-75` [MOD] — La revisione è parte del ciclo di vita, non un rapporto.** L'accesso
+> **`DM-75` [MOD] - La revisione è parte del ciclo di vita, non un rapporto.** L'accesso
 > d'emergenza che non venga mai riesaminato è indistinguibile da un accesso abusivo. Lo stato
 > `In revisione` esiste nel modello perché la revisione ha un esito e l'esito ha un autore.
 
@@ -374,10 +374,10 @@ Le proprietà, tutte con un requisito corrispondente:
 Il DM 7 settembre 2023 disciplina autonomamente l'accesso in emergenza (art. 20) e la
 registrazione delle operazioni (art. 21), che comprende alimentazione, oscuramento, revoca
 dell'oscuramento, consultazione da parte del produttore, dell'assistito o suo delegato, di altro
-soggetto, e **consultazione in emergenza**, con indicazione — per le sole consultazioni — della
+soggetto, e **consultazione in emergenza**, con indicazione - per le sole consultazioni - della
 finalità.
 
-> **`DM-76` [MOD]** — L'accesso d'emergenza **interno** al sistema e l'accesso in emergenza al
+> **`DM-76` [MOD]** - L'accesso d'emergenza **interno** al sistema e l'accesso in emergenza al
 > fascicolo sono due fatti distinti, con due registrazioni distinte. Rappresentarli come lo
 > stesso fatto produce registri incompleti su entrambi i lati.
 
@@ -415,7 +415,7 @@ chiuso di campi, e non esiste un campo di testo libero che possa contenere altro
 Un collegamento inviato all'assistito per entrare in sessione è, di fatto, una credenziale:
 monouso rispetto alla creazione della sessione, con scadenza non superiore alla finestra della
 sala d'attesa e non indovinabile (`BR-052`, `RF-052`). Nel modello è quindi un oggetto con ciclo
-di vita — emesso, usato, revocato, scaduto — e non una stringa in un messaggio.
+di vita - emesso, usato, revocato, scaduto - e non una stringa in un messaggio.
 
 ### 11.3 Gli aggregati
 
@@ -426,7 +426,7 @@ di vita — emesso, usato, revocato, scaduto — e non una stringa in un messagg
 La seconda parte è quella che richiede lavoro: impedire la deduzione per differenza significa che
 la soppressione non può essere decisa interrogazione per interrogazione in modo indipendente.
 
-> **`DM-77` [MOD]** — Il valore soppresso è **dichiarato come soppresso**, non omesso. Un valore
+> **`DM-77` [MOD]** - Il valore soppresso è **dichiarato come soppresso**, non omesso. Un valore
 > mancante e un valore soppresso sono informazioni diverse, e presentarli allo stesso modo rende
 > il rapporto ambiguo per chi lo legge e non riduce l'inferenza per chi la cerca. L'evento
 > `ValoreSoppressoPerSoglia` di `R6` § 8.2 esiste per questo.
@@ -491,7 +491,7 @@ Aggiunte che discendono dalla normativa italiana e che il modello deve prevedere
 - la **tipologia del documento** e l'identificativo del generatore per gli eventi di generazione
   (DM 19 novembre 2025, art. 14);
 - la **registrazione delle operazioni di consultazione dei registri stessi** (`REQ-39` di `B1`);
-- la **funzionalità per l'assistito di prendere visione delle proprie registrazioni** — che è un
+- la **funzionalità per l'assistito di prendere visione delle proprie registrazioni** - che è un
   requisito funzionale, non un obbligo interno: l'interessato ha diritto di vedere chi ha
   guardato i suoi dati.
 
@@ -524,9 +524,9 @@ che riporti identificativi tecnici e codici di operazione soddisfa l'obbligo e n
 
 ## Dove continuare
 
-- [04 — I documenti clinici](04-documenti-clinici.md): il livello di riservatezza del documento e
+- [04 - I documenti clinici](04-documenti-clinici.md): il livello di riservatezza del documento e
   le categorie a tutela rafforzata.
-- [03 — Assistito, professionista, organizzazione](03-assistito-professionista-organizzazione.md):
+- [03 - Assistito, professionista, organizzazione](03-assistito-professionista-organizzazione.md):
   le figure che possono dichiarare per conto di altri.
 - Modulo [03 dei fondamenti](../10_fondamenti/03-il-dato-clinico.md): base giuridica,
   pseudonimizzazione, valutazione d'impatto, obblighi di notifica.

@@ -10,16 +10,16 @@ description: I traguardi datati fino al 30 novembre 2026 sotto la capacità dich
 
 Ogni traguardo ha la stessa forma, e le voci non sono decorative.
 
-> **`T-nn` — Titolo** · *classe di attività* · *classe di enunciato* · *data*
-> **Obiettivo** — che cosa esiste al termine che non esisteva prima.
-> **Innesco** — l'evento al verificarsi del quale il traguardo comincia. Non «quando c'è tempo».
-> **Titolare** — chi ha l'autorità di portarlo a termine. Dove non esiste, si scrive che non
+> **`T-nn` - Titolo** · *classe di attività* · *classe di enunciato* · *data*
+> **Obiettivo** - che cosa esiste al termine che non esisteva prima.
+> **Innesco** - l'evento al verificarsi del quale il traguardo comincia. Non «quando c'è tempo».
+> **Titolare** - chi ha l'autorità di portarlo a termine. Dove non esiste, si scrive che non
 > esiste.
-> **Criteri di completamento** — enunciati **binari**, accertabili da chiunque con la procedura
+> **Criteri di completamento** - enunciati **binari**, accertabili da chiunque con la procedura
 > descritta. Nessuna percentuale, nessun avverbio.
-> **Dipendenze** — che cosa deve essere vero prima.
-> **Che cosa non comprende** — l'elenco è parte del traguardo, non un'appendice.
-> **Rischi** — rinvio al registro di [05](./05-rischi-e-dipendenze.md).
+> **Dipendenze** - che cosa deve essere vero prima.
+> **Che cosa non comprende** - l'elenco è parte del traguardo, non un'appendice.
+> **Rischi** - rinvio al registro di [05](./05-rischi-e-dipendenze.md).
 
 **Le classi di attività** (`A` retroattivamente irrecuperabile, `B` a tempo di attraversamento
 determinato da terzi, `C` sul percorso critico altrui, `D` comprimibile) sono definite in
@@ -28,8 +28,10 @@ determinato da terzi, `C` sul percorso critico altrui, `D` comprimibile) sono de
 
 > **Avvertenza sulle date, e su che cosa esse sono.** Le date di questo capitolo **non sono
 > stime**: sono **allocazioni del calendario residuo** a una sequenza vincolata, sotto la
-> capacità dichiarata da `D54` — un contributore unico a tempo parziale — di cui `[NV]` il
-> numero di ore settimanali non è dichiarato. Ciò che protegge la data del 30 novembre 2026 non è
+> capacità dichiarata da `D54` - un contributore unico a tempo parziale - e quantificata da `D62`
+> in **dieci-venti ore a settimana**. La quantificazione rende l'aritmetica verificabile, ma non
+> trasforma le allocazioni in stime: mancano ancora la cronologia di consegna su cui calibrare e
+> un'unità che attraversi lavori eterogenei. Ciò che protegge la data del 30 novembre 2026 non è
 > quindi una previsione di sforzo: è **l'ordine di sacrificio dell'ambito**, dichiarato in
 > anticipo in [03 §6](./03-primo-rilascio-utilizzabile.md) ed eseguito dall'alto quando
 > un'allocazione si rivela insufficiente ([01 §10](./01-principi-e-metodo.md), vincolo `V-282`).
@@ -84,7 +86,7 @@ Un piano lega tre grandezze: data, capacità, ambito. `D53` fissa la prima, `D54
 > Un ambito non ridotto sotto queste due decisioni non produce più lavoro: produce **una data
 > mancata in pubblico**. È l'unico esito peggiore di un ambito ridotto, perché la data mancata
 > costa la credibilità di tutte le date successive, mentre l'ambito ridotto costa esattamente ciò
-> che è stato tolto — e ciò che è stato tolto è scritto.
+> che è stato tolto - e ciò che è stato tolto è scritto.
 
 Ne discende la struttura di quest'area dopo `D53`: il capitolo
 [03](./03-primo-rilascio-utilizzabile.md) contiene, al §5, l'elenco di **che cosa è stato tagliato
@@ -104,8 +106,8 @@ scritto il codice, revisione esterna indipendente del codice di sicurezza critic
 Ne discende il vincolo `V-281`: **non entrano nel piano come attività**, perché pianificare
 un'attività non producibile è il modo più efficace di farla sparire dalla vista. Entrano come
 **lacune dichiarate con la data in cui nascono**, sono elencate fra i tagli irreversibili di
-[03 §5](./03-primo-rilascio-utilizzabile.md), e la loro ripartizione — quale sottoinsieme si
-accetta come lacuna e quale si copre acquisendo la funzione all'esterno — è decisione del
+[03 §5](./03-primo-rilascio-utilizzabile.md), e la loro ripartizione - quale sottoinsieme si
+accetta come lacuna e quale si copre acquisendo la funzione all'esterno - è decisione del
 committente e resta aperta come `Q-189`.
 
 ### 2.4 Che cosa `D58` aggiunge, e perché va davanti e non in fondo
@@ -123,7 +125,7 @@ nella prima parte del calendario, come traguardo `T-14`, e non dopo il primo ril
 
 ## 3. I traguardi fino al 30 novembre 2026
 
-### `T-01` — Artefatti retroattivamente irrecuperabili in esercizio
+### `T-01` - Artefatti retroattivamente irrecuperabili in esercizio
 *Classe `A`* · `[IMPEGNO]` · **12 settembre 2026**
 **Innesco.** Immediato: nessuna dipendenza, e il costo di ometterlo cresce ogni giorno.
 **Titolare.** Contributore unico, per la produzione. Committente per l'approvazione della
@@ -162,7 +164,7 @@ ma in impossibilità.
    deve essere pubblicabile.
 8. Le **avvertenze pubbliche sono riallineate a `D58`**: dichiarano che il ruolo di fabbricante
    sarà assunto dal progetto e che il soggetto **è ancora da costituire**, **senza attenuare
-   alcuna avvertenza esistente** — resta scritto con la stessa evidenza di prima che oggi il
+   alcuna avvertenza esistente** - resta scritto con la stessa evidenza di prima che oggi il
    prodotto non reca marcatura CE, che non è coperto da alcuna dichiarazione di conformità e che
    chi installa o mette in servizio assume comunque gli obblighi che ne derivano. Il testo **non
    contiene alcuna data di marcatura** (`V-171`, `V-280`). Vale per la dichiarazione di non
@@ -183,7 +185,7 @@ conformità), `R-17` (decisioni non prese), `R-28` (data ravvicinata con capacit
 
 ---
 
-### `T-14` — Percorso di fabbricante avviato
+### `T-14` - Percorso di fabbricante avviato
 *Classe `B`* · `[IMPEGNO]` · **19 settembre 2026**
 **Innesco.** Immediato, all'entrata in vigore di `D58`. Ogni settimana di ritardo si trasferisce
 integralmente in fondo alla catena.
@@ -199,9 +201,9 @@ da noi ed è databile, il completamento dipende da procedimenti amministrativi e
 
 1. È **scelta e registrata la forma giuridica** del soggetto che assumerà il ruolo di fabbricante,
    ed è avviata la pratica di costituzione, con la data di avvio registrata.
-2. È **definito il profilo** della persona responsabile del rispetto della normativa — requisiti
+2. È **definito il profilo** della persona responsabile del rispetto della normativa - requisiti
    di qualifica ed esperienza, regime di disponibilità permanente, ammissibilità della figura
-   esterna nel regime delle micro e piccole imprese — ed è avviata la ricerca, con la data della
+   esterna nel regime delle micro e piccole imprese - ed è avviata la ricerca, con la data della
    prima richiesta registrata.
 3. È **inviata la richiesta di informazioni** a ciascun organismo notificato designato per la
    categoria di dispositivo pertinente secondo l'elenco pubblicato nella banca dati europea, con
@@ -228,7 +230,7 @@ quelle attività sono in §5 e sono **pianificazione interna, non promesse**.
 
 ---
 
-### `T-03` — Catena di costruzione minima bloccante, con distinta generata
+### `T-03` - Catena di costruzione minima bloccante, con distinta generata
 *Classe `A`* · `[IMPEGNO]` · **26 settembre 2026**
 **Innesco.** Chiusura dei criteri 3 e 4 di `T-01`, che le forniscono il registro su cui appoggiare
 il primo controllo.
@@ -247,7 +249,7 @@ proprietà irrecuperabile o un divieto pubblico**, perché il costo di ometterlo
 
 **Criteri di completamento.**
 
-1. Esiste una pipeline con le **quattro fasce** previste — rapida, completa, estesa, di rilascio —
+1. Esiste una pipeline con le **quattro fasce** previste - rapida, completa, estesa, di rilascio -
    e il criterio di collocazione di ciascun controllo è dichiarato.
 2. **Bloccano da subito**, e ciascuno è provato con un caso deliberatamente non conforme che deve
    far fallire la costruzione: il controllo sulle licenze dei componenti; il controllo sulle
@@ -258,8 +260,8 @@ proprietà irrecuperabile o un divieto pubblico**, perché il costo di ometterlo
    sulla dichiarazione di non marcatura. **Un controllo che non è stato visto fallire non è un
    controllo.**
 3. Il controllo di **divergenza fra le due lingue** esiste, e ha un comportamento **differenziato
-   e dichiarato**, che è la traduzione operativa di `D56`: **blocca** sulle aree prerequisito —
-   avvertenze pubbliche, guida dei fondamenti, conformità, sicurezza — e **segnala** sul resto del
+   e dichiarato**, che è la traduzione operativa di `D56`: **blocca** sulle aree prerequisito -
+   avvertenze pubbliche, guida dei fondamenti, conformità, sicurezza - e **segnala** sul resto del
    corpus, con un rapporto pubblicato a ogni costruzione. La differenziazione è versionata in un
    file di configurazione, non cablata.
 4. I controlli non compresi nel criterio 2 esistono **in sola segnalazione**, ciascuno con la
@@ -272,7 +274,7 @@ proprietà irrecuperabile o un divieto pubblico**, perché il costo di ometterlo
    fallire la costruzione.
 7. Gli artefatti sono **firmati con materiale che non risiede nella pipeline**, e portano
    l'attestazione di provenienza.
-8. Esiste la **procedura documentata di verifica lato deployer**, con i comandi, ed è **eseguibile
+8. Esiste la **procedura documentata di verifica a cura di chi installa**, con i comandi, ed è **eseguibile
    da chiunque**. Che sia **eseguita da chi non l'ha scritta** non è un criterio di questo
    traguardo, perché sotto `D54` non è producibile: è una lacuna dichiarata, elencata fra i tagli
    irreversibili di [03 §5](./03-primo-rilascio-utilizzabile.md).
@@ -291,7 +293,7 @@ sorveglianza), `R-27` (costruzione riproducibile non ottenuta), `R-28`.
 
 ---
 
-### `T-07` — Sito di documentazione con i controlli bloccanti attivi e la verifica registrata
+### `T-07` - Sito di documentazione con i controlli bloccanti attivi e la verifica registrata
 *Classe `D`* · `[IMPEGNO]` · **26 settembre 2026**
 **Innesco.** Immediato: il sito è già costruito e pubblicato, e ciò che resta è verifica.
 **Titolare.** Contributore unico.
@@ -307,7 +309,7 @@ le proprietà siano bloccanti.
 2. **La ricerca funziona** e restituisce risultati nella lingua attiva.
 3. **Il cambio di lingua funziona** da ogni pagina e atterra sulla pagina corrispondente, non
    sulla radice. Dove la pagina inglese non esiste ancora, atterra su un avviso che dichiara che
-   la traduzione è in corso e rinvia alla pagina italiana — **mai su un errore e mai in silenzio
+   la traduzione è in corso e rinvia alla pagina italiana - **mai su un errore e mai in silenzio
    sulla radice**.
 4. Il collegamento alla dichiarazione «questo repository non è un dispositivo medico» è
    **raggiungibile dal sito**, con indirizzo assoluto verso il repository. Chiude `Q-26`.
@@ -328,7 +330,7 @@ la pubblicazione degli artefatti di rilascio, che è `T-10`.
 
 ---
 
-### `T-04` — Verifiche empiriche sul percorso critico del perimetro ridotto
+### `T-04` - Verifiche empiriche sul percorso critico del perimetro ridotto
 *Classe `C`* · `[IMPEGNO]` · **3 ottobre 2026**
 **Innesco.** Esistenza della pipeline di `T-03`, attraverso la quale le verifiche girano.
 **Titolare.** Contributore unico.
@@ -347,8 +349,8 @@ tagliata è essa stessa una funzione tagliata. **La regola che ciascuna presidia
 vigore**, ed è ripetuta accanto al rinvio, perché il rischio non è dimenticare la verifica: è
 dimenticare il divieto insieme a essa.
 
-**Criteri di completamento.** Ciascuna verifica produce un esito registrato — riuscita, fallita, o
-riuscita con condizioni — e la conseguenza sulla progettazione è scritta.
+**Criteri di completamento.** Ciascuna verifica produce un esito registrato - riuscita, fallita, o
+riuscita con condizioni - e la conseguenza sulla progettazione è scritta.
 
 1. **Scambio di token nel gateway con delega esplicita** (`D18`, `V-132`): è dimostrato che il
    gateway valida integralmente il token dell'integratore ed emette un token interno con il claim
@@ -359,9 +361,9 @@ riuscita con condizioni — e la conseguenza sulla progettazione è scritta.
    è la modalità di avvio della sessione da parte dell'integratore**, perché il componente
    incorporabile è tagliato: la verifica sale quindi di rango rispetto alla versione precedente di
    questo traguardo.
-3. **Difetti noti del prodotto di federazione** (`D37`): i tre difetti — alterazione degli
+3. **Difetti noti del prodotto di federazione** (`D37`): i tre difetti - alterazione degli
    attributi da parte dell'utente federato, cambio dell'indirizzo di posta senza verifica,
-   impostazione di una credenziale locale — sono chiusi in configurazione **e** sorvegliati da una
+   impostazione di una credenziale locale - sono chiusi in configurazione **e** sorvegliati da una
    prova che fallisce se la configurazione regredisce.
 4. **Isolamento di rete in uscita del nodo di relay**: la prova che tenta l'instradamento verso
    l'anello di richiamo locale, verso indirizzi privati e verso i servizi di metadati
@@ -384,7 +386,7 @@ essere verificato), `R-02`.
 
 ---
 
-### `T-05` — Decisioni con scadenza anteriore al primo codice, chiuse
+### `T-05` - Decisioni con scadenza anteriore al primo codice, chiuse
 *Classe `C`* · `[INTENZIONE]` · **3 ottobre 2026**
 **Innesco.** Immediato: sono decisioni che si pongono, non attività che si eseguono.
 **Titolare.** Committente per le decisioni; contributore unico per la **posizione** della domanda
@@ -399,28 +401,28 @@ decise** dalla terza tornata (`D53`, `D54`, `D55`, `D56`) e **tre riguardano fun
 `RU-1`** e si rinviano con esse. Restano le voci che incidono sul perimetro effettivamente
 rilasciato, più due nuove che `D58` introduce.
 
-**Criteri di completamento.** Ciascuna voce ha un esito registrato — decisa, con il registro di
+**Criteri di completamento.** Ciascuna voce ha un esito registrato - decisa, con il registro di
 decisione architetturale corrispondente, oppure **esplicitamente confermata come aperta con la sua
 conseguenza dichiarata**.
 
-1. `C-4` / `Q-186` — **periodo di supporto dichiarato**. Senza la durata, il piano di dismissione
+1. `C-4` / `Q-186` - **periodo di supporto dichiarato**. Senza la durata, il piano di dismissione
    non è pubblicabile e il numero di versioni maggiori da mantenere non è determinabile. **È
    prerequisito della prima distribuzione**, quindi di `T-10`, e non è rinviabile oltre.
-2. `Q-110` — topologia del segnale su più istanze. È decisione strutturale con effetti su
+2. `Q-110` - topologia del segnale su più istanze. È decisione strutturale con effetti su
    distribuzione e aggiornamento senza interruzione.
-3. `Q-111` — limite dichiarato di partecipanti alla sessione media. Nel perimetro ridotto il
+3. `Q-111` - limite dichiarato di partecipanti alla sessione media. Nel perimetro ridotto il
    limite è **due**, e va dichiarato come limite del rilascio e non come proprietà del prodotto.
-4. `Q-145` — conferma delle sei rinunce deliberate a capacità tecniche disponibili. Con `D55` che
+4. `Q-145` - conferma delle sei rinunce deliberate a capacità tecniche disponibili. Con `D55` che
    congela la destinazione d'uso, la conferma di queste rinunce è ciò che la rende difendibile:
    sono le funzioni che sposterebbero il sistema verso il tempo reale clinico.
-5. `Q-280` — **forma giuridica del soggetto fabbricante e profilo della persona responsabile del
+5. `Q-280` - **forma giuridica del soggetto fabbricante e profilo della persona responsabile del
    rispetto della normativa** (`D58`). È la voce di questo elenco con il tempo di attraversamento
    più lungo e il costo in ore più basso.
-6. `Q-189` — **ripartizione delle registrazioni a ruoli distinti**: quale sottoinsieme si accetta
+6. `Q-189` - **ripartizione delle registrazioni a ruoli distinti**: quale sottoinsieme si accetta
    come lacuna dichiarata e quale si copre acquisendo la funzione all'esterno. Senza questa
    decisione, `T-10` si pubblica con la lacuna dichiarata, che è l'esito predefinito e va detto in
    anticipo.
-7. `Q-185` — correzione della pagina pubblica ai sensi di `D19` e `D29`. **Ogni giorno di
+7. `Q-185` - correzione della pagina pubblica ai sensi di `D19` e `D29`. **Ogni giorno di
    esposizione è irrecuperabile**, e la sua conseguenza non si annulla decidendo dopo.
 
 **Voci rinviate con le funzioni che governano, e la regola che resta in vigore.** `B-3` (regime di
@@ -435,7 +437,7 @@ confine strutturale**, e la differenza è dichiarata. `C-2` (topologia oltre due
 
 ---
 
-### `T-02` — Corpo documentale al minimo prerequisito
+### `T-02` - Corpo documentale al minimo prerequisito
 *Classe `D`, con una componente `A`* · `[IMPEGNO]` · **10 ottobre 2026**
 **Innesco.** Chiusura di `T-01`, che fornisce il controllo dei documenti sotto cui il residuo
 nasce.
@@ -474,7 +476,7 @@ che è dichiarata come lacuna. Non comprende la versione inglese, che è `T-06`.
 
 ---
 
-### `T-08` — Scheletro eseguibile e percorso verticale ridotto, provato
+### `T-08` - Scheletro eseguibile e percorso verticale ridotto, provato
 *Classe `D`* · `[IMPEGNO]` · **14 novembre 2026**
 **Innesco.** Chiusura di `T-01`, `T-03`, `T-04` e posizione registrata delle decisioni di `T-05`.
 **Titolare.** Contributore unico.
@@ -503,13 +505,17 @@ capitolo dichiara.
    [03 §5](./03-primo-rilascio-utilizzabile.md), dove è marcato **irreversibile per il periodo**.
 5. L'**outbox transazionale** è l'unica sorgente degli eventi in uscita, e una prova verifica che
    nessuna busta contenga contenuto clinico.
-6. Esiste **un** percorso verticale completo, provato da estremo a estremo, con **matrice di
-   tracciabilità generata** che lo collega ai requisiti che realizza.
+6. Esiste **un percorso verticale completo per la televisita programmata a due partecipanti**,
+   provato da estremo a estremo, con **matrice di tracciabilità generata** che lo collega ai
+   requisiti che realizza. Il modello di dominio contiene tre prestazioni - televisita, teleconsulto,
+   telemonitoraggio - e il perimetro di `RU-1` copre la sola televisita: il percorso verticale
+   dimostra questa sola prestazione, e gli altri restano progettati nel dominio e nei requisiti
+   senza esercizio nel codice (`S-8`).
 7. Il percorso verticale soddisfa i criteri di accessibilità automatizzabili e ha superato almeno
    una **verifica manuale con tecnologia assistiva reale**, con esito registrato. **Non è una
    valutazione formativa di usabilità** e non va presentata come tale: la valutazione formativa è
    fra i tagli irreversibili di [03 §5](./03-primo-rilascio-utilizzabile.md).
-8. Le prove media girano su rete simulata con **due profili** — nominale e degradato limite — e le
+8. Le prove media girano su rete simulata con **due profili** - nominale e degradato limite - e le
    asserzioni sono su fatti osservabili: suite di cifratura presente e non degenere, avviso emesso
    quando e solo quando la soglia è superata, riga corrispondente nel tracciamento. I profili
    intermedi sono un taglio reversibile dichiarato.
@@ -525,7 +531,7 @@ primo rilascio installabile è `T-10`.
 
 ---
 
-### `T-06` — Traduzione delle aree prerequisito, con controllo di divergenza in esercizio
+### `T-06` - Traduzione delle aree prerequisito, con controllo di divergenza in esercizio
 *Classe `D`, volume-dipendente* · `[IMPEGNO]` · **21 novembre 2026**
 **Innesco.** Chiusura del criterio 5 di `T-02`, il conteggio esatto delle parole, che è il
 moltiplicatore del lavoro.
@@ -541,7 +547,7 @@ irrecuperabile. Il resto è **pianificato, non bloccante**, ed è `T-09` in §5.
 
 **Criteri di completamento.**
 
-1. Esistono in inglese, integrali e in posizione speculare: **le avvertenze pubbliche** — non
+1. Esistono in inglese, integrali e in posizione speculare: **le avvertenze pubbliche** - non
    dispositivo medico, politica di distribuzione, richiamo in evidenza del documento di
    presentazione, avvertenza di pagina; **la guida dei fondamenti** per intero; **l'area di
    conformità**; **l'area di sicurezza**.
@@ -559,20 +565,20 @@ irrecuperabile. Il resto è **pianificato, non bloccante**, ed è `T-09` in §5.
 **Dipendenze.** `T-02` criterio 1, per il glossario, e criterio 5, per il conteggio. `T-03`
 criterio 3, per il comportamento differenziato del controllo.
 
-**Rischi.** `R-03`, `R-16` — la divergenza fra le due lingue su contenuto normativo resta il
+**Rischi.** `R-03`, `R-16` - la divergenza fra le due lingue su contenuto normativo resta il
 rischio con impatto più alto dell'intero registro, e la riduzione di ambito di questo traguardo
 **non lo attenua**: lo circoscrive alle aree in cui il controllo blocca.
 
 ---
 
-### `T-10` — `RU-1`, primo rilascio installabile
+### `T-10` - `RU-1`, primo rilascio installabile
 *Classe `D`* · `[IMPEGNO]` · **30 novembre 2026**
 **Innesco.** Chiusura di `T-08` e di `T-06`.
 **Titolare.** Contributore unico per la produzione. **Il riesame del rilascio non ha titolare
 interno**: è la lacuna di `Q-189`, dichiarata e non pianificata.
 
 **Obiettivo.** Il primo artefatto che una struttura può installare, configurare e usare in
-esercizio di prova, formazione e integrazione — **non su pazienti reali**. Il perimetro esatto, ciò
+esercizio di prova, formazione e integrazione - **non su pazienti reali**. Il perimetro esatto, ciò
 che è stato tagliato per rispettare la data e i criteri bloccanti sono il capitolo
 [03](./03-primo-rilascio-utilizzabile.md).
 
@@ -587,8 +593,8 @@ nell'ordine di sacrificio dell'ambito.** A essi si aggiungono i tre criteri prop
    tracciabilità, elenco dei limiti dichiarati, **elenco delle lacune dichiarate con la data in cui
    ciascuna è nata**.
 3. Il fascicolo dichiara, in modo non aggirabile e in entrambe le lingue, che **nessuna verifica è
-   stata eseguita da un secondo soggetto** — riesame del rilascio, audit interno, verifica di
-   configurazione indipendente, revisione esterna del codice di sicurezza critico — e che questa è
+   stata eseguita da un secondo soggetto** - riesame del rilascio, audit interno, verifica di
+   configurazione indipendente, revisione esterna del codice di sicurezza critico - e che questa è
    una lacuna del rilascio e non una conformità.
 
 **Perché è `[IMPEGNO]` e non `[IPOTESI]`.** Perché `D53` fissa la data e `D54` la capacità, e
@@ -614,7 +620,7 @@ determina come si legge tutto il resto: **non ha margine**. Nove traguardi occup
 periodo residuo, e nessuno di essi ha una riserva di tempo propria.
 
 > Un piano senza margine non è un piano ottimistico: è un piano il cui margine sta **altrove**.
-> Qui sta nell'**ambito**, ed è dichiarato in anticipo — che cosa è già stato tolto
+> Qui sta nell'**ambito**, ed è dichiarato in anticipo - che cosa è già stato tolto
 > ([03 §5](./03-primo-rilascio-utilizzabile.md)) e in quale ordine si toglie ancora
 > ([03 §6](./03-primo-rilascio-utilizzabile.md)).
 
@@ -658,13 +664,13 @@ chi installa deve poterlo sapere prima di installare, non dopo.
 
 ---
 
-## 5. Oltre il 30 novembre 2026 — la pianificazione interna
+## 5. Oltre il 30 novembre 2026 - la pianificazione interna
 
 Le date di questo paragrafo sono **pianificazione interna del progetto** (`D57`). Non sono
 attribuite a terzi e non sono promesse di esito. **In nessun punto si scrive che il prodotto sarà
 marcato entro una data** (`V-171`, `V-280`).
 
-### `T-09` — Traduzione integrale del corpus residuo
+### `T-09` - Traduzione integrale del corpus residuo
 *Classe `D`* · `[INTENZIONE]` · **2027, in parallelo allo sviluppo**
 **Innesco.** Chiusura di `T-06`. **Titolare.** Contributore unico, con la modalità assistita di
 `D56`.
@@ -676,7 +682,7 @@ prerequisito, portando il controllo di divergenza da «segnala» a «blocca» ar
 **registrata con la data**, e da quel momento non è reversibile: un'area che torna a divergere fa
 fallire la costruzione. Il traguardo è chiuso quando nessuna area è più in sola segnalazione.
 
-### `T-11` — Validazione sommativa di usabilità
+### `T-11` - Validazione sommativa di usabilità
 *Classe `B`* · `[INTENZIONE]` · **successiva al congelamento dell'interfaccia**
 **Innesco.** Congelamento dell'interfaccia. **Titolare.** Committente per l'ingaggio della
 competenza esterna; progetto per il protocollo.
@@ -690,12 +696,12 @@ durante lo sviluppo che valuta, ed è fra i tagli irreversibili di
 [03 §5](./03-primo-rilascio-utilizzabile.md). Questo traguardo copre quindi la sommativa e
 **dichiara la lacuna formativa**, che è ciò che il fascicolo conterrà.
 
-**Perché resta di classe `B`.** Perché il reclutamento di utenti rappresentativi — che comprendono
-assistiti anziani e persone con disabilità, popolazione di riferimento e non caso limite — ha un
+**Perché resta di classe `B`.** Perché il reclutamento di utenti rappresentativi - che comprendono
+assistiti anziani e persone con disabilità, popolazione di riferimento e non caso limite - ha un
 tempo di calendario proprio, con consensi da raccogliere e protocollo da approvare prima
 dell'esecuzione. Non dipende dalla velocità del progetto.
 
-### `T-12` — Pacchetto regolatorio consegnabile
+### `T-12` - Pacchetto regolatorio consegnabile
 *Classe `D` con componenti `A` già chiuse* · `[INTENZIONE]` · **2027**
 **Innesco.** Chiusura di `Q-183` verso l'area di conformità. **Titolare.** Progetto.
 
@@ -710,7 +716,7 @@ delle **lacune datate**: le registrazioni non producibili sotto `D54`, ciascuna 
 si riferisce e la ragione. È la parte che chi verifica si aspetta di trovare, e la sua assenza
 sarebbe peggiore della lacuna stessa ([01 §8.2](./01-principi-e-metodo.md)).
 
-### `T-13` — Il percorso di certificazione, come pianificazione interna
+### `T-13` - Il percorso di certificazione, come pianificazione interna
 *Classe `B`* · `[INTENZIONE]` · **date di pianificazione interna, mai promesse di esito**
 **Innesco.** Costituzione del soggetto fabbricante (`T-14` criterio 1, e `Q-280`).
 **Titolare.** Progetto, nel ruolo di fabbricante **ancora da costituire**.
@@ -742,8 +748,8 @@ pianificazione**. Cambia l'attribuzione, non lo stato di fatto del prodotto.
 ### Il termine che resta di un altro soggetto
 
 Una sola famiglia di date non è del progetto, e non lo diventa con `D57`: **il termine entro cui un
-utilizzatore deve aver adottato le misure nazionali di sicurezza**. È soggettivo — decorre dalla
-comunicazione di inserimento ricevuta dal singolo soggetto (`D39`) — e il fornitore non lo
+utilizzatore deve aver adottato le misure nazionali di sicurezza**. È soggettivo - decorre dalla
+comunicazione di inserimento ricevuta dal singolo soggetto (`D39`) - e il fornitore non lo
 conosce. Il prodotto dichiara **le evidenze e la data di disponibilità di ciascuna**, mai il
 termine (`V-186`). Lo stesso vale per l'**accreditamento come fornitore di servizi** verso la
 federazione nazionale delle identità, che è di chi installa (`D36`, `V-05`, `OUT-22`) e i cui tempi
@@ -763,7 +769,7 @@ una decisione**, e produce una conseguenza che non si annulla decidendo dopo.
 | **15 ottobre 2026** | Periodo di supporto dichiarato (`C-4`, `Q-186`) | Committente, `COMP` | Il piano di dismissione non è pubblicabile e il numero di versioni maggiori da mantenere non è determinabile. **È prerequisito di `T-10`** |
 | **31 ottobre 2026** | Correzione della pagina pubblica ai sensi di `D19` e `D29` (`Q-185`) | Committente, `PROD` | Il rischio di affermazione non sostenibile prosegue e **non è recuperabile a posteriori**: un periodo di pubblicazione non si annulla |
 | **31 ottobre 2026** | Formulazione della differenza fra ciò che il materiale pubblico dichiara e ciò che `RU-1` consegna (`Q-281`) | `PROD`, committente | `RU-1` viene pubblicato mentre il materiale pubblico dichiara capacità che il rilascio non contiene: è la stessa aggravante di `Q-185`, su un artefatto in più |
-| **Prima di ogni ulteriore riduzione** | Esecuzione dell'ordine di sacrificio di [03 §6](./03-primo-rilascio-utilizzabile.md) | Contributore unico, con registrazione nella revisione | Una riduzione non registrata è un taglio non deciso, e la scelta di che cosa sacrificare **smette di essere leggibile** — che è precisamente ciò che `D53` obbliga a evitare |
+| **Prima di ogni ulteriore riduzione** | Esecuzione dell'ordine di sacrificio di [03 §6](./03-primo-rilascio-utilizzabile.md) | Contributore unico, con registrazione nella revisione | Una riduzione non registrata è un taglio non deciso, e la scelta di che cosa sacrificare **smette di essere leggibile** - che è precisamente ciò che `D53` obbliga a evitare |
 | **Prima della documentazione pubblica del meccanismo** | Esito della verifica sull'inoltro del livello di garanzia (`B-8`, `Q-160`) | `INTEG`, `TECH` | Rettifica di documentazione pubblica su un meccanismo di sicurezza |
 
 **Quattro punti sono decaduti** perché le decisioni sono state prese: la dichiarazione della
@@ -783,7 +789,7 @@ gantt
 
     section Classe A - irrecuperabili
     T-01 Artefatti irrecuperabili in esercizio      :crit, t01, 2026-08-25, 2026-09-12
-    T-03 Catena di costruzione minima bloccante     :crit, t03, 2026-09-12, 2026-09-26
+    T-03 Catena di costruzione minima bloccante     :crit, t03, 2026-08-27, 2026-09-26
 
     section Classe B - tempo di terzi
     T-14 Percorso di fabbricante avviato            :crit, t14, 2026-08-25, 2026-09-19
@@ -812,6 +818,17 @@ gantt
 **Come si legge il diagramma.** Le barre marcate come critiche sono quelle il cui slittamento si
 trasferisce integralmente alla fine della catena. **Sono nove su dieci**, ed è la rappresentazione
 grafica del fatto dichiarato al §4.1: il piano non ha margine, e il margine sta nell'ambito.
+
+**La sovrapposizione fra `T-01` e `T-03` è voluta, e va letta bene.** La barra di `T-03` comincia il
+**27 agosto** e non il 12 settembre, perché l'innesco dichiarato del traguardo è la chiusura dei
+**criteri 3 e 4** di `T-01`, non di `T-01` intero, e quei due criteri sono soddisfatti dal 26 agosto
+2026. Il diagramma diceva una cosa diversa dal testo del traguardo; fra i due prevale il testo,
+perché è quello che enuncia l'innesco.
+
+Sotto `D54` la sovrapposizione **non significa due traguardi eseguiti insieme**: un contributore
+unico li alterna. Quello che produce è la libertà di scegliere quale avanzare quando l'altro è fermo
+in attesa di un input che non dipende dal progetto - ed è l'unica forma di margine che questo piano
+possa creare senza toccare l'ambito.
 
 ### 7.1 Tabella di sintesi
 
@@ -856,8 +873,8 @@ L'elenco è la parte più utile del capitolo per chi deve fidarsi di questa road
 
 ---
 
-**Prosegue in**: [03 — Primo rilascio utilizzabile](./03-primo-rilascio-utilizzabile.md), dove il
+**Prosegue in**: [03 - Primo rilascio utilizzabile](./03-primo-rilascio-utilizzabile.md), dove il
 traguardo `T-10` riceve il suo perimetro esatto, l'elenco di ciò che è stato tagliato per
 rispettare la data e l'ordine in cui si taglierebbe ancora; e in
-[05 — Rischi e dipendenze](./05-rischi-e-dipendenze.md), dove i rischi citati in ogni traguardo
+[05 - Rischi e dipendenze](./05-rischi-e-dipendenze.md), dove i rischi citati in ogni traguardo
 sono descritti con probabilità, impatto, indicatore anticipatore e titolare.

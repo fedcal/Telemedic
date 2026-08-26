@@ -1,10 +1,10 @@
 ---
-title: "ADR-0021 — Convenzioni delle interfacce pubbliche"
+title: "ADR-0021 - Convenzioni delle interfacce pubbliche"
 sidebar_position: 21
-description: Registro cumulativo delle dieci convenzioni delle interfacce esposte a terzi — collocazione della versione, esiti, idempotenza, limitazione del traffico, dismissione, contenuto dei messaggi in uscita, ritentativi, versionamento degli eventi, introspezione — con la motivazione di ciascuna.
+description: Registro cumulativo delle dieci convenzioni delle interfacce esposte a terzi - collocazione della versione, esiti, idempotenza, limitazione del traffico, dismissione, contenuto dei messaggi in uscita, ritentativi, versionamento degli eventi, introspezione - con la motivazione di ciascuna.
 ---
 
-# ADR-0021 — Convenzioni delle interfacce pubbliche
+# ADR-0021 - Convenzioni delle interfacce pubbliche
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Origine**: questione posta a quest'area e all'area dei protocolli
@@ -28,8 +28,8 @@ vicenda e vanno lette insieme.
 versione è quella del formato di scambio, dichiarata nel documento di capacità e nel tipo di
 contenuto, senza un numero proprio.
 
-*Alternative scartate*: intestazione dedicata — invisibile, si perde nei registri e nelle cache,
-difficile da provare a mano; tipo di contenuto specifico del fornitore — formalmente corretto,
+*Alternative scartate*: intestazione dedicata - invisibile, si perde nei registri e nelle cache,
+difficile da provare a mano; tipo di contenuto specifico del fornitore - formalmente corretto,
 ostile agli sviluppatori e mal gestito da molti intermediari.
 
 *Motivazione*: la visibilità nei registri e nelle tracce vale più della purezza formale. Un
@@ -102,7 +102,7 @@ l'identificativo corretto.
 con valori predefiniti **dichiarati nel contratto pubblico**.
 
 *Motivazione della variazione casuale*: senza, un'indisponibilità di pochi minuti produce alla
-riattivazione una raffica sincronizzata di tutti gli eventi accumulati — un attacco di negazione del
+riattivazione una raffica sincronizzata di tutti gli eventi accumulati - un attacco di negazione del
 servizio involontario contro il proprio integratore.
 
 *Motivazione della dichiarazione*: l'integratore dimensiona la propria finestra di manutenzione su
@@ -114,15 +114,15 @@ quel dato.
 
 ### 10. Introspezione sulle operazioni ad alto impatto
 
-**Decisione**: le operazioni ad alto impatto — esportazioni, cancellazioni per conservazione,
-migrazioni, dismissioni — espongono lo **stato di avanzamento interrogabile** e non solo un esito
+**Decisione**: le operazioni ad alto impatto - esportazioni, cancellazioni per conservazione,
+migrazioni, dismissioni - espongono lo **stato di avanzamento interrogabile** e non solo un esito
 finale.
 
 *Alternativa scartata*: risposta sincrona con esito, che per operazioni lunghe produce scadenze del
 tempo di attesa e nessun modo di sapere se l'operazione stia procedendo.
 
 *Motivazione*: un'operazione lunga senza introspezione è indistinguibile da un'operazione bloccata,
-e la reazione tipica è rilanciarla — che su una cancellazione o una dismissione è esattamente ciò
+e la reazione tipica è rilanciarla - che su una cancellazione o una dismissione è esattamente ciò
 che non si deve fare.
 
 ## Correzioni verificate recepite in blocco
@@ -146,7 +146,7 @@ che non si deve fare.
 
 **Negative, accettate**
 
-- Due delle convenzioni — l'esito di precondizione richiesta e l'esito che non rivela l'esistenza —
+- Due delle convenzioni - l'esito di precondizione richiesta e l'esito che non rivela l'esistenza -
   **deviano dal comportamento più diffuso** e vanno spiegate a ogni integratore, altrimenti vengono
   scambiate per difetti.
 - Il preavviso di dodici mesi con due versioni maggiori attive è un impegno di manutenzione
@@ -154,5 +154,5 @@ che non si deve fare.
 
 ## Riferimenti
 
-[09 — Decisioni rinviate](../02_architecture/09-decisioni-rinviate.md#b-5--convenzioni-delle-interfacce-pubbliche) ·
+[09 - Decisioni rinviate](../02_architecture/09-decisioni-rinviate.md#b-5---convenzioni-delle-interfacce-pubbliche) ·
 ADR-0006 · ADR-0010 · ADR-0011

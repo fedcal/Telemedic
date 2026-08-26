@@ -26,7 +26,7 @@ bloccanti:
    e in un'altra per l'interfaccia applicativa. È la traduzione strutturale del vincolo di
    integrabilità totale.
 
-I concetti generali — aggregato, radice, entità, oggetto valore, invariante, evento di dominio —
+I concetti generali - aggregato, radice, entità, oggetto valore, invariante, evento di dominio -
 sono spiegati nel [modulo 11 della guida dei fondamenti](../10_fondamenti/11-fondamenti-informatici.md#7-domain-driven-design)
 e qui non vengono ripetuti. Quello che segue è **quali sono** in Telemedic e **perché sono così**.
 
@@ -61,8 +61,8 @@ aggirata alla prima occasione.
 
 Dal punto di vista dell'utente c'è **un solo evento**: il medico e l'assistito si vedono, parlano,
 la visita si conclude. Modellare due oggetti per una cosa sola sembra complessità gratuita. Il
-codice più semplice è quello in cui `Prestazione` ha i campi della connessione — stato del
-collegamento, tipo di percorso di rete, istante di avvio del flusso — e la fine della connessione
+codice più semplice è quello in cui `Prestazione` ha i campi della connessione - stato del
+collegamento, tipo di percorso di rete, istante di avvio del flusso - e la fine della connessione
 chiude la prestazione.
 
 La tentazione è rafforzata dal fatto che nel caso felice le due entità hanno la stessa durata,
@@ -73,35 +73,35 @@ perfettamente finché la rete funziona perfettamente**.
 
 Ognuna di queste è un difetto reale, non un'ipotesi.
 
-**Prima — la prestazione fantasma.** Una caduta di rete e una riconnessione producono due
+**Prima - la prestazione fantasma.** Una caduta di rete e una riconnessione producono due
 connessioni. Se la connessione è la prestazione, il sistema registra due atti sanitari dove ce n'è
 stato uno. Il conteggio delle prestazioni erogate, che alimenta la rendicontazione, diventa il
 conteggio delle connessioni riuscite, che è una grandezza diversa. Nessun aggiustamento successivo
 recupera l'informazione, perché il sistema non ha mai saputo che le due connessioni erano lo
 stesso atto.
 
-**Seconda — l'atto sanitario inesistente.** La verifica tecnica che precede l'appuntamento è una
-connessione senza atto clinico. Con il modello unificato, o si crea una prestazione fittizia — che
-finisce nei conteggi e potenzialmente nella cartella — oppure si introduce un ramo speciale che
+**Seconda - l'atto sanitario inesistente.** La verifica tecnica che precede l'appuntamento è una
+connessione senza atto clinico. Con il modello unificato, o si crea una prestazione fittizia - che
+finisce nei conteggi e potenzialmente nella cartella - oppure si introduce un ramo speciale che
 crea una connessione senza prestazione, cioè si ammette che le due cose sono separate ma lo si fa
 di nascosto.
 
-**Terza — la prestazione erogata che risulta non erogata.** Il video fallisce, il professionista
+**Terza - la prestazione erogata che risulta non erogata.** Il video fallisce, il professionista
 prosegue e conclude in fonia. È una prestazione erogata, con un esito clinico e un referto, in cui
 la connessione video è fallita. Con il modello unificato l'atto risulta fallito.
 
-**Quarta — la prestazione con più sessioni legittime.** Nell'atto complesso — l'ingresso
+**Quarta - la prestazione con più sessioni legittime.** Nell'atto complesso - l'ingresso
 dell'interprete a metà, la ripresa dopo una pausa, il passaggio di consegne fra due professionisti
-— le connessioni sono più di una per progetto, non per guasto. Il modello unificato le rappresenta
+- le connessioni sono più di una per progetto, non per guasto. Il modello unificato le rappresenta
 come atti distinti o costringe a nascondere le successive.
 
-**Quinta — l'inquinamento del regime di conservazione.** La connessione produce metadati tecnici
+**Quinta - l'inquinamento del regime di conservazione.** La connessione produce metadati tecnici
 con un regime di conservazione breve; la prestazione è documentazione sanitaria con un regime
-lungo. Unendoli, o si conservano i metadati tecnici per il tempo della documentazione sanitaria —
-producendo un archivio di dati di traffico che nessuno ha chiesto — o si cancella la
+lungo. Unendoli, o si conservano i metadati tecnici per il tempo della documentazione sanitaria -
+producendo un archivio di dati di traffico che nessuno ha chiesto - o si cancella la
 documentazione con i metadati.
 
-**Sesta — l'accoppiamento dei ritmi di rilascio.** Il trasporto in tempo reale cambia quando
+**Sesta - l'accoppiamento dei ritmi di rilascio.** Il trasporto in tempo reale cambia quando
 cambiano i motori dei browser e i protocolli di rete; la documentazione dell'atto cambia quando
 cambia la normativa sanitaria. Nel modello unificato ogni aggiornamento dell'uno tocca l'altro.
 
@@ -113,7 +113,7 @@ identificativi delle sessioni che le si riferiscono, e null'altro di esse.
 
 ```mermaid
 flowchart LR
-    subgraph A["Aggregato Prestazione — CTX-04"]
+    subgraph A["Aggregato Prestazione - CTX-04"]
         P["Prestazione<br/>radice"]
         PA["Partecipazione"]
         PI["Atto di identificazione"]
@@ -123,7 +123,7 @@ flowchart LR
         P --> PE
     end
 
-    subgraph B["Aggregato Sessione media — CTX-05"]
+    subgraph B["Aggregato Sessione media - CTX-05"]
         S["SessioneMedia<br/>radice"]
         SN["Negoziazione"]
         SQ["Profilo di qualita"]
@@ -165,7 +165,7 @@ la chiusura, autorizza o revoca la registrazione.
 ```mermaid
 stateDiagram-v2
     direction TB
-    state "Prestazione — semantica clinica e amministrativa" as PREST {
+    state "Prestazione - semantica clinica e amministrativa" as PREST {
         [*] --> Richiesta
         Richiesta --> Prenotata : appuntamento confermato
         Richiesta --> Annullata : richiesta ritirata
@@ -193,7 +193,7 @@ stateDiagram-v2
 ```mermaid
 stateDiagram-v2
     direction LR
-    state "Sessione media — semantica tecnica" as MEDIA {
+    state "Sessione media - semantica tecnica" as MEDIA {
         [*] --> Inizializzata
         Inizializzata --> Negoziazione : scambio di offerta e risposta
         Negoziazione --> ConnessaDiretta : coppia di percorsi diretta
@@ -223,11 +223,11 @@ stateDiagram-v2
 > una riga di catalogo più una macchina a stati, mai una modifica del dominio.
 > Inoltre **stato ed esito sono attributi distinti**: lo stato dice dove si trova il contatto,
 > l'esito che cosa è successo. Due esiti possono condividere lo stato terminale e avere effetti
-> amministrativi opposti — la mancata presentazione e il fallimento tecnico attribuibile
-> all'assistito ne sono il caso canonico — e collassarli in un unico campo è vietato
+> amministrativi opposti - la mancata presentazione e il fallimento tecnico attribuibile
+> all'assistito ne sono il caso canonico - e collassarli in un unico campo è vietato
 > (vincolo V-141).
 
-Le due macchine hanno cardinalità diversa — una prestazione, da zero a molte sessioni — durata
+Le due macchine hanno cardinalità diversa - una prestazione, da zero a molte sessioni - durata
 diversa, granularità diversa e ritmo diverso. La seconda cambia stato decine di volte in una
 prestazione; la prima poche volte in ore o giorni. Sono la stessa cosa solo nel caso felice, e il
 caso felice non è il caso su cui si progetta.
@@ -235,9 +235,9 @@ caso felice non è il caso su cui si progetta.
 ### 3.6 Conseguenze sul modello dati
 
 La separazione ha effetti misurabili sulla persistenza, sviluppati in
-[04 — Modello dati](04-modello-dati.md): tabelle separate in schemi di contesti diversi, nessuna
-chiave esterna che attraversi il confine, politiche di conservazione indipendenti — lunga per la
-documentazione dell'atto, breve per i metadati tecnici della connessione — e archivi diversi, dato
+[04 - Modello dati](04-modello-dati.md): tabelle separate in schemi di contesti diversi, nessuna
+chiave esterna che attraversi il confine, politiche di conservazione indipendenti - lunga per la
+documentazione dell'atto, breve per i metadati tecnici della connessione - e archivi diversi, dato
 che i campioni di qualità appartengono a una serie temporale e non a una tabella relazionale.
 
 ## 4. Catalogo degli aggregati
@@ -327,8 +327,8 @@ può essere condiviso.
 | **AttesaDiRilevazione** | `AttesaDiRilevazione` | Finestra attesa, istante di scadenza, causa dell'assenza quando nota | L'assenza di misura è **una riga che dichiara l'assenza**, non l'assenza di una riga |
 | **RispostaAQuestionario** | `RispostaAQuestionario` | Risposte, versione dello strumento, istante | Riferita a una versione immutabile dello strumento |
 
-La **misura è un aggregato autonomo**, non un'entità del piano. Sono due ritmi diversi — il piano
-cambia raramente, le misure arrivano continuamente — e legarle produrrebbe contesa in scrittura
+La **misura è un aggregato autonomo**, non un'entità del piano. Sono due ritmi diversi - il piano
+cambia raramente, le misure arrivano continuamente - e legarle produrrebbe contesa in scrittura
 sulla stessa radice a ogni rilevazione.
 
 Tre vincoli posti dalle aree di dominio e funzionale governano questo contesto e vanno enunciati
@@ -428,8 +428,8 @@ Tre conseguenze operative:
 2. **Ciò che vale «da quando a quando» non si sovrascrive.** Ruolo, consenso, soglia, tariffa,
    configurazione: la modifica produce una nuova versione con una nuova decorrenza.
 3. **Gli istanti sono conservati con il riferimento temporale assoluto.** L'ora locale con
-   l'identificativo del fuso serve dove conta la lettura umana — la ricorrenza dell'agenda alle due
-   e mezza di notte nelle due domeniche di cambio dell'ora ne è l'esempio canonico — ma il fatto è
+   l'identificativo del fuso serve dove conta la lettura umana - la ricorrenza dell'agenda alle due
+   e mezza di notte nelle due domeniche di cambio dell'ora ne è l'esempio canonico - ma il fatto è
    conservato in forma assoluta.
 
 ## 7. Eventi di dominio
@@ -522,8 +522,8 @@ Il vincolo che separa il veicolo di comunicazione dal supporto alla decisione cl
 postura documentale: è una proprietà del modello, e questa sezione dice **dove** si vede.
 
 **Nel documento clinico.** Il tipo `DocumentoClinico` non espone alcuna operazione che produca
-contenuto. Le operazioni sono di struttura — apri una bozza, inserisci il contenuto redatto,
-allega, firma, rettifica — e il contenuto è sempre un parametro fornito dall'autore, mai un
+contenuto. Le operazioni sono di struttura - apri una bozza, inserisci il contenuto redatto,
+allega, firma, rettifica - e il contenuto è sempre un parametro fornito dall'autore, mai un
 risultato calcolato. Non esistono metodi che generino conclusioni, riepiloghi o codifiche dedotte.
 
 **Nella soglia.** Il tipo `PianoDiMonitoraggio` non ha alcun costruttore che produca una soglia

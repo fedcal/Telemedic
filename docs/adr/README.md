@@ -131,12 +131,12 @@ insieme allo stato provvisorio in vigore nel frattempo. È il caso di ADR-0023.
 
 | Vincolo | ADR che lo realizzano |
 |---|---|
-| **V1** — Sovranità del dato | 0016 (sovranità per assenza di dato) · 0009 (nessun componente aggiuntivo) |
-| **V2** — Separazione fra veicolo e interpretazione | 0004 · 0020 · 0024 |
-| **V3** — Integrabilità totale | 0006 · 0021 |
-| **V4** — Tenant-awareness | 0007 · 0008 (outbox per tenant) · 0010 (tenant obbligatorio nella busta) · 0013 (catena per tenant) |
-| **V5** — Auditabilità immutabile | 0013 · 0015 |
-| **V6** — Usabilità, accessibilità, mobile first | 0014 (indicatore non occultabile) · 0019 (stringhe adattabili) · 0028 (limite dichiarato invece di degrado silenzioso) |
+| **V1** - Sovranità del dato | 0016 (sovranità per assenza di dato) · 0009 (nessun componente aggiuntivo) |
+| **V2** - Separazione fra veicolo e interpretazione | 0004 · 0020 · 0024 |
+| **V3** - Integrabilità totale | 0006 · 0021 |
+| **V4** - Tenant-awareness | 0007 · 0008 (outbox per tenant) · 0010 (tenant obbligatorio nella busta) · 0013 (catena per tenant) |
+| **V5** - Auditabilità immutabile | 0013 · 0015 |
+| **V6** - Usabilità, accessibilità, mobile first | 0014 (indicatore non occultabile) · 0019 (stringhe adattabili) · 0028 (limite dichiarato invece di degrado silenzioso) |
 
 ## Vincoli di altre aree recepiti negli ADR
 

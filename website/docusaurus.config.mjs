@@ -19,9 +19,8 @@ const config = {
   // La documentazione è in scrittura attiva e contiene rinvii a moduli non
   // ancora pubblicati. Un collegamento rotto va visto, non deve fermare la
   // pubblicazione: il controllo si irrigidisce quando le aree sono complete.
-  onBrokenLinks: 'warn',
-  onBrokenAnchors: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
   onDuplicateRoutes: 'warn',
 
   i18n: {
@@ -35,8 +34,39 @@ const config = {
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
   },
-  themes: ['@docusaurus/theme-mermaid'],
+
+  // Criterio 3 di T-07: calcola quali documenti non hanno una traduzione inglese, leggendo
+  // docs/ e website/i18n/en/... alla costruzione (nessun elenco tenuto a mano - vedi il
+  // commento in testa al file). L'esito è letto a runtime dal componente sostituito
+  // src/theme/DocItem/Layout, che mostra l'avviso di traduzione in corso.
+  plugins: ['./plugins/stato-traduzione-docs.mjs'],
+
+  themes: [
+    '@docusaurus/theme-mermaid',
+    // Criterio 2 di T-07: ricerca locale, senza alcun servizio esterno - nessuna candidatura,
+    // nessuna coda di indicizzazione, nessun invio dei contenuti a un terzo. Licenza MIT
+    // verificata sul file LICENSE del repository sorgente (non sulla sola dichiarazione di
+    // package.json), registrata in pipeline/annotazioni-componenti.tsv. Il plugin costruisce un
+    // indice SEPARATO per ciascuna locale del sito (una per "it", una per "en"), quindi una
+    // ricerca eseguita sulla locale inglese non può restituire risultati italiani e viceversa:
+    // è esattamente la proprietà «nella lingua attiva» del criterio 2.
+    [
+      '@easyops-cn/docusaurus-search-local',
+      /** @type {import('@easyops-cn/docusaurus-search-local').PluginOptions} */
+      ({
+        hashed: true,
+        language: ['en', 'it'],
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: false,
+        docsRouteBasePath: '/docs',
+      }),
+    ],
+  ],
 
   presets: [
     [
@@ -115,7 +145,13 @@ const config = {
             ],
           },
         ],
-        copyright: `Telemedic — Licenza Apache 2.0. Documentazione rilasciata con il codice.<br/>Questo software non è un dispositivo medico marcato CE. Chi lo immette sul mercato o lo mette in servizio si assume gli obblighi che ne derivano.`,
+        // L'avvertenza di non marcatura è racchiusa in <span class="tmWarnFooter"> - non per
+        // stile, ma perché il piè di pagina compare su OGNI pagina pubblicata (a differenza del
+        // blocco "tmWarn", che sta solo in home page): è il marcatore strutturale che il criterio
+        // 5 di T-07 esige, letto da scripts/verifica-dichiarazione-non-marcatura.sh su ogni
+        // pagina HTML dell'artefatto costruito. Stessa disciplina di "tmWarn": la classe
+        // sopravvive a una riformulazione del testo, non a una sua sparizione.
+        copyright: `Telemedic - Licenza Apache 2.0. Documentazione rilasciata con il codice.<br/><span class="tmWarnFooter">Questo software non è un dispositivo medico marcato CE. Chi lo immette sul mercato o lo mette in servizio si assume gli obblighi che ne derivano.</span>`,
       },
       prism: {
         theme: prismThemes.github,

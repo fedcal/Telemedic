@@ -7,10 +7,10 @@ description: "Telemedic's mental map for anyone who has never seen it: what shap
 # The architecture of the project
 
 This module serves one purpose only: to give you **the shape of the system in your head** before
-you open a code file or a specification document. It does not teach you to design architectures —
-that is the subject of [module 11](11-fondamenti-informatici.md) — and it does not replace the
+you open a code file or a specification document. It does not teach you to design architectures -
+that is the subject of [module 11](11-fondamenti-informatici.md) - and it does not replace the
 project's architecture area, which lives in
-[`docs/02_architecture/`](../02_architecture/00-indice.md) and is ten times more detailed than
+[`docs/02_architecture/`](/02_architecture/00-indice.md) and is ten times more detailed than
 what you will read here.
 
 It does one thing that area does not: **it reconstructs the reasoning**. The architecture area
@@ -33,14 +33,14 @@ prerequisites, not recommendations.
 
 | It presupposes | Where it is | What you need from it here |
 |---|---|---|
-| Distributed systems, consistency, transactions, sagas | [11 — Computing fundamentals](11-fondamenti-informatici.md) | Knowing what «failure is partial» means and why there is no transaction spanning two systems |
+| Distributed systems, consistency, transactions, sagas | [11 - Computing fundamentals](11-fondamenti-informatici.md) | Knowing what «failure is partial» means and why there is no transaction spanning two systems |
 | Aggregate, invariant, bounded context, ubiquitous language | [11 §7](11-fondamenti-informatici.md#7-domain-driven-design) | The vocabulary. Here we explain **which ones** exist in Telemedic, not what they are in general |
-| Dual write, outbox, idempotency, delivery | [11 §5](11-fondamenti-informatici.md#5-la-doppia-scrittura-e-loutbox-transazionale) and [11 §6](11-fondamenti-informatici.md#6-consegna-e-idempotenza) | The mechanism. Here we explain **why the project adopted it** and what it costs |
-| Cryptographic hashes, signatures, hash chains | [12 §5](12-crittografia-e-sicurezza.md#5-funzioni-di-hash) | Why a hash chain makes tampering detectable |
-| Every protocol the system speaks | [13 — The protocols, one by one](13-protocolli.md) | Here the protocols are not explained: we say **where** they sit in the architecture |
-| What health data is and why it has a regime of its own | [03 — Clinical data](03-il-dato-clinico.md) | Half of this system's architectural choices derive from there |
-| What a remote consultation is and how it differs from a specialist-to-specialist consultation | [02 — Telemedicine services](02-prestazioni-di-telemedicina.md) | The domain the architecture has to carry |
-| Why this software has constraints that do not exist elsewhere | [15 — The regulatory framework from scratch](15-regolatorio-da-zero.md) | The regulatory forces in §2 |
+| Dual write, outbox, idempotency, delivery | [11 §5](11-fondamenti-informatici.md#5-dual-write-and-the-transactional-outbox) and [11 §6](11-fondamenti-informatici.md#6-delivery-and-idempotency) | The mechanism. Here we explain **why the project adopted it** and what it costs |
+| Cryptographic hashes, signatures, hash chains | [12 §5](12-crittografia-e-sicurezza.md#5-hash-functions) | Why a hash chain makes tampering detectable |
+| Every protocol the system speaks | [13 - The protocols, one by one](13-protocolli.md) | Here the protocols are not explained: we say **where** they sit in the architecture |
+| What health data is and why it has a regime of its own | [03 - Clinical data](03-il-dato-clinico.md) | Half of this system's architectural choices derive from there |
+| What a remote consultation is and how it differs from a specialist-to-specialist consultation | [02 - Telemedicine services](02-prestazioni-di-telemedicina.md) | The domain the architecture has to carry |
+| Why this software has constraints that do not exist elsewhere | [15 - The regulatory framework from scratch](15-regolatorio-da-zero.md) | The regulatory forces in §2 |
 
 If you have not read module 11, **read it before this one**. This is not a courtesy
 recommendation: from §6 onwards this module uses «outbox», «idempotent», «aggregate» and
@@ -73,7 +73,7 @@ Every choice described here is presented in three movements, always in the same 
 
 The third movement is not a concession to honesty: it is how you tell whether a choice has been
 understood. An architecture described without what it costs has not been understood, it has been
-memorised — and whoever memorised it will work around it at the first occasion on which the cost
+memorised - and whoever memorised it will work around it at the first occasion on which the cost
 shows up.
 
 ---
@@ -88,7 +88,7 @@ Before talking about shape, we need to know what the shape has to carry.
 It is not a portal. It is not a clinical record system. It is not the user's point of entry. It is
 not the holder of the patient registry. It is the missing piece for a healthcare practice
 management system, a public organisation or a regional infrastructure when the service has to be
-delivered remotely — and it has to fit in **without asking anyone to change what they already
+delivered remotely - and it has to fit in **without asking anyone to change what they already
 have**.
 
 That sentence, and not the technology stack, is what determines the architecture. It is worth
@@ -99,7 +99,7 @@ consequences that no subsequent choice can contradict, and which it is useful to
 because they recur in every section of this module.
 
 **First: the system does not own identity.** The person in front of the screen has already been
-authenticated elsewhere — by the integrator's identity provider, or by the national digital
+authenticated elsewhere - by the integrator's identity provider, or by the national digital
 identity federation. Telemedic receives an assertion («this is Dr Rossi, of this organisation,
 authenticated at this level») and turns it into an internal authorisation context. It does not
 issue primary credentials for the citizen and does not impose a second sign-in. The identity
@@ -142,19 +142,19 @@ reason almost always lies in one of these four.
 
 ### 2.1 Why we do not start from the architectural style
 
-There is a widespread and wrong way of describing an architecture: you announce the style — «it is
-microservices», «it is hexagonal», «it is event-driven» — and deduce everything else from there.
+There is a widespread and wrong way of describing an architecture: you announce the style - «it is
+microservices», «it is hexagonal», «it is event-driven» - and deduce everything else from there.
 It is wrong because the style is an **effect**, not a cause. A style chosen before knowing the
 forces at play produces a system with the right shape for somebody else's problems.
 
 Telemedic's architecture area starts from the opposite end: it lists **seven forces**, declares
 the order in which they are resolved when they conflict, and derives the shape from there. Those
 seven forces are summarised in
-[`01 — Architectural vision`](../02_architecture/01-visione-architetturale.md); here they are
+[`01 - Architectural vision`](/02_architecture/01-visione-architetturale.md); here they are
 explained one by one to somebody who has never met them, because it is the part of the system that
 is most often skipped and most often needed.
 
-### 2.2 First force — Demonstrability comes before everything
+### 2.2 First force - Demonstrability comes before everything
 
 **The problem.** Imagine that in three years' time a person asks the care provider organisation
 treating them: «who has read my report?». Or that a supervisory authority asks for a demonstration
@@ -180,7 +180,7 @@ document is forbidden.
 system that generates the events**. This is not configuration: it is a component, and by the
 admission of the very decision that imposes it, it is the largest effort in the whole security
 catalogue. The mechanism is explained in §7 of this module and developed in
-[`07 — Audit trail and immutable log`](../02_architecture/07-tracciamento-e-registro-immutabile.md).
+[`07 - Audit trail and immutable log`](/02_architecture/07-tracciamento-e-registro-immutabile.md).
 
 **Why it is the first force.** Because it is **retroactive**. A badly built audit trail cannot be
 repaired after the fact: events already written do not acquire demonstrable integrity retroactively.
@@ -192,7 +192,7 @@ data: its latency adds to that of the operation, and if the audit trail is not w
 operation fails. It is a severe and deliberate choice, and §7.5 explains why the alternative is
 worse.
 
-### 2.3 Second force — The boundary between vehicle and interpretation
+### 2.3 Second force - The boundary between vehicle and interpretation
 
 **The problem.** [Module 15](15-regolatorio-da-zero.md) explains that the qualification of software
 as a medical device, and its risk class, depend on the **declared intended purpose** and on whether
@@ -228,10 +228,10 @@ mandatory**, and is not pre-filled even with the value from the same patient's p
 
 **The price.** Real friction in use, acknowledged and accepted. A professional who configures ten
 similar plans configures them ten times. The project compensates by showing **attributed
-reference values, read-only, with an explicit copy action** — which is a different thing from
+reference values, read-only, with an explicit copy action** - which is a different thing from
 pre-filling, because the decision remains an act.
 
-### 2.4 Third force — Total integrability
+### 2.4 Third force - Total integrability
 
 **The problem.** If the system is a guest, every one of its capabilities must be reachable by the
 host. An integrator that already has its own interface will not use ours; an integrator that has to
@@ -241,8 +241,8 @@ automate a flow cannot do it by clicking.
 project's constraint **V3**.
 
 **What follows, and it is not obvious.** The consequence is not «expose everything in REST». It is
-that the **application layer cannot contain domain logic**. If it contained a rule — say, «a
-document cannot be signed if the consent is not in force» — that rule would exist in the user
+that the **application layer cannot contain domain logic**. If it contained a rule - say, «a
+document cannot be signed if the consent is not in force» - that rule would exist in the user
 interface path and would have to be rewritten in the API path. Two implementations of the same rule
 always diverge, and the divergence is discovered when somebody uses the less-tested path.
 
@@ -253,7 +253,7 @@ plane is a thin adapter above it.
 has formalised this with an operational rule: *the area that introduces a capability also introduces
 the contract; it is not work that can be postponed*.
 
-### 2.5 Fourth force — Sovereignty and substitutability
+### 2.5 Fourth force - Sovereignty and substitutability
 
 **The problem.** The project declares that clinical data does not transit through services
 established outside the European Union, and supports three placement profiles: European Union,
@@ -270,8 +270,8 @@ a project interface and has a declared fallback**. It holds for the terminology 
 signature service, for notification delivery, for the event broker. And the corollary, which is the
 sharp part: **where the fallback does not exist, the path is not a primary one**.
 
-**The case that illustrates the principle better than any other.** The terminology service — the
-component that resolves and validates clinical codes — could be hosted outside the Union. The
+**The case that illustrates the principle better than any other.** The terminology service - the
+component that resolves and validates clinical codes - could be hosted outside the Union. The
 solution adopted is not to place it elsewhere: it is **not to carry the data**. Queries to that
 service carry no patient identifiers, carry no clinical context and cannot be correlated to a
 person. **The sovereignty of this dependency is satisfied by the absence of data, not by
@@ -281,7 +281,7 @@ it seems.
 **The price.** Every abstraction interface is extra code, and every fallback is a second behaviour
 to test. A system that directly calls what it needs is shorter.
 
-### 2.6 Fifth force — Isolation between autonomous controllers
+### 2.6 Fifth force - Isolation between autonomous controllers
 
 **The problem.** The project exists in two arrangements: a multi-organisation **managed service**
 and an **installation at the customer's premises**, with the same code. In the managed service the
@@ -303,11 +303,11 @@ category of neutral data**. The fact that a person has an appointment with a par
 is already data concerning health: it reveals that they are being treated, and for what. There is
 therefore no subset of «administrative» tables to be isolated with less rigour.
 
-### 2.7 Sixth force — Real time does not tolerate the long path
+### 2.7 Sixth force - Real time does not tolerate the long path
 
 **The problem.** A clinical video call has a latency budget measured in tens of milliseconds. The
-message exchange that establishes the connection — the **signalling**, explained in
-[module 08](08-webrtc-da-zero.md) — has in addition a requirement that the system's other messages
+message exchange that establishes the connection - the **signalling**, explained in
+[module 08](08-webrtc-da-zero.md) - has in addition a requirement that the system's other messages
 do not have: the network candidates must arrive **exactly once and in the order in which they were
 emitted**, otherwise negotiation fails intermittently and undiagnosably.
 
@@ -321,7 +321,7 @@ event-based one and the real-time one, with a state machine of its own and its o
 distribution strategy. It is a second system to understand and to test, and it is declared as such
 instead of being hidden under a unifying abstraction that would not hold.
 
-### 2.8 Seventh force — Accessibility and real use as functional requirements
+### 2.8 Seventh force - Accessibility and real use as functional requirements
 
 **The problem.** The typical patient in a remote consultation is an elderly person, on a
 smartphone, on a mobile network, often without assistance. The typical professional is under time
@@ -329,7 +329,7 @@ pressure. An interface designed for a competent user on a good connection is not
 later»: it is **unusable by the reference population**.
 
 In this project accessibility is not a polish: it is an **acceptance criterion for every screen**,
-and — by virtue of medical device law — it is also a risk control measure, because a use error is a
+and - by virtue of medical device law - it is also a risk control measure, because a use error is a
 design defect and not the user's fault.
 
 **The architectural impact, which is less obvious than it seems.** It concerns three points, and
@@ -345,7 +345,7 @@ none of the three is a stylesheet problem:
    recording-in-progress indicator, the consent texts, the outcome of key verification, clinical
    error messages, the encryption status indicator.
 3. **Internationalisation is structural.** In particular, the project's interface strings are
-   separated **by construction** from the official labels of the clinical terminologies — and the
+   separated **by construction** from the official labels of the clinical terminologies - and the
    reason, surprisingly, is not one of tidiness but of licensing: §9.4 explains it.
 
 ### 2.9 The order among the forces
@@ -359,7 +359,7 @@ A concrete example of what that means: writing the access audit trail is blockin
 to every clinical operation. If the order were reversed, and responsiveness preceded
 demonstrability, the choice would have been to write the audit trail asynchronously and to accept a
 small window of untraced accesses. It would have been faster. And the window of untraced accesses
-would have coincided, statistically, with the moments of highest load — that is, with the
+would have coincided, statistically, with the moments of highest load - that is, with the
 incidents, that is, with the only moment when the audit trail is needed.
 
 ### 2.10 The resulting shape
@@ -433,7 +433,7 @@ Four readings of this drawing deserve to be made explicit, because they are four
 system and not four graphical details.
 
 **The core does not speak to the outside.** Every translation to and from a third-party format
-happens in the **anti-corruption layer** at the frontier — the technical name for «the code that
+happens in the **anti-corruption layer** at the frontier - the technical name for «the code that
 translates between two languages at the boundary, so that neither contaminates the other». It is
 the condition that makes two things possible at once: supporting several integrators simultaneously
 without having partner-specific logic inside the domain, and surviving a version change of an
@@ -468,7 +468,7 @@ An architecture of this kind is not free, and its three main cost items are:
 
 None of the three is hidden. The second in particular has to be understood properly: **immediate
 consistency exists inside an aggregate, not between contexts**. Aggregate boundaries are chosen so
-that every clinically relevant invariant is internal to a single aggregate — and every window of
+that every clinically relevant invariant is internal to a single aggregate - and every window of
 divergence has a declared duration and a reconciliation mechanism visible to an operator.
 
 ---
@@ -490,8 +490,8 @@ identifiers each external system uses for the same person.
 Six months later you have a `Patient` entity with eighty fields, of which **every consumer uses ten
 and ignores seventy**. Every change to that entity touches all the modules. Every load brings it
 into memory in full. Every discussion about «what does this field mean» has different answers
-depending on who is asking. And above all: the *exemption by pathology* field — which looked
-administrative to you — **reveals the pathology**, is special category data to all intents and
+depending on who is asking. And above all: the *exemption by pathology* field - which looked
+administrative to you - **reveals the pathology**, is special category data to all intents and
 purposes, and lives in the same entity that the diary module loads in order to send an SMS
 reminder.
 
@@ -526,8 +526,8 @@ recognise when a boundary has been violated:
 2. **The model is private.** No other context reads this one's tables, no other context knows the
    internal shape of its types. What comes out is a **contract**.
 3. **Translation happens at the boundary, explicitly.** When two contexts have to talk to each other
-   and their languages diverge — and that is the normal case, because divergence is the **reason**
-   for the boundary — the translation is dedicated, tested code, placed in the context that needs
+   and their languages diverge - and that is the normal case, because divergence is the **reason**
+   for the boundary - the translation is dedicated, tested code, placed in the context that needs
    it.
 
 The practical consequence is that in the system there are **several models of the patient**, one
@@ -535,8 +535,8 @@ per context, each with only the attributes that context needs, linked to each ot
 identifier. This is not duplication: it is **specialisation**. Duplication would be having two
 copies of the same model; here we have **different** models of the same real subject.
 
-> The general theory — what an aggregate is, what a ubiquitous language is, what the relationship
-> patterns between contexts are — is in
+> The general theory - what an aggregate is, what a ubiquitous language is, what the relationship
+> patterns between contexts are - is in
 > [module 11 §7](11-fondamenti-informatici.md#7-domain-driven-design). This module says which
 > contexts exist in Telemedic and why they fall where they do.
 
@@ -553,13 +553,13 @@ and not subtly:
 | **Session** | The clinical act (for the professional) | The audio-video connection (for the infrastructure) | The accountable unit (for administration) |
 | **Consent** | Acceptance of the clinical act | The basis for processing the data | Authorisation to record |
 | **Service** | The request | The delivery | The charge |
-| **Recording** | The audiovisual capture | The act of recording a fact in the system | — |
+| **Recording** | The audiovisual capture | The act of recording a fact in the system | - |
 | **Available** | Published | Bookable from a given channel | Not yet taken |
-| **Outcome** | Where the encounter is (state) | What happened (outcome) | — |
+| **Outcome** | Where the encounter is (state) | What happened (outcome) | - |
 
 Each of these ambiguities has already produced defects in real systems. The most insidious is the
 last: **state and outcome are not the same thing**, and two different outcomes can share the
-terminal state while having **opposite** administrative effects — the patient's non-attendance and
+terminal state while having **opposite** administrative effects - the patient's non-attendance and
 the technical failure attributable to them both end up in «terminated» and are accounted for
 differently. Collapsing them into a single field is forbidden by the project.
 
@@ -573,7 +573,7 @@ frequencies:
 
 Components that change together must stay together; components that change for different reasons
 must be releasable separately. Putting them in the same context means that an update to media
-transport forces a re-verification of clinical documentation — that is, in a regulatory pathway,
+transport forces a re-verification of clinical documentation - that is, in a regulatory pathway,
 redoing tests there was no reason to redo.
 
 **The fracture of protection regime.** This is the fracture that anyone coming from a non-healthcare
@@ -586,8 +586,8 @@ audit trail have access, retention and deletion regimes that are **mutually inco
 - consent evidence outlives the data it refers to, because it serves to demonstrate that the data
   was processed lawfully.
 
-Keeping them in the same context would force the strictest regime to be applied to all — making the
-system unusable, because nothing could ever be deleted — or the most permissive, making it
+Keeping them in the same context would force the strictest regime to be applied to all - making the
+system unusable, because nothing could ever be deleted - or the most permissive, making it
 unlawful. There is no middle way: **it is a fracture, not a compromise**.
 
 ### 3.4 What a bounded context is not
@@ -650,8 +650,8 @@ Boundaries cost, and the cost is concrete:
 | **Several models of the same subject** | Whoever reads the code for the first time finds three representations of the patient and has to understand why |
 | **Permanent discipline** | Boundaries **erode through the accumulation of reasonable exceptions**. The dangerous moment is not the design: it is when somebody proposes adding «just one field» |
 
-The last row is the reason why the table in §4 has a column that looks odd — **«what is none of its
-business»** — and why the project automatically verifies that no context accesses another's tables.
+The last row is the reason why the table in §4 has a column that looks odd - **«what is none of its
+business»** - and why the project automatically verifies that no context accesses another's tables.
 A boundary rule entrusted to goodwill has an average life of a few months.
 
 ---
@@ -661,12 +661,12 @@ A boundary rule entrusted to goodwill has an average life of a few months.
 ### 4.1 The map
 
 Telemedic's contexts are **thirteen**, fixed by the project's architectural baseline and developed
-one by one in [`02 — Bounded contexts`](../02_architecture/02-contesti-delimitati.md). They divide
+one by one in [`02 - Bounded contexts`](/02_architecture/02-contesti-delimitati.md). They divide
 into four families, and the family tells you how much care each deserves.
 
 ```mermaid
 flowchart TB
-    subgraph NUCLEO["Domain core — where the distinctive value lives"]
+    subgraph NUCLEO["Domain core - where the distinctive value lives"]
         C03["CTX-03 Diary"]
         C04["CTX-04 Clinical service"]
         C06["CTX-06 Clinical documentation"]
@@ -674,20 +674,20 @@ flowchart TB
         C09["CTX-09 Consent"]
     end
 
-    subgraph SUPPORTO["Supporting — necessary, not distinctive"]
+    subgraph SUPPORTO["Supporting - necessary, not distinctive"]
         C02["CTX-02 Registry references"]
         C05["CTX-05 Media session"]
         C08["CTX-08 Notifications and alerts"]
         C10["CTX-10 Terminologies"]
     end
 
-    subgraph TRASV["Cross-cutting — they serve everyone"]
+    subgraph TRASV["Cross-cutting - they serve everyone"]
         C01["CTX-01 Identity and access"]
         C12["CTX-12 Audit trail"]
         C13["CTX-13 Tenant administration"]
     end
 
-    subgraph FRONT["Frontier — the only one that speaks to the outside"]
+    subgraph FRONT["Frontier - the only one that speaks to the outside"]
         C11["CTX-11 Outbound interoperability"]
     end
 
@@ -764,17 +764,17 @@ not»**.
 
 ### 4.3 The thirteen, one by one
 
-What follows is the minimum needed to find your bearings. The detail — invariants, own language,
-relationships — is in [`02 — Bounded contexts`](../02_architecture/02-contesti-delimitati.md), and
+What follows is the minimum needed to find your bearings. The detail - invariants, own language,
+relationships - is in [`02 - Bounded contexts`](/02_architecture/02-contesti-delimitati.md), and
 anyone about to work on a context must read the corresponding entry in full.
 
 **CTX-01 · Identity and access.** It turns an identity assertion coming from outside into an
 internal authorisation context. In its language the word «user» **is deliberately avoided**, because
 it conceals three different things: the person, their professional **capacity** (the
 person-organisation pair with a temporal validity) and the **application principal** acting on their
-behalf. Access is granted only if **four conjoint conditions** hold — the permission belongs to the
+behalf. Access is granted only if **four conjoint conditions** hold - the permission belongs to the
 roles, an enabling relationship exists, no negative declaration covers the resource, the tenant
-matches — and the default is denial. *It is none of its business* to know who the patient is
+matches - and the default is denial. *It is none of its business* to know who the patient is
 clinically: it knows that a subject exists, not what that subject has.
 
 **CTX-02 · Registry references.** It holds **references**, not registries. That word is the key one:
@@ -792,26 +792,26 @@ appointment onto the diary. And an invariant that looks minor and is not: the re
 preserves **the date of the original request**, because without it waiting times cannot be
 reconstructed and rescheduling becomes a way of resetting them. *It is none of its business* to know
 what happens during the service. And the reminder it sends **contains no clinical data**: date,
-time, organisation, link — never the specialty, which is itself data concerning health.
+time, organisation, link - never the specialty, which is itself data concerning health.
 
 **CTX-04 · Clinical service.** The central context, and it is **documentary**: what happens in it
 stays. It holds two distinctions the rest of the system must respect. The first is between
 **identification** and **authentication**: the credential certifies who holds the credential, not
 who is in front of the camera. They are two distinct pieces of evidence, at two distinct moments,
 with two distinct records. The second is between **state** and **outcome**. It also holds the
-system's most important invariant — *the state of the encounter does not depend on the state of the
-media session* — which is the subject of §5. *It is none of its business* to carry audio and video,
+system's most important invariant - *the state of the encounter does not depend on the state of the
+media session* - which is the subject of §5. *It is none of its business* to carry audio and video,
 and it knows nothing of network candidates or negotiated ciphers. And it does not draft the
 document: it opens the reporting window and observes its state.
 
 **CTX-05 · Media session.** Here «session» means **connection**, not act. It holds the negotiation,
-the measured quality, the recorded material and the outcome of the **short key verification** — the
+the measured quality, the recorded material and the outcome of the **short key verification** - the
 code the two parties compare aloud at the start, which is at once what makes end-to-end encryption
 *demonstrable* and a traceable risk control. *It is none of its business* to attribute clinical
 meaning to what happens, and in particular **it does not decide whether the quality is sufficient
 for the act**: it measures, compares against configured thresholds, informs the professional, who
-decides. It is a distinction to hold firmly, because the opposite shortcut — «if the quality drops
-below X, close the service» — moves the system beyond the regulatory boundary of §2.3.
+decides. It is a distinction to hold firmly, because the opposite shortcut - «if the quality drops
+below X, close the service» - moves the system beyond the regulatory boundary of §2.3.
 
 **CTX-06 · Clinical documentation.** The context in which the boundary between recording and
 interpretation is most delicate. It holds three distinctions: an **unsigned draft is not a report**
@@ -826,7 +826,7 @@ content: no field of the document is populated by automatically generated text.
 **CTX-07 · Remote monitoring.** The context written entirely around the wording «**deferred
 collection of parameters for the professional's periodic review**». The wording is not a matter of
 style: «real-time monitoring» or «continuous surveillance» would move the product into a higher risk
-class, and no artefact of the project — documentation, interface, class name, event name — may use
+class, and no artefact of the project - documentation, interface, class name, event name - may use
 them. It holds **versioned** plans, **immutable** measurements with their own production context,
 adherence, and an entity that surprises anyone meeting it for the first time: the **measurement
 expectation**. Silence is not the absence of a row: it is **a row that declares the absence**, with
@@ -854,8 +854,8 @@ it always refers to an **immutable version** of the notice: without versioning o
 consent cannot be demonstrated. It also holds **data suppression** (oscuramento), with a property
 that has to be stated because it is counter-intuitive: *suppression is also suppression of the
 suppression*. The existence of the suppressed document must not be inferable, and the channels from
-which it can be inferred are six — numbering, counts, pagination, notifications, differences between
-successive queries, error messages — and they must **all** be closed, at a single point.
+which it can be inferred are six - numbering, counts, pagination, notifications, differences between
+successive queries, error messages - and they must **all** be closed, at a single point.
 
 **CTX-10 · Terminologies.** The **single** point of resolution and validation of clinical codes: no
 other context queries a terminology source directly. It holds the enablement policy **per code
@@ -873,7 +873,7 @@ permitted issuer, public key address, permitted algorithms, expected audience, c
 permitted origins, permitted destinations. The reason for singleness is clear-cut: separate
 registers diverge, and **divergence always favours the attacker**. Three invariants: no external
 format structure enters the domain contexts; every outbound message is identified and idempotent;
-**the definitive failure of a delivery is not silent** — it enters a reconciliation queue visible to
+**the definitive failure of a delivery is not silent** - it enters a reconciliation queue visible to
 an operator, with an action available. *It is none of its business* to define the canonical model:
 it receives it.
 
@@ -881,7 +881,7 @@ it receives it.
 with what level of assurance. It is the only context **with no mutating behaviour**: the audit entry
 has no methods that modify it. Three invariants to know straight away: it is **append-only** for
 every role, without exception; **failure of the write makes the application operation fail**;
-**reading the audit trail is itself recorded** — whoever looks at who has looked leaves a trace, and
+**reading the audit trail is itself recorded** - whoever looks at who has looked leaves a trace, and
 it is the property that makes the system's most privileged role supervisable. *It is none of its
 business* to contain application logic, and it is **never** read by an application path in order to
 take a decision.
@@ -889,7 +889,7 @@ take a decision.
 **CTX-13 · Tenant administration.** It holds the tenant life cycle, the versioned configuration, the
 quotas, the rate limits and the appearance customisations. In its language there is a distinction not
 to be lost: **tenant** does not coincide with **organisation**, nor with **providing
-organisation**, nor with **integrator** — four concepts that coincide in the simple cases and diverge
+organisation**, nor with **integrator** - four concepts that coincide in the simple cases and diverge
 in the real ones. The central invariant is that **no configuration can remove a domain invariant**,
 create a new permission or enable a combination of profession and act that the domain forbids. *It
 is none of its business* to access clinical data: the tenant administrator role does not confer
@@ -904,13 +904,13 @@ is instructive because it shows how the project behaves when a question exceeds 
 When a service concludes, an **accountable fact** comes into being: something has been delivered,
 and it has to be communicated to whoever settles it. The domain fact is verified: a service
 delivered remotely is accounted for with **the code of the corresponding in-person service**, with a
-channel attribute qualifying the modality. There is not — and there must not be — a separate
+channel attribute qualifying the modality. There is not - and there must not be - a separate
 «remote consultation» service code. Confusing the axis «what was delivered» with the axis «how it
 was delivered» makes a telemedicine system **impossible to account for**, and correcting it after
 the fact requires recoding the entire history.
 
 There is also a strict constraint: the **payer's** integration profile is **administrative by
-construction** — service identifier, administrative outcome, amount — and it may not in any way
+construction** - service identifier, administrative outcome, amount - and it may not in any way
 constitute a route towards clinical content, not even mediated by a professional.
 
 The open question is **where** that event is formed. There are three options:
@@ -948,54 +948,54 @@ patient connect, they see each other, they talk, the visit ends. Modelling two o
 thing looks like gratuitous complexity, and whoever proposes it is not being careless: they are
 applying the right principle, which is to model reality as the users see it.
 
-The simplest code is the one in which the service entity also carries the connection fields —
-connection state, type of network path, instant the stream started — and in which the end of the
+The simplest code is the one in which the service entity also carries the connection fields -
+connection state, type of network path, instant the stream started - and in which the end of the
 connection closes the service. In the happy case the two entities have the same duration, the same
 participants, the same logical identifier.
 
 > **The unified model works perfectly as long as the network works perfectly.**
 
 This is the sentence on which everything turns. In a telemedicine system the case in which the
-network does not work **is not an exception**: it is a substantial part of the volume — the patient
-is on a mobile network, at home, with a modest device — and it is the case on which the system is
+network does not work **is not an exception**: it is a substantial part of the volume - the patient
+is on a mobile network, at home, with a modest device - and it is the case on which the system is
 judged.
 
 ### 5.2 The six consequences of merging
 
 Each of these is a real defect, not an academic hypothesis.
 
-**First — the phantom service.** A network drop and a reconnection produce two connections. If the
+**First - the phantom service.** A network drop and a reconnection produce two connections. If the
 connection **is** the service, the system records two clinical acts where there was one. The count
-of services delivered — which feeds activity accounting — becomes the count of successful
+of services delivered - which feeds activity accounting - becomes the count of successful
 connections, which is a different quantity and serves a different purpose. The irreparable part is
 this: no subsequent adjustment recovers the information, because **the system never knew that the
 two connections were the same act**. The information was not lost: it never existed.
 
-**Second — the non-existent clinical act.** The technical check preceding the appointment — «test
-microphone and camera before the visit», which is a required and sensible function — is a connection
+**Second - the non-existent clinical act.** The technical check preceding the appointment - «test
+microphone and camera before the visit», which is a required and sensible function - is a connection
 **without** a clinical act. With the unified model you have two routes: create a fictitious service,
 which ends up in the counts and potentially in a person's record; or introduce a special branch that
-creates a connection without a service — that is, admit that the two things are separate, but
+creates a connection without a service - that is, admit that the two things are separate, but
 **doing so covertly**, in a special case, without the model saying so.
 
-**Third — the delivered service that appears not delivered.** The video fails, the professional
+**Third - the delivered service that appears not delivered.** The video fails, the professional
 carries on and concludes by voice, declares the outcome, writes the report. It is **a delivered
 service**, with a clinical outcome and a report, in which the video connection failed. With the
 unified model the act appears failed, and the failure enters activity accounting and the service
 quality indicators.
 
-**Fourth — the service with several legitimate sessions.** There are acts in which the connections
+**Fourth - the service with several legitimate sessions.** There are acts in which the connections
 are more than one **by design, not through failure**: an interpreter joining halfway through,
 resuming after an agreed break, a handover between two professionals. The unified model represents
 them as distinct acts, or forces the later ones to be hidden.
 
-**Fifth — contamination of the retention regime.** The connection produces technical metadata with a
+**Fifth - contamination of the retention regime.** The connection produces technical metadata with a
 **short** retention regime; the service is health documentation with a **long** one. Merging them
 gives you two outcomes, both wrong: keeping the technical metadata for as long as health
-documentation — building an archive of healthcare traffic data that nobody asked for and that
-somebody will have to protect for years — or deleting the documentation together with the metadata.
+documentation - building an archive of healthcare traffic data that nobody asked for and that
+somebody will have to protect for years - or deleting the documentation together with the metadata.
 
-**Sixth — coupling of release rhythms.** Real-time transport changes when browser engines and
+**Sixth - coupling of release rhythms.** Real-time transport changes when browser engines and
 network protocols change, that is, often. The documentation of the act changes when health
 legislation changes, that is, rarely. In the unified model **every update to one touches the
 other**, and in a regulatory pathway «touching» means re-verifying.
@@ -1003,8 +1003,8 @@ other**, and in a regulatory pathway «touching» means re-verifying.
 ### 5.3 The decision
 
 **The clinical service and the media session are two distinct aggregates, roots of two distinct
-bounded contexts, linked only by identifier.** A middle way was also evaluated — two types inside
-the same aggregate — and it was discarded because immediate consistency between the two is
+bounded contexts, linked only by identifier.** A middle way was also evaluated - two types inside
+the same aggregate - and it was discarded because immediate consistency between the two is
 **exactly what is not wanted**: putting them inside the same transactional boundary means that every
 connection state change (dozens, in one service) is a write on the aggregate of the act, with
 contention, and with the permanent risk that somebody links the two states «because they are right
@@ -1012,7 +1012,7 @@ there anyway».
 
 ```mermaid
 flowchart LR
-    subgraph A["Clinical service aggregate — CTX-04"]
+    subgraph A["Clinical service aggregate - CTX-04"]
         P["Service<br/>root"]
         PA["Participation"]
         PI["Identification act"]
@@ -1022,7 +1022,7 @@ flowchart LR
         P --> PE
     end
 
-    subgraph B["Media session aggregate — CTX-05"]
+    subgraph B["Media session aggregate - CTX-05"]
         S["MediaSession<br/>root"]
         SN["Negotiation"]
         SQ["Quality profile"]
@@ -1052,7 +1052,7 @@ owning context.
 | Loss of connectivity | **No effect.** The event is noted in the act's technical log |
 | Successful reconnection | No effect. One more session identifier in the list |
 | Degradation beyond the configured threshold | **No state change.** The professional is informed and decides on the fallback or the deferral |
-| Definitive failure of the session | **No automatic state change.** The service stays open and the professional declares the outcome — which may be the voice-only fallback, the deferral, or technical failure |
+| Definitive failure of the session | **No automatic state change.** The service stays open and the professional declares the outcome - which may be the voice-only fallback, the deferral, or technical failure |
 | Orderly termination | No effect: closing the act is an act of the professional |
 
 **No row of this table produces an automatic state change.** If you are writing code and find
@@ -1069,7 +1069,7 @@ times in one service, the first a handful of times over hours or days.
 ```mermaid
 stateDiagram-v2
     direction TB
-    state "Service — clinical and administrative semantics" as PREST {
+    state "Service - clinical and administrative semantics" as PREST {
         [*] --> Requested
         Requested --> Booked : appointment confirmed
         Booked --> Ready : prerequisites and consents verified
@@ -1094,7 +1094,7 @@ stateDiagram-v2
 ```mermaid
 stateDiagram-v2
     direction LR
-    state "Media session — technical semantics" as MEDIA {
+    state "Media session - technical semantics" as MEDIA {
         [*] --> Initialised
         Initialised --> Negotiation : exchange of offer and answer
         Negotiation --> ConnectedDirect : direct candidate pair
@@ -1154,7 +1154,7 @@ It has to be stated in full, because it is real.
 
 | Cost | In practice |
 |---|---|
-| **The model does not match the naive perception** | It has to be explained to every new contributor — which is why this section exists |
+| **The model does not match the naive perception** | It has to be explained to every new contributor - which is why this section exists |
 | **Two identifiers to correlate** | Resolution goes through the interface of the owning context, not through a join |
 | **Explicit synchronisation to be designed** | The table in §5.4 is code, not documentation |
 | **Windows in which the connection has terminated and the act is still open** | It is **correct**, but it requires the interface to represent it in a way the professional can understand, otherwise it looks like a defect |
@@ -1205,7 +1205,7 @@ professional while waiting.
 
 The instinctive solution is: I save the document, then I publish an event. These are **two writes to
 two different systems**, and the theory of this problem is in
-[module 11 §5](11-fondamenti-informatici.md#5-la-doppia-scrittura-e-loutbox-transazionale). Here it
+[module 11 §5](11-fondamenti-informatici.md#5-dual-write-and-the-transactional-outbox). Here it
 is enough to know that it produces two symmetrical defects, both real:
 
 **The lost event.** The transaction commits, the process terminates before publication. The document
@@ -1214,7 +1214,7 @@ the accountable fact is not issued. **And nobody notices**, because there is not
 the absence of an event that never existed. In a domain in which silence is never normality, this is
 particularly serious.
 
-**The phantom event.** The reverse order — publishing before committing — produces the opposite case:
+**The phantom event.** The reverse order - publishing before committing - produces the opposite case:
 the event is delivered, the transaction fails. A third-party system receives notification of a signed
 document **that does not exist**. It is the worse of the two, because it produces wrong data in
 somebody else's clinical record.
@@ -1262,7 +1262,7 @@ The second technique has lower latency, and **it was discarded for a reason of s
 performance**: it would introduce a third-party component to be inventoried, updated and monitored
 for the entire life of the product, and it would require replication privileges in an installation at
 a customer's premises that is not an IT service provider. It remains a declared option for
-high-volume arrangements, and **the event contract does not change between the two modes** — which is
+high-volume arrangements, and **the event contract does not change between the two modes** - which is
 precisely the property that makes it possible to change one's mind without touching the consumers.
 
 **Not everything goes through the outbox.** What does not go through it: synchronous queries between
@@ -1270,12 +1270,12 @@ contexts (which are not events); operational metrics; entries in the immutable a
 have a path of their own with **stronger** guarantees; and real-time session signalling, which is the
 subject of §6.7.
 
-**The envelope is standard, not invented.** The format in which the event travels — common attributes
-such as identifier, source, type, instant, plus the data — is that of an industry specification,
+**The envelope is standard, not invented.** The format in which the event travels - common attributes
+such as identifier, source, type, instant, plus the data - is that of an industry specification,
 described in [module 13 §6.2](13-protocolli.md#62-cloudevents), with some mandatory project
 extensions: **the organisation identifier, without exception**, a per-aggregate sequence number and a
 correlation identifier linking the events originating from the same action. Two details have
-practical consequences: **the version lives in the type name**, not in a separate attribute — so a
+practical consequences: **the version lives in the type name**, not in a separate attribute - so a
 consumer can subscribe to the version it knows how to handle and ignore the others, whereas with the
 version in an attribute it would receive everything anyway; and for the duration of the deprecation
 notice **both versions are emitted**, which entails that the producer must be able to reconstruct the
@@ -1299,12 +1299,12 @@ the system promises and what it does not.
 **Why «exactly once» is not promised.** Imagine the relay publishing an event and then crashing
 **before** it has marked the row as published. On restart, the row is still to be published, and the
 event goes out a second time. The only way of avoiding it would be to make publication to the broker
-and the update of the row atomic — that is, a transaction spanning two systems, which is precisely
+and the update of the row atomic - that is, a transaction spanning two systems, which is precisely
 what does not exist. The same holds, multiplied, when the recipient is a third party's system: no
 guarantee crosses that boundary.
 
 One could pretend otherwise. That would be the worst choice, because it would produce **integrators
-that do not deduplicate** — and the duplicate would arrive anyway, one day, under load.
+that do not deduplicate** - and the duplicate would arrive anyway, one day, under load.
 
 **What follows, and it is an obligation.** **Every consumer is idempotent, without exception.** This
 is not a recommendation: it is an acceptance condition, verified with a test that delivers the same
@@ -1319,23 +1319,23 @@ event twice and checks that the resulting state is identical. Three forms, in or
 **Two effects in this system cannot be retracted** and must be protected with the third form: the
 **delivery of a message to a person** and the **deposit of a document in an external document
 infrastructure**. A message sent twice to a patient is not an invisible technical defect: it is an
-experience that generates doubt about health content — «do I have two reports?», «did they send me
-the wrong one?» — and in this domain doubt has a cost.
+experience that generates doubt about health content - «do I have two reports?», «did they send me
+the wrong one?» - and in this domain doubt has a cost.
 
 **On ordering.** A conclusion event **can arrive before** the start event. It is an inevitable
 consequence of retries and concurrent delivery, and it is **documented in the public contract**, not
 hidden. Ordering is reconstructed with two complementary mechanisms: the partition key is **the
-aggregate identifier** (the service, the document, the plan) and not the tenant — partitioning by
+aggregate identifier** (the service, the document, the plan) and not the tenant - partitioning by
 tenant seems natural, produces severely unbalanced partitions and does not give the guarantee that is
 needed; and every event carries a **per-aggregate sequence number**, so that a consumer that has
 already applied number `n` discards whatever arrives with a lower number. It is this second mechanism
 that makes the order of arrival **irrelevant** without forcing the use of ordered queues, which are
-expensive and fragile — in an ordered queue a blocked event blocks all those behind it.
+expensive and fragile - in an ordered queue a blocked event blocks all those behind it.
 
 ### 6.5 Why events do not carry clinical content
 
 An event notifying the signature of a report can carry the report with it, or carry only the
-information that it exists. It looks like an optimisation — one call fewer — and it is instead **a
+information that it exists. It looks like an optimisation - one call fewer - and it is instead **a
 decision about the authorisation model**.
 
 > **The data is lean.** The event carries identifiers, references and the few attributes needed to
@@ -1345,19 +1345,19 @@ decision about the authorisation model**.
 
 The three reasons, in order of importance.
 
-**First — authorisation is evaluated at the moment of reading, not of production.** If the content
+**First - authorisation is evaluated at the moment of reading, not of production.** If the content
 travels in the envelope, it was authorised when the event was produced. If, between production and
 reading, the patient **withdraws a consent** or **suppresses a document**, the envelope already
 delivered does not know it and cannot know it. Reading back, by contrast, moves the decision to the
 moment of access, with the attributes in force **then**: a subsequent withdrawal is respected. In a
 system in which withdrawal takes immediate effect on what is under way, this is the decisive reason.
 
-**Second — the exposure surface.** An envelope with clinical content passes through queues,
+**Second - the exposure surface.** An envelope with clinical content passes through queues,
 diagnostic logs, monitoring systems, retry stores and **the dead-letter queue**, which is
 inspectable by an administrator. Every transit is a copy of health data in a place with a different
 protection regime, often more permissive, almost always uninventoried.
 
-**Third — the stability of the contract.** A lean envelope changes less often, because it does not
+**Third - the stability of the contract.** A lean envelope changes less often, because it does not
 follow the evolution of the shape of the content.
 
 **The price, which is real.** The recipient must be able to call back, and therefore must have
@@ -1378,7 +1378,7 @@ silent**.
 
 1. **Retries with exponential backoff and jitter.** The jitter is not ornamental: without it, a few
    minutes' unavailability of a recipient produces, on reactivation, a **synchronised burst** of all
-   the accumulated events — that is, an involuntary denial-of-service attack against one's own
+   the accumulated events - that is, an involuntary denial-of-service attack against one's own
    integrator. The base, ceiling and number of attempts are **parameters declared in the public
    contract**, not constants in the code: the integrator must be able to know for how long the
    system will keep retrying, because the sizing of their own maintenance window depends on it.
@@ -1394,7 +1394,7 @@ silent**.
 
 On the last point the project is categorical. If the failure concerns clinical content that should
 have reached the source system, it enters a **reconciliation queue staffed by an operator**, with an
-action available — not a diagnostic log. And monitoring the depth of that queue is an operational
+action available - not a diagnostic log. And monitoring the depth of that queue is an operational
 requirement with a declared threshold, because *a dead-letter queue that nobody looks at is worse
 than no queue at all*: it produces the belief that the problem is being handled.
 
@@ -1409,8 +1409,8 @@ session negotiation path has a budget of **measured** fractions of a second: add
 means missing the requirement by construction.
 
 **Ordering and delivery.** The exchange of network candidates requires delivery **exactly once and in
-the same order** in which they were emitted — it is a requirement of the protocol specification, not
-a preference; [module 13 §7](13-protocolli.md#7-tempo-reale--scheda-sintetica) lists the stack that
+the same order** in which they were emitted - it is a requirement of the protocol specification, not
+a preference; [module 13 §7](13-protocolli.md#7-real-time---summary-entry) lists the stack that
 produces it and [module 08](08-webrtc-da-zero.md) explains why those candidates exist. A generic
 publish channel does not guarantee that property, and a duplicated or out-of-order candidate produces
 negotiation failures that are **intermittent, load-dependent and undiagnosable**: the worst category
@@ -1435,7 +1435,7 @@ mechanisms to understand and to test instead of one, and this was preferred to a
 that would have missed the requirement.
 
 The full detail is in
-[`06 — Events and internal integration`](../02_architecture/06-eventi-e-integrazione-interna.md); the
+[`06 - Events and internal integration`](/02_architecture/06-eventi-e-integrazione-interna.md); the
 corresponding decisions are [ADR-0008](../adr/0008-outbox-transazionale-unica-sorgente.md),
 [ADR-0009](../adr/0009-relay-outbox-per-interrogazione-periodica.md),
 [ADR-0010](../adr/0010-buste-cloudevents-consegna-e-idempotenza.md),
@@ -1457,7 +1457,7 @@ perform it. It requires the identity to have been established **at the moment of
 be recorded together with the **level of assurance** at which it was established, and for the record
 to be capable of being relied on as evidence.
 
-**Non-alterable** means that nobody — **including whoever administers the system** — can modify or
+**Non-alterable** means that nobody - **including whoever administers the system** - can modify or
 delete an entry without the alteration being detectable.
 
 The second is the difficult one, and the difficulty has a precise name: **the threat model includes
@@ -1475,7 +1475,7 @@ It is not, and the reason lies in one sentence:
 > **History tables are tables like any other.**
 
 Whoever has write access to the database modifies those too. Versioning **versions, it does not make
-immutable**. In the declared threat model — which includes the administrator — it covers nothing.
+immutable**. In the declared threat model - which includes the administrator - it covers nothing.
 
 A concrete example to fix the point. Suppose an operator improperly accesses the report of a
 well-known person. With entity versioning alone, the operator who has administrative privileges on
@@ -1484,7 +1484,7 @@ nothing that states how many rows there **ought** to have been. The audit trail 
 and its positivity means nothing.
 
 In the project this distinction **must not be attenuated in any document**: it is constraint
-**V-04**. Entity versioning remains useful — for reconstructing past application state — and is not,
+**V-04**. Entity versioning remains useful - for reconstructing past application state - and is not,
 and is never presented as, the access audit trail.
 
 ### 7.3 Four layers, not four alternatives
@@ -1530,10 +1530,10 @@ flowchart TB
 **How the chain works.** Every entry carries the cryptographic hash of its own content **and** the
 hash of the previous entry in the sequence. Modifying any entry invalidates all the subsequent
 hashes: you cannot alter one entry without rewriting the whole tail. The theory of hash functions is
-in [module 12 §5](12-crittografia-e-sicurezza.md#5-funzioni-di-hash).
+in [module 12 §5](12-crittografia-e-sicurezza.md#5-hash-functions).
 
 **The chain is per organisation, not global.** A global chain would create a dependency between
-organisations — verifying the integrity of one would require the entries of another — which
+organisations - verifying the integrity of one would require the entries of another - which
 contradicts the isolation of §8 and would make it impossible to hand a controller the evidence of
 **their own** accesses **without exposing the existence of the others**.
 
@@ -1559,7 +1559,7 @@ Two lines in that list deserve attention because they are the ones almost always
 
 - **The outcome includes denial.** A denied access is recorded, and it is **the most interesting
   information for whoever verifies**: it says that somebody tried.
-- **The purpose** — care, emergency override, operations, administration, audit — is the attribute
+- **The purpose** - care, emergency override, operations, administration, audit - is the attribute
   that makes an access decision **explainable after the fact**. Without it, you know that the access
   happened and you do not know why it was legitimate.
 
@@ -1586,7 +1586,7 @@ third is the one that closes the discussion:
 
 The list of what does not appear is **closed and automatically verified**, not entrusted to common
 sense. It also includes one unexpected element: **the patient's external identifier**, the one with
-which the integrator identifies them in their own system, does not appear — the opaque internal
+which the integrator identifies them in their own system, does not appear - the opaque internal
 identifier is recorded instead. The reason is that the audit trail is deliverable to parties other
 than the controller, and the external identifier is **a key into another store**.
 
@@ -1596,7 +1596,7 @@ than the controller, and the external identifier is **a key into another store**
 
 This is not a robustness choice: it is the operational translation of the requirement. If the
 operation succeeded without a trace, there would exist an access to health data that cannot be
-demonstrated — which is exactly what the audit trail exists to prevent.
+demonstrated - which is exactly what the audit trail exists to prevent.
 
 The consequences have to be accepted knowingly, and there are three.
 
@@ -1604,7 +1604,7 @@ The consequences have to be accepted knowingly, and there are three.
 data, and the latency budget of the operations includes it explicitly.
 
 **Unavailability of the audit trail is unavailability of the system** for operations on clinical
-data. It is severe. The alternative — proceeding without a trace and reconciling afterwards — would
+data. It is severe. The alternative - proceeding without a trace and reconciling afterwards - would
 produce a window of accesses that cannot be demonstrated, and **the window would coincide with the
 incident**, that is, with the moment when demonstrability is needed most.
 
@@ -1649,7 +1649,7 @@ mechanism, it cannot impose the separation of roles in an organisation it does n
 can do is make it the default, detect its absence and declare the consequence.
 
 The detail is in
-[`07 — Audit trail and immutable log`](../02_architecture/07-tracciamento-e-registro-immutabile.md).
+[`07 - Audit trail and immutable log`](/02_architecture/07-tracciamento-e-registro-immutabile.md).
 
 ---
 
@@ -1676,7 +1676,7 @@ In an ordinary multi-customer product, a data leak between customers is **a defe
 fixable, embarrassing.
 
 Here it is not a defect. In the managed service, Telemedic's tenants are **legally autonomous data
-controllers** — distinct healthcare organisations, each answering on its own account. A leak between
+controllers** - distinct healthcare organisations, each answering on its own account. A leak between
 tenants is a **communication of data concerning health between distinct entities**: an event with
 consequences of its own for the party that suffers it, for the party that receives it and for the
 party that runs the infrastructure.
@@ -1711,19 +1711,19 @@ redundant with respect to schema separation, and it is **deliberate**: it is the
 holds when the first has been bypassed by a mistake.
 
 > **Three statements about row-level security, which have to be read together.** They are spread
-> across three modules, they are cumulative and none of the three alone gives the whole picture —
+> across three modules, they are cumulative and none of the three alone gives the whole picture -
 > which is why it is worth bringing them together here.
 >
 > 1. It is a **filter applied by the database engine**, not by the application code, and this is its
 >    value: it acts even on a query that the code should never have written
->    ([11 — Computing fundamentals](./11-fondamenti-informatici.md)).
+>    ([11 - Computing fundamentals](./11-fondamenti-informatici.md)).
 > 2. It is the **second barrier and not the sole mechanism**: schema separation remains the first,
 >    and whoever treats row policies as the only defence has one layer where two are needed (this
 >    paragraph).
 > 3. **In the absence of context it denies everything**, and during development the symptom is an
 >    empty list with no error at all. It is the most disorienting failure in the local environment,
 >    because it looks like a data problem and is not
->    ([17 — The development environment](./17-ambiente-di-sviluppo.md)).
+>    ([17 - The development environment](./17-ambiente-di-sviluppo.md)).
 >
 > The third is an intended consequence of the first: a filter that, not knowing whom to filter for,
 > let everything through would be worse than useless.
@@ -1737,8 +1737,8 @@ holds when the first has been bypassed by a mistake.
    requirement, not a wish.**
 2. **Demonstrating the separation becomes argumentative.** To the question «how do you know that
    customer A cannot see B's data?», with shared rows the answer is *«because every query filters by
-   tenant»* — an answer about **code discipline**. With separate schemas the answer is *«because the
-   application role serving A has no privilege at all on B's schema»* — an answer about
+   tenant»* - an answer about **code discipline**. With separate schemas the answer is *«because the
+   application role serving A has no privilege at all on B's schema»* - an answer about
    **structure**. In front of whoever verifies, these are two answers of a different nature.
 3. **Offboarding becomes a selective deletion.** Completing the termination of a customer with shared
    rows means deleting rows scattered across dozens of tables, hoping not to have forgotten any. With
@@ -1754,7 +1754,7 @@ The complete reasoning is in
 > complete set. **In the absence of context, the operation fails.**
 
 The negative formulation is deliberate, and it is the most important point in this section. The
-positive formulation — «every operation sets the tenant» — is a rule of discipline that somebody
+positive formulation - «every operation sets the tenant» - is a rule of discipline that somebody
 sooner or later forgets, and its violation produces no symptoms: it produces **other people's data on
 a screen**.
 
@@ -1789,23 +1789,23 @@ sequenceDiagram
 There are three, they are the ones that really happen, and in the project each has a structural
 countermeasure.
 
-**Mistake 1 — the tenant taken from the request.** It is the most serious and the most common. If the
+**Mistake 1 - the tenant taken from the request.** It is the most serious and the most common. If the
 tenant arrives from a path parameter, from a body field or from a header, then it is **a tenant the
 caller can choose**: that is the definition of a data leak. The countermeasure is categorical: **the
 tenant is resolved from the identity assertion, never from the request**. The gateway derives it from
 the authenticated principal and checks that that principal is enabled on that tenant; any value
 present in the request may only be **compared** with the resolved one, never replace it.
 
-**Mistake 2 — the context that outlives the request.** Database connections are expensive and are
+**Mistake 2 - the context that outlives the request.** Database connections are expensive and are
 reused through a *pool*. If the tenant context is set on the connection in a form that **persists**,
-the connection returned to the pool carries with it the tenant of the previous request — and the next
+the connection returned to the pool carries with it the tenant of the previous request - and the next
 request, from another organisation, inherits it. It is a defect that **gives no visible symptoms** in
 development, manifests itself only under concurrency, and presents as other people's data on a
 screen. The countermeasure: **the context is set inside the transaction, in the form that lapses when
 the transaction closes**, and a dedicated test verifies that the connection returned to the pool
 retains nothing.
 
-**Mistake 3 — the processes that do not originate from a request.** They are the typical home of
+**Mistake 3 - the processes that do not originate from a request.** They are the typical home of
 isolation defects, because they have no caller from which to derive the tenant. There are three
 families:
 
@@ -1829,7 +1829,7 @@ isolation would be «customer A sees their own data», and it demonstrates nothi
 see it even if they also saw B's.
 
 What is needed is the **negative test**: a principal enabled on organisation A attempts to access a
-datum of organisation B — **through every path**, including search and export — and the test **passes
+datum of organisation B - **through every path**, including search and export - and the test **passes
 only if the attempt fails**.
 
 Three clarifications make it effective, and without them it is theatre.
@@ -1842,7 +1842,7 @@ pass. A test that attempts the access and verifies that it fails would not.
 
 **The attempt must be made under real conditions**, that is, with the actual application role and not
 with an administrative role, and it must fail **in the store**, not simply be avoided by the code. If
-it fails because the code filtered, the test is verifying discipline — which is what we had decided
+it fails because the code filtered, the test is verifying discipline - which is what we had decided
 not to do.
 
 **The integration suite always exercises at least two organisations and two distinct integrators**,
@@ -1850,8 +1850,8 @@ with deliberately divergent configurations: different assigning authorities for 
 different outbound profiles, different event delivery modes. A test that passes **with only one
 tenant configured demonstrates nothing**, because there is nobody else to be isolated from.
 
-The automatic checks the project declares blocking on this topic number twelve, and they include —
-besides the negative test — that a query without context fails, that row policies cannot be bypassed
+The automatic checks the project declares blocking on this topic number twelve, and they include -
+besides the negative test - that a query without context fails, that row policies cannot be bypassed
 by the application role, that the connection returned to the pool retains no context, and that every
 table, every event and every audit entry carries the tenant identifier.
 
@@ -1860,7 +1860,7 @@ table, every event and every audit entry carries the tenant identifier.
 An installation at the customer's premises is the **degenerate case with a single tenant**: same
 code, same structure, no separate branch, **no configuration that switches tenancy off**.
 
-**Why it is not simplified.** The temptation — «in a single installation the tenant is not needed» —
+**Why it is not simplified.** The temptation - «in a single installation the tenant is not needed» -
 would produce two code paths, therefore two behaviours, therefore defects that manifest in only one
 arrangement. And it would be **irreversible**: the customer who has a single installation today and
 tomorrow wants to serve two legally distinct organisations would face an impossible migration.
@@ -1892,4 +1892,659 @@ to coexist on the same database. It is the necessary condition for updating with
 **and for rolling back to a previous version**, and a feature requiring a destructive migration in the
 same release **must be redesigned**, not authorised by way of derogation.
 
-The detail is in [`05 — Multi-tenancy`](../02_architecture/05-multi-tenancy.md).
+The detail is in [`05 - Multi-tenancy`](/02_architecture/05-multi-tenancy.md).
+
+---
+
+## 9. Where architecture ends and configuration begins
+
+### 9.1 Why the question matters
+
+There is a question that comes up at every request for functionality and that, if it does not have
+a written answer, gets decided case by case by whoever implements it: **is this something decided
+in code or is it configurable?**
+
+Answering «configurable» always seems kinder: it keeps the customer happy, it avoids a release,
+it shifts the responsibility. But every parameter made configurable is a parameter that someone
+will get wrong, and it is a behaviour to test in addition. And in a system falling under medical
+device discipline there is more: **what is configurable can take the system out of the conditions
+in which it was verified**.
+
+The project therefore has a single criterion, and it is worth learning it precisely.
+
+### 9.2 The criterion
+
+> **Configuration cannot remove an invariant.**
+>
+> An organisation can disable functions, change thresholds within limits, define its own roles by
+> **composing existing permissions**. It cannot create new permissions, it cannot enable a
+> combination of profession and act that the domain forbids, it cannot disable access logging.
+
+The operational corollary is that **every configuration is validated against hard-coded limits**,
+and a configuration that violates a limit **is rejected on save** - not accepted with a warning.
+The difference between rejection and warning is the difference between a constraint and a
+suggestion.
+
+There is then a design principle that governs **where** an extension point is placed:
+
+> **Extension goes as high as possible.** What you can achieve with configuration does not require
+> an event; what you can achieve with an event does not require code running in the process; what
+> you can achieve with code running in the process does not require a fork of the project.
+
+Each step down increases the cost for whoever installs and - in a regulatory pathway - **shifts
+the scope of the technical documentation**, because the code added by whoever installs enters the
+product that will be evaluated.
+
+### 9.3 The four planes
+
+There are not two categories («code» and «configuration») but four, and confusing them is the
+common mistake.
+
+| Plane | What belongs to it | Who decides it | Examples |
+|---|---|---|---|
+| **Decided in code** | Domain invariants, boundaries between contexts, the delivery model, the audit trail structure | The project, with an ADR | A signed document is immutable; the outbox is the only source of events; delegation is always explicit |
+| **Installation configuration** | What depends on the environment in which the system runs | Whoever installs | Which coding systems are enabled; archive location; presence of the signature service; network profiles |
+| **Organisation configuration** | What depends on the hosted organisation | The organisation administrator | Enabled service catalogue; delivery channels; retention policies; theme within limits; service hours; quotas |
+| **Per-patient configuration** | What depends on the individual person being treated | **The professional, always identified** | The clinical thresholds of the monitoring plan; the plan itself; contact preferences |
+
+Two readings of this table merit attention.
+
+**The last row is the most important.** **Clinical thresholds are not organisation configuration**:
+they are per patient, and attributed to an identified professional with a temporal validity. The
+organisation's configuration can define **the limits within which** a threshold can be set - preventing
+gross error - but **not its value**.
+
+**The first row is the second most important.** What is decided in code is not decided «because
+we did not have time to make it configurable»: it is decided because **making it configurable would
+mean allowing the building of a system that does not have the declared properties**.
+
+### 9.4 The two constraints that exemplify the criterion
+
+Two project constraints illustrate the criterion better than any explanation, and it is no accident
+that they are the two that recur most often in this module.
+
+**No clinical threshold hard-coded.** There is no number, in any file in the project, that states
+when a measurement is anomalous. Not because the knowledge does not exist - the reference values
+are public - but because the moment the system provides a clinical value is the moment it stops
+recording a professional decision and starts producing a judgement of its own, with the
+qualification consequences described in [module 15](15-regolatorio-da-zero.md). The operative form
+is severe: the field starts **empty and mandatory**, and is not pre-filled even with the values
+from the previous plan for the same patient. What can be done - and is done - is to show
+**attributed reference values, read-only, with an explicit copy action**: the decision remains an
+act, and the act has an author.
+
+The corresponding automatic check is sharp: **no numeric literal used as a clinical threshold in
+the code**.
+
+**The system is fully functional without SNOMED CT.** Some clinical terminologies have expensive
+licences with conditions incompatible with the distribution of an open-source project. The project
+has chosen to **never download them** and to build the system so that all main paths remain usable
+without them, relying on terminologies that cost nothing.
+
+This **is not a fallback**: it is a product constraint, and it is verified. The corresponding
+automatic check is that **the full functional suite passes with the expensive-licence coding
+system disabled**. If a test fails, that dependency was not optional - and that is how a promise
+becomes a property.
+
+The cost is **declared, not hidden**: without that terminology, some thousands of codes used for
+the justification of the act do not validate. It is a real loss of functionality, and it is stated.
+
+In the same area falls a separation that looks like a detail of housekeeping and is not:
+**the official label of a code and the string the interface shows are two separate stores, by
+construction**. The reason is not cosmetic but one of licensing: the translations of the labels
+of some terminologies are **derivative works whose rights belong to the terminology's owner**. If
+the project wrote its own translations in the official label field, it would produce and distribute
+a derivative. Three verifiable rules follow: only the terminology gateway writes in the official
+label field; the interface always requests the string from the internationalisation store and falls
+back to the official label only by **declaring it**; towards a third-party system the **official
+label is emitted, never the project's translation**.
+
+### 9.5 What is not configurable by anyone
+
+A brief and useful list, because it is the one that answers the recurring request «can it be
+disabled?».
+
+| Not configurable | Why |
+|---|---|
+| Access logging | It is the requirement, not a function |
+| Multi-tenancy | Single-organisation is the degenerate case, not a mode |
+| Consent verification before the act | It is a condition of existence of the act, not a check |
+| Immutability of a signed document | It is the invariant that gives evidential value to the documentation |
+| The recording-in-progress indicator, the consent texts, the outcome of key verification, clinical error messages, the encryption status indicator | They are not themeable nor can they be hidden **by any integrator**: they are what makes the patient's will informed |
+| Creation of new permissions | The atomic permissions are a closed set; roles are composed, not invented |
+| The combination of profession and act that the domain forbids | The professional constraint is not an organisational preference |
+
+The last row contains a pitfall worth making explicit, because it is counter-intuitive: the
+professional constraint applies to the **activity**, not to the service in which the activity is
+classified. Remote consultation and specialist-to-specialist consultation belong to the same
+service and have **different** permitted actors. Authorising on the service means authorising too
+much.
+
+### 9.6 The price of configurability
+
+Configurability costs too, and the project declares it:
+
+- **every configurable parameter is a behaviour to test**, and the matrix of combinations grows
+  faster than the number of parameters;
+- **every configuration is a hypothesis about who will set it**, and the configuration checks that
+  fail at startup exist precisely because that hypothesis is often optimistic: the system **refuses
+  to start** in configurations that would silently compromise a guarantee - inactive row policies,
+  archive of the audit trail reachable with application credentials, relay reachable from internal
+  networks, secrets at default values, data categories with no retention policy;
+- **a misconfigured system is indistinguishable from a defect** for whoever suffers it, and this
+  shifts the support cost onto the project even when responsibility is not theirs.
+
+The rule that follows, and it is one of the most useful in the whole project: **a system that
+starts in an insecure configuration is worse than a system that does not start**, because the
+former produces false reassurance.
+
+---
+
+## 10. The decisions that are recorded, and the reasoning that produced them
+
+### 10.1 What an ADR is and why the project has thirty
+
+An **ADR** - *Architecture Decision Record*, a record of architecture decision - is a short
+document that fixes a structural choice. Its characteristic is not to say **what** was decided:
+that the code says. It is to say **why**, which alternatives were discarded and at what price.
+
+The reason the project has thirty, in [`docs/adr/`](../adr/README.md), is stated in the register
+itself and is of a practical nature:
+
+> A register that lists decisions without reconstructing their reasoning is useless to anyone
+> within six months, when somebody will propose in good faith the alternative already discarded
+> and nobody will remember why.
+
+Every ADR has five mandatory sections: **context**, **alternatives evaluated** (each with its own
+advantages *and* its own trade-offs - an alternative presented without advantages has not been
+evaluated, it has been used as a contrast), **decision**, **consequences** positive and negative,
+and **status**. Decisions **are not deleted and are not rewritten**: a decision that is superseded
+changes status and refers to the one that replaces it, because the chronology of decisions is
+part of the traceability required by the regulatory pathway.
+
+The criterion for establishing whether a choice deserves an ADR is operational: *if it can be
+changed by a single team, in a single proposal for change, without coordination, it is not an
+ADR*.
+
+### 10.2 Nine decisions that are worth knowing right away
+
+The first three - separation between clinical service and media session, outbox as sole source,
+four-layer audit trail - have already been reconstructed in the sections above. The ones that
+follow are the others you will meet first, each in three lines: the question, the available
+shortcut, the reason it was discarded.
+
+**The domain does not know the interoperability standard**
+([ADR-0003](../adr/0003-dominio-indipendente-dallo-standard.md)).
+*The shortcut*: keep the resources of the healthcare standard as they are, in a document field,
+eliminating one translation layer.
+*Why it was discarded*: it would move every domain invariant inside a verification on a JSON
+tree that is optional in almost every branch; standard version migration would become a **data
+migration**; and it would tie the model to a specific revision of a guide that is today in
+preliminary state. Resources are therefore **projections built by tested mappers**, and the
+domain does not know the standard. There is an automatic check that makes the build fail if a
+domain type imports a standard type.
+
+**The clinical document is modelled on content, not form**
+([ADR-0004](../adr/0004-composizione-documentale-artefatto-primario.md) and
+[ADR-0005](../adr/0005-dataset-canonico-serializzazioni-sostituibili.md)).
+*The problem*: the technical representations of documents destined for the national document
+infrastructure - the structured models, the document codes, the indexing metadata - are **not
+publicly available** at the time of writing.
+*The choice*: model the **informational content** as a versioned *canonical dataset*, and treat
+each serialisation as replaceable.
+*Why it pays*: when the technical models become available, for the project it will be **the writing
+of a mapper and a test suite**. In the alternative model - content modelled on form - it would
+have been a migration of the domain model and the data already produced. It also follows that
+**the human-readable version and the machine-readable version derive from the same dataset**,
+which eliminates at the root the divergence between what the professional signed and what the
+system transmitted.
+
+**Two exposure planes over a single domain model**
+([ADR-0006](../adr/0006-due-piani-di-esposizione.md)).
+*The problem*: two audiences with incompatible needs. Third-party healthcare systems need a
+clinical grammar they already know; whoever implements integration needs to express **actions** -
+starting a session, rotating a key, configuring a destination.
+*The discarded shortcut*: model everything as a clinical resource. It would force us to represent
+the virtual room and channel metrics as clinical resources - and **a channel metric modelled as an
+observation ends up in somebody's clinical record**.
+*The resulting rule*, without exception: if the concept has a recognised clinical equivalent and
+must be consumable by a third-party healthcare system, it is **clinical plane**; if it is a product
+capability, it is **application plane**.
+
+**Explicit delegation, never impersonation**
+([ADR-0015](../adr/0015-delega-esplicita-mai-impersonificazione.md)).
+*The shortcut*: when a practice management system calls Telemedic on behalf of a professional,
+emit a context that represents only the professional. The authorisation code would handle a single
+subject.
+*Why it was discarded*: it erases the information **«which system acted on behalf of which
+person»**, which is precisely the question the audit trail must be able to answer. And the defect
+**emerges at the moment when it matters**: faced with a contested access, the answer does not
+exist and cannot be reconstructed, because it was never recorded.
+*What it entails*: the authorisation context carries **both identities**, distinct, and supports
+nesting when the chain has more links. The internal identity is **derived deterministically** from
+the pair emitter-plus-original-subject, so that two homonyms from different integrators do not
+collide. The code that carries out the exchange is **safety-critical code**: independent external
+review and dedicated abuse tests.
+
+**Two modes of media session, with different security properties**
+([ADR-0014](../adr/0014-due-modalita-di-sessione-media.md)).
+*The conflict*: media is encrypted end-to-end; recording happens server-side to be reliable
+independent of the patient's device. They are **incompatible by construction**: a component that
+records must be able to decrypt, and a flow decrypted at an intermediate point is not encrypted
+end-to-end.
+*The alternative discarded without discussion*: record server-side while declaring end-to-end
+encryption anyway. That would be **false**, and an untruthful security claim destroys the
+credibility of the whole system.
+*The decision*: **two distinct and declared modes**. Default, encrypted end-to-end, with brief
+key verification mandatory; with recording, activatable only with explicit and specific declaration
+of will, and in that case **the session is not encrypted end-to-end and the notice declares it**.
+*The price*: the system has two security profiles instead of one, and public communication has to
+give up the simple unified formula.
+
+**Unique terminology gateway, disableable, no persistent cache**
+([ADR-0016](../adr/0016-gateway-terminologico-unico-e-disattivabile.md)).
+*Three constraints in one*. The gateway is **unique** because with multiple access points the
+enablement policy diverges; it is **disableable per coding system** because the system must remain
+fully functional without the expensive-licence terminologies; **it does not persist cache to disk**
+for systems whose licence does not allow derivative works, because a persistent cache of responses
+is in effect a derivative subset. And **no patient identifier passes through it**: it is the case
+in which sovereignty is satisfied **by the absence of data** instead of by placement.
+
+**Channel metrics are not clinical observations**
+([ADR-0020](../adr/0020-serie-temporali-in-archivio-dedicato.md)).
+*The fact*: the system produces two families of time series with **opposite legal regimes** -
+remote-monitoring clinical parameters (data concerning health, long retention, every reading
+traced) and channel metrics (not clinical, short retention, no direct identifier).
+*Why they do not mix*: if technical metrics inherit the clinical regime a clinical-level
+healthcare traffic data archive gets built that nobody asked for; if clinical parameters inherit
+the technical regime **clinical documentation is lost**.
+*An operational consequence that everybody gets wrong*: raw counters - packets lost, bytes,
+freeze duration - grow **monotonically**, and **none of them can be cited as a quality indicator**.
+They must be differentiated between consecutive samples, and the corrected averages are ratios
+between differences.
+
+**Explicit orchestration for critical clinical processes**
+([ADR-0022](../adr/0022-orchestrazione-dei-processi-clinici.md)).
+*The problem*: closing a service, opening reporting, signing, making available, returning to the
+source system, feeding the document infrastructure, issuing the accountable fact. No single
+transaction encompasses them, and some failures require compensating the previous steps.
+*The alternative*: **choreography**, in which each context reacts to others' events and nobody
+knows the process as a whole. It has minimal coupling, and it has a flaw that is disqualifying
+here: **the process does not exist anywhere**.
+*The decisive reason, one of demonstrability not elegance*: in this domain it must be possible to
+answer the question *«was the signed report from yesterday at eleven delivered?»* **without
+manually reconstructing a sequence of events**. With choreography, that question has no place to be
+asked.
+*A constraint on the orchestrator*: **it contains no domain invariants**. It knows the order of
+steps and the compensations, not the rules. An orchestrator that decides whether a document can be
+signed has absorbed the domain. And **compensations are domain acts**: the correction of an already
+delivered document is a **documentary corrective reissue with its evidence**, not a technical
+deletion.
+
+**Clinical scale scores are excluded as a precaution**
+([ADR-0024](../adr/0024-punteggi-di-scale-cliniche-esclusi-in-via-cautelativa.md)).
+*The problem*: validated clinical scales and questionnaires have their own licences, distinct from
+those of terminologies, and the matter is not closed.
+*The choice*: the model **does not represent clinical scale scores** and the remote-monitoring context
+does not calculate them. The answer to a structured questionnaire is represented and retained; the
+score is not.
+*Why caution comes first*: the matter has to be closed **before** the first calculation engine is
+written. Writing it and then discovering that the instrument cannot be used would mean removing a
+feature already promised - which is the worst sequence.
+
+### 10.3 How to read an ADR, and how to propose changing it
+
+When you meet a choice that seems wrong to you, the correct sequence is this:
+
+1. **Verify whether the subject is already dealt with.** A **taken** decision is replaced, not
+   worked around.
+2. **Verify whether it is among the decisions deliberately deferred** (§12). If so, **you do not
+   decide in a proposal for change**: you open an item on the coordination channel.
+3. **Write a new ADR with status `proposal`**, which refers to the one it intends to replace, and
+   which argues the alternatives **with their advantages**, not only their defects.
+4. **Declare it**, indicating the areas that would be bound by it.
+5. On approval, the replaced ADR **changes status and refers to the new one**. It is not deleted.
+
+There is a reason the procedure is so formal, and it is not bureaucratic. In a system falling
+under medical device discipline, **the traceability between requirement, design, code and test is a
+condition of certificability**, and it is not reconstructed after the fact. An unregistered
+architectural decision is a break in that chain.
+
+---
+
+## 11. The architecture that defends itself
+
+### 11.1 Why an enunciated rule is not enough
+
+Every rule in this module - «no context reads another's tables», «no clinical threshold hard-coded»,
+«every event carries the tenant» - has an awkward property: **it is true the day it is written
+and becomes progressively false**.
+
+Not from bad faith. From accumulation of reasonable exceptions, under delivery pressure, by people
+who were not present when the rule was decided and who have not read the document in which it is
+written. An architecture stated and not verified **degrades silently**, and degradation is discovered
+when it is expensive.
+
+The project's answer is that **architectural rules are automatic blocking checks**. Not manual
+reviews: checks that make the build fail.
+
+### 11.2 The families of checks
+
+The complete list is in the architecture area; here we care about the **form** of the checks,
+because that is what you learn.
+
+| Family | Example of check | What it prevents |
+|---|---|---|
+| **Boundaries between contexts** | No domain package imports types from the interoperability standard, the persistence layer or the application framework | Invariants becoming dependent on infrastructure or on a revision of an external standard |
+| **Boundaries between contexts** | No context accesses another's tables; no foreign key crosses a boundary | The silent erosion of boundaries |
+| **Isolation** | A query without tenant context **fails**; a principal enabled on A obtains no data from B **through any path** | Data leaks between autonomous controllers |
+| **Isolation** | A connection returned to the pool does not retain the tenant of the previous request | Contamination through connection reuse |
+| **Events** | Data and event are written in the same transaction; if the process stops between consolidation and publication, the event leaves on restart | Lost events and phantom events |
+| **Events** | Delivering the same event twice produces an identical consumer state | Actual idempotency, not declared |
+| **Events** | No outbound event carries clinical content; signalling does not cross the broker | The constraints of §6.5 and §6.7 |
+| **Regulatory boundary** | No numeric literal used as a clinical threshold; no document field populated by automatically generated text | Drifting past the boundary between recording and interpretation |
+| **Audit trail** | Modification, deletion or retroactive insertion of an entry is **detected**; reading the audit trail produces an entry; denial produces an entry | Demonstrability |
+| **Sovereignty** | The full functional suite passes with the expensive-licence coding system **disabled** | A de-facto dependency on a licence the project cannot impose |
+| **Data model** | No external identifier appears as a primary key | Irreversibility of the dependency on someone else's registry |
+| **Configuration** | The system **refuses to start** with inactive row policies, relay reachable from internal networks, secrets at defaults, data categories with no retention policy | A setup that looks healthy and is not |
+
+### 11.3 Three properties that make a check useful
+
+**It verifies the effect, not the configuration.** The canonical case is that of §8.6: ascertaining
+that row policies **exist** is useless, because they can be active and ineffective. What has to be
+ascertained is that they **produce the effect**, that is, that an access attempt actually fails.
+
+**It fails in a comprehensible way.** A check that makes the build fail with an incomprehensible
+message gets disabled by somebody, sooner or later, with the justification «I did not understand
+what it wanted». The message has to state which rule was violated and where.
+
+**It is not bypassable for convenience.** On this point the project is categorical: **no documented
+procedure may contain the bypassing of an obligatory check**. Checks are **admissibility conditions**,
+not quality judgements: bypassing one produces an artefact that ought not to have been produced and
+that carries with it a false declaration - with the build chain green and the property non-existent.
+If a check legitimately blocks a legitimate development, **the check is corrected through the
+procedure of revision provided for**, not disabled for your proposal.
+
+---
+
+## 12. What is not decided, and why it is written
+
+### 12.1 An architecture that has decided everything is hiding something
+
+The architecture area has a chapter listing **what is deliberately not decided**:
+[`09 - Deferred decisions`](/02_architecture/09-decisioni-rinviate.md). It is an unusual choice
+and is worth understanding why.
+
+Decisions taken without sufficient information **look the same** as those taken with knowledge.
+The difference emerges when it is expensive to correct. Writing that a question is open, with the
+criterion by which it will be decided, produces two effects: whoever encounters it knows they are
+in undecided territory, and whoever decides knows already what it takes to decide.
+
+### 12.2 How they are organised
+
+For each open question the project declares **seven things**: the question, the options with their
+trade-offs, the decision criterion, what it takes to be able to decide, **who decides**, by when,
+and what happens if no decision is taken.
+
+The families are three:
+
+| Family | Who decides | What it takes |
+|---|---|---|
+| **A - Deferred to verification** | The architecture area, after verification | A measure or empirical proof |
+| **B - Deferred to another area** | The competent area | Specific competence |
+| **C - Deferred to the client** | The client | A product choice or risk choice |
+
+Some examples, to show what nature they are. The **mechanism** by which process orchestration is
+realised (the *strategy* is decided; the mechanism is not, because it depends on a measure). The
+**maximum number of session participants** (the limit is decided, declared and applied by code; the
+number depends on the bandwidth budget of the worst-connected participant, and must be **measured,
+not estimated**). The **licences of clinical scales**, which are blocking before the first calculation
+engine. The **container for the recorded material**, which is the client's concern because it affects
+already public communication.
+
+### 12.3 The operational rule
+
+> **A decision listed as deferred cannot be taken of your own motion in a proposal for change.**
+> Whoever runs into one of these questions during implementation opens an item on the coordination
+> channel; they do not choose the most convenient option in order to proceed.
+
+There is a practical reason. A decision taken of your own motion in a proposal for change **is
+indistinguishable, six months later, from a decision taken with knowledge**. If it is wrong, nobody
+knows it was taken in a rush, and nobody knows which information was missing.
+
+### 12.4 The `[NV]` marker
+
+In the project's documentation you will often encounter the abbreviation **`[NV]`**: it marks a
+statement **not verified on a primary source**. Every marking indicates **who must close it**, and
+no `[NV]` can survive the transition to production of the component that depends on it.
+
+It is the application of one of the five rules of this guide: *what is not verified is declared as
+such*. «The regulation establishes», «it is widespread practice» and «it is a project choice» are
+statements of a different nature, and confusing them is the quickest way to produce documentation
+that ages badly.
+
+---
+
+## 13. How to read the rest of the architecture documentation
+
+You have the shape of the system. The next step depends on what you have to do.
+
+### 13.1 The nine documents of the area
+
+| # | Document | What it resolves |
+|---|---|---|
+| 01 | [Architectural vision](/02_architecture/01-visione-architetturale.md) | The seven forces, the quality scenarios against which the architecture is verified, the trade-offs accepted and **those refused** |
+| 02 | [Bounded contexts](/02_architecture/02-contesti-delimitati.md) | The thirteen boundaries: responsibility, language, invariants, what each one **does not do**, relationships |
+| 03 | [Domain model](/02_architecture/03-modello-di-dominio.md) | Aggregates, entities, value objects, invariants, events; the separation of §5 argued through to the end |
+| 04 | [Data model](/02_architecture/04-modello-dati.md) | The four distinct models, the relationship with the clinical standard, the canonical dataset, time series, identifiers |
+| 05 | [Multi-tenancy](/02_architecture/05-multi-tenancy.md) | Isolation, context propagation, migrations, selective restore, tenant life cycle |
+| 06 | [Events and internal integration](/02_architecture/06-eventi-e-integrazione-interna.md) | Outbox, envelopes, delivery, idempotency, ordering, retries, multi-step processes |
+| 07 | [Audit trail and immutable log](/02_architecture/07-tracciamento-e-registro-immutabile.md) | Chain, anchoring, separate retention, what is recorded, demonstrability |
+| 08 | [Deployment views](/02_architecture/08-viste-di-deployment.md) | The two arrangements, the components, the networks, relay isolation, placement profiles |
+| 09 | [Deferred decisions](/02_architecture/09-decisioni-rinviate.md) | What is **not** decided, with the criteria and who decides |
+
+Above all stands the register of decisions in [`docs/adr/`](../adr/README.md). **An architectural
+statement without an ADR is a documentation defect**, not an admitted shortcut.
+
+### 13.2 Four paths
+
+**If you have to implement a function.** 01 → 02, but only the context that concerns you and its
+neighbours → 03 → the document specific to your case according to what you are doing (04 for
+persistence, 05 if you write a query or a migration, 06 if you publish or consume an event, 07 if
+you touch a path accessing health data) → the ADRs cited in the text. **Before you open a proposal
+for change**: document 09, to verify you are not deciding of your own motion something deliberately
+left open.
+
+**If you are evaluating the project for an installation.** 01 → 08 → 05 → 07. These are the four
+documents that determine what the entity that installs **has to guarantee on its own account** and
+what it inherits from the project. In particular document 08 contains the list of what the customer
+must provide, which is not an appendix: it is what determines whether an installation is possible.
+
+**If you are verifying conformity.** 07 and 05 for the evidence of traceability and isolation; 03
+for the boundary between recording of content drafted by the professional and autonomous production
+of clinical information; then `docs/08_compliance/`. The architecture area **does not contain** the
+determination of qualification and classification: it presupposes them and describes their structural
+consequences.
+
+**If you are a clinician and want to verify that we are not getting the domain wrong.** Read 02 -
+only the summary table and the entries for the core contexts - and 03. The most valuable contribution
+you can make is on the column «what is none of its business» and on language: if a word is used in a
+sense it does not have in clinical practice, say so. It is worth more than ten lines of code.
+
+### 13.3 Three rules of reading that hold everywhere
+
+**The precedence.** In case of divergence between a document in the architecture area and a document
+in another area **on an architectural matter**, the architecture area prevails. Whoever detects the
+divergence **does not resolve it of their own motion**: they report it. Above the architecture area
+stand only the baseline architectural constraints of the project and decisions approved by the client.
+
+**The linguistic registers.** «The regulation establishes» introduces an obligation with a cited
+source; «it is practice» a widespread use without obligation; «it is a project choice» a Telemedic
+decision - which as such has an ADR and **can be changed**. They are not synonyms.
+
+**Diagrams do not substitute for the text.** If a constraint exists only in the diagram, **it does
+not exist**. The diagrams in this module and in the architecture area serve to render a structure
+already described visible, not to define it.
+
+---
+
+## 14. Ten errors this architecture exists to prevent
+
+An alternative way to review the whole module: the list of shortcuts that were available, that
+someone will propose, and that have been refused. For each, what would have happened.
+
+**1. Merging clinical service and media session.** Every disconnect would have created a phantom
+service; a technical test would have created a non-existent clinical act; a service concluded in
+voice after video failure would have appeared undelivered. §5.
+
+**2. Treating entity versioning as an immutable log.** It would have been economical and false, and
+the falsehood would have emerged at the worst moment: faced with a challenge. §7.2.
+
+**3. Persisting the resources of the interoperability standard directly.** Every domain invariant
+would have become a check on a JSON tree that is optional in almost every branch, and standard
+version migration would have become a data migration. §10.2.
+
+**4. Modelling channel metrics as clinical observations.** A packet transmission delay would have
+ended up in someone's clinical record. §10.2.
+
+**5. Impersonation instead of delegation.** It would have erased the information «which system acted
+on behalf of which person», which is precisely what the audit trail must be able to answer. §10.2.
+
+**6. Building an index reconciling patient identities across systems.** It would have been the
+obvious answer to «the same patient arrives from two systems», and would have made Telemedic the
+holder of the registry, contradicting the reason it exists. §1, §4.3.
+
+**7. A second sign-in for an already-authenticated user elsewhere.** It would have made authorisation
+trivial, and in practice produced shared credentials between colleagues: a security regression
+accomplished in the name of security. §1.
+
+**8. Providing «reasonable» default clinical thresholds from the project.** It would have moved the
+system from recording a professional decision to producing a judgement of its own. §2.3, §9.4.
+
+**9. Updating alarms, measurements and plans' state in place.** A state column updated at every
+transition is the most economical representation and **erases the history every time it writes it**.
+In a context where the question is not «what state is it in» but «what happened, in what order, and
+who did what», it is an irretrievable loss. State is a projection of a sequence of immutable events.
+
+**10. Deferring multi-tenancy to after the first customer.** It is the decision that looks most
+rational at the start and is never recoverable after: tenancy is not a layer you add, it is **a
+property of every key, every index, every migration, every event and every row of audit trail**. §8.7.
+
+If one of these ten seems reasonable to you, the corresponding section of this module explains why
+it is not. If after reading it it still seems reasonable, **open an issue**: it might be that the
+reasoning has a flaw, and that is exactly how you discover it.
+
+---
+
+## What you must remember
+
+1. **Telemedic is a guest, not the host.** It does not own identity, does not own the registry, and
+   the clinical content it produces has to go back to the source system. Nearly every architectural
+   choice that seems odd follows almost always from this.
+2. **Demonstrability comes before function.** It is not enough for an access to be lawful: it must
+   be demonstrable years later in front of someone who does not trust the operator's word.
+3. **The boundary between vehicle and interpretation is structural, not communicative.** No clinical
+   threshold hard-coded, no document field generated by the system, no judgement produced
+   automatically. It is a property that must be readable in the code, and indeed it is checked.
+4. **«Patient» is not one concept: it is at least five.** The bounded context serves to avoid the
+   single model, which ends up serving none of the five well.
+5. **The column «what is none of its business» is the most useful in the contexts map.** Boundaries
+   erode through the accumulation of reasonable exceptions, and the dangerous moment is when someone
+   proposes adding «just one field».
+6. **Clinical service and media session never merge.** It is constraint V-01. The session may
+   **inform**, never **decide**; the reverse direction is one of **command**.
+7. **The transactional outbox is the sole source of outbound events.** It eliminates by construction
+   the lost event and the phantom event. No application path writes directly to the broker.
+8. **At-least-once delivery means every consumer is idempotent.** «Exactly once» does not cross the
+   boundary of an external system, and promising it produces integrators that do not deduplicate.
+9. **Events do not carry clinical content towards third-party systems.** The principal reason is not
+   the size of the envelope: it is that authorisation is evaluated **at the moment of reading**, with
+   the attributes in force then, because a subsequently withdrawn consent must be respected.
+10. **Real-time signalling does not pass through events.** Negotiation traffic stays where it is; only
+    facts that have already happened cross the boundary.
+11. **Entity versioning versions, it does not make immutable.** Four layers are needed - hash chain,
+    write-once storage, disjoint privileges, signed and time-stamped anchoring - because none of the
+    four alone, covers the threat model, which includes the administrator.
+12. **The audit trail contains no clinical content**, and it is a destination and never a source.
+    Whoever looks at who has looked leaves a trace.
+13. **Multi-tenancy here separates legally autonomous data controllers**, not customers. One schema
+    per organisation, with row-level security as a deliberately second barrier.
+14. **The isolation principle is formulated in the negative**: in the absence of context the
+    operation **fails**. The positive formulation is a rule of discipline, and permanent discipline
+    does not exist.
+15. **The negative test between organisations is indispensable and must verify the effect**, not the
+    configuration: row-level security can be active and ineffective at the same time.
+16. **Configuration cannot remove an invariant.** And clinical thresholds are not organisation
+    configuration: they are per patient, attributed to an identified professional.
+17. **The system is fully functional without the expensive-licence terminologies**, and it demonstrates
+    it by running the complete functional suite with them disabled. The cost is declared, not hidden.
+18. **Every choice has a price, and it is written.** An architecture described without what it costs
+    has not been understood.
+19. **Architectural rules are automatic blocking checks.** A rule entrusted to manual review has an
+    average life of a few months, and no obligatory check is bypassed: it is corrected.
+20. **What is not decided is written as such**, with the criterion, who decides and by when. A
+    deferred decision **is not taken of your own motion in a proposal for change**.
+
+---
+
+## Terms introduced in this module
+
+| Term | Brief definition |
+|---|---|
+| **Aggregate** | Set of objects that must change together in a single transaction to keep a rule true; has a **root** which is the only access point |
+| **Anchoring** | Hash of the head of an audit chain, signed and time-stamped and retained separately; makes the rewriting of subsequent history self-contradictory |
+| **Append-only** | Store in which you can only add: no modification, no deletion, for no role |
+| **Measurement expectation** | Entity that declares that a measurement was expected and did not arrive; it is the operative form of the principle that silence is information |
+| **Hash chain** | Sequence in which every entry carries the cryptographic hash of its own content and that of the previous entry in the sequence; modifying an entry invalidates all subsequent ones |
+| **Deduplication key** | Identifier with which a consumer recognises that it has already handled a message; must be retained longer than the maximum retry window |
+| **Eventual consistency** | Property by which two parts of the system converge on the same fact after an interval, instead of instantaneously |
+| **At-least-once delivery** | Guarantee by which a produced message is delivered, possibly multiple times; it entails the consumer's idempotency |
+| **Bounded context** | Explicit boundary inside which a term has a single meaning and the model is coherent; the model is private and translation happens at the boundary |
+| **Choreography** | Coordination in which each component reacts to others' events and nobody knows the process as a whole |
+| **Canonical dataset** | Versioned definition of the informational content of a document, independent of the form it travels in |
+| **Explicit delegation** | Representation in which the authorisation context carries together the subject acting on behalf of and the actor acting; the opposite of impersonation |
+| **Domain event** | A fact that has already happened, immutable, named in the past tense, which other contexts can observe |
+| **Phantom event** | Message delivered that refers to a fact whose transaction subsequently failed |
+| **Lost event** | Fact that happened for which the corresponding message was never published, with nothing signalling the absence |
+| **Idempotency** | Property by which applying the same operation twice produces the same state as applying it once |
+| **Invariant** | Rule that must always be true; in the domain model it is made **impossible to violate**, not simply inadvisable |
+| **Ubiquitous language** | Vocabulary shared between whoever knows the domain and whoever writes the code, used without translation inside a context |
+| **Anti-corruption layer** | Translation layer at a boundary that prevents an external model from penetrating the internal one |
+| **Canonical exchange model** | Representation by which clinical facts exit and enter; it is a **projection**, never a source |
+| **Non-alterable** | Property by which nobody, including whoever administers the system, can modify an entry without the alteration being detectable |
+| **Non-repudiable** | Property by which whoever performed an operation cannot maintain that they did not perform it |
+| **Orchestration** | Coordination in which a component knows the sequence of steps, manages compensations and retains the process state, which becomes queryable |
+| **Transactional outbox** | Table in which the event is written in the same transaction as the data, and from which a relay publishes it; eliminates lost event and phantom event |
+| **Application plane** | Exposure surface that represents the product's capabilities, with a grammar of actions |
+| **Clinical plane** | Exposure surface that represents clinical states in the grammar of the healthcare standard |
+| **Phantom service** | Clinical act recorded twice because the connection fell and was re-established |
+| **Application principal** | The system acting on behalf of a person; distinct from the person in every audit entry |
+| **Negative test** | Test that passes **only if an attempt fails**; it is the form by which isolation between organisations is demonstrated |
+| **Selective restore** | Bringing the data of a single organisation back to an earlier instant without touching the others |
+| **Row-level security** | Store mechanism that filters visible rows based on a context; here it is **a second barrier**, not the sole mechanism |
+| **Tenant** | Isolation boundary; does not coincide with the organisation, nor with the providing organisation, nor with the integrator |
+| **Professional capacity** | Relationship between person, organisation and specialty, with temporal validity; permissions follow capacity, not the person |
+
+---
+
+## Where to continue
+
+**If you have finished the fundamentals guide and want the detail.** The complete architecture area,
+starting from [`00 - Index`](/02_architecture/00-indice.md), then the thirty
+[ADRs](../adr/README.md).
+
+**If you want to set up the environment and try.** [Module
+17 - The development environment](17-ambiente-di-sviluppo.md) takes you from clone to a working
+system, synthetic data included.
+
+**If you want to know what you need to know in order to touch a specific area of the code.**
+Module 18, which contains the matrix area-of-code → required knowledge.
+
+**If a term or abbreviation has escaped you.** The guide's glossary, which you consult and do not
+read.
+
+**Before you open your first proposal for change.**
+[`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md), which
+declares this guide as a prerequisite, and
+[`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md),
+which explains why the repository is source code and not a medical device placed on the market.

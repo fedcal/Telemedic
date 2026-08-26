@@ -22,7 +22,7 @@ cronico impongono due modi diversi di curare. Questo capitolo ne ricava il model
 
 ## 1. Modello e istanza: la separazione da cui dipende tutto
 
-> **`DM-90` [MOD] — Definizione e istanza sono due aggregati distinti, e l'istanza porta il
+> **`DM-90` [MOD] - Definizione e istanza sono due aggregati distinti, e l'istanza porta il
 > riferimento alla versione della definizione, non alla definizione.**
 
 | | Definizione del percorso | Istanza sul singolo |
@@ -68,7 +68,7 @@ modulo dei fondamenti perché è esatta:
 > da un clinico e firmata digitalmente.** Le soglie non sono un file di configurazione del
 > sistema: sono il contenuto di un documento sanitario individuale.
 
-> **`DM-91` [MOD]** — Ne discende che il piano di telemonitoraggio ha **due proiezioni
+> **`DM-91` [MOD]** - Ne discende che il piano di telemonitoraggio ha **due proiezioni
 > obbligate**: una **eseguibile**, che il motore usa, e una **documentale**, che va al fascicolo
 > come tipologia dedicata (lett. t, DM 19 novembre 2025, art. 7). Entrambe sono generate dalla
 > stessa fonte. Se sono redatte separatamente divergono, e la divergenza fra ciò che il piano
@@ -95,7 +95,7 @@ Traduzione in requisiti di modello del § 3.7 del modulo dei fondamenti.
 La seconda proprietà merita un approfondimento perché è il punto in cui la flessibilità incontra
 il perimetro regolatorio.
 
-> **`DM-92` [MOD] — Il motore di percorso pianifica, non decide.** Può generare attività attese,
+> **`DM-92` [MOD] - Il motore di percorso pianifica, non decide.** Può generare attività attese,
 > calendari, promemoria, attese di rilevazione e code di lavoro. **Non può** valutare condizioni
 > cliniche, calcolare punteggi, dedurre priorità o selezionare rami sulla base di un giudizio
 > clinico che non sia stato registrato da un professionista.
@@ -114,7 +114,7 @@ Il **motore di workflow** è un micro-servizio specifico previsto per tutti e qu
 minimi (DM 21 settembre 2022, All. A, Tabella 1; DM 19 novembre 2025, All. 3). Non è quindi una
 funzione accessoria: è parte del perimetro atteso da un'infrastruttura regionale.
 
-> **`DM-93` [MOD]** — Il motore di workflow del prodotto e la definizione del percorso sono due
+> **`DM-93` [MOD]** - Il motore di workflow del prodotto e la definizione del percorso sono due
 > cose diverse: il primo esegue, la seconda descrive. Il primo è codice del progetto, versionato
 > con il progetto; la seconda è dato del tenant, versionata con il tenant. Confonderli significa
 > che aggiornare un percorso richiede un rilascio del software.
@@ -126,8 +126,8 @@ funzione accessoria: è parte del perimetro atteso da un'infrastruttura regional
 La presa in carico è **continuativa**, **responsabilizzante** e **formale**: non si esaurisce con
 l'atto, individua chi risponde della continuità, e comincia e finisce con un atto dichiarato.
 
-> **`DM-94` [MOD]** — La presa in carico è un aggregato con radice propria — l'**episodio di
-> cura** — e non un attributo dell'assistito né una deduzione dall'esistenza di contatti. È
+> **`DM-94` [MOD]** - La presa in carico è un aggregato con radice propria - l'**episodio di
+> cura** - e non un attributo dell'assistito né una deduzione dall'esistenza di contatti. È
 > l'unità a cui si agganciano il team, il piano, gli obiettivi e gli indicatori, e l'unità su cui
 > si fonda la relazione di autorizzazione `CARE_EPISODE` (capitolo
 > [03](03-assistito-professionista-organizzazione.md) § 5.2).
@@ -172,7 +172,7 @@ clinica, **compliance digitale dell'assistito** **[RACCOMANDATO]**. Quest'area l
 struttura dell'atto di valutazione anche per l'arruolamento a percorsi, perché le tre domande
 sono le stesse.
 
-> **`DM-95` [MOD]** — La valutazione di eseguibilità è un'**entità con tre esiti indipendenti**,
+> **`DM-95` [MOD]** - La valutazione di eseguibilità è un'**entità con tre esiti indipendenti**,
 > ciascuno con motivazione e autore. Un unico esito complessivo rende impossibile sapere quale
 > delle tre dimensioni ha determinato il rifiuto, e quindi impossibile sapere se il rifiuto è
 > superabile con un intervento tecnico o formativo.
@@ -199,7 +199,7 @@ con almeno un ruolo marcato come responsabile della presa in carico.
 Quest'area concorre con un vincolo di modellazione, e non chiude la questione perché la
 formulazione verso l'utente e il requisito funzionale corrispondente non le competono:
 
-> **`DM-96` [MOD] — La copertura è un'entità del servizio, non un testo.** Contiene: giorni,
+> **`DM-96` [MOD] - La copertura è un'entità del servizio, non un testo.** Contiene: giorni,
 > fasce orarie, tipo di risposta garantita, termine di presa in carico atteso, comportamento
 > fuori copertura, e canale alternativo indicato. È **collegata al piano** e riportata
 > all'assistito nel momento dell'arruolamento, con la stessa struttura con cui è configurata.
@@ -207,7 +207,7 @@ formulazione verso l'utente e il requisito funzionale corrispondente non le comp
 > Due conseguenze operative:
 >
 > 1. **Il motore degli allarmi conosce la copertura.** Un allarme generato fuori copertura ha un
->    comportamento dichiarato — accodato, escalato a un canale diverso, oppure non generato — e
+>    comportamento dichiarato - accodato, escalato a un canale diverso, oppure non generato - e
 >    non un comportamento implicito.
 > 2. **La modifica della copertura è un evento comunicato.** Una riduzione della copertura di un
 >    servizio in cui sono arruolate persone non è una modifica di configurazione: è una
@@ -217,12 +217,12 @@ formulazione verso l'utente e il requisito funzionale corrispondente non le comp
 
 ```mermaid
 flowchart TB
-    EP["Episodio di cura — presa in carico"]
+    EP["Episodio di cura - presa in carico"]
     DEF["Definizione di percorso, versione N"]
-    PC["Piano — istanza, versione M"]
+    PC["Piano - istanza, versione M"]
     TEAM["Team con funzioni e periodi"]
     ATT["Attese generate dal piano"]
-    ENC["Contatti — televisite, teleassistenze, telecontrolli"]
+    ENC["Contatti - televisite, teleassistenze, telecontrolli"]
     OBS["Misure e risposte a questionari"]
     DOC["Documenti prodotti"]
     IND["Indicatori del percorso"]
@@ -244,7 +244,7 @@ flowchart TB
 Tre osservazioni sul diagramma.
 
 1. **Il contatto non appartiene all'episodio: vi è collegato.** Un contatto può esistere senza
-   episodio — una televisita una tantum — e un episodio può contenere contatti erogati da
+   episodio - una televisita una tantum - e un episodio può contenere contatti erogati da
    organizzazioni diverse. Una relazione di composizione impedirebbe entrambi i casi.
 2. **Le attese sono il ponte fra piano e realtà.** Sono l'entità introdotta al capitolo
    [05](05-parametri-e-osservazioni.md) § 6.1 e sono ciò che consente di misurare l'aderenza come
@@ -257,7 +257,7 @@ Tre osservazioni sul diagramma.
 
 ### 6.1 La definizione operativa
 
-> **`DM-97` [MOD] — L'aderenza è il rapporto fra attese soddisfatte e attese generate, in una
+> **`DM-97` [MOD] - L'aderenza è il rapporto fra attese soddisfatte e attese generate, in una
 > finestra dichiarata, con l'elenco esplicito delle attese escluse e il motivo dell'esclusione.**
 
 La definizione ha tre parti e tutte e tre servono:
@@ -291,7 +291,7 @@ L'aderenza calcolata senza la tassonomia delle cause del capitolo
 dispositivo guasto, connettività assente, catena di ingestione interrotta, errore d'uso, assenza
 dichiarata, abbandono, peggioramento clinico.
 
-> **`DM-98` [MOD]** — Un indicatore di aderenza è restituito **sempre** insieme alla ripartizione
+> **`DM-98` [MOD]** - Un indicatore di aderenza è restituito **sempre** insieme alla ripartizione
 > delle attese non soddisfatte per categoria di causa, incluse quelle di causa ignota. Un
 > indicatore di aderenza senza quella ripartizione è, nel migliore dei casi, inutile.
 
@@ -309,15 +309,15 @@ tipi:
 | **Evento clinico registrato** | accesso in pronto soccorso, ricovero, cambio di terapia | chi lo registra o il sistema di origine |
 | **Esito del percorso** | obiettivi raggiunti, percorso interrotto, trasferito | il professionista responsabile |
 
-> **`DM-99` [MOD]** — Il sistema **non calcola esiti clinici** e non produce alcun indice
+> **`DM-99` [MOD]** - Il sistema **non calcola esiti clinici** e non produce alcun indice
 > sintetico di risultato clinico. Aggrega fatti dichiarati e conta eventi registrati. La
 > distinzione è il confine di `V2` applicato agli esiti, e va presidiata perché è quella su cui
 > la pressione di prodotto è più forte.
 
 ### 7.2 Gli indicatori del percorso
 
-Gli indicatori di processo — quanti hanno ricevuto ciò che il percorso prevedeva, entro quali
-tempi, con quali scostamenti — sono calcolabili senza uscire dal perimetro, perché contano fatti
+Gli indicatori di processo - quanti hanno ricevuto ciò che il percorso prevedeva, entro quali
+tempi, con quali scostamenti - sono calcolabili senza uscire dal perimetro, perché contano fatti
 e non li interpretano.
 
 Vanno però soggetti alla regola di cardinalità del capitolo
@@ -331,9 +331,9 @@ Il modulo [01 dei fondamenti](../10_fondamenti/01-sistema-sanitario-italiano.md)
 modelli territoriali e le nuove strutture. Sul piano del modello ne discende una sola cosa, ma
 importante:
 
-> **`DM-100` [MOD]** — L'unità organizzativa a cui una presa in carico è agganciata è un
+> **`DM-100` [MOD]** - L'unità organizzativa a cui una presa in carico è agganciata è un
 > riferimento al modello dell'organizzazione del capitolo
-> [03](03-assistito-professionista-organizzazione.md) § 4.2 — ricorsivo, con tipo dichiarato — e
+> [03](03-assistito-professionista-organizzazione.md) § 4.2 - ricorsivo, con tipo dichiarato - e
 > **non un elenco chiuso di tipologie di struttura**. Le tipologie cambiano per riorganizzazione
 > amministrativa con una frequenza che nessun elenco cablato regge.
 
@@ -354,16 +354,16 @@ distingue un sistema realmente configurabile da uno che lo dichiara.
 schema dati, né l'intervento di chi ha scritto il motore.
 
 > Se anche uno solo dei cinque punti richiede l'intervento dello sviluppatore, il percorso è
-> cablato — indipendentemente da quanto sia configurabile ciò che gli sta attorno.
+> cablato - indipendentemente da quanto sia configurabile ciò che gli sta attorno.
 
 ## 10. Che cosa resta non verificato
 
 | Punto | Stato | A chi va chiesto |
 |---|---|---|
-| Identificativi di requisito per le sei aree scoperte su cronicità, allarmi e sicurezza del paziente: piano versionato, finestra di attesa, escalation con fallimento dichiarato, sorveglianza del volume atteso, copertura oraria dichiarata, tracciabilità del calcolo | **aperto** | `FUNZ` — questione `Q-12` |
-| Formulazione verso l'utente della copertura oraria e requisito corrispondente | **aperto** | `PROD`, `FUNZ` — questione `Q-14` |
-| Regime di licenza delle scale usate nella valutazione di arruolabilità e negli esiti riferiti dalla persona | **[NV]** | `COMP` — questione `Q-11` |
-| Confini di perimetro rispetto alla destinazione d'uso: nessun giudizio interpretativo negli avvisi, nessuna prognosi | **aperto** | `COMP` — questione `Q-01` |
+| Identificativi di requisito per le sei aree scoperte su cronicità, allarmi e sicurezza del paziente: piano versionato, finestra di attesa, escalation con fallimento dichiarato, sorveglianza del volume atteso, copertura oraria dichiarata, tracciabilità del calcolo | **aperto** | `FUNZ` - questione `Q-12` |
+| Formulazione verso l'utente della copertura oraria e requisito corrispondente | **aperto** | `PROD`, `FUNZ` - questione `Q-14` |
+| Regime di licenza delle scale usate nella valutazione di arruolabilità e negli esiti riferiti dalla persona | **[NV]** | `COMP` - questione `Q-11` |
+| Confini di perimetro rispetto alla destinazione d'uso: nessun giudizio interpretativo negli avvisi, nessuna prognosi | **aperto** | `COMP` - questione `Q-01` |
 
 ## Cosa devi ricordare
 
@@ -391,9 +391,9 @@ schema dati, né l'intervento di chi ha scritto il motore.
 
 ## Dove continuare
 
-- [05 — Parametri e osservazioni](05-parametri-e-osservazioni.md): le attese, il dato mancante e
+- [05 - Parametri e osservazioni](05-parametri-e-osservazioni.md): le attese, il dato mancante e
   le soglie individuali.
-- [02 — Le prestazioni modellate](02-le-prestazioni-modellate.md): i contatti che compongono il
+- [02 - Le prestazioni modellate](02-le-prestazioni-modellate.md): i contatti che compongono il
   percorso.
 - Modulo [10 dei fondamenti](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md): cronicità,
   scale, triage, allarmi, aderenza e sicurezza del paziente.

@@ -6,10 +6,10 @@ description: Validazione ai confini, sessioni e intestazioni, caricamento di fil
 
 # Sicurezza applicativa
 
-> **Presupposto di lettura.** I protocolli richiamati in questo capitolo — concessione di
+> **Presupposto di lettura.** I protocolli richiamati in questo capitolo - concessione di
 > autorizzazione con prova di possesso del verificatore, firma dei messaggi HTTP, impronta del
-> corpo, dettagli del problema — sono descritti in
-> [10 §13 — I protocolli](../10_fondamenti/13-protocolli.md). Qui si descrive che cosa il
+> corpo, dettagli del problema - sono descritti in
+> [10 §13 - I protocolli](../10_fondamenti/13-protocolli.md). Qui si descrive che cosa il
 > sistema fa con essi, e le regole che valgono indipendentemente dal protocollo.
 
 ## 1. Il principio che governa il capitolo
@@ -17,7 +17,7 @@ description: Validazione ai confini, sessioni e intestazioni, caricamento di fil
 **Ogni controllo che conta si esegue dal lato che riceve.** Il browser è zona non fidata, anche
 quello del professionista; il sistema dell'integratore è zona non fidata, anche quando è un
 partner contrattuale; la rete interna non è un confine di fiducia. I controlli lato client sono
-ergonomia — evitano all'utente di scoprire l'errore dopo aver compilato un modulo — e non hanno
+ergonomia - evitano all'utente di scoprire l'errore dopo aver compilato un modulo - e non hanno
 alcun valore di sicurezza.
 
 Il secondo principio, che regge il §8: **una difesa che dipende dalla correttezza di un codice
@@ -31,7 +31,7 @@ I confini sono quelli di [01 §4](./01-modello-di-minaccia.md). Su ciascuno la v
 **dichiarativa e a schema**, non imperativa: si dichiara la forma ammessa e si rifiuta ciò che
 non vi corrisponde, invece di cercare ciò che è pericoloso.
 
-La differenza è sostanziale e va scritta: un elenco di ciò che è vietato è sempre incompleto —
+La differenza è sostanziale e va scritta: un elenco di ciò che è vietato è sempre incompleto -
 è la stessa ragione strutturale per cui la lista di indirizzi vietati del relay è stata aggirata
 quattro volte ([05 §4.2](./05-sicurezza-del-tempo-reale.md)). Un elenco di ciò che è ammesso è
 completo per costruzione.
@@ -63,7 +63,7 @@ usabilità clinica: un professionista sotto pressione di tempo non deve interpre
 | **Falsificazione della richiesta fra siti** | Neutralizzata dalla politica sul contesto di provenienza **e** da un secondo meccanismo indipendente sulle operazioni che modificano lo stato: due difese, perché la prima dipende dal comportamento del browser |
 | **Condivisione di risorse fra origini** | Elenco **chiuso** di origini, per tenant, dallo **stesso registro di fiducia** di [02 §6.2](./02-identita-e-accessi.md). Nessun carattere jolly, in nessuna configurazione supportata |
 | **Incorporamento** | Consentito solo alle origini dell'elenco. Il componente incorporabile comunica con il contenitore verificando **sempre** l'origine del messaggio in ricezione: un componente che accetti messaggi da qualunque origine è un componente scriptabile da qualunque pagina |
-| **Intestazioni di risposta** | Politica sui contenuti eseguibili restrittiva e **senza sorgenti in linea**; divieto di deduzione del tipo; controllo del referente; politica sui permessi delle interfacce del dispositivo limitata a ciò che serve — e in questo sistema serve la fotocamera e il microfono, che vanno concessi al minimo perimetro |
+| **Intestazioni di risposta** | Politica sui contenuti eseguibili restrittiva e **senza sorgenti in linea**; divieto di deduzione del tipo; controllo del referente; politica sui permessi delle interfacce del dispositivo limitata a ciò che serve - e in questo sistema serve la fotocamera e il microfono, che vanno concessi al minimo perimetro |
 | **Memorizzazione nel browser** | Nessun contenuto clinico nella memoria persistente del browser. Il contenuto vive nella sessione e non le sopravvive |
 
 **Sul componente incorporabile, una nota che ha peso di sicurezza e non solo di prodotto.**
@@ -116,8 +116,8 @@ archivio.
 1. **Il contesto di tenant è risolto al confine e verificato al confine di ogni contesto
    applicativo.** Nessuna interrogazione senza tenant risolto: non è una convenzione, è un
    invariante imposto al livello di persistenza.
-2. **L'isolamento fra tenant è imposto alla persistenza** — schema dedicato con sicurezza a
-   livello di riga come difesa in profondità — **e non solo applicativo**. Un difetto
+2. **L'isolamento fra tenant è imposto alla persistenza** - schema dedicato con sicurezza a
+   livello di riga come difesa in profondità - **e non solo applicativo**. Un difetto
    applicativo non deve poter attraversare il confine.
 3. **L'autorizzazione sull'oggetto si fonda sulla relazione di cura**, non sul solo ruolo
    ([02 §9](./02-identita-e-accessi.md)).
@@ -180,7 +180,7 @@ configurazioni diverse: **proteggere la disponibilità** e **rallentare l'abuso*
 |---|---|
 | **Per attore** | La difesa contro l'abuso è per identità, non per indirizzo: l'insider ha un indirizzo legittimo |
 | **Per tenant** | Un tenant non deve poter esaurire le risorse degli altri. È la forma multitenant del problema |
-| **Per punto di ingresso** | Le operazioni costose — esportazioni, ricerche ampie, generazione di documenti — hanno limiti propri, molto più stretti |
+| **Per punto di ingresso** | Le operazioni costose - esportazioni, ricerche ampie, generazione di documenti - hanno limiti propri, molto più stretti |
 | **Per operazione sensibile** | Autenticazione, richiesta di ripristino della credenziale, accesso d'emergenza: soglie strette e **ogni superamento è un evento di sicurezza**, non solo un rifiuto |
 | **Comunicazione del limite** | Intestazioni di limitazione nella forma vigente, non nella forma superata a tre intestazioni (correzione C-03) |
 | **Degradazione controllata** | Sotto pressione il sistema degrada in modo dichiarato e preserva il percorso clinico prioritario. Un sistema che collassa uniformemente ha trattato la sessione clinica in corso come una richiesta qualunque |
@@ -212,7 +212,7 @@ parsing degli indirizzi non è affidabile; una difesa che nega la rotta lo è.
 
 ```mermaid
 flowchart LR
-    subgraph APP["Componenti applicativi — nessuna rotta in uscita"]
+    subgraph APP["Componenti applicativi - nessuna rotta in uscita"]
         A["Gateway terminologico"]
         B["Interoperabilità verso<br/>infrastrutture nazionali<br/>e regionali"]
         C["Messaggi in uscita<br/>verso l'integratore"]
@@ -245,7 +245,7 @@ L'ordine conta: due dei quattro controlli sono inefficaci se applicati nella seq
    privati; indirizzi di collegamento locale; **indirizzo del servizio di metadati
    dell'infrastruttura**; **indirizzo pubblico del nodo stesso**; indirizzi IPv4 mappati in
    IPv6; prefissi di transizione; multicast e broadcast. Il confronto è su forma
-   **normalizzata**, e gli intervalli sono **allineati a un prefisso** — è la mitigazione
+   **normalizzata**, e gli intervalli sono **allineati a un prefisso** - è la mitigazione
    dichiarata dall'avviso del difetto di confronto componente per componente descritto in
    [05 §4.3](./05-sicurezza-del-tempo-reale.md).
 3. **Divieto di seguire redirezioni non ri-verificate.** Una redirezione è una destinazione
@@ -275,7 +275,7 @@ dall'elenco della federazione e non da quello del mediatore resterebbe raggiungi
 **Il relay non è fra questi, e non deve esserlo.** Il relay inoltra pacchetti di trasporto verso
 una destinazione scelta dal client: non effettua richieste applicative, non ha un livello
 applicativo su cui applicare uno di questi quattro controlli, e la sua difesa è di altra natura
-— l'isolamento di rete in uscita del vincolo V-10, trattato in
+- l'isolamento di rete in uscita del vincolo V-10, trattato in
 [05 §4](./05-sicurezza-del-tempo-reale.md). Confonderli produrrebbe una progettazione sbagliata
 di entrambi.
 
@@ -300,8 +300,16 @@ progetto non può realizzare al suo posto:
 
 - **le regole di rete che negano l'uscita ai componenti applicativi** sono configurazione
   dell'installazione. Il progetto le documenta nella configurazione di riferimento e le
-  **verifica all'avvio** dove tecnicamente possibile, emettendo un avviso esplicito se il
-  componente scopre di avere rotta verso l'esterno;
+  **verifica all'avvio**: se il componente scopre di avere rotta verso l'esterno, **l'avvio è
+  rifiutato**. È la stessa conseguenza che la tabella delle verifiche all'avvio di
+  `docs/02_architecture/08-viste-di-deployment.md` §8 assegna a questa riga, e non ammette qui
+  l'attenuazione che quella tabella riserva, motivandola, alla sola riga dell'archivio del
+  registro. La ragione sta nel §8.1: il vincolo è architetturale **perché non dipende dalla
+  diligenza di nessuno**, e un avvio che prosegue con un avviso rimette la proprietà nelle mani
+  di chi legge un registro di avvio, che è la forma di diligenza meno affidabile che esista.
+  Dove la verifica non è tecnicamente possibile, l'impossibilità **si dichiara come verifica
+  non eseguita** e non si conta come verifica superata: un controllo che non ha potuto girare
+  non è un controllo che è passato;
 - **la raggiungibilità del servizio di metadati dell'infrastruttura** dipende dalla piattaforma
   su cui si installa, e va negata o resa non sfruttabile;
 - **l'elenco delle destinazioni ammesse** per le infrastrutture nazionali e regionali è
@@ -313,7 +321,7 @@ Il tutto confluisce nella tabella di [09](./09-ripartizione-delle-responsabilita
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| Q-16 | **Chiusa da quest'area** con il §8: la protezione contro le richieste indirizzate a risorse interne è implementata **una volta sola** in un componente condiviso, come requisito architetturale con negazione di rotta a livello di rete, e non ripetuta a ogni punto di uscita | — |
+| Q-16 | **Chiusa da quest'area** con il §8: la protezione contro le richieste indirizzate a risorse interne è implementata **una volta sola** in un componente condiviso, come requisito architetturale con negazione di rotta a livello di rete, e non ripetuta a ogni punto di uscita | - |
 | Q-156 | Forma concreta del registro di fiducia unico, che alimenta anche l'elenco consentito del mediatore (§8.2) | Architettura |
-| — | Collocazione del mediatore: componente autonomo o funzione di un componente di bordo esistente. Quest'area ne fissa il comportamento, non la collocazione | Architettura |
-| — | Soglie di limitazione predefinite (§7): specifica di prodotto, mai conformità | Funzionale |
+| - | Collocazione del mediatore: componente autonomo o funzione di un componente di bordo esistente. Quest'area ne fissa il comportamento, non la collocazione | Architettura |
+| - | Soglie di limitazione predefinite (§7): specifica di prodotto, mai conformità | Funzionale |

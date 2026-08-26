@@ -13,8 +13,8 @@ sanitarie, pubblicato sotto licenza Apache-2.0 nel repository pubblico
 [`github.com/fedcal/Telemedic`](https://github.com/fedcal/Telemedic).
 
 Copre le quattro prestazioni che il DM 21 settembre 2022, Allegato A, individua come **servizi
-minimi** che un'infrastruttura regionale di telemedicina deve erogare — televisita,
-teleconsulto/teleconsulenza, telemonitoraggio, teleassistenza — nella forma e con i vincoli che
+minimi** che un'infrastruttura regionale di telemedicina deve erogare - televisita,
+teleconsulto/teleconsulenza, telemonitoraggio, teleassistenza - nella forma e con i vincoli che
 le fonti italiane danno a ciascuna, non nella forma che sarebbe comoda a un prodotto software.
 
 Tre precisazioni vanno fatte prima di ogni altra cosa, perché senza di esse la frase precedente
@@ -33,7 +33,7 @@ seconda produce un effetto regolatorio che la prima non produce. La dichiarazion
 
 **Al 25 agosto 2026 non esiste codice applicativo.** Esiste un corpo documentale esteso,
 esistono le decisioni architetturali che lo reggono, e non esiste una riga di software del
-servizio o dell'interfaccia. Il capitolo [04 — Stato e limiti](./04-stato-e-limiti.md) espone la
+servizio o dell'interfaccia. Il capitolo [04 - Stato e limiti](./04-stato-e-limiti.md) espone la
 fotografia senza attenuazioni, ed è il capitolo da leggere per primo se si sta valutando
 un'adozione.
 
@@ -63,7 +63,7 @@ definizioni discendono conseguenze che un modello dati deve saper rappresentare:
 Un sistema che rappresenti le quattro prestazioni con un unico tipo e un campo discriminante
 funziona finché non deve rispondere alla prima domanda seria: chi può erogarla, che documento
 produce, chi ne risponde, è tariffata. Il capitolo
-[02 — Le quattro prestazioni](./02-le-quattro-prestazioni.md) mostra dove le differenze mordono.
+[02 - Le quattro prestazioni](./02-le-quattro-prestazioni.md) mostra dove le differenze mordono.
 
 ### 2.2 Esistono obblighi documentali specifici, e sono recenti
 
@@ -90,9 +90,9 @@ parlare.
 ### 2.4 L'integrazione viene prima delle funzionalità
 
 Un sistema di telemedicina che non dialoga con il gestionale già in uso non viene adottato, per
-quanto buono sia. Da qui il vincolo architetturale `V3` — **ogni capacità del sistema deve essere
+quanto buono sia. Da qui il vincolo architetturale `V3` - **ogni capacità del sistema deve essere
 raggiungibile da un sistema terzo tramite interfaccia documentata; nessuna funzionalità è
-accessibile soltanto dall'interfaccia utente** — e il suo corollario operativo `V-164`: l'area
+accessibile soltanto dall'interfaccia utente** - e il suo corollario operativo `V-164`: l'area
 che introduce una capacità introduce anche il contratto, e finché il contratto non c'è la
 capacità non è completa.
 
@@ -143,7 +143,7 @@ la revisione periodica del professionista» resta in Classe IIa e classe B. La d
 mesi e un ordine di grandezza di costo (`D46`).
 
 Il modello di dominio è scritto **interamente** sulla seconda formulazione, e nessun artefatto del
-progetto — documentazione, interfaccia, materiale pubblico, nome di classe o di evento — può usare
+progetto - documentazione, interfaccia, materiale pubblico, nome di classe o di evento - può usare
 «monitoraggio in tempo reale», «sorveglianza continua» o formule equivalenti (vincolo `V-144`).
 Non è cautela redazionale: è la scelta da cui dipende tutto il percorso regolatorio a valle. Il
 **congelamento formale è stato deliberato** (`D55`, che chiude la questione `Q-144`), e ne discende
@@ -154,7 +154,7 @@ reale clinico**, e la valutazione va fatta prima di scrivere la funzione, non do
 
 Il vincolo `V1` stabilisce che **nessun componente obbligatorio del percorso principale dipenda da
 servizi non sostituibili o stabiliti fuori dall'Unione europea**. Tre profili di dispiegamento
-sono documentati e supportati — Unione europea, territorio italiano, cloud qualificato nazionale —
+sono documentati e supportati - Unione europea, territorio italiano, cloud qualificato nazionale -
 e nessuna dipendenza di runtime può impedire il profilo più restrittivo (`D24`).
 
 La ragione per cui questo ha smesso di essere un argomento commerciale è precisa: la
@@ -169,13 +169,13 @@ architetturale (`D40`). Il progetto fornisce, come artefatto, la scheda con i da
 La stessa logica vale in negativo: il servizio esterno di terminologia, se stabilito fuori
 dall'Unione, è un trasferimento nel momento in cui riceve dati riferibili a un assistito. La
 risposta del progetto non è collocarlo altrove ma **non mandargli mai identificativi
-dell'assistito** — la sovranità si soddisfa per assenza di dato (vincolo `V-151`).
+dell'assistito** - la sovranità si soddisfa per assenza di dato (vincolo `V-151`).
 
 ### 3.5 Accessibilità e progettazione a partire dallo schermo piccolo sono requisiti funzionali
 
-`D25` lo stabilisce come vincolo trasversale di tutto il sistema — interfaccia dell'assistito,
+`D25` lo stabilisce come vincolo trasversale di tutto il sistema - interfaccia dell'assistito,
 interfaccia clinica, pannelli di amministrazione, componente incorporabile, documentazione,
-messaggi di errore, notifiche — e non come rifinitura finale. Il criterio di accettazione
+messaggi di errore, notifiche - e non come rifinitura finale. Il criterio di accettazione
 operativo è verificabile:
 
 > ogni requisito funzionale deve poter essere completato da un assistito anziano su smartphone in
@@ -190,7 +190,7 @@ di tema che degradi il contrasto **viene rifiutata al salvataggio**, non segnala
 
 ## 4. Chi ne beneficia, e in che modo
 
-Il capitolo [03 — A chi si rivolge](./03-a-chi-si-rivolge.md) tratta ciascun destinatario per
+Il capitolo [03 - A chi si rivolge](./03-a-chi-si-rivolge.md) tratta ciascun destinatario per
 esteso, con ciò che ottiene, ciò che deve mettere di suo e ciò che il progetto non gli dà. Qui la
 sintesi.
 
@@ -212,13 +212,13 @@ qualcosa che non fa produce affidamento improprio, e il danno non nasce da ciò 
 ma da ciò che una persona non fa perché si fida; perché il perimetro è il confine fra ciò di cui
 risponde il progetto e ciò di cui risponde chi lo usa.
 
-L'elenco completo, con identificativo `OUT-nn`, categoria di riapribilità e — soprattutto —
+L'elenco completo, con identificativo `OUT-nn`, categoria di riapribilità e - soprattutto -
 **colonna di verifica**, è in
 [`docs/03_functional/07-fuori-perimetro.md`](../03_functional/07-fuori-perimetro.md).
 Un'esclusione che non si può verificare rientra dalla finestra alla prima consegna sotto
 pressione. Qui si riportano i non obiettivi nella forma in cui contano per chi valuta il progetto.
 
-### 5.1 Telemedic non è, oggi, un dispositivo medico — e non promette di esserlo entro una data
+### 5.1 Telemedic non è, oggi, un dispositivo medico - e non promette di esserlo entro una data
 
 Questo non obiettivo è quello che ha subito la modifica più importante, e va letto per intero
 perché è facile leggerlo come il contrario di ciò che dice.
@@ -226,9 +226,9 @@ perché è facile leggerlo come il contrario di ciò che dice.
 **Che cosa è cambiato.** Il progetto **ha deciso di assumere in proprio il ruolo di fabbricante**
 (`D58`), che emenda le decisioni precedenti nella parte in cui attribuivano il percorso di
 certificazione a un soggetto esterno indefinito. Le attività che erano attribuite a «chi intende
-certificare» — costituzione del fabbricante, nomina della persona responsabile del rispetto della
+certificare» - costituzione del fabbricante, nomina della persona responsabile del rispetto della
 normativa, richieste di informazioni agli organismi notificati, avvio del piano di valutazione
-clinica — **sono del progetto**. Il soggetto giuridico che le eserciterà è però **ancora da
+clinica - **sono del progetto**. Il soggetto giuridico che le eserciterà è però **ancora da
 costituire**, ed è un prerequisito interno con un proprio tempo.
 
 **Che cosa non è cambiato**, e va detto ogni volta che serve:
@@ -253,12 +253,6 @@ degli identificativi di requisito, inventario dei componenti di terze parti e di
 materiali generati dalla prima catena di costruzione, controllo dei documenti, separazione
 dichiarata fra repository e distribuzione. Erano prioritarie quando il fabbricante era un terzo
 indefinito; lo sono a maggior ragione ora che il fabbricante sarà il progetto.
-
-> **Nota di allineamento.** L'area di conformità e le avvertenze alla radice del repository sono
-> in parte costruite sulla figura del fabbricante come soggetto terzo, e la loro riscrittura è
-> prevista da `D58`. La riscrittura **non attenua alcuna avvertenza**: cambia chi è il destinatario
-> del percorso, non quanto il prodotto è pronto oggi. Dove questa panoramica e quelle pagine
-> divergono su questo punto, prevale il testo di `D58`.
 
 ### 5.2 Telemedic non vuole essere accreditato presso la federazione nazionale delle identità
 
@@ -290,7 +284,7 @@ dati e i documenti generati e il conferimento al fascicolo è a carico delle str
 
 Non chiama i soccorsi e non li allerta automaticamente (`OUT-13`). Ciò che fa è **logistico, non
 clinico**: rende immediatamente disponibili al professionista le informazioni che non ha perché
-l'assistito non è nella stessa stanza — indirizzo in cui la persona si trova **in quel momento**,
+l'assistito non è nella stessa stanza - indirizzo in cui la persona si trova **in quel momento**,
 recapiti, contatto di emergenza dichiarato. Da qui un requisito che sorprende chi non ha pensato
 al caso: l'indirizzo di svolgimento va chiesto e confermato all'inizio di ogni sessione, perché
 l'indirizzo di residenza anagrafico è inutile in emergenza.
@@ -320,7 +314,7 @@ d'uso in cui una prestazione è **pagata** da un fondo, una mutua o una polizza 
 valido: **il pagatore non è un consultatore** (`D48`, vincolo `V-08`, `OUT-18`).
 
 Nessun ambito di autorizzazione, nessun tipo di evento, nessun modulo sostituibile e nessuna
-configurazione di tenant può costituire un percorso — diretto o mediato da un professionista — con
+configurazione di tenant può costituire un percorso - diretto o mediato da un professionista - con
 cui un pagatore ottiene contenuto clinico. Il profilo di integrazione del pagatore è
 **amministrativo per costruzione**: identificativo della prestazione, esito amministrativo,
 importo (vincolo `V-166`). È l'esclusione **non riapribile** finché la fonte è in vigore.
@@ -361,7 +355,7 @@ ciò che presuppone un sistema di controllo dei documenti di un fabbricante.
 
 ## 6. Che cosa il progetto si vieta di dire
 
-Due elenchi di formule vietate sono in vigore, e valgono per ogni artefatto pubblico —
+Due elenchi di formule vietate sono in vigore, e valgono per ogni artefatto pubblico -
 documentazione, sito, `README`, titolo di sezione, descrizione di interfaccia, messaggio di
 errore, nota di rilascio, risposta a una gara.
 
@@ -421,15 +415,15 @@ nessun software, e la capacità disponibile è **un contributore unico a tempo p
 Da qui l'obbligo che discende da `D53` e che non è un'opzione: **l'ambito del primo rilascio si
 riduce a ciò che quella capacità può costruire e verificare nel tempo disponibile**, dichiarando
 che cosa entra, che cosa è tagliato e quali tagli sono reversibili. Il capitolo
-[04 — Stato e limiti](./04-stato-e-limiti.md) espone la fotografia e le tensioni che ne discendono.
+[04 - Stato e limiti](./04-stato-e-limiti.md) espone la fotografia e le tensioni che ne discendono.
 
 ## Dove continuare
 
-- [02 — Le quattro prestazioni](./02-le-quattro-prestazioni.md): che cosa distingue davvero
+- [02 - Le quattro prestazioni](./02-le-quattro-prestazioni.md): che cosa distingue davvero
   televisita, teleconsulto, teleassistenza e telemonitoraggio, e quali obblighi distinti portano.
-- [03 — A chi si rivolge](./03-a-chi-si-rivolge.md): per ciascun destinatario, che cosa ottiene,
+- [03 - A chi si rivolge](./03-a-chi-si-rivolge.md): per ciascun destinatario, che cosa ottiene,
   che cosa deve mettere di suo, che cosa il progetto non gli dà.
-- [04 — Stato e limiti](./04-stato-e-limiti.md): la fotografia reale, i limiti dichiarati e le
+- [04 - Stato e limiti](./04-stato-e-limiti.md): la fotografia reale, i limiti dichiarati e le
   tensioni accettate consapevolmente.
 - [`docs/03_functional/07-fuori-perimetro.md`](../03_functional/07-fuori-perimetro.md): l'elenco
   completo delle esclusioni con la categoria di riapribilità e la verifica di ciascuna.

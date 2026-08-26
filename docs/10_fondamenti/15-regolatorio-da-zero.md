@@ -10,7 +10,7 @@ description: Perché il codice di questo progetto ha vincoli che altrove non esi
 > Serve a far capire a chi scrive codice perché certe regole esistono e cosa cambia in
 > pratica. Non sostituisce il parere di un consulente di *regulatory affairs*, non costituisce
 > una determinazione di qualificazione o di classificazione, e non impegna nessuno. Le
-> decisioni regolatorie appartengono a chi assume il ruolo di fabbricante (sezione 3) e vanno
+> decisioni regolatorie appartengono al soggetto fabbricante, da costituire (sezione 3) e vanno
 > confermate sui testi normativi originali. Dove un dato è stimato, incerto o proveniente da
 > fonte secondaria, è dichiarato tale; ciò che non è stato verificato su fonte primaria è
 > marcato **[NV]**.
@@ -49,13 +49,13 @@ La norma di riferimento nell'Unione europea è il **Regolamento (UE) 2017/745**,
 > «qualunque strumento, apparecchio, apparecchiatura, **software**, impianto, reagente,
 > materiale o altro articolo, destinato dal fabbricante a essere impiegato sull'uomo, da solo o
 > in combinazione, per una o più delle seguenti destinazioni d'uso mediche specifiche:
-> — diagnosi, prevenzione, monitoraggio, previsione, prognosi, trattamento o attenuazione di
+> - diagnosi, prevenzione, monitoraggio, previsione, prognosi, trattamento o attenuazione di
 > malattie,
-> — diagnosi, monitoraggio, trattamento, attenuazione o compensazione di una lesione o di una
+> - diagnosi, monitoraggio, trattamento, attenuazione o compensazione di una lesione o di una
 > disabilità,
-> — studio, sostituzione o modifica dell'anatomia oppure di un processo o stato fisiologico o
+> - studio, sostituzione o modifica dell'anatomia oppure di un processo o stato fisiologico o
 > patologico,
-> — fornire informazioni attraverso l'esame in vitro di campioni provenienti dal corpo umano
+> - fornire informazioni attraverso l'esame in vitro di campioni provenienti dal corpo umano
 > […]
 > e che non esercita nel o sul corpo umano l'azione principale cui è destinato mediante mezzi
 > farmacologici, immunologici o metabolici, ma la cui funzione può essere coadiuvata da tali
@@ -72,7 +72,7 @@ milioni di righe può non esserlo affatto.
 **Secondo: «destinato dal fabbricante».** È il perno di tutto ed è il tema della sezione 1.3.
 
 **Terzo: le finalità sono tassative.** Diagnosi, prevenzione, monitoraggio, previsione,
-prognosi, trattamento, attenuazione — riferite a malattie, lesioni o disabilità — più lo studio,
+prognosi, trattamento, attenuazione - riferite a malattie, lesioni o disabilità - più lo studio,
 la sostituzione o la modifica dell'anatomia o di un processo fisiologico. Fuori da questo elenco
 non c'è finalità medica ai sensi dell'MDR, per quanto il prodotto sia sanitario nel senso
 comune. La fatturazione di uno studio medico è attività sanitaria e non è finalità medica. La
@@ -170,8 +170,8 @@ flowchart TD
 
 Tre nodi meritano una lettura attenta.
 
-**Il passo 3 è quello che decide quasi tutto.** L'elenco delle azioni «neutre» — archiviare,
-conservare, comunicare, cercare in modo semplice, comprimere senza perdita — descrive
+**Il passo 3 è quello che decide quasi tutto.** L'elenco delle azioni «neutre» - archiviare,
+conservare, comunicare, cercare in modo semplice, comprimere senza perdita - descrive
 esattamente ciò che fa un sistema informativo. La nota che accompagna il passo definisce
 «comunicazione» richiamando la norma IEEE 610.10-1994: «the flow of information from one point,
 known as the source, to another, the receiver». Instradare messaggi di segnalazione, trasportare
@@ -189,7 +189,7 @@ qualify the software as MDSW». È una difesa solida, ma non priva di attrito, e
 quanto più la comunicazione pubblica enfatizza l'adeguatezza diagnostica del canale.
 
 **Il passo 4 esclude ciò che non riguarda il singolo paziente.** Aggregazioni di popolazione,
-percorsi generici, letteratura, atlanti, registri epidemiologici, e — caso rilevante per noi —
+percorsi generici, letteratura, atlanti, registri epidemiologici, e - caso rilevante per noi -
 **le metriche di qualità della rete**: tempo di andata e ritorno, perdita di pacchetti, *jitter*,
 *bitrate*. Sono a beneficio della gestione dell'infrastruttura, non del paziente individuale.
 Vanno documentate con questa motivazione esplicita, non lasciate implicite.
@@ -222,7 +222,7 @@ general purposes, and do not fall within the definition of a medical device.**»
 l'avvertimento: «*A software module generating alarms based on the monitoring and analysis of
 patient specific physiological parameters is qualified as a medical device (MDSW).*»
 
-**d.1) Sistemi di telemedicina** (p. 27) — il passaggio decisivo, riscritto proprio con la
+**d.1) Sistemi di telemedicina** (p. 27) - il passaggio decisivo, riscritto proprio con la
 revisione 1:
 
 > «Telemedicine that solely transfers and displays information for monitoring purposes **without
@@ -264,13 +264,13 @@ direttamente un componente pensato per essere incorporato:
 > device. […] **Therefore, the manufacturer must assess the host module's interface as part of
 > the MDSW's usability and clinical performance evaluations.**»
 
-Tradotto: se un giorno qualcuno — un integratore, un terzo, un *fork* — costruisce sopra questa
+Tradotto: se un giorno qualcuno - un integratore, un terzo, un *fork* - costruisce sopra questa
 piattaforma un modulo con finalità medica, **la nostra interfaccia utente e la nostra pipeline
 multimediale entrano nel perimetro di valutazione dell'usabilità e delle prestazioni cliniche di
 quel modulo**, pur restando esse stesse non-dispositivo. Ecco perché il vincolo architetturale
-**V2** — separazione esplicita fra «veicolo di comunicazione» e «supporto alla decisione
-clinica» — non è una preferenza di design: è un requisito documentale imposto dalla linea guida,
-ed è ciò che rende il nostro lavoro utilizzabile da chi certifica.
+**V2** - separazione esplicita fra «veicolo di comunicazione» e «supporto alla decisione
+clinica» - non è una preferenza di design: è un requisito documentale imposto dalla linea guida,
+ed è ciò che rende il nostro lavoro utilizzabile dal fabbricante nel percorso di conformità.
 
 ---
 
@@ -286,15 +286,15 @@ rigore procedurale l'ordinamento pretende prima che il prodotto arrivi a un pazi
 Il capo II dell'Allegato VIII contiene le **regole di applicazione**, cioè le meta-regole che
 dicono come si usano le regole di classificazione. Quattro sono decisive per il software:
 
-- **3.1** — «L'applicazione delle regole di classificazione si basa sulla destinazione d'uso dei
+- **3.1** - «L'applicazione delle regole di classificazione si basa sulla destinazione d'uso dei
   dispositivi.» Di nuovo la destinazione d'uso, non la tecnologia.
-- **3.3** — «Il software destinato a far funzionare un dispositivo o a influenzarne l'uso rientra
+- **3.3** - «Il software destinato a far funzionare un dispositivo o a influenzarne l'uso rientra
   nella stessa classe del dispositivo. **Se il software non è connesso con nessun altro
   dispositivo, è classificato separatamente.**»
-- **3.5** — «Se diverse regole o, nell'ambito della stessa regola, più sottoregole si applicano
+- **3.5** - «Se diverse regole o, nell'ambito della stessa regola, più sottoregole si applicano
   allo stesso dispositivo in base alla sua destinazione d'uso, **si applicano la regola e
   sottoregola più rigorose che comportano la classificazione più elevata**.»
-- **3.7** — «Si ritiene che un dispositivo consenta una diagnosi diretta quando fornisce esso
+- **3.7** - «Si ritiene che un dispositivo consenta una diagnosi diretta quando fornisce esso
   stesso la diagnosi della malattia o della condizione clinica in questione **o quando fornisce
   informazioni decisive per la diagnosi**.»
 
@@ -320,10 +320,10 @@ Allegato VIII, capo III, punto 6.3:
 > diagnostici o terapeutici rientra nella classe IIa, a meno che tali decisioni abbiano effetti
 > tali da poter causare:
 >
-> — il decesso o un deterioramento irreversibile delle condizioni di salute di una persona, nel
+> - il decesso o un deterioramento irreversibile delle condizioni di salute di una persona, nel
 > qual caso rientra nella classe III, o
 >
-> — un grave deterioramento delle condizioni di salute di una persona o un intervento chirurgico,
+> - un grave deterioramento delle condizioni di salute di una persona o un intervento chirurgico,
 > nel qual caso rientra nella classe IIb.
 >
 > Il software destinato a monitorare i processi fisiologici rientra nella classe IIa, a meno che
@@ -375,7 +375,7 @@ E sotto la tabella, in nota, la frase che chiude il discorso:
 
 Cioè: nella matrice applicata alla Regola 11a, **la Classe I non compare in nessuna cella**. Ogni
 software che sia stato qualificato come dispositivo medico e che fornisca informazione usata per
-decisioni cliniche — per quanto marginale l'informazione, per quanto non grave la condizione — è
+decisioni cliniche - per quanto marginale l'informazione, per quanto non grave la condizione - è
 **almeno IIa**.
 
 La catena logica che ne discende è ineludibile:
@@ -394,8 +394,8 @@ non di monitoraggio*. I due unici esempi che la linea guida offre (Allegato IV, 
 un'applicazione che calcola lo stato di fertilità da temperatura basale e giorni di mestruazione
 restituendolo con un semaforo, e un'applicazione che assiste persone con disturbi della
 comunicazione convertendo simboli in linguaggio parlato. Entrambe hanno una finalità medica
-riconducibile all'art. 2(1) — rispettivamente controllo o supporto della concezione e
-compensazione di una disabilità — **senza** produrre informazione usata per una decisione
+riconducibile all'art. 2(1) - rispettivamente controllo o supporto della concezione e
+compensazione di una disabilità - **senza** produrre informazione usata per una decisione
 diagnostica o terapeutica. Un canale audio-video sicuro non appartiene a quella famiglia.
 
 Questa constatazione ha una conseguenza che il progetto ha recepito formalmente (decisione
@@ -487,8 +487,8 @@ Il progetto ha registrato questa constatazione come decisione formale (**D46**).
 
 | Formulazione della destinazione d'uso | Classe MDR | Classe di sicurezza software | Differenza |
 |---|---|---|---|
-| «monitoraggio **in tempo reale** dei parametri vitali» | **IIb** (Regola 11, secondo comma) | **C** | 12–18 mesi e un ordine di grandezza di costo in più — **stima, non listino** |
-| «raccolta **differita** di parametri per la **revisione periodica** del professionista» | **IIa** | **B** | — |
+| «monitoraggio **in tempo reale** dei parametri vitali» | **IIb** (Regola 11, secondo comma) | **C** | 12–18 mesi e un ordine di grandezza di costo in più - **stima, non listino** |
+| «raccolta **differita** di parametri per la **revisione periodica** del professionista» | **IIa** | **B** | - |
 
 Due parole. La differenza fra «in tempo reale» e «differita», e fra «parametri vitali» e
 «parametri», vale più di qualunque scelta tecnologica presa in tutto il progetto. Ecco perché la
@@ -554,7 +554,7 @@ leggerlo, perché rende concreto ciò che altrimenti resta astratto.
 | 10(11) | Informazioni che accompagnano il dispositivo nelle **lingue ufficiali** determinate dallo Stato membro | Istruzioni per l'uso in italiano |
 | 10(12) | Azioni correttive immediate in caso di non conformità | Procedura di azione correttiva di sicurezza sul campo |
 | 10(13) | Registrazione e segnalazione degli **incidenti** | Sezione 4.9 |
-| 10(14) | Fornitura all'autorità di ogni informazione utile a dimostrare la conformità | — |
+| 10(14) | Fornitura all'autorità di ogni informazione utile a dimostrare la conformità | - |
 | 10(16) | **Copertura finanziaria sufficiente** per la potenziale responsabilità da prodotto | Sezione 8.4 |
 
 Fra gli elementi del sistema qualità elencati al paragrafo 9, la lettera **(d)** merita una
@@ -574,8 +574,8 @@ con competenza comprovata da:
   sistemi di gestione della qualità; **oppure**
 - (b) quattro anni di esperienza professionale in materia regolatoria o in sistemi qualità.
 
-Le micro e piccole imprese — secondo la Raccomandazione 2003/361/CE, micro sotto i 10 addetti e
-2 milioni di euro, piccola sotto i 50 addetti e 10 milioni — **non sono tenute ad avere la PRRC
+Le micro e piccole imprese - secondo la Raccomandazione 2003/361/CE, micro sotto i 10 addetti e
+2 milioni di euro, piccola sotto i 50 addetti e 10 milioni - **non sono tenute ad avere la PRRC
 all'interno dell'organizzazione, ma devono averla a disposizione in modo permanente e
 continuativo**, tipicamente per contratto.
 
@@ -616,11 +616,11 @@ l'articolo che gli attribuisce il ruolo.
 
 Le definizioni contano, perché ciascuna fa scattare obblighi diversi.
 
-- **art. 2(27) — «messa a disposizione sul mercato»**: qualsiasi fornitura di un dispositivo per
+- **art. 2(27) - «messa a disposizione sul mercato»**: qualsiasi fornitura di un dispositivo per
   la distribuzione, il consumo o l'uso sul mercato dell'Unione **nel corso di un'attività
   commerciale**, a titolo oneroso **o gratuito**;
-- **art. 2(28) — «immissione sul mercato»**: la prima messa a disposizione;
-- **art. 2(29) — «messa in servizio»**: lo stadio in cui il dispositivo è reso disponibile
+- **art. 2(28) - «immissione sul mercato»**: la prima messa a disposizione;
+- **art. 2(29) - «messa in servizio»**: lo stadio in cui il dispositivo è reso disponibile
   all'utilizzatore finale **come pronto per l'uso** per la sua destinazione d'uso.
 
 Tre conseguenze operative, distinte e non intercambiabili:
@@ -652,27 +652,27 @@ non è stato sottoposto alla valutazione di un Organismo Notificato.
 
 Il ragionamento che sorregge questa affermazione si articola in quattro passaggi.
 
-**Primo — il codice sorgente non è un dispositivo pronto per l'uso.** Un dispositivo si mette in
+**Primo - il codice sorgente non è un dispositivo pronto per l'uso.** Un dispositivo si mette in
 servizio quando è «reso disponibile all'utilizzatore finale come pronto per l'uso per la sua
 destinazione d'uso» (art. 2(29)). Un repository che richiede compilazione, configurazione,
 integrazione con sistemi di identità e anagrafiche, scelta dell'infrastruttura di rete e
 definizione delle soglie cliniche non è pronto per l'uso: è materiale da cui qualcuno costruirà
 un prodotto.
 
-**Secondo — non c'è attività commerciale.** Il progetto non vende, non offre servizi gestiti, non
+**Secondo - non c'è attività commerciale.** Il progetto non vende, non offre servizi gestiti, non
 fattura supporto. È la condizione che tiene il repository fuori dalla nozione di «messa a
 disposizione sul mercato» dell'art. 2(27), ed è una condizione **fattuale e revocabile**: se un
 giorno il progetto monetizzasse, il confine si sposterebbe e la posizione andrebbe rivista. Per
 questo la dichiarazione va tenuta aggiornata e non è un testo scritto una volta.
 
-**Terzo — non c'è fabbricante.** Nessuno appone il proprio nome o marchio su un dispositivo
+**Terzo - non c'è fabbricante.** Nessuno appone il proprio nome o marchio su un dispositivo
 commercializzato. Manca il secondo elemento cumulativo della definizione dell'art. 2(30).
 
-**Quarto — il progetto produce comunque il materiale regolatorio.** È il punto che distingue
+**Quarto - il progetto produce comunque il materiale regolatorio.** È il punto che distingue
 questa posizione da una scappatoia. Fascicolo tecnico, documentazione di ciclo di vita, gestione
 del rischio, ingegneria dell'usabilità, distinta dei materiali software sono prodotti e
-pubblicati — **per rendere praticabile il percorso di chi certifica, non per sostituirlo**. In
-linguaggio tecnico: il progetto si rende utilizzabile come **SOUP documentato** (sezione 5.5)
+pubblicati - **per rendere praticabile il percorso di conformità del fabbricante, non per
+sostituirlo**. In linguaggio tecnico: il progetto si rende utilizzabile come **SOUP documentato** (sezione 5.5)
 invece che come codice di provenienza ignota.
 
 C'è un'ultima ragione, meno ovvia, per cui questa dichiarazione deve essere presente **in ogni
@@ -690,7 +690,7 @@ dichiarazione.
 Chi installa, integra, distribuisce o mette in servizio questo software in un contesto sanitario
 reale:
 
-1. **deve verificare il codice** — non è una formula di stile: è la condizione a cui il progetto
+1. **deve verificare il codice** - non è una formula di stile: è la condizione a cui il progetto
    rende disponibile il proprio lavoro;
 2. **assume il ruolo di fabbricante** ai sensi dell'MDR, con qualificazione, classificazione,
    valutazione della conformità, valutazione clinica, sorveglianza post-commercializzazione e
@@ -727,8 +727,8 @@ sostenibile per la telemedicina.
 ### 3.8 I contributori non sono fabbricanti, ma il controllo della progettazione deve restare da
 qualche parte
 
-Il problema simmetrico è reale: chi certifica deve poter rispondere di codice scritto da persone
-che non controlla. La soluzione non è giuridica, è di processo, e vive interamente nel repository:
+Il problema simmetrico è reale: il fabbricante deve poter rispondere di codice scritto da
+persone che non controlla. La soluzione non è giuridica, è di processo, e vive interamente nel repository:
 
 | Meccanismo | Funzione regolatoria |
 |---|---|
@@ -743,9 +743,11 @@ che non controlla. La soluzione non è giuridica, è di processo, e vive interam
 
 ## 4. Il percorso di conformità
 
-Questa sezione descrive che cosa accade a chi certifica. Il progetto non percorre questo cammino
-(decisione **D49**), ma produce il materiale che lo rende percorribile: capirne la sequenza serve
-a capire perché certi artefatti esistono e perché hanno quella forma.
+Questa sezione descrive il percorso di conformità che il progetto intende percorrere. Con la
+decisione **D63** del 26 agosto 2026 il committente ha deciso che il sistema deve essere adatto
+all'erogazione di prestazioni su pazienti reali: il soggetto fabbricante, da costituire, dovrà
+seguire questo percorso. Capirne la sequenza serve a comprendere perché certi artefatti devono
+avere quella forma e quale sia l'ordine di dipendenza dei lavori.
 
 ### 4.1 La sequenza
 
@@ -785,11 +787,11 @@ sequenceDiagram
 i requisiti applicabili. Per la Classe IIa l'**art. 52, paragrafo 6**, offre due strade
 alternative:
 
-- **Strada 1** — valutazione basata sul **sistema di gestione della qualità**: Allegato IX,
+- **Strada 1** - valutazione basata sul **sistema di gestione della qualità**: Allegato IX,
   **capo I** (valutazione del SGQ) e **capo III** (disposizioni amministrative), **più** la
   valutazione della documentazione tecnica di cui alla **sezione 4** dell'Allegato IX per almeno
   un dispositivo rappresentativo per ciascuna categoria.
-- **Strada 2** — documentazione tecnica degli Allegati II e III unita a una valutazione ai sensi
+- **Strada 2** - documentazione tecnica degli Allegati II e III unita a una valutazione ai sensi
   dell'**Allegato XI**, nella variante «garanzia di qualità della produzione» (parte A) o
   «verifica del prodotto» (parte B). **[NV]** i numeri di sezione dell'Allegato XI applicabili
   alla Classe IIa vanno riletti sul testo consolidato prima di essere citati in un documento di
@@ -865,7 +867,7 @@ fissata dall'**Allegato II**:
    È il documento da cui si naviga tutto il resto: va costruito come tabella con collegamenti a
    documenti versionati alla revisione esatta, non come prosa.
 5. **Analisi benefici-rischi e gestione del rischio.**
-6. **Verifica e convalida del prodotto**, con — per il software — la sintesi dei risultati di
+6. **Verifica e convalida del prodotto**, con - per il software - la sintesi dei risultati di
    tutte le verifiche e convalide eseguite prima del rilascio definitivo, su tutte le
    configurazioni hardware e i sistemi operativi dichiarati.
 
@@ -895,8 +897,8 @@ soli metodi di prova non clinici quando la dimostrazione su dati clinici non è 
 richiede una **giustificazione adeguata** fondata sui risultati della gestione dei rischi.
 
 **Ogni beneficio clinico dichiarato va dimostrato individualmente.** La linea guida
-**MDCG 2020-1** sulla valutazione clinica del software articola l'evidenza in tre elementi —
-validità dell'associazione scientifica, prestazione tecnica o analitica, prestazione clinica — e
+**MDCG 2020-1** sulla valutazione clinica del software articola l'evidenza in tre elementi -
+validità dell'associazione scientifica, prestazione tecnica o analitica, prestazione clinica - e
 richiede che ogni indicazione e ogni beneficio dichiarato nella destinazione d'uso sia valutato e
 supportato. Conseguenza pratica: **ogni parola aggiunta al beneficio clinico è evidenza in più da
 produrre.** Dichiarare «migliora l'aderenza» o «equivalenza diagnostica rispetto alla visita in
@@ -938,11 +940,11 @@ Il sistema **UDI** (*Unique Device Identification*, art. 27) si articola su tre 
 - lo **UDI-DI** identifica la versione o il modello specifico;
 - lo **UDI-PI** identifica l'unità di produzione: per il software, la **versione**.
 
-La linea guida **MDCG 2018-5** stabilisce il criterio: una **revisione maggiore** — modifica delle
+La linea guida **MDCG 2018-5** stabilisce il criterio: una **revisione maggiore** - modifica delle
 prestazioni originali, della sicurezza o dell'interpretazione dei dati, oppure modifica di nome,
-versione, numero di modello, avvertenze critiche, controindicazioni, lingua dell'interfaccia —
-richiede un **nuovo UDI-DI**; una **revisione minore** — correzione di difetti, miglioramenti di
-usabilità non legati alla sicurezza, patch di sicurezza, efficienza operativa — richiede solo un
+versione, numero di modello, avvertenze critiche, controindicazioni, lingua dell'interfaccia -
+richiede un **nuovo UDI-DI**; una **revisione minore** - correzione di difetti, miglioramenti di
+usabilità non legati alla sicurezza, patch di sicurezza, efficienza operativa - richiede solo un
 nuovo UDI-PI.
 
 Nota per chi gestisce il versionamento: la corrispondenza con il versionamento semantico **non è
@@ -967,7 +969,7 @@ sulla base di un **piano** che fa parte della documentazione tecnica. Per la Cla
 anni per la IIa.
 
 **Vigilanza** (artt. 87–92): la segnalazione degli incidenti gravi e delle azioni correttive di
-sicurezza, con termini graduati sulla gravità — **15 giorni** dalla conoscenza dell'incidente
+sicurezza, con termini graduati sulla gravità - **15 giorni** dalla conoscenza dell'incidente
 grave in via ordinaria, **10 giorni** in caso di decesso o grave deterioramento imprevisto,
 **2 giorni** in caso di grave minaccia per la salute pubblica.
 
@@ -978,9 +980,9 @@ grave in via ordinaria, **10 giorni** in caso di decesso o grave deterioramento 
 | Destinazione d'uso, qualificazione, classificazione | Decide e motiva | Firma | Verifica | Può contestare, anche in via preventiva |
 | Sistema di gestione della qualità | Istituisce e mantiene | Sorveglia | Certifica (Allegato IX capo I) | Vigilanza del mercato |
 | Fascicolo tecnico | Redige e aggiorna | Predispone e aggiorna (art. 15.3) | Valuta (Allegato IX sez. 4) | Può richiederlo |
-| Valutazione clinica | Pianifica e conduce | Verifica | Valuta | — |
-| Dichiarazione di conformità | **Redige e firma** | Predispone | — | Può richiederla |
-| Marcatura CE | **Appone** | Verifica prima del rilascio | Fornisce il proprio numero | — |
+| Valutazione clinica | Pianifica e conduce | Verifica | Valuta | - |
+| Dichiarazione di conformità | **Redige e firma** | Predispone | - | Può richiederla |
+| Marcatura CE | **Appone** | Verifica prima del rilascio | Fornisce il proprio numero | - |
 | Registrazione EUDAMED | Esegue | Cura gli adempimenti | Registra i certificati | Convalida gli attori |
 | Vigilanza sugli incidenti | Segnala | Cura le segnalazioni | Ne tiene conto in sorveglianza | Riceve e valuta |
 
@@ -1023,7 +1025,7 @@ seriamente su una di queste norme bisogna acquistarne il testo.
 | **IEC 82304-1:2016** | Prodotto software sanitario | *In quale ambiente funziona e con quali limiti?* |
 | **ISO/IEC 81001-5-1:2021** | Sicurezza nel ciclo di vita | *Come si difende, e come si gestiscono le vulnerabilità?* |
 
-### 5.3 ISO 13485 — il sistema di gestione della qualità
+### 5.3 ISO 13485 - il sistema di gestione della qualità
 
 **Cosa richiede.** Un sistema di gestione della qualità specifico dei dispositivi medici,
 costruito sull'impianto della ISO 9001 ma con enfasi sull'efficacia regolatoria anziché sul
@@ -1052,25 +1054,25 @@ l'aggiunta di una dipendenza non è una riga in un file di configurazione ma una
 approvvigionamento che va motivata.
 
 **Nota di realismo.** ISO 13485 ha valore verso terzi solo se **certificata** da un organismo
-accreditato — in Italia l'accreditamento è affidato all'ente unico nazionale designato ai sensi
+accreditato - in Italia l'accreditamento è affidato all'ente unico nazionale designato ai sensi
 del Regolamento (CE) n. 765/2008. La sola conformità dichiarata ha valore commerciale limitato.
 Il certificato ISO 13485 **non sostituisce** il certificato dell'Organismo Notificato: quest'ultimo
 valuta il sistema qualità contro l'art. 10(9) MDR e l'Allegato IX, non contro la ISO 13485. Riduce
 però l'attrito e può accorciare l'audit.
 
-### 5.4 IEC 62304 — il ciclo di vita del software
+### 5.4 IEC 62304 - il ciclo di vita del software
 
 **Cosa richiede.** Un processo di ciclo di vita per il software dei dispositivi medici, con
 attività obbligatorie che dipendono dalla **classe di sicurezza** dell'elemento software.
 
 Le classi (clausola 4.3, come emendata nel 2015):
 
-- **Classe A** — il sistema software **non può contribuire a una situazione pericolosa**, oppure
+- **Classe A** - il sistema software **non può contribuire a una situazione pericolosa**, oppure
   può contribuirvi ma il rischio risultante è accettabile **dopo** misure di controllo **esterne
   al sistema software**;
-- **Classe B** — può portare a una situazione pericolosa anche dopo le misure di controllo, ma il
+- **Classe B** - può portare a una situazione pericolosa anche dopo le misure di controllo, ma il
   danno possibile **non è grave**;
-- **Classe C** — può portare a una situazione pericolosa anche dopo le misure di controllo, e il
+- **Classe C** - può portare a una situazione pericolosa anche dopo le misure di controllo, e il
   danno possibile **è grave o mortale**.
 
 Due cose che quasi tutti fraintendono:
@@ -1091,11 +1093,11 @@ I processi obbligatori per classe:
 |---|---|---|---|
 | 5.1 Pianificazione dello sviluppo | ✔ | ✔ | ✔ |
 | 5.2 Analisi dei requisiti software | ✔ | ✔ | ✔ |
-| 5.3 Progettazione architetturale | — | ✔ | ✔ |
-| 5.4 Progettazione dettagliata (a livello di unità) | — | — | ✔ |
-| 5.5 Implementazione e verifica delle unità | — | ✔ | ✔ |
-| 5.6 Integrazione e test di integrazione | — | ✔ | ✔ |
-| 5.7 Test del sistema software | — | ✔ | ✔ |
+| 5.3 Progettazione architetturale | - | ✔ | ✔ |
+| 5.4 Progettazione dettagliata (a livello di unità) | - | - | ✔ |
+| 5.5 Implementazione e verifica delle unità | - | ✔ | ✔ |
+| 5.6 Integrazione e test di integrazione | - | ✔ | ✔ |
+| 5.7 Test del sistema software | - | ✔ | ✔ |
 | 5.8 Rilascio | ✔ | ✔ | ✔ |
 | 6 Manutenzione | ridotto | ✔ | ✔ |
 | 7 Gestione del rischio software | ridotto | ✔ | ✔ |
@@ -1118,7 +1120,7 @@ di sviluppo.
 **Ogni dipendenza è SOUP.** Ogni libreria, ogni immagine di base, ogni runtime, ogni componente
 di infrastruttura. Errore frequente: un componente open source **non smette di essere SOUP**
 perché il codice è visibile. La clausola guarda alla disponibilità di **registrazioni dei processi
-di sviluppo** — piano, requisiti, evidenze di verifica — non alla visibilità del sorgente.
+di sviluppo** - piano, requisiti, evidenze di verifica - non alla visibilità del sorgente.
 
 I requisiti applicabili: specificare i requisiti funzionali e prestazionali di ciascun SOUP
 (5.3.3) e i requisiti dell'ambiente di esecuzione (5.3.4); identificare le **anomalie pubblicate**
@@ -1131,9 +1133,9 @@ stesso rigore è impossibile e non è richiesto:
 
 | Livello | Chi ci rientra | Trattamento |
 |---|---|---|
-| **L1 — critici** | Il componente realizza o supporta una misura di controllo del rischio, o un suo guasto può contribuire a una situazione pericolosa: crittografia, stack di trasporto multimediale, relay, gestione delle identità, motore della base dati, libreria di interoperabilità clinica, libreria di firma | Scheda completa: requisiti funzionali e prestazionali attesi, requisiti dell'ambiente, valutazione delle anomalie pubblicate, feed di vulnerabilità sorvegliato, criterio di aggiornamento, valutazione dell'impatto di ogni aggiornamento |
-| **L2 — piattaforma** | Framework e infrastruttura non coinvolti in misure di controllo | Scheda ridotta: identificazione, versione, funzione, feed di vulnerabilità, politica di aggiornamento |
-| **L3 — transitive** | Tutto il resto | Copertura tramite **distinta dei materiali software** generata dalla compilazione, firmata, allegata al rilascio, con controllo automatico sulle vulnerabilità note |
+| **L1 - critici** | Il componente realizza o supporta una misura di controllo del rischio, o un suo guasto può contribuire a una situazione pericolosa: crittografia, stack di trasporto multimediale, relay, gestione delle identità, motore della base dati, libreria di interoperabilità clinica, libreria di firma | Scheda completa: requisiti funzionali e prestazionali attesi, requisiti dell'ambiente, valutazione delle anomalie pubblicate, feed di vulnerabilità sorvegliato, criterio di aggiornamento, valutazione dell'impatto di ogni aggiornamento |
+| **L2 - piattaforma** | Framework e infrastruttura non coinvolti in misure di controllo | Scheda ridotta: identificazione, versione, funzione, feed di vulnerabilità, politica di aggiornamento |
+| **L3 - transitive** | Tutto il resto | Copertura tramite **distinta dei materiali software** generata dalla compilazione, firmata, allegata al rilascio, con controllo automatico sulle vulnerabilità note |
 
 **Cosa cambia in una *pull request*.** Quattro cose concrete:
 
@@ -1147,7 +1149,7 @@ stesso rigore è impossibile e non è richiesto:
 4. **una modifica al codice di prodotto senza un requisito a monte non è accettabile**: è un
    output senza input.
 
-### 5.5 ISO 14971 — la gestione del rischio, e la catena che va imparata
+### 5.5 ISO 14971 - la gestione del rischio, e la catena che va imparata
 
 **Cosa richiede.** Un processo, non un documento: analisi del rischio, ponderazione, controllo,
 valutazione del rischio residuo complessivo, riesame, e attività di produzione e post-produzione
@@ -1188,7 +1190,7 @@ Due precisazioni tecniche importanti.
 
 **ISO 14971 riguarda il danno a persone**, non il rischio per i diritti e le libertà degli
 interessati ai sensi dell'art. 35 GDPR. Sono due valutazioni distinte, con metodi e criteri
-diversi, che **non vanno fuse** — è l'errore più comune nei progetti di sanità digitale. Vanno
+diversi, che **non vanno fuse** - è l'errore più comune nei progetti di sanità digitale. Vanno
 però **collegate**: una violazione di riservatezza può produrre un danno alla persona, e alcuni
 scenari compaiono legittimamente in entrambi i file.
 
@@ -1199,10 +1201,10 @@ documentata, non un dato oggettivo.
 **Cosa cambia in una *pull request*.** Che se il tuo contributo implementa o modifica una misura di
 controllo del rischio, l'implementazione da sola non basta: serve la **verifica dell'attuazione**
 e la **verifica dell'efficacia**, entrambe registrate. E che se introduci una nuova situazione
-pericolosa — anche solo cambiando l'ordine di due schermate — il file di rischio va aggiornato
+pericolosa - anche solo cambiando l'ordine di due schermate - il file di rischio va aggiornato
 prima dell'accettazione, non dopo.
 
-### 5.6 IEC 62366-1 — l'ingegneria dell'usabilità e l'errore d'uso
+### 5.6 IEC 62366-1 - l'ingegneria dell'usabilità e l'errore d'uso
 
 **Cosa richiede.** Un processo che identifichi e mitighi i rischi legati all'uso. La norma
 distingue due nozioni che vanno tenute separate:
@@ -1214,7 +1216,7 @@ distingue due nozioni che vanno tenute separate:
 - **uso anomalo** (*abnormal use*): comportamento intenzionalmente contrario all'uso previsto,
   escluso dal perimetro della norma ma non dalla gestione del rischio.
 
-Il processo (clausola 5): specifica d'uso — profili degli utilizzatori, ambiente d'uso,
+Il processo (clausola 5): specifica d'uso - profili degli utilizzatori, ambiente d'uso,
 caratteristiche del paziente; identificazione delle **funzioni correlate alla sicurezza**;
 identificazione dei pericoli e delle situazioni pericolose legate all'uso; descrizione degli
 **scenari d'uso pericolosi**; selezione degli scenari da validare; specifica dell'interfaccia;
@@ -1245,18 +1247,18 @@ assistito anziano su smartphone in rete mobile, e da un professionista con la so
 lettore di schermo. Se non è possibile, il requisito non è soddisfatto.
 
 **Cosa cambia in una *pull request*.** Che una modifica all'interfaccia non è una modifica
-estetica. Se tocca una funzione correlata alla sicurezza — conferma dell'identità, indicatore di
-registrazione, indicatore di qualità del collegamento, conferma di trasmissione del documento —
+estetica. Se tocca una funzione correlata alla sicurezza - conferma dell'identità, indicatore di
+registrazione, indicatore di qualità del collegamento, conferma di trasmissione del documento -
 richiede la valutazione dell'impatto sugli scenari d'uso pericolosi, e può richiedere una nuova
 validazione. E che «l'ho provato e funziona» non è una valutazione di usabilità: la valutazione si
 fa con utenti rappresentativi secondo un protocollo definito prima.
 
 **Il punto debole atteso, dichiarato in anticipo:** la validazione sommativa richiede tempo,
 partecipanti reali e un protocollo approvato. È l'attività che, sotto pressione di scadenza, viene
-sacrificata per prima. Va pianificata subito oppure dichiarata esplicitamente come non svolta —
+sacrificata per prima. Va pianificata subito oppure dichiarata esplicitamente come non svolta -
 mai lasciata implicita.
 
-### 5.7 IEC 82304-1 — il prodotto e il suo ambiente
+### 5.7 IEC 82304-1 - il prodotto e il suo ambiente
 
 Mentre IEC 62304 è una norma «di processo», IEC 82304-1 è una norma «di prodotto» per il software
 sanitario autonomo. Copre i requisiti del prodotto, la validazione, l'**identificazione e
@@ -1271,14 +1273,14 @@ Il deliverable che ne discende, e che è più importante di quanto sembri, è un
 banda minima, latenza massima, perdita di pacchetti e *jitter* accettabili, configurazione del
 relay, e soglie misurabili sotto le quali il sistema **segnala la degradazione e sconsiglia la
 prosecuzione**. Quel documento è simultaneamente: conformità alla clausola 7 di IEC 82304-1,
-misura di controllo del rischio per lo scenario U3, e — come si vedrà nella sezione 8.4 — la
+misura di controllo del rischio per lo scenario U3, e - come si vedrà nella sezione 8.4 - la
 prova su cui poggia l'unica esenzione di responsabilità realisticamente invocabile da chi fornisce
 un componente.
 
-### 5.8 ISO/IEC 81001-5-1 — la sicurezza nel ciclo di vita
+### 5.8 ISO/IEC 81001-5-1 - la sicurezza nel ciclo di vita
 
 **Cosa richiede.** È il complemento «sicurezza informatica» di IEC 62304: mantiene la stessa
-struttura di processi e vi innesta attività di sicurezza — modellazione delle minacce, requisiti
+struttura di processi e vi innesta attività di sicurezza - modellazione delle minacce, requisiti
 di sicurezza, progettazione sicura, revisione del codice orientata alla sicurezza, test di
 sicurezza compresi *fuzzing* e test di penetrazione, gestione delle vulnerabilità dei componenti
 di terze parti **inclusi i SOUP**, divulgazione coordinata delle vulnerabilità, gestione degli
@@ -1291,8 +1293,8 @@ per impostazione predefinita, sicurezza lungo tutto il ciclo di vita, sorveglian
 post-commercializzazione e risposta agli incidenti.
 
 **Cosa cambia in una *pull request*.** Che il modello delle minacce è un artefatto vivo: una
-modifica che introduce una nuova superficie — un nuovo endpoint, un nuovo confine di fiducia, un
-nuovo formato di ingresso — richiede l'aggiornamento del modello prima dell'accettazione. Che il
+modifica che introduce una nuova superficie - un nuovo endpoint, un nuovo confine di fiducia, un
+nuovo formato di ingresso - richiede l'aggiornamento del modello prima dell'accettazione. Che il
 **file di rischio di sicurezza è distinto** dal file di rischio ISO 14971, ma collegato a esso.
 Che ogni rilascio dichiara una data di fine supporto. E che l'aggiornamento di un SOUP di livello
 L1 richiede la valutazione dell'impatto sulla sicurezza *prima* dell'inclusione nel rilascio: è il
@@ -1316,7 +1318,7 @@ punto su cui gli audit di sorveglianza insistono di più.
 ### 6.1 Cos'è
 
 **Tracciabilità** significa che esiste una catena esplicita e percorribile che collega ogni
-requisito alla sua realizzazione e alla prova che funziona — e che la si può percorrere **in
+requisito alla sua realizzazione e alla prova che funziona - e che la si può percorrere **in
 entrambe le direzioni**.
 
 ```mermaid
@@ -1337,12 +1339,12 @@ flowchart LR
 
 Le due direzioni rispondono a domande diverse, ed entrambe vengono poste.
 
-**In avanti — dal requisito alla prova.** *Questo requisito è realizzato? È verificato? Da quale
+**In avanti - dal requisito alla prova.** *Questo requisito è realizzato? È verificato? Da quale
 prova? Con quale esito, su quale versione?* Serve a dimostrare la **completezza**: nessun
 requisito è rimasto senza realizzazione, nessuna misura di controllo del rischio è rimasta senza
 verifica dell'efficacia.
 
-**All'indietro — dal codice al requisito.** *Perché esiste questa funzione? Da quale requisito
+**All'indietro - dal codice al requisito.** *Perché esiste questa funzione? Da quale requisito
 discende? Quale rischio mitiga?* Serve a dimostrare l'assenza di **funzionalità non richieste**.
 È la domanda che intercetta il codice che nessuno ha chiesto, la funzione aggiunta «già che
 c'ero», la scorciatoia diagnostica lasciata in produzione. In un dispositivo medico, una
@@ -1369,8 +1371,8 @@ ragione.
 Nel dettaglio, ecco cosa diventa irrecuperabile e perché:
 
 1. **Gli identificativi di requisito.** Se gli identificatori `RF-*`, `RNF-*`, `BR-*` vengono
-   rinumerati, riordinati o riusati, ogni riferimento pregresso — nei commit, nei test, nei
-   verbali, nei documenti di rischio — punta al posto sbagliato. Non esiste un modo automatico di
+   rinumerati, riordinati o riusati, ogni riferimento pregresso - nei commit, nei test, nei
+   verbali, nei documenti di rischio - punta al posto sbagliato. Non esiste un modo automatico di
    ricostruire l'associazione corretta: va rifatta a mano, elemento per elemento, con la memoria
    di chi c'era. Per questo gli identificativi sono **congelati e non si rinumerano mai**, nemmeno
    quando un requisito viene abbandonato: si marca come ritirato, non si riusa il numero.
@@ -1417,7 +1419,7 @@ Ora le richieste del documento di contribuzione dovrebbero apparire diverse.
 | «Non rinumerare gli identificativi» | Pignoleria | Vedi sopra: è irreversibile |
 
 Nessuna di queste regole è lì per rallentare. Sono lì perché **la loro assenza renderebbe
-impossibile a chiunque, in futuro, certificare questo software** — e quindi renderebbe inutile
+impossibile a chiunque, in futuro, certificare questo software** - e quindi renderebbe inutile
 tutto il resto del lavoro.
 
 ---
@@ -1453,8 +1455,8 @@ identificativi unici, che distingue:
 
 E poi c'è la categoria che non è una modifica al dispositivo ma un cambio di regime: qualunque
 modifica che tocchi la **destinazione d'uso** o che introduca una delle funzioni C1–C9 della
-sezione 2.8. Quella non si «notifica»: obbliga a rifare la qualificazione, la classificazione e —
-a cascata — la valutazione clinica, il file di rischio e gli scenari di usabilità.
+sezione 2.8. Quella non si «notifica»: obbliga a rifare la qualificazione, la classificazione e -
+a cascata - la valutazione clinica, il file di rischio e gli scenari di usabilità.
 
 ### 7.3 Perché il software cambia più spesso di quanto il quadro presupponga
 
@@ -1482,8 +1484,8 @@ di aggiornamenti di sicurezza necessari come possibile fonte di difettosità.
 Non esiste una soluzione elegante. Esistono quattro pratiche che la rendono gestibile.
 
 **Classificare le modifiche prima di farle.** Un albero di decisione applicato in fase di
-*pull request* — la modifica tocca la destinazione d'uso? tocca una funzione correlata alla
-sicurezza? tocca l'interpretazione dei dati? tocca solo un SOUP di livello L3? — instrada verso
+*pull request* - la modifica tocca la destinazione d'uso? tocca una funzione correlata alla
+sicurezza? tocca l'interpretazione dei dati? tocca solo un SOUP di livello L3? - instrada verso
 percorsi diversi. La maggior parte delle modifiche non è sostanziale, ma va dimostrato che non lo
 è, e la dimostrazione va registrata.
 
@@ -1493,7 +1495,7 @@ di funzionalità, componenti dichiarati esplicitamente *non parte della configur
 MDCG 2019-11 Rev.1, ed è ciò che consente di far evolvere le parti periferiche senza toccare il
 nucleo.
 
-**Definire in anticipo le finestre di rimedio per severità**, e concordarle con chi valuta invece
+**Definire in anticipo le finestre di rimedio per severità**, e concordarle con l'Organismo Notificato invece
 di improvvisarle durante un incidente.
 
 **Tenere due cicli di vita distinti.** Il repository e la distribuzione identificata hanno nomi,
@@ -1518,15 +1520,15 @@ La prima riguarda il danno alla persona, la seconda i rischi per i diritti e le 
 fondono, ma si collegano.
 
 **Secondo: la protezione fin dalla progettazione (art. 25) si rivolge al titolare, non al
-produttore** — ma il considerando 78 incoraggia i produttori a tenerne conto, e le impostazioni
+produttore** - ma il considerando 78 incoraggia i produttori a tenerne conto, e le impostazioni
 predefinite protettive sono un requisito di prodotto che nessun titolare può ricostruire dopo. Da
 qui: registrazione disattivata per impostazione predefinita, conservazione minima predefinita,
 registri senza contenuto clinico per impostazione predefinita.
 
 **Terzo: la valutazione d'impatto è obbligatoria** per un trattamento come questo, e chi la deve
-fare è il cliente. Fornire il novanta per cento del materiale — descrizione del trattamento,
+fare è il cliente. Fornire il novanta per cento del materiale - descrizione del trattamento,
 diagrammi dei flussi, catalogo dei rischi, elenco delle misure con il test automatico che le
-verifica — è simultaneamente un servizio e un vantaggio competitivo.
+verifica - è simultaneamente un servizio e un vantaggio competitivo.
 
 ### 8.2 Sicurezza delle reti e dei sistemi informativi
 
@@ -1549,8 +1551,8 @@ C'è poi un effetto che riguarda direttamente chi scrive codice, e viene dalla d
 la Determinazione ACN n. 127437/2026, art. 18, obbliga il soggetto NIS a **dichiarare
 nominativamente all'autorità i «fornitori rilevanti»**, con ragione sociale, codice fiscale,
 **Paese della sede legale**, codici di classificazione e criterio di rilevanza. Il vincolo **V1**
-del progetto — nessun componente obbligatorio ospitato fuori dall'Unione, nessuna dipendenza di
-esecuzione da servizi extra-UE — cessa quindi di essere un argomento di posizionamento e diventa
+del progetto - nessun componente obbligatorio ospitato fuori dall'Unione, nessuna dipendenza di
+esecuzione da servizi extra-UE - cessa quindi di essere un argomento di posizionamento e diventa
 **un dato che il cliente è tenuto a comunicare a un'autorità**. Introdurre una dipendenza di
 runtime da un servizio extra-UE non è una scelta tecnica: è un dato che finisce in una
 dichiarazione ufficiale di qualcun altro.
@@ -1594,7 +1596,7 @@ artefatto → regime**, ed è un documento che va prodotto e mantenuto. Il proge
 materiale una volta soddisfa contemporaneamente CRA, ISO/IEC 81001-5-1 e i questionari di
 sicurezza dei clienti sanitari. Ma la tabella serve comunque.
 
-### 8.4 Responsabilità da prodotto difettoso — e l'avvertenza che conta di più
+### 8.4 Responsabilità da prodotto difettoso - e l'avvertenza che conta di più
 
 La **Direttiva (UE) 2024/2853**, che abroga la Direttiva 85/374/CEE, ha un termine di recepimento
 al **9 dicembre 2026** e si applica ai prodotti immessi sul mercato o messi in servizio **dopo**
@@ -1613,7 +1615,7 @@ software è fornito a fronte di un prezzo o in cambio di dati personali usati pe
 dal miglioramento della sicurezza, compatibilità o interoperabilità.
 
 **La nozione di difettosità include ora elementi specificamente digitali.** Fra le circostanze da
-considerare: l'effetto di altri prodotti ragionevolmente usati insieme al prodotto — rilevante per
+considerare: l'effetto di altri prodotti ragionevolmente usati insieme al prodotto - rilevante per
 un componente destinato all'integrazione; i requisiti di cibersicurezza; e **il momento in cui il
 prodotto ha lasciato il controllo del fabbricante, quando questi mantiene il controllo**. Da cui la
 conseguenza che va detta chiaramente: **un prodotto sicuro alla data del rilascio può diventare
@@ -1651,12 +1653,12 @@ recepimento della nuova direttiva è da verificare.
 
 La ragione è strutturale, prima ancora che testuale: la responsabilità da prodotto è
 extracontrattuale e opera **verso il danneggiato**, che nella telemedicina è tipicamente
-**l'assistito** — un soggetto che non ha mai accettato alcuna licenza. Una clausola di licenza non
+**l'assistito** - un soggetto che non ha mai accettato alcuna licenza. Una clausola di licenza non
 può, per definizione, opporsi a chi non è parte del rapporto.
 
 Le clausole §§ 7–8 restano efficaci **fra le parti della licenza**, per la responsabilità
 contrattuale e per il danno economico puro. Non proteggono da: azioni della persona danneggiata,
-responsabilità regolatoria, responsabilità per dolo o colpa grave — che nel diritto italiano non è
+responsabilità regolatoria, responsabilità per dolo o colpa grave - che nel diritto italiano non è
 preventivamente limitabile.
 
 C'è però un'esenzione realisticamente invocabile da chi fornisce un componente, ed è quella
@@ -1701,7 +1703,7 @@ d.lgs. 82/2022 · legge 4/2004 (Italia)       ─┘   (clausole 9, 10, 11 di EN
 **Perché il requisito del progetto va oltre WCAG.** EN 301 549 contiene requisiti che non derivano
 da WCAG e che riguardano proprio una piattaforma di videocomunicazione: la **clausola 6**
 (comunicazione bidirezionale vocale) impone qualità audio, **comunicazione in tempo reale con
-testo** quando è supportata la voce, identificazione del chiamante, e — per la videocomunicazione —
+testo** quando è supportata la voce, identificazione del chiamante, e - per la videocomunicazione -
 **risoluzione, frequenza dei fotogrammi e sincronizzazione labiale sufficienti per la lingua dei
 segni**. Un'analisi limitata a WCAG non intercetta nessuno di questi requisiti, e sono cruciali per
 un servizio sanitario destinato anche a persone sorde.
@@ -1746,7 +1748,7 @@ Il dettaglio sta nei moduli [01](01-sistema-sanitario-italiano.md),
 i tre punti che incidono sul quadro regolatorio.
 
 **Il decreto che definisce le prestazioni e i requisiti di servizio.** Il **DM 21 settembre 2022**,
-«Approvazione delle linee guida per i servizi di telemedicina — Requisiti funzionali e livelli di
+«Approvazione delle linee guida per i servizi di telemedicina - Requisiti funzionali e livelli di
 servizio», pubblicato in *Gazzetta Ufficiale* n. 256 del 2 novembre 2022, contiene affermazioni che
 incidono direttamente sulla strategia regolatoria italiana: l'infrastruttura regionale per il
 servizio minimo di **telemonitoraggio** deve essere **certificata come dispositivo medico**; ove
@@ -1782,16 +1784,17 @@ puntuali di articolo non sono stati verificati su fonte primaria.
 
 ## 10. Quando ottenere le certificazioni, e come
 
-Questa sezione descrive il percorso di chi certifica. Il progetto non lo percorre (decisione
-**D49**): produce il pacchetto regolatorio e documenta il percorso come **manuale per chi
-certifica**. Serve però che chi contribuisce lo conosca, perché spiega perché certe cose vanno
+Questa sezione descrive il percorso operativo di conformità e i tempi che lo governano. Il
+progetto intende percorrerlo: il soggetto fabbricante, una volta costituito, dovrà
+percorrerlo. Capire la sequenza e i tempi serve a comprendere quali scelte sono
+retroattivamente irrecuperabili, qual è l'ordine strutturale dei lavori e perché certe cose vanno
 fatte adesso e non «quando serviranno».
 
 ### 10.1 Il fattore limitante non è lo sviluppo software
 
 È il messaggio più importante della sezione, e contraddice l'intuizione di ogni team tecnico.
 
-I dati disponibili — tutti da **fonte secondaria**, riportati come tali:
+I dati disponibili - tutti da **fonte secondaria**, riportati come tali:
 
 | Dato | Valore |
 |---|---|
@@ -1867,21 +1870,21 @@ piano di riferimento e vanno lette come **struttura logica**, non come impegni.
 di fonte secondaria sui tempi degli organismi notificati. Vanno lette come ordini di grandezza e
 come struttura di dipendenze.
 
-**Scenario A — compresso.** Contratto firmato a novembre 2026, fascicolo completo a febbraio 2027,
-audit a maggio, certificati a dicembre 2027. Richiede simultaneamente: fascicolo *completo* — non
-«avviato» — a febbraio, in tensione diretta con la consegna del software; rapporto di valutazione
+**Scenario A - compresso.** Contratto firmato a novembre 2026, fascicolo completo a febbraio 2027,
+audit a maggio, certificati a dicembre 2027. Richiede simultaneamente: fascicolo *completo* - non
+«avviato» - a febbraio, in tensione diretta con la consegna del software; rapporto di valutazione
 clinica chiuso a febbraio; un ciclo di audit interno e riesame già completato ad aprile; e un
 organismo che si collochi nel decile più veloce senza sollevare non conformità maggiori.
 **Probabilità stimata: bassa.** Va trattato come obiettivo di tensione, non come piano.
 
-**Scenario B — realistico, piano di riferimento (decisione D44).** Contratto a fine dicembre 2026,
+**Scenario B - realistico, piano di riferimento (decisione D44).** Contratto a fine dicembre 2026,
 certificato del sistema qualità a luglio 2027, fascicolo sottomesso a giugno 2027, audit fra
 settembre e ottobre 2027, valutazione della documentazione tecnica fino a dicembre 2027, cicli di
 risposta alle non conformità fino ad aprile 2028, **certificati a giugno 2028**, dichiarazione di
 conformità e marcatura CE fra **luglio e agosto 2028**. Sono 18 mesi dalla firma al certificato,
 cioè il limite superiore della fascia maggioritaria.
 
-**Scenario C — conservativo.** Contratto a marzo 2027 perché il fabbricante non è ancora costituito
+**Scenario C - conservativo.** Contratto a marzo 2027 perché il fabbricante non è ancora costituito
 o perché i primi organismi contattati non accettano nuovi clienti; 22 mesi di valutazione; due
 cicli di non conformità maggiori sulla valutazione clinica: certificati a gennaio 2029, marcatura
 nel primo trimestre 2029.
@@ -1930,7 +1933,7 @@ preliminare** prima della sottomissione, che riduce drasticamente i cicli di non
 |---|---|
 | Produce e pubblica fascicolo tecnico, documentazione di ciclo di vita, gestione del rischio, fascicolo di ingegneria dell'usabilità, distinta dei materiali software | Non costituisce un soggetto fabbricante |
 | Mantiene tracciabilità, registro dei SOUP, matrice di conformità | Non ingaggia Organismi Notificati |
-| Documenta il percorso operativo come manuale per chi certifica | Non conduce la valutazione clinica |
+| Documenta il percorso operativo del fabbricante | Il soggetto fabbricante, da costituire, condurrà la valutazione clinica |
 | Pubblica e mantiene la dichiarazione di stato regolatorio, la destinazione d'uso e i limiti d'uso | **Non appone la marcatura CE e non sottoscrive dichiarazioni di conformità** |
 | Esegue le attività retroattivamente irrecuperabili (sezione 10.2, punti 7–10) | Non assume responsabilità verso terzi |
 
@@ -1982,15 +1985,15 @@ Area per area, le conseguenze pratiche.
 - se è di livello L1 o L2, la scheda va aggiornata nella stessa *pull request*;
 - versioni fissate, compilazione riproducibile, `latest` vietato;
 - verifica la licenza: le licenze copyleft forti e quelle con clausola di uso in rete sono bloccate
-  dal cancello di licenza, e la violazione più comune non è deliberata — è una dipendenza
+  dal cancello di licenza, e la violazione più comune non è deliberata - è una dipendenza
   transitiva di quarto livello che cambia licenza in una versione minore.
 
 **Se tocchi l'interfaccia**
 
 - una modifica a una funzione correlata alla sicurezza non è una modifica estetica: richiede la
   valutazione dell'impatto sugli scenari d'uso pericolosi;
-- gli indicatori persistenti obbligatori — stato di registrazione, identità dell'interlocutore,
-  qualità del collegamento — non sono occultabili né rimovibili per esigenze di layout;
+- gli indicatori persistenti obbligatori - stato di registrazione, identità dell'interlocutore,
+  qualità del collegamento - non sono occultabili né rimovibili per esigenze di layout;
 - accessibilità e *mobile first* sono criteri di accettazione di ogni schermata, non una rifinitura
   finale: ogni requisito deve poter essere completato da un assistito anziano su smartphone in rete
   mobile e da un professionista con la sola tastiera e un lettore di schermo;
@@ -1999,7 +2002,7 @@ Area per area, le conseguenze pratiche.
 
 **Se tocchi la sicurezza**
 
-- una nuova superficie — endpoint, confine di fiducia, formato di ingresso — richiede
+- una nuova superficie - endpoint, confine di fiducia, formato di ingresso - richiede
   l'aggiornamento del modello delle minacce prima dell'accettazione;
 - il file di rischio di sicurezza è distinto da quello di sicurezza clinica, ma collegato;
 - ogni rilascio dichiara una data di fine supporto;
@@ -2088,7 +2091,7 @@ Area per area, le conseguenze pratiche.
 | **Destinazione d'uso** | Uso al quale il fabbricante destina il dispositivo secondo etichetta, istruzioni, materiale promozionale e valutazione clinica (art. 2, punto 12, MDR) |
 | **Dichiarazione di conformità UE** | Atto con cui il fabbricante assume la responsabilità della conformità del dispositivo (art. 19 e Allegato IV MDR) |
 | **Dispositivo attivo** | Dispositivo il cui funzionamento dipende da una fonte di energia diversa da quella del corpo umano; il software è per definizione dispositivo attivo (art. 2, punto 4) |
-| **Dispositivo medico** | Oggetto — software compreso — destinato dal fabbricante a una delle finalità mediche tassative dell'art. 2, punto 1, MDR |
+| **Dispositivo medico** | Oggetto - software compreso - destinato dal fabbricante a una delle finalità mediche tassative dell'art. 2, punto 1, MDR |
 | **EHDS** | Regolamento (UE) 2025/327 sullo spazio europeo dei dati sanitari |
 | **Errore d'uso** | Azione o omissione dell'utilizzatore che produce un risultato diverso da quello inteso; è un difetto di progettazione dell'interfaccia, non colpa dell'utente (IEC 62366-1) |
 | **EUDAMED** | Banca dati europea dei dispositivi medici: registrazione degli attori, dei dispositivi, dei certificati, vigilanza e sorveglianza |

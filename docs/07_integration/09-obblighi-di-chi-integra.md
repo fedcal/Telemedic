@@ -39,11 +39,14 @@ La distinzione non è formale: è ciò che protegge insieme la comunità che scr
 persona che riceve la prestazione. Ed è ciò che vi riguarda direttamente, perché **chi
 trasforma il primo artefatto nel secondo siete voi**, se lo fate.
 
-### 1.2 Il progetto non appone la marcatura
+### 1.2 Il progetto non appone la marcatura, oggi
 
-> **Il progetto produce e pubblica il materiale regolatorio, ma non costituisce un soggetto
+> **Oggi il progetto produce e pubblica il materiale regolatorio, non costituisce un soggetto
 > fabbricante, non ingaggia organismi di valutazione, non conduce la valutazione clinica e non
-> appone la marcatura CE.** Chi integra e immette sul mercato assume il ruolo di fabbricante.
+> appone la marcatura CE.** Con la decisione D63 il progetto intende assumere il ruolo di
+> fabbricante (soggetto ancora da costituire): il percorso è avviato e la marcatura è un
+> requisito di prodotto. Chi integra e immette sul mercato oggi assume il ruolo di fabbricante,
+> salvo diversa decisione del committente su una distribuzione certificata dal progetto.
 
 E la conseguenza operativa che vale **oggi**, senza eccezioni:
 
@@ -51,7 +54,7 @@ E la conseguenza operativa che vale **oggi**, senza eccezioni:
 > prestazioni sanitarie su pazienti reali**. Ogni artefatto distribuito lo dichiara, e nessun
 > documento, pagina o messaggio può lasciare intendere il contrario.
 
-Se il vostro piano commerciale presuppone l'inverso, il piano va corretto — non la
+Se il vostro piano commerciale presuppone l'inverso, il piano va corretto - non la
 documentazione.
 
 ### 1.3 La clausola di esclusione di responsabilità della licenza non vale verso il paziente
@@ -78,7 +81,7 @@ stessa pone, nei rapporti con chi vi ha fornito il codice.
 
 È fabbricante chi **immette sul mercato o mette in servizio** il dispositivo a proprio nome.
 Se prendete il codice, ne producete una distribuzione e la usate per erogare prestazioni
-sanitarie — anche solo ai vostri clienti, anche senza vendere il software — **siete voi**.
+sanitarie - anche solo ai vostri clienti, anche senza vendere il software - **siete voi**.
 
 Da qui discende tutto il resto di questa sezione. Non è evitabile con una clausola contrattuale
 verso il progetto, perché il progetto non è il vostro fornitore nel senso in cui lo intende la
@@ -96,7 +99,7 @@ vincolanti:
 | Serve un **organismo notificato** | Non è autocertificabile |
 | Il sistema di gestione qualità dev'essere **certificato**, non solo implementato | Costo e tempi propri |
 | Serve una **valutazione clinica** ai sensi dell'art. 61 e dell'Allegato XIV | Percorso documentale autonomo |
-| Procedura di valutazione della conformità dell'Allegato IX (oppure X + XI) | — |
+| Procedura di valutazione della conformità dell'Allegato IX (oppure X + XI) | - |
 
 E il fatto che pesa di più sulla vostra pianificazione:
 
@@ -130,7 +133,7 @@ costo**.
 
 ### 2.4 Che cosa il progetto vi consegna, e che cosa no
 
-**Vi consegna** — è il pacchetto per chi certifica:
+**Vi consegna** - è il pacchetto per il percorso di certificazione:
 
 - fascicolo tecnico;
 - documentazione di ciclo di vita del software ai sensi di IEC 62304;
@@ -139,11 +142,13 @@ costo**.
 - inventario dei componenti di terze parti e distinta dei materiali, generati dalla prima
   pipeline;
 - tracciabilità requisito → progettazione → codice → prova, con identificativi **congelati**;
-- il manuale operativo del percorso di certificazione, scritto per chi certifica.
+- il manuale operativo del percorso di certificazione.
 
-**Non vi consegna**: la marcatura, la dichiarazione di conformità, la registrazione, la
-valutazione clinica, il rapporto con l'organismo, il responsabile della conformità normativa.
-Sono vostri.
+**Non vi consegna**: la marcatura, la dichiarazione di conformità, la registrazione, il
+rapporto con l'organismo, il responsabile della conformità normativa. Con la decisione D63, il
+progetto **intende** condurre la valutazione clinica come parte del suo percorso di fabbricante
+(soggetto ancora da costituire): questo non modifica gli obblighi di chi integra oggi una
+distribuzione non ancora marcata.
 
 L'ultima riga del primo elenco merita attenzione: **gli identificativi di requisito non vengono
 mai rinumerati**. Se il vostro processo li rimappa su una vostra numerazione, la tracciabilità
@@ -154,11 +159,11 @@ si rompe, e la tracciabilità **non si ricostruisce a posteriori**.
 Tre funzionalità sono **a una singola storia utente** dalla classificazione superiore, e vanno
 governate con controllo delle modifiche:
 
-1. **Allerta su soglia** — se l'avviso passasse da «la misura ha superato la soglia che hai
+1. **Allerta su soglia** - se l'avviso passasse da «la misura ha superato la soglia che hai
    impostato» a un giudizio interpretativo, cambia natura.
-2. **Riproduzione con miglioramento** — un'elaborazione che «migliora» un'immagine o un audio a
+2. **Riproduzione con miglioramento** - un'elaborazione che «migliora» un'immagine o un audio a
    fini di valutazione clinica è un'altra cosa.
-3. **Refertazione assistita** — un sistema che propone contenuto clinico non è più persistenza di
+3. **Refertazione assistita** - un sistema che propone contenuto clinico non è più persistenza di
    contenuto redatto dal professionista.
 
 Se il vostro modulo sostitutivo ([08](08-moduli-sostituibili.md)) introduce una di queste
@@ -185,7 +190,7 @@ Non si sceglie il ruolo: **si determina in base a chi decide finalità e mezzi**
 |---|---|---|
 | Voi erogate prestazioni con il vostro software, che include Telemedic | **Voi** | Eventuali vostri fornitori di infrastruttura |
 | Voi fornite il servizio a strutture sanitarie che erogano le prestazioni | **La struttura sanitaria** | **Voi** |
-| Più titolari determinano insieme finalità e mezzi | **Contitolarità**, con l'accordo previsto dall'art. 26 GDPR | — |
+| Più titolari determinano insieme finalità e mezzi | **Contitolarità**, con l'accordo previsto dall'art. 26 GDPR | - |
 
 **Il progetto non è titolare né responsabile**: non tratta dati, fornisce codice. Nel momento in
 cui esiste un'installazione che tratta dati, i ruoli sono fra voi, i vostri clienti e i vostri
@@ -226,7 +231,7 @@ Da cui, per voi:
    occultabile** per tutta la durata. Nessuna personalizzazione può nasconderlo
    ([05 §7.2](05-componente-incorporabile.md)).
 3. **Il passaggio fra le due modalità è tracciato.**
-4. **Il file è cifrato a riposo** con chiavi per tenant e la conservazione è configurabile —
+4. **Il file è cifrato a riposo** con chiavi per tenant e la conservazione è configurabile -
    dovete configurarla, non ereditarla.
 
 ### 3.4 Sovranità e collocazione
@@ -272,8 +277,8 @@ utilizzatore**, non cablata su una data nella vostra roadmap. Se avete scritto u
 vostro piano, è una vostra stima e non un termine di legge.
 
 Il catalogo delle misure, su fonte dell'autorità, distingue i soggetti importanti dagli
-essenziali con numeri di misure e requisiti diversi. Quale dei due siate — o siano i vostri
-clienti — non lo decidete voi.
+essenziali con numeri di misure e requisiti diversi. Quale dei due siate - o siano i vostri
+clienti - non lo decidete voi.
 
 ### 4.2 Siete un fornitore rilevante
 
@@ -291,7 +296,7 @@ a dichiarare. Il progetto la fornisce per sé come deliverable; voi dovete produ
 > **Un meccanismo di versionamento delle entità versiona, non rende immutabile.** Chi ha accesso
 > in scrittura alla base dati può alterare anche le tabelle di versione.
 
-Ciò che serve — e che i requisiti applicabili richiedono — è una **catena di impronte** con
+Ciò che serve - e che i requisiti applicabili richiedono - è una **catena di impronte** con
 **conservazione separata dal sistema che genera gli eventi**. Il progetto lo implementa; se
 sostituite la destinazione delle tracce ([08 §4](08-moduli-sostituibili.md)), **la proprietà di
 immutabilità diventa una vostra responsabilità**, e va dimostrata, non dichiarata.
@@ -312,7 +317,7 @@ Il progetto adotta l'intero impianto senza invocare esenzioni, e mantiene una ta
 regime applicabile. **Voi dovete produrre la vostra**, perché i vostri artefatti non sono i
 nostri.
 
-> **`[NV]`** — La composizione esatta della vostra tabella dipende da che cosa distribuite e come.
+> **`[NV]`** - La composizione esatta della vostra tabella dipende da che cosa distribuite e come.
 > Va costruita con i vostri consulenti; il progetto fornisce la propria come modello, non come
 > risposta.
 
@@ -359,23 +364,23 @@ primaria:
 
 | Regime | Che cosa significa | Chi paga |
 |---|---|---|
-| **A — coesistenza piena** | Utilizzabile nei sorgenti sotto licenza aperta, con attribuzione | Nessuno |
-| **B — cartella dedicata con licenza propria** | Ridistribuibile a condizioni proprie | Nessuno, ma la licenza va rispettata |
-| **C — acquisizione o interrogazione a runtime a cura di chi installa** | Il progetto **non la scarica mai** | **Voi** |
-| **D — esclusione totale** | Solo identificatore e codice, mai il contenuto | — |
+| **A - coesistenza piena** | Utilizzabile nei sorgenti sotto licenza aperta, con attribuzione | Nessuno |
+| **B - cartella dedicata con licenza propria** | Ridistribuibile a condizioni proprie | Nessuno, ma la licenza va rispettata |
+| **C - acquisizione o interrogazione a runtime a cura di chi installa** | Il progetto **non la scarica mai** | **Voi** |
+| **D - esclusione totale** | Solo identificatore e codice, mai il contenuto | - |
 
 ### 6.2 Le tre trappole del regime C
 
-**Trappola 1 — il servizio esterno non vi esonera.** Appoggiarsi a un servizio di terminologie di
+**Trappola 1 - il servizio esterno non vi esonera.** Appoggiarsi a un servizio di terminologie di
 terzi **non elimina la vostra licenza**: chi crea o analizza record che contengono quei concetti
 è, secondo la definizione della licenza, un sistema di trattamento dei dati soggetto a licenza.
 Le tariffe sono **per sito** e si applicano **anche in ambienti non di produzione**.
 
-**Trappola 2 — distribuite un prodotto sotto licenza anche senza contenere un concetto.** Chi
+**Trappola 2 - distribuite un prodotto sotto licenza anche senza contenere un concetto.** Chi
 distribuisce un software che è progettato per lavorare con quel contenuto distribuisce un
 prodotto soggetto alla licenza, anche se il pacchetto non contiene un solo concetto.
 
-**Trappola 3 — la cache è un derivato.** Una memoria persistita su disco di risposte del servizio
+**Trappola 3 - la cache è un derivato.** Una memoria persistita su disco di risposte del servizio
 di terminologie costituisce un sottoinsieme, e un sottoinsieme è un derivato. Il progetto usa
 quindi **memoria non persistita su disco** per i sistemi la cui licenza non consente derivati. Se
 sostituite il punto di accesso alle terminologie, **la regola resta e diventa vostra**.
@@ -438,7 +443,7 @@ servizio**, non dopo.
 ## 9. Tabella di ripartizione delle responsabilità
 
 Legenda: **P** progetto · **I** integratore o chi mette in servizio · **C** cliente finale
-(struttura sanitaria) · **—** non applicabile.
+(struttura sanitaria) · **-** non applicabile.
 
 | # | Ambito | Attività | P | I | C |
 |---|---|---|:--:|:--:|:--:|

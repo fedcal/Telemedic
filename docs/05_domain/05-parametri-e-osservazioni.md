@@ -1,7 +1,7 @@
 ---
 title: Parametri e osservazioni
 sidebar_position: 6
-description: La modellazione delle misure — contesto obbligatorio, unità, provenienza, affidabilità, i tre tempi, lo stato, il dato mancante come informazione, serie temporali e valutazione rispetto alle soglie.
+description: La modellazione delle misure - contesto obbligatorio, unità, provenienza, affidabilità, i tre tempi, lo stato, il dato mancante come informazione, serie temporali e valutazione rispetto alle soglie.
 ---
 
 # Parametri e osservazioni
@@ -17,7 +17,7 @@ convertite male, medie aritmetiche su serie che non le ammettono, allarmi su val
 intervalli di riferimento applicati alla popolazione sbagliata, valore senza contesto di misura.
 Questo capitolo ne ricava la struttura dati, e parte da una decisione:
 
-> **`DM-50` [MOD] — La misura è immutabile e porta con sé il proprio contesto.** Non si
+> **`DM-50` [MOD] - La misura è immutabile e porta con sé il proprio contesto.** Non si
 > aggiorna: si corregge emettendo una nuova versione che sostituisce la precedente, mantenendo
 > entrambe. È lo stesso principio del documento firmato, per la stessa ragione: qualcuno ha già
 > preso una decisione sulla base del valore precedente.
@@ -50,7 +50,7 @@ valore è strano.
 | **Piano e versione del piano** | sì per le misure di piano | quale piano l'ha richiesta e in quale versione | la valutazione rispetto alle soglie non è ricostruibile |
 | **Tenant** | sì | `V-04` | scrittura rifiutata |
 
-> **`DM-51` [MOD] — Il contesto non è un campo note.** Ogni attributo della tabella è un
+> **`DM-51` [MOD] - Il contesto non è un campo note.** Ogni attributo della tabella è un
 > elemento distinto con un proprio tipo. Un campo di testo libero «note sulla misurazione»
 > soddisfa la lettera del requisito e non consente alcuna interrogazione, alcuna verifica,
 > alcuna esclusione automatica dei dati non confrontabili.
@@ -68,14 +68,14 @@ misure già inviate, perché la consegna è **almeno una volta**
 (`04_BASELINE_ARCHITETTURALE.md` § 5). Senza una chiave, si registrano duplicati; con una chiave
 sbagliata, si perdono misure legittime.
 
-> **`DM-52` [MOD] — Chiave di deduplicazione esplicita, dichiarata dal produttore.** La misura
+> **`DM-52` [MOD] - Chiave di deduplicazione esplicita, dichiarata dal produttore.** La misura
 > porta un identificativo assegnato dalla sorgente, qualificato dal dominio di attribuzione
 > della sorgente stessa. La deduplicazione avviene su quella coppia, **non** su una combinazione
 > dedotta di soggetto, grandezza e istante: due misure legittime della stessa grandezza nello
-> stesso istante sono possibili — due bracci, due dispositivi, un ritentativo dopo un errore
-> d'uso — e una deduplicazione euristica le cancellerebbe.
+> stesso istante sono possibili - due bracci, due dispositivi, un ritentativo dopo un errore
+> d'uso - e una deduplicazione euristica le cancellerebbe.
 
-Quando la sorgente non fornisce un identificativo — tipicamente l'inserimento manuale — è il
+Quando la sorgente non fornisce un identificativo - tipicamente l'inserimento manuale - è il
 sistema ad assegnarlo, al primo contatto con il dato, e a restituirlo.
 
 ### 2.2 La correzione
@@ -112,7 +112,7 @@ Le regole:
 
 ### 3.1 Il valore senza unità è rifiutato
 
-> **`DM-53` [MOD]** — Una misura numerica priva di unità codificata **non entra nel sistema**. Il
+> **`DM-53` [MOD]** - Una misura numerica priva di unità codificata **non entra nel sistema**. Il
 > rifiuto avviene al confine, con un errore esplicito che indica l'unità attesa per la
 > grandezza. Non esiste unità predefinita implicita, in nessun caso, per nessuna grandezza.
 
@@ -147,7 +147,7 @@ come dipendenza esterna.
 
 ### 4.1 Il perimetro: che cosa il progetto non fa
 
-> **[BASE] `D21`** — Il perimetro è: **ingestione di misure da un gateway di terze parti**,
+> **[BASE] `D21`** - Il perimetro è: **ingestione di misure da un gateway di terze parti**,
 > **inserimento manuale da parte dell'assistito o del caregiver**, **questionari strutturati**.
 > Il progetto **non dialoga direttamente con i dispositivi medici** e non si assume
 > responsabilità sull'accuratezza della catena di misura hardware.
@@ -156,7 +156,7 @@ Sul piano del modello ne discende una conseguenza precisa e talvolta scomoda: **
 dichiarato, non accertato**. Il sistema registra ciò che la sorgente afferma sul dispositivo; non
 lo verifica e non deve lasciar credere di verificarlo.
 
-> **`DM-54` [MOD]** — Ogni misura porta un **livello di provenienza dichiarato**, da un insieme
+> **`DM-54` [MOD]** - Ogni misura porta un **livello di provenienza dichiarato**, da un insieme
 > chiuso, che non è un giudizio di qualità ma la descrizione della catena:
 >
 > | Livello | Significato |
@@ -184,7 +184,7 @@ univoco, numero di serie o lotto, dati del fabbricante, tipo di collegamento e d
 esito del controllo tecnico e parametri tecnici (DM 19 novembre 2025, All. 1, § 2.23; capitolo
 [04](04-documenti-clinici.md) § 2.1).
 
-> **`DM-55` [MOD]** — Il collegamento fra misura e dispositivo passa **per l'assegnazione**, non
+> **`DM-55` [MOD]** - Il collegamento fra misura e dispositivo passa **per l'assegnazione**, non
 > per un riferimento diretto e permanente. L'assegnazione ha un periodo: un dispositivo può
 > essere ritirato, sanificato e riassegnato a un'altra persona. Un riferimento permanente
 > misura → dispositivo, senza il periodo di assegnazione, produce l'attribuzione delle misure di
@@ -208,7 +208,7 @@ la ricezione, nessuno si accorge che la catena di ingestione ha sei ore di ritar
 
 ### 5.1 Il fuso orario e il riferimento locale
 
-> **`DM-56` [MOD]** — L'istante di rilevazione si conserva con il **riferimento locale della
+> **`DM-56` [MOD]** - L'istante di rilevazione si conserva con il **riferimento locale della
 > persona**, non solo come istante assoluto. Un ritmo circadiano si legge sull'ora locale
 > dell'assistito: una misura «del mattino» resta del mattino anche se la persona ha viaggiato,
 > e va rappresentata come tale.
@@ -235,14 +235,14 @@ fuori ordine. Il modello lo assume come normale, non come anomalia:
 
 È il punto in cui questo capitolo incontra il vincolo che l'orchestrazione ha reso trasversale.
 
-> **[BASE] `V-09`** — L'assenza di dato è informazione clinica: il silenzio non è mai trattato
+> **[BASE] `V-09`** - L'assenza di dato è informazione clinica: il silenzio non è mai trattato
 > come normalità.
 
 ### 6.1 L'attesa come entità
 
-> **`DM-57` [MOD] — La finestra di rilevazione attesa è un'entità, non un calcolo.** Il piano
+> **`DM-57` [MOD] - La finestra di rilevazione attesa è un'entità, non un calcolo.** Il piano
 > genera, per ciascun periodo, un'**attesa**: grandezza, finestra temporale, tolleranza. L'attesa
-> ha uno stato — pendente, soddisfatta, mancata, dichiarata non applicabile — e l'assenza di
+> ha uno stato - pendente, soddisfatta, mancata, dichiarata non applicabile - e l'assenza di
 > misura è la transizione a `mancata`, cioè **una riga che dichiara l'assenza**, non l'assenza di
 > una riga.
 
@@ -257,7 +257,7 @@ La differenza è operativa. Con l'attesa materializzata si può:
   ricostruito a posteriori.
 
 Senza l'attesa materializzata, le stesse domande richiedono di ricostruire ogni volta che cosa il
-piano prevedeva in quel momento — cioè richiedono di conoscere la versione del piano vigente
+piano prevedeva in quel momento - cioè richiedono di conoscere la versione del piano vigente
 allora, che è esattamente ciò che si perde.
 
 ### 6.2 La tassonomia della causa
@@ -275,7 +275,7 @@ l'elenco clinico completo. Sul piano del modello ciò che conta è la struttura:
 | Abbandono | team clinico | per esclusione |
 | **Peggioramento clinico** | team clinico, con urgenza | **no**: è la categoria residua |
 
-> **`DM-58` [MOD] — La strategia di modellazione discende dall'ultima riga.** L'ultima categoria
+> **`DM-58` [MOD] - La strategia di modellazione discende dall'ultima riga.** L'ultima categoria
 > non è distinguibile con mezzi tecnici; quindi il modello deve rendere **esplicite e
 > registrabili tutte le altre**, perché più cause tecniche e dichiarate il sistema sa
 > riconoscere, più il silenzio residuo è informativo. Ogni causa che il sistema non sa
@@ -285,8 +285,8 @@ Ne discendono quattro elementi di modello che vanno previsti dall'inizio:
 
 1. **Segnale di presenza periodico** indipendente dalla misura, con proprio stato e propria
    serie. Distingue in un colpo solo la categoria tecnica dalle altre.
-2. **Telemetria di stato del dispositivo** — livello di alimentazione, stato del collegamento,
-   esito dell'autodiagnostica, data dell'ultima taratura — come **dato tecnico con finalità e
+2. **Telemetria di stato del dispositivo** - livello di alimentazione, stato del collegamento,
+   esito dell'autodiagnostica, data dell'ultima taratura - come **dato tecnico con finalità e
    conservazione proprie**, distinte da quelle del dato clinico. È una classe di dato a sé nella
    tassonomia di conservazione richiesta al capitolo [04](04-documenti-clinici.md) § 9.
 3. **Registrazione dei tentativi falliti.** Una misura iniziata e non completata è informazione:
@@ -299,13 +299,13 @@ Ne discendono quattro elementi di modello che vanno previsti dall'inizio:
 Il guasto della catena di ingestione è l'unico caso in cui l'assenza riguarda **tutti** insieme, e
 per questo è l'unico che il sistema può e deve rilevare da solo.
 
-> **`DM-59` [MOD]** — Esiste una sorveglianza del **volume complessivo atteso** per sorgente e
+> **`DM-59` [MOD]** - Esiste una sorveglianza del **volume complessivo atteso** per sorgente e
 > per tenant, distinta dalla sorveglianza per singolo assistito. Un crollo del volume aggregato
 > è un evento tecnico che precede di ore o giorni la comparsa di assenze individuali, e va
 > trattato come incidente della piattaforma, non come somma di casi clinici. È la voce
 > «sorveglianza del volume atteso» della questione `Q-12` in bacheca.
 
-La sorveglianza aggregata non ha problemi di riservatezza — conta eventi, non li legge — ma va
+La sorveglianza aggregata non ha problemi di riservatezza - conta eventi, non li legge - ma va
 progettata perché il conteggio non diventi un canale di inferenza: il capitolo
 [06](06-consenso-e-riservatezza.md) tratta la soglia minima di cardinalità.
 
@@ -327,7 +327,7 @@ esterno non hanno una rappresentazione naturale.
 Il modulo [09 dei fondamenti](../10_fondamenti/09-fondamenti-clinici.md) § 4.3 spiega perché una
 media aritmetica su una serie clinica può essere priva di senso. Sul piano del modello:
 
-> **`DM-60` [MOD] — Un valore aggregato è un'entità distinta dalla misura, con la propria
+> **`DM-60` [MOD] - Un valore aggregato è un'entità distinta dalla misura, con la propria
 > provenienza.** Porta: la funzione applicata, la finestra, il numero di misure incluse, il
 > numero di attese non soddisfatte nella finestra, e il criterio di esclusione applicato. Un
 > aggregato senza il numero di assenze nella finestra è ingannevole, perché una media su due
@@ -343,7 +343,7 @@ Le serie di questo dominio sono irregolari per costruzione: cadenze diverse per 
 periodi di sospensione, dati fuori ordine, correzioni. Un modello che assuma campionamento
 regolare produce interpolazioni che non corrispondono a nulla.
 
-> **`DM-61` [MOD]** — Nessuna interpolazione, nessun riempimento di buchi, nessuna
+> **`DM-61` [MOD]** - Nessuna interpolazione, nessun riempimento di buchi, nessuna
 > «regolarizzazione» della serie avviene nel dominio. Se una rappresentazione grafica ne ha
 > bisogno, la trasformazione avviene nella presentazione ed è dichiarata all'utente. Un buco
 > riempito è un dato inventato, e un dato inventato in una serie clinica è esattamente ciò che
@@ -353,7 +353,7 @@ regolare produce interpolazioni che non corrispondono a nulla.
 
 ### 8.1 Il vincolo
 
-> **[BASE] `V-02`** — Nessuna soglia clinica è cablata: le soglie sono **configurazione per
+> **[BASE] `V-02`** - Nessuna soglia clinica è cablata: le soglie sono **configurazione per
 > assistito**, decise dal professionista.
 
 Il modulo [10 dei fondamenti](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 7.9 e § 7.10
@@ -362,12 +362,12 @@ persona a cui si applica. Il modello ne ricava tre elementi.
 
 ### 8.2 La regola di soglia come entità versionata
 
-> **`DM-62` [MOD]** — La regola di soglia è un'entità con: assistito, grandezza, condizione,
+> **`DM-62` [MOD]** - La regola di soglia è un'entità con: assistito, grandezza, condizione,
 > valori, periodo di validità, **autore** (il professionista che l'ha stabilita), motivazione
 > facoltativa, versione. Non è un campo del piano né una colonna dell'anagrafica.
 
 Il tracciato ministeriale del piano di telemonitoraggio conferma la necessità: prevede
-espressamente i campi **soglia di allarme** e **regole** — «testo descrittivo delle regole di
+espressamente i campi **soglia di allarme** e **regole** - «testo descrittivo delle regole di
 comportamento in violazione delle soglie» (DM 19 novembre 2025, All. 1, § 2.24).
 
 Va notato che il tracciato prevede le regole in **forma testuale descrittiva**. Il modello
@@ -378,10 +378,10 @@ e ciò che il sistema fa.
 
 ### 8.3 La tracciabilità del calcolo
 
-> **[BASE] `D26`** — La valutazione automatica delle soglie è l'elemento che costituisce
+> **[BASE] `D26`** - La valutazione automatica delle soglie è l'elemento che costituisce
 > *interpretazione* e fonda la qualificazione come dispositivo medico.
 
-> **`DM-63` [MOD] — Ogni valutazione produce un fatto tracciabile.** Contiene: identificativo
+> **`DM-63` [MOD] - Ogni valutazione produce un fatto tracciabile.** Contiene: identificativo
 > della misura valutata, versione del piano vigente, versione della regola applicata, valori in
 > ingresso, esito, istante della valutazione, versione del componente di valutazione. Senza
 > questi elementi non è possibile rispondere, a distanza di mesi, alla domanda «perché questo
@@ -414,7 +414,7 @@ Il modulo [10 dei fondamenti](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.m
 enuncia senza attenuazioni: calcolare un punteggio è ciò che rende un software un dispositivo
 medico. Ne discende una decisione di perimetro che quest'area prende esplicitamente:
 
-> **`DM-64` [MOD] — Il motore di calcolo dei punteggi è un componente identificabile,
+> **`DM-64` [MOD] - Il motore di calcolo dei punteggi è un componente identificabile,
 > disattivabile e versionato**, non una funzione sparsa. Ogni punteggio calcolato porta:
 > identificativo della scala, versione della scala, versione dell'algoritmo, risposte in
 > ingresso, esito, e la dichiarazione della fonte della scala. La disattivabilità non è una
@@ -431,15 +431,15 @@ medico. Ne discende una decisione di perimetro che quest'area prende esplicitame
 Il contributo di quest'area alla questione è un vincolo di modellazione che vale qualunque sia
 la risposta:
 
-> **`DM-65` [MOD] — La definizione della scala e il motore di calcolo sono separati, e la
+> **`DM-65` [MOD] - La definizione della scala e il motore di calcolo sono separati, e la
 > definizione è un artefatto con regime di licenza dichiarato.** Concretamente:
 >
 > 1. Il **motore** è del progetto e non contiene alcun contenuto di scale: esegue definizioni.
-> 2. La **definizione** — testo degli item, valori, regole di punteggio, soglie di
->    interpretazione — è un artefatto con titolare e licenza propri, collocato secondo il regime
+> 2. La **definizione** - testo degli item, valori, regole di punteggio, soglie di
+>    interpretazione - è un artefatto con titolare e licenza propri, collocato secondo il regime
 >    che la sua licenza consente. I quattro regimi di `B5` § 11.1 si applicano identicamente:
->    coesistenza piena, directory separata con licenza propria, acquisizione a cura del
->    deployer, esclusione totale.
+>    coesistenza piena, directory separata con licenza propria, acquisizione a cura di
+>    chi installa, esclusione totale.
 > 3. Nessuna definizione di scala di terzi è inclusa nel repository finché il suo regime non è
 >    stato accertato **artefatto per artefatto**. È il principio di `D34`: una dichiarazione di
 >    licenza apposta su un contenitore non dispone dei diritti di terzi sul contenuto
@@ -477,7 +477,7 @@ proprio nel punto in cui deve essere chiara.
 | Dichiarazione del dispositivo | quando applicabile | accettato, con livello di provenienza che lo dichiara |
 | Contesto e condizioni | quando pertinenti | accettato, con il contesto dichiarato incompleto |
 
-> **`DM-66` [MOD] — Il rifiuto è esplicito, motivato e recuperabile.** Un messaggio rifiutato non
+> **`DM-66` [MOD] - Il rifiuto è esplicito, motivato e recuperabile.** Un messaggio rifiutato non
 > scompare: entra in una coda di riesame con il motivo del rifiuto, ed è ripresentabile dopo la
 > correzione senza duplicare ciò che era già stato accettato. Un rifiuto silenzioso su una catena
 > di misure cliniche è indistinguibile da un guasto, e il tempo che passa fra il rifiuto e la sua
@@ -524,8 +524,8 @@ del dato, non solo l'accesso.
 
 La seconda regola ha una conseguenza pratica che va prevista: **la diagnosi dei problemi di
 ingestione deve essere possibile senza vedere i valori**. Si ottiene registrando la struttura e
-non il contenuto — quante misure, di quale grandezza, con quale esito di validazione, da quale
-sorgente — e prevedendo un percorso autorizzato e tracciato per l'ispezione del contenuto quando
+non il contenuto - quante misure, di quale grandezza, con quale esito di validazione, da quale
+sorgente - e prevedendo un percorso autorizzato e tracciato per l'ispezione del contenuto quando
 è indispensabile.
 
 ## Cosa devi ricordare
@@ -544,7 +544,7 @@ sorgente — e prevedendo un percorso autorizzato e tracciato per l'ispezione de
 7. **L'attesa è un'entità.** L'assenza di misura è una riga che dichiara l'assenza, non
    l'assenza di una riga.
 8. **La strategia sul silenzio è eliminare tutte le cause riconoscibili**, perché la causa che
-   conta — il peggioramento clinico — non è distinguibile con mezzi tecnici.
+   conta - il peggioramento clinico - non è distinguibile con mezzi tecnici.
 9. **Esiste una sorveglianza del volume aggregato**, distinta da quella per assistito, perché il
    guasto della catena riguarda tutti insieme.
 10. **Un aggregato è un'entità distinta** che porta il numero di assenze nella finestra;
@@ -556,9 +556,9 @@ sorgente — e prevedendo un percorso autorizzato e tracciato per l'ispezione de
 
 ## Dove continuare
 
-- [08 — Percorsi e piani di cura](08-percorsi-e-piani-di-cura.md): il piano che genera le attese
+- [08 - Percorsi e piani di cura](08-percorsi-e-piani-di-cura.md): il piano che genera le attese
   e l'aderenza che ne discende.
-- [07 — Le terminologie nel dominio](07-terminologie-nel-dominio.md): la codifica delle grandezze
+- [07 - Le terminologie nel dominio](07-terminologie-nel-dominio.md): la codifica delle grandezze
   e delle unità.
 - Modulo [09 dei fondamenti](../10_fondamenti/09-fondamenti-clinici.md): i parametri vitali uno
   per uno, il tempo nel dato clinico, il ragionamento clinico.

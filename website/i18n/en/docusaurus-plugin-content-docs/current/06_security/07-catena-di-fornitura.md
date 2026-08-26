@@ -8,7 +8,7 @@ description: The bill of materials as a regulatory obligation with its minimum c
 
 > **Reading prerequisite.** What software of unknown provenance is, why the bill of materials is an
 > obligation and not a good practice, what coordinated disclosure means:
-> [10 §12 — Cryptography and security, §11](../10_fondamenti/12-crittografia-e-sicurezza.md).
+> [10 §12 - Cryptography and security, §11](/10_fondamenti/12-crittografia-e-sicurezza.md).
 > Here we describe the artefacts the project produces, their properties and their obligations.
 
 ## 1. Why this chapter has the highest return
@@ -95,14 +95,14 @@ suppliers, by name**, with five fields: registered company name; tax identificat
 supplies used; the relevance criterion applied. `[NV]` on the text: the determination has not been
 read against a primary source and its citation details come from concordant qualified secondary
 sources and from the authority's institutional communications. It must be verified before its
-precise content is cited — this is question Q-151 in the part relating to this determination.
+precise content is cited - this is question Q-151 in the part relating to this determination.
 
 Four direct consequences:
 
 1. **Whoever provides the service to an entity subject to the rules will be declared by name to the
    authority.** In managed-service mode it very probably falls under both relevance criteria; in an
-   on-customer-premises installation the first criterion may not apply, but **the second — the
-   non-substitutability of the supply — remains**, because maintenance and support are not readily
+   on-customer-premises installation the first criterion may not apply, but **the second - the
+   non-substitutability of the supply - remains**, because maintenance and support are not readily
    replaceable.
 2. **The country of the registered office is a mandatory field.** Data sovereignty stops being a
    commercial argument and becomes **a datum the customer transmits to an authority**. A runtime
@@ -116,7 +116,7 @@ Four direct consequences:
 4. **The project's chain becomes visible.** If the system relies on a managed relay service, on a
    notification service, on a remote signing provider or on a content delivery network, those
    parties become potential **second-level** relevant suppliers for the customer. It is the
-   regulatory argument — not merely the ethical one — in support of the sovereignty constraint: **it
+   regulatory argument - not merely the ethical one - in support of the sovereignty constraint: **it
    reduces the customer's declaratory surface**.
 
 ## 4. Exploitability statements
@@ -126,7 +126,7 @@ of the product are, for the most part, **not exploitable**: because the vulnerab
 reachable, because the function is not used, because a configuration neutralises it.
 
 If the project does not state this, the integrating party has to infer it. They have no basis for
-doing so, and therefore either they remediate irrelevant vulnerabilities — pure cost — or they
+doing so, and therefore either they remediate irrelevant vulnerabilities - pure cost - or they
 ignore them all, including the one that matters. **The exploitability statement is the artefact that
 solves this problem**, and the cyber resilience regulation presupposes it when it requires the
 sharing of vulnerability information to be facilitated.
@@ -162,6 +162,23 @@ is the error this section exists to avoid.**
 | Identity federation conformance verification | Periodically | Flagged, then blocked before release |
 | Threat model | At every new capability with a boundary or an egress point, and in any case annually | Does not block; it is a **completeness condition** of the capability |
 | Periodic restore test, **key material included** | Scheduled | Does not block; its outcome is documentary evidence |
+
+**Where each of these activities stands today.** A rule written here and not enforced by a control
+is not a rule, and of these eleven only one was implemented: secret scanning, which is control
+`G1`. Nine of the remaining ten now have a row in
+[`pipeline/collocazione-dei-controlli.tsv`](https://github.com/fedcal/Telemedic/blob/main/pipeline/collocazione-dei-controlli.tsv),
+with identifiers from `SEC-C1` to `SEC-C10`, in **signalling only and each with the declared date
+on which it becomes blocking**, tied to an existing milestone and not picked. They are not
+implemented: they are **declared**, which is the only thing that tells work in the queue apart from
+a renunciation nobody admitted to.
+
+The tenth is an exception, and the exception is to be read rather than skipped. The **identity
+federation conformance check** (`SEC-C8`) has no date that can be tied to anything, because its
+object - conformance verified against the national digital identity - is not within the perimeter
+of the first release and no dated milestone carries it. It therefore sits in the table as a
+**comment block at the end**, with the reason and the document that establishes it, rather than as
+a row with a plausible date: an unanchored date would look like a commitment without being one. It
+is declared debt, not coverage.
 
 **The threat model is traceable to the requirements and to the tests**: every relevant threat has at
 least one requirement and at least one test associated with it
@@ -215,7 +232,7 @@ change** and the number of open reports, which are verifiable data, in applicati
 software of unknown provenance in the medical device software life cycle. The verification is
 documented and dated.
 
-### 7.1 The case of the external terminology service — the answer to question Q-04
+### 7.1 The case of the external terminology service - the answer to question Q-04
 
 Question Q-04 on the noticeboard asked for the external terminology service to be classified and
 its compatibility with the sovereignty constraint to be verified. **The answer is closed by this
@@ -226,7 +243,7 @@ area and is reproduced here in full.**
 >
 > **(a)** it cannot sit on the **main path**. This is constraint V-03: the system is fully
 > functional without the code system that requires an external service, and no main path may
-> require it. The cost is declared — part of the codes of a binding will not be validated — and it
+> require it. The cost is declared - part of the codes of a binding will not be validated - and it
 > is not a fallback: it is a mandatory corollary.
 >
 > **(b)** if established outside the Union, it is a **transfer** the moment it receives data

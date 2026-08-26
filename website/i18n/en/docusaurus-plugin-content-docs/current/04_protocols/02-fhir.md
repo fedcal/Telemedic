@@ -7,7 +7,7 @@ description: "Profiles adopted, Italian guides with a pinned version, resources 
 # FHIR
 
 What FHIR is, how a resource is built, what profiling means and how to read a terminology binding
-is explained in [«FHIR from scratch»](../10_fondamenti/06-fhir-da-zero.md). This chapter takes
+is explained in [«FHIR from scratch»](/10_fondamenti/06-fhir-da-zero.md). This chapter takes
 that module as read and describes **how Telemedic exposes FHIR**: which versions, which profiles,
 which interactions, with what guarantees and with what declared limits.
 
@@ -113,8 +113,8 @@ tenant.
 
 **The audit trail is exposed read-only.** An `AuditEvent` writable by a client is a forgeable log.
 The source of the audit events is internal; the API exposes them for consultation and export,
-never for writing. The immutable audit trail in the proper sense — hash chain and separate
-retention — is a different thing from the FHIR resource and is not replaced by it: that is
+never for writing. The immutable audit trail in the proper sense - hash chain and separate
+retention - is a different thing from the FHIR resource and is not replaced by it: that is
 constraint V-04, and it belongs to the security area.
 
 ### 3.2 The encounter class
@@ -126,7 +126,7 @@ binding, no fixed value and no pattern.
 Telemedic populates the class with the virtual mode code from the code system
 `http://terminology.hl7.org/CodeSystem/v3-ActCode`, whose definition is *«A patient encounter where
 the patient and the practitioner(s) are not in the same physical location»*. It is the only code in
-the value set that denotes the non-co-present mode, so the choice is conformant and defensible —
+the value set that denotes the non-co-present mode, so the choice is conformant and defensible -
 **but it is a project decision, not a prescription of the guide**, and it must be formalised as an
 architecture decision record. The question should moreover be put to the body that publishes the
 guide.
@@ -159,8 +159,8 @@ No extension of the binding is needed: the codes are all in the value set provid
 
 There are nine encounter statuses and the binding is required. The trajectory of the service is
 persisted in `Encounter.statusHistory`, which carries a mandatory status and time period. This is
-the **interoperable** representation of the trajectory and sits alongside — without replacing them
-— the internal entity versioning and the immutable audit trail, which answer different questions.
+the **interoperable** representation of the trajectory and sits alongside - without replacing them
+- the internal entity versioning and the immutable audit trail, which answer different questions.
 
 ```mermaid
 stateDiagram-v2
@@ -264,7 +264,7 @@ Example instance, with synthetic data:
 }
 ```
 
-> **`[NV]` — exact form of the address sub-extension.** The published definition exposes `address`
+> **`[NV]` - exact form of the address sub-extension.** The published definition exposes `address`
 > as a **complex extension** over an extended contact type, not as a simple value. The precise form
 > of its sub-extensions has not been verified element by element. Before writing an address into
 > that sub-extension, the package must be resolved at the pinned version and the instance
@@ -289,8 +289,8 @@ unless the client explicitly asks for strict handling. Telemedic **departs from 
 recommendation, deliberately and in a declared way**: the default behaviour is **strict handling**,
 and an unrecognised parameter produces an error instead of being ignored.
 
-The justification is clinical safety, not purism. A client that sends a wrong filter — for example
-a misspelled tenant restriction parameter — would silently receive **more data than expected**. In
+The justification is clinical safety, not purism. A client that sends a wrong filter - for example
+a misspelled tenant restriction parameter - would silently receive **more data than expected**. In
 a multi-tenant healthcare system this is a disclosure incident, not an annoyance. The cost is that
 a client that sends a superfluous parameter receives an error instead of a response: it is an
 acceptable cost and must be documented to the integrator.
@@ -382,7 +382,7 @@ faulty client does.
 | `$get-ws-binding-token` | system, instance | **Not exposed in v1.0** | The WebSocket channel for notifications is out of scope |
 | `$export` | **group only** | Exposed with severe restrictions | See §6.2 |
 | `$ihe-pix` on `Patient` | type | **Consumed, not exposed** | Telemedic is a consumer, not a manager of cross-referencing (chapter [05](./05-ihe.md)) |
-| `$expand`, `$lookup`, `$validate-code` | — | **Not exposed** | Telemedic is not a terminology service: it forwards them to the configured service |
+| `$expand`, `$lookup`, `$validate-code` | - | **Not exposed** | Telemedic is not a terminology service: it forwards them to the configured service |
 
 ### 6.1 Validation as an operation
 
@@ -421,7 +421,7 @@ optional suggested-delay and progress headers, and `200` with the manifest on co
 parameters supported are those of the pinned version, including those introduced in 3.0.0.
 
 > **Declared rule:** the project implements the manifest **in the form published in 3.0.0**. The
-> continuous build of the guide presents a structurally different manifest — it renames the errors
+> continuous build of the guide presents a structurally different manifest - it renames the errors
 > field, adds five and removes one. It is not material to implement against, and implementing
 > against it would produce a system that interoperates with nobody.
 
@@ -461,22 +461,22 @@ statement emitted only for compatibility with dated clients and marked as deprec
 | Terminological | Existence of the codes and membership of the value sets | On every write, **if the service is enabled** | Terminology service |
 
 The third level carries a cost declared by the project's terminology policy. With the international
-clinical terminology feature switched off — which is the default and fully supported configuration
-under constraint V-03 — **the bindings that depend on that terminology are not validated**. The
+clinical terminology feature switched off - which is the default and fully supported configuration
+under constraint V-03 - **the bindings that depend on that terminology are not validated**. The
 size of the effect is known: the binding on the encounter's reasons has *preferred* strength and
 expands to around four thousand codes. The project declares this instead of discovering it: an
 encounter reason expressed with that terminology is accepted without code checking, and the
 validation response carries an informative-severity issue that says so explicitly.
 
-No main path of the system requires that terminology. The codings the project relies on — the
+No main path of the system requires that terminology. The codings the project relies on - the
 classification of the report's sections, the Italian diagnosis classification and the national
-catalogue of services — do not carry that constraint.
+catalogue of services - do not carry that constraint.
 
 In continuous integration, validation is a **gate**: if an example in the repository does not
 validate against the profile it declares, the build fails. An example that does not validate is
 worse than no example, because it teaches people to get it wrong.
 
-> **`[NV]` — concrete validation tools.** The names, versions and invocation modes of the tools for
+> **`[NV]` - concrete validation tools.** The names, versions and invocation modes of the tools for
 > validating and publishing the guides have not been verified against primary sources. They must be
 > established and pinned in the build configuration. **To be asked of**: whoever looks after the
 > build chain, in liaison with the technical area.
@@ -600,8 +600,8 @@ reconcile.
 
 The telemedicine family is at **0.2.0**, declared *trial-use* and *draft*. Declaring conformance
 with a standard that is not yet stable is a choice with maintenance consequences: if 0.3.0 changes
-a profile, the project changes. The choice remains correct, because the alternative — inventing our
-own profiles for a domain that already has a national guide — is worse. But the fact must be
+a profile, the project changes. The choice remains correct, because the alternative - inventing our
+own profiles for a domain that already has a national guide - is worse. But the fact must be
 written into the contract towards the integrator, not hidden behind the word «conformant».
 
 ### 9.2 Publication fields left at default values
@@ -630,7 +630,7 @@ instead of recognising the existing patient; validation fails, because an instan
 guide is not valid for the other; the consumer does not recognise the identifier and ends up
 reconciling on name and date of birth, that is to say in the worst possible way.
 
-> **Q-06 — open question towards the architecture area and the technical area. This area does not
+> **Q-06 - open question towards the architecture area and the technical area. This area does not
 > decide and does not hard-code.**
 >
 > The normative examples in this chapter **do not contain the tax code identifier**, precisely so as
@@ -658,7 +658,7 @@ edition year nor to an act of adoption. The code system is therefore not traceab
 
 **Project rule: Telemedic does not declare an edition.** Declaring what cannot be verified is worse
 than declaring the uncertainty. It should be added that **two competing URIs** exist for the same
-classification — that of the international specification and that defined by the Italian guide. The
+classification - that of the international specification and that defined by the Italian guide. The
 project declares which one it uses and for what purpose, and never mixes them in the same resource.
 
 ### 9.5 A value set whose name does not match its content
@@ -683,7 +683,7 @@ same clarity**: declaring conformance with a guide that depends on that terminol
 that is not a member of the organisation that governs it, entails a cost for the deployer, and
 hiding it would be improper. The project's terminology policy and its four regimes are described in
 the module
-[«Interoperability standards», §8](../10_fondamenti/05-standard-di-interoperabilita.md).
+[«Interoperability standards», §8](/10_fondamenti/05-standard-di-interoperabilita.md).
 
 ## 10. Coexistence between versions, and a choice that would be unrecoverable
 
@@ -715,9 +715,9 @@ document reference. Modelling the recording on it would mean choosing today a st
 not exist tomorrow, and it would be the only truly unrecoverable R4 debt.
 
 Telemedic models the recording on `DocumentReference`, with the attachment's content type
-**negotiated at runtime and never assumed** — that is constraint V-11, and the technical reason
+**negotiated at runtime and never assumed** - that is constraint V-11, and the technical reason
 lies in the verified divergence of the container produced by the different runtime environments
-(module [«WebRTC from scratch», §12](../10_fondamenti/08-webrtc-da-zero.md)).
+(module [«WebRTC from scratch», §12](/10_fondamenti/08-webrtc-da-zero.md)).
 
 ## 11. What is not exposed as FHIR, and why
 
@@ -731,5 +731,5 @@ lies in the verified divergence of the container produced by the different runti
 
 The row on metrics deserves emphasis because the temptation is strong and the error is common: a
 network jitter value is not a clinical datum, and its presence in a patient's record is not a
-detail. If and when it became necessary to expose metrics in FHIR — for example for a service
-quality report — the subject would be the device or the location, never the person receiving care.
+detail. If and when it became necessary to expose metrics in FHIR - for example for a service
+quality report - the subject would be the device or the location, never the person receiving care.

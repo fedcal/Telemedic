@@ -1,10 +1,10 @@
 ---
-title: "ADR-0003 — Il modello di dominio non conosce lo standard di interoperabilità"
+title: "ADR-0003 - Il modello di dominio non conosce lo standard di interoperabilità"
 sidebar_position: 3
 description: Perché le risorse dello standard sono proiezioni costruite da mappatori e non entità persistite, quali alternative sono state scartate e quali verifiche automatiche rendono la regola effettiva.
 ---
 
-# ADR-0003 — Il modello di dominio non conosce lo standard di interoperabilità
+# ADR-0003 - Il modello di dominio non conosce lo standard di interoperabilità
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 
@@ -19,7 +19,7 @@ primo codice, oppure il costo di sopravvivere a una revisione della specifica.
 
 ## Alternative valutate
 
-### Alternativa 1 — Persistere le risorse dello standard come documenti
+### Alternativa 1 - Persistere le risorse dello standard come documenti
 
 Le risorse sono conservate nella loro forma nativa in un campo documentale.
 
@@ -39,7 +39,7 @@ campo; le interfacce di scambio sono immediate.
 - **Le interrogazioni diventano interrogazioni su documenti**, con indicizzazione da costruire caso
   per caso.
 
-### Alternativa 2 — Usare i tipi dello standard come tipi del dominio, con persistenza relazionale
+### Alternativa 2 - Usare i tipi dello standard come tipi del dominio, con persistenza relazionale
 
 *Vantaggi*: un solo insieme di tipi; nessuna conversione fra dominio e scambio.
 
@@ -48,7 +48,7 @@ strutture dati. Il dominio perderebbe la propria capacità di rendere impossibil
 l'accoppiamento alla revisione della specifica resterebbe totale, spostato dalla persistenza al
 codice. **Scartata.**
 
-### Alternativa 3 — Modello di dominio autonomo, risorse come proiezioni
+### Alternativa 3 - Modello di dominio autonomo, risorse come proiezioni
 
 *Vantaggi*: le invarianti vivono in tipi progettati per custodirle; la revisione della specifica
 tocca i mappatori; la persistenza è relazionale e interrogabile.
@@ -98,4 +98,4 @@ libreria nel dominio.
 
 ## Riferimenti
 
-[04 — Modello dati](../02_architecture/04-modello-dati.md#1-quattro-modelli-non-uno) · ADR-0002
+[04 - Modello dati](../02_architecture/04-modello-dati.md#1-quattro-modelli-non-uno) · ADR-0002

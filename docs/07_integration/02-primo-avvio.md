@@ -1,7 +1,7 @@
 ---
 title: Primo avvio
 sidebar_position: 3
-description: Dal nulla a una prima integrazione funzionante. Prerequisiti espliciti, sette passi verificabili uno per uno, e i punti in cui ci si blocca di solito — con sintomo, causa e rimedio.
+description: Dal nulla a una prima integrazione funzionante. Prerequisiti espliciti, sette passi verificabili uno per uno, e i punti in cui ci si blocca di solito - con sintomo, causa e rimedio.
 ---
 
 # Primo avvio
@@ -55,7 +55,7 @@ queste cose.
 
 | # | Prerequisito | Come si verifica |
 |---|---|---|
-| A1 | Un'istanza di Telemedic raggiungibile, in ambiente di prova | Il documento di capacità risponde: `GET https://api.telemedic.esempio.it/fhir/metadata` |
+| A1 | Un'istanza di Telemedic raggiungibile, in ambiente di prova | Il documento di capacità risponde: `GET https://api.telemedic.example/fhir/metadata` |
 | A2 | Un identificativo di tenant assegnato | Ve lo comunica chi ha installato il sistema. Compare in ogni token, in ogni evento e in ogni riga del registro degli accessi |
 | A3 | **Connessione sicura su tutto il percorso**, anche in prova | Un componente che accede a fotocamera e microfono **non funziona** su connessione non sicura. Non è configurabile |
 | A4 | Il vostro back-end raggiunge in uscita l'emittente dei token e l'interfaccia applicativa | Un proxy aziendale che intercetta e ricifra il traffico rompe la verifica delle asserzioni: va inserito il certificato del proxy nella catena di fiducia del vostro processo, oppure va esclusa la destinazione |
@@ -97,7 +97,7 @@ ripartizione delle responsabilità.
 | D4 | Elenco delle origini che ospiteranno il componente | Solo connessione sicura, nessun carattere jolly di dominio |
 | D5 | Indirizzo del ricevitore di notifiche, se applicabile | Solo connessione sicura |
 
-## 2. Passo 1 — registrare il client e pubblicare le chiavi
+## 2. Passo 1 - registrare il client e pubblicare le chiavi
 
 L'onboarding **non è automatico**: un punto di registrazione aperto su una piattaforma sanitaria
 multi-tenant è un vettore di abuso senza contropartita. La registrazione avviene per via
@@ -146,7 +146,7 @@ in volo la usi. Poi la togliete.
 Chi progetta la rotazione dopo aver messo in produzione una sola chiave, la progetta durante un
 incidente.
 
-## 3. Passo 2 — ottenere il primo token
+## 3. Passo 2 - ottenere il primo token
 
 ### 3.1 L'asserzione
 
@@ -163,7 +163,7 @@ Costruite un'asserzione firmata con la vostra chiave privata. I valori sono illu
 {
   "iss": "gestionale-integratore-prod",
   "sub": "gestionale-integratore-prod",
-  "aud": "https://telemedic.esempio.it/realms/clinic/protocol/openid-connect/token",
+  "aud": "https://telemedic.example/realms/clinic/protocol/openid-connect/token",
   "exp": 1787654621,
   "jti": "8f3c1e02-77a1-4f77-9d1a-6a2b3c4d5e6f"
 }
@@ -184,12 +184,12 @@ Quattro regole che si sbagliano quasi sempre:
 
 ```http
 POST /realms/clinic/protocol/openid-connect/token HTTP/1.1
-Host: telemedic.esempio.it
+Host: telemedic.example
 Content-Type: application/x-www-form-urlencoded
 Accept: application/json
 
 grant_type=client_credentials
-&scope=system%2FEncounter.cu%20https%3A%2F%2Ftelemedic.esempio.it%2Fscopes%2Fsession.start
+&scope=system%2FEncounter.cu%20https%3A%2F%2Ftelemedic.example%2Fscopes%2Fsession.start
 &client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
 &client_assertion=eyJhbGciOiJFUzM4NCIsImtpZCI6ImludC0yMDI2LTA4IiwidHlwIjoiSldUIn0…
 ```
@@ -199,7 +199,7 @@ grant_type=client_credentials
   "access_token": "eyJraWQiOiJ0bS0yMDI2LTA4Iiwi…",
   "token_type": "bearer",
   "expires_in": 300,
-  "scope": "system/Encounter.cu https://telemedic.esempio.it/scopes/session.start"
+  "scope": "system/Encounter.cu https://telemedic.example/scopes/session.start"
 }
 ```
 
@@ -220,14 +220,14 @@ grant_type=client_credentials
 - **Non registrarlo nei log.** Vale anche per i log di diagnostica temporanei, che sono quelli
   che restano attivi più a lungo.
 
-## 4. Passo 3 — creare la prima prestazione
+## 4. Passo 3 - creare la prima prestazione
 
 L'appuntamento nasce nella **vostra** agenda. Telemedic viene invocato con un appuntamento che
 esiste già.
 
 ```http
 POST /v1/sessions HTTP/1.1
-Host: api.telemedic.esempio.it
+Host: api.telemedic.example
 Authorization: Bearer eyJraWQiOiJ0bS0yMDI2LTA4Iiwi…
 Content-Type: application/json
 Idempotency-Key: apt-9931-2026-09-01T10-00
@@ -274,7 +274,7 @@ Content-Type: application/json
   "invitations": [
     {
       "role": "patient",
-      "url": "https://embed.telemedic.esempio.it/j/8Wq2-K7pd-4Nx1",
+      "url": "https://embed.telemedic.example/j/8Wq2-K7pd-4Nx1",
       "expiresAt": "2026-09-01T09:00:00.000Z"
     }
   ],
@@ -317,7 +317,7 @@ produce un rifiuto o un avviso.
 > rieseguitela con la stessa chiave e un corpo diverso: ottenete un rifiuto esplicito, non una
 > sostituzione silenziosa.
 
-## 5. Passo 4 — ricevere e verificare la prima notifica
+## 5. Passo 4 - ricevere e verificare la prima notifica
 
 ### 5.1 Che cosa arriva
 
@@ -329,7 +329,7 @@ POST /webhooks/telemedic HTTP/1.1
 Host: gestionale.integratore.example
 ce-specversion: 1.0
 ce-type: it.telemedic.session.completed.v1
-ce-source: /tenants/asl-nord-01/sessions
+ce-source: /tenants/t0001/sessions
 ce-subject: ses-01J9ZC5P
 ce-id: 8f3c1e02-77a1-4f77-9d1a-6a2b3c4d5e6f
 ce-time: 2026-09-01T08:41:22.481Z
@@ -341,7 +341,7 @@ Signature: sig1=:MEUCIQDf1sK9x0Rz…:
 Idempotency-Key: 8f3c1e02-77a1-4f77-9d1a-6a2b3c4d5e6f
 
 {
-  "tenant": "asl-nord-01",
+  "tenant": "t0001",
   "sessionId": "ses-01J9ZC5P",
   "encounter": { "reference": "Encounter/enc-77213" },
   "appointment": {
@@ -365,7 +365,7 @@ indirizzo che non controlliamo smette di essere un canale di fuga di dati sanita
 ### 5.2 Le quattro cose da fare, nell'ordine
 
 1. **Leggere il corpo grezzo.** Prima di ogni deserializzazione. Se il vostro strato web
-   riserializza il JSON — riordinando le chiavi, cambiando gli spazi — l'impronta non
+   riserializza il JSON - riordinando le chiavi, cambiando gli spazi - l'impronta non
    corrisponderà **mai** e passerete un giorno a cercare l'errore altrove.
 2. **Verificare l'impronta del corpo**, poi la firma, ricostruendo la stringa canonica dai
    componenti elencati nell'intestazione dei metadati di firma. La chiave pubblica si risolve
@@ -384,13 +384,13 @@ rompe da solo alla prima aggiunta.
 > **alterate un byte del corpo** in un test e verificate che la vostra verifica fallisca: se non
 > fallisce, non state verificando nulla.
 
-## 6. Passo 5 — incorporare la stanza del consulto
+## 6. Passo 5 - incorporare la stanza del consulto
 
 Il gettone di ingresso si ottiene **fra back-end** e non compare mai in un indirizzo.
 
 ```http
 POST /v1/sessions/ses-01J9ZC5P/entry-tokens HTTP/1.1
-Host: api.telemedic.esempio.it
+Host: api.telemedic.example
 Authorization: Bearer eyJraWQiOiJ0bS0yMDI2LTA4Iiwi…
 Content-Type: application/json
 
@@ -407,23 +407,23 @@ Content-Type: application/json
   "token": "ott_3f7b9a20-3e01-4c9d-8c1b-2e4f5a6b7c8d",
   "expiresIn": 45,
   "singleUse": true,
-  "embedUrl": "https://embed.telemedic.esempio.it/room?s=ses-01J9ZC5P"
+  "embedUrl": "https://embed.telemedic.example/room?s=ses-01J9ZC5P"
 }
 ```
 
 Sulla pagina che ospita, servite l'intestazione di politica dei permessi e montate la cornice:
 
 ```http
-Permissions-Policy: camera=(self "https://embed.telemedic.esempio.it"),
-                    microphone=(self "https://embed.telemedic.esempio.it"),
-                    display-capture=(self "https://embed.telemedic.esempio.it"),
-                    fullscreen=(self "https://embed.telemedic.esempio.it")
+Permissions-Policy: camera=(self "https://embed.telemedic.example"),
+                    microphone=(self "https://embed.telemedic.example"),
+                    display-capture=(self "https://embed.telemedic.example"),
+                    fullscreen=(self "https://embed.telemedic.example")
 ```
 
 ```html
 <iframe
   id="telemedic-frame"
-  src="https://embed.telemedic.esempio.it/room?s=ses-01J9ZC5P"
+  src="https://embed.telemedic.example/room?s=ses-01J9ZC5P"
   title="Televisita"
   allow="camera 'src'; microphone 'src'; display-capture 'src'; fullscreen 'src'; autoplay 'src'"
   sandbox="allow-scripts allow-same-origin allow-forms allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
@@ -433,7 +433,7 @@ Permissions-Policy: camera=(self "https://embed.telemedic.esempio.it"),
 E consegnate il gettone quando il componente dichiara di essere pronto:
 
 ```js
-const TELEMEDIC_ORIGIN = 'https://embed.telemedic.esempio.it';
+const TELEMEDIC_ORIGIN = 'https://embed.telemedic.example';
 const frame = document.getElementById('telemedic-frame');
 
 window.addEventListener('message', (event) => {
@@ -464,11 +464,11 @@ window.addEventListener('message', (event) => {
 > schermo funziona. Se video e audio funzionano ma la condivisione no, il permesso di cattura
 > dello schermo non è stato elencato: è una voce separata.
 
-## 7. Passo 6 — recuperare il documento clinico
+## 7. Passo 6 - recuperare il documento clinico
 
 ```http
 GET /fhir/Composition/cmp-4410 HTTP/1.1
-Host: api.telemedic.esempio.it
+Host: api.telemedic.example
 Authorization: Bearer eyJraWQiOiJ0bS0yMDI2LTA4Iiwi…
 Accept: application/fhir+json
 ```
@@ -498,7 +498,7 @@ condivisione dello schermo no.
 
 **Causa.** Perché una cornice su origine diversa possa usare fotocamera o microfono servono
 **due** condizioni: la funzione deve essere consentita nella politica dei permessi del documento
-**di livello superiore** — cioè la vostra pagina — **e** nell'attributo della cornice.
+**di livello superiore** - cioè la vostra pagina - **e** nell'attributo della cornice.
 L'attributo **restringe**, non concede: non può dare ciò che il livello superiore nega. Se non
 servite l'intestazione, il comportamento ricade sul valore predefinito del browser, che per
 fotocamera, microfono e cattura dello schermo è restrittivo.
@@ -551,7 +551,7 @@ ambito.
 all'assistito.
 
 **Causa.** Chiave di idempotenza generata casualmente a ogni tentativo, oppure omessa nel
-ritentativo automatico della vostra libreria HTTP — che è esattamente il punto in cui serviva.
+ritentativo automatico della vostra libreria HTTP - che è esattamente il punto in cui serviva.
 
 **Rimedio.** Derivate la chiave dal **tentativo logico**: identificativo dell'appuntamento più
 istante programmato. E assicuratevi che il ritentativo automatico riusi la **stessa** chiave: se
@@ -612,7 +612,7 @@ produzione.
 - **Non registrare corpi di richiesta e risposta per default** nel vostro strato HTTP: finireste
   per avere dati sanitari nei vostri registri applicativi, con obblighi che non avete pianificato.
 - **Non provare l'integrazione con dati reali di persone reali.** Il progetto in ambiente di
-  prova non ha le garanzie dell'ambiente di produzione e — in ogni caso — il software non è
+  prova non ha le garanzie dell'ambiente di produzione e - in ogni caso - il software non è
   utilizzabile per l'erogazione di prestazioni sanitarie su pazienti reali finché non esiste una
   marcatura ([00 §6.1](00-indice.md)).
 - **Non rinviare il passo della consegna dell'identità.** È il pezzo con più rischio: prototipatelo

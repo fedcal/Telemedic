@@ -1,7 +1,7 @@
 ---
 title: Incident response
 sidebar_position: 11
-description: The four distinct clocks — personal data breach, incidents affecting obliged entities, the duty on health authorities, device vigilance — and the fifth that starts on 11 September 2026, with the period running from the acquisition of the evidence and the capabilities the product must provide.
+description: The four distinct clocks - personal data breach, incidents affecting obliged entities, the duty on health authorities, device vigilance - and the fifth that starts on 11 September 2026, with the period running from the acquisition of the evidence and the capabilities the product must provide.
 ---
 
 # Incident response
@@ -29,7 +29,7 @@ a 24-hour pre-notification to another recipient, which had already expired.
 A single operating manual that orchestrates the clocks is therefore a concrete deliverable, and it
 is this chapter.
 
-## 2. The four clocks — and the fifth
+## 2. The four clocks - and the fifth
 
 ```mermaid
 timeline
@@ -49,7 +49,7 @@ timeline
     1 month : Final report for obliged entities
 ```
 
-### 2.1 Clock 1 — Personal data breach
+### 2.1 Clock 1 - Personal data breach
 
 | | |
 |---|---|
@@ -66,13 +66,13 @@ the controller's, towards the authority, and it runs from the moment **the contr
 aware.
 
 It follows that, if the supplier alerts the customer at the seventieth hour, the customer has no
-formal delay — their clock starts at that moment — but has lost any possibility of preparing a
+formal delay - their clock starts at that moment - but has lost any possibility of preparing a
 useful notification, and the supplier has in all likelihood breached its own duty to inform
 «without undue delay». **The data processing agreement must therefore set a concrete contractual
 deadline and a channel**: the project adopts **under 24 hours**, and **immediately** for
 high-severity incidents (§4).
 
-### 2.2 Clock 2 — Incidents affecting entities obliged under the network security rules
+### 2.2 Clock 2 - Incidents affecting entities obliged under the network security rules
 
 | | |
 |---|---|
@@ -82,15 +82,15 @@ high-severity incidents (§4).
 | **Start** | From the **acquisition of the evidence** of the significant incident (§3) |
 | **Taxonomy** | Three types for important entities, **four** for essential ones |
 
-The four types of baseline significant incident are built on three elements — **condition**,
-**compromise**, **object of the compromise** — and are, in summary:
+The four types of baseline significant incident are built on three elements - **condition**,
+**compromise**, **object of the compromise** - and are, in summary:
 
 | Type | Compromise | Object | Important | Essential |
 |---|---|---|:-:|:-:|
 | 1 | Loss of **confidentiality** towards the outside | Digital data | ● | ● |
 | 2 | Loss of **integrity** with an impact towards the outside | Digital data | ● | ● |
 | 3 | Breach of the **expected service levels** | Services and activities | ● | ● |
-| 4 | **Unauthorised access or access with abuse of granted privileges** | Digital data | — | ● |
+| 4 | **Unauthorised access or access with abuse of granted privileges** | Digital data | - | ● |
 
 The fourth is the one that concerns the primary adversary of this system
 ([01 §3.1](./01-modello-di-minaccia.md)), and it is the reason why the detection described in
@@ -99,10 +99,10 @@ The fourth is the one that concerns the primary adversary of this system
 A clarification from the authority that directly concerns the supplier in managed-service mode: the
 object of the compromise may also consist of «digital data over which the entity exercises control,
 including partial control», a category that expressly includes data it does not own but for the
-processing of which it has a responsibility under contract — that is to say, **exactly the position
+processing of which it has a responsibility under contract - that is to say, **exactly the position
 of whoever manages a customer's systems**.
 
-### 2.3 Clock 3 — The duty on health authorities under national law
+### 2.3 Clock 3 - The duty on health authorities under national law
 
 | | |
 |---|---|
@@ -112,17 +112,17 @@ of whoever manages a customer's systems**.
 | **Penalty** | In the event of repetition within five years, an administrative fine **from €25,000 to €125,000** and disciplinary liability |
 
 **Why it is a distinct clock and not a duplicate of the second.** The recipient is different; the
-personal scope is different — a local health authority is almost always obliged under both; the
+personal scope is different - a local health authority is almost always obliged under both; the
 taxonomy is different. A customer that is at once an entity obliged under the network security
 rules and a local health authority **counts twice**, and the product must supply them with evidence
 usable in both formats.
 
-### 2.4 Clock 4 — Medical device vigilance
+### 2.4 Clock 4 - Medical device vigilance
 
 | | |
 |---|---|
 | **Recipient** | The competent authorities of the Member States |
-| **Obliged entity** | The **manufacturer** of the device. **It is not the project** (constraint V-06): it is whoever places the marked distribution on the market |
+| **Obliged entity** | The **manufacturer** of the device. It is not the project **today** (constraint V-06): it is the **manufacturing entity to be established**, for our distribution, and whoever places each derivation on the market |
 | **Deadlines** | **2 days** in the case of a serious public health threat; **10 days** in the case of death or an unanticipated serious deterioration in a person's state of health; **15 days** for other serious incidents (Article 87 of Regulation (EU) 2017/745) |
 
 **Why it appears in a security chapter.** Because a security incident can **also be** a vigilance
@@ -136,7 +136,9 @@ them requires establishing a link between the technical event and the clinical c
 the point at which the table of clinical consequences in [01 §5](./01-modello-di-minaccia.md) stops
 being a modelling exercise and becomes an operational triage instrument.
 
-### 2.5 The fifth — Cyber resilience, from 11 September 2026
+**Declaration of `Q-276`.** The rewrite of the obliged entity row makes the project the holder of two vigilance obligations that require technical capabilities not yet engineered: the **stable taxonomy of counted events** and the **retention of diagnostics to match the vigilance window**. Both obligations count events; they do not activate retroactively; the missing historical series cannot be reconstructed. With the role of manufacturer, the ownership of this gap will be ours, and must be declared explicitly as a relevant risk in the register of missing enabling capabilities.
+
+### 2.5 The fifth - Cyber resilience, from 11 September 2026
 
 | | |
 |---|---|
@@ -158,6 +160,33 @@ and cannot meet them if the project has no disclosure policy with declared timin
 channel ([07 §6](./07-catena-di-fornitura.md)). **The project's reporting capability is therefore a
 requirement of the integrator before it is an obligation of its own.**
 
+**The third period, which the project declares here.** For that requirement to be met it is not
+enough that the channel exists: a period is needed, and it must be **the project's period towards
+its own integrators**, distinct from the two that already existed and that cover something else.
+The first is the **acknowledgement of a vulnerability report** - three working days, declared in
+[`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md) - and it is a commitment
+towards **whoever reports**, that is, on an inbound flow. The second is the **notification of a
+detected incident to the customer** - under 24 hours, §4 and measure `RS.CO-02` of
+[09 §9](./09-ripartizione-delle-responsabilita.md) - and it is contractual, towards **whoever has
+installed**. They are different obligations by subject matter, by direction and by addressee, and
+neither of the two covers the outbound notice towards whoever integrates the project into a product
+of their own.
+
+> **The project notifies its own integrators within 24 hours of the moment it acquires the
+> evidence** that a vulnerability of the project is being actively exploited, and **immediately**
+> when the evidence indicates that the exploitation is under way on installations in service. The
+> notice is due **irrespective of the availability of a fix**: deferring it until the fix would take
+> from the integrator precisely the time their own obligation grants them.
+
+Three clarifications make it a verifiable commitment instead of a formula. **The notice carries the
+instant at which the project acquired the evidence**, because the integrator's period runs from
+their **own** knowledge and not from ours, and because that instant is itself a compliance artefact
+(§3). **The notice carries what is needed to decide, not what is needed to attack**: affected
+component and versions, whether the exploitation is confirmed, temporary mitigations available,
+status of the fix. And the period is a **project policy commitment, not a legal obligation**: no
+reporting obligation arises for the project today, for the reasons just stated, and this period
+exists because without it a third party's obligation becomes impossible to meet.
+
 ## 3. The period runs from the acquisition of the evidence
 
 **This is the most important operational piece of information in the chapter.**
@@ -168,23 +197,23 @@ the pre-notification and the notification».
 
 Three consequences follow that change the way timings are reasoned about.
 
-**First — a product that detects earlier does not shorten the period: it shortens the delay.** The
+**First - a product that detects earlier does not shorten the period: it shortens the delay.** The
 period is always 24 hours from the evidence. What the product can do is make the evidence arrive
 hours or days earlier, instead of with a third party's report.
 
-**Second — evidence is acquired in three ways**, and only one is automatable: a report from
+**Second - evidence is acquired in three ways**, and only one is automatable: a report from
 external actors, typically the national response body; a report from internal actors, typically the
 user who calls support; **analysis of the events detected by the monitoring systems**. The third is
 the one the product can influence, and it is the economic justification for the indicators in
 [04 §7](./04-tracciamento.md).
 
-**Third — the moment of acquisition of the evidence must be recorded**, because it is the moment
+**Third - the moment of acquisition of the evidence must be recorded**, because it is the moment
 from which the obliged entity will have to show it counted. A detection event with no precise
 instant makes timeliness impossible to demonstrate, and that is a problem even when the entity was
 timely.
 
 A requirement follows that seems formal and is not: **the audit trail row attesting the acquisition
-of the evidence — who, when, by which route, on which signal — is itself a compliance artefact**,
+of the evidence - who, when, by which route, on which signal - is itself a compliance artefact**,
 and it must be produced automatically when an alarm is raised.
 
 ## 4. The supplier's obligations towards the deployer
@@ -215,7 +244,7 @@ reason that section exists.
 
 ## 5. The regime that depends on a number the customer chooses
 
-The third type of significant incident — breach of the **expected service levels** — has a property
+The third type of significant incident - breach of the **expected service levels** - has a property
 the others do not have: **the threshold is defined by the customer**, under the continuous
 monitoring measure, and the authority distinguishes it sharply from contractual service level
 agreements.
@@ -227,7 +256,7 @@ incident. Other examples given: unavailability of a site for more than thirty co
 limited availability of a service for more than five per cent of users.
 
 **Product consequence, and it is not the same thing as session quality metrics.** The metrics
-already provided for — latency, packet loss, jitter, bandwidth — are **necessary and not
+already provided for - latency, packet loss, jitter, bandwidth - are **necessary and not
 sufficient**: they measure the quality of the individual session, not the availability of the
 service. What is needed is an **availability indicator per tenant and per service**, historised at a
 granularity sufficient to recognise the crossing of a threshold of the order of one percentage
@@ -280,8 +309,8 @@ procedure, not during the event.
 ## 7. Review, exercise and improvement
 
 - **Every incident produces a review**, with a documented outcome, which updates the threat model
-  ([01 §8](./01-modello-di-minaccia.md)), the device's risk register and — where the cause is a
-  defect — a requirement and a test that verify its correction.
+  ([01 §8](./01-modello-di-minaccia.md)), the device's risk register and - where the cause is a
+  defect - a requirement and a test that verify its correction.
 - **The procedure is exercised at least annually**, with a written record. A procedure that is never
   exercised is not a procedure: it is a document. The exercise also verifies the notification
   channels towards the customer, which is the part that is found to be broken on first real use.

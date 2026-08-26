@@ -1,10 +1,10 @@
 ---
-title: "ADR-0008 — Outbox transazionale come unica sorgente degli eventi"
+title: "ADR-0008 - Outbox transazionale come unica sorgente degli eventi"
 sidebar_position: 8
 description: Perché ogni evento nasce da una scrittura nella stessa transazione del dato, quali difetti elimina, quali alternative sono state scartate e che cosa deliberatamente non passa dall'outbox.
 ---
 
-# ADR-0008 — Outbox transazionale come unica sorgente degli eventi
+# ADR-0008 - Outbox transazionale come unica sorgente degli eventi
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Decisioni di riferimento**: D15; base architetturale §5
@@ -22,7 +22,7 @@ attraverso un canale che non partecipa alla stessa transazione.
 
 ## Alternative valutate
 
-### Alternativa 1 — Pubblicare sul broker dopo il consolidamento
+### Alternativa 1 - Pubblicare sul broker dopo il consolidamento
 
 *Vantaggi*: banale; nessuna tabella aggiuntiva; latenza minima.
 
@@ -31,13 +31,13 @@ pubblicazione. Il documento è firmato ma il sistema di origine non lo saprà ma
 riceve la notifica, il fatto rendicontabile non è emesso. **Nessuno se ne accorge**, perché non c'è
 nulla che segnali l'assenza di un evento mai esistito. **Scartata.**
 
-### Alternativa 2 — Pubblicare prima di consolidare
+### Alternativa 2 - Pubblicare prima di consolidare
 
 *Compromesso*: **l'evento fantasma.** L'evento è consegnato, la transazione fallisce. Il sistema di
 origine riceve la notifica di un documento firmato che non esiste. È il peggiore dei due, perché
 produce dati errati in un sistema di terzi. **Scartata.**
 
-### Alternativa 3 — Transazione distribuita fra base dati e broker
+### Alternativa 3 - Transazione distribuita fra base dati e broker
 
 *Vantaggi*: atomicità formale.
 
@@ -45,7 +45,7 @@ produce dati errati in un sistema di terzi. **Scartata.**
 esito incerto; peggiora la disponibilità del percorso clinico legandola a quella del broker;
 complica l'installazione presso il cliente. **Scartata.**
 
-### Alternativa 4 — Outbox transazionale
+### Alternativa 4 - Outbox transazionale
 
 L'evento è scritto in una tabella **nella stessa transazione del dato**; un relay legge la tabella e
 pubblica.
@@ -95,5 +95,5 @@ sul broker: verifica automatica bloccante.
 
 ## Riferimenti
 
-[06 — Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#2-loutbox-transazionale) ·
+[06 - Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#2-loutbox-transazionale) ·
 ADR-0009 · ADR-0010 · ADR-0012

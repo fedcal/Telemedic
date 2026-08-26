@@ -9,7 +9,7 @@ description: "Why the same codebase may or may not be a medical device depending
 > **Reading premise.** The definition of a medical device, the qualification tree, the text of
 > Rule 11 and the reason why for telemedicine software Class I in practice does not exist are
 > explained from scratch in
-> [10 §15 — The regulatory framework from scratch, §§1–2](../10_fondamenti/15-regolatorio-da-zero.md).
+> [10 §15 - The regulatory framework from scratch, §§1–2](/10_fondamenti/15-regolatorio-da-zero.md).
 > **Here it is not repeated: it is determined.** This chapter produces the project's position,
 > gives its reasons, states its conditions of validity and indicates the facts that would make it
 > fall.
@@ -25,7 +25,7 @@ description: "Why the same codebase may or may not be a medical device depending
 > it has not yet been constituted**: the formal determination is therefore not an act that can be
 > brought forward, because it presupposes that entity, the person responsible for regulatory
 > compliance required by Article 15 of Regulation (EU) 2017/745 and a document control in
-> operation. Until then this chapter remains an outline — and **the reason why it remains one is no
+> operation. Until then this chapter remains an outline - and **the reason why it remains one is no
 > longer the same as before**: it is explained in full in § 5.2.
 
 ## 1. The chain: what determines what
@@ -37,15 +37,15 @@ mechanically.
 
 ```mermaid
 flowchart TD
-    IU["<b>Declared intended purpose</b><br/>Article 2(12) — label, instructions,<br/>promotional material, statements"]
-    IU --> Q["<b>Qualification</b><br/>Article 2(1) — is it a medical device?"]
+    IU["<b>Declared intended purpose</b><br/>Article 2(12) - label, instructions,<br/>promotional material, statements"]
+    IU --> Q["<b>Qualification</b><br/>Article 2(1) - is it a medical device?"]
     Q --> C["<b>Classification</b><br/>Annex VIII, Rule 11 and implementing rules"]
-    C --> P["<b>Assessment procedure</b><br/>Article 52 — which annex, which body"]
-    Q --> G["<b>Perimeter of the requirements</b><br/>Annex I — which GSPRs are applicable"]
-    IU --> CE["<b>Clinical evaluation</b><br/>Article 61 and Annex XIV —<br/>the benefit to be demonstrated is the declared one"]
-    IU --> UE["<b>Use specification</b><br/>IEC 62366-1 §5.1 — scenarios to be validated"]
-    IU --> RM["<b>Risk analysis</b><br/>ISO 14971 §5.2 — starts from intended purpose<br/>and reasonably foreseeable misuse"]
-    RM --> SC["<b>Software safety class</b><br/>IEC 62304 §4.3 — depends on the possible harm"]
+    C --> P["<b>Assessment procedure</b><br/>Article 52 - which annex, which body"]
+    Q --> G["<b>Perimeter of the requirements</b><br/>Annex I - which GSPRs are applicable"]
+    IU --> CE["<b>Clinical evaluation</b><br/>Article 61 and Annex XIV -<br/>the benefit to be demonstrated is the declared one"]
+    IU --> UE["<b>Use specification</b><br/>IEC 62366-1 §5.1 - scenarios to be validated"]
+    IU --> RM["<b>Risk analysis</b><br/>ISO 14971 §5.2 - starts from intended purpose<br/>and reasonably foreseeable misuse"]
+    RM --> SC["<b>Software safety class</b><br/>IEC 62304 §4.3 - depends on the possible harm"]
     C --> ON["<b>Designation codes</b><br/>the notified body must hold"]
 ```
 
@@ -73,7 +73,7 @@ wishes to declare.** Any divergence between the two is a defect, in one directio
 | **Software safety class** | **B**, with isolated class A items and documented segregation under clause 5.3.5 of IEC 62304. The determination is in chapter [03 §6](./03-sistema-di-gestione-della-qualita.md) |
 
 **And the line that counts more than the three preceding ones:** this position is **conditional**.
-It holds as long as the exclusions of § 4.3 hold, and it falls — not "weakens": falls — the moment
+It holds as long as the exclusions of § 4.3 hold, and it falls - not "weakens": falls - the moment
 even one of them is contradicted by the product or by the material describing it.
 
 ## 3. Why the project did not chase Class I
@@ -123,9 +123,9 @@ declarations.
 | **11b** | Software intended to monitor physiological processes | **Yes.** Periodic acquisition of parameters according to a plan is monitoring of a physiological process. The guidance clarifies that the sub-rule applies to the monitoring of *any* physiological process, not of vital parameters alone |
 | **11c** | All other uses | No |
 
-Both applicable sub-rules lead to **Class IIa**. Implementing rule 3.5 of Annex VIII, Chapter II —
+Both applicable sub-rules lead to **Class IIa**. Implementing rule 3.5 of Annex VIII, Chapter II -
 where several rules or sub-rules apply to the same device, **the strictest rule and sub-rule**
-apply — therefore does not produce a different outcome in this case: two IIa remain IIa.
+apply - therefore does not produce a different outcome in this case: two IIa remain IIa.
 
 **A methodological note the notified body checks.** The determination cannot stop at Rule 11.
 Software is by definition an **active device** (Article 2(4): "Software … is deemed to be an active
@@ -137,7 +137,7 @@ body's first finding.
 
 The text of the rule contains two escalation thresholds, one per paragraph.
 
-**First lever — paragraph 1.** Decisions based on the information supplied by the software move to
+**First lever - paragraph 1.** Decisions based on the information supplied by the software move to
 Class IIb where they may cause "a serious deterioration of a person's state of health or a surgical
 intervention", and to Class III where they may cause death or an irreversible deterioration. The
 guidance specifies that the assessment is made on the impact of a decision taken **on incorrect
@@ -145,13 +145,13 @@ information supplied by the software**. The lever is therefore operated not by d
 product, but by describing **the population and the context**: clinically stable patients on
 planned pathways, with periodic review by the professional, not acute or unstable patients.
 
-**Second lever — paragraph 2.** Monitoring of **vital physiological parameters**, "where the nature
+**Second lever - paragraph 2.** Monitoring of **vital physiological parameters**, "where the nature
 of variations of those parameters is such that it could result in immediate danger to the patient",
 moves to Class IIb. The reference vital parameters indicated by the guidance are respiration, heart
-rate, cerebral functions, blood gases, blood pressure and body temperature — that is, **exactly the
+rate, cerebral functions, blood gases, blood pressure and body temperature - that is, **exactly the
 parameters a cardiological or pulmonological remote monitoring pathway acquires**. The lever is
 therefore not operated by excluding those parameters from the scope, which would make the product
-useless: it is operated by excluding **the mode** — real time, immediate danger, surveillance — not
+useless: it is operated by excluding **the mode** - real time, immediate danger, surveillance - not
 the object.
 
 **This is where the formulation of `D46` comes from, and the difference between two sentences is
@@ -159,8 +159,8 @@ worth more than any technological choice taken in the project:**
 
 | Formulation | Class | Safety class | Differential cost |
 |---|---|---|---|
-| "**real-time** monitoring of **vital parameters**" | **IIb** | **C** | 12–18 months and an order of magnitude — **an industry estimate, not a price list** |
-| "**deferred** collection of **parameters** for **periodic review** by the professional" | **IIa** | **B** | — |
+| "**real-time** monitoring of **vital parameters**" | **IIb** | **C** | 12–18 months and an order of magnitude - **an industry estimate, not a price list** |
+| "**deferred** collection of **parameters** for **periodic review** by the professional" | **IIa** | **B** | - |
 
 The second formulation is the one on which the entire domain model is written (constraint `V-144`
 of `DOM`), and from which follows the prohibition, for any artefact of the project, on using the
@@ -169,7 +169,7 @@ expressions "real-time monitoring", "continuous surveillance" or equivalents.
 ### 4.3 The four exclusions that hold the position up
 
 These are the conditions on which Class IIa holds. They must be declared in the intended purpose in
-an **explicit, verifiable manner consistent with the product** — that is, writing them is not
+an **explicit, verifiable manner consistent with the product** - that is, writing them is not
 enough: the product must be built so that they are true.
 
 | # | Exclusion | What would make it false |
@@ -191,8 +191,8 @@ innocuous feature request**, and it is the subject of § 6.
 qualification and classification determination (`MDR-CLS-001`). They are to be read together with
 `D49` **as amended by `D58`**: the project **intends** to assume the manufacturer role, and the
 entity that would exercise it **is still to be constituted**; until that entity exists, neither
-does the apparatus — person responsible for regulatory compliance, document control, quality
-management system in operation — without which an intended purpose declaration is not a
+does the apparatus - person responsible for regulatory compliance, document control, quality
+management system in operation - without which an intended purpose declaration is not a
 declaration. **The combination of the two decisions produces a tension that must be declared
 instead of smoothed over**, because it is real, and `D58` **does not dissolve it: it changes its
 nature**, as § 5.2 argues.
@@ -208,8 +208,8 @@ publishes the code.
 **`D58` tightens this tension, it does not loosen it, and this must be said without softening.** As
 long as the certification path was attributed to an external party, attributing a declared intended
 purpose to the project was an incorrect reading, to be rejected by pointing to the party elsewhere.
-Since the project has declared that it **intends to assume** the manufacturer role — while not
-having constituted the entity that would exercise it — the same reading becomes **plausible**:
+Since the project has declared that it **intends to assume** the manufacturer role - while not
+having constituted the entity that would exercise it - the same reading becomes **plausible**:
 whoever publishes and whoever intends to declare coincide in intention, and the only thing that
 separates them is that the formal entity does not exist. The distance between the published
 material and a declared intended purpose is therefore **shorter than before**, and the safeguards
@@ -220,22 +220,22 @@ three qualifications that change its legal nature and that must appear in the do
 in a footnote:
 
 1. **it is a structured outline, not a declaration**: it is drafted so that **the manufacturer**
-   may complete it, amend it and sign it — completion, amendment and signature are acts the
-   regulation reserves to that role, and they remain reserved **even when the role is ours** — not
+   may complete it, amend it and sign it - completion, amendment and signature are acts the
+   regulation reserves to that role, and they remain reserved **even when the role is ours** - not
    so that it may count as a declaration of whoever publishes it;
 2. **the subject of the intended purpose is not the repository**, but the **identified
    distribution** that **the manufacturer entity, to be constituted**, will produce, with a name
    and a version number that **do not exist today**, because the entity that could assign them does
    not yet exist;
 3. **the document bears no signature and no approval**: outside the document control of a
-   manufacturer's quality management system it is, formally, preparatory material — and **it
+   manufacturer's quality management system it is, formally, preparatory material - and **it
    remains so even when that manufacturer is the project**, for as long as that document control is
    not in operation.
 
 **The limit remains, and with `D58` it worsens.** The distinction between an **outline** and a
 **declaration** is a distinction that holds if the document is read in full, and does not hold if
 it is quoted in extract. A third party extracting a paragraph of the outline and presenting it as
-the project's intended purpose commits an impropriety, but the harm is done all the same — and now
+the project's intended purpose commits an impropriety, but the harm is done all the same - and now
 the extract is **more defensible from the wrong side**, because the project has declared its
 intention to assume the manufacturer role and the reader is not obliged to distinguish between an
 intention and a constituted entity. Why the outline remains an outline is set out in § 5.2; what
@@ -292,7 +292,7 @@ who could declare, the project did not intend to become that party, and the docu
 addressed to an unknown recipient. It was a simple argument and, as long as it held, sufficient.
 With `D58` it **no longer holds**: the project intends to constitute that entity and to exercise
 that role. To go on writing "the subject is missing because it does not concern us" would be to
-write something the project owner has just contradicted — without prejudice to the finding, which
+write something the project owner has just contradicted - without prejudice to the finding, which
 holds today and is to be repeated every time, that **the entity is not constituted**.
 
 **The new reason, which is more demanding than the old one.** A document does not become a
@@ -321,17 +321,17 @@ expensive part.**
 **The corollary not to be lost sight of.** The new condition is **verifiable and ours to bear**,
 whereas the old one was a wait. It is a difference that makes the document *more* onerous, not
 less: before, the absence of a declaration was an external fact to be recorded; now it is a **gap of
-ours** with a known remedy — instituting document control — and an already declared cost of
+ours** with a known remedy - instituting document control - and an already declared cost of
 omission, because a document born outside document control **must be reissued** and not simply
-approved afterwards ([03 §4](./03-sistema-di-gestione-della-qualita.md), `V-174`;
+approved afterwards ([03 §4.1](./03-sistema-di-gestione-della-qualita.md), `V-174`;
 [09 §5](./09-percorso-e-calendario.md), unrecoverable activity no. 3).
 
 **And the opening line, repeated because it is the one that gets lost.** The product **bears no CE
 marking** and is covered by no declaration of conformity. Whoever deploys it, integrates it or puts
 it into service assumes in full the resulting obligations, **and the fact that the project intends
 to certify transfers none of them to them**. No date is stated here, and none can be: `V-171`
-prohibits asserting or implying that the product will be marked by a deadline — that is the only
-admitted occurrence of that word, inside the statement of the prohibition — and internal planning
+prohibits asserting or implying that the product will be marked by a deadline - that is the only
+admitted occurrence of that word, inside the statement of the prohibition - and internal planning
 does not become a promise merely because it is ours.
 
 ## 6. The boundary, with examples taken from this domain
@@ -355,7 +355,7 @@ Every row is worded as one actually hears it worded: as a reasonable request.
 |---|---|---|---|---|
 | **1** | "Let's pre-fill the threshold field with the last value used for that pathway; the physician can always change it" | The threshold ceases to be defined by the professional for that patient and becomes **proposed by the system**. A physician confirming a proposed value is not performing the same operation as one who writes it | `E4`; constraints `V-02` and `V-123` | The field stays **empty and mandatory**. References are shown with their attribution, read-only, with an explicit copy action |
 | **2** | "Let's colour in red the values outside the laboratory's reference range" | The laboratory's reference range **is not that patient's threshold**. Colouring according to a range the system knows is a qualification of the data performed by the system | Rule 11a; `E4` | Only highlighting against the threshold **configured by the professional for that patient** is admitted, with the attribution visible |
-| **3** | "Let's sort the patient list by severity, so the physician sees the most critical ones first" | Sorting **is** a judgement: it establishes a clinical priority between people. It is decision support | Rule 11a, entry C6 of the table in [10 §15 §2.8](../10_fondamenti/15-regolatorio-da-zero.md) | Admitted sorts: chronological, alphabetical, by administrative status, by presence of alerts **not yet taken on** (which is a fact, not a judgement) |
+| **3** | "Let's sort the patient list by severity, so the physician sees the most critical ones first" | Sorting **is** a judgement: it establishes a clinical priority between people. It is decision support | Rule 11a, entry C6 of the table in [10 §15 §2.8](/10_fondamenti/15-regolatorio-da-zero.md) | Admitted sorts: chronological, alphabetical, by administrative status, by presence of alerts **not yet taken on** (which is a fact, not a judgement) |
 | **4** | "Let's fill the gaps in the series with the last known value, so the chart is readable" | Interpolation **creates data that does not exist**. And it deletes the most important information that series contains: that a measurement is missing | Rule 11a; constraints `V-09` and `V-148` | The gap stays a gap, and it is an entity: an unmet expected measurement is shown as such |
 | **5** | "Let's calculate the percentage of adherence to the plan" | It depends. The ratio between expected and received measurements is **arithmetic on facts**. An "adherence score" that is weighted, normalised or categorised into bands is **a summary index**, that is, new clinical information | Rule 11a | The count is admitted with its explicit definition and its denominators visible; the merit band is prohibited |
 | **6** | "In recording playback let's add zoom and contrast adjustment" | Image enhancement for clinical reading is **processing for diagnostic purposes**, not playback convenience | MDCG 2019-11 Rev.1 § 3.1; entry C3 | Out of scope. Playback is faithful to the original, and says so |
@@ -367,7 +367,7 @@ Every row is worded as one actually hears it worded: as a reasonable request.
 | **12** | "Let's add automatic translation of chat messages, it is only a convenience" | A translation error in a clinical channel is an error of clinical content. And the function is, by construction, an artificial intelligence system with obligations of its own | Rule 11a; Regulation (EU) 2024/1689 | Out of scope in version 1.0. Multilingual support belongs to the **interface**, not to the content written by users |
 
 **Row 11 deserves a note that holds for the whole of the project's documentation.** The
-confidentiality rule `R0` — never name companies, trade marks, commercial products — and the
+confidentiality rule `R0` - never name companies, trade marks, commercial products - and the
 accessory trap push **in the same direction**, for completely different reasons. It is a fortunate
 convergence worth being aware of: an editorial habit imposed for negotiation reasons produces, as a
 side effect, exactly the right regulatory protection.
@@ -387,8 +387,8 @@ that solely transfers and displays information for monitoring purposes without i
 does not qualify as a medical device. Additional modules such as thresholds alerts may qualify as a
 medical device if they are intended for medical purposes.*"
 
-The project chose to **acknowledge this fact rather than work around it**. The opposite choice —
-keeping the function and denying its nature — would have produced the worst of positions: a product
+The project chose to **acknowledge this fact rather than work around it**. The opposite choice -
+keeping the function and denying its nature - would have produced the worst of positions: a product
 that does something and a declaration that denies it, that is, exactly the case prohibited by
 Article 7.
 
@@ -443,9 +443,9 @@ block. No artefact of the project may contain:
 | **No prognosis** | No projection, declared trend, prediction or estimate of progression. A time series is displayed; it is not extrapolated |
 | **No image enhancement** | Neither live nor in playback. The rendering is faithful to the source, and the degradation preference is **chosen by the user**, never driven by clinical content (question `Q-114` of `TECH`) |
 
-**And the six deliberate renunciations** declared by `DOM` with question `Q-145` — automatic face
+**And the six deliberate renunciations** declared by `DOM` with question `Q-145` - automatic face
 detection, reliability weights applied automatically, risk scores and prognosis, interpolation of
-missing data, computation of clinical outcomes, inference of thresholds — are, from this area's
+missing data, computation of clinical outcomes, inference of thresholds - are, from this area's
 point of view, **the six functions that would keep the product in Class IIa only by luck**. This
 area confirms them as compliance boundaries and not as product choices: revoking them is not a
 roadmap decision, it is a reclassification.
@@ -463,9 +463,9 @@ two capabilities are distinct and must be kept distinct:
 | Capability | What it does | Outcome |
 |---|---|---|
 | **Consumption of terminologies** | Resolves, validates and expands codes. It produces no new clinical information: it verifies that a code exists and what it corresponds to | **Inside the scope.** It is the terminology gateway |
-| **Execution of clinical logic expressed in an expression language** | Evaluates conditions over a patient's data and produces an outcome — recommendation, notice, suggested action | **Out of scope.** It is clinical decision support: Rule 11a, entry C6 |
+| **Execution of clinical logic expressed in an expression language** | Evaluates conditions over a patient's data and produces an outcome - recommendation, notice, suggested action | **Out of scope.** It is clinical decision support: Rule 11a, entry C6 |
 
-`DOM`'s choice — **the logic executor is absent by construction, not disabled by configuration** —
+`DOM`'s choice - **the logic executor is absent by construction, not disabled by configuration** -
 is the correct one on the regulatory plane too, and for a reason that must be stated: a component
 that is present and disabled is a component that appears in the software architecture, must be
 inventoried, must be assessed in the risk file and must be explained to the notified body, which
@@ -475,8 +475,8 @@ marginal.
 
 **The cost must however be stated without mitigation**, because it exists: a regional
 infrastructure verifying the consumption of all the resources provided for in Annex 3 will find **a
-capability not implemented**. It is not a regulatory non-compliance in the proper sense — the decree
-governs regional infrastructures, not third parties' software components — but it is an empty box
+capability not implemented**. It is not a regulatory non-compliance in the proper sense - the decree
+governs regional infrastructures, not third parties' software components - but it is an empty box
 in a tender matrix, and it is to be presented as a **reasoned scope choice with its regulatory
 rationale**, not passed over in silence. The rationale is defensible and is to be written exactly
 so: *implementing that capability would move the product into clinical decision support, with
@@ -494,8 +494,8 @@ expressly prescribes:
   be **certified as a medical device**", with an express reference to the European guidance on the
   qualification and classification of software;
 - that for level 2 advanced remote monitoring "a **risk class higher than IIa** could be required";
-- that in specialist-to-specialist consultations (teleconsulti) in certain specialties —
-  histopathology and radiology are cited — the clinical data viewing micro-service "together with
+- that in specialist-to-specialist consultations (teleconsulti) in certain specialties -
+  histopathology and radiology are cited - the clinical data viewing micro-service "together with
   the reporting one must be **certified as a medical device**";
 - that where medical devices are used in the remote consultation (televisita) service, "the
   software and hardware for delivering the service must be certified as a medical device **with an
@@ -505,7 +505,7 @@ The State-Regions Agreement of 17 December 2020 lays down, among the basic chara
 "certification of the hardware and/or software, as a medical device, **appropriate to the type of
 service** to be delivered by telemedicine".
 
-**`[NV]`** — the formulations are reported from the project's research on the text published in the
+**`[NV]`** - the formulations are reported from the project's research on the text published in the
 Gazzetta Ufficiale, but **literal verification against the official text must be redone before any
 contractual use**, because in this area the exact wording is decisive.
 
@@ -530,7 +530,7 @@ change proposal from crossing the boundary without anyone noticing**, and this i
 
 | Element of the guard | What it does | Where it lives |
 |---|---|---|
-| **Closed list of out-of-scope functions** | § 6.1 and § 8 of this chapter, plus the list of nine entries in [10 §15 §2.8](../10_fondamenti/15-regolatorio-da-zero.md) | Documentation, and a mandatory reference in the contribution guide |
+| **Closed list of out-of-scope functions** | § 6.1 and § 8 of this chapter, plus the list of nine entries in [10 §15 §2.8](/10_fondamenti/15-regolatorio-da-zero.md) | Documentation, and a mandatory reference in the contribution guide |
 | **Scope review on change proposals** | A proposal introducing one of the functions listed **is not rejected on technical merit, but on scope policy**. The reason for the rejection is regulatory and is to be written as such | Contribution guide, mandatory review |
 | **Explicit prohibition on artificial intelligence components** | No function declared today is an artificial intelligence system. Introducing one in a change proposal **is a change of regulatory regime**, not a technical choice | Contribution guide and architecture decision record |
 | **Review of the determination at every major release** | Verification that the six conditions of § 7.2 have not occurred | Release procedure |
@@ -543,7 +543,7 @@ touching a line.**
 
 ## 11. The software safety class is a consequence, not a parallel decision
 
-It must be said here because it is the point at which the two paths — regulatory and engineering —
+It must be said here because it is the point at which the two paths - regulatory and engineering -
 touch, and because treating them separately is the error that produces two inconsistent
 determinations.
 
@@ -574,7 +574,7 @@ The item-by-item determination, with its rationale and its warning, is in chapte
 |---|---|---|
 | `Q-170` | Form of publication of the intended-purpose outline: in full, structure only, or supply on request. **It is a decision about the risk of being cited as the authors of an intended purpose** (§ 5) | → Project owner |
 | `Q-173` | Whether the presentation of measured parameters constitutes a **measuring function** within the meaning of the MDR, with the resulting metrological requirements of Annex I. It depends on a fact this area does not know: whether the system converts units, rounds or transforms the values received, or presents them as received | Domain, functional |
-| `Q-144` | **CLOSED by `D55`.** The intended purpose of remote monitoring is **frozen** on the formulation "deferred collection of parameters for periodic review by the professional": Class IIa, software safety class B. The real-time formulation is excluded. From this follows a permanent prohibition — no function may be added that moves the system towards clinical real time, and the assessment must be made **before** writing the function | **RESOLVED** |
+| `Q-144` | **CLOSED by `D55`.** The intended purpose of remote monitoring is **frozen** on the formulation "deferred collection of parameters for periodic review by the professional": Class IIa, software safety class B. The real-time formulation is excluded. From this follows a permanent prohibition - no function may be added that moves the system towards clinical real time, and the assessment must be made **before** writing the function | **RESOLVED** |
 | `Q-145` | Confirmation of the six deliberate renunciations as product choices subject to change control. **This area confirms them as compliance boundaries** and awaits product confirmation | → Project owner |
 | `Q-115` | The operating environment thresholds have not been measured: until they are, section 10 of the intended purpose cannot be completed (§ 5.1) | Technical, product |
 | `V-270` | **The project intends to assume the manufacturer role (`D58`); the entity that would exercise it is not constituted.** Until it is, and until document control is in operation, the intended-purpose outline **cannot** be signed or presented as a declaration (§ 5.2) | Compliance, orchestration |

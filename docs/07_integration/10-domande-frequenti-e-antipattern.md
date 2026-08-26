@@ -16,7 +16,7 @@ giorni.
 
 ---
 
-## Parte prima — domande frequenti
+## Parte prima - domande frequenti
 
 ### 1. Prima di iniziare
 
@@ -32,8 +32,8 @@ riproducibile, con un fabbricante preciso. I due artefatti hanno nomi, versioni 
 distinti, ed è una distinzione sostanziale, non formale.
 
 **Quanto tempo serve per una prima integrazione?**
-La sequenza del capitolo [02](02-primo-avvio.md) — token, prestazione, notifica verificata,
-componente incorporato, recupero del documento — è realizzabile in pochi giorni da uno
+La sequenza del capitolo [02](02-primo-avvio.md) - token, prestazione, notifica verificata,
+componente incorporato, recupero del documento - è realizzabile in pochi giorni da uno
 sviluppatore back-end e uno front-end, **a condizione che i prerequisiti del §1 di quel capitolo
 siano soddisfatti prima di iniziare**. Il tempo che si perde si perde quasi sempre lì: non
 nell'integrazione, nell'attesa di un dominio, di un certificato o di una decisione organizzativa.
@@ -103,8 +103,8 @@ durante la transizione e dichiara che nessuna delle due è normativa.
 
 **Come sappiamo se un cambiamento romperà la nostra integrazione?**
 Le modifiche non compatibili passano da un processo di dodici mesi con annuncio, intestazioni di
-deprecazione e finestre di interruzione programmata. Le modifiche **compatibili** — aggiunta di
-campi, di endpoint, di valori enumerati, di tipi di evento — avvengono senza preavviso, e il
+deprecazione e finestre di interruzione programmata. Le modifiche **compatibili** - aggiunta di
+campi, di endpoint, di valori enumerati, di tipi di evento - avvengono senza preavviso, e il
 vostro client deve tollerarle. Vedi [03 §9.3](03-integrazione-per-api.md).
 
 ### 4. Eventi
@@ -240,12 +240,12 @@ di codice non si eseguono.
 
 ---
 
-## Parte seconda — catalogo degli antipattern
+## Parte seconda - catalogo degli antipattern
 
 Ogni voce ha un nome, perché avere un nome per un errore ne rende possibile la discussione. Il
 livello indica quanto costa scoprirlo tardi.
 
-### Livello 1 — irreversibili o quasi
+### Livello 1 - irreversibili o quasi
 
 | # | Nome | Sintomo | Perché è grave | Rimedio |
 |---|---|---|---|---|
@@ -256,7 +256,7 @@ livello indica quanto costa scoprirlo tardi.
 | A5 | **La destinazione d'uso scritta dal marketing** | Il materiale commerciale promette il monitoraggio in tempo reale | È una dichiarazione di destinazione d'uso anche se non si chiama così, e sposta la classificazione | Congelare la destinazione d'uso, poi allineare il materiale, mai il contrario |
 | A6 | **La fusione automatica generosa** | Due record vengono fusi su una corrispondenza approssimata | Fusione errata: la documentazione clinica di una persona entra nella storia di un'altra, ed è immutabile | Candidato e riesame umano sopra la corrispondenza esatta |
 
-### Livello 2 — costosi da correggere in produzione
+### Livello 2 - costosi da correggere in produzione
 
 | # | Nome | Sintomo | Perché è grave | Rimedio |
 |---|---|---|---|---|
@@ -271,7 +271,7 @@ livello indica quanto costa scoprirlo tardi.
 | B9 | **Il registro dei corpi** | Lo strato HTTP registra richieste e risposte per default | Dati sanitari nei vostri registri applicativi, con obblighi che non avete pianificato | Registrare metadati, non corpi. E mai i gettoni |
 | B10 | **Il versionamento scambiato per immutabilità** | Si dichiara un registro immutabile che è un versionamento di entità | Chi ha accesso in scrittura alla base dati può alterare anche le tabelle di versione: la proprietà dichiarata non esiste | Catena di hash e conservazione separata |
 
-### Livello 3 — attrito e ticket di assistenza
+### Livello 3 - attrito e ticket di assistenza
 
 | # | Nome | Sintomo | Rimedio |
 |---|---|---|---|
@@ -291,7 +291,7 @@ livello indica quanto costa scoprirlo tardi.
 | C14 | **Il cursore conservato troppo a lungo** | La ripresa fallisce dopo giorni | Riprendere da un istante dopo un'interruzione lunga |
 | C15 | **La cache persistita del servizio di terminologie** | Nessun sintomo tecnico, un problema di licenza | Memoria non persistita su disco per i sistemi la cui licenza non consente derivati |
 
-### Livello 4 — architetturali, si pagano dopo
+### Livello 4 - architetturali, si pagano dopo
 
 | # | Nome | Perché è un errore | Alternativa |
 |---|---|---|---|
@@ -308,7 +308,7 @@ livello indica quanto costa scoprirlo tardi.
 
 ---
 
-## Parte terza — le frasi che segnalano un problema
+## Parte terza - le frasi che segnalano un problema
 
 Sono frasi che si sentono nelle riunioni di integrazione. Ciascuna è, quasi sempre, il sintomo di
 una decisione che va rivista.
@@ -334,7 +334,7 @@ una decisione che va rivista.
 
 ---
 
-## Parte quarta — come chiedere aiuto in modo efficace
+## Parte quarta - come chiedere aiuto in modo efficace
 
 Se dopo tutto questo siete ancora bloccati, queste informazioni riducono di molto il tempo di
 risposta.
@@ -342,7 +342,7 @@ risposta.
 | Informazione | Perché serve |
 |---|---|
 | **L'identificativo di traccia** presente in ogni risposta di errore | Consente di ritrovare la richiesta esatta senza chiedervi di riprodurla |
-| **Il tipo di problema** — non il messaggio, l'identificatore | È la chiave stabile; il messaggio cambia con la lingua |
+| **Il tipo di problema** - non il messaggio, l'identificatore | È la chiave stabile; il messaggio cambia con la lingua |
 | **L'istante con fuso orario** | Un istante senza fuso costa uno scambio di messaggi in più |
 | **Che cosa vi aspettavate e che cosa avete ottenuto**, separati | Metà delle segnalazioni descrive solo la seconda |
 | **La richiesta**, con i gettoni **rimossi** | Un gettone incollato in una segnalazione è un gettone da revocare |

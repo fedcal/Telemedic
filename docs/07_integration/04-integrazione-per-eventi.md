@@ -20,12 +20,12 @@ il vostro ricevitore.
 
 | # | Garanzia | Come si verifica |
 |---|---|---|
-| G1 | **Autenticità** — potete provare che il messaggio viene dal progetto | Firma asimmetrica verificabile con materiale pubblico. §5 |
-| G2 | **Integrità** — il contenuto non è stato alterato | Impronta del corpo, coperta dalla firma. §5 |
-| G3 | **Freschezza** — non è la riproduzione di un messaggio vecchio | Istante di creazione dentro la firma, finestra di cinque minuti. §5 |
-| G4 | **Consegna almeno una volta** — nessun evento va perso | Registro delle consegne ispezionabile, coda degli scarti con recupero. §6, §9 |
-| G5 | **Non blocco** — un ricevitore lento non degrada il progetto | Interruttore di protezione per destinazione, isolamento fra tenant. §6.3 |
-| G6 | **Osservabilità** — potete vedere che cosa è stato consegnato e che cosa no | Interfaccia di consultazione delle consegne. §9 |
+| G1 | **Autenticità** - potete provare che il messaggio viene dal progetto | Firma asimmetrica verificabile con materiale pubblico. §5 |
+| G2 | **Integrità** - il contenuto non è stato alterato | Impronta del corpo, coperta dalla firma. §5 |
+| G3 | **Freschezza** - non è la riproduzione di un messaggio vecchio | Istante di creazione dentro la firma, finestra di cinque minuti. §5 |
+| G4 | **Consegna almeno una volta** - nessun evento va perso | Registro delle consegne ispezionabile, coda degli scarti con recupero. §6, §9 |
+| G5 | **Non blocco** - un ricevitore lento non degrada il progetto | Interruttore di protezione per destinazione, isolamento fra tenant. §6.3 |
+| G6 | **Osservabilità** - potete vedere che cosa è stato consegnato e che cosa no | Interfaccia di consultazione delle consegne. §9 |
 | G7 | **Nessun contenuto clinico in transito** | Ispezione del corpo: contiene riferimenti, non contenuto. §3.2 |
 
 ### 1.2 Non-garanzie, dichiarate
@@ -113,7 +113,7 @@ momento?», che è l'unica domanda che conta quando c'è una contestazione.
 |---|---|---|
 | `it.telemedic.billing.encounter.billable.v1` | La prestazione è liquidabile | **Contiene esclusivamente**: identificativo della prestazione, tipo di prestazione, istanti, esito amministrativo, importo, riferimenti al vostro dominio. **Nessun riferimento a documenti clinici, nessuna diagnosi, nessun motivo del contatto** |
 
-Questo evento è il canale del **pagatore** — fondo, mutua, polizza — e la sua composizione non è
+Questo evento è il canale del **pagatore** - fondo, mutua, polizza - e la sua composizione non è
 una scelta di prodotto: discende dal fatto che il pagatore non è un consultatore. La trattazione
 completa è in [09 §5](09-obblighi-di-chi-integra.md). Nessuna configurazione di tenant, nessun
 filtro e nessun modulo sostitutivo può arricchire questo evento con contenuto clinico.
@@ -139,11 +139,11 @@ POST /webhooks/telemedic HTTP/1.1
 Host: gestionale.integratore.example
 ce-specversion: 1.0
 ce-type: it.telemedic.document.signed.v1
-ce-source: /tenants/asl-nord-01/documents
+ce-source: /tenants/t0001/documents
 ce-subject: cmp-4410
 ce-id: 8f3c1e02-77a1-4f77-9d1a-6a2b3c4d5e6f
 ce-time: 2026-09-01T08:47:12.004Z
-ce-dataschema: https://docs.telemedic.esempio.it/schemas/document-signed-v1.json
+ce-dataschema: https://docs.telemedic.example/schemas/document-signed-v1.json
 ce-sequence: 412
 Content-Type: application/json
 Content-Digest: sha-256=:X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=:
@@ -154,7 +154,7 @@ Idempotency-Key: 8f3c1e02-77a1-4f77-9d1a-6a2b3c4d5e6f
 Telemedic-Delivery-Attempt: 1
 
 {
-  "tenant": "asl-nord-01",
+  "tenant": "t0001",
   "document": { "reference": "Composition/cmp-4410", "version": "1" },
   "kind": "referto-televisita",
   "encounter": { "reference": "Encounter/enc-77213" },
@@ -175,7 +175,7 @@ Telemedic-Delivery-Attempt: 1
 > **Trappola verificata da codificare nei vostri collaudi.** Un'intestazione `ce-datacontenttype`
 > **non deve essere presente**: la specifica lo vieta esplicitamente, e il tipo di contenuto
 > dell'evento va scritto **solo** nell'intestazione standard del tipo di contenuto. Se il vostro
-> analizzatore la cerca, non la troverà mai — ed è corretto così.
+> analizzatore la cerca, non la troverà mai - ed è corretto così.
 
 ### 3.2 Perché il corpo non contiene il referto
 
@@ -184,8 +184,8 @@ tre è aggirabile per configurazione:
 
 1. **Minimizzazione.** Un dato particolare che non viene trasmesso non può essere trattato in
    modo eccessivo.
-2. **Riduzione del danno.** Una destinazione mal configurata — un indirizzo di prova rimasto in
-   produzione, un registro che memorizza i corpi — diventa una fuga di dati sanitari. Con i
+2. **Riduzione del danno.** Una destinazione mal configurata - un indirizzo di prova rimasto in
+   produzione, un registro che memorizza i corpi - diventa una fuga di dati sanitari. Con i
    riferimenti diventa una fuga di identificativi, che è grave ma non è la stessa cosa.
 3. **Autorizzazione del ricevente.** Recuperando il contenuto, siete **voi** a presentare
    un'autorizzazione, e l'accesso finisce nel registro con il vostro nome. Con il contenuto
@@ -199,7 +199,7 @@ Il costo è una chiamata in più. È un costo che il progetto accetta consapevol
 
 ```http
 POST /v1/webhook-endpoints HTTP/1.1
-Host: api.telemedic.esempio.it
+Host: api.telemedic.example
 Authorization: Bearer …
 Content-Type: application/json
 Idempotency-Key: wh-gestionale-prod-01
@@ -260,7 +260,7 @@ sembrerebbero arbitrari:
 | 3 | Risoluzione del nome e verifica **dell'indirizzo risolto**, non solo del nome | Un nome pubblico che risolve a un indirizzo interno viene rifiutato |
 | 4 | Connessione all'indirizzo risolto, con nome originale nell'intestazione e nella negoziazione | Immune al cambio di risoluzione fra verifica e connessione |
 | 5 | **Rinvii non seguiti** | Un rinvio dal vostro endpoint viene trattato come fallimento, non seguito |
-| 6 | Isolamento di rete in uscita del componente che consegna | — |
+| 6 | Isolamento di rete in uscita del componente che consegna | - |
 | 7 | **Nessun eco del corpo della vostra risposta** nell'interfaccia di consultazione, oltre a un estratto ripulito | Vedete stato, latenza e i primi byte, non l'intera risposta |
 | 8 | Scadenze strette e limite di dimensione della risposta | Una risposta lenta o enorme conta come fallimento |
 | 9 | Lista di destinazioni consentite, per i tenant che la richiedono | La registrazione in autonomia è disattivata su quei tenant |
@@ -299,7 +299,7 @@ di accessi, la differenza non è teorica: con il segreto condiviso, davanti a un
 **voi non potete provare a un terzo** che quella notifica veniva da noi.
 
 Un segreto condiviso resta disponibile come modalità di transizione per gli integratori che non
-sono in grado di verificare una firma asimmetrica, ed è documentato come tale — con il limite
+sono in grado di verificare una firma asimmetrica, ed è documentato come tale - con il limite
 dichiarato, non nascosto.
 
 ### 5.3 Verifica passo a passo
@@ -317,7 +317,7 @@ dichiarato, non nascosto.
 7. **Deduplicare** sull'identificativo dell'evento (§8).
 
 ```java
-// Riferimento per un ricevitore in Java — i dettagli di libreria sono omessi di proposito
+// Riferimento per un ricevitore in Java - i dettagli di libreria sono omessi di proposito
 public boolean accetta(byte[] corpoGrezzo, HttpHeaders intestazioni) {
     if (!impronta.corrisponde(corpoGrezzo, intestazioni.getFirst("Content-Digest"))) {
         return false;                       // problema di lettura del corpo, non di firma
@@ -491,8 +491,8 @@ Che cosa vedete e che cosa no:
 
 ### 9.1 La prova che vale in una contestazione
 
-La consultazione delle consegne è uno strumento operativo. Quando serve **prova** — una
-contestazione clinica, una verifica di un'autorità — la fonte è il **registro immutabile**, che
+La consultazione delle consegne è uno strumento operativo. Quando serve **prova** - una
+contestazione clinica, una verifica di un'autorità - la fonte è il **registro immutabile**, che
 è a catena di impronte e conservato separatamente dal sistema che genera gli eventi. Il
 versionamento delle entità non è un registro immutabile e non lo sostituisce.
 
@@ -531,9 +531,9 @@ progressivo risolvono il problema del rilevamento dei buchi: sapete se avete per
 e potete recuperarla.
 
 **Il modello di sottoscrizione precedente, basato su un criterio di ricerca arbitrario, non è
-implementato.** Ha una semantica ambigua — un aggiornamento che fa *uscire* una risorsa dal
+implementato.** Ha una semantica ambigua - un aggiornamento che fa *uscire* una risorsa dal
 criterio non genera notifica, quindi un integratore che si aspetta di sapere quando una
-prestazione viene annullata resterebbe sordo — non scala su un sistema multi-tenant e non
+prestazione viene annullata resterebbe sordo - non scala su un sistema multi-tenant e non
 prevede firma né verifica della destinazione.
 
 ### 10.1 Corrispondenza fra i due canali

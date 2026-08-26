@@ -1,10 +1,10 @@
 ---
-title: "ADR-0005 — Dataset canonico dei documenti e serializzazioni sostituibili"
+title: "ADR-0005 - Dataset canonico dei documenti e serializzazioni sostituibili"
 sidebar_position: 5
 description: Perché il contenuto informativo dei documenti sanitari si modella come dataset canonico indipendente dalla forma, e perché nessun modello di documento strutturato è cablato.
 ---
 
-# ADR-0005 — Dataset canonico dei documenti e serializzazioni sostituibili
+# ADR-0005 - Dataset canonico dei documenti e serializzazioni sostituibili
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Vincoli di riferimento**: V-07 di bacheca; D30
@@ -12,8 +12,8 @@ description: Perché il contenuto informativo dei documenti sanitari si modella 
 ## Contesto
 
 I documenti sanitari destinati all'infrastruttura documentale nazionale hanno un **set informativo
-definito da fonte normativa**. Le loro rappresentazioni tecniche — modelli di documento
-strutturato, codici documentali, metadati di indicizzazione — **non sono pubblicamente disponibili**
+definito da fonte normativa**. Le loro rappresentazioni tecniche - modelli di documento
+strutturato, codici documentali, metadati di indicizzazione - **non sono pubblicamente disponibili**
 alla data di questa decisione, e la loro acquisizione è una questione aperta.
 
 Il progetto deve poter modellare il contenuto dei documenti **adesso**, senza attendere quel
@@ -21,7 +21,7 @@ materiale e senza legarsi a una forma che può cambiare.
 
 ## Alternative valutate
 
-### Alternativa 1 — Attendere il materiale tecnico e modellare sulla forma
+### Alternativa 1 - Attendere il materiale tecnico e modellare sulla forma
 
 *Vantaggi*: nessun lavoro sprecato; il modello corrisponde esattamente a ciò che serve trasmettere.
 
@@ -29,7 +29,7 @@ materiale e senza legarsi a una forma che può cambiare.
 dipendente da terzi; e comunque produrrebbe un modello legato a una forma tecnica, con lo stesso
 problema al primo aggiornamento. **Scartata.**
 
-### Alternativa 2 — Modellare direttamente sul formato di scambio clinico
+### Alternativa 2 - Modellare direttamente sul formato di scambio clinico
 
 Il contenuto del documento è la composizione, e il dataset è ciò che la composizione contiene.
 
@@ -43,7 +43,7 @@ Inoltre non risolve la seconda forma: la rappresentazione impaginata per la lett
 costruita a parte, con il rischio di divergenza fra ciò che il professionista firma e ciò che il
 sistema trasmette. **Scartata.**
 
-### Alternativa 3 — Dataset canonico indipendente, serializzazioni come mappature
+### Alternativa 3 - Dataset canonico indipendente, serializzazioni come mappature
 
 *Vantaggi*: il contenuto è definito una volta, dalla fonte normativa; ogni forma è un mappatore;
 la rappresentazione impaginata e quella strutturata derivano dalla stessa sorgente.
@@ -88,5 +88,5 @@ V-07 di bacheca.
 
 ## Riferimenti
 
-[04 — Modello dati](../02_architecture/04-modello-dati.md#3-il-dataset-canonico-dei-documenti) ·
+[04 - Modello dati](../02_architecture/04-modello-dati.md#3-il-dataset-canonico-dei-documenti) ·
 ADR-0004

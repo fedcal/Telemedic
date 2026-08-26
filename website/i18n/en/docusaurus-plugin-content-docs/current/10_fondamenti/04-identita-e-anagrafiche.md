@@ -1,14 +1,14 @@
 ---
 title: Identity and demographic registries
 sidebar_position: 5
-description: How a person is identified in healthcare and why it is hard — patient identifiers (tax code, homocody, STP, ENI, health card, regional and local codes), assigning authority and the divergence of system URIs, national registries and reconciliation, the professional's identity between person and capacity, SPID CIE and TS-CNS, levels of assurance, SAML2 OIDC and mutual TLS authentication, identification at a distance, delegation and representation, costs and risks for the deployer.
+description: How a person is identified in healthcare and why it is hard - patient identifiers (tax code, homocody, STP, ENI, health card, regional and local codes), assigning authority and the divergence of system URIs, national registries and reconciliation, the professional's identity between person and capacity, SPID CIE and TS-CNS, levels of assurance, SAML2 OIDC and mutual TLS authentication, identification at a distance, delegation and representation, costs and risks for the deployer.
 ---
 
 # Identity and demographic registries
 
 A health information system does one thing before all others: **it attributes a piece of
-clinical information to a person**. Everything else — the video call, the report, the alarm
-threshold, the health record — rests on that attribution. If the attribution is wrong, the
+clinical information to a person**. Everything else - the video call, the report, the alarm
+threshold, the health record - rests on that attribution. If the attribution is wrong, the
 rest is not degraded: it is dangerous.
 
 This module deals with the most underestimated problem in the domain. It is underestimated
@@ -93,17 +93,17 @@ links it.
 When two representations of the same person meet a system that has to decide whether they are
 the same person, the possible errors are exactly two, and they are symmetrical.
 
-**Duplicate error — two records, one person.** The system does not recognise that the two
+**Duplicate error - two records, one person.** The system does not recognise that the two
 records refer to the same individual. It is the statistically more frequent error: it arises
 from a transcription error, from a change of surname, from one tax code typed in place of
 another, from an emergency admission in which the identity was not available.
 
 The clinical consequences are **of omission**: the doctor does not see the ongoing therapy,
 does not see the documented allergy, does not see the test done the week before and repeats
-it. The fragmentation of the clinical history is the harm, and it is silent harm — nobody
+it. The fragmentation of the clinical history is the harm, and it is silent harm - nobody
 reports an incident because «a piece of information I did not know existed was missing».
 
-**Overlay error — one record, two people.** The system attributes to a single record clinical
+**Overlay error - one record, two people.** The system attributes to a single record clinical
 data belonging to two distinct individuals. It arises from homocody (§ 2.2), from a badly
 calculated tax code that coincides with someone else's, from a hasty manual merge, from an
 identifier reused after a person ceased to be entitled to care.
@@ -177,7 +177,7 @@ product: the search, linking and merging functions of the demographic registry a
 **safety-related functions** within the meaning of **IEC 62366-1** (usability engineering). They
 must be designed to prevent use error, not only to be efficient. An interface that allows two
 patients to be merged with a double click without differentiated confirmation, without showing
-the divergent data and without recording the identity of whoever decides, is **non-compliant** —
+the divergent data and without recording the identity of whoever decides, is **non-compliant** -
 not «improvable».
 
 Summarised in a sentence worth remembering: **the demographic registry is not a support module,
@@ -194,11 +194,11 @@ different things. Let us fix them, because the whole module uses them in a stric
 |---|---|---|
 | **Entity** | The real person. It does not sit inside the system. | The woman in § 1.1 |
 | **Identity** | The set of information with which a domain represents the entity. An entity has as many identities as there are domains. | «Patient no. 4417 of ASL X» |
-| **Identifier** | A value that, **inside a declared domain**, singles out an identity. | `RSSMRA80A01H501U` |
+| **Identifier** | A value that, **inside a declared domain**, singles out an identity. | `RSSMRA80A01H501Z` |
 | **Assigning authority** | The party that assigns the identifiers and guarantees uniqueness within its own namespace. Without it the identifier is a string. | The revenue agency, for the tax code |
 | **Attribute** | Information about an identity that does not serve to single it out but to describe it. | Date of birth, domicile, contact details |
 | **Authentication** | The proof that whoever presents themselves controls the credential associated with an identity. | Logging in with digital identity |
-| **Identification** *(in the clinical sense)* | The ascertainment that the person physically present — or present at the other end of the video — is the expected person. | The doctor who looks at the document on a video call (§ 9) |
+| **Identification** *(in the clinical sense)* | The ascertainment that the person physically present - or present at the other end of the video - is the expected person. | The doctor who looks at the document on a video call (§ 9) |
 
 The last two are the most confused, and the confusion has serious operational consequences:
 § 9 deals with them at length.
@@ -217,8 +217,8 @@ identifier may, or may not, have five independent properties.
 | **Confidentiality** | Is the value secret, that is, can it serve as proof of identity? | Improper use as an authentication factor |
 
 Let us anticipate the result of § 2, because it is the central thesis: **none of the identifiers
-used in healthcare in Italy possesses all five properties, and the tax code — the one everyone
-relies on — is missing at least three.**
+used in healthcare in Italy possesses all five properties, and the tax code - the one everyone
+relies on - is missing at least three.**
 
 ---
 
@@ -237,8 +237,8 @@ The first point surprises those who work in healthcare: **the tax code is not a 
 identifier.** It is a **fiscal** identifier, born for the tax registry, which Italian healthcare
 adopted out of convenience and which today is in practice the correlation key across all
 national health systems. The adoption is entrenched and in many cases imposed by sectoral rules
-— Annex 1 to **DM 19 novembre 2025** provides for it as the patient identifier in the
-information set of the televisita report — but it remains an adoption, not an original intended
+- Annex 1 to **DM 19 novembre 2025** provides for it as the patient identifier in the
+information set of the remote consultation (televisita) report - but it remains an adoption, not an original intended
 purpose. The anomalies we shall see derive almost entirely from this misalignment.
 
 For a natural person the code is made up of **sixteen alphanumeric characters**, structured as
@@ -257,7 +257,7 @@ follows:
 Three observations with direct consequences for the code you will write.
 
 **The tax code is calculable.** Anyone who knows surname, first name, date and municipality of
-birth and sex can calculate it. This is the property that makes it convenient — and that strips
+birth and sex can calculate it. This is the property that makes it convenient - and that strips
 it of any value as a secret (§ 3.4).
 
 **The tax code encodes personal data in clear.** It contains the date of birth, the sex and the
@@ -276,7 +276,7 @@ singles out the person in front of me».
 The tax code is a function of surname, first name, date of birth, sex and municipality of birth.
 Nothing prevents two different people from having the same values for all five variables: two
 namesakes born on the same day in the same municipality. This is the phenomenon of
-**omocodia** (homocody), and it is not as rare as it seems — it is common among people born
+**omocodia** (homocody), and it is not as rare as it seems - it is common among people born
 abroad, where the code for the place of birth is that of the **country** and not of the
 municipality, drastically reducing the space of distinct values.
 
@@ -317,7 +317,7 @@ ignored:**
 The implicit assumption «one person, one tax code, for ever» is false in at least six ways.
 
 **The newborn.** At birth the tax code is assigned by the municipal registry at the same time as
-registration, but there is a window — hours or days — in which the newborn exists clinically and
+registration, but there is a window - hours or days - in which the newborn exists clinically and
 does not yet have a national identifier. It is exactly the window in which the most critical
 clinical events are concentrated. In that window the newborn is identified with a **provisional
 identifier of the provider**, often built on the mother's surname. The system must be able to
@@ -325,8 +325,8 @@ cope with a patient without a tax code and must be able to **replace** the provi
 identifier when the definitive one arrives, without losing the clinical data produced in the
 meantime.
 
-**Rectification.** A tax code assigned on the basis of erroneous data — wrong date of birth,
-surname badly transcribed at the moment of registration — is **rectified** by the revenue
+**Rectification.** A tax code assigned on the basis of erroneous data - wrong date of birth,
+surname badly transcribed at the moment of registration - is **rectified** by the revenue
 agency. The old code is not annulled by reality: it continues to appear in documents already
 produced, in prescriptions already issued, in reports already filed.
 
@@ -356,7 +356,7 @@ assumes «valid tax code ⇒ person entitled to care» produces errors at the bo
 Two codes that exist precisely because the tax code is not universal. They are concrete proof
 that the property of **universality** is missing.
 
-**STP — Straniero Temporaneamente Presente** (foreign national temporarily present). The legal
+**STP - Straniero Temporaneamente Presente** (foreign national temporarily present). The legal
 basis for care is **art. 35 of d.lgs. 25 luglio 1998, n. 286** (the consolidated act on
 immigration), which guarantees to foreign nationals not compliant with the rules on entry and
 residence **urgent or in any case essential outpatient and hospital care, even if continuing**,
@@ -364,7 +364,7 @@ as well as preventive medicine interventions. The STP code is the operational in
 which care is delivered and reported for reimbursement while keeping the person unreportable to
 the authorities: **it is a code of entitlement to care, not an identity document**.
 
-**ENI — Europeo Non Iscritto** (non-registered European). It concerns citizens of European Union
+**ENI - Europeo Non Iscritto** (non-registered European). It concerns citizens of European Union
 Member States present in Italy who lack the requirements for registration with the National
 Health Service and who lack cover from their own State. The ENI code has the same operational
 function as the STP code for a different population.
@@ -388,7 +388,7 @@ the data model:
 4. **The same person may move from STP to a tax code** when they regularise their position: the
    clinical history produced under STP must be linked, not abandoned.
 
-The information set of the televisita report, at Annex 1 of **DM 19 novembre 2025**, expressly
+The information set of the remote consultation report, at Annex 1 of **DM 19 novembre 2025**, expressly
 provides for the tax code **or** the STP code or the ENI code as the patient identifier. It is
 therefore not a residual case to be handled «if there is time left»: it is provided for by the
 legislation in the principal document of the domain.
@@ -396,7 +396,7 @@ legislation in the principal document of the domain.
 ### 2.5 The health card and the EHIC
 
 The **tessera sanitaria** (national health card) is established by **art. 50 of D.L. 30
-settembre 2003, n. 269**, converted with amendments by **L. 24 novembre 2003, n. 326** — the
+settembre 2003, n. 269**, converted with amendments by **L. 24 novembre 2003, n. 326** - the
 same provision that establishes the infrastructure of the Sistema Tessera Sanitaria on which the
 INI is built (module [07](07-fse-e-infrastrutture-nazionali.md), § 3.1). It is issued by the
 Ministry of Economy and Finance and delivered to the patient.
@@ -409,7 +409,7 @@ What it contains, and what it is **not**:
 - it has an **expiry date**, typically tied to the duration of entitlement to care. Expiry of the
   card does **not** imply cessation of entitlement to care nor loss of the tax code: it is the
   expiry of the medium;
-- on the back it carries the **TEAM — Tessera europea di assicurazione malattia** (the European
+- on the back it carries the **TEAM - Tessera europea di assicurazione malattia** (the European
   Health Insurance Card, EHIC), governed by **Regulations (EC) No 883/2004 and No 987/2009** on
   the coordination of social security systems. The EHIC has **its own identification number**,
   distinct from the tax code, and it is what makes care in another Member State possible. In the
@@ -436,8 +436,8 @@ At national level the **Anagrafe nazionale degli assistiti (ANA, national regist
 entitled to care)** is provided for by **art. 62-*ter* of the Codice dell'amministrazione
 digitale** (the Italian Digital Administration Code, d.lgs. 7 marzo 2005, n. 82) and is the
 source from which the electronic health record draws the patient's identifying and
-administrative data. In the Italian FHIR profiles there is a dedicated identifier — the
-`codiceANA` *slice* — with system `urn:oid:2.16.840.1.113883.2.9.4.3.15` **[V]**.
+administrative data. In the Italian FHIR profiles there is a dedicated identifier - the
+`codiceANA` *slice* - with system `urn:oid:2.16.840.1.113883.2.9.4.3.15` **[V]**.
 
 The properties to bear in mind:
 
@@ -449,7 +449,7 @@ The properties to bear in mind:
   losing the ability to correlate with the environment in which the installation operates.
 
 The distinction between the **Region of entitlement (RdA)** and the **Region of delivery (RdE)**
-— dealt with in module [07](07-fse-e-infrastrutture-nazionali.md), § 3.1 — is the reason why the
+- dealt with in module [07](07-fse-e-infrastrutture-nazionali.md), § 3.1 - is the reason why the
 regional identifiers cannot be reduced to one: the person is entitled to care in one Region and
 treated in another, and the document produced must carry both pieces of information.
 
@@ -458,8 +458,8 @@ treated in another, and the document produced must carry both pieces of informat
 It is the number that the individual system assigns to its own patient: the record number, the
 patient code in the management system, the surrogate key of the database.
 
-It is the identifier with the **best technical properties** — unique inside its own system,
-stable by construction, always present — and with the **worst semantic property**: it means
+It is the identifier with the **best technical properties** - unique inside its own system,
+stable by construction, always present - and with the **worst semantic property**: it means
 nothing outside the system that generated it. Two systems with the same patient number are not
 talking about the same person.
 
@@ -474,7 +474,7 @@ originating system without ambiguity.
 | Identifier | Who assigns it | What it really identifies | When it changes | When it is missing | Nationally unique? |
 |---|---|---|---|---|---|
 | **Tax code** | Revenue agency | The person's position in the **tax** registry | Rectification, change of surname, rectification of sex | Newborn in the first hours, non-registered foreign national, person not identified in an emergency | **Yes**, save for homocody resolved by substitution |
-| **Homocodic code** | Revenue agency | The same position, in an alternative form | It coexists with the base code | — | Yes |
+| **Homocodic code** | Revenue agency | The same position, in an alternative form | It coexists with the base code | - | Yes |
 | **STP code** | Health authority or organisation | The **entitlement to urgent or essential care** of a foreign national not compliant with the rules | On expiry (renewal), on regularisation | If the person has not yet requested one | **No**: local domain, temporal validity |
 | **ENI code** | Health authority or organisation | The same, for non-registered EU citizens | Ditto | Ditto | **No** |
 | **Health card** | Ministry of Economy and Finance | The physical medium that exposes the tax code | At every reissue; it has its own expiry | Card expired, lost, never received | It is not an autonomous identifier |
@@ -505,7 +505,7 @@ tenant-awareness constraint declared in the context (V4):
 3. **Uniqueness is constrained on the pair system + value, per tenant**, never on the value
    alone.
 4. **Searching is by qualified identifier**, never by bare value. Searching for
-   `RSSMRA80A01H501U` without saying in which namespace is a badly posed question, and it
+   `RSSMRA80A01H501Z` without saying in which namespace is a badly posed question, and it
    produces badly posed answers.
 5. **No correlation between tenants**: two tenants that contain the same person must not be able
    to infer that from one another. It is an isolation requirement, and it follows from the fact
@@ -520,7 +520,7 @@ tenant-awareness constraint declared in the context (V4):
 This section starts from a statement that seems pedantic and that is in fact the source of a
 whole class of integration defects.
 
-Consider the value `RSSMRA80A01H501U`. Taken on its own, it is not an identifier: it is a
+Consider the value `RSSMRA80A01H501Z`. Taken on its own, it is not an identifier: it is a
 sequence of sixteen characters. It becomes an identifier only when it is accompanied by an
 indication **of who assigned it and in which namespace it is unique**. The same is true, even
 more obviously, of `4417`: inside the registry of a certain health authority it singles out a
@@ -528,13 +528,13 @@ person, outside it singles out nothing.
 
 Healthcare interoperability standards have taken up the principle for decades. In the HL7
 version 2 model the patient identifier in field `PID-3` is composite and carries the assigning
-authority with it. In **FHIR** — the standard on which the project's data model rests, dealt
-with in module [06](06-fhir-da-zero.md) — the `Identifier` type has exactly this structure:
+authority with it. In **FHIR** - the standard on which the project's data model rests, dealt
+with in module [06](06-fhir-da-zero.md) - the `Identifier` type has exactly this structure:
 
 ```json
 {
   "system": "http://hl7.it/sid/codiceFiscale",
-  "value": "RSSMRA80A01H501U"
+  "value": "RSSMRA80A01H501Z"
 }
 ```
 
@@ -548,7 +548,7 @@ addresses.
 format of the value, but on **the exact string that names the domain**. If the producer writes
 one URI and the consumer looks for another, the search does not fail with an error: **it returns
 zero results**, and the system concludes that the person does not exist. It is the worst possible
-failure — silent, plausible, and in the health domain meaning the duplication of the demographic
+failure - silent, plausible, and in the health domain meaning the duplication of the demographic
 record of a patient the system already knew.
 
 ### 3.2 The verified trap: two URIs for the same tax code
@@ -565,10 +565,10 @@ code.**
 | **Televisita** (profile `PatientTelevisita`) | 0.2.0 | `http://hl7.it/sid/codiceFiscale` |
 | **IT-Core** (profile `patient-it-core`) | 0.2.0 | `http://hl7.it/fhir/itcore/CodeSystem/cs-codicefiscale` |
 
-**[V]** — verified against the published profiles.
+**[V]** - verified against the published profiles.
 
-They are two different strings. For a system that compares identifiers — and every system does,
-because that is how identifier search works — **they are two distinct assigning authorities**. A
+They are two different strings. For a system that compares identifiers - and every system does,
+because that is how identifier search works - **they are two distinct assigning authorities**. A
 `Patient` produced according to the *Televisita* family and searched for by a consumer aligned to
 *IT-Core* is not found. There is no error message, there is no validation that fails: the profile
 is valid, the value is correct, the patient appears not to exist.
@@ -641,7 +641,7 @@ Three prohibitions follow, which the project adopts as **product rules**:
 1. **The tax code may not be an authentication factor**, neither on its own nor in combination
    with other equally public data (date of birth, surname). A login path of «enter your tax code
    and date of birth» is a path without authentication.
-2. **The tax code may not be the sole element of a deep link.** A link to a televisita room
+2. **The tax code may not be the sole element of a deep link.** A link to a remote consultation room
    containing the tax code in the address is at once guessable and a disclosure of personal data
    in the server histories and in the referrer. The project uses opaque session identifiers,
    single-use and short-lived.
@@ -667,15 +667,15 @@ Up to here we have talked about identifiers. A registry is the thing that assign
 them: a register of people with their attributes, with a controller, a legal basis and an update
 cycle.
 
-**ANPR — Anagrafe nazionale della popolazione residente** (national registry of the resident
+**ANPR - Anagrafe nazionale della popolazione residente** (national registry of the resident
 population). Provided for by **art. 62 of the Codice dell'amministrazione digitale** (d.lgs.
 82/2005) and governed by **D.P.C.M. 10 novembre 2014, n. 194**, it takes over from the municipal
 registries: it is the authoritative source of the demographic data of the population resident in
-Italy — personal particulars, residence, civil status, citizenship, composition of the
+Italy - personal particulars, residence, civil status, citizenship, composition of the
 registered household. It is the **civil** registry, not a health one: it knows nothing about the
 person's chosen doctor nor about exemptions.
 
-**ANA — Anagrafe nazionale degli assistiti** (national registry of people entitled to care).
+**ANA - Anagrafe nazionale degli assistiti** (national registry of people entitled to care).
 Provided for by **art. 62-*ter* of the CAD**, it is the **health** registry: who is entitled to
 care, from which Region, with which chosen doctor, with which exemptions. It is the source from
 which the electronic health record draws the patient's identifying and administrative data.
@@ -744,8 +744,8 @@ inherits all the defects of the identifier it rests on: if the tax code is missi
 rule does not apply; if it is mistyped, the rule says «different people»; if there is unresolved
 homocody, it says «same person» and is wrong.
 
-**Probabilistic matching.** Several attributes are compared — surname, first name, date of birth,
-place of birth, sex, address — assigning each a weight according to how discriminating it is, and
+**Probabilistic matching.** Several attributes are compared - surname, first name, date of birth,
+place of birth, sex, address - assigning each a weight according to how discriminating it is, and
 a similarity score is summed using comparisons tolerant of transcription errors. If the score
 exceeds a high threshold, the records are considered the same person; if it falls below a low
 threshold, different people; if it is in between, **the case goes to a human being**.
@@ -801,7 +801,7 @@ It deserves a paragraph of its own because in telemedicine it is a safety requir
 administrative detail.
 
 **Residence** is a registry datum from the resident population registry. The **actual domicile at
-the time of the service** is where the person is while the televisita is in progress, and it may
+the time of the service** is where the person is while the remote consultation is in progress, and it may
 be anywhere: a relative's house, a holiday location, a workplace, a car.
 
 If during a remote consultation the patient has an acute event, the professional must be able to
@@ -820,7 +820,7 @@ consequences that data models get wrong with regularity.
 
 **Death.** It is the event most often not modelled at all. Consequences:
 
-- **future appointments must be suspended**, not silently carried out. An automatic televisita
+- **future appointments must be suspended**, not silently carried out. An automatic remote consultation
   reminder delivered to the family of a deceased person is real harm;
 - **the health record is not deleted immediately**: the index is deleted **thirty years from the
   date of death**, with an annual check (**DM 7 settembre 2023**, art. 10; cf. module
@@ -833,7 +833,7 @@ consequences that data models get wrong with regularity.
   does not automatically survive death: § 10 deals with the point.
 
 **Transfer of residence.** It changes the Region of entitlement, hence the regional registration
-number, hence the chosen doctor, hence — in the health record — the location of the metadata
+number, hence the chosen doctor, hence - in the health record - the location of the metadata
 index: the INI **transfers the index to the index of the new Region of entitlement** (**DM 7
 settembre 2023**, art. 24). A model that assumes the stability of the index location for the
 patient's whole life is wrong by construction.
@@ -861,7 +861,7 @@ The general rule that follows, worth isolating because it covers all four cases:
 
 ### 4.6 Pseudonymised identity and its limits
 
-**Pseudonymisation** — art. 4(5) of **Regulation (EU) 2016/679** — is the processing of personal
+**Pseudonymisation** - art. 4(5) of **Regulation (EU) 2016/679** - is the processing of personal
 data in such a way that it can no longer be attributed to a specific data subject without the
 use of additional information, kept separately and subject to technical and organisational
 measures. Module [03](03-il-dato-clinico.md), § 4, deals with it on the legal plane. What
@@ -881,24 +881,24 @@ matters here is what it means **for the identity model**.
 
 **The four limits that must be known before relying on it.**
 
-**First — pseudonymised data remains personal data.** It is the point the Regulation states and
+**First - pseudonymised data remains personal data.** It is the point the Regulation states and
 that almost all architectures suppress. Pseudonymising is a **security measure**, not an exit
 from the scope of the Regulation. A pseudonymised archive has the same obligations as an
 identified one, save that it can reduce the residual risk.
 
-**Second — the uniqueness of the pseudonym is what makes it useful and what makes it
+**Second - the uniqueness of the pseudonym is what makes it useful and what makes it
 attackable.** A pseudonym that is stable over time allows the same person to be followed across
 several events: it is exactly what is needed for analysis, and it is exactly what allows
 re-identification by cross-referencing. A few dated and located observations are enough to narrow
 the set of candidates to one.
 
-**Third — a clinical datum is almost always identifying in itself.** A rare diagnosis, a
+**Third - a clinical datum is almost always identifying in itself.** A rare diagnosis, a
 combination of date and organisation, a series of measurements: these are attributes with very
 high discriminating power. Removing the name does not remove identifiability from a dataset
 containing «male patient, 47 years old, rare disease X, admitted in a certain province in a
 certain week».
 
-**Fourth — the pseudonym is not a shareable identifier.** A pseudonym assigned by an identity
+**Fourth - the pseudonym is not a shareable identifier.** A pseudonym assigned by an identity
 provider is unique **to that provider** and to that service provider. Two logins by the same
 person with two different providers produce two different pseudonyms. It follows that **the
 pseudonym cannot be the key by which the patient is recognised in the health system**: that role
@@ -948,16 +948,16 @@ extended the order system to all recognised health professions.
 
 Three properties of the system, all with consequences for the data model.
 
-**First: registration is territorial, not national.** The orders have a constituency — normally
-provincial — and each keeps its own register. **The registration number is therefore unique
+**First: registration is territorial, not national.** The orders have a constituency - normally
+provincial - and each keeps its own register. **The registration number is therefore unique
 within the register of that order, not nationally.** Two professionals registered with two
 different orders may have the same number. It is the same problem as in § 3.1: a registration
 number without an indication of the order that assigned it **is not an identifier**. The national
 federations coordinate, but the act of registration remains the territorial order's.
 
 **Second: registration has a status, and the status changes.** A professional may be registered,
-suspended — by disciplinary measure, for non-payment, for failure to meet training or insurance
-obligations —, struck off, transferred to another order, cancelled on ceasing to practise. The
+suspended - by disciplinary measure, for non-payment, for failure to meet training or insurance
+obligations -, struck off, transferred to another order, cancelled on ceasing to practise. The
 status «registered» **is not a permanent property**: it is a status verifiable at a date.
 
 **Third: some professions have several registers or sections.** The best known case is that of
@@ -971,9 +971,9 @@ must therefore be qualified by three elements: order, register or section, numbe
 without the title constitutes the offence of **unlawful practice of a profession**, punished by
 **art. 348 of the Criminal Code**, whose regime was toughened by law 3/2018. And there is an
 aspect that directly concerns software: module [01](01-sistema-sanitario-italiano.md), § 5.1,
-establishes that some services are **acts reserved** to a determined profession — the televisita
+establishes that some services are **acts reserved** to a determined profession - the remote consultation
 is defined by the **Accordo Stato-Regioni 17 dicembre 2020, rep. atti n. 215/CSR**, as «*a
-medical act*». A system that allows a non-medical profile to deliver a televisita does not
+medical act*». A system that allows a non-medical profile to deliver a remote consultation does not
 produce an authorisation error: **it produces invalid health documentation**.
 
 Hence a requirement of the project: the system records the professional's **register registration
@@ -981,7 +981,7 @@ particulars**, with the **date of verification** and the **identity of whoever c
 and flags profiles lacking verification. Verification is not automatic: **the project has no
 national channel for querying the registers verified against a primary source** `[NV]`. It must
 therefore be modelled as a **traced attestation by the organisation**, with a configurable
-renewal periodicity — which is, moreover, what healthcare organisations already do when
+renewal periodicity - which is, moreover, what healthcare organisations already do when
 credentialling staff.
 
 ### 5.3 The model: person, role, organisation
@@ -989,11 +989,11 @@ credentialling staff.
 The FHIR standard separates the three concepts into three distinct resources, and the separation
 is not academic: it is the technical translation of what was said at § 5.1.
 
-- **`Practitioner`** — the **natural person** and their qualifications. Demographic data, titles,
+- **`Practitioner`** - the **natural person** and their qualifications. Demographic data, titles,
   registrations. It exists once only, regardless of how many organisations employ them.
-- **`Organization`** — the **legal entity or organisational subdivision**: the health authority,
+- **`Organization`** - the **legal entity or organisational subdivision**: the health authority,
   the hospital, the site, the operating unit, the group practice.
-- **`PractitionerRole`** — the **relationship between the two**, over a period of time, with a
+- **`PractitionerRole`** - the **relationship between the two**, over a period of time, with a
   specialty, a set of deliverable services, locations and availabilities. The specification
   defines it as what documents «*the locations and types of services that practitioners are able
   to provide for an organisation*»: the **space of action in the organisational context**, not
@@ -1056,12 +1056,12 @@ organisation.** Anyone who tries to answer these questions with an attribute wil
 The last row of the central table is the one worth keeping: **a clinical document is not signed by
 a person, it is signed by a person in a capacity**. The report states the organisation, the
 operating unit, the specialty; and responsibility for the act falls on the organisation on whose
-behalf the act was performed — this is the premise of the healthcare liability regime of **legge 8
+behalf the act was performed - this is the premise of the healthcare liability regime of **legge 8
 marzo 2017, n. 24**, which distinguishes the organisation's liability from that of the health
 professional.
 
-**Project rule, declared as binding:** every reference to a professional in a domain object — who
-delivered, who reported, who signed, who takes part in the session, who has access — **points to
+**Project rule, declared as binding:** every reference to a professional in a domain object - who
+delivered, who reported, who signed, who takes part in the session, who has access - **points to
 the role, never to the person**. The person is reachable from the role; the converse is not true
 unambiguously, and that is exactly the point at which the model must be protected.
 
@@ -1110,7 +1110,7 @@ developers treat as a «normal user».
 identity to all intents and purposes, but **it is not a person**. It has its own credentials, its
 own scopes, its own rate limits. The rule the project adopts is clear-cut: **application
 credentials do not on their own confer access to clinical data.** Every clinical operation
-requires, in addition to the application principal, a **verifiable delegating user context** — that
+requires, in addition to the application principal, a **verifiable delegating user context** - that
 is, the explicit representation of the fact that the system is acting *on behalf of* an identified
 person. § 10.4 shows how this is represented and why it must not be confused with impersonation.
 
@@ -1137,8 +1137,8 @@ the eIDAS Regulation. § 7 develops the point.
 
 In the health domain the obligation of the three channels is reaffirmed twice, in identical terms:
 
-- **DM 7 settembre 2023, art. 11, subsection 1** — for access to the electronic health record;
-- **DM 19 novembre 2025, Annex 4** — for access to the national telemedicine platform: access
+- **DM 7 settembre 2023, art. 11, subsection 1** - for access to the electronic health record;
+- **DM 19 novembre 2025, Annex 4** - for access to the national telemedicine platform: access
   takes place «*following successful completion of electronic authentication procedures based on
   the national systems SPID, CIE and TS-CNS, for both citizens and operators*», with, in addition,
   **two-factor authentication with a one-time code** always required.
@@ -1207,8 +1207,8 @@ are neither rewritable nor to be enriched with technical detail. It must be note
 those codes are not application errors**: the user who cancels the login, the user who refuses
 consent to the attributes, the user whose credentials are of a lower level than that requested are
 normal session outcomes. Recording them as technical errors produces noise; **recording them as
-domain events** — in particular cancellation and refusal of consent, which document an explicit
-choice by the data subject — is what is needed for the record of processing activities and for the
+domain events** - in particular cancellation and refusal of consent, which document an explicit
+choice by the data subject - is what is needed for the record of processing activities and for the
 technical file.
 
 ### 6.3 CIE: a single provider, less friction, fewer attributes
@@ -1238,8 +1238,8 @@ technical rules are explicit: providers may request only the minimum data set pr
 European framework, that is, **first name, surname, date of birth and tax code**.
 
 You do not obtain the email address. You do not obtain the telephone contact. You do not obtain the
-domicile. If the pathway of a televisita requires a contact channel for the patient — appointment
-reminder, link to the room, technical instructions — **that datum must be acquired by the
+domicile. If the pathway of a remote consultation requires a contact channel for the patient - appointment
+reminder, link to the room, technical instructions - **that datum must be acquired by the
 application or passed by the originating system, not by the identity**. It is consistent with the
 constraint of not duplicating the demographic registries, but it must be written explicitly into
 the patient enrolment pathway, because it is the point at which the typical project discovers late
@@ -1267,8 +1267,8 @@ contained in the card, after the user has unlocked it with the PIN; the server v
 certificate chain against a trust store containing the authorised certification authorities,
 verifies its revocation status and derives the holder's identity from it.
 
-The trust store is fed from the national **trusted list** — the list of qualified trust services
-maintained at European and national level — selecting only those authorities whose type of service
+The trust store is fed from the national **trusted list** - the list of qualified trust services
+maintained at European and national level - selecting only those authorities whose type of service
 is **identity verification**. It is the least obvious and most important technical detail: it is
 how one distinguishes, within the national list, who is authorised to issue certificates for
 **authentication of the person** from who issues signature or timestamping certificates. A
@@ -1283,7 +1283,7 @@ service **is not an identity within the meaning of art. 64 CAD**, however well f
   one that can be declared complete without external dependencies**.
 - **It has no cost per login.**
 - **It is the natural channel of the professional, not of the patient.** The doctor already has
-  the health card reader on the desk — it is a recurring capability in Italian health management
+  the health card reader on the desk - it is a recurring capability in Italian health management
   systems; the patient at home almost certainly does not.
 
 And what makes it fragile:
@@ -1301,8 +1301,8 @@ And what makes it fragile:
 Two design warnings that the project adopts as **rules**, because they are the two ways in which
 this channel breaks in production:
 
-1. **The client certificate must not be requested on all connections.** If it is, every user —
-   including those logging in with SPID — receives a certificate selection window from the browser.
+1. **The client certificate must not be requested on all connections.** If it is, every user -
+   including those logging in with SPID - receives a certificate selection window from the browser.
    It is a serious defect of user experience and, for a vulnerable user base, an accessibility
    obstacle. The solution is a **dedicated host name** on which, and only on which, the certificate
    is requested.
@@ -1316,7 +1316,7 @@ this channel breaks in production:
 
 A third warning, of product and not technical: **the health card is practicable for the
 professional and not for the patient.** It must be offered as an additional channel, never an
-exclusive one, and this must be written into the installation documentation — because a body might
+exclusive one, and this must be written into the installation documentation - because a body might
 configure it as the sole channel believing it was increasing security, and would instead obtain the
 exclusion of most patients.
 
@@ -1372,7 +1372,7 @@ Everything follows from these two fragments:
    choose the SPID security level necessary to access their own services»), and it depends on the
    concrete context of use.
 5. **The agreement is concluded between AgID and a legal entity**, with a legal representative who
-   signs and who must possess verifiable personal requirements — including the absence of final
+   signs and who must possess verifiable personal requirements - including the absence of final
    convictions for offences committed by means of computer systems.
 
 **The party that can be accredited is therefore, always, the operator of the installation**: the
@@ -1408,7 +1408,7 @@ through the procedure with the Agency itself. For a single clinic or a polyclini
 always the preferable route, because it eliminates the uncontrollable variable. It does, however,
 entail a commercial dependency on a third party and, in one of the two organisational arrangements
 provided for, the transit of the authentication assertions through the aggregating party's
-infrastructure — which is a matter for an impact assessment, not a technical decision. The project
+infrastructure - which is a matter for an impact assessment, not a technical decision. The project
 must **make itself usable** within that scheme, with an entity identifier and metadata generable
 per instance, without adopting it as its own architecture.
 
@@ -1453,7 +1453,7 @@ https://www.spid.gov.it/SpidL2
 https://www.spid.gov.it/SpidL3
 ```
 
-They are URIs with the `https` scheme and without a trailing slash, and — a point that surprises —
+They are URIs with the `https` scheme and without a trailing slash, and - a point that surprises -
 **the same triple is reused by the electronic identity card**, by an express choice to make life
 easier for those who have already implemented SPID. There are therefore no level identifiers of
 the CIE's own: SPID's are used.
@@ -1476,8 +1476,8 @@ document**.
 The service provider **chooses** the level (D.P.C.M. 24 ottobre 2014, art. 6, subsection 4) and
 must **give reasons for the choice** when concluding the agreement. The implementing regulation
 provides, in an appendix and **by way of example**, a methodology based on potential impact, and in
-that methodology the data the regulation calls «sensitive» — a category corresponding today to the
-special categories of art. 9 of the GDPR, including data concerning health — are placed at **level
+that methodology the data the regulation calls «sensitive» - a category corresponding today to the
+special categories of art. 9 of the GDPR, including data concerning health - are placed at **level
 3**.
 
 In national practice, however, **the citizen's access to the electronic health record takes place
@@ -1491,7 +1491,7 @@ documentation that simplified it in one direction or the other would be incorrec
   categories of service**, but **it was not possible to locate the document that associates a level
   with the category of health services** `[NV]`: it must be requested from the Agency;
 - level 3 requires a **cryptographic device** of the citizen. Imposing it in order to access a
-  televisita would produce mass exclusion, in direct tension with the project's accessibility
+  remote consultation would produce mass exclusion, in direct tension with the project's accessibility
   constraint and with the service's equity purpose;
 - and there is an economic argument that § 11.1 quantifies: level 3 costs, per unique user per
   year, **almost twenty times** level 2 for authentication alone.
@@ -1502,12 +1502,12 @@ directly: **DM 19 novembre 2025**, Annex 4, requires a level of **at least L2** 
 negotiable for installations connected to the national platform, even where the identity channel
 would already supply it.
 
-**The project's position** — a *project proposal*, to be confirmed with the deployer and their data
+**The project's position** - a *project proposal*, to be confirmed with the deployer and their data
 protection officer:
 
 | Operation | Minimum level proposed | Reason |
 |---|---|---|
-| Patient's access to their own televisita session | **L2** | Alignment with health record practice; two factors; no act with legal effect on third parties |
+| Patient's access to their own remote consultation session | **L2** | Alignment with health record practice; two factors; no act with legal effect on third parties |
 | Consultation of one's own reports and history | **L2** | Ditto |
 | Consent to the recording of the session | **L2** | A revocable act, with no legal effect on third parties |
 | Professional's access to the data of **other** persons | **L2 minimum, L3 configurable** | Here the appendix's methodology really bites: one accesses special category data of third parties |
@@ -1529,8 +1529,8 @@ state that the element declaring the authentication context in the response is
 > «**always set to `https://www.spid.gov.it/SpidL3`** since the CIE provides the maximum level of
 > reliability at European level, corresponding to Level 3 of the Public Digital Identity System».
 
-If this formulation is the current one — and it must be **verified empirically in pre-production**,
-because it costs almost nothing and either falsifies or confirms a piece of the design — three
+If this formulation is the current one - and it must be **verified empirically in pre-production**,
+because it costs almost nothing and either falsifies or confirms a piece of the design - three
 consequences follow, none of them cosmetic:
 
 1. **The service provider cannot infer from the response with which factor the user actually
@@ -1546,7 +1546,7 @@ consequences follow, none of them cosmetic:
 
 ### 7.5 The solution: two values, not one
 
-The project's proposal — and it must be said that **it is a proposal, not a standard** — is to
+The project's proposal - and it must be said that **it is a proposal, not a standard** - is to
 record and propagate **two distinct values**, never just one:
 
 | Value | Meaning | What it is for |
@@ -1559,8 +1559,8 @@ To which the project adds a third element, dealt with at § 10.4: a marker disti
 
 For the health card the problem arises in a different form: **there is no declared level**, because
 there is no provider asserting anything. The level must be **asserted by the service provider** on
-the basis of the fact that the authentication is two-factor — possession of the card and knowledge
-of the PIN — on a digital certificate with the private key held on a device. It is reasonable to
+the basis of the fact that the authentication is two-factor - possession of the card and knowledge
+of the PIN - on a digital certificate with the private key held on a device. It is reasonable to
 treat it as equivalent to level 3, **but this is a project estimate and not a regulatory mapping**:
 the sources consulted contain no declared equivalence between the national services card and the
 levels of the public digital identity system `[NV]`. It must be documented as a reasoned choice and
@@ -1579,8 +1579,8 @@ identity: **the weakest channel determines the security of the account**. Three 
 ## 8. The protocols, explained to those who have never seen them
 
 > **Perimeter of this section.** Here we explain **why** the protocols are what they are and **how
-> they work in substance**. The detail — message structure, signature algorithms, parameters, error
-> cases, security considerations — is in module [13](13-protocolli.md). If you are about to
+> they work in substance**. The detail - message structure, signature algorithms, parameters, error
+> cases, security considerations - is in module [13](13-protocolli.md). If you are about to
 > implement, this section gives you the mental model; module 13 gives you the specification.
 
 ### 8.1 The problem all three solve
@@ -1588,12 +1588,12 @@ identity: **the weakest channel determines the security of the account**. Three 
 Three actors, one problem:
 
 - **the user**, who has a browser;
-- the **service provider** — in our case the Telemedic installation — which wants to know who the
+- the **service provider** - in our case the Telemedic installation - which wants to know who the
   user is but **does not want to hold their credentials**;
 - the **identity provider**, which does hold the credentials and knows how to verify them.
 
-The provider must obtain from the identity provider a reliable statement — «this person is so and
-so, I authenticated them at 09:12 with two factors» — without ever seeing the password, and without
+The provider must obtain from the identity provider a reliable statement - «this person is so and
+so, I authenticated them at 09:12 with two factors» - without ever seeing the password, and without
 the user having to trust the provider. The difficulty lies in the fact that the two systems **do not
 talk to each other directly**: the message travels **through the user's browser**, that is, through
 a potentially hostile intermediary.
@@ -1675,7 +1675,7 @@ they differ without a release note declaring it, the build fails.
 ### 8.3 OpenID Connect, and why it is available for CIE
 
 **OpenID Connect** is an identity layer built on top of **OAuth 2.0**. Where SAML exchanges signed
-XML documents, OpenID Connect exchanges **signed JSON tokens** — so-called *JSON Web Tokens* — and
+XML documents, OpenID Connect exchanges **signed JSON tokens** - so-called *JSON Web Tokens* - and
 was born for the modern web and for mobile applications.
 
 The substantive difference, beyond the syntax, is **what the provider receives**:
@@ -1701,7 +1701,7 @@ guidelines. For SPID the same choice exists on paper but not in practice.
 The national technical rules for OpenID Connect impose constraints far stricter than the base
 protocol, and they must be known because they are the points at which a generic implementation
 fails validation: RSA keys of at least 2048 bits with a recommendation of 4096; an exhaustive list
-of algorithms that **must** be supported and one of algorithms that **must not** be — including,
+of algorithms that **must** be supported and one of algorithms that **must not** be - including,
 obviously, the one that means «no signature»; the requirement of the exchange with a code verifier;
 a single-use authorisation code valid for five minutes; identity tokens with a five-minute expiry
 and single use; access tokens with a fifteen-minute expiry.
@@ -1714,7 +1714,7 @@ with public-key cryptography.
 Module [12](12-crittografia-e-sicurezza.md) deals with the basics; here the essentials are needed. A
 **digital certificate** is a document binding a **public key** to an identity, and it is signed by a
 **certification authority** one has decided to trust. Whoever holds the corresponding **private
-key** — in our case held in the card's microchip and usable only after entering the PIN — can
+key** - in our case held in the card's microchip and usable only after entering the PIN - can
 demonstrate this without revealing it.
 
 In the **TLS** protocol, the one that encrypts web connections, the initial negotiation normally
@@ -1739,11 +1739,11 @@ trade-off:
 | **Online status query** for every login | Almost real-time status | Runtime dependency on the authority's service; **it reveals to the authority which citizens access a health service and when** |
 
 The second disadvantage is not theoretical: querying a third party's service at every login to a
-health service is a processing of metadata to be assessed, not suffered. The project's position — a
-*project proposal* — is: **revocation lists as the default**, with at least daily updating,
+health service is a processing of metadata to be assessed, not suffered. The project's position - a
+*project proposal* - is: **revocation lists as the default**, with at least daily updating,
 consistent with the sovereignty constraint; online querying **switchable on** for those who require
 it, with the impact assessment expressly covering the communication towards the authority; and **in
-any case fail-closed** — if the revocation status cannot be determined, access is **denied**. A
+any case fail-closed** - if the revocation status cannot be determined, access is **denied**. A
 permissive configuration on this point is a non-conformity, not an availability choice.
 
 ### 8.5 The three schemes compared
@@ -1758,8 +1758,8 @@ permissive configuration on this point is a non-conformity, not an availability 
 | **Works from a phone** | Yes | Yes, including with contactless reading | **No**, in practice |
 | **Implementation complexity** | **High**: many providers, aggregated metadata, table of anomalies, random ordering, official button | **Medium**: the same rules but a single provider; appreciably lower with OpenID Connect | **Medium-low in the code, medium in the infrastructure**: edge, trust store, revocation |
 
-The protocol detail — message structure, permitted algorithms, classes of attack such as XML
-signature wrapping, considerations on validation — is in module [13](13-protocolli.md).
+The protocol detail - message structure, permitted algorithms, classes of attack such as XML
+signature wrapping, considerations on validation - is in module [13](13-protocolli.md).
 
 ---
 
@@ -1806,7 +1806,7 @@ act**, and its verification is documentary.
 **The level of equivalence.** Art. 64, subsection 2-*duodecies*, of the CAD establishes that
 verification of digital identity with a level of at least substantial produces «*the effects of an
 equivalent identity document*». It is the provision that allows one to say that a login with a
-digital identity of adequate level **counts as the production of a document** — not that it
+digital identity of adequate level **counts as the production of a document** - not that it
 replaces the professional's judgement about the person in front of them.
 
 ### 9.3 What is not enough
@@ -1833,7 +1833,7 @@ a state of the demographic record.
 
 ### 9.4 What is recorded as evidence
 
-If identification is an act of the professional, then its evidence is the recording of the act — not
+If identification is an act of the professional, then its evidence is the recording of the act - not
 a ticked box.
 
 The project proposes to record, for each service, the following elements:
@@ -1897,12 +1897,12 @@ mistake in the domain» and the mistake consists precisely in collapsing them in
 | Act | Nature | Who gives it | Revocable |
 |---|---|---|---|
 | **Informed acceptance of the telemedicine service** | A **clinical** act: the patient accepts receiving that service through that channel. Expressly required by Agreement 215/CSR 2020 | The patient with capacity, or whoever represents them | Yes, with effect on the service |
-| **Processing of personal data for the purpose of care** | It has its own legal bases and, for care, **is not normally consent** | — | — |
+| **Processing of personal data for the purpose of care** | It has its own legal bases and, for care, **is not normally consent** | - | - |
 | **Consultation of the health record by third parties** | A specific consent, recorded in the national register of consents | The patient | Yes |
 | **Recording of the session** | A further consent, **per session**, specific | The patient | Yes, with immediate effect |
 
 And the link with identity: **every act of consent records who gave it, in what capacity and with
-what evidence of identification**. When it is given by a third party — the case in § 10 — **both
+what evidence of identification**. When it is given by a third party - the case in § 10 - **both
 identities** must appear, together with the title that legitimises the third party, the particulars
 of the appointing measure if one exists, and the exact version of the information text presented.
 
@@ -2007,7 +2007,7 @@ In the project's integration model there are **two distinct identity paths**, an
 produces impossible requirements:
 
 - **the citizen patient** who logs in from a public portal **must** go through national digital
-  identity. It is Telemedic — that is, the installation — that has performed or requested the
+  identity. It is Telemedic - that is, the installation - that has performed or requested the
   authentication;
 - **the professional working inside an integrator's management system** **must not** go through a
   second login: their identity arrives already authenticated from the originating system, by means
@@ -2028,11 +2028,11 @@ reported by a third party, who the third party is, and what level the third part
 
 On the authorisation plane three rules follow, which the project proposes:
 
-1. **An operation that the legislation ties to strong authentication under art. 64 CAD** — access
-   to the health record, access to the national platform — **requires authentication performed**. A
+1. **An operation that the legislation ties to strong authentication under art. 64 CAD** - access
+   to the health record, access to the national platform - **requires authentication performed**. A
    level reported by a third party does not satisfy a legal obligation that falls on the
    installation.
-2. **An internal clinical operation** — starting a consultation, drawing up a report — **may**
+2. **An internal clinical operation** - starting a consultation, drawing up a report - **may**
    accept the reported identity, provided the tenant's configuration expressly allows it and the
    reported level reaches the established threshold.
 3. **The configuration of «which reported authentications are accepted for which operation» is per
@@ -2041,8 +2041,8 @@ On the authorisation plane three rules follow, which the project proposes:
 There is, finally, a rule of representation that holds for people as much as for systems, and it is
 the same: **delegation is represented as delegation, never as impersonation**. A token in which the
 integrator's system presents itself *as if it were* the professional is indistinguishable from an
-abuse; a token in which **both** appear — the subject on whose behalf one acts and the actor who
-acts — is verifiable. The standard format for expressing it exists and is defined by the token
+abuse; a token in which **both** appear - the subject on whose behalf one acts and the actor who
+acts - is verifiable. The standard format for expressing it exists and is defined by the token
 exchange specification (**RFC 8693**, § 4.1); module [13](13-protocolli.md) deals with the detail.
 
 The same principle, translated for people: when a delegate accesses the delegator's data, the log
@@ -2092,11 +2092,11 @@ to acquire through SPID attributes and information not necessary for the enjoyme
 requested by the user*». A fortunate coincidence: here saving money and compliance point in the same
 direction.
 
-**Design consequence**: the minimum attribute set for a televisita is the tax code — which is the
-reconciliation key with the demographic registry —, first name and surname, plus the provider's
+**Design consequence**: the minimum attribute set for a remote consultation is the tax code - which is the
+reconciliation key with the demographic registry -, first name and surname, plus the provider's
 opaque identifier. The contact details **are not requested from the identity**: they are acquired in
 the patient enrolment pathway or arrive from the originating system (§ 6.3). Requesting the domicile
-or the particulars of the identity document for a televisita is excessive, and would be challengeable
+or the particulars of the identity document for a remote consultation is excessive, and would be challengeable
 under the agreement.
 
 **Second: level 3 costs €7 per unique user** even for authentication alone, above the threshold of a
@@ -2116,9 +2116,9 @@ total. It is relevant to the model of installation at an individual practice or 
 For the electronic identity card **no provision for fees** payable by service providers **has been
 located in the primary sources consulted** `[NV]`. **The absence of a provision is not equivalent
 to a declaration that it is free**: the fact must be requested from the Ministry of the Interior.
-There is a structural indication pointing towards the absence of fees — the metadata of the card
+There is a structural indication pointing towards the absence of fees - the metadata of the card
 federation does not provide for the section with the billing data, which is by contrast mandatory in
-SPID precisely because the provider is invoiced by the identity providers — but it remains an
+SPID precisely because the provider is invoiced by the identity providers - but it remains an
 indication, not a source.
 
 The health card **has no cost per login**. The cost falls on the user, and it is the reader.
@@ -2138,11 +2138,11 @@ obligations the deployer assumes and that the project must **make technically po
 | Notify the data protection authority and the competent authority of data breaches **within 24 hours** of becoming aware | Agreement, art. 2, subs. 2, letter a); operating manual of the card | A procedure, not improvisation |
 | Renew the agreement in the fifth year, **with no tacit renewal** | Agreement, art. 7, subs. 1 | It goes into an operational reminder, not into somebody's memory |
 | Monitor the Agency's **technical notices**, which change the rules mid-course | The technical rules are a base text amended by successive notices | **An implementation compliant today may not be so in six months.** It must be managed with the same formality as vulnerability monitoring |
-| Repeat the checks on the personal requirements with the prescribed periodicity | For the card: **at least every four years** | — |
+| Repeat the checks on the personal requirements with the prescribed periodicity | For the card: **at least every four years** | - |
 
 The last row of the log table and the penultimate one deserve emphasis, because they are the ones
 that turn a requirement into code. **The 24-month retention adds to, it does not replace, the other
-applicable terms** — DM 19 novembre 2025 provides 24 months for the logs and 12 months for the
+applicable terms** - DM 19 novembre 2025 provides 24 months for the logs and 12 months for the
 access and authentication data. The retention policy must therefore be designed as **the maximum of
 the applicable prescriptions, per class of data**, with evidence of deletion.
 
@@ -2198,8 +2198,8 @@ An operational list, which the project documents for the deployer:
    (§ 6.1). If there is no connection to the health record nor to the national platform, there is no
    obligation.
 2. **For SPID, which route**: direct accreditation, joining as an aggregated party of an already
-   accredited aggregating party, or — if the user base consists only of professionals working inside
-   the management system of an already accredited integrator — no accreditation of one's own and a
+   accredited aggregating party, or - if the user base consists only of professionals working inside
+   the management system of an already accredited integrator - no accreditation of one's own and a
    reported identity (§ 10.4).
 3. **Which minimum level for which operation** (§ 7.3), with the reasoning in writing, because it
    must be communicated to the Agency when concluding the agreement.
@@ -2228,14 +2228,14 @@ An operational list, which the project documents for the deployer:
 | 7 | Declared equivalence between the national services card and the levels of the public digital identity system | § 7.5 | The Agency for Digital Italy. Failing that, it remains a project estimate |
 | 8 | The real state of support for OpenID Connect by the SPID identity providers in production | § 8.2 | The Agency for Digital Italy; the public channel staffed by the SPID team |
 | 9 | Validity of the 2019 fee schedule after the renewal of the agreements of 8 October 2025 | § 11.1 | The Agency for Digital Italy |
-| 10 | Existence of fees payable by service providers for the electronic identity card federation | § 11.1 | Ministry of the Interior — Central Directorate for demographic services |
+| 10 | Existence of fees payable by service providers for the electronic identity card federation | § 11.1 | Ministry of the Interior - Central Directorate for demographic services |
 | 11 | Precise rules on the expression of will in the case of shared custody of a minor | § 10.2 | A dedicated legal analysis |
 
 ---
 
 ## What you must remember
 
-1. **An identifier without an assigning authority is a string.** «Tax code `RSSMRA80A01H501U`» is
+1. **An identifier without an assigning authority is a string.** «Tax code `RSSMRA80A01H501Z`» is
    not complete information until it is declared who assigned it and in which namespace it is
    unique. Searching by bare value is a badly posed question.
 2. **The Italian implementation guides do not all use the same URI for the tax code.** *IT Base*
@@ -2268,7 +2268,7 @@ An operational list, which the project documents for the deployer:
    the electronic identity card OpenID Connect is also available**, with a single provider and a
    test environment; **the health card is implemented with mutual TLS authentication** and is the
    only channel under art. 64 CAD without dependencies on third parties' procedures.
-9. **The levels are `SpidL1|L2|L3` and correspond to LoA2, LoA3 and LoA4 of ISO/IEC 29115** — the
+9. **The levels are `SpidL1|L2|L3` and correspond to LoA2, LoA3 and LoA4 of ISO/IEC 29115** - the
    Italian scale starts from the second rung. The same URIs apply to the card. But **the card's
    assertion always declares the maximum level**: the effective level cannot be inferred from the
    response. **Two values** are recorded, the requested and the declared, and only the first feeds

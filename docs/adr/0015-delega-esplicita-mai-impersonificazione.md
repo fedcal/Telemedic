@@ -1,10 +1,10 @@
 ---
-title: "ADR-0015 — Delega esplicita, mai impersonificazione"
+title: "ADR-0015 - Delega esplicita, mai impersonificazione"
 sidebar_position: 15
 description: Perché un'operazione compiuta da un sistema per conto di una persona registra entrambe le identità, e perché l'impersonificazione è vietata anche quando semplificherebbe il codice.
 ---
 
-# ADR-0015 — Delega esplicita, mai impersonificazione
+# ADR-0015 - Delega esplicita, mai impersonificazione
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Decisioni di riferimento**: D18; vincoli V-165 dell'area integrazione e V-154 dell'area sicurezza
@@ -24,7 +24,7 @@ sta agendo per conto di una persona.
 
 ## Alternative valutate
 
-### Alternativa 1 — Impersonificazione
+### Alternativa 1 - Impersonificazione
 
 Il token emesso rappresenta il solo professionista. Il sistema che ha effettuato lo scambio diventa
 indistinguibile dalla persona.
@@ -34,15 +34,15 @@ registro ha una struttura più semplice.
 
 *Compromesso decisivo*: **cancella l'informazione «quale sistema ha agito per conto di quale
 persona»**. È precisamente la domanda a cui il registro deve poter rispondere. In caso di
-contestazione — un accesso anomalo, un'operazione contestata — la risposta non esiste e non è
+contestazione - un accesso anomalo, un'operazione contestata - la risposta non esiste e non è
 ricostruibile, perché non è mai stata registrata. Il difetto si scopre nel momento in cui serve.
 
-### Alternativa 2 — Registrare il sistema chiamante e non la persona
+### Alternativa 2 - Registrare il sistema chiamante e non la persona
 
 *Compromesso*: il registro saprebbe che «il gestionale ha letto un referto», senza sapere per conto
 di chi. Inutilizzabile per la sorveglianza degli accessi ai dati sanitari. **Scartata.**
 
-### Alternativa 3 — Delega esplicita: entrambe le identità nel contesto autorizzativo
+### Alternativa 3 - Delega esplicita: entrambe le identità nel contesto autorizzativo
 
 Il token porta il soggetto per conto del quale si agisce **e** l'attore che agisce, in una struttura
 che li tiene distinti e che sopporta l'annidamento quando la catena ha più anelli.
@@ -95,5 +95,5 @@ integrazione va configurata con un ancoraggio di fiducia.
 
 ## Riferimenti
 
-[02 — Contesti delimitati](../02_architecture/02-contesti-delimitati.md#ctx-01--identità-e-accessi) ·
-[07 — Tracciamento](../02_architecture/07-tracciamento-e-registro-immutabile.md#31-il-contenuto-della-voce)
+[02 - Contesti delimitati](../02_architecture/02-contesti-delimitati.md#ctx-01---identità-e-accessi) ·
+[07 - Tracciamento](../02_architecture/07-tracciamento-e-registro-immutabile.md#31-il-contenuto-della-voce)

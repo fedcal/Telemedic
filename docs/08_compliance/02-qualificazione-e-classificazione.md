@@ -9,7 +9,7 @@ description: "Perché la stessa base di codice può essere o non essere disposit
 > **Presupposto di lettura.** La definizione di dispositivo medico, l'albero di qualificazione,
 > il testo della Regola 11 e la ragione per cui per un software di telemedicina la Classe I in
 > pratica non esiste sono spiegati da zero in
-> [10 §15 — Il quadro regolatorio da zero, §§1–2](../10_fondamenti/15-regolatorio-da-zero.md).
+> [10 §15 - Il quadro regolatorio da zero, §§1–2](../10_fondamenti/15-regolatorio-da-zero.md).
 > **Qui non si ripete: si determina.** Questo capitolo produce la posizione del progetto, la
 > motiva, ne dichiara le condizioni di validità e indica i fatti che la farebbero cadere.
 >
@@ -26,7 +26,7 @@ description: "Perché la stessa base di codice può essere o non essere disposit
 > anticipabile, perché presuppone quel
 > soggetto, la persona responsabile del rispetto della normativa richiesta dall'art. 15 del
 > Regolamento (UE) 2017/745 e un controllo dei documenti in esercizio. Fino ad allora questo
-> capitolo resta una traccia — e **la ragione per cui lo resta non è più la stessa di prima**: è
+> capitolo resta una traccia - e **la ragione per cui lo resta non è più la stessa di prima**: è
 > spiegata per esteso al § 5.2.
 
 ## 1. La catena: che cosa determina che cosa
@@ -38,15 +38,15 @@ ne discendono meccanicamente.
 
 ```mermaid
 flowchart TD
-    IU["<b>Destinazione d'uso dichiarata</b><br/>art. 2, punto 12 — etichetta, istruzioni,<br/>materiale promozionale, dichiarazioni"]
-    IU --> Q["<b>Qualificazione</b><br/>art. 2, punto 1 — è dispositivo medico?"]
+    IU["<b>Destinazione d'uso dichiarata</b><br/>art. 2, punto 12 - etichetta, istruzioni,<br/>materiale promozionale, dichiarazioni"]
+    IU --> Q["<b>Qualificazione</b><br/>art. 2, punto 1 - è dispositivo medico?"]
     Q --> C["<b>Classificazione</b><br/>Allegato VIII, Regola 11 e regole di applicazione"]
-    C --> P["<b>Procedura di valutazione</b><br/>art. 52 — quale allegato, quale organismo"]
-    Q --> G["<b>Perimetro dei requisiti</b><br/>Allegato I — quali GSPR sono applicabili"]
-    IU --> CE["<b>Valutazione clinica</b><br/>art. 61 e Allegato XIV —<br/>il beneficio da dimostrare è quello dichiarato"]
-    IU --> UE["<b>Specifica d'uso</b><br/>IEC 62366-1 §5.1 — scenari da validare"]
-    IU --> RM["<b>Analisi del rischio</b><br/>ISO 14971 §5.2 — parte da destinazione d'uso<br/>e uso improprio prevedibile"]
-    RM --> SC["<b>Classe di sicurezza software</b><br/>IEC 62304 §4.3 — dipende dal danno possibile"]
+    C --> P["<b>Procedura di valutazione</b><br/>art. 52 - quale allegato, quale organismo"]
+    Q --> G["<b>Perimetro dei requisiti</b><br/>Allegato I - quali GSPR sono applicabili"]
+    IU --> CE["<b>Valutazione clinica</b><br/>art. 61 e Allegato XIV -<br/>il beneficio da dimostrare è quello dichiarato"]
+    IU --> UE["<b>Specifica d'uso</b><br/>IEC 62366-1 §5.1 - scenari da validare"]
+    IU --> RM["<b>Analisi del rischio</b><br/>ISO 14971 §5.2 - parte da destinazione d'uso<br/>e uso improprio prevedibile"]
+    RM --> SC["<b>Classe di sicurezza software</b><br/>IEC 62304 §4.3 - dipende dal danno possibile"]
     C --> ON["<b>Codici di designazione</b><br/>che l'organismo notificato deve possedere"]
 ```
 
@@ -75,7 +75,7 @@ direzione o nell'altra.
 | **Classe di sicurezza del software** | **B**, con elementi di classe A isolati e segregazione documentata ai sensi della clausola 5.3.5 di IEC 62304. La determinazione è nel capitolo [03 §6](./03-sistema-di-gestione-della-qualita.md) |
 
 **E la riga che conta più delle tre precedenti:** questa posizione è **condizionata**. Regge
-finché reggono le esclusioni del § 4.3, e cade — non «si indebolisce»: cade — nel momento in cui
+finché reggono le esclusioni del § 4.3, e cade - non «si indebolisce»: cade - nel momento in cui
 anche una sola di esse viene contraddetta dal prodotto o dal materiale che lo descrive.
 
 ## 3. Perché il progetto non ha rincorso la Classe I
@@ -127,8 +127,8 @@ motivi per cui il progetto non appone marcature e non sottoscrive dichiarazioni.
 | **11c** | Tutti gli altri usi | No |
 
 Entrambe le sotto-regole applicabili conducono alla **Classe IIa**. La regola di applicazione 3.5
-dell'Allegato VIII, Capo II — se più regole o sotto-regole si applicano allo stesso dispositivo,
-si applicano **la regola e la sotto-regola più rigorose** — non produce quindi in questo caso un
+dell'Allegato VIII, Capo II - se più regole o sotto-regole si applicano allo stesso dispositivo,
+si applicano **la regola e la sotto-regola più rigorose** - non produce quindi in questo caso un
 esito diverso: due IIa restano IIa.
 
 **Nota di metodo che l'organismo notificato verifica.** La determinazione non può fermarsi alla
@@ -141,7 +141,7 @@ frequente e il primo rilievo dell'organismo.
 
 Il testo della regola contiene due soglie di innalzamento, una per comma.
 
-**Prima leva — comma 1.** Le decisioni fondate sull'informazione fornita dal software portano in
+**Prima leva - comma 1.** Le decisioni fondate sull'informazione fornita dal software portano in
 Classe IIb se possono causare «un grave deterioramento delle condizioni di salute di una persona o
 un intervento chirurgico», e in Classe III se possono causare il decesso o un deterioramento
 irreversibile. La linea guida precisa che la valutazione si fa sull'impatto di una decisione
@@ -149,22 +149,22 @@ presa **su informazione errata fornita dal software**. La leva si aziona quindi 
 prodotto, ma descrivendo **la popolazione e il contesto**: pazienti clinicamente stabili in
 percorsi programmati, con revisione periodica del professionista, non pazienti acuti o instabili.
 
-**Seconda leva — comma 2.** Il monitoraggio di **parametri fisiologici vitali** «ove la natura
+**Seconda leva - comma 2.** Il monitoraggio di **parametri fisiologici vitali** «ove la natura
 delle variazioni di detti parametri sia tale da poter creare un pericolo immediato per il
 paziente» porta in Classe IIb. I parametri vitali di riferimento indicati dalla linea guida sono
 respirazione, frequenza cardiaca, funzioni cerebrali, gas ematici, pressione arteriosa e
-temperatura corporea — cioè **esattamente i parametri che un percorso di telemonitoraggio
+temperatura corporea - cioè **esattamente i parametri che un percorso di telemonitoraggio
 cardiologico o pneumologico acquisisce**. La leva non si aziona quindi escludendo quei parametri
-dal perimetro, il che renderebbe il prodotto inutile: si aziona escludendo **la modalità** —
-tempo reale, pericolo immediato, sorveglianza — non l'oggetto.
+dal perimetro, il che renderebbe il prodotto inutile: si aziona escludendo **la modalità** -
+tempo reale, pericolo immediato, sorveglianza - non l'oggetto.
 
 **È da qui che nasce la formulazione di `D46`, e la differenza fra due frasi vale più di ogni
 scelta tecnologica presa nel progetto:**
 
 | Formulazione | Classe | Classe di sicurezza | Costo differenziale |
 |---|---|---|---|
-| «monitoraggio **in tempo reale** dei **parametri vitali**» | **IIb** | **C** | 12–18 mesi e un ordine di grandezza — **stima di settore, non listino** |
-| «raccolta **differita** di **parametri** per la **revisione periodica** del professionista» | **IIa** | **B** | — |
+| «monitoraggio **in tempo reale** dei **parametri vitali**» | **IIb** | **C** | 12–18 mesi e un ordine di grandezza - **stima di settore, non listino** |
+| «raccolta **differita** di **parametri** per la **revisione periodica** del professionista» | **IIa** | **B** | - |
 
 La seconda formulazione è quella su cui è scritto l'intero modello di dominio (vincolo `V-144` di
 `DOM`), e da cui discende il divieto, per qualunque artefatto del progetto, di usare le espressioni
@@ -173,7 +173,7 @@ La seconda formulazione è quella su cui è scritto l'intero modello di dominio 
 ### 4.3 Le quattro esclusioni che reggono la posizione
 
 Sono le condizioni alle quali la Classe IIa regge. Vanno dichiarate nella destinazione d'uso in
-modo **esplicito, verificabile e coerente con il prodotto** — cioè non basta scriverle: il
+modo **esplicito, verificabile e coerente con il prodotto** - cioè non basta scriverle: il
 prodotto deve essere costruito perché siano vere.
 
 | # | Esclusione | Che cosa la renderebbe falsa |
@@ -196,8 +196,8 @@ determinazione di qualificazione e classificazione (`MDR-CLS-001`). Vanno letti 
 **come emendata da `D58`**: il progetto **intende** assumere il ruolo di fabbricante, e il
 soggetto che lo eserciterebbe **è ancora da costituire**; finché non esiste quel soggetto non
 esiste nemmeno
-l'apparato — persona responsabile del rispetto della normativa, controllo dei documenti, sistema
-di gestione della qualità in esercizio — senza il quale una dichiarazione di destinazione d'uso
+l'apparato - persona responsabile del rispetto della normativa, controllo dei documenti, sistema
+di gestione della qualità in esercizio - senza il quale una dichiarazione di destinazione d'uso
 non è una dichiarazione. **La composizione delle due decisioni produce una tensione che va
 dichiarata invece di essere smussata**, perché è reale, e `D58` **non la scioglie: ne cambia la
 natura**, come il § 5.2 argomenta.
@@ -213,8 +213,8 @@ destinazione d'uso dichiarata da chi pubblica il codice.
 **`D58` stringe questa tensione, non la allenta, e va detto senza attenuazioni.** Finché il
 percorso di certificazione era attribuito a un soggetto esterno, attribuire al progetto una
 destinazione d'uso dichiarata era una lettura scorretta, da respingere indicando il soggetto
-altrove. Da quando il progetto dichiara che **intende assumere** il ruolo di fabbricante — pur non
-avendo costituito il soggetto che lo eserciterebbe — la stessa lettura diventa **plausibile**: chi
+altrove. Da quando il progetto dichiara che **intende assumere** il ruolo di fabbricante - pur non
+avendo costituito il soggetto che lo eserciterebbe - la stessa lettura diventa **plausibile**: chi
 pubblica e chi intende dichiarare coincidono nell'intenzione, e l'unica cosa che li separa è che il
 soggetto formale non esiste. La distanza fra il
 materiale pubblicato e una destinazione d'uso dichiarata è quindi **più corta di prima**, e le
@@ -225,22 +225,22 @@ qualificazioni che ne cambiano la natura giuridica e che devono comparire nel do
 non in una nota:
 
 1. **è una traccia strutturata, non una dichiarazione**: è redatta perché **il fabbricante** la
-   compili, la modifichi e la sottoscriva — compilazione, modifica e sottoscrizione sono atti che
-   la norma riserva a quel ruolo, e restano riservati **anche quando il ruolo sarà il nostro** —
+   compili, la modifichi e la sottoscriva - compilazione, modifica e sottoscrizione sono atti che
+   la norma riserva a quel ruolo, e restano riservati **anche quando il ruolo sarà il nostro** -
    non perché valga come dichiarazione di chi la pubblica;
 2. **il soggetto della destinazione d'uso non è il repository**, ma la **distribuzione
    identificata** che **il soggetto fabbricante, da costituire**, produrrà, con un nome e un
    numero di versione che **oggi non esistono**, perché non esiste ancora il soggetto che possa
    attribuirli;
 3. **il documento è privo di firma e di approvazione**: fuori dal controllo dei documenti di un
-   sistema di gestione della qualità di un fabbricante è, formalmente, materiale preparatorio —
+   sistema di gestione della qualità di un fabbricante è, formalmente, materiale preparatorio -
    e **lo resta anche quando quel fabbricante sarà il progetto**, finché quel controllo dei
    documenti non è in esercizio.
 
 **Il limite resta, e con `D58` si aggrava.** La distinzione fra **traccia** e **dichiarazione** è
 una distinzione che regge se il documento è letto per intero, e non regge se è citato per estratto.
 Un terzo che estragga un paragrafo della traccia e lo presenti come destinazione d'uso del progetto
-compie una scorrettezza, ma il danno è comunque prodotto — e ora l'estratto è **più difendibile
+compie una scorrettezza, ma il danno è comunque prodotto - e ora l'estratto è **più difendibile
 dalla parte sbagliata**, perché il progetto ha dichiarato l'intenzione di assumere il ruolo di
 fabbricante e il lettore non è tenuto a distinguere fra intenzione e soggetto costituito. Il
 perché la traccia resti tale è al § 5.2; qui conta la conseguenza pratica, che non cambia:
@@ -296,7 +296,7 @@ qualcuno che potesse dichiarare, il progetto non intendeva diventarlo, e il docu
 letteralmente indirizzato a un destinatario ignoto. Era un argomento semplice e, finché reggeva,
 sufficiente. Con `D58` **non regge più**: il progetto intende costituire quel soggetto ed
 esercitare quel ruolo. Continuare a scrivere «manca il soggetto perché non ci riguarda»
-significherebbe scrivere una cosa che il committente ha appena smentito — ferma restando la
+significherebbe scrivere una cosa che il committente ha appena smentito - ferma restando la
 constatazione, che vale oggi e va ripetuta ogni volta, che **il soggetto non è costituito**.
 
 **La ragione nuova, che è più esigente della vecchia.** Un documento non diventa una dichiarazione
@@ -324,17 +324,17 @@ corrispondenza con il fascicolo tecnico e con il rapporto di valutazione clinica
 **Il corollario che non va perso di vista.** La condizione nuova è **verificabile e a nostro
 carico**, mentre quella vecchia era un'attesa. È una differenza che rende il documento *più*
 oneroso, non meno: prima l'assenza di dichiarazione era un fatto esterno da registrare, ora è una
-**lacuna nostra** che ha un rimedio noto — istituire il controllo dei documenti — e un costo di
+**lacuna nostra** che ha un rimedio noto - istituire il controllo dei documenti - e un costo di
 omissione già dichiarato, perché un documento nato fuori dal controllo documentale **va riemesso**
-e non semplicemente approvato dopo ([03 §4](./03-sistema-di-gestione-della-qualita.md), `V-174`;
+e non semplicemente approvato dopo ([03 §4.1](./03-sistema-di-gestione-della-qualita.md), `V-174`;
 [09 §5](./09-percorso-e-calendario.md), attività irrecuperabile n. 3).
 
 **E la riga di apertura, ripetuta perché è quella che si perde.** Il prodotto **non reca marcatura
 CE** e non è coperto da alcuna dichiarazione di conformità. Chi lo installa, lo integra o lo mette
 in servizio assume per intero gli obblighi che ne derivano, **e il fatto che il progetto intenda
 certificare non gliene trasferisce alcuno**. Nessuna data è dichiarata qui, e nessuna può esserlo:
-`V-171` vieta di affermare o lasciare intendere che il prodotto sarà marcato entro un termine — è
-l'unica occorrenza ammessa di quella parola, dentro l'enunciato del divieto — e una pianificazione
+`V-171` vieta di affermare o lasciare intendere che il prodotto sarà marcato entro un termine - è
+l'unica occorrenza ammessa di quella parola, dentro l'enunciato del divieto - e una pianificazione
 interna non diventa una promessa solo perché è nostra.
 
 ## 6. Il confine, con esempi presi da questo dominio
@@ -370,7 +370,7 @@ Ogni riga è formulata come la si sente formulare davvero: come una richiesta ra
 | **12** | «Aggiungiamo la traduzione automatica dei messaggi in chat, è solo comodità» | Un errore di traduzione in un canale clinico è un errore di contenuto clinico. E la funzione è, per costruzione, un sistema di intelligenza artificiale con obblighi propri | Regola 11a; Regolamento (UE) 2024/1689 | Fuori perimetro nella versione 1.0. Il multilingua è dell'**interfaccia**, non del contenuto scritto dagli utenti |
 
 **La riga 11 merita una nota che vale per tutta la documentazione del progetto.** La regola di
-riservatezza `R0` — mai nominare aziende, marchi, prodotti commerciali — e la trappola
+riservatezza `R0` - mai nominare aziende, marchi, prodotti commerciali - e la trappola
 dell'accessorio spingono **nella stessa direzione**, per ragioni completamente diverse. È una
 convergenza fortunata di cui vale la pena essere consapevoli: l'abitudine redazionale imposta per
 motivi di trattativa produce, per effetto laterale, la protezione regolatoria giusta.
@@ -390,8 +390,8 @@ lett. d.1): «*Telemedicine that solely transfers and displays information for m
 without interpreting data does not qualify as a medical device. Additional modules such as
 thresholds alerts may qualify as a medical device if they are intended for medical purposes.*»
 
-Il progetto ha scelto di **riconoscere questo fatto invece di aggirarlo**. La scelta opposta —
-mantenere la funzione e negarne la natura — avrebbe prodotto la peggiore delle posizioni: un
+Il progetto ha scelto di **riconoscere questo fatto invece di aggirarlo**. La scelta opposta -
+mantenere la funzione e negarne la natura - avrebbe prodotto la peggiore delle posizioni: un
 prodotto che fa qualcosa e una dichiarazione che lo nega, cioè esattamente la fattispecie vietata
 dall'art. 7.
 
@@ -446,9 +446,9 @@ Nessun artefatto del progetto può contenere:
 | **Nessuna prognosi** | Nessuna proiezione, tendenza dichiarata, previsione o stima di evoluzione. Una serie storica si mostra; non si estrapola |
 | **Nessun miglioramento d'immagine** | Né in diretta né in riproduzione. La resa è fedele alla sorgente, e la preferenza di degradazione è **scelta dall'utente**, mai guidata dal contenuto clinico (questione `Q-114` di `TECH`) |
 
-**E le sei rinunce deliberate** dichiarate da `DOM` con la questione `Q-145` — rilevazione
+**E le sei rinunce deliberate** dichiarate da `DOM` con la questione `Q-145` - rilevazione
 automatica dei volti, pesi di attendibilità applicati automaticamente, punteggi di rischio e
-prognosi, interpolazione dei dati mancanti, calcolo di esiti clinici, deduzione delle soglie —
+prognosi, interpolazione dei dati mancanti, calcolo di esiti clinici, deduzione delle soglie -
 sono, dal punto di vista di quest'area, **le sei funzioni che manterrebbero il prodotto in
 Classe IIa solo per fortuna**. Quest'area le conferma come confini di conformità e non come scelte
 di prodotto: la loro revoca non è una decisione di roadmap, è una riclassificazione.
@@ -466,10 +466,10 @@ distinte:
 | Capacità | Che cosa fa | Esito |
 |---|---|---|
 | **Consumo di terminologie** | Risolve, valida ed espande codici. Non produce informazione clinica nuova: verifica che un codice esista e a che cosa corrisponda | **Dentro il perimetro.** È il gateway terminologico |
-| **Esecuzione di logica clinica espressa in un linguaggio di espressione** | Valuta condizioni su dati di un paziente e produce un esito — raccomandazione, avviso, azione suggerita | **Fuori perimetro.** È supporto alla decisione clinica: Regola 11a, voce C6 |
+| **Esecuzione di logica clinica espressa in un linguaggio di espressione** | Valuta condizioni su dati di un paziente e produce un esito - raccomandazione, avviso, azione suggerita | **Fuori perimetro.** È supporto alla decisione clinica: Regola 11a, voce C6 |
 
-La scelta di `DOM` — **l'esecutore di logica è assente per costruzione, non disattivato per
-configurazione** — è quella corretta anche sul piano regolatorio, e per una ragione che va detta:
+La scelta di `DOM` - **l'esecutore di logica è assente per costruzione, non disattivato per
+configurazione** - è quella corretta anche sul piano regolatorio, e per una ragione che va detta:
 un componente presente e disattivato è un componente che compare nell'architettura software, va
 censito, va valutato nel rischio e va spiegato all'organismo notificato, che chiederà come si
 garantisce che resti disattivato in ogni configurazione supportata. Un componente assente non
@@ -477,8 +477,8 @@ esiste. La differenza fra le due posizioni, in giornate di valutazione, non è m
 
 **Il costo va però dichiarato senza attenuanti**, perché esiste: un'infrastruttura regionale che
 verifichi il consumo di tutte le risorse previste dall'Allegato 3 troverà **una capacità non
-implementata**. Non è una non conformità normativa in senso proprio — il decreto disciplina le
-infrastrutture regionali, non i componenti software di terzi — ma è una casella vuota in una
+implementata**. Non è una non conformità normativa in senso proprio - il decreto disciplina le
+infrastrutture regionali, non i componenti software di terzi - ma è una casella vuota in una
 matrice di capitolato, e va presentata come **scelta motivata di perimetro con la sua ragione
 regolatoria**, non taciuta. La ragione è difendibile e va scritta esattamente così: *implementare
 quella capacità sposterebbe il prodotto nel supporto alla decisione clinica, con conseguenze sulla
@@ -497,7 +497,7 @@ Il **DM 21 settembre 2022**, Allegato A, Sezione 2, prescrive espressamente:
   europea sulla qualificazione e classificazione del software;
 - che per il telemonitoraggio avanzato di livello 2 «potrebbe essere richiesta una **classe di
   rischio superiore alla IIa**»;
-- che nei teleconsulti di alcune specialità — sono citate l'istopatologia e la radiologia — il
+- che nei teleconsulti di alcune specialità - sono citate l'istopatologia e la radiologia - il
   micro-servizio di visualizzazione dei dati clinici «unitamente a quello di refertazione
   dovranno essere **certificati come dispositivo medico**»;
 - che ove nel servizio di televisita siano usati dispositivi medici, «il software e l'hardware per
@@ -508,7 +508,7 @@ L'Accordo Stato-Regioni del 17 dicembre 2020 pone, fra le caratteristiche di bas
 «certificazione dell'hardware e/o del software, come dispositivo medico, **idonea alla tipologia di
 prestazione** che si intende effettuare in telemedicina».
 
-**`[NV]`** — le formulazioni sono riportate dalla ricerca del progetto sul testo pubblicato in
+**`[NV]`** - le formulazioni sono riportate dalla ricerca del progetto sul testo pubblicato in
 Gazzetta Ufficiale, ma **la verifica letterale sul testo ufficiale va rifatta prima di qualunque
 uso contrattuale**, perché in questa materia la formulazione esatta è determinante.
 
@@ -546,7 +546,7 @@ classificazione di un prodotto senza toccare una riga.**
 
 ## 11. La classe di sicurezza del software è una conseguenza, non una decisione parallela
 
-Va detto qui perché è il punto in cui i due percorsi — regolatorio e ingegneristico — si toccano,
+Va detto qui perché è il punto in cui i due percorsi - regolatorio e ingegneristico - si toccano,
 e perché trattarli separatamente è l'errore che produce due determinazioni incoerenti.
 
 La classe di sicurezza ai sensi della clausola 4.3 di IEC 62304 dipende dal **danno possibile dopo
@@ -575,7 +575,7 @@ La determinazione item per item, con la sua motivazione e la sua avvertenza, è 
 |---|---|---|
 | `Q-170` | Forma di pubblicazione della traccia di destinazione d'uso: integrale, solo struttura, o consegna su richiesta. **È una decisione sul rischio di essere citati come autori di una destinazione d'uso** (§ 5) | → Committente |
 | `Q-173` | Se la presentazione di parametri misurati costituisca **funzione di misura** ai sensi dell'MDR, con i requisiti metrologici dell'Allegato I che ne discendono. Dipende da un fatto che quest'area non conosce: se il sistema converta unità, arrotondi o trasformi i valori ricevuti, o li presenti come ricevuti | Dominio, funzionale |
-| `Q-144` | **CHIUSA da `D55`.** La destinazione d'uso del telemonitoraggio è **congelata** sulla formulazione «raccolta differita di parametri per la revisione periodica del professionista»: Classe IIa, classe di sicurezza software B. La formulazione in tempo reale è esclusa. Ne discende un divieto permanente — nessuna funzione può essere aggiunta se sposta il sistema verso il tempo reale clinico, e la valutazione va fatta **prima** di scrivere la funzione | **RISOLTA** |
+| `Q-144` | **CHIUSA da `D55`.** La destinazione d'uso del telemonitoraggio è **congelata** sulla formulazione «raccolta differita di parametri per la revisione periodica del professionista»: Classe IIa, classe di sicurezza software B. La formulazione in tempo reale è esclusa. Ne discende un divieto permanente - nessuna funzione può essere aggiunta se sposta il sistema verso il tempo reale clinico, e la valutazione va fatta **prima** di scrivere la funzione | **RISOLTA** |
 | `Q-145` | Conferma delle sei rinunce deliberate come scelte di prodotto sottoposte a controllo delle modifiche. **Quest'area le conferma come confini di conformità** e attende la conferma di prodotto | → Committente |
 | `Q-115` | Le soglie dell'ambiente operativo non sono state misurate: finché non lo sono, la sezione 10 della destinazione d'uso non è compilabile (§ 5.1) | Tecnica, prodotto |
 | `V-270` | **Il progetto intende assumere il ruolo di fabbricante (`D58`); il soggetto che lo eserciterebbe non è costituito.** Finché non lo è, e finché il controllo dei documenti non è in esercizio, la traccia di destinazione d'uso **non può** essere firmata né presentata come dichiarazione (§ 5.2) | Conformità, orchestrazione |

@@ -1,10 +1,10 @@
 ---
-title: "ADR-0006 — Due piani di esposizione sopra un unico modello di dominio"
+title: "ADR-0006 - Due piani di esposizione sopra un unico modello di dominio"
 sidebar_position: 6
 description: Perché Telemedic espone una facciata clinica nel formato di scambio e un piano applicativo descritto in un contratto proprio, con una regola di partizione che non ammette eccezioni.
 ---
 
-# ADR-0006 — Due piani di esposizione sopra un unico modello di dominio
+# ADR-0006 - Due piani di esposizione sopra un unico modello di dominio
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Vincoli di riferimento**: V3; V-160 e V-164 di bacheca
@@ -13,10 +13,10 @@ description: Perché Telemedic espone una facciata clinica nel formato di scambi
 
 Telemedic ha due pubblici con esigenze incompatibili.
 
-Il **pubblico clinico** — sistemi sanitari terzi, motori di integrazione, autorità — ha bisogno di
+Il **pubblico clinico** - sistemi sanitari terzi, motori di integrazione, autorità - ha bisogno di
 una grammatica che conosce già e che non è stata inventata dal progetto.
 
-Il **pubblico applicativo** — chi realizza l'integrazione nel gestionale — ha bisogno di esprimere
+Il **pubblico applicativo** - chi realizza l'integrazione nel gestionale - ha bisogno di esprimere
 azioni: avviare una sessione, emettere un riferimento di accesso, ruotare una chiave, configurare
 una destinazione per i messaggi in uscita, leggere le metriche di una sessione.
 
@@ -28,7 +28,7 @@ sistema sanitario terzo la conosce.
 
 ## Alternative valutate
 
-### Alternativa 1 — Solo la facciata clinica
+### Alternativa 1 - Solo la facciata clinica
 
 Tutto è modellato come risorsa del formato di scambio, comprese le capacità di prodotto.
 
@@ -39,7 +39,7 @@ configurazione come risorse cliniche. Una metrica del canale modellata come osse
 nella cartella clinica di una persona**: è un problema di qualità del dato e, dato il confine fra
 registrazione e interpretazione, potenzialmente di qualificazione. **Scartata.**
 
-### Alternativa 2 — Solo il piano applicativo
+### Alternativa 2 - Solo il piano applicativo
 
 *Vantaggi*: ergonomia massima; un solo contratto.
 
@@ -47,7 +47,7 @@ registrazione e interpretazione, potenzialmente di qualificazione. **Scartata.**
 adattatore scritto dall'integratore. Contraddice la ragione stessa per cui il progetto esiste.
 **Scartata.**
 
-### Alternativa 3 — Due piani sopra un solo modello di dominio
+### Alternativa 3 - Due piani sopra un solo modello di dominio
 
 *Vantaggi*: ciascun pubblico riceve la grammatica adatta; nessuna forzatura semantica.
 
@@ -111,5 +111,5 @@ Vincoli aggiuntivi:
 
 ## Riferimenti
 
-[04 — Modello dati](../02_architecture/04-modello-dati.md#22-che-cosa-passa-da-fhir-e-che-cosa-no) ·
+[04 - Modello dati](../02_architecture/04-modello-dati.md#22-che-cosa-passa-da-fhir-e-che-cosa-no) ·
 ADR-0003 · ADR-0021

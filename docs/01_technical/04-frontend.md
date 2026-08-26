@@ -117,7 +117,7 @@ applicazioni di questo tipo.
 | **Stato della sessione media** | Negoziazione, connettività, qualità, registrazione | Macchina a stati esplicita e unica | Eventi del motore di connessione e del canale di segnalazione |
 
 **Non esiste un archivio globale unico.** Un archivio globale in un'applicazione clinica diventa,
-in pochi mesi, il posto in cui finisce anche il contenuto clinico — e quindi il posto da cui
+in pochi mesi, il posto in cui finisce anche il contenuto clinico - e quindi il posto da cui
 finisce nei registri di diagnostica e negli strumenti di sviluppo. La regola è: il contenuto
 clinico non risiede in strutture globali e non sopravvive alla schermata che lo mostra.
 
@@ -177,14 +177,14 @@ rete ospedaliera con isolamento fra client. La resilienza qui è un requisito di
 - **La caduta del canale di segnalazione non interrompe il media già stabilito.** È una proprietà
   del protocollo che l'interfaccia deve rispettare invece di combattere: il flusso audio e video
   continua, mentre si perdono rinegoziazione e chiusura ordinata. L'interfaccia lo comunica con
-  precisione — «collegamento con il servizio interrotto, la chiamata prosegue» — perché il
+  precisione - «collegamento con il servizio interrotto, la chiamata prosegue» - perché il
   messaggio generico di errore, in quel momento, spinge l'utente a chiudere una chiamata che
   funziona.
 
 ### 4.2 Operazioni in uscita
 
-Le azioni che modificano lo stato — accettare un consenso, chiudere una sessione, inserire una
-misura — passano da una **coda con ritentativi e chiave di idempotenza**. La chiave è generata
+Le azioni che modificano lo stato - accettare un consenso, chiudere una sessione, inserire una
+misura - passano da una **coda con ritentativi e chiave di idempotenza**. La chiave è generata
 dal client e riusata a ogni ritentativo: è ciò che rende innocuo il ritentativo su una risposta
 persa, che è il caso più frequente su rete mobile.
 
@@ -229,7 +229,7 @@ Il bilancio è un vincolo di progetto, verificato in integrazione continua, non 
 | Tempo alla prima interazione utile su dispositivo di riferimento e rete mobile simulata | Soglia dichiarata | Prova sintetica su profilo di rete e di CPU dichiarati |
 | Numero di richieste bloccanti prima della prima schermata utile | Il minimo necessario, dichiarato per percorso | Prova |
 
-`[NV]` — **i valori numerici delle soglie non sono fissati in questo documento.** Vanno
+`[NV]` - **i valori numerici delle soglie non sono fissati in questo documento.** Vanno
 determinati su un dispositivo di riferimento scelto e dichiarato, con una misura, e pubblicati
 come specifica di prodotto. Fissarli qui a priori produrrebbe cifre non verificate, e il vincolo
 V-12 vale anche in senso opposto: una soglia inventata non diventa vera perché è scritta.
@@ -249,7 +249,7 @@ associato a un modo di provarne la violazione.
 |---|---|---|
 | M1 | Ogni percorso funzionale si completa su una larghezza di viewport pari a quella del dispositivo di riferimento, senza scorrimento orizzontale | Prova end-to-end sul viewport dichiarato; il fallimento è la comparsa di scorrimento orizzontale |
 | M2 | Nessun bersaglio interattivo ha area attiva inferiore alla soglia dichiarata, né distanza dal bersaglio adiacente inferiore alla soglia | Regola automatica sul DOM renderizzato |
-| M3 | Nessuna funzionalità richiede un gesto complesso — pressione prolungata, gesto a più dita, trascinamento — senza un'alternativa a tocco singolo | Ispezione automatizzata dei gestori di eventi più revisione manuale sui percorsi critici |
+| M3 | Nessuna funzionalità richiede un gesto complesso - pressione prolungata, gesto a più dita, trascinamento - senza un'alternativa a tocco singolo | Ispezione automatizzata dei gestori di eventi più revisione manuale sui percorsi critici |
 | M4 | La comparsa della tastiera virtuale non copre mai il campo attivo né il pulsante di conferma | Prova su dispositivo reale, non emulato: gli emulatori non riproducono il comportamento |
 | M5 | Il contenuto rispetta le aree sicure del dispositivo, comprese le zone di gesto di sistema | Prova visuale su dispositivo con area non rettangolare |
 | M6 | L'applicazione funziona in entrambi gli orientamenti; nessun percorso è bloccato in uno solo | Prova end-to-end nei due orientamenti |
@@ -267,7 +267,7 @@ attività su hardware. Dichiararlo è più utile che fingere che l'emulatore bas
 ### 7.1 Il perimetro
 
 WCAG 2.1 livello AA ed EN 301 549 integrali, con **una sola non conformità dichiarata sul
-criterio 1.2.4** — sottotitoli in tempo reale — secondo D24, con l'interprete come misura
+criterio 1.2.4** - sottotitoli in tempo reale - secondo D24, con l'interprete come misura
 alternativa. Il canale dati dei sottotitoli **è comunque definito e versionato nel protocollo**:
 è la scelta tecnica che consente di innestare in futuro un motore di trascrizione senza
 riprogettare, ed è documentata in `docs/04_protocols/`.
@@ -285,7 +285,7 @@ La sua redazione è di `COMP`; questa area fornisce l'evidenza tecnica.
 | A4 | Ogni finestra modale intrappola il fuoco, si chiude con il tasto di uscita e restituisce il fuoco all'elemento che l'ha aperta | Prova automatizzata |
 | A5 | Nessuna informazione è veicolata dal solo colore. Vale in modo assoluto per stato di registrazione, stato di cifratura, esito della verifica delle chiavi, avvisi di qualità | Ispezione automatica del rapporto fra segnale visivo e testuale, più revisione manuale |
 | A6 | I cambiamenti di stato importanti sono annunciati con una regione dinamica di cortesia appropriata, senza sovrapporsi | Prova con tecnologia assistiva |
-| A7 | Le preferenze di sistema — movimento ridotto, contrasto elevato, dimensione del carattere — sono rispettate e **non sono disattivabili dalla configurazione di tenant** | Prova con preferenze impostate; tentativo di violazione tramite configurazione, che deve fallire |
+| A7 | Le preferenze di sistema - movimento ridotto, contrasto elevato, dimensione del carattere - sono rispettate e **non sono disattivabili dalla configurazione di tenant** | Prova con preferenze impostate; tentativo di violazione tramite configurazione, che deve fallire |
 | A8 | Il contenuto resta utilizzabile a un ingrandimento del testo fino al livello richiesto dal criterio, senza perdita di funzionalità | Prova a ingrandimento |
 | A9 | Ogni campo ha un'etichetta programmaticamente associata; nessuna etichetta è realizzata con solo testo segnaposto | Regola automatica |
 | A10 | Ogni messaggio di errore è testuale, associato al campo, e dice come correggere | Ispezione più revisione redazionale |
@@ -326,7 +326,7 @@ mezzo previsto dalla configurazione e deve fallire in tutti.
 e questa area lo recepisce nell'organizzazione delle prove: le regole automatiche girano su ogni
 richiesta di modifica e bloccano, ma **non sono la verifica**. La verifica comprende sessioni con
 tecnologie assistive reali e con utenti rappresentativi, che comprendono assistiti anziani e
-persone con disabilità — che non sono un caso limite, sono la popolazione di riferimento. La
+persone con disabilità - che non sono un caso limite, sono la popolazione di riferimento. La
 pianificazione è in [`08-qualita-e-test.md`](./08-qualita-e-test.md) §6.
 
 ---
@@ -370,8 +370,8 @@ Realizzazione:
 | Etichetta di codifica | Denominazione ufficiale di un codice | Gateway delle terminologie, a runtime | Quella del sistema di codifica |
 
 Non si mescolano mai, non si sostituiscono a vicenda e la loro origine è distinguibile
-nell'interfaccia. Quando l'etichetta ufficiale non è disponibile — sistema di codifica non
-abilitato per quel tenant, gateway in modalità degradata — si mostra il codice con il proprio
+nell'interfaccia. Quando l'etichetta ufficiale non è disponibile - sistema di codifica non
+abilitato per quel tenant, gateway in modalità degradata - si mostra il codice con il proprio
 sistema, mai una traduzione di comodo scritta dal progetto: sarebbe un derivato non autorizzato
 e, peggio, un'affermazione clinica non tracciabile.
 

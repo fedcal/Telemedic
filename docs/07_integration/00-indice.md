@@ -1,10 +1,10 @@
 ---
-title: Integrazione — indice e orientamento
+title: Integrazione - indice e orientamento
 sidebar_position: 1
 description: Come integrare Telemedic in un sistema esistente. Le quattro modalità, l'albero decisionale per scegliere quella giusta, i percorsi di lettura per profilo e le convenzioni dell'area.
 ---
 
-# Integrazione — indice e orientamento
+# Integrazione - indice e orientamento
 
 > **Questa è l'area su cui si gioca l'adozione del progetto.** È scritta per chi non ha mai
 > visto il codice di Telemedic e non ha intenzione di vederlo: uno sviluppatore che deve far
@@ -12,8 +12,8 @@ description: Come integrare Telemedic in un sistema esistente. Le quattro modali
 
 ## 1. Che cosa fa questo prodotto quando lo integri
 
-Telemedic è un componente che eroga **prestazioni di telemedicina** — televisita, teleconsulto,
-teleassistenza, telemonitoraggio — dentro un sistema che esiste già. Non è un portale a cui
+Telemedic è un componente che eroga **prestazioni di telemedicina** - televisita, teleconsulto,
+teleassistenza, telemonitoraggio - dentro un sistema che esiste già. Non è un portale a cui
 mandare gli utenti, non è la cartella clinica, non è l'anagrafica, non è l'agenda.
 
 Tre affermazioni discendono direttamente dal profilo di integratore su cui il progetto è
@@ -38,13 +38,13 @@ Quest'area **non ripete i fondamenti**. Dove serve una conoscenza di base, rinvi
 
 | Se non hai familiarità con… | Leggi prima |
 |---|---|
-| Che cosa distingue una televisita da un teleconsulto, e perché la distinzione cambia il modello dati | [10 §02 — Le prestazioni di telemedicina](../10_fondamenti/02-prestazioni-di-telemedicina.md) |
-| Identificatori dell'assistito in Italia, dominio di attribuzione, riconciliazione, identità del professionista | [10 §04 — Identità e anagrafiche](../10_fondamenti/04-identita-e-anagrafiche.md) |
-| HL7 v2, CDA, IHE, DICOM, terminologie cliniche e le loro licenze | [10 §05 — Gli standard di interoperabilità](../10_fondamenti/05-standard-di-interoperabilita.md) |
-| FHIR: risorse, profili, estensioni, riferimenti, interazioni REST, ricerca | [10 §06 — FHIR da zero](../10_fondamenti/06-fhir-da-zero.md) |
-| Fascicolo sanitario elettronico, infrastrutture nazionali e regionali, chi alimenta e chi consulta | [10 §07 — FSE e infrastrutture nazionali](../10_fondamenti/07-fse-e-infrastrutture-nazionali.md) |
-| Perché una videochiamata è un problema difficile: attraversamento delle reti, segnalazione, degradazione | [10 §08 — WebRTC da zero](../10_fondamenti/08-webrtc-da-zero.md) |
-| I protocolli uno per uno: HTTP condizionale, OAuth, PKCE, scambio di token, buste di evento, firma dei messaggi | [10 §13 — I protocolli](../10_fondamenti/13-protocolli.md) |
+| Che cosa distingue una televisita da un teleconsulto, e perché la distinzione cambia il modello dati | [10 §02 - Le prestazioni di telemedicina](../10_fondamenti/02-prestazioni-di-telemedicina.md) |
+| Identificatori dell'assistito in Italia, dominio di attribuzione, riconciliazione, identità del professionista | [10 §04 - Identità e anagrafiche](../10_fondamenti/04-identita-e-anagrafiche.md) |
+| HL7 v2, CDA, IHE, DICOM, terminologie cliniche e le loro licenze | [10 §05 - Gli standard di interoperabilità](../10_fondamenti/05-standard-di-interoperabilita.md) |
+| FHIR: risorse, profili, estensioni, riferimenti, interazioni REST, ricerca | [10 §06 - FHIR da zero](../10_fondamenti/06-fhir-da-zero.md) |
+| Fascicolo sanitario elettronico, infrastrutture nazionali e regionali, chi alimenta e chi consulta | [10 §07 - FSE e infrastrutture nazionali](../10_fondamenti/07-fse-e-infrastrutture-nazionali.md) |
+| Perché una videochiamata è un problema difficile: attraversamento delle reti, segnalazione, degradazione | [10 §08 - WebRTC da zero](../10_fondamenti/08-webrtc-da-zero.md) |
+| I protocolli uno per uno: HTTP condizionale, OAuth, PKCE, scambio di token, buste di evento, firma dei messaggi | [10 §13 - I protocolli](../10_fondamenti/13-protocolli.md) |
 
 I capitoli che seguono presuppongono quei moduli e li citano invece di riscriverli. Dove un
 concetto è ripetuto, è perché il suo uso nell'integrazione ha una forma diversa da quella
@@ -62,8 +62,8 @@ alternative: sono strati che un singolo integratore usa insieme.
 | **C** | **Componente incorporabile** | La stanza del consulto compare dentro la vostra interfaccia, con il vostro tema | Uno sviluppatore front-end, **più** il back-end per la consegna dell'identità |
 | **D** | **Moduli sostituibili** | Spegnete un modulo di Telemedic e ci mettete il vostro: refertazione, agenda, fatturazione, risoluzione degli identificativi, destinazione dell'archiviazione | Uno sviluppatore back-end, con un impegno di manutenzione nel tempo |
 
-Il capitolo [01 — Le quattro modalità](01-modalita-di-integrazione.md) le descrive una per una,
-con **cosa comportano, cosa richiedono, cosa si ottiene** e — la parte che conta di più —
+Il capitolo [01 - Le quattro modalità](01-modalita-di-integrazione.md) le descrive una per una,
+con **cosa comportano, cosa richiedono, cosa si ottiene** e - la parte che conta di più -
 **quando ciascuna è la scelta sbagliata**.
 
 ### 3.1 Come si combinano nel caso più comune
@@ -158,22 +158,22 @@ Nessuno legge quest'area per intero. Ecco i tre percorsi che coprono i casi real
 
 ### 5.1 «Devo far partire una prima integrazione entro venerdì»
 
-1. [02 — Primo avvio](02-primo-avvio.md) — prerequisiti, passi, punti in cui ci si blocca.
-2. [03 — Integrazione per interfacce applicative](03-integrazione-per-api.md) §1–§4 — autenticazione fra sistemi e prima chiamata.
-3. [04 — Integrazione per eventi](04-integrazione-per-eventi.md) §1–§4 — ricevere e verificare la prima notifica.
-4. [10 — Domande frequenti e antipattern](10-domande-frequenti-e-antipattern.md) — leggetelo **prima** di aprire una segnalazione: contiene gli errori che ci aspettiamo.
+1. [02 - Primo avvio](02-primo-avvio.md) - prerequisiti, passi, punti in cui ci si blocca.
+2. [03 - Integrazione per interfacce applicative](03-integrazione-per-api.md) §1–§4 - autenticazione fra sistemi e prima chiamata.
+3. [04 - Integrazione per eventi](04-integrazione-per-eventi.md) §1–§4 - ricevere e verificare la prima notifica.
+4. [10 - Domande frequenti e antipattern](10-domande-frequenti-e-antipattern.md) - leggetelo **prima** di aprire una segnalazione: contiene gli errori che ci aspettiamo.
 
 ### 5.2 «Devo decidere l'architettura di integrazione»
 
-1. [01 — Le quattro modalità](01-modalita-di-integrazione.md), per intero, comprese le sezioni «quando è la scelta sbagliata».
-2. [06 — Identità e delega](06-identita-e-delega.md), che è il capitolo con più conseguenze irreversibili.
-3. [07 — Dati e sincronizzazione](07-dati-e-sincronizzazione.md), per capire chi possiede cosa.
-4. [08 — Moduli sostituibili](08-moduli-sostituibili.md), per sapere cosa potete sostituire e con quali garanzie.
-5. [09 — Obblighi di chi integra](09-obblighi-di-chi-integra.md), che è il capitolo più importante dell'area e va letto **prima** della firma di un contratto, non dopo.
+1. [01 - Le quattro modalità](01-modalita-di-integrazione.md), per intero, comprese le sezioni «quando è la scelta sbagliata».
+2. [06 - Identità e delega](06-identita-e-delega.md), che è il capitolo con più conseguenze irreversibili.
+3. [07 - Dati e sincronizzazione](07-dati-e-sincronizzazione.md), per capire chi possiede cosa.
+4. [08 - Moduli sostituibili](08-moduli-sostituibili.md), per sapere cosa potete sostituire e con quali garanzie.
+5. [09 - Obblighi di chi integra](09-obblighi-di-chi-integra.md), che è il capitolo più importante dell'area e va letto **prima** della firma di un contratto, non dopo.
 
 ### 5.3 «Devo capire cosa mi assumo, sul piano legale e regolatorio»
 
-[09 — Obblighi di chi integra](09-obblighi-di-chi-integra.md), da solo, con la tabella di
+[09 - Obblighi di chi integra](09-obblighi-di-chi-integra.md), da solo, con la tabella di
 ripartizione delle responsabilità. Poi, se il vostro caso lo richiede, l'area
 `docs/08_compliance/`.
 
@@ -184,10 +184,11 @@ Non sono note a piè di pagina: sono condizioni di legittimità dell'uso.
 ### 6.1 Questo non è un dispositivo medico marcato
 
 Il repository pubblico è **codice sorgente**, non un dispositivo medico immesso sul mercato, e
-lo dichiara (decisione D17, D51). **Il progetto non appone marcatura CE e non sottoscrive
-dichiarazioni di conformità** (D28, D49). Chi integra, distribuisce o mette in servizio il
-software per erogare prestazioni sanitarie assume gli obblighi che ne derivano, incluso quello
-di fabbricante quando ne ricorrono i presupposti.
+lo dichiara (decisione D17, D51). **Oggi il progetto non appone marcatura CE e non sottoscrive
+dichiarazioni di conformità** (D28, D49); con la decisione D63 del 26 agosto 2026 il progetto
+intende assumere il ruolo di fabbricante e la marcatura è un requisito di prodotto. Chi integra,
+distribuisce o mette in servizio il software per erogare prestazioni sanitarie assume gli
+obblighi che ne derivano, incluso quello di fabbricante quando ne ricorrono i presupposti.
 
 La conseguenza operativa per voi è precisa e non aggirabile: **finché non esiste una marcatura,
 il software non è utilizzabile per l'erogazione di prestazioni sanitarie su pazienti reali**
@@ -224,10 +225,10 @@ sistemi, aziende o prodotti reali, e nessun segreto compare in chiaro.
 
 | Ruolo | Nome negli esempi |
 |---|---|
-| Interfaccia applicativa e facciata FHIR del progetto | `api.telemedic.esempio.it` |
-| Componente incorporabile | `embed.telemedic.esempio.it` |
-| Emittente dei token e federazione | `telemedic.esempio.it/realms/<realm>` |
-| Documentazione, schemi, catalogo dei problemi | `docs.telemedic.esempio.it` |
+| Interfaccia applicativa e facciata FHIR del progetto | `api.telemedic.example` |
+| Componente incorporabile | `embed.telemedic.example` |
+| Emittente dei token e federazione | `telemedic.example/realms/<realm>` |
+| Documentazione, schemi, catalogo dei problemi | `docs.telemedic.example` |
 | Sistema di chi integra | `gestionale.integratore.example` |
 | Fornitore di identità di chi integra | `idp.integratore.example` |
 | Identificativo di tenant | `asl-nord-01`, `poliambulatorio-02` |
@@ -299,4 +300,4 @@ tre cose più utili da riportare, in ordine:
    [02 §6](02-primo-avvio.md) elenca i punti noti; se il vostro non è nell'elenco, va aggiunto.
 3. **La cosa che avete assunto e che si è rivelata falsa.** È l'informazione più preziosa,
    perché indica dove la documentazione dice qualcosa di ambiguo invece di dire qualcosa di
-   sbagliato — che è più difficile da trovare.
+   sbagliato - che è più difficile da trovare.

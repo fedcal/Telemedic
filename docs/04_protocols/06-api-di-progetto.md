@@ -126,7 +126,7 @@ rispetto all'altro è un difetto.
 | `409 Conflict` | Conflitto di stato o richiesta con chiave di idempotenza già in elaborazione | Nel secondo caso con l'indicazione del ritardo suggerito |
 | `410 Gone` | Versione dismessa, destinazione dismessa, risorsa cancellata in modo definitivo | Con il rinvio alla guida di migrazione |
 | `412 Precondition Failed` | Validatore di versione fornito ma discordante | Concorrenza ottimistica |
-| `415 Unsupported Media Type` | Tipo di contenuto inviato non supportato | — |
+| `415 Unsupported Media Type` | Tipo di contenuto inviato non supportato | - |
 | `422 Unprocessable Content` | Richiesta ben formata ma che viola una regola di business o un profilo | **È qui** che stanno gli errori di dominio |
 | `428 Precondition Required` | Scrittura su risorsa clinica **senza** validatore di versione | Scelta di progetto, §5 |
 | `429 Too Many Requests` | Quota superata | **Sempre** con il ritardo suggerito, definito da RFC 6585 |
@@ -203,7 +203,7 @@ X-Request-Id: 7f2b1c8e-4a55-4d0b-9a3f-11c2d3e4f5a6
 
 Sulle letture, sulle sostituzioni complete e sulle cancellazioni non serve: sono già idempotenti
 per definizione del metodo, e aggiungere la chiave è rumore. Su operazioni **intrinsecamente
-ripetibili per volontà del chiamante** — «rinvia l'invito» — non si usa la chiave: si espone un
+ripetibili per volontà del chiamante** - «rinvia l'invito» - non si usa la chiave: si espone un
 endpoint distinto con semantica esplicita, perché quella è una richiesta di effetto aggiuntivo,
 non un ritentativo.
 
@@ -223,10 +223,10 @@ L'ultimo punto è una **scelta di progetto**, elencata come P-02 fra quelle che 
 decisione architetturale formale. La motivazione: una scrittura senza validatore è un
 ultimo-scrittore-vince silenzioso, che su una risorsa clinica è perdita di dato non tracciata,
 incompatibile con il vincolo V5. Il costo dichiarato: rompe i client che non inviano il
-validatore. È l'effetto voluto — che si rompano in integrazione, non in produzione.
+validatore. È l'effetto voluto - che si rompano in integrazione, non in produzione.
 
-Sulle risorse **non cliniche** del piano applicativo — configurazione, personalizzazione,
-destinazioni degli eventi — il validatore è raccomandato ma non obbligatorio: la perdita di un
+Sulle risorse **non cliniche** del piano applicativo - configurazione, personalizzazione,
+destinazioni degli eventi - il validatore è raccomandato ma non obbligatorio: la perdita di un
 aggiornamento di configurazione è recuperabile e visibile, quella di un dato clinico no.
 
 ```http
@@ -311,12 +311,12 @@ struttura sanitaria senza avere alcun diritto di accesso, il che è di per sé u
 
 Il costo è che la diagnosi diventa più difficile per l'integratore in buona fede. La mitigazione:
 il corpo del problema porta comunque un codice che distingue l'assenza dalla mancanza di
-autorizzazione **quando il chiamante appartiene allo stesso tenant della risorsa** — perché in
-quel caso l'oracolo non aggiunge informazione — e il tentativo genera comunque un evento di
+autorizzazione **quando il chiamante appartiene allo stesso tenant della risorsa** - perché in
+quel caso l'oracolo non aggiunge informazione - e il tentativo genera comunque un evento di
 tracciamento.
 
-Sulle risorse **non riferite a un assistito** — una destinazione per gli eventi, una
-configurazione — la distinzione fra `403` e `404` resta quella ordinaria.
+Sulle risorse **non riferite a un assistito** - una destinazione per gli eventi, una
+configurazione - la distinzione fra `403` e `404` resta quella ordinaria.
 
 ## 7. Versionamento e deprecazione, nelle forme oggi corrette
 
@@ -384,14 +384,14 @@ maggio 2026, con stato previsto Standards Track.
 
 Due fatti da recepire, entrambi verificati:
 
-1. la revisione corrente definisce **due** campi strutturati — `RateLimit` e `RateLimit-Policy` —
+1. la revisione corrente definisce **due** campi strutturati - `RateLimit` e `RateLimit-Policy` -
    e **sostituisce** i tre campi separati delle prime versioni;
 2. i tre campi separati **non sono mai stati standard**.
 
 `RateLimit-Policy` porta i parametri di quota, finestra, unità di quota e chiave di partizione;
 `RateLimit` porta la quota residua, la finestra effettiva e la chiave di partizione. Il draft
-registra inoltre tre tipi di problema — quota superata, capacità temporaneamente ridotta, uso
-anomalo rilevato — e un registro di unità di quota che comprende le richieste, i byte di
+registra inoltre tre tipi di problema - quota superata, capacità temporaneamente ridotta, uso
+anomalo rilevato - e un registro di unità di quota che comprende le richieste, i byte di
 contenuto e le richieste concorrenti.
 
 ### 8.2 La scelta di progetto
@@ -517,7 +517,7 @@ precedente:
 **Regola di progetto vincolante:** il descrittore è **scritto a mano ed è la fonte di verità**; i
 tipi del server sono generati o verificati contro di esso nella catena di costruzione.
 
-L'approccio inverso — annotazioni nel codice, descrittore generato — produce un contratto che
+L'approccio inverso - annotazioni nel codice, descrittore generato - produce un contratto che
 cambia a ogni ristrutturazione interna. È incompatibile con una politica di stabilità
 dell'interfaccia e con la tracciabilità requisito-prova richiesta dalla disciplina del ciclo di
 vita del software medico.

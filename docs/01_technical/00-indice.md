@@ -1,5 +1,5 @@
 ---
-title: Area tecnica — indice
+title: Area tecnica - indice
 sidebar_position: 1
 description: Come è realizzato il sistema. Indice dell'area tecnica, percorsi di lettura per profilo, confini rispetto alle altre aree, vincoli posti e questioni lasciate aperte.
 ---
@@ -8,7 +8,7 @@ description: Come è realizzato il sistema. Indice dell'area tecnica, percorsi d
 
 Questa area descrive **come il sistema è realizzato**: quali tecnologie, con quale struttura, con
 quali vincoli di esecuzione, con quali limiti misurati o dichiarati. Non descrive **che cosa fa**
-il sistema — quello è `docs/03_functional/` — né **perché i confini sono quelli** — quello è
+il sistema - quello è `docs/03_functional/` - né **perché i confini sono quelli** - quello è
 `docs/02_architecture/`.
 
 Il criterio redazionale è uno solo: **ogni scelta è motivata e ogni limite è dichiarato**. Dove
@@ -17,7 +17,7 @@ decisione non spetta a quest'area, è aperta in bacheca invece di essere inventa
 
 ---
 
-## I nove capitoli
+## I dieci capitoli
 
 | # | Capitolo | Che cosa risolve |
 |---|---|---|
@@ -30,6 +30,7 @@ decisione non spetta a quest'area, è aperta in bacheca invece di essere inventa
 | 7 | [Prestazioni e capacità](./07-prestazioni-e-capacita.md) | Bilancio di latenza per stadio, percentili invece di medie, unità di dimensionamento, contropressione a quattro livelli, **limiti dichiarati**. Nessuna soglia è presentata come conformità |
 | 8 | [Qualità e test](./08-qualita-e-test.md) | Piramide delle prove, prove a contratto, dati sintetici, accessibilità automatica e manuale, prove di carico, copertura minima e differenziata, tracciabilità requisito → prova |
 | 9 | [Integrazione continua e rilascio](./09-integrazione-continua-e-rilascio.md) | Pipeline a quattro fasce, tredici controlli obbligatori, versionamento a due cicli di vita, costruzione riproducibile, artefatti firmati, distinta dei materiali, periodo di supporto |
+| 10 | [Verifica del sito di documentazione](./10-verifica-sito-di-documentazione.md) | Criterio 6 di `T-07`: la procedura eseguibile e ripetibile che accerta navigazione, ricerca e avviso di traduzione in corso del sito pubblicato, e il registro datato delle sue esecuzioni |
 
 ---
 

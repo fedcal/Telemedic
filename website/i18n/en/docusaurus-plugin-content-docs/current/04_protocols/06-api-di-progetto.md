@@ -8,7 +8,7 @@ description: "REST interface described in OpenAPI 3.1: resources, status codes, 
 
 The real constraints of REST, the semantics of the status codes, how cache validators work and the
 correct form of the rate limiting and deprecation headers are explained in the module
-[«The protocols, one by one», §3](../10_fondamenti/13-protocolli.md). This chapter describes
+[«The protocols, one by one», §3](/10_fondamenti/13-protocolli.md). This chapter describes
 **Telemedic's API**: what it exposes, with what contract, with what guarantees.
 
 ## 1. Why there are two planes, and how it is decided where a concept lives
@@ -122,7 +122,7 @@ other is a defect.
 | `409 Conflict` | State conflict, or request with an idempotency key already being processed | In the second case with the suggested delay indicated |
 | `410 Gone` | Version decommissioned, destination decommissioned, resource permanently deleted | Pointing to the migration guide |
 | `412 Precondition Failed` | Version validator supplied but mismatched | Optimistic concurrency |
-| `415 Unsupported Media Type` | Content type sent not supported | — |
+| `415 Unsupported Media Type` | Content type sent not supported | - |
 | `422 Unprocessable Content` | Well-formed request that violates a business rule or a profile | **This is where** domain errors live |
 | `428 Precondition Required` | Write to a clinical resource **without** a version validator | Project choice, §5 |
 | `429 Too Many Requests` | Quota exceeded | **Always** with the suggested delay, defined by RFC 6585 |
@@ -197,7 +197,7 @@ X-Request-Id: 7f2b1c8e-4a55-4d0b-9a3f-11c2d3e4f5a6
 
 On reads, on full replacements and on deletes it is not needed: they are already idempotent by the
 definition of the method, and adding the key is noise. On operations that are **intrinsically
-repeatable at the caller's will** — «resend the invitation» — the key is not used: a distinct
+repeatable at the caller's will** - «resend the invitation» - the key is not used: a distinct
 endpoint with explicit semantics is exposed, because that is a request for an additional effect, not
 a retry.
 
@@ -216,11 +216,11 @@ resources, the client returns it in the modification request, the server compare
 The last point is a **project choice**, listed as P-02 among those awaiting a formal architectural
 decision. The justification: a write without a validator is a silent last-writer-wins, which on a
 clinical resource is untracked data loss, incompatible with constraint V5. The declared cost: it
-breaks clients that do not send the validator. That is the intended effect — that they break in
+breaks clients that do not send the validator. That is the intended effect - that they break in
 integration, not in production.
 
-On **non-clinical** resources of the application plane — configuration, customisation, event
-destinations — the validator is recommended but not mandatory: the loss of a configuration update is
+On **non-clinical** resources of the application plane - configuration, customisation, event
+destinations - the validator is recommended but not mandatory: the loss of a configuration update is
 recoverable and visible, the loss of a clinical datum is not.
 
 ```http
@@ -305,10 +305,10 @@ disclosure.
 
 The cost is that diagnosis becomes harder for the integrator acting in good faith. The mitigation:
 the problem body carries in any case a code that distinguishes absence from lack of authorisation
-**when the caller belongs to the same tenant as the resource** — because in that case the oracle
-adds no information — and the attempt generates an audit event in any case.
+**when the caller belongs to the same tenant as the resource** - because in that case the oracle
+adds no information - and the attempt generates an audit event in any case.
 
-On resources **not referring to a patient** — an event destination, a configuration — the
+On resources **not referring to a patient** - an event destination, a configuration - the
 distinction between `403` and `404` remains the ordinary one.
 
 ## 7. Versioning and deprecation, in the forms that are correct today
@@ -375,14 +375,14 @@ quota headers **are not a standard**: they are defined by
 
 Two facts to be taken on board, both verified:
 
-1. the current revision defines **two** structured fields — `RateLimit` and `RateLimit-Policy` — and
+1. the current revision defines **two** structured fields - `RateLimit` and `RateLimit-Policy` - and
    **replaces** the three separate fields of the early versions;
 2. the three separate fields **were never a standard**.
 
 `RateLimit-Policy` carries the quota, window, quota unit and partition key parameters; `RateLimit`
 carries the remaining quota, the effective window and the partition key. The draft moreover
-registers three problem types — quota exceeded, capacity temporarily reduced, abnormal usage
-detected — and a registry of quota units including requests, content bytes and concurrent requests.
+registers three problem types - quota exceeded, capacity temporarily reduced, abnormal usage
+detected - and a registry of quota units including requests, content bytes and concurrent requests.
 
 ### 8.2 The project's choice
 
@@ -507,7 +507,7 @@ compared with the earlier series:
 **Binding project rule:** the descriptor is **written by hand and is the source of truth**; the
 server's types are generated from it or verified against it in the build chain.
 
-The reverse approach — annotations in the code, descriptor generated — produces a contract that
+The reverse approach - annotations in the code, descriptor generated - produces a contract that
 changes with every internal restructuring. It is incompatible with an interface stability policy and
 with the requirement-to-test traceability required by the medical software life cycle rules.
 

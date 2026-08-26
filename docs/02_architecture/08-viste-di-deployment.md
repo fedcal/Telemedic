@@ -1,7 +1,7 @@
 ---
 title: Viste di deployment
 sidebar_position: 9
-description: I due assetti di distribuzione di Telemedic — installazione presso il cliente e servizio gestito — i componenti, le reti, l'isolamento del relay come difesa primaria, le dipendenze e la loro sostituibilità, i tre profili di collocazione e la matrice delle differenze ammesse.
+description: I due assetti di distribuzione di Telemedic - installazione presso il cliente e servizio gestito - i componenti, le reti, l'isolamento del relay come difesa primaria, le dipendenze e la loro sostituibilità, i tre profili di collocazione e la matrice delle differenze ammesse.
 ---
 
 # Viste di deployment
@@ -33,7 +33,7 @@ solo la sua complessità: costa la probabilità che venga configurato male.
 | **Applicazione** | Contiene i contesti di dominio, i piani di esposizione, il livello anticorruzione | Sì | No: è il prodotto |
 | **Interfaccia utente** | Applicazione a pagina singola, anche nella forma incorporabile | Sì | Sostituibile dall'integratore, che può usare solo le interfacce applicative |
 | **Archivio relazionale** | Persistenza dei contesti, outbox, configurazione | Sì | No, per la versione corrente |
-| **Archivio a serie temporali** | Parametri clinici e metriche di canale | Sì | Sì, dietro l'interfaccia del contesto |
+| **Archivio a serie temporali** | Parametri clinici e metriche di canale, in **strutture distinte con regimi distinti** | Sì | Sì, dietro l'interfaccia del contesto |
 | **Archivio del registro immutabile** | Registro degli accessi, con privilegi disgiunti | Sì | Sì, purché soddisfi le proprietà di §2 del capitolo sul tracciamento |
 | **Broker di eventi** | Distribuzione degli eventi ai consumatori | Sì | Sì, dietro l'interfaccia di pubblicazione |
 | **Prodotto di federazione dell'identità** | Federazione, emissione dei token interni, gestione dei realm | Sì | No, per la versione corrente |
@@ -50,6 +50,15 @@ dipendenza esterna che il sistema deve poter perdere restando pienamente operati
 scenario di qualità SQ-07. Il **prodotto di federazione dell'identità** e l'**archivio
 relazionale** sono invece dichiarati non sostituibili nella versione corrente: è una scelta, ed è
 dichiarata come tale invece di essere presentata come una necessità.
+
+Una terza riga va letta con attenzione per non essere fraintesa. L'**archivio a serie temporali** è
+**un solo componente** - è il conteggio che
+[ADR-0020](../adr/0020-serie-temporali-in-archivio-dedicato.md) accetta fra le proprie conseguenze
+negative, «un archivio in più da installare» - e ospita **due strutture distinte**, i parametri
+clinici e le metriche di canale, con conservazione, titolo di accesso e riduzione della risoluzione
+diversi. Un solo componente non significa un solo regime: la separazione che
+[04 - Modello dati](04-modello-dati.md#41-due-serie-non-una) §4.1 impone è quella dei regimi, e
+resta intera anche quando il componente installato è uno.
 
 ### 2.2 Vista dei componenti
 
@@ -141,7 +150,7 @@ dal progetto oppure con il pacchetto per orchestratore di contenitori, secondo l
 cliente. Tenancy attiva con un solo tenant, o pochi.
 
 Il **broker in assetto a nodo singolo** è la scelta prevista per contenere il peso operativo. È una
-scelta consapevole con una conseguenza dichiarata: `[NV]` — i limiti effettivi delle garanzie del
+scelta consapevole con una conseguenza dichiarata: `[NV]` - i limiti effettivi delle garanzie del
 broker in quell'assetto vanno verificati dall'area tecnica, e ogni garanzia che dipenda dalla
 replica non è disponibile. Nessun requisito funzionale può dipendere da garanzie non disponibili
 nell'assetto minimo.
@@ -244,7 +253,7 @@ modifica alla rete: solo una prova eseguita a ogni costruzione lo accerta.
 
 ### 5.3 Il relay tratta dati relativi alla salute
 
-Il relay non vede il contenuto — non possiede le chiavi — ma vede **chi ha parlato con chi, quando,
+Il relay non vede il contenuto - non possiede le chiavi - ma vede **chi ha parlato con chi, quando,
 per quanto tempo e da quale indirizzo**. In ambito sanitario il solo fatto del contatto con uno
 specialista è dato relativo alla salute.
 
@@ -355,7 +364,7 @@ corrette sono rapporti fra differenze (vincolo V-113 dell'area tecnica). E **l'i
 qualità della sessione è proprietario e va dichiarato tale**: non è un punteggio di opinione media
 secondo alcuna raccomandazione internazionale (vincolo V-114).
 
-`[NV]` — I livelli di servizio attesi per la sorveglianza in esercizio, distinti da quelli previsti
+`[NV]` - I livelli di servizio attesi per la sorveglianza in esercizio, distinti da quelli previsti
 dalla normativa sulle infrastrutture regionali, sono oggetto di una questione aperta in bacheca
 indirizzata all'area di sicurezza e alla roadmap. Quest'area fissa **che cosa** va sorvegliato,
 non **con quale soglia**.

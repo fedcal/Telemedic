@@ -1,5 +1,5 @@
 ---
-title: Gestione del rischio — ISO 14971 applicata a questo sistema
+title: Gestione del rischio - ISO 14971 applicata a questo sistema
 sidebar_position: 6
 description: Il processo di gestione del rischio del progetto secondo ISO 14971:2019, il registro dei rischi con esempi reali del dominio (parametro non ricevuto, sessione interrotta, identità sbagliata, dato terminologico assente, orario non affidabile), la gerarchia delle misure di controllo, la doppia verifica di attuazione ed efficacia, il rischio residuo dichiarato e il raccordo con il modello di minaccia di sicurezza.
 ---
@@ -8,9 +8,9 @@ description: Il processo di gestione del rischio del progetto secondo ISO 14971:
 
 > **Che cosa questo capitolo non contiene.** Non contiene la spiegazione di che cosa sia un
 > pericolo, una situazione pericolosa o un rischio residuo: quella sta nel modulo
-> [10 — Percorsi di cura e sicurezza](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md),
+> [10 - Percorsi di cura e sicurezza del paziente](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md),
 > § 9.6, e nel modulo
-> [15 — Regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md), § 5.5, ed è scritta
+> [15 - Regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md), § 5.5, ed è scritta
 > per chi non ha mai visto la norma. **Qui si applica.** Chi non ha letto quei due paragrafi
 > troverà questo capitolo compatto fino all'incomprensibilità, e non è un difetto di questo
 > capitolo.
@@ -23,19 +23,23 @@ descrive il contenuto come processo iterativo per l'intero ciclo di vita del dis
 **EN ISO 14971:2019** è la norma che descrive quel processo ed è armonizzata sotto il
 regolamento.
 
-`[NV]` — **Se il riferimento pubblicato sia `EN ISO 14971:2019` o `EN ISO 14971:2019+A11:2021`
+`[NV]` - **Se il riferimento pubblicato sia `EN ISO 14971:2019` o `EN ISO 14971:2019+A11:2021`
 va verificato sull'elenco consolidato della Commissione**, e la differenza non è nominalistica:
 è l'emendamento A11 a contenere gli allegati che dichiarano le deviazioni fra la norma e il
 regolamento (§ 3.4). La verifica è a carico di chi compila la matrice dei requisiti generali di
 sicurezza e prestazione.
 
-**La ripartizione, che vale per tutto il capitolo.** Ai sensi di `D28` e `D49` il progetto **non
-è fabbricante** e non appone la marcatura CE: non firma il rapporto di gestione del rischio, non
-determina l'accettabilità del rischio residuo complessivo e non assume la responsabilità del
-rapporto benefici/rischi. Produce però **il materiale su cui quelle determinazioni si prendono**,
-e lo produce ora perché una parte di esso è retroattivamente irrecuperabile.
+**La ripartizione, che vale per tutto il capitolo.** Da `D58` il progetto intende
+assumere il ruolo di fabbricante, e con `D63` quell'assunzione è un **requisito di prodotto**; il
+soggetto giuridico è ancora da costituire. Ai sensi di `D58`
+il progetto non firma oggi il rapporto di gestione del rischio, non determina oggi l'accettabilità
+del rischio residuo complessivo e non assume oggi la responsabilità del rapporto benefici/rischi.
+Produce però **il materiale su cui quelle determinazioni si prenderanno**, e lo produce ora perché
+una parte di esso è retroattivamente irrecuperabile. Quando il soggetto fabbricante sarà
+costituito, assumerà tutti gli atti riservati al ruolo, compresa la firma del rapporto e la
+determinazione di accettabilità.
 
-| Attività | Progetto | Chi certifica |
+| Attività | Progetto | Il fabbricante |
 |---|---|---|
 | Piano di gestione del rischio, criteri di accettabilità | Bozza tecnica e metodo proposto | **Approva, data e firma** |
 | Identificazione di pericoli e situazioni pericolose | **Integrale** | Riesamina e integra |
@@ -48,7 +52,7 @@ e lo produce ora perché una parte di esso è retroattivamente irrecuperabile.
 | Attività di produzione e post-produzione | Capacità di prodotto | **Processo proprio** |
 
 La riga più importante è la penultima ed è trattata al § 8: **la determinazione di accettabilità
-non è delegabile** — né a un fornitore, né a un consulente, né a una tabella.
+non è delegabile** - né a un fornitore, né a un consulente, né a una tabella.
 
 ## 2. Il processo, e dove si innesta nel lavoro quotidiano
 
@@ -118,10 +122,10 @@ per la ragione tecnica del § 3.3.
 
 | Classe di gravità | Descrizione nel dominio | Criterio proposto |
 |---|---|---|
-| **G4 — critica** | Decesso o danno permanente | Nessun rischio residuo è accettabile senza misura di livello 1 o 2 con efficacia verificata **e** dichiarazione esplicita all'utilizzatore |
-| **G3 — grave** | Ricovero, intervento, deterioramento reversibile ma significativo, ritardo diagnostico su condizione tempo-dipendente | Misura di livello 1 o 2 obbligatoria; il livello 3 è ammesso **solo in aggiunta** e mai da solo |
-| **G2 — moderata** | Prestazione mancata o rinviata, ripetizione dell'atto, disagio significativo | Misura di livello 2 o 3, con verifica di efficacia |
-| **G1 — lieve** | Disagio, necessità di ripetere un'azione nell'interfaccia | Trattamento in ambito di qualità del prodotto, con registrazione |
+| **G4 - critica** | Decesso o danno permanente | Nessun rischio residuo è accettabile senza misura di livello 1 o 2 con efficacia verificata **e** dichiarazione esplicita all'utilizzatore |
+| **G3 - grave** | Ricovero, intervento, deterioramento reversibile ma significativo, ritardo diagnostico su condizione tempo-dipendente | Misura di livello 1 o 2 obbligatoria; il livello 3 è ammesso **solo in aggiunta** e mai da solo |
+| **G2 - moderata** | Prestazione mancata o rinviata, ripetizione dell'atto, disagio significativo | Misura di livello 2 o 3, con verifica di efficacia |
+| **G1 - lieve** | Disagio, necessità di ripetere un'azione nell'interfaccia | Trattamento in ambito di qualità del prodotto, con registrazione |
 
 ### 3.3 La probabilità nel software: perché la griglia bidimensionale non regge
 
@@ -142,7 +146,7 @@ Il metodo adottato dal progetto, da recepire nel piano:
 4. **la matrice, se adottata, è strumento di comunicazione e di ordinamento delle priorità**,
    non criterio di decisione.
 
-`[NV]` — L'approccio è coerente con l'impianto di IEC 62304, che determina la classe di sicurezza
+`[NV]` - L'approccio è coerente con l'impianto di IEC 62304, che determina la classe di sicurezza
 sul **danno possibile** e non sulla probabilità del difetto, ed è indicato come praticabile dal
 rapporto tecnico che accompagna ISO 14971. **Il riferimento puntuale alla sezione di quel
 rapporto va verificato sul testo**, che è a pagamento e non è stato letto: fino ad allora la
@@ -157,9 +161,9 @@ dato. È il punto su cui gli allegati di raccordo dell'emendamento A11 alla norm
 **deviazione**: la norma consente al fabbricante di fermarsi ai propri criteri di accettabilità,
 il regolamento no.
 
-`[NV]` — **La formulazione letterale e la numerazione della sezione dell'Allegato I vanno
-verificate sul testo consolidato.** La sostanza — riduzione «per quanto possibile» senza
-considerazioni economiche, e non «fino a un livello ragionevolmente praticabile» — è pacifica e
+`[NV]` - **La formulazione letterale e la numerazione della sezione dell'Allegato I vanno
+verificate sul testo consolidato.** La sostanza - riduzione «per quanto possibile» senza
+considerazioni economiche, e non «fino a un livello ragionevolmente praticabile» - è pacifica e
 va recepita.
 
 Ne discendono tre regole redazionali del registro, vincolanti per il progetto:
@@ -175,7 +179,7 @@ Ne discendono tre regole redazionali del registro, vincolanti per il progetto:
 
 L'errore più comune nei file di rischio dei fabbricanti piccoli è costruire il registro sui
 **pericoli** invece che sulle **situazioni pericolose**. Una riga che dica «pericolo: perdita di
-dati — gravità: alta — probabilità: bassa» non contiene informazione utilizzabile: non dice
+dati - gravità: alta - probabilità: bassa» non contiene informazione utilizzabile: non dice
 quali dati, in quale circostanza, chi è esposto, quale decisione clinica ne dipende. Non
 consente né di stimare né di progettare.
 
@@ -209,11 +213,11 @@ del rischio, per quanto sia buona ingegneria.
 
 L'ordine è vincolante e non è un elenco di opzioni equivalenti:
 
-1. **sicurezza intrinseca per progettazione** — eliminare il pericolo o renderlo strutturalmente
+1. **sicurezza intrinseca per progettazione** - eliminare il pericolo o renderlo strutturalmente
    impossibile;
-2. **misure di protezione nel dispositivo o nel processo** — barriere, verifiche, conferme,
+2. **misure di protezione nel dispositivo o nel processo** - barriere, verifiche, conferme,
    segnalazioni;
-3. **informazioni per la sicurezza** — avvertenze, istruzioni per l'uso, addestramento.
+3. **informazioni per la sicurezza** - avvertenze, istruzioni per l'uso, addestramento.
 
 Il terzo livello è il più economico e il più debole, ed è quello a cui si ricorre sotto pressione
 di scadenza. **Un'avvertenza che risolve un problema risolvibile per progetto è una non
@@ -226,14 +230,14 @@ file in cui la maggioranza delle misure è di livello 3 dice, senza volerlo, che
 un valutatore esperto conta, ed è una metrica che il progetto si impegna a pubblicare insieme al
 registro.
 
-## 6. Il registro dei rischi — esempi reali del dominio
+## 6. Il registro dei rischi - esempi reali del dominio
 
 Quanto segue **non è un esempio didattico**: sono righe costruite sul modello di dominio, sui
 requisiti funzionali e sui vincoli architetturali effettivi del progetto, ed è la forma in cui il
 registro `RM-FILE-001` va compilato. Gli identificativi `RM-*` usati qui sono provvisori e vanno
 congelati contestualmente al piano.
 
-### 6.1 `RM-01` — Il parametro che non arriva
+### 6.1 `RM-01` - Il parametro che non arriva
 
 | Campo | Contenuto |
 |---|---|
@@ -248,7 +252,7 @@ congelati contestualmente al piano.
 
 | Livello | Misura | Agisce su |
 |---|---|---|
-| **1** | **L'attesa di rilevazione è un'entità**: l'assenza di misura è una riga che dichiara l'assenza — con finestra attesa, istante di scadenza e causa quando nota — non l'assenza di una riga. È la forma operativa del principio per cui il silenzio non è mai normalità, ed è ciò che rende l'aderenza una grandezza definita invece che un conteggio di ciò che è arrivato | Rende la sequenza strutturalmente interrompibile |
+| **1** | **L'attesa di rilevazione è un'entità**: l'assenza di misura è una riga che dichiara l'assenza - con finestra attesa, istante di scadenza e causa quando nota - non l'assenza di una riga. È la forma operativa del principio per cui il silenzio non è mai normalità, ed è ciò che rende l'aderenza una grandezza definita invece che un conteggio di ciò che è arrivato | Rende la sequenza strutturalmente interrompibile |
 | **2** | Evento generato dal decorso della finestra, con distinzione fra **misura non attesa** e **misura non pervenuta**: sono due cose diverse e collassarle produce sia falsi allarmi sia silenzi | Probabilità |
 | **2** | **Età dell'ultimo dato sempre visibile** e graficamente evidenziata in ogni vista che presenti parametri; nessuna vista di sintesi può mostrare un valore senza la sua età | Probabilità |
 | **2** | **Sorveglianza del volume atteso**: un guasto della catena di acquisizione produce un silenzio collettivo che somiglia alla normalità. La rilevazione deve precedere la scadenza della prima finestra individuale | Probabilità |
@@ -272,7 +276,7 @@ tipo di compensazione che la valutazione del rischio residuo **complessivo** dev
 scadenza della finestra e la presa in carico, e resta il caso dell'assistito che non trasmette
 **perché** sta male. Il residuo è dichiarato all'utilizzatore.
 
-### 6.2 `RM-02` — La sessione che si interrompe
+### 6.2 `RM-02` - La sessione che si interrompe
 
 | Campo | Contenuto |
 |---|---|
@@ -307,7 +311,7 @@ nel codice.
 dichiarato e la misura compensativa è organizzativa: esistenza di un canale alternativo presso
 l'erogatore.
 
-### 6.3 `RM-03` — L'identità sbagliata
+### 6.3 `RM-03` - L'identità sbagliata
 
 | Campo | Contenuto |
 |---|---|
@@ -331,7 +335,7 @@ l'erogatore.
 **Verifica di efficacia.** Prova negativa fra tenant **su ogni punto di ingresso**, senza
 eccezioni; prova di riconciliazione con dominio di attribuzione esplicito; prova che le
 interfacce di modifica degli attributi rispondano con rifiuto per un utente federato. Le prove
-negative — quelle che verificano che l'azione vietata **fallisca** — sono qui la sola forma
+negative - quelle che verificano che l'azione vietata **fallisca** - sono qui la sola forma
 valida: una prova positiva su un caso corretto non dimostra nulla.
 
 **Nuovi rischi introdotti.** La conferma esplicita in apertura di sessione aggiunge un passaggio
@@ -347,7 +351,7 @@ gravità `G3`–`G4` che va comunicato a chi integra come **obbligo di controllo
 questione della ripartizione di responsabilità che ne deriva è trattata al capitolo
 [09](./09-percorso-e-calendario.md), § 7.
 
-### 6.4 `RM-04` — Il dato terminologico che manca
+### 6.4 `RM-04` - Il dato terminologico che manca
 
 | Campo | Contenuto |
 |---|---|
@@ -370,10 +374,10 @@ politica delle terminologie.
 |---|---|---|
 | **1** | **Nessun percorso principale richiede il sistema di codifica a licenza onerosa.** Un servizio esterno indisponibile non può bloccare un atto sanitario | Elimina il ramo (b) sul percorso principale |
 | **1** | **Ogni concetto codificato porta il sistema di codifica esplicito** e conserva la rappresentazione testuale accanto al codice: l'informazione clinica non è mai portata dal solo codice | Gravità |
-| **2** | **L'esito della validazione è un dato tracciato con tre stati distinti** — validato, non validabile, rifiutato — e «non validabile» **non è mai trattato come validato**. La distinzione è propagata al ricevente | Probabilità |
+| **2** | **L'esito della validazione è un dato tracciato con tre stati distinti** - validato, non validabile, rifiutato - e «non validabile» **non è mai trattato come validato**. La distinzione è propagata al ricevente | Probabilità |
 | **2** | **Gateway unico** verso le terminologie, con disattivazione per sistema di codifica e comportamento dichiarato in caso di indisponibilità; **nessuna cache persistita su disco** dove la licenza non consente derivati | Probabilità |
 | **2** | Le interrogazioni verso il servizio terminologico esterno **non portano identificativi dell'assistito**: la sovranità si soddisfa per assenza di dato, non per collocazione | Riguarda un rischio distinto, di riservatezza |
-| **3** | Documentazione al deployer: quali sistemi di codifica sono attivi in quale regime, quale contenuto non si valida, e quali conseguenze ne derivano per l'interoperabilità | Probabilità |
+| **3** | Documentazione a chi installa: quali sistemi di codifica sono attivi in quale regime, quale contenuto non si valida, e quali conseguenze ne derivano per l'interoperabilità | Probabilità |
 
 **Verifica di efficacia.** Prova che con il sistema di codifica disattivato ogni caso d'uso
 principale si completi; prova che un concetto non validato sia marcato come tale in uscita e non
@@ -388,7 +392,7 @@ protezione va progettata per essere **rara e informativa**, non ricorrente.
 sul motivo del contatto non è validabile. Il residuo è dichiarato, quantificato e comunicato a
 chi installa, che è il soggetto in grado di rimuoverlo acquisendo la licenza.
 
-### 6.5 `RM-05` — L'orario che non è affidabile
+### 6.5 `RM-05` - L'orario che non è affidabile
 
 | Campo | Contenuto |
 |---|---|
@@ -440,18 +444,18 @@ individuate, con l'origine dichiarata, e vanno sviluppate nella stessa forma.
 
 | # | Situazione pericolosa | Gravità | Misura di livello più alto disponibile | Origine |
 |---|---|---|---|---|
-| `RM-06` | Il professionista conferma una soglia precompilata senza valutarla | `G3` | **1** — il campo soglia parte vuoto e obbligatorio; nessuna precompilazione, nemmeno con i valori del percorso o dell'ultimo piano; i riferimenti si mostrano attribuiti e in sola lettura | Analisi + fondamenti |
-| `RM-07` | Uno dei partecipanti crede che la registrazione sia attiva quando non lo è, o viceversa | `G2` clinica, con conseguenza giuridica autonoma | **2** — indicatore persistente non occultabile né tematizzabile; passaggio fra modalità tracciato | Analisi + sicurezza |
-| `RM-08` | Il documento clinico resta in bozza e il professionista lo crede trasmesso | `G3` | **2** — stato di trasmissione esplicito e conferma di presa in carico dal ricevente; nessuno stato intermedio ambiguo | Analisi |
-| `RM-09` | Il caregiver inserisce misure attribuendole all'assistito sbagliato | `G3` | **2** — contesto del soggetto permanente e non ambiguo; conferma esplicita al cambio | Fondamenti |
-| `RM-10` | Una misura corretta dall'assistito lascia in circolo il valore errato già valutato | `G2`–`G3` | **1** — la misura è immutabile e versionata; **2** — riconciliazione esplicita degli allarmi già generati | Fondamenti |
-| `RM-11` | Un allarme non viene notato perché sommerso da allarmi non azionabili | `G3` | **2** — misura del valore predittivo per regola, tetto di allarmi per operatore, revisione periodica delle soglie | Fondamenti + `RM-01` |
-| `RM-12` | L'assistito crede di essere sorvegliato senza interruzione e ritarda l'accesso all'emergenza | `G4` | **2** — dichiarazione persistente dello stato corrente del servizio e del canale alternativo, non occultabile; **3** — istruzioni | Fondamenti + funzionale |
-| `RM-13` | Un allarme è preso in carico e mai risolto, e nessuno se ne accorge | `G3` | **1** — presa in carico e risoluzione sono transizioni distinte; **2** — sorveglianza degli allarmi presi in carico e non risolti | Fondamenti |
-| `RM-14` | Un utente con lettore di schermo non individua il controllo di consenso, di registrazione o di fine sessione | `G2`–`G3` | **1** — componenti accessibili per costruzione; **2** — verifica manuale con tecnologie assistive | Usabilità e accessibilità |
-| `RM-15` | Il professionista modifica il piano credendo abbia effetto immediato, mentre l'assistito vede ancora il precedente | `G3` | **2** — stato di efficacia del piano visibile a entrambi, con conferma della versione attiva | Fondamenti |
-| `RM-16` | Il contenuto clinico oscurato è inferito da un canale collaterale (conteggi, numerazione, paginazione, notifiche, messaggi d'errore) | `G2` con danno da divulgazione | **1** — l'oscuramento è applicato dal motore di autorizzazione, non dai consumatori, con totali calcolati sull'insieme filtrato | Dominio + sicurezza |
-| `RM-17` | Un difetto del prodotto di federazione consente all'utente di alterare i propri attributi anagrafici, di cambiare l'indirizzo di posta senza verifica o di darsi una credenziale locale | `G3`–`G4` per via di `RM-03` | **2** — controlli di configurazione con prove negative in integrazione continua | **Modello di minaccia** (§ 9) |
+| `RM-06` | Il professionista conferma una soglia precompilata senza valutarla | `G3` | **1** - il campo soglia parte vuoto e obbligatorio; nessuna precompilazione, nemmeno con i valori del percorso o dell'ultimo piano; i riferimenti si mostrano attribuiti e in sola lettura | Analisi + fondamenti |
+| `RM-07` | Uno dei partecipanti crede che la registrazione sia attiva quando non lo è, o viceversa | `G2` clinica, con conseguenza giuridica autonoma | **2** - indicatore persistente non occultabile né tematizzabile; passaggio fra modalità tracciato | Analisi + sicurezza |
+| `RM-08` | Il documento clinico resta in bozza e il professionista lo crede trasmesso | `G3` | **2** - stato di trasmissione esplicito e conferma di presa in carico dal ricevente; nessuno stato intermedio ambiguo | Analisi |
+| `RM-09` | Il caregiver inserisce misure attribuendole all'assistito sbagliato | `G3` | **2** - contesto del soggetto permanente e non ambiguo; conferma esplicita al cambio | Fondamenti |
+| `RM-10` | Una misura corretta dall'assistito lascia in circolo il valore errato già valutato | `G2`–`G3` | **1** - la misura è immutabile e versionata; **2** - riconciliazione esplicita degli allarmi già generati | Fondamenti |
+| `RM-11` | Un allarme non viene notato perché sommerso da allarmi non azionabili | `G3` | **2** - misura del valore predittivo per regola, tetto di allarmi per operatore, revisione periodica delle soglie | Fondamenti + `RM-01` |
+| `RM-12` | L'assistito crede di essere sorvegliato senza interruzione e ritarda l'accesso all'emergenza | `G4` | **2** - dichiarazione persistente dello stato corrente del servizio e del canale alternativo, non occultabile; **3** - istruzioni | Fondamenti + funzionale |
+| `RM-13` | Un allarme è preso in carico e mai risolto, e nessuno se ne accorge | `G3` | **1** - presa in carico e risoluzione sono transizioni distinte; **2** - sorveglianza degli allarmi presi in carico e non risolti | Fondamenti |
+| `RM-14` | Un utente con lettore di schermo non individua il controllo di consenso, di registrazione o di fine sessione | `G2`–`G3` | **1** - componenti accessibili per costruzione; **2** - verifica manuale con tecnologie assistive | Usabilità e accessibilità |
+| `RM-15` | Il professionista modifica il piano credendo abbia effetto immediato, mentre l'assistito vede ancora il precedente | `G3` | **2** - stato di efficacia del piano visibile a entrambi, con conferma della versione attiva | Fondamenti |
+| `RM-16` | Il contenuto clinico oscurato è inferito da un canale collaterale (conteggi, numerazione, paginazione, notifiche, messaggi d'errore) | `G2` con danno da divulgazione | **1** - l'oscuramento è applicato dal motore di autorizzazione, non dai consumatori, con totali calcolati sull'insieme filtrato | Dominio + sicurezza |
+| `RM-17` | Un difetto del prodotto di federazione consente all'utente di alterare i propri attributi anagrafici, di cambiare l'indirizzo di posta senza verifica o di darsi una credenziale locale | `G3`–`G4` per via di `RM-03` | **2** - controlli di configurazione con prove negative in integrazione continua | **Modello di minaccia** (§ 9) |
 
 ## 7. La doppia verifica, e i rischi introdotti dalle misure
 
@@ -540,7 +544,7 @@ dei benefici e dei rischi rilevanti per l'uso del dispositivo secondo la destina
 dichiarata. La sezione 1 dell'Allegato I impone che i rischi siano accettabili **in rapporto ai
 benefici per il paziente**.
 
-`[NV]` — la numerazione puntuale del punto dell'art. 2 e delle sezioni dell'Allegato I va
+`[NV]` - la numerazione puntuale del punto dell'art. 2 e delle sezioni dell'Allegato I va
 verificata sul testo consolidato.
 
 **Il punto che ha conseguenze organizzative.** Il beneficio è un fatto **clinico**. Il numeratore
@@ -549,8 +553,8 @@ discende che:
 
 1. il rapporto **richiede il dato clinico** che proviene dalla valutazione clinica e un giudizio
    clinico competente. È il punto in cui file di rischio e valutazione clinica si toccano, e un
-   rapporto di gestione del rischio che non citi il rapporto di valutazione clinica — o
-   viceversa — è, insieme, un rilievo;
+   rapporto di gestione del rischio che non citi il rapporto di valutazione clinica - o
+   viceversa - è, insieme, un rilievo;
 2. **il beneficio dichiarato nella destinazione d'uso è il tetto del numeratore**: ogni parola
    aggiunta è evidenza clinica in più da produrre, ogni parola tolta abbassa il numeratore
    rendendo meno accettabili gli stessi rischi;
@@ -597,7 +601,7 @@ lo stesso file di questo capitolo, e non si fondono.**
 
 Un terzo file, ancora distinto, è la valutazione d'impatto sulla protezione dei dati: riguarda i
 **rischi per i diritti e le libertà degli interessati**, non il danno fisico. **I tre non vanno
-fusi** — è l'errore più comune nella sanità digitale — ma vanno **collegati**, perché alcuni
+fusi** - è l'errore più comune nella sanità digitale - ma vanno **collegati**, perché alcuni
 scenari compaiono legittimamente in più di uno.
 
 ### 9.2 Che cosa entra, e con quale regola
@@ -607,9 +611,9 @@ ciascuna minaccia una **conseguenza clinica**: le righe con conseguenza clinica 
 esattamente l'insieme che entra nel file di rischio del dispositivo, come sequenze di eventi.
 
 Il raccordo è già scritto nell'area di sicurezza e **non va riformulato qui**: va **importato**.
-Il capitolo [01 — Modello di minaccia](../06_security/01-modello-di-minaccia.md), § 5, contiene
+Il capitolo [01 - Modello di minaccia](../06_security/01-modello-di-minaccia.md), § 5, contiene
 la tabella di quindici minacce con la loro conseguenza clinica; il capitolo
-[02 — Identità e accessi](../06_security/02-identita-e-accessi.md), § 7, tratta già **come rischi
+[02 - Identità e accessi](../06_security/02-identita-e-accessi.md), § 7, tratta già **come rischi
 di prodotto ai sensi della norma sulla gestione del rischio dei dispositivi medici** i tre
 difetti del prodotto di federazione, con i controlli obbligatori e le prove che ne verificano
 l'efficacia.
@@ -634,9 +638,9 @@ Corrispondenza fra le due sponde, per le minacce che generano righe:
 **Che cosa il modello di minaccia non copre.** Non copre le situazioni pericolose **senza
 avversario**: l'errore d'uso, l'assenza di dato, il guasto, l'orologio sfasato, la terminologia
 mancante, la soglia precompilata. Il modello di minaccia del progetto è già stato esteso oltre la
-prassi corrente — le righe sulla caduta della sessione, sulla perdita dell'allarme e sulla
+prassi corrente - le righe sulla caduta della sessione, sulla perdita dell'allarme e sulla
 copertura mal dichiarata non appartengono a un modello di minaccia standard, e la loro presenza è
-un merito di quell'area — ma resta un modello costruito sugli avversari, e cinque delle sei righe
+un merito di quell'area - ma resta un modello costruito sugli avversari, e cinque delle sei righe
 estese di questo capitolo non ne discendono.
 
 **Che cosa il file di rischio non copre.** Non copre la sfruttabilità, il costo dell'attacco, la
@@ -647,9 +651,9 @@ stessa ragione del § 3.3.
 **La conseguenza operativa è una regola di manutenzione bidirezionale**, che va scritta nella
 procedura di gestione del rischio:
 
-1. **ogni riesame del modello di minaccia** — a ogni nuovo confine di fiducia, a ogni
+1. **ogni riesame del modello di minaccia** - a ogni nuovo confine di fiducia, a ogni
    vulnerabilità rilevante su un componente del percorso principale, dopo ogni incidente,
-   comunque con cadenza almeno annuale — **produce un riesame delle righe importate** nel file
+   comunque con cadenza almeno annuale - **produce un riesame delle righe importate** nel file
    di rischio del dispositivo;
 2. **ogni nuova riga del file di rischio con causa esterna intenzionale** viene proposta all'area
    di sicurezza per l'inserimento nel modello di minaccia;
@@ -708,7 +712,7 @@ a mano è, a distanza di sei mesi, un documento falso.
 
 ## 11. I dieci rilievi ricorrenti, come lista di autocontrollo
 
-Da usare prima di considerare chiuso il file. `[NV]` — l'elenco deriva dalla letteratura di
+Da usare prima di considerare chiuso il file. `[NV]` - l'elenco deriva dalla letteratura di
 settore sui rilievi ricorrenti, non da un documento istituzionale, ed è ordinato per frequenza
 attesa.
 
@@ -742,7 +746,7 @@ attesa.
    non è determinata** (§ 6.5). È una soglia di prodotto, non di conformità, e va determinata
    sperimentalmente sulle sorgenti effettivamente supportate.
 6. **La quantificazione del residuo terminologico** (§ 8.4, riga 4) è nota come ordine di
-   grandezza — circa quattromila codici del vincolo sul motivo del contatto — e va verificata
+   grandezza - circa quattromila codici del vincolo sul motivo del contatto - e va verificata
    sulla versione della guida di implementazione effettivamente adottata.
 7. **La determinazione di accettabilità del rischio residuo complessivo non è del progetto**
    (§ 1). Il progetto fornisce i tre ingressi del § 8.2 e si ferma lì.

@@ -6,11 +6,11 @@ description: "Project signalling, negotiation, temporary relay credentials, sess
 
 # Real time
 
-> **Reading prerequisite.** The foundations of real-time media — why a video call is a hard problem,
+> **Reading prerequisite.** The foundations of real-time media - why a video call is a hard problem,
 > what network address translation is and what its types are, how candidate gathering and path
 > selection work, what encryption does and does not guarantee, why the certificate fingerprint alone
-> is not enough, how quality is measured — are in the module
-> [«WebRTC from scratch»](../10_fondamenti/08-webrtc-da-zero.md). This chapter **does not repeat
+> is not enough, how quality is measured - are in the module
+> [«WebRTC from scratch»](/10_fondamenti/08-webrtc-da-zero.md). This chapter **does not repeat
 > them** and describes only the project protocol.
 
 ## 1. Why there is a project protocol here
@@ -28,8 +28,8 @@ transport, envelopes, message catalogue, state machine, versioning.
 ## 2. The signalling transport
 
 The transport is a **WebSocket channel** over a protected connection, with a JSON application
-protocol that is **versioned and schema-validated**. The alternatives — an overlaying messaging
-layer, a fallback to repeated HTTP requests, the adoption of a telephony protocol — add complexity
+protocol that is **versioned and schema-validated**. The alternatives - an overlaying messaging
+layer, a fallback to repeated HTTP requests, the adoption of a telephony protocol - add complexity
 or session affinity constraints with no benefit in a two-participant session.
 
 ### 2.1 The normative requirement that binds the architecture
@@ -84,7 +84,7 @@ explicit refusal, not a channel that half works.
 | `offer` | client → service → counterparty | Session description of the offerer | Forwarded, not interpreted |
 | `answer` | client → service → counterparty | Session description of the answerer | Forwarded, not interpreted |
 | `candidate` | bidirectional | Connectivity candidate | Order and uniqueness guaranteed, §2.1 |
-| `candidate-end` | bidirectional | End of gathering | — |
+| `candidate-end` | bidirectional | End of gathering | - |
 | `restart` | bidirectional | Request to renegotiate connectivity | After a drop |
 | `verification-code` | service → both | Short session verification code | §5 |
 | `verification-result` | client → service | Outcome of the comparison as declared by the user | Audited |
@@ -138,8 +138,8 @@ verification is confirmed. Treating verification as an ignorable notice would ma
 
 Media encryption protects the channel between the two ends, but **it does not say who the end is**.
 The association between the key and the counterparty passes through the signalling, and whoever
-controls the signalling can substitute it. The countermeasure the specification provided for — an
-interface allowing an identity provider to attest the keys — has been verified as **not usable**:
+controls the signalling can substitute it. The countermeasure the specification provided for - an
+interface allowing an identity provider to attest the keys - has been verified as **not usable**:
 
 - the document that defines it has been stalled at Candidate Recommendation stage **since 27
   September 2018**, and the move to the next stage, expected by the end of that year, never
@@ -147,8 +147,8 @@ interface allowing an identity provider to attest the keys — has been verified
 - **it is functionally single-browser**: only one engine implements it, since 2015; two have never
   implemented it; the third had it and lost it when it changed engine in 2020;
 - even granting universal support, it would require a **third-party identity provider** to host the
-  attestation script, which would create a runtime dependency on a third party — in direct tension
-  with the sovereignty constraint — and would move the trust anchor from the signalling service to
+  attestation script, which would create a runtime dependency on a third party - in direct tension
+  with the sovereignty constraint - and would move the trust anchor from the signalling service to
   the provider, without eliminating it.
 
 > **Conclusion, without softening: the short verification string is not one of two roads. It is the
@@ -190,7 +190,7 @@ The project has **two session modes**, and the difference is declared rather tha
 
 | Mode | Media path | End-to-end encryption | When |
 |---|---|---|---|
-| **Without recording** — the default | Direct when the network allows it, otherwise routed by a relay that does not decrypt | **Yes** | Always, unless explicit consent |
+| **Without recording** - the default | Direct when the network allows it, otherwise routed by a relay that does not decrypt | **Yes** | Always, unless explicit consent |
 | **With recording** | Terminated on a service component | **No** | Only with the patient's explicit consent |
 
 **The consequence is inescapable and must be written everywhere: when recording is active,
@@ -247,9 +247,9 @@ same secret. **No user database, no shared state**: any node can validate any cr
 **This mechanism is not a standard.** It derives from an **expired** individual Internet-Draft. The
 real standard for third-party authorisation by token is **RFC 7635**. The mechanism described here
 is, however, the only one with universal support in browsers and relay servers: it is adopted, and
-**documented for what it is — a de facto convention**.
+**documented for what it is - a de facto convention**.
 
-> **`[NV]` — underlying hash algorithm.** The relay server's documentation refers generically to the
+> **`[NV]` - underlying hash algorithm.** The relay server's documentation refers generically to the
 > message authentication function without declaring the hash algorithm. **The right way to resolve
 > the doubt is not a documentary citation but an integration test**: issue a credential with the
 > project's implementation, attempt a real allocation against the version of the server actually
@@ -307,15 +307,17 @@ major version.
 
 | Does not do | Why | Where it lives |
 |---|---|---|
-| It does not carry the media | The media is peer-to-peer, or goes through the relay | — |
-| It does not interpret the session descriptions | Interpreting them would mean being able to modify them | — |
+| It does not carry the media | The media is peer-to-peer, or goes through the relay | - |
+| It does not interpret the session descriptions | Interpreting them would mean being able to modify them | - |
 | It does not carry clinical content | It is not a clinical channel | Clinical plane, chapter [02](./02-fhir.md) |
 | It does not carry diagnostic images | Video compression is not controlled: what the remote professional would see is not the diagnostic datum | Retrieval from the partner's archive, to the viewer |
 | It is not a public interface versioned like the others | It is a session protocol between the project's client and its own service | Its stability is declared separately |
 | It does not handle identity | Identity arrives beforehand, with the entry credential | Chapter [08](./08-identita-e-autorizzazione.md) |
 
-The last line of the fourth entry deserves an explicit rule, because the temptation is practical and
+The fourth entry deserves an explicit rule, because the temptation is practical and
 the error is clinical: **diagnostic images do not travel over the media channel**. Screen sharing an
 image introduces uncontrolled lossy compression, and what the remote professional sees **is not**
 the diagnostic datum. If the consultation requires the diagnostic reading of an image, the image
 must be served to the remote party's viewer through its own protocol, with the access audited.
+
+<!--TRAD-VERIFICATA: 7750d38c1f12c0ccd23abb40c7b95a3cae5bd7c2-->

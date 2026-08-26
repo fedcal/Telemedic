@@ -9,9 +9,9 @@ description: Levels of assurance and their international correspondence, the lev
 > **Reading prerequisite.** The difference between authentication, authorisation and identity, the
 > authentication factors, the session, role-based and attribute-based authorisation and
 > break-glass are covered in
-> [10 §12 — Cryptography and security, §8](../10_fondamenti/12-crittografia-e-sicurezza.md).
+> [10 §12 - Cryptography and security, §8](/10_fondamenti/12-crittografia-e-sicurezza.md).
 > Patient and professional identifiers in Italy are in
-> [10 §04 — Identity and demographic registries](../10_fondamenti/04-identita-e-anagrafiche.md).
+> [10 §04 - Identity and demographic registries](/10_fondamenti/04-identita-e-anagrafiche.md).
 > Here we describe what this system does, and why.
 
 ## 1. The question this chapter answers
@@ -42,8 +42,8 @@ Three operational consequences follow.
    implementations of the assertion protocol.
 2. No project document may declare or imply accreditation. The correct phrase is «ready for»,
    never «accredited».
-3. The procedural obligations — filing of the metadata document, certificate issued by the
-   agency's public key infrastructure, agreement, justification of the levels chosen — belong to
+3. The procedural obligations - filing of the metadata document, certificate issued by the
+   agency's public key infrastructure, agreement, justification of the levels chosen - belong to
    the deployer. The project **documents them as an operating manual** and supplies the technical
    artefacts. See [09](./09-ripartizione-delle-responsabilita.md).
 
@@ -64,16 +64,16 @@ scheme based on the electronic identity card (Carta d'Identità Elettronica, CIE
 declares this expressly in order to ease development for those who have already joined the
 federation.
 
-The correspondence with the European levels — substantial and high under Article 8(2) of
-Regulation (EU) 910/2014 — is the one commonly assumed, **but it is not stated verbatim in the
+The correspondence with the European levels - substantial and high under Article 8(2) of
+Regulation (EU) 910/2014 - is the one commonly assumed, **but it is not stated verbatim in the
 implementing regulation**: `[NV]`. If a formal declaration is needed, it must be verified against
 the notification documentation of the scheme at European level. It must not be asserted here.
 
 ### 3.1 Which level for health data: the uncomfortable answer
 
 The methodological appendix to the implementing regulation, read literally, places **sensitive
-data** — a category that today corresponds to the special categories of Article 9 of Regulation
-(EU) 2016/679 — at **level 3**. In national practice, however, a citizen's access to the
+data** - a category that today corresponds to the special categories of Article 9 of Regulation
+(EU) 2016/679 - at **level 3**. In national practice, however, a citizen's access to the
 electronic health record (Fascicolo Sanitario Elettronico) takes place at **level 2**.
 
 The contradiction is apparent, and must be explained precisely, because documentation that
@@ -93,7 +93,7 @@ simplified it in either direction would be incorrect:
   consideration, not one of convenience: a service that is inaccessible to the population that
   needs it most is not a safer service.
 
-**Position of the project — a proposal, not a rule.** The level is **configurable per tenant and
+**Position of the project - a proposal, not a rule.** The level is **configurable per tenant and
 per operation**, never hard-coded. It is a requirement that follows directly from the fact that
 the service provider «chooses» the level (DPCM 24 ottobre 2014, Article 6(4)) and must **justify
 the choice** in the agreement. The values proposed as defaults:
@@ -142,7 +142,7 @@ an authentication the project did not perform appear as verified by the project.
 audit trail must answer the question «who vouched for this person's identity», this is the
 difference between a useful audit trail and a deceptive one.
 
-**Proprietary marker — project proposal.** The project introduces a proprietary extension that
+**Proprietary marker - project proposal.** The project introduces a proprietary extension that
 accompanies `acr` and declares its provenance. It is not a standard claim and it must be
 documented as an extension, not presented as one.
 
@@ -187,14 +187,14 @@ For comparison, the token issued when it is the project that authenticated the p
 }
 ```
 
-**The four authorisation rules that follow** — a project proposal, published as constraint V-154:
+**The four authorisation rules that follow** - a project proposal, published as constraint V-154:
 
 1. An operation that legislation ties to **strong authentication** under Article 64 of the Codice
-   dell'Amministrazione Digitale (the Italian Digital Administration Code) — access to the health
-   record, access to national infrastructures — **requires authentication performed**. A level
+   dell'Amministrazione Digitale (the Italian Digital Administration Code) - access to the health
+   record, access to national infrastructures - **requires authentication performed**. A level
    reported by a third party does not satisfy it, however high the asserted value.
-2. An internal clinical operation — starting a specialist-to-specialist consultation
-   (teleconsulto), drafting a document — may accept a reported identity, **provided that** the
+2. An internal clinical operation - starting a specialist-to-specialist consultation
+   (teleconsulto), drafting a document - may accept a reported identity, **provided that** the
    tenant's trust registry explicitly allows it and the reported level reaches the configured
    threshold.
 3. The configuration of «which external levels are accepted for which operation» is **per tenant**
@@ -213,9 +213,9 @@ The technical rules of the scheme based on the electronic identity card declare 
 authentication context element **in the response is always set to level 3**, «since the CIE
 provides the highest level of reliability at European level».
 
-If this wording is the current one — and it must be verified empirically in pre-production before
+If this wording is the current one - and it must be verified empirically in pre-production before
 declaring in public documentation how the project propagates the level: `[NV]`, question Q-153 on
-the noticeboard — three consequences follow that are not cosmetic:
+the noticeboard - three consequences follow that are not cosmetic:
 
 1. **The service provider cannot deduce from the response with which factor the person actually
    authenticated.** An access with password alone and an access with card and PIN produce the same
@@ -236,8 +236,8 @@ opened by the integration area, and Q-153 opened by this area.
 ## 6. The broker realm
 
 **A project proposal already adopted in the architectural baseline.** A dedicated realm is the
-**sole service provider towards the national federation**; the application realms — the
-professional's and the patient's — federate to it internally.
+**sole service provider towards the national federation**; the application realms - the
+professional's and the patient's - federate to it internally.
 
 ```mermaid
 flowchart TB
@@ -248,7 +248,7 @@ flowchart TB
     subgraph EDGE["Edge"]
         PX["TLS termination with<br/>client authentication<br/>(certificate on the card)"]
     end
-    subgraph KCB["Broker realm — sole service provider"]
+    subgraph KCB["Broker realm - sole service provider"]
         I1["Instances per provider<br/>and per level"]
         I2["Document-based scheme instance"]
         X509["Certificate authenticator"]
@@ -315,8 +315,8 @@ expected audience, claim mapping. The **same** set must also feed:
 
 Three separate registries diverge, always, and **the divergence is systematically in the
 attacker's favour**: an origin removed from one list and not from the other remains valid on the
-second. The concrete form of the registry — a single table, a single configuration, a single
-verification point — is an **architecture decision**, and this area opens it as a question (Q-156)
+second. The concrete form of the registry - a single table, a single configuration, a single
+verification point - is an **architecture decision**, and this area opens it as a question (Q-156)
 instead of deciding it.
 
 ## 7. The three defects of the federation product, treated as risks
@@ -357,7 +357,7 @@ certificate-based authentication is forgeable with a single request.
 
 ## 8. Certificate authentication and fail-closed revocation
 
-The third channel — authentication with the certificate on the national health card — is the only
+The third channel - authentication with the certificate on the national health card - is the only
 one contemplated by Article 64 of the Codice dell'Amministrazione Digitale that has **no
 dependency on external administrative procedures**: it requires neither an agreement nor
 accreditation with a federation, because trust is anchored to the recognised certification
@@ -388,7 +388,7 @@ introduce a dependency on an external service at login time, and the question th
 
 **Rule of the project: fail closed.** If the revocation status cannot be determined, access is
 **denied**. It is not the most convenient choice and it is the only defensible one in healthcare:
-the opposite choice — accepting when the verification service is unavailable — turns an outage of
+the opposite choice - accepting when the verification service is unavailable - turns an outage of
 the revocation service into a window of validity for a revoked certificate, and whoever has an
 interest in using a revoked certificate has an interest in causing that outage.
 
@@ -414,8 +414,8 @@ The model is **role-based with attribute-based extensions**. The role part answe
 really counts against the primary adversary: **«may they perform them on this subject?»**
 
 **Being a doctor is no entitlement to access an arbitrary patient.** Object-level authorisation is
-founded on the **care relationship**, which is a fact with temporal validity — not a permanent
-attribute of the person — and it is verified at the moment of access, not at the moment the role
+founded on the **care relationship**, which is a fact with temporal validity - not a permanent
+attribute of the person - and it is verified at the moment of access, not at the moment the role
 is assigned.
 
 The sources of the care relationship, in order of strength:
@@ -462,8 +462,8 @@ Requirements, all mandatory and all verifiable:
    duration. It expires by itself.
 4. **Contemporaneous notification** to the officer designated by the tenant and, where the tenant
    configures it, **to the patient**.
-5. **Mandatory review with the outcome recorded.** The review is not optional and its outcome —
-   justified, not justified, under investigation — is itself a row of the audit trail. An emergency
+5. **Mandatory review with the outcome recorded.** The review is not optional and its outcome -
+   justified, not justified, under investigation - is itself a row of the audit trail. An emergency
    access that is never reviewed is worse than an ordinary access, because it has produced the
    illusion of a control.
 6. **Counter and threshold**: the frequency of emergency access per actor and per unit of time is a
@@ -498,4 +498,6 @@ Requirements, all mandatory and all verifiable:
 | `[NV]` | Agency document associating the level of assurance with the category of health services (§3.1) | To be requested from the agency |
 | `[NV]` | Formal mapping between the national levels and the European levels, which the regulation does not state verbatim (§3) | To be verified against the notification documentation |
 | `[NV]` | Confirmation that the level in the response of the document-based scheme really is always the highest (§5) | Empirical verification in pre-production |
-| — | Choice between revocation list and point-in-time certificate status query (§8.1) | Architecture |
+| - | Choice between revocation list and point-in-time certificate status query (§8.1) | Architecture |
+
+<!--TRAD-VERIFICATA: 7750d38c1f12c0ccd23abb40c7b95a3cae5bd7c2-->

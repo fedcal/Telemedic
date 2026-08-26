@@ -1,16 +1,16 @@
 ---
-title: Sicurezza — indice e orientamento
+title: Sicurezza - indice e orientamento
 sidebar_position: 1
 description: Come è organizzata l'area di sicurezza di Telemedic, che cosa contiene e che cosa rinvia altrove, quali sono i suoi presupposti vincolanti e come si legge a seconda del ruolo di chi la consulta.
 ---
 
-# Sicurezza — indice e orientamento
+# Sicurezza - indice e orientamento
 
 > **Questa area non è un elenco di misure.** Un elenco di misure è utile a chi ha già in testa
 > il modello che le giustifica ed è dannoso a chi non ce l'ha, perché induce a credere che
 > applicare la misura equivalga a ottenere la proprietà. Qui ogni misura arriva dopo il bene
-> che protegge, l'avversario da cui lo protegge e la conseguenza — **clinica**, non solo
-> informatica — del suo fallimento. Ogni misura porta con sé la fonte che la richiede.
+> che protegge, l'avversario da cui lo protegge e la conseguenza - **clinica**, non solo
+> informatica - del suo fallimento. Ogni misura porta con sé la fonte che la richiede.
 
 ## 1. Il presupposto: che cos'è questo sistema dal punto di vista della sicurezza
 
@@ -25,11 +25,11 @@ indipendentemente dal contenuto della sessione. Un registro che dica «l'assisti
 una sessione con il professionista Y il giorno Z» rivela informazioni sullo stato di salute
 di X anche se non contiene una sola parola di anamnesi. I metadati di sessione sono quindi
 un bene protetto di prima classe, non un sottoprodotto tecnico. Il capitolo
-[01 — Modello di minaccia](./01-modello-di-minaccia.md) parte da qui.
+[01 - Modello di minaccia](./01-modello-di-minaccia.md) parte da qui.
 
 **Il secondo.** L'avversario primario non è il criminale esterno: è **l'insider**.
-L'abuso dei privilegi legittimamente concessi — l'utente che dispone dell'autorizzazione
-tecnica per accedere a un dato e la usa per uno scopo estraneo alle necessità funzionali — è
+L'abuso dei privilegi legittimamente concessi - l'utente che dispone dell'autorizzazione
+tecnica per accedere a un dato e la usa per uno scopo estraneo alle necessità funzionali - è
 una fattispecie **espressamente prevista dall'autorità nazionale per la cybersicurezza** come
 tipologia autonoma di incidente significativo per i soggetti essenziali, ed è la fattispecie
 dei provvedimenti sanzionatori dell'autorità di protezione dei dati in ambito sanitario.
@@ -51,15 +51,15 @@ riscriverla:
 
 | Se non hai familiarità con… | Leggi prima |
 |---|---|
-| Riservatezza, integrità, disponibilità, autenticità, non ripudio, tracciabilità: che cosa significano con precisione e in che cosa differiscono | [10 §12 — Crittografia e sicurezza, §1](../10_fondamenti/12-crittografia-e-sicurezza.md) |
-| Che cos'è un modello di minaccia, che cosa sono STRIDE, superficie di attacco, confine di fiducia | [10 §12 — Crittografia e sicurezza, §2](../10_fondamenti/12-crittografia-e-sicurezza.md) |
-| Cifratura simmetrica e asimmetrica, modalità operative, cifratura autenticata, gestione delle chiavi | [10 §12 — Crittografia e sicurezza, §§3-4](../10_fondamenti/12-crittografia-e-sicurezza.md) |
-| Funzioni di hash, HMAC, catene di hash, firma digitale, infrastruttura a chiave pubblica, revoca, marca temporale | [10 §12 — Crittografia e sicurezza, §§5-6](../10_fondamenti/12-crittografia-e-sicurezza.md) |
-| Autenticazione, autorizzazione, fattori, sessione, ruoli e attributi, rottura del vetro | [10 §12 — Crittografia e sicurezza, §8](../10_fondamenti/12-crittografia-e-sicurezza.md) |
-| Perché una videochiamata è un problema difficile: attraversamento delle reti, segnalazione, relay, degradazione | [10 §08 — WebRTC da zero](../10_fondamenti/08-webrtc-da-zero.md) |
-| Identificatori dell'assistito in Italia, identità del professionista, domini di attribuzione | [10 §04 — Identità e anagrafiche](../10_fondamenti/04-identita-e-anagrafiche.md) |
-| Il quadro regolatorio nella sua interezza: dispositivi medici, qualità, ciclo di vita | [10 §15 — Regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md) |
-| I protocolli uno per uno: OAuth, PKCE, scambio di token, firma dei messaggi HTTP, impronta del corpo | [10 §13 — I protocolli](../10_fondamenti/13-protocolli.md) |
+| Riservatezza, integrità, disponibilità, autenticità, non ripudio, tracciabilità: che cosa significano con precisione e in che cosa differiscono | [10 §12 - Crittografia e sicurezza, §1](../10_fondamenti/12-crittografia-e-sicurezza.md) |
+| Che cos'è un modello di minaccia, che cosa sono STRIDE, superficie di attacco, confine di fiducia | [10 §12 - Crittografia e sicurezza, §2](../10_fondamenti/12-crittografia-e-sicurezza.md) |
+| Cifratura simmetrica e asimmetrica, modalità operative, cifratura autenticata, gestione delle chiavi | [10 §12 - Crittografia e sicurezza, §§3-4](../10_fondamenti/12-crittografia-e-sicurezza.md) |
+| Funzioni di hash, HMAC, catene di hash, firma digitale, infrastruttura a chiave pubblica, revoca, marca temporale | [10 §12 - Crittografia e sicurezza, §§5-6](../10_fondamenti/12-crittografia-e-sicurezza.md) |
+| Autenticazione, autorizzazione, fattori, sessione, ruoli e attributi, rottura del vetro | [10 §12 - Crittografia e sicurezza, §8](../10_fondamenti/12-crittografia-e-sicurezza.md) |
+| Perché una videochiamata è un problema difficile: attraversamento delle reti, segnalazione, relay, degradazione | [10 §08 - WebRTC da zero](../10_fondamenti/08-webrtc-da-zero.md) |
+| Identificatori dell'assistito in Italia, identità del professionista, domini di attribuzione | [10 §04 - Identità e anagrafiche](../10_fondamenti/04-identita-e-anagrafiche.md) |
+| Il quadro regolatorio nella sua interezza: dispositivi medici, qualità, ciclo di vita | [10 §15 - Regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md) |
+| I protocolli uno per uno: OAuth, PKCE, scambio di token, firma dei messaggi HTTP, impronta del corpo | [10 §13 - I protocolli](../10_fondamenti/13-protocolli.md) |
 
 Quest'area presuppone quei moduli. Dove un concetto vi compare già, qui compare solo la sua
 **forma specifica in questo sistema** e la differenza è dichiarata.
@@ -104,8 +104,8 @@ specificamente per evitare che tu creda di essere coperto dove non lo sei.
 [02](./02-identita-e-accessi.md), [07](./07-catena-di-fornitura.md).
 
 **Se sei un integratore** che incorpora Telemedic nel proprio prodotto:
-[02](./02-identita-e-accessi.md) — in particolare la distinzione fra autenticazione eseguita e
-riferita —, [06](./06-sicurezza-applicativa.md), [07](./07-catena-di-fornitura.md),
+[02](./02-identita-e-accessi.md) - in particolare la distinzione fra autenticazione eseguita e
+riferita -, [06](./06-sicurezza-applicativa.md), [07](./07-catena-di-fornitura.md),
 [09](./09-ripartizione-delle-responsabilita.md), e l'area di integrazione per il contratto
 delle interfacce.
 
@@ -115,7 +115,7 @@ artefatti che la diligenza dovuta verso il fornitore richiede.
 
 ## 5. Convenzioni di quest'area
 
-**Marcatura `[NV]` — non verificato.** Quest'area distingue rigorosamente tre stati:
+**Marcatura `[NV]` - non verificato.** Quest'area distingue rigorosamente tre stati:
 ciò che una fonte primaria **stabilisce** (con l'articolo o la sezione citata), ciò che è
 **prassi accertata**, e ciò che è **proposta del progetto**. Ciò che non è stato verificato su
 fonte primaria porta la marcatura `[NV]` e l'indicazione di a chi va chiesto. **Non si inventa
@@ -128,8 +128,8 @@ nulla**, e in particolare:
   prudenza redazionale;
 - **nessun identificativo di vulnerabilità è citato se non è stato letto sulla fonte che lo
   pubblica**. Il capitolo [05](./05-sicurezza-del-tempo-reale.md) descrive i difetti del server
-  di relay per **meccanismo e versione di correzione** — che è la forma utile a chi deve decidere
-  la versione minima da distribuire — e rinvia per gli identificativi puntuali alla verifica
+  di relay per **meccanismo e versione di correzione** - che è la forma utile a chi deve decidere
+  la versione minima da distribuire - e rinvia per gli identificativi puntuali alla verifica
   documentata in `.telemedic/research/B3-verifica-coturn-webrtc.md`, condotta su banca dati
   pubblica delle vulnerabilità e su avvisi del progetto a monte. Gli identificativi cambiano
   stato e valutazione nel tempo: un documento che li cablasse invecchierebbe peggio della
@@ -168,7 +168,7 @@ non ignorarle.
 E i vincoli altrui che quest'area recepisce senza discuterli: **V-04** (il registro immutabile
 è a catena di impronte e conservazione separata; il versionamento delle entità non lo sostituisce),
 **V-05** (il progetto è conforme e verificabile, **non accreditato**), **V-06** (il progetto non
-appone marcatura CE), **V-10** (server di relay: versione minima 4.17.2 e isolamento di rete in
+appone marcatura CE; il ruolo di fabbricante sarà assunto dal soggetto da costituire), **V-10** (server di relay: versione minima 4.17.2 e isolamento di rete in
 uscita come difesa primaria), **V-11** (contenitore di registrazione negoziato a runtime),
 **V-12** (nessuna soglia tecnica è imposta dalla normativa italiana), **V-21** (nessun contenuto
 clinico nei messaggi in uscita), **V-22** (firma asimmetrica dei messaggi in uscita), **V-25**

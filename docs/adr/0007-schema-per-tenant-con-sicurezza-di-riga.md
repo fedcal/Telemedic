@@ -1,10 +1,10 @@
 ---
-title: "ADR-0007 — Uno schema per tenant con sicurezza a livello di riga come difesa in profondità"
+title: "ADR-0007 - Uno schema per tenant con sicurezza a livello di riga come difesa in profondità"
 sidebar_position: 7
 description: Perché l'isolamento fra titolari autonomi si realizza con schemi separati e non con righe condivise, e perché la sicurezza a livello di riga è mantenuta comunque come seconda barriera.
 ---
 
-# ADR-0007 — Uno schema per tenant con sicurezza a livello di riga come difesa in profondità
+# ADR-0007 - Uno schema per tenant con sicurezza a livello di riga come difesa in profondità
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Decisioni di riferimento**: D8; vincolo V4; base architetturale §4
@@ -19,13 +19,13 @@ relativi alla salute fra soggetti distinti.
 Si aggiunge una proprietà del dominio: **non esiste una categoria di dati neutri**. Il fatto che
 una persona abbia un appuntamento con una certa branca specialistica è dato relativo alla salute.
 
-La decisione approvata dal committente ammette esplicitamente due realizzazioni — sicurezza a
-livello di riga oppure schema per tenant — senza sceglierne una. La scelta va fatta prima del primo
+La decisione approvata dal committente ammette esplicitamente due realizzazioni - sicurezza a
+livello di riga oppure schema per tenant - senza sceglierne una. La scelta va fatta prima del primo
 schema, perché la tenancy non è retrofittabile.
 
 ## Alternative valutate
 
-### Alternativa 1 — Righe condivise con colonna discriminante e sicurezza a livello di riga
+### Alternativa 1 - Righe condivise con colonna discriminante e sicurezza a livello di riga
 
 *Vantaggi*: realizzazione più economica; una sola migrazione per modifica; numero di oggetti nella
 base dati indipendente dal numero di clienti; pool di connessioni banale.
@@ -44,7 +44,7 @@ base dati indipendente dal numero di clienti; pool di connessioni banale.
   possiede l'attributo che consente di superare le politiche, o se le politiche non sono imposte
   anche al proprietario delle tabelle, il meccanismo risulta configurato e inattivo.
 
-### Alternativa 2 — Una base dati per tenant
+### Alternativa 2 - Una base dati per tenant
 
 *Vantaggi*: separazione massima; ripristino e dismissione banali.
 
@@ -52,7 +52,7 @@ base dati indipendente dal numero di clienti; pool di connessioni banale.
 risorse moltiplicate; non aggiunge garanzie sostanziali rispetto alla separazione per schema
 correttamente imposta. **Scartata.**
 
-### Alternativa 3 — Uno schema per tenant su base dati condivisa, con sicurezza a livello di riga
+### Alternativa 3 - Uno schema per tenant su base dati condivisa, con sicurezza a livello di riga
 come difesa in profondità
 
 *Vantaggi*: la separazione è strutturale e dimostrabile con i privilegi; ripristino e dismissione
@@ -98,11 +98,11 @@ tenant richiedono un percorso dedicato.
 - Iterazione esplicita sui tenant per ogni processo che non nasce da una richiesta: costa più cicli
   e rende impossibile la classe di difetti in cui un'operazione pensata per un tenant tocca gli
   altri.
-- `[NV]` — il limite pratico di schemi gestibili prima che il costo dei metadati diventi
+- `[NV]` - il limite pratico di schemi gestibili prima che il costo dei metadati diventi
   significativo va misurato dall'area tecnica prima della prima installazione a molti tenant.
 
 **Chi altro è vincolato**: tutte le aree, per il vincolo V4.
 
 ## Riferimenti
 
-[05 — Multi-tenancy](../02_architecture/05-multi-tenancy.md)
+[05 - Multi-tenancy](../02_architecture/05-multi-tenancy.md)

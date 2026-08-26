@@ -1,14 +1,14 @@
 ---
 title: Modello di minaccia
 sidebar_position: 2
-description: I beni protetti — contenuto clinico, metadati di sessione, materiale di chiave, registro, catena di build — gli avversari realistici con l'insider come avversario primario, i confini di fiducia, e le conseguenze cliniche del fallimento di ciascuna protezione.
+description: I beni protetti - contenuto clinico, metadati di sessione, materiale di chiave, registro, catena di build - gli avversari realistici con l'insider come avversario primario, i confini di fiducia, e le conseguenze cliniche del fallimento di ciascuna protezione.
 ---
 
 # Modello di minaccia
 
 > **Presupposto di lettura.** Che cos'è un modello di minaccia, che cosa sono STRIDE, la
 > superficie di attacco e i confini di fiducia è spiegato in
-> [10 §12 — Crittografia e sicurezza, §2](../10_fondamenti/12-crittografia-e-sicurezza.md).
+> [10 §12 - Crittografia e sicurezza, §2](../10_fondamenti/12-crittografia-e-sicurezza.md).
 > Qui si applica quel metodo a questo sistema, e non lo si ripete.
 
 ## 1. Perché questo capitolo viene prima di tutti gli altri
@@ -21,8 +21,8 @@ misura è un rischio non trattato, e va dichiarato tale.
 
 Questo capitolo è anche il punto di raccordo con il **file di gestione del rischio** ai sensi
 della norma sulla gestione del rischio dei dispositivi medici. Le due discipline non
-coincidono — la gestione del rischio del dispositivo valuta il **danno al paziente**, la
-sicurezza informatica valuta la **compromissione delle proprietà del sistema** — ma in questo
+coincidono - la gestione del rischio del dispositivo valuta il **danno al paziente**, la
+sicurezza informatica valuta la **compromissione delle proprietà del sistema** - ma in questo
 dominio si intersecano continuamente, e l'intersezione è il contenuto del §5. La norma tecnica
 sulle attività di sicurezza nel ciclo di vita del software sanitario, che è il riferimento di
 elezione per dimostrare lo stato dell'arte ai sensi dell'Allegato I § 17.2 del Regolamento (UE)
@@ -47,7 +47,7 @@ contenuto già prodotto e conta moltissimo per il contenuto in produzione: un re
 irraggiungibile per un'ora è un disservizio, una sessione che cade a metà di una visita
 psichiatrica è un evento clinico.
 
-### 2.2 Metadati di sessione — il bene che si dimentica
+### 2.2 Metadati di sessione - il bene che si dimentica
 
 **Il fatto stesso che una persona abbia una sessione con uno specialista è dato relativo alla
 salute.** Non è una lettura estensiva: l'art. 4, punto 15, del Regolamento (UE) 2016/679
@@ -129,7 +129,7 @@ Un avversario si descrive con tre elementi: **chi è**, **che cosa può fare** (
 sproporzionate; un avversario descritto senza motivazione produce misure che proteggono ciò
 che nessuno vuole.
 
-### 3.1 L'insider — avversario primario
+### 3.1 L'insider - avversario primario
 
 **Questo è l'avversario da cui parte la progettazione, non uno dei tanti.**
 
@@ -151,7 +151,7 @@ esattamente ciò che rende la fattispecie frequente.
 
 1. L'autorità nazionale per la cybersicurezza ha costruito, negli allegati sugli incidenti
    significativi di base della Determinazione n. 379907 del 19 dicembre 2025, una **tipologia
-   autonoma di incidente** — quella riservata ai soggetti essenziali — definita come
+   autonoma di incidente** - quella riservata ai soggetti essenziali - definita come
    «accesso non autorizzato **o con abuso dei privilegi concessi**» su dati digitali. L'abuso
    dei privilegi è definito dall'autorità come la condizione in cui l'utente «ha
    l'autorizzazione tecnica (disponibilità di credenziali che sono configurate per accedere ai
@@ -200,7 +200,7 @@ il ripristino. Sono la base, e il loro costo marginale è basso. Il capitolo
 organizzato che ha valutato il valore di riscatto di una struttura sanitaria, un soggetto
 interessato ai dati di una persona specifica.
 
-*Capacità.* Studia il sistema. Legge la documentazione pubblica — questa. Analizza il codice,
+*Capacità.* Studia il sistema. Legge la documentazione pubblica - questa. Analizza il codice,
 che è aperto. Cerca il punto in cui la documentazione promette più di ciò che il codice fa.
 Prova la catena di fornitura se il perimetro regge.
 
@@ -217,8 +217,8 @@ solido, il percorso più economico diventa la catena di build.
 
 *Chi è.* Una delle due parti della sessione, o un terzo che si presenta come tale.
 
-*Capacità.* Registrare ciò che vede e sente con mezzi esterni al sistema — una fotocamera
-puntata sullo schermo — cosa che **nessuna misura tecnica può impedire** e che va dichiarata
+*Capacità.* Registrare ciò che vede e sente con mezzi esterni al sistema - una fotocamera
+puntata sullo schermo - cosa che **nessuna misura tecnica può impedire** e che va dichiarata
 invece di essere implicitamente negata dal claim di cifratura. Oppure tentare di entrare in una
 sessione altrui, o di farsi passare per l'altra parte.
 
@@ -259,24 +259,24 @@ dal lato che riceve**, mai da quello che invia.
 
 ```mermaid
 flowchart TB
-    subgraph C0["Zona 0 — non fidata"]
+    subgraph C0["Zona 0 - non fidata"]
         BR["Browser dell'assistito<br/>e del professionista"]
         INT["Sistema dell'integratore"]
         EXT["Servizi esterni:<br/>terminologia, infrastrutture nazionali"]
     end
-    subgraph C1["Zona 1 — bordo"]
+    subgraph C1["Zona 1 - bordo"]
         GW["Ingresso applicativo:<br/>terminazione TLS, autenticazione,<br/>limitazione del traffico"]
         REL["Server di relay<br/>(rete isolata in uscita)"]
     end
-    subgraph C2["Zona 2 — applicazione"]
+    subgraph C2["Zona 2 - applicazione"]
         APP["Contesti applicativi"]
         MED["Mediatore unico di uscita"]
     end
-    subgraph C3["Zona 3 — dati"]
+    subgraph C3["Zona 3 - dati"]
         DB[("Base dati<br/>per tenant")]
         OBJ[("Archivio oggetti<br/>cifrato")]
     end
-    subgraph C4["Zona 4 — registro"]
+    subgraph C4["Zona 4 - registro"]
         LOG[("Registro a sola aggiunta<br/>conservazione separata")]
     end
 
@@ -293,12 +293,12 @@ flowchart TB
 
 | Confine | Che cosa attraversa | Che cosa si verifica dal lato che riceve |
 |---|---|---|
-| **A** — browser → ingresso | Richieste applicative, contenuto redatto, file caricati | Autenticazione, livello di garanzia, autorizzazione sull'oggetto specifico, schema e dimensione del corpo, tipo reale del file, limitazione del traffico per attore |
-| **B** — integratore → ingresso | Token di identità delegata, chiamate applicative, riferimenti | Emittente ammesso per quel tenant, firma, algoritmo ammesso, destinatario atteso, ambito, **marcatura del livello come riferito e non eseguito** |
-| **C** — ingresso → applicazione | Contesto della richiesta | Tenant risolto: **nessuna interrogazione senza tenant**; identità propagata in forma non falsificabile |
-| **D** — applicazione → mediatore | Richiesta di uscita con destinazione | Schema, porta, dimensione, tempo, numero di salti in elenchi chiusi; **indirizzo risolto verificato** |
-| **E** — mediatore → esterno | Interrogazioni, notifiche, recupero di materiale | Nessun contenuto clinico ([V-21](./06-sicurezza-applicativa.md)); nessun identificativo dell'assistito verso la terminologia ([V-151](./03-protezione-dei-dati.md)); firma asimmetrica in uscita ([V-22](./06-sicurezza-applicativa.md)) |
-| **media** — browser → relay | Pacchetti di trasporto cifrati | Credenziale effimera valida; destinazione non appartenente agli spazi vietati; **isolamento di rete in uscita come difesa primaria** ([05 §4](./05-sicurezza-del-tempo-reale.md)) |
+| **A** - browser → ingresso | Richieste applicative, contenuto redatto, file caricati | Autenticazione, livello di garanzia, autorizzazione sull'oggetto specifico, schema e dimensione del corpo, tipo reale del file, limitazione del traffico per attore |
+| **B** - integratore → ingresso | Token di identità delegata, chiamate applicative, riferimenti | Emittente ammesso per quel tenant, firma, algoritmo ammesso, destinatario atteso, ambito, **marcatura del livello come riferito e non eseguito** |
+| **C** - ingresso → applicazione | Contesto della richiesta | Tenant risolto: **nessuna interrogazione senza tenant**; identità propagata in forma non falsificabile |
+| **D** - applicazione → mediatore | Richiesta di uscita con destinazione | Schema, porta, dimensione, tempo, numero di salti in elenchi chiusi; **indirizzo risolto verificato** |
+| **E** - mediatore → esterno | Interrogazioni, notifiche, recupero di materiale | Nessun contenuto clinico ([V-21](./06-sicurezza-applicativa.md)); nessun identificativo dell'assistito verso la terminologia ([V-151](./03-protezione-dei-dati.md)); firma asimmetrica in uscita ([V-22](./06-sicurezza-applicativa.md)) |
+| **media** - browser → relay | Pacchetti di trasporto cifrati | Credenziale effimera valida; destinazione non appartenente agli spazi vietati; **isolamento di rete in uscita come difesa primaria** ([05 §4](./05-sicurezza-del-tempo-reale.md)) |
 
 Due osservazioni che la tabella non rende da sola.
 
@@ -325,7 +325,7 @@ una persona**.
 | M-05 | Registrazione avviata senza consenso, o consenso non revocabile | Contenuto clinico | Trattamento privo di base giuridica | Danno alla persona; **effetto inibitorio** sul colloquio se l'assistito sospetta di essere registrato |
 | M-06 | Alterazione di un documento clinico firmato | Contenuto clinico | Perdita di integrità | **Decisione terapeutica su dato falso.** È la minaccia con il peggior esito potenziale dell'intero elenco |
 | M-07 | Alterazione di una misura di parametro o della sua marcatura temporale | Contenuto clinico | Perdita di integrità | Valutazione della soglia su dato falso; allerta mancata o allerta ingiustificata |
-| M-08 | Perdita di un allarme o di una notifica di superamento di soglia | Disponibilità | Messaggio perso | **Mancato intervento** su un deterioramento clinico. Il vincolo V-09 — il silenzio non è mai normalità — nasce qui |
+| M-08 | Perdita di un allarme o di una notifica di superamento di soglia | Disponibilità | Messaggio perso | **Mancato intervento** su un deterioramento clinico. Il vincolo V-09 - il silenzio non è mai normalità - nasce qui |
 | M-09 | Copertura oraria del servizio dichiarata in modo difforme dall'effettiva | Integrità dell'informazione | Nessuna, sul piano informatico | **Falsa rassicurazione.** Una persona che crede di essere sorvegliata e non lo è si trova in una condizione peggiore dell'assenza dichiarata di servizio |
 | M-10 | Confusione fra assistiti: dato attribuito alla persona sbagliata | Contenuto clinico | Perdita di integrità | Referto o misura nella cartella sbagliata: **due persone danneggiate** con un solo errore |
 | M-11 | Fuga di dati fra tenant | Contenuto clinico, metadati | Perdita di riservatezza | Come M-01, con esposizione di massa e senza un attore identificabile |
@@ -366,7 +366,7 @@ L'onestà su ciò che non si protegge è parte del modello di minaccia, e in un 
 
 Una minaccia priva di prova che ne verifichi la mitigazione è un'affermazione. La regola di
 quest'area è che **ogni riga del §5 abbia almeno un requisito e almeno una prova automatica**,
-e che la prova sia una prova **negativa** — che verifica che l'azione vietata fallisca — e non
+e che la prova sia una prova **negativa** - che verifica che l'azione vietata fallisca - e non
 solo positiva.
 
 | Minaccia | Forma della prova |

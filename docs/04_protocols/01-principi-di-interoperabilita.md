@@ -26,7 +26,7 @@ Il corollario è meno ovvio ed è quello che costa: **se lo standard esiste ma �
 lo standard**. La ricerca FHIR è più complicata di una query REST fatta a mano, i `Parameters`
 di ingresso e uscita delle operazioni FHIR sono più verbosi di un corpo JSON, il formato
 posizionale di HL7 v2 è illeggibile. Sono costi di ergonomia, non di correttezza, e si pagano
-perché il beneficio — un sistema terzo che sa già parlare — è dell'ordine di mesi di lavoro
+perché il beneficio - un sistema terzo che sa già parlare - è dell'ordine di mesi di lavoro
 risparmiati a ogni integrazione.
 
 ### 1.2 È compatibile con la sovranità del dato
@@ -37,8 +37,8 @@ protocolli, produce tre conseguenze concrete.
 
 Primo: nessun protocollo del percorso principale può richiedere un servizio centrale gestito
 da un terzo. È la ragione per cui il relay per il media è auto-ospitato e per cui l'API
-Identity Provider di WebRTC — che richiederebbe un fornitore d'identità terzo che ospiti lo
-script di proxy — è esclusa anche a prescindere dal suo stato di adozione (capitolo
+Identity Provider di WebRTC - che richiederebbe un fornitore d'identità terzo che ospiti lo
+script di proxy - è esclusa anche a prescindere dal suo stato di adozione (capitolo
 [09](./09-tempo-reale.md)).
 
 Secondo: un servizio terminologico esterno è ammesso solo come componente **opzionale**, con
@@ -71,8 +71,8 @@ HL7 v2 esiste (capitolo [04](./04-hl7-v2.md)) benché il progetto sia nato nel 2
 
 Un protocollo adottato deve avere una risposta pubblicata a: che cosa succede se il messaggio
 arriva due volte, se non arriva, se arriva fuori ordine, se il destinatario è lento, se il
-destinatario è irraggiungibile per un giorno. Dove la specifica non risponde — ed è il caso
-delle `Subscription` FHIR R4, che non definiscono ritentativi né code di scarto — il progetto
+destinatario è irraggiungibile per un giorno. Dove la specifica non risponde - ed è il caso
+delle `Subscription` FHIR R4, che non definiscono ritentativi né code di scarto - il progetto
 risponde e **dichiara che la risposta è propria**.
 
 ### 1.6 È osservabile e diagnosticabile
@@ -136,7 +136,7 @@ scaduto**. Qualunque affermazione di conformità a uno standard IETF su questo p
 falsa.
 
 **Gli header di limitazione del traffico hanno cambiato forma.** La revisione corrente del
-draft definisce **due** Structured Fields — `RateLimit` e `RateLimit-Policy` — e **sostituisce**
+draft definisce **due** Structured Fields - `RateLimit` e `RateLimit-Policy` - e **sostituisce**
 i tre header `RateLimit-Limit`, `RateLimit-Remaining`, `RateLimit-Reset` delle prime versioni.
 Citare i tre header come «standard» è doppiamente errato: non sono standard e non sono la
 forma corrente. Il progetto emette la forma corrente e, per compatibilità, anche quella
@@ -195,7 +195,7 @@ sono, per una macchina, due identificatori diversi. Le conseguenze sono la ricer
 trova, la deduplicazione che fallisce, la validazione che fallisce e il consumatore che
 riconcilia su nome e data di nascita, cioè nel modo peggiore.
 
-> **Questione aperta Q-06 — non decisa in quest'area.**
+> **Questione aperta Q-06 - non decisa in quest'area.**
 > La scelta dell'URI da scrivere e il punto in cui avviene l'eventuale traduzione sono
 > decisioni di modello dati e appartengono all'area di architettura, in concorso con l'area
 > tecnica. Quest'area **documenta il problema, la sua misura e la raccomandazione**, e non
@@ -220,8 +220,8 @@ costruzione continua si consulta solo per anticipare il lavoro futuro.
 
 ### 4.4 Alcune mappature esistono ma non sono normative
 
-Tutte le mappe della guida di mappatura da HL7 v2 a FHIR — tredici a livello di messaggio e
-settantasette a livello di segmento — hanno stato *Informative*. Si usano come riferimento,
+Tutte le mappe della guida di mappatura da HL7 v2 a FHIR - tredici a livello di messaggio e
+settantasette a livello di segmento - hanno stato *Informative*. Si usano come riferimento,
 **non si dichiarano come conformità**, e per gli errori non esiste alcuna mappa: la traduzione
 del segmento di errore v2 verso l'esito di operazione FHIR è a carico dell'implementazione,
 senza copertura normativa (capitolo [04](./04-hl7-v2.md)).
@@ -250,7 +250,7 @@ errori che si propagano una volta commessi:
   web, il secondo è una specifica della sua fondazione, e si citano per nome e versione.
 
 Per gli stessi motivi, quando quest'area cita i protocolli di trasporto lo fa con i documenti
-vigenti — **RFC 9293** per TCP, **RFC 9112** per la sintassi di HTTP/1.1 — e non con i numeri
+vigenti - **RFC 9293** per TCP, **RFC 9112** per la sintassi di HTTP/1.1 - e non con i numeri
 storici resi obsoleti. La spiegazione di che cosa siano è nel modulo
 [«I protocolli, uno per uno»](../10_fondamenti/13-protocolli.md), che quest'area non ripete.
 
@@ -268,7 +268,7 @@ decisione architetturale, spetta all'area di architettura.
 | P-02 | Codice di stato quando manca il validatore di concorrenza su una risorsa clinica | **`428 Precondition Required`** sulle scritture cliniche, non silenzioso ultimo-scrittore-vince | Una sovrascrittura non tracciata su una risorsa clinica è perdita di dato non rilevabile, incompatibile con V5. La specifica FHIR ammette il rifiuto ma non lo impone: è scelta di progetto. Costo: rompe i client che non inviano il validatore | [06 §5](./06-api-di-progetto.md) |
 | P-03 | Risposta quando la risorsa esiste ma il chiamante non è autorizzato a vederla | **Non trovato**, non vietato, sulle risorse riferite a un assistito | Distinguere «non esiste» da «non puoi vederlo» è un oracolo di enumerazione su una base pazienti. Costo: diagnosi più difficile per l'integratore, mitigata dal codice di errore nel corpo | [06 §6](./06-api-di-progetto.md) |
 | P-04 | Ritenzione delle chiavi di idempotenza | **Ventiquattro ore**, ambito `(tenant, client, operazione, chiave)` | Copre il ciclo di ritentativo più lungo previsto per le scritture sincrone senza trasformare il registro in un archivio. Costo: un ritentativo oltre le 24 ore crea un duplicato | [06 §4](./06-api-di-progetto.md) |
-| P-05 | Doppia emissione delle intestazioni di limitazione del traffico | **Sì, per un periodo dichiarato**: forma corrente più forma storica marcata come deprecata | La forma corrente non è ancora RFC e le librerie diffuse leggono ancora quella storica. Costo: intestazioni ridondanti e una data di fine da rispettare | [06 §8](./06-api-di-progetto.md) |
+| P-05 | Doppia emissione delle intestazioni di limitazione del traffico | **No**: si emettono solo le intestazioni nella forma corrente | La forma storica non è mai stata standard ed è superata; emettere una forma mai standardizzata la legittimerebbe. La doppia emissione per compatibilità non si adotta | [ADR-0021 §5](../adr/0021-convenzioni-delle-interfacce-pubbliche.md) |
 | P-06 | Preavviso di dismissione di una versione maggiore | **Dodici mesi**, con due finestre di oscuramento programmato a nove e undici mesi | Dodici mesi sono il ciclo di pianificazione tipico di un gestionale sanitario; le finestre fanno emergere le integrazioni non migrate quando c'è ancora tempo. Costo: due versioni maggiori da mantenere in parallelo | [06 §7](./06-api-di-progetto.md) |
 | P-07 | Contenuto del payload degli eventi | **Riferimenti, non contenuto clinico** | Minimizzazione, riduzione del danno in caso di destinazione mal configurata, coerenza con il livello di solo identificativo del modello FHIR. Costo: il ricevente deve fare una chiamata autenticata in più | [07 §2](./07-eventi-e-webhook.md) |
 | P-08 | Politica di ritentativo dei webhook | **Attesa esponenziale con variazione casuale obbligatoria**, dodici tentativi su circa settantadue ore, poi coda di scarto | La variazione casuale non è ornamentale: senza, la riattivazione di un destinatario produce una raffica sincronizzata che è un attacco involontario contro il partner. Costo: latenza di consegna alta nei casi peggiori | [07 §5](./07-eventi-e-webhook.md) |
@@ -328,15 +328,15 @@ tipo di evento; il rilassamento di un vincolo di validazione.
 
 ```mermaid
 flowchart LR
-    A["T0 — Annuncio<br/>changelog, avviso agli integratori,<br/>guida di migrazione pubblicata"]
-    B["T0 → T0+12m — Deprecazione<br/>intestazioni di deprecazione e di dismissione,<br/>collegamento alla guida, telemetria per versione"]
-    C["T0+9m e T0+11m — Oscuramenti<br/>finestre annunciate in cui la versione<br/>deprecata risponde 'non più disponibile'"]
-    D["≥ T0+12m — Dismissione<br/>risposta 'non più disponibile'<br/>con rinvio alla guida di migrazione"]
+    A["T0 - Annuncio<br/>changelog, avviso agli integratori,<br/>guida di migrazione pubblicata"]
+    B["T0 → T0+12m - Deprecazione<br/>intestazioni di deprecazione e di dismissione,<br/>collegamento alla guida, telemetria per versione"]
+    C["T0+9m e T0+11m - Oscuramenti<br/>finestre annunciate in cui la versione<br/>deprecata risponde 'non più disponibile'"]
+    D["≥ T0+12m - Dismissione<br/>risposta 'non più disponibile'<br/>con rinvio alla guida di migrazione"]
     A --> B --> C --> D
 ```
 
 Regole aggiuntive: almeno **due versioni maggiori attive** contemporaneamente; nessuna
-dismissione senza aver contattato gli integratori ancora attivi su quella versione — la
+dismissione senza aver contattato gli integratori ancora attivi su quella versione - la
 telemetria d'uso per versione esiste esattamente per questo; la deprecazione di un **ambito di
 autorizzazione** o di un **tipo di evento** segue lo stesso processo della deprecazione di una
 versione; una vulnerabilità di sicurezza può accorciare i termini, ma il percorso d'emergenza è

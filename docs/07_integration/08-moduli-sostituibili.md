@@ -1,7 +1,7 @@
 ---
 title: Moduli sostituibili
 sidebar_position: 9
-description: Quali componenti del progetto sono disattivabili e sostituibili, con quali contratti, e che cosa il progetto garantisce — e non garantisce — a chi li sostituisce.
+description: Quali componenti del progetto sono disattivabili e sostituibili, con quali contratti, e che cosa il progetto garantisce - e non garantisce - a chi li sostituisce.
 ---
 
 # Moduli sostituibili
@@ -30,7 +30,7 @@ quando ne vale la pena.
 | **Eventi** | Notifiche e sondaggio | Integratore, **fuori processo** | Basso |
 | **Comportamento sincrono fuori processo** | Il progetto chiama un vostro indirizzo e attende una decisione | Integratore, fuori processo | **Medio** |
 | **Comportamento dentro il processo** | Il progetto carica una vostra implementazione | Chi installa in ambiente dedicato | **Alto** |
-| **Biforcazione del codice** | — | Ultima risorsa | **Massimo** |
+| **Biforcazione del codice** | - | Ultima risorsa | **Massimo** |
 
 > **Regola guida: spingere l'estensibilità il più in alto possibile in questa tabella.** Ogni
 > estensione ottenibile con la configurazione non deve richiedere un modulo; ogni estensione
@@ -59,8 +59,8 @@ Per ciascuno: che cosa si spegne, che cosa resta a carico vostro, e come avviene
 | **Che cosa il progetto continua a garantire** | Che una prestazione non possa essere avviata da uno stato di appuntamento incompatibile, e che la modifica tardiva durante un atto in corso sia registrata e respinta ([07 §5](07-dati-e-sincronizzazione.md)) |
 
 **Caso in cui non conviene spegnerlo**: se la vostra agenda non modella la prestazione a
-distanza — verifica tecnica preventiva, sala d'attesa, finestra di attesa dichiarata prima di
-considerare l'assistito assente — spegnendola perdete funzioni che dovrete ricostruire.
+distanza - verifica tecnica preventiva, sala d'attesa, finestra di attesa dichiarata prima di
+considerare l'assistito assente - spegnendola perdete funzioni che dovrete ricostruire.
 
 ### 3.2 Refertazione e firma
 
@@ -160,7 +160,7 @@ Concettualmente, ogni interfaccia dichiara: se si applica a un tenant, in quale 
 cosa restituisce. Nessun tipo interno del progetto compare nelle firme.
 
 ```java
-// Modulo delle interfacce di estensione — artefatto pubblicato separatamente,
+// Modulo delle interfacce di estensione - artefatto pubblicato separatamente,
 // superficie minima e stabile
 public interface PatientIdentityResolver {
 

@@ -1,7 +1,7 @@
 ---
 title: The Italian healthcare system
 sidebar_position: 2
-description: How healthcare is organised in Italy — the National Health Service, three levels of government, health authorities, the professions, the essential levels of care, the citizen's journey, DM 77/2022, NRRP Mission 6 — and what changes for software that enters this system.
+description: How healthcare is organised in Italy - the National Health Service, three levels of government, health authorities, the professions, the essential levels of care, the citizen's journey, DM 77/2022, NRRP Mission 6 - and what changes for software that enters this system.
 ---
 
 # The Italian healthcare system
@@ -57,11 +57,11 @@ not a «customer».
 The 1978 design rests on three principles, repeatedly invoked by constitutional case law and
 by planning documents:
 
-- **universality** — the body of recipients is the entire resident population, without
+- **universality** - the body of recipients is the entire resident population, without
   selection;
-- **equality** — equal need corresponds to equal access, irrespective of income, social
+- **equality** - equal need corresponds to equal access, irrespective of income, social
   condition and place of residence;
-- **equity** — the system is funded from general taxation in proportion to ability to pay,
+- **equity** - the system is funded from general taxation in proportion to ability to pay,
   not to individual risk.
 
 Three reforms have intervened on this design, changing its organisational structure without
@@ -92,11 +92,11 @@ touching its principles:
 **Article 117 of the Constitution**, in the text in force after the 2001 reform, distributes
 legislative power as follows:
 
-- **subsection 2, letter m)** — it is the **exclusive competence of the State** to
+- **subsection 2, letter m)** - it is the **exclusive competence of the State** to
   «*determine the essential levels of the services concerning civil and social rights that
   must be guaranteed across the whole national territory*». From this the **LEA** derive
   (§ 6);
-- **subsection 3** — the «*protection of health*» is a matter of **concurrent legislation**:
+- **subsection 3** - the «*protection of health*» is a matter of **concurrent legislation**:
   the State determines the **fundamental principles**, the Regions hold the legislative power
   over the detail.
 
@@ -115,7 +115,7 @@ are divided between the two **Autonomous Provinces of Trento and Bolzano**, each
 healthcare regime. In regulatory language one almost always writes «*Regioni e Province
 autonome*» (Regions and Autonomous Provinces), abbreviated to «Regioni e PP.AA.» or to
 «RdA/RdE» when the reference is to the Region of entitlement or of delivery (§ 7.6 and module
-[07 — The health record and national infrastructures](07-fse-e-infrastrutture-nazionali.md)).
+[07 - The health record and national infrastructures](07-fse-e-infrastrutture-nazionali.md)).
 
 Five Regions have **special statute** status (Sicily, Sardinia, Aosta Valley, Friuli-Venezia
 Giulia, Trentino-Alto Adige) and fund healthcare wholly or partly from their own resources
@@ -136,15 +136,15 @@ operates**, and it shows up along at least these dimensions.
 | **Tariffs and co-payments** | National maximum tariff, additional regional shares, regional exemptions | Charge calculation is a per-tenant policy, not a global formula |
 | **Prescribing rules** | When a referral prescription is required, which services are direct access | The prescription gate is configurable |
 | **Reimbursement reporting flows** | Regional outpatient specialist record layouts with different names and fields | Export is a per-Region adapter |
-| **Remote delivery mode** | The coding of the value «telemedicine» in the flows is not national and uniform | An attribute with a coding configurable per Region, **never a constant** — see § 7.7 |
+| **Remote delivery mode** | The coding of the value «telemedicine» in the flows is not national and uniform | An attribute with a coding configurable per Region, **never a constant** - see § 7.7 |
 | **Interpretation of national rules** | The Regions transpose the State-Regions Agreements with their own acts, which specify them and sometimes extend them | Domain rules have a national level and a regional *override* level |
 
 A concrete example of the sixth row, documented in the project's research: the State-Regions
-Agreement of 17 December 2020 states that the televisita (remote consultation) «is to be
+Agreement of 17 December 2020 states that the remote consultation (televisita) «is to be
 understood as limited to follow-up activity for patients whose diagnosis has already been
 formulated in the course of an in-person visit», whereas the regional guidance of
 Emilia-Romagna (BUR no. 255 of 17 August 2021, Annex 2) expressly admits its use for a first
-visit downstream of a teleconsulto (specialist-to-specialist consultation) between a general
+visit downstream of a specialist-to-specialist consultation (teleconsulto) between a general
 practitioner and a specialist. **The two rules coexist and both are valid, each in its own
 territory.** A system that codifies «the televisita is not admissible for a first visit» as a
 domain invariant is wrong in Emilia-Romagna; a system that always admits it is wrong
@@ -159,9 +159,9 @@ Trento e di Bolzano** (the Standing Conference for relations between the State, 
 and the Autonomous Provinces of Trento and Bolzano), governed by **D.lgs. 28 agosto 1997, n.
 281**. It produces two kinds of act that it is indispensable to keep apart:
 
-- **Intesa** — an act by which State and Regions converge on binding content; failure to
+- **Intesa** - an act by which State and Regions converge on binding content; failure to
   reach it may block the adoption of the State act;
-- **Accordo** — an act by which the respective competences are coordinated; **it is not a
+- **Accordo** - an act by which the respective competences are coordinated; **it is not a
   source of law in the proper sense**: it becomes binding at the moment the Regions transpose
   it with their own acts (regional executive resolutions, managerial decrees, circulars).
 
@@ -211,7 +211,7 @@ Two counter-intuitive but decisive facts follow from this:
   delivery (RdE)** are two distinct attributes of every service, and the distinction is also
   codified in the legislation on the electronic health record (DM 7 settembre 2023, art. 1).
 - **A service without a tariff generates no revenue for the organisation that delivers it.**
-  This is the case of the teleconsulto (module [02](02-prestazioni-di-telemedicina.md), § 9):
+  This is the case of the specialist-to-specialist consultation (module [02](02-prestazioni-di-telemedicina.md), § 9):
   the activity exists, it is regulated, it is mandatory in certain pathways, and **it is not
   remunerated**. Anyone designing billing functions must know that some services are
   structurally pure cost.
@@ -226,7 +226,7 @@ The **azienda sanitaria locale (ASL, local health authority)** is the public bod
 guarantees the essential levels of care to the population of a defined **territory**. It has
 public legal personality, organisational, asset and accounting autonomy, and is headed by a
 **director general** appointed by the Region, flanked by a medical director, an
-administrative director and — where provided for — a director of health and social care
+administrative director and - where provided for - a director of health and social care
 services.
 
 The ASL has a **dual nature** that is the source of much confusion:
@@ -254,7 +254,7 @@ described above, and it produces an organisation that has no equivalent elsewher
 closed `enum`. In FHIR it is represented with an `Organization` plus a coded
 `Organization.type`, and the code must be resolved against a code system **per Region**, not
 against a project constant. Likewise, the hierarchy `authority → site → operating unit` is
-explicitly required by the ministerial information set for the televisita report (DM 19
+explicitly required by the ministerial information set for the remote consultation report (DM 19
 novembre 2025, Annex 1, § 2.20), which provides for a code and a description for each of the
 three levels: modelling a single level of organisation makes it impossible to produce the
 document.
@@ -280,12 +280,12 @@ academics with clinical duties, specialty trainees). The **medico specializzando
 trainee) is a licensed doctor still in training, who performs acts under supervision: in the
 authorisation model they are not a full `CLINICIAN`, and the signing of the report follows
 countersignature rules. The project documentation deals with this case in the
-[role matrix](16-architettura-del-progetto.md).
+[role matrix](./16-architettura-del-progetto.md).
 
 ### 4.3 IRCCS
 
 The **Istituti di ricovero e cura a carattere scientifico (IRCCS, scientific institutes for
-research, hospitalisation and healthcare)** are bodies — public or private — recognised by
+research, hospitalisation and healthcare)** are bodies - public or private - recognised by
 the Ministry of Health for clinical excellence and for biomedical and health-organisational
 research activity in a specific discipline. They are governed by **D.lgs. 16 ottobre 2003, n.
 288**. Recognition is periodic and revocable and is tied to maintaining requirements of
@@ -294,7 +294,7 @@ scientific output.
 For software an IRCCS is relevant for two reasons: it delivers care like any other provider,
 but **it also conducts research on clinical data**, which brings into play legal bases, ethics
 committees and pseudonymisation pathways that do not apply to the ordinary care cycle (module
-[03 — The clinical datum](03-il-dato-clinico.md), § 3).
+[03 - The clinical datum](03-il-dato-clinico.md), § 3).
 
 ### 4.4 Accredited private organisations, authorised ones, and purely private ones
 
@@ -370,7 +370,7 @@ anyone any capability. In healthcare **this is not so**, and this is one of the 
 that the project codifies as an invariant that cannot be circumvented through configuration.
 
 The reason is that some activities are **acts reserved by law** to a determined profession.
-The televisita, for example, is defined by Agreement 215/CSR 2020 as «*a medical act*»: a
+The remote consultation, for example, is defined by Agreement 215/CSR 2020 as «*a medical act*»: a
 nurse cannot deliver it, not even if a tenant administrator assigns them the permission. It
 is not a question of corporate policy, it is a question of the lawfulness of the act. A
 system that allows that configuration produces invalid health documentation.
@@ -394,7 +394,7 @@ specialist services, issue certificates, and are the director of the patient's p
 The reform of territorial care introduced the **ruolo unico di assistenza primaria** (the
 single primary care role), which unifies the previously distinct figures of the doctor with a
 registered list and the doctor on an hourly quota. The formula appears verbatim in the
-ministerial information set for the televisita report, which provides for the field «doctor of
+ministerial information set for the remote consultation report, which provides for the field «doctor of
 the single primary care role/PLS or Specialist» as the prescribing doctor (DM 19 novembre
 2025, Annex 1, § 2.20). The data model must accept it.
 
@@ -418,15 +418,15 @@ consultations and on-call duty.
 **Nurse.** An autonomous health profession, with its own register and its own professional
 profile (D.M. 14 settembre 1994, n. 739) and with the abolition of the schedule of duties
 effected by **legge 26 febbraio 1999, n. 42**. They perform professional acts of their own,
-not delegated by the doctor. They may deliver **teleassistenza (remote assistance)**, which
+not delegated by the doctor. They may deliver **remote assistance (teleassistenza)**, which
 Agreement 215/CSR 2020 defines as «*a professional act pertaining to the health profession
-concerned*»; **they may not deliver televisita**.
+concerned*»; **they may not deliver remote consultation**.
 
 An implementation fact that shows how fine the granularity is: the document visibility matrix
 of DM 19 novembre 2025 (Annex 3, § 5.2) establishes that the **specialist report for the
-televisita is not accessible for consultation to nurses and midwives**, whereas the
-collaborative report of the teleconsulto and the concluding clinical and care report of the
-teleassistenza are. This rule is not deducible from the general profiles of access to the
+remote consultation is not accessible for consultation to nurses and midwives**, whereas the
+collaborative report of the specialist-to-specialist consultation and the concluding clinical and care report of the
+remote assistance are. This rule is not deducible from the general profiles of access to the
 health record: it must be implemented as such.
 
 **Midwife, medical radiology technician, neurophysiopathology technician, dietitian,
@@ -479,12 +479,12 @@ The act in force is **D.P.C.M. 12 gennaio 2017** (the Prime Ministerial Decree o
 2017), «Definition and updating of the essential levels of care», which replaced D.P.C.M. 29
 novembre 2001. It articulates the LEA into three macro-levels:
 
-1. **Collective prevention and public health** — epidemiological surveillance, vaccination,
+1. **Collective prevention and public health** - epidemiological surveillance, vaccination,
    cancer screening, food safety, occupational health and safety, veterinary public health;
-2. **District care** — primary care, pharmaceutical care, outpatient specialist care, home
+2. **District care** - primary care, pharmaceutical care, outpatient specialist care, home
    care, residential and day-care provision, family advice centres, mental health, addiction
    services, rehabilitation;
-3. **Hospital care** — emergency department, ordinary and day admissions, rehabilitation and
+3. **Hospital care** - emergency department, ordinary and day admissions, rehabilitation and
    long-stay care, transfusion activity, transplants.
 
 ### 6.2 What «being in the LEA» means
@@ -495,7 +495,7 @@ Saying that a service «is in the LEA» means three things at once:
 - **it is enforceable**: the citizen is entitled to obtain it, and a Region that does not
   guarantee it is in default;
 - **it is codified**: it appears in a **fee schedule (nomenclatore)** with a code, a
-  description and — for outpatient specialist care and prosthetics — a national maximum
+  description and - for outpatient specialist care and prosthetics - a national maximum
   tariff.
 
 Compliance with the LEA is measured by the **Nuovo sistema di garanzia (NSG, the new
@@ -568,8 +568,8 @@ flowchart TD
 
 ### 7.1 The referral prescription
 
-The **impegnativa** (referral prescription) — colloquially the «red prescription», from the
-colour of the SSN's paper prescription pad — is the act by which a doctor authorised to
+The **impegnativa** (referral prescription) - colloquially the «red prescription», from the
+colour of the SSN's paper prescription pad - is the act by which a doctor authorised to
 prescribe for the SSN orders a specialist service or an investigation. It is not only a
 clinical prescription: it is **a prescription plus an entitlement of access to the public
 regime**. Without a referral prescription the same service can still be obtained, but paying
@@ -577,7 +577,7 @@ in full in a private capacity.
 
 It contains at least: the patient's identifier, the requested services with the fee schedule
 codes, the **diagnostic question** (mandatory, coded in ICD-9-CM in the ministerial record
-layout for the televisita report), the **priority class**, any exemption code, and the
+layout for the remote consultation report), the **priority class**, any exemption code, and the
 prescriber's details.
 
 The **priority class** deserves a clarification, because it is systematically misunderstood:
@@ -597,7 +597,7 @@ Since 2011 prescribing at the SSN's expense has progressively moved from paper t
 media. The reference act is **DM 2 novembre 2011** («Dematerialisation of the paper medical
 prescription») and its technical annexes, expressly invoked also by the telemedicine
 legislation: DM 19 novembre 2025, Annex 1, § 2.18, establishes that prescriptions for
-televisita, teleassistenza/teleriabilitazione and telemonitoraggio use the **record layout for
+remote consultation, remote assistance/teleriabilitazione and remote monitoring (telemonitoraggio) use the **record layout for
 specialist prescriptions under DM 2 novembre 2011**, and that requests for remote monitoring
 devices, where necessary, use that of the pharmaceutical prescription. **No new prescribing
 record layout was created for telemedicine.**
@@ -642,7 +642,7 @@ Three clarifications that matter for the model:
   entity makes this distribution impossible to represent;
 - **the diary belongs to the delivering resource, not to the doctor as a person**: the same
   doctor has separate diaries per organisation and per specialty;
-- the **CUP code** of the individual booking is a mandatory datum of the televisita report in
+- the **CUP code** of the individual booking is a mandatory datum of the remote consultation report in
   the ministerial record layout (DM 19 novembre 2025, Annex 1, § 2.20). The clinical document
   cannot be produced without the reference to the booking that gave rise to it.
 
@@ -670,9 +670,9 @@ force, which vary by Region and by year.
 The **exemption** is the right not to pay the co-payment, in whole or in part. The main
 categories:
 
-- **by condition** — chronic and disabling diseases identified by the LEA, rare diseases; each
+- **by condition** - chronic and disabling diseases identified by the LEA, rare diseases; each
   with an **exemption code** that identifies the condition and the list of exempt services;
-- **by income** — combined with age (minors, the over-65s) or with circumstances
+- **by income** - combined with age (minors, the over-65s) or with circumstances
   (unemployment, entitlement to a social or minimum pension);
 - **by disability**, for physiological pregnancy, for the early diagnosis of specific cancers,
   for the status of victim or of person injured at work.
@@ -723,8 +723,8 @@ service*» and whoever omits it, delays it or performs it inaccurately **is answ
 
 Agreement 215/CSR 2020 commits to «*adapting the information flows for the delivery and
 reimbursement reporting of outpatient specialist activity in order to keep track of
-telemedicine services*» and suggests extending the field «place of delivery» — which
-historically has the values `A` = clinic and `D` = home — with a value `T` for telemedicine.
+telemedicine services*» and suggests extending the field «place of delivery» - which
+historically has the values `A` = clinic and `D` = home - with a value `T` for telemedicine.
 
 **The project's research was unable to ascertain whether and how this extension has been taken
 up in the technical specifications in force for the art. 50 flow and the DEMA flow.** The
@@ -742,9 +742,9 @@ today how many those are.
 
 ### 8.1 What it is
 
-**Decree of the Minister of Health of 23 May 2022, no. 77** — «Regulation laying down the
+**Decree of the Minister of Health of 23 May 2022, no. 77** - «Regulation laying down the
 definition of models and standards for the development of territorial care in the National
-Health Service», published in the Gazzetta Ufficiale, General Series no. 144 of 22 June 2022 —
+Health Service», published in the Gazzetta Ufficiale, General Series no. 144 of 22 June 2022 -
 is the regulation that redesigns care outside hospital. It is a **regulation**, therefore a
 source of law with binding effect, not a guidance document.
 
@@ -801,8 +801,8 @@ Telemedicine, in this decree, **is not an alternative channel to the in-person v
 **delivery mode integrated into the pathways**. Remote services sit inside a **piano
 assistenziale individuale (PAI, individual care plan)** or a **percorso
 diagnostico-terapeutico assistenziale (PDTA, care pathway)**, not as isolated acts. DM 21
-settembre 2022 — the technically most prescriptive act for telemedicine platforms, dealt with
-in module [02](02-prestazioni-di-telemedicina.md) — expressly declares that it was drafted
+settembre 2022 - the technically most prescriptive act for telemedicine platforms, dealt with
+in module [02](02-prestazioni-di-telemedicina.md) - expressly declares that it was drafted
 «*in coherence with what is provided for by ministerial decree no. 77 of 23 May 2022*».
 
 Three modelling consequences follow:
@@ -812,10 +812,10 @@ Three modelling consequences follow:
    In FHIR one uses `PlanDefinition` (the model of the pathway, versioned) and `CarePlan` (the
    instance for the individual patient); confusing the two makes it impossible to version the
    protocol;
-2. **the team is multi-professional**, and teleassistenza expressly provides for a
+2. **the team is multi-professional**, and remote assistance expressly provides for a
    micro-service for the «management of the multi-professional care group» (DM 19 novembre
    2025, Annex 3, § 4.1). A model with a single professional per encounter is not enough;
-3. **belonging to a PAI or a PDTA is one of the conditions that make the televisita
+3. **belonging to a PAI or a PDTA is one of the conditions that make the remote consultation
    admissible** within the meaning of Agreement 215/CSR 2020. It is therefore a datum the
    system must verify and record before delivery, not descriptive information.
 
@@ -829,12 +829,12 @@ The **Piano nazionale di ripresa e resilienza (PNRR, the National Recovery and R
 Plan, NRRP)** is the programme through which Italy uses the resources of the European recovery
 and resilience facility. **Mission 6 «Health»** is articulated into two components:
 
-- **M6C1 — «Proximity networks, intermediate facilities and telemedicine for territorial
+- **M6C1 - «Proximity networks, intermediate facilities and telemedicine for territorial
   healthcare»**, which funds the implementation of DM 77/2022:
-  - Investment 1.1 — Community health centres;
-  - **Investment 1.2 — «Home as the first place of care and telemedicine»**;
-  - Investment 1.3 — Community hospitals;
-- **M6C2 — «Innovation, research and digitalisation of the national health service»**, which
+  - Investment 1.1 - Community health centres;
+  - **Investment 1.2 - «Home as the first place of care and telemedicine»**;
+  - Investment 1.3 - Community hospitals;
+- **M6C2 - «Innovation, research and digitalisation of the national health service»**, which
   contains the investment on the **electronic health record** and, at sub-investment 1.3.2.4,
   the **National platform for the diffusion of telemedicine**.
 
@@ -854,7 +854,7 @@ Council of Ministers as an involved administration.
 
 **How it is procured.** This is the strategically most important point for a software project.
 **DM 30 settembre 2022** establishes that the Regions submit operational plans to AGENAS, a
-technical commission assesses them within 30 days, and — verbatim — «*in order to obtain NRRP
+technical commission assesses them within 30 days, and - verbatim - «*in order to obtain NRRP
 funding, the regions and autonomous provinces whose plans have been approved may activate the
 selected solutions **exclusively through the tenders of the lead regions***». The designated
 lead Regions are **Lombardy and Apulia**.
@@ -896,8 +896,8 @@ adopted**. `[NV]`
 
 There is, moreover, a distinct and potentially relevant funding channel: **DM 7 ottobre 2025**,
 implementing art. 9, para. 2, of **D.lgs. 15 marzo 2024, n. 29** (the reform of care for
-non-self-sufficient older people), identifies telemedicine services — in particular home
-remote monitoring — with priority reference to the over-eighties suffering from at least one
+non-self-sufficient older people), identifies telemedicine services - in particular home
+remote monitoring - with priority reference to the over-eighties suffering from at least one
 chronic condition, with **150 million euro** assigned. `[NV]` on the full text, not located in
 the Gazzetta Ufficiale in the project's research.
 
@@ -926,8 +926,8 @@ The design implications are precise and are decisions the project has already ta
 - **feeding the health record is not optional even in the purely private sector**, because DM
   7 settembre 2023 includes among the obliged parties authorised organisations and
   professionals operating autonomously as well;
-- **charge calculation must support three models** — co-payment with exemptions, private
-  tariff, agreement with a third-party payer — without any of the three being the hard-coded
+- **charge calculation must support three models** - co-payment with exemptions, private
+  tariff, agreement with a third-party payer - without any of the three being the hard-coded
   «default» case;
 - **national digital identity is mandatory in one context and impracticable in another**: a
   professional in a private practice does not necessarily log in with SPID. It follows that
@@ -969,8 +969,8 @@ delegated regulations (EU) 2025/2150, 2025/2151 and 2025/2152:
 
 | Case | Threshold |
 |---|---|
-| Supplies and services — **central** administrations | €140,000 |
-| Supplies and services — **sub-central** administrations (Regions, ASLs, local authorities) | €216,000 |
+| Supplies and services - **central** administrations | €140,000 |
+| Supplies and services - **sub-central** administrations (Regions, ASLs, local authorities) | €216,000 |
 | Concessions | €5,404,000 |
 
 An ASL is a **sub-central** administration: the European threshold is **€216,000**. Below the
@@ -1036,7 +1036,7 @@ with the source of each obligation:
 | Be qualified as a medical device when the functional perimeter requires it | DM 21 settembre 2022, Annex A, Sec. 2; Reg. (EU) 2017/745 |
 
 The last row is the one with the greatest impact on the development cycle, and it is dealt with
-in module [15 — The regulatory framework from scratch](15-regolatorio-da-zero.md).
+in module [15 - The regulatory framework from scratch](15-regolatorio-da-zero.md).
 
 ---
 
@@ -1050,8 +1050,8 @@ in module [15 — The regulatory framework from scratch](15-regolatorio-da-zero.
    regional coding.
 3. **Accreditation, authorisation and contract are three different things**, and the delivery
    regime is a property of the act, not of the organisation.
-4. **Some activities are acts reserved by law to a profession.** The televisita is a medical
-   act; teleassistenza is an act of the competent health profession. This is not configurable
+4. **Some activities are acts reserved by law to a profession.** The remote consultation is a medical
+   act; remote assistance is an act of the competent health profession. This is not configurable
    by a tenant administrator.
 5. **A professional has N professional roles.** Specialty, organisation and regime are
    attributes of the role, not of the identity.
@@ -1063,8 +1063,8 @@ in module [15 — The regulatory framework from scratch](15-regolatorio-da-zero.
 8. **Within the NRRP perimeter you do not sell to an individual ASL**: you go through the
    tenders of the lead Regions. Outside the NRRP there is art. 68 CAD; and since 2025 there is
    the third route of art. 3, para. 4 of DM 19 novembre 2025.
-9. **There is no national tariff for telemedicine.** The televisita is remunerated as a
-   follow-up visit, the teleconsulto is not remunerated at all. The real tariff exists in the
+9. **There is no national tariff for telemedicine.** The remote consultation is remunerated as a
+   follow-up visit, the specialist-to-specialist consultation is not remunerated at all. The real tariff exists in the
    private sector and in supplementary health cover.
 10. **Whoever buys, whoever uses and whoever pays are different parties**, and the patient has
     chosen nothing. The project's acceptance criterion derives from this.

@@ -60,7 +60,7 @@ Ogni voce ha quattro elementi.
 
 | Elemento | Contenuto |
 |---|---|
-| **Termine** | La forma italiana, seguita dall'equivalente inglese fra parentesi quando esiste. Quando l'equivalente inglese **non è esatto** — perché il termine italiano designa un istituto giuridico nazionale privo di corrispondente — la voce lo dice espressamente |
+| **Termine** | La forma italiana, seguita dall'equivalente inglese fra parentesi quando esiste. Quando l'equivalente inglese **non è esatto** - perché il termine italiano designa un istituto giuridico nazionale privo di corrispondente - la voce lo dice espressamente |
 | **Nat.** | La natura della definizione, secondo la legenda che segue |
 | **Definizione** | Una o due frasi comprensibili a chi non conosce il dominio; dove esiste, la **trappola** in grassetto |
 | **Dove** | Il modulo della guida o l'area di documentazione che introduce il termine, con collegamento |
@@ -70,10 +70,10 @@ Legenda della colonna **Nat.**, mutuata dalla regola di precedenza fra le fonti 
 
 | Sigla | Significato |
 |---|---|
-| **N** | **Normativa** — la definizione è data da un atto normativo o amministrativo, italiano o dell'Unione, citato nella voce. Il progetto non può restringerla, estenderla né rinominarla |
-| **G** | **Guida nazionale** — la definizione è data da una guida di implementazione o da una specifica tecnica nazionale; prevale sul modello generico internazionale |
-| **S** | **Standard o vocabolario tecnico consolidato** — la definizione è data da una specifica internazionale (HL7, IETF, ISO, IEC, W3C, CEN) o dal vocabolario tecnico corrente. Fissa la struttura, non il significato clinico |
-| **P** | **Progetto** — definizione operativa adottata da Telemedic, ammessa perché i livelli superiori tacciono. È una scelta, e come tale è discutibile e versionata |
+| **N** | **Normativa** - la definizione è data da un atto normativo o amministrativo, italiano o dell'Unione, citato nella voce. Il progetto non può restringerla, estenderla né rinominarla |
+| **G** | **Guida nazionale** - la definizione è data da una guida di implementazione o da una specifica tecnica nazionale; prevale sul modello generico internazionale |
+| **S** | **Standard o vocabolario tecnico consolidato** - la definizione è data da una specifica internazionale (HL7, IETF, ISO, IEC, W3C, CEN) o dal vocabolario tecnico corrente. Fissa la struttura, non il significato clinico |
+| **P** | **Progetto** - definizione operativa adottata da Telemedic, ammessa perché i livelli superiori tacciono. È una scelta, e come tale è discutibile e versionata |
 
 `[NV]` marca un elemento **non verificato** su fonte primaria. Dove compare, non è un difetto di
 stesura: è la dichiarazione onesta che l'informazione va confermata prima di farne discendere una
@@ -96,7 +96,7 @@ documentazione. Nelle voci il codice è sempre un collegamento.
 | F07 | [FSE e infrastrutture nazionali](07-fse-e-infrastrutture-nazionali.md) |
 | F08 | [WebRTC da zero](08-webrtc-da-zero.md) |
 | F09 | [Fondamenti clinici](09-fondamenti-clinici.md) |
-| F10 | [Percorsi di cura e sicurezza](10-percorsi-di-cura-e-sicurezza.md) |
+| F10 | [Percorsi di cura e sicurezza del paziente](10-percorsi-di-cura-e-sicurezza.md) |
 | F11 | [Fondamenti informatici](11-fondamenti-informatici.md) |
 | F12 | [Crittografia e sicurezza](12-crittografia-e-sicurezza.md) |
 | F13 | [I protocolli, uno per uno](13-protocolli.md) |
@@ -126,8 +126,8 @@ descrivono un percorso del progetto.
 
 **Ciò che non cambia, e che questo glossario ripete ogni volta che serve: oggi il prodotto non
 reca marcatura CE** e non è coperto da alcuna dichiarazione di conformità. Chi installa, integra o
-mette in servizio il software assume gli obblighi che ne derivano. Nessuna voce di questa pagina —
-e nessun altro documento del progetto — afferma che il prodotto sarà marcato entro una data.
+mette in servizio il software assume gli obblighi che ne derivano. Nessuna voce di questa pagina -
+e nessun altro documento del progetto - afferma che il prodotto sarà marcato entro una data.
 
 ---
 
@@ -141,11 +141,11 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Accessorio** (*accessory*) | N | Articolo che, pur non essendo esso stesso un dispositivo, è destinato dal fabbricante a essere usato con dispositivi medici specifici per abilitarne l'uso o assisterne la funzionalità medica (Reg. (UE) 2017/745, art. 2, punto 2) | [F15](15-regolatorio-da-zero.md) |
 | **Accreditamento istituzionale** (*institutional accreditation*; equivalente inglese approssimativo: è un istituto del diritto sanitario italiano) | N | Riconoscimento regionale che abilita una struttura a erogare prestazioni per conto del servizio sanitario. **Trappola:** presuppone l'autorizzazione sanitaria ma non coincide con essa, e non equivale al contratto: sono tre passaggi distinti e una struttura può avere i primi due senza il terzo | [F01](01-sistema-sanitario-italiano.md) |
 | **ACK / NACK** (*acknowledgement / negative acknowledgement*) | S | Messaggi di conferma o di rifiuto in HL7 v2, disponibili in modalità originale ed estesa. **Trappola:** un ACK non significa che il contenuto è stato accettato dal sistema clinico, ma solo che il messaggio è stato ricevuto o elaborato nel senso dichiarato dalla modalità | [F05](05-standard-di-interoperabilita.md), [PRO](../04_protocols/00-indice.md) |
-| **ACN — Accordo collettivo nazionale** (*national collective agreement for contracted physicians*; istituto italiano senza equivalente diretto) | N | Contratto della medicina convenzionata: medici di medicina generale, pediatri di libera scelta, specialisti ambulatoriali. **Trappola:** la stessa sigla designa l'Agenzia per la cybersicurezza nazionale. Nella documentazione del progetto va sempre sciolta | [F01](01-sistema-sanitario-italiano.md) |
-| **ACN — Agenzia per la cybersicurezza nazionale** (*National Cybersecurity Agency*) | N | Autorità che qualifica servizi e infrastrutture cloud per la pubblica amministrazione, emana le misure di sicurezza in attuazione della disciplina NIS e ospita il CSIRT Italia. **Trappola:** vedi la voce precedente | [F07](07-fse-e-infrastrutture-nazionali.md), [SEC](../06_security/00-indice.md) |
+| **ACN - Accordo collettivo nazionale** (*national collective agreement for contracted physicians*; istituto italiano senza equivalente diretto) | N | Contratto della medicina convenzionata: medici di medicina generale, pediatri di libera scelta, specialisti ambulatoriali. **Trappola:** la stessa sigla designa l'Agenzia per la cybersicurezza nazionale. Nella documentazione del progetto va sempre sciolta | [F01](01-sistema-sanitario-italiano.md) |
+| **ACN - Agenzia per la cybersicurezza nazionale** (*National Cybersecurity Agency*) | N | Autorità che qualifica servizi e infrastrutture cloud per la pubblica amministrazione, emana le misure di sicurezza in attuazione della disciplina NIS e ospita il CSIRT Italia. **Trappola:** vedi la voce precedente | [F07](07-fse-e-infrastrutture-nazionali.md), [SEC](../06_security/00-indice.md) |
 | **`acr`** (*Authentication Context Class Reference*) | S | Claim che dichiara il contesto, e quindi il livello, dell'autenticazione effettivamente eseguita. **Trappola:** il livello di garanzia sta qui, non nel claim `act`, che esprime la delega e non la robustezza dell'autenticazione | [F13](13-protocolli.md), [PRO](../04_protocols/00-indice.md) |
 | **Acuto** (*acute*) | S | Detto di un evento o di una malattia con inizio identificabile, decorso breve ed esito definito; corrisponde a un modello di cura episodico. **Trappola:** il modello dati costruito sull'acuto non regge la cronicità, che non ha un inizio né una fine e richiede contenitori di presa in carico | [F10](10-percorsi-di-cura-e-sicurezza.md) |
-| **ADI — Assistenza domiciliare integrata** (*integrated home care*) | N | Erogazione di prestazioni sanitarie e sociosanitarie al domicilio dell'assistito, articolata per livelli di intensità | [F01](01-sistema-sanitario-italiano.md) |
+| **ADI - Assistenza domiciliare integrata** (*integrated home care*) | N | Erogazione di prestazioni sanitarie e sociosanitarie al domicilio dell'assistito, articolata per livelli di intensità | [F01](01-sistema-sanitario-italiano.md) |
 | **ADT** | S | Famiglia di messaggi HL7 v2 dedicata all'anagrafica e ai contatti assistenziali: ammissione, dimissione, trasferimento, aggiornamento anagrafico | [F05](05-standard-di-interoperabilita.md), [PRO](../04_protocols/00-indice.md) |
 | **Aderenza** (*adherence*) | P | Rapporto fra le attese soddisfatte e le attese generate dal piano, in una finestra dichiarata e con esclusioni esplicite. **Trappola:** non è obbedienza, e la sua assenza non è una colpa del paziente ma un dato clinico che richiede interpretazione | [F10](10-percorsi-di-cura-e-sicurezza.md), [DOM](../05_domain/08-percorsi-e-piani-di-cura.md) |
 | **Aderenza terapeutica** (*treatment adherence*) | P | Corrispondenza fra il comportamento reale della persona e lo schema terapeutico concordato. **Trappola:** non è osservabile dal sistema se non per dichiarazione dell'interessato o per dato di terzi; ogni sua misura è un'approssimazione dichiarata | [F09](09-fondamenti-clinici.md) |
@@ -155,11 +155,11 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Affiliata nazionale** (*national affiliate*) | S | Organizzazione che adatta gli standard di un ente internazionale al contesto giuridico di un paese. Per gli standard sanitari, in Italia, è HL7 Italia | [F05](05-standard-di-interoperabilita.md) |
 | **Affinity Domain Italia** | G | Documento di specifiche tecniche nazionali per l'interoperabilità fra i sistemi regionali del fascicolo sanitario elettronico | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **AGENAS** (*National Agency for Regional Healthcare Services*) | N | Agenzia nazionale per i servizi sanitari regionali, anche agenzia nazionale per la sanità digitale. Gestisce l'infrastruttura nazionale di telemedicina e l'ecosistema dati sanitari, e svolge il Processo di Validazione delle soluzioni terze | [F01](01-sistema-sanitario-italiano.md), [F02](02-prestazioni-di-telemedicina.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
-| **AgID — Agenzia per l'Italia digitale** (*Agency for Digital Italy*) | N | Autorità delle regole tecniche trasversali ai sensi dell'art. 71 del Codice dell'amministrazione digitale: modello di interoperabilità, piattaforma dei dati, accessibilità, riuso. Gestisce la federazione e il registro dell'identità digitale | [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **AgID - Agenzia per l'Italia digitale** (*Agency for Digital Italy*) | N | Autorità delle regole tecniche trasversali ai sensi dell'art. 71 del Codice dell'amministrazione digitale: modello di interoperabilità, piattaforma dei dati, accessibilità, riuso. Gestisce la federazione e il registro dell'identità digitale | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Aggiornamento perduto** (*lost update*) | S | Anomalia per cui una modifica viene sovrascritta da un'altra senza che nessuno se ne accorga. Si previene con la concorrenza ottimistica | [F13](13-protocolli.md), [F11](11-fondamenti-informatici.md) |
 | **Aggregato** (*aggregate*) | S | Gruppo di entità e oggetti valore trattato come una sola unità di consistenza, che cambia insieme in una sola transazione perché una regola resti vera. **Trappola:** l'aggregato non è un raggruppamento di comodo: è il confine entro cui un'invariante è garantita, e sceglierlo male produce corse critiche che nessun test funzionale intercetta | [F11](11-fondamenti-informatici.md), [F16](16-architettura-del-progetto.md), [ARC](../02_architecture/03-modello-di-dominio.md) |
 | **Agilità crittografica** (*cryptographic agility*) | S | Capacità di sostituire algoritmi e dimensioni di chiave senza riscrivere il sistema, grazie all'identificativo dell'algoritmo memorizzato accanto al dato cifrato | [F12](12-crittografia-e-sicurezza.md) |
-| **AIC — Autorizzazione all'immissione in commercio** (*marketing authorisation number*) | N | Codice italiano che identifica un medicinale in commercio. **Trappola:** identifica la confezione commerciale, non il principio attivo; sono due livelli diversi e servono a domande diverse | [F05](05-standard-di-interoperabilita.md), [DOM](../05_domain/07-terminologie-nel-dominio.md) |
+| **AIC - Autorizzazione all'immissione in commercio** (*marketing authorisation number*) | N | Codice italiano che identifica un medicinale in commercio. **Trappola:** identifica la confezione commerciale, non il principio attivo; sono due livelli diversi e servono a domande diverse | [F05](05-standard-di-interoperabilita.md), [DOM](../05_domain/07-terminologie-nel-dominio.md) |
 | **Alimentazione del fascicolo** (*EHR feeding*) | N | Conferimento di dati e documenti al fascicolo sanitario elettronico da parte dei soggetti obbligati, entro i termini fissati dagli artt. 12–13 del DM 7 settembre 2023 | [F07](07-fse-e-infrastrutture-nazionali.md), [DOM](../05_domain/04-documenti-clinici.md) |
 | **Allarme clinico** (*clinical alert*) | P | Segnale che comunica che la condizione di una persona richiede attenzione entro un tempo definito. Richiede quattro elementi: condizione, destinatario, scadenza, escalation. **Trappola:** il suo destinatario è il centro erogatore, mai il centro servizi | [F10](10-percorsi-di-cura-e-sicurezza.md), [FUN](../03_functional/05-gestione-degli-allarmi.md) |
 | **Allarme tecnico** (*technical alert*) | P | Segnale che il sistema di misura o di trasmissione non funziona. Il destinatario è tecnico e **non ha accesso al contenuto clinico**. **Trappola:** una coda unica di notifiche produce il tecnico che riceve un allarme clinico e il clinico assuefatto agli allarmi tecnici | [F10](10-percorsi-di-cura-e-sicurezza.md), [FUN](../03_functional/05-gestione-degli-allarmi.md) |
@@ -173,18 +173,18 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Anagrafe consensi e revoche** (*consent and revocation registry*) | N | Componente dell'infrastruttura nazionale per l'interoperabilità che registra i consensi alla consultazione del fascicolo sanitario elettronico e le loro revoche | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Anagrafica per riferimento** (*reference-based demographics*) | P | Modello in cui i dati anagrafici restano al sistema di origine e il progetto lavora su identificatori esterni qualificati. **Trappola:** è una decisione architetturale, non un ripiego: duplicare l'anagrafica significa diventare un secondo master data e dover riconciliare per sempre | [DOM](../05_domain/03-assistito-professionista-organizzazione.md), [INT](../07_integration/07-dati-e-sincronizzazione.md) |
 | **Anamnesi** (*medical history taking*) | S | Raccolta guidata della storia clinica della persona, articolata in familiare, fisiologica, patologica remota e patologica prossima. **Trappola:** è la parte dell'atto medico che il canale a distanza degrada meno; questo è il motivo per cui la televisita funziona nel controllo e non nella prima valutazione | [F09](09-fondamenti-clinici.md) |
-| **ANA — Anagrafe nazionale degli assistiti** (*national registry of healthcare beneficiaries*) | N | Anagrafe sanitaria prevista dall'art. 62-*ter* del Codice dell'amministrazione digitale: chi è assistito, da quale Regione, con quale medico di fiducia e con quali esenzioni | [F04](04-identita-e-anagrafiche.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **ANA - Anagrafe nazionale degli assistiti** (*national registry of healthcare beneficiaries*) | N | Anagrafe sanitaria prevista dall'art. 62-*ter* del Codice dell'amministrazione digitale: chi è assistito, da quale Regione, con quale medico di fiducia e con quali esenzioni | [F04](04-identita-e-anagrafiche.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Ancoraggio** (*anchoring*) | P | Impronta della testa di una catena di registro, firmata, marcata temporalmente e conservata separatamente. **Trappola:** è ciò che rende contraddittoria la riscrittura successiva della storia; senza ancoraggio esterno una catena di impronte protegge solo da alterazioni ingenue | [F16](16-architettura-del-progetto.md), [ARC](../02_architecture/07-tracciamento-e-registro-immutabile.md) |
 | **Annotazione digitale** (*digital note*; tipologia documentale del diritto italiano, senza equivalente) | N | Documento che sostituisce il referto nella televisita programmata ed erogata dal medico di assistenza primaria (DM 30 settembre 2022, Allegato B) | [F02](02-prestazioni-di-telemedicina.md), [DOM](../05_domain/04-documenti-clinici.md) |
 | **Annullamento del documento** (*document voiding*) | P | Cessazione di efficacia di un documento firmato **senza** emissione di una versione sostitutiva. **Trappola:** non è la rettifica, che invece sostituisce; confonderli produce buchi nella catena documentale | [DOM](../05_domain/04-documenti-clinici.md) |
 | **Anonimizzazione** (*anonymisation*) | N | Trattamento che rende l'interessato non più identificabile con mezzi ragionevolmente disponibili; fa uscire il dato dal perimetro del Regolamento (UE) 2016/679. **Trappola:** è diversa dalla pseudonimizzazione, che non fa uscire nulla dal perimetro | [F03](03-il-dato-clinico.md) |
-| **ANPR — Anagrafe nazionale della popolazione residente** (*national resident population registry*) | N | Anagrafe civile ai sensi dell'art. 62 del Codice dell'amministrazione digitale e del D.P.C.M. 194/2014, subentrata alle anagrafi comunali. Fonte autoritativa di generalità, residenza, stato civile e decesso | [F04](04-identita-e-anagrafiche.md) |
-| **AO / AOU — Azienda ospedaliera / Azienda ospedaliero-universitaria** (*hospital trust*) | N | Ospedali costituiti in azienda autonoma, dipendenti dalla Regione e non dall'azienda sanitaria locale | [F01](01-sistema-sanitario-italiano.md) |
+| **ANPR - Anagrafe nazionale della popolazione residente** (*national resident population registry*) | N | Anagrafe civile ai sensi dell'art. 62 del Codice dell'amministrazione digitale e del D.P.C.M. 194/2014, subentrata alle anagrafi comunali. Fonte autoritativa di generalità, residenza, stato civile e decesso | [F04](04-identita-e-anagrafiche.md) |
+| **AO / AOU - Azienda ospedaliera / Azienda ospedaliero-universitaria** (*hospital trust*) | N | Ospedali costituiti in azienda autonoma, dipendenti dalla Regione e non dall'azienda sanitaria locale | [F01](01-sistema-sanitario-italiano.md) |
 | **Append-only** (*archivio a sola aggiunta*) | S | Archivio in cui si può soltanto aggiungere: nessuna modifica e nessuna cancellazione, per nessun ruolo, incluso chi amministra il sistema | [F16](16-architettura-del-progetto.md), [SEC](../06_security/04-tracciamento.md) |
 | **`Appointment` / `AppointmentResponse`** | S | Risorse FHIR che rappresentano l'appuntamento e la risposta di un singolo partecipante. **Trappola:** l'appuntamento non è lo slot, e non è il contatto | [F06](06-fhir-da-zero.md) |
 | **Arruolamento** (*enrolment*) | P | Inserimento formale della persona in un servizio strutturato di telemedicina, tipico del telemonitoraggio. **Trappola:** è un atto professionale e **precede l'agenda**; trattarlo come una prenotazione fa perdere il momento in cui la responsabilità clinica viene assunta | [F10](10-percorsi-di-cura-e-sicurezza.md), [DOM](../05_domain/08-percorsi-e-piani-di-cura.md) |
 | **Asserzione** (*assertion*) | S | Documento firmato dal gestore dell'identità che dichiara chi è l'utente, quando e come è stato autenticato e con quali attributi. In SAML è un documento XML firmato | [F04](04-identita-e-anagrafiche.md), [F13](13-protocolli.md) |
-| **ASL — Azienda sanitaria locale** (*local health authority*; istituto italiano, l'equivalente inglese è approssimativo) | N | Ente pubblico che garantisce i livelli essenziali di assistenza a un territorio. **Trappola:** ha natura insieme di committente e di erogatore, il che spiega buona parte delle sue procedure. La denominazione varia per Regione: AUSL, ASP, AST, APSS, ATS, ASST | [F01](01-sistema-sanitario-italiano.md) |
+| **ASL - Azienda sanitaria locale** (*local health authority*; istituto italiano, l'equivalente inglese è approssimativo) | N | Ente pubblico che garantisce i livelli essenziali di assistenza a un territorio. **Trappola:** ha natura insieme di committente e di erogatore, il che spiega buona parte delle sue procedure. La denominazione varia per Regione: AUSL, ASP, AST, APSS, ATS, ASST | [F01](01-sistema-sanitario-italiano.md) |
 | **Assistito** (*beneficiary*, *enrollee*) | N | Persona titolare del diritto all'assistenza. **Trappola:** è una qualifica **amministrativa** e non coincide con «paziente», che è una qualifica clinica; la stessa persona è assistita senza essere paziente per anni | [F01](01-sistema-sanitario-italiano.md), [DOM](../05_domain/03-assistito-professionista-organizzazione.md) |
 | **Attacco dell'intermediario** (*man in the middle*) | S | Sostituzione delle impronte da parte del server di segnalazione, che si inserisce fra i due estremi di una sessione media. **Trappola:** è precisamente ciò che la verifica indipendente delle chiavi serve a rendere rilevabile; senza quella verifica, «cifrato da estremo a estremo» è un'affermazione non dimostrabile | [F08](08-webrtc-da-zero.md), [SEC](../06_security/05-sicurezza-del-tempo-reale.md) |
 | **`Attachment`** | S | Tipo di dato FHIR: contenuto binario o suo riferimento, con tipo, dimensione, impronta e titolo | [F06](06-fhir-da-zero.md) |
@@ -197,7 +197,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **ATNA** (*Audit Trail and Node Authentication*) | S | Profilo IHE per il tracciamento degli eventi e l'autenticazione di nodo | [F05](05-standard-di-interoperabilita.md), [PRO](../04_protocols/05-ihe.md) |
 | **Attore** (*actor*, IHE) | S | Ruolo funzionale che un sistema assume dentro un profilo di integrazione. **Trappola:** è un ruolo, non un prodotto: lo stesso sistema può implementare più attori | [F05](05-standard-di-interoperabilita.md) |
 | **Attributo** (*attribute*) | S | Informazione che descrive un'identità senza individuarla. **Trappola:** distinto dall'identificatore, che invece individua; confonderli è il modo in cui un attributo diventa per sbaglio una chiave | [F04](04-identita-e-anagrafiche.md) |
-| **`aud` — Audience** | S | Destinatario per cui un token è valido. **Trappola:** un resource server deve **rifiutare** i token non destinati a sé; ometterne la verifica è uno dei difetti più comuni e più sfruttabili | [F13](13-protocolli.md) |
+| **`aud` - Audience** | S | Destinatario per cui un token è valido. **Trappola:** un resource server deve **rifiutare** i token non destinati a sé; ometterne la verifica è uno dei difetti più comuni e più sfruttabili | [F13](13-protocolli.md) |
 | **`AuditEvent`** | S | Risorsa FHIR che registra chi ha fatto cosa, quando e con quale esito | [F06](06-fhir-da-zero.md) |
 | **Auscultazione** (*auscultation*) | S | Ascolto dei suoni interni del corpo con lo stetoscopio. **Trappola:** non è trasferibile attraverso il canale audio ordinario di una videochiamata, che è progettato e compresso per la voce | [F09](09-fondamenti-clinici.md) |
 | **Autenticazione** (*authentication*) | S | Prova che chi si presenta controlla la credenziale associata a un'identità. **Trappola:** **non** accerta chi è fisicamente presente. L'accertamento della persona è l'identificazione, ed è un atto del professionista | [F04](04-identita-e-anagrafiche.md), [F12](12-crittografia-e-sicurezza.md) |
@@ -212,7 +212,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 |---|---|---|---|
 | **BALP** (*Basic Audit Log Patterns*) | S | Guida IHE che definisce schemi riusabili per gli eventi di tracciamento | [F05](05-standard-di-interoperabilita.md) |
 | **Ballot / public comment** | S | Fase in cui una specifica è sottoposta alla comunità per osservazioni prima della pubblicazione. **Trappola:** una specifica in ballot non è pubblicata, e costruirci sopra significa accettare che cambi | [F05](05-standard-di-interoperabilita.md) |
-| **Base giuridica** (*legal basis*) | N | Fondamento di liceità del trattamento dei dati personali. **Trappola:** è un attributo del **trattamento** — combinazione di finalità, categoria di dato e soggetto — non della persona e non del documento. Cercare «la base giuridica del paziente» è la domanda sbagliata | [F03](03-il-dato-clinico.md), [DOM](../05_domain/06-consenso-e-riservatezza.md) |
+| **Base giuridica** (*legal basis*) | N | Fondamento di liceità del trattamento dei dati personali. **Trappola:** è un attributo del **trattamento** - combinazione di finalità, categoria di dato e soggetto - non della persona e non del documento. Cercare «la base giuridica del paziente» è la domanda sbagliata | [F03](03-il-dato-clinico.md), [DOM](../05_domain/06-consenso-e-riservatezza.md) |
 | **Basic UDI-DI** | N | Identificativo primario di un modello di dispositivo; chiave di accesso a documentazione tecnica, dichiarazione di conformità e registrazioni. **Trappola:** non compare sull'etichetta, e non va confuso con lo UDI-DI | [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/04-fascicolo-tecnico.md) |
 | **Bearer token** (*credenziale al portatore*) | S | Credenziale che chiunque la possieda può usare. **Trappola:** il nome dice tutto e viene ignorato: un bearer token intercettato è un'identità rubata, e nessun controllo successivo lo rileva | [F13](13-protocolli.md) |
 | **Binding** | S | Dichiarazione che un elemento di un profilo prende i valori da un determinato value set | [F05](05-standard-di-interoperabilita.md), [F06](06-fhir-da-zero.md) |
@@ -230,7 +230,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 
 | Termine | Nat. | Definizione | Dove |
 |---|---|---|---|
-| **CAD — Codice dell'amministrazione digitale** (*Digital Administration Code*) | N | D.lgs. 7 marzo 2005, n. 82. Contiene fra l'altro l'art. 50-*ter* sulla piattaforma nazionale dei dati, l'art. 62 e l'art. 62-*ter* sulle anagrafi, l'art. 64 sull'identità digitale, gli artt. 68–69 sul riuso e l'art. 71 sulle regole tecniche | [F07](07-fse-e-infrastrutture-nazionali.md), [F20](20-fonti-primarie.md) |
+| **CAD - Codice dell'amministrazione digitale** (*Digital Administration Code*) | N | D.lgs. 7 marzo 2005, n. 82. Contiene fra l'altro l'art. 50-*ter* sulla piattaforma nazionale dei dati, l'art. 62 e l'art. 62-*ter* sulle anagrafi, l'art. 64 sull'identità digitale, gli artt. 68–69 sul riuso e l'art. 71 sulle regole tecniche | [F07](07-fse-e-infrastrutture-nazionali.md), [F20](20-fonti-primarie.md) |
 | **CAdES / PAdES / XAdES** | N | Formati normalizzati di firma elettronica, rispettivamente per file generici, per documenti PDF e per documenti XML | [F03](03-il-dato-clinico.md), [PRO](../04_protocols/03-documenti-clinici.md) |
 | **Cache non persistita** (*non-persistent cache*) | P | Memoria di lavoro che non scrive su disco. **Trappola:** è un requisito, non un'ottimizzazione: per i sistemi di codifica la cui licenza non consente derivati, una cache persistente delle risposte costituirebbe un sottoinsieme derivato | [F17](17-ambiente-di-sviluppo.md), [DOM](../05_domain/07-terminologie-nel-dominio.md) |
 | **Campo, componente, sottocomponente** (*field, component, subcomponent*) | S | I tre livelli di suddivisione interna di un segmento HL7 v2 | [F05](05-standard-di-interoperabilita.md) |
@@ -252,8 +252,8 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Categorie particolari di dati** (*special categories of personal data*) | N | Le categorie dell'art. 9, par. 1 del Regolamento (UE) 2016/679, fra cui i dati relativi alla salute. Il trattamento è vietato salvo deroghe tassative | [F03](03-il-dato-clinico.md) |
 | **Categorie prioritarie** (*priority categories*, EHDS) | N | Insiemi di dati sanitari che devono circolare nello Spazio europeo dei dati sanitari: profilo sanitario sintetico, prescrizione elettronica, referti di laboratorio e di diagnostica per immagini, lettere di dimissione | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Cattura delle modifiche** (*change data capture*) | S | Estrazione delle variazioni di una base dati a partire dal suo registro di replica | [F11](11-fondamenti-informatici.md) |
-| **CdC — Casa della comunità** (*community health centre*; istituto italiano introdotto dal DM 77/2022) | N | Struttura fisica ad accesso libero in cui opera un'équipe multiprofessionale territoriale | [F01](01-sistema-sanitario-italiano.md) |
-| **CDA — Clinical Document Architecture** | S | Standard HL7 per i documenti clinici, in XML, articolato in intestazione e corpo | [F05](05-standard-di-interoperabilita.md), [PRO](../04_protocols/03-documenti-clinici.md) |
+| **CdC - Casa della comunità** (*community health centre*; istituto italiano introdotto dal DM 77/2022) | N | Struttura fisica ad accesso libero in cui opera un'équipe multiprofessionale territoriale | [F01](01-sistema-sanitario-italiano.md) |
+| **CDA - Clinical Document Architecture** | S | Standard HL7 per i documenti clinici, in XML, articolato in intestazione e corpo | [F05](05-standard-di-interoperabilita.md), [PRO](../04_protocols/03-documenti-clinici.md) |
 | **CDA2** | G | Rilascio 2 di CDA, standard documentale nazionale del fascicolo sanitario elettronico, veicolato dentro un PDF firmato digitalmente. **Trappola:** finché i template nazionali per la telemedicina non sono acquisiti, il progetto modella un **dataset canonico** e tratta la serializzazione come sostituibile, per non cablare un template che potrebbe cambiare | [F07](07-fse-e-infrastrutture-nazionali.md), [PRO](../04_protocols/03-documenti-clinici.md) |
 | **Centro erogatore** (*delivering centre*) | N | Struttura con compiti prettamente sanitari, che eroga le prestazioni e **gestisce gli allarmi clinici** (DM 21 settembre 2022, Allegato A) | [F02](02-prestazioni-di-telemedicina.md), [DOM](../05_domain/03-assistito-professionista-organizzazione.md) |
 | **Centro servizi** (*service centre*) | N | Struttura con compiti prettamente tecnici: manutenzione, gestione delle utenze, assistenza agli utenti, dispositivi a domicilio, **allarmi tecnici** (DM 21 settembre 2022, Allegato A). **Trappola:** la distinzione fra i due centri non è organizzativa, è normativa, e determina a chi va instradato ciascun tipo di allarme | [F02](02-prestazioni-di-telemedicina.md), [DOM](../05_domain/03-assistito-professionista-organizzazione.md) |
@@ -263,7 +263,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Chiave di deduplicazione** (*deduplication key*) | S | Identificativo con cui un consumatore riconosce di aver già trattato un messaggio. **Trappola:** va conservata **più a lungo** della finestra massima di ritentativo, altrimenti il duplicato arriva dopo che la chiave è scaduta | [F16](16-architettura-del-progetto.md) |
 | **Chiave di idempotenza** (*idempotency key*) | S | Identificativo generato dal chiamante che identifica **l'intenzione, non il tentativo**, e consente al ricevente di riconoscere i ritentativi | [F11](11-fondamenti-informatici.md), [PRO](../04_protocols/06-api-di-progetto.md) |
 | **Chiave di partizionamento** (*partition key*) | S | Valore che determina in quale partizione di un log finisce un evento, e quindi il suo ordinamento relativo. **Trappola:** l'ordine è garantito solo dentro la partizione; scegliere male la chiave significa perdere l'ordine fra eventi che devono averlo | [F11](11-fondamenti-informatici.md) |
-| **CIE — Carta d'identità elettronica** (*Italian electronic identity card*) | N | Canale di identità digitale ai sensi dell'art. 64 del Codice dell'amministrazione digitale; il gestore dell'identità è il Ministero dell'Interno. Disponibile sia in SAML 2.0 sia in OpenID Connect. **Trappola:** le regole tecniche dichiarano che il livello riportato nell'asserzione di ritorno è sempre il massimo, quindi il livello effettivamente eseguito **non è desumibile dall'asserzione** | [F04](04-identita-e-anagrafiche.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **CIE - Carta d'identità elettronica** (*Italian electronic identity card*) | N | Canale di identità digitale ai sensi dell'art. 64 del Codice dell'amministrazione digitale; il gestore dell'identità è il Ministero dell'Interno. Disponibile sia in SAML 2.0 sia in OpenID Connect. **Trappola:** le regole tecniche dichiarano che il livello riportato nell'asserzione di ritorno è sempre il massimo, quindi il livello effettivamente eseguito **non è desumibile dall'asserzione** | [F04](04-identita-e-anagrafiche.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Cifrario a blocchi** (*block cipher*) | S | Algoritmo che trasforma blocchi di dimensione fissa sotto il controllo di una chiave | [F12](12-crittografia-e-sicurezza.md) |
 | **Cifrario a flusso** (*stream cipher*) | S | Algoritmo che genera un flusso di chiave combinato bit a bit con il testo in chiaro | [F12](12-crittografia-e-sicurezza.md) |
 | **Cifratura a riposo** (*encryption at rest*) | S | Protezione dei dati memorizzati. **Trappola:** protegge dal furto del supporto, **non** dall'accesso ottenuto attraverso il sistema; dichiararla come misura contro l'accesso indebito è un errore ricorrente | [F12](12-crittografia-e-sicurezza.md), [SEC](../06_security/03-protezione-dei-dati.md) |
@@ -291,7 +291,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Commit a due fasi** (*two-phase commit*, 2PC) | S | Protocollo di transazione distribuita con fase di preparazione e fase di conferma. **Trappola:** il progetto lo evita: blocca risorse e trasforma un guasto parziale in un blocco totale | [F11](11-fondamenti-informatici.md) |
 | **Compensazione** (*compensating transaction*) | S | Transazione che contrasta gli effetti di un passo precedente di una saga. **Trappola:** in ambito clinico non è un annullamento: è una **rettifica tracciata**, perché il fatto è accaduto e non può essere cancellato dalla storia | [F11](11-fondamenti-informatici.md) |
 | **Compenso** (*compensation*, in senso fisiologico) | S | Insieme delle risposte fisiologiche che mantengono una grandezza regolata entro l'intervallo utile nonostante una perturbazione. **Trappola:** un parametro «normale» in compenso non significa assenza di problema: significa che il problema è ancora contenuto | [F09](09-fondamenti-clinici.md) |
-| **Complessità assistenziale** (*care complexity*) | P | Insieme delle dimensioni non cliniche — sociali, abitative, cognitive, di alfabetizzazione — che determinano la realizzabilità concreta di un percorso a distanza | [F10](10-percorsi-di-cura-e-sicurezza.md) |
+| **Complessità assistenziale** (*care complexity*) | P | Insieme delle dimensioni non cliniche - sociali, abitative, cognitive, di alfabetizzazione - che determinano la realizzabilità concreta di un percorso a distanza | [F10](10-percorsi-di-cura-e-sicurezza.md) |
 | **Compliance digitale dell'assistito** (*patient digital readiness*) | P | Capacità della persona di interagire con i sistemi digitali. **Trappola:** è una dimensione della valutazione di eseguibilità distinta dalla verifica tecnica del dispositivo: un tablet perfettamente funzionante in mano a chi non sa usarlo non rende eseguibile la prestazione | [F02](02-prestazioni-di-telemedicina.md), [DOM](../05_domain/02-le-prestazioni-modellate.md) |
 | **`Composition`** | S | Risorsa FHIR che rappresenta un documento clinico strutturato in sezioni. Nel progetto **è il referto**; `DiagnosticReport` è soltanto una proiezione in sola lettura per gli integratori che la attendono | [F06](06-fhir-da-zero.md), [PRO](../04_protocols/03-documenti-clinici.md) |
 | **Composizione** (*MCU*, *multipoint control unit*) | S | Server che decodifica i flussi, li compone e li ricodifica. **Trappola:** massima latenza e massimo costo di calcolo, e come ogni server intermedio termina la cifratura | [F08](08-webrtc-da-zero.md) |
@@ -332,14 +332,14 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Correzione d'errore incorporata** (`useinbandfec`) | S | Meccanismo del codec audio Opus che include nel pacchetto una copia a bassa fedeltà del pacchetto precedente | [F08](08-webrtc-da-zero.md) |
 | **Corrispondenza deterministica / probabilistica** (*deterministic / probabilistic matching*) | S | Le due famiglie di tecniche di riconciliazione anagrafica: regola esatta su un identificatore, oppure punteggio di somiglianza su più attributi con soglie. **Trappola:** la seconda non produce mai una certezza, e la fusione delle anagrafiche non può essere automatica | [F04](04-identita-e-anagrafiche.md) |
 | **Costruzione riproducibile** (*reproducible build*) | S | Proprietà per cui due costruzioni della stessa revisione, su macchine e in momenti diversi, producono artefatti identici byte per byte | [F17](17-ambiente-di-sviluppo.md), [SEC](../06_security/07-catena-di-fornitura.md) |
-| **COT — Centrale operativa territoriale** (*territorial operations centre*; istituto italiano del DM 77/2022) | N | Servizio che coordina la presa in carico fra i diversi contesti assistenziali; nodo naturale della telemedicina territoriale | [F01](01-sistema-sanitario-italiano.md) |
-| **CRA — Cyber Resilience Act** | N | Regolamento (UE) 2024/2847 sui requisiti orizzontali di cibersicurezza dei prodotti con elementi digitali. **Trappola:** l'esclusione dei dispositivi medici opera **per prodotto, non per progetto**: gli artefatti non coperti da una marcatura ricadono comunque nel regolamento | [F12](12-crittografia-e-sicurezza.md), [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/01-inquadramento-normativo.md) |
+| **COT - Centrale operativa territoriale** (*territorial operations centre*; istituto italiano del DM 77/2022) | N | Servizio che coordina la presa in carico fra i diversi contesti assistenziali; nodo naturale della telemedicina territoriale | [F01](01-sistema-sanitario-italiano.md) |
+| **CRA - Cyber Resilience Act** | N | Regolamento (UE) 2024/2847 sui requisiti orizzontali di cibersicurezza dei prodotti con elementi digitali. **Trappola:** l'esclusione dei dispositivi medici opera **per prodotto, non per progetto**: gli artefatti non coperti da una marcatura ricadono comunque nel regolamento | [F12](12-crittografia-e-sicurezza.md), [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/01-inquadramento-normativo.md) |
 | **Credenziale temporanea** (*ephemeral credential*) | S | Credenziale del server di relay a scadenza breve, derivata via HMAC da un segreto condiviso. **Trappola:** sostituisce le credenziali statiche, che in un client web sono per costruzione pubbliche | [F08](08-webrtc-da-zero.md) |
 | **Criterio dell'ottanta per cento** (*80% rule*) | S | Principio di FHIR per cui le risorse contengono gli elementi che servono alla maggior parte delle implementazioni; il resto si aggiunge con estensioni | [F06](06-fhir-da-zero.md) |
 | **Cronico** (*chronic*) | S | Detto di una condizione che non si risolve e accompagna la persona: si controlla, non si guarisce. **Trappola:** richiede contenitori di presa in carico e non episodi; il modello costruito sull'acuto non la rappresenta | [F10](10-percorsi-di-cura-e-sicurezza.md) |
-| **CT — Consistent Time** | S | Profilo IHE per la sincronizzazione oraria; è prerequisito del profilo di tracciamento | [F05](05-standard-di-interoperabilita.md) |
+| **CT - Consistent Time** | S | Profilo IHE per la sincronizzazione oraria; è prerequisito del profilo di tracciamento | [F05](05-standard-di-interoperabilita.md) |
 | **Cultura giusta** (*just culture*) | S | Modello che distingue errore umano, comportamento a rischio e violazione consapevole, separando l'apprendimento dalla sanzione | [F10](10-percorsi-di-cura-e-sicurezza.md) |
-| **CUP — Centro unico di prenotazione** (*central booking service*) | N | Servizio che centralizza le prenotazioni per più soggetti eroganti. **Trappola:** è un **canale**, non un'agenda; assumere che sia il proprietario della disponibilità porta a un modello sbagliato | [F01](01-sistema-sanitario-italiano.md) |
+| **CUP - Centro unico di prenotazione** (*central booking service*) | N | Servizio che centralizza le prenotazioni per più soggetti eroganti. **Trappola:** è un **canale**, non un'agenda; assumere che sia il proprietario della disponibilità porta a un modello sbagliato | [F01](01-sistema-sanitario-italiano.md) |
 | **Curva di dissociazione dell'emoglobina** (*oxyhaemoglobin dissociation curve*) | S | Relazione a forma di esse fra ossigeno disciolto nel sangue e saturazione dell'emoglobina. **Trappola:** rende la saturazione poco sensibile nella zona alta, cioè proprio dove si vorrebbe cogliere il peggioramento precoce | [F09](09-fondamenti-clinici.md) |
 | **Custode di software open source** (*open-source software steward*) | N | Persona giuridica che sostiene sistematicamente un progetto open source, con obblighi ridotti ai sensi dell'art. 24 del Regolamento (UE) 2024/2847 (definizione all'art. 3, punto 14) | [F12](12-crittografia-e-sicurezza.md), [CMP](../08_compliance/01-inquadramento-normativo.md) |
 
@@ -348,9 +348,9 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | Termine | Nat. | Definizione | Dove |
 |---|---|---|---|
 | **Danno** (*harm*) | N | Lesione fisica o danno alla salute delle persone, nella definizione della ISO 14971. **Trappola:** nel linguaggio corrente «danno» comprende anche il danno economico o reputazionale; nella gestione del rischio del dispositivo no | [F10](10-percorsi-di-cura-e-sicurezza.md), [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/05-gestione-del-rischio.md) |
-| **Dataset canonico** (*canonical dataset*) | P | Definizione versionata del contenuto informativo di un documento, indipendente dalla forma in cui viaggia. **Trappola:** esiste per una ragione precisa — senza un termine proprio si finisce per dire «il CDA», e in tre mesi il modello dipende da un template che potrebbe cambiare | [F07](07-fse-e-infrastrutture-nazionali.md), [F16](16-architettura-del-progetto.md), [DOM](../05_domain/04-documenti-clinici.md) |
+| **Dataset canonico** (*canonical dataset*) | P | Definizione versionata del contenuto informativo di un documento, indipendente dalla forma in cui viaggia. **Trappola:** esiste per una ragione precisa - senza un termine proprio si finisce per dire «il CDA», e in tre mesi il modello dipende da un template che potrebbe cambiare | [F07](07-fse-e-infrastrutture-nazionali.md), [F16](16-architettura-del-progetto.md), [DOM](../05_domain/04-documenti-clinici.md) |
 | **Dati a maggiore tutela dell'anonimato** (*highly protected health data*; categoria del diritto italiano, senza equivalente esatto) | N | Categoria chiusa definita dall'art. 6 del DM 7 settembre 2023, visibile a terzi solo previo consenso esplicito reso al soggetto erogante. **Trappola:** è una categoria **chiusa**: non si estende per analogia e non si restringe per comodità implementativa | [F03](03-il-dato-clinico.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
-| **Dati avversi** (*adversarial test data*) | P | Insieme di dati sintetici deliberatamente difficili — nomi con diacritici, serie con interruzioni, misure fuori ordine — usato nelle prove come dotazione ordinaria e non come curiosità | [F17](17-ambiente-di-sviluppo.md) |
+| **Dati avversi** (*adversarial test data*) | P | Insieme di dati sintetici deliberatamente difficili - nomi con diacritici, serie con interruzioni, misure fuori ordine - usato nelle prove come dotazione ordinaria e non come curiosità | [F17](17-ambiente-di-sviluppo.md) |
 | **Dato relativo alla salute** (*data concerning health*) | N | Dato personale che rivela informazioni sullo stato di salute passato, presente o futuro, **indipendentemente dalla fonte**. **Trappola:** l'ultima parola è quella che conta: un'esenzione per patologia rivela la patologia anche se il campo si chiama «codice amministrativo» | [F03](03-il-dato-clinico.md) |
 | **Dato sintetico** (*synthetic data*) | P | Dato generato dal progetto, non derivato da persone reali. **Trappola:** è l'**unico** ammesso in ogni artefatto e in ogni ambiente non di esercizio, senza eccezioni; l'investimento va nel generatore, non nelle deroghe | [F17](17-ambiente-di-sviluppo.md), [F00](00-come-usare-questa-guida.md) |
 | **Deduplicazione** (*deduplication*) | S | Scarto, da parte del ricevente, di ciò che è già stato elaborato, riconosciuto da un identificativo | [F13](13-protocolli.md) |
@@ -377,7 +377,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Display ufficiale** (*official display*) | S | Stringa descrittiva del concetto fornita dal titolare della terminologia. **Trappola:** **non è** l'etichetta di interfaccia, ed è architetturalmente separata da essa, perché su alcune terminologie le traduzioni sono derivati che appartengono al titolare | [DOM](../05_domain/07-terminologie-nel-dominio.md) |
 | **Disponibilità** (*availability*) | S | Accessibilità dell'informazione e del servizio quando servono. **Trappola:** la sua violazione è un incidente notificabile, non un semplice disservizio | [F12](12-crittografia-e-sicurezza.md), [SEC](../06_security/10-risposta-agli-incidenti.md) |
 | **Dispositivo attivo** (*active device*) | N | Dispositivo il cui funzionamento dipende da una fonte di energia diversa da quella generata dal corpo umano. Il software è **per definizione** un dispositivo attivo (Reg. (UE) 2017/745, art. 2, punto 4) | [F15](15-regolatorio-da-zero.md) |
-| **Dispositivo medico** (*medical device*) | N | Oggetto — software compreso — destinato dal fabbricante a una delle finalità mediche tassative dell'art. 2, punto 1, del Reg. (UE) 2017/745. **Trappola:** la qualificazione dipende dalla **destinazione dichiarata**, non dalla tecnologia impiegata | [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/02-qualificazione-e-classificazione.md) |
+| **Dispositivo medico** (*medical device*) | N | Oggetto - software compreso - destinato dal fabbricante a una delle finalità mediche tassative dell'art. 2, punto 1, del Reg. (UE) 2017/745. **Trappola:** la qualificazione dipende dalla **destinazione dichiarata**, non dalla tecnologia impiegata | [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/02-qualificazione-e-classificazione.md) |
 | **Distinta dei materiali software** (*software bill of materials*, SBOM) | N | Elenco leggibile da una macchina di tutti i componenti di un artefatto, con versione, licenza e impronta, generato a ogni costruzione. **Trappola:** censire i componenti a posteriori costa molte volte tanto: è una delle attività retroattivamente irrecuperabili | [F12](12-crittografia-e-sicurezza.md), [F17](17-ambiente-di-sviluppo.md), [SEC](../06_security/07-catena-di-fornitura.md) |
 | **Distretto** (*health district*) | N | Articolazione territoriale dell'azienda sanitaria locale che organizza l'assistenza primaria e la specialistica di base | [F01](01-sistema-sanitario-italiano.md) |
 | **Divulgazione coordinata** (*coordinated vulnerability disclosure*) | S | Procedura con cui una vulnerabilità è comunicata a chi può correggerla, con una finestra concordata prima della pubblicazione | [F12](12-crittografia-e-sicurezza.md), [SEC](../06_security/10-risposta-agli-incidenti.md) |
@@ -387,7 +387,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Doppia scrittura** (*dual write*) | S | Difetto per cui si scrive su due sistemi senza atomicità, producendo eventi persi o eventi fantasma. Si evita con l'outbox transazionale | [F11](11-fondamenti-informatici.md), [F16](16-architettura-del-progetto.md) |
 | **Doppio di prova** (*test double*) | S | Sostituto di un sistema esterno usato nelle prove. **Trappola:** nel progetto è costruito **sulla specifica pubblicata**, non sull'osservazione empirica del sistema reale, altrimenti si codifica in eterno il difetto di quel sistema | [F17](17-ambiente-di-sviluppo.md) |
 | **Dossier sanitario** (*organisational health record*) | P | Insieme dei dati della persona assistita presso una singola struttura, per la continuità di cura interna. **Trappola:** distinto dal fascicolo sanitario elettronico, che è nazionale e sotto il controllo dell'assistito | [F03](03-il-dato-clinico.md), [DOM](../05_domain/01-linguaggio-ubiquo.md) |
-| **DPIA — Valutazione d'impatto sulla protezione dei dati** (*data protection impact assessment*) | N | Valutazione obbligatoria **prima** del trattamento quando il rischio è elevato (art. 35 del Regolamento (UE) 2016/679) | [F03](03-il-dato-clinico.md), [SEC](../06_security/03-protezione-dei-dati.md) |
+| **DPIA - Valutazione d'impatto sulla protezione dei dati** (*data protection impact assessment*) | N | Valutazione obbligatoria **prima** del trattamento quando il rischio è elevato (art. 35 del Regolamento (UE) 2016/679) | [F03](03-il-dato-clinico.md), [SEC](../06_security/03-protezione-dei-dati.md) |
 | **DTLS** (*Datagram Transport Layer Security*) | S | TLS adattato a un trasporto che perde e riordina i pacchetti (RFC 6347, RFC 9147) | [F08](08-webrtc-da-zero.md) |
 | **DTLS-SRTP** | S | Meccanismo che estrae le chiavi SRTP dal segreto stabilito con la stretta di mano DTLS fra i due estremi (RFC 5764) | [F08](08-webrtc-da-zero.md), [SEC](../06_security/05-sicurezza-del-tempo-reale.md) |
 
@@ -395,15 +395,15 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 
 | Termine | Nat. | Definizione | Dove |
 |---|---|---|---|
-| **EDS — Ecosistema dati sanitari** (*health data ecosystem*) | N | Repository centrale istituito con DM 31 dicembre 2024; titolarità del Ministero della salute, gestione di AGENAS. Opera su pseudonimi e alimenta le finalità di governo, ricerca e valutazione delle tecnologie sanitarie | [F02](02-prestazioni-di-telemedicina.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
-| **EHDS — Spazio europeo dei dati sanitari** (*European Health Data Space*) | N | Regolamento (UE) 2025/327 su uso primario e secondario dei dati sanitari; il capo III disciplina i sistemi di cartelle cliniche elettroniche. **Trappola:** il progetto potrebbe ricadervi pur non essendo un dispositivo medico: è una valutazione dichiarata, non una certezza, e va verificata sul testo | [F07](07-fse-e-infrastrutture-nazionali.md), [F15](15-regolatorio-da-zero.md) |
+| **EDS - Ecosistema dati sanitari** (*health data ecosystem*) | N | Repository centrale istituito con DM 31 dicembre 2024; titolarità del Ministero della salute, gestione di AGENAS. Opera su pseudonimi e alimenta le finalità di governo, ricerca e valutazione delle tecnologie sanitarie | [F02](02-prestazioni-di-telemedicina.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **EHDS - Spazio europeo dei dati sanitari** (*European Health Data Space*) | N | Regolamento (UE) 2025/327 su uso primario e secondario dei dati sanitari; il capo III disciplina i sistemi di cartelle cliniche elettroniche. **Trappola:** il progetto potrebbe ricadervi pur non essendo un dispositivo medico: è una valutazione dichiarata, non una certezza, e va verificata sul testo | [F07](07-fse-e-infrastrutture-nazionali.md), [F15](15-regolatorio-da-zero.md) |
 | **eIDAS** | N | Regolamento (UE) 910/2014 su identificazione elettronica e servizi fiduciari, come modificato dal Regolamento (UE) 2024/1183 | [F03](03-il-dato-clinico.md), [F12](12-crittografia-e-sicurezza.md) |
 | **Eleggibilità** (*eligibility*) | P | Verifica che la persona possa ricevere quella prestazione **in quel canale**. **Trappola:** è cosa diversa dal diritto all'esenzione e dal diritto alla prestazione in sé | [DOM](../05_domain/02-le-prestazioni-modellate.md) |
 | **Elemento a scelta di tipo** (`[x]`) | S | Elemento FHIR che ammette più tipi alternativi; nelle istanze il nome concatena il tipo scelto | [F06](06-fhir-da-zero.md) |
 | **Elenco di fiducia** (*trusted list*) | S | Lista dei servizi fiduciari qualificati da cui si alimenta il magazzino di fiducia per la verifica dei certificati, filtrando le sole autorità abilitate alla verifica dell'identità | [F04](04-identita-e-anagrafiche.md) |
 | **Emulatore di rete** (*network emulator*) | S | Strumento che introduce ritardo, variabilità, perdita e riordino dei pacchetti nei test. **Trappola:** il test con due schede dello stesso browser sullo stesso computer non dimostra quasi nulla | [F08](08-webrtc-da-zero.md), [F17](17-ambiente-di-sviluppo.md) |
 | **`Encounter`** | S | Vedi *Contatto*. È il nome della risorsa nello standard e nel codice del progetto | [F06](06-fhir-da-zero.md), [F14](14-flussi-funzionali.md) |
-| **ENI — Europeo Non Iscritto** (*EU citizen not registered with the national health service*; codice del diritto italiano) | N | Codice di assistenza per cittadini dell'Unione presenti in Italia privi dei requisiti di iscrizione al servizio sanitario; sedici caratteri, attribuito localmente | [F04](04-identita-e-anagrafiche.md) |
+| **ENI - Europeo Non Iscritto** (*EU citizen not registered with the national health service*; codice del diritto italiano) | N | Codice di assistenza per cittadini dell'Unione presenti in Italia privi dei requisiti di iscrizione al servizio sanitario; sedici caratteri, attribuito localmente | [F04](04-identita-e-anagrafiche.md) |
 | **Ente erogatore / ente fruitore** (*provider / consumer entity*, nella piattaforma nazionale dei dati) | N | Chi pubblica un servizio applicativo e chi ne chiede la fruizione. **Trappola:** sono **soggetti giuridici**, non software: l'autorizzazione riguarda l'ente, non l'istanza applicativa | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Entità** (*entity*) | S | Oggetto con identità che persiste attraverso i cambiamenti dei suoi attributi | [F11](11-fondamenti-informatici.md) |
 | **Episodio di cura** (*episode of care*) | S | Contenitore temporale della presa in carico su un problema di salute; radice dell'aggregato della presa in carico | [DOM](../05_domain/08-percorsi-e-piani-di-cura.md) |
@@ -415,7 +415,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Esenzione** (*co-payment exemption*) | N | Diritto a non corrispondere in tutto o in parte la compartecipazione alla spesa. **Trappola:** un'esenzione **per patologia rivela la patologia** ed è quindi un dato relativo alla salute, per quanto il campo appaia amministrativo | [F01](01-sistema-sanitario-italiano.md), [F03](03-il-dato-clinico.md) |
 | **Esito del contatto** (*encounter outcome*) | P | Codice strutturato che dichiara come l'atto si è concluso. **Trappola:** è distinto dallo **stato** del contatto, che dice invece dove si trova nel suo ciclo di vita | [DOM](../05_domain/02-le-prestazioni-modellate.md) |
 | **Esito tipizzato** (*typed outcome*) | P | Valore preso da un'enumerazione di dominio con cui si chiude un contatto o un allarme, **mai testo libero**. **Trappola:** il testo libero rende impossibile ogni misura successiva, e quella misura è un requisito di sicurezza | [F14](14-flussi-funzionali.md) |
-| **Espandi e contrai** (*expand and contract*) | S | Regola di evoluzione dello schema in tre rilasci — aggiungi, migra la lettura, rimuovi — che consente la convivenza di due versioni dell'applicazione | [F17](17-ambiente-di-sviluppo.md), [TEC](../01_technical/03-persistenza.md) |
+| **Espandi e contrai** (*expand and contract*) | S | Regola di evoluzione dello schema in tre rilasci - aggiungi, migra la lettura, rimuovi - che consente la convivenza di due versioni dell'applicazione | [F17](17-ambiente-di-sviluppo.md), [TEC](../01_technical/03-persistenza.md) |
 | **Espansione** (*expansion*) | S | Operazione che trasforma la selezione di un value set nell'elenco effettivo dei codici | [F05](05-standard-di-interoperabilita.md), [F06](06-fhir-da-zero.md) |
 | **Estensione** (*extension*) | S | Meccanismo previsto dalla specifica di base per aggiungere informazione non prevista senza violare la conformità, identificato da un URL canonico | [F05](05-standard-di-interoperabilita.md), [F06](06-fhir-da-zero.md) |
 | **Estensione cross-version** | S | Estensione ufficiale che espone in una versione dello standard un elemento definito in una versione successiva | [F06](06-fhir-da-zero.md) |
@@ -433,7 +433,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | Termine | Nat. | Definizione | Dove |
 |---|---|---|---|
 | **Fabbrica di dati di prova** (*test data factory*) | P | Componente versionato che costruisce oggetti di prova con valori predefiniti sensati e sostituzione esplicita del solo elemento che la prova verifica | [F17](17-ambiente-di-sviluppo.md) |
-| **Fabbricante** (*manufacturer*) | N | Chi fabbrica o fa fabbricare un dispositivo **e** lo commercializza apponendovi il proprio nome o marchio (Reg. (UE) 2017/745, art. 2, punto 30). **Nel progetto:** il ruolo sarà assunto dal progetto stesso, con il soggetto giuridico **ancora da costituire**; la costituzione è un prerequisito interno con un proprio tempo. **Trappola:** questo non cambia lo stato di fatto — **oggi il prodotto non reca marcatura CE**, e chi lo installa o lo mette in servizio assume gli obblighi che ne derivano | [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/00-indice.md) |
+| **Fabbricante** (*manufacturer*) | N | Chi fabbrica o fa fabbricare un dispositivo **e** lo commercializza apponendovi il proprio nome o marchio (Reg. (UE) 2017/745, art. 2, punto 30). **Nel progetto:** il ruolo sarà assunto dal progetto stesso, con il soggetto giuridico **ancora da costituire**; la costituzione è un prerequisito interno con un proprio tempo. **Trappola:** questo non cambia lo stato di fatto - **oggi il prodotto non reca marcatura CE**, e chi lo installa o lo mette in servizio assume gli obblighi che ne derivano | [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/00-indice.md) |
 | **Fallacie del calcolo distribuito** (*fallacies of distributed computing*) | S | Le otto assunzioni implicite e false su rete, latenza, banda, sicurezza, topologia, amministrazione, costo di trasporto e omogeneità | [F11](11-fondamenti-informatici.md) |
 | **Fallimento dichiarato** (*declared failure*) | P | Esito che il sistema produce quando la catena di escalation si esaurisce senza che nessuno abbia preso in carico l'allarme. **Trappola:** è preferibile al silenzio in ogni circostanza: un allarme che si spegne da solo è indistinguibile da un allarme risolto | [F14](14-flussi-funzionali.md) |
 | **Falsa rassicurazione** (*false reassurance*) | P | Riduzione della vigilanza della persona indotta dall'esistenza di un servizio che essa percepisce come sorveglianza continua. **Trappola:** è un rischio prodotto dal servizio stesso, e va gestito come tale nella documentazione destinata all'utilizzatore | [F10](10-percorsi-di-cura-e-sicurezza.md) |
@@ -469,7 +469,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Grandezza** (*observable quantity*) | S | Ciò che la misura misura, identificato da un codice. **Trappola:** è la grandezza a distinguere parametri che condividono l'unità di misura; l'unità da sola non identifica nulla | [DOM](../05_domain/05-parametri-e-osservazioni.md), [F09](09-fondamenti-clinici.md) |
 | **Gruppo di consumatori** (*consumer group*) | S | Insieme di processi che si dividono le partizioni di un flusso, così che ogni evento sia elaborato da un solo membro | [F11](11-fondamenti-informatici.md) |
 | **GSPR** (*general safety and performance requirements*) | N | Requisiti generali di sicurezza e prestazione dell'Allegato I del Reg. (UE) 2017/745 | [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/04-fascicolo-tecnico.md) |
-| **GST — Gestore Soluzioni di Telemedicina** | N | Micro-servizio dell'infrastruttura nazionale di telemedicina che assiste il Processo di Validazione delle soluzioni di terze parti | [F02](02-prestazioni-di-telemedicina.md) |
+| **GST - Gestore Soluzioni di Telemedicina** | N | Micro-servizio dell'infrastruttura nazionale di telemedicina che assiste il Processo di Validazione delle soluzioni di terze parti | [F02](02-prestazioni-di-telemedicina.md) |
 | **Guasto parziale** (*partial failure*) | S | Situazione in cui una parte del sistema è guasta e il resto **può non saperlo**. È la differenza essenziale fra un sistema distribuito e un programma locale | [F11](11-fondamenti-informatici.md) |
 | **Guida di implementazione nazionale** (*national implementation guide*) | G | Guida prodotta da un'affiliata nazionale per il proprio ordinamento; prevale sul modello generico internazionale nel proprio contesto | [F05](05-standard-di-interoperabilita.md) |
 
@@ -497,9 +497,9 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Identificatore esterno** (*external identifier*) | P | Coppia formata dal dominio di attribuzione e dal valore con cui un sistema terzo identifica il soggetto; è la chiave di lavoro del modello per riferimento | [DOM](../05_domain/03-assistito-professionista-organizzazione.md), [INT](../07_integration/07-dati-e-sincronizzazione.md) |
 | **Identificazione** (*patient identification*) | N | Accertamento, da parte del professionista, che la persona presente all'altro capo del collegamento sia quella attesa. **Trappola:** è un **atto del professionista**, distinto dall'autenticazione, si compie a ogni prestazione e si registra con metodo ed esito | [F04](04-identita-e-anagrafiche.md), [DOM](../05_domain/02-le-prestazioni-modellate.md) |
 | **Identità** (*identity*) | S | Rappresentazione di un'entità dentro un dominio. **Trappola:** un'entità ha tante identità quanti sono i domini in cui è rappresentata; non esiste «l'identità» in assoluto | [F04](04-identita-e-anagrafiche.md) |
-| **Idempotenza** (*idempotence*) | S | Proprietà di un'operazione che, ripetuta con gli stessi argomenti, non aggiunge effetti. **Trappola:** in ambito clinico l'assenza di idempotenza produce la prestazione fantasma, cioè lo stesso atto registrato due volte | [F11](11-fondamenti-informatici.md), [F13](13-protocolli.md), [F16](16-architettura-del-progetto.md) |
+| **Idempotenza** (*idempotency*) | S | Proprietà di un'operazione che, ripetuta con gli stessi argomenti, non aggiunge effetti. **Trappola:** in ambito clinico l'assenza di idempotenza produce la prestazione fantasma, cioè lo stesso atto registrato due volte | [F11](11-fondamenti-informatici.md), [F13](13-protocolli.md), [F16](16-architettura-del-progetto.md) |
 | **`If-None-Exist`** | S | Intestazione della creazione condizionale in FHIR; è il meccanismo di idempotenza dell'ingestione | [F06](06-fhir-da-zero.md) |
-| **IFoC — Infermiere di famiglia o di comunità** (*family and community nurse*) | N | Professionista di riferimento per la presa in carico proattiva della popolazione di un ambito territoriale | [F01](01-sistema-sanitario-italiano.md) |
+| **IFoC - Infermiere di famiglia o di comunità** (*family and community nurse*) | N | Professionista di riferimento per la presa in carico proattiva della popolazione di un ambito territoriale | [F01](01-sistema-sanitario-italiano.md) |
 | **IHE** (*Integrating the Healthcare Enterprise*) | S | Iniziativa che **non scrive standard**: definisce profili di integrazione combinando standard esistenti | [F05](05-standard-di-interoperabilita.md), [PRO](../04_protocols/05-ihe.md) |
 | **Immissione sul mercato** (*placing on the market*) | N | Prima messa a disposizione di un dispositivo sul mercato dell'Unione (Reg. (UE) 2017/745, art. 2, punto 28) | [F15](15-regolatorio-da-zero.md) |
 | **Impegnativa** (*NHS prescription form*; istituto italiano senza equivalente esatto) | N | Prescrizione su ricettario del servizio sanitario che dà titolo alla prestazione a carico pubblico. **Trappola:** è prescrizione **più** titolo di accesso: sono due funzioni in un solo documento, e il modello che ne rappresenta una sola perde l'altra | [F01](01-sistema-sanitario-italiano.md) |
@@ -510,10 +510,10 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Indice nazionale FSE** | N | Componente dell'infrastruttura nazionale per l'interoperabilità che indicizza i metadati dei documenti e li trasferisce all'indice della Regione di assistenza quando questa viene associata | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Indice principale del paziente** (*master patient index*) | S | Componente che riconcilia le rappresentazioni della stessa persona provenienti da sistemi diversi | [F04](04-identita-e-anagrafiche.md) |
 | **Indirizzo di svolgimento** (*session location address*) | P | Luogo in cui la persona assistita si trova durante la sessione. **Trappola:** va richiesto e **confermato a ogni sessione**, perché è l'informazione necessaria in caso di emergenza e cambia senza preavviso | [DOM](../05_domain/02-le-prestazioni-modellate.md), [F14](14-flussi-funzionali.md) |
-| **INI — Infrastruttura nazionale per l'interoperabilità** | N | Componente nazionale del sistema del fascicolo sanitario elettronico, realizzata attraverso il Sistema Tessera Sanitaria; comprende indice, anagrafe dei consensi e portale nazionale | [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **INI - Infrastruttura nazionale per l'interoperabilità** | N | Componente nazionale del sistema del fascicolo sanitario elettronico, realizzata attraverso il Sistema Tessera Sanitaria; comprende indice, anagrafe dei consensi e portale nazionale | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Inoltro selettivo** (*selective forwarding unit*, SFU) | S | Server che riceve un flusso da ciascun partecipante e lo inoltra agli altri. **Trappola:** **termina la cifratura**: una sessione che passa per un inoltro selettivo non è cifrata da estremo a estremo | [F08](08-webrtc-da-zero.md) |
 | **Informativa** (*privacy notice*) | N | Documento informativo che precede e fonda il consenso. **Trappola:** è versionata, e le versioni precedenti vanno conservate: senza, è impossibile dimostrare a quale testo una persona ha aderito | [DOM](../05_domain/06-consenso-e-riservatezza.md) |
-| **INT — Infrastruttura nazionale di telemedicina** | N | Componente nazionale a titolarità di AGENAS che fornisce servizi abilitanti. **Trappola:** **non è un repository clinico**: non conserva i documenti prodotti dalle prestazioni | [F02](02-prestazioni-di-telemedicina.md) |
+| **INT - Infrastruttura nazionale di telemedicina** | N | Componente nazionale a titolarità di AGENAS che fornisce servizi abilitanti. **Trappola:** **non è un repository clinico**: non conserva i documenti prodotti dalle prestazioni | [F02](02-prestazioni-di-telemedicina.md) |
 | **Integratore** (*integrator*) | P | Soggetto terzo che incorpora il sistema nel proprio. **Trappola:** è un **principale applicativo**, non un utente, e va distinto dalla persona per conto della quale agisce in ogni voce del registro degli accessi | [DOM](../05_domain/03-assistito-professionista-organizzazione.md), [INT](../07_integration/01-modalita-di-integrazione.md) |
 | **Integrità** (*integrity*) | S | Assenza di alterazioni non autorizzate **e rilevabilità** di quelle che avvengono. La seconda parte è quella che si dimentica | [F12](12-crittografia-e-sicurezza.md) |
 | **Interazione** (*interaction*, FHIR) | S | Una delle operazioni REST previste dallo standard: lettura, lettura di versione, aggiornamento, modifica parziale, cancellazione, creazione, ricerca, storia, capacità, transazione | [F06](06-fhir-da-zero.md) |
@@ -529,7 +529,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Invariante** (*invariant*) | S | Condizione che deve essere vera in ogni istante osservabile. **Trappola:** nel modello di dominio un'invariante va resa **impossibile da violare**, non semplicemente sconsigliata da una validazione | [F11](11-fondamenti-informatici.md), [F16](16-architettura-del-progetto.md) |
 | **Ipoglicemia** (*hypoglycaemia*) | S | Glucosio nel sangue al di sotto del livello utile. **Trappola:** è un evento acuto con scala temporale di minuti, **asimmetrico** rispetto all'iperglicemia: le due condizioni non si trattano con la stessa logica di allarme | [F09](09-fondamenti-clinici.md) |
 | **IRCCS** | N | Istituto di ricovero e cura a carattere scientifico: ente riconosciuto per eccellenza clinica e attività di ricerca (D.lgs. 288/2003) | [F01](01-sistema-sanitario-italiano.md) |
-| **IRT — Infrastruttura regionale di telemedicina** | N | Componente a titolarità regionale che eroga concretamente le prestazioni. **Trappola:** **non conserva** i documenti generati: la conservazione è altrove | [F02](02-prestazioni-di-telemedicina.md) |
+| **IRT - Infrastruttura regionale di telemedicina** | N | Componente a titolarità regionale che eroga concretamente le prestazioni. **Trappola:** **non conserva** i documenti generati: la conservazione è altrove | [F02](02-prestazioni-di-telemedicina.md) |
 | **Isolamento dei client** (*client isolation*) | S | Politica dei punti di accesso Wi-Fi che impedisce a due dispositivi della stessa rete di parlarsi direttamente. È una delle cause di fallimento del percorso diretto che nessuno prevede | [F08](08-webrtc-da-zero.md) |
 | **Isolamento di rete in uscita** (*egress isolation*) | S | Assenza di rotte dal nodo di relay verso la rete interna e verso sé stesso. **Trappola:** è **la difesa primaria** contro l'uso improprio del relay, non le liste di indirizzi vietati | [F08](08-webrtc-da-zero.md), [SEC](../06_security/05-sicurezza-del-tempo-reale.md) |
 | **Isolamento fra tenant, prove di** | P | Prove che tentano **attivamente** l'accesso illegittimo ai dati di un altro tenant, per ogni contesto e per ogni interfaccia. **Trappola:** una prova che passa perché non ha provato non dimostra nulla; questa è la forma della prova negativa | [F17](17-ambiente-di-sviluppo.md), [ARC](../02_architecture/05-multi-tenancy.md) |
@@ -559,13 +559,13 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | Termine | Nat. | Definizione | Dove |
 |---|---|---|---|
 | **Latenza** (*latency*) | S | Tempo fra richiesta e risposta di una singola operazione. **Trappola:** si dichiara sempre con un percentile, mai con una media; e nel progetto è una **metrica misurata, registrata e notificata**, non una promessa | [F11](11-fondamenti-informatici.md), [TEC](../01_technical/07-prestazioni-e-capacita.md) |
-| **LEA — Livelli essenziali di assistenza** (*essential levels of care*; istituto del diritto italiano) | N | Prestazioni che il servizio sanitario deve garantire su tutto il territorio (D.P.C.M. 12 gennaio 2017) | [F01](01-sistema-sanitario-italiano.md) |
+| **LEA - Livelli essenziali di assistenza** (*essential levels of care*; istituto del diritto italiano) | N | Prestazioni che il servizio sanitario deve garantire su tutto il territorio (D.P.C.M. 12 gennaio 2017) | [F01](01-sistema-sanitario-italiano.md) |
 | **Legame di canale** (*channel bind*) | S | Associazione fra un numero di canale e un indirizzo su un server di relay, che riduce l'intestazione dei pacchetti | [F08](08-webrtc-da-zero.md) |
 | **Legge di Little** (*Little's law*) | S | `L = λ × W`: il numero di elementi in un sistema è pari al tasso di arrivo moltiplicato per il tempo di permanenza | [F11](11-fondamenti-informatici.md) |
 | **Lettera di dimissione ospedaliera** (*hospital discharge letter*) | N | Documento conclusivo del ricovero indirizzato al medico curante. **Trappola:** da non confondere con la scheda di dimissione ospedaliera, che è un flusso informativo amministrativo | [F03](03-il-dato-clinico.md) |
 | **Linguaggio ubiquo** (*ubiquitous language*) | P | Vocabolario condiviso fra chi conosce il dominio e chi scrive il codice, usato identicamente nella conversazione, nel codice e nell'interfaccia. **Trappola:** vale **dentro un contesto delimitato**; pretenderlo unico su tutto il sistema produce un vocabolario che non significa nulla in nessun punto | [F11](11-fondamenti-informatici.md), [F16](16-architettura-del-progetto.md), [DOM](../05_domain/01-linguaggio-ubiquo.md) |
 | **Lista di ammissione** (*allowlist*, del controllo terminologico) | P | Elenco versionato di ciò che il controllo automatico consente. **Trappola:** la sua modifica richiede la revisione prevista per il materiale di conformità, non una semplice proposta di modifica | [F17](17-ambiente-di-sviluppo.md) |
-| **Livello anticorruzione** (*anticorruption layer*) | S | Strato di traduzione al confine che impedisce a un modello esterno di penetrare in quello interno | [F11](11-fondamenti-informatici.md), [F16](16-architettura-del-progetto.md) |
+| **Livello anticorruzione** (*anti-corruption layer*) | S | Strato di traduzione al confine che impedisce a un modello esterno di penetrare in quello interno | [F11](11-fondamenti-informatici.md), [F16](16-architettura-del-progetto.md) |
 | **Livello di garanzia (LoA)** (*level of assurance*) | N | Misura della fiducia nell'affermazione «questa persona è chi dice di essere»; dipende dalla verifica compiuta al momento del rilascio dell'identità e dai fattori usati all'accesso. **Trappola:** viaggia nel claim `acr`, non nel claim di delega, e per uno dei canali italiani il livello dichiarato nell'asserzione è sempre il massimo | [F04](04-identita-e-anagrafiche.md), [F13](13-protocolli.md) |
 | **Livello di isolamento** (*isolation level*) | S | Grado di separazione fra transazioni concorrenti, definito per le anomalie che esclude | [F11](11-fondamenti-informatici.md) |
 | **Livello di provenienza** (*provenance level*) | P | Descrizione della catena attraverso cui una misura è arrivata al sistema. **Trappola:** **non è un giudizio di attendibilità** applicato dal sistema: è un fatto registrato che il professionista interpreta | [DOM](../05_domain/05-parametri-e-osservazioni.md) |
@@ -598,7 +598,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **MHD** (*Mobile access to Health Documents*) | S | Profilo IHE per la pubblicazione e il recupero di documenti clinici su FHIR REST | [F05](05-standard-di-interoperabilita.md) |
 | **Misura** (*observation*) | S | Valore, più il contesto in cui è stato ottenuto. **Trappola:** è **immutabile**: non si corregge modificandola, si corregge emettendo una nuova versione, e la precedente resta | [DOM](../05_domain/05-parametri-e-osservazioni.md) |
 | **MLLP** (*Minimal Lower Layer Protocol*) | S | Protocollo di incorniciamento dei messaggi HL7 v2 su TCP. **Trappola:** è in chiaro per costruzione, e la protezione va aggiunta sotto, non presupposta | [F05](05-standard-di-interoperabilita.md), [F13](13-protocolli.md) |
-| **MMG — Medico di medicina generale** (*general practitioner*) | N | Medico di fiducia dell'adulto, **in convenzione e non in dipendenza**, remunerato a quota capitaria. **Trappola:** non è un dipendente dell'azienda sanitaria, e questo cambia chi è titolare del trattamento dei dati che produce | [F01](01-sistema-sanitario-italiano.md) |
+| **MMG - Medico di medicina generale** (*general practitioner*) | N | Medico di fiducia dell'adulto, **in convenzione e non in dipendenza**, remunerato a quota capitaria. **Trappola:** non è un dipendente dell'azienda sanitaria, e questo cambia chi è titolare del trattamento dei dati che produce | [F01](01-sistema-sanitario-italiano.md) |
 | **Mobilità sanitaria** (*inter-regional patient mobility*) | N | Regolazione dei crediti fra Regioni per prestazioni erogate ad assistiti di un'altra Regione | [F01](01-sistema-sanitario-italiano.md) |
 | **Modalità con registrazione** (*recording mode*) | P | Modalità di sessione in cui il flusso transita per il componente di registrazione. **Trappola: in questa modalità la sessione non è più cifrata fino agli estremi**, l'informativa deve dirlo esplicitamente e l'indicatore di stato deve essere persistente e non occultabile | [DOM](../05_domain/06-consenso-e-riservatezza.md), [SEC](../06_security/05-sicurezza-del-tempo-reale.md) |
 | **Modalità degradata** (del gateway terminologico) | P | Comportamento del sistema quando un sistema di codifica è disattivato: i percorsi principali funzionano, la validazione di quei codici non viene eseguita **e la mancata validazione è dichiarata** | [F17](17-ambiente-di-sviluppo.md), [DOM](../05_domain/07-terminologie-nel-dominio.md) |
@@ -606,7 +606,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Modello a livelli** (*layered model*) | S | Mappa concettuale di una pila di protocolli: il modello OSI a sette livelli, il modello di Internet a quattro | [F13](13-protocolli.md) |
 | **Modello canonico di scambio** (*canonical exchange model*) | P | Rappresentazione con cui i fatti clinici escono ed entrano dal sistema. **Trappola:** è una **proiezione**, mai una fonte: il modello interno non si piega alla forma di scambio | [F16](16-architettura-del-progetto.md) |
 | **Modello di minaccia** (*threat model*) | S | Descrizione strutturata di ciò contro cui il sistema si difende, con attori, superficie, controlli e rischio residuo | [F12](12-crittografia-e-sicurezza.md), [SEC](../06_security/01-modello-di-minaccia.md) |
-| **ModI — Modello di Interoperabilità** | N | Regole tecniche di AgID sui modelli di interazione, sicurezza e tracciatura delle interfacce applicative delle pubbliche amministrazioni | [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **ModI - Modello di Interoperabilità** | N | Regole tecniche di AgID sui modelli di interazione, sicurezza e tracciatura delle interfacce applicative delle pubbliche amministrazioni | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Modificatore / prefisso** (ricerca FHIR) | S | Qualificatore del comportamento di un parametro di ricerca / operatore di confronto sui tipi ordinati | [F06](06-fhir-da-zero.md) |
 | **`modifierExtension`** | S | Estensione che **cambia il significato** del resto della risorsa. **Trappola:** chi non la riconosce **deve rifiutare** la risorsa; ignorarla silenziosamente è un difetto grave | [F06](06-fhir-da-zero.md) |
 | **Modifica sostanziale** (*significant change*) | N | Modifica al sistema di gestione della qualità o al dispositivo approvato che incide su sicurezza, prestazioni o condizioni d'uso; richiede approvazione preventiva dell'Organismo Notificato | [F15](15-regolatorio-da-zero.md) |
@@ -624,7 +624,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **ndjson** | S | Un documento JSON per riga; leggibile in flusso con memoria costante | [F13](13-protocolli.md) |
 | **Negoziazione del contenuto** (*content negotiation*) | S | Accordo su rappresentazione, lingua e codifica tramite le intestazioni `Accept*` e `Content-*` | [F13](13-protocolli.md) |
 | **Negoziazione perfetta** (*perfect negotiation*) | S | Schema che risolve la collisione delle offerte senza corse critiche | [F08](08-webrtc-da-zero.md) |
-| **NIT — Nodo di interoperabilità della telemedicina** | N | Componente di interoperabilità interregionale, **senza persistenza**, con mutua autenticazione a certificati | [F02](02-prestazioni-di-telemedicina.md) |
+| **NIT - Nodo di interoperabilità della telemedicina** | N | Componente di interoperabilità interregionale, **senza persistenza**, con mutua autenticazione a certificati | [F02](02-prestazioni-di-telemedicina.md) |
 | **Nomenclatore** (*fee schedule*) | N | Catalogo codificato delle prestazioni con la relativa tariffa massima. **Trappola:** è **versionato nel tempo e variabile per regime**; cablarne una versione significa produrre importi sbagliati alla prima revisione | [F01](01-sistema-sanitario-italiano.md), [DOM](../05_domain/07-terminologie-nel-dominio.md) |
 | **Nomina** (*nomination*, ICE) | S | Designazione della coppia di candidati definitiva da parte dell'agente controllante | [F08](08-webrtc-da-zero.md) |
 | **Nonce** | S | Valore usato **una sola volta per chiave**. **Trappola:** il suo riuso annulla insieme riservatezza e integrità nelle costruzioni a contatore; non è un dettaglio implementativo | [F12](12-crittografia-e-sicurezza.md) |
@@ -632,8 +632,8 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Non conferibile** (*non-transmissible*) | P | Stato del documento che, per ragioni normative, non può essere conferito al fascicolo. **Trappola:** distinto da «non ancora conferito», che è uno stato transitorio e non definitivo | [DOM](../05_domain/04-documenti-clinici.md) |
 | **Non ripudio** (*non-repudiation*) | S | Impossibilità, per chi ha compiuto un atto, di negarlo davanti a un terzo. **Trappola:** richiede firma **asimmetrica**; nessun codice di autenticazione a chiave condivisa lo fornisce | [F12](12-crittografia-e-sicurezza.md), [F16](16-architettura-del-progetto.md) |
 | **Norma armonizzata** (*harmonised standard*) | N | Norma tecnica il cui riferimento è pubblicato nella Gazzetta ufficiale dell'Unione a sostegno di una legislazione; la sua applicazione conferisce presunzione di conformità (Reg. (UE) 2017/745, art. 8) | [F15](15-regolatorio-da-zero.md) |
-| **NRE — Numero di ricetta elettronica** | N | Identificativo univoco nazionale della ricetta dematerializzata. **Trappola:** identifica **la ricetta**, non il paziente | [F01](01-sistema-sanitario-italiano.md) |
-| **NSG — Nuovo sistema di garanzia** | N | Sistema di indicatori con cui il Ministero valuta l'erogazione dei livelli essenziali di assistenza da parte delle Regioni | [F01](01-sistema-sanitario-italiano.md) |
+| **NRE - Numero di ricetta elettronica** | N | Identificativo univoco nazionale della ricetta dematerializzata. **Trappola:** identifica **la ricetta**, non il paziente | [F01](01-sistema-sanitario-italiano.md) |
+| **NSG - Nuovo sistema di garanzia** | N | Sistema di indicatori con cui il Ministero valuta l'erogazione dei livelli essenziali di assistenza da parte delle Regioni | [F01](01-sistema-sanitario-italiano.md) |
 | **NTP / NTS** | S | Sincronizzazione degli orologi; la seconda ne autentica la sorgente. **Trappola:** un registro degli accessi con orologi non sincronizzati e non autenticati è un registro contestabile | [F13](13-protocolli.md) |
 
 ### O
@@ -642,7 +642,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 |---|---|---|---|
 | **`Observation`** | S | Risorsa FHIR che rappresenta un'osservazione: misura, reperto, valore | [F06](06-fhir-da-zero.md) |
 | **OCSP** | S | Protocollo di interrogazione puntuale sullo stato di revoca di un certificato (RFC 6960) | [F12](12-crittografia-e-sicurezza.md) |
-| **OdC — Ospedale di comunità** (*community hospital*; istituto italiano del DM 77/2022) | N | Struttura di ricovero a gestione prevalentemente infermieristica per bassa intensità clinica | [F01](01-sistema-sanitario-italiano.md) |
+| **OdC - Ospedale di comunità** (*community hospital*; istituto italiano del DM 77/2022) | N | Struttura di ricovero a gestione prevalentemente infermieristica per bassa intensità clinica | [F01](01-sistema-sanitario-italiano.md) |
 | **Offerta / risposta** (*offer/answer*) | S | Modello di negoziazione in cui un estremo propone tutto ciò che sa fare e l'altro accetta, restringe o rifiuta (RFC 3264) | [F08](08-webrtc-da-zero.md) |
 | **Offset** (*offset*, broker) | S | Posizione del consumatore nel registro degli eventi; è ciò che consente la rilettura | [F13](13-protocolli.md) |
 | **Oggetto valore** (*value object*) | S | Oggetto immutabile senza identità, definito interamente dai suoi attributi | [F11](11-fondamenti-informatici.md) |
@@ -672,16 +672,16 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Pacchetto FHIR** (*FHIR package*) | S | Unità di distribuzione di una guida di implementazione, identificata da nome e versione e risolta da un registro | [F06](06-fhir-da-zero.md) |
 | **PACELC** | S | Estensione del teorema CAP: in presenza di partizione si sceglie fra disponibilità e consistenza; altrimenti fra latenza e consistenza | [F11](11-fondamenti-informatici.md) |
 | **Paginazione per cursore** (*cursor pagination*) | S | Paginazione basata su un riferimento opaco alla posizione raggiunta, stabile rispetto alle inserzioni concorrenti | [F11](11-fondamenti-informatici.md) |
-| **PAI — Piano assistenziale individuale** (*individual care plan*; istituto italiano) | N | Piano della presa in carico integrata, multiprofessionale, con dimensione sanitaria **e sociale**, redatto da un'équipe | [F01](01-sistema-sanitario-italiano.md), [F10](10-percorsi-di-cura-e-sicurezza.md), [DOM](../05_domain/08-percorsi-e-piani-di-cura.md) |
+| **PAI - Piano assistenziale individuale** (*individual care plan*; istituto italiano) | N | Piano della presa in carico integrata, multiprofessionale, con dimensione sanitaria **e sociale**, redatto da un'équipe | [F01](01-sistema-sanitario-italiano.md), [F10](10-percorsi-di-cura-e-sicurezza.md), [DOM](../05_domain/08-percorsi-e-piani-di-cura.md) |
 | **Palpazione** (*palpation*) | S | Rilevazione mediante il tatto. **Trappola:** impossibile per il professionista a distanza, in ogni configurazione tecnica | [F09](09-fondamenti-clinici.md) |
 | **Paratia** (*bulkhead*) | S | Assegnazione di risorse separate e limitate a categorie diverse di lavoro, per contenere la propagazione dei guasti | [F11](11-fondamenti-informatici.md) |
 | **Partecipante** (*participant*) | S | Soggetto ammesso alla sessione con ruolo, qualifica dichiarata, istante di ingresso e istante di uscita | [DOM](../05_domain/02-le-prestazioni-modellate.md) |
 | **Partizione** (*partition*) | S | Unità di parallelismo e di ordinamento di un broker. **Trappola:** l'ordine è garantito **solo al suo interno** | [F13](13-protocolli.md) |
 | **`Patient`** | S | Risorsa FHIR anagrafica della persona assistita. **Trappola:** nel modello per riferimento il progetto lavora sull'`identifier` con dominio dell'integratore, non sull'`id` locale | [F06](06-fhir-da-zero.md) |
 | **Paziente** (*patient*) | S | Persona destinataria dell'atto sanitario. **Trappola:** è una qualifica **clinica**, distinta da «assistito», che è amministrativa; le regole di accesso ai due insiemi di dati hanno domini diversi | [DOM](../05_domain/03-assistito-professionista-organizzazione.md) |
-| **PDND — Piattaforma Digitale Nazionale Dati** | N | Catalogo di servizi applicativi e autorità di autorizzazione ai sensi dell'art. 50-*ter* del Codice dell'amministrazione digitale. **Trappola:** rilascia voucher, **non trasporta i dati** | [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **PDND - Piattaforma Digitale Nazionale Dati** | N | Catalogo di servizi applicativi e autorità di autorizzazione ai sensi dell'art. 50-*ter* del Codice dell'amministrazione digitale. **Trappola:** rilascia voucher, **non trasporta i dati** | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **PDQm** | S | Profilo IHE per l'interrogazione demografica | [F05](05-standard-di-interoperabilita.md) |
-| **PDTA — Percorso diagnostico-terapeutico assistenziale** (*care pathway*; istituto organizzativo italiano) | N | Sequenza attesa di atti per una condizione, in una determinata organizzazione. **Trappola:** è il **modello**, non l'istanza sul singolo paziente: il modello è versionato, l'istanza è il piano di cura | [F01](01-sistema-sanitario-italiano.md), [F10](10-percorsi-di-cura-e-sicurezza.md), [DOM](../05_domain/08-percorsi-e-piani-di-cura.md) |
+| **PDTA - Percorso diagnostico-terapeutico assistenziale** (*care pathway*; istituto organizzativo italiano) | N | Sequenza attesa di atti per una condizione, in una determinata organizzazione. **Trappola:** è il **modello**, non l'istanza sul singolo paziente: il modello è versionato, l'istanza è il piano di cura | [F01](01-sistema-sanitario-italiano.md), [F10](10-percorsi-di-cura-e-sicurezza.md), [DOM](../05_domain/08-percorsi-e-piani-di-cura.md) |
 | **Pepe** (*pepper*) | S | Segreto uguale per tutti, conservato fuori dalla base dati, aggiunto alla password oltre al sale | [F12](12-crittografia-e-sicurezza.md) |
 | **Percentile** | S | Valore sotto il quale cade una data frazione delle osservazioni | [F11](11-fondamenti-informatici.md) |
 | **Percussione** (*percussion*) | S | Rilevazione mediante il suono prodotto colpendo una superficie corporea. **Trappola:** impossibile a distanza | [F09](09-fondamenti-clinici.md) |
@@ -698,10 +698,10 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **PKCE** | S | Meccanismo che lega il codice di autorizzazione a un segreto generato dal client per quella specifica richiesta | [F13](13-protocolli.md) |
 | **PKI** (*public key infrastructure*) | S | Infrastruttura a chiave pubblica: autorità, politiche, procedure e formati che rendono operativi i certificati | [F12](12-crittografia-e-sicurezza.md) |
 | **`PLI` / `FIR`** | S | Segnalazione di perdita d'immagine e richiesta di fotogramma completo (RFC 4585, RFC 5104) | [F08](08-webrtc-da-zero.md) |
-| **PLS — Pediatra di libera scelta** (*family paediatrician*) | N | Equivalente del medico di medicina generale per la fascia pediatrica | [F01](01-sistema-sanitario-italiano.md) |
-| **PN-DT — Piattaforma nazionale per la diffusione della telemedicina** | N | Portale di formazione, catalogo e comunicazione sulla telemedicina | [F02](02-prestazioni-di-telemedicina.md) |
+| **PLS - Pediatra di libera scelta** (*family paediatrician*) | N | Equivalente del medico di medicina generale per la fascia pediatrica | [F01](01-sistema-sanitario-italiano.md) |
+| **PN-DT - Piattaforma nazionale per la diffusione della telemedicina** | N | Portale di formazione, catalogo e comunicazione sulla telemedicina | [F02](02-prestazioni-di-telemedicina.md) |
 | **PNRR Missione 6** | N | Componente «Salute» del Piano nazionale di ripresa e resilienza: la prima sotto-componente riguarda territorio e telemedicina, la seconda innovazione e fascicolo sanitario elettronico | [F01](01-sistema-sanitario-italiano.md) |
-| **PNT — Piattaforma nazionale di telemedicina** | N | Insieme dell'infrastruttura nazionale e delle infrastrutture regionali, istituito presso AGENAS dal DM 19 novembre 2025, art. 2 | [F02](02-prestazioni-di-telemedicina.md) |
+| **PNT - Piattaforma nazionale di telemedicina** | N | Insieme dell'infrastruttura nazionale e delle infrastrutture regionali, istituito presso AGENAS dal DM 19 novembre 2025, art. 2 | [F02](02-prestazioni-di-telemedicina.md) |
 | **Politica di trasporto forzata al relay** (*relay-only transport policy*) | P | Configurazione della negoziazione che scarta i candidati non di relay; è la prova rapida che il percorso instradato funziona davvero | [F17](17-ambiente-di-sviluppo.md) |
 | **Porta** (*port*) | S | Numero che identifica il programma destinatario su una macchina | [F08](08-webrtc-da-zero.md) |
 | **Portale nazionale FSE** | N | Componente dell'infrastruttura nazionale per l'interoperabilità che espone il fascicolo in rete alla persona assistita e agli operatori | [F07](07-fse-e-infrastrutture-nazionali.md) |
@@ -719,7 +719,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Pressione arteriosa media** (*mean arterial pressure*) | S | Media temporale della pressione nel ciclo cardiaco. **Trappola:** nei sistemi informativi è **una formula dichiarata**, non una misura: va rappresentata come valore derivato con la formula esplicitata | [F09](09-fondamenti-clinici.md) |
 | **Pressione differenziale** (*pulse pressure*) | S | Differenza fra pressione sistolica e diastolica; valore derivato, non misurato | [F09](09-fondamenti-clinici.md) |
 | **Prevalenza** (*prevalence*) | S | Proporzione di soggetti con la condizione nella popolazione testata. **Trappola:** è una proprietà della **popolazione**, non della malattia né del test, e determina il valore predittivo di ogni allarme | [F09](09-fondamenti-clinici.md) |
-| **PRI — Progetto riabilitativo individuale** (*individual rehabilitation project*; istituto italiano) | N | Contenitore obbligatorio delle prestazioni di riabilitazione, teleriabilitazione compresa | [F02](02-prestazioni-di-telemedicina.md), [DOM](../05_domain/08-percorsi-e-piani-di-cura.md) |
+| **PRI - Progetto riabilitativo individuale** (*individual rehabilitation project*; istituto italiano) | N | Contenitore obbligatorio delle prestazioni di riabilitazione, teleriabilitazione compresa | [F02](02-prestazioni-di-telemedicina.md), [DOM](../05_domain/08-percorsi-e-piani-di-cura.md) |
 | **Principale applicativo** (*application principal*) | P | Il sistema che agisce per conto di una persona. **Trappola:** va distinto dalla persona **in ogni voce di registro**; fonderli rende il registro inservibile in caso di contestazione | [F16](16-architettura-del-progetto.md), [INT](../07_integration/06-identita-e-delega.md) |
 | **Principio attivo** (*active substance*) | S | Sostanza responsabile dell'effetto del farmaco. **Trappola:** distinto dal nome del medicinale in commercio e dal codice della confezione | [F09](09-fondamenti-clinici.md) |
 | **Privilegio minimo** (*least privilege*) | S | Assegnazione dei soli permessi necessari, per il solo tempo necessario | [F12](12-crittografia-e-sicurezza.md) |
@@ -741,7 +741,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **PRRC** (*person responsible for regulatory compliance*) | N | Persona responsabile del rispetto della normativa; requisiti di qualifica e compiti fissati dall'art. 15 del Reg. (UE) 2017/745 | [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/03-sistema-di-gestione-della-qualita.md) |
 | **Pseudonimizzazione** (*pseudonymisation*) | N | Trattamento che impedisce l'attribuzione a un interessato senza informazioni aggiuntive conservate separatamente. **Trappola:** il dato resta **personale**, e resta dentro il perimetro del regolamento | [F03](03-il-dato-clinico.md) |
 | **Pseudonimo** (*pairwise pseudonymous identifier*) | S | Identificatore opaco che individua una persona senza rivelarne l'identità. **Trappola:** è unico **per gestore e per fornitore**, quindi **non condivisibile** fra sistemi: usarlo come chiave di correlazione è un errore strutturale | [F04](04-identita-e-anagrafiche.md) |
-| **PSN — Polo Strategico Nazionale** | N | Infrastruttura che ospita dati e servizi critici e strategici delle pubbliche amministrazioni su centri dati nazionali | [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **PSN - Polo Strategico Nazionale** | N | Infrastruttura che ospita dati e servizi critici e strategici delle pubbliche amministrazioni su centri dati nazionali | [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **PSUR** (*periodic safety update report*) | N | Rapporto periodico di aggiornamento sulla sicurezza (Reg. (UE) 2017/745, art. 86); previsto dalla Classe IIa in su | [F15](15-regolatorio-da-zero.md), [CMP](../08_compliance/08-sorveglianza-post-commercializzazione.md) |
 | **Punto di erogazione** (*point of delivery*) | S | Luogo, anche virtuale, in cui la struttura eroga. **Trappola:** distinto dall'indirizzo di svolgimento, che è dove si trova la persona assistita | [DOM](../05_domain/03-assistito-professionista-organizzazione.md) |
 | **Punto di ripristino** (*recovery point objective*, RPO) | S | Quantità massima di dati che si accetta di perdere, espressa in tempo | [F11](11-fondamenti-informatici.md) |
@@ -766,7 +766,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Rapporto di verosimiglianza** (*likelihood ratio*) | S | Fattore per cui un risultato di test moltiplica la quota a priori di malattia; proprietà del solo test | [F09](09-fondamenti-clinici.md) |
 | **Rapporto tecnico di sessione** (*session technical report*) | P | Sintesi ricostruibile di qualità, interruzioni, ripieghi e cambi di canale di una prestazione, utilizzabile nel documento clinico e nella gestione dei reclami | [F14](14-flussi-funzionali.md) |
 | **RBAC** (*role-based access control*) | S | Controllo degli accessi basato sui ruoli. **Trappola:** efficace per i permessi grossolani, **insufficiente** per la singola risorsa clinica, dove conta l'esistenza della relazione di cura | [F12](12-crittografia-e-sicurezza.md) |
-| **RdA / RdE — Regione di assistenza / Regione di erogazione** | N | Dove la persona è iscritta e dove la prestazione è erogata. **Trappola:** non coincidono sempre, e vanno rappresentate **entrambe**: sono due attributi distinti di ogni prestazione | [F01](01-sistema-sanitario-italiano.md), [F04](04-identita-e-anagrafiche.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **RdA / RdE - Regione di assistenza / Regione di erogazione** | N | Dove la persona è iscritta e dove la prestazione è erogata. **Trappola:** non coincidono sempre, e vanno rappresentate **entrambe**: sono due attributi distinti di ogni prestazione | [F01](01-sistema-sanitario-italiano.md), [F04](04-identita-e-anagrafiche.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Realm** (*contesto nazionale di una guida*) | S | Il contesto giuridico e organizzativo a cui una guida di implementazione si riferisce | [F05](05-standard-di-interoperabilita.md) |
 | **Referto** (*report*) | N | Documento sanitario firmato con esito e conclusioni di un atto, destinato alla persona assistita e al richiedente. **Trappola:** per la televisita esiste una **tipologia documentale propria**, creata dal DM 19 novembre 2025, art. 7, che non coincide con il referto di specialistica ambulatoriale | [F01](01-sistema-sanitario-italiano.md), [F03](03-il-dato-clinico.md), [DOM](../05_domain/04-documenti-clinici.md) |
 | **`Reference`** | S | Tipo di dato FHIR: puntatore a un'altra risorsa | [F06](06-fhir-da-zero.md) |
@@ -800,7 +800,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Rotazione del segreto** (*secret rotation*) | P | Sostituzione di una credenziale esposta. **Trappola:** è necessaria **anche dopo la rimozione** del segreto dal codice, perché la cronologia del repository e le copie restano | [F17](17-ambiente-di-sviluppo.md) |
 | **Rotazione delle chiavi** (*key rotation*) | S | Sostituzione di una chiave, con un periodo in cui la vecchia e la nuova coesistono | [F13](13-protocolli.md) |
 | **Rottura del vetro** (*break the glass*) | S | Accesso in emergenza che supera l'autorizzazione ordinaria, con motivazione obbligatoria, tracciamento rinforzato, notifica e verifica successiva. **Trappola:** senza la verifica successiva è soltanto un'autorizzazione che si concede da sé | [F12](12-crittografia-e-sicurezza.md), [SEC](../06_security/02-identita-e-accessi.md) |
-| **RPD / DPO — Responsabile della protezione dei dati** (*data protection officer*) | N | Funzione di sorveglianza e punto di contatto; obbligatoria per trattamenti su larga scala di categorie particolari di dati | [F03](03-il-dato-clinico.md) |
+| **RPD / DPO - Responsabile della protezione dei dati** (*data protection officer*) | N | Funzione di sorveglianza e punto di contatto; obbligatoria per trattamenti su larga scala di categorie particolari di dati | [F03](03-il-dato-clinico.md) |
 | **RTT** (*round-trip time*) | S | Tempo di andata e ritorno fra due estremi. **Trappola:** nelle statistiche del media si legge nel blocco relativo al flusso in ingresso remoto, non in quelle in uscita | [F08](08-webrtc-da-zero.md), [F13](13-protocolli.md) |
 | **Ruolo organizzativo** (*practitioner role*) | S | Relazione fra professionista e organizzazione, con disciplina, prestazioni erogabili e **validità temporale** | [DOM](../05_domain/03-assistito-professionista-organizzazione.md) |
 | **Ruolo unico di assistenza primaria** (istituto italiano della medicina convenzionata) | N | Figura che unifica le precedenti articolazioni della medicina generale convenzionata | [F01](01-sistema-sanitario-italiano.md) |
@@ -838,14 +838,14 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Sessione applicativa** (*application session*) | P | Sessione di accesso di un utente al sistema. **Trappola:** una delle tre cose che l'italiano chiama «sessione»; vedi la sezione sui termini dipendenti dal contesto | [DOM](../05_domain/01-linguaggio-ubiquo.md) |
 | **Sessione media** (*media session*) | P | Istanza di collegamento in tempo reale fra partecipanti. **Trappola:** è un **aggregato distinto dal contatto**: un contatto può avere più sessioni media, e una sessione media caduta non chiude il contatto | [F14](14-flussi-funzionali.md), [DOM](../05_domain/02-le-prestazioni-modellate.md) |
 | **Sezione media** (`m=`) | S | Blocco dell'SDP che descrive un flusso: tipo, codec offerti, direzione, attributi | [F08](08-webrtc-da-zero.md) |
-| **Setting di erogazione** (*care setting*) | P | Contesto organizzativo dell'erogazione. **Trappola: discrimina regole** — obbligo di referto, necessità della prescrizione, regime di rendicontazione — e non è quindi un'etichetta descrittiva | [DOM](../05_domain/02-le-prestazioni-modellate.md) |
+| **Setting di erogazione** (*care setting*) | P | Contesto organizzativo dell'erogazione. **Trappola: discrimina regole** - obbligo di referto, necessità della prescrizione, regime di rendicontazione - e non è quindi un'etichetta descrittiva | [DOM](../05_domain/02-le-prestazioni-modellate.md) |
 | **SFrame** | S | Cifratura autenticata dei fotogrammi sopra SRTP (RFC 9605). **Trappola: non definisce la gestione delle chiavi**, che resta interamente a carico dell'applicazione | [F08](08-webrtc-da-zero.md) |
 | **Sicura** (*safe*, di un metodo HTTP) | S | Detto di un metodo che non modifica lo stato del server | [F13](13-protocolli.md) |
 | **Sicurezza a livello di riga** (*row level security*) | S | Filtro applicato dal motore della base dati a ogni interrogazione, sulla base del contesto di sessione. **Trappola:** nel progetto è la **seconda** barriera, non il meccanismo unico, e in assenza di contesto **nega tutto**, di proposito | [F11](11-fondamenti-informatici.md), [F16](16-architettura-del-progetto.md), [ARC](../02_architecture/05-multi-tenancy.md) |
 | **Sigillo periodico** (*periodic seal*) | P | Impronta della catena firmata, marcata temporalmente e depositata presso un soggetto distinto | [F12](12-crittografia-e-sicurezza.md) |
 | **Sindrome** (*syndrome*) | S | Insieme di segni e sintomi che ricorrono insieme. **Trappola:** non è una diagnosi di causa | [F09](09-fondamenti-clinici.md) |
 | **Sintomo** (*symptom*) | S | Manifestazione riferita dalla persona assistita e non osservabile direttamente. **Trappola:** distinto dal segno; la fonte del dato cambia il suo peso clinico e va rappresentata | [F09](09-fondamenti-clinici.md) |
-| **Sistema TS — Sistema Tessera Sanitaria** | N | Infrastruttura del Ministero dell'economia e delle finanze prevista dall'art. 50 del D.L. 269/2003, su cui è realizzata l'infrastruttura nazionale per l'interoperabilità del fascicolo; gestisce anche ricetta dematerializzata e spese sanitarie | [F01](01-sistema-sanitario-italiano.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **Sistema TS - Sistema Tessera Sanitaria** | N | Infrastruttura del Ministero dell'economia e delle finanze prevista dall'art. 50 del D.L. 269/2003, su cui è realizzata l'infrastruttura nazionale per l'interoperabilità del fascicolo; gestisce anche ricetta dematerializzata e spese sanitarie | [F01](01-sistema-sanitario-italiano.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **Situazione pericolosa** (*hazardous situation*) | N | Circostanza in cui persone, beni o ambiente sono esposti a uno o più pericoli (ISO 14971) | [F10](10-percorsi-di-cura-e-sicurezza.md), [F15](15-regolatorio-da-zero.md) |
 | **SIU** | S | Famiglia di messaggi HL7 v2 per la programmazione degli appuntamenti | [F05](05-standard-di-interoperabilita.md) |
 | **Slicing** | S | Partizione di un elemento ripetuto di un profilo in sottoinsiemi con vincoli propri | [F06](06-fhir-da-zero.md) |
@@ -865,10 +865,10 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Specialista ambulatoriale interno** (istituto italiano della medicina convenzionata) | N | Professionista convenzionato a rapporto orario che opera negli ambulatori dell'azienda sanitaria; distinto dal medico specialista dipendente | [F01](01-sistema-sanitario-italiano.md) |
 | **Specifica** (*base standard*) | S | Documento che definisce il modello generale, volutamente permissivo per valere in ogni contesto. **Trappola:** una specifica di base non è implementabile senza un profilo: la permissività è voluta e va ristretta | [F05](05-standard-di-interoperabilita.md) |
 | **Specificità** (*specificity*) | S | Quota di casi realmente negativi correttamente esclusi. **Trappola:** alta specificità significa pochi falsi positivi, e non ha nulla a che vedere con la sensibilità | [F09](09-fondamenti-clinici.md), [F10](10-percorsi-di-cura-e-sicurezza.md) |
-| **SPID — Sistema pubblico di identità digitale** (istituto italiano) | N | Federazione di più gestori di identità accreditati. **Trappola:** l'ordine di presentazione dei gestori è obbligatoriamente casuale; con i livelli superiori non esiste sessione condivisa; e **in produzione è utilizzabile solo in SAML 2.0** | [F04](04-identita-e-anagrafiche.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
+| **SPID - Sistema pubblico di identità digitale** (istituto italiano) | N | Federazione di più gestori di identità accreditati. **Trappola:** l'ordine di presentazione dei gestori è obbligatoriamente casuale; con i livelli superiori non esiste sessione condivisa; e **in produzione è utilizzabile solo in SAML 2.0** | [F04](04-identita-e-anagrafiche.md), [F07](07-fse-e-infrastrutture-nazionali.md) |
 | **SRN** (*single registration number*) | N | Numero di registrazione unico dell'operatore economico nella banca dati europea dei dispositivi medici | [F15](15-regolatorio-da-zero.md) |
 | **SRTP** (*Secure Real-time Transport Protocol*) | S | Formato che cifra e autentica i pacchetti del media in tempo reale (RFC 3711) | [F08](08-webrtc-da-zero.md) |
-| **SSN — Servizio sanitario nazionale** (*Italian National Health Service*) | N | Complesso di funzioni, strutture, servizi e attività destinati alla salute dell'intera popolazione (L. 833/1978) | [F01](01-sistema-sanitario-italiano.md) |
+| **SSN - Servizio sanitario nazionale** (*Italian National Health Service*) | N | Complesso di funzioni, strutture, servizi e attività destinati alla salute dell'intera popolazione (L. 833/1978) | [F01](01-sistema-sanitario-italiano.md) |
 | **SSRF** (*server-side request forgery*) | S | Indurre un server a chiamare una destinazione scelta dall'attaccante, tipicamente interna | [F13](13-protocolli.md), [SEC](../06_security/06-sicurezza-applicativa.md) |
 | **Standard** | S | Documento pubblicato da un ente riconosciuto che descrive un formato, un protocollo o un modello | [F13](13-protocolli.md) |
 | **Standard di fatto** (*de facto standard*) | S | Convenzione diffusa che nessun ente ha normato. **Trappola:** diffuso non significa normato, e citarlo come standard in un documento regolatorio è un errore | [F13](13-protocolli.md) |
@@ -876,7 +876,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | **Stato del contatto** (*encounter state*) | P | Dove si trova il contatto nel suo ciclo di vita. **Trappola:** distinto dall'**esito**, che dice invece come l'atto si è concluso | [DOM](../05_domain/02-le-prestazioni-modellate.md) |
 | **Stato di risoluzione** (*resolution status*) | P | Esito del tentativo di risolvere un codice: risolto, sistema disattivato, servizio non raggiungibile, codice non trovato. **Trappola:** i quattro esiti sono diversi e vanno distinti, perché tre di essi non sono errori del dato | [DOM](../05_domain/07-terminologie-nel-dominio.md) |
 | **`statusHistory`** | S | Traiettoria degli stati di un contatto assistenziale, con i rispettivi periodi | [F06](06-fhir-da-zero.md) |
-| **STP — Straniero Temporaneamente Presente** (codice del diritto italiano) | N | Codice di assistenza previsto dall'art. 35 del d.lgs. 286/1998 per lo straniero non in regola con le norme sull'ingresso e il soggiorno; sedici caratteri, attribuito localmente, con validità temporale | [F04](04-identita-e-anagrafiche.md) |
+| **STP - Straniero Temporaneamente Presente** (codice del diritto italiano) | N | Codice di assistenza previsto dall'art. 35 del d.lgs. 286/1998 per lo straniero non in regola con le norme sull'ingresso e il soggiorno; sedici caratteri, attribuito localmente, con validità temporale | [F04](04-identita-e-anagrafiche.md) |
 | **STRIDE** | S | Metodo di modellazione delle minacce in sei categorie, ciascuna negazione di una proprietà di sicurezza | [F12](12-crittografia-e-sicurezza.md), [SEC](../06_security/01-modello-di-minaccia.md) |
 | **`StructureDefinition`** | S | Risorsa FHIR che definisce una struttura: risorsa di base, profilo, estensione o tipo di dato | [F06](06-fhir-da-zero.md) |
 | **Structured Fields** | S | Grammatica normata per i valori delle intestazioni HTTP (RFC 9651) | [F13](13-protocolli.md) |
@@ -890,8 +890,8 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 > **Avvertenza sui nomi delle prestazioni di telemedicina.** Televisita, teleconsulto,
 > teleconsulenza, teleassistenza, telemonitoraggio, telerefertazione, telecontrollo e
 > teleriabilitazione **sono istituti del diritto italiano**, definiti dall'Accordo Stato-Regioni
-> 215/CSR del 2020 e dagli atti successivi. I traducenti inglesi correnti — *video visit*,
-> *teleconsultation*, *tele-advice*, *tele-care*, *remote patient monitoring* — **non sono
+> 215/CSR del 2020 e dagli atti successivi. I traducenti inglesi correnti - *video visit*,
+> *teleconsultation*, *tele-advice*, *tele-care*, *remote patient monitoring* - **non sono
 > equivalenti esatti**: designano pratiche organizzative, non fattispecie giuridiche, e non
 > portano con sé né i limiti di erogabilità, né gli obblighi documentali, né il regime di
 > rendicontazione che la definizione italiana comporta. Nella documentazione inglese del
@@ -901,7 +901,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 | Termine | Nat. | Definizione | Dove |
 |---|---|---|---|
 | **Taccuino personale dell'assistito** (*patient's personal notebook*) | N | Sezione del fascicolo sanitario elettronico alimentata dal cittadino. **Trappola:** i suoi contenuti **non sono dati clinici certificati da un professionista**, e trattarli come tali è un errore di modello prima ancora che di sicurezza | [F07](07-fse-e-infrastrutture-nazionali.md) |
-| **TEAM — Tessera europea di assicurazione malattia** (*European Health Insurance Card*) | N | Identificatore, riportato sul retro della tessera sanitaria, che attesta il diritto all'assistenza in un altro Stato membro | [F04](04-identita-e-anagrafiche.md) |
+| **TEAM - Tessera europea di assicurazione malattia** (*European Health Insurance Card*) | N | Identificatore, riportato sul retro della tessera sanitaria, che attesta il diritto all'assistenza in un altro Stato membro | [F04](04-identita-e-anagrafiche.md) |
 | **Teleassistenza** (*tele-care*; **equivalente inglese non esatto**, vedi avvertenza) | N | Atto professionale di pertinenza delle professioni sanitarie **non mediche**, con la persona assistita o con il caregiver, prevalentemente programmato e ripetibile. **Trappola:** in informatica «teleassistenza» significa assistenza tecnica remota all'utente: sono due cose diverse e non vanno mai chiamate con la stessa parola | [F02](02-prestazioni-di-telemedicina.md), [DOM](../05_domain/02-le-prestazioni-modellate.md) |
 | **Teleconsulenza medico-sanitaria** (*tele-advice*; **equivalente inglese non esatto**) | N | Attività di supporto a distanza fra professionisti sanitari **con responsabilità differenti**, sempre programmata. **Trappola:** **non** è utilizzabile in surroga del soccorso | [F02](02-prestazioni-di-telemedicina.md), [DOM](../05_domain/02-le-prestazioni-modellate.md) |
 | **Teleconsulto** (*physician-to-physician teleconsultation*; **equivalente inglese non esatto**) | N | Atto fra due o più **medici** sulla situazione clinica di una persona, sincrono o asincrono. **Trappola: non dà luogo a referto autonomo**; produce una relazione collaborativa conferita come allegato al documento dell'evento principale | [F02](02-prestazioni-di-telemedicina.md), [DOM](../05_domain/02-le-prestazioni-modellate.md) |
@@ -943,7 +943,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 
 | Termine | Nat. | Definizione | Dove |
 |---|---|---|---|
-| **UCA — Unità di continuità assistenziale** (*continuity of care unit*; istituto italiano del DM 77/2022) | N | Équipe mobile per situazioni di elevata complessità clinico-assistenziale | [F01](01-sistema-sanitario-italiano.md) |
+| **UCA - Unità di continuità assistenziale** (*continuity of care unit*; istituto italiano del DM 77/2022) | N | Équipe mobile per situazioni di elevata complessità clinico-assistenziale | [F01](01-sistema-sanitario-italiano.md) |
 | **UCUM** (*Unified Code for Units of Measure*) | S | Codifica standard delle unità di misura; è la forma in cui l'unità entra nel modello dati. **Trappola:** ridistribuibile verbatim, ma i derivati sono vietati e la licenza è revocabile | [F05](05-standard-di-interoperabilita.md), [F09](09-fondamenti-clinici.md) |
 | **UDI / UDI-DI / UDI-PI** (*unique device identification*) | N | Sistema di identificazione unica del dispositivo. **Trappola:** per il software la parte di produzione corrisponde alla **versione** | [F02](02-prestazioni-di-telemedicina.md), [F15](15-regolatorio-da-zero.md) |
 | **UDP** (*User Datagram Protocol*) | S | Protocollo di trasporto minimo: nessuna connessione, nessuna conferma, nessun ordine. **Trappola:** è precisamente ciò che serve al tempo reale, e sembra un difetto solo a chi arriva dalle applicazioni transazionali | [F08](08-webrtc-da-zero.md) |
@@ -995,7 +995,7 @@ e nessun altro documento del progetto — afferma che il prodotto sarà marcato 
 
 ## 3. Falsi sinonimi
 
-Sono coppie — o terne, o quaterne — di termini che il linguaggio corrente scambia e che il
+Sono coppie - o terne, o quaterne - di termini che il linguaggio corrente scambia e che il
 modello non può scambiare. Non è pedanteria: ciascuna di queste distinzioni corrisponde a un
 confine di aggregato, a un vincolo di autorizzazione, a una regola di rendicontazione o a un
 requisito di sicurezza. Per ognuna sono indicati **perché i due termini vengono confusi** e
@@ -1010,8 +1010,8 @@ forma sintetica con il rinvio. Le successive emergono dagli altri moduli di ques
 **1. Assistito e paziente.**
 *Perché si confondono:* nel parlato quotidiano designano la stessa persona, e in molte frasi sono
 interscambiabili senza che nessuno se ne accorga.
-*Che cosa si rompe:* le regole di accesso ai dati amministrativi — esenzioni, recapiti, scelta del
-medico — e quelle di accesso ai dati clinici hanno domini diversi. Un operatore di sportello
+*Che cosa si rompe:* le regole di accesso ai dati amministrativi - esenzioni, recapiti, scelta del
+medico - e quelle di accesso ai dati clinici hanno domini diversi. Un operatore di sportello
 lavora sull'assistito e non deve poter lavorare sul paziente. Con una sola entità e un solo
 insieme di permessi, la separazione va ricostruita a mano su ogni campo, e prima o poi un campo
 viene dimenticato.
@@ -1090,7 +1090,7 @@ che porta a esporre a un amministratore di tenant un campo che è una decisione 
 
 **12. Allarme tecnico e allarme clinico.**
 *Perché si confondono:* sono entrambi notifiche che arrivano dallo stesso sistema.
-*Che cosa si rompe:* hanno destinatari diversi per norma — il tecnico al centro servizi, il clinico
+*Che cosa si rompe:* hanno destinatari diversi per norma - il tecnico al centro servizi, il clinico
 al centro erogatore. Una coda unica produce due effetti, entrambi gravi: il tecnico che riceve un
 allarme clinico e il clinico assuefatto agli allarmi tecnici.
 
@@ -1168,8 +1168,8 @@ Vedi [F03](03-il-dato-clinico.md).
 *Perché si confondono:* in entrambi i casi il nome non compare.
 *Che cosa si rompe:* l'anonimizzazione fa uscire il dato dal perimetro della disciplina sulla
 protezione dei dati; la pseudonimizzazione no, e il dato resta personale. Dichiarare anonimizzato un
-dato pseudonimizzato significa applicargli un regime che non gli spetta — trasferimenti,
-conservazione, comunicazione a terzi — e ciascuna di quelle applicazioni è una violazione.
+dato pseudonimizzato significa applicargli un regime che non gli spetta - trasferimenti,
+conservazione, comunicazione a terzi - e ciascuna di quelle applicazioni è una violazione.
 Vedi [F03](03-il-dato-clinico.md).
 
 **22. Diagnosi e sospetto diagnostico.**
@@ -1199,7 +1199,7 @@ Vedi [F14](14-flussi-funzionali.md) e [DOM](../05_domain/02-le-prestazioni-model
 **25. Identificatore e attributo.**
 *Perché si confondono:* entrambi sono «campi che descrivono la persona».
 *Che cosa si rompe:* l'identificatore individua dentro un dominio dichiarato; l'attributo descrive
-senza individuare. Trattare un attributo come chiave — la data di nascita, il recapito, il nome —
+senza individuare. Trattare un attributo come chiave - la data di nascita, il recapito, il nome -
 produce collisioni silenziose; trattare un identificatore senza il suo dominio produce
 corrispondenze fra persone diverse.
 Vedi [F04](04-identita-e-anagrafiche.md).
@@ -1217,7 +1217,7 @@ Vedi [F06](06-fhir-da-zero.md).
 *Che cosa si rompe:* la conformità a una norma tecnica è una proprietà verificabile del prodotto; la
 marcatura CE è un atto formale del fabbricante, che per le classi superiori presuppone
 l'intervento di un Organismo Notificato. **Oggi il prodotto non reca marcatura CE**, e ogni
-formulazione che lascia intendere il contrario — anche una formulazione al futuro con una data —
+formulazione che lascia intendere il contrario - anche una formulazione al futuro con una data -
 produce un effetto regolatorio che l'intenzione di certificare non produce.
 Vedi [F15](15-regolatorio-da-zero.md).
 
@@ -1289,7 +1289,7 @@ dominio; le successive discendono dalle avvertenze pubbliche e dalle decisioni s
 | «Peer-to-peer» come qualità permanente della sessione | Il percorso diretto non è sempre possibile, e la promessa non è mantenibile su tutte le reti | *cifrato da estremo a estremo, instradato direttamente quando la rete lo consente* |
 | «Rotazione delle chiavi per sessione» | Formulazione ambigua: suggerisce un meccanismo di rotazione che non è quello adottato | *materiale crittografico generato ex novo per ogni sessione, senza riuso* |
 | «Latenza inferiore a *N* millisecondi» come promessa | La latenza dipende da reti che il progetto non controlla | *metrica misurata, registrata e notificata*, con le soglie di prodotto dichiarate |
-| «Accreditato SPID», «accreditato presso l'autorità» | Un progetto open source non può essere accreditato: il fornitore di servizi è chi eroga in rete, cioè il deployer | *conforme e verificabile in integrazione continua*, con la suite di conformità superata per intero |
+| «Accreditato SPID», «accreditato presso l'autorità» | Un progetto open source non può essere accreditato: il fornitore di servizi è chi eroga in rete, cioè chi installa | *conforme e verificabile in integrazione continua*, con la suite di conformità superata per intero |
 | Sigle di conformità crittografica di ordinamenti extra-UE come garanzia | Non sono il riferimento applicabile e suggeriscono una qualificazione che il prodotto non ha | i riferimenti europei e nazionali applicabili, citati per esteso |
 | Qualunque codice o descrizione di terminologie sotto licenza restrittiva, **SNOMED CT in particolare** | Il vincolo di licenza si perfeziona con l'accesso al contenuto ed è incompatibile con un repository pubblico | l'URI del sistema di codifica e il codice ricevuto dall'esterno, risolti a runtime dal gateway terminologico |
 | «Paziente non compliante» come giudizio | L'aderenza non è obbedienza, e la sua assenza è un dato clinico da interpretare, non una colpa da registrare | *aderenza*, misurata come rapporto fra attese soddisfatte e attese generate, con le esclusioni dichiarate |
@@ -1370,7 +1370,7 @@ la denominazione di un decreto lo rende irreperibile.
 | SPID | Sistema pubblico di identità digitale | Italian public digital identity system | [F04](04-identita-e-anagrafiche.md) |
 | STP | Straniero Temporaneamente Presente | Temporarily present foreign national | [F04](04-identita-e-anagrafiche.md) |
 | TEAM | Tessera europea di assicurazione malattia | European Health Insurance Card | [F04](04-identita-e-anagrafiche.md) |
-| TS-CNS | Tessera sanitaria — carta nazionale dei servizi | Health card with national services card chip | [F04](04-identita-e-anagrafiche.md) |
+| TS-CNS | Tessera sanitaria - carta nazionale dei servizi | Health card with national services card chip | [F04](04-identita-e-anagrafiche.md) |
 
 ### 5.5 Standard, interoperabilità e terminologie
 
@@ -1398,7 +1398,7 @@ la denominazione di un decreto lo rende irreperibile.
 | PIXm | Correlazione degli identificativi del paziente, versione mobile | Patient Identifier Cross-referencing for Mobile | [F05](05-standard-di-interoperabilita.md) |
 | SDO | Ente di sviluppo di standard | Standards Development Organization | [F05](05-standard-di-interoperabilita.md) |
 | SIU | Messaggi di programmazione degli appuntamenti | Scheduling Information Unsolicited | [F05](05-standard-di-interoperabilita.md) |
-| SNOMED CT | Nomenclatura sistematizzata della medicina, termini clinici | Systematized Nomenclature of Medicine — Clinical Terms | [F05](05-standard-di-interoperabilita.md) |
+| SNOMED CT | Nomenclatura sistematizzata della medicina, termini clinici | Systematized Nomenclature of Medicine - Clinical Terms | [F05](05-standard-di-interoperabilita.md) |
 | STU | Uso di prova per standard | Standard for Trial Use | [F05](05-standard-di-interoperabilita.md) |
 | UCUM | Codice unificato per le unità di misura | Unified Code for Units of Measure | [F05](05-standard-di-interoperabilita.md) |
 
@@ -1500,11 +1500,11 @@ la denominazione di un decreto lo rende irreperibile.
 ## 6. Termini che significano cose diverse a seconda del contesto
 
 È la categoria più insidiosa del glossario, e per una ragione precisa: **chi legge crede di aver
-capito.** Con un falso sinonimo il lettore percepisce almeno un attrito — due parole per una cosa
+capito.** Con un falso sinonimo il lettore percepisce almeno un attrito - due parole per una cosa
 sola. Qui no: la parola è una sola, il significato è plausibile, la frase scorre, e l'errore si
 manifesta molti mesi dopo, in un punto del sistema che nessuno collega alla frase letta.
 
-La regola del progetto non è scegliere un significato ed espellere l'altro — sarebbero entrambi
+La regola del progetto non è scegliere un significato ed espellere l'altro - sarebbero entrambi
 legittimi, ciascuno nel proprio contesto. La regola è **qualificare sempre**, e il controllo è
 automatizzabile perché l'elenco è chiuso: nessuna delle parole che seguono compare da sola in un
 nome di classe, di colonna, di endpoint, di evento o di etichetta di interfaccia.
@@ -1588,7 +1588,7 @@ Mai un campo `status` senza qualificatore in un'interfaccia rivolta a un profess
 ### 6.9 Piano
 
 **Significati.** (a) Nel dominio clinico: piano di cura, piano assistenziale individuale, piano di
-telemonitoraggio, progetto riabilitativo individuale — quattro oggetti distinti. (b) Nel dominio
+telemonitoraggio, progetto riabilitativo individuale - quattro oggetti distinti. (b) Nel dominio
 tecnico: piano di esecuzione di un'interrogazione, piano di rilascio. (c) Nell'architettura del
 progetto: piano applicativo e piano clinico come superfici di esposizione.
 **Come si riconosce.** Se è firmato da un professionista, è (a). Se lo produce un motore, è (b). Se
@@ -1648,7 +1648,7 @@ autore; gli altri quattro si distinguono dal complemento che li accompagna.
 ### 6.15 Risorsa
 
 **Significati.** (a) L'unità di scambio dello standard sanitario. (b) La risorsa protetta di un
-sistema di autorizzazione. (c) La risorsa di calcolo — memoria, connessioni, quote.
+sistema di autorizzazione. (c) La risorsa di calcolo - memoria, connessioni, quote.
 **Come si riconosce.** Se ha un `resourceType`, è (a). Se compare in una decisione di
 autorizzazione insieme a soggetto e azione, è (b). Se compare in un limite o in una paratia, è (c).
 **Forma da usare.** *risorsa FHIR* / *risorsa protetta* / *risorsa di sistema*.
@@ -1695,8 +1695,8 @@ se nessuno verifica la revoca.
 
 **Significati.** (a) L'Accordo collettivo nazionale della medicina convenzionata. (b) L'Agenzia per
 la cybersicurezza nazionale.
-**Come si riconosce.** Il contesto è sempre chiarissimo — remunerazione dei medici contro misure di
-sicurezza — ed è proprio per questo che nessuno scioglie la sigla, e chi legge dall'esterno del
+**Come si riconosce.** Il contesto è sempre chiarissimo - remunerazione dei medici contro misure di
+sicurezza - ed è proprio per questo che nessuno scioglie la sigla, e chi legge dall'esterno del
 dominio si ferma.
 **Forma da usare.** Sempre sciolta alla prima occorrenza di ogni documento, senza eccezioni. È il
 caso di omonimia più frequente in questa documentazione.
@@ -1722,7 +1722,7 @@ nazionale: in quei casi il rinvio serve a trovare la voce, non a sostituire il t
 | Alarm fatigue | Affaticamento da allarme |
 | Amendment | Rettifica |
 | Anonymisation | Anonimizzazione |
-| Anticorruption layer | Livello anticorruzione |
+| Anti-corruption layer | Livello anticorruzione |
 | Append-only store | Archivio a sola aggiunta |
 | Application principal | Principale applicativo |
 | Application session | Sessione applicativa |
@@ -1871,7 +1871,7 @@ nazionale: in quei casi il rinvio serve a trovare la voce, non a sostituire il t
 | Homeostasis | Omeostasi |
 | Hospital discharge letter | Lettera di dimissione ospedaliera |
 | Hysteresis | Isteresi |
-| Idempotence / idempotency key | Idempotenza / chiave di idempotenza |
+| Idempotency / idempotency key | Idempotenza / chiave di idempotenza |
 | Identifier | Identificatore |
 | Identity | Identità |
 | Implementation guide | Guida di implementazione |
@@ -2093,7 +2093,7 @@ la natura della definizione e i capitoli in cui è modellata, e il
 governa il vocabolario invece di elencare **che cosa** contiene.
 
 **Se cerchi il testo originale di una fonte normativa citata.** Il modulo
-[20 — Fonti primarie](20-fonti-primarie.md), che rinvia ai testi e non alle sintesi. Un glossario
+[20 - Fonti primarie](20-fonti-primarie.md), che rinvia ai testi e non alle sintesi. Un glossario
 è per definizione una sintesi, e le sintesi invecchiano.
 
 **Se hai trovato una voce che ti sembra imprecisa.** Aprire una segnalazione vale più di dieci
@@ -2104,7 +2104,7 @@ di contribuzione sono in
 questa guida come prerequisito.
 
 **Se stai per toccare un'area del codice.** Il modulo
-[18 — Contribuire, area per area](18-contribuire-per-area.md), che dice area per area quali
+[18 - Contribuire, area per area](18-contribuire-per-area.md), che dice area per area quali
 conoscenze servono prima di modificarla, e quali sono gli errori tipici di chi arriva dall'altro
 dominio.
 

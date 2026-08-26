@@ -33,7 +33,7 @@ follows.
 **In telemedicine the nominal pathway is the minority of cases.** Not through defective design: by
 the structure of the domain. Between the moment a service is booked and the moment its outcome
 arrives where it is needed, there are dozens of points at which something can go differently from
-what was expected — a system permission not granted, a network that drops, an unreadable document, a
+what was expected - a system permission not granted, a network that drops, an unreadable document, a
 missing consent, a transmission that does not arrive, data that never leaves. Most of these points
 **are not technical errors**: they are domain pathways with an outcome of their own, someone
 responsible and an administrative consequence.
@@ -44,21 +44,21 @@ recordable outcome. A flow drawn only along its happy path is a flow that has no
 
 The second principle is more technical but equally binding.
 
-**Clinical state and technical state are two distinct machines.** The encounter — the clinical act —
-has a clinical and administrative life cycle; the media session — the audio-video connection — has a
+**Clinical state and technical state are two distinct machines.** The encounter - the clinical act -
+has a clinical and administrative life cycle; the media session - the audio-video connection - has a
 technical life cycle. A network drop **does not close and does not conclude** a clinical act. If the
 two machines are the same entity, every disconnection creates a phantom act, every reconnection
 creates a duplicate, and reconstructing what actually happened becomes impossible.
 
 ```mermaid
 flowchart LR
-    subgraph CL["Clinical and administrative machine — the encounter"]
+    subgraph CL["Clinical and administrative machine - the encounter"]
         C1["Requested"] --> C2["Booked"] --> C3["Ready"] --> C4["Waiting"] --> C5["In progress"]
         C5 --> C6["Suspended"]
         C6 --> C5
         C5 --> C7["Concluded"] --> C8["Reported"] --> C9["Delivered"] --> C10["Accounted for"]
     end
-    subgraph ME["Technical machine — the media session"]
+    subgraph ME["Technical machine - the media session"]
         M1["Initialised"] --> M2["Negotiation"] --> M3["Connected"]
         M3 --> M4["Degraded"] --> M3
         M3 --> M5["Reconnecting"] --> M3
@@ -93,19 +93,19 @@ sequenceDiagram
     actor M as Professional
     participant FSE as Document repository
 
-    Note over EXT,TM: Phase 1 — Request and booking
+    Note over EXT,TM: Phase 1 - Request and booking
     EXT->>TM: creates the appointment (external references for patient, professional, service)
     TM->>TM: checks catalogue, permitted channel, authorised profession, relay configured
     TM-->>EXT: encounter identifier and access links
     TM->>P: confirmation with instructions and a reminder about the technical check
 
-    Note over M,TM: Phase 2 — Feasibility check
+    Note over M,TM: Phase 2 - Feasibility check
     M->>TM: declares that the service does not require a full physical examination
     M->>TM: selects the applicable condition for delivery
     M->>TM: records clinical usefulness, clinical safety, capacity for digital interaction
     TM->>TM: makes the declaration immutable
 
-    Note over P,TM: Phase 3 — Technical check and declarations of will
+    Note over P,TM: Phase 3 - Technical check and declarations of will
     P->>TM: opens the check link
     TM->>P: tests camera, microphone, loudspeaker, bandwidth
     TM->>TURN: verifies reachability and ephemeral credentials
@@ -114,7 +114,7 @@ sequenceDiagram
     TM->>P: presents the notice in force and requests the relevant declarations
     P-->>TM: declares their will with evidence (version of the text, instant, channel)
 
-    Note over P,M: Phase 4 — Access and identification
+    Note over P,M: Phase 4 - Access and identification
     P->>IDP: authentication
     IDP-->>TM: assertion with level of assurance
     P->>TM: entry into the waiting room
@@ -125,19 +125,19 @@ sequenceDiagram
     M->>P: identification by the prescribed method
     M->>TM: records method, outcome, author, instant
 
-    Note over P,M: Phase 5 — Delivery
+    Note over P,M: Phase 5 - Delivery
     P->>TM: confirms the place where they are
     P-->>M: encrypted media stream
     M->>TM: takes notes, shares documents, requests attachments
     TM->>TM: samples quality metrics at a fixed interval
 
-    Note over M,FSE: Phase 6 — Closure, report writing, signature
+    Note over M,FSE: Phase 6 - Closure, report writing, signature
     M->>TM: closes the session by selecting a typed outcome
     TM->>TM: closes the encounter, computes the effective duration, produces the technical report
     M->>TM: drafts the report on the template for that service
     M->>TM: confirms the suitability of the connection and affixes the signature
 
-    Note over TM,FSE: Phase 7 — Delivery and return
+    Note over TM,FSE: Phase 7 - Delivery and return
     TM->>P: makes the document available and notifies without clinical content
     TM->>EXT: returns document and metadata to the source system
     TM->>EXT: issues the accounting event
@@ -183,15 +183,15 @@ is most often lost.
 
 | Phase | What can stop the flow | Outcome | Who answers for it |
 |---|---|---|---|
-| 1 — Booking | channel not permitted, profession not authorised, relay not configured, urgent context | reasoned refusal, no partial resource | the system, with a message to the requester |
-| 2 — Feasibility | physical examination required, no applicable condition, insufficient digital capacity | routing towards the in-person service or towards support | the professional |
-| 3 — Technical check | permission not granted, device not supported, insufficient bandwidth, relay unreachable | technical outcome recorded, encounter appears in the risk view | the front office, proactively |
-| 3 — Consents | mandatory declaration missing, representative without powers | immediate collection before the act, or suspension | the professional and the front office |
-| 4 — Waiting room | access outside the window, abandonment, failure to connect | explanatory message, or an outcome of abandonment or non-attendance | the system, distinguishing those who tried from those who did not |
-| 4 — Identification | unreadable document, substantive discrepancy | alternative method, or encounter cancelled without charge | the professional |
-| 5 — Delivery | degradation, drop, clinical emergency, clinical decision to stop | fallback, reconnection, emergency procedure, typed outcome | the professional, with support from the system |
-| 6 — Report writing | mandatory section missing, certificate not valid, deadline exceeded | signature blocked, reminder, escalation to the manager | the professional, with monitoring by the system |
-| 7 — Delivery of the document | consent to transmission absent, recipient unreachable | known condition communicated, or reconciliation queue | the system, with visibility to the front office |
+| 1 - Booking | channel not permitted, profession not authorised, relay not configured, urgent context | reasoned refusal, no partial resource | the system, with a message to the requester |
+| 2 - Feasibility | physical examination required, no applicable condition, insufficient digital capacity | routing towards the in-person service or towards support | the professional |
+| 3 - Technical check | permission not granted, device not supported, insufficient bandwidth, relay unreachable | technical outcome recorded, encounter appears in the risk view | the front office, proactively |
+| 3 - Consents | mandatory declaration missing, representative without powers | immediate collection before the act, or suspension | the professional and the front office |
+| 4 - Waiting room | access outside the window, abandonment, failure to connect | explanatory message, or an outcome of abandonment or non-attendance | the system, distinguishing those who tried from those who did not |
+| 4 - Identification | unreadable document, substantive discrepancy | alternative method, or encounter cancelled without charge | the professional |
+| 5 - Delivery | degradation, drop, clinical emergency, clinical decision to stop | fallback, reconnection, emergency procedure, typed outcome | the professional, with support from the system |
+| 6 - Report writing | mandatory section missing, certificate not valid, deadline exceeded | signature blocked, reminder, escalation to the manager | the professional, with monitoring by the system |
+| 7 - Delivery of the document | consent to transmission absent, recipient unreachable | known condition communicated, or reconciliation queue | the system, with visibility to the front office |
 
 ---
 
@@ -280,7 +280,7 @@ identification where it belongs: among the decisions of the professional.
 
 ## 4. Specialist-to-specialist consultation
 
-A specialist-to-specialist consultation (*teleconsulto*) **is not a remote consultation with one extra
+A specialist-to-specialist consultation (teleconsulto) **is not a remote consultation with one extra
 participant**. The subject of the service, the responsibility, the permitted synchrony, the documents
 produced and the reimbursement regime all change. The operational difference that weighs most heavily
 on the code is, however, another: **the consulted specialist does not receive access to the person's
@@ -492,7 +492,7 @@ sequenceDiagram
 
 ### 6.1 The six points at which this flow breaks in real implementations
 
-1. **Between raising and delivery.** Delivery fails silently — the contact detail is no longer valid,
+1. **Between raising and delivery.** Delivery fails silently - the contact detail is no longer valid,
    the device is switched off, an external service is unavailable. Without confirmation per channel
    the system believes it has warned somebody and has not.
 2. **Between delivery and reply.** No deadline is defined, therefore there is no way of knowing that
@@ -513,7 +513,7 @@ sequenceDiagram
 A system that closes unanswered alerts «on expiry» **erases the only trace of the fact that nobody
 answered**. It is the most convenient behaviour to implement and the hardest to defend: it makes
 invisible precisely what the service is supposed to measure. A declared failure is not a failure of
-the software, it is valuable information — it says that the service, at that moment and in that time
+the software, it is valuable information - it says that the service, at that moment and in that time
 band, was not able to handle an alert.
 
 And the chain must be **tested cold**, periodically, without generating a real clinical alert. A chain
@@ -568,8 +568,8 @@ flowchart TB
 
 ### 7.1 The strategy: eliminate the known causes
 
-The last category of causes of silence — the person who can no longer take the measurement because
-they are deteriorating — **cannot be distinguished by technical means**. The correct strategy is not
+The last category of causes of silence - the person who can no longer take the measurement because
+they are deteriorating - **cannot be distinguished by technical means**. The correct strategy is not
 to guess it: it is to **eliminate all the others**, so that the residual silence is informative. Every
 technical cause the system cannot recognise dilutes the clinical signal and produces pointless
 contacts, which in turn generate operator fatigue.
@@ -729,7 +729,7 @@ connection and of its suitability** for carrying out the service.
 This last deserves a note, because it is the point where the clinical rule meets transport
 engineering. The rule requires the professional to attest that the connection was suitable, **without
 setting any numerical threshold**: the judgement belongs to the doctor, on the individual act. The
-attestation nevertheless requires objective evidence, otherwise it is a bare assertion — and the
+attestation nevertheless requires objective evidence, otherwise it is a bare assertion - and the
 session metrics are that evidence. The thresholds at which the product warns about degradation are
 therefore a **product specification**, configurable per tenant, not regulatory conformity. The detail
 is in module [02, § 4.1.7](02-prestazioni-di-telemedicina.md).
@@ -792,7 +792,7 @@ and it is never closed automatically without a decision of the professional. It 
 application of the principle in § 0.
 
 **The lesson.** A fallback is not a failure of the service: it is the service continuing in a degraded
-form. What must be avoided is *silent* failure — the frozen screen, the generic message, the
+form. What must be avoided is *silent* failure - the frozen screen, the generic message, the
 disconnection without explanation. The difference between a successful fallback and an abandonment
 lies almost entirely in the quality of the information given in the thirty seconds after the drop.
 
@@ -847,7 +847,7 @@ sequenceDiagram
 **The boundary, and why it lies there.** The system **does not** assess severity and **does not**
 suggest clinical courses of action. It immediately makes available to the professional the logistical
 information they do not have because the person is not in the same room: where they are, on what
-number they can be reached, whom to contact. It is logistical support, not clinical decision support —
+number they can be reached, whom to contact. It is logistical support, not clinical decision support -
 and it is the reason why the place of delivery must be asked for **at the start of every session**: a
 registered residential address is useless in an emergency.
 
@@ -977,7 +977,7 @@ flowchart TB
 
 **Why the two instants must be two.** A measurement taken yesterday and transmitted today belongs to
 yesterday's series. Confusing the instant of measurement with the instant of receipt produces wrong
-time series and alerts raised on the wrong day — and, in the worst case, an absence alert that stays
+time series and alerts raised on the wrong day - and, in the worst case, an absence alert that stays
 open while the data has in fact arrived.
 
 **Why a duplicate is a problem of trust.** A duplicate that raises a second, identical alert is, for
@@ -1038,8 +1038,11 @@ Delivery is **at least once**, not exactly once: every consumer is **idempotent 
 with an explicit deduplication key. A consumer that is not produces duplicates under load, and the
 load always arrives at the worst moment.
 
-Ordering is guaranteed **only** within the partition chosen by key — typically the encounter or the
-subject. No functional requirement may depend on a global ordering: if a flow requires two events to
+Ordering is guaranteed **only** within the partition chosen by key - typically the encounter or the
+subject - and **only if all three conditions** stated in
+[`06-eventi-e-integrazione-interna.md`](/02_architecture/06-eventi-e-integrazione-interna.md#41-what-is-guaranteed-and-what-is-not) §4.1 hold together: a single worker at a time, the producer
+idempotent towards the channel, the number of partitions stable. Outside those conditions ordering **is not
+guaranteed**. No functional requirement may depend on a global ordering: if a flow requires two events to
 arrive in a given order, that order must be imposed inside the key, not hoped for.
 
 The **dead-letter queue is not a graveyard**: it has a documented review procedure, someone
@@ -1077,8 +1080,8 @@ expected frequency, not by severity.
 | F20 | An «all green» picture is read as stability on stale data | remote monitoring | age of the most recent data always visible and highlighted, scope of the plan declared |
 
 > **The summarising principle.** The typical failure of a service delivered remotely does not occur
-> during the video call: it occurs **before** — prerequisites not checked, link not found, consents
-> missing — or **after** — a document that does not arrive where it is needed. Investing in video
+> during the video call: it occurs **before** - prerequisites not checked, link not found, consents
+> missing - or **after** - a document that does not arrive where it is needed. Investing in video
 > quality beyond the clinically necessary threshold while neglecting the chain of prerequisites and
 > the return of the content is the commonest error of priority in this domain. In remote monitoring
 > the equivalent is investing in ingestion and neglecting what happens when the data **does not**
@@ -1128,14 +1131,14 @@ expected frequency, not by severity.
 
 | What | Where |
 |---|---|
-| Regulatory definitions of the services, conditions for delivery, documents produced | [02 — Telemedicine services](02-prestazioni-di-telemedicina.md) |
-| Clinical data, consents, legal bases, retention | [03 — Clinical data](03-il-dato-clinico.md) |
-| Digital identity, registries, identifiers | [04 — Identity and registries](04-identita-e-anagrafiche.md) |
-| Representation of clinical resources | [06 — FHIR from scratch](06-fhir-da-zero.md) |
-| The health record and national infrastructures | [07 — The FSE and national infrastructures](07-fse-e-infrastrutture-nazionali.md) |
-| Real-time transport, degradation, relay | [08 — WebRTC from scratch](08-webrtc-da-zero.md) |
-| Parameters, measurements, limits of measurement at home | [09 — Clinical fundamentals](09-fondamenti-clinici.md) |
-| Chronicity, pathways, alerts, silence, patient safety | [10 — Care pathways and safety](10-percorsi-di-cura-e-sicurezza.md) |
+| Regulatory definitions of the services, conditions for delivery, documents produced | [02 - Telemedicine services](02-prestazioni-di-telemedicina.md) |
+| Clinical data, consents, legal bases, retention | [03 - Clinical data](03-il-dato-clinico.md) |
+| Digital identity, registries, identifiers | [04 - Identity and registries](04-identita-e-anagrafiche.md) |
+| Representation of clinical resources | [06 - FHIR from scratch](06-fhir-da-zero.md) |
+| The health record and national infrastructures | [07 - The FSE and national infrastructures](07-fse-e-infrastrutture-nazionali.md) |
+| Real-time transport, degradation, relay | [08 - WebRTC from scratch](08-webrtc-da-zero.md) |
+| Parameters, measurements, limits of measurement at home | [09 - Clinical fundamentals](09-fondamenti-clinici.md) |
+| Chronicity, pathways, alerts, silence, patient safety | [10 - Care pathways and patient safety](10-percorsi-di-cura-e-sicurezza.md) |
 | Requirements, use cases, rules, typed outcomes | functional area, `docs/03_functional/` |
 
 ---

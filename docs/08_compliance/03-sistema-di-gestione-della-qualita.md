@@ -8,7 +8,7 @@ description: "Che cosa significa un sistema di gestione della qualità quando i 
 
 > **Presupposto di lettura.** Che cosa siano una norma tecnica, una norma armonizzata, un sistema
 > di gestione della qualità, il ciclo di vita del software e la tracciabilità è spiegato da zero
-> in [10 §15 — Il quadro regolatorio da zero, §§5–6](../10_fondamenti/15-regolatorio-da-zero.md).
+> in [10 §15 - Il quadro regolatorio da zero, §§5–6](../10_fondamenti/15-regolatorio-da-zero.md).
 > **Qui non si ripete: si applica a un progetto aperto**, che è il caso su cui nessuna delle due
 > norme è stata scritta.
 >
@@ -32,8 +32,8 @@ description: "Che cosa significa un sistema di gestione della qualità quando i 
 > esigibile invece che illustrativo. **Non cambia la ripartizione tecnica**: istituire il sistema,
 > farlo certificare da un organismo accreditato ed esercitarlo restano atti che presuppongono il
 > **ruolo formale di fabbricante**, e non diventano anticipabili perché quel ruolo sarà nostro.
-> **Non cambia** neppure il limite posto da `D54`: alcune registrazioni — audit interno, riesame
-> del rilascio, verifica di configurazione eseguita da chi non ha scritto il codice — **richiedono
+> **Non cambia** neppure il limite posto da `D54`: alcune registrazioni - audit interno, riesame
+> del rilascio, verifica di configurazione eseguita da chi non ha scritto il codice - **richiedono
 > persone distinte**, e nessuna quantità di lavoro individuale le rende producibili internamente
 > (§ 4.1, prima avvertenza).
 >
@@ -89,14 +89,14 @@ perché soddisfano la clausola**.
 **La riga sulla competenza è quella che va spiegata, perché è l'unica interpretativa.** La norma
 chiede che il personale che esegue attività che influenzano la qualità del prodotto sia
 competente, e che la competenza sia documentata. In un progetto aperto la traduzione corretta non
-è «documentare la competenza di tutti i contributori» — che è impossibile e privo di senso — ma
+è «documentare la competenza di tutti i contributori» - che è impossibile e privo di senso - ma
 **documentare la competenza di chi ha l'autorità di accettare**. Chi propone non ha autorità;
 chi accetta ce l'ha, ed è un insieme piccolo, stabile e documentabile.
 
 **Il punto su cui questa costruzione è fragile, e va detto:** funziona finché l'insieme di chi
 accetta è piccolo e stabile. Un progetto che, per accelerare, allarghi l'insieme dei revisori
 senza aggiornare i dossier di competenza **perde la proprietà nel momento esatto in cui lo fa**, e
-la perde in modo non ricostruibile a posteriori — perché l'evidenza mancante è la qualifica di chi
+la perde in modo non ricostruibile a posteriori - perché l'evidenza mancante è la qualifica di chi
 ha approvato una modifica in una data passata.
 
 ### 1.2 La domanda che l'organismo notificato porrà per prima
@@ -132,14 +132,14 @@ e organismi notificati; la segnalazione di incidenti gravi e azioni correttive d
 gestione delle azioni correttive e preventive e il monitoraggio della loro efficacia; i processi di
 monitoraggio e misurazione, l'analisi dei dati e il miglioramento.
 
-**Che cosa ISO 13485 non copre.** È una norma **armonizzata** sotto l'MDR — il riferimento è
-pubblicato nell'allegato di una decisione di esecuzione della Commissione, più volte modificata —
+**Che cosa ISO 13485 non copre.** È una norma **armonizzata** sotto l'MDR - il riferimento è
+pubblicato nell'allegato di una decisione di esecuzione della Commissione, più volte modificata -
 e la sua applicazione conferisce **presunzione di conformità** per i requisiti coperti (art. 8
 MDR). **Ma la copertura non è totale**: ISO 13485 non copre di per sé la valutazione clinica
 dell'art. 61, la sorveglianza post-commercializzazione nella forma degli artt. 83–86, né gli
 obblighi di vigilanza degli artt. 87–92. Occorrono procedure aggiuntive, ed è il blocco B del § 4.
 
-**`[NV]`** — lo stato di armonizzazione va verificato sull'elenco consolidato pubblicato dalla
+**`[NV]`** - lo stato di armonizzazione va verificato sull'elenco consolidato pubblicato dalla
 Commissione **alla data d'uso**, non a memoria: l'elenco è modificato con frequenza, e una
 presunzione di conformità invocata su una versione non più citata è una presunzione che non opera.
 
@@ -153,9 +153,9 @@ davvero ogni volta, va riscritta, non aggirata.**
 
 ### 3.1 Perché il repository è il posto giusto
 
-Un sistema di gestione della qualità tenuto come documentazione versionata nel repository —
+Un sistema di gestione della qualità tenuto come documentazione versionata nel repository -
 procedure sotto controllo di versione, approvazione tramite proposta di modifica con revisori
-nominati, immutabilità garantita dalla protezione dei rami e dalla firma delle modifiche —
+nominati, immutabilità garantita dalla protezione dei rami e dalla firma delle modifiche -
 soddisfa le clausole 4.2.4 (controllo dei documenti) e 4.2.5 (controllo delle registrazioni)
 **in modo più robusto di un archivio di documenti su un'unità condivisa**, per una ragione
 semplice: la cronologia non è alterabile senza traccia e l'approvazione è un fatto verificabile,
@@ -189,8 +189,8 @@ tenuto come codice ha un perimetro ampio e preciso:
 **Che cosa significa validare, in pratica.** Non «dimostrare che lo strumento è corretto», che è
 impossibile. Significa: definire l'uso previsto dello strumento nel sistema, individuare che cosa
 accadrebbe se lo strumento sbagliasse, definire e **eseguire** prove che dimostrino che nell'uso
-previsto lo strumento fa ciò che deve — per esempio, che una modifica priva di tracciabilità
-**viene effettivamente rifiutata**, e non solo segnalata —, e registrarne l'esito con la versione
+previsto lo strumento fa ciò che deve - per esempio, che una modifica priva di tracciabilità
+**viene effettivamente rifiutata**, e non solo segnalata -, e registrarne l'esito con la versione
 esatta dello strumento. La prova negativa vale più di quella positiva: si valida un blocco
 dimostrando che blocca.
 
@@ -217,7 +217,7 @@ effetti a distanza sul perimetro del sistema.
 Tre blocchi. Il primo è imposto da ISO 13485, il secondo dall'MDR e non è coperto dal primo, il
 terzo dalle norme di ciclo di vita del software.
 
-**Blocco A — richieste da ISO 13485:2016.** Controllo dei documenti (4.2.4) · Controllo delle
+**Blocco A - richieste da ISO 13485:2016.** Controllo dei documenti (4.2.4) · Controllo delle
 registrazioni (4.2.5) · Riesame della direzione (5.6.1) · Risorse umane, competenza, formazione
 (6.2) · Infrastruttura e ambiente di lavoro (6.3, 6.4.1) · Gestione del rischio nella
 realizzazione del prodotto (7.1) · Riesame dei requisiti del prodotto e comunicazione con il
@@ -229,7 +229,7 @@ Installazione e assistenza (7.5.3, 7.5.4) · Riscontri dal campo (8.2.1) · Gest
 conforme (8.3) · Analisi dei dati (8.4) · Azioni correttive e preventive (8.5.2, 8.5.3) ·
 Validazione del software usato nel sistema (4.1.6).
 
-**Blocco B — imposte dall'MDR e non coperte da ISO 13485.** Strategia di conformità regolamentare
+**Blocco B - imposte dall'MDR e non coperte da ISO 13485.** Strategia di conformità regolamentare
 e gestione delle modifiche (art. 10, par. 9, lett. a) · Identificazione e mantenimento dei
 requisiti generali applicabili (Allegato I) · Gestione del fascicolo tecnico (art. 10, par. 4,
 Allegati II e III) · Valutazione clinica e suo seguito (art. 61, Allegato XIV) · Sorveglianza
@@ -240,16 +240,16 @@ autorità (art. 10, par. 9, lett. l) · Rilascio del dispositivo e dichiarazione
 (artt. 19, 20) · Ruolo, compiti e indipendenza della persona responsabile del rispetto della
 normativa (art. 15).
 
-**Blocco C — specifiche del software.** Ciclo di vita e classificazione di sicurezza (IEC 62304
+**Blocco C - specifiche del software.** Ciclo di vita e classificazione di sicurezza (IEC 62304
 §§ 4.3, 5) · Gestione dei componenti di terze parti (IEC 62304 §§ 5.3.3, 5.3.4, 7.1.2–7.1.3,
 8.1.2) · Gestione della configurazione e costruzione riproducibile (IEC 62304 § 8) · Risoluzione
 dei problemi software (IEC 62304 § 9) · Ingegneria dell'usabilità (IEC 62366-1 § 5) · Sicurezza
 informatica nel ciclo di vita e divulgazione coordinata delle vulnerabilità (ISO/IEC 81001-5-1;
 MDCG 2019-16 Rev.1).
 
-**Totale: circa trentasei procedure.** Per una realtà piccola è realistico accorparne alcune —
+**Totale: circa trentasei procedure.** Per una realtà piccola è realistico accorparne alcune -
 risorse umane con infrastruttura, produzione con validazione dei processi e assistenza, analisi
-dei dati con azioni correttive — scendendo a **venticinque o ventotto documenti**. **Non è
+dei dati con azioni correttive - scendendo a **venticinque o ventotto documenti**. **Non è
 realistico scendere sotto venti**, e un sistema che ci riesce di solito ha semplicemente omesso il
 blocco B.
 
@@ -264,15 +264,15 @@ interno va commissionato all'esterno.** Non è un'opzione di qualità, è una co
 certificazione**: registrazioni reali di progettazione e sviluppo, almeno un riesame di
 progettazione, almeno un'azione correttiva, almeno un rilascio controllato, un audit interno su
 tutti i processi e un riesame della direzione. Senza questi, la seconda fase dell'audit non è
-superabile — non perché l'auditor sia severo, ma perché **non c'è nulla da auditare**. Ne discende
+superabile - non perché l'auditor sia severo, ma perché **non c'è nulla da auditare**. Ne discende
 che la data di avvio dell'esercizio determina, con circa sei mesi di scarto, la prima data utile
 per la certificazione. **Da `D58` discende che quella data di avvio è una decisione nostra, non
 un'attesa**: è un ritardo che il progetto si infligge da solo se non avvia l'esercizio. Ciò non
-autorizza a scrivere da nessuna parte una data di marcatura — `V-171` lo vieta senza eccezioni, e
-una pianificazione interna non diventa una promessa perché è nostra — ma sposta il costo del
+autorizza a scrivere da nessuna parte una data di marcatura - `V-171` lo vieta senza eccezioni, e
+una pianificazione interna non diventa una promessa perché è nostra - ma sposta il costo del
 rinvio dal conto di un terzo al nostro.
 
-**Terza — e riguarda quest'area direttamente.** Le procedure sono **documenti controllati**; la
+**Terza - e riguarda quest'area direttamente.** Le procedure sono **documenti controllati**; la
 documentazione pubblicata in queste pagine **non lo è**. È il vincolo `V-174`: nessun capitolo di
 questa documentazione è una procedura del sistema di gestione della qualità, e nessuna area può
 presentare un proprio capitolo come tale. I capitoli sono **ingressi**: contengono l'analisi da
@@ -314,19 +314,19 @@ che va nel documento.
 
 | Item software | Classe | Motivazione |
 |---|:-:|---|
-| Acquisizione, trasmissione, persistenza e presentazione dei parametri; evidenziazione dei valori fuori dalla soglia configurata | **B** | Le misure esterne — destinazione d'uso ristretta, revisione periodica programmata, presenza organizzativa del Centro erogatore, istruzione al paziente sull'emergenza — riducono il danno possibile a **non grave**. **Se anche una sola non fosse documentabile e verificabile, l'item passa a C** |
+| Acquisizione, trasmissione, persistenza e presentazione dei parametri; evidenziazione dei valori fuori dalla soglia configurata | **B** | Le misure esterne - destinazione d'uso ristretta, revisione periodica programmata, presenza organizzativa del Centro erogatore, istruzione al paziente sull'emergenza - riducono il danno possibile a **non grave**. **Se anche una sola non fosse documentabile e verificabile, l'item passa a C** |
 | Associazione fra identità dell'assistito, sessione, dati e documento clinico | **B**, trattato come rischio prioritario | La mis-associazione persona–dato è la situazione pericolosa peggiore dell'architettura. Resta B **solo** perché il professionista verifica l'identità in apertura di sessione: la verifica va **imposta dall'interfaccia**, non lasciata all'abitudine |
 | Trasporto del media, segnalazione, attraversamento della rete, indicatori di qualità | **B** | Un guasto produce interruzione o degrado; il professionista interrompe e riprogramma. L'esito è un contatto non concluso, non un dato falso |
 | Redazione, firma e trasmissione del contenuto clinico | **B** | La perdita o l'alterazione di un documento ritarda decisioni; la firma e la conferma esplicita sono controlli |
 | Identità, autorizzazioni, isolamento fra tenant, registro immutabile | **B** | Divulgazione non autorizzata: danno alla persona possibile, non grave sul piano fisico |
 | Metriche di qualità, cruscotti, telemetria tecnica | **A** | Nessun contributo a una situazione pericolosa clinica, **previa segregazione documentata** |
-| Interfaccia informativa, documentazione, internazionalizzazione, portale pubblico | **A** | — |
+| Interfaccia informativa, documentazione, internazionalizzazione, portale pubblico | **A** | - |
 
 **Classe dichiarata del sistema software: B**, con item di classe A isolati e **segregazione
 documentata** ai sensi della clausola 5.3.5. La norma richiede che l'architettura **dimostri
 l'efficacia della segregazione**, non che la affermi: un'affermazione di segregazione non
-accompagnata dal meccanismo che la realizza — confine di processo, confine di rete, assenza di
-percorso di dati — è un rilievo garantito.
+accompagnata dal meccanismo che la realizza - confine di processo, confine di rete, assenza di
+percorso di dati - è un rilievo garantito.
 
 **Avvertenza da mettere per iscritto nel documento di determinazione, e non in nota.** La classe B
 è **condizionata** alle esclusioni della destinazione d'uso. Introdurre una funzione di allarme, un
@@ -380,7 +380,7 @@ verifica dell'efficacia. La clausola 7.3.3 di IEC 62304 chiede la seconda.
 In avanti, per dimostrare che **ogni requisito è stato verificato**. All'indietro, per dimostrare
 che **ogni riga di codice risponde a un requisito**. La direzione all'indietro è quella che
 sorprende: serve a dimostrare l'assenza di funzionalità non richiesta, che in un dispositivo
-medico non è codice inutile — è **funzionalità non valutata nel rischio, non descritta nella
+medico non è codice inutile - è **funzionalità non valutata nel rischio, non descritta nella
 destinazione d'uso e non verificata**. È, letteralmente, il meccanismo con cui una delle funzioni
 del § 6.1 del capitolo precedente entrerebbe nel prodotto senza che nessuno lo dichiari.
 
@@ -420,7 +420,7 @@ questi elementi, e il criterio non è di stile: ciascuno è richiesto da una cla
 **Le due righe che si dimenticano sono la 4 e la 6**, e vale la pena dire perché.
 
 La 4: **le anomalie residue non si nascondono, si valutano**. La norma non impone di rilasciare
-senza difetti — sarebbe una condizione irrealizzabile —: impone di **elencare i difetti noti al
+senza difetti - sarebbe una condizione irrealizzabile -: impone di **elencare i difetti noti al
 momento del rilascio e di documentare la valutazione della loro rilevanza per la sicurezza**. Un
 rilascio senza elenco di anomalie residue non è un rilascio pulito: è un rilascio non documentato.
 
@@ -443,9 +443,9 @@ tutte univocamente (clausola 8.1.2), e trattare con rigore proporzionale quelle 
 
 | Livello | Criterio di appartenenza | Trattamento |
 |---|---|---|
-| **L1 — critici** | Il componente realizza o supporta direttamente una misura di controllo del rischio, oppure un suo guasto può contribuire a una situazione pericolosa: libreria crittografica, pila del media in tempo reale, nodo di relay, prodotto di federazione, motore e driver della base dati, libreria del modello di interscambio clinico, libreria di firma, quadro di autorizzazione, ambiente di esecuzione | Scheda completa: produttore, **versione esatta**, funzione svolta, **requisiti funzionali e prestazionali attesi** (5.3.3), **requisiti dell'ambiente di esecuzione** (5.3.4), valutazione delle anomalie pubblicate (7.1.2–7.1.3), fonte di avvisi sorvegliata, criterio e cadenza di aggiornamento, valutazione dell'impatto di **ogni** aggiornamento |
-| **L2 — di piattaforma** | Componenti d'infrastruttura non direttamente coinvolti in misure di controllo | Scheda ridotta: identificazione, versione, funzione, fonte di avvisi, politica di aggiornamento. Nessuna analisi funzionale individuale |
-| **L3 — transitive** | Tutto il resto | **Copertura mediante distinta dei materiali** generata a ogni costruzione, firmata, allegata al rilascio, con verifica automatica bloccante sulle vulnerabilità note. È l'attuazione della clausola 8.1.2 su migliaia di componenti |
+| **L1 - critici** | Il componente realizza o supporta direttamente una misura di controllo del rischio, oppure un suo guasto può contribuire a una situazione pericolosa: libreria crittografica, pila del media in tempo reale, nodo di relay, prodotto di federazione, motore e driver della base dati, libreria del modello di interscambio clinico, libreria di firma, quadro di autorizzazione, ambiente di esecuzione | Scheda completa: produttore, **versione esatta**, funzione svolta, **requisiti funzionali e prestazionali attesi** (5.3.3), **requisiti dell'ambiente di esecuzione** (5.3.4), valutazione delle anomalie pubblicate (7.1.2–7.1.3), fonte di avvisi sorvegliata, criterio e cadenza di aggiornamento, valutazione dell'impatto di **ogni** aggiornamento |
+| **L2 - di piattaforma** | Componenti d'infrastruttura non direttamente coinvolti in misure di controllo | Scheda ridotta: identificazione, versione, funzione, fonte di avvisi, politica di aggiornamento. Nessuna analisi funzionale individuale |
+| **L3 - transitive** | Tutto il resto | **Copertura mediante distinta dei materiali** generata a ogni costruzione, firmata, allegata al rilascio, con verifica automatica bloccante sulle vulnerabilità note. È l'attuazione della clausola 8.1.2 su migliaia di componenti |
 
 **Il registro non si redige: si genera dalla distinta e si arricchisce.** La distinta contiene nome,
 produttore e versione; non contiene funzione nel sistema, alternativa nota, impatto sul rischio,
@@ -459,8 +459,8 @@ già stabilito dall'area tecnica come esito della questione `Q-17`.
 Non è una preferenza operativa e non è una questione di riproducibilità delle costruzioni, benché
 lo sia anche. È **una violazione diretta di una clausola normativa**.
 
-La clausola 8.1.2 di IEC 62304 richiede che ciascun elemento di configurazione — inclusi i
-componenti di terze parti — sia identificato univocamente per **titolo, produttore e versione**.
+La clausola 8.1.2 di IEC 62304 richiede che ciascun elemento di configurazione - inclusi i
+componenti di terze parti - sia identificato univocamente per **titolo, produttore e versione**.
 Un riferimento a un'etichetta mobile:
 
 1. **non identifica una versione**: identifica una versione diversa a ogni costruzione;
@@ -497,20 +497,20 @@ differenziato per gravità.
 
 **Due precisazioni che rendono questi numeri usabili invece che decorativi.**
 
-**Prima — l'orologio parte dalla pubblicazione dell'avviso, non dalla conoscenza.** Un impegno che
+**Prima - l'orologio parte dalla pubblicazione dell'avviso, non dalla conoscenza.** Un impegno che
 decorra dalla conoscenza è un impegno che il fornitore controlla, e come tale privo di valore per
 il cliente.
 
 **Seconda, e va detta perché la confusione è frequente: queste finestre non hanno nulla a che
 vedere con i livelli di servizio di manutenzione correttiva del DM 21 settembre 2022**, che
 riguardano la presa in carico e il ripristino di un **incidente in esercizio** con tempi
-dell'ordine di decine di minuti. Sono due orologi diversi, con due oggetti diversi — il difetto di
-un componente contro l'indisponibilità di un servizio — e due destinatari diversi. Fonderli
+dell'ordine di decine di minuti. Sono due orologi diversi, con due oggetti diversi - il difetto di
+un componente contro l'indisponibilità di un servizio - e due destinatari diversi. Fonderli
 produce un impegno che nessun fornitore può mantenere: nessuno corregge una vulnerabilità di una
 libreria in sessanta minuti.
 
 **Un dato di realtà che giustifica la scelta di esprimere le finestre in giorni e non in mesi.**
-Un solo componente critico dell'architettura — il nodo di relay — ha avuto **quattordici rilasci
+Un solo componente critico dell'architettura - il nodo di relay - ha avuto **quattordici rilasci
 in poco più di sette mesi, cinque nel solo mese di agosto 2026**, con una vulnerabilità critica
 corretta a metà percorso. Un impegno espresso in mesi, su un componente con questa cadenza, non
 descrive alcun comportamento.
@@ -530,7 +530,7 @@ sull'offerta come servizio gestito a terzi.
 
 **Che cosa quest'area può stabilire senza leggere la licenza.**
 
-1. **Il progetto non ridistribuisce il componente**, che è acquisito dal deployer come parte
+1. **Il progetto non ridistribuisce il componente**, che è acquisito da chi installa come parte
    dell'infrastruttura. Ne discende che **la restrizione, quale che sia, non grava sul progetto**:
    grava su chi distribuisce e su chi offre il servizio.
 2. **Ne discende un obbligo del progetto**, che è documentale e non è facoltativo: la
@@ -546,7 +546,7 @@ sull'offerta come servizio gestito a terzi.
    apposta su un contenitore **non dispone dei diritti di terzi sul contenuto ricompreso**, e la
    verifica va fatta **artefatto per artefatto**.
 
-**`[NV]`** — la lettura del testo della licenza primaria, artefatto per artefatto e versione per
+**`[NV]`** - la lettura del testo della licenza primaria, artefatto per artefatto e versione per
 versione, **non è stata compiuta** e quest'area non la sostituisce con una ricostruzione. Finché
 non è compiuta, nessun documento del progetto può affermare né che il componente sia open source
 né che non lo sia. La questione resta quindi aperta nella sua parte di verifica.
@@ -573,7 +573,7 @@ Ne discendono tre regole operative:
    scala entra nel repository prima che il suo regime sia accertato e dichiarato**;
 2. **la definizione della scala è un dato, non codice**: come per i percorsi di cura (`V-147`),
    aggiungere una scala non deve richiedere un rilascio del software. Ne discende anche che una
-   scala il cui regime lo richieda può essere **acquisita a runtime dal deployer**, che è il
+   scala il cui regime lo richieda può essere **acquisita a runtime da chi installa**, che è il
    regime C;
 3. **il calcolo del punteggio va tenuto distinto dalla sua interpretazione.** La somma degli item
    secondo una regola dichiarata è aritmetica tracciabile; l'attribuzione di una fascia di
@@ -594,9 +594,9 @@ parti**, e ricade nel suo livello L1. Deve quindi produrne la scheda: funzione s
 funzionali e prestazionali attesi, requisiti dell'ambiente di esecuzione, valutazione delle
 anomalie pubblicate, criterio di aggiornamento.
 
-**Pubblicare gli artefatti di ciclo di vita** — piano di sviluppo, specifica dei requisiti,
+**Pubblicare gli artefatti di ciclo di vita** - piano di sviluppo, specifica dei requisiti,
 architettura, evidenze di verifica, distinta dei materiali firmata, dichiarazione di fine
-supporto — **riduce in modo diretto e misurabile l'onere regolatorio di chi integra**. Non è un
+supporto - **riduce in modo diretto e misurabile l'onere regolatorio di chi integra**. Non è un
 costo puro sostenuto per virtù: è la differenza fra essere un componente qualificabile e essere
 codice di provenienza ignota, che nel percorso di un fabbricante è una differenza di mesi.
 

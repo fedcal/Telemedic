@@ -8,7 +8,7 @@ description: "What the Annex II and Annex III technical file contains, item by i
 
 > **Reading premise.** What a technical file is, why it exists, and how it relates to the CE marking
 > and to the notified body is explained from scratch in
-> [10 §15 — The regulatory framework from scratch, §4](../10_fondamenti/15-regolatorio-da-zero.md).
+> [10 §15 - The regulatory framework from scratch, §4](/10_fondamenti/15-regolatorio-da-zero.md).
 > **Here it is not repeated: it is mapped.** This chapter answers one question only, repeated for
 > every item of Annex II and Annex III: *which document satisfies it, does it already exist, and
 > who can produce it*.
@@ -23,7 +23,7 @@ description: "What the Annex II and Annex III technical file contains, item by i
 > **`D58` changes who intends to compile that file, and nothing else.** The project **intends** to
 > assume the manufacturer role, and **the legal entity that would exercise it has not yet been
 > constituted**. Compiling the file, signing the declaration of conformity and affixing the marking
-> remain **acts reserved to that formal role** — they remain so **even when the role is ours**. It
+> remain **acts reserved to that formal role** - they remain so **even when the role is ours**. It
 > is precisely this distinction that makes it legible why the items in § 12 cannot be brought
 > forward: it is not reticence, it is that the act presupposes the entity. What `D58` changes is
 > that those items **from today fall on us**, which makes them more urgent, not less.
@@ -47,7 +47,7 @@ Regulation (EU) 2017/745, supplemented by **Annex III** for the post-market surv
 **Article 10(4)** requires it to be drawn up and **kept up to date**: it is not a delivery
 obligation, it is a continuing obligation lasting as long as the device does. The regulation also
 requires it to be kept available to the authorities for a period of years after the last device is
-placed on the market `[NV]` — the exact duration and the paragraph establishing it must be
+placed on the market `[NV]` - the exact duration and the paragraph establishing it must be
 re-verified against the consolidated text.
 
 Three misconceptions must be cleared away at once, because all three are common in a development
@@ -58,11 +58,11 @@ documentation, such as this repository produces, **is not** a technical file and
 by accumulation. The difference lies not in the quality of the content but in three formal
 properties the content does not possess on its own:
 
-1. **it is controlled** — every document has an identifier, a revision, an author, an approver, an
+1. **it is controlled** - every document has an identifier, a revision, an author, an approver, an
    approval date and a procedure governing its amendment;
-2. **it is navigable** — there is a point of entry, the general safety and performance requirements
+2. **it is navigable** - there is a point of entry, the general safety and performance requirements
    matrix, from which every piece of evidence is reached with a reference to an **exact** revision;
-3. **it is attributed** — it has a party assuming responsibility for it, and that party is the
+3. **it is attributed** - it has a party assuming responsibility for it, and that party is the
    manufacturer.
 
 None of the three properties belongs to the documentation published on these pages. This is
@@ -73,9 +73,9 @@ the document.
 
 **Second misconception: the file is not an archive, it is a demonstration.** The notified body does
 not read the file from beginning to end. It enters through the general requirements matrix (section
-4 of Annex II), picks a few rows and follows them through to the evidence. If the path breaks — a
+4 of Annex II), picks a few rows and follows them through to the evidence. If the path breaks - a
 reference to a document without a revision, a revision that does not match, evidence demonstrating
-something different from what the row asserts — the finding does not concern that row: it concerns
+something different from what the row asserts - the finding does not concern that row: it concerns
 **the reliability of the entire file**, because the sample was random. A complete but unnavigable
 file produces more findings than a leaner, coherent one.
 
@@ -94,10 +94,10 @@ afterwards.
 | **A** | Technical documentation of the device, sections 1–6 | Annex II | Manufacturer, with the project's material |
 | **B** | Technical documentation on post-market surveillance | Annex III | Manufacturer, with the project's product capabilities |
 | **C** | Documents that **do not belong** to the file but that the notified body requires with the application | Annex IX, Articles 15, 19; ISO 13485 | **Only** the manufacturer |
-| **D** | Material the project produces that **is not** a document of the file, but from which the file's documents are drafted | — | Project |
+| **D** | Material the project produces that **is not** a document of the file, but from which the file's documents are drafted | - | Project |
 
 Set D is the reason this chapter exists. If the project published only code, whoever wished to
-certify — ourselves included, once the entity is constituted — would have to **reconstruct by
+certify - ourselves included, once the entity is constituted - would have to **reconstruct by
 inference** the design, risk and verification reasoning: an interpretative operation a notified body
 has no reason to accept. If instead the project publishes the analysis, **the manufacturer reviews
 it, corrects it, approves it and signs it**: an operation orders of magnitude shorter and, above
@@ -132,9 +132,9 @@ files.
 > control system in operation**, and it will not have one until the manufacturer entity is
 > constituted and the quality management system is instituted. It is the same reason, argued in
 > full, as in [02 §5.2](./02-qualificazione-e-classificazione.md): what is missing is no longer the
-> party, it is the **system** — and the system is ours to bear.
+> party, it is the **system** - and the system is ours to bear.
 
-## 4. Annex II, section 1 — Device description and specification
+## 4. Annex II, section 1 - Device description and specification
 
 This is the section that defines **what is being talked about**. Every error made here propagates to
 everything else: the intended purpose determines the class, the class determines the procedure, the
@@ -142,19 +142,19 @@ procedure determines the timescales and the costs.
 
 | Item | Content required | Regulatory document | Fed by | Attr. | Status |
 |---|---|---|---|:-:|:-:|
-| 1.1 a | Product name and general description, with intended purpose and intended users | `MDR-IU-001` | [02 §5.1](./02-qualificazione-e-classificazione.md) (structure of the outline), [03_functional/01](../03_functional/01-attori-e-ruoli.md) | P/F | ◐ |
-| 1.1 b | **Basic UDI-DI** assigned by the manufacturer | `UDI-001` | — | **F** | ☐ |
-| 1.1 c | Patient population, clinical conditions, indications, contraindications, warnings | `MDR-IU-001` §§ 3, 5, 9 | [05_domain/02](../05_domain/02-le-prestazioni-modellate.md), [05_domain/08](../05_domain/08-percorsi-e-piani-di-cura.md), [03_functional/07](../03_functional/07-fuori-perimetro.md) | P/F | ◐ |
-| 1.1 d | Principle of operation and mode of action | `MDR-IU-001` § 7 | [02_architecture/01](../02_architecture/01-visione-architetturale.md), [02_architecture/02](../02_architecture/02-contesti-delimitati.md) | P | ◐ |
+| 1.1 a | Product name and general description, with intended purpose and intended users | `MDR-IU-001` | [02 §5.1](./02-qualificazione-e-classificazione.md) (structure of the outline), [03_functional/01](/03_functional/01-attori-e-ruoli.md) | P/F | ◐ |
+| 1.1 b | **Basic UDI-DI** assigned by the manufacturer | `UDI-001` | - | **F** | ☐ |
+| 1.1 c | Patient population, clinical conditions, indications, contraindications, warnings | `MDR-IU-001` §§ 3, 5, 9 | [05_domain/02](/05_domain/02-le-prestazioni-modellate.md), [05_domain/08](/05_domain/08-percorsi-e-piani-di-cura.md), [03_functional/07](/03_functional/07-fuori-perimetro.md) | P/F | ◐ |
+| 1.1 d | Principle of operation and mode of action | `MDR-IU-001` § 7 | [02_architecture/01](/02_architecture/01-visione-architetturale.md), [02_architecture/02](/02_architecture/02-contesti-delimitati.md) | P | ◐ |
 | 1.1 e | **Rationale for the qualification** as a medical device | `MDR-CLS-001` § 2 | [02 §§1–3](./02-qualificazione-e-classificazione.md) | P | ☑ |
 | 1.1 f | **Risk class and rationale for the rules applied** | `MDR-CLS-001` §§ 4–7 | [02 §4](./02-qualificazione-e-classificazione.md) | P | ☑ |
 | 1.1 g | Explanation of the novel features | `MDR-CLS-001` § 8 | [adr/](../adr/0001-separazione-prestazione-sessione-media.md) and the set of architecture decision records | P | ◐ |
-| 1.1 h | Accessories, other devices and non-device products used in combination | `MDR-COMB-001` | [05_domain/05](../05_domain/05-parametri-e-osservazioni.md), [07_integration/01](../07_integration/01-modalita-di-integrazione.md) | P/F | ☐ |
-| 1.1 i | Complete list of **configurations and variants** | `MDR-CONF-001` | [02_architecture/08](../02_architecture/08-viste-di-deployment.md), [07_integration/08](../07_integration/08-moduli-sostituibili.md) | P/F | ◐ |
-| 1.1 j | Key functional elements, with pictorial representations | `SW-SAD-001` | [02_architecture/01](../02_architecture/01-visione-architetturale.md)…[06](../02_architecture/06-eventi-e-integrazione-interna.md), [01_technical/02](../01_technical/02-backend.md), [01_technical/04](../01_technical/04-frontend.md), [01_technical/05](../01_technical/05-media-e-tempo-reale.md) | P | ◐ |
-| 1.1 k | Raw materials in contact with the body | **Not applicable** | — | P/F | ☐ |
-| 1.1 l | **Technical specifications**: characteristics, performance, variants | `MDR-SPEC-001`, `MDR-ENV-001` | [01_technical/07](../01_technical/07-prestazioni-e-capacita.md), [01_technical/04](../01_technical/04-frontend.md) | P | ◐ |
-| 1.2 | Previous generations and similar devices of the manufacturer | `MDR-TD-001` § 1.2 | — | **F** | ☐ |
+| 1.1 h | Accessories, other devices and non-device products used in combination | `MDR-COMB-001` | [05_domain/05](/05_domain/05-parametri-e-osservazioni.md), [07_integration/01](/07_integration/01-modalita-di-integrazione.md) | P/F | ☐ |
+| 1.1 i | Complete list of **configurations and variants** | `MDR-CONF-001` | [02_architecture/08](/02_architecture/08-viste-di-deployment.md), [07_integration/08](/07_integration/08-moduli-sostituibili.md) | P/F | ◐ |
+| 1.1 j | Key functional elements, with pictorial representations | `SW-SAD-001` | [02_architecture/01](/02_architecture/01-visione-architetturale.md)…[06](/02_architecture/06-eventi-e-integrazione-interna.md), [01_technical/02](/01_technical/02-backend.md), [01_technical/04](/01_technical/04-frontend.md), [01_technical/05](/01_technical/05-media-e-tempo-reale.md) | P | ◐ |
+| 1.1 k | Raw materials in contact with the body | **Not applicable** | - | P/F | ☐ |
+| 1.1 l | **Technical specifications**: characteristics, performance, variants | `MDR-SPEC-001`, `MDR-ENV-001` | [01_technical/07](/01_technical/07-prestazioni-e-capacita.md), [01_technical/04](/01_technical/04-frontend.md) | P | ◐ |
+| 1.2 | Previous generations and similar devices of the manufacturer | `MDR-TD-001` § 1.2 | - | **F** | ☐ |
 
 **Three rows deserve a note, because they are the ones in which the project's dual model (`D17`)
 produces concrete consequences.**
@@ -167,8 +167,8 @@ to be taken deliberately and not out of habit: it is question `Q-172` of § 17.
 
 **Row 1.1 k.** "Not applicable" is not an answer: it is a **rationale to be written**. A file that
 skips the non-applicable items is an incomplete file, not a lean one. The correct form is the item
-present, with the declaration of non-applicability and the reason — software without applied parts,
-no contact with the body, no physical or chemical action — in a line of text.
+present, with the declaration of non-applicability and the reason - software without applied parts,
+no contact with the body, no physical or chemical action - in a line of text.
 
 **Row 1.2.** It is the only point in section 1 at which the relationship between the repository and
 the distribution has to be stated in writing. The correct formulation is not "the device derives
@@ -180,19 +180,19 @@ this position is
 and
 [`DISTRIBUTION-POLICY.md`](https://github.com/fedcal/Telemedic/blob/main/DISTRIBUTION-POLICY.md).
 
-## 5. Annex II, section 2 — Information supplied by the manufacturer
+## 5. Annex II, section 2 - Information supplied by the manufacturer
 
 | Item | Content | Document | Fed by | Attr. | Status |
 |---|---|---|---|:-:|:-:|
-| 2 | **Labels** on the device and on the packaging, in the languages accepted in the Member States where it is marketed | `MDR-LBL-001` | — | **F** | ☐ |
-| 2 | **Instructions for use**, in the languages accepted | `MDR-IFU-001` | [03_functional/06](../03_functional/06-accessibilita-e-usabilita.md), [07_integration/02](../07_integration/02-primo-avvio.md), [07_integration/09](../07_integration/09-obblighi-di-chi-integra.md) | P/F | ☐ |
+| 2 | **Labels** on the device and on the packaging, in the languages accepted in the Member States where it is marketed | `MDR-LBL-001` | - | **F** | ☐ |
+| 2 | **Instructions for use**, in the languages accepted | `MDR-IFU-001` | [03_functional/06](/03_functional/06-accessibilita-e-usabilita.md), [07_integration/02](/07_integration/02-primo-avvio.md), [07_integration/09](/07_integration/09-obblighi-di-chi-integra.md) | P/F | ☐ |
 
 **For software, the label is a screen.** The set of information that for a physical device sits on
-the packaging — the manufacturer's name and address, the unique device identifier, the version, the
-CE marking with the notified body's number, standardised symbols — for software lives in a "Device
+the packaging - the manufacturer's name and address, the unique device identifier, the version, the
+CE marking with the notified body's number, standardised symbols - for software lives in a "Device
 information" screen reachable without authentication and without deep navigation. The reference
 standards are **EN ISO 20417** for information supplied by the manufacturer and **EN ISO 15223-1**
-for symbols `[NV]` — their presence in the consolidated list of harmonised standards must be
+for symbols `[NV]` - their presence in the consolidated list of harmonised standards must be
 verified at the date of use.
 
 **What the project can and must do, despite not being a manufacturer.** Prepare the **space**: the
@@ -200,11 +200,11 @@ screen exists, it is reachable, it is accessible, and the fields it will have to
 configurable per distribution instead of written into the code. A product that has not provided for
 that screen forces **the manufacturer** into an interface change at a late stage, when every
 interface change reopens the usability evaluation. It is the clearest example of a cost the project
-can eliminate **today**, at almost no cost, and that becomes expensive later — and, since `D58`, it
+can eliminate **today**, at almost no cost, and that becomes expensive later - and, since `D58`, it
 is a cost that would fall **on us**.
 
 **Language is not an editorial choice.** The instructions for use intended for the Italian market
-must be in Italian `[NV]` — the obligation derives from the national implementing legislative
+must be in Italian `[NV]` - the obligation derives from the national implementing legislative
 decree, and the precise article reference must be verified against the published text before
 appearing in a controlled document. The project adopts in any case full Italian and English (`D50`),
 which covers the minimum condition but does not exhaust the obligation: only the manufacturer knows
@@ -219,13 +219,13 @@ is the same reason why constraint `V-171` on prohibited formulations exists
 ([01 §11](./01-inquadramento-normativo.md)) and why `V-163` of `INTEG` makes those texts **neither
 themeable nor concealable** by the integrator.
 
-## 6. Annex II, section 3 — Information on design and manufacture
+## 6. Annex II, section 3 - Information on design and manufacture
 
 | Item | Content | Document | Fed by | Attr. | Status |
 |---|---|---|---|:-:|:-:|
-| 3 a | Information making it possible to understand the **design stages** | `SW-DEV-PLAN-001`, `SW-SRS-001`, `SW-SAD-001` | [03_functional/02](../03_functional/02-catalogo-dei-requisiti.md), [02_architecture/](../02_architecture/00-indice.md), [adr/](../adr/0003-dominio-indipendente-dallo-standard.md) | P | ◐ |
-| 3 b | **Manufacturing processes** and their validation, in-process controls, final product testing | `SW-BUILD-001`, `QMS-VAL-001` | [01_technical/09](../01_technical/09-integrazione-continua-e-rilascio.md), [06_security/07](../06_security/07-catena-di-fornitura.md) | P | ◐ |
-| 3 | **Identification of the sites** of design and manufacture, suppliers and subcontractors | `MDR-SITE-001` | [06_security/07](../06_security/07-catena-di-fornitura.md) for the method | **F** | ☐ |
+| 3 a | Information making it possible to understand the **design stages** | `SW-DEV-PLAN-001`, `SW-SRS-001`, `SW-SAD-001` | [03_functional/02](/03_functional/02-catalogo-dei-requisiti.md), [02_architecture/](/02_architecture/00-indice.md), [adr/](../adr/0003-dominio-indipendente-dallo-standard.md) | P | ◐ |
+| 3 b | **Manufacturing processes** and their validation, in-process controls, final product testing | `SW-BUILD-001`, `QMS-VAL-001` | [01_technical/09](/01_technical/09-integrazione-continua-e-rilascio.md), [06_security/07](/06_security/07-catena-di-fornitura.md) | P | ◐ |
+| 3 | **Identification of the sites** of design and manufacture, suppliers and subcontractors | `MDR-SITE-001` | [06_security/07](/06_security/07-catena-di-fornitura.md) for the method | **F** | ☐ |
 
 **For software, "manufacture" means build and release.** The statement is not metaphorical and has
 precise consequences: the "premises" the notified body inspects are the development environment and
@@ -243,11 +243,11 @@ repository and none of which, today, exists as a controlled procedure:
 
 | Element | Where it lives today | What it demonstrates |
 |---|---|---|
-| **Reproducible build** and artefact signing | [01_technical/09](../01_technical/09-integrazione-continua-e-rilascio.md) | That the distributed binary descends from the declared source |
+| **Reproducible build** and artefact signing | [01_technical/09](/01_technical/09-integrazione-continua-e-rilascio.md) | That the distributed binary descends from the declared source |
 | **Exact list of the changes included** in the release | [03 §8](./03-sistema-di-gestione-della-qualita.md), records 1 and 2 | That the composition of the release is known and not reconstructed |
 | **Mandatory review by named and qualified reviewers** | [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md), [`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md) | That **acceptance** is the act of design, not the writing ([03 §1](./03-sistema-di-gestione-della-qualita.md)) |
 | **Attestation of origin** on every contribution | [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md) | Chain of provenance of rights and traceability of the author by name |
-| **Bill of materials** generated by the build chain | [01_technical/09](../01_technical/09-integrazione-continua-e-rilascio.md), component register in [01_technical/01 §14](../01_technical/01-stack-e-motivazioni.md) | That every configuration item is identified by title, producer and version |
+| **Bill of materials** generated by the build chain | [01_technical/09](/01_technical/09-integrazione-continua-e-rilascio.md), component register in [01_technical/01 §14](/01_technical/01-stack-e-motivazioni.md) | That every configuration item is identified by title, producer and version |
 
 **What is missing is the document explaining why these five elements satisfy the clause.** It is
 exactly the difference between good engineering practice and regulatory evidence, and it is the work
@@ -258,11 +258,11 @@ duplicate.
 identification of the build chain runners, of the image registry, of the signing service and of
 every critical supplier, with the registered office and the country: these are data that depend on
 where the manufacturer hosts its own infrastructure, not on where the project hosts its own. The
-project supplies the **method** and the requirements those suppliers must meet — data sovereignty
+project supplies the **method** and the requirements those suppliers must meet - data sovereignty
 (`V1`), absence of runtime dependencies outside the Union, the ability to declare the relevant
-supplier to the authority (`D40`) — and nothing more.
+supplier to the authority (`D40`) - and nothing more.
 
-## 7. Annex II, section 4 — General safety and performance requirements
+## 7. Annex II, section 4 - General safety and performance requirements
 
 | Item | Content | Document | Fed by | Attr. | Status |
 |---|---|---|---|:-:|:-:|
@@ -278,7 +278,7 @@ electronic systems**: repeatability, reliability and performance in line with th
 development according to the state of the art with lifecycle, risk management, verification and
 validation; minimum hardware and network requirements; IT security measures including protection
 against unauthorised access. The second is that of the **reduction of risks related to use error**.
-`[NV]` — the precise numbering of the sections of Annex I must be re-read against the consolidated
+`[NV]` - the precise numbering of the sections of Annex I must be re-read against the consolidated
 text before appearing in the matrix.
 
 **The structural limit of the project's contribution, and it must be said without softening.** The
@@ -292,12 +292,12 @@ analysis with the reference to its own approved document.
 This is not a secondary limitation: it is **the junction point of the whole `D49` model**, and `D58`
 does not remove it. The project builds the complete, verifiable scaffolding of a file; the act that
 turns it into a file is the insertion of each reference into a document control system, and that act
-**is an act of the manufacturer** — reserved to the role even when the role is ours, because what
+**is an act of the manufacturer** - reserved to the role even when the role is ours, because what
 makes it possible is not the will but the system. Whoever reads this documentation hoping to find a
 ready-to-use file in it will instead find **everything needed to write one in months instead of
 years**, which is a different thing and must be said as it is.
 
-## 8. Annex II, section 5 — Benefit-risk analysis and risk management
+## 8. Annex II, section 5 - Benefit-risk analysis and risk management
 
 | Item | Content | Document | Fed by | Attr. | Status |
 |---|---|---|---|:-:|:-:|
@@ -305,7 +305,7 @@ years**, which is a different thing and must be said as it is.
 | 5.2 | Solutions adopted and **results of risk management** | `RM-PLAN-001`, `RM-FILE-001`, `RM-REP-001` | [05](./05-gestione-del-rischio.md) in full | P/F | ◐ |
 
 The substantive content of this section is in chapter
-[05 — Risk management](./05-gestione-del-rischio.md) and **is not duplicated here**. For the
+[05 - Risk management](./05-gestione-del-rischio.md) and **is not duplicated here**. For the
 purposes of mapping the file, three facts count, which that chapter establishes and which are
 recorded here.
 
@@ -323,27 +323,27 @@ qualification.
 risk control measure appearing in the risk file must appear as proof for a row of the general
 requirements matrix, and vice versa. Two documents built separately diverge at the second update.
 The guard is that the matrix should be **generated** from the same identifiers, not drafted by hand
-— the same rule [03 §7.3](./03-sistema-di-gestione-della-qualita.md) applies to traceability.
+- the same rule [03 §7.3](./03-sistema-di-gestione-della-qualita.md) applies to traceability.
 
-## 9. Annex II, section 6 — Product verification and validation
+## 9. Annex II, section 6 - Product verification and validation
 
 It is the most voluminous section for software and the one to which the project contributes most.
 
 | Item | Content | Document | Fed by | Attr. | Status |
 |---|---|---|---|:-:|:-:|
-| 6.1 | Results and critical analysis of **verifications and tests** and of the validation tests | `SW-VVP-001`, `SW-VVR-001`, `SW-TRACE-001` | [01_technical/08](../01_technical/08-qualita-e-test.md), [01_technical/09](../01_technical/09-integrazione-continua-e-rilascio.md) | P | ◐ |
-| 6.1 b | **Software verification and validation** before final release, on all the declared configurations and operating systems | `SW-VVR-001`, `MDR-ENV-001` | [01_technical/08](../01_technical/08-qualita-e-test.md), [01_technical/04](../01_technical/04-frontend.md), [01_technical/05](../01_technical/05-media-e-tempo-reale.md) | P | ◐ |
+| 6.1 | Results and critical analysis of **verifications and tests** and of the validation tests | `SW-VVP-001`, `SW-VVR-001`, `SW-TRACE-001` | [01_technical/08](/01_technical/08-qualita-e-test.md), [01_technical/09](/01_technical/09-integrazione-continua-e-rilascio.md) | P | ◐ |
+| 6.1 b | **Software verification and validation** before final release, on all the declared configurations and operating systems | `SW-VVR-001`, `MDR-ENV-001` | [01_technical/08](/01_technical/08-qualita-e-test.md), [01_technical/04](/01_technical/04-frontend.md), [01_technical/05](/01_technical/05-media-e-tempo-reale.md) | P | ◐ |
 | 6.1 | **Stability and lifetime** | `MDR-LIFE-001` | [03 §9.4](./03-sistema-di-gestione-della-qualita.md) | P/F | ☐ |
-| 6.1 | Biocompatibility, sterility, substances, radiation | **Not applicable** | — | P/F | ☐ |
-| 6.1 | **Clinical data**: clinical evaluation plan and report, post-market clinical follow-up | `CE-PLAN-001`, `CE-REP-001`, `PMCF-PLAN-001` | [07 — Clinical evaluation](./07-valutazione-clinica.md) | **F** | ☐ |
+| 6.1 | Biocompatibility, sterility, substances, radiation | **Not applicable** | - | P/F | ☐ |
+| 6.1 | **Clinical data**: clinical evaluation plan and report, post-market clinical follow-up | `CE-PLAN-001`, `CE-REP-001`, `PMCF-PLAN-001` | [07 - Clinical evaluation](./07-valutazione-clinica.md) | **F** | ☐ |
 | 6.2 | Specific cases, including devices with a **measuring function** | `MDR-TD-001` § 6.2 | [02 §12](./02-qualificazione-e-classificazione.md), question `Q-173` | P/F | ☐ |
-| — | **Cybersecurity**: threat model, requirements, tests, vulnerability handling, coordinated disclosure, bill of materials | `SEC-TM-001`, `SEC-RMF-001`, `SEC-PT-001`, `SEC-LC-001` | [06_security/01](../06_security/01-modello-di-minaccia.md), [06](../06_security/06-sicurezza-applicativa.md), [07](../06_security/07-catena-di-fornitura.md), [10](../06_security/10-risposta-agli-incidenti.md), [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md) | P | ◐ |
-| — | **Usability engineering file** | `UEF-001` and the linked documents | [06 — Usability and accessibility](./06-usabilita-e-accessibilita.md), [03_functional/06](../03_functional/06-accessibilita-e-usabilita.md) | P/F | ☐ |
-| — | Complete **software lifecycle documentation** | `SW-*` | [03 §§6–8](./03-sistema-di-gestione-della-qualita.md) | P | ◐ |
+| - | **Cybersecurity**: threat model, requirements, tests, vulnerability handling, coordinated disclosure, bill of materials | `SEC-TM-001`, `SEC-RMF-001`, `SEC-PT-001`, `SEC-LC-001` | [06_security/01](/06_security/01-modello-di-minaccia.md), [06](/06_security/06-sicurezza-applicativa.md), [07](/06_security/07-catena-di-fornitura.md), [10](/06_security/10-risposta-agli-incidenti.md), [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md) | P | ◐ |
+| - | **Usability engineering file** | `UEF-001` and the linked documents | [06 - Usability and accessibility](./06-usabilita-e-accessibilita.md), [03_functional/06](/03_functional/06-accessibilita-e-usabilita.md) | P/F | ☐ |
+| - | Complete **software lifecycle documentation** | `SW-*` | [03 §§6–8](./03-sistema-di-gestione-della-qualita.md) | P | ◐ |
 
 **Four warnings about this section, all arising from facts of this project.**
 
-**First — "before final release" is a temporal condition, not a formula.** The standard requires the
+**First - "before final release" is a temporal condition, not a formula.** The standard requires the
 summary of the results of all the verifications carried out **before** the release. A report
 produced afterwards, describing tests carried out beforehand, is admissible only if the tests were
 traceable to the released version. It is the reason why record 4 of
@@ -351,10 +351,10 @@ traceable to the released version. It is the reason why record 4 of
 **version of the object verified**: without that field, an automated check outcome cannot be
 attributed to a release and is worth nothing in the file.
 
-**Second — the matrix of supported environments does not exist and cannot be invented.** Item 6.1 b
+**Second - the matrix of supported environments does not exist and cannot be invented.** Item 6.1 b
 requires verification on all the declared configurations. The declared configurations derive from
-`MDR-ENV-001`, which in turn derives from the operating environment thresholds — minimum bandwidth,
-latency, loss, delay variation — and from the **reference device** against which the mobile first
+`MDR-ENV-001`, which in turn derives from the operating environment thresholds - minimum bandwidth,
+latency, loss, delay variation - and from the **reference device** against which the mobile first
 criteria are checked. None of these quantities has been measured to date: it is question `Q-115`,
 opened by the technical area towards product and functional. While it remains open, section 10 of
 the intended purpose cannot be completed
@@ -362,25 +362,25 @@ the intended purpose cannot be completed
 perimeter**. It is not a documentary delay: it is the impossibility of knowing what has to be
 tested.
 
-**Third — the clinical data are marked F, and the marking is substantive.** The project can produce
+**Third - the clinical data are marked F, and the marking is substantive.** The project can produce
 the method, the literature search strategy and the structure of the plan; it cannot conduct the
 clinical evaluation, which presupposes a qualified evaluator and a responsibility belonging to the
 manufacturer (`D49`). Chapter [07](./07-valutazione-clinica.md) deals with the subject; here it is
 recorded only that it is, together with the notified body, the second long-lead path of the
 schedule.
 
-**Fourth — item 6.2 is open and its closure does not depend on this area.** Whether the presentation
+**Fourth - item 6.2 is open and its closure does not depend on this area.** Whether the presentation
 of measured parameters constitutes a "measuring function" within the meaning of the MDR depends on a
 fact: whether the system converts units, rounds or transforms the values received, or presents them
 as received. It is question `Q-173`, addressed to the domain and functional areas. The answer
 determines the applicability of a block of metrological requirements of Annex I, and therefore whole
 rows of the section 4 matrix.
 
-## 10. Annex III — Technical documentation on post-market surveillance
+## 10. Annex III - Technical documentation on post-market surveillance
 
 | Item | Content | Document | Fed by | Attr. | Status |
 |---|---|---|---|:-:|:-:|
-| 1.1 | **Post-market surveillance plan** under Article 84: data collection, indicators and threshold values for the re-evaluation of risks, complaint investigation, management of events subject to trend reporting, communication with users and distributors, verification of preventive and corrective actions, traceability tools, clinical follow-up plan or the rationale for its non-applicability | `PMS-PLAN-001` | [08 — Post-market surveillance](./08-sorveglianza-post-commercializzazione.md), [06_security/10](../06_security/10-risposta-agli-incidenti.md) | P/F | ☐ |
+| 1.1 | **Post-market surveillance plan** under Article 84: data collection, indicators and threshold values for the re-evaluation of risks, complaint investigation, management of events subject to trend reporting, communication with users and distributors, verification of preventive and corrective actions, traceability tools, clinical follow-up plan or the rationale for its non-applicability | `PMS-PLAN-001` | [08 - Post-market surveillance](./08-sorveglianza-post-commercializzazione.md), [06_security/10](/06_security/10-risposta-agli-incidenti.md) | P/F | ☐ |
 | 1.2 | **Periodic safety update report** and surveillance report | `PSUR-00n` | [08](./08-sorveglianza-post-commercializzazione.md) | **F** | ☐ |
 
 **Annex III is the part of the file that is systematically forgotten**, for an understandable
@@ -417,7 +417,7 @@ absences, not as a work plan. No row is consoling.
 | 6 | **Clinical evaluation plan and report** | An autonomous 6–9 month path that has not been started | Manufacturer | Yes, but it lengthens the schedule by the same amount |
 | 7 | **Post-market surveillance plan** `PMS-PLAN-001` | Not drafted; and some indicators require product capabilities not yet declared (`Q-116`) | Project for the capabilities, manufacturer for the plan | Yes for the document, **no** for the data not collected |
 | 8 | **Label and instructions for use** | Neither the device information screen nor the document exists | Project for the space, manufacturer for the content | Yes, but a late interface change reopens the usability evaluation |
-| 9 | **Register of third-party components** complete with the annotations | The mechanism is defined ([01_technical/01 §14](../01_technical/01-stack-e-motivazioni.md), [01_technical/09](../01_technical/09-integrazione-continua-e-rilascio.md)); the complete inventory is populated with the first build chain | Project | **No at full cost**: inventorying the components after the fact costs 3–5 times as much (`D45`) |
+| 9 | **Register of third-party components** complete with the annotations | The mechanism is defined ([01_technical/01 §14](/01_technical/01-stack-e-motivazioni.md), [01_technical/09](/01_technical/09-integrazione-continua-e-rilascio.md)); the complete inventory is populated with the first build chain | Project | **No at full cost**: inventorying the components after the fact costs 3–5 times as much (`D45`) |
 | 10 | **Traceability matrix** as a release artefact | The identifiers are frozen (`V-120`), the generation is not yet in operation | Project | **No**: it is the retroactively unrecoverable element par excellence |
 | 11 | **Operating environment requirements** `MDR-ENV-001` | No threshold has been measured; no reference device is declared (`Q-115`) | Technical and product | Yes |
 | 12 | **Determination of the measuring function** | Question `Q-173` open | Domain and functional | Yes, but it conditions whole rows of the matrix |
@@ -448,20 +448,20 @@ today**, in any form, not even in draft, not even with a consultant's help. Each
 legal entity, an act of will or a responsibility that **do not exist today**.
 
 > **Why this section did not grow shorter with `D58`, and could not.** `D58` establishes that the
-> project **intends** to assume the manufacturer role — with the entity that would exercise it
-> **still to be constituted** — and amends `D28`, `D49` and `V-06` **in their addressee**, not in
+> project **intends** to assume the manufacturer role - with the entity that would exercise it
+> **still to be constituted** - and amends `D28`, `D49` and `V-06` **in their addressee**, not in
 > their technical substance. The fifteen items remain fifteen, for a reason that is not formal: they
 > are **acts the regulation reserves to the manufacturer role**, and they remain reserved to that
 > role **even when the role is ours**. Affixing the marking, signing the declaration of conformity,
 > appointing the person responsible for regulatory compliance, submitting the application to the
 > body: none of these acts becomes capable of being brought forward because the intention has been
-> declared. **The intention is not the entity**, and the entity — item 1 — is the constraint
+> declared. **The intention is not the entity**, and the entity - item 1 - is the constraint
 > furthest upstream of all the others.
 >
 > **What `D58` really changes.** It changes the implicit "whose task is it" column: these fifteen
 > items are no longer a third party's manual, they are **our list of obligations**. They therefore
-> become a matter for the project's internal planning (`D57`), and item 1 — the constitution of the
-> entity — is an **internal prerequisite with a time of its own**, not a wait.
+> become a matter for the project's internal planning (`D57`), and item 1 - the constitution of the
+> entity - is an **internal prerequisite with a time of its own**, not a wait.
 >
 > **What `D58` does not change.** The product today **bears no CE marking**, is covered by no
 > declaration of conformity and **whoever deploys it, integrates it or puts it into service assumes
@@ -490,8 +490,8 @@ legal entity, an act of will or a responsibility that **do not exist today**.
 **Row 15 deserves to be developed, because it is the surprising one.** A notified body does not
 inspect a repository: it inspects **an organisation**. It verifies on site who has write access, how
 a release is authorised, who signs the artefacts, where the keys are, how it is demonstrated that
-the written procedure corresponds to practice. An open project can make this verification easy — by
-publishing the build chain, the blocking checks, the review rules and their actual application — but
+the written procedure corresponds to practice. An open project can make this verification easy - by
+publishing the build chain, the blocking checks, the review rules and their actual application - but
 it cannot substitute itself for it. **The difference between making it easy and substituting oneself
 for it is the entire distance between what the project is today and the CE marking**, and `D58` does
 not shorten that distance by a metre: it merely states who intends to travel it. From which follows
@@ -515,16 +515,16 @@ was assessed**: it does not extend to the sources from which it is built, nor to
 by others, nor to a later version that was not assessed.
 
 It follows, without softening, that **whoever recompiles the sources produces their own artefact, of
-which they are the manufacturer**, with all the obligations § 12 lists — and they assume them in
+which they are the manufacturer**, with all the obligations § 12 lists - and they assume them in
 full even on the day an identified distribution is marked. It is the technical reason why item 4 and
 item 15 of § 12 cannot be substituted by any property of the code: no build reproducibility produces
 document control, and no compiler determinism substitutes for an inspectable organisation.
 
 ## 13. The notified body: what it does, and what it does not do
 
-In the procedure applicable to Class IIa — quality management system based assessment, **Annex IX,
+In the procedure applicable to Class IIa - quality management system based assessment, **Annex IX,
 Chapters I and III**, with the assessment of the technical documentation of **section 4** for at
-least one representative device per category (Article 52(6)) — the body carries out four distinct
+least one representative device per category (Article 52(6)) - the body carries out four distinct
 activities.
 
 | # | Activity | Basis | What it means for software |
@@ -547,13 +547,13 @@ an advantage.
 **How a designated body is identified.** The Commission's official database lists bodies by
 legislation, Member State and **scope of designation**, and is today reachable through the single
 internal market compliance portal. For each candidate, two distinct and independent sections must be
-read: the **conformity assessment procedures** for which it is designated — Annex IX, Chapters I and
-III, must appear — and the **designation codes** relating to device types, established by
+read: the **conformity assessment procedures** for which it is designated - Annex IX, Chapters I and
+III, must appear - and the **designation codes** relating to device types, established by
 **Implementing Regulation (EU) 2017/2185**. Standalone medical device software is an active device
 and falls under a code of the `MDA` family corresponding to the clinical function, alongside a
 horizontal code of the `MDS` family relating to devices incorporating software.
 
-> **`[NV]` — The exact codes have not been confirmed against a primary source.** The number of the
+> **`[NV]` - The exact codes have not been confirmed against a primary source.** The number of the
 > `MDA` code applicable to telemedicine and remote monitoring software and the literal wording of
 > the horizontal code must be taken from the annex to the implementing regulation. In any event, and
 > independently of that verification, the reliable route is **to ask each candidate body to state in
@@ -571,9 +571,9 @@ correct criterion is **codes plus software competence plus real availability**, 
 **Annex VII, section 1.2.8**, obliges notified bodies to make publicly available the list of their
 standard fees, and the Commission maintains the list of links to the published fees. Estimating in
 the presence of a public source would be a methodological error. What can be said is the
-**structure** of the cost — file opening fee, documentation assessment, initial two-stage audit,
+**structure** of the cost - file opening fee, documentation assessment, initial two-stage audit,
 review cycles on the responses to non-conformities, maintenance fee, annual surveillance,
-unannounced audit, assessment of substantial changes — and a warning about comparing offers:
+unannounced audit, assessment of substantial changes - and a warning about comparing offers:
 **comparing daily rates is misleading**, because the body that is cheapest per day may turn out to
 be the most expensive overall if it generates more non-conformity cycles or if it has longer queues.
 
@@ -608,7 +608,7 @@ easily, and that is precisely the material this chapter maps.
 
 **The dates are not here.** The time scenarios, the backward calculation, the irreversible decision
 points and the calendar of the phases are in chapter
-[09 — Path and schedule](./09-percorso-e-calendario.md), which is the single place where this
+[09 - Path and schedule](./09-percorso-e-calendario.md), which is the single place where this
 documentation puts dates. Repeating them here would produce two calendars destined to diverge, which
 is the documentary defect [03](./03-sistema-di-gestione-della-qualita.md) names. The only deadline
 this chapter reiterates is the project's own: **at 30 November 2026 the goal is software complete,

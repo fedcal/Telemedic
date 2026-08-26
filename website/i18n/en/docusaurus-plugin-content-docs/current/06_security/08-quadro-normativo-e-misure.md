@@ -6,11 +6,11 @@ description: Which security rules apply and to whom, the subject-specific eighte
 
 # Regulatory framework and controls
 
-> **Reading prerequisite.** The general regulatory framework — what the medical device rules, the
+> **Reading prerequisite.** The general regulatory framework - what the medical device rules, the
 > data protection regulation, the network security directive and the cyber resilience regulation
-> are, and how they sit relative to one another — is in
-> [10 §12 §10](../10_fondamenti/12-crittografia-e-sicurezza.md) and in
-> [10 §15 — Regulatory from scratch](../10_fondamenti/15-regolatorio-da-zero.md). Here only
+> are, and how they sit relative to one another - is in
+> [10 §12 §10](/10_fondamenti/12-crittografia-e-sicurezza.md) and in
+> [10 §15 - Regulatory from scratch](/10_fondamenti/15-regolatorio-da-zero.md). Here only
 > security is dealt with, with the dates, the addressees and the points of conflict.
 >
 > **Warning.** This chapter is **technical compliance analysis, not legal advice.** The legal
@@ -20,8 +20,8 @@ description: Which security rules apply and to whom, the subject-specific eighte
 ## 1. The problem in one line
 
 **The project is almost certainly not, in its own right, an entity subject to the national network
-security rules.** Its users are — local health authorities, hospital trusts, accredited providers
-above the size threshold, cloud healthcare management systems — and they **pass a substantial part
+security rules.** Its users are - local health authorities, hospital trusts, accredited providers
+above the size threshold, cloud healthcare management systems - and they **pass a substantial part
 of their own obligations on to the supplier by contract**, through three cumulative mechanisms:
 
 1. **Article 24(2)(d) and (3) of d.lgs. 4 settembre 2024, n. 138** (Legislative Decree no. 138 of 4
@@ -48,7 +48,7 @@ and the passages of the authority's reading guide that have been read.
 
 What this chapter **does not** cite, and marks `[NV]`: the **text of the individual requirements**.
 A supplier that misquotes a requirement produces, at the customer, a piece of documentary evidence
-that does not close out — which is exactly the harm it was trying to avoid.
+that does not close out - which is exactly the harm it was trying to avoid.
 
 ## 3. The deadline is subject-specific, not a single date
 
@@ -63,7 +63,7 @@ elements:
    entity's receipt of the notice of inclusion on the list**. The deadline for the duty to notify
    baseline significant incidents is **nine months** from the same date.
 2. **The authority began sending inclusion notices in April 2025.** For entities that received it
-   by 30 April 2025 — the large majority of the first wave — the eighteen months fall due by 31
+   by 30 April 2025 - the large majority of the first wave - the eighteen months fall due by 31
    October 2026.
 
 **The deadline is therefore subject-specific: every customer has their own date.** 31 October 2026
@@ -112,7 +112,7 @@ only; **6** are provided for essential entities only. 27 + 10 + 6 = 43; 43 − 6
 **Working assumption of the project.** A platform providing remote consultation (televisita) and
 specialist-to-specialist consultation (teleconsulto) for an essential entity will be classified as
 a **relevant system**. The documentation therefore presumes application of the **stricter profile**
-— second factor, encryption of backups, restore tests, network monitoring, endpoint protection —
+- second factor, encryption of backups, restore tests, network monitoring, endpoint protection -
 and not of the minimum profile.
 
 ### 4.1 The four proportionality clauses
@@ -157,7 +157,7 @@ recovery plan; the crisis management plan; the training plan; the incident manag
 **two cannot be drawn up without the supplier**: the inventory of services provided by suppliers,
 and the vulnerability management plan, which has to take account of the vulnerabilities in the
 product's dependencies. This is where the project's natural deliverable comes from: a **pre-filled
-compliance file** that the customer incorporates — bill of materials, list of outbound network
+compliance file** that the customer incorporates - bill of materials, list of outbound network
 flows, list of remotely accessible systems, reference configurations, allocation of
 responsibilities, disclosure procedure.
 
@@ -228,7 +228,7 @@ would invalidate it. A precise deliverable follows, which the project produces a
 package:
 
 **A technical derogation statement**, which (a) identifies the components whose alteration would
-invalidate the marking; (b) lists the **compensating controls available natively** — container
+invalidate the marking; (b) lists the **compensating controls available natively** - container
 hardening, read-only filesystem, image integrity verification, external monitoring of process
 behaviour, network segmentation; (c) defines the **supported configuration** for endpoint
 protection on the hosting machine.
@@ -256,7 +256,7 @@ A note on the procurement guidelines that has a direct effect on the form of the
 guidelines recommend that administrations draw on the appendix of eligible requirements instead of
 writing new ones, and that they word them in a **«clear, objective and as closed as possible»** way,
 leaving as little room as possible for the committee's subjective assessment. **The supplier's
-answers will therefore be evaluated against closed requirements — yes or no, with evidence — not
+answers will therefore be evaluated against closed requirements - yes or no, with evidence - not
 against narratives.** The project's compliance documentation is structured as a requirement →
 evidence → precise reference matrix, and it is the same structure required by life cycle
 traceability: one artefact for both purposes.
@@ -271,31 +271,31 @@ challenged during the tender.
 ## 8. Overlap matrix
 
 Key: **●** direct obligation · **○** indirect obligation, which falls on the project by way of
-contract · **—** not applicable.
+contract · **-** not applicable.
 
 | Control | Network security | Public contracts | Cyber resilience | Data protection | Medical devices | PA minimum measures | Procurement | Telemedicine | Primary addressee |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
-| Inventory and bill of materials | ● | — | ● | ○ | ● | ● | ● | — | **Project** produces, deployer maintains |
+| Inventory and bill of materials | ● | - | ● | ○ | ● | ● | ● | - | **Project** produces, deployer maintains |
 | Secure reference configurations | ● | ● | ● | ● | ● | ● | ● | ● | **Project** documents, deployer applies |
-| Vulnerability management and disclosure | ● | ● | ● | ○ | ● | ● | ● | — | **Both** |
+| Vulnerability management and disclosure | ● | ● | ● | ○ | ● | ● | ● | - | **Both** |
 | Security updates | ● | ● | ● | ● | ● | ● | ● | ● | **Project** releases, deployer applies |
 | Access control and privileges | ● | ● | ● | ● | ● | ● | ● | ● | **Both** |
 | Multi-factor authentication | ● | ● | ● | ● | ● | ● | ● | ● | **Project** enables, deployer configures |
 | Encryption in transit | ● | ● | ● | ● | ● | ● | ● | ● | **Project** |
 | Encryption at rest | ● | ● | ● | ● | ● | ● | ● | ● | **Project** enables, deployer manages the keys |
-| Encrypted backups with restore testing | ● | — | — | ● | ● | ● | — | ● | **Deployer**, with the project's procedure |
-| Continuity and recovery | ● | — | — | ● | ● | ● | — | ● | **Deployer** |
+| Encrypted backups with restore testing | ● | - | - | ● | ● | ● | - | ● | **Deployer**, with the project's procedure |
+| Continuity and recovery | ● | - | - | ● | ● | ● | - | ● | **Deployer** |
 | Non-alterable audit trail and traceability | ● | ● | ● | ● | ● | ● | ● | ● | **Project** |
 | Detection and monitoring | ● | ● | ● | ● | ● | ● | ● | ● | **Deployer**, with the project's integration |
-| Incident notification | ● | ● | ● | ● | ● | — | ● | ● | **Deployer** notifies, **project** supplies the evidence |
-| Forensic export and chronology | ○ | ○ | ○ | ○ | ○ | — | ● | — | **Project** |
-| Supply chain security | ● | ● | ● | ● | ● | — | ● | — | **Deployer** is obliged; **project** is the object of the verification |
-| Declaration of relevant suppliers | ● | — | — | — | — | — | — | — | **Deployer**; the project is the declared subject |
-| Secure development life cycle | ● | ● | ● | ● | ● | — | ● | — | **Project** |
-| Staff training | ● | ● | — | ● | ● | — | ● | ● | **Deployer** |
-| Governance and approval of the plans | ● | ● | — | ● | ● | — | ● | — | **Deployer** |
-| Secured communications | ● | — | ● | ● | ● | — | ● | ● | **Project** |
-| Data residency | ○ | ● | — | ● | — | — | ● | ● | **Both** |
+| Incident notification | ● | ● | ● | ● | ● | - | ● | ● | **Deployer** notifies, **project** supplies the evidence |
+| Forensic export and chronology | ○ | ○ | ○ | ○ | ○ | - | ● | - | **Project** |
+| Supply chain security | ● | ● | ● | ● | ● | - | ● | - | **Deployer** is obliged; **project** is the object of the verification |
+| Declaration of relevant suppliers | ● | - | - | - | - | - | - | - | **Deployer**; the project is the declared subject |
+| Secure development life cycle | ● | ● | ● | ● | ● | - | ● | - | **Project** |
+| Staff training | ● | ● | - | ● | ● | - | ● | ● | **Deployer** |
+| Governance and approval of the plans | ● | ● | - | ● | ● | - | ● | - | **Deployer** |
+| Secured communications | ● | - | ● | ● | ● | - | ● | ● | **Project** |
+| Data residency | ○ | ● | - | ● | - | - | ● | ● | **Both** |
 
 ### 8.1 The seven highest-return controls
 

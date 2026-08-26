@@ -7,7 +7,7 @@ description: Autenticazione fra sistemi, contratti, paginazione, idempotenza, co
 # Integrazione per interfacce applicative
 
 Questo capitolo descrive la modalità **B**: il vostro back-end che parla con Telemedic. È la
-modalità su cui poggiano tutte le altre — il componente incorporabile ha bisogno di un gettone
+modalità su cui poggiano tutte le altre - il componente incorporabile ha bisogno di un gettone
 che si ottiene qui, i moduli sostituibili hanno bisogno di dati che passano da qui.
 
 ## 1. Due piani, una regola di partizione
@@ -18,7 +18,7 @@ La superficie è doppia e la separazione è deliberata. Il riepilogo è in
 | | Piano clinico `/fhir` | Piano applicativo `/v1` |
 |---|---|---|
 | Contratto | Profili pubblicati + documento di capacità (`GET /fhir/metadata`) | Documento di interfaccia in **OpenAPI 3.1** |
-| Errori | Risorsa di esito dell'operazione | `application/problem+json` — **RFC 9457** |
+| Errori | Risorsa di esito dell'operazione | `application/problem+json` - **RFC 9457** |
 | Paginazione | Collegamenti nella busta di risultato | Cursore opaco firmato |
 | Concorrenza | Validatore debole allineato alla versione della risorsa | Validatore sulla risorsa applicativa |
 | Versionamento | La versione **è** quella di FHIR, dichiarata nel documento di capacità e nel tipo di contenuto | Versione maggiore nel percorso |
@@ -39,8 +39,8 @@ che nessun altro sistema sanitario potrà leggere.
 | Mutua autenticazione a livello di trasporto, in aggiunta | Raccomandata per il settore pubblico e per i tenant ad alta assurance | Dove il vostro perimetro la consente e il capitolato la richiede |
 | Prova di possesso legata alla chiave, sul livello applicativo | Opzione, dove la piattaforma del client la sostiene | Client con esecuzione in browser che vogliono superare il token al portatore |
 | Segreto condiviso | **Ammessa solo in via transitoria e documentata**, con rotazione frequente | Integratori che non sono in grado di gestire il ciclo di vita di una chiave. È più onesto un segreto ruotato spesso che una chiave privata custodita male |
-| Token statico a vita indefinita | **Non ammessa** | — |
-| Credenziali dell'utente scambiate fra sistemi | **Non ammessa** | — |
+| Token statico a vita indefinita | **Non ammessa** | - |
+| Credenziali dell'utente scambiate fra sistemi | **Non ammessa** | - |
 | Credenziali di sistema **da un browser** | **Non ammessa, e non è una questione di configurazione** | Non esiste modo sicuro di custodire una chiave privata in un browser |
 
 Perché l'asimmetrico è la modalità predefinita, in tre punti che valgono anche per voi:
@@ -97,14 +97,14 @@ guadagno di sicurezza, dato che la conversione è definita dalla specifica stess
 vengono mascherate da risorsa clinica**. Sono espresse come URI (*proposta di progetto*):
 
 ```text
-https://telemedic.esempio.it/scopes/session.start
-https://telemedic.esempio.it/scopes/session.join
-https://telemedic.esempio.it/scopes/session.metrics.read
-https://telemedic.esempio.it/scopes/recording.consent.manage
-https://telemedic.esempio.it/scopes/webhook.manage
-https://telemedic.esempio.it/scopes/branding.manage
-https://telemedic.esempio.it/scopes/tenant.admin
-https://telemedic.esempio.it/scopes/audit.export
+https://telemedic.example/scopes/session.start
+https://telemedic.example/scopes/session.join
+https://telemedic.example/scopes/session.metrics.read
+https://telemedic.example/scopes/recording.consent.manage
+https://telemedic.example/scopes/webhook.manage
+https://telemedic.example/scopes/branding.manage
+https://telemedic.example/scopes/tenant.admin
+https://telemedic.example/scopes/audit.export
 ```
 
 Forzare «avviare una sessione video» dentro `patient/Encounter.cu` sarebbe un abuso semantico e
@@ -125,8 +125,8 @@ quasi sempre:
 > dell'emittente resta valido fino alla propria scadenza anche dopo essere stato revocato.
 > È il motivo per cui i token clinici durano cinque minuti e non un giorno.
 
-Per le revoche che **devono** essere immediate — un professionista disabilitato, un tenant
-sospeso, una chiave compromessa — esiste un meccanismo aggiuntivo: una lista di negazione
+Per le revoche che **devono** essere immediate - un professionista disabilitato, un tenant
+sospeso, una chiave compromessa - esiste un meccanismo aggiuntivo: una lista di negazione
 distribuita, con durata pari alla vita massima di un token, consultata al confine. Il costo è
 una verifica in più; il beneficio è che «revocato» significa revocato.
 
@@ -138,8 +138,8 @@ verificato che il tenant abbia quel meccanismo attivo.
 ### 3.1 Prima il contratto, poi il codice
 
 Il documento di interfaccia è **scritto a mano ed è la fonte di verità**; le strutture del
-server sono generate o verificate contro di esso in integrazione continua. L'approccio inverso —
-annotazioni nel codice da cui si genera il documento — produce un contratto che cambia a ogni
+server sono generate o verificate contro di esso in integrazione continua. L'approccio inverso -
+annotazioni nel codice da cui si genera il documento - produce un contratto che cambia a ogni
 ristrutturazione interna, il che è incompatibile con una politica di stabilità e con la
 tracciabilità richiesta dal regime di ciclo di vita a cui il software è sottoposto.
 
@@ -167,13 +167,13 @@ esempio che non funziona è peggio di nessun esempio.
 openapi: 3.1.1
 jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
 info:
-  title: Telemedic — interfaccia applicativa
+  title: Telemedic - interfaccia applicativa
   version: "1.0.0"
   license:
     name: Apache-2.0
     identifier: Apache-2.0
 servers:
-  - url: https://api.telemedic.esempio.it/v1
+  - url: https://api.telemedic.example/v1
 paths:
   /sessions:
     post:
@@ -233,7 +233,7 @@ webhooks:
 Due note sul frammento. Il campo delle notifiche in ingresso fa parte del documento di
 interfaccia: **una sola specifica** descrive sia ciò che chiamate sia ciò che ricevete, il che
 evita che le due divergano. E la descrizione della chiave di idempotenza **dichiara il proprio
-stato normativo** invece di lasciar credere a una conformità che non esiste — vedi §5.
+stato normativo** invece di lasciar credere a una conformità che non esiste - vedi §5.
 
 ## 4. Paginazione
 
@@ -282,7 +282,7 @@ Tre regole per il vostro client:
 
 Il progetto mantiene comunque il nome del campo, perché è la convenzione di settore più diffusa
 e le vostre librerie la riconoscono: cambiarlo produrrebbe attrito senza alcun guadagno. Ma va
-presentato per quello che è — **convenzione di progetto** — nella vostra documentazione, nei
+presentato per quello che è - **convenzione di progetto** - nella vostra documentazione, nei
 contratti e nei capitolati. Dichiarare una conformità inesistente è una promessa che nessuno può
 mantenere.
 
@@ -307,8 +307,8 @@ ETag: W/"1"
 ### 5.3 Dove non serve
 
 Su lettura, sostituzione completa e cancellazione: sono già idempotenti per definizione del
-protocollo. Aggiungerla è rumore. E su operazioni in cui **volete** effetti multipli — «invia
-di nuovo l'invito» — serve un endpoint distinto con semantica esplicita, non l'assenza della
+protocollo. Aggiungerla è rumore. E su operazioni in cui **volete** effetti multipli - «invia
+di nuovo l'invito» - serve un endpoint distinto con semantica esplicita, non l'assenza della
 chiave.
 
 ### 5.4 Il corrispettivo sul piano clinico
@@ -404,7 +404,7 @@ RateLimit: "sessions";r=417;t=1832
 | | `t` | secondi alla reimpostazione |
 | | `pk` | chiave di partizione |
 
-Il progetto emette **entrambe le forme** — quella corrente e quella storica — durante il periodo
+Il progetto emette **entrambe le forme** - quella corrente e quella storica - durante il periodo
 di transizione, e dichiara che **nessuna delle due è normativa**. Quando il documento diventerà
 una RFC, la forma storica entrerà nel processo di dismissione del §9.
 
@@ -447,7 +447,7 @@ Content-Language: it-IT
 
 ```json
 {
-  "type": "https://docs.telemedic.esempio.it/problems/session-not-startable",
+  "type": "https://docs.telemedic.example/problems/session-not-startable",
   "title": "La prestazione non può essere avviata",
   "status": 409,
   "detail": "L'appuntamento indicato risulta annullato. Una prestazione può essere avviata solo da un appuntamento prenotato o con assistito presente.",
@@ -491,7 +491,7 @@ formalismo che le compete.
       "details": {
         "coding": [
           {
-            "system": "https://telemedic.esempio.it/CodeSystem/operation-outcome",
+            "system": "https://telemedic.example/CodeSystem/operation-outcome",
             "code": "session-not-startable"
           }
         ],
@@ -578,8 +578,8 @@ Le intestazioni, con lo stato corretto delle specifiche:
 HTTP/1.1 200 OK
 Deprecation: @1788134399
 Sunset: Sat, 31 Oct 2027 23:59:59 GMT
-Link: <https://docs.telemedic.esempio.it/api/v1-deprecation>; rel="deprecation"; type="text/html"
-Link: <https://api.telemedic.esempio.it/v2/sessions>; rel="successor-version"
+Link: <https://docs.telemedic.example/api/v1-deprecation>; rel="deprecation"; type="text/html"
+Link: <https://api.telemedic.example/v2/sessions>; rel="successor-version"
 ```
 
 > **Stato verificato.** L'intestazione di deprecazione è **RFC 9745**, Standards Track, marzo
@@ -609,7 +609,7 @@ stato e risultato in file a righe JSON.
 
 > **Versione da citare: 3.0.0**, in uso di prova dall'11 dicembre 2025. Le versioni precedenti
 > sono superate. **Attenzione**: la costruzione continua della specifica presenta un manifesto
-> **strutturalmente diverso** da quello pubblicato — rinomina il campo degli errori, ne aggiunge
+> **strutturalmente diverso** da quello pubblicato - rinomina il campo degli errori, ne aggiunge
 > di nuovi e ne rimuove uno obbligatorio. Non è materiale su cui implementare, ed è esattamente
 > il genere di divergenza che produce integrazioni non interoperabili.
 
@@ -620,7 +620,7 @@ versione corrente.
 
 **Quando non usarla**: per volumi piccoli, dove una ricerca paginata basta; quando serve bassa
 latenza, perché è asincrona per definizione; e quando l'esportazione riguarda dati particolari
-senza una base giuridica documentata — lì il vincolo non è tecnico.
+senza una base giuridica documentata - lì il vincolo non è tecnico.
 
 ## 11. Quando non usare l'interfaccia applicativa
 
@@ -628,6 +628,6 @@ senza una base giuridica documentata — lì il vincolo non è tecnico.
 |---|---|---|
 | Vi serve un aggiornamento continuo dentro un'interfaccia | Sondare un endpoint ogni secondo è spreco e latenza | Canale in tempo reale dal componente incorporato |
 | Vi servono metriche di qualità della rete ad alta frequenza | Non sono dati clinici e non passano dall'interfaccia clinica; il volume non è adatto a chiamate singole | Aggregazione e lettura periodica sul piano applicativo |
-| Volete leggere i dati di un tenant che non è il vostro | Non esiste alcun percorso: il contesto di tenant è verificato al confine di ogni contesto | — |
+| Volete leggere i dati di un tenant che non è il vostro | Non esiste alcun percorso: il contesto di tenant è verificato al confine di ogni contesto | - |
 | Volete un'operazione che il progetto non espone | Se la capacità esiste nell'interfaccia utente, esiste anche nell'interfaccia applicativa: se non la trovate, è un difetto di documentazione o di ricerca. Se non esiste affatto, è una richiesta di funzionalità | Segnalazione |
 | Il vostro sistema parla solo messaggistica ospedaliera | Nessun protocollo web, nessuna autorizzazione applicativa | Variante a messaggistica, con mutua autenticazione di nodo |

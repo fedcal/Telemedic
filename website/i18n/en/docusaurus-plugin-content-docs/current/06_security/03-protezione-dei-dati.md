@@ -9,7 +9,7 @@ description: Encryption in transit and at rest with the obligation set by the Ac
 > **Reading prerequisite.** What encryption in transit and encryption at rest actually protect,
 > why they are two controls against two different threats, what authenticated encryption means,
 > why key management is the real problem and not an operational detail:
-> [10 §12 — Cryptography and security, §§3, 4, 7](../10_fondamenti/12-crittografia-e-sicurezza.md).
+> [10 §12 - Cryptography and security, §§3, 4, 7](/10_fondamenti/12-crittografia-e-sicurezza.md).
 > Here we describe the choices of this system, their limits, and the points where the datum is in
 > the clear anyway.
 
@@ -19,11 +19,11 @@ This chapter **does not contain** key lengths, cipher suite names, curves, valid
 strength thresholds. Not out of editorial caution: for a substantive reason, which has to be
 stated because it is counter-intuitive.
 
-A cryptographic parameter written into an architecture document has three defects. It **ages** —
+A cryptographic parameter written into an architecture document has three defects. It **ages** -
 the same choice that is state of the art today is weak in three years' time, and the document
-remains. It **is not verifiable by the reader** — the reader has no way of knowing whether the
+remains. It **is not verifiable by the reader** - the reader has no way of knowing whether the
 number comes from a recommendation or from the habits of whoever wrote it. It **competes with the
-source** — if the document says one thing and the recommendation of the competent body says
+source** - if the document says one thing and the recommendation of the competent body says
 another, the installation ends up with two obligations.
 
 **Rule of the project.** Cryptographic parameters are **configuration**, not documentation, and
@@ -58,7 +58,7 @@ Every channel that carries one of the four categories falls within the obligatio
 
 Converging on the same point: the control on the protection of data in transit in the baseline
 specifications of the national cybersecurity authority (code `PR.DS-02`) and the one on protected
-communications reserved for essential entities (`PR.IR-03`) — the **precise content of those
+communications reserved for essential entities (`PR.IR-03`) - the **precise content of those
 requirements is not quoted here**, for the reason set out in
 [08 §2](./08-quadro-normativo-e-misure.md); requirements R13, R24 and R36 of the appendix on
 eligible security requirements of the national guidelines on security in ICT procurement, made
@@ -95,7 +95,7 @@ stays true after the first library update.
 which cipher suite is in use on a session. **It measures them per session and records them.**
 
 The reason is that part of the negotiation takes place between two ends the project does not
-control — the patient's browser and the professional's — and whose behaviour depends on the
+control - the patient's browser and the professional's - and whose behaviour depends on the
 engine, the version, the configuration of the underlying cryptographic library and experimental
 settings. The picture established in the project's verification research is that two engines out
 of three negotiate by default the most recent version of the datagram transport protocol, while
@@ -154,7 +154,7 @@ are per tenant**, and the key is **separable from the datum**. Two consequences 
 
 ### 3.3 What is encrypted at rest
 
-Clinical content and documents; session recordings; attachments; the access log in its separate
+Clinical content and documents; session recordings; attachments; the audit trail in its separate
 retention; backups, **without exception**; the key material, held in a vault distinct from the
 data it protects.
 
@@ -209,15 +209,15 @@ and blocks integration on a match. A secret that has appeared in a version-contr
 **compromised**, and the procedure is rotation, not removal from the history: removal from the
 history does not recover the copies already distributed.
 
-**Losing the key is losing the datum.** Risk M-15 of the threat model — irreversible loss of key
-material — is a risk to the **availability of health documentation**, and must be treated with the
+**Losing the key is losing the datum.** Risk M-15 of the threat model - irreversible loss of key
+material - is a risk to the **availability of health documentation**, and must be treated with the
 same seriousness as compromise. A requirement follows that gets forgotten: the restore-from-backup
 procedure must include the **restoration of the key material**, and the periodic restore test must
 verify that the restored datum is actually **readable**, not merely present.
 
 ## 5. The honest inventory of the points in the clear
 
-This section exists because its opposite — silence — is the most common form of technical
+This section exists because its opposite - silence - is the most common form of technical
 dishonesty in the documentation of communication systems. **A system that declares end-to-end
 encryption and does not list the points where something is visible anyway is letting a property it
 does not have be inferred.**
@@ -226,10 +226,10 @@ does not have be inferred.**
 |---|---|---|---|
 | **Session signalling** | Who takes part, when, for how long, with which tenant; the session descriptors and the connectivity candidates, **including local network addresses** | The audio-video content | Encrypted transport; **short retention** of the candidates; no candidate in diagnostic logs; declaration in the privacy notice |
 | **Relay server** | **The network addresses of both parties**, the volume and pattern of the traffic, the duration of the allocation | The content: it forwards already-encrypted packets | Relay **operated by the deployer, within the Union**; no labelling of the metrics with the session identifier (V-155); short retention of the relay logs |
-| **Recording component** (only in the mode with recording) | **Everything**: encryption terminates at the component | — | The mode is **distinct, declared in the consent and persistently indicated**: [05 §5](./05-sicurezza-del-tempo-reale.md) |
-| **The two devices** | Everything the user sees and hears | — | Outside the project's control: **declared residual risk** ([01 §6](./01-modello-di-minaccia.md)) |
+| **Recording component** (only in the mode with recording) | **Everything**: encryption terminates at the component | - | The mode is **distinct, declared in the consent and persistently indicated**: [05 §5](./05-sicurezza-del-tempo-reale.md) |
+| **The two devices** | Everything the user sees and hears | - | Outside the project's control: **declared residual risk** ([01 §6](./01-modello-di-minaccia.md)) |
 | **Database engine** | The application content that passes through it | What is encrypted at application level | Per-artefact encryption; separation of accounts; separate audit trail |
-| **Single egress broker** | The destinations and the content of outbound requests | — | No clinical content (V-21); no patient identifier towards terminology (V-151); [06 §8](./06-sicurezza-applicativa.md) |
+| **Single egress broker** | The destinations and the content of outbound requests | - | No clinical content (V-21); no patient identifier towards terminology (V-151); [06 §8](./06-sicurezza-applicativa.md) |
 | **Observability and metrics** | What the application decides to send them | What the application does not send | **Prohibition** on clinical content and on direct identifiers in diagnostic logs (V-150) |
 
 Two points deserve to be written out in full, because they are the ones that get softened.
@@ -271,7 +271,7 @@ The other applications of the principle, each with its verification:
 | Outbound messages | They carry identifiers and references, **never clinical content**; the content is re-read with an authenticated call under the recipient's authorisation (V-21) | Inspection of the schemas of the published events |
 | Diagnostic logs | No direct patient identifier, no clinical content (V-150) | Automated analysis of the logs of a test run against a dictionary of patterns |
 | Infrastructure metrics | No label with the session identifier (V-155) | Inspection of the exporter's configuration |
-| Attributes requested from the federation | Only those that are necessary, for the reason in §3.1 of [02](./02-identita-e-accessi.md) — which also has a price | Comparison between the attributes declared and those actually used |
+| Attributes requested from the federation | Only those that are necessary, for the reason in §3.1 of [02](./02-identita-e-accessi.md) - which also has a price | Comparison between the attributes declared and those actually used |
 | Biometric recognition | **Excluded by design.** The video stream contains the face but is not for that reason alone biometric data within the meaning of Article 4(14): the qualification requires specific technical processing aimed at unique identification. Introducing it would open a **second** route into Article 9 with autonomous requirements | The exclusion is documented, not implicit |
 | Defaults | Recording **switched off**; minimum retention; opt-in telemetry; logs without clinical content | Test on the initial configuration |
 
@@ -337,7 +337,7 @@ documents it explicitly instead of leaving it implicit:
 
 There is a case in which erasure **must not** happen: when the artefact is the subject of a
 challenge, an investigation or proceedings. It follows that every artefact has a **life cycle
-state** — active, suspended, awaiting erasure, erased — and that the suspended state:
+state** - active, suspended, awaiting erasure, erased - and that the suspended state:
 
 - **prevails** over the expiry of the retention period;
 - is **justified and dated**, and its application is itself a row of the audit trail;
@@ -355,8 +355,8 @@ state** — active, suspended, awaiting erasure, erased — and that the suspend
 | Portability (Art. 20) | Applicable: processing founded on consent and automated | Export in a commonly used format, with the session metadata |
 | Objection (Art. 21) | Not applicable to processing founded on consent | Relevant only for any processing based on legitimate interest |
 
-**A derived requirement, and not a minor one**: every artefact — session, document, recording, row
-of the audit trail — carries a **data subject identifier** and a **life cycle state**, and the
+**A derived requirement, and not a minor one**: every artefact - session, document, recording, row
+of the audit trail - carries a **data subject identifier** and a **life cycle state**, and the
 rights are **executable through an application interface**. The total integrability constraint is
 therefore not just a product choice: it is the condition for the rights to be exercisable within
 useful time.
@@ -368,5 +368,5 @@ useful time.
 | `[NV]` | Citation and current revision of the European and national cryptographic recommendations to be cited in the compliance matrix (§1) | Compliance |
 | `[NV]` | Applicable retention periods for health documentation, by document type and by regional rules (§7.1) | Domain, compliance |
 | `[NV]` | Support status of the most recent version of the datagram transport protocol on the third engine (§2.3) | Empirical verification |
-| — | Location of the key vault and its interface: a component of the installation itself or a service of the infrastructure (§4) | Architecture |
+| - | Location of the key vault and its interface: a component of the installation itself or a service of the infrastructure (§4) | Architecture |
 | Q-157 | Selective redaction of video for the purposes of the right of access: a capability to be designed or an exclusion to be justified (§7.5) | Functional, compliance |

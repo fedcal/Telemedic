@@ -8,8 +8,8 @@ description: "Canonical dataset and substitutable serialisations, document types
 
 What a clinical document is, what the difference is between a document and a message, what the
 life cycle of a document towards the health record looks like and who the institutional actors are
-is explained in the modules [«The clinical datum»](../10_fondamenti/03-il-dato-clinico.md) and
-[«The electronic health record and national infrastructures»](../10_fondamenti/07-fse-e-infrastrutture-nazionali.md).
+is explained in the modules [«The clinical datum»](/10_fondamenti/03-il-dato-clinico.md) and
+[«The electronic health record and national infrastructures»](/10_fondamenti/07-fse-e-infrastrutture-nazionali.md).
 This chapter describes **how Telemedic produces, signs, versions and delivers** documentary
 content.
 
@@ -17,8 +17,8 @@ content.
 
 > **Constraint V-07.** The information content of documents destined for the electronic health
 > record (Fascicolo Sanitario Elettronico) is modelled as a **canonical dataset**. The
-> serialisations — structured document for the health record, FHIR representation, rendered
-> representation — are **substitutable** and must not be hard-coded.
+> serialisations - structured document for the health record, FHIR representation, rendered
+> representation - are **substitutable** and must not be hard-coded.
 
 It is not an architectural preference: it is the mandatory consequence of a verified fact. The
 decree that established the telemedicine document types defines **the information set**, published
@@ -41,7 +41,7 @@ flowchart TD
     N["Statutory information set<br/>(binding source)"]
     D["Telemedic's canonical dataset<br/>internal model, versioned"]
     S1["FHIR serialisation<br/>Composition in a document Bundle"]
-    S2["Structured serialisation for the health record<br/>template NOT available — [NV]"]
+    S2["Structured serialisation for the health record<br/>template NOT available - [NV]"]
     S3["Rendered representation<br/>for human reading and signing"]
     S4["Compatibility projection<br/>diagnostic report, read-only"]
     N --> D
@@ -61,9 +61,9 @@ information set. The declared date for full operation is **30 June 2026** (Artic
 
 | Point | Document type | Annex 1 paragraph | Produced by Telemedic |
 |---|---|---|---|
-| n) | Prescription for televisita, teleassistenza and telemonitoraggio | 2.18 | No — it is upstream, and reuses the existing prescription record layouts |
+| n) | Prescription for televisita, teleassistenza and telemonitoraggio | 2.18 | No - it is upstream, and reuses the existing prescription record layouts |
 | o) | Teleconsulto request | 2.19 | Yes, when the teleconsulto originates in the system |
-| p) | **Specialist report for televisita** | 2.20 | **Yes — it is the principal document** |
+| p) | **Specialist report for televisita** | 2.20 | **Yes - it is the principal document** |
 | q) | Collaborative report for teleconsulto or teleconsulenza | 2.21 | Yes |
 | r) | Concluding clinical and care report for teleassistenza and teleriabilitazione | 2.22 | Yes |
 | s) | Device card for telemonitoraggio | 2.23 | Yes, with the limit in §8.3 |
@@ -82,14 +82,14 @@ The information set of paragraph 2.20 is the source. Here it is set out by group
 how it translates into a data model. The wording follows the source; where the source uses an
 Italian technical term, the term is kept.
 
-**Group A — Patient.** Surname; First name; Identifying code, which may be the tax code (codice
+**Group A - Patient.** Surname; First name; Identifying code, which may be the tax code (codice
 fiscale) or one of the codes for subjects without a tax code; Sex; Date of birth; Municipality of
 birth; Address, postcode, municipality, province, region and country of residence, with the
 description of the municipality; Address, postcode and municipality of domicile; Landline and
 mobile telephone number; email address; **certified email address (posta elettronica
 certificata)**.
 
-**Group B — Professionals and organisation.** Surname, first name and tax code of the **reporting
+**Group B - Professionals and organisation.** Surname, first name and tax code of the **reporting
 doctor**; surname, first name and tax code of the **signing doctor**, whom the source keeps
 distinct from the reporting doctor; code and description of the health authority, of the site and
 of the operating unit; telephone number of the operating unit, of the booking centre or of the
@@ -100,12 +100,12 @@ That the reporting doctor and the signing doctor are distinct fields is not a de
 distinction between whoever drafted the content and whoever validated it, taking legal
 responsibility for it, and it feeds directly into the signature model in §6.
 
-**Group C — Administrative references.** Prescription number; **date of signature of the report**;
+**Group C - Administrative references.** Prescription number; **date of signature of the report**;
 booking code; **identification codes of related objects**, which the source illustrates with the
 identifiers of image archives and radiology studies; nosological code; provenance; **type of
 access**, scheduled or direct; outpatient specialist discipline; branch.
 
-**Group D — Clinical content.** Code and description of the diagnostic question, coded with the
+**Group D - Clinical content.** Code and description of the diagnostic question, coded with the
 Italian classification of diseases; clinical history; allergies with the sources declared; previous
 examinations performed, with code, description, method and date; medicinal product code and
 description of the drug therapy in progress; physical examination; code and description of the
@@ -196,7 +196,7 @@ immutable**, and its content can no longer change; signatures apply to the assem
 
 ### 4.2 The structured serialisation for the health record
 
-> **`[NV]` — not publicly available.** The template for the structured serialisation, the document
+> **`[NV]` - not publicly available.** The template for the structured serialisation, the document
 > type codes and the indexing metadata for the ten telemedicine types **have not been located in
 > any public source**. A new version of the technical interoperability specifications between the
 > regional health record systems is declared to have been published, but **it has not been
@@ -207,7 +207,7 @@ immutable**, and its content can no longer change; signatures apply to the assem
 > request to the body that operates the national interoperability infrastructure.
 >
 > **Until then the project hard-codes no template.** The adapter exists as an extension point with
-> a declared contract — it receives the canonical dataset and produces a signable artefact — and its
+> a declared contract - it receives the canonical dataset and produces a signable artefact - and its
 > concrete implementation is deferred. This is not a gap: it is the literal application of
 > constraint V-07.
 
@@ -225,7 +225,7 @@ Project rules:
   system communicates;
 - its cryptographic digest is computed and kept together with the document, so that the identity
   between what was signed and what is produced is demonstrable;
-- the preservation format is suitable for long-term preservation. **`[NV]`** — the exact profile of
+- the preservation format is suitable for long-term preservation. **`[NV]`** - the exact profile of
   the format and the requirements of the preservation system are matters for the compliance area,
   not for this one.
 
@@ -262,7 +262,7 @@ Project rules on metadata:
 4. **The availability status follows the document's life cycle**, including deprecation as a result
    of a replacement (§7).
 
-> **`[NV]` — document type codes and metadata value sets for the ten telemedicine types.** Not
+> **`[NV]` - document type codes and metadata value sets for the ten telemedicine types.** Not
 > located in any public source, as already declared in §4.2. Without them the project **cannot**
 > publish to a national document sharing infrastructure, because it would produce unrecognised
 > metadata. Publication towards the integrator's system of origin, which uses its own codes, is not
@@ -307,12 +307,12 @@ Project rules:
 - the outcome of the verification is recorded: a document whose signature does not verify is neither
   silently accepted nor silently discarded.
 
-> **`[NV]` — signature envelope formats, certificate requirements and time stamp requirements.** The
+> **`[NV]` - signature envelope formats, certificate requirements and time stamp requirements.** The
 > formats permitted for signing a document destined for the health record, and the rules on the
 > submission signature applied by the infrastructure, are a matter of precise legislation that this
 > area does **not** reconstruct from memory. **To be asked of**: the compliance area and the security
 > area. The module
-> [«The electronic health record and national infrastructures», §4](../10_fondamenti/07-fse-e-infrastrutture-nazionali.md)
+> [«The electronic health record and national infrastructures», §4](/10_fondamenti/07-fse-e-infrastrutture-nazionali.md)
 > describes the life cycle and the points at which the signatures come in.
 
 ### 6.3 The signed document is immutable
@@ -385,8 +385,8 @@ requested the consultation.
 
 Two modelling consequences follow:
 
-1. the collaborative report is a **document type in its own right** — it is not true that «the
-   teleconsulto produces nothing» — but it **is not self-supporting**: it exists in relation to a
+1. the collaborative report is a **document type in its own right** - it is not true that «the
+   teleconsulto produces nothing» - but it **is not self-supporting**: it exists in relation to a
    principal document that is not produced by Telemedic when the requester is external;
 2. the correlation with the teleconsulto request is carried by a dedicated identifier, and the
    project treats it as a first-class external identifier, not as an annotation.
@@ -481,8 +481,8 @@ Project rules:
   **survives in any case** the deletion of the content: they are two different things, and the
   second cannot depend on the first;
 - the audiovisual recording of the session, where one exists, has **its own retention, distinct**
-  from that of the report, because it has a distinct legal basis — an explicit and withdrawable
-  consent — and must be deleted on withdrawal even when the report remains.
+  from that of the report, because it has a distinct legal basis - an explicit and withdrawable
+  consent - and must be deleted on withdrawal even when the report remains.
 
 ## 10. What the project does not do
 

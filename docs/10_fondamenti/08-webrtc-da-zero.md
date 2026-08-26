@@ -1,7 +1,7 @@
 ---
 title: WebRTC da zero
 sidebar_position: 9
-description: Perché una videochiamata in tempo reale è un problema difficile, che cosa sono NAT, UDP, ICE, STUN, TURN, DTLS-SRTP, i codec, il controllo della congestione, le topologie, il server di relay e la registrazione — dal livello zero fino alla componente più delicata del progetto.
+description: Perché una videochiamata in tempo reale è un problema difficile, che cosa sono NAT, UDP, ICE, STUN, TURN, DTLS-SRTP, i codec, il controllo della congestione, le topologie, il server di relay e la registrazione - dal livello zero fino alla componente più delicata del progetto.
 ---
 
 # WebRTC da zero
@@ -11,7 +11,7 @@ sistema in cui gli errori si pagano più cari: il trasporto del flusso audio e v
 professionista sanitario e l'assistito.
 
 **Prerequisiti: sapere che cos'è un indirizzo IP.** Nient'altro. Ogni altro concetto di
-rete — porta, protocollo di trasporto, traduzione degli indirizzi, cifratura del flusso —
+rete - porta, protocollo di trasporto, traduzione degli indirizzi, cifratura del flusso -
 viene costruito qui dentro, in ordine.
 
 Il modulo procede in un ordine preciso e non è pensato per essere letto a salti nella prima
@@ -28,7 +28,7 @@ reale compare in questa guida**, solo segnaposto di variabili d'ambiente.
 Il modello di minaccia complessivo del sistema, gli obblighi di tracciamento e la gestione
 dell'identità sono trattati nel [modulo su crittografia e sicurezza](12-crittografia-e-sicurezza.md); ogni
 sigla e ogni termine introdotti qui sono ripresi nel
-[glossario](19-glossario.md).
+[glossario](./19-glossario.md).
 
 ---
 
@@ -73,8 +73,8 @@ quantifica questo fenomeno per la telefonia. Contenuti verificati:
   user applications»*.
 - Oltre **400 ms** è considerato inaccettabile per la pianificazione generale di rete,
   salvo casi eccezionali.
-- Avvertenza decisiva: i compiti **altamente interattivi** — *«many voice calls,
-  interactive data applications, video conferencing»* — *«can be affected by much lower
+- Avvertenza decisiva: i compiti **altamente interattivi** - *«many voice calls,
+  interactive data applications, video conferencing»* - *«can be affected by much lower
   delays»*. Anche in assenza totale di eco, *«10% or more of the speakers may experience
   difficulty due to a delay of 400 ms»*.
 
@@ -96,7 +96,7 @@ rete regga.
 Per un flusso in tempo reale, la prima e la seconda garanzia sono **dannose**.
 
 Immagina un pacchetto che contiene 20 millisecondi di audio e che si perde per strada. TCP
-se ne accorge, lo ritrasmette e — questo è il punto — **trattiene tutti i pacchetti
+se ne accorge, lo ritrasmette e - questo è il punto - **trattiene tutti i pacchetti
 successivi già arrivati** finché il buco non è colmato, perché deve consegnarli in ordine.
 Il fenomeno si chiama **head-of-line blocking** (blocco di testa coda). Il risultato è che
 una singola perdita produce una pausa udibile lunga almeno un tempo di andata e ritorno, e
@@ -125,7 +125,7 @@ handshake*), più uno o due per la cifratura. Su un percorso già lungo è tempo
 **HTTP** (*HyperText Transfer Protocol*) aggiunge a TCP un modello a **richiesta e
 risposta**: il client chiede, il server risponde. Anche nelle versioni che tengono la
 connessione aperta, l'iniziativa resta del client. Il server non può inviare qualcosa a un
-client che non ha chiesto nulla — e in una videochiamata l'altro interlocutore parla quando
+client che non ha chiesto nulla - e in una videochiamata l'altro interlocutore parla quando
 vuole lui.
 
 HTTP resta però **indispensabile** per un pezzo del problema: prima che i due dispositivi
@@ -190,7 +190,7 @@ cinquine.
 Due fatti che servono più avanti:
 
 - Gli indirizzi IPv4 pubblici sono esauriti. Per questo esistono gli **spazi privati**
-  definiti da **RFC 1918** — `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` — che ogni rete
+  definiti da **RFC 1918** - `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` - che ogni rete
   domestica o aziendale usa internamente e che **non sono instradabili su Internet**.
 - **IPv6** risolve il problema alla radice con uno spazio di indirizzi enormemente più
   ampio, ma la sua diffusione è disomogenea: un sistema che vuole funzionare ovunque deve
@@ -264,16 +264,16 @@ Non tutti i NAT si comportano allo stesso modo. La terminologia corretta è quel
 indipendenti: come si crea la **corrispondenza** (*mapping*) e come si **filtra** il
 traffico in ingresso.
 
-**Comportamento della corrispondenza** — a parità di indirizzo e porta interni, la porta
+**Comportamento della corrispondenza** - a parità di indirizzo e porta interni, la porta
 pubblica assegnata è la stessa per tutte le destinazioni, oppure cambia?
 
 | Comportamento (RFC 4787) | Descrizione | Nome colloquiale |
 |---|---|---|
 | **Endpoint-Independent Mapping** | Stessa porta pubblica verso qualunque destinazione | «cono» |
-| **Address-Dependent Mapping** | Porta pubblica diversa per ogni indirizzo di destinazione | — |
+| **Address-Dependent Mapping** | Porta pubblica diversa per ogni indirizzo di destinazione | - |
 | **Address and Port-Dependent Mapping** | Porta pubblica diversa per ogni coppia indirizzo+porta di destinazione | **«simmetrico»** |
 
-**Comportamento del filtraggio** — chi può usare una corrispondenza già aperta per entrare?
+**Comportamento del filtraggio** - chi può usare una corrispondenza già aperta per entrare?
 
 | Comportamento | Descrizione |
 |---|---|
@@ -300,7 +300,7 @@ esattamente questo scenario come motivazione dell'obbligo di supportare TURN.
 
 ### 2.5 CGNAT, cioè il NAT dell'operatore
 
-Da alcuni anni gli operatori mobili — e in parte quelli fissi — non assegnano più un
+Da alcuni anni gli operatori mobili - e in parte quelli fissi - non assegnano più un
 indirizzo IPv4 pubblico a ciascun cliente. Applicano un secondo strato di traduzione dentro
 la propria rete: è il **CGNAT** (*Carrier-Grade NAT*). Il cliente riceve un indirizzo dello
 spazio riservato **`100.64.0.0/10`** definito da **RFC 6598**, che non è né privato in senso
@@ -313,8 +313,8 @@ Conseguenze pratiche per una televisita:
 - Il comportamento del CGNAT è tipicamente il meno favorevole, perché deve massimizzare il
   riuso delle porte fra migliaia di clienti.
 - **L'assistito tipico di una televisita è su rete mobile.** Non è un caso limite: è il caso
-  centrale. Il vincolo D25 del progetto — progettare a partire dallo schermo piccolo e dalla
-  connessione peggiore — è la traduzione organizzativa di questo fatto tecnico.
+  centrale. Il vincolo D25 del progetto - progettare a partire dallo schermo piccolo e dalla
+  connessione peggiore - è la traduzione organizzativa di questo fatto tecnico.
 
 ### 2.6 Firewall aziendali e ospedalieri
 
@@ -337,13 +337,13 @@ L'ultimo punto produce un effetto controintuitivo che vale la pena fissare:
 > **Il consulto in cui il professionista e l'assistito sono nello stesso edificio è spesso
 > il più difficile da instradare**, non il più facile. Con l'isolamento dei client attivo, i
 > due dispositivi non si vedono localmente e il traffico esce sulla rete pubblica per
-> rientrare — quando non finisce direttamente sul relay.
+> rientrare - quando non finisce direttamente sul relay.
 
 ### 2.7 L'offuscamento degli indirizzi locali
 
 Un dettaglio che confonde chi guarda i registri per la prima volta. Per impedire alle pagine
-web di raccogliere gli indirizzi IP privati degli utenti — un vettore reale di
-riconoscimento del dispositivo — i browser **non pubblicano più gli indirizzi delle
+web di raccogliere gli indirizzi IP privati degli utenti - un vettore reale di
+riconoscimento del dispositivo - i browser **non pubblicano più gli indirizzi delle
 interfacce locali**. Al loro posto pubblicano un nome nella forma
 `<identificativo casuale>.local`, risolvibile solo sulla rete locale tramite **mDNS**
 (*multicast DNS*, risoluzione dei nomi via messaggi multicast sulla porta UDP 5353).
@@ -355,7 +355,7 @@ non è normativo: va detto così, senza spacciarlo per standard.
 
 Tre conseguenze operative:
 
-1. Se mDNS è bloccato — e lo è, di regola, sulle reti Wi-Fi con isolamento dei client — la
+1. Se mDNS è bloccato - e lo è, di regola, sulle reti Wi-Fi con isolamento dei client - la
    coppia di percorsi locali non si forma e si finisce sul relay per una connessione che
    poteva restare su uno switch.
 2. **I registri del server di segnalazione vedranno nomi `.local`, non indirizzi.** Ogni
@@ -384,7 +384,7 @@ Le specifiche vengono da due organismi diversi che si presuppongono a vicenda.
   a incorporare *candidate amendments*: la superficie dell'interfaccia non è congelata.
 - L'**IETF** (*Internet Engineering Task Force*) definisce **i protocolli sul filo**, cioè
   che cosa viaggia effettivamente nei pacchetti. Il documento di coordinamento è
-  **RFC 8825** — *Overview: Real-Time Protocols for Browser-Based Applications*.
+  **RFC 8825** - *Overview: Real-Time Protocols for Browser-Based Applications*.
 
 RFC 8825 non definisce alcun protocollo: **elenca quali altre specifiche un'implementazione
 deve rispettare** per potersi dire WebRTC. È un *applicability statement*, e la sua
@@ -434,7 +434,7 @@ sottostante, `RTCCertificate` per il certificato di sessione.
 
 **Il canale dati.** `RTCDataChannel` trasporta dati arbitrari fra i due dispositivi, con la
 stessa cifratura e lo stesso percorso del media. Gira su **SCTP incapsulato in DTLS
-incapsulato in ICE** — **RFC 8835 §3.5**: *«WebRTC endpoints MUST support SCTP over DTLS over
+incapsulato in ICE** - **RFC 8835 §3.5**: *«WebRTC endpoints MUST support SCTP over DTLS over
 ICE»*, con l'estensione I-DATA di RFC 8260 obbligatoria. Per il progetto è il canale
 naturale per i segnali di controllo in banda (silenziamento, richiesta di ripetizione), per
 il trasporto dei sottotitoli (§10.4) e per qualunque metadato che **non deve transitare per
@@ -460,7 +460,7 @@ Due membri hanno una rilevanza diretta per il progetto:
   relay funzioni (§13.4).
 - **`certificates`** permette di riusare un certificato generato con
   `RTCPeerConnection.generateCertificate()`. Per impostazione predefinita il browser genera
-  un certificato autofirmato effimero per ogni connessione — fatto che ha conseguenze dirette
+  un certificato autofirmato effimero per ogni connessione - fatto che ha conseguenze dirette
   sul modello di sicurezza (§6.3).
 
 ### 3.3 Che cosa WebRTC NON comprende
@@ -509,14 +509,14 @@ WebRTC inoltre **non comprende**:
 Prima di poter scambiare un solo fotogramma, i due dispositivi devono accordarsi su una
 lunga lista di cose: quali codec sanno usare, con quali parametri, chi manda e chi riceve,
 quali indirizzi provare, quali chiavi usare. Il modello che regola questo accordo è
-**offerta e risposta** (*offer/answer*), definito da **RFC 3264** — *An Offer/Answer Model
+**offerta e risposta** (*offer/answer*), definito da **RFC 3264** - *An Offer/Answer Model
 with the Session Description Protocol*.
 
 Il meccanismo è asimmetrico e semplice:
 
-1. Un lato — **l'offerente** — produce una descrizione che elenca tutto ciò che **sa e
+1. Un lato - **l'offerente** - produce una descrizione che elenca tutto ciò che **sa e
    vuole** fare.
-2. L'altro lato — **il rispondente** — riceve quella descrizione e produce una risposta che,
+2. L'altro lato - **il rispondente** - riceve quella descrizione e produce una risposta che,
    voce per voce, **accetta, restringe o rifiuta**. Non può aggiungere nulla che non fosse
    nell'offerta.
 3. Entrambi applicano localmente le due descrizioni. A quel punto sanno esattamente cosa
@@ -544,7 +544,7 @@ sequenceDiagram
     participant S as Server di segnalazione
     participant A as Browser dell'assistito
 
-    P->>P: getUserMedia() — acquisisce microfono e telecamera
+    P->>P: getUserMedia() - acquisisce microfono e telecamera
     P->>P: createOffer() → descrizione locale
     P->>P: setLocalDescription(offerta)
     Note over P: da qui parte la raccolta dei candidati (§5.5)
@@ -567,7 +567,7 @@ sequenceDiagram
 
     Note over P,A: controlli di connettività diretti (§5.6)
     P-->>A: handshake DTLS (§6.2)
-    P-->>A: flusso SRTP cifrato — il server non è più nel percorso
+    P-->>A: flusso SRTP cifrato - il server non è più nel percorso
 ```
 
 Due osservazioni sul diagramma, entrambe importanti:
@@ -595,22 +595,22 @@ a=extmap-allow-mixed
 a=msid-semantic: WMS 6f1b2c3d-0000-4000-8000-000000000001
 ```
 
-- **`v=0`** — versione del formato SDP. È sempre `0`; non è mai cambiata (RFC 8866 §5.1).
-- **`o=`** — riga di origine: nome utente (`-`, cioè assente), identificativo di sessione,
+- **`v=0`** - versione del formato SDP. È sempre `0`; non è mai cambiata (RFC 8866 §5.1).
+- **`o=`** - riga di origine: nome utente (`-`, cioè assente), identificativo di sessione,
   numero di versione della sessione, tipo di rete, tipo di indirizzo, indirizzo. **Il
   `127.0.0.1` non è un errore**: nel contesto WebRTC questa riga non è usata per instradare
   nulla, e i browser vi scrivono un valore segnaposto. Non provare a dedurne l'indirizzo
   dell'interlocutore.
-- **`s=-`** — nome della sessione, assente.
-- **`t=0 0`** — tempo di inizio e fine: zero e zero significa «sessione permanente, senza
+- **`s=-`** - nome della sessione, assente.
+- **`t=0 0`** - tempo di inizio e fine: zero e zero significa «sessione permanente, senza
   orario».
-- **`a=group:BUNDLE 0 1`** — dichiara che le sezioni identificate da `0` e `1` (audio e
+- **`a=group:BUNDLE 0 1`** - dichiara che le sezioni identificate da `0` e `1` (audio e
   video) viaggeranno **sulla stessa connessione**. È il meccanismo BUNDLE di **RFC 8843**
   §5. Il primo identificativo del gruppo è il *BUNDLE-tag* dell'offerente e la sua sezione
   porta indirizzo e porta usati per tutto il gruppo (§2).
-- **`a=extmap-allow-mixed`** — consente di mescolare le due forme di estensione
+- **`a=extmap-allow-mixed`** - consente di mescolare le due forme di estensione
   dell'intestazione RTP (una e due byte) definite da RFC 8285.
-- **`a=msid-semantic`** — dichiara la semantica degli identificativi dei flussi media.
+- **`a=msid-semantic`** - dichiara la semantica degli identificativi dei flussi media.
 
 > **Perché BUNDLE è un fatto architetturale e non un dettaglio.** BUNDLE **richiede** la
 > multiplazione di RTP e RTCP sulla stessa porta all'interno del gruppo (RFC 8843 §9.3) e
@@ -627,19 +627,19 @@ c=IN IP4 0.0.0.0
 a=rtcp:9 IN IP4 0.0.0.0
 ```
 
-- **`m=audio`** — apre una *sezione media*. `9` è la porta: è un **segnaposto** convenzionale
+- **`m=audio`** - apre una *sezione media*. `9` è la porta: è un **segnaposto** convenzionale
   (la porta reale arriva dai candidati ICE, §5.1); il valore `0` avrebbe invece il
   significato normativo di «questa sezione è rifiutata» (RFC 3264).
-- **`UDP/TLS/RTP/SAVPF`** — il profilo di trasporto. Si legge da destra: **AVPF** è il
+- **`UDP/TLS/RTP/SAVPF`** - il profilo di trasporto. Si legge da destra: **AVPF** è il
   profilo RTP con retroazione audiovisiva (RFC 4585), la **S** iniziale sta per *secure*
   (SRTP), il tutto incapsulato in TLS su UDP. **RFC 8834** è categorico: *«WebRTC endpoints
   MUST NOT send packets using the basic RTP/AVP profile or the RTP/AVPF profile; they MUST
   employ the full RTP/SAVPF profile»*. **Non esiste WebRTC in chiaro.**
-- **`111 63 9 0 8 110 126`** — l'elenco dei *payload type*, cioè i codec offerti, **in ordine
+- **`111 63 9 0 8 110 126`** - l'elenco dei *payload type*, cioè i codec offerti, **in ordine
   di preferenza decrescente**. Sono numeri; il significato di ciascuno è definito più sotto
   dalle righe `a=rtpmap`.
-- **`c=IN IP4 0.0.0.0`** — indirizzo di connessione, anch'esso segnaposto.
-- **`a=rtcp:9`** — porta per il canale di controllo, ugualmente segnaposto.
+- **`c=IN IP4 0.0.0.0`** - indirizzo di connessione, anch'esso segnaposto.
+- **`a=rtcp:9`** - porta per il canale di controllo, ugualmente segnaposto.
 
 ```sdp
 a=ice-ufrag:4ZcD
@@ -647,12 +647,12 @@ a=ice-pwd:by0Bp1IFDpZ0Y0Bx0j0RB4dR
 a=ice-options:trickle
 ```
 
-- **`a=ice-ufrag`** e **`a=ice-pwd`** — nome utente frammentario e password per i controlli
+- **`a=ice-ufrag`** e **`a=ice-pwd`** - nome utente frammentario e password per i controlli
   di connettività ICE. Sintassi definita da **RFC 8839 §5.4**: da 4 a 256 caratteri per il
   primo, da 22 a 256 per la seconda. **Servono a due cose insieme**: identificare a quale
   sessione appartiene un pacchetto di controllo che arriva, e autenticarlo. Cambiarli è ciò
   che costituisce un **riavvio di ICE** (§5.8).
-- **`a=ice-options:trickle`** — dichiara che l'agente sa gestire i candidati che arrivano
+- **`a=ice-options:trickle`** - dichiara che l'agente sa gestire i candidati che arrivano
   dopo l'offerta (RFC 8838 §3; l'opzione è registrata in §19).
 
 ```sdp
@@ -664,18 +664,18 @@ a=sendrecv
 a=rtcp-mux
 ```
 
-- **`a=fingerprint`** — **questa riga è il cardine dell'intero modello di sicurezza.**
+- **`a=fingerprint`** - **questa riga è il cardine dell'intero modello di sicurezza.**
   Contiene l'impronta crittografica (qui SHA-256) del certificato che questo lato userà
   nell'handshake DTLS. Sintassi definita da **RFC 8122 §5**. È la riga che lega la sessione
   segnalata alla sessione cifrata: ci torniamo al §6.3.
-- **`a=setup:actpass`** — chi farà il client e chi il server nell'handshake DTLS.
+- **`a=setup:actpass`** - chi farà il client e chi il server nell'handshake DTLS.
   **RFC 8842** definisce i valori `actpass`, `active`, `passive`, `holdconn`. L'offerente
   dichiara `actpass` («decidi tu»); il rispondente sceglie e dichiara `active` o `passive`.
-- **`a=mid:0`** — l'identificativo di questa sezione, quello richiamato in
+- **`a=mid:0`** - l'identificativo di questa sezione, quello richiamato in
   `a=group:BUNDLE 0 1`.
-- **`a=sendrecv`** — questa sezione invia **e** riceve. Le alternative sono `sendonly`,
+- **`a=sendrecv`** - questa sezione invia **e** riceve. Le alternative sono `sendonly`,
   `recvonly`, `inactive`. In un consulto ordinario è `sendrecv` su entrambi i lati.
-- **`a=rtcp-mux`** — dati e controllo sulla stessa porta (RFC 5761). Obbligatorio dentro un
+- **`a=rtcp-mux`** - dati e controllo sulla stessa porta (RFC 5761). Obbligatorio dentro un
   gruppo BUNDLE.
 
 ```sdp
@@ -688,21 +688,21 @@ a=rtpmap:0 PCMU/8000
 a=rtpmap:8 PCMA/8000
 ```
 
-- **`a=rtpmap:111 opus/48000/2`** — il payload type `111` è **Opus**, con frequenza di
+- **`a=rtpmap:111 opus/48000/2`** - il payload type `111` è **Opus**, con frequenza di
   campionamento 48000 Hz e due canali. **RFC 7587** impone che questi due valori siano
   **sempre `48000/2`**, indipendentemente dal contenuto reale: il `/2` indica la *capacità*
   di trasportare stereo, non che il flusso sia stereo.
-- **`a=rtcp-fb:111 transport-cc`** — dichiara di volere la retroazione di controllo della
+- **`a=rtcp-fb:111 transport-cc`** - dichiara di volere la retroazione di controllo della
   congestione a livello di trasporto (§8.3).
-- **`a=fmtp:111 ...`** — parametri specifici del formato. `useinbandfec=1` attiva la
+- **`a=fmtp:111 ...`** - parametri specifici del formato. `useinbandfec=1` attiva la
   correzione d'errore incorporata in Opus (RFC 7587 §6.1), **raccomandata da RFC 8854 §4.1**.
   Nota di precisione: **`minptime` non è definito da RFC 7587** benché compaia negli SDP
   generati da molte implementazioni; è un parametro fuori specifica e non va citato come
   standard.
-- **`a=rtpmap:63 red/48000/2`** e **`a=fmtp:63 111/111`** — codifica ridondante (RFC 2198):
+- **`a=rtpmap:63 red/48000/2`** e **`a=fmtp:63 111/111`** - codifica ridondante (RFC 2198):
   ogni pacchetto porta anche una copia del precedente. `111/111` dichiara che sia il blocco
   primario sia quello ridondante sono Opus.
-- **`a=rtpmap:0 PCMU/8000`** e **`a=rtpmap:8 PCMA/8000`** — **G.711** nelle sue due varianti
+- **`a=rtpmap:0 PCMU/8000`** e **`a=rtpmap:8 PCMA/8000`** - **G.711** nelle sue due varianti
   (legge µ e legge A). Sono i codec del telefono: qualità limitata a banda stretta, ma
   presenti ovunque e necessari per interoperare con apparati non-browser. **RFC 7874** li
   rende obbligatori insieme a Opus.
@@ -735,21 +735,21 @@ a=rtpmap:45 AV1/90000
 
 - **`a=ice-ufrag` e `a=fingerprint` sono ripetuti identici** rispetto alla sezione audio:
   è la firma di BUNDLE. Una sola credenziale ICE, un solo certificato, una sola connessione.
-- **`a=rtpmap:96 VP8/90000`** — VP8. La frequenza di riferimento del video in RTP è sempre
+- **`a=rtpmap:96 VP8/90000`** - VP8. La frequenza di riferimento del video in RTP è sempre
   90000 Hz, per convenzione storica.
 - **Le quattro righe `a=rtcp-fb`** dichiarano i meccanismi di recupero che questo lato sa
   usare (§8.4): `nack` per chiedere la ritrasmissione di un pacchetto (RFC 4585), `nack pli`
   per segnalare la perdita di un'immagine, `ccm fir` per chiedere un fotogramma completo
   (RFC 5104), `transport-cc` per la retroazione di congestione. `goog-remb` è un meccanismo
   precedente, ormai residuale.
-- **`a=rtpmap:97 rtx/90000` con `a=fmtp:97 apt=96`** — il flusso di **ritrasmissione**
+- **`a=rtpmap:97 rtx/90000` con `a=fmtp:97 apt=96`** - il flusso di **ritrasmissione**
   (RFC 4588) associato al payload type `96`. Le ritrasmissioni viaggiano su un flusso
   separato per non alterare la numerazione del flusso principale.
-- **`a=rtpmap:102 H264/90000` con il suo `fmtp`** — H.264. `profile-level-id=42001f`
+- **`a=rtpmap:102 H264/90000` con il suo `fmtp`** - H.264. `profile-level-id=42001f`
   identifica **Constrained Baseline Profile Level 3.1**; `packetization-mode=1` è la modalità
   di impacchettamento che **RFC 7742 §6.2** dichiara obbligatoria (*«Packetization-mode 1
   MUST be supported»*).
-- **`a=rtpmap:45 AV1/90000`** — AV1, quando il browser lo supporta.
+- **`a=rtpmap:45 AV1/90000`** - AV1, quando il browser lo supporta.
 
 Chiudono la sezione le righe che identificano il flusso:
 
@@ -758,21 +758,21 @@ a=ssrc:3735928559 cname:Zt9x0PqLmN1sVe4K
 a=ssrc:3735928559 msid:6f1b2c3d-0000-4000-8000-000000000001 video-track-0
 ```
 
-- **`a=ssrc`** — il *synchronization source*, identificativo numerico del flusso RTP.
-- **`cname`** — nome canonico che lega fra loro i flussi appartenenti alla stessa
+- **`a=ssrc`** - il *synchronization source*, identificativo numerico del flusso RTP.
+- **`cname`** - nome canonico che lega fra loro i flussi appartenenti alla stessa
   provenienza (RFC 3550), necessario per sincronizzare audio e video.
 
 > **Regola operativa per il progetto.** L'SDP contiene, in chiaro, informazioni sensibili:
-> le impronte dei certificati, le credenziali ICE, gli identificativi dei flussi e — quando
-> l'offuscamento mDNS non si applica — indirizzi di rete. **L'SDP completo non va registrato
+> le impronte dei certificati, le credenziali ICE, gli identificativi dei flussi e - quando
+> l'offuscamento mDNS non si applica - indirizzi di rete. **L'SDP completo non va registrato
 > nei log applicativi.** Nell'audit vanno registrati l'esito della negoziazione, i codec
 > effettivamente selezionati e le impronte, come prova documentale; non il blocco integrale.
 
 ### 4.4 La collisione delle offerte
 
-Se entrambi i lati decidono di rinegoziare nello stesso istante — succede davvero: il
+Se entrambi i lati decidono di rinegoziare nello stesso istante - succede davvero: il
 professionista attiva la condivisione dello schermo mentre l'assistito riattiva la
-telecamera — si produce una **collisione** (*glare*): entrambi entrano nello stato
+telecamera - si produce una **collisione** (*glare*): entrambi entrano nello stato
 `have-local-offer` e nessuno dei due può applicare l'offerta dell'altro.
 
 La soluzione canonica assegna a uno dei due il ruolo di **cortese** (*polite*) e all'altro
@@ -797,9 +797,9 @@ Tre regole che il progetto adotta:
 ### 4.5 Il trasporto della segnalazione, e un requisito che si dimentica
 
 Il progetto trasporta la segnalazione su **WebSocket** (RFC 6455) con un protocollo
-applicativo JSON versionato e validato a schema. Le alternative — livelli di messaggistica
+applicativo JSON versionato e validato a schema. Le alternative - livelli di messaggistica
 sovrastanti, ripieghi su trasporti HTTP multi-richiesta, o l'adozione di un protocollo di
-telefonia — aggiungono complessità o vincoli di affinità di sessione senza beneficio in una
+telefonia - aggiungono complessità o vincoli di affinità di sessione senza beneficio in una
 sessione a due.
 
 C'è un requisito normativo che va rispettato e che si scopre tardi se non lo si legge prima.
@@ -824,8 +824,8 @@ sostituisce RFC 5245. Il profilo che descrive come ICE si esprime dentro l'SDP �
 L'intuizione di ICE è di una semplicità disarmante e va capita bene, perché tutto il resto
 ne discende:
 
-> Poiché nessuno può sapere in anticipo quale percorso funzionerà — dipende da due NAT, due
-> firewall, due operatori e dalla fortuna — **non si sceglie: si raccolgono tutti i percorsi
+> Poiché nessuno può sapere in anticipo quale percorso funzionerà - dipende da due NAT, due
+> firewall, due operatori e dalla fortuna - **non si sceglie: si raccolgono tutti i percorsi
 > plausibili, si provano tutti contemporaneamente, e si tiene quello che funziona meglio.**
 
 Ogni percorso plausibile parte da un **candidato**: una coppia indirizzo/porta a cui questo
@@ -1013,15 +1013,15 @@ una schermata di attesa e si chiede se ha sbagliato qualcosa.
 **RFC 8838** (*Trickle ICE*, Standards Track, gennaio 2021) risolve il problema: l'offerta
 parte subito con i candidati che si hanno, e gli altri fluiscono man mano. Regole verificate:
 
-- **§9** — dopo aver scoperto un candidato l'agente ne verifica la ridondanza e lo invia; il
+- **§9** - dopo aver scoperto un candidato l'agente ne verifica la ridondanza e lo invia; il
   trasporto **deve** consegnare i candidati *«exactly once and in the same order it was
   conveyed»* (già discusso al §4.5).
-- **§10** — *«A Trickle ICE agent MUST NOT pair a local candidate until it has been trickled
+- **§10** - *«A Trickle ICE agent MUST NOT pair a local candidate until it has been trickled
   to the remote party»*.
-- **§13** — esiste un'indicazione esplicita di **fine dei candidati**, che **deve**
+- **§13** - esiste un'indicazione esplicita di **fine dei candidati**, che **deve**
   specificare a quale generazione appartiene (la coppia `ufrag`/`pwd`). Dopo averla inviata
   non si possono inviare altri candidati di quella generazione.
-- **§16** — **mezzo trickle**: l'iniziatore raccoglie una generazione completa prima
+- **§16** - **mezzo trickle**: l'iniziatore raccoglie una generazione completa prima
   dell'offerta iniziale e solo il rispondente usa il trickle. È il ripiego per interoperare
   con agenti che non lo supportano.
 
@@ -1031,8 +1031,8 @@ candidati è a carico dell'applicazione**, cioè del protocollo di segnalazione 
 
 ### 5.8 Il riavvio di ICE
 
-Quando la rete cambia sotto i piedi — l'assistito passa dal Wi-Fi alla rete mobile uscendo
-di casa, oppure l'indirizzo pubblico cambia — i candidati raccolti diventano obsoleti e la
+Quando la rete cambia sotto i piedi - l'assistito passa dal Wi-Fi alla rete mobile uscendo
+di casa, oppure l'indirizzo pubblico cambia - i candidati raccolti diventano obsoleti e la
 connessione muore. Il **riavvio di ICE** è la procedura che rifà la raccolta e la selezione
 **senza rifare la sessione**: si generano nuovi `ice-ufrag` e `ice-pwd`, si rinegozia, e la
 nuova coppia sostituisce la vecchia.
@@ -1064,7 +1064,7 @@ Per una sessione con bitrate `B` per direzione, con **una sola** allocazione di 
 - flusso B→A: il relay riceve `B` e trasmette `B`.
 
 Totale movimentato: **2B in ingresso + 2B in uscita = 4B**. Se **entrambi** i lati usano un
-candidato relayed — possibile con due reti ostili — il traffico **raddoppia ancora**, a `8B`.
+candidato relayed - possibile con due reti ostili - il traffico **raddoppia ancora**, a `8B`.
 
 Con un video a definizione media intorno a 1,5 Mbit/s per direzione più audio, e un
 sovraccarico di intestazioni dell'ordine del 10 % `[NV]` sulla percentuale esatta:
@@ -1283,20 +1283,20 @@ controllo del servizio di chiamata**. La specifica dell'interfaccia corrisponden
   motore condiviso. Gli altri due motori principali **non li hanno mai implementati**.
 
 Un meccanismo di verifica che funziona solo se **entrambi** gli interlocutori usano lo
-stesso browser — in un servizio rivolto al pubblico, dove l'assistito usa il browser che ha
-sul telefono — equivale a un meccanismo che non funziona.
+stesso browser - in un servizio rivolto al pubblico, dove l'assistito usa il browser che ha
+sul telefono - equivale a un meccanismo che non funziona.
 
 C'è un secondo argomento, indipendente e altrettanto dirimente per questo progetto: anche
 ipotizzando un supporto universale, quell'interfaccia richiederebbe **un fornitore di
 identità terzo** che ospita lo script di verifica. Introdurlo significherebbe creare una
-dipendenza di esecuzione da un soggetto esterno — in tensione diretta con il vincolo di
-sovranità del dato del progetto (V1) — e **spostare il punto di ancoraggio della fiducia dal
+dipendenza di esecuzione da un soggetto esterno - in tensione diretta con il vincolo di
+sovranità del dato del progetto (V1) - e **spostare il punto di ancoraggio della fiducia dal
 server di segnalazione al fornitore di identità, senza eliminarlo**.
 
 ### 6.6 La Short Authentication String, e perché è obbligatoria
 
 **Se l'unica cosa che manca è un canale di verifica che il server non controlla, e i due
-interlocutori si stanno già parlando in audio e video — quel canale esiste già.**
+interlocutori si stanno già parlando in audio e video - quel canale esiste già.**
 
 La **Short Authentication String** (SAS, «stringa di autenticazione breve») è un codice
 breve **derivato in modo deterministico dalle due impronte dei certificati**, mostrato
@@ -1337,11 +1337,11 @@ vincolanti:
 
 ### 6.7 Che cosa la cifratura non fa: quattro casi
 
-**Caso A — percorso diretto.** Il media viaggia fra i due browser. Le chiavi esistono solo
+**Caso A - percorso diretto.** Il media viaggia fra i due browser. Le chiavi esistono solo
 lì. Nessun terzo può decifrare. L'affermazione di cifratura da estremo a estremo è corretta,
 **condizionata all'integrità della segnalazione** (§6.4).
 
-**Caso B — attraverso il relay.** Va detto con chiarezza perché è il punto su cui c'è più
+**Caso B - attraverso il relay.** Va detto con chiarezza perché è il punto su cui c'è più
 confusione:
 
 > **Il relay inoltra il carico utile UDP senza interpretarlo. Non partecipa all'handshake
@@ -1359,12 +1359,12 @@ tratta dati personali: registrazione minimizzata, conservazione breve e document
 inserimento nel registro dei trattamenti, e collocazione nell'Unione europea per il vincolo
 V1.
 
-**Caso C — attraverso un server che compone i flussi.** Un server di inoltro selettivo o di
+**Caso C - attraverso un server che compone i flussi.** Un server di inoltro selettivo o di
 composizione **termina la cifratura**: esegue un handshake proprio con ciascun partecipante,
 decifra ciò che arriva e ricifra ciò che riparte. **Ha il media in chiaro.** Ne discendono
 le due modalità del progetto descritte al §10.4.
 
-**Caso D — dispositivo compromesso.** Fuori dalla portata di qualunque protocollo. Il
+**Caso D - dispositivo compromesso.** Fuori dalla portata di qualunque protocollo. Il
 browser ha il media in chiaro per definizione: deve mostrarlo. Un'estensione malevola o un
 programma di cattura dello schermo vanificano tutto. Va scritto nell'analisi delle minacce,
 non nascosto.
@@ -1382,8 +1382,8 @@ c'è riuso. In questo senso il materiale crittografico è nuovo per ogni consult
 
 - La **rinegoziazione DTLS 1.2** non è supportata dalle implementazioni dei browser.
 - **DTLS 1.3 (RFC 9147)** introduce il messaggio `KeyUpdate`, ma **non risolve il problema**.
-  Il documento IETF che affronta esattamente questo tema — `draft-ietf-tls-extended-key-update`,
-  Internet-Draft attivo del gruppo di lavoro TLS, versione **-13 del 4 luglio 2026** — lo
+  Il documento IETF che affronta esattamente questo tema - `draft-ietf-tls-extended-key-update`,
+  Internet-Draft attivo del gruppo di lavoro TLS, versione **-13 del 4 luglio 2026** - lo
   dichiara nella propria motivazione: *«The TLS 1.3 Key Schedule derives the exporter_secret
   from the main secret. This exporter_secret is static for the lifetime of the connection and
   **is not updated by a standard key update**.»* Poiché le chiavi SRTP si estraggono **una
@@ -1395,7 +1395,7 @@ Il meccanismo che renderebbe possibile la rotazione **è un Internet-Draft in la
 uno standard, e non è implementato in alcun browser**.
 
 **È una debolezza?** No, ed è importante dirlo con precisione. **RFC 3711 §9.2** stabilisce
-limiti di vita della chiave principale legati al numero di pacchetti protetti — per AES in
+limiti di vita della chiave principale legati al numero di pacchetti protetti - per AES in
 modalità contatore l'ordine di grandezza è 2⁴⁸ pacchetti SRTP e 2³¹ SRTCP. Un consulto
 medico non si avvicina neppure lontanamente a quei limiti. **L'assenza di rotazione intra
 sessione non è una vulnerabilità: è una funzionalità che non esiste e che quindi non va
@@ -1411,8 +1411,8 @@ una rotazione periodica che WebRTC non offre.
 
 ### 6.9 Che cosa il progetto può affermare con onestà
 
-Mettendo insieme i paragrafi precedenti, la formulazione difendibile — anche davanti a un
-revisore di un fascicolo tecnico — è questa:
+Mettendo insieme i paragrafi precedenti, la formulazione difendibile - anche davanti a un
+revisore di un fascicolo tecnico - è questa:
 
 > *Il media è protetto con SRTP (RFC 3711) usando suite di cifratura autenticata basate su
 > AES-GCM (RFC 7714), con chiavi negoziate via DTLS (RFC 6347 / RFC 9147) secondo DTLS-SRTP
@@ -1427,7 +1427,7 @@ Ed è **più forte** di un'affermazione assoluta, perché ogni sua parte è veri
 
 Nota su una rivendicazione che il progetto ha ritirato: qualsiasi riferimento a validazioni
 crittografiche di programmi federali extraeuropei è stato rimosso ai sensi della decisione
-D19, per tre ragioni cumulative — quei programmi validano **moduli**, non algoritmi; il
+D19, per tre ragioni cumulative - quei programmi validano **moduli**, non algoritmi; il
 modulo che cifra è quello del browser dell'utente, fuori dal controllo del progetto; e
 invocare una validazione extraeuropea contraddice il posizionamento di sovranità del dato.
 I riferimenti coerenti sono invece ETSI TS 119 312, i meccanismi crittografici concordati in
@@ -1469,7 +1469,7 @@ tre caratteristiche che contano clinicamente:
   funzionalmente critica.
 - **Trasmissione discontinua** (`usedtx=1`): sospende l'invio durante il silenzio. Risparmia
   banda in modo sostanziale, **ma** introduce artefatti sull'attacco della parola e, in un
-  consulto, **i rumori non vocali possono avere valore clinico** — respiro affannoso, tosse,
+  consulto, **i rumori non vocali possono avere valore clinico** - respiro affannoso, tosse,
   sibili, tremore della voce. **Il progetto la disattiva per impostazione predefinita**, e
   documenta la scelta come clinica, non come ottimizzazione.
 - **Mascheramento delle perdite**: sempre attivo, intrinseco al decodificatore, senza
@@ -1479,9 +1479,9 @@ I parametri negoziabili verificati su **RFC 7587 §6.1**:
 
 | Parametro | Intervallo | Predefinito |
 |---|---|---|
-| `maxplaybackrate` | 8000–48000 Hz | — |
-| `sprop-maxcapturerate` | 8000–48000 Hz | — |
-| `maxaveragebitrate` | 6000–510000 bit/s | — |
+| `maxplaybackrate` | 8000–48000 Hz | - |
+| `sprop-maxcapturerate` | 8000–48000 Hz | - |
+| `maxaveragebitrate` | 6000–510000 bit/s | - |
 | `stereo` / `sprop-stereo` | `0` \| `1` | `0` |
 | `cbr` | `0` \| `1` | `0` |
 | `useinbandfec` | `0` \| `1` | `0` |
@@ -1499,7 +1499,7 @@ apparato di videoconferenza tradizionale, quello è il terreno d'incontro.
 > **soppressione del rumore** e **controllo automatico del guadagno**. Questi algoritmi sono
 > ottimizzati per la voce e **possono sopprimere o distorcere i segnali non vocali**. Per
 > specialità in cui il suono ha valore semeiologico la disattivazione va offerta e
-> documentata — ma se il suono viene usato per una valutazione diagnostica si entra nel
+> documentata - ma se il suono viene usato per una valutazione diagnostica si entra nel
 > perimetro della regola 11 del regolamento sui dispositivi medici, che è precisamente il
 > confine che il vincolo V2 impone di rendere esplicito.
 
@@ -1541,8 +1541,8 @@ Fra browser l'interoperabilità è garantita dai codec obbligatori: due estremi 
 troveranno sempre almeno Opus per l'audio e almeno uno fra VP8 e H.264 per il video. Non è
 un caso: è precisamente lo scopo dell'obbligatorietà.
 
-Con estremi non-browser — un apparato di videoconferenza, un centralino, un dispositivo
-embedded — le insidie sono tre:
+Con estremi non-browser - un apparato di videoconferenza, un centralino, un dispositivo
+embedded - le insidie sono tre:
 
 1. **Il profilo H.264 può non coincidere.** Molti apparati usano profili più ricchi del
    Constrained Baseline. La negoziazione dovrebbe risolverlo, ma implementazioni datate
@@ -1553,7 +1553,7 @@ embedded — le insidie sono tre:
    vecchio meccanismo di scambio chiavi in SDP, incompatibile con DTLS-SRTP.
 
 Nella pratica, l'interoperabilità con il mondo non-browser richiede quasi sempre un
-componente intermedio che traduce — e quel componente **vede il media in chiaro**, con tutte
+componente intermedio che traduce - e quel componente **vede il media in chiaro**, con tutte
 le conseguenze del §6.7 caso C.
 
 ---
@@ -1570,7 +1570,7 @@ le conseguenze del §6.7 caso C.
 | **Perdita** (*packet loss*) | Frazione dei pacchetti che non arriva | Buchi nell'audio, immagine congelata o a blocchi |
 
 Il **jitter** merita una spiegazione, perché è quello che si capisce peggio. I pacchetti
-audio partono a intervalli regolari — uno ogni 20 millisecondi. Se arrivassero altrettanto
+audio partono a intervalli regolari - uno ogni 20 millisecondi. Se arrivassero altrettanto
 regolari basterebbe riprodurli. Ma la rete li ritarda in modo diverso l'uno dall'altro: uno
 impiega 30 ms, il successivo 55, quello dopo 28. Se si riproducesse ciascun pacchetto appena
 arriva, il risultato sarebbe irregolare e sgradevole.
@@ -1611,7 +1611,7 @@ di ritardo del buffer. Va usata con cognizione: **abbassarla riduce la latenza e
 perdita audio sotto jitter elevato**. È un compromesso clinico, e come tale va documentato
 nel file di gestione dei rischi, non deciso in silenzio da chi scrive il codice.
 
-Il bilancio complessivo del ritardo, dalla telecamera al display remoto — tutti valori
+Il bilancio complessivo del ritardo, dalla telecamera al display remoto - tutti valori
 **`[NV]`**, ordini di grandezza da sostituire con misure proprie:
 
 | Stadio | Contributo tipico |
@@ -1628,9 +1628,9 @@ Il bilancio complessivo del ritardo, dalla telecamera al display remoto — tutt
 
 Da questa tabella discende la posizione del progetto sull'obiettivo di latenza, ai sensi
 della decisione D19: **l'obiettivo si dichiara come metrica misurata, registrata e
-notificata, non come promessa.** Va inoltre dichiarato **quale** latenza si sta misurando —
+notificata, non come promessa.** Va inoltre dichiarato **quale** latenza si sta misurando -
 tempo di andata e ritorno di rete, latenza a senso unico, latenza bocca-orecchio, o latenza
-dalla telecamera al display — perché le quattro differiscono di un ordine di grandezza e
+dalla telecamera al display - perché le quattro differiscono di un ordine di grandezza e
 citarne una senza qualificarla non significa nulla.
 
 ### 8.3 Il controllo della congestione e la retroazione sul trasporto
@@ -1651,8 +1651,8 @@ Lo stato normativo di questa parte va detto con precisione, perché è sorprende
   interattivo, e impone come minimo l'*interruttore di sicurezza* RTP di **RFC 8083**.
 - L'algoritmo effettivamente usato dai browser è descritto in un Internet-Draft **mai
   diventato RFC**.
-- Il meccanismo di retroazione su cui poggia — la numerazione di sequenza **estesa a tutti i
-  pacchetti della connessione**, che compare in SDP come `a=rtcp-fb:* transport-cc` — è
+- Il meccanismo di retroazione su cui poggia - la numerazione di sequenza **estesa a tutti i
+  pacchetti della connessione**, che compare in SDP come `a=rtcp-fb:* transport-cc` - è
   definito in un Internet-Draft **individuale, scaduto il 21 aprile 2016**, mai adottato dal
   gruppo di lavoro. Il documento porta la nota *«not endorsed by the IETF»*.
 - **Lo standard vero esiste**: **RFC 8888** (*RTP Control Protocol Feedback for Congestion
@@ -1677,7 +1677,7 @@ correnti, perché l'identificativo di transazione che si ottiene è l'unico che
 l'implementazione accetterà in scrittura.
 
 **La preferenza di degrado è una decisione clinica prima che tecnica.** I valori normativi
-sono quattro e — dato verificato — **non sono definiti dalla Recommendation WebRTC** bensì
+sono quattro e - dato verificato - **non sono definiti dalla Recommendation WebRTC** bensì
 dalla specifica *MediaStreamTrack Content Hints* (W3C **Working Draft** del 19 settembre
 2025):
 
@@ -1701,12 +1701,12 @@ chi si occupa di conformità, non da decidere in un file di configurazione.
 
 Ci sono due famiglie di rimedi, ed esiste un compromesso netto fra loro.
 
-**Rimedio reattivo — si chiede la ritrasmissione.** Il ricevente si accorge di un buco nella
+**Rimedio reattivo - si chiede la ritrasmissione.** Il ricevente si accorge di un buco nella
 numerazione e chiede al mittente di rispedire il pacchetto (`NACK`, RFC 4585); il mittente
 lo rispedisce su un flusso di ritrasmissione separato (`RTX`, RFC 4588). Costa **un tempo di
 andata e ritorno** e funziona solo se quel tempo sta dentro il budget del jitter buffer.
 
-**Rimedio proattivo — si manda informazione ridondante.** Si aggiunge in anticipo materiale
+**Rimedio proattivo - si manda informazione ridondante.** Si aggiunge in anticipo materiale
 che permette di ricostruire ciò che manca, **senza chiedere nulla**: la correzione d'errore
 incorporata di Opus (§7.2), la codifica ridondante di RFC 2198, o un flusso di correzione
 separato per il video. Costa banda **sempre**, anche quando non c'è alcuna perdita.
@@ -1724,8 +1724,8 @@ separato per il video. Costa banda **sempre**, anche quando non c'è alcuna perd
 **Quando la perdita è troppo estesa** e il decodificatore ha perso il riferimento, non resta
 che chiedere un fotogramma completo: indicazione di perdita d'immagine (`PLI`, RFC 4585,
 tipo 206 formato 1) o richiesta esplicita di fotogramma intra (`FIR`, RFC 5104, tipo 206
-formato 4). **Un fotogramma completo è costoso** — dell'ordine di 5–10 volte un fotogramma
-differenziale `[NV]` — e una raffica di richieste può innescare una spirale: congestione →
+formato 4). **Un fotogramma completo è costoso** - dell'ordine di 5–10 volte un fotogramma
+differenziale `[NV]` - e una raffica di richieste può innescare una spirale: congestione →
 perdita → richiesta → fotogramma pesante → più congestione. Le implementazioni limitano la
 frequenza di queste richieste proprio per questo.
 
@@ -1760,8 +1760,8 @@ l'audio**. Non è un'ottimizzazione tecnica: è una scelta clinica, e va motivat
 3. **L'audio costa una frazione del video.** Proteggere l'audio è quasi gratis: qualche
    decina di kilobit al secondo contro qualche megabit.
 4. **È accessibilità, non ottimizzazione.** Il vincolo D25 del progetto lo dice
-   esplicitamente: degradare in modo comprensibile — audio prima del video, avvisi chiari,
-   ripresa della sessione — **è parte dell'accessibilità reale**. Chi ha una connessione
+   esplicitamente: degradare in modo comprensibile - audio prima del video, avvisi chiari,
+   ripresa della sessione - **è parte dell'accessibilità reale**. Chi ha una connessione
    scadente non è un caso limite: è una parte della popolazione di riferimento.
 
 La conseguenza in interfaccia è altrettanto importante: quando il video viene sacrificato,
@@ -1779,7 +1779,7 @@ Il browser espone un'unica fonte: il metodo `getStats()` di `RTCPeerConnection`,
 restituisce una mappa di oggetti tipizzati, ciascuno con un identificativo, un istante e un
 tipo, collegati fra loro da riferimenti reciproci.
 
-La specifica si chiama ***Identifiers for WebRTC's Statistics API*** del W3C — stato
+La specifica si chiama ***Identifiers for WebRTC's Statistics API*** del W3C - stato
 verificato: **Candidate Recommendation Draft del 25 settembre 2025**. Va citata con questo
 titolo esatto.
 
@@ -1793,7 +1793,7 @@ temperatura guardando il termometro spento.
 Questa è l'area in cui si sbaglia di più, quindi vale la pena essere precisi su quale
 dizionario contiene cosa. Membri **verificati** sulla specifica:
 
-**`inbound-rtp`** — ciò che *io* ricevo dall'altro:
+**`inbound-rtp`** - ciò che *io* ricevo dall'altro:
 `jitter`, `packetsLost`, `framesPerSecond`, `freezeCount`, `totalFreezesDuration`,
 `pauseCount`, `nackCount`, `firCount`, `pliCount`, `framesDropped`, `totalInterFrameDelay`,
 `jitterBufferDelay`, `jitterBufferEmittedCount`.
@@ -1801,28 +1801,28 @@ dizionario contiene cosa. Membri **verificati** sulla specifica:
 **Non** contiene: `roundTripTime`, `qualityLimitationReason`, `availableOutgoingBitrate`,
 `fractionLost`.
 
-**`outbound-rtp`** — ciò che *io* invio:
+**`outbound-rtp`** - ciò che *io* invio:
 `qualityLimitationReason`, `qualityLimitationDurations`, `nackCount`, `firCount`,
 `pliCount`, `retransmittedPacketsSent`, `framesPerSecond`, `framesEncoded`.
 
 **Non** contiene: `roundTripTime`, `jitter`, `packetsLost`, `freezeCount`.
 
-**`remote-inbound-rtp`** — ciò che *l'altro* osserva ricevendo il **mio** flusso, riportato
+**`remote-inbound-rtp`** - ciò che *l'altro* osserva ricevendo il **mio** flusso, riportato
 via il canale di controllo RTCP: `roundTripTime`, `totalRoundTripTime`, `fractionLost`, più
 `jitter` e `packetsLost` ereditati.
 
 > **È questo il dizionario che scioglie l'equivoco più diffuso.** Il tempo di andata e
 > ritorno **non** sta in `outbound-rtp`. Sta in `remote-inbound-rtp`, ed è quindi la vera
-> misura della qualità **percepita dall'altra parte** — l'unica che conti in un consulto,
+> misura della qualità **percepita dall'altra parte** - l'unica che conti in un consulto,
 > perché nessuno si lamenta di come sente sé stesso.
 
-**`candidate-pair`** — la coppia di percorsi in uso: `state`, `nominated`, `packetsSent`,
+**`candidate-pair`** - la coppia di percorsi in uso: `state`, `nominated`, `packetsSent`,
 `packetsReceived`, `bytesSent`, `bytesReceived`, `totalRoundTripTime`,
 `currentRoundTripTime`, `availableOutgoingBitrate`, `availableIncomingBitrate`,
 `requestsSent`, `responsesReceived`, `consentRequestsSent`, `packetsDiscardedOnSend`,
 `bytesDiscardedOnSend`.
 
-**`transport`** — lo stato della cifratura: `dtlsState`, `srtpCipher`, `dtlsCipher`,
+**`transport`** - lo stato della cifratura: `dtlsState`, `srtpCipher`, `dtlsCipher`,
 `tlsVersion`, `selectedCandidatePairId`, `dtlsRole`.
 
 > **Questi ultimi sono la prova documentale della cifratura effettiva.** Registrarli per ogni
@@ -1840,15 +1840,15 @@ numero di flussi. Cinque regole:
    rapporto più piccolo.
 3. **Non spedire un campione al secondo al server.** Aggregare in finestre di 10–30 secondi
    con minimo, media, novantacinquesimo percentile e massimo, e spedire il riassunto. Gli
-   **eventi** — cambio della causa di limitazione della qualità, superamento di soglia,
-   congelamento — si spediscono invece subito.
+   **eventi** - cambio della causa di limitazione della qualità, superamento di soglia,
+   congelamento - si spediscono invece subito.
 4. **I contatori sono cumulativi.** `packetsLost`, `bytesReceived`, `totalFreezesDuration`,
    `jitterBufferDelay` crescono in modo monotono: **vanno differenziati fra campioni
    consecutivi**. Rappresentare graficamente il valore grezzo e concludere che «la qualità
    peggiora sempre» è l'errore più comune in assoluto di questa area.
 5. **Le medie si calcolano come rapporti fra differenze.** Il ritardo medio del jitter buffer
    è la differenza di `jitterBufferDelay` divisa per la differenza di
-   `jitterBufferEmittedCount` — secondi per campione emesso — non il valore assoluto diviso
+   `jitterBufferEmittedCount` - secondi per campione emesso - non il valore assoluto diviso
    per qualcosa.
 
 ### 9.4 Che cosa si può dedurre, e che cosa no
@@ -1896,8 +1896,8 @@ la formula dell'Annex B.
 3. Esistono varianti a banda larga e a banda piena (G.107.1 e G.107.2), più appropriate, ma
    **`[NV]`** sulla loro copertura effettiva di Opus.
 4. **Per il video non esiste nulla di paragonabile applicabile al tempo reale.** I modelli
-   ITU-T P.1203 e P.1204 riguardano lo streaming adattivo su HTTP, con assunzioni — segmenti,
-   riempimento del buffer, interruzioni — che qui non valgono.
+   ITU-T P.1203 e P.1204 riguardano lo streaming adattivo su HTTP, con assunzioni - segmenti,
+   riempimento del buffer, interruzioni - che qui non valgono.
 
 **La posizione del progetto**: pubblicare un **indice di qualità della sessione proprietario,
 trasparente e documentato**, con la formula esposta e la dichiarazione esplicita che **non è
@@ -1961,8 +1961,8 @@ Il percorso di diagnosi, in ordine. Ogni passo esclude una classe di cause.
 7. **La cifratura era quella attesa?** Si controllano suite e versione registrate. È anche il
    controllo che intercetta i casi patologici del §6.2.
 
-Gli strumenti diagnostici interni dei browser — raggiungibili da un indirizzo interno
-dedicato — mostrano tutte queste grandezze in tempo reale ed esportano un riepilogo completo
+Gli strumenti diagnostici interni dei browser - raggiungibili da un indirizzo interno
+dedicato - mostrano tutte queste grandezze in tempo reale ed esportano un riepilogo completo
 degli eventi della connessione. **Quel riepilogo è archiviabile come allegato a una
 segnalazione di problema**, ed è materiale utile per la sorveglianza post-commercializzazione.
 
@@ -1979,7 +1979,7 @@ ripudiabile del comportamento tecnico, accanto a quella dell'esito clinico.
 
 ```mermaid
 flowchart LR
-    subgraph M["Mesh — ogni nodo con ogni altro"]
+    subgraph M["Mesh - ogni nodo con ogni altro"]
         M1((A)) --- M2((B))
         M2 --- M3((C))
         M1 --- M3
@@ -2001,8 +2001,8 @@ flowchart LR
 ```
 
 **Mesh (a maglia).** Ogni partecipante invia il proprio flusso a ogni altro. Con `N`
-partecipanti: `N−1` invii e `N−1` ricezioni per nodo, `N(N−1)/2` connessioni totali, e —
-punto spesso ignorato — **`N−1` codifiche parallele** se le condizioni verso i vari
+partecipanti: `N−1` invii e `N−1` ricezioni per nodo, `N(N−1)/2` connessioni totali, e -
+punto spesso ignorato - **`N−1` codifiche parallele** se le condizioni verso i vari
 interlocutori differiscono.
 
 | Partecipanti | Connessioni | Codifiche per nodo | Banda in salita richiesta | Praticabilità |
@@ -2025,7 +2025,7 @@ contenuta perché nel caso base non ricodifica nulla. **Ma termina la cifratura:
 in chiaro.**
 
 **Composizione.** Il server decodifica tutti i flussi, li compone in un unico mosaico e
-ricodifica. La banda in discesa torna costante — un solo flusso — il che è ideale per
+ricodifica. La banda in discesa torna costante - un solo flusso - il che è ideale per
 dispositivi deboli e per l'interoperabilità con apparati tradizionali. Costa **moltissima
 CPU per sessione** e aggiunge **decine di millisecondi** di latenza fra decodifica,
 composizione e ricodifica. Nessuna proprietà di cifratura da estremo a estremo, e il layout è
@@ -2038,8 +2038,8 @@ alcun argomento a favore di un server intermedio per due partecipanti: aggiunger
 costo infrastrutturale e **distruggerebbe la proprietà su cui poggia l'intero
 posizionamento**.
 
-**Per il terzo partecipante — interprete della lingua dei segni, caregiver, secondo
-specialista — la risposta è mesh a tre, non un server.** Le ragioni:
+**Per il terzo partecipante - interprete della lingua dei segni, caregiver, secondo
+specialista - la risposta è mesh a tre, non un server.** Le ragioni:
 
 1. **A tre la mesh è tecnicamente sostenibile.** Due invii e due ricezioni per nodo. Va
    verificata sul campo, non assunta.
@@ -2056,7 +2056,7 @@ limite dichiarato è ingegneria; un degrado silenzioso è un difetto.**
 
 Sul piano implementativo, la mesh a tre richiede: `N−1` connessioni per client; assegnazione
 deterministica dei ruoli di negoziazione per **ogni coppia**; suddivisione del budget di
-banda in salita fra i destinatari; e — dettaglio che sfugge — l'aggregazione delle metriche
+banda in salita fra i destinatari; e - dettaglio che sfugge - l'aggregazione delle metriche
 su `N−1` connessioni, dove **la qualità della sessione è il minimo, non la media**, delle
 qualità per collegamento.
 
@@ -2065,7 +2065,7 @@ qualità per collegamento.
 La cifratura da estremo a estremo si recupererebbe solo aggiungendo un livello di protezione
 **sopra** SRTP, cioè cifrando i fotogrammi prima che entrino nel trasporto.
 
-Lo standard esiste: **RFC 9605 — Secure Frame (SFrame)**, *Lightweight Authenticated
+Lo standard esiste: **RFC 9605 - Secure Frame (SFrame)**, *Lightweight Authenticated
 Encryption for Real-Time Media*, **Standards Track, agosto 2024**. Fornisce cifratura e
 autenticazione dei fotogrammi in modo che i server intermedi possano accedere ai metadati ma
 non al contenuto. Opera su **fotogrammi interi** anziché su singoli pacchetti, il che lo
@@ -2073,10 +2073,10 @@ rende più efficiente in banda. Definisce cinque suite di cifratura (§4.5), un'
 lunghezza variabile con identificativo di chiave e contatore (§4.3), e la compatibilità con
 l'inoltro selettivo, il multiflusso e la codifica a strati (§6.1).
 
-L'alternativa è **RFC 8723 — Double Encryption Procedures for SRTP**: due trasformazioni
+L'alternativa è **RFC 8723 - Double Encryption Procedures for SRTP**: due trasformazioni
 annidate, una interna da estremo a estremo e una esterna fra un salto e l'altro. §4 stabilisce
-che il distributore può modificare **solo tre campi** dell'intestazione RTP — tipo di carico,
-numero di sequenza e bit marcatore — mentre tutti gli altri *«MUST remain unmodified»*.
+che il distributore può modificare **solo tre campi** dell'intestazione RTP - tipo di carico,
+numero di sequenza e bit marcatore - mentre tutti gli altri *«MUST remain unmodified»*.
 
 **Il punto onesto**, che chiude ogni discussione affrettata: **RFC 9605 §5 non definisce lo
 scambio delle chiavi.** Testualmente, *«Applications bear responsibility for provisioning
@@ -2103,7 +2103,7 @@ Ne discendono due sole possibilità:
   dalla CPU e dalla continuità del dispositivo dell'utente, e produce una registrazione in
   cui l'audio locale e il video remoto sono sfasati della latenza di rete.
 - **Registrazione sul server**: affidabile, sincronizzata, indipendente dal dispositivo, con
-  formato e cifratura a riposo governati centralmente — **ma richiede un componente che
+  formato e cifratura a riposo governati centralmente - **ma richiede un componente che
   completi un proprio handshake e decifri il flusso. La sessione non è più cifrata da estremo
   a estremo.**
 
@@ -2178,7 +2178,7 @@ Quattro regole non negoziabili su questo meccanismo:
 1. **L'endpoint che emette la credenziale è autenticato, autorizzato e limitato in
    frequenza.** Deve verificare che il richiedente sia effettivamente parte di quel consulto.
    Altrimenti è un distributore automatico di accessi al relay.
-2. **La durata è breve** — l'ordine di grandezza corretto è fra cinque minuti e un'ora.
+2. **La durata è breve** - l'ordine di grandezza corretto è fra cinque minuti e un'ora.
 3. **L'identificativo dentro la credenziale è opaco.** Finisce nei registri del server di
    relay in chiaro: **non deve mai essere un identificativo dell'assistito né del
    professionista**, ma un identificativo di sessione non correlabile senza accesso alla base
@@ -2191,7 +2191,7 @@ Due precisazioni di onestà normativa, entrambe verificate:
 - **Questo meccanismo non è uno standard IETF.** Deriva da un Internet-Draft individuale
   scaduto. Lo standard vero sarebbe RFC 7635 (autorizzazione di terza parte tramite token).
   Il meccanismo qui descritto è però l'unico con supporto universale nei browser e nel
-  server: si adotta, e **lo si documenta per ciò che è — una convenzione di fatto**.
+  server: si adotta, e **lo si documenta per ciò che è - una convenzione di fatto**.
 - **L'algoritmo di hash sottostante all'HMAC** è genericamente indicato come `hmac(...)`
   nella documentazione del server: `[NV]` che sia SHA-1. Il modo corretto di risolvere il
   dubbio non è una citazione documentale ma **un test di integrazione**: emettere una
@@ -2211,15 +2211,15 @@ pubblicata l'**8 agosto 2026**. Nei sette mesi precedenti sono state pubblicate 
 release**, cinque delle quali nel solo mese di agosto 2026.
 
 **La versione minima ammessa dal progetto è 4.17.2.** Non è una preferenza: versioni
-precedenti restano esposte a difetti corretti dopo, alcuni di gravità elevata — fra cui uno
+precedenti restano esposte a difetti corretti dopo, alcuni di gravità elevata - fra cui uno
 di gravità 9,8 su 10 nella decodifica di un token di autorizzazione, corretto in 4.10.0.
 
 Tre cambi di comportamento predefinito introdotti nella 4.17.0 vanno conosciuti, perché
 rompono configurazioni scritte per versioni precedenti:
 
 1. **I listener DTLS sono ora opzionali**: *«The server no longer starts DTLS listeners
-   unless `--dtls` is given.»* Per il progetto è la configurazione voluta — i browser usano
-   il relay su TCP con TLS, non su DTLS — e non attivarli elimina un'intera superficie
+   unless `--dtls` is given.»* Per il progetto è la configurazione voluta - i browser usano
+   il relay su TCP con TLS, non su DTLS - e non attivarli elimina un'intera superficie
    d'attacco.
 2. **Il nonce senza stato è attivo per impostazione predefinita**, con chiave di firma
    **generata per processo**. In un'architettura a più nodi indipendenti questo significa che
@@ -2242,7 +2242,7 @@ sistematicamente sbagliata.
 
 **Il meccanismo dell'attacco.** Un server di relay inoltra byte verso un indirizzo **scelto
 dal client**. Se non si restringono le destinazioni, chiunque ottenga una credenziale valida
-— e nel progetto la ottiene **ogni assistito autenticato**, per costruzione — può:
+- e nel progetto la ottiene **ogni assistito autenticato**, per costruzione - può:
 
 - raggiungere l'indirizzo di loopback del server stesso e parlare con servizi che si
   credevano non esposti;
@@ -2301,8 +2301,8 @@ sostituire:
    successo. È una misura di controllo del rischio tracciabile.
 4. **Allarmi sui registri, non sulle metriche.** Fatto verificato: **l'esportatore di
    metriche del server non espone alcun contatore dei permessi negati**. Il segnale
-   d'attacco — un picco di richieste di permesso respinte, cioè una scansione della rete
-   interna — **va estratto dai registri applicativi**. Le metriche utili in affiancamento
+   d'attacco - un picco di richieste di permesso respinte, cioè una scansione della rete
+   interna - **va estratto dai registri applicativi**. Le metriche utili in affiancamento
    sono il numero di allocazioni correnti (per la saturazione) e il contatore delle risposte
    di autenticazione soppresse (per l'attività di riflessione).
 
@@ -2318,7 +2318,7 @@ predefinito va costruito enumerando gli intervalli**. Una riga dimenticata signi
 consentito.
 
 **Secondo principio: le regole permissive prevalgono sempre su quelle di divieto.** Sempre
-verbatim: *«If there is an 'allowed' rule that fits the address then it is allowed — no
+verbatim: *«If there is an 'allowed' rule that fits the address then it is allowed - no
 matter what»*. Ne consegue che **in un profilo sanitario non si usano affatto regole
 permissive**: una sola riga annullerebbe tutti i divieti.
 
@@ -2356,7 +2356,7 @@ raccolto tre vulnerabilità in due mesi e non porta alcun beneficio a un consult
   configurazione sana è la modalità di rete condivisa con l'host, e va scritta nel file di
   composizione con il commento che spiega perché.
 
-Esempio della sola parte che serve al codice applicativo — nessun segreto reale, solo
+Esempio della sola parte che serve al codice applicativo - nessun segreto reale, solo
 segnaposto:
 
 ```yaml
@@ -2377,9 +2377,9 @@ telemedic:
 ### 11.6 Alta disponibilità: la ridondanza la fa ICE
 
 Formulazione corretta e ancorabile, da usare al posto di affermazioni assolute: **la
-documentazione upstream offre tre soli schemi di scalabilità — risoluzione dei nomi con
+documentazione upstream offre tre soli schemi di scalabilità - risoluzione dei nomi con
 record di servizio, redirezione verso un server alternativo, bilanciatore di carico di rete
-— tutti di distribuzione delle nuove richieste; nessuna fonte documenta la replica dello
+- tutti di distribuzione delle nuove richieste; nessuna fonte documenta la replica dello
 stato delle allocazioni fra nodi.** Un'allocazione vive nel processo che l'ha creata e non è
 ricostruibile altrove.
 
@@ -2387,7 +2387,7 @@ Ne discende l'architettura corretta, che è anche la più semplice: **N nodi ind
 stesso dominio di autenticazione, stesso segreto condiviso, stesso segreto per il nonce senza
 stato, tutti annunciati al client nell'elenco dei server**. ICE alloca in parallelo su più
 server e sceglie la coppia migliore: **la ridondanza la fa ICE, non il relay**. Nessun
-cluster, nessuna affinità di sessione, nessun indirizzamento anycast — che per un protocollo
+cluster, nessuna affinità di sessione, nessun indirizzamento anycast - che per un protocollo
 con stato su UDP è particolarmente sbagliato, perché un cambio di rotta sposta i pacchetti su
 un nodo che non ha l'allocazione.
 
@@ -2401,11 +2401,11 @@ Il costo è che ogni client apre più allocazioni; si contiene con la quota per 
 
 Confusione ricorrente. Un file video ha tre livelli indipendenti:
 
-- il **codec video** (VP8, VP9, H.264, AV1) e il **codec audio** (Opus, AAC) — come sono
+- il **codec video** (VP8, VP9, H.264, AV1) e il **codec audio** (Opus, AAC) - come sono
   compressi i due flussi;
-- il **contenitore** (MP4, WebM) — come i due flussi sono intrecciati in un unico file
+- il **contenitore** (MP4, WebM) - come i due flussi sono intrecciati in un unico file
   insieme a indice, tempi e metadati;
-- la **cifratura a riposo** — che nel progetto è applicata **sopra** il file, con chiavi per
+- la **cifratura a riposo** - che nel progetto è applicata **sopra** il file, con chiavi per
   organizzazione.
 
 Il contenitore non implica il codec e viceversa. Il fatto che il browser sappia **decodificare**
@@ -2478,7 +2478,7 @@ e non scoperti in produzione.
    CPU **in aggiunta** alla codifica e decodifica della chiamata in corso. Su hardware
    modesto è un rischio concreto di causare proprio il degrado che il sistema deve evitare.
    Se la registrazione avviene sul dispositivo, va misurata su hardware di riferimento basso
-   e disattivata automaticamente — informando l'utente — quando la causa di limitazione della
+   e disattivata automaticamente - informando l'utente - quando la causa di limitazione della
    qualità indica in modo persistente la CPU.
 2. **La sincronizzazione.** Registrando la composizione locale, il video remoto è già sfasato
    rispetto all'audio locale della latenza di rete. Non è correggibile a valle senza i tempi
@@ -2489,8 +2489,8 @@ e non scoperti in produzione.
    elimina; e se il professionista chiude il portatile a fine consulto prima che il
    caricamento finisca, quella registrazione non esiste più.
 4. **La conservazione.** Cifratura a riposo con chiavi per organizzazione, periodo di
-   conservazione configurabile, e **cancellazione crittografica** — la distruzione della
-   chiave — come meccanismo di cancellazione effettiva.
+   conservazione configurabile, e **cancellazione crittografica** - la distruzione della
+   chiave - come meccanismo di cancellazione effettiva.
 
 ---
 
@@ -2516,8 +2516,8 @@ Opzioni **verificate sul codice sorgente del motore Chromium**, con i commenti o
 
 1. **L'opzione corretta è quella che non tocca la cattura dello schermo.** L'altra
    auto-accetterebbe anche la condivisione dello schermo, e un test che verifica il flusso di
-   consenso alla condivisione — «mostro il referto all'assistito» è un caso d'uso reale del
-   progetto — produrrebbe **falsi positivi**.
+   consenso alla condivisione - «mostro il referto all'assistito» è un caso d'uso reale del
+   progetto - produrrebbe **falsi positivi**.
 2. **Formati: Y4M per il video, WAV per l'audio.** Non sono intercambiabili.
 3. **La riproduzione di un file audio richiede la disattivazione dell'elaborazione audio**
    (eco, rumore, guadagno), altrimenti il file viene riprodotto distorto, e va combinata con
@@ -2532,11 +2532,11 @@ d'errore audio.
 
 > **Asimmetria da conoscere prima di progettare la suite di test.** **Firefox non ha alcun
 > equivalente della riproduzione da file.** La preferenza di flusso sintetico produce un
-> segnale generato dal browser — barre colorate e un tono — non riproduce un file scelto
+> segnale generato dal browser - barre colorate e un tono - non riproduce un file scelto
 > dallo sviluppatore. **Conseguenza concreta: la misura automatica della latenza dalla
 > telecamera al display basata su un file con un contatore di tempo impresso è realizzabile
-> solo sul motore Chromium.** Su Firefox serve una strategia alternativa — per esempio
-> disegnare il contatore su un elemento grafico e catturarne il flusso — oppure va dichiarata
+> solo sul motore Chromium.** Su Firefox serve una strategia alternativa - per esempio
+> disegnare il contatore su un elemento grafico e catturarne il flusso - oppure va dichiarata
 > una copertura ridotta.
 
 **L'idea del test di latenza, per completezza**: si prepara un file video contenente un
@@ -2626,7 +2626,7 @@ In ordine, dal più probabile al meno probabile:
 1. **La segnalazione arriva?** Se i messaggi non transitano, non c'è WebRTC di cui parlare.
    Si guarda la connessione WebSocket prima di ogni altra cosa.
 2. **L'offerta contiene sezioni media?** Un'offerta senza sezioni significa che
-   l'acquisizione da telecamera e microfono è fallita — permessi negati, dispositivo
+   l'acquisizione da telecamera e microfono è fallita - permessi negati, dispositivo
    occupato, contesto non sicuro. **WebRTC richiede un contesto sicuro**: su HTTP semplice,
    `getUserMedia()` non funziona, e in sviluppo locale l'unica origine trattata come sicura è
    quella di loopback.
@@ -2636,7 +2636,7 @@ In ordine, dal più probabile al meno probabile:
    requisito di RFC 8838 §9 (§4.5). Un difetto qui produce sessioni che si stabiliscono «a
    volte».
 5. **Le impronte corrispondono?** Un handshake che fallisce con impronte discordi significa
-   che qualcosa ha alterato l'SDP lungo il percorso — o, molto più spesso, che il codice ha
+   che qualcosa ha alterato l'SDP lungo il percorso - o, molto più spesso, che il codice ha
    applicato due descrizioni appartenenti a negoziazioni diverse.
 6. **Lo stato della connessione arriva a `connected` ma i byte restano a zero?** Firewall che
    lascia passare il controllo e blocca i dati.
@@ -2739,7 +2739,7 @@ dell'assistito (§8.5).
 6. **WebRTC è due corpi normativi**: l'interfaccia del W3C e i protocolli dell'IETF,
    coordinati da RFC 8825.
 7. **La segnalazione non è nello standard, per scelta dichiarata** (RFC 8829 §1.1). È una
-   scelta del progetto — e, non essendo specificata, **non è nemmeno protetta**.
+   scelta del progetto - e, non essendo specificata, **non è nemmeno protetta**.
 8. **Il server di segnalazione è il punto di ancoraggio della fiducia dell'intera sessione**,
    non un componente accessorio.
 9. **ICE non sceglie: raccoglie tutti i percorsi plausibili, li prova tutti e tiene il
@@ -2752,7 +2752,7 @@ dell'assistito (§8.5).
 12. **Il riavvio di ICE cambia il percorso, non le chiavi**, e richiede la segnalazione:
     senza WebSocket non si recupera un cambio di rete.
 13. **DTLS-SRTP protegge il media, e l'impronta nell'SDP lega il certificato alla sessione
-    segnalata.** Garantisce che il flusso venga da chi ha prodotto quell'SDP — **non** che
+    segnalata.** Garantisce che il flusso venga da chi ha prodotto quell'SDP - **non** che
     quell'SDP sia autentico.
 14. **Il server di segnalazione può eseguire un attacco dell'intermediario** (RFC 8827 §9.1)
     e nessun controllo automatico può accorgersene.
@@ -2766,8 +2766,8 @@ dell'assistito (§8.5).
     corrispondenza.
 17. **Non esiste rotazione delle chiavi SRTP dentro una sessione.** Verificato:
     l'`exporter_secret` di TLS 1.3 *«is static for the lifetime of the connection and is not
-    updated by a standard key update»*. Non è una debolezza — RFC 3711 §9.2 mostra che i
-    limiti di vita della chiave sono irraggiungibili in un consulto — ma **non va
+    updated by a standard key update»*. Non è una debolezza - RFC 3711 §9.2 mostra che i
+    limiti di vita della chiave sono irraggiungibili in un consulto - ma **non va
     rivendicata**.
 18. **Il relay non può decifrare nulla**, ma vede metadati che in ambito sanitario sono già
     dati relativi alla salute.

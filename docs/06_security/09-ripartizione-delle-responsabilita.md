@@ -18,7 +18,7 @@ description: Misura per misura, che cosa è del progetto, che cosa è di chi ins
 > incidenti.**
 >
 > Il fornitore **non può adempierli, non può attestarli, e nessuna clausola contrattuale li
-> sposta.** Ciò che il fornitore può fare — e che questo capitolo elenca — è **produrre le
+> sposta.** Ciò che il fornitore può fare - e che questo capitolo elenca - è **produrre le
 > evidenze** che il soggetto obbligato incorpora nei propri piani, e **fornire le capacità
 > tecniche** senza le quali quegli adempimenti non sono materialmente eseguibili.
 >
@@ -65,7 +65,7 @@ Legenda della colonna «Ambito»: **I+E** misura prevista per soggetti important
 | `GV.OC-04` | Individuazione ed elenco dei sistemi rilevanti | I+E | **D** | Descrizione dei componenti, dei flussi e delle interfacce, perché il cliente possa perimetrare correttamente ciò che il prodotto introduce |
 | `GV.RM-03` | Integrazione della gestione del rischio informatico nei processi | I+E | **D** | Registro dei rischi del prodotto e modello delle minacce ([01](./01-modello-di-minaccia.md)), riusabili come ingresso |
 | `GV.RR-02` | Organizzazione per la sicurezza informatica, con ruoli e responsabilità | I+E | **D** | Questa tabella, come ingresso alla ripartizione fornitore/cliente |
-| `GV.RR-04` | Sicurezza e affidabilità del personale | I+E\* | **D** | — |
+| `GV.RR-04` | Sicurezza e affidabilità del personale | I+E\* | **D** | - |
 | `GV.PO-01` | Politiche di sicurezza informatica | I+E | **D** | Configurazione di riferimento e vincoli tecnici che le politiche devono riflettere |
 | `GV.PO-02` | Riesame e aggiornamento delle politiche | I+E\* | **D** | Avvisi di sicurezza e note di rilascio come evento che innesca il riesame |
 
@@ -92,7 +92,7 @@ Legenda della colonna «Ambito»: **I+E** misura prevista per soggetti important
 | `ID.RA-06` | Piano di trattamento del rischio | I+E | **D** | **Dichiarazione tecnica di deroga** con le misure compensative, senza la quale la deroga sugli endpoint non è chiudibile ([08 §6](./08-quadro-normativo-e-misure.md)) |
 | `ID.RA-08` | Piano di gestione delle vulnerabilità, approvato dagli organi direttivi | I+E\* | **P+D** | **È uno dei due documenti non redigibili senza il fornitore**: il piano deve tenere conto delle vulnerabilità delle dipendenze del prodotto |
 | `ID.IM-01` | Valutazione dell'efficacia delle misure e piano di adeguamento | I+E\* | **D** | Esiti delle verifiche automatiche, delle prove di ripristino e dell'audit di terza parte |
-| `ID.IM-04` | Piani di continuità operativa, ripristino e gestione delle crisi | I+E | **P+D** | Procedura completa di copia e ripristino — sistema, applicazione, base dati, configurazioni, **materiale di chiave** — con obiettivi dichiarati e almeno una esecuzione documentata in collaudo |
+| `ID.IM-04` | Piani di continuità operativa, ripristino e gestione delle crisi | I+E | **P+D** | Procedura completa di copia e ripristino - sistema, applicazione, base dati, configurazioni, **materiale di chiave** - con obiettivi dichiarati e almeno una esecuzione documentata in collaudo |
 
 ## 6. Identità, accessi e formazione
 
@@ -101,7 +101,7 @@ Legenda della colonna «Ambito»: **I+E** misura prevista per soggetti important
 | `PR.AA-01` | Gestione delle identità e delle credenziali | I+E | **P+D** | Utenze individuali e censite; nessuna utenza anonima o condivisa; blocco dopo tentativi falliti con registrazione di ciascuno; cambio obbligatorio della credenziale iniziale ([02 §11](./02-identita-e-accessi.md)) |
 | `PR.AA-03` | Autenticazione, anche a più fattori | I+E | **P+D** | **Secondo fattore imposto** sulle utenze amministrative e sull'accesso remoto; federazione sui tre canali nazionali; livello configurabile per tenant e per operazione |
 | `PR.AA-05` | Definizione e applicazione dei permessi di accesso | I+E | **P+D** | **Autorizzazione fondata sulla relazione di cura**, non sul solo ruolo; separazione completa fra utenze privilegiate e non; revoca al variare del rapporto ([02 §9](./02-identita-e-accessi.md)) |
-| `PR.AA-06` | Controllo dell'accesso fisico | I+E | **D** | — |
+| `PR.AA-06` | Controllo dell'accesso fisico | I+E | **D** | - |
 | `PR.AT-01` | Formazione del personale, con piano approvato | I+E | **D** | Documentazione operativa, materiale sull'uso corretto dell'accesso d'emergenza e sull'interpretazione degli allarmi |
 | `PR.AT-02` | Formazione specialistica per ruoli con responsabilità di sicurezza | **E** | **D** | Documentazione tecnica di configurazione e di risposta |
 
@@ -114,7 +114,7 @@ Legenda della colonna «Ambito»: **I+E** misura prevista per soggetti important
 | `PR.DS-11` | Copie di sicurezza create, protette, mantenute e verificate | I+E\* | **P+D** | Procedura documentata, obiettivi di ripristino dichiarati, capacità di cifratura. **L'esecuzione, la copia non raggiungibile in permanenza dal sistema e la prova periodica di ripristino sono di chi installa** |
 | `PR.PS-01` | Configurazioni sicure di riferimento | **E** | **P+D** | Configurazione di riferimento per ciascun componente; **sicurezza per impostazione predefinita**; rilevazione delle deviazioni; ripristino alla configurazione di riferimento |
 | `PR.PS-02` | Manutenzione e aggiornamento del software | I+E\* | **P+D** | Rilascio degli aggiornamenti su canale autenticato, **a titolo gratuito**; ambiente e procedura di collaudo; **l'applicazione è di chi installa** |
-| `PR.PS-03` | Manutenzione e aggiornamento dell'hardware | **E** | **D** | — |
+| `PR.PS-03` | Manutenzione e aggiornamento dell'hardware | **E** | **D** | - |
 | `PR.PS-04` | Generazione e conservazione dei registri | I+E | **P** | **Registro a sola aggiunta con catena di impronte e conservazione separata**, esportazione in formato aperto con impronta, 24 e 12 mesi ([04](./04-tracciamento.md)) |
 | `PR.PS-06` | Sicurezza nel ciclo di vita dello sviluppo software | I+E | **P** | Ciclo di vita documentato, modello delle minacce tracciabile, verifiche automatiche a ogni proposta di modifica ([07 §5](./07-catena-di-fornitura.md)) |
 | `PR.IR-01` | Protezione delle reti e degli ambienti | I+E | **P+D** | Configurazione di riferimento della segmentazione; **isolamento di rete in uscita del relay** e **negazione di rotta ai componenti applicativi** ([05 §4](./05-sicurezza-del-tempo-reale.md), [06 §8](./06-sicurezza-applicativa.md)). **Le regole di rete sono di chi installa** |
@@ -140,9 +140,9 @@ Legenda della colonna «Ambito»: **I+E** misura prevista per soggetti important
 
 | Categoria | Numero | Che cosa significa in pratica |
 |---|:-:|---|
-| **P** — attuate dal prodotto | **5** | `PR.DS-02`, `PR.PS-04`, `PR.PS-06`, `PR.IR-03`, e — per la sola parte di produzione dell'artefatto — la distinta dei materiali dentro `ID.AM-02`. Il cliente verifica e documenta |
-| **P+D** — condivise | **20** | La maggioranza. Sono le righe in cui il fraintendimento è più costoso, perché **la porzione del fornitore non copre quella del cliente** |
-| **D** — di chi installa | **18** | Governo, personale, formazione, sicurezza fisica, valutazione del rischio, continuità, correlazione degli eventi, e **tutti gli adempimenti verso l'autorità** |
+| **P** - attuate dal prodotto | **5** | `PR.DS-02`, `PR.PS-04`, `PR.PS-06`, `PR.IR-03`, e - per la sola parte di produzione dell'artefatto - la distinta dei materiali dentro `ID.AM-02`. Il cliente verifica e documenta |
+| **P+D** - condivise | **20** | La maggioranza. Sono le righe in cui il fraintendimento è più costoso, perché **la porzione del fornitore non copre quella del cliente** |
+| **D** - di chi installa | **18** | Governo, personale, formazione, sicurezza fisica, valutazione del rischio, continuità, correlazione degli eventi, e **tutti gli adempimenti verso l'autorità** |
 
 **Nessuna misura è a carico del solo fornitore in senso liberatorio per il cliente.** Anche le
 cinque marcate **P** richiedono al cliente di verificare che la configurazione distribuita non
@@ -171,7 +171,7 @@ invisibili.
 | **Scelta del livello di garanzia** per i propri servizi e sua motivazione in sede di convenzione | All'adesione | **Chi installa**, che è il fornitore di servizi (V-05) |
 | Applicazione degli aggiornamenti rilasciati | Secondo la propria politica | **Chi installa** |
 | Esecuzione delle copie di sicurezza e **prova periodica di ripristino** | Programmata | **Chi installa** |
-| **Regole di rete** che negano l'uscita ai componenti applicativi e isolano il relay | All'installazione | **Chi installa**; il prodotto le documenta e le verifica all'avvio dove possibile |
+| **Regole di rete** che negano l'uscita ai componenti applicativi e isolano il relay | All'installazione | **Chi installa**; il prodotto le documenta e le verifica all'avvio, **rifiutando l'avvio** se un componente applicativo scopre di avere rotta verso l'esterno; dove la verifica non è tecnicamente possibile, l'omissione si dichiara e non vale come verifica superata ([06 §8.5](./06-sicurezza-applicativa.md)) |
 
 ## 12. Ciò che il progetto consegna, in un elenco
 

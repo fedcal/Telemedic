@@ -30,7 +30,7 @@ tre sistemi informativi diversi:
 |---|---|---|---|
 | Centro Unico di Prenotazione dell'azienda sanitaria | `CUP-ASL-0034887` (numerazione interna) | `427.31` (classificazione delle malattie in uso per la rendicontazione ospedaliera) | `COD_DIAG_PRINC` |
 | Gestionale del poliambulatorio privato | `PZ-2024-1187` (progressivo interno) | testo libero: «FA parossistica» | `diagnosi_note` |
-| Laboratorio che esegue gli esami | `LAB-887766` (numero di accettazione) | nessuna diagnosi: solo il codice della prestazione richiesta | — |
+| Laboratorio che esegue gli esami | `LAB-887766` (numero di accettazione) | nessuna diagnosi: solo il codice della prestazione richiesta | - |
 
 Nessuno dei tre sistemi sta sbagliando. Ciascuno è coerente con se stesso. Il problema
 nasce quando devono parlarsi, e si manifesta su **tre assi indipendenti**:
@@ -38,14 +38,14 @@ nasce quando devono parlarsi, e si manifesta su **tre assi indipendenti**:
 1. **Identità.** Nessuno dei tre identificatori è riconoscibile dagli altri due. Se il
    poliambulatorio invia al laboratorio «paziente PZ-2024-1187», il laboratorio non ha modo
    di sapere che è la stessa persona di `LAB-887766`. La riconciliazione avviene a mano,
-   confrontando nome, cognome e data di nascita — un procedimento che sbaglia
+   confrontando nome, cognome e data di nascita - un procedimento che sbaglia
    sistematicamente sugli omonimi, sulle date di nascita registrate male e sui cognomi
    con caratteri diacritici.
 2. **Significato.** `427.31` e «FA parossistica» descrivono lo stesso fatto clinico, ma
    nessun programma può stabilirlo. Il primo è un codice di una classificazione, il secondo
    è una stringa che un medico ha battuto sulla tastiera. Un sistema che voglia contare
    quanti pazienti con fibrillazione atriale sono in carico deve poter riconoscere entrambi
-   come lo stesso concetto — e non può, se non gliene viene data la regola.
+   come lo stesso concetto - e non può, se non gliene viene data la regola.
 3. **Struttura.** `COD_DIAG_PRINC` e `diagnosi_note` non sono lo stesso campo, non hanno
    lo stesso tipo, non hanno la stessa cardinalità e non hanno le stesse regole di
    obbligatorietà. Il mapping fra i due è codice scritto a mano, che qualcuno deve
@@ -97,7 +97,7 @@ domande:
 - **Chi può fare cosa, quando, e come lo si dimostra a posteriori?** (autorizzazione,
   consenso, tracciamento)
 
-Un formato che risolve solo la seconda domanda — e ce ne sono molti — non è uno standard
+Un formato che risolve solo la seconda domanda - e ce ne sono molti - non è uno standard
 di interoperabilità: è un formato di file.
 
 ---
@@ -138,7 +138,7 @@ sono. La differenza è la chiave per capire tutto il resto.
 oggetti esistono, quali campi hanno, quali tipi, quali cardinalità, quali vincoli. È
 volutamente **permissivo**, perché deve valere in tutti i paesi, per tutte le specialità,
 per tutti i casi d'uso. Esempio: la specifica FHIR R4 definisce la risorsa `Patient` con
-`name` di cardinalità `0..*` — cioè un paziente può non avere alcun nome. Sembra assurdo,
+`name` di cardinalità `0..*` - cioè un paziente può non avere alcun nome. Sembra assurdo,
 ed è invece necessario: esistono contesti clinici reali (un paziente non identificato in
 pronto soccorso) in cui il nome non c'è.
 
@@ -155,7 +155,7 @@ regole di conformità, e la documentazione narrativa che spiega il caso d'uso. �
 distribuzione: si installa, si versiona, si valida contro.
 
 **Guida di implementazione nazionale.** È un Implementation Guide prodotto da un'affiliata
-nazionale per il proprio contesto giuridico e organizzativo — quello che nel gergo FHIR si
+nazionale per il proprio contesto giuridico e organizzativo - quello che nel gergo FHIR si
 chiama **realm**. Contiene ciò che è specifico del paese: gli identificativi nazionali (in
 Italia il codice fiscale, la tessera sanitaria, i codici delle strutture), le
 classificazioni obbligatorie per legge, le regole di rendicontazione.
@@ -185,7 +185,7 @@ In pratica:
   cardinalità `1..1` non può tornare `0..1`;
 - un insieme di valori può essere ristretto a un sottoinsieme, non ampliato;
 - un vincolo di formato può essere reso più severo, non più permissivo;
-- un elemento può essere vietato (cardinalità `0..0`), non introdotto ex novo — per
+- un elemento può essere vietato (cardinalità `0..0`), non introdotto ex novo - per
   aggiungere informazione si usano le **estensioni**, che sono un meccanismo previsto dalla
   specifica di base proprio per questo scopo.
 
@@ -324,7 +324,7 @@ che dichiara la finalità della comunicazione, e il sistema ricevente accetta la
 pubblicazione perché il proprio regolamento la prevede.
 
 *Esempio di fallimento:* Telemedic è tecnicamente in grado di inviare il referto, il
-formato è corretto, la codifica è condivisa — ma il regolamento del sistema ricevente
+formato è corretto, la codifica è condivisa - ma il regolamento del sistema ricevente
 richiede che ogni documento sia firmato da un professionista identificato con un
 determinato livello di garanzia dell'identità, e il flusso non lo prevede. Il documento
 viene rifiutato. Nessun aggiustamento tecnico risolve il problema, perché il problema non è
@@ -374,7 +374,7 @@ I separatori sono questi **[V-sec]**:
 | Ruolo | Carattere predefinito | Dove è dichiarato |
 |---|---|---|
 | Fine del segmento | ritorno a capo (`0x0D`) | fisso, non modificabile |
-| Separatore di campo | `\|` | **MSH-1** — il campo contiene il carattere stesso |
+| Separatore di campo | `\|` | **MSH-1** - il campo contiene il carattere stesso |
 | Separatore di componente | `^` | MSH-2, posizione 1 |
 | Separatore di ripetizione | `~` | MSH-2, posizione 2 |
 | Carattere di escape | `\` | MSH-2, posizione 3 |
@@ -409,7 +409,7 @@ Il segmento di intestazione `MSH` ha una struttura fissa **[V-sec]**:
 Un tipo di messaggio si identifica con una sigla di tre lettere più un **evento
 scatenante** (*trigger event*): il fatto del mondo reale che provoca l'invio.
 
-**ADT — anagrafica e contatti assistenziali.** Gli eventi rilevanti **[V-sec]**:
+**ADT - anagrafica e contatti assistenziali.** Gli eventi rilevanti **[V-sec]**:
 
 | Evento | Significato |
 |---|---|
@@ -424,7 +424,7 @@ scatenante** (*trigger event*): il fatto del mondo reale che provoca l'invio.
 > ambulatoriale il messaggio corretto è **`A04`, non `A01`**. Il paziente non è ricoverato e
 > non ha un letto assegnato. Usare `A01` inquina i sistemi a valle con degenze inesistenti.
 
-**SIU — programmazione degli appuntamenti.** È il tipo più rilevante per il progetto,
+**SIU - programmazione degli appuntamenti.** È il tipo più rilevante per il progetto,
 perché la decisione di modello dice che l'agenda nasce nel sistema dell'integratore e
 Telemedic la riceve. Eventi **[V-sec]**:
 
@@ -438,7 +438,7 @@ Telemedic la riceve. Eventi **[V-sec]**:
 | `S23` / `S24` | Blocco / sblocco di fasce orarie |
 | **`S26`** | Il paziente non si è presentato |
 
-**MDM — notifica di documenti.** È il canale corretto per restituire il referto della
+**MDM - notifica di documenti.** È il canale corretto per restituire il referto della
 sessione a un sistema che non parla FHIR. Eventi **[V-sec]**:
 
 | Evento | Significato |
@@ -456,7 +456,7 @@ I valori di `TXA-17` includono `AU` (autenticato) e **`LA` (legalmente autentica
 del documento) e `TXA-13` (numero del documento padre) è il meccanismo con cui si
 esprimono le rettifiche.
 
-**ORU — risultati.** `ORU^R01` è il messaggio con cui un servizio diagnostico trasmette
+**ORU - risultati.** `ORU^R01` è il messaggio con cui un servizio diagnostico trasmette
 esiti. La struttura annida gruppi: paziente, ordine, osservazioni **[V-sec]**. I segmenti
 che contano sono `OBR` (l'ordine e il servizio richiesto) e `OBX` (la singola osservazione,
 con tipo di valore in `OBX-2`, identificativo dell'osservazione in `OBX-3`, valore in
@@ -464,14 +464,14 @@ con tipo di valore in `OBX-2`, identificativo dell'osservazione in `OBX-3`, valo
 
 ### 4.4 Un messaggio reale, commentato riga per riga
 
-Il messaggio che segue è un `SIU^S12` — notifica di un nuovo appuntamento — inviato dal
+Il messaggio che segue è un `SIU^S12` - notifica di un nuovo appuntamento - inviato dal
 gestionale di una struttura a Telemedic. **Tutti i dati sono sintetici.**
 
 ```text
 MSH|^~\&|GESTIONALE|STRUTTURA_A|TELEMEDIC|TENANT_A|20260914073000||SIU^S12^SIU_S12|MSG00001|P|2.5.1|||AL|NE|ITA|UNICODE UTF-8
 SCH|PLC-88213|FLR-99001||||CTRL^Visita di controllo cardiologica^L|Controllo post-dimissione|AMB|30|min|^^^20260914100000^20260914103000
 TQ1|1||||||20260914100000|20260914103000
-PID|1||RSSMRA80A01H501U^^^MEF^NNITA||ROSSI^MARIO||19800101|M|||VIA ROMA 1^^ROMA^RM^00100^ITA^H||^PRN^PH^^^06^5551234
+PID|1||RSSMRA80A01H501Z^^^MEF^NNITA||ROSSI^MARIO||19800101|M|||VIA ROMA 1^^ROMA^RM^00100^ITA^H||^PRN^PH^^^06^5551234
 PV1|1|O|||||||||||||||||VIS-2026-0000123
 RGS|1|A|GRP-1
 AIS|1|A|CTRL^Visita di controllo cardiologica^L|20260914100000|||30|min
@@ -481,7 +481,7 @@ AIL|1|A|VROOM-8f3a^^^TENANT_A^^^^^Stanza virtuale|||20260914100000|||30|min
 
 Riga per riga:
 
-**Riga 1 — `MSH`, intestazione.** Il quarto carattere è `|`: da lì il parser deduce il
+**Riga 1 - `MSH`, intestazione.** Il quarto carattere è `|`: da lì il parser deduce il
 separatore di campo. `^~\&` sono gli altri quattro separatori. Segue chi invia
 (`GESTIONALE` presso `STRUTTURA_A`) e chi riceve (`TELEMEDIC` presso `TENANT_A`): il
 secondo elemento della coppia ricevente è il modo naturale di veicolare l'informazione di
@@ -492,10 +492,10 @@ valore che l'ACK di ritorno citerà. `P` indica ambiente di produzione. `2.5.1` 
 versione dello standard. `AL` in MSH-15 chiede sempre la conferma di ricezione; `NE` in
 MSH-16 dichiara di non volere la conferma applicativa: siamo in modalità *enhanced* con la
 sola fase di accettazione. `ITA` è il codice del paese e `UNICODE UTF-8` la codifica dei
-caratteri — quest'ultima non è un dettaglio, perché senza di essa i cognomi con accenti
+caratteri - quest'ultima non è un dettaglio, perché senza di essa i cognomi con accenti
 arrivano corrotti.
 
-**Riga 2 — `SCH`, i dati dell'appuntamento.** `PLC-88213` è l'identificativo attribuito da
+**Riga 2 - `SCH`, i dati dell'appuntamento.** `PLC-88213` è l'identificativo attribuito da
 chi richiede (*placer*), `FLR-99001` quello attribuito da chi eroga (*filler*). Il campo
 `SCH-7` porta il codice della prestazione con la terna «codice, descrizione, sistema di
 codifica»: si noti che è **il codice della visita di controllo ordinaria**, non un
@@ -504,27 +504,27 @@ rendicontazione: la prestazione erogata a distanza mantiene la codifica della
 corrispondente prestazione in presenza **[V-sec]**; la modalità a distanza è un asse
 separato. `30` e `min` sono durata e unità; l'ultimo campo porta l'intervallo temporale.
 
-**Riga 3 — `TQ1`, tempistica strutturata.** Presente a partire dalla versione 2.5 dello
+**Riga 3 - `TQ1`, tempistica strutturata.** Presente a partire dalla versione 2.5 dello
 standard **[V]**: un parser scritto per la 2.3 lo scarterebbe. Ripete in forma strutturata
 l'inizio e la fine.
 
-**Riga 4 — `PID`, identificazione del paziente.** `PID-3` è l'elenco degli identificativi.
+**Riga 4 - `PID`, identificazione del paziente.** `PID-3` è l'elenco degli identificativi.
 Qui c'è il codice fiscale, con l'autorità di assegnazione nel quarto componente e il tipo
 di identificativo nel quinto. Il valore `NNITA` merita una nota: la tabella HL7 degli
 identifier type **non contiene un codice `NN`**; contiene un concetto il cui codice è
-letteralmente `NNxxx`, dove `xxx` va sostituito con il codice del paese a tre lettere —
+letteralmente `NNxxx`, dove `xxx` va sostituito con il codice del paese a tre lettere -
 quindi `NNITA` per l'Italia **[V]**. `NNITA` non è enumerato come concetto: è un valore
 generato dalla regola di formazione. **Nessun profilo italiano pubblicato fissa quale
 codice usare per il codice fiscale** **[V]**: la scelta va concordata con l'integratore e
 scritta nel contratto d'interfaccia. `PID-5` è il nome, con cognome e nome separati da `^`.
 
-**Riga 5 — `PV1`, il contatto.** `PV1-2` è la classe del paziente: `O` significa
+**Riga 5 - `PV1`, il contatto.** `PV1-2` è la classe del paziente: `O` significa
 *outpatient*, cioè ambulatoriale, ed è il valore verificato sulla tabella corrispondente
 **[V]**. `PV1-19` porta il numero della visita.
 
-**Righe 6-9 — il gruppo delle risorse.** Il gruppo è **obbligatorio e ripetibile** e deve
+**Righe 6-9 - il gruppo delle risorse.** Il gruppo è **obbligatorio e ripetibile** e deve
 iniziare con `RGS` **[V]**. `AIS` descrive il servizio, `AIP` il personale (qui il medico,
-con il ruolo espresso in `AIP-4`), `AIL` la risorsa di ubicazione — che nel nostro caso è
+con il ruolo espresso in `AIP-4`), `AIL` la risorsa di ubicazione - che nel nostro caso è
 la stanza virtuale. Va osservato che nella struttura ufficiale il **gruppo del paziente è
 opzionale** **[V]**: esiste un `SIU^S12` valido privo di segmento `PID`. Un consumatore che
 dia per scontata la presenza del paziente non è conforme.
@@ -601,7 +601,7 @@ degli anni Ottanta, dove il modello di minaccia era diverso. È un difetto **del
 usarlo così oggi. La regola vincolante per Telemedic:
 
 1. Ogni listener MLLP è esposto **esclusivamente** dentro un canale TLS, con autenticazione
-   reciproca basata su certificati X.509 — che è esattamente ciò che prescrive il profilo
+   reciproca basata su certificati X.509 - che è esattamente ciò che prescrive il profilo
    IHE di autenticazione di nodo (§6.5).
 2. Mai un listener MLLP raggiungibile da rete non fidata, nemmeno «temporaneamente per il
    collaudo».
@@ -636,8 +636,8 @@ Due avvertenze da tenere a mente:
 ### 5.1 Che cos'è un documento clinico
 
 Un **documento clinico** non è un file: è un oggetto con proprietà giuridiche precise. Le
-proprietà che la letteratura di settore attribuisce a un documento clinico — e che ne
-distinguono la natura da quella di un messaggio — sono la persistenza nel tempo, la
+proprietà che la letteratura di settore attribuisce a un documento clinico - e che ne
+distinguono la natura da quella di un messaggio - sono la persistenza nel tempo, la
 riferibilità a un custode responsabile, la possibilità di essere autenticato da chi ne
 risponde, l'autosufficienza rispetto al contesto, l'integrità come unità inscindibile e la
 leggibilità da parte di un essere umano. **[NV]** Questa formulazione non è stata verificata
@@ -716,7 +716,7 @@ formato è uno strato di adattamento.
 
 ### 6.1 Che cosa fa IHE, e perché non è «un altro standard»
 
-IHE non scrive standard. Prende standard esistenti — HL7, DICOM, protocolli della rete — e
+IHE non scrive standard. Prende standard esistenti - HL7, DICOM, protocolli della rete - e
 specifica **come combinarli** per risolvere un problema di integrazione concreto. È la
 risposta al fatto che uno standard, da solo, lascia troppe scelte aperte: due sistemi
 possono entrambi «usare FHIR» e non riuscire a parlarsi, perché hanno scelto in modo
@@ -771,7 +771,7 @@ volume 2, transazione numero 41, revisione 20.2 del framework, pubblicata l'11 n
 
 ### 6.3 I profili che Telemedic usa
 
-#### MHD — accesso mobile ai documenti sanitari
+#### MHD - accesso mobile ai documenti sanitari
 
 Risolve il problema: «come pubblico un documento clinico, e come lo ritrova chi lo cerca?».
 È la versione basata su FHIR REST della condivisione documentale, pensata per ambienti a
@@ -795,13 +795,13 @@ Transazioni **[V]**:
 
 Le risorse FHIR coinvolte sono `DocumentReference`, `List`, `Binary` e `Bundle` **[V]**.
 
-**Come Telemedic lo usa:** al termine della sessione, il referto — serializzato come
-`Bundle` di tipo documento e indicizzato da un `DocumentReference` — viene pubblicato con
+**Come Telemedic lo usa:** al termine della sessione, il referto - serializzato come
+`Bundle` di tipo documento e indicizzato da un `DocumentReference` - viene pubblicato con
 **ITI-65** verso il *Document Recipient* del sistema di origine. È la risposta al requisito
 che il contenuto clinico confluisca nella cartella del sistema chiamante invece di restare
 confinato in Telemedic.
 
-#### PIXm — correlazione fra identificativi del paziente
+#### PIXm - correlazione fra identificativi del paziente
 
 Risolve il problema descritto al §1.1: la stessa persona ha identificativi diversi in
 domini diversi. Versione: **3.1.0, Trial Implementation (2025-11-04)**, FHIR R4 **[V]**.
@@ -818,7 +818,7 @@ nel dominio dell'integratore e, quando serve, chiede al sistema autoritativo la
 corrispondenza con l'identificativo nazionale. Non diventa mai il registro di riferimento
 delle identità.
 
-#### PDQm — interrogazione demografica
+#### PDQm - interrogazione demografica
 
 Risolve: «ho alcuni dati anagrafici, chi è il paziente?». Versione: **3.2.0, Trial
 Implementation (2025-11-04)**, FHIR R4 **[V]**.
@@ -835,7 +835,7 @@ processare tutti, e deve supportare almeno le combinazioni `family` + `gender` e
 `birthdate` + `family` **[V]**. Nota tipografica da copiare esattamente:
 `mothersMaidenName` è l'unico parametro scritto in *camelCase*.
 
-#### ATNA — tracciamento e autenticazione di nodo
+#### ATNA - tracciamento e autenticazione di nodo
 
 Risolve: «come dimostro, a posteriori e in modo non contestabile, chi ha fatto cosa?».
 È il profilo che soddisfa il vincolo di auditabilità immutabile del progetto.
@@ -850,7 +850,7 @@ Transazioni **[V]**: *Record Audit Event* (**ITI-20**), *Authenticate Node* (**I
 obbligatorio).
 
 Il formato del messaggio di tracciamento è quello definito dall'allegato A.5 della parte 15
-dello standard DICOM **[V]** — ed è lo stesso modello informativo su cui è costruita la
+dello standard DICOM **[V]** - ed è lo stesso modello informativo su cui è costruita la
 risorsa FHIR `AuditEvent`, gestita congiuntamente da HL7, DICOM e IHE **[V]**. Questo
 significa che Telemedic può mantenere **un unico modello di tracciamento interno**,
 serializzabile sia come risorsa FHIR (per l'API) sia nel formato XML previsto da ITI-20
@@ -866,7 +866,7 @@ Per l'autenticazione di nodo si applica il vincolo di usare TLS versione 1.2 o s
 con certificati X.509 e, quando il client autentica il server, la verifica del nome del
 server secondo le regole dedicate **[V]**.
 
-#### CT — tempo coerente
+#### CT - tempo coerente
 
 È il prerequisito di ATNA e sembra banale finché non lo si dimentica. Attori: *Time
 Server* e *Time Client*; transazione *Maintain Time* (**ITI-1**); protocollo NTP;
@@ -879,7 +879,7 @@ un contenzioso. In un'installazione basata su container, la sincronizzazione ora
 responsabilità dell'host: va documentata come requisito di installazione e verificata
 all'avvio, non data per scontata.
 
-#### IUA — autorizzazione
+#### IUA - autorizzazione
 
 Risolve: «come autorizzo una chiamata fra sistemi in un contesto sanitario?». Revisione
 **2.5, Trial Implementation, 18 giugno 2026** **[V]**.
@@ -893,7 +893,7 @@ Il framework è OAuth 2.1, con due tipi di concessione profilati: *authorization
 `exp`, `scope`, `jti`; le estensioni facoltative raccolgono organizzazione, ruoli e finalità
 d'uso in un oggetto dedicato **[V]**.
 
-Un chiarimento che evita un errore di progettazione ricorrente — la specifica lo dichiara
+Un chiarimento che evita un errore di progettazione ricorrente - la specifica lo dichiara
 verbatim **[V]**:
 
 > *"IUA is not based on SMART-on-FHIR, but does strive to not conflict with that standard."*
@@ -901,16 +901,16 @@ verbatim **[V]**:
 **IUA e SMART on FHIR non sono alternative equivalenti.** SMART è la scelta per il lancio
 di un'applicazione clinica dentro una cartella clinica elettronica; IUA è la scelta per
 l'autorizzazione fra sistemi in un contesto IHE. Il progetto deve supportare entrambi, con
-due profilazioni di token distinte sullo stesso servizio di identità.
+due profilazioni di token distinte sullo stesso prodotto di federazione.
 
-#### BALP — schemi di base per i registri di tracciamento
+#### BALP - schemi di base per i registri di tracciamento
 
 È un *content profile*: non definisce attori e transazioni nuovi, definisce **come deve
 essere fatta** una risorsa `AuditEvent` in casi ricorrenti. Versione **1.1.4, Trial
 Implementation, 31 ottobre 2025**, su FHIR R4 **[V]**.
 
-Definisce dieci schemi per le operazioni REST — creazione, lettura, aggiornamento,
-cancellazione, ricerca, ciascuna in due varianti, con e senza paziente identificato — più
+Definisce dieci schemi per le operazioni REST - creazione, lettura, aggiornamento,
+cancellazione, ricerca, ciascuna in due varianti, con e senza paziente identificato - più
 due schemi per la **comunicazione di dati a terzi** (uno dal lato di chi comunica, uno dal
 lato di chi riceve) e sei schemi per l'autorizzazione **[V]**.
 
@@ -975,7 +975,7 @@ la reimplementazione.
 
 **DICOM** (*Digital Imaging and Communications in Medicine*) è lo standard delle immagini
 biomediche. Copre due cose insieme: il **formato** del file (che contiene i pixel e, nella
-stessa struttura, i metadati clinici e tecnici — paziente, studio, serie, apparecchiatura,
+stessa struttura, i metadati clinici e tecnici - paziente, studio, serie, apparecchiatura,
 parametri di acquisizione) e i **servizi di rete** per scambiarle.
 
 Un'immagine DICOM non è un file grafico con dei metadati appiccicati: è un oggetto clinico
@@ -1033,8 +1033,8 @@ Le regole che il progetto si dà, e la ragione di ciascuna:
 4. **TLS con autenticazione reciproca** verso l'archivio, coerentemente con il profilo di
    autenticazione di nodo.
 
-**[NV]** Le regole di autorizzazione specifiche per DICOMweb — in particolare l'uso di
-token OAuth sui servizi di recupero — non sono state verificate nella fase di ricerca del
+**[NV]** Le regole di autorizzazione specifiche per DICOMweb - in particolare l'uso di
+token OAuth sui servizi di recupero - non sono state verificate nella fase di ricerca del
 progetto.
 
 ---
@@ -1042,7 +1042,7 @@ progetto.
 ## 8. Le terminologie cliniche
 
 Questa sezione contiene le **regole più vincolanti dell'intero modulo**. Le prime due
-sottosezioni spiegano i concetti; dalla §8.4 in poi sono obblighi operativi.
+sottosezioni spiegano i concetti; dalla §8.3 in poi sono obblighi operativi.
 
 ### 8.1 Code system, value set, binding
 
@@ -1087,13 +1087,13 @@ profilo può irrigidire un binding, ma **non può rilassare un binding già `req
 ### 8.2 Le terminologie che contano per il progetto
 
 **LOINC** (*Logical Observation Identifiers Names and Codes*). Identifica osservazioni,
-misure e — cosa determinante per Telemedic — **tipi di documento e sezioni di documento**.
+misure e - cosa determinante per Telemedic - **tipi di documento e sezioni di documento**.
 URI canonico: `http://loinc.org` **[V]**. È la terminologia su cui si regge la struttura
 del referto di televisita. I codici verificati e direttamente utilizzabili **[V]**:
 
 | Codice | Uso |
 |---|---|
-| **75496-0** | *Telehealth Note* — il tipo del documento di referto di televisita |
+| **75496-0** | *Telehealth Note* - il tipo del documento di referto di televisita |
 | 29299-5 | Sezione «quesito diagnostico» |
 | 11329-0 | Sezione «inquadramento clinico iniziale» / «anamnesi» |
 | 48765-2 | Sezione «allergie» |
@@ -1101,9 +1101,9 @@ del referto di televisita. I codici verificati e direttamente utilizzabili **[V]
 | 29545-1 | Sezione «esame obiettivo» |
 | 30954-2 | Sezione «precedenti esami eseguiti» |
 | 93126-1 | Sezione «confronto con precedenti esami» |
-| **47045-0** | Sezione «referto» — **obbligatoria** nel profilo italiano |
+| **47045-0** | Sezione «referto» - **obbligatoria** nel profilo italiano |
 
-**SNOMED CT** (*Systematized Nomenclature of Medicine — Clinical Terms*). È la terminologia
+**SNOMED CT** (*Systematized Nomenclature of Medicine - Clinical Terms*). È la terminologia
 clinica più estesa e più espressiva esistente: descrive condizioni, procedure, reperti,
 sostanze, strutture anatomiche, in una rete di concetti collegati da relazioni formali. URI
 canonico: `http://snomed.info/sct` **[V]**. Ammette come codici gli identificativi di
@@ -1122,13 +1122,13 @@ un'operazione di conformità da documentare.
 **AIC** (Autorizzazione all'Immissione in Commercio). È il codice con cui in Italia si
 identifica operativamente un medicinale nel contesto della prescrizione dematerializzata e
 dei flussi nazionali. È la codifica primaria del farmaco per il progetto, e la scelta ha
-una motivazione che non è solo di aderenza al mercato: come si vedrà alla §8.4, evita un
-problema di licenza.
+una motivazione che non è solo di aderenza al mercato: come si vedrà alla §8.3 e alla §8.6,
+evita un problema di licenza.
 
 **Catalogo nazionale delle prestazioni.** Contiene i codici delle prestazioni erogabili.
 Regola di modellazione che ne discende **[V-sec]**: le prestazioni erogabili a distanza già
 presenti nel catalogo **mantengono la stessa codifica e la stessa tariffa** della
-corrispondente prestazione in presenza. Non esiste — e non deve esistere — un codice di
+corrispondente prestazione in presenza. Non esiste - e non deve esistere - un codice di
 prestazione «televisita». La televisita è un **modo di erogazione**, non una prestazione:
 
 - **cosa** viene erogato → il codice della prestazione;
@@ -1148,7 +1148,7 @@ decisione D31 e dall'analisi condotta sui testi di licenza.
 
 Il principio da cui tutto discende è questo. Il progetto è rilasciato sotto licenza
 Apache-2.0, che concede a chi riceve il codice cinque diritti: uso, modifica, opere
-derivate, sublicenza, ridistribuzione — perpetui e **irrevocabili** **[V]**. Il progetto può
+derivate, sublicenza, ridistribuzione - perpetui e **irrevocabili** **[V]**. Il progetto può
 concedere questi diritti **soltanto su ciò di cui detiene il titolo**. Su contenuto
 terminologico di terzi non può, per la ragione più semplice che esista: non lo possiede.
 
@@ -1165,10 +1165,10 @@ in fase di revisione del codice.
 
 | Regime | Significato | Dove va il contenuto |
 |---|---|---|
-| **A — coesistenza piena** | Il contenuto può stare fra i sorgenti, coperto dalla licenza del progetto | `src/main/resources/fhir/**` |
-| **B — directory separata** | Il contenuto è ridistribuibile ma a condizioni diverse: sta in una directory dedicata, con licenza e attribuzione proprie | `third-party/<terminologia>/` |
-| **C — acquisizione a runtime** | Il contenuto non è ridistribuibile dal progetto: il software è progettato per acquisirlo o interrogarlo al deployment | nessuna: configurazione dell'installazione |
-| **D — esclusione totale** | Nessun contenuto, in nessuna forma; solo riferimento per URI e codice | nessuna |
+| **A - coesistenza piena** | Il contenuto può stare fra i sorgenti, coperto dalla licenza del progetto | `src/main/resources/fhir/**` |
+| **B - directory separata** | Il contenuto è ridistribuibile ma a condizioni diverse: sta in una directory dedicata, con licenza e attribuzione proprie | `third-party/<terminologia>/` |
+| **C - acquisizione a runtime** | Il contenuto non è ridistribuibile dal progetto: il software è progettato per acquisirlo o interrogarlo al deployment | nessuna: configurazione dell'installazione |
+| **D - esclusione totale** | Nessun contenuto, in nessuna forma; solo riferimento per URI e codice | nessuna |
 
 La collocazione di ciascuna terminologia **[V]**:
 
@@ -1184,8 +1184,8 @@ La collocazione di ciascuna terminologia **[V]**:
 | ICD-10 / ICD-11 | **D** | La licenza vieta le opere derivate e impone obblighi incompatibili |
 | Classificazione ATC dei farmaci | **D** | *"Copying and distribution for commercial purposes is not allowed"* **[V]** |
 | Terminologia controllata DICOM | **D** per il contenuto; codici per riferimento | Ridistribuzione non verificata |
-| Pacchetti delle guide italiane | **C** — dipendenza risolta in fase di build | Licenza non pienamente attribuibile, contenuti di terzi ricompresi |
-| Documenti IHE e documenti dello standard HL7 v2 | **D** — citazione per URL | Licenze non sublicenziabili o senza diritto di ridistribuzione |
+| Pacchetti delle guide italiane | **C** | Licenza non pienamente attribuibile, contenuti di terzi ricompresi: il contenuto **non entra nel repository** e resta una dipendenza esterna a versione fissata. È la variante di regime C in cui l'acquisizione avviene **in fase di build** invece che al deployment |
+| Documenti IHE e documenti dello standard HL7 v2 | **D** - citazione per URL | Licenze non sublicenziabili o senza diritto di ridistribuzione |
 
 ### 8.4 SNOMED CT: le regole che un contributore deve rispettare
 
@@ -1228,16 +1228,16 @@ di irrilevanza.
 *Vietato nel repository, in qualunque forma:*
 
 - file di rilascio di SNOMED CT (qualunque formato, qualunque sottoinsieme);
-- `ValueSet` con espansione popolata di codici SNOMED — un value set espanso è per
+- `ValueSet` con espansione popolata di codici SNOMED - un value set espanso è per
   definizione un sottoinsieme, e un sottoinsieme è un derivato ai sensi dell'accordo **[V]**;
 - tabelle, file CSV o JSON, seed di database, migrazioni con codici e descrizioni SNOMED;
-- mappature precalcolate fra SNOMED e altre classificazioni — sono *cross-map*, quindi
+- mappature precalcolate fra SNOMED e altre classificazioni - sono *cross-map*, quindi
   derivati **[V]**;
 - gerarchie, alberi, indici di ricerca precalcolati;
-- descrizioni SNOMED tradotte in italiano — la traduzione richiede **consenso scritto
+- descrizioni SNOMED tradotte in italiano - la traduzione richiede **consenso scritto
   preventivo** del titolare **[V]**;
 - fixture di test contenenti risposte reali di un servizio terminologico con codici e
-  descrizioni SNOMED — è il canale attraverso cui il contenuto rientra dalla porta di
+  descrizioni SNOMED - è il canale attraverso cui il contenuto rientra dalla porta di
   servizio;
 - l'avviso di licenza SNOMED nel file `NOTICE` del progetto: sarebbe una **dichiarazione
   non veritiera**, perché il progetto non è licenziatario.
@@ -1271,7 +1271,7 @@ l'uso di SNOMED, usare un segnaposto tipografico:
 
 > **Nessuno scarica i file di rilascio di SNOMED CT, di ICD-11 o della classificazione ATC
 > per finalità di sviluppo del progetto.** Il test dell'integrazione terminologica si esegue
-> con doppi di test — sistemi di codifica fittizi di progetto — oppure su un'istanza fornita
+> con doppi di test - sistemi di codifica fittizi di progetto - oppure su un'istanza fornita
 > da chi detiene già la licenza.
 
 **Il *terminology guard* in integrazione continua.** La disciplina non può reggersi sulla
@@ -1297,7 +1297,7 @@ della configurazione e va documentato come tale **[V]**.
    Nel momento in cui l'installazione **scrive** un codice SNOMED in una risorsa clinica,
    quell'installazione è un *sistema di elaborazione dati* ai sensi dell'accordo, e la
    tariffa è legata precisamente a questo **[V]**. Il servizio esterno risolve il problema
-   *della distribuzione del contenuto* — che è il problema del progetto — non il problema
+   *della distribuzione del contenuto* - che è il problema del progetto - non il problema
    *della licenza d'uso*, che è il problema di chi installa.
 2. **Chi distribuisce Telemedic distribuisce un prodotto soggetto alla licenza**, anche se
    il codice non contiene un solo concetto SNOMED: la definizione include i prodotti che
@@ -1341,18 +1341,18 @@ LOINC pubblicata dal titolare. Se esiste, è la soluzione preferibile: si usa qu
 Vale la pena enunciarlo come regola, perché è l'errore più costoso in questa materia:
 
 > **Una dichiarazione di licenza apposta da un ente sul proprio Implementation Guide vincola
-> i diritti *di quell'ente sul proprio contributo editoriale*. Non dispone — perché non può
-> — dei diritti di terzi sul contenuto terminologico ricompreso.**
+> i diritti *di quell'ente sul proprio contributo editoriale*. Non dispone - perché non può
+> - dei diritti di terzi sul contenuto terminologico ricompreso.**
 
 Casi reali e verificati **[V]**: un pacchetto terminologico italiano dichiara la propria
 dedicazione al pubblico dominio e contiene un sistema di codifica della classificazione ATC
-dei farmaci — la dedicazione **non** rende ridistribuibile quel contenuto, i cui diritti
+dei farmaci - la dedicazione **non** rende ridistribuibile quel contenuto, i cui diritti
 sono di un terzo che ne vieta la distribuzione commerciale. Simmetricamente, il vocabolario
 di HL7 è nel pubblico dominio **come contenitore**, e HL7 stesso avverte esplicitamente che
 i concetti SNOMED, DICOM e altri che vi transitano non lo sono.
 
 **Regola per il progetto:** prima di incorporare qualunque artefatto terminologico di terzi
-— anche se dichiarato nel pubblico dominio, anche se proveniente da un ente pubblico — si
+- anche se dichiarato nel pubblico dominio, anche se proveniente da un ente pubblico - si
 ispeziona **artefatto per artefatto** da quale sistema di codifica provengono i concetti
 enumerati. La licenza del contenitore non è la risposta. La risposta è la titolarità del
 contenuto.
@@ -1382,7 +1382,7 @@ verifica in trenta secondi.
 Questa sezione è una procedura, non una riflessione. Serve quando ti trovi davanti a un
 documento che non conosci e devi decidere se e come usarlo.
 
-### 9.1 Passo 1 — Trovare la versione vigente
+### 9.1 Passo 1 - Trovare la versione vigente
 
 Ogni artefatto pubblicato di uno standard moderno ha tre coordinate. Cercale nell'ordine.
 
@@ -1404,7 +1404,7 @@ Quasi tutte le guide hanno una **pagina di storia** che elenca le versioni pubbl
 le rispettive date. È il posto in cui verificare che la versione che stai usando sia
 effettivamente l'ultima, o capire quanto sei indietro.
 
-### 9.2 Passo 2 — Leggere una tabella di conformità
+### 9.2 Passo 2 - Leggere una tabella di conformità
 
 La pagina di un profilo presenta una tabella con una riga per elemento. Le colonne che
 contano sono queste.
@@ -1417,11 +1417,11 @@ contano sono queste.
 almeno un'occorrenza. **Leggila sempre prima di tutto il resto**: metà delle validazioni
 fallite dipendono da un elemento obbligatorio non valorizzato.
 
-**Tipo.** Il tipo di dato, oppure — per i riferimenti — l'elenco dei tipi di risorsa che
+**Tipo.** Il tipo di dato, oppure - per i riferimenti - l'elenco dei tipi di risorsa che
 possono essere puntati. Quest'ultima informazione è vincolante: se un elemento ammette
 riferimenti a tre tipi di risorsa, il quarto non è ammesso, e un validatore lo segnala.
 Esempio verificato: in FHIR R4 l'elemento che elenca i partecipanti a un contatto
-assistenziale **non può riferirsi a un paziente** **[V]** — il paziente si esprime con
+assistenziale **non può riferirsi a un paziente** **[V]** - il paziente si esprime con
 l'elemento dedicato al soggetto. Modellarlo come partecipante è un errore di conformità.
 
 **Flag.** Simboli compatti che segnalano proprietà particolari. I tre che contano:
@@ -1438,7 +1438,7 @@ present if verificationStatus is not entered-in-error and category is problem-li
 Un vincolo di questo tipo va codificato come regola di dominio nel backend, non lasciato al
 validatore a runtime.
 
-### 9.3 Passo 3 — Capire i livelli di obbligatorietà
+### 9.3 Passo 3 - Capire i livelli di obbligatorietà
 
 Gli standard usano un vocabolario preciso per esprimere l'obbligatorietà, mutuato dalla
 prassi delle specifiche della rete. I termini chiave, in maiuscolo nel testo originale:
@@ -1461,7 +1461,7 @@ server **dovrebbero** ignorare i parametri di ricerca che non riconoscono **[V]*
 raccomandazione ragionevole per l'evoluzione dello standard, ed è **un rischio di sicurezza
 in un sistema multi-tenant**: un client che invia un filtro di autorizzazione scritto male
 riceve silenziosamente più dati del previsto. Il progetto sceglie deliberatamente il
-comportamento opposto — errore sui parametri non riconosciuti — e **lo documenta come
+comportamento opposto - errore sui parametri non riconosciuti - e **lo documenta come
 deviazione consapevole**. È così che si tratta un `SHOULD` da cui ci si discosta: non
 ignorandolo, ma motivando.
 
@@ -1476,31 +1476,31 @@ nessuno può verificare la conformità. Quando incontri un elemento marcato cos�
 guida la definizione; se non c'è, è una lacuna da segnalare, e il progetto deve dichiarare
 la propria interpretazione.
 
-### 9.4 Passo 4 — Verificare che una guida non sia scaduta o difettosa
+### 9.4 Passo 4 - Verificare che una guida non sia scaduta o difettosa
 
 Una guida può essere formalmente pubblicata e sostanzialmente inutilizzabile. Ecco i
 segnali da cercare, tutti verificabili in pochi minuti, con esempi reali riscontrati sulle
 guide che il progetto usa.
 
-**Segnale 1 — Lo stato dichiarato.** *Draft*, *trial use*, *comment* significano che il
+**Segnale 1 - Lo stato dichiarato.** *Draft*, *trial use*, *comment* significano che il
 contenuto cambierà. Non impedisce l'uso, impone il *pinning* e un processo di ricontrollo.
 Le guide italiane di telemedicina sono in stato draft/trial-use alla versione 0.2.0
 **[V]**; il profilo IHE per l'accesso mobile ai documenti è in una versione *comment*
 **[V]**.
 
-**Segnale 2 — La data di generazione.** Se la guida è stata generata anni fa e lo standard
+**Segnale 2 - La data di generazione.** Se la guida è stata generata anni fa e lo standard
 di base ha avuto nel frattempo correzioni tecniche, i due potrebbero non essere più
 allineati.
 
-**Segnale 3 — Le dipendenze flottanti.** Una guida dichiara le guide da cui dipende. Se una
-dipendenza è dichiarata con una versione **non fissata** — la parola `current` al posto di
-un numero — la build **non è riproducibile**: compilando lo stesso codice a due mesi di
+**Segnale 3 - Le dipendenze flottanti.** Una guida dichiara le guide da cui dipende. Se una
+dipendenza è dichiarata con una versione **non fissata** - la parola `current` al posto di
+un numero - la build **non è riproducibile**: compilando lo stesso codice a due mesi di
 distanza puoi ottenere risultati diversi. È un caso reale: il pacchetto `Televisita`
 dichiara una dipendenza flottante verso il pacchetto terminologico italiano **[V]**. Per un
 progetto soggetto a obblighi di gestione della configurazione, non è un fastidio: è un
 difetto. Il progetto deve fissare la versione esatta e documentarlo.
 
-**Segnale 4 — I campi segnaposto.** Gli strumenti di pubblicazione delle guide FHIR
+**Segnale 4 - I campi segnaposto.** Gli strumenti di pubblicazione delle guide FHIR
 generano dei modelli con valori di esempio, che l'autore deve sostituire. Se non lo fa, la
 guida esce con quei valori. Caso reale verificato: la guida `Televisita` 0.2.0 dichiara come
 editore `Example Publisher` e come contatto un dominio di esempio, **valori del modello mai
@@ -1508,13 +1508,13 @@ sostituiti** **[V]**. La conseguenza non è estetica: la stessa guida dichiara a
 licenza, e una dichiarazione di licenza che convive con un editore inesistente **non è
 attribuibile a un soggetto identificato**. Non si sa chi l'abbia dichiarata.
 
-**Segnale 5 — Le incoerenze fra nome e contenuto.** Caso reale verificato **[V]**: nella
+**Segnale 5 - Le incoerenze fra nome e contenuto.** Caso reale verificato **[V]**: nella
 guida `Televisita` esiste un insieme di valori il cui identificativo suggerisce le tipologie
 di prescrizione, mentre il titolo e il contenuto effettivo riguardano i codici di assistenza
 per cittadini stranieri, con sette voci che nulla hanno a che vedere con le ricette. Chi
 implementa fidandosi del nome trova tutt'altro.
 
-**Segnale 6 — Le informazioni mancanti che dovrebbero esserci.** Caso reale verificato
+**Segnale 6 - Le informazioni mancanti che dovrebbero esserci.** Caso reale verificato
 **[V]**: il sistema di codifica delle diagnosi definito nella guida `Televisita` enumera
 oltre mille codici della classificazione italiana delle malattie **senza dichiarare a quale
 edizione della classificazione corrispondano**, e senza dichiarazione di copyright.
@@ -1522,18 +1522,18 @@ L'assenza è accertata, non presunta. Il risultato è che il sistema di codifica
 tracciabile a un'edizione**: due implementazioni che lo usano non hanno modo di sapere se
 stanno codificando con la stessa versione.
 
-**Segnale 7 — Le dipendenze terminologiche onerose.** Una guida può dipendere da
+**Segnale 7 - Le dipendenze terminologiche onerose.** Una guida può dipendere da
 terminologie soggette a licenza. Le guide italiane di telemedicina dichiarano SNOMED CT fra
 le dipendenze, e la guida `IT-Core` riporta in piè di pagina l'avviso che gli utenti devono
 procurarsi la licenza appropriata **[V]**. È corretto che lo dicano; è altrettanto corretto
 che chi implementa lo sappia prima di iniziare, non dopo.
 
-**Segnale 8 — Le divergenze fra guide della stessa famiglia.** Il caso più insidioso, ed è
+**Segnale 8 - Le divergenze fra guide della stessa famiglia.** Il caso più insidioso, ed è
 il tema della sezione dedicata nel modulo successivo: due guide dello stesso ente possono
 usare URI diversi per la stessa cosa. È accertato che la guida `Televisita` e la guida
 `IT-Core` usano **URI diversi per il sistema di codifica del codice fiscale** **[V]**.
 
-### 9.5 Passo 5 — Decidere cosa fare
+### 9.5 Passo 5 - Decidere cosa fare
 
 La procedura si chiude con una decisione, che va scritta, non lasciata implicita:
 
@@ -1551,10 +1551,11 @@ La procedura si chiude con una decisione, che va scritta, non lasciata implicita
 
 ## Cosa devi ricordare
 
-1. **Gli standard risolvono tre problemi distinti**: identità, struttura, significato. Un
-   formato che risolve solo la struttura non è uno standard di interoperabilità.
-2. **L'interoperabilità ha quattro livelli** — tecnica, sintattica, semantica,
-   organizzativa — e la maggior parte dei fallimenti che sembrano tecnici sono in realtà
+1. **Gli standard risolvono quattro problemi distinti**: identità, struttura, significato, e
+   chi può fare cosa, quando, con la prova a posteriori (§1.4). Un formato che risolve solo
+   la struttura non è uno standard di interoperabilità.
+2. **L'interoperabilità ha quattro livelli** - tecnica, sintattica, semantica,
+   organizzativa - e la maggior parte dei fallimenti che sembrano tecnici sono in realtà
    semantici o organizzativi.
 3. **Profilare significa restringere, mai allargare.** Ogni istanza conforme a un profilo è
    per costruzione conforme anche allo standard di base. È ciò che rende possibile la catena
@@ -1562,7 +1563,7 @@ La procedura si chiude con una decisione, che va scritta, non lasciata implicita
 4. **Non esiste «lo standard»: esiste una versione precisa, a una data precisa, in uno
    stato di maturità preciso.** Scrivere «FHIR R4» senza `4.0.1` è già un'imprecisione.
 5. **HL7 versione 2 è ancora la spina dorsale operativa.** Per gli appuntamenti conta
-   `SIU^S12`; per la registrazione ambulatoriale conta `ADT^A04` — **non** `A01`; per la
+   `SIU^S12`; per la registrazione ambulatoriale conta `ADT^A04` - **non** `A01`; per la
    restituzione di un documento conta `MDM^T02` con lo stato «legalmente autenticato».
 6. **MLLP nudo è testo in chiaro senza autenticazione.** Ogni listener va incapsulato in
    TLS con autenticazione reciproca. Non esiste un «solo per il collaudo».
@@ -1586,7 +1587,7 @@ La procedura si chiude con una decisione, che va scritta, non lasciata implicita
     rilascio di SNOMED CT, ICD-11 o ATC per lavorare al progetto; (c) il controllo automatico
     in integrazione continua fa fallire la build se il contenuto rientra; (d) le traduzioni
     italiane dei display LOINC sono opere derivate del titolare e non possono stare nel
-    repository — l'etichetta italiana è una stringa di interfaccia, separata dal display del
+    repository - l'etichetta italiana è una stringa di interfaccia, separata dal display del
     codice.
 14. **Una dichiarazione di licenza sul contenitore non dispone dei diritti di terzi sul
     contenuto.** Si verifica artefatto per artefatto la titolarità del contenuto, non la

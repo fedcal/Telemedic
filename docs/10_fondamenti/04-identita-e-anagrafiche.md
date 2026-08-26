@@ -1,14 +1,14 @@
 ---
 title: Identità e anagrafiche
 sidebar_position: 5
-description: Come si identifica una persona in sanità e perché è difficile — identificatori dell'assistito (codice fiscale, omocodia, STP, ENI, tessera sanitaria, codici regionali e aziendali), dominio di attribuzione e divergenza degli URI di sistema, anagrafi nazionali e riconciliazione, identità del professionista fra persona e veste, SPID CIE e TS-CNS, livelli di garanzia, SAML2 OIDC e mutua autenticazione TLS, identificazione a distanza, delega e rappresentanza, costi e rischi per chi installa.
+description: Come si identifica una persona in sanità e perché è difficile - identificatori dell'assistito (codice fiscale, omocodia, STP, ENI, tessera sanitaria, codici regionali e aziendali), dominio di attribuzione e divergenza degli URI di sistema, anagrafi nazionali e riconciliazione, identità del professionista fra persona e veste, SPID CIE e TS-CNS, livelli di garanzia, SAML2 OIDC e mutua autenticazione TLS, identificazione a distanza, delega e rappresentanza, costi e rischi per chi installa.
 ---
 
 # Identità e anagrafiche
 
 Un sistema informativo sanitario fa una cosa sola, prima di ogni altra: **attribuisce
-un'informazione clinica a una persona**. Tutto il resto — la videochiamata, il referto, la
-soglia di allarme, il fascicolo — poggia su quell'attribuzione. Se l'attribuzione è
+un'informazione clinica a una persona**. Tutto il resto - la videochiamata, il referto, la
+soglia di allarme, il fascicolo - poggia su quell'attribuzione. Se l'attribuzione è
 sbagliata, il resto non è degradato: è pericoloso.
 
 Questo modulo tratta il problema più sottovalutato del dominio. È sottovalutato perché
@@ -95,17 +95,17 @@ verifica e la collega.
 Quando due rappresentazioni della stessa persona incontrano un sistema che deve decidere se
 sono la stessa persona, gli errori possibili sono esattamente due, e sono simmetrici.
 
-**Errore di tipo duplicato — due record, una persona.** Il sistema non riconosce che i due
+**Errore di tipo duplicato - due record, una persona.** Il sistema non riconosce che i due
 record si riferiscono allo stesso individuo. È l'errore statisticamente più frequente:
 nasce da un errore di trascrizione, da un cambio di cognome, da un codice fiscale digitato
 al posto di un altro, da un accesso in urgenza in cui l'identità non era disponibile.
 
 Le conseguenze cliniche sono **di omissione**: il medico non vede la terapia in corso, non
 vede l'allergia documentata, non vede l'esame fatto la settimana prima e lo ripete. La
-frammentazione della storia clinica è il danno, ed è un danno silenzioso — nessuno segnala
+frammentazione della storia clinica è il danno, ed è un danno silenzioso - nessuno segnala
 un incidente perché «mancava un'informazione che non sapevo esistesse».
 
-**Errore di tipo sovrapposizione — un record, due persone.** Il sistema attribuisce a un
+**Errore di tipo sovrapposizione - un record, due persone.** Il sistema attribuisce a un
 unico record dati clinici che appartengono a due individui distinti. Nasce dall'omocodia
 (§ 2.2), da un codice fiscale calcolato male e coincidente con quello di un'altra persona,
 da una fusione manuale eseguita in fretta, da un identificatore riusato dopo la cessazione
@@ -181,7 +181,7 @@ funzioni di ricerca, collegamento e fusione dell'anagrafica sono **funzioni lega
 sicurezza** ai sensi della **IEC 62366-1** (ingegneria dell'usabilità). Vanno progettate per
 prevenire l'errore d'uso, non solo per essere efficienti. Un'interfaccia che consenta di
 fondere due pazienti con un doppio clic senza conferma differenziata, senza mostrare i dati
-divergenti e senza registrare l'identità di chi decide, è **non conforme** — non «migliorabile».
+divergenti e senza registrare l'identità di chi decide, è **non conforme** - non «migliorabile».
 
 Riassunto in una frase da ricordare: **l'anagrafica non è un modulo di supporto, è un
 componente critico per la sicurezza.** Nel piano di gestione del rischio del progetto la
@@ -197,11 +197,11 @@ significano cose diverse. Fissiamole, perché tutto il modulo le usa in senso st
 |---|---|---|
 | **Entità** | La persona reale. Non sta dentro il sistema. | La signora di § 1.1 |
 | **Identità** | L'insieme delle informazioni con cui un dominio rappresenta l'entità. Un'entità ha tante identità quanti sono i domini. | «L'assistita n. 4417 della ASL X» |
-| **Identificatore** | Un valore che, **dentro un dominio dichiarato**, individua un'identità. | `RSSMRA80A01H501U` |
+| **Identificatore** | Un valore che, **dentro un dominio dichiarato**, individua un'identità. | `RSSMRA80A01H501Z` |
 | **Dominio di attribuzione** | Il soggetto che assegna gli identificatori e garantisce l'unicità dentro il proprio spazio dei nomi. Senza di esso l'identificatore è una stringa. | L'Agenzia delle entrate, per il codice fiscale |
 | **Attributo** | Un'informazione sull'identità che non serve a individuarla ma a descriverla. | Data di nascita, domicilio, recapito |
 | **Autenticazione** | La prova che chi si presenta controlla la credenziale associata a un'identità. | L'accesso con identità digitale |
-| **Identificazione** *(in senso clinico)* | L'accertamento che la persona fisicamente presente — o presente all'altro capo del video — è la persona attesa. | Il medico che guarda il documento in videochiamata (§ 9) |
+| **Identificazione** *(in senso clinico)* | L'accertamento che la persona fisicamente presente - o presente all'altro capo del video - è la persona attesa. | Il medico che guarda il documento in videochiamata (§ 9) |
 
 Le ultime due sono le più confuse, e la confusione ha conseguenze operative gravi: il § 9 le
 tratta per esteso.
@@ -220,8 +220,8 @@ identificatore può avere, o non avere, cinque proprietà indipendenti.
 | **Riservatezza** | Il valore è segreto, cioè può servire da prova di identità? | Uso improprio come fattore di autenticazione |
 
 Anticipiamo il risultato del § 2, perché è la tesi centrale: **nessuno degli identificatori
-usati in sanità in Italia possiede tutte e cinque le proprietà, e il codice fiscale — quello
-su cui tutti si appoggiano — ne manca almeno tre.**
+usati in sanità in Italia possiede tutte e cinque le proprietà, e il codice fiscale - quello
+su cui tutti si appoggiano - ne manca almeno tre.**
 
 ---
 
@@ -240,8 +240,8 @@ Il punto che sorprende chi lavora in sanità è il primo: **il codice fiscale no
 identificatore sanitario.** È un identificatore **fiscale**, nato per l'anagrafe tributaria,
 che la sanità italiana ha adottato per convenienza e che oggi è di fatto la chiave di
 correlazione fra tutti i sistemi sanitari nazionali. L'adozione è consolidata e in molti casi
-imposta dalla norma di settore — l'Allegato 1 al **DM 19 novembre 2025** lo prevede come
-identificativo dell'assistito nel set informativo del referto di televisita — ma resta
+imposta dalla norma di settore - l'Allegato 1 al **DM 19 novembre 2025** lo prevede come
+identificativo dell'assistito nel set informativo del referto di televisita - ma resta
 un'adozione, non una destinazione d'uso originaria. Le anomalie che vedremo derivano quasi
 tutte da questo disallineamento.
 
@@ -261,7 +261,7 @@ strutturati:
 Tre osservazioni che hanno conseguenze dirette sul codice che scriverai.
 
 **Il codice fiscale è calcolabile.** Chiunque conosca cognome, nome, data e comune di nascita
-e sesso può calcolarlo. Questa è la proprietà che lo rende comodo — e che gli toglie ogni
+e sesso può calcolarlo. Questa è la proprietà che lo rende comodo - e che gli toglie ogni
 valore come segreto (§ 3.4).
 
 **Il codice fiscale codifica dati personali in chiaro.** Contiene la data di nascita, il
@@ -281,7 +281,7 @@ La validazione del checksum è necessaria e insufficiente: è la differenza fra 
 Il codice fiscale è una funzione di cognome, nome, data di nascita, sesso e comune di
 nascita. Nulla impedisce che due persone diverse abbiano gli stessi valori per tutte e
 cinque le variabili: due omonimi nati lo stesso giorno nello stesso comune. È il fenomeno
-dell'**omocodia**, e non è raro quanto sembra — è comune fra persone nate all'estero, dove
+dell'**omocodia**, e non è raro quanto sembra - è comune fra persone nate all'estero, dove
 il codice del luogo di nascita è quello dello **Stato** e non del comune, riducendo
 drasticamente lo spazio dei valori distinti.
 
@@ -323,7 +323,7 @@ ignorata:**
 L'ipotesi implicita «una persona, un codice fiscale, per sempre» è falsa in almeno sei modi.
 
 **Il neonato.** Alla nascita il codice fiscale viene attribuito dall'anagrafe comunale
-contestualmente alla registrazione, ma esiste una finestra — ore o giorni — in cui il neonato
+contestualmente alla registrazione, ma esiste una finestra - ore o giorni - in cui il neonato
 esiste clinicamente e non ha ancora un identificatore nazionale. È esattamente la finestra in
 cui si concentrano gli eventi clinici più critici. In quella finestra il neonato è
 identificato con un **identificativo provvisorio dell'erogatore**, spesso costruito sul
@@ -331,8 +331,8 @@ cognome della madre. Il sistema deve saper reggere un paziente senza codice fisc
 saper **sostituire** l'identificativo provvisorio quando quello definitivo arriva, senza
 perdere i dati clinici prodotti nel frattempo.
 
-**La rettifica.** Un codice fiscale attribuito su dati errati — data di nascita sbagliata,
-cognome trascritto male all'atto di registrazione — viene **rettificato** dall'Agenzia delle
+**La rettifica.** Un codice fiscale attribuito su dati errati - data di nascita sbagliata,
+cognome trascritto male all'atto di registrazione - viene **rettificato** dall'Agenzia delle
 entrate. Il vecchio codice non è annullato dalla realtà: continua a comparire nei documenti
 già prodotti, nelle prescrizioni già emesse, nei referti già archiviati.
 
@@ -364,7 +364,7 @@ al confine (§ 4.5).
 Due codici che esistono proprio perché il codice fiscale non è universale. Sono la prova
 concreta che la proprietà di **universalità** manca.
 
-**STP — Straniero Temporaneamente Presente.** La base normativa dell'assistenza è l'**art. 35
+**STP - Straniero Temporaneamente Presente.** La base normativa dell'assistenza è l'**art. 35
 del d.lgs. 25 luglio 1998, n. 286** (Testo unico delle disposizioni concernenti la disciplina
 dell'immigrazione), che garantisce ai cittadini stranieri non in regola con le norme relative
 all'ingresso e al soggiorno le **cure ambulatoriali e ospedaliere urgenti o comunque
@@ -372,7 +372,7 @@ essenziali, ancorché continuative**, oltre agli interventi di medicina preventi
 STP è lo strumento operativo con cui l'assistenza viene erogata e rendicontata mantenendo la
 persona non segnalabile: **è un codice di assistenza, non un documento di identità**.
 
-**ENI — Europeo Non Iscritto.** Riguarda i cittadini di Stati membri dell'Unione europea
+**ENI - Europeo Non Iscritto.** Riguarda i cittadini di Stati membri dell'Unione europea
 presenti in Italia, privi dei requisiti per l'iscrizione al Servizio sanitario nazionale e
 privi di copertura del proprio Stato. Il codice ENI ha la stessa funzione operativa del
 codice STP per una popolazione diversa.
@@ -405,7 +405,7 @@ identificativo dell'assistito. Non è quindi un caso residuale da gestire «se a
 ### 2.5 La tessera sanitaria e la TEAM
 
 La **tessera sanitaria** è istituita dall'**art. 50 del D.L. 30 settembre 2003, n. 269**,
-convertito con modificazioni dalla **L. 24 novembre 2003, n. 326** — la stessa norma che
+convertito con modificazioni dalla **L. 24 novembre 2003, n. 326** - la stessa norma che
 istituisce l'infrastruttura del Sistema Tessera Sanitaria su cui è realizzata l'INI (modulo
 [07](07-fse-e-infrastrutture-nazionali.md), § 3.1). È emessa dal Ministero dell'economia e
 delle finanze e recapitata all'assistito.
@@ -418,7 +418,7 @@ Cosa contiene, e cosa **non** è:
 - ha una **data di scadenza**, tipicamente legata alla durata dell'assistenza. La scadenza
   della tessera **non** implica la cessazione dell'assistenza né la perdita del codice
   fiscale: è la scadenza del supporto;
-- sul retro riporta la **TEAM — Tessera europea di assicurazione malattia**, disciplinata dai
+- sul retro riporta la **TEAM - Tessera europea di assicurazione malattia**, disciplinata dai
   **Regolamenti (CE) n. 883/2004 e n. 987/2009** sul coordinamento dei sistemi di sicurezza
   sociale. La TEAM ha un **proprio numero identificativo**, distinto dal codice fiscale, ed è
   ciò che consente l'assistenza in un altro Stato membro. Nei profili FHIR italiani è un
@@ -443,8 +443,8 @@ revoca del medico, flussi di rendicontazione.
 A livello nazionale l'**Anagrafe nazionale degli assistiti (ANA)** è prevista dall'**art.
 62-*ter* del Codice dell'amministrazione digitale** (d.lgs. 7 marzo 2005, n. 82) ed è la
 fonte da cui il fascicolo sanitario elettronico rileva i dati identificativi e amministrativi
-dell'assistito. Nei profili FHIR italiani esiste un identificatore dedicato — lo *slice*
-`codiceANA` — con sistema `urn:oid:2.16.840.1.113883.2.9.4.3.15` **[V]**.
+dell'assistito. Nei profili FHIR italiani esiste un identificatore dedicato - lo *slice*
+`codiceANA` - con sistema `urn:oid:2.16.840.1.113883.2.9.4.3.15` **[V]**.
 
 Le proprietà da tenere presenti:
 
@@ -455,8 +455,8 @@ Le proprietà da tenere presenti:
 - **è la chiave con cui i sistemi regionali parlano fra loro**, quindi ignorarlo significa
   perdere la capacità di correlare con l'ambiente in cui l'installazione opera.
 
-La distinzione fra **Regione di assistenza (RdA)** e **Regione di erogazione (RdE)** — trattata
-nel modulo [07](07-fse-e-infrastrutture-nazionali.md), § 3.1 — è la ragione per cui gli
+La distinzione fra **Regione di assistenza (RdA)** e **Regione di erogazione (RdE)** - trattata
+nel modulo [07](07-fse-e-infrastrutture-nazionali.md), § 3.1 - è la ragione per cui gli
 identificatori regionali non si possono ridurre a uno: la persona è assistita in una Regione
 e curata in un'altra, e il documento prodotto deve portare entrambe le informazioni.
 
@@ -465,8 +465,8 @@ e curata in un'altra, e il documento prodotto deve portare entrambe le informazi
 È il numero che il singolo sistema attribuisce al proprio paziente: il numero di cartella,
 il codice paziente del gestionale, la chiave surrogata della base dati.
 
-È l'identificatore con le **migliori proprietà tecniche** — unico dentro il proprio sistema,
-stabile per costruzione, sempre presente — e con la **peggiore proprietà semantica**: non
+È l'identificatore con le **migliori proprietà tecniche** - unico dentro il proprio sistema,
+stabile per costruzione, sempre presente - e con la **peggiore proprietà semantica**: non
 significa nulla fuori dal sistema che lo ha generato. Due sistemi con lo stesso numero
 paziente non stanno parlando della stessa persona.
 
@@ -481,7 +481,7 @@ clinico al sistema di origine senza ambiguità.
 | Identificatore | Chi lo attribuisce | Cosa identifica davvero | Quando cambia | Quando manca | Univoco a livello nazionale? |
 |---|---|---|---|---|---|
 | **Codice fiscale** | Agenzia delle entrate | La posizione della persona nell'anagrafe **tributaria** | Rettifica, cambio di cognome, rettificazione di sesso | Neonato nelle prime ore, straniero non iscritto, persona non identificata in urgenza | **Sì**, salvo omocodia risolta con sostituzione |
-| **Codice omocodico** | Agenzia delle entrate | La stessa posizione, in forma alternativa | Coesiste con il codice base | — | Sì |
+| **Codice omocodico** | Agenzia delle entrate | La stessa posizione, in forma alternativa | Coesiste con il codice base | - | Sì |
 | **Codice STP** | Azienda sanitaria o struttura | Il **diritto all'assistenza urgente o essenziale** di uno straniero non in regola | Alla scadenza (rinnovo), alla regolarizzazione | Se la persona non ne ha ancora richiesto uno | **No**: dominio locale, validità temporale |
 | **Codice ENI** | Azienda sanitaria o struttura | Lo stesso, per cittadini UE non iscritti | Idem | Idem | **No** |
 | **Tessera sanitaria** | MEF | Il supporto fisico che espone il codice fiscale | A ogni riemissione; ha scadenza propria | Tessera scaduta, smarrita, mai ricevuta | Non è un identificatore autonomo |
@@ -511,7 +511,7 @@ coerenti con il vincolo di tenant-awareness dichiarato nel contesto (V4):
    contestato) e **origine** (chi lo ha comunicato e quando).
 3. **L'unicità si vincola sulla coppia sistema + valore, per tenant**, mai sul solo valore.
 4. **La ricerca è per identificatore qualificato**, mai per valore nudo. Cercare
-   `RSSMRA80A01H501U` senza dire in quale spazio dei nomi è una domanda mal posta, e produce
+   `RSSMRA80A01H501Z` senza dire in quale spazio dei nomi è una domanda mal posta, e produce
    risposte mal poste.
 5. **Nessuna correlazione fra tenant**: due tenant che contengono la stessa persona non
    devono poterlo dedurre l'uno dall'altro. È un requisito di isolamento, e discende dal fatto
@@ -526,7 +526,7 @@ coerenti con il vincolo di tenant-awareness dichiarato nel contesto (V4):
 Questa sezione parte da un'affermazione che sembra pedante e che è invece la sorgente di una
 classe intera di difetti di integrazione.
 
-Considera il valore `RSSMRA80A01H501U`. Preso da solo, non è un identificatore: è una
+Considera il valore `RSSMRA80A01H501Z`. Preso da solo, non è un identificatore: è una
 sequenza di sedici caratteri. Diventa un identificatore solo quando è accompagnato
 dall'indicazione **di chi lo ha attribuito e in quale spazio dei nomi è unico**. Lo stesso
 vale, in modo ancora più evidente, per `4417`: dentro l'anagrafe di una certa azienda
@@ -534,14 +534,14 @@ sanitaria individua una persona, fuori non individua nulla.
 
 Gli standard di interoperabilità sanitaria hanno recepito il principio da decenni. Nel
 modello di HL7 versione 2 l'identificatore del paziente nel campo `PID-3` è composto e porta
-con sé l'autorità di assegnazione. In **FHIR** — lo standard su cui poggia il modello dati
-del progetto, trattato nel modulo [06](06-fhir-da-zero.md) — il tipo `Identifier` ha
+con sé l'autorità di assegnazione. In **FHIR** - lo standard su cui poggia il modello dati
+del progetto, trattato nel modulo [06](06-fhir-da-zero.md) - il tipo `Identifier` ha
 esattamente questa struttura:
 
 ```json
 {
   "system": "http://hl7.it/sid/codiceFiscale",
-  "value": "RSSMRA80A01H501U"
+  "value": "RSSMRA80A01H501Z"
 }
 ```
 
@@ -556,7 +556,7 @@ non come indirizzi.
 solo il formato del valore, ma **la stringa esatta che nomina il dominio**. Se il produttore
 scrive un URI e il consumatore ne cerca un altro, la ricerca non fallisce con un errore:
 **restituisce zero risultati**, e il sistema conclude che la persona non esiste. È il
-fallimento peggiore possibile — silenzioso, plausibile, e che nel dominio sanitario significa
+fallimento peggiore possibile - silenzioso, plausibile, e che nel dominio sanitario significa
 duplicare l'anagrafica di un paziente che il sistema già conosceva.
 
 ### 3.2 La trappola verificata: due URI per lo stesso codice fiscale
@@ -573,10 +573,10 @@ il codice fiscale.**
 | **Televisita** (profilo `PatientTelevisita`) | 0.2.0 | `http://hl7.it/sid/codiceFiscale` |
 | **IT-Core** (profilo `patient-it-core`) | 0.2.0 | `http://hl7.it/fhir/itcore/CodeSystem/cs-codicefiscale` |
 
-**[V]** — verificato sui profili pubblicati.
+**[V]** - verificato sui profili pubblicati.
 
-Sono due stringhe diverse. Per un sistema che confronti gli identificatori — e ogni sistema
-lo fa, perché è così che funziona la ricerca per identificatore — **sono due domini di
+Sono due stringhe diverse. Per un sistema che confronti gli identificatori - e ogni sistema
+lo fa, perché è così che funziona la ricerca per identificatore - **sono due domini di
 attribuzione distinti**. Un `Patient` prodotto secondo la famiglia *Televisita* e cercato da
 un consumatore allineato a *IT-Core* non viene trovato. Non c'è messaggio d'errore, non c'è
 validazione che fallisca: il profilo è valido, il valore è corretto, il paziente risulta
@@ -676,14 +676,14 @@ Fino a qui abbiamo parlato di identificatori. Un'anagrafe è la cosa che li attr
 mantiene: un registro di persone con i loro attributi, con un titolare, una base giuridica e
 un ciclo di aggiornamento.
 
-**ANPR — Anagrafe nazionale della popolazione residente.** Prevista dall'**art. 62 del Codice
+**ANPR - Anagrafe nazionale della popolazione residente.** Prevista dall'**art. 62 del Codice
 dell'amministrazione digitale** (d.lgs. 82/2005) e disciplinata dal **D.P.C.M. 10 novembre
 2014, n. 194**, subentra alle anagrafi comunali: è la fonte autoritativa dei dati anagrafici
-della popolazione residente in Italia — generalità, residenza, stato civile, cittadinanza,
+della popolazione residente in Italia - generalità, residenza, stato civile, cittadinanza,
 composizione della famiglia anagrafica. È l'anagrafe **civile**, non sanitaria: non sa nulla
 del medico di fiducia né delle esenzioni.
 
-**ANA — Anagrafe nazionale degli assistiti.** Prevista dall'**art. 62-*ter* del CAD**, è
+**ANA - Anagrafe nazionale degli assistiti.** Prevista dall'**art. 62-*ter* del CAD**, è
 l'anagrafe **sanitaria**: chi è assistito, da quale Regione, con quale medico di fiducia, con
 quali esenzioni. È la fonte da cui il fascicolo sanitario elettronico rileva i dati
 identificativi e amministrativi dell'assistito.
@@ -754,8 +754,8 @@ limite è che eredita tutti i difetti dell'identificatore su cui si appoggia: se
 fiscale manca (§ 2.3), la regola non si applica; se è digitato male, la regola dice «persone
 diverse»; se c'è omocodia non risolta, dice «stessa persona» sbagliando.
 
-**Corrispondenza probabilistica.** Si confrontano più attributi — cognome, nome, data di
-nascita, luogo di nascita, sesso, indirizzo — assegnando a ciascuno un peso in funzione di
+**Corrispondenza probabilistica.** Si confrontano più attributi - cognome, nome, data di
+nascita, luogo di nascita, sesso, indirizzo - assegnando a ciascuno un peso in funzione di
 quanto sia discriminante, e si somma un punteggio di somiglianza usando confronti tolleranti
 agli errori di trascrizione. Se il punteggio supera una soglia alta, i record si considerano
 la stessa persona; se sta sotto una soglia bassa, persone diverse; se sta in mezzo, **il caso
@@ -846,7 +846,7 @@ conseguenze che i modelli dati sbagliano con regolarità.
   sopravvive automaticamente al decesso: il § 10 tratta il punto.
 
 **Il trasferimento di residenza.** Cambia la Regione di assistenza, quindi il numero di
-iscrizione regionale, quindi il medico di fiducia, quindi — nel fascicolo — la sede
+iscrizione regionale, quindi il medico di fiducia, quindi - nel fascicolo - la sede
 dell'indice dei metadati: l'INI **trasferisce l'indice all'indice della nuova Regione di
 assistenza** (**DM 7 settembre 2023**, art. 24). Un modello che assuma la stabilità della
 sede dell'indice per tutta la vita dell'assistito è sbagliato per costruzione.
@@ -876,7 +876,7 @@ casi:
 
 ### 4.6 L'identità pseudonimizzata e i suoi limiti
 
-La **pseudonimizzazione** — art. 4, n. 5, del **Regolamento (UE) 2016/679** — è il
+La **pseudonimizzazione** - art. 4, n. 5, del **Regolamento (UE) 2016/679** - è il
 trattamento dei dati personali in modo che non possano più essere attribuiti a un interessato
 specifico senza l'utilizzo di informazioni aggiuntive, conservate separatamente e soggette a
 misure tecniche e organizzative. Il modulo [03](03-il-dato-clinico.md), § 4, la tratta sul
@@ -897,24 +897,24 @@ piano giuridico. Qui interessa cosa significa **per il modello di identità**.
 
 **I quattro limiti che vanno conosciuti prima di appoggiarvisi.**
 
-**Primo — il dato pseudonimizzato resta un dato personale.** È il punto che il regolamento
+**Primo - il dato pseudonimizzato resta un dato personale.** È il punto che il regolamento
 dichiara e che quasi tutte le architetture rimuovono. Pseudonimizzare è una **misura di
 sicurezza**, non un'uscita dal perimetro del regolamento. Un archivio pseudonimizzato ha gli
 stessi obblighi di uno identificato, salvo poter ridurre il rischio residuo.
 
-**Secondo — l'unicità dello pseudonimo è ciò che lo rende utile e ciò che lo rende
+**Secondo - l'unicità dello pseudonimo è ciò che lo rende utile e ciò che lo rende
 attaccabile.** Uno pseudonimo che sia stabile nel tempo permette di seguire la stessa persona
 attraverso più eventi: è esattamente ciò che serve per l'analisi, ed è esattamente ciò che
 consente la re-identificazione per incrocio. Bastano poche osservazioni datate e localizzate
 per restringere l'insieme dei candidati a uno.
 
-**Terzo — un dato clinico è quasi sempre identificante di per sé.** Una diagnosi rara, una
+**Terzo - un dato clinico è quasi sempre identificante di per sé.** Una diagnosi rara, una
 combinazione di data e struttura, una sequenza di misure: sono attributi con altissimo potere
 discriminante. Rimuovere il nome non toglie identificabilità a un insieme di dati che
 contiene «paziente maschio, 47 anni, malattia rara X, ricoverato in una certa provincia in
 una certa settimana».
 
-**Quarto — lo pseudonimo non è un identificatore condivisibile.** Uno pseudonimo assegnato da
+**Quarto - lo pseudonimo non è un identificatore condivisibile.** Uno pseudonimo assegnato da
 un gestore di identità è unico **per quel gestore** e per quel fornitore di servizi. Due
 accessi della stessa persona con due gestori diversi producono due pseudonimi diversi. Ne
 discende che **lo pseudonimo non può essere la chiave con cui si riconosce l'assistito nel
@@ -965,8 +965,8 @@ sistema ordinistico a tutte le professioni sanitarie riconosciute.
 
 Tre proprietà del sistema, tutte con conseguenze sul modello dati.
 
-**Prima: l'iscrizione è territoriale, non nazionale.** Gli ordini hanno una circoscrizione —
-di norma provinciale — e ciascuno tiene il proprio albo. **Il numero di iscrizione è quindi
+**Prima: l'iscrizione è territoriale, non nazionale.** Gli ordini hanno una circoscrizione -
+di norma provinciale - e ciascuno tiene il proprio albo. **Il numero di iscrizione è quindi
 unico dentro l'albo di quell'ordine, non a livello nazionale.** Due professionisti iscritti a
 due ordini diversi possono avere lo stesso numero. È lo stesso problema del § 3.1: un numero
 di iscrizione senza l'indicazione dell'ordine che lo ha attribuito **non è un
@@ -974,8 +974,8 @@ identificatore**. Le federazioni nazionali coordinano, ma l'atto di iscrizione r
 dell'ordine territoriale.
 
 **Seconda: l'iscrizione ha uno stato, e lo stato cambia.** Un professionista può essere
-iscritto, sospeso — per provvedimento disciplinare, per morosità, per mancato adempimento di
-obblighi formativi o assicurativi —, radiato, trasferito a un altro ordine, cancellato per
+iscritto, sospeso - per provvedimento disciplinare, per morosità, per mancato adempimento di
+obblighi formativi o assicurativi -, radiato, trasferito a un altro ordine, cancellato per
 cessazione dell'attività. Lo stato «iscritto» **non è una proprietà permanente**: è uno stato
 verificabile a una data.
 
@@ -991,7 +991,7 @@ professione senza titolo integra il reato di **esercizio abusivo della professio
 dall'**art. 348 del codice penale**, la cui disciplina è stata inasprita dalla legge 3/2018.
 E c'è un aspetto che riguarda direttamente il software: il modulo
 [01](01-sistema-sanitario-italiano.md), § 5.1, stabilisce che alcune prestazioni sono **atti
-riservati** a una professione determinata — la televisita è definita dall'**Accordo
+riservati** a una professione determinata - la televisita è definita dall'**Accordo
 Stato-Regioni 17 dicembre 2020, rep. atti n. 215/CSR**, come «*un atto medico*». Un sistema
 che consenta a un profilo non medico di erogare una televisita non produce un errore di
 autorizzazione: **produce documentazione sanitaria invalida**.
@@ -1001,7 +1001,7 @@ all'albo** del professionista, con **data della verifica** e **identità di chi 
 effettuata**, e segnala i profili privi di verifica. La verifica non è automatica: **il
 progetto non dispone di un canale nazionale di interrogazione degli albi verificato su fonte
 primaria** `[NV]`. Va quindi modellata come **attestazione tracciata dell'organizzazione**,
-con periodicità di rinnovo configurabile — che è, peraltro, ciò che le organizzazioni
+con periodicità di rinnovo configurabile - che è, peraltro, ciò che le organizzazioni
 sanitarie già fanno in sede di accreditamento del personale.
 
 ### 5.3 Il modello: persona, ruolo, organizzazione
@@ -1009,11 +1009,11 @@ sanitarie già fanno in sede di accreditamento del personale.
 Lo standard FHIR separa i tre concetti in tre risorse distinte, e la separazione non è
 accademica: è la traduzione tecnica di ciò che si è detto al § 5.1.
 
-- **`Practitioner`** — la **persona fisica** e le sue qualifiche. Dati anagrafici, titoli,
+- **`Practitioner`** - la **persona fisica** e le sue qualifiche. Dati anagrafici, titoli,
   iscrizioni. Esiste una volta sola, indipendentemente da quante organizzazioni la impieghino.
-- **`Organization`** — il **soggetto giuridico o l'articolazione organizzativa**: l'azienda
+- **`Organization`** - il **soggetto giuridico o l'articolazione organizzativa**: l'azienda
   sanitaria, l'ospedale, il presidio, l'unità operativa, lo studio associato.
-- **`PractitionerRole`** — la **relazione fra i due**, in un periodo di tempo, con una
+- **`PractitionerRole`** - la **relazione fra i due**, in un periodo di tempo, con una
   disciplina, un insieme di servizi erogabili, delle sedi e delle disponibilità. La
   specifica lo definisce come ciò che documenta «*le sedi e i tipi di servizi che i
   professionisti sono in grado di fornire per un'organizzazione*»: lo **spazio di azione nel
@@ -1076,13 +1076,13 @@ Se ne accorge chiunque provi a rispondere a queste domande con un attributo:
 L'ultima riga della tabella centrale è quella che vale la pena tenere: **il documento clinico
 non è firmato da una persona, è firmato da una persona in una veste**. Il referto riporta la
 struttura, l'unità operativa, la disciplina; e la responsabilità dell'atto ricade
-sull'organizzazione per conto della quale l'atto è stato compiuto — è il presupposto della
+sull'organizzazione per conto della quale l'atto è stato compiuto - è il presupposto della
 disciplina della responsabilità sanitaria della **legge 8 marzo 2017, n. 24**, che distingue la
 responsabilità della struttura da quella dell'esercente la professione sanitaria.
 
 **Regola di progetto, dichiarata come vincolante:** ogni riferimento a un professionista in un
-oggetto di dominio — chi ha erogato, chi ha refertato, chi ha firmato, chi partecipa alla
-sessione, chi ha accesso — **punta al ruolo, mai alla persona**. La persona è raggiungibile
+oggetto di dominio - chi ha erogato, chi ha refertato, chi ha firmato, chi partecipa alla
+sessione, chi ha accesso - **punta al ruolo, mai alla persona**. La persona è raggiungibile
 dal ruolo; il contrario non è vero in modo univoco, ed è esattamente il punto in cui il
 modello va protetto.
 
@@ -1131,7 +1131,7 @@ autorizzazione, perché è quello che gli sviluppatori trattano come «utente no
 è un'identità a tutti gli effetti, ma **non è una persona**. Ha credenziali proprie, ambiti
 propri, limiti di frequenza propri. La regola che il progetto adotta è netta: **le credenziali
 applicative non conferiscono da sole accesso a dati clinici.** Ogni operazione clinica
-richiede, oltre al principale applicativo, un **contesto utente delegante verificabile** — cioè
+richiede, oltre al principale applicativo, un **contesto utente delegante verificabile** - cioè
 la rappresentazione esplicita del fatto che il sistema sta agendo *per conto di* una persona
 individuata. Il § 10.4 mostra come si rappresenta e perché non va confuso con
 l'impersonificazione.
@@ -1159,9 +1159,9 @@ garanzia almeno **significativo**» rinvia alla tripartizione *basso*, *signific
 
 Nel dominio sanitario l'obbligo dei tre canali è ribadito due volte, in termini identici:
 
-- **DM 7 settembre 2023, art. 11, comma 1** — per l'accesso al fascicolo sanitario
+- **DM 7 settembre 2023, art. 11, comma 1** - per l'accesso al fascicolo sanitario
   elettronico;
-- **DM 19 novembre 2025, Allegato 4** — per l'accesso alla piattaforma nazionale di
+- **DM 19 novembre 2025, Allegato 4** - per l'accesso alla piattaforma nazionale di
   telemedicina: l'accesso avviene «*previo superamento di procedure di autenticazione
   informatica basate sui sistemi nazionali SPID, CIE e TS-CNS, sia per i cittadini che per gli
   operatori*», con in aggiunta un'**autenticazione a due fattori con codice monouso** sempre
@@ -1233,8 +1233,8 @@ dall'Agenzia**. I testi non sono riscrivibili né arricchibili con dettagli tecn
 osservato che **una parte di quei codici non sono errori applicativi**: l'utente che annulla
 l'accesso, l'utente che nega il consenso agli attributi, l'utente le cui credenziali sono di
 livello inferiore a quello richiesto sono esiti normali di sessione. Registrarli come errori
-tecnici produce rumore; **registrarli come eventi di dominio** — in particolare l'annullamento
-e il diniego di consenso, che documentano una scelta esplicita dell'interessato — è ciò che
+tecnici produce rumore; **registrarli come eventi di dominio** - in particolare l'annullamento
+e il diniego di consenso, che documentano una scelta esplicita dell'interessato - è ciò che
 serve al registro dei trattamenti e al fascicolo tecnico.
 
 ### 6.3 CIE: un solo gestore, meno attrito, meno attributi
@@ -1265,7 +1265,7 @@ previsto dal quadro europeo, cioè **nome, cognome, data di nascita e codice fis
 
 Non si ottiene l'indirizzo di posta elettronica. Non si ottiene il recapito telefonico. Non si
 ottiene il domicilio. Se il percorso di una televisita richiede un canale di contatto per il
-paziente — promemoria dell'appuntamento, collegamento alla stanza, istruzioni tecniche — **quel
+paziente - promemoria dell'appuntamento, collegamento alla stanza, istruzioni tecniche - **quel
 dato va acquisito dall'applicazione o passato dal sistema di origine, non dall'identità**. È
 coerente con il vincolo di non duplicare le anagrafiche, ma va scritto esplicitamente nel
 percorso di presa in carico del paziente, perché è il punto in cui il progetto tipico scopre
@@ -1295,8 +1295,8 @@ l'ha sbloccata con il PIN; il server verifica la catena del certificato contro u
 fiducia che contiene le autorità di certificazione abilitate, ne verifica lo stato di revoca e
 ne ricava l'identità del titolare.
 
-Il magazzino di fiducia si alimenta dall'**elenco di fiducia** nazionale — la lista dei
-servizi fiduciari qualificati mantenuta a livello europeo e nazionale — selezionando le sole
+Il magazzino di fiducia si alimenta dall'**elenco di fiducia** nazionale - la lista dei
+servizi fiduciari qualificati mantenuta a livello europeo e nazionale - selezionando le sole
 autorità il cui tipo di servizio è la **verifica dell'identità**. È il dettaglio tecnico meno
 ovvio e più importante: è così che si distingue, dentro l'elenco nazionale, chi è autorizzato
 a emettere certificati di **autenticazione della persona** da chi emette certificati di firma
@@ -1312,7 +1312,7 @@ per quanto ben formato.
   implementa, e quindi **l'unico che può essere dichiarato completo senza dipendenze esterne**.
 - **Non ha costo per accesso.**
 - **È il canale naturale del professionista, non del paziente.** Il medico ha già il lettore
-  di tessera sanitaria sulla scrivania — è una capacità ricorrente nei gestionali sanitari
+  di tessera sanitaria sulla scrivania - è una capacità ricorrente nei gestionali sanitari
   italiani; il paziente a casa quasi certamente no.
 
 E cosa lo rende fragile:
@@ -1329,7 +1329,7 @@ Due avvertenze progettuali che il progetto assume come **regole**, perché sono 
 cui questo canale si rompe in produzione:
 
 1. **Il certificato client non va richiesto su tutte le connessioni.** Se lo si fa, ogni
-   utente — compreso chi entra con SPID — riceve dal browser una finestra di selezione del
+   utente - compreso chi entra con SPID - riceve dal browser una finestra di selezione del
    certificato. È un difetto grave di esperienza d'uso e, per un'utenza fragile, un ostacolo
    di accessibilità. La soluzione è un **nome di host dedicato** su cui, e solo su cui, il
    certificato è richiesto.
@@ -1343,7 +1343,7 @@ cui questo canale si rompe in produzione:
 
 Terza avvertenza, di prodotto e non tecnica: **la tessera sanitaria è praticabile per il
 professionista e non per il paziente.** Va offerta come canale aggiuntivo, mai esclusivo, e
-questo va scritto nella documentazione di installazione — perché un ente potrebbe
+questo va scritto nella documentazione di installazione - perché un ente potrebbe
 configurarla come unico canale credendo di aumentare la sicurezza, e otterrebbe invece
 l'esclusione della maggior parte degli assistiti.
 
@@ -1400,7 +1400,7 @@ Da questi due frammenti discende tutto:
    servizi scelgono il livello di sicurezza SPID necessario per accedere ai propri servizi»),
    e dipende dal contesto d'uso concreto.
 5. **La convenzione si stipula fra AgID e un soggetto giuridico**, con un legale
-   rappresentante che firma e che deve possedere requisiti soggettivi verificabili — fra cui
+   rappresentante che firma e che deve possedere requisiti soggettivi verificabili - fra cui
    l'assenza di condanne definitive per reati commessi a mezzo di sistemi informatici.
 
 **Il soggetto accreditabile è quindi, sempre, l'operatore dell'installazione**: l'azienda
@@ -1438,7 +1438,7 @@ affrontare in proprio il procedimento presso l'Agenzia. Per una singola clinica 
 poliambulatorio è quasi sempre il percorso preferibile, perché azzera la variabile non
 controllabile. Comporta però una dipendenza commerciale da un terzo e, in una delle due
 modalità organizzative previste, il transito delle asserzioni di autenticazione
-dall'infrastruttura dell'aggregatore — che è materia di valutazione d'impatto, non decisione
+dall'infrastruttura dell'aggregatore - che è materia di valutazione d'impatto, non decisione
 tecnica. Il progetto deve **rendersi utilizzabile** in quello schema, con identificativo di
 entità e metadata generabili per istanza, senza assumerlo come architettura propria.
 
@@ -1448,7 +1448,7 @@ entità e metadata generabili per istanza, senza assumerlo come architettura pro
 
 ### 7.1 Che cosa sono
 
-Un **livello di garanzia** — in inglese *level of assurance* — non misura quanto è robusta la
+Un **livello di garanzia** - in inglese *level of assurance* - non misura quanto è robusta la
 password. Misura **quanta fiducia si può riporre nell'affermazione «questa persona è chi dice
 di essere»**, e quella fiducia dipende da due fattori distinti:
 
@@ -1485,7 +1485,7 @@ https://www.spid.gov.it/SpidL2
 https://www.spid.gov.it/SpidL3
 ```
 
-Sono URI con schema `https` e senza barra finale, e — punto che sorprende — **la stessa terna
+Sono URI con schema `https` e senza barra finale, e - punto che sorprende - **la stessa terna
 è riusata dalla carta d'identità elettronica**, per esplicita scelta di agevolare chi ha già
 implementato SPID. Non esistono quindi identificatori di livello propri della CIE: si usano
 quelli di SPID.
@@ -1508,9 +1508,9 @@ esibizione di un documento**.
 Il fornitore di servizi **sceglie** il livello (D.P.C.M. 24 ottobre 2014, art. 6, comma 4) e
 deve **motivare la scelta** in sede di convenzione. Il regolamento attuativo fornisce, in
 appendice e **a titolo esemplificativo**, una metodologia basata sull'impatto potenziale, e in
-quella metodologia i dati che il regolamento chiama «sensibili» — categoria che oggi
+quella metodologia i dati che il regolamento chiama «sensibili» - categoria che oggi
 corrisponde alle categorie particolari dell'art. 9 del GDPR, fra cui i dati relativi alla
-salute — sono collocati al **livello 3**.
+salute - sono collocati al **livello 3**.
 
 Nella prassi nazionale, però, **l'accesso del cittadino al fascicolo sanitario elettronico
 avviene con il livello 2**. La contraddizione è solo apparente, e va spiegata con precisione
@@ -1534,7 +1534,7 @@ aggiunta **sempre** un'autenticazione a due fattori con codice monouso. Il secon
 è quindi negoziabile per le installazioni collegate alla piattaforma nazionale, anche quando
 il canale di identità lo fornirebbe già.
 
-**Posizione del progetto** — *proposta di progetto*, da confermare con chi installa e con il
+**Posizione del progetto** - *proposta di progetto*, da confermare con chi installa e con il
 suo responsabile della protezione dei dati:
 
 | Operazione | Livello minimo proposto | Motivazione |
@@ -1562,9 +1562,9 @@ autenticazione nella risposta è
 > livello di affidabilità massimo a livello europeo, corrispondente al Livello 3 del Sistema
 > Pubblico dell'Identità Digitale».
 
-Se questa formulazione è quella corrente — e va **verificata empiricamente in
+Se questa formulazione è quella corrente - e va **verificata empiricamente in
 pre-produzione**, perché è a costo quasi nullo e falsifica o conferma un pezzo di
-progettazione — ne discendono tre conseguenze, nessuna cosmetica:
+progettazione - ne discendono tre conseguenze, nessuna cosmetica:
 
 1. **Il fornitore di servizi non può dedurre dalla risposta con quale fattore l'utente si sia
    effettivamente autenticato.** Un accesso con la sola password e un accesso con carta e PIN
@@ -1579,7 +1579,7 @@ progettazione — ne discendono tre conseguenze, nessuna cosmetica:
 
 ### 7.5 La soluzione: due valori, non uno
 
-La proposta del progetto — e va detto che **è una proposta, non uno standard** — è registrare
+La proposta del progetto - e va detto che **è una proposta, non uno standard** - è registrare
 e propagare **due valori distinti**, mai uno solo:
 
 | Valore | Significato | A cosa serve |
@@ -1592,8 +1592,8 @@ A cui il progetto aggiunge un terzo elemento, trattato al § 10.4: un marcatore 
 
 Per la tessera sanitaria il problema si pone in forma diversa: **non esiste un livello
 dichiarato**, perché non c'è un gestore che asserisca alcunché. Il livello va **asserito dal
-fornitore di servizi** sulla base del fatto che l'autenticazione è a due fattori — possesso
-della carta e conoscenza del PIN — su certificato digitale con chiave privata custodita su
+fornitore di servizi** sulla base del fatto che l'autenticazione è a due fattori - possesso
+della carta e conoscenza del PIN - su certificato digitale con chiave privata custodita su
 dispositivo. È ragionevole trattarla come equivalente al livello 3, **ma questa è una stima di
 progetto e non una mappatura normativa**: le fonti consultate non contengono un'equivalenza
 dichiarata fra la carta nazionale dei servizi e i livelli del sistema pubblico di identità
@@ -1613,8 +1613,8 @@ regole:
 ## 8. I protocolli, spiegati a chi non li ha mai visti
 
 > **Perimetro di questa sezione.** Qui si spiega **perché** i protocolli sono quelli che sono
-> e **come funzionano nella sostanza**. Il dettaglio — struttura dei messaggi, algoritmi di
-> firma, parametri, casi di errore, considerazioni di sicurezza — sta nel modulo
+> e **come funzionano nella sostanza**. Il dettaglio - struttura dei messaggi, algoritmi di
+> firma, parametri, casi di errore, considerazioni di sicurezza - sta nel modulo
 > [13](13-protocolli.md). Se stai per implementare, questa sezione ti dà il modello mentale;
 > il modulo 13 ti dà la specifica.
 
@@ -1623,12 +1623,12 @@ regole:
 Tre attori, un problema:
 
 - **l'utente**, che ha un browser;
-- il **fornitore di servizi** — nel nostro caso l'installazione di Telemedic — che vuole
+- il **fornitore di servizi** - nel nostro caso l'installazione di Telemedic - che vuole
   sapere chi è l'utente ma **non vuole custodirne le credenziali**;
 - il **gestore dell'identità**, che le credenziali le custodisce e sa come verificarle.
 
-Il fornitore deve ottenere dal gestore un'affermazione affidabile — «questa persona è
-Tizio, l'ho autenticata alle 09:12 con due fattori» — senza mai vedere la password, e senza
+Il fornitore deve ottenere dal gestore un'affermazione affidabile - «questa persona è
+Tizio, l'ho autenticata alle 09:12 con due fattori» - senza mai vedere la password, e senza
 che l'utente debba fidarsi del fornitore. La difficoltà sta nel fatto che i due sistemi **non
 si parlano direttamente**: il messaggio viaggia **attraverso il browser dell'utente**, cioè
 attraverso un intermediario potenzialmente ostile.
@@ -1712,8 +1712,8 @@ costruzione fallisce.
 ### 8.3 OpenID Connect, e perché è disponibile per CIE
 
 **OpenID Connect** è uno strato di identità costruito sopra **OAuth 2.0**. Dove SAML scambia
-documenti XML firmati, OpenID Connect scambia **token in formato JSON firmati** — i cosiddetti
-*JSON Web Token* — ed è nato per il web moderno e per le applicazioni mobili.
+documenti XML firmati, OpenID Connect scambia **token in formato JSON firmati** - i cosiddetti
+*JSON Web Token* - ed è nato per il web moderno e per le applicazioni mobili.
 
 La differenza sostanziale, al di là della sintassi, è **cosa il fornitore riceve**:
 
@@ -1739,7 +1739,7 @@ Le regole tecniche nazionali per OpenID Connect impongono vincoli molto più str
 protocollo di base, e vanno conosciuti perché sono i punti in cui un'implementazione generica
 non passa la validazione: chiavi RSA di almeno 2048 bit con raccomandazione a 4096; un elenco
 tassativo di algoritmi che **devono** essere supportati e uno di algoritmi che **non devono**
-esserlo — compreso, ovviamente, quello che significa «nessuna firma»; l'obbligo dello scambio
+esserlo - compreso, ovviamente, quello che significa «nessuna firma»; l'obbligo dello scambio
 con verificatore di codice; codice di autorizzazione a uso singolo e validità di cinque
 minuti; token di identità con scadenza a cinque minuti e uso singolo; token di accesso con
 scadenza a quindici minuti.
@@ -1752,8 +1752,8 @@ autenticazione diretta con crittografia a chiave pubblica.
 Il modulo [12](12-crittografia-e-sicurezza.md) tratta le basi; qui serve l'essenziale. Un
 **certificato digitale** è un documento che lega una **chiave pubblica** a un'identità, ed è
 firmato da un'**autorità di certificazione** di cui si è deciso di fidarsi. Chi possiede la
-corrispondente **chiave privata** — nel nostro caso custodita nel microchip della tessera e
-utilizzabile solo dopo l'inserimento del PIN — può dimostrarlo senza rivelarla.
+corrispondente **chiave privata** - nel nostro caso custodita nel microchip della tessera e
+utilizzabile solo dopo l'inserimento del PIN - può dimostrarlo senza rivelarla.
 
 Nel protocollo **TLS**, quello che cifra le connessioni web, la negoziazione iniziale prevede
 di norma che il **server** presenti il proprio certificato al client. Nella variante
@@ -1779,10 +1779,10 @@ compromesso reale:
 
 Il secondo svantaggio non è teorico: interrogare un servizio di terzi a ogni accesso a un
 servizio sanitario è un trattamento di metadati che va valutato, non subìto. La posizione del
-progetto — *proposta di progetto* — è: **liste di revoca come impostazione predefinita**, con
+progetto - *proposta di progetto* - è: **liste di revoca come impostazione predefinita**, con
 aggiornamento almeno giornaliero, coerente con il vincolo di sovranità; interrogazione in
 linea **attivabile** per chi la richieda, con la valutazione d'impatto che copra esplicitamente
-la comunicazione verso l'autorità; e **in ogni caso fallimento chiuso** — se lo stato di
+la comunicazione verso l'autorità; e **in ogni caso fallimento chiuso** - se lo stato di
 revoca non è determinabile, l'accesso è **negato**. Una configurazione permissiva su questo
 punto è una non conformità, non una scelta di disponibilità.
 
@@ -1798,8 +1798,8 @@ punto è una non conformità, non una scelta di disponibilità.
 | **Funziona da telefono** | Sì | Sì, anche con lettura senza contatto | **No**, in pratica |
 | **Complessità di implementazione** | **Alta**: molti gestori, metadata aggregato, tabella delle anomalie, ordine casuale, pulsante ufficiale | **Media**: stesse regole ma un solo gestore; con OpenID Connect sensibilmente inferiore | **Media-bassa nel codice, media nell'infrastruttura**: bordo, magazzino di fiducia, revoca |
 
-Il dettaglio protocollare — struttura dei messaggi, algoritmi ammessi, classi di attacco come
-l'avvolgimento della firma XML, considerazioni sulla validazione — è nel modulo
+Il dettaglio protocollare - struttura dei messaggi, algoritmi ammessi, classi di attacco come
+l'avvolgimento della firma XML, considerazioni sulla validazione - è nel modulo
 [13](13-protocolli.md).
 
 ---
@@ -1848,7 +1848,7 @@ del paziente sia verificata. Non prescrive un metodo unico né una tecnologia: �
 **Il livello dell'equipollenza.** L'art. 64, comma 2-*duodecies*, del CAD stabilisce che la
 verifica dell'identità digitale con livello almeno significativo produce «*gli effetti del
 documento di riconoscimento equipollente*». È la norma che consente di dire che un accesso con
-identità digitale di livello adeguato **vale come esibizione di un documento** — non che
+identità digitale di livello adeguato **vale come esibizione di un documento** - non che
 sostituisce il giudizio del professionista sulla persona che ha davanti.
 
 ### 9.3 Che cosa non basta
@@ -1877,7 +1877,7 @@ prestazione, non uno stato dell'anagrafica.
 ### 9.4 Che cosa si registra come prova
 
 Se l'identificazione è un atto del professionista, allora la sua evidenza è la registrazione
-dell'atto — non una casella spuntata.
+dell'atto - non una casella spuntata.
 
 Il progetto propone di registrare, per ogni prestazione, i seguenti elementi:
 
@@ -1941,13 +1941,13 @@ più costoso del dominio» e l'errore consiste proprio nel collassarli in uno:
 | Atto | Natura | Chi lo presta | Revocabile |
 |---|---|---|---|
 | **Adesione informata alla prestazione in telemedicina** | Atto **clinico**: il paziente accetta di ricevere quella prestazione attraverso quel canale. Richiesta espressamente dall'Accordo 215/CSR 2020 | Il paziente capace, o chi ne ha la rappresentanza | Sì, con effetto sulla prestazione |
-| **Trattamento dei dati personali per finalità di cura** | Ha basi giuridiche proprie e, per la cura, **non è normalmente il consenso** | — | — |
+| **Trattamento dei dati personali per finalità di cura** | Ha basi giuridiche proprie e, per la cura, **non è normalmente il consenso** | - | - |
 | **Consultazione del fascicolo da parte di terzi** | Consenso specifico, registrato nell'anagrafe nazionale dei consensi | Il paziente | Sì |
 | **Registrazione della sessione** | Consenso ulteriore, **per sessione**, specifico | Il paziente | Sì, con effetto immediato |
 
 E il legame con l'identità: **ogni atto di consenso registra chi lo ha prestato, in che
-qualità e con quale evidenza di identificazione**. Quando è prestato da un terzo — il caso del
-§ 10 — devono risultare **entrambe le identità**, il titolo che legittima il terzo, gli
+qualità e con quale evidenza di identificazione**. Quando è prestato da un terzo - il caso del
+§ 10 - devono risultare **entrambe le identità**, il titolo che legittima il terzo, gli
 estremi del provvedimento se ne esiste uno, e la versione esatta del testo informativo
 presentato.
 
@@ -2054,7 +2054,7 @@ Nel modello di integrazione del progetto esistono **due percorsi di identità di
 confonderli produce requisiti impossibili:
 
 - **il cittadino paziente** che accede da un portale pubblico **deve** passare dall'identità
-  digitale nazionale. È Telemedic — cioè l'installazione — ad aver eseguito o richiesto
+  digitale nazionale. È Telemedic - cioè l'installazione - ad aver eseguito o richiesto
   l'autenticazione;
 - **il professionista che lavora dentro il gestionale di un integratore** **non deve** passare
   da un secondo accesso: la sua identità arriva già autenticata dal sistema di origine, per
@@ -2076,11 +2076,11 @@ il terzo dichiari.
 
 Sul piano dell'autorizzazione ne discendono tre regole, che il progetto propone:
 
-1. **Un'operazione che la normativa lega all'autenticazione forte ex art. 64 CAD** — accesso
-   al fascicolo, accesso alla piattaforma nazionale — **richiede un'autenticazione eseguita**.
+1. **Un'operazione che la normativa lega all'autenticazione forte ex art. 64 CAD** - accesso
+   al fascicolo, accesso alla piattaforma nazionale - **richiede un'autenticazione eseguita**.
    Un livello riferito da un terzo non soddisfa un obbligo normativo che grava
    sull'installazione.
-2. **Un'operazione clinica interna** — avviare un consulto, redigere un referto — **può**
+2. **Un'operazione clinica interna** - avviare un consulto, redigere un referto - **può**
    accettare l'identità riferita, purché la configurazione del tenant lo consenta
    esplicitamente e il livello riferito raggiunga la soglia stabilita.
 3. **La configurazione «quali autenticazioni riferite sono accettate per quale operazione» è
@@ -2089,8 +2089,8 @@ Sul piano dell'autorizzazione ne discendono tre regole, che il progetto propone:
 C'è infine una regola di rappresentazione che vale sia per le persone sia per i sistemi, ed è
 la stessa: **la delega si rappresenta come delega, mai come impersonificazione**. Un token in
 cui il sistema dell'integratore si presenta *come se fosse* il professionista è
-indistinguibile da un abuso; un token in cui compaiono **entrambi** — il soggetto per conto
-del quale si agisce e l'attore che agisce — è verificabile. Il formato standard per esprimerlo
+indistinguibile da un abuso; un token in cui compaiono **entrambi** - il soggetto per conto
+del quale si agisce e l'attore che agisce - è verificabile. Il formato standard per esprimerlo
 esiste ed è definito dalla specifica sullo scambio di token (**RFC 8693**, § 4.1); il modulo
 [13](13-protocolli.md) ne tratta il dettaglio.
 
@@ -2143,7 +2143,7 @@ fruizione del servizio richiesto dall'utente*». Coincidenza fortunata: qui il r
 conformità puntano nella stessa direzione.
 
 **Conseguenza di progetto**: l'insieme minimo di attributi per una televisita è il codice
-fiscale — che è la chiave di riconciliazione con l'anagrafica —, nome e cognome, più
+fiscale - che è la chiave di riconciliazione con l'anagrafica -, nome e cognome, più
 l'identificativo opaco del gestore. Il recapito **non si chiede all'identità**: si acquisisce
 nel percorso di presa in carico o arriva dal sistema di origine (§ 6.3). Chiedere il
 domicilio o gli estremi del documento d'identità per una televisita è un eccesso, e sarebbe
@@ -2168,9 +2168,9 @@ Per la carta d'identità elettronica **non è stata reperita, nelle fonti primar
 alcuna previsione di corrispettivi** a carico dei fornitori di servizi `[NV]`. **L'assenza di
 una previsione non equivale a una dichiarazione di gratuità**: il dato va richiesto al
 Ministero dell'Interno. Esiste un indizio strutturale nella direzione dell'assenza di
-corrispettivi — il metadata della federazione della carta non prevede la sezione con i dati di
+corrispettivi - il metadata della federazione della carta non prevede la sezione con i dati di
 fatturazione, che è invece obbligatoria in SPID proprio perché il fornitore viene fatturato
-dai gestori — ma resta un indizio, non una fonte.
+dai gestori - ma resta un indizio, non una fonte.
 
 La tessera sanitaria **non ha costo per accesso**. Il costo è a carico dell'utente, ed è il
 lettore.
@@ -2191,11 +2191,11 @@ tecnicamente possibili**:
 | Comunicare al Garante e all'autorità competente le violazioni di dati **entro 24 ore** dalla conoscenza | Convenzione, art. 2, c. 2, lett. a); manuale operativo della carta | Procedura, non improvvisazione |
 | Rinnovare la convenzione al quinto anno, **senza rinnovo tacito** | Convenzione, art. 7, c. 1 | Va in un promemoria operativo, non nella memoria di qualcuno |
 | Sorvegliare gli **avvisi tecnici** dell'Agenzia, che modificano le regole in corsa | Le regole tecniche sono un testo base modificato per avvisi successivi | **Un'implementazione conforme oggi può non esserlo fra sei mesi.** Va gestita con la stessa formalità della sorveglianza sulle vulnerabilità |
-| Ripetere le verifiche sui requisiti soggettivi con la periodicità prevista | Per la carta: **almeno ogni quattro anni** | — |
+| Ripetere le verifiche sui requisiti soggettivi con la periodicità prevista | Per la carta: **almeno ogni quattro anni** | - |
 
 L'ultima riga della tabella dei log e la penultima meritano una sottolineatura, perché sono
 quelle che trasformano un requisito in codice. **La conservazione a 24 mesi si somma, non si
-sostituisce, agli altri termini applicabili** — il DM 19 novembre 2025 prevede 24 mesi per i
+sostituisce, agli altri termini applicabili** - il DM 19 novembre 2025 prevede 24 mesi per i
 log e 12 mesi per i dati di accesso e autenticazione. La politica di conservazione va quindi
 progettata come **massimo fra le prescrizioni applicabili, per classe di dato**, con evidenza
 di cancellazione.
@@ -2252,8 +2252,8 @@ Un elenco operativo, che il progetto documenta per chi installa:
 1. **Quali canali attivare**, in funzione dell'obbligo che grava sull'installazione (§ 6.1).
    Se non c'è collegamento al fascicolo né alla piattaforma nazionale, l'obbligo non c'è.
 2. **Per SPID, quale percorso**: accreditamento diretto, adesione come soggetto aggregato di
-   un aggregatore già accreditato, oppure — se l'utenza è composta solo da professionisti che
-   operano dentro il gestionale di un integratore già accreditato — nessun accreditamento
+   un aggregatore già accreditato, oppure - se l'utenza è composta solo da professionisti che
+   operano dentro il gestionale di un integratore già accreditato - nessun accreditamento
    proprio e identità riferita (§ 10.4).
 3. **Quale livello minimo per quale operazione** (§ 7.3), con la motivazione scritta, perché
    va comunicata all'Agenzia in sede di convenzione.
@@ -2282,7 +2282,7 @@ Un elenco operativo, che il progetto documenta per chi installa:
 | 7 | Equivalenza dichiarata fra la carta nazionale dei servizi e i livelli del sistema pubblico di identità digitale | § 7.5 | Agenzia per l'Italia digitale. In assenza, resta una stima di progetto |
 | 8 | Stato reale del supporto a OpenID Connect da parte dei gestori SPID in produzione | § 8.2 | Agenzia per l'Italia digitale; canale pubblico presidiato dal team SPID |
 | 9 | Vigenza della tabella dei corrispettivi del 2019 dopo il rinnovo delle convenzioni dell'8 ottobre 2025 | § 11.1 | Agenzia per l'Italia digitale |
-| 10 | Esistenza di corrispettivi a carico dei fornitori di servizi per la federazione della carta d'identità elettronica | § 11.1 | Ministero dell'Interno — Direzione centrale per i servizi demografici |
+| 10 | Esistenza di corrispettivi a carico dei fornitori di servizi per la federazione della carta d'identità elettronica | § 11.1 | Ministero dell'Interno - Direzione centrale per i servizi demografici |
 | 11 | Disciplina puntuale della manifestazione di volontà in caso di affidamento condiviso del minore | § 10.2 | Approfondimento giuridico dedicato |
 
 ---
@@ -2290,7 +2290,7 @@ Un elenco operativo, che il progetto documenta per chi installa:
 ## Cosa devi ricordare
 
 1. **Un identificatore senza dominio di attribuzione è una stringa.** «Codice fiscale
-   `RSSMRA80A01H501U`» non è un'informazione completa finché non si dichiara chi lo ha
+   `RSSMRA80A01H501Z`» non è un'informazione completa finché non si dichiara chi lo ha
    attribuito e in quale spazio dei nomi è unico. La ricerca per valore nudo è una domanda mal
    posta.
 2. **Le guide di implementazione italiane non usano tutte lo stesso URI per il codice
@@ -2325,7 +2325,7 @@ Un elenco operativo, che il progetto documenta per chi installa:
    **per la carta d'identità elettronica è disponibile anche OpenID Connect**, con un solo
    gestore e un ambiente di prova; **la tessera sanitaria si realizza con mutua autenticazione
    TLS** ed è l'unico canale ex art. 64 CAD senza dipendenze da procedimenti di terzi.
-9. **I livelli sono `SpidL1|L2|L3` e corrispondono a LoA2, LoA3 e LoA4 di ISO/IEC 29115** — la
+9. **I livelli sono `SpidL1|L2|L3` e corrispondono a LoA2, LoA3 e LoA4 di ISO/IEC 29115** - la
    scala italiana parte dal secondo gradino. Gli stessi URI valgono per la carta. Ma
    **l'asserzione della carta dichiara sempre il livello massimo**: il livello effettivo non è
    desumibile dalla risposta. Si registrano **due valori**, il richiesto e il dichiarato, e

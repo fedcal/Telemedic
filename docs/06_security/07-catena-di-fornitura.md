@@ -8,7 +8,7 @@ description: La distinta dei materiali come obbligo normativo con il suo contenu
 
 > **Presupposto di lettura.** Che cosa sono i componenti software di origine ignota, perché la
 > distinta dei materiali è un obbligo e non una buona pratica, che cosa significa divulgazione
-> coordinata: [10 §12 — Crittografia e sicurezza, §11](../10_fondamenti/12-crittografia-e-sicurezza.md).
+> coordinata: [10 §12 - Crittografia e sicurezza, §11](../10_fondamenti/12-crittografia-e-sicurezza.md).
 > Qui si descrivono gli artefatti che il progetto produce, le loro proprietà e i loro obblighi.
 
 ## 1. Perché questo capitolo è quello con il rendimento più alto
@@ -97,7 +97,7 @@ identificativo fiscale; **Paese della sede legale**; codici della nomenclatura e
 appalti relativi alle forniture utilizzate; criterio di rilevanza applicato. `[NV]` sul testo:
 la determinazione non è stata letta su fonte primaria e i suoi estremi provengono da fonti
 secondarie qualificate concordanti e dalla comunicazione istituzionale dell'autorità. Va
-verificata prima di citarne il contenuto puntuale — è la questione Q-151 nella sua parte
+verificata prima di citarne il contenuto puntuale - è la questione Q-151 nella sua parte
 relativa a questa determinazione.
 
 Quattro conseguenze dirette:
@@ -105,7 +105,7 @@ Quattro conseguenze dirette:
 1. **Chi eroga il servizio a un soggetto destinatario della disciplina sarà dichiarato
    nominativamente all'autorità.** In modalità di servizio gestito ricade con ogni probabilità
    sotto entrambi i criteri di rilevanza; in installazione presso il cliente il primo criterio
-   può non applicarsi, ma **il secondo — la non fungibilità della fornitura — resta**, perché
+   può non applicarsi, ma **il secondo - la non fungibilità della fornitura - resta**, perché
    manutenzione e supporto non sono sostituibili prontamente.
 2. **Il Paese della sede legale è un campo obbligatorio.** La sovranità del dato cessa di essere
    un argomento commerciale e diventa **un dato che il cliente trasmette a un'autorità**. Una
@@ -119,7 +119,7 @@ Quattro conseguenze dirette:
 4. **La catena del progetto diventa visibile.** Se il sistema si appoggia a un servizio di
    relay gestito, a un servizio di notifiche, a un fornitore di firma remota o a una rete di
    distribuzione dei contenuti, quei soggetti diventano potenzialmente fornitori rilevanti **di
-   secondo livello** per il cliente. È l'argomento regolatorio — non solo etico — a sostegno del
+   secondo livello** per il cliente. È l'argomento regolatorio - non solo etico - a sostegno del
    vincolo di sovranità: **riduce la superficie dichiarativa del cliente**.
 
 ## 4. Dichiarazioni di esposizione
@@ -130,7 +130,7 @@ vulnerabile non è raggiungibile, perché la funzione non è usata, perché una 
 neutralizza.
 
 Se il progetto non lo dichiara, chi integra deve dedurlo. Non ha gli elementi per farlo, e quindi
-o rimedia a vulnerabilità irrilevanti — costo puro — o le ignora tutte, compresa quella che
+o rimedia a vulnerabilità irrilevanti - costo puro - o le ignora tutte, compresa quella che
 conta. **La dichiarazione di esposizione è l'artefatto che risolve questo problema**, e il
 regolamento sulla resilienza informatica lo presuppone quando obbliga a facilitare la
 condivisione delle informazioni sulle vulnerabilità.
@@ -167,6 +167,22 @@ evitare.**
 | Verifica di conformità della federazione delle identità | Periodica | Segnalazione, poi blocco prima del rilascio |
 | Modello delle minacce | A ogni capacità nuova con confine o punto di uscita, e comunque annuale | Non blocca; è **condizione di completezza** della capacità |
 | Prova periodica di ripristino, **materiale di chiave compreso** | Programmata | Non blocca; il suo esito è evidenza documentale |
+
+**Dove sta ciascuna di queste attività, oggi.** Una regola scritta qui e non presidiata da un
+controllo non è una regola, e di queste undici una sola era realizzata: l'analisi dei segreti, che
+è il controllo `G1`. Nove delle dieci restanti hanno ora una riga in
+[`pipeline/collocazione-dei-controlli.tsv`](https://github.com/fedcal/Telemedic/blob/main/pipeline/collocazione-dei-controlli.tsv),
+con gli identificativi da `SEC-C1` a `SEC-C10`, in **sola segnalazione e ciascuna con la data
+dichiarata in cui diventa bloccante**, legata a un traguardo esistente e non scelta. Non sono
+realizzate: sono **dichiarate**, che è la sola cosa che distingue un lavoro in coda da una rinuncia
+che nessuno ha detto di aver fatto.
+
+La decima fa eccezione, e l'eccezione va letta invece che saltata. La **verifica di conformità
+della federazione delle identità** (`SEC-C8`) non ha una data legabile, perché il suo oggetto - la
+conformità verificata sull'identità digitale nazionale - non è nel perimetro del primo rilascio e
+nessun traguardo datato lo porta. Sta quindi nella tabella come **blocco di commento in coda**, con
+il motivo e il documento che lo accerta, invece che come riga con una data plausibile: una data non
+ancorata avrebbe l'aspetto di un impegno senza esserlo. È debito dichiarato, non copertura.
 
 **Il modello delle minacce è tracciabile verso i requisiti e verso le prove**: ogni minaccia
 rilevante ha almeno un requisito e almeno una prova associata
@@ -224,7 +240,7 @@ intervento** e del numero di segnalazioni aperte, che sono dati verificabili, in
 della disciplina sui componenti di origine ignota del ciclo di vita del software dei dispositivi
 medici. La verifica è documentata e datata.
 
-### 7.1 Il caso del servizio esterno di terminologia — risposta alla questione Q-04
+### 7.1 Il caso del servizio esterno di terminologia - risposta alla questione Q-04
 
 La questione Q-04 della bacheca chiedeva di classificare il servizio esterno di terminologia e
 di verificarne la compatibilità con il vincolo di sovranità. **La risposta è chiusa da
@@ -236,8 +252,8 @@ quest'area e si riporta qui per esteso.**
 >
 > **(a)** non può stare sul **percorso principale**. È il vincolo V-03: il sistema è pienamente
 > funzionale senza il sistema di codifica che richiede un servizio esterno, e nessun percorso
-> principale può richiederlo. Il costo è dichiarato — una parte dei codici di un legame non si
-> valida — e non è un ripiego: è un corollario obbligato.
+> principale può richiederlo. Il costo è dichiarato - una parte dei codici di un legame non si
+> valida - e non è un ripiego: è un corollario obbligato.
 >
 > **(b)** se stabilito fuori dall'Unione, è un **trasferimento** nel momento in cui riceve dati
 > riferibili a un assistito. Quindi **le interrogazioni non devono mai portare identificativi

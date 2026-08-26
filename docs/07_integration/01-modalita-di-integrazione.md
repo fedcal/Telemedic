@@ -1,7 +1,7 @@
 ---
 title: Le quattro modalità di integrazione
 sidebar_position: 2
-description: Servizio autonomo, interfacce applicative, componente incorporabile, moduli sostituibili. Cosa comportano, cosa richiedono, cosa si ottiene e — soprattutto — quando ciascuna è la scelta sbagliata.
+description: Servizio autonomo, interfacce applicative, componente incorporabile, moduli sostituibili. Cosa comportano, cosa richiedono, cosa si ottiene e - soprattutto - quando ciascuna è la scelta sbagliata.
 ---
 
 # Le quattro modalità di integrazione
@@ -9,10 +9,10 @@ description: Servizio autonomo, interfacce applicative, componente incorporabile
 Il progetto espone **quattro** modalità (decisione D4). Questo capitolo le descrive con lo stesso
 schema fisso, per rendere il confronto possibile:
 
-1. **Che cosa comporta** — che cosa cambia nel vostro sistema.
-2. **Che cosa richiede** — prerequisiti tecnici, competenze, artefatti che dovete produrre.
-3. **Che cosa si ottiene** — le capacità che diventano vostre.
-4. **Quando è la scelta sbagliata** — le situazioni in cui va evitata, con l'alternativa.
+1. **Che cosa comporta** - che cosa cambia nel vostro sistema.
+2. **Che cosa richiede** - prerequisiti tecnici, competenze, artefatti che dovete produrre.
+3. **Che cosa si ottiene** - le capacità che diventano vostre.
+4. **Quando è la scelta sbagliata** - le situazioni in cui va evitata, con l'alternativa.
 
 Il punto 4 è quello per cui vale la pena leggere il capitolo. Un catalogo di raccomandazioni
 indistinte non aiuta nessuno a decidere.
@@ -40,11 +40,11 @@ entrambi i versi, ma sono due implementazioni distinte e vanno stimate separatam
 
 ---
 
-## 1. Modalità A — servizio autonomo
+## 1. Modalità A - servizio autonomo
 
 ### 1.1 Che cosa comporta
 
-Installate Telemedic e lo usate così com'è. Gli utenti — professionisti e assistiti —
+Installate Telemedic e lo usate così com'è. Gli utenti - professionisti e assistiti -
 si autenticano su Telemedic. L'interfaccia è quella del progetto, con il vostro marchio,
 i vostri colori, il vostro dominio.
 
@@ -101,7 +101,7 @@ che non ci sia codice da scrivere non riduce di un grammo gli obblighi del capit
 
 ---
 
-## 2. Modalità B — interfacce applicative
+## 2. Modalità B - interfacce applicative
 
 ### 2.1 Che cosa comporta
 
@@ -164,7 +164,7 @@ chiavi e quote.
 
 ---
 
-## 3. Modalità C — componente incorporabile
+## 3. Modalità C - componente incorporabile
 
 ### 3.1 Che cosa comporta
 
@@ -184,8 +184,8 @@ Tre varianti, in ordine di preferenza:
 | **Elemento personalizzato che avvolge la cornice** | Volete l'ergonomia di un tag HTML senza gestire a mano la configurazione difficile | Totale: l'isolamento resta della cornice sottostante |
 | **Nuova scheda in contesto di prima parte** | Non potete servire le intestazioni di politica dei permessi: portale gestito da terzi, gestore di contenuti chiuso | Totale, e **nessun problema di delega dei permessi** |
 
-Esiste una quarta possibilità tecnica — un componente che gira **nello stesso contesto di
-esecuzione** della vostra applicazione — e il progetto la offre **solo per elementi non
+Esiste una quarta possibilità tecnica - un componente che gira **nello stesso contesto di
+esecuzione** della vostra applicazione - e il progetto la offre **solo per elementi non
 clinici**: il pulsante di avvio, l'indicatore di stato, la prova dei dispositivi audio e video,
 l'indicatore di qualità della rete. La ragione è nel §3.4.
 
@@ -206,7 +206,7 @@ collegamento che porta a una pagina con il vostro marchio; nessuno dei due sa di
 due sistemi.
 
 E, in aggiunta, un ciclo di vita governabile: il componente comunica con la pagina ospitante con
-un protocollo di messaggistica documentato e versionato — è pronto, l'utente è entrato,
+un protocollo di messaggistica documentato e versionato - è pronto, l'utente è entrato,
 la prestazione è conclusa con questo esito, l'utente ha chiesto di chiudere, serve questa
 altezza ([05 §4](05-componente-incorporabile.md)).
 
@@ -223,7 +223,7 @@ altezza ([05 §4](05-componente-incorporabile.md)).
 
 ---
 
-## 4. Modalità D — moduli sostituibili
+## 4. Modalità D - moduli sostituibili
 
 ### 4.1 Che cosa comporta
 
@@ -359,15 +359,15 @@ usare.
 ## 8. Prima di passare al capitolo successivo
 
 Se avete scelto la modalità, il passo successivo è
-[02 — Primo avvio](02-primo-avvio.md), che porta da zero a una prima integrazione funzionante e
+[02 - Primo avvio](02-primo-avvio.md), che porta da zero a una prima integrazione funzionante e
 dichiara in anticipo i punti in cui ci si blocca.
 
 Se **non** avete scelto, la domanda che resta da risolvere è quasi sempre una di queste tre, e
 ciascuna ha un capitolo dedicato:
 
 1. «Chi possiede l'anagrafica, e che cosa succede quando le due divergono?» →
-   [07 — Dati e sincronizzazione](07-dati-e-sincronizzazione.md).
+   [07 - Dati e sincronizzazione](07-dati-e-sincronizzazione.md).
 2. «La nostra autenticazione può davvero propagarsi senza un secondo accesso?» →
-   [06 — Identità e delega](06-identita-e-delega.md).
+   [06 - Identità e delega](06-identita-e-delega.md).
 3. «Di che cosa rispondiamo noi e di che cosa risponde il progetto?» →
-   [09 — Obblighi di chi integra](09-obblighi-di-chi-integra.md).
+   [09 - Obblighi di chi integra](09-obblighi-di-chi-integra.md).

@@ -7,7 +7,7 @@ description: Che cos'è FHIR, perché il progetto usa la versione R4 4.0.1, come
 # FHIR da zero
 
 Questo è il modulo tecnico centrale della guida. Presuppone che tu abbia letto
-[il modulo sugli standard di interoperabilità](05-standard-di-interoperabilita.md) — in
+[il modulo sugli standard di interoperabilità](05-standard-di-interoperabilita.md) - in
 particolare le sezioni sulla profilazione e sulle terminologie, perché qui vengono date per
 acquisite.
 
@@ -25,7 +25,7 @@ Tutti gli esempi contengono **esclusivamente dati sintetici**.
 
 **FHIR** sta per *Fast Healthcare Interoperability Resources*. Si pronuncia come la parola
 inglese *fire*. È lo standard di interoperabilità sanitaria di HL7 International sviluppato
-a partire dagli anni Dieci, dopo due generazioni precedenti — HL7 versione 2, basato su
+a partire dagli anni Dieci, dopo due generazioni precedenti - HL7 versione 2, basato su
 messaggi testuali con separatori, e HL7 versione 3, basato su un modello di riferimento
 astratto di grande rigore formale e di notoria difficoltà di adozione.
 
@@ -68,7 +68,7 @@ loro.
 | R4 | 4.0.0 | 27 dicembre 2018 | Prima release con contenuto normativo **[V]** |
 | **R4 correzione tecnica** | **4.0.1** | **30 ottobre 2019** | Correzioni agli invarianti e alle risorse di conformità generate **[V]** |
 | R4B | 4.3.0 | 28 maggio 2022 | Evoluzione limitata di R4 **[V]** |
-| R5 | 5.0.0 | — | Release corrente della specifica principale **[V]** |
+| R5 | 5.0.0 | - | Release corrente della specifica principale **[V]** |
 
 La pagina di ogni risorsa R4 riporta in intestazione la dicitura `v4.0.1: R4 - Mixed
 Normative and STU` **[V]**: significa che alcune parti della specifica sono normative
@@ -81,8 +81,8 @@ Normative and STU` **[V]**: significa che alcune parti della specifica sono norm
 **Perché R4 e non R5 o versioni successive.** La ragione non è tecnica ed è decisiva: **le
 guide di implementazione su cui il progetto si basa poggiano su R4 4.0.1**.
 
-- Le guide italiane di telemedicina — `Televisita`, `Teleconsulto`, `Teleassistenza`,
-  `Telemonitoraggio` — e la guida `IT-Core` sono tutte su **FHIR 4.0.1** **[V]**.
+- Le guide italiane di telemedicina - `Televisita`, `Teleconsulto`, `Teleassistenza`,
+  `Telemonitoraggio` - e la guida `IT-Core` sono tutte su **FHIR 4.0.1** **[V]**.
 - I profili IHE che il progetto implementa sono su **R4 (4.0.1)**: quello per l'accesso
   mobile ai documenti **[V]**, quello per la correlazione degli identificativi **[V]**,
   quello per l'interrogazione demografica **[V]**, la guida sugli schemi di tracciamento
@@ -118,7 +118,7 @@ verificati **[V]**:
 Attenzione a due dettagli che si sbagliano quasi sempre. Primo: l'estensione richiede una
 sotto-estensione **obbligatoria** `_datatype` con valore fisso `VirtualServiceDetail`
 **[V]**; senza quella l'istanza non valida. Secondo: la sotto-estensione `address` è
-un'estensione **complessa**, non un valore semplice **[V]** — **[NV]** la sua forma esatta
+un'estensione **complessa**, non un valore semplice **[V]** - **[NV]** la sua forma esatta
 nelle istanze non è stata verificata e va accertata risolvendo il pacchetto alla versione
 fissata prima di scrivere codice.
 
@@ -187,7 +187,7 @@ spiegazioni sotto.
   "identifier": [
     {
       "system": "http://hl7.it/sid/codiceFiscale",
-      "value": "RSSMRA80A01H501U"
+      "value": "RSSMRA80A01H501Z"
     }
   ],
   "active": true,
@@ -223,23 +223,23 @@ spiegazioni sotto.
 che risorsa si tratta. Senza di esso il documento non è FHIR.
 
 **`id`** è l'**identificatore logico** della risorsa **su quel server**. È la parte finale
-dell'URL con cui la risorsa si raggiunge: `https://esempio.it/fhir/Patient/pat-0001`. Non
+dell'URL con cui la risorsa si raggiunge: `https://server.example/fhir/Patient/pat-0001`. Non
 ha significato clinico, non è portabile fra server, non va mai mostrato all'utente come se
 fosse un numero di cartella. Cambia se la risorsa viene copiata altrove.
 
 **`meta`** raccoglie i metadati tecnici:
 
-- `versionId` — il numero di versione della risorsa su quel server. Ogni modifica lo
+- `versionId` - il numero di versione della risorsa su quel server. Ogni modifica lo
   incrementa. È l'elemento su cui poggia il controllo di concorrenza (§7.7).
-- `lastUpdated` — l'istante dell'ultima modifica.
-- `profile` — l'elenco dei profili a cui la risorsa **dichiara** di conformarsi. È una
+- `lastUpdated` - l'istante dell'ultima modifica.
+- `profile` - l'elenco dei profili a cui la risorsa **dichiara** di conformarsi. È una
   dichiarazione, non una garanzia: solo la validazione la verifica.
-- `security` e `tag` — etichette; la prima ha significato di controllo degli accessi.
+- `security` e `tag` - etichette; la prima ha significato di controllo degli accessi.
 
 **`identifier`** è l'**identificatore di business**: il numero che ha significato nel mondo
 reale ed è riconoscibile fuori da quel server. È un array perché la stessa persona ha
-tipicamente più identificativi. Ogni identificatore è composto almeno da un `system` — che
-dichiara **in quale spazio dei nomi** il valore è univoco — e da un `value`.
+tipicamente più identificativi. Ogni identificatore è composto almeno da un `system` - che
+dichiara **in quale spazio dei nomi** il valore è univoco - e da un `value`.
 
 > **La distinzione fra `id` e `identifier` è la prima cosa da interiorizzare.** `id` è
 > «dove sta questa risorsa su questo server»; `identifier` è «chi è questa persona nel
@@ -273,7 +273,7 @@ FHIR distingue **tipi primitivi** (stringhe, numeri, date, booleani, con vincoli
 propri) e **tipi complessi** (strutture con più elementi). Questi sono i complessi che
 userai continuamente.
 
-#### `Identifier` — un identificativo con il suo spazio dei nomi
+#### `Identifier` - un identificativo con il suo spazio dei nomi
 
 ```json
 {
@@ -287,7 +287,7 @@ userai continuamente.
     ]
   },
   "system": "http://hl7.it/sid/codiceFiscale",
-  "value": "RSSMRA80A01H501U",
+  "value": "RSSMRA80A01H501Z",
   "period": { "start": "1998-03-01" },
   "assigner": { "display": "Ministero dell'economia e delle finanze" }
 }
@@ -301,7 +301,7 @@ letteralmente `NNxxx` con `xxx` da sostituire con il codice del paese a tre lett
 **nessun profilo italiano pubblicato fissa quale codice usare per il codice fiscale**
 **[V]**: la scelta va concordata con l'integratore.
 
-#### `HumanName` — un nome
+#### `HumanName` - un nome
 
 ```json
 {
@@ -317,7 +317,7 @@ letteralmente `NNxxx` con `xxx` da sostituire con il codice del paese a tre lett
 Quando entrambe sono presenti, `text` prevale ai fini della presentazione. Il valore di
 `use` distingue nome ufficiale, d'uso, da nubile, temporaneo, anonimo.
 
-#### `Address` — un indirizzo
+#### `Address` - un indirizzo
 
 ```json
 {
@@ -334,7 +334,7 @@ Quando entrambe sono presenti, `text` prevale ai fini della presentazione. Il va
 `line` è un array perché un indirizzo può avere più righe. `country` usa il codice del
 paese.
 
-#### `ContactPoint` — un recapito
+#### `ContactPoint` - un recapito
 
 ```json
 { "system": "email", "value": "m.rossi@esempio.invalid", "use": "home", "rank": 1 }
@@ -343,7 +343,7 @@ paese.
 `system` distingue telefono, fax, email, indirizzo web, cercapersone, altro. `rank` esprime
 la preferenza: `1` è il più preferito.
 
-#### `Period` — un intervallo temporale
+#### `Period` - un intervallo temporale
 
 ```json
 { "start": "2026-09-14T10:01:03+02:00", "end": "2026-09-14T10:34:57+02:00" }
@@ -353,7 +353,7 @@ Entrambi gli estremi sono facoltativi: un periodo con solo `start` è un interva
 aperto. **Scrivi sempre il fuso orario.** Un istante senza fuso è ambiguo, e in un registro
 di tracciamento un'ambiguità di due ore è la differenza fra un dato opponibile e uno inutile.
 
-#### `Quantity` — una misura
+#### `Quantity` - una misura
 
 ```json
 {
@@ -369,7 +369,7 @@ Distinzione fondamentale: `unit` è la stringa **per l'essere umano**; `code` è
 consente conversioni e confronti automatici. Scrivere `unit` senza `code` produce un dato
 non elaborabile.
 
-#### `Reference` — un puntatore a un'altra risorsa
+#### `Reference` - un puntatore a un'altra risorsa
 
 ```json
 { "reference": "Patient/pat-0001", "display": "Mario Rossi" }
@@ -378,12 +378,12 @@ non elaborabile.
 Se ne parla diffusamente al §4. `display` è un aiuto per la lettura umana e **non è
 autoritativo**: un client non deve mai fidarsene per la logica applicativa.
 
-#### `Attachment` — un contenuto binario o un suo riferimento
+#### `Attachment` - un contenuto binario o un suo riferimento
 
 ```json
 {
   "contentType": "application/pdf",
-  "url": "https://esempio.it/fhir/Binary/bin-0042",
+  "url": "https://server.example/fhir/Binary/bin-0042",
   "size": 184320,
   "hash": "3q2+7wAAAAAAAAAAAAAAAAAAAAA=",
   "title": "Referto di televisita del 14 settembre 2026",
@@ -451,7 +451,7 @@ Le regole di un'estensione:
    risorsa. Sui tipi primitivi si usa la forma con l'underscore: `_birthDate`.
 
 Esiste una variante speciale, `modifierExtension`, per il caso in cui l'informazione
-aggiunta **cambia il significato** del resto della risorsa — per esempio la nega. La regola
+aggiunta **cambia il significato** del resto della risorsa - per esempio la nega. La regola
 è severa: **un sistema che non riconosce una `modifierExtension` non può processare la
 risorsa**, deve rifiutarla. È un meccanismo di sicurezza: impedisce che un ricevente ignori
 un'informazione che ribalta il senso del dato.
@@ -481,25 +481,25 @@ Questa è la sezione da cui dipende la correttezza semantica di tutto il sistema
 
 Un **`CodeableConcept`** rappresenta *un concetto*. Contiene:
 
-- **`coding`** — zero o più codifiche **dello stesso concetto** in sistemi di codifica
+- **`coding`** - zero o più codifiche **dello stesso concetto** in sistemi di codifica
   diversi;
-- **`text`** — la rappresentazione testuale del concetto, destinata all'essere umano.
+- **`text`** - la rappresentazione testuale del concetto, destinata all'essere umano.
 
 Un **`Coding`** è una singola codifica. Contiene:
 
-- **`system`** — l'URI canonico del sistema di codifica. **È l'elemento che dà significato al
+- **`system`** - l'URI canonico del sistema di codifica. **È l'elemento che dà significato al
   codice.**
-- **`version`** — la versione del sistema di codifica, quando il codice o la sua descrizione
+- **`version`** - la versione del sistema di codifica, quando il codice o la sua descrizione
   possono variare fra versioni.
-- **`code`** — il simbolo, esattamente come definito nel sistema. È sensibile alle maiuscole.
-- **`display`** — la descrizione ufficiale del codice **secondo quel sistema**. Non è un
+- **`code`** - il simbolo, esattamente come definito nel sistema. È sensibile alle maiuscole.
+- **`display`** - la descrizione ufficiale del codice **secondo quel sistema**. Non è un
   campo libero.
-- **`userSelected`** — vero se è questa la codifica che l'utente ha effettivamente scelto,
+- **`userSelected`** - vero se è questa la codifica che l'utente ha effettivamente scelto,
   mentre le altre sono traduzioni derivate.
 
 ### 3.2 Le tre regole che si violano più spesso
 
-**Regola 1 — `system` non è facoltativo, mai.**
+**Regola 1 - `system` non è facoltativo, mai.**
 
 ```json
 // SBAGLIATO
@@ -519,13 +519,13 @@ sanità impone verbatim che l'incorporazione in un software, **nella trasmission
 memorizzazione, includa codice, titolo e URI** **[V]**. Scrivere un codice senza il suo URI
 è una deviazione da una **condizione della licenza**, non una svista.
 
-**Regola 2 — `display` è la descrizione ufficiale del codice, non un'etichetta libera.**
+**Regola 2 - `display` è la descrizione ufficiale del codice, non un'etichetta libera.**
 
 ```json
-// SBAGLIATO — display "italianizzato" a piacere
+// SBAGLIATO - display "italianizzato" a piacere
 { "system": "http://loinc.org", "code": "75496-0", "display": "Nota di telemedicina" }
 
-// CORRETTO — display ufficiale, testo italiano in text
+// CORRETTO - display ufficiale, testo italiano in text
 {
   "coding": [
     { "system": "http://loinc.org", "code": "75496-0", "display": "Telehealth Note" }
@@ -540,11 +540,11 @@ il progetto non ne è titolare. L'etichetta italiana visibile all'utente è una 
 interfaccia, che vive nei file di internazionalizzazione; il testo clinico italiano va in
 `text`. **[V]**
 
-**Regola 3 — più `coding` significano lo stesso concetto in sistemi diversi, non concetti
+**Regola 3 - più `coding` significano lo stesso concetto in sistemi diversi, non concetti
 diversi.**
 
 ```json
-// SBAGLIATO — due concetti clinici distinti nello stesso CodeableConcept
+// SBAGLIATO - due concetti clinici distinti nello stesso CodeableConcept
 {
   "coding": [
     { "system": "http://hl7.org/fhir/sid/icd-9-cm", "code": "427.31" },
@@ -559,7 +559,7 @@ elementi separati, non due `coding` dello stesso elemento.
 
 ### 3.3 `Coding` o `CodeableConcept`?
 
-La specifica usa `Coding` — senza involucro — dove il valore è per sua natura un singolo
+La specifica usa `Coding` - senza involucro - dove il valore è per sua natura un singolo
 codice di un singolo sistema, e non ha senso rappresentarlo in più codifiche. Esempio
 verificato: l'elemento che qualifica la classe del contatto assistenziale è di tipo
 `Coding`, cardinalità `1..1`, con binding *extensible* **[V]**. Non ci si mette un
@@ -591,7 +591,7 @@ purché si copino insieme.
 ### 4.2 Riferimento assoluto
 
 ```json
-{ "subject": { "reference": "https://anagrafe.esempio.it/fhir/Patient/98721" } }
+{ "subject": { "reference": "https://anagrafe.example/fhir/Patient/98721" } }
 ```
 
 Punta a una risorsa su **un altro server**. È corretto quando la risorsa sta davvero
@@ -607,7 +607,7 @@ a un elenco esplicito.
   "subject": {
     "identifier": {
       "system": "http://hl7.it/sid/codiceFiscale",
-      "value": "RSSMRA80A01H501U"
+      "value": "RSSMRA80A01H501Z"
     },
     "display": "Mario Rossi"
   }
@@ -615,7 +615,7 @@ a un elenco esplicito.
 ```
 
 Non punta a un indirizzo: punta a **un'identità nel mondo**. È la forma corretta quando il
-ricevente conosce la persona ma non conosce — o non deve conoscere — l'indirizzo tecnico
+ricevente conosce la persona ma non conosce - o non deve conoscere - l'indirizzo tecnico
 della risorsa sul server di origine.
 
 **È la forma che il progetto usa nel dialogo con gli integratori**, perché soddisfa
@@ -652,7 +652,7 @@ seguito dall'`id` locale.
 **Quando usarla:** solo quando la risorsa contenuta non ha senso fuori dal suo contenitore
 e non sarà mai referenziata da altro. **Quando non usarla:** per pazienti, professionisti,
 organizzazioni, dispositivi censiti. Contenere un `Patient` significa creare una copia della
-persona che nessuno potrà correlare con nient'altro — l'esatto opposto dello scopo di FHIR.
+persona che nessuno potrà correlare con nient'altro - l'esatto opposto dello scopo di FHIR.
 
 **[V]** Il codice LOINC `8480-6` usato nell'esempio non è stato verificato nella fase di
 ricerca del progetto: **[NV]**, va confermato prima dell'uso reale.
@@ -660,7 +660,7 @@ ricerca del progetto: **[NV]**, va confermato prima dell'uso reale.
 ### 4.5 Riferimenti dentro un `Bundle`
 
 Quando più risorse viaggiano insieme in un `Bundle` e nessuna di esse è ancora stata
-creata sul server — e quindi nessuna ha ancora un `id` — si usano identificatori temporanei
+creata sul server - e quindi nessuna ha ancora un `id` - si usano identificatori temporanei
 nella forma `urn:uuid:`:
 
 ```json
@@ -751,14 +751,14 @@ il suo scheletro:
 
 Gli elementi che contano:
 
-- **`url`** — l'URL canonico del profilo. È l'identificatore globale, quello che le istanze
+- **`url`** - l'URL canonico del profilo. È l'identificatore globale, quello che le istanze
   scrivono in `meta.profile`.
-- **`type`** — il tipo di risorsa profilato.
-- **`baseDefinition`** — il profilo o la risorsa da cui si deriva. Qui si vede la catena:
+- **`type`** - il tipo di risorsa profilato.
+- **`baseDefinition`** - il profilo o la risorsa da cui si deriva. Qui si vede la catena:
   questo profilo deriva dal profilo italiano, che deriva dalla risorsa di base.
-- **`derivation`** — `constraint` se restringe, `specialization` se definisce un nuovo tipo.
-- **`differential`** — **solo le differenze** rispetto alla base.
-- **`snapshot`** — la struttura completa risultante, con tutti gli elementi. La specifica
+- **`derivation`** - `constraint` se restringe, `specialization` se definisce un nuovo tipo.
+- **`differential`** - **solo le differenze** rispetto alla base.
+- **`snapshot`** - la struttura completa risultante, con tutti gli elementi. La specifica
   raccomanda che i profili usati nei sistemi in esercizio abbiano lo snapshot popolato
   **[V]**: senza, un validatore deve ricostruirlo risalendo la catena.
 
@@ -772,7 +772,7 @@ La pagina generata di un profilo mostra una tabella con queste colonne, che vann
 quest'ordine:
 
 1. **Nome dell'elemento**, con l'indentazione a indicare l'annidamento.
-2. **Cardinalità** — sempre per prima, dopo il nome. Metà delle validazioni fallite dipende
+2. **Cardinalità** - sempre per prima, dopo il nome. Metà delle validazioni fallite dipende
    da un elemento obbligatorio non valorizzato.
 3. **Tipo**, e per i riferimenti l'elenco dei tipi ammessi. **È vincolante.** Esempio
    verificato che vale la pena memorizzare: in R4 l'elemento che elenca i partecipanti a un
@@ -780,7 +780,7 @@ quest'ordine:
    persona correlata, **ma non al paziente** **[V]**. Il paziente si esprime con l'elemento
    dedicato al soggetto. Modellarlo come partecipante è un errore di conformità che i
    validatori segnalano.
-4. **Flag** — *summary*, *modifier*, *must support*.
+4. **Flag** - *summary*, *modifier*, *must support*.
 5. **Binding** e sua forza.
 6. **Descrizione e vincoli**, inclusi gli invarianti.
 
@@ -833,7 +833,7 @@ Esempio di differenziale che definisce due slice di identificatori:
 }
 ```
 
-`rules: "open"` significa che sono ammesse occorrenze che non ricadono in nessuno slice —
+`rules: "open"` significa che sono ammesse occorrenze che non ricadono in nessuno slice -
 ed è la scelta corretta qui, perché l'integratore può portare i propri identificativi.
 
 ### 5.4 Must support: il vincolo che deve essere definito
@@ -948,10 +948,10 @@ for an organization"* **[V]**.
 `specialty` (binding *preferred*), `location`, `healthcareService`, `telecom`,
 `availableTime`, `period`, `endpoint`.
 
-**Come la usa Telemedic — regola vincolante.** In un sistema multi-tenant, **il
+**Come la usa Telemedic - regola vincolante.** In un sistema multi-tenant, **il
 professionista che eroga una prestazione va referenziato tramite `PractitionerRole`, non
-tramite `Practitioner`**. È il ruolo — professionista X, presso organizzazione Y, con
-specialità Z — a essere pertinente al tenant, non le credenziali personali. Questa scelta
+tramite `Practitioner`**. È il ruolo - professionista X, presso organizzazione Y, con
+specialità Z - a essere pertinente al tenant, non le credenziali personali. Questa scelta
 discende direttamente dal vincolo di consapevolezza del tenant su ogni entità.
 
 ### 6.4 `Organization`
@@ -996,7 +996,7 @@ appuntamento già in stato `booked` e **non gestisce** la negoziazione
 **Trappola verificata.** In R4 `Appointment` **non ha un elemento per l'indirizzo della
 sessione virtuale** **[V]**. Le opzioni sono l'estensione cross-version (§1.3), un
 riferimento a una risorsa `Endpoint` in `supportingInformation`, oppure il campo di
-istruzioni al paziente — che però è testo libero e non elaborabile.
+istruzioni al paziente - che però è testo libero e non elaborabile.
 
 ### 6.7 `AppointmentResponse`
 
@@ -1015,7 +1015,7 @@ sessione».
 professionista, una stanza, un servizio); `Slot` è la singola finestra prenotabile dentro
 un `Schedule`.
 
-**Come le usa Telemedic.** Solo quando l'agenda è gestita dal progetto — cioè quando il
+**Come le usa Telemedic.** Solo quando l'agenda è gestita dal progetto - cioè quando il
 modulo di agenda proprio è attivo. Quando l'agenda esiste già nel sistema
 dell'integratore, il progetto non le popola: riceve gli appuntamenti già formati.
 
@@ -1032,22 +1032,22 @@ amministrativo. È la risorsa centrale del modello di sessione.
 
 | Elemento | Card. | Tipo | Binding |
 |---|---|---|---|
-| `identifier` | 0..* | `Identifier` | — |
+| `identifier` | 0..* | `Identifier` | - |
 | `status` | **1..1** | `code` | *required* |
-| `statusHistory` | 0..* | struttura con `status` (`1..1`) e `period` (`1..1`) | — |
+| `statusHistory` | 0..* | struttura con `status` (`1..1`) e `period` (`1..1`) | - |
 | **`class`** | **1..1** | **`Coding`** | *extensible* |
 | `type` | 0..* | `CodeableConcept` | *example* |
 | `serviceType` | 0..1 | `CodeableConcept` | *example* |
-| `subject` | 0..1 | `Reference(Patient｜Group)` | — |
+| `subject` | 0..1 | `Reference(Patient｜Group)` | - |
 | `participant.type` | 0..* | `CodeableConcept` | *extensible* |
-| `participant.individual` | 0..1 | `Reference(Practitioner｜PractitionerRole｜RelatedPerson)` | — |
-| `appointment` | 0..* | `Reference(Appointment)` | — |
-| `period` | 0..1 | `Period` | — |
+| `participant.individual` | 0..1 | `Reference(Practitioner｜PractitionerRole｜RelatedPerson)` | - |
+| `appointment` | 0..* | `Reference(Appointment)` | - |
+| `period` | 0..1 | `Period` | - |
 | `reasonCode` | 0..* | `CodeableConcept` | *preferred* |
-| `diagnosis.condition` | 1..1 | `Reference(Condition｜Procedure)` | — |
-| `location.location` | 1..1 | `Reference(Location)` | — |
-| `serviceProvider` | 0..1 | `Reference(Organization)` | — |
-| `partOf` | 0..1 | `Reference(Encounter)` | — |
+| `diagnosis.condition` | 1..1 | `Reference(Condition｜Procedure)` | - |
+| `location.location` | 1..1 | `Reference(Location)` | - |
+| `serviceProvider` | 0..1 | `Reference(Organization)` | - |
+| `partOf` | 0..1 | `Reference(Encounter)` | - |
 
 I nove stati ammessi **[V]**: `planned`, `arrived`, `triaged`, `in-progress`, `onleave`,
 `finished`, `cancelled`, `entered-in-error`, `unknown`.
@@ -1091,7 +1091,7 @@ immutabilità.
 2. **`class` è obbligatoria in R4** e diventa ripetibile e facoltativa in R5 **[V]**: chi
    scrive codice che genera `Encounter` deve valorizzarla sempre.
 3. **`reasonCode` ha binding *preferred* verso un value set che include circa quattromila
-   codici SNOMED** **[V]**. *Preferred* significa che un codice diverso è ammesso — ed è
+   codici SNOMED** **[V]**. *Preferred* significa che un codice diverso è ammesso - ed è
    esattamente la via che il progetto percorre, perché SNOMED CT in Italia comporta una
    licenza onerosa (vedi il modulo precedente, §8.4).
 
@@ -1110,15 +1110,15 @@ con un autore, un attestatore, un custode e un titolo.
 - un documento FHIR è un `Bundle` di tipo `document` con la `Composition` come **prima
   entry**;
 - l'identità del documento è in `Bundle.identifier`, globalmente univoca e **mai riusata**;
-- *"once assembled into a bundle, the document is immutable — its content can never be
+- *"once assembled into a bundle, the document is immutable - its content can never be
   changed, and the document id can never be reused"*;
 - le firme digitali si applicano al `Bundle`;
 - l'operazione `$document` genera il bundle a partire dalla `Composition`.
 
 **Come la usa Telemedic.** Il referto di televisita **è una `Composition`**, non un
 `DiagnosticReport`. La ragione è duplice: la guida italiana lo modella così (profilo
-`CompositionRefertoTelevisita` **[V]**), e la natura del contenuto — narrativa e redatta dal
-medico — corrisponde al confine che la specifica stessa traccia **[V]**: i referti di
+`CompositionRefertoTelevisita` **[V]**), e la natura del contenuto - narrativa e redatta dal
+medico - corrisponde al confine che la specifica stessa traccia **[V]**: i referti di
 laboratorio, anatomia patologica e imaging usano `DiagnosticReport`; per contenuti
 prevalentemente narrativi e con minore struttura di workflow *"the Composition resource
 would be more appropriate"*.
@@ -1140,13 +1140,15 @@ risorsa tipicamente usata nei sistemi di indicizzazione documentale.
 `content.attachment` (`1..1`) e `content.format`, e il blocco `context` con `encounter`,
 `event`, `period`, `facilityType`, `practiceSetting`, `sourcePatientInfo`.
 
-**Come la usa Telemedic — due usi distinti.**
+**Come la usa Telemedic - due usi distinti.**
 
 1. **Indicizzazione del referto**: dopo aver assemblato il documento, si crea un
    `DocumentReference` che lo indicizza e lo rende recuperabile. È l'aggancio verso il
    profilo IHE di pubblicazione documentale.
 2. **Registrazione video della sessione**: si modella su `DocumentReference` con
-   `content.attachment.contentType` valorizzato al tipo del contenitore video. **Mai** sulla
+   `content.attachment.contentType` valorizzato al tipo del contenitore video **negoziato a
+   runtime e mai presunto** (vincolo `V-11`, [`04_protocols/02 §10.3`](../04_protocols/02-fhir.md)).
+   **Mai** sulla
    risorsa rimossa in R5 **[V]**.
 
 ### 6.12 `DiagnosticReport`
@@ -1159,7 +1161,7 @@ binding *preferred* verso codici LOINC), `subject`, `encounter`, `effective[x]`,
 `performer`, `resultsInterpreter`, `result` (riferimenti a `Observation`), `conclusion`,
 `conclusionCode`, `presentedForm`.
 
-**Come la usa Telemedic — e il vincolo che ne governa l'uso.** `DiagnosticReport` è
+**Come la usa Telemedic - e il vincolo che ne governa l'uso.** `DiagnosticReport` è
 mantenuto come **proiezione in sola lettura**, per gli integratori che sanno consumare solo
 questa risorsa. Non è mai l'artefatto primario.
 
@@ -1189,8 +1191,8 @@ progetta la persistenza di misure deve attenersi a questo elenco.
 del telemonitoraggio provenienti da un gateway di terze parti o dall'inserimento manuale del
 paziente.
 
-**Avvertenza architetturale.** Le metriche tecniche di qualità della connessione — tempo di
-andata e ritorno, perdita di pacchetti, variazione del ritardo — **non sono osservazioni
+**Avvertenza architetturale.** Le metriche tecniche di qualità della connessione - tempo di
+andata e ritorno, perdita di pacchetti, variazione del ritardo - **non sono osservazioni
 cliniche** e non vanno modellate come `Observation` con il paziente come soggetto:
 inquinerebbero la cartella clinica con dato tecnico. Vivono nella base di dati delle serie
 temporali. Se un giorno servisse esporle in FHIR, il soggetto sarebbe un dispositivo o un
@@ -1286,7 +1288,7 @@ collaboratively between HL7, DICOM, and IHE"*.
 **Come la usa Telemedic.** Un **unico modello di tracciamento interno**, serializzabile sia
 come risorsa FHIR (per l'API) sia nel formato XML previsto dalla transazione IHE (per
 l'invio al repository dell'integratore). La guida IHE sugli schemi di base fornisce i
-modelli concreti, inclusi i due per la comunicazione di dati a terzi **[V]** — che sono
+modelli concreti, inclusi i due per la comunicazione di dati a terzi **[V]** - che sono
 esattamente quelli necessari quando il referto viene restituito al sistema di origine.
 
 ### 6.19 `Provenance`
@@ -1340,14 +1342,14 @@ condizionali), `response` (con stato, posizione, etag).
 **A cosa serve.** Chiede al server di essere notificati quando accade qualcosa.
 
 **Elementi in R4** **[V]**: `status` (`1..1`), `contact`, `end`, `reason` (**`1..1`**),
-`criteria` (**`1..1`** — i criteri di ricerca che innescano la notifica), `error`,
+`criteria` (**`1..1`** - i criteri di ricerca che innescano la notifica), `error`,
 `channel.type` (`rest-hook` | `websocket` | `email` | `sms` | `message`),
 `channel.endpoint`, `channel.payload`, `channel.header`.
 
 **I limiti dichiarati dalla specifica, da conoscere prima di progettare i webhook**
 **[V]**:
 
-1. *"search criteria are applied to the new value of the resource"* — **non c'è notifica
+1. *"search criteria are applied to the new value of the resource"* - **non c'è notifica
    quando una risorsa viene cancellata o modificata in modo da non soddisfare più i
    criteri**. Un contatto assistenziale che passa da «in corso» ad «annullato» non genera
    notifica su una sottoscrizione che filtra sui contatti in corso. È un limite strutturale,
@@ -1377,7 +1379,7 @@ errori comuni:
   degli argomenti **[V]**.
 - In R4 **non esiste una risorsa di stato della sottoscrizione**: lo stato viaggia come
   risorsa `Parameters` conforme a un profilo dedicato, con i nomi dei parametri in
-  *kebab-case* — quindi `event-number`, non `eventNumber` **[V]**.
+  *kebab-case* - quindi `event-number`, non `eventNumber` **[V]**.
 - Le operazioni sono tre: `$status` (**obbligatoria**), `$events`, `$get-ws-binding-token`
   **[V]**.
 
@@ -1409,7 +1411,7 @@ Ogni volta che qualcosa va storto in un'API FHIR, la risposta la contiene.
 ```
 
 Ogni segnalazione ha una gravità (`fatal`, `error`, `warning`, `information`), un codice di
-tipo, un testo diagnostico e — elemento prezioso — l'**espressione** che indica il punto
+tipo, un testo diagnostico e - elemento prezioso - l'**espressione** che indica il punto
 esatto della risorsa a cui la segnalazione si riferisce.
 
 **Come la usa Telemedic.** Regola di progetto: ogni errore restituito dall'API porta un
@@ -1444,7 +1446,7 @@ Note che risparmiano tempo:
 
 - **`vread` legge una versione specifica.** È ciò che rende dimostrabile «cosa diceva questa
   risorsa il 14 settembre alle 10:34».
-- **`410 Gone`** distingue «non è mai esistita» (404) da «è stata cancellata» — informazione
+- **`410 Gone`** distingue «non è mai esistita» (404) da «è stata cancellata» - informazione
   clinicamente rilevante.
 - **`update` può creare**, se il server lo consente e il client conosce l'identificativo che
   vuole assegnare.
@@ -1466,7 +1468,7 @@ duplicato.
 ```http
 POST /fhir/Appointment HTTP/1.1
 Content-Type: application/fhir+json
-If-None-Exist: identifier=https://gestionale.esempio.it/appuntamenti|PLC-88213
+If-None-Exist: identifier=https://gestionale.example/appuntamenti|PLC-88213
 ```
 
 ### 7.3 La ricerca
@@ -1527,8 +1529,8 @@ Regole di escape **[V]**: i caratteri `$`, `,` e `|` vanno preceduti da una barr
 `Prefer: handling=strict`.
 
 È ragionevole per l'evoluzione dello standard e **pericoloso in un sistema multi-tenant**:
-un client che invia un filtro di autorizzazione scritto male — un parametro che il server
-non riconosce — riceve **silenziosamente più dati del previsto**. Il progetto sceglie
+un client che invia un filtro di autorizzazione scritto male - un parametro che il server
+non riconosce - riceve **silenziosamente più dati del previsto**. Il progetto sceglie
 deliberatamente il comportamento opposto: **errore sui parametri non riconosciuti, come
 comportamento predefinito del server**, e lo documenta come deviazione consapevole da una
 raccomandazione della specifica.
@@ -1537,7 +1539,7 @@ Il server **deve** restituire i parametri effettivamente usati nel collegamento 
 risultato **[V]**: è ciò che consente al client di accorgersi se un filtro è stato ignorato.
 
 Sulla **paginazione** **[V]**: le relazioni di collegamento sono `self`, `first`,
-`previous`, `next`, `last`, e **i collegamenti sono opachi** — li definisce il server, il
+`previous`, `next`, `last`, e **i collegamenti sono opachi** - li definisce il server, il
 client non deve costruirli da sé. Un client che costruisce a mano l'URL della pagina
 successiva si romperà alla prima modifica dell'implementazione.
 
@@ -1557,8 +1559,8 @@ controllo che opera solo sul token può essere aggirato da un corpo malformato.
 
 ### 7.5 Le operazioni
 
-Quando un'azione non si esprime con le interazioni REST — perché non è una lettura né una
-scrittura di risorsa — si usa un'**operazione**, il cui nome comincia con `$` **[V]**:
+Quando un'azione non si esprime con le interazioni REST - perché non è una lettura né una
+scrittura di risorsa - si usa un'**operazione**, il cui nome comincia con `$` **[V]**:
 
 ```text
 [base]/$[nome]                  # a livello di sistema
@@ -1615,7 +1617,10 @@ FHIR lo risolve con il controllo di concorrenza ottimistico **[V]**:
 - la specifica dice: *"Servers SHOULD always return an ETag header with each resource"*;
 - l'aggiornamento consapevole della versione si effettua con `If-Match`;
 - in caso di discordanza il server restituisce **412 Precondition Failed**;
-- se il client non fornisce `If-Match`, il server **può** restituire 400.
+- se il client non fornisce `If-Match`, la specifica consente al server di restituire `400`; la
+  **scelta di progetto è `428 Precondition Required`** (`P-02`,
+  [`04_protocols/02 §8.3`](../04_protocols/02-fhir.md)), perché dice al client che cosa manca
+  invece di dirgli soltanto che ha sbagliato.
 
 ```http
 GET /fhir/Encounter/enc-0001 HTTP/1.1
@@ -1646,7 +1651,7 @@ corpo), `return=representation` (la risorsa completa), `return=OperationOutcome`
 **[V]**: `304` non modificato (lettura condizionale), `400` richiesta malformata, `401` non
 autenticato, `403` non autorizzato, `404` non trovato, `405` metodo non consentito, `406`
 formato non accettabile, `409` conflitto, `410` risorsa cancellata, `412` precondizione
-fallita, `415` tipo di contenuto non supportato, **`422` entità non elaborabile** — che è il
+fallita, `415` tipo di contenuto non supportato, **`422` entità non elaborabile** - che è il
 codice della violazione di profilo o di regola di business, ed è quello che vedrai più
 spesso quando un'istanza non passa la validazione.
 
@@ -1726,19 +1731,19 @@ difetto. Il progetto fissa la versione e lo documenta.
 
 Il flusso di validazione ha tre livelli, che rilevano cose diverse.
 
-**Livello 1 — validazione strutturale locale.** Verifica che l'istanza sia JSON valido,
+**Livello 1 - validazione strutturale locale.** Verifica che l'istanza sia JSON valido,
 conforme allo schema della risorsa, con cardinalità e tipi rispettati. È veloce e va
 eseguita a ogni salvataggio.
 
-**Livello 2 — validazione contro i profili.** Verifica gli invarianti, gli slice, i valori
+**Livello 2 - validazione contro i profili.** Verifica gli invarianti, gli slice, i valori
 fissi, i binding. Richiede che i pacchetti dei profili siano risolti e che i profili abbiano
 lo snapshot popolato. È il livello che intercetta la maggior parte degli errori reali.
 
-**Livello 3 — validazione terminologica.** Verifica che i codici esistano nei sistemi
+**Livello 3 - validazione terminologica.** Verifica che i codici esistano nei sistemi
 dichiarati e appartengano ai value set legati. Richiede un servizio terminologico.
 
 Il livello 3 è quello con il costo dichiarato dalla politica terminologica del progetto:
-con la funzione SNOMED disattivata, **i binding che dipendono da SNOMED non si validano** —
+con la funzione SNOMED disattivata, **i binding che dipendono da SNOMED non si validano** -
 circa quattromila codici per il legame sui motivi del contatto assistenziale **[V]**. È il
 prezzo più alto della prudenza sulle licenze, e va conosciuto invece che scoperto.
 
@@ -1746,7 +1751,7 @@ In integrazione continua, la validazione deve essere un **gate**: se un esempio 
 repository non valida contro il profilo dichiarato, la build fallisce. Gli esempi che non
 validano sono peggio di nessun esempio, perché insegnano a sbagliare.
 
-Sul server, la validazione si invoca con `$validate` — ricordando che restituisce **200
+Sul server, la validazione si invoca con `$validate` - ricordando che restituisce **200
 anche in caso di errori** **[V]**.
 
 **[NV]** I nomi, le versioni e le modalità di invocazione degli strumenti concreti di
@@ -1759,17 +1764,17 @@ configurazione di build.
 Questa sezione non è una critica: è informazione che serve per non perdere giornate. Tutti i
 punti sono verificati su fonte primaria.
 
-**Problema 1 — Versioni flottanti.** Già descritto: la dipendenza dichiarata `current`
+**Problema 1 - Versioni flottanti.** Già descritto: la dipendenza dichiarata `current`
 **[V]**.
 
-**Problema 2 — Campi di pubblicazione segnaposto.** La guida `Televisita` 0.2.0 dichiara
-come editore `Example Publisher` e come contatto un dominio di esempio: sono **i valori
+**Problema 2 - Campi di pubblicazione segnaposto.** La guida `Televisita` 0.2.0 dichiara
+come editore un valore segnaposto e come contatto un dominio di esempio: sono **i valori
 predefiniti del modello dello strumento di pubblicazione, mai sostituiti** **[V]**. La
 conseguenza è sostanziale e non estetica: la stessa guida dichiara anche una licenza, e una
 dichiarazione di licenza che convive con un editore inesistente **non è attribuibile a un
 soggetto identificato**.
 
-**Problema 3 — La divergenza dell'URI di sistema del codice fiscale. Questa è la trappola
+**Problema 3 - La divergenza dell'URI di sistema del codice fiscale. Questa è la trappola
 concreta.**
 
 Il fatto, verificato su fonte primaria **[V]**:
@@ -1788,7 +1793,7 @@ identificatori diversi**.
 Le conseguenze concrete, in ordine di gravità:
 
 1. **La ricerca non trova.** Una query
-   `GET /fhir/Patient?identifier=http://hl7.it/sid/codiceFiscale|RSSMRA80A01H501U` non
+   `GET /fhir/Patient?identifier=http://hl7.it/sid/codiceFiscale|RSSMRA80A01H501Z` non
    restituisce un paziente registrato con l'URI di IT-Core. Non è un errore: è il
    comportamento corretto di un motore di ricerca su token, che confronta sistema **e**
    valore.
@@ -1800,7 +1805,7 @@ Le conseguenze concrete, in ordine di gravità:
    viceversa.
 4. **Il consumatore non riconosce.** Un sistema allineato a IT-Core che riceve un documento
    prodotto secondo `Televisita` non riconosce l'identificatore del paziente, e finisce per
-   riconciliare su nome e data di nascita — cioè nel modo sbagliato.
+   riconciliare su nome e data di nascita - cioè nel modo sbagliato.
 
 **La regola del progetto**, motivata: poiché Telemedic dichiara conformità alla famiglia
 `Televisita`, **l'URI da scrivere è `http://hl7.it/sid/codiceFiscale`** **[V]**. In aggiunta:
@@ -1822,7 +1827,7 @@ Esempio del mapping, illustrato:
 // Come Telemedic scrive (conformità alla famiglia Televisita)
 {
   "identifier": [
-    { "system": "http://hl7.it/sid/codiceFiscale", "value": "RSSMRA80A01H501U" }
+    { "system": "http://hl7.it/sid/codiceFiscale", "value": "RSSMRA80A01H501Z" }
   ]
 }
 
@@ -1831,7 +1836,7 @@ Esempio del mapping, illustrato:
   "identifier": [
     {
       "system": "http://hl7.it/fhir/itcore/CodeSystem/cs-codicefiscale",
-      "value": "RSSMRA80A01H501U"
+      "value": "RSSMRA80A01H501Z"
     }
   ]
 }
@@ -1840,7 +1845,7 @@ Esempio del mapping, illustrato:
 La proiezione avviene **nello strato di adattamento**, sul confine con il consumatore, e
 non tocca il modello interno.
 
-**Problema 4 — Il sistema di codifica delle diagnosi non dichiara l'edizione.** Il
+**Problema 4 - Il sistema di codifica delle diagnosi non dichiara l'edizione.** Il
 `CodeSystem` delle diagnosi definito nella guida `Televisita` enumera oltre mille codici
 della classificazione italiana delle malattie **senza dichiarare a quale edizione
 corrispondano**, e senza dichiarazione di copyright **[V]**. L'assenza è accertata, non
@@ -1852,21 +1857,21 @@ Si aggiunge che esistono **due URI concorrenti** per la stessa classificazione: 
 internazionale della specifica FHIR e quello definito dalla guida italiana **[V]**. Vanno
 tenuti distinti e mai mescolati.
 
-**Problema 5 — Un insieme di valori il cui nome non corrisponde al contenuto.** Nella guida
+**Problema 5 - Un insieme di valori il cui nome non corrisponde al contenuto.** Nella guida
 `Televisita` esiste un insieme di valori il cui identificativo suggerisce le tipologie di
-prescrizione, mentre il titolo mostrato e il contenuto effettivo — sette voci — riguardano i
+prescrizione, mentre il titolo mostrato e il contenuto effettivo - sette voci - riguardano i
 codici di assistenza per cittadini stranieri **[V]**. Chi implementa fidandosi del nome
 trova tutt'altro.
 
-**Problema 6 — Il profilo del contatto assistenziale non fissa la classe.** Verificato
+**Problema 6 - Il profilo del contatto assistenziale non fissa la classe.** Verificato
 **[V]**: `EncounterTelevisita` porta `class` a `1..1` con binding *extensible*, **ma non
 fissa alcun valore**. Il profilo italiano **non impone `VR`**. Poiché il binding è
 estensibile e `VR` è l'unico codice del vocabolario che denoti la modalità non compresente,
-`VR` è la scelta conforme e difendibile — ma è una **decisione di progetto di Telemedic**,
+`VR` è la scelta conforme e difendibile - ma è una **decisione di progetto di Telemedic**,
 non una prescrizione della guida. Va formalizzata in una decisione architetturale e va
 sollevata con l'ente.
 
-**Problema 7 — Dipendenza dichiarata da SNOMED CT.** Le guide dichiarano SNOMED CT fra le
+**Problema 7 - Dipendenza dichiarata da SNOMED CT.** Le guide dichiarano SNOMED CT fra le
 dipendenze, e la guida `IT-Core` riporta in piè di pagina l'avviso che gli utenti devono
 procurarsi la licenza appropriata **[V]**. HL7 Italia riconosce il problema e lo trasferisce
 all'implementatore. Telemedic fa lo stesso, con la stessa chiarezza: dichiarare conformità a
@@ -1883,7 +1888,7 @@ realmente ricorrenti, non ipotesi.
 ### 9.1 Il paziente modellato come partecipante
 
 ```json
-// SBAGLIATO — non ammesso in R4
+// SBAGLIATO - non ammesso in R4
 {
   "resourceType": "Encounter",
   "participant": [{ "individual": { "reference": "Patient/pat-0001" } }]
@@ -1927,15 +1932,15 @@ verificato ed è incluso nel vocabolario del tipo di partecipante, insieme a `SP
 ### 9.3 Confondere `id` e `identifier`
 
 ```json
-// SBAGLIATO — il codice fiscale usato come id tecnico
-{ "resourceType": "Patient", "id": "RSSMRA80A01H501U" }
+// SBAGLIATO - il codice fiscale usato come id tecnico
+{ "resourceType": "Patient", "id": "RSSMRA80A01H501Z" }
 
 // CORRETTO
 {
   "resourceType": "Patient",
   "id": "pat-0001",
   "identifier": [
-    { "system": "http://hl7.it/sid/codiceFiscale", "value": "RSSMRA80A01H501U" }
+    { "system": "http://hl7.it/sid/codiceFiscale", "value": "RSSMRA80A01H501Z" }
   ]
 }
 ```
@@ -1988,7 +1993,7 @@ La prima entry del bundle documento **deve** essere la `Composition` **[V]**.
 ### 9.6 Il video modellato sulla risorsa rimossa in R5
 
 ```json
-// SBAGLIATO — la risorsa non esiste in R5
+// SBAGLIATO - la risorsa non esiste in R5
 { "resourceType": "Media", "content": { "contentType": "video/mp4" } }
 
 // CORRETTO
@@ -2001,7 +2006,7 @@ La prima entry del bundle documento **deve** essere la `Composition` **[V]**.
     {
       "attachment": {
         "contentType": "video/mp4",
-        "url": "https://esempio.it/fhir/Binary/rec-0001",
+        "url": "https://server.example/fhir/Binary/rec-0001",
         "title": "Registrazione della sessione del 14 settembre 2026"
       }
     }
@@ -2012,7 +2017,7 @@ La prima entry del bundle documento **deve** essere la `Composition` **[V]**.
 ### 9.7 Le metriche di rete come osservazioni cliniche
 
 ```json
-// SBAGLIATO — dato tecnico nella cartella del paziente
+// SBAGLIATO - dato tecnico nella cartella del paziente
 {
   "resourceType": "Observation",
   "subject": { "reference": "Patient/pat-0001" },
@@ -2033,7 +2038,7 @@ Già visto al §3.2, regola 3. Due condizioni cliniche distinte sono due element
 ### 9.9 L'aggiornamento senza controllo di versione
 
 ```http
-# SBAGLIATO — sovrascrive le modifiche altrui senza accorgersene
+# SBAGLIATO - sovrascrive le modifiche altrui senza accorgersene
 PUT /fhir/Encounter/enc-0001
 
 # CORRETTO
@@ -2074,7 +2079,7 @@ I collegamenti di paginazione sono **opachi** e li definisce il server **[V]**.
 ### 9.12 La risorsa contenuta usata al posto di un riferimento
 
 ```json
-// SBAGLIATO — crea una copia del paziente che nessuno potrà correlare
+// SBAGLIATO - crea una copia del paziente che nessuno potrà correlare
 {
   "resourceType": "Encounter",
   "contained": [{ "resourceType": "Patient", "id": "p", "name": [{ "family": "Rossi" }] }],
@@ -2095,7 +2100,7 @@ I collegamenti di paginazione sono **opachi** e li definisce il server **[V]**.
 1. **La risorsa è l'unità di FHIR**: un oggetto di dominio autoconsistente, con identità
    propria e indirizzo proprio. Non esiste solo dentro un messaggio.
 2. **La versione è `4.0.1`, non «R4».** Si sceglie R4 perché **è la versione dell'ecosistema
-   su cui poggiano le guide italiane e i profili IHE che il progetto deve implementare** —
+   su cui poggiano le guide italiane e i profili IHE che il progetto deve implementare** -
    non perché sia la più moderna.
 3. **`id` è dove sta la risorsa su questo server; `identifier` è chi è la persona nel
    mondo.** Non vanno mai confusi, e un identificativo personale non va mai usato come `id`.
@@ -2107,7 +2112,7 @@ I collegamenti di paginazione sono **opachi** e li definisce il server **[V]**.
 6. **Più `coding` nello stesso `CodeableConcept` significano lo stesso concetto in sistemi
    diversi**, non concetti diversi.
 7. **Quattro modi di referenziare**: relativo (stesso server), assoluto (altro server,
-   con elenco controllato), logico (per identificativo — è la forma del dialogo con gli
+   con elenco controllato), logico (per identificativo - è la forma del dialogo con gli
    integratori), contenuto (frammento senza esistenza autonoma).
 8. **Profilare significa restringere.** La cardinalità può solo stringersi, il binding può
    solo irrigidirsi, e un binding `required` non è mai rilassabile.
@@ -2151,7 +2156,7 @@ I collegamenti di paginazione sono **opachi** e li definisce il server **[V]**.
     un insieme di valori con nome incoerente rispetto al contenuto, il profilo del contatto
     assistenziale che non fissa la classe, e la dipendenza da SNOMED CT. Conoscerli evita
     giornate perse; segnalarli è un contributo.
-24. **La validazione ha tre livelli** — strutturale, di profilo, terminologico — e il terzo
+24. **La validazione ha tre livelli** - strutturale, di profilo, terminologico - e il terzo
     è quello che paga il costo della politica sulle licenze: senza SNOMED, circa quattromila
     codici non si validano. È un costo noto, non una sorpresa.
 

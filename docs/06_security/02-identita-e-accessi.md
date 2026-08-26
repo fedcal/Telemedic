@@ -9,9 +9,9 @@ description: Livelli di garanzia e loro corrispondenza internazionale, il livell
 > **Presupposto di lettura.** La differenza fra autenticazione, autorizzazione e identità, i
 > fattori di autenticazione, la sessione, l'autorizzazione per ruoli e per attributi e la
 > rottura del vetro sono trattati in
-> [10 §12 — Crittografia e sicurezza, §8](../10_fondamenti/12-crittografia-e-sicurezza.md).
+> [10 §12 - Crittografia e sicurezza, §8](../10_fondamenti/12-crittografia-e-sicurezza.md).
 > Gli identificatori dell'assistito e del professionista in Italia sono in
-> [10 §04 — Identità e anagrafiche](../10_fondamenti/04-identita-e-anagrafiche.md).
+> [10 §04 - Identità e anagrafiche](../10_fondamenti/04-identita-e-anagrafiche.md).
 > Qui si descrive che cosa questo sistema fa, e perché.
 
 ## 1. La domanda a cui questo capitolo risponde
@@ -42,9 +42,9 @@ Ne discendono tre conseguenze operative.
    ha compromesso le implementazioni del protocollo di asserzione.
 2. Nessun documento del progetto può dichiarare o lasciare intendere un accreditamento. La
    formula corretta è «predisposto per», mai «accreditato».
-3. Gli adempimenti procedurali — deposito del documento di metadata, certificato emesso
+3. Gli adempimenti procedurali - deposito del documento di metadata, certificato emesso
    dall'infrastruttura a chiave pubblica dell'agenzia, convenzione, motivazione dei livelli
-   scelti — sono di chi installa. Il progetto li **documenta come manuale operativo** e ne
+   scelti - sono di chi installa. Il progetto li **documenta come manuale operativo** e ne
    fornisce gli artefatti tecnici. Vedi [09](./09-ripartizione-delle-responsabilita.md).
 
 ## 3. I livelli di garanzia e la loro corrispondenza internazionale
@@ -63,16 +63,16 @@ finale, nella forma `https://www.spid.gov.it/SpidL1|L2|L3`. **La stessa terna è
 schema di identità basato sulla carta d'identità elettronica**, che lo dichiara espressamente
 per agevolare gli sviluppi di chi ha già aderito alla federazione.
 
-La corrispondenza con i livelli europei — sostanziale e elevato ai sensi dell'art. 8, par. 2,
-del Regolamento (UE) 910/2014 — è quella comunemente assunta, **ma non è enunciata testualmente
+La corrispondenza con i livelli europei - sostanziale e elevato ai sensi dell'art. 8, par. 2,
+del Regolamento (UE) 910/2014 - è quella comunemente assunta, **ma non è enunciata testualmente
 nel regolamento sulle modalità attuative**: `[NV]`. Se serve una dichiarazione formale, va
 verificata sulla documentazione di notifica del regime in sede europea. Non va asserita qui.
 
 ### 3.1 Quale livello per i dati sanitari: la risposta scomoda
 
 L'appendice metodologica del regolamento sulle modalità attuative, letta alla lettera, colloca
-i **dati sensibili** — categoria che oggi corrisponde alle categorie particolari dell'art. 9 del
-Regolamento (UE) 2016/679 — al **livello 3**. Nella prassi nazionale, però, l'accesso del
+i **dati sensibili** - categoria che oggi corrisponde alle categorie particolari dell'art. 9 del
+Regolamento (UE) 2016/679 - al **livello 3**. Nella prassi nazionale, però, l'accesso del
 cittadino al fascicolo sanitario elettronico avviene con il **livello 2**.
 
 La contraddizione è apparente, e va spiegata con precisione perché una documentazione che la
@@ -91,7 +91,7 @@ semplifichi in un senso o nell'altro sarebbe scorretta:
   del paziente, non di comodità: un servizio inaccessibile alla popolazione che ne ha più
   bisogno non è un servizio più sicuro.
 
-**Posizione del progetto — proposta, non norma.** Il livello è **configurabile per tenant e per
+**Posizione del progetto - proposta, non norma.** Il livello è **configurabile per tenant e per
 operazione**, mai cablato. È un requisito che discende direttamente dal fatto che il fornitore
 di servizi «sceglie» il livello (DPCM 24 ottobre 2014, art. 6, comma 4) e deve **motivare la
 scelta** in sede di convenzione. I valori proposti come predefinito:
@@ -139,7 +139,7 @@ apparire come verificata dal progetto un'autenticazione che il progetto non ha e
 sistema il cui registro deve rispondere alla domanda «chi ha garantito l'identità di questa
 persona», è la differenza fra un registro utile e uno ingannevole.
 
-**Marcatore proprietario — proposta di progetto.** Il progetto introduce un'estensione
+**Marcatore proprietario - proposta di progetto.** Il progetto introduce un'estensione
 proprietaria che accompagna `acr` e ne dichiara la provenienza. Non è un claim standard e va
 documentata come estensione, non presentata come tale.
 
@@ -184,14 +184,14 @@ Per confronto, il token emesso quando è il progetto ad aver autenticato la pers
 }
 ```
 
-**Le quattro regole di autorizzazione che ne discendono** — proposta di progetto, pubblicate
+**Le quattro regole di autorizzazione che ne discendono** - proposta di progetto, pubblicate
 come vincolo V-154:
 
 1. Un'operazione che la normativa lega all'**autenticazione forte** ai sensi dell'art. 64 del
-   Codice dell'amministrazione digitale — accesso al fascicolo, accesso a infrastrutture
-   nazionali — **richiede autenticazione eseguita**. Un livello riferito da terzi non la
+   Codice dell'amministrazione digitale - accesso al fascicolo, accesso a infrastrutture
+   nazionali - **richiede autenticazione eseguita**. Un livello riferito da terzi non la
    soddisfa, per quanto elevato sia il valore asserito.
-2. Un'operazione clinica interna — avviare un consulto, redigere un documento — può accettare
+2. Un'operazione clinica interna - avviare un consulto, redigere un documento - può accettare
    l'identità riferita, **purché** il registro di fiducia del tenant lo consenta esplicitamente
    e il livello riferito raggiunga la soglia configurata.
 3. La configurazione «quali livelli esterni sono accettati per quale operazione» è **per
@@ -210,9 +210,9 @@ Le regole tecniche dello schema basato sulla carta d'identità elettronica dichi
 l'elemento del contesto di autenticazione **nella risposta è sempre valorizzato con il livello
 3**, «poiché la CIE fornisce un livello di affidabilità massimo a livello europeo».
 
-Se questa formulazione è quella corrente — e va verificata empiricamente in preproduzione
+Se questa formulazione è quella corrente - e va verificata empiricamente in preproduzione
 prima di dichiarare in documentazione pubblica come il progetto propaga il livello: `[NV]`,
-questione Q-153 della bacheca — ne discendono tre conseguenze che non sono cosmetiche:
+questione Q-153 della bacheca - ne discendono tre conseguenze che non sono cosmetiche:
 
 1. **Il fornitore di servizi non può dedurre dalla risposta con quale fattore la persona si sia
    effettivamente autenticata.** Un accesso con sola password e un accesso con carta e codice
@@ -235,8 +235,8 @@ Q-153 aperta da quest'area.
 ## 6. Il realm broker
 
 **Proposta di progetto già recepita nella base architetturale.** Un realm dedicato è l'**unico
-fornitore di servizi verso la federazione nazionale**; i realm applicativi — quello del
-professionista e quello dell'assistito — vi si federano internamente.
+fornitore di servizi verso la federazione nazionale**; i realm applicativi - quello del
+professionista e quello dell'assistito - vi si federano internamente.
 
 ```mermaid
 flowchart TB
@@ -247,7 +247,7 @@ flowchart TB
     subgraph EDGE["Bordo"]
         PX["Terminazione TLS con<br/>autenticazione del client<br/>(certificato su tessera)"]
     end
-    subgraph KCB["Realm broker — unico fornitore di servizi"]
+    subgraph KCB["Realm broker - unico fornitore di servizi"]
         I1["Istanze per fornitore<br/>e per livello"]
         I2["Istanza schema documentale"]
         X509["Autenticatore a certificato"]
@@ -316,7 +316,7 @@ alimentare anche:
 
 Tre registri separati divergono, sempre, e **la divergenza è sistematicamente a favore di chi
 attacca**: l'origine rimossa da un elenco e non dall'altro resta valida sul secondo. La forma
-concreta del registro — una sola tabella, una sola configurazione, un solo punto di verifica —
+concreta del registro - una sola tabella, una sola configurazione, un solo punto di verifica -
 è **decisione di architettura**, e quest'area la apre come questione (Q-156) invece di
 deciderla.
 
@@ -361,7 +361,7 @@ una richiesta.
 
 ## 8. Autenticazione a certificato e revoca a fallimento chiuso
 
-Il terzo canale — l'autenticazione con certificato su tessera sanitaria — è l'unico previsto
+Il terzo canale - l'autenticazione con certificato su tessera sanitaria - è l'unico previsto
 dall'art. 64 del Codice dell'amministrazione digitale **privo di dipendenze da procedimenti
 esterni**: non richiede convenzione né accreditamento presso una federazione, perché la fiducia
 è ancorata alle autorità di certificazione riconosciute. È per questo il canale completabile al
@@ -392,7 +392,7 @@ domanda che conta è: **che cosa si fa quando quel servizio non risponde?**
 
 **Regola del progetto: fallimento chiuso.** Se lo stato di revoca non è determinabile,
 l'accesso è **negato**. Non è la scelta più comoda ed è l'unica difendibile in ambito sanitario:
-la scelta opposta — accettare in caso di indisponibilità del servizio di verifica — trasforma
+la scelta opposta - accettare in caso di indisponibilità del servizio di verifica - trasforma
 un'interruzione del servizio di revoca in una finestra di validità per un certificato revocato,
 e chi ha interesse a usare un certificato revocato ha interesse a provocare quell'interruzione.
 
@@ -418,8 +418,8 @@ domanda «che genere di operazioni può fare questa persona»; la parte ad attri
 domanda che conta davvero contro l'avversario primario: **«può farle su questo soggetto?»**
 
 **Essere medico non è titolo per accedere a un assistito qualsiasi.** L'autorizzazione
-sull'oggetto si fonda sulla **relazione di cura**, che è un fatto con validità temporale — non
-un attributo permanente della persona — ed è verificata al momento dell'accesso, non al momento
+sull'oggetto si fonda sulla **relazione di cura**, che è un fatto con validità temporale - non
+un attributo permanente della persona - ed è verificata al momento dell'accesso, non al momento
 dell'assegnazione del ruolo.
 
 Le fonti della relazione di cura, in ordine di forza:
@@ -466,8 +466,8 @@ Requisiti, tutti obbligatori e tutti verificabili:
    quella durata. Scade da solo.
 4. **Notifica contestuale** al responsabile designato dal tenant e, dove il tenant lo configura,
    **all'assistito**.
-5. **Riesame obbligatorio con esito registrato.** Il riesame non è facoltativo e il suo esito —
-   giustificato, non giustificato, in accertamento — è esso stesso una riga del registro. Un
+5. **Riesame obbligatorio con esito registrato.** Il riesame non è facoltativo e il suo esito -
+   giustificato, non giustificato, in accertamento - è esso stesso una riga del registro. Un
    accesso d'emergenza mai riesaminato è peggio di un accesso ordinario, perché ha prodotto
    l'illusione di un controllo.
 6. **Contatore e soglia**: la frequenza dell'accesso d'emergenza per attore e per unità di
@@ -502,4 +502,4 @@ Requisiti, tutti obbligatori e tutti verificabili:
 | `[NV]` | Documento dell'agenzia che associa il livello di garanzia alla categoria dei servizi sanitari (§3.1) | Da richiedere all'agenzia |
 | `[NV]` | Mappatura formale fra i livelli nazionali e i livelli europei, che il regolamento non enuncia testualmente (§3) | Da verificare sulla documentazione di notifica |
 | `[NV]` | Conferma che il livello nella risposta dello schema documentale sia effettivamente sempre il massimo (§5) | Verifica empirica in preproduzione |
-| — | Scelta fra elenco di revoca e interrogazione puntuale dello stato del certificato (§8.1) | Architettura |
+| - | Scelta fra elenco di revoca e interrogazione puntuale dello stato del certificato (§8.1) | Architettura |

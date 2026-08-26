@@ -1,14 +1,14 @@
 ---
 title: Fondamenti informatici
 sidebar_position: 12
-description: La teoria informatica che regge l'architettura di Telemedic, spiegata da zero — sistemi distribuiti, consistenza, transazioni e saga, architettura a eventi, outbox, idempotenza, DDD, modellazione del tempo, multi-tenancy, contratti, prestazioni, osservabilità, affidabilità e qualità del software, ogni concetto ancorato a un esempio del dominio.
+description: La teoria informatica che regge l'architettura di Telemedic, spiegata da zero - sistemi distribuiti, consistenza, transazioni e saga, architettura a eventi, outbox, idempotenza, DDD, modellazione del tempo, multi-tenancy, contratti, prestazioni, osservabilità, affidabilità e qualità del software, ogni concetto ancorato a un esempio del dominio.
 ---
 
 # Fondamenti informatici
 
 Questo modulo è il simmetrico del [blocco C](09-fondamenti-clinici.md): là si spiega a un
-informatico cosa succede nel corpo di un paziente, qui si spiega a un clinico — o a chi
-viene da uno sviluppo applicativo lineare — cosa succede dentro un sistema fatto di pezzi
+informatico cosa succede nel corpo di un paziente, qui si spiega a un clinico - o a chi
+viene da uno sviluppo applicativo lineare - cosa succede dentro un sistema fatto di pezzi
 che parlano fra loro attraverso una rete.
 
 Non presuppone nulla. Non presuppone che tu sappia cos'è una transazione, cos'è un broker,
@@ -46,14 +46,14 @@ lo sa. Non esiste una terza possibilità.
 Un **sistema distribuito** è un insieme di programmi in esecuzione su macchine diverse, che
 si coordinano scambiandosi messaggi su una rete. La terza possibilità esiste: la chiamata
 può **non dare risposta**. Il chiamante resta con un'incertezza che nessun meccanismo
-tecnico può eliminare — non sa se l'altra parte non ha ricevuto la richiesta, se l'ha
+tecnico può eliminare - non sa se l'altra parte non ha ricevuto la richiesta, se l'ha
 ricevuta ed è morta prima di eseguirla, se l'ha eseguita ed è morta prima di rispondere, o
 se l'ha eseguita e la risposta si è persa in rete. Sono quattro stati del mondo con
 conseguenze cliniche molto diverse e un unico sintomo osservabile: il silenzio.
 
 Telemedic non è distribuito per scelta architetturale: lo è **per costituzione del
-problema**. Anche nella sua installazione più piccola — un solo nodo, tutto in Docker
-Compose — il sistema comprende necessariamente:
+problema**. Anche nella sua installazione più piccola - un solo nodo, tutto in Docker
+Compose - il sistema comprende necessariamente:
 
 - il browser del paziente, tipicamente su rete mobile, con un ciclo di vita che il server non
   controlla (l'utente chiude la scheda, il telefono va in standby, il sistema operativo
@@ -72,8 +72,11 @@ Compose — il sistema comprende necessariamente:
 - il repository documentale nazionale o regionale verso cui il referto viene trasmesso;
 - il servizio di firma e di marca temporale.
 
-Sette confini di rete nel percorso di **una singola televisita**. Ognuno di essi è un punto
-in cui la terza possibilità si manifesta.
+Gli elementi elencati sono otto, ma i confini di rete attraversati nel percorso di **una
+singola televisita** sono **sette**: il flusso diretto fra i due browser e il servizio di
+relay non sono due confini, sono **due stati alternativi dello stesso confine** - o il media
+viaggia direttamente, o passa dal relay, e mai entrambi nella stessa sessione. Ognuno dei
+sette è un punto in cui la terza possibilità si manifesta.
 
 ### 1.2 Le otto fallacie del calcolo distribuito
 
@@ -114,14 +117,14 @@ stringa breve di autenticazione confrontata a voce dai due interlocutori (`D22`)
 compromissioni laterali.
 
 **Quinta: la topologia non cambia.** È falso. Gli indirizzi di rete dei partecipanti cambiano
-durante la sessione — il telefono passa da rete mobile a Wi-Fi domestico e viceversa — e
+durante la sessione - il telefono passa da rete mobile a Wi-Fi domestico e viceversa - e
 l'intero meccanismo di raccolta e scambio dei candidati di connessione di WebRTC esiste
 perché la topologia è mutevole e sconosciuta a priori.
 
 **Sesta: c'è un solo amministratore.** È falso e in questo dominio è vistosamente falso.
 L'identità digitale del cittadino è amministrata da un fornitore terzo, il fascicolo
 sanitario da una regione, la cartella clinica dall'integratore, l'installazione da un centro
-servizi che — secondo le indicazioni nazionali — è un soggetto **distinto** dal centro
+servizi che - secondo le indicazioni nazionali - è un soggetto **distinto** dal centro
 erogatore. Nessuno può ordinare a tutti gli altri di riavviare.
 
 **Settima: il costo di trasporto è zero.** È falso in due sensi. In senso computazionale,
@@ -166,7 +169,7 @@ prendono in carico i due messaggi e finiscono in tempi diversi.
 
 Nel dominio: l'evento `SessioneAvviata` e l'evento `ContattoConcluso` riguardano lo stesso
 contatto. Se il consumatore li riceve invertiti e li applica ingenuamente, il contatto risulta
-«in corso» per sempre — e a quel punto un cruscotto di direzione sanitaria mostra sessioni
+«in corso» per sempre - e a quel punto un cruscotto di direzione sanitaria mostra sessioni
 aperte da giorni, un rapporto di rendicontazione conta prestazioni mai chiuse, e il
 professionista riceve un sollecito di refertazione per un atto che ha già refertato.
 
@@ -218,9 +221,9 @@ fiducia in ambito clinico non si recupera.
 
 ### 2.2 Il teorema CAP, e soprattutto cosa non dice
 
-Il **teorema CAP** — congetturato da Eric Brewer nel 2000 e dimostrato formalmente da Gilbert
+Il **teorema CAP** - congetturato da Eric Brewer nel 2000 e dimostrato formalmente da Gilbert
 e Lynch nel 2002 **`[NV]`** (attribuzione e date non verificate su fonte primaria in questa
-stesura) — afferma che un sistema distribuito che replica dati non può garantire
+stesura) - afferma che un sistema distribuito che replica dati non può garantire
 contemporaneamente tutte e tre le proprietà seguenti:
 
 - **C**onsistenza, nel senso di linearizzabilità;
@@ -240,7 +243,7 @@ obsoleto (si privilegia A), oppure rifiutare di rispondere finché la partizione
 
 **Non è vero che CAP dica qualcosa sul comportamento normale.** Il teorema parla solo del
 regime di partizione. Un modello più utile in progettazione è **PACELC**, formulato da Daniel
-Abadi **`[NV]`**: *if Partition, then A or C; Else, then L or C* — cioè, quando la rete
+Abadi **`[NV]`**: *if Partition, then A or C; Else, then L or C* - cioè, quando la rete
 funziona, resta comunque un compromesso fra **latenza** e consistenza. Ogni garanzia di
 consistenza più forte si paga con round-trip aggiuntivi. In un sistema con un budget di
 latenza di 200 ms questo non è un dettaglio accademico.
@@ -298,26 +301,26 @@ spieghiamo con lo stesso esempio: il medico appone la firma sul referto, e quest
 scrivere la nuova versione del documento, cambiarne lo stato da *bozza* a *firmato*, e
 registrare l'evidenza di firma.
 
-**A — Atomicità.** O avvengono tutte e tre le scritture, o nessuna. Non esiste lo stato
+**A - Atomicità.** O avvengono tutte e tre le scritture, o nessuna. Non esiste lo stato
 intermedio «documento firmato ma senza evidenza di firma». È una garanzia sul *fallimento*,
 non sul successo: l'atomicità dice che un mezzo lavoro non resta a terra.
 
-**C — Consistenza.** Al termine della transazione tutti i vincoli dichiarati sulla base dati
+**C - Consistenza.** Al termine della transazione tutti i vincoli dichiarati sulla base dati
 sono soddisfatti: la chiave esterna verso il contatto esiste, il campo obbligatorio
 dell'identificativo di tenant è valorizzato (`V4`), lo stato appartiene all'insieme di valori
 ammessi. Nota che la C dipende da come *tu* hai dichiarato i vincoli: la base di dati fa
 rispettare le regole che le hai dato, non le regole del dominio che ti sei tenuto in testa.
 
-**I — Isolamento.** Se due transazioni girano nello stesso momento, ciascuna si comporta —
-entro i limiti del livello di isolamento scelto — come se fosse sola. È la proprietà più
+**I - Isolamento.** Se due transazioni girano nello stesso momento, ciascuna si comporta -
+entro i limiti del livello di isolamento scelto - come se fosse sola. È la proprietà più
 sottile e quella su cui si sbaglia di più, perché il livello di isolamento predefinito di
 quasi tutti i motori **non** è quello che dà la garanzia intuitiva.
 
-**D — Durabilità.** Una volta confermata, la transazione sopravvive a un crollo del processo o
+**D - Durabilità.** Una volta confermata, la transazione sopravvive a un crollo del processo o
 a un'interruzione dell'alimentazione. In pratica significa che il motore ha scritto e
 sincronizzato su supporto persistente prima di rispondere «fatto». Ed è qui che la durabilità
 incontra il punto di ripristino di §13: *durabile su quale copia?* Se il nodo con il disco
-prende fuoco, la durabilità locale non salva nulla — serve una replica.
+prende fuoco, la durabilità locale non salva nulla - serve una replica.
 
 ### 3.2 I livelli di isolamento e le anomalie che ammettono
 
@@ -356,9 +359,9 @@ Due precisazioni operative che valgono più della tabella.
 
 **Il livello predefinito di PostgreSQL è *read committed*.** Significa che, salvo che tu non
 faccia qualcosa di esplicito, le tue transazioni ammettono letture non ripetibili e fantasmi.
-**`[NV]`** il comportamento esatto del livello *repeatable read* in PostgreSQL — che è
+**`[NV]`** il comportamento esatto del livello *repeatable read* in PostgreSQL - che è
 implementato come *snapshot isolation* e in pratica esclude anche i fantasmi, pur ammettendo
-la scrittura obliqua — va verificato sulla documentazione della versione effettivamente
+la scrittura obliqua - va verificato sulla documentazione della versione effettivamente
 adottata prima di farne affidamento in un requisito.
 
 **La scrittura obliqua è il modo in cui l'overbooking involontario entra nel sistema.** Ecco
@@ -478,7 +481,7 @@ referto errato dal sistema significherebbe distruggere la prova che è esistito,
 consultato e che è stato corretto. Il modello corretto è quello che il dominio usa da prima
 dell'informatica: il documento sbagliato resta, viene marcato come **sostituito**, e un nuovo
 documento ne dichiara la rettifica e il motivo. Il contesto della documentazione clinica lo
-prevede esplicitamente con l'evento `RefertoRettificato` e con lo stato `sostituito` fra i
+prevede esplicitamente con l'evento `RefertoRettificato` e con lo stato `superseded` fra i
 valori di `DocumentState`.
 
 **Terza ragione: il destinatario può essere fuori dal nostro controllo.** Se il documento è
@@ -491,7 +494,7 @@ Ne derivano quattro regole di progettazione valide per tutte le saghe di questo 
 
 1. **Ogni passo deve dichiarare la propria compensazione al momento in cui viene progettato,
    non quando serve.** Se non esiste una compensazione, il passo va spostato più avanti nella
-   sequenza — i passi irreversibili si eseguono per ultimi. Trasmettere il referto al
+   sequenza - i passi irreversibili si eseguono per ultimi. Trasmettere il referto al
    repository nazionale prima di aver verificato la firma è un errore di ordinamento della
    saga, non un caso limite.
 2. **La compensazione è un atto positivo tracciato, non una cancellazione.** Produce un nuovo
@@ -553,7 +556,7 @@ tempo verbale imperativo, può essere **rifiutato**, e chi lo invia si aspetta u
 comandi.
 
 Un **evento** constata un fatto avvenuto: *questa cosa è successa*. Non ha un destinatario
-designato, è al passato, **non può essere rifiutato** — è già accaduto — e chi lo emette non
+designato, è al passato, **non può essere rifiutato** - è già accaduto - e chi lo emette non
 sa e non deve sapere chi lo consumerà. `SessioneAvviata`, `RefertoFirmato`,
 `ConsensoRevocato`, `SogliaSuperata` sono eventi.
 
@@ -576,7 +579,7 @@ fatto, è un ordine con il participio. Il nome corretto del fatto è
 
 Nella forma più semplice il produttore chiama direttamente il consumatore. Funziona finché i
 consumatori sono uno e finché sono sempre disponibili. Appena i consumatori diventano
-quattro, e uno di essi è lento, il produttore paga la lentezza di tutti — e il medico che ha
+quattro, e uno di essi è lento, il produttore paga la lentezza di tutti - e il medico che ha
 premuto «concludi» aspetta che il sistema di rendicontazione risponda prima di vedere la
 schermata successiva. È inaccettabile e, sotto il vincolo di latenza del progetto, misurabile.
 
@@ -644,8 +647,8 @@ partizione.
 
 **Chiave troppo fine, o assente.** Se `SessioneAvviata` e `ContattoConcluso` finiscono in
 partizioni diverse perché la chiave è casuale, si ricade nel problema di §1.4: il consumatore
-li riceve invertiti. La contromisura è quella già indicata — numero di sequenza per aggregato
-e scarto degli eventi vecchi — ma è una toppa: se l'aggregato è lo stesso, la chiave giusta
+li riceve invertiti. La contromisura è quella già indicata - numero di sequenza per aggregato
+e scarto degli eventi vecchi - ma è una toppa: se l'aggregato è lo stesso, la chiave giusta
 esiste e va usata.
 
 Va detto con chiarezza che **il partizionamento non è gratis**: sceglierlo per aggregato
@@ -697,14 +700,14 @@ senza toccare il produttore; la rigiocabilità.
 
 Non risolve: la consistenza fra la base di dati e il flusso di eventi (è il problema di §5, e
 il broker da solo lo **peggiora**); l'ordinamento globale; la consegna esattamente una volta
-verso il mondo esterno (§6.1); la complessità operativa, che aumenta — ed è la ragione per cui
+verso il mondo esterno (§6.1); la complessità operativa, che aumenta - ed è la ragione per cui
 `D15` prescrive, per l'installazione presso il cliente, un assetto a nodo singolo in modalità
 senza coordinatore esterno, e prescrive che l'astrazione di pubblicazione resti **dietro
 un'interfaccia di progetto**, in modo che il codice di dominio non sia incastrato nel broker.
 
 Quest'ultimo punto merita enfasi: il dominio deve dire «è successo questo», non «pubblica su
 questo argomento con questa chiave». La traduzione appartiene all'infrastruttura. È lo stesso
-principio del livello anticorruzione di §7.8, applicato in uscita.
+principio del livello anticorruzione di §7.7, applicato in uscita.
 
 ---
 
@@ -719,7 +722,7 @@ fare due cose:
 2. pubblicare sul broker l'evento `RefertoFirmato`, perché notifica, integrazione,
    rendicontazione e audit se ne accorgano.
 
-Sono due sistemi diversi. Non esiste una transazione che li comprenda entrambi — e anche se
+Sono due sistemi diversi. Non esiste una transazione che li comprenda entrambi - e anche se
 esistesse (2PC), §3.3 spiega perché non la vogliamo. Quindi le scritture avvengono in
 sequenza, e **fra le due c'è una finestra**. È la **doppia scrittura** (*dual write*): il
 difetto architetturale più comune e più sottovalutato dei sistemi a eventi.
@@ -727,7 +730,7 @@ difetto architetturale più comune e più sottovalutato dei sistemi a eventi.
 Cosa può andare storto, in modo esaustivo:
 
 ```java
-// SBAGLIATO — non fare questo. Illustrazione del difetto.
+// SBAGLIATO - non fare questo. Illustrazione del difetto.
 @Transactional
 public void firma(DocumentoId id, EvidenzaFirma evidenza) {
     var documento = repository.carica(id);
@@ -737,7 +740,7 @@ public void firma(DocumentoId id, EvidenzaFirma evidenza) {
 }
 ```
 
-**Caso A — il processo muore fra (1) e (2).** La base dati, alla conferma della transazione,
+**Caso A - il processo muore fra (1) e (2).** La base dati, alla conferma della transazione,
 contiene il referto firmato. L'evento non è mai stato pubblicato. Risultato: il paziente non
 riceve la notifica, il gestionale dell'integratore non riceve il documento, l'evento
 rendicontabile non esiste. Il dato è corretto e il mondo attorno non lo sa. Questo è un
@@ -745,14 +748,14 @@ rendicontabile non esiste. Il dato è corretto e il mondo attorno non lo sa. Que
 nessun avviso, nessuna traccia. Si scopre settimane dopo, quando un paziente telefona
 chiedendo un referto che il sistema mostra come consegnato.
 
-**Caso B — la pubblicazione (2) riesce ma la transazione (1) viene annullata.** Se la
+**Caso B - la pubblicazione (2) riesce ma la transazione (1) viene annullata.** Se la
 pubblicazione avviene dentro il blocco transazionale, come nell'esempio, e la conferma della
 transazione fallisce dopo (violazione di vincolo, conflitto di serializzazione, perdita della
 connessione al database), l'evento è già partito. Risultato: la notifica raggiunge il paziente
 per un referto che nella base dati è ancora una bozza, e l'integratore chiede un documento
 che non esiste. Questo è un **evento fantasma**.
 
-**Caso C — la pubblicazione è lenta.** Se il broker impiega tre secondi a rispondere, la
+**Caso C - la pubblicazione è lenta.** Se il broker impiega tre secondi a rispondere, la
 transazione sulla base dati resta aperta per tre secondi, trattenendo blocchi sulle righe. Un
 rallentamento del broker si trasforma in contesa sulla base dati e, a cascata, in saturazione
 del pool di connessioni. È il meccanismo con cui un guasto isolato si propaga.
@@ -765,7 +768,7 @@ scrittura non si risolve riordinando: si risolve eliminando la seconda scrittura
 
 L'idea è semplice e per questo robusta: **non pubblicare l'evento; scriverlo su una tabella
 della stessa base di dati, dentro la stessa transazione del dato di dominio.** Un processo
-separato — il **relay** — legge la tabella e pubblica sul broker.
+separato - il **relay** - legge la tabella e pubblica sul broker.
 
 La tabella si chiama **outbox**, «posta in uscita».
 
@@ -833,13 +836,13 @@ Due implementazioni possibili, con proprietà diverse.
 `pubblicato_il IS NULL`, ordinate per chiave, prende un lotto, pubblica, marca. Semplice, senza
 dipendenze aggiuntive, facile da capire e da provare. Costo: un'interrogazione ogni pochi
 decimi di secondo e una latenza di pubblicazione pari all'intervallo. Punto delicato: se più
-istanze del relay girano insieme, serve un blocco — `SELECT ... FOR UPDATE SKIP LOCKED` è il
+istanze del relay girano insieme, serve un blocco - `SELECT ... FOR UPDATE SKIP LOCKED` è il
 costrutto che permette a più lavoratori di prendere lotti disgiunti senza bloccarsi a vicenda.
 
 **Cattura delle modifiche** (*change data capture*). Il relay legge il registro di replica
 della base dati e ne estrae le inserzioni sulla tabella outbox. Latenza molto più bassa,
 nessun carico di interrogazione, ma introduce un componente infrastrutturale in più da
-installare, aggiornare, sorvegliare e censire come componente software di terze parti — con
+installare, aggiornare, sorvegliare e censire come componente software di terze parti - con
 tutti gli obblighi che questo comporta nel regime del progetto. **`[NV]`** la scelta fra le
 due modalità non è oggetto di una decisione approvata al momento della stesura; il criterio
 ragionevole è adottare l'interrogazione periodica come modalità predefinita, per contenere il
@@ -873,7 +876,7 @@ difetto da correggere: è una proprietà da accettare e su cui progettare (§6).
 **Non dà: latenza bassa.** Fra la conferma della transazione e la disponibilità dell'evento
 sul broker passa il tempo del relay. Con l'interrogazione periodica sono decine o centinaia di
 millisecondi. Per un flusso a bassa latenza come lo scambio di candidati di connessione WebRTC
-questo è inaccettabile — e infatti quel flusso **non passa dall'outbox**: passa da un canale
+questo è inaccettabile - e infatti quel flusso **non passa dall'outbox**: passa da un canale
 diretto. L'outbox è per gli eventi di dominio, non per il segnalamento in tempo reale. È una
 distinzione che va tenuta ferma, perché la tentazione di far passare tutto dal broker è forte
 e produce sistemi lenti.
@@ -895,8 +898,8 @@ base dati di produzione, ed è un modo poco elegante di causare un'indisponibili
 Un'ultima regola, che discende dalla minimizzazione dei dati e non dalla teoria dei sistemi
 distribuiti: **il payload dell'outbox non contiene contenuto clinico**. Contiene riferimenti.
 La ricerca `R5` lo prescrive per le notifiche verso l'esterno con tre motivazioni convergenti
-— minimizzazione, riduzione del danno in caso di destinatario mal configurato, allineamento al
-modello a soli identificativi delle sottoscrizioni FHIR — e la stessa regola vale a maggior
+- minimizzazione, riduzione del danno in caso di destinatario mal configurato, allineamento al
+modello a soli identificativi delle sottoscrizioni FHIR - e la stessa regola vale a maggior
 ragione per una tabella che resta nella base dati e per un broker che conserva i messaggi per
 giorni.
 
@@ -942,8 +945,8 @@ legittime, nessuna delle quali è ciò che il nome suggerisce.
   non ripete l'effetto. È *almeno una volta* più idempotenza, e produce un risultato
   osservabile equivalente all'esattamente-una-volta.
 
-**Nel momento in cui l'effetto esce dal sistema — un messaggio al telefono del paziente, una
-chiamata al repository documentale, un addebito — non esiste alcuna garanzia di
+**Nel momento in cui l'effetto esce dal sistema - un messaggio al telefono del paziente, una
+chiamata al repository documentale, un addebito - non esiste alcuna garanzia di
 esattamente-una-volta.** Quello che esiste è la seconda opzione: rendere il duplicato
 innocuo.
 
@@ -976,8 +979,8 @@ Nel dominio, la classificazione è istruttiva e va fatta esplicitamente:
 
 La riga sul contatore merita un commento, perché è il modello mentale che salva più bug.
 `contatore = contatore + 1` non è idempotente e non lo diventerà mai. La soluzione non è
-proteggerlo con blocchi: è **non memorizzare il contatore**. Si memorizzano i fatti — le
-sessioni erogate, ciascuna con il proprio identificativo — e il conteggio si deriva. Un fatto
+proteggerlo con blocchi: è **non memorizzare il contatore**. Si memorizzano i fatti - le
+sessioni erogate, ciascuna con il proprio identificativo - e il conteggio si deriva. Un fatto
 registrato due volte con la stessa chiave è un fatto solo. È lo stesso principio dell'evento
 come sorgente della verità.
 
@@ -989,7 +992,7 @@ chiave; il servizio riconosce di aver già eseguito e restituisce l'esito preced
 rieseguire.
 
 Il progetto la espone sull'API applicativa con il campo `Idempotency-Key`, allineato a un
-documento di lavoro IETF che **non è ancora uno standard pubblicato** — e la ricerca `R5`
+documento di lavoro IETF che **non è ancora uno standard pubblicato** - e la ricerca `R5`
 prescrive di dichiararlo come tale nella documentazione pubblica, non come standard.
 
 ```http
@@ -1018,8 +1021,8 @@ quasi sempre incomplete nelle implementazioni ingenue:
    caso di rete instabile a un ciclo.
 3. **Si memorizza l'impronta della richiesta.** Se arriva la stessa chiave con un corpo
    diverso, non è un ritentativo: è un errore del chiamante, e va rifiutato con un conflitto
-   esplicito. Altrimenti un difetto nel chiamante — chiave riusata per due prenotazioni
-   diverse — si trasforma silenziosamente in una prenotazione mancante.
+   esplicito. Altrimenti un difetto nel chiamante - chiave riusata per due prenotazioni
+   diverse - si trasforma silenziosamente in una prenotazione mancante.
 4. **Serve una gestione della concorrenza.** Due ritentativi in parallelo, entrambi con la
    stessa chiave, arrivano prima che il primo abbia finito. Serve una riga di prenotazione
    della chiave inserita in modo atomico all'inizio: il secondo trova la riga e attende, o
@@ -1147,12 +1150,12 @@ di lettura analitica e transazioni operative.
 ### 6.7 Timeout e la loro gerarchia
 
 Un **timeout** è il tempo oltre il quale si smette di attendere. È il meccanismo che trasforma
-la terza possibilità di §1.1 — il silenzio — in un evento gestibile.
+la terza possibilità di §1.1 - il silenzio - in un evento gestibile.
 
 L'errore da cui partire: **il timeout predefinito di quasi tutti i client è troppo lungo o
 assente**. Un client HTTP senza timeout, di fronte a un server che accetta la connessione e non
 risponde mai, attende indefinitamente tenendo occupato un thread. Cento richieste così
-esauriscono il pool, e il servizio smette di rispondere a tutti — non perché sia guasto, ma
+esauriscono il pool, e il servizio smette di rispondere a tutti - non perché sia guasto, ma
 perché sta aspettando.
 
 La regola che governa tutto il resto: **il timeout di chi chiama deve essere maggiore del
@@ -1182,21 +1185,21 @@ primo lascia scoperto il caso più comune: il server accetta e poi tace.
 
 **Un cancello che scade non si apre.** La verifica dei consensi che va in timeout **non**
 autorizza l'ingresso. Il ripiego permissivo (*fail-open*) è accettabile per un servizio
-accessorio — l'arricchimento anagrafico, il calcolo di una statistica — ed è vietato per una
+accessorio - l'arricchimento anagrafico, il calcolo di una statistica - ed è vietato per una
 verifica di sicurezza o di liceità. `RF-114` non ammette eccezioni per lentezza di rete.
 
 ---
 
 ## 7. Domain-Driven Design
 
-Il *Domain-Driven Design* — «progettazione guidata dal dominio», formulato da Eric Evans in un
-libro del 2003 **`[NV]`** — non è un insieme di tecniche di codifica. È una tesi: **in un
+Il *Domain-Driven Design* - «progettazione guidata dal dominio», formulato da Eric Evans in un
+libro del 2003 **`[NV]`** - non è un insieme di tecniche di codifica. È una tesi: **in un
 sistema complesso, la difficoltà principale non è tecnica ma di comprensione del dominio**, e
 il codice deve essere organizzato in modo da rendere quella comprensione esplicita e
 verificabile da chi il dominio lo conosce.
 
-In questo progetto la tesi è più forte del solito, perché chi conosce il dominio — il medico,
-l'infermiere, il responsabile della protezione dei dati — **deve poter leggere il modello e
+In questo progetto la tesi è più forte del solito, perché chi conosce il dominio - il medico,
+l'infermiere, il responsabile della protezione dei dati - **deve poter leggere il modello e
 dire dove sbaglia**. È esattamente ciò che il [percorso di lettura per clinici](00-come-usare-questa-guida.md)
 chiede. Un modello che si può discutere solo fra sviluppatori è un modello che nessun clinico
 correggerà mai.
@@ -1254,7 +1257,7 @@ diversi, contesti diversi.
 **Frattura di regime di protezione.** Contenuto clinico, evidenze di consenso, registrazioni
 audio-video e registro degli accessi hanno regimi di accesso e conservazione incompatibili.
 Tenerli nello stesso contesto costringerebbe ad applicare a tutti il regime più severo,
-rendendo il sistema inutilizzabile — un amministratore non potrebbe leggere un registro degli
+rendendo il sistema inutilizzabile - un amministratore non potrebbe leggere un registro degli
 accessi senza toccare contenuto clinico.
 
 Questa terza frattura è specifica del dominio sanitario e non compare nella letteratura
@@ -1291,7 +1294,7 @@ Nel dominio, la classificazione è già fatta e vale la pena leggerla per capire
 Il vantaggio pratico degli oggetti valore, in un progetto con la regola di immutabilità
 dichiarata negli standard di codifica, è che **eliminano un'intera categoria di difetti**: un
 oggetto valore condiviso fra due parti del sistema non può essere modificato da una all'insaputa
-dell'altra. `ConsentEvidence` — dichiarante, istante, canale, testo — deve essere un oggetto
+dell'altra. `ConsentEvidence` - dichiarante, istante, canale, testo - deve essere un oggetto
 valore per una ragione che non è di eleganza: se fosse modificabile, l'evidenza di consenso
 non proverebbe nulla in una contestazione.
 
@@ -1328,7 +1331,7 @@ Da qui discendono tre regole pratiche.
    `Tenant` contenesse tutti i suoi appuntamenti, ogni prenotazione bloccherebbe l'intero
    tenant. Un aggregato va grande quanto la sua invariante più larga, e non un byte di più.
 
-### 7.5 Il caso decisivo: perché sessione media e incontro clinico sono aggregati distinti
+### 7.5 Il caso decisivo: perché sessione media e contatto clinico sono aggregati distinti
 
 Questa è la scelta di modellazione più importante del progetto ed è il modo migliore per
 capire cos'è davvero un aggregato. La ricerca `R6` la enuncia così: `Encounter` e
@@ -1360,7 +1363,7 @@ rendicontare. La regola `BR-030` esiste per vietarlo, e la ricerca lo dice espli
 determinato dal motore di connessione. La regola `BR-032` richiede l'opposto: il contatto non
 passa a concluso senza un **esito dichiarato da un professionista**. Un sistema in cui la rete
 decide l'esito clinico è un sistema che attribuisce a un componente tecnico una decisione
-riservata a una persona — ed è, sotto il regime dei dispositivi medici, esattamente il tipo di
+riservata a una persona - ed è, sotto il regime dei dispositivi medici, esattamente il tipo di
 confusione che il vincolo `V2` impone di rendere esplicita e di evitare.
 
 **Il regime di protezione più severo si estenderebbe alla telemetria.** Se la sessione media è
@@ -1427,7 +1430,7 @@ I tipi di relazione usati dal progetto, con la loro definizione operativa e un e
 | **Partnership** | I due contesti evolvono insieme, si coordinano nei rilasci | Consenso e sessione: il consenso non è un servizio consumato opportunisticamente, è una **condizione bloccante che condiziona l'esistenza dell'atto** |
 | **Linguaggio pubblicato** (*published language*) | Il monte pubblica un contratto stabile e versionato per tutti | La configurazione verso i contesti che la consumano; gli eventi di dominio verso l'audit |
 | **Servizio ospite aperto** (*open host service*) | Il monte espone un servizio pensato per molti consumatori, non per uno | Il rapporto tecnico di qualità verso la sessione; l'API pubblicata verso tutti gli integratori |
-| **Livello anticorruzione** (*anticorruption layer*) | Il valle traduce il modello esterno nel proprio, e impedisce che l'esterno lo contamini | Il contesto di integrazione verso tutto il nucleo |
+| **Livello anticorruzione** (*anti-corruption layer*) | Il valle traduce il modello esterno nel proprio, e impedisce che l'esterno lo contamini | Il contesto di integrazione verso tutto il nucleo |
 
 Il livello anticorruzione merita una spiegazione a sé, perché è ciò che rende possibile il
 requisito «multi-integratore per costruzione» (§6.2.6 del brief). La sua funzione è dichiarata
@@ -1438,8 +1441,8 @@ condizionali che valgono per un partner e non per gli altri. Con esso, il nucleo
 modello e la traduzione è confinata in una frontiera sostituibile.
 
 La relazione con il gestionale sanitario di terze parti è **doppia**, e questo è il punto che
-va capito bene: **conformista in ingresso** — il partner è il master di anagrafica e agenda,
-il suo modello non si negozia — e **servizio ospite aperto in uscita** — Telemedic pubblica un
+va capito bene: **conformista in ingresso** - il partner è il master di anagrafica e agenda,
+il suo modello non si negozia - e **servizio ospite aperto in uscita** - Telemedic pubblica un
 contratto unico, uguale per tutti. È la posizione corretta per un componente che non è mai il
 punto di ingresso dell'utente né il master dei dati.
 
@@ -1479,12 +1482,12 @@ contesti che violino la mappa**, con verifica automatica delle regole di dipende
 confine che conta, non il processo.
 
 **Non è un insieme obbligatorio di strati.** Repository, servizio applicativo, fabbrica sono
-strumenti; se un contesto è semplice — la configurazione, la rendicontazione di supporto — un
+strumenti; se un contesto è semplice - la configurazione, la rendicontazione di supporto - un
 modello elaborato è costo puro.
 
 **Non si applica uniformemente.** L'impegno di modellazione va concentrato sul **nucleo del
-dominio**: contatto, consenso, documento, pianificazione. Sui sottodomini generici — identità,
-configurazione, audit — la scelta corretta è usare soluzioni esistenti e non modellare
+dominio**: contatto, consenso, documento, pianificazione. Sui sottodomini generici - identità,
+configurazione, audit - la scelta corretta è usare soluzioni esistenti e non modellare
 finemente ciò che non è distintivo.
 
 ---
@@ -1516,7 +1519,7 @@ La scelta non è ideologica e non è uniforme. Il criterio:
 | Stato del contatto | Mutabile con storia delle transizioni | lo stato corrente è utile; la storia delle transizioni è obbligatoria per la ricostruzione |
 
 C'è una trappola specifica del dominio che vale la pena isolare. Se il testo dell'informativa
-è mutabile, e qualcuno lo corregge — anche solo per un refuso — **tutti i consensi già
+è mutabile, e qualcuno lo corregge - anche solo per un refuso - **tutti i consensi già
 prestati diventano indimostrabili**, perché non esiste più il testo a cui si riferivano.
 `BR-061` non è una raffinatezza giuridica: è un vincolo di immutabilità con conseguenze
 tecniche precise, e si soddisfa versionando il modello di informativa come aggregato a sé
@@ -1567,7 +1570,7 @@ scollegato dalla rete; il gateway di terze parti trasmette alle 14:30. Il sistem
 14:30 un fatto vero dalle 8:00. Se si registra un solo istante, si perde un'informazione
 clinicamente rilevante: **il ritardo con cui il dato è diventato disponibile al
 professionista**. Se un'allerta su soglia scatta alle 14:30 per un valore delle 8:00, il
-professionista deve saperlo — cambia completamente il significato dell'allerta e la reazione
+professionista deve saperlo - cambia completamente il significato dell'allerta e la reazione
 appropriata.
 
 **La correzione retroattiva.** Il medico rettifica un referto: il valore corretto era vero
@@ -1579,8 +1582,8 @@ diverse, ed entrambe vengono poste in sede di indagine.
 **La revoca del consenso.** Il paziente revoca alle 15:00 dichiarando che intendeva revocare
 dal giorno precedente. Il fatto giuridico e il fatto di sistema hanno istanti diversi, e la
 verifica di liceità di ciò che è stato fatto nel mezzo dipende da quale asse si usa. Il
-progetto risolve stabilendo che **la revoca ha effetto immediato** — cioè privilegiando il
-tempo di sistema per l'efficacia — ma la registrazione deve conservare entrambi gli istanti,
+progetto risolve stabilendo che **la revoca ha effetto immediato** - cioè privilegiando il
+tempo di sistema per l'efficacia - ma la registrazione deve conservare entrambi gli istanti,
 altrimenti la ricostruzione è impossibile.
 
 **Il dato anagrafico ricevuto dall'integratore.** Il paziente ha cambiato recapito il 3 marzo;
@@ -1661,7 +1664,7 @@ che seguono sono poche e non ammettono eccezioni.
 **Memorizzare in un istante assoluto, presentare nel fuso dell'utente.** L'istante assoluto è
 un punto sulla linea del tempo universale; il fuso è una funzione di presentazione. Un
 appuntamento memorizzato come «14:30» senza fuso è ambiguo appena il paziente e il medico
-sono in due località diverse, il che accade regolarmente — un paziente all'estero, un
+sono in due località diverse, il che accade regolarmente - un paziente all'estero, un
 professionista che refertata da un'altra sede.
 
 **L'ora legale crea istanti che non esistono e istanti che esistono due volte.** L'ultima
@@ -1688,7 +1691,7 @@ deriva fra due macchine è nell'ordine dei millisecondi o delle decine di millis
 può essere di minuti. Le conseguenze nel dominio sono concrete e già presenti nel progetto: la
 verifica delle firme delle notifiche verso l'integratore rifiuta i messaggi con scostamento
 temporale superiore a trecento secondi, e la ricerca `R5` annota che fuori finestra si è «in
-replay o in deriva di orologio» — cioè, un orologio sbagliato di sei minuti su un server
+replay o in deriva di orologio» - cioè, un orologio sbagliato di sei minuti su un server
 dell'integratore rende **tutte** le consegne non verificabili. Allo stesso modo, i token di
 autenticazione hanno scadenze di pochi minuti: una deriva di orologio li rende invalidi o
 prolunga la loro validità oltre l'intenzione.
@@ -1722,15 +1725,15 @@ Nel progetto, gli orologi logici compaiono in tre forme, e conviene riconoscerle
    evento verso l'integratore serve esattamente a questo: il ricevente scarta gli eventi con
    sequenza inferiore a quella già applicata. È il modo di rendere irrilevante l'ordine di
    arrivo senza pagare il costo di code ordinate.
-3. **Il numero di versione dell'entità** usato nel controllo di concorrenza ottimistico — chi
+3. **Il numero di versione dell'entità** usato nel controllo di concorrenza ottimistico - chi
    scrive dichiara la versione che ha letto, e la scrittura fallisce se nel frattempo la
    versione è cambiata. In HTTP questo si esprime con l'etichetta di entità e la condizione di
    corrispondenza, che il progetto usa sia sul piano applicativo sia su quello FHIR.
 
 Il terzo caso ha una traduzione clinica diretta: due medici aprono la stessa bozza di referto;
 il secondo salva; il primo salva sopra e cancella il lavoro del secondo. Il controllo di
-concorrenza ottimistico trasforma questo scenario silenzioso in un errore esplicito — «il
-documento è stato modificato da un altro utente» — che l'interfaccia può gestire mostrando le
+concorrenza ottimistico trasforma questo scenario silenzioso in un errore esplicito - «il
+documento è stato modificato da un altro utente» - che l'interfaccia può gestire mostrando le
 differenze. È un caso in cui un meccanismo di sistemi distribuiti previene un danno clinico.
 
 ---
@@ -1781,8 +1784,8 @@ di conformità.
 
 La **sicurezza a livello di riga** (*row level security*) è il meccanismo con cui il motore
 della base dati applica automaticamente un filtro a ogni interrogazione su una tabella,
-sulla base di una variabile di sessione. Il punto cruciale — e la ragione per cui è
-qualitativamente diversa dal «mettere `WHERE tenant_id = ?` ovunque» — è che il filtro è
+sulla base di una variabile di sessione. Il punto cruciale - e la ragione per cui è
+qualitativamente diversa dal «mettere `WHERE tenant_id = ?` ovunque» - è che il filtro è
 applicato **dal motore**, non dal codice applicativo: una query che dimentica la condizione non
 restituisce i dati degli altri tenant, restituisce zero righe.
 
@@ -1815,13 +1818,13 @@ requisito che ne discende è che l'architettura sia **consapevole del tenant fin
 Questa è la parte che va capita e che spesso viene sottovalutata: **la multi-tenancy non è
 retrofittabile**. Aggiungere un identificativo di tenant a un sistema che non ce l'ha
 significa toccare ogni tabella, ogni indice, ogni query, ogni evento, ogni riga di audit, ogni
-chiave di cache e ogni chiave di partizione — e soprattutto significa non avere alcun modo di
+chiave di cache e ogni chiave di partizione - e soprattutto significa non avere alcun modo di
 provare che non ne sia rimasta fuori una. Farlo il primo giorno costa poco; farlo al secondo
 anno costa quanto una riscrittura, con l'aggravante che ogni omissione è una violazione di dati
 sanitari.
 
-Il requisito `RNF-059` — ambiente completo funzionante da configurazione dichiarativa in
-trenta minuti, senza passaggi manuali non documentati — vincola ulteriormente: **il modello di
+Il requisito `RNF-059` - ambiente completo funzionante da configurazione dichiarativa in
+trenta minuti, senza passaggi manuali non documentati - vincola ulteriormente: **il modello di
 isolamento non può richiedere operazioni manuali per creare un tenant**.
 
 ### 9.4 Perché in sanità l'isolamento non è un dettaglio operativo
@@ -1861,7 +1864,7 @@ richiesta.
 **L'isolamento della capacità è parte dell'isolamento.** Un tenant che genera dieci volte il
 traffico degli altri non deve degradare il servizio a nessuno. È il motivo per cui gli
 interruttori automatici e le quote sono per tenant (§6.6), e per cui gli aggregati di
-rendicontazione hanno una soglia di cardinalità minima (`BR-090`) — un aggregato calcolato su
+rendicontazione hanno una soglia di cardinalità minima (`BR-090`) - un aggregato calcolato su
 tre pazienti è, di fatto, un dato individuale.
 
 ---
@@ -1899,7 +1902,7 @@ famiglie di contratti, ciascuna con il proprio ciclo di vita.
 
 Una modifica è **retrocompatibile** (all'indietro) se un client scritto per la versione
 precedente continua a funzionare con la nuova. È **compatibile in avanti** se un client scritto
-per la nuova versione funziona con dati prodotti dalla vecchia — proprietà meno famosa e
+per la nuova versione funziona con dati prodotti dalla vecchia - proprietà meno famosa e
 altrettanto necessaria negli eventi, dove produttore e consumatore si aggiornano in momenti
 diversi.
 
@@ -1925,7 +1928,7 @@ in entrambe le direzioni**. Chi produce aggiunge in modo conservativo; chi consu
 che non conosce anziché fallire. Un consumatore che rifiuta un messaggio perché contiene un
 campo che non si aspetta rende impossibile qualunque evoluzione dello schema.
 
-L'ultima riga — cambiare il significato mantenendo il nome — merita l'esempio del dominio.
+L'ultima riga - cambiare il significato mantenendo il nome - merita l'esempio del dominio.
 Supponiamo che il campo `durata` di una sessione sia stato prodotto, nella prima versione,
 come tempo fra l'ammissione e la conclusione, e che si decida di renderlo il tempo di
 connessione media effettiva escludendo le interruzioni. Lo schema non cambia, la validazione
@@ -2033,22 +2036,22 @@ saltata è una persona non vista.
 
 La contromisura è la **paginazione per cursore**: si restituisce un riferimento opaco alla
 posizione raggiunta, e la pagina successiva riparte da lì con una condizione di ordinamento
-stabile. Il cursore va costruito su una chiave **totale** — istante più identificativo, non
-solo istante, perché due righe possono condividere l'istante — e va trattato come opaco dal
+stabile. Il cursore va costruito su una chiave **totale** - istante più identificativo, non
+solo istante, perché due righe possono condividere l'istante - e va trattato come opaco dal
 client, altrimenti diventa un contratto implicito.
 
 **Il tranello del conteggio totale.** Restituire «risultati 1-50 di 12 483» richiede un
 conteggio completo, che su tabelle grandi con filtri costa più della pagina stessa. Va reso
 facoltativo, oppure approssimato dichiarandolo tale.
 
-**Il tranello della paginazione a stato.** Un cursore che tiene aperto uno stato sul server —
-un cursore di base dati, una copia del risultato — è una risorsa per client che nessuno
+**Il tranello della paginazione a stato.** Un cursore che tiene aperto uno stato sul server -
+un cursore di base dati, una copia del risultato - è una risorsa per client che nessuno
 libera se il client sparisce. Il cursore deve essere **senza stato**: contenere ciò che serve
 per ripartire, non un riferimento a qualcosa di vivo sul server.
 
 **Il tranello dell'interazione con l'autorizzazione.** Se il filtro di autorizzazione è
 applicato **dopo** la paginazione, una pagina di cinquanta risultati può restituirne tre, e
-l'utente conclude che non ci sia altro. Il filtro va applicato prima, dentro l'interrogazione —
+l'utente conclude che non ci sia altro. Il filtro va applicato prima, dentro l'interrogazione -
 ed è un altro argomento a favore della sicurezza a livello di riga (§9.2), che lo garantisce
 per costruzione.
 
@@ -2062,7 +2065,7 @@ calcolano sull'insieme **già filtrato**.
 ### 10.6 Il costo nascosto delle interfacce troppo generiche
 
 C'è una tentazione ricorrente: invece di esporre operazioni specifiche, esporre un meccanismo
-generale — un endpoint di ricerca con un linguaggio di interrogazione arbitrario, un endpoint
+generale - un endpoint di ricerca con un linguaggio di interrogazione arbitrario, un endpoint
 che accetta qualunque risorsa, un linguaggio di query che lascia al client scegliere cosa
 chiedere. Sembra la scelta più flessibile e più elegante, e comporta cinque costi che si
 manifestano tutti dopo.
@@ -2073,13 +2076,13 @@ un dato, senza il rischio di rompere qualcuno. Con dieci operazioni specifiche s
 promette; con un linguaggio di interrogazione generale non lo si sa.
 
 **Il costo di esecuzione diventa imprevedibile.** Il client può scrivere l'interrogazione che
-scandisce l'intera tabella, e lo farà — non per malizia, ma perché non ha visibilità sugli
+scandisce l'intera tabella, e lo farà - non per malizia, ma perché non ha visibilità sugli
 indici. Il budget di latenza di `RNF-003` non è difendibile su una superficie di
 interrogazione arbitraria, perché non c'è modo di ragionare sul caso peggiore.
 
 **L'autorizzazione diventa difficile e fragile.** Autorizzare «leggi il referto X» è
 verificabile. Autorizzare «esegui questa interrogazione» richiede di analizzare
-l'interrogazione e decidere se ciò che restituirà è ammesso — un problema che in generale non
+l'interrogazione e decidere se ciò che restituirà è ammesso - un problema che in generale non
 si risolve bene. In un dominio con oscuramento selettivo per documento e per soggetto, questo
 è un rischio di divulgazione, non una scomodità.
 
@@ -2098,7 +2101,7 @@ Questo non significa che ogni genericità sia sbagliata. FHIR **è** un'interfac
 il progetto la espone. La differenza è che FHIR è generica **entro un modello di dominio
 chiuso e standardizzato**: i tipi di risorsa sono un insieme finito, i parametri di ricerca
 sono dichiarati risorsa per risorsa e verificabili, e il documento di capacità dichiara
-esattamente cosa il server supporta. È genericità **delimitata**, non arbitraria — e va
+esattamente cosa il server supporta. È genericità **delimitata**, non arbitraria - e va
 comunque governata restringendo i parametri di ricerca supportati a quelli che si sanno servire
 entro il budget di latenza.
 
@@ -2148,8 +2151,8 @@ banali.
 Il **percentile** risponde alla domanda giusta. Il 95° percentile è il valore sotto il quale
 cadono il 95 % delle osservazioni: dire «p95 = 300 ms» significa che una richiesta su venti
 impiega più di 300 ms. Il progetto specifica quasi tutti i requisiti prestazionali in
-percentili — p95 e p99 sulle API di lettura e scrittura, p95 e p99 sul tempo di instaurazione
-della sessione, p95 sul tempo di ripresa dopo caduta di rete — e questo è il modo corretto di
+percentili - p95 e p99 sulle API di lettura e scrittura, p95 e p99 sul tempo di instaurazione
+della sessione, p95 sul tempo di ripresa dopo caduta di rete - e questo è il modo corretto di
 scrivere un requisito prestazionale.
 
 Tre precisazioni tecniche che evitano errori di misura.
@@ -2164,7 +2167,7 @@ tempo di rete del paziente su rete mobile, che è precisamente la parte peggiore
 **A percentili alti serve un'attenzione sul metodo.** Il p99,9 di un servizio che riceve mille
 richieste al minuto è calcolato su una richiesta al minuto: è rumore. E un generatore di carico
 che attende la risposta prima di inviare la richiesta successiva **non misura** i ritardi di
-attesa in coda, perché smette di generare carico proprio quando il sistema rallenta — un
+attesa in coda, perché smette di generare carico proprio quando il sistema rallenta - un
 fenomeno noto come omissione coordinata, che fa apparire buoni i sistemi saturi. **`[NV]`** il
 comportamento specifico degli strumenti di prova di carico adottati rispetto a questo fenomeno
 va verificato prima di considerare valide le misure.
@@ -2202,15 +2205,15 @@ consente 8, si sta accumulando coda. Questo è il calcolo che va fatto **prima**
 dimensione di un pool, non dopo aver visto le prime scadenze di tempo.
 
 **Dimensionare le connessioni alla base dati.** Se ogni richiesta usa una connessione per 40 ms
-e ne arrivano 200 al secondo, servono 8 connessioni contemporanee in media — e il picco è
+e ne arrivano 200 al secondo, servono 8 connessioni contemporanee in media - e il picco è
 molto più alto della media. Un pool sottodimensionato aggiunge attesa; uno sovradimensionato
 sposta la contesa dentro il motore, che è peggio, perché la coda diventa invisibile
 all'applicazione.
 
 **Prevedere l'attesa in sala.** Se un ambulatorio virtuale ammette 12 pazienti l'ora e ciascuna
 televisita dura 20 minuti, ci sono in media 4 pazienti simultaneamente in carico. Se i
-professionisti in servizio sono 3, la coda cresce e il tempo di permanenza — cioè l'attesa
-percepita dal paziente — aumenta senza limite. La legge di Little si applica alle persone
+professionisti in servizio sono 3, la coda cresce e il tempo di permanenza - cioè l'attesa
+percepita dal paziente - aumenta senza limite. La legge di Little si applica alle persone
 esattamente come ai pacchetti, e questo è il calcolo che dovrebbe precedere la configurazione
 di un'agenda.
 
@@ -2325,13 +2328,13 @@ di servizio per prestazioni diverse**.
 
 **Il budget del segnalamento è separato da quello del media.** `RNF-005` fissa lo scambio di
 candidati e la risposta a p95 sotto 150 ms lato server, e `RNF-002` fissa il tempo
-dall'ammissione al primo fotogramma a p95 sotto 5 secondi. Sono tre budget distinti — avvio,
-segnalamento, media in regime — e vanno misurati separatamente, perché un problema su uno dei
+dall'ammissione al primo fotogramma a p95 sotto 5 secondi. Sono tre budget distinti - avvio,
+segnalamento, media in regime - e vanno misurati separatamente, perché un problema su uno dei
 tre si diagnostica solo se non è mescolato agli altri.
 
 Infine, una nota che collega questa sezione al dominio clinico. La latenza in televisita non è
 un parametro di comfort. Sopra una certa soglia si perde la capacità di cogliere le
-sovrapposizioni di turno, le pause, le esitazioni — che in una valutazione psichiatrica o
+sovrapposizioni di turno, le pause, le esitazioni - che in una valutazione psichiatrica o
 neurologica sono **segno clinico**. Ecco perché il progetto tratta la latenza come metrica
 misurata, registrata e notificata (`D19`) e non come promessa commerciale: è un parametro che
 concorre alla qualità dell'atto, e come tale va documentato per ogni singola sessione.
@@ -2361,7 +2364,7 @@ molto più stringente di «abbiamo i log».
 dettaglio, alto costo per volume, difficili da aggregare se non strutturati. Rispondono a «cosa
 è successo esattamente in questo caso».
 
-**Metriche.** Valori numerici aggregati nel tempo — contatori, misuratori, istogrammi. Costo
+**Metriche.** Valori numerici aggregati nel tempo - contatori, misuratori, istogrammi. Costo
 basso e costante rispetto al volume di traffico, aggregazione naturale, ma **perdita del caso
 singolo**. Rispondono a «come si comporta il sistema nel complesso».
 
@@ -2402,7 +2405,7 @@ nell'evento, altrimenti la catena si interrompe esattamente dove è più diffici
 La riga di outbox lo deve portare.
 
 **Servono due identificativi, non uno.** Quello **tecnico** della richiesta, che vive minuti, e
-quello **di dominio** dell'aggregato — l'identificativo del contatto, della sessione media —
+quello **di dominio** dell'aggregato - l'identificativo del contatto, della sessione media -
 che vive per tutta la vita dell'atto. `RNF-074` chiede la ricostruzione «a partire dal suo
 identificativo»: è il secondo. Il primo serve per una richiesta, il secondo per un caso
 clinico.
@@ -2417,8 +2420,8 @@ automatica dei campi trasmessi. `RNF-038` richiede **zero identificatori diretti
 nei registri applicativi**, con analisi campionaria automatica. `RNF-037` richiede zero
 strumenti di tracciamento di terze parti nell'interfaccia clinica. La ragione è la stessa che
 governa tutto il modulo: i sistemi di osservabilità hanno un regime di accesso, di
-conservazione e spesso di collocazione fisica **diverso** da quello dei dati clinici — sono
-consultati da chi opera, non da chi cura — e un dato sanitario che finisce lì è un dato
+conservazione e spesso di collocazione fisica **diverso** da quello dei dati clinici - sono
+consultati da chi opera, non da chi cura - e un dato sanitario che finisce lì è un dato
 sanitario fuori dal suo regime di protezione.
 
 Cosa non può comparire, in concreto:
@@ -2427,7 +2430,7 @@ Cosa non può comparire, in concreto:
 - contenuto del referto, della bozza, della chat, dell'anamnesi, delle annotazioni;
 - valori di parametri clinici e misure di telemonitoraggio;
 - l'identificativo esterno con cui l'integratore identifica il paziente;
-- il motivo del contatto, la branca specialistica, il codice di esenzione — perché, come già
+- il motivo del contatto, la branca specialistica, il codice di esenzione - perché, come già
   osservato in §9.4, **anche il solo fatto di avere un appuntamento con una certa branca è dato
   sulla salute**;
 - il contenuto dei messaggi verso il paziente;
@@ -2443,7 +2446,7 @@ Cosa può comparire, ed è sufficiente per indagare:
 - il tipo di operazione, l'esito, il codice di errore, le durate;
 - le metriche tecniche di qualità del canale, che per costruzione non contengono identificatori
   diretti (`RF-165`);
-- i riferimenti alle risorse, non il loro contenuto — la stessa scelta fatta per il payload
+- i riferimenti alle risorse, non il loro contenuto - la stessa scelta fatta per il payload
   degli eventi (§5.4).
 
 Il modello mentale corretto: **il registro contiene puntatori, non contenuti**. Chi indaga e ha
@@ -2476,12 +2479,12 @@ Due regole che rendono i livelli effettivamente utili.
 
 **ERROR significa «qualcuno deve guardare».** Un sistema che emette diecimila ERROR al giorno
 non ha diecimila problemi: ha un livello ERROR privo di significato, e nessuno lo guarderà più
-il giorno in cui ce ne sarà uno vero. Un errore atteso — la validazione di un campo fallita
-perché l'utente ha sbagliato — non è un ERROR: è il funzionamento normale.
+il giorno in cui ce ne sarà uno vero. Un errore atteso - la validazione di un campo fallita
+perché l'utente ha sbagliato - non è un ERROR: è il funzionamento normale.
 
 **Il livello attivabile a caldo su un sottoinsieme.** Alzare il dettaglio in esercizio per
 diagnosticare un caso non deve richiedere un riavvio, e deve poter essere ristretto a un
-componente o a un identificativo di correlazione, non applicato a tutto il sistema — che
+componente o a un identificativo di correlazione, non applicato a tutto il sistema - che
 produrrebbe un volume ingestibile e un rischio di divulgazione.
 
 ### 12.6 Cosa rende un registro utile a un'indagine post-incidente
@@ -2515,7 +2518,7 @@ prime tre sono quelle che mancano più spesso.
 Va infine notato che `RNF-073` chiede la rilevazione automatica degli incidenti che impattano
 gli obiettivi di servizio entro cinque minuti, verificata con **esercitazioni di guasto
 controllato**. È il punto in cui l'osservabilità smette di essere una raccolta di dati e
-diventa una capacità provata — e si collega direttamente alla sezione successiva.
+diventa una capacità provata - e si collega direttamente alla sezione successiva.
 
 ---
 
@@ -2547,7 +2550,7 @@ sono i meccanismi che **trasformano la lentezza in un guasto netto**, che è ges
 **Il guasto bizantino.** Il componente risponde, ma risponde male: dati corrotti, valori
 plausibili ma errati. Nel dominio è la modalità più pericolosa in assoluto, perché un valore
 clinico plausibile ma sbagliato non allarma nessuno. Le contromisure sono la validazione ai
-confini — mai fidarsi di dati esterni, nemmeno di una risposta di un sistema partner — e la
+confini - mai fidarsi di dati esterni, nemmeno di una risposta di un sistema partner - e la
 firma dei messaggi, che protegge dall'alterazione ma non dall'errore alla fonte.
 
 **Il guasto correlato.** Molti componenti falliscono insieme perché condividono una dipendenza:
@@ -2572,8 +2575,8 @@ La **degradazione controllata** è la capacità di continuare a fornire un servi
 utile quando qualcosa non funziona, invece di fallire in blocco.
 
 Nel progetto non è una raffinatezza: `D25` la qualifica come **requisito di accessibilità**.
-«Banda scarsa, rete intermittente, dispositivo modesto: degradare in modo comprensibile —
-audio prima del video, avvisi chiari, ripresa della sessione — è parte dell'accessibilità
+«Banda scarsa, rete intermittente, dispositivo modesto: degradare in modo comprensibile -
+audio prima del video, avvisi chiari, ripresa della sessione - è parte dell'accessibilità
 reale, non dell'ottimizzazione». La gerarchia di degradazione è quindi una decisione clinica e
 di accessibilità, non tecnica.
 
@@ -2581,12 +2584,12 @@ La scala del canale media, dalla migliore alla peggiore:
 
 1. video ad alta definizione con audio;
 2. video a definizione ridotta con audio;
-3. **solo audio** — che per moltissime prestazioni è ancora un atto clinicamente valido;
-4. **ripiego telefonico** — ma con un'avvertenza di dominio decisiva: non è la stessa
+3. **solo audio** - che per moltissime prestazioni è ancora un atto clinicamente valido;
+4. **ripiego telefonico** - ma con un'avvertenza di dominio decisiva: non è la stessa
    prestazione. La degradazione del canale **può cambiare l'ammissibilità e la refertabilità
    dell'atto** (`BR-034`). Non è un dettaglio da nascondere all'utente: è un fatto che il
    professionista deve conoscere per decidere;
-5. **riprogrammazione o dirottamento in presenza** — che la ricerca `R6` qualifica come **esito
+5. **riprogrammazione o dirottamento in presenza** - che la ricerca `R6` qualifica come **esito
    clinico legittimo, non fallimento del sistema**, da misurare come indicatore anziché
    nascondere.
 
@@ -2632,7 +2635,7 @@ determina un'architettura: **non si ottiene un punto di ripristino nullo con una
 sicurezza notturna**, per definizione.
 
 Da notare anche la simmetria con §2.3: le stesse categorie di dato che richiedono consistenza
-forte — le prove — richiedono punto di ripristino nullo. Non è una coincidenza: entrambe le
+forte - le prove - richiedono punto di ripristino nullo. Non è una coincidenza: entrambe le
 proprietà discendono dal fatto che quel dato deve reggere una contestazione.
 
 E va distinta una cosa che nel dominio ha nomi diversi e regimi diversi: **la copia di sicurezza
@@ -2757,7 +2760,7 @@ per trovare il codice **non** testato; è privo di significato come misura di qu
 ### 14.3 Prove a contratto
 
 Il problema che risolvono: i test di integrazione richiedono l'altro sistema, che spesso non è
-disponibile — perché è di un terzo, perché è lento, perché non ha un ambiente di prova. La
+disponibile - perché è di un terzo, perché è lento, perché non ha un ambiente di prova. La
 soluzione ingenua è simularlo con una finzione scritta a mano; e la finzione, silenziosamente,
 diverge dalla realtà. Il giorno in cui il sistema vero cambia, tutti i test passano e la
 produzione si rompe.
@@ -2772,8 +2775,8 @@ divergenza viene individuata alla prima esecuzione della catena di verifica.
 
 Nel progetto le prove a contratto sono più necessarie che altrove, e su tre confini distinti.
 
-**Verso l'integratore.** Il contratto delle notifiche in uscita — struttura dell'evento, campi,
-firma, intestazioni — è consumato da sistemi che non controlliamo e che non possiamo mettere in
+**Verso l'integratore.** Il contratto delle notifiche in uscita - struttura dell'evento, campi,
+firma, intestazioni - è consumato da sistemi che non controlliamo e che non possiamo mettere in
 una catena di verifica. Una prova a contratto è l'unico modo di sapere che una modifica è
 incompatibile **prima** che lo scopra un partner in esercizio.
 
@@ -2812,8 +2815,8 @@ Le contromisure che funzionano, in ordine di efficacia:
 2. **Isolamento dei dati per esecuzione.** Ogni esecuzione crea i propri tenant, pazienti e
    appuntamenti sintetici, e non riusa quelli di prima. I test che condividono dati falliscono
    in parallelo e passano in sequenza, il che è il tipo di difetto più costoso da diagnosticare.
-3. **Selettori stabili.** Attributi dedicati alla verifica, non testo dell'interfaccia — che
-   cambia con la traduzione — né posizione nell'albero — che cambia con la grafica.
+3. **Selettori stabili.** Attributi dedicati alla verifica, non testo dell'interfaccia - che
+   cambia con la traduzione - né posizione nell'albero - che cambia con la grafica.
 4. **Controllo dell'ambiente.** Dispositivi media simulati, condizioni di rete emulate in modo
    deterministico, orologio controllabile. Una prova di ripresa dopo caduta di rete che dipende
    dalla rete reale della macchina di verifica non è una prova.
@@ -2829,7 +2832,7 @@ Regola non negoziabile della guida e del progetto: **nessun dato reale** in docu
 codice, test, esempi e immagini.
 
 Non è solo una regola di conformità. Un ambiente di prova con dati reali di pazienti è, a tutti
-gli effetti, un trattamento di dati sanitari con una superficie di accesso larghissima —
+gli effetti, un trattamento di dati sanitari con una superficie di accesso larghissima -
 sviluppatori, sistemi di integrazione continua, copie locali, registri di esecuzione. La
 generazione sintetica è la soluzione, non l'anonimizzazione di dati reali: la
 ri-identificazione a partire da dati sanitari «anonimizzati» è un problema noto, e in un
@@ -2848,7 +2851,7 @@ Cosa deve avere un buon generatore di dati sintetici per questo progetto:
 - **riproducibilità**: stesso seme, stesso insieme di dati, così che un fallimento sia
   riproducibile;
 - **varietà linguistica e di accessibilità**: nomi lunghi, caratteri non latini, testi che
-  mandano a capo — perché `RNF-047` chiede nessuna perdita di funzione con ingrandimento al
+  mandano a capo - perché `RNF-047` chiede nessuna perdita di funzione con ingrandimento al
   200 %, e un dato di prova sempre corto non lo mette mai alla prova.
 
 ### 14.6 Prove di carico
@@ -2861,10 +2864,10 @@ Le prove di carico non sono una sola cosa. Quattro tipi con obiettivi diversi:
   come**. `RNF-011` la specifica al 150 % della capacità nominale, con il criterio già visto:
   rifiuto esplicito delle nuove sessioni senza degradare quelle in corso oltre il 15 %;
 - **prova di resistenza**: carico costante e prolungato per far emergere i difetti che si
-  manifestano solo nel tempo — perdite di memoria, crescita di tabelle, esaurimento di
+  manifestano solo nel tempo - perdite di memoria, crescita di tabelle, esaurimento di
   descrittori. `RNF-016` la definisce a 72 ore al 70 % della capacità, con crescita della
   memoria entro il 5 % e degrado entro il 10 %;
-- **prova di picco**: aumento improvviso, per verificare la reazione a un evento concentrato —
+- **prova di picco**: aumento improvviso, per verificare la reazione a un evento concentrato -
   che nel dominio è realistico: un'agenda con molte televisite alle nove del mattino produce
   una raffica di ingressi in sala d'attesa in pochi minuti.
 
@@ -2931,11 +2934,21 @@ Regola di dominio (BR-071)
           -> Misura di controllo del rischio nell'analisi ISO 14971
 ```
 
+Si noti che la stessa frase - «nessuna registrazione senza consenso vigente» - compare nella
+catena con **due identificativi diversi**, e non è una svista: `BR-071` è la **regola di
+dominio**, cioè ciò che il dominio sanitario impone a chiunque eroghi la prestazione, e
+`RF-139` è il **requisito funzionale**, cioè l'obbligo che questo sistema si assume per
+rispettarla. Sono due anelli distinti anche quando il testo che li enuncia è identico: la
+regola varrebbe anche se il progetto non esistesse, il requisito è verificabile soltanto su
+questo progetto. È per questo che §2.3 e §3.5 citano `BR-071` - parlano della regola - mentre
+la catena li cita entrambi. Un anello che ne portasse uno solo renderebbe indimostrabile il
+passaggio dall'uno all'altro, che è esattamente ciò che la tracciabilità deve dimostrare.
+
 Ogni anello mancante è un punto in cui, in sede di verifica esterna, non si può dimostrare
 nulla. E vale la pena chiudere con l'osservazione che rende il tutto meno astratto: il
 destinatario finale di questa catena non è un valutatore. È il paziente che scopre di essere
-stato registrato senza averlo consentito, e la catena è ciò che permette di dire — con
-evidenza, non con un'affermazione — che non è potuto accadere.
+stato registrato senza averlo consentito, e la catena è ciò che permette di dire - con
+evidenza, non con un'affermazione - che non è potuto accadere.
 
 ---
 
@@ -2958,7 +2971,7 @@ evidenza, non con un'affermazione — che non è potuto accadere.
    resta, viene marcato come sostituito, e un nuovo documento lo rettifica con un motivo. I
    passi irreversibili vanno per ultimi nella saga.
 6. **La doppia scrittura è un difetto, e l'outbox è la sua cura.** Un'unica transazione scrive
-   il dato e l'evento; un relay pubblica. Nessun evento perso, nessun evento fantasma — e
+   il dato e l'evento; un relay pubblica. Nessun evento perso, nessun evento fantasma - e
    consegna **almeno una volta**, mai esattamente una volta.
 7. **L'esattamente-una-volta, come lo si immagina, non esiste.** L'effetto unico si ottiene
    così: consegna almeno una volta più idempotenza del ricevente. Non c'è altra strada.
@@ -2997,7 +3010,7 @@ evidenza, non con un'affermazione — che non è potuto accadere.
 
 | Termine (IT) | Inglese | Definizione operativa |
 |---|---|---|
-| Aggregato | Aggregate | Gruppo di entità e oggetti valore trattato come una sola unità di consistenza, con una radice come unico punto di accesso. La formulazione canonica del progetto — «insieme di oggetti che devono cambiare **insieme** in una sola transazione per mantenere vera una regola» — è nel modulo [16](./16-architettura-del-progetto.md): dice la stessa cosa mettendo in primo piano la regola invece della struttura, ed è quella da citare |
+| Aggregato | Aggregate | Gruppo di entità e oggetti valore trattato come una sola unità di consistenza, con una radice come unico punto di accesso. La formulazione canonica del progetto - «insieme di oggetti che devono cambiare **insieme** in una sola transazione per mantenere vera una regola» - è nel modulo [16](./16-architettura-del-progetto.md): dice la stessa cosa mettendo in primo piano la regola invece della struttura, ed è quella da citare |
 | Almeno una volta | At-least-once | Garanzia di consegna per cui un messaggio arriva una o più volte; richiede un ricevente idempotente |
 | Al più una volta | At-most-once | Garanzia di consegna senza ritentativi: il messaggio arriva zero o una volta |
 | Attesa esponenziale | Exponential backoff | Strategia di ritentativo in cui l'intervallo raddoppia a ogni tentativo fino a un tetto |
@@ -3019,14 +3032,14 @@ evidenza, non con un'affermazione — che non è potuto accadere.
 | Fallacie del calcolo distribuito | Fallacies of distributed computing | Le otto assunzioni implicite e false su rete, latenza, banda, sicurezza, topologia, amministrazione, costo e omogeneità |
 | Gruppo di consumatori | Consumer group | Insieme di processi che si dividono le partizioni di un flusso, così che ogni evento sia elaborato da un solo membro |
 | Guasto parziale | Partial failure | Situazione in cui una parte del sistema è guasta e il resto può non saperlo |
-| Idempotenza | Idempotence | Proprietà di un'operazione che, ripetuta con gli stessi argomenti, non aggiunge effetti |
+| Idempotenza | Idempotency | Proprietà di un'operazione che, ripetuta con gli stessi argomenti, non aggiunge effetti |
 | Interruttore automatico | Circuit breaker | Componente che smette di chiamare un servizio in fallimento continuo e riprova in modo cauto |
 | Invariante | Invariant | Condizione che deve essere vera in ogni istante osservabile |
 | Jitter (ritentativi) | Jitter | Termine casuale aggiunto all'intervallo di attesa per evitare raffiche sincronizzate |
 | Latenza | Latency | Tempo fra richiesta e risposta di una singola operazione |
 | Legge di Little | Little's law | `L = λ × W`: elementi nel sistema uguale tasso di arrivo per tempo di permanenza |
 | Linguaggio ubiquo | Ubiquitous language | Vocabolario unico condiviso fra esperti del dominio e sviluppatori, usato ovunque |
-| Livello anticorruzione | Anticorruption layer | Strato che traduce il modello esterno nel modello interno e impedisce la contaminazione |
+| Livello anticorruzione | Anti-corruption layer | Strato che traduce il modello esterno nel modello interno e impedisce la contaminazione |
 | Livello di isolamento | Isolation level | Grado di separazione fra transazioni concorrenti, definito per le anomalie che esclude |
 | Log degli eventi | Event log | Sequenza ordinata, immutabile e a sola aggiunta di record, con posizione progressiva |
 | Mappa dei contesti | Context map | Descrizione delle relazioni e dei rapporti di forza fra contesti delimitati |
@@ -3063,13 +3076,13 @@ evidenza, non con un'affermazione — che non è potuto accadere.
 
 ## Dove continuare
 
-- [12 — Crittografia e sicurezza](12-crittografia-e-sicurezza.md): la teoria delle misure di
+- [12 - Crittografia e sicurezza](12-crittografia-e-sicurezza.md): la teoria delle misure di
   protezione, dalle firme alle catene di impronte richieste da `D42`.
-- [13 — I protocolli, uno per uno](13-protocolli.md): dove i concetti di questo modulo
+- [13 - I protocolli, uno per uno](13-protocolli.md): dove i concetti di questo modulo
   diventano protocolli concreti.
-- [14 — I flussi funzionali](14-flussi-funzionali.md): i percorsi end-to-end in cui saga,
+- [14 - I flussi funzionali](14-flussi-funzionali.md): i percorsi end-to-end in cui saga,
   outbox, idempotenza e ripieghi si vedono all'opera.
-- [16 — L'architettura del progetto](16-architettura-del-progetto.md): la mappa dei contesti
+- [16 - L'architettura del progetto](16-architettura-del-progetto.md): la mappa dei contesti
   delimitati con i loro confini reali.
-- [19 — Glossario](19-glossario.md): i termini di questo modulo insieme a quelli clinici e
+- [19 - Glossario](19-glossario.md): i termini di questo modulo insieme a quelli clinici e
   normativi.

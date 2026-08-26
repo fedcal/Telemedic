@@ -1,10 +1,10 @@
 ---
-title: "ADR-0030 — Le due proiezioni del piano di telemonitoraggio derivano da un'unica fonte"
+title: "ADR-0030 - Le due proiezioni del piano di telemonitoraggio derivano da un'unica fonte"
 sidebar_position: 30
 description: Perché la forma eseguibile del piano e la forma documentale destinata al fascicolo sono generate dallo stesso artefatto, e perché la loro divergenza sarebbe un difetto di sicurezza del paziente.
 ---
 
-# ADR-0030 — Le due proiezioni del piano di telemonitoraggio derivano da un'unica fonte
+# ADR-0030 - Le due proiezioni del piano di telemonitoraggio derivano da un'unica fonte
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Origine**: questione posta dall'area di dominio a quest'area e all'area di integrazione
@@ -17,7 +17,7 @@ La **forma eseguibile** è quella che il motore di valutazione usa per confronta
 regole. È strutturata, precisa, priva di ambiguità.
 
 La **forma documentale** è quella che va al fascicolo come tipologia dedicata, e il tracciato
-richiesto la vuole in **forma testuale descrittiva** — le regole di comportamento in caso di
+richiesto la vuole in **forma testuale descrittiva** - le regole di comportamento in caso di
 superamento delle soglie, espresse in linguaggio naturale.
 
 Se le due sono redatte separatamente, divergono. E la divergenza fra **ciò che il piano dichiara e
@@ -26,7 +26,7 @@ perché il professionista che legge il documento crede di sapere quando sarà av
 
 ## Alternative valutate
 
-### Alternativa 1 — Redazione separata delle due forme
+### Alternativa 1 - Redazione separata delle due forme
 
 Il professionista configura le regole e scrive il testo descrittivo.
 
@@ -37,7 +37,7 @@ che il testo dice «avviso oltre un certo valore» mentre la regola configurata 
 persistenza. Il difetto emerge quando un allarme non scatta e qualcuno rilegge il documento.
 **Scartata.**
 
-### Alternativa 2 — Solo la forma eseguibile, documento generato come dump strutturato
+### Alternativa 2 - Solo la forma eseguibile, documento generato come dump strutturato
 
 *Vantaggi*: nessuna divergenza possibile.
 
@@ -45,7 +45,7 @@ persistenza. Il difetto emerge quando un allarme non scatta e qualcuno rilegge i
 strutturati non la soddisfa. Inoltre il documento sarebbe illeggibile per il destinatario umano.
 **Scartata.**
 
-### Alternativa 3 — Fonte unica, due proiezioni generate
+### Alternativa 3 - Fonte unica, due proiezioni generate
 
 L'artefatto autoritativo è il piano nella sua forma dichiarativa; **entrambe** le proiezioni sono
 generate da esso.
@@ -97,4 +97,4 @@ generale sulle serializzazioni sostituibili.
 ## Riferimenti
 
 ADR-0026 · ADR-0005 ·
-[04 — Modello dati](../02_architecture/04-modello-dati.md#3-il-dataset-canonico-dei-documenti)
+[04 - Modello dati](../02_architecture/04-modello-dati.md#3-il-dataset-canonico-dei-documenti)

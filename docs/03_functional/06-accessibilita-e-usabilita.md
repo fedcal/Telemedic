@@ -28,9 +28,9 @@ attraverso il comportamento di una persona. La conformità ai criteri di accessi
 una misura di controllo del rischio, e come tale va documentata nel file di usabilità con
 collegamento incrociato al file di rischio.
 
-**La terza è di efficacia del servizio.** La popolazione di riferimento della telemedicina —
+**La terza è di efficacia del servizio.** La popolazione di riferimento della telemedicina -
 persone anziane, con più patologie croniche, con bassa alfabetizzazione digitale, spesso assistite da
-un caregiver — **non è un caso limite: è la popolazione normale**. Un servizio che funziona solo per
+un caregiver - **non è un caso limite: è la popolazione normale**. Un servizio che funziona solo per
 chi sa già usarlo non è un servizio: è una selezione.
 
 ## 2. Il criterio di accettazione operativo
@@ -94,7 +94,7 @@ dell'udito non dichiarati; usa un dispositivo che qualcun altro ha configurato.
 
 | Tipo | Barriera specifica | Progettazione |
 |---|---|---|
-| **Visiva** | l'intera interfaccia è visiva; gli stati — chi parla, chi è entrato, qualità del collegamento, registrazione attiva — sono comunicati con icone | annunci degli eventi tramite regioni di stato, etichette esplicite, ordine di lettura coerente, nessuna informazione veicolata dal solo colore (`RF-071`, `RNF-044` … `RNF-047`) |
+| **Visiva** | l'intera interfaccia è visiva; gli stati - chi parla, chi è entrato, qualità del collegamento, registrazione attiva - sono comunicati con icone | annunci degli eventi tramite regioni di stato, etichette esplicite, ordine di lettura coerente, nessuna informazione veicolata dal solo colore (`RF-071`, `RNF-044` … `RNF-047`) |
 | **Uditiva** | il canale primario è audio | canale testuale sempre disponibile e non nascosto; interprete della lingua dei segni come **partecipante a pieno titolo**; comunicazione scritta sovrapposta all'immagine e condivisione dello schermo |
 | **Motoria** | comandi piccoli, azioni a tempo, trascinamenti | tutte le funzioni da tastiera, bersagli di dimensione adeguata, nessuna azione che richieda precisione temporale, scadenze estendibili (`RNF-045`) |
 | **Cognitiva** | sequenze lunghe, terminologia specialistica, decisioni sotto pressione | riduzione dei passaggi, un'azione per schermata nei percorsi critici, linguaggio comune, possibilità di rileggere senza perdere la posizione, nessuna scadenza che faccia perdere il lavoro svolto (`RNF-050`, `RNF-051`) |
@@ -189,8 +189,8 @@ in sessione con modalità a banda ridotta (`RNF-008`), tempo di ripresa dopo cad
 (`RNF-009`).
 
 **La resilienza è parte dell'accessibilità reale**, non dell'ottimizzazione: banda scarsa, rete
-intermittente, dispositivo modesto. Degradare in modo comprensibile — audio prima del video, avvisi
-chiari, ripresa della sessione, misura conservata localmente e trasmessa al ripristino — è ciò che
+intermittente, dispositivo modesto. Degradare in modo comprensibile - audio prima del video, avvisi
+chiari, ripresa della sessione, misura conservata localmente e trasmessa al ripristino - è ciò che
 rende il servizio utilizzabile da chi ha meno risorse, cioè da chi ne ha più bisogno.
 
 ## 6. Ingegneria dell'usabilità
@@ -264,9 +264,9 @@ per questo il testo va scritto, verificato con utenti reali e reso impossibile d
 Un messaggio di errore è, in questo dominio, una funzione di sicurezza. Ogni messaggio rivolto a un
 utente contiene tre elementi, verificati automaticamente sul catalogo (`RNF-054`):
 
-1. **causa** — che cosa è successo, in linguaggio comune;
-2. **conseguenza** — che cosa significa per chi legge;
-3. **azione** — che cosa fare adesso, con un comando raggiungibile nella stessa schermata.
+1. **causa** - che cosa è successo, in linguaggio comune;
+2. **conseguenza** - che cosa significa per chi legge;
+3. **azione** - che cosa fare adesso, con un comando raggiungibile nella stessa schermata.
 
 **Anti-esempi che il catalogo esclude**: «errore di connessione»; «operazione non consentita»;
 «codice 4032»; una schermata bloccata senza alcun comando; un messaggio che rimanda a un supporto
@@ -312,10 +312,10 @@ requisiti verificabili sulla personalizzazione:
 
 1. Le combinazioni cromatiche che violano i rapporti di contrasto sono **rifiutate al salvataggio**,
    con l'indicazione del rapporto minimo richiesto e un suggerimento di correzione (`RF-178`).
-2. Il rispetto delle preferenze di sistema — riduzione del movimento, contrasto elevato, dimensione
-   del carattere — **non è disattivabile** dalla configurazione di personalizzazione.
-3. Le dichiarazioni obbligatorie — stato della registrazione, stato della copertura, limiti d'uso del
-   servizio — non sono occultabili né rimovibili per personalizzazione (`BR-161`, `BR-168`).
+2. Il rispetto delle preferenze di sistema - riduzione del movimento, contrasto elevato, dimensione
+   del carattere - **non è disattivabile** dalla configurazione di personalizzazione.
+3. Le dichiarazioni obbligatorie - stato della registrazione, stato della copertura, limiti d'uso del
+   servizio - non sono occultabili né rimovibili per personalizzazione (`BR-161`, `BR-168`).
 4. I percorsi critici incorporati sono sottoposti alle stesse due prove del § 2, con il tema
    dell'integratore applicato.
 
@@ -337,21 +337,21 @@ locale con conferma discorsiva sui valori implausibili.
 
 | Che cosa | Automatico | Manuale | Con utenti |
 |---|---|---|---|
-| Violazioni di livello A e AA | ● bloccante | ● audit per percorso critico | — |
-| Contrasto e ingrandimento | ● | ● | — |
-| Navigazione da tastiera | ◐ parziale | ● obbligatorio | — |
-| Compatibilità con tecnologie assistive | — | ● due strumenti, due sistemi | — |
-| Riduzione del movimento | ● | — | — |
+| Violazioni di livello A e AA | ● bloccante | ● audit per percorso critico | - |
+| Contrasto e ingrandimento | ● | ● | - |
+| Navigazione da tastiera | ◐ parziale | ● obbligatorio | - |
+| Compatibilità con tecnologie assistive | - | ● due strumenti, due sistemi | - |
+| Riduzione del movimento | ● | - | - |
 | Leggibilità dei testi | ● indice | ● revisione redazionale | ◐ |
-| Presenza di causa, conseguenza e azione nei messaggi | ● bloccante | ● revisione redazionale | — |
+| Presenza di causa, conseguenza e azione nei messaggi | ● bloccante | ● revisione redazionale | - |
 | Presenza di canale, recapito e urgenza nell'instradamento | ● bloccante | ● | ● comprensione |
 | Numero di azioni dei percorsi critici | ● analisi del percorso | ● | ● |
-| Successo al primo tentativo | — | — | ● prova di usabilità |
-| Errori d'uso pericolosi | — | ◐ analisi | ● validazione sommativa |
+| Successo al primo tentativo | - | - | ● prova di usabilità |
+| Errori d'uso pericolosi | - | ◐ analisi | ● validazione sommativa |
 | Assenza di precompilazione delle soglie | ● bloccante | ● | ● formativa |
-| Resilienza dell'inserimento offline | ● prova con rete interrotta | ● | — |
+| Resilienza dell'inserimento offline | ● prova con rete interrotta | ● | - |
 
-Legenda: `●` metodo principale, `◐` contributo parziale, `—` non applicabile.
+Legenda: `●` metodo principale, `◐` contributo parziale, `-` non applicabile.
 
 ## 13. Errori ricorrenti che questa progettazione esclude
 

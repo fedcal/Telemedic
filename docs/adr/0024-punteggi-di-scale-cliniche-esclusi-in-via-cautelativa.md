@@ -1,10 +1,10 @@
 ---
-title: "ADR-0024 — Punteggi di scale e questionari clinici esclusi dal modello in via cautelativa"
+title: "ADR-0024 - Punteggi di scale e questionari clinici esclusi dal modello in via cautelativa"
 sidebar_position: 24
 description: Perché il sistema conserva le risposte ai questionari strutturati ma non ne calcola i punteggi finché la questione delle licenze delle scale validate non è chiusa.
 ---
 
-# ADR-0024 — Punteggi di scale e questionari clinici esclusi dal modello in via cautelativa
+# ADR-0024 - Punteggi di scale e questionari clinici esclusi dal modello in via cautelativa
 
 **Stato**: accettata, provvisoria · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Origine**: questione posta dal modulo dei fondamenti all'area di conformità e a quest'area
@@ -24,7 +24,7 @@ calcolo.
 
 ## Alternative valutate
 
-### Alternativa 1 — Realizzare il calcolo dei punteggi e verificare le licenze dopo
+### Alternativa 1 - Realizzare il calcolo dei punteggi e verificare le licenze dopo
 
 *Vantaggi*: la funzione è disponibile subito; il valore per l'utente è immediato.
 
@@ -33,13 +33,13 @@ tratterebbe di **rimuovere una funzione già promessa** e già usata, con dati s
 un algoritmo che non si può più eseguire. È il tipo di errore che costa di più correggere.
 **Scartata.**
 
-### Alternativa 2 — Escludere del tutto i questionari strutturati
+### Alternativa 2 - Escludere del tutto i questionari strutturati
 
 *Compromesso*: sarebbe una riduzione del perimetro funzionale approvato, che li comprende
 esplicitamente. Sproporzionata rispetto al problema, che riguarda il calcolo del punteggio e non la
 raccolta della risposta. **Scartata.**
 
-### Alternativa 3 — Rappresentare e conservare le risposte, non calcolare i punteggi
+### Alternativa 3 - Rappresentare e conservare le risposte, non calcolare i punteggi
 
 *Vantaggi*: la funzione di raccolta è disponibile; nessun rischio di licenza, perché conservare la
 risposta di una persona a una domanda non è riprodurre lo strumento né eseguirne l'algoritmo; la
@@ -56,16 +56,16 @@ percepita come incompleta.
    il riferimento a una **versione immutabile dello strumento**, l'istante e il soggetto compilante.
 2. Il modello **non rappresenta punteggi di scale cliniche** e il contesto del telemonitoraggio
    **non li calcola**.
-3. Il **contenuto dello strumento** — testo delle domande, opzioni di risposta, algoritmo di calcolo
-   — **non è incluso nella distribuzione**: è dato di configurazione per tenant, caricato da chi
+3. Il **contenuto dello strumento** - testo delle domande, opzioni di risposta, algoritmo di calcolo
+   - **non è incluso nella distribuzione**: è dato di configurazione per tenant, caricato da chi
    installa, che è il soggetto che ha o può ottenere la licenza d'uso. È la stessa scelta adottata
    per i cataloghi di dati di riferimento.
 4. La decisione è **provvisoria** e cade quando l'area di conformità chiude la questione,
    estendendo formalmente la politica di licenza a scale e punteggi.
 
 **Criterio suggerito per la chiusura**: la stessa tassonomia a regimi già adottata per le
-terminologie — coesistenza piena, collocazione separata con licenza propria, acquisizione a carico
-di chi installa, esclusione totale — applicata **strumento per strumento**, verificando la licenza
+terminologie - coesistenza piena, collocazione separata con licenza propria, acquisizione a carico
+di chi installa, esclusione totale - applicata **strumento per strumento**, verificando la licenza
 primaria e non la dichiarazione del contenitore che lo ricomprende. Il principio è già acquisito in
 altra sede: una dichiarazione di libera riutilizzabilità apposta su un contenitore **non dispone dei
 diritti di terzi** sul contenuto ricompreso.
@@ -91,6 +91,6 @@ diritti di terzi** sul contenuto ricompreso.
 
 ## Riferimenti
 
-[03 — Modello di dominio](../02_architecture/03-modello-di-dominio.md#10-che-cosa-il-modello-non-rappresenta) ·
-[09 — Decisioni rinviate](../02_architecture/09-decisioni-rinviate.md#b-3--estensione-della-politica-terminologica-alle-scale-e-ai-questionari-clinici-validati) ·
+[03 - Modello di dominio](../02_architecture/03-modello-di-dominio.md#10-che-cosa-il-modello-non-rappresenta) ·
+[09 - Decisioni rinviate](../02_architecture/09-decisioni-rinviate.md#b-3---estensione-della-politica-terminologica-alle-scale-e-ai-questionari-clinici-validati) ·
 ADR-0016 · ADR-0018

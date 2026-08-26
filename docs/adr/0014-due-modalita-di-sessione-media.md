@@ -1,10 +1,10 @@
 ---
-title: "ADR-0014 — Due modalità di sessione media e i loro effetti sul modello"
+title: "ADR-0014 - Due modalità di sessione media e i loro effetti sul modello"
 sidebar_position: 14
 description: Perché la registrazione lato server e la cifratura fino agli estremi sono incompatibili, come si rappresenta l'incompatibilità nel modello e quali obblighi ne discendono.
 ---
 
-# ADR-0014 — Due modalità di sessione media e i loro effetti sul modello
+# ADR-0014 - Due modalità di sessione media e i loro effetti sul modello
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Decisioni di riferimento**: D22, D23; vincolo V-11 di bacheca
@@ -29,7 +29,7 @@ effetti sul modello dati.
 
 ## Alternative valutate
 
-### Alternativa 1 — Registrazione lato client
+### Alternativa 1 - Registrazione lato client
 
 Il dispositivo del partecipante registra e cifra localmente, poi carica.
 
@@ -42,12 +42,12 @@ successivo può fallire su una rete mobile e richiede una coda resiliente nel br
 disponibile dipende dal motore del browser. **Scartata dal committente**, che ha scelto
 l'affidabilità della registrazione.
 
-### Alternativa 2 — Registrazione lato server, dichiarando comunque la cifratura fino agli estremi
+### Alternativa 2 - Registrazione lato server, dichiarando comunque la cifratura fino agli estremi
 
 *Compromesso*: sarebbe **falso**. Scartata senza discussione: un claim di sicurezza non veritiero è
 il tipo di difetto che distrugge la credibilità dell'intero sistema.
 
-### Alternativa 3 — Registrazione lato server, con due modalità distinte e dichiarate
+### Alternativa 3 - Registrazione lato server, con due modalità distinte e dichiarate
 
 *Vantaggi*: la registrazione è affidabile; la proprietà di sicurezza è dichiarata correttamente per
 ciascuna modalità; l'assistito sa che cosa sta accettando.
@@ -112,6 +112,6 @@ spiegare di una promessa uniforme.
 
 ## Riferimenti
 
-[03 — Modello di dominio](../02_architecture/03-modello-di-dominio.md#45-contesto-sessione-media) ·
-[02 — Contesti delimitati](../02_architecture/02-contesti-delimitati.md#ctx-05--sessione-media) ·
+[03 - Modello di dominio](../02_architecture/03-modello-di-dominio.md#45-contesto-sessione-media) ·
+[02 - Contesti delimitati](../02_architecture/02-contesti-delimitati.md#ctx-05---sessione-media) ·
 ADR-0001

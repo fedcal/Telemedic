@@ -1,7 +1,7 @@
 ---
 title: Il dominio sanitario
 sidebar_position: 1
-description: Come il dominio reale della telemedicina italiana diventa modello — linguaggio ubiquo, prestazioni e macchine a stati, soggetti e ruoli, documenti clinici, parametri, consenso, terminologie, percorsi di cura e glossario.
+description: Come il dominio reale della telemedicina italiana diventa modello - linguaggio ubiquo, prestazioni e macchine a stati, soggetti e ruoli, documenti clinici, parametri, consenso, terminologie, percorsi di cura e glossario.
 ---
 
 # Il dominio sanitario
@@ -11,7 +11,7 @@ modello eseguibile senza tradirlo.**
 
 Non è la ripetizione dei fondamenti. I moduli di
 [`docs/10_fondamenti/`](../10_fondamenti/00-come-usare-questa-guida.md) spiegano *che cosa
-esiste* nel mondo — che cos'è una televisita, che cos'è un referto, che cos'è la pressione
+esiste* nel mondo - che cos'è una televisita, che cos'è un referto, che cos'è la pressione
 arteriosa, che cos'è un piano di cura. Questa area stabilisce *come si rappresenta*: quali
 aggregati, quali stati, quali transizioni ammesse, quali invarianti, quali attributi
 obbligatori, quali confini fra concetti che il linguaggio corrente confonde.
@@ -59,19 +59,19 @@ requisito.
 
 Sono in vigore per decisione dell'orchestrazione e non sono derogabili da questa area.
 
-1. **`V-01` — `Encounter` e `MediaSession` sono aggregati distinti.** La prestazione clinica e
+1. **`V-01` - `Encounter` e `MediaSession` sono aggregati distinti.** La prestazione clinica e
    la sessione media hanno cicli di vita indipendenti. Il capitolo 02 ne fa la spina dorsale.
-2. **`V-02` — nessuna soglia clinica cablata.** Le soglie sono configurazione per assistito,
+2. **`V-02` - nessuna soglia clinica cablata.** Le soglie sono configurazione per assistito,
    mai costanti del codice. Il capitolo 05 e il capitolo 08 lo rendono operativo.
-3. **`V-03` — il sistema è pienamente funzionale senza SNOMED CT.** Nessun percorso principale
+3. **`V-03` - il sistema è pienamente funzionale senza SNOMED CT.** Nessun percorso principale
    può richiederlo. Il capitolo 07 dichiara il costo esatto di questa scelta.
-4. **`V-04` — il registro immutabile è a catena di impronte e conservazione separata.** Il
+4. **`V-04` - il registro immutabile è a catena di impronte e conservazione separata.** Il
    versionamento delle entità non lo sostituisce. Ricade sui capitoli 04 e 06.
-5. **`V-07` — il contenuto dei documenti per il fascicolo si modella come dataset canonico**;
+5. **`V-07` - il contenuto dei documenti per il fascicolo si modella come dataset canonico**;
    le serializzazioni sono sostituibili. È l'architrave del capitolo 04.
-6. **`V-09` — l'assenza di dato è informazione clinica.** Il silenzio non è mai trattato come
+6. **`V-09` - l'assenza di dato è informazione clinica.** Il silenzio non è mai trattato come
    normalità. È l'architrave del capitolo 05, § sul dato mancante.
-7. **`R0` — riservatezza.** Nessun nome di azienda, marchio, prodotto commerciale o dominio di
+7. **`R0` - riservatezza.** Nessun nome di azienda, marchio, prodotto commerciale o dominio di
    potenziale partner compare in quest'area. Si usano soltanto formule generiche: «un
    gestionale sanitario cloud», «un sistema EHR di terze parti», «l'integratore», «il
    repository documentale nazionale o regionale».

@@ -67,7 +67,7 @@ Le prescrizioni che vincolano il progetto:
 | **Autorizzazione in contesto IHE** | rev. 2.5 | Capitolato che richiede conformità a quel profilo | Corrispondenza documentale, §10 |
 | **Registrazione dinamica** | RFC 7591 / 7592 | Onboarding automatizzato, **solo autenticato** | Server, con restrizioni |
 | **Introspezione e revoca** | RFC 7662 / RFC 7009 | Verifica e revoca dei token | Server |
-| Federazione dinamica a certificati | — | **Fuori perimetro v1.0**, §11 | — |
+| Federazione dinamica a certificati | - | **Fuori perimetro v1.0**, §11 | - |
 
 ## 4. Gli ambiti di autorizzazione
 
@@ -82,7 +82,7 @@ ricerca, e **devono comparire nell'ordine della stringa che le enumera**: due co
 riordinate non sono valide.
 
 **Scelta di progetto:** sintassi corrente come forma nativa, **accettazione della sintassi
-precedente in ingresso** con la conversione definita dalla specifica stessa — lettura verso
+precedente in ingresso** con la conversione definita dalla specifica stessa - lettura verso
 lettura e ricerca, scrittura verso creazione, aggiornamento e cancellazione, jolly verso tutte.
 La motivazione è di attrito: l'integratore tipico ha con buona probabilità librerie datate, e
 rifiutarle produrrebbe attrito senza guadagno di sicurezza, dato che la conversione è normata.
@@ -120,8 +120,8 @@ l'introspezione obbligatoria di §8.3.
 
 È un errore di integrazione ricorrente e va scritto nella documentazione pubblica: **il client
 deve leggere lo scopo restituito nella risposta al token e non assumere che coincida con quello
-richiesto**. Telemedic restringe lo scopo alla concessione effettiva del client, del tenant e —
-nel caso della delega — dei permessi del soggetto.
+richiesto**. Telemedic restringe lo scopo alla concessione effettiva del client, del tenant e -
+nel caso della delega - dei permessi del soggetto.
 
 ## 5. La delega fra organizzazioni
 
@@ -266,7 +266,7 @@ adottato**.
 ### 6.1 I valori
 
 I valori dei tre livelli d'identità nazionali sono verificati e **identici** nei due profili
-tecnici in cui possono comparire — l'asserzione nel profilo a buste XML e il parametro nel
+tecnici in cui possono comparire - l'asserzione nel profilo a buste XML e il parametro nel
 profilo a connessione d'identità:
 
 | Livello | Valore esatto | Corrispondenza secondo lo standard internazionale sui livelli di garanzia |
@@ -282,7 +282,7 @@ verbatim dalla fonte: *«Stringa separata da uno spazio, che specifica i valori 
 server di autorizzazione per l'elaborazione della richiesta di autenticazione, con i valori
 visualizzati in ordine di preferenza.»*
 
-> **`[NV]` — valori accettati dal fornitore dell'identità elettronica su documento.** Le regole
+> **`[NV]` - valori accettati dal fornitore dell'identità elettronica su documento.** Le regole
 > tecniche descrivono il parametro dei valori di contesto ma **rinviano ai metadati del fornitore**
 > per l'elenco effettivo. I valori vanno quindi **letti a runtime dai metadati**, non cablati. Se
 > serve un elenco statico, va richiesto al gestore dell'identità e citato con il documento
@@ -317,7 +317,7 @@ Un fatto accertato che vincola l'architettura: il connettore verso il canale d'i
 configura il contesto di autenticazione richiesto **staticamente sulla singola istanza di
 fornitore**. Un livello variabile per operazione richiede quindi **un'istanza per ciascuna coppia
 fornitore e livello**. La decisione di perimetro presa dall'area di integrazione riduce il fattore
-a due — un livello di base e uno superiore per le operazioni di amministrazione — invece che alla
+a due - un livello di base e uno superiore per le operazioni di amministrazione - invece che alla
 cardinalità dei livelli.
 
 Verso l'integratore **non c'è impatto di interfaccia**: ciò che cambia è che il livello propagato
@@ -326,7 +326,7 @@ verificata: sul canale dell'identità elettronica su documento le regole tecnich
 il contesto restituito è **sempre il livello più alto**, quindi **il livello effettivo non è
 desumibile dall'asserzione**. Chi legge il livello dalla risposta legge un valore costante.
 
-> **`[NV]` — inoltro del livello richiesto attraverso il realm di intermediazione.** Non è
+> **`[NV]` - inoltro del livello richiesto attraverso il realm di intermediazione.** Non è
 > verificato se il prodotto di federazione, agendo da client verso un fornitore esterno, inoltri
 > il parametro del livello richiesto attraverso il realm che fa da intermediario. Se non lo
 > inoltra, l'innalzamento di livello per operazione non è ottenibile per sola configurazione.
@@ -351,7 +351,7 @@ I parametri della richiesta di autorizzazione, con la loro obbligatorietà:
 | Parametro | Obbligatorietà | Valore |
 |---|---|---|
 | Tipo di risposta | Required | Valore fisso per il flusso a codice |
-| Identificativo del client | Required | — |
+| Identificativo del client | Required | - |
 | Indirizzo di ritorno | Required | Corrispondenza **esatta** con uno pre-registrato |
 | Identificativo di avvio | Condizionale | Solo per l'avvio dalla cartella |
 | Ambiti | Required | Risorse, identità, contesto |
@@ -394,14 +394,14 @@ proprietarie, e vanno usati **prima** di inventarne:
 
 ### 7.3 Il ciclo di vita del componente incorporato
 
-L'applicazione incorporata deve poter chiedere all'ospitante di fare qualcosa — chiudere
-l'attività, aprire un'altra schermata — senza passare per l'interfaccia clinica. Esiste un profilo
+L'applicazione incorporata deve poter chiedere all'ospitante di fare qualcosa - chiudere
+l'attività, aprire un'altra schermata - senza passare per l'interfaccia clinica. Esiste un profilo
 dedicato, alla versione **1.0.0 del 6 maggio 2022**, su base R4.
 
 La busta di richiesta ha quattro campi obbligatori: un riferimento di canale ottenuto durante
 l'avvio, un identificativo del messaggio generato dall'applicazione, il tipo del messaggio e il
 carico. La risposta ha l'identificativo del messaggio, il riferimento al messaggio a cui risponde,
-un indicatore facoltativo di ulteriori risposte attese — **al plurale**, e il dettaglio conta —
+un indicatore facoltativo di ulteriori risposte attese - **al plurale**, e il dettaglio conta -
 e il carico.
 
 I tipi di messaggio realmente definiti sono **otto**, organizzati in quattro famiglie:
@@ -422,7 +422,7 @@ risorsa indicandone la posizione, oppure l'intero contenuto omettendo la posizio
 restituite **SHALL** includere sia il tipo sia l'identificativo.
 
 Da non confondere con i tipi di messaggio: il catalogo delle attività definisce **tre** attività
-avviabili — prenotazione di appuntamento, revisione di ordini, revisione di un problema — ciascuna
+avviabili - prenotazione di appuntamento, revisione di ordini, revisione di un problema - ciascuna
 con un parametro obbligatorio proprio. Non sono tipi di messaggio e non vanno mescolati.
 
 Regole di sicurezza del canale: l'applicazione **valida l'origine** di ogni messaggio ricevuto e
@@ -460,7 +460,7 @@ decide.
 |---|---|---|
 | Token utente in contesto clinico | 5–10 minuti | Porta claim su un contesto clinico: finestra di rigioco minima |
 | Token di sistema | 300 secondi | La specifica dei servizi di backend indica esplicitamente questo valore come raccomandato |
-| Token di aggiornamento legato alla sessione | Legato alla sessione di autenticazione unica | — |
+| Token di aggiornamento legato alla sessione | Legato alla sessione di autenticazione unica | - |
 | Token di aggiornamento che sopravvive alla disconnessione | **Solo a client confidenziali asimmetrici, con rotazione** | Su un client pubblico, in ambito sanitario, è un rischio di custodia difficile da giustificare in un'analisi dei rischi |
 
 ### 8.3 La finestra di revoca, dichiarata onestamente
@@ -469,7 +469,7 @@ Un token verificato localmente **resta valido fino alla scadenza anche dopo la r
 motivo per cui i token clinici durano minuti e non ore, e va documentato invece di lasciar credere
 che la revoca sia istantanea.
 
-Per le revoche che devono essere immediate — professionista disabilitato, tenant sospeso — esiste
+Per le revoche che devono essere immediate - professionista disabilitato, tenant sospeso - esiste
 un meccanismo aggiuntivo: un **elenco di negazione distribuito** su identificativo del token e
 soggetto, con durata pari alla vita massima di un token, consultato dal gateway.
 
@@ -480,7 +480,7 @@ pubblicazione o annullamento di un documento, esportazione massiva, modifica di 
 rilevazione. Il costo è una chiamata di rete su quelle operazioni; il beneficio è che la finestra
 di revoca non si applica proprio dove sarebbe inaccettabile.
 
-Entrambi gli endpoint — introspezione e revoca — sono pubblicati e dichiarati nel documento di
+Entrambi gli endpoint - introspezione e revoca - sono pubblicati e dichiarati nel documento di
 scoperta. La revoca risponde con esito positivo anche se il token era già invalido, per non
 fornire un oracolo.
 
@@ -502,7 +502,7 @@ che è accettabile **solo** su trasporto protetto e con token a vita breve.
 
 Due avvertenze: una chiave di prova di possesso conservata in modo estraibile **non aggiunge
 sicurezza** rispetto al portatore semplice, aggiunge complessità e un falso senso di protezione;
-e nessuno dei due meccanismi sostituisce la restrizione del destinatario — un token vincolato al
+e nessuno dei due meccanismi sostituisce la restrizione del destinatario - un token vincolato al
 mittente ma con destinatario troppo ampio resta sovra-privilegiato.
 
 ## 9. Scoperta
@@ -540,8 +540,8 @@ capitolato che richiede quel profilo senza riscrivere nulla.
 | Introspezione del token (ITI-102) | Endpoint di introspezione, RFC 7662 |
 | Metadati del server di autorizzazione (ITI-103) | Documento di scoperta del fornitore d'identità |
 
-I claim richiesti dal profilo — emittente, soggetto, identificativo del client, destinatario,
-scadenza, ambiti, identificativo del token — sono tutti presenti. Le estensioni facoltative che
+I claim richiesti dal profilo - emittente, soggetto, identificativo del client, destinatario,
+scadenza, ambiti, identificativo del token - sono tutti presenti. Le estensioni facoltative che
 raccolgono organizzazione, ruoli e finalità d'uso in un oggetto dedicato sono emesse **su
 richiesta del tenant**, non sempre, per non gonfiare i token dove non servono.
 
@@ -556,8 +556,8 @@ richiesta del tenant**, non sempre, per non gonfiare i token dove non servono.
    emesso per tenant, con ambiti massimi limitati dalla politica del tenant.
 
 Un endpoint di registrazione anonimo su una piattaforma sanitaria multi-tenant è un vettore di
-abuso — creazione massiva di client, enumerazione, richieste verso risorse interne attraverso
-l'indirizzo dell'insieme di chiavi — senza contropartita. E un endpoint che automatizza la
+abuso - creazione massiva di client, enumerazione, richieste verso risorse interne attraverso
+l'indirizzo dell'insieme di chiavi - senza contropartita. E un endpoint che automatizza la
 registrazione sta prendendo decisioni che sono contrattuali, non tecniche: quale tenant, quali
 ambiti, quale accordo sul trattamento dei dati.
 
@@ -565,5 +565,5 @@ La **federazione dinamica basata su certificati** è documentata come pattern e 
 in v1.0**: è il meccanismo di fiducia di un ecosistema extraeuropeo, mentre nel mercato di
 riferimento la fiducia si costruisce con altri strumenti. Il modello di registrazione dei client
 resta però **predisposto** a un'ancora di fiducia basata su una catena di certificati, perché il
-meccanismo sottostante — un'asserzione firmata validata contro una catena — è identico a quello
+meccanismo sottostante - un'asserzione firmata validata contro una catena - è identico a quello
 che servirebbe per una federazione nazionale.

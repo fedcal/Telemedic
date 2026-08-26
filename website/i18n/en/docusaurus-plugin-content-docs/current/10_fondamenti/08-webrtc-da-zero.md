@@ -1,7 +1,7 @@
 ---
 title: WebRTC from scratch
 sidebar_position: 9
-description: Why a real-time video call is a hard problem, what NAT, UDP, ICE, STUN, TURN, DTLS-SRTP, codecs, congestion control, topologies, the relay server and recording are — from ground zero up to the most delicate component of the project.
+description: Why a real-time video call is a hard problem, what NAT, UDP, ICE, STUN, TURN, DTLS-SRTP, codecs, congestion control, topologies, the relay server and recording are - from ground zero up to the most delicate component of the project.
 ---
 
 # WebRTC from scratch
@@ -10,8 +10,8 @@ This is the most technical module of the guide and it is also the one that descr
 of the system where mistakes are paid for most dearly: the transport of the audio and video
 stream between the healthcare professional and the patient.
 
-**Prerequisites: knowing what an IP address is.** Nothing else. Every other network concept —
-port, transport protocol, address translation, encryption of the stream — is built up here,
+**Prerequisites: knowing what an IP address is.** Nothing else. Every other network concept -
+port, transport protocol, address translation, encryption of the stream - is built up here,
 in order.
 
 The module proceeds in a precise order and is not meant to be read by jumping around on a
@@ -28,7 +28,7 @@ guide**, only environment variable placeholders.
 The overall threat model of the system, the audit obligations and identity management are
 dealt with in the [module on cryptography and security](12-crittografia-e-sicurezza.md);
 every abbreviation and every term introduced here is taken up again in the
-[glossary](19-glossario.md).
+[glossary](./19-glossario.md).
 
 ---
 
@@ -72,8 +72,8 @@ this phenomenon for telephony. Verified contents:
   applications»*.
 - Beyond **400 ms** it is considered unacceptable for general network planning, save in
   exceptional cases.
-- Decisive warning: **highly interactive** tasks — *«many voice calls, interactive data
-  applications, video conferencing»* — *«can be affected by much lower delays»*. Even in the
+- Decisive warning: **highly interactive** tasks - *«many voice calls, interactive data
+  applications, video conferencing»* - *«can be affected by much lower delays»*. Even in the
   total absence of echo, *«10% or more of the speakers may experience difficulty due to a
   delay of 400 ms»*.
 
@@ -95,7 +95,7 @@ network can bear.
 For a real-time stream, the first and the second guarantee are **harmful**.
 
 Imagine a packet containing 20 milliseconds of audio that is lost along the way. TCP notices,
-retransmits it and — this is the point — **holds back all the subsequent packets that have
+retransmits it and - this is the point - **holds back all the subsequent packets that have
 already arrived** until the gap is filled, because it must deliver them in order. The
 phenomenon is called **head-of-line blocking**. The result is that a single loss produces an
 audible pause at least one round trip long, and all the fragments of audio that arrived in
@@ -123,7 +123,7 @@ handshake*), plus one or two for encryption. On an already long path that is tim
 **HTTP** (*HyperText Transfer Protocol*) adds to TCP a **request and response** model: the
 client asks, the server answers. Even in the versions that keep the connection open, the
 initiative remains with the client. The server cannot send something to a client that has
-asked nothing — and in a video call the other party speaks when they choose to.
+asked nothing - and in a video call the other party speaks when they choose to.
 
 HTTP nevertheless remains **indispensable** for one piece of the problem: before the two
 devices can talk to each other directly, they must **exchange the information needed to find
@@ -185,7 +185,7 @@ reason in terms of five-tuples.
 Two facts that will be needed later:
 
 - Public IPv4 addresses are exhausted. That is why the **private spaces** defined by
-  **RFC 1918** exist — `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` — which every home or
+  **RFC 1918** exist - `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` - which every home or
   corporate network uses internally and which **are not routable on the Internet**.
 - **IPv6** solves the problem at the root with an enormously larger address space, but its
   take-up is uneven: a system that wants to work everywhere must handle both address
@@ -257,16 +257,16 @@ Not all NATs behave in the same way. The correct terminology is that of **RFC 47
 Behavioral Requirements for Unicast UDP*), which separates two independent behaviours: how
 the **mapping** is created and how inbound traffic is **filtered**.
 
-**Mapping behaviour** — for the same internal address and port, is the public port assigned
+**Mapping behaviour** - for the same internal address and port, is the public port assigned
 the same for all destinations, or does it change?
 
 | Behaviour (RFC 4787) | Description | Colloquial name |
 |---|---|---|
 | **Endpoint-Independent Mapping** | Same public port towards any destination | «cone» |
-| **Address-Dependent Mapping** | Different public port for each destination address | — |
+| **Address-Dependent Mapping** | Different public port for each destination address | - |
 | **Address and Port-Dependent Mapping** | Different public port for each destination address+port pair | **«symmetric»** |
 
-**Filtering behaviour** — who may use an already open mapping to get in?
+**Filtering behaviour** - who may use an already open mapping to get in?
 
 | Behaviour | Description |
 |---|---|
@@ -293,7 +293,7 @@ the motivation for the obligation to support TURN.
 
 ### 2.5 CGNAT, that is, the carrier's NAT
 
-For some years now mobile operators — and in part fixed-line ones — no longer assign a public
+For some years now mobile operators - and in part fixed-line ones - no longer assign a public
 IPv4 address to each customer. They apply a second layer of translation inside their own
 network: this is **CGNAT** (*Carrier-Grade NAT*). The customer receives an address from the
 reserved space **`100.64.0.0/10`** defined by **RFC 6598**, which is neither private in the
@@ -306,8 +306,8 @@ Practical consequences for a remote consultation (televisita):
 - CGNAT behaviour is typically the least favourable, because it has to maximise port reuse
   across thousands of customers.
 - **The typical patient in a remote consultation is on a mobile network.** This is not an edge
-  case: it is the central case. The project's constraint D25 — design starting from the small
-  screen and the worst connection — is the organisational translation of this technical fact.
+  case: it is the central case. The project's constraint D25 - design starting from the small
+  screen and the worst connection - is the organisational translation of this technical fact.
 
 ### 2.6 Corporate and hospital firewalls
 
@@ -329,12 +329,12 @@ The last point produces a counter-intuitive effect worth fixing:
 > **The consultation in which the professional and the patient are in the same building is
 > often the hardest to route**, not the easiest. With client isolation on, the two devices do
 > not see each other locally and the traffic leaves onto the public network in order to come
-> back in — when it does not end up straight on the relay.
+> back in - when it does not end up straight on the relay.
 
 ### 2.7 The obfuscation of local addresses
 
 A detail that confuses anyone looking at the logs for the first time. To prevent web pages
-from harvesting users' private IP addresses — a real device fingerprinting vector — browsers
+from harvesting users' private IP addresses - a real device fingerprinting vector - browsers
 **no longer publish the addresses of local interfaces**. In their place they publish a name
 of the form `<random identifier>.local`, resolvable only on the local network through **mDNS**
 (*multicast DNS*, name resolution via multicast messages on UDP port 5353).
@@ -346,7 +346,7 @@ document is not normative: it must be stated that way, without passing it off as
 
 Three operational consequences:
 
-1. If mDNS is blocked — and as a rule it is, on Wi-Fi networks with client isolation — the
+1. If mDNS is blocked - and as a rule it is, on Wi-Fi networks with client isolation - the
    pair of local paths does not form and one ends up on the relay for a connection that could
    have stayed on a switch.
 2. **The signalling server's logs will see `.local` names, not addresses.** Any network
@@ -374,7 +374,7 @@ The specifications come from two different bodies that presuppose one another.
   Recommendation of 13 March 2025**. It is a stable recommendation which nevertheless
   continues to incorporate *candidate amendments*: the interface surface is not frozen.
 - The **IETF** (*Internet Engineering Task Force*) defines **the on-the-wire protocols**, that
-  is, what actually travels in the packets. The coordinating document is **RFC 8825** —
+  is, what actually travels in the packets. The coordinating document is **RFC 8825** -
   *Overview: Real-Time Protocols for Browser-Based Applications*.
 
 RFC 8825 does not define any protocol: **it lists which other specifications an implementation
@@ -424,7 +424,7 @@ for the streams, `RTCDtlsTransport` and `RTCIceTransport` for the underlying tra
 
 **The data channel.** `RTCDataChannel` carries arbitrary data between the two devices, with
 the same encryption and over the same path as the media. It runs on **SCTP encapsulated in
-DTLS encapsulated in ICE** — **RFC 8835 §3.5**: *«WebRTC endpoints MUST support SCTP over DTLS
+DTLS encapsulated in ICE** - **RFC 8835 §3.5**: *«WebRTC endpoints MUST support SCTP over DTLS
 over ICE»*, with the I-DATA extension of RFC 8260 mandatory. For the project it is the natural
 channel for in-band control signals (muting, request for repetition), for carrying subtitles
 (§10.4) and for any metadata that **must not transit through the signalling server**.
@@ -449,7 +449,7 @@ Two members have direct relevance for the project:
   works (§13.4).
 - **`certificates`** allows the reuse of a certificate generated with
   `RTCPeerConnection.generateCertificate()`. By default the browser generates an ephemeral
-  self-signed certificate for each connection — a fact that has direct consequences for the
+  self-signed certificate for each connection - a fact that has direct consequences for the
   security model (§6.3).
 
 ### 3.3 What WebRTC does NOT comprise
@@ -498,14 +498,14 @@ WebRTC furthermore **does not comprise**:
 Before a single frame can be exchanged, the two devices must agree on a long list of things:
 which codecs they can use, with which parameters, who sends and who receives, which addresses
 to try, which keys to use. The model that governs this agreement is **offer and answer**
-(*offer/answer*), defined by **RFC 3264** — *An Offer/Answer Model with the Session
+(*offer/answer*), defined by **RFC 3264** - *An Offer/Answer Model with the Session
 Description Protocol*.
 
 The mechanism is asymmetric and simple:
 
-1. One side — **the offerer** — produces a description listing everything it **can and wants**
+1. One side - **the offerer** - produces a description listing everything it **can and wants**
    to do.
-2. The other side — **the answerer** — receives that description and produces an answer which,
+2. The other side - **the answerer** - receives that description and produces an answer which,
    item by item, **accepts, restricts or refuses**. It cannot add anything that was not in the
    offer.
 3. Both apply the two descriptions locally. At that point they know exactly what they will do.
@@ -532,7 +532,7 @@ sequenceDiagram
     participant S as Signalling server
     participant A as Patient's browser
 
-    P->>P: getUserMedia() — captures microphone and camera
+    P->>P: getUserMedia() - captures microphone and camera
     P->>P: createOffer() → local description
     P->>P: setLocalDescription(offer)
     Note over P: candidate gathering starts here (§5.5)
@@ -555,7 +555,7 @@ sequenceDiagram
 
     Note over P,A: direct connectivity checks (§5.6)
     P-->>A: DTLS handshake (§6.2)
-    P-->>A: encrypted SRTP stream — the server is no longer in the path
+    P-->>A: encrypted SRTP stream - the server is no longer in the path
 ```
 
 Two observations on the diagram, both important:
@@ -583,22 +583,22 @@ a=extmap-allow-mixed
 a=msid-semantic: WMS 6f1b2c3d-0000-4000-8000-000000000001
 ```
 
-- **`v=0`** — version of the SDP format. It is always `0`; it has never changed (RFC 8866
+- **`v=0`** - version of the SDP format. It is always `0`; it has never changed (RFC 8866
   §5.1).
-- **`o=`** — origin line: user name (`-`, that is, absent), session identifier, session
+- **`o=`** - origin line: user name (`-`, that is, absent), session identifier, session
   version number, network type, address type, address. **The `127.0.0.1` is not an error**: in
   the WebRTC context this line is not used to route anything, and browsers write a placeholder
   value into it. Do not try to deduce the other party's address from it.
-- **`s=-`** — session name, absent.
-- **`t=0 0`** — start and end time: zero and zero means «permanent session, with no
+- **`s=-`** - session name, absent.
+- **`t=0 0`** - start and end time: zero and zero means «permanent session, with no
   scheduling».
-- **`a=group:BUNDLE 0 1`** — declares that the sections identified by `0` and `1` (audio and
+- **`a=group:BUNDLE 0 1`** - declares that the sections identified by `0` and `1` (audio and
   video) will travel **on the same connection**. It is the BUNDLE mechanism of **RFC 8843**
   §5. The first identifier in the group is the offerer's *BUNDLE-tag* and its section carries
   the address and port used for the whole group (§2).
-- **`a=extmap-allow-mixed`** — allows the two forms of RTP header extension (one and two
+- **`a=extmap-allow-mixed`** - allows the two forms of RTP header extension (one and two
   bytes) defined by RFC 8285 to be mixed.
-- **`a=msid-semantic`** — declares the semantics of the media stream identifiers.
+- **`a=msid-semantic`** - declares the semantics of the media stream identifiers.
 
 > **Why BUNDLE is an architectural fact and not a detail.** BUNDLE **requires** the
 > multiplexing of RTP and RTCP on the same port within the group (RFC 8843 §9.3) and entails
@@ -614,19 +614,19 @@ c=IN IP4 0.0.0.0
 a=rtcp:9 IN IP4 0.0.0.0
 ```
 
-- **`m=audio`** — opens a *media section*. `9` is the port: it is a conventional
+- **`m=audio`** - opens a *media section*. `9` is the port: it is a conventional
   **placeholder** (the real port comes from the ICE candidates, §5.1); the value `0` would
   instead have the normative meaning of «this section is refused» (RFC 3264).
-- **`UDP/TLS/RTP/SAVPF`** — the transport profile. It is read from the right: **AVPF** is the
+- **`UDP/TLS/RTP/SAVPF`** - the transport profile. It is read from the right: **AVPF** is the
   RTP profile with audiovisual feedback (RFC 4585), the initial **S** stands for *secure*
   (SRTP), the whole encapsulated in TLS over UDP. **RFC 8834** is categorical: *«WebRTC
   endpoints MUST NOT send packets using the basic RTP/AVP profile or the RTP/AVPF profile;
   they MUST employ the full RTP/SAVPF profile»*. **There is no WebRTC in the clear.**
-- **`111 63 9 0 8 110 126`** — the list of *payload types*, that is, the codecs offered, **in
+- **`111 63 9 0 8 110 126`** - the list of *payload types*, that is, the codecs offered, **in
   decreasing order of preference**. They are numbers; the meaning of each is defined further
   down by the `a=rtpmap` lines.
-- **`c=IN IP4 0.0.0.0`** — connection address, likewise a placeholder.
-- **`a=rtcp:9`** — port for the control channel, equally a placeholder.
+- **`c=IN IP4 0.0.0.0`** - connection address, likewise a placeholder.
+- **`a=rtcp:9`** - port for the control channel, equally a placeholder.
 
 ```sdp
 a=ice-ufrag:4ZcD
@@ -634,12 +634,12 @@ a=ice-pwd:by0Bp1IFDpZ0Y0Bx0j0RB4dR
 a=ice-options:trickle
 ```
 
-- **`a=ice-ufrag`** and **`a=ice-pwd`** — username fragment and password for the ICE
+- **`a=ice-ufrag`** and **`a=ice-pwd`** - username fragment and password for the ICE
   connectivity checks. Syntax defined by **RFC 8839 §5.4**: from 4 to 256 characters for the
   former, from 22 to 256 for the latter. **They serve two purposes at once**: identifying
   which session an incoming control packet belongs to, and authenticating it. Changing them is
   what constitutes an **ICE restart** (§5.8).
-- **`a=ice-options:trickle`** — declares that the agent can handle candidates arriving after
+- **`a=ice-options:trickle`** - declares that the agent can handle candidates arriving after
   the offer (RFC 8838 §3; the option is registered in §19).
 
 ```sdp
@@ -651,18 +651,18 @@ a=sendrecv
 a=rtcp-mux
 ```
 
-- **`a=fingerprint`** — **this line is the linchpin of the entire security model.** It
+- **`a=fingerprint`** - **this line is the linchpin of the entire security model.** It
   contains the cryptographic fingerprint (here SHA-256) of the certificate this side will use
   in the DTLS handshake. Syntax defined by **RFC 8122 §5**. It is the line that binds the
   signalled session to the encrypted session: we return to it in §6.3.
-- **`a=setup:actpass`** — who will act as client and who as server in the DTLS handshake.
+- **`a=setup:actpass`** - who will act as client and who as server in the DTLS handshake.
   **RFC 8842** defines the values `actpass`, `active`, `passive`, `holdconn`. The offerer
   declares `actpass` («you decide»); the answerer chooses and declares `active` or `passive`.
-- **`a=mid:0`** — the identifier of this section, the one referred to in
+- **`a=mid:0`** - the identifier of this section, the one referred to in
   `a=group:BUNDLE 0 1`.
-- **`a=sendrecv`** — this section sends **and** receives. The alternatives are `sendonly`,
+- **`a=sendrecv`** - this section sends **and** receives. The alternatives are `sendonly`,
   `recvonly`, `inactive`. In an ordinary consultation it is `sendrecv` on both sides.
-- **`a=rtcp-mux`** — data and control on the same port (RFC 5761). Mandatory inside a BUNDLE
+- **`a=rtcp-mux`** - data and control on the same port (RFC 5761). Mandatory inside a BUNDLE
   group.
 
 ```sdp
@@ -675,21 +675,21 @@ a=rtpmap:0 PCMU/8000
 a=rtpmap:8 PCMA/8000
 ```
 
-- **`a=rtpmap:111 opus/48000/2`** — payload type `111` is **Opus**, with a sampling rate of
+- **`a=rtpmap:111 opus/48000/2`** - payload type `111` is **Opus**, with a sampling rate of
   48000 Hz and two channels. **RFC 7587** requires these two values to be **always
   `48000/2`**, irrespective of the actual content: the `/2` indicates the *capability* to
   carry stereo, not that the stream is stereo.
-- **`a=rtcp-fb:111 transport-cc`** — declares that transport-level congestion control feedback
+- **`a=rtcp-fb:111 transport-cc`** - declares that transport-level congestion control feedback
   is wanted (§8.3).
-- **`a=fmtp:111 ...`** — format-specific parameters. `useinbandfec=1` activates the error
+- **`a=fmtp:111 ...`** - format-specific parameters. `useinbandfec=1` activates the error
   correction built into Opus (RFC 7587 §6.1), **recommended by RFC 8854 §4.1**. A point of
   precision: **`minptime` is not defined by RFC 7587** even though it appears in the SDP
   generated by many implementations; it is an off-specification parameter and must not be
   cited as standard.
-- **`a=rtpmap:63 red/48000/2`** and **`a=fmtp:63 111/111`** — redundant coding (RFC 2198):
+- **`a=rtpmap:63 red/48000/2`** and **`a=fmtp:63 111/111`** - redundant coding (RFC 2198):
   each packet also carries a copy of the previous one. `111/111` declares that both the
   primary and the redundant block are Opus.
-- **`a=rtpmap:0 PCMU/8000`** and **`a=rtpmap:8 PCMA/8000`** — **G.711** in its two variants
+- **`a=rtpmap:0 PCMU/8000`** and **`a=rtpmap:8 PCMA/8000`** - **G.711** in its two variants
   (µ-law and A-law). These are the telephone codecs: quality limited to narrowband, but
   present everywhere and necessary to interoperate with non-browser equipment. **RFC 7874**
   makes them mandatory together with Opus.
@@ -723,19 +723,19 @@ a=rtpmap:45 AV1/90000
 - **`a=ice-ufrag` and `a=fingerprint` are repeated identically** with respect to the audio
   section: it is the signature of BUNDLE. A single ICE credential, a single certificate, a
   single connection.
-- **`a=rtpmap:96 VP8/90000`** — VP8. The reference rate for video in RTP is always 90000 Hz,
+- **`a=rtpmap:96 VP8/90000`** - VP8. The reference rate for video in RTP is always 90000 Hz,
   by historical convention.
 - **The four `a=rtcp-fb` lines** declare the recovery mechanisms this side can use (§8.4):
   `nack` to request the retransmission of a packet (RFC 4585), `nack pli` to signal the loss
   of a picture, `ccm fir` to request a full frame (RFC 5104), `transport-cc` for congestion
   feedback. `goog-remb` is an earlier mechanism, by now residual.
-- **`a=rtpmap:97 rtx/90000` with `a=fmtp:97 apt=96`** — the **retransmission** stream
+- **`a=rtpmap:97 rtx/90000` with `a=fmtp:97 apt=96`** - the **retransmission** stream
   (RFC 4588) associated with payload type `96`. Retransmissions travel on a separate stream so
   as not to disturb the numbering of the main stream.
-- **`a=rtpmap:102 H264/90000` with its `fmtp`** — H.264. `profile-level-id=42001f` identifies
+- **`a=rtpmap:102 H264/90000` with its `fmtp`** - H.264. `profile-level-id=42001f` identifies
   **Constrained Baseline Profile Level 3.1**; `packetization-mode=1` is the packetisation mode
   that **RFC 7742 §6.2** declares mandatory (*«Packetization-mode 1 MUST be supported»*).
-- **`a=rtpmap:45 AV1/90000`** — AV1, where the browser supports it.
+- **`a=rtpmap:45 AV1/90000`** - AV1, where the browser supports it.
 
 The lines that identify the stream close the section:
 
@@ -744,21 +744,21 @@ a=ssrc:3735928559 cname:Zt9x0PqLmN1sVe4K
 a=ssrc:3735928559 msid:6f1b2c3d-0000-4000-8000-000000000001 video-track-0
 ```
 
-- **`a=ssrc`** — the *synchronization source*, the numeric identifier of the RTP stream.
-- **`cname`** — canonical name binding together the streams belonging to the same origin
+- **`a=ssrc`** - the *synchronization source*, the numeric identifier of the RTP stream.
+- **`cname`** - canonical name binding together the streams belonging to the same origin
   (RFC 3550), necessary in order to synchronise audio and video.
 
 > **Operational rule for the project.** The SDP contains, in the clear, sensitive
-> information: the certificate fingerprints, the ICE credentials, the stream identifiers and —
-> when mDNS obfuscation does not apply — network addresses. **The complete SDP must not be
+> information: the certificate fingerprints, the ICE credentials, the stream identifiers and -
+> when mDNS obfuscation does not apply - network addresses. **The complete SDP must not be
 > recorded in the application logs.** What must be recorded in the audit trail is the outcome
 > of the negotiation, the codecs actually selected and the fingerprints, as documentary
 > evidence; not the whole block.
 
 ### 4.4 Glare
 
-If both sides decide to renegotiate at the same instant — it really happens: the professional
-starts screen sharing while the patient re-enables the camera — a **collision** (*glare*) is
+If both sides decide to renegotiate at the same instant - it really happens: the professional
+starts screen sharing while the patient re-enables the camera - a **collision** (*glare*) is
 produced: both enter the `have-local-offer` state and neither of them can apply the other's
 offer.
 
@@ -783,8 +783,8 @@ Three rules that the project adopts:
 ### 4.5 The transport of signalling, and a requirement that gets forgotten
 
 The project carries signalling over **WebSocket** (RFC 6455) with a versioned, schema-validated
-JSON application protocol. The alternatives — messaging layers on top, fallbacks to
-multi-request HTTP transports, or the adoption of a telephony protocol — add complexity or
+JSON application protocol. The alternatives - messaging layers on top, fallbacks to
+multi-request HTTP transports, or the adoption of a telephony protocol - add complexity or
 session affinity constraints without benefit in a two-party session.
 
 There is a normative requirement that must be complied with and that is discovered late if it
@@ -809,8 +809,8 @@ which replaces RFC 5245. The profile describing how ICE is expressed inside SDP 
 ICE's insight is disarmingly simple and must be understood well, because everything else
 descends from it:
 
-> Since nobody can know in advance which path will work — it depends on two NATs, two
-> firewalls, two operators and luck — **you do not choose: you gather all the plausible paths,
+> Since nobody can know in advance which path will work - it depends on two NATs, two
+> firewalls, two operators and luck - **you do not choose: you gather all the plausible paths,
 > try them all simultaneously, and keep the one that works best.**
 
 Every plausible path starts from a **candidate**: an address/port pair at which this device
@@ -995,16 +995,16 @@ stares at a waiting screen and wonders whether they have done something wrong.
 leaves at once with the candidates one has, and the others flow in as they come. Verified
 rules:
 
-- **§9** — after discovering a candidate the agent checks it for redundancy and sends it; the
+- **§9** - after discovering a candidate the agent checks it for redundancy and sends it; the
   transport **must** deliver the candidates *«exactly once and in the same order it was
   conveyed»* (already discussed in §4.5).
-- **§10** — *«A Trickle ICE agent MUST NOT pair a local candidate until it has been trickled
+- **§10** - *«A Trickle ICE agent MUST NOT pair a local candidate until it has been trickled
   to the remote party»*.
 
-- **§13** — there is an explicit **end-of-candidates** indication, which **must** specify which
+- **§13** - there is an explicit **end-of-candidates** indication, which **must** specify which
   generation it belongs to (the `ufrag`/`pwd` pair). After sending it, no further candidates of
   that generation may be sent.
-- **§16** — **half trickle**: the initiator gathers a complete generation before the initial
+- **§16** - **half trickle**: the initiator gathers a complete generation before the initial
   offer and only the answerer uses trickle. It is the fallback for interoperating with agents
   that do not support it.
 
@@ -1014,8 +1014,8 @@ application's responsibility**, that is, the project's signalling protocol's.
 
 ### 5.8 ICE restart
 
-When the network changes under one's feet — the patient moves from Wi-Fi to the mobile network
-on leaving the house, or the public address changes — the candidates gathered become obsolete
+When the network changes under one's feet - the patient moves from Wi-Fi to the mobile network
+on leaving the house, or the public address changes - the candidates gathered become obsolete
 and the connection dies. The **ICE restart** is the procedure that redoes gathering and
 selection **without redoing the session**: new `ice-ufrag` and `ice-pwd` are generated, the
 session is renegotiated, and the new pair replaces the old one.
@@ -1045,8 +1045,8 @@ out**. For a session with bitrate `B` per direction, with **a single** relay all
 - stream A→B: the relay receives `B` and transmits `B`;
 - stream B→A: the relay receives `B` and transmits `B`.
 
-Total moved: **2B inbound + 2B outbound = 4B**. If **both** sides use a relayed candidate —
-possible with two hostile networks — the traffic **doubles again**, to `8B`.
+Total moved: **2B inbound + 2B outbound = 4B**. If **both** sides use a relayed candidate -
+possible with two hostile networks - the traffic **doubles again**, to `8B`.
 
 With medium-definition video around 1.5 Mbit/s per direction plus audio, and a header overhead
 of the order of 10 % `[NV]` on the exact percentage:
@@ -1264,21 +1264,21 @@ service**. The specification of the corresponding interface is the W3C's *Identi
   engine had them in its historical implementation and **lost them** in the move to the shared
   engine. The other two main engines **have never implemented them**.
 
-A verification mechanism that works only if **both** parties use the same browser — in a
-service aimed at the public, where the patient uses the browser they have on their phone — is
+A verification mechanism that works only if **both** parties use the same browser - in a
+service aimed at the public, where the patient uses the browser they have on their phone - is
 equivalent to a mechanism that does not work.
 
 There is a second argument, independent and equally decisive for this project: even supposing
 universal support, that interface would require **a third-party identity provider** hosting the
 verification script. Introducing it would mean creating a runtime dependency on an external
-party — in direct tension with the project's data sovereignty constraint (V1) — and **moving
+party - in direct tension with the project's data sovereignty constraint (V1) - and **moving
 the anchor point of trust from the signalling server to the identity provider, without
 eliminating it**.
 
 ### 6.6 The Short Authentication String, and why it is mandatory
 
 **If the only thing missing is a verification channel that the server does not control, and the
-two parties are already talking to each other in audio and video — that channel already
+two parties are already talking to each other in audio and video - that channel already
 exists.**
 
 The **Short Authentication String** (SAS) is a short code **derived deterministically from the
@@ -1318,11 +1318,11 @@ seconds.
 
 ### 6.7 What encryption does not do: four cases
 
-**Case A — direct path.** The media travels between the two browsers. The keys exist only
+**Case A - direct path.** The media travels between the two browsers. The keys exist only
 there. No third party can decrypt. The claim of end-to-end encryption is correct,
 **conditional on the integrity of the signalling** (§6.4).
 
-**Case B — through the relay.** This must be said clearly because it is the point on which
+**Case B - through the relay.** This must be said clearly because it is the point on which
 there is most confusion:
 
 > **The relay forwards the UDP payload without interpreting it. It does not take part in the
@@ -1340,12 +1340,12 @@ treated as a system that processes personal data: minimised logging, short and d
 retention, entry in the record of processing activities, and location in the European Union
 for constraint V1.
 
-**Case C — through a server that composes the streams.** A selective forwarding or composition
+**Case C - through a server that composes the streams.** A selective forwarding or composition
 server **terminates the encryption**: it performs a handshake of its own with each participant,
 decrypts what arrives and re-encrypts what leaves. **It has the media in the clear.** From this
 descend the project's two modes described in §10.4.
 
-**Case D — compromised device.** Beyond the reach of any protocol. The browser has the media in
+**Case D - compromised device.** Beyond the reach of any protocol. The browser has the media in
 the clear by definition: it has to display it. A malicious extension or a screen capture
 program defeat everything. It must be written into the threat analysis, not hidden.
 
@@ -1362,9 +1362,9 @@ there is no reuse. In that sense the cryptographic material is new for every con
 
 - **DTLS 1.2 renegotiation** is not supported by browser implementations.
 - **DTLS 1.3 (RFC 9147)** introduces the `KeyUpdate` message, but **it does not solve the
-  problem**. The IETF document that addresses exactly this topic —
+  problem**. The IETF document that addresses exactly this topic -
   `draft-ietf-tls-extended-key-update`, an active Internet-Draft of the TLS working group,
-  version **-13 of 4 July 2026** — states it in its own motivation: *«The TLS 1.3 Key Schedule
+  version **-13 of 4 July 2026** - states it in its own motivation: *«The TLS 1.3 Key Schedule
   derives the exporter_secret from the main secret. This exporter_secret is static for the
   lifetime of the connection and **is not updated by a standard key update**.»* Since the SRTP
   keys are extracted **only once** from the exporter with the label `"EXTRACTOR-dtls_srtp"`
@@ -1376,7 +1376,7 @@ The mechanism that would make rotation possible **is an Internet-Draft in progre
 standard, and it is not implemented in any browser**.
 
 **Is this a weakness?** No, and it is important to say so precisely. **RFC 3711 §9.2**
-establishes master key lifetime limits tied to the number of packets protected — for AES in
+establishes master key lifetime limits tied to the number of packets protected - for AES in
 counter mode the order of magnitude is 2⁴⁸ SRTP packets and 2³¹ SRTCP. A medical consultation
 does not come remotely close to those limits. **The absence of intra-session rotation is not a
 vulnerability: it is a feature that does not exist and that therefore must not be claimed.**
@@ -1391,8 +1391,8 @@ rotation that WebRTC does not offer.
 
 ### 6.9 What the project can state honestly
 
-Putting the preceding paragraphs together, the defensible formulation — even before a reviewer
-of a technical file — is this:
+Putting the preceding paragraphs together, the defensible formulation - even before a reviewer
+of a technical file - is this:
 
 > *The media is protected with SRTP (RFC 3711) using authenticated encryption suites based on
 > AES-GCM (RFC 7714), with keys negotiated via DTLS (RFC 6347 / RFC 9147) according to DTLS-SRTP
@@ -1407,7 +1407,7 @@ And it is **stronger** than an absolute claim, because every part of it is verif
 
 A note on a claim the project has withdrawn: any reference to cryptographic validations of
 non-European federal programmes has been removed pursuant to decision D19, for three cumulative
-reasons — those programmes validate **modules**, not algorithms; the module that encrypts is the
+reasons - those programmes validate **modules**, not algorithms; the module that encrypts is the
 one in the user's browser, outside the project's control; and invoking a non-European validation
 contradicts the data sovereignty positioning. The coherent references are instead ETSI TS 119
 312, the cryptographic mechanisms agreed within the SOG-IS framework and the national guidelines
@@ -1447,7 +1447,7 @@ characteristics that matter clinically:
   intelligibility of the patient's voice is functionally critical.
 - **Discontinuous transmission** (`usedtx=1`): suspends sending during silence. It saves
   bandwidth substantially, **but** it introduces artefacts on the onset of speech and, in a
-  consultation, **non-vocal sounds may have clinical value** — laboured breathing, coughing,
+  consultation, **non-vocal sounds may have clinical value** - laboured breathing, coughing,
   wheezing, tremor in the voice. **The project disables it by default**, and documents the choice
   as clinical, not as an optimisation.
 - **Packet loss concealment**: always active, intrinsic to the decoder, with no parameters to
@@ -1457,9 +1457,9 @@ The negotiable parameters verified against **RFC 7587 §6.1**:
 
 | Parameter | Range | Default |
 |---|---|---|
-| `maxplaybackrate` | 8000–48000 Hz | — |
-| `sprop-maxcapturerate` | 8000–48000 Hz | — |
-| `maxaveragebitrate` | 6000–510000 bit/s | — |
+| `maxplaybackrate` | 8000–48000 Hz | - |
+| `sprop-maxcapturerate` | 8000–48000 Hz | - |
+| `maxaveragebitrate` | 6000–510000 bit/s | - |
 | `stereo` / `sprop-stereo` | `0` \| `1` | `0` |
 | `cbr` | `0` \| `1` | `0` |
 | `useinbandfec` | `0` \| `1` | `0` |
@@ -1476,7 +1476,7 @@ traditional videoconferencing appliance, that is the meeting ground.
 > path applies by default **echo cancellation**, **noise suppression** and **automatic gain
 > control**. These algorithms are optimised for the voice and **may suppress or distort
 > non-vocal signals**. For specialties in which sound has semiological value, the ability to
-> disable them must be offered and documented — but if the sound is used for a diagnostic
+> disable them must be offered and documented - but if the sound is used for a diagnostic
 > evaluation one enters the perimeter of rule 11 of the medical devices regulation, which is
 > precisely the boundary that constraint V2 requires be made explicit.
 
@@ -1518,7 +1518,7 @@ Between browsers, interoperability is guaranteed by the mandatory codecs: any tw
 always find at least Opus for audio and at least one of VP8 and H.264 for video. This is not an
 accident: it is precisely the purpose of making them mandatory.
 
-With non-browser endpoints — a videoconferencing appliance, a switchboard, an embedded device —
+With non-browser endpoints - a videoconferencing appliance, a switchboard, an embedded device -
 there are three pitfalls:
 
 1. **The H.264 profile may not coincide.** Many appliances use profiles richer than Constrained
@@ -1530,7 +1530,7 @@ there are three pitfalls:
    mechanism in SDP, incompatible with DTLS-SRTP.
 
 In practice, interoperability with the non-browser world almost always requires an intermediate
-component that translates — and that component **sees the media in the clear**, with all the
+component that translates - and that component **sees the media in the clear**, with all the
 consequences of §6.7 case C.
 
 ---
@@ -1547,7 +1547,7 @@ consequences of §6.7 case C.
 | **Loss** (*packet loss*) | Fraction of packets that do not arrive | Gaps in the audio, frozen or blocky picture |
 
 **Jitter** deserves an explanation, because it is the one least well understood. Audio packets
-leave at regular intervals — one every 20 milliseconds. If they arrived equally regularly it
+leave at regular intervals - one every 20 milliseconds. If they arrived equally regularly it
 would be enough to play them back. But the network delays them differently from one another: one
 takes 30 ms, the next 55, the one after 28. If each packet were played back as soon as it
 arrived, the result would be irregular and unpleasant.
@@ -1586,7 +1586,7 @@ suggested. It must be used knowingly: **lowering it reduces latency and increase
 under high jitter**. It is a clinical trade-off, and as such it must be documented in the risk
 management file, not decided silently by whoever writes the code.
 
-The overall delay budget, from camera to remote display — all values **`[NV]`**, orders of
+The overall delay budget, from camera to remote display - all values **`[NV]`**, orders of
 magnitude to be replaced with one's own measurements:
 
 | Stage | Typical contribution |
@@ -1603,8 +1603,8 @@ magnitude to be replaced with one's own measurements:
 
 From this table follows the project's position on the latency objective, pursuant to decision
 D19: **the objective is declared as a metric that is measured, recorded and notified, not as a
-promise.** It must furthermore be declared **which** latency is being measured — network
-round-trip time, one-way latency, mouth-to-ear latency, or camera-to-display latency — because
+promise.** It must furthermore be declared **which** latency is being measured - network
+round-trip time, one-way latency, mouth-to-ear latency, or camera-to-display latency - because
 the four differ by an order of magnitude and citing one without qualifying it means nothing.
 
 ### 8.3 Congestion control and transport feedback
@@ -1625,8 +1625,8 @@ The normative status of this part must be stated precisely, because it is surpri
   media, and requires as a minimum the RTP *circuit breaker* of **RFC 8083**.
 - The algorithm actually used by browsers is described in an Internet-Draft that **never became
   an RFC**.
-- The feedback mechanism it rests on — sequence numbering **extended to all the packets of the
-  connection**, which appears in SDP as `a=rtcp-fb:* transport-cc` — is defined in an
+- The feedback mechanism it rests on - sequence numbering **extended to all the packets of the
+  connection**, which appears in SDP as `a=rtcp-fb:* transport-cc` - is defined in an
   **individual** Internet-Draft, **expired on 21 April 2016**, never adopted by the working
   group. The document carries the note *«not endorsed by the IETF»*.
 - **The real standard does exist**: **RFC 8888** (*RTP Control Protocol Feedback for Congestion
@@ -1650,7 +1650,7 @@ because the transaction identifier thus obtained is the only one the implementat
 on write.
 
 **The degradation preference is a clinical decision before it is a technical one.** The
-normative values are four and — a verified fact — **are not defined by the WebRTC
+normative values are four and - a verified fact - **are not defined by the WebRTC
 Recommendation** but by the *MediaStreamTrack Content Hints* specification (W3C **Working
 Draft** of 19 September 2025):
 
@@ -1674,12 +1674,12 @@ file.
 
 There are two families of remedies, and there is a stark trade-off between them.
 
-**Reactive remedy — retransmission is requested.** The receiver notices a gap in the numbering
+**Reactive remedy - retransmission is requested.** The receiver notices a gap in the numbering
 and asks the sender to resend the packet (`NACK`, RFC 4585); the sender resends it on a separate
 retransmission stream (`RTX`, RFC 4588). It costs **one round trip** and works only if that time
 fits within the jitter buffer's budget.
 
-**Proactive remedy — redundant information is sent.** Material is added in advance that allows
+**Proactive remedy - redundant information is sent.** Material is added in advance that allows
 what is missing to be reconstructed, **without asking for anything**: Opus's built-in error
 correction (§7.2), the redundant coding of RFC 2198, or a separate correction stream for video.
 It costs bandwidth **always**, even when there is no loss at all.
@@ -1697,7 +1697,7 @@ It costs bandwidth **always**, even when there is no loss at all.
 **When the loss is too extensive** and the decoder has lost its reference, there is nothing for
 it but to ask for a full frame: picture loss indication (`PLI`, RFC 4585, type 206 format 1) or
 explicit intra-frame request (`FIR`, RFC 5104, type 206 format 4). **A full frame is expensive**
-— of the order of 5–10 times a differential frame `[NV]` — and a burst of requests can trigger a
+- of the order of 5–10 times a differential frame `[NV]` - and a burst of requests can trigger a
 spiral: congestion → loss → request → heavy frame → more congestion. Implementations rate-limit
 these requests precisely for this reason.
 
@@ -1731,8 +1731,8 @@ It is not a technical optimisation: it is a clinical choice, and it must be just
 3. **Audio costs a fraction of video.** Protecting audio is almost free: a few tens of kilobits
    per second against a few megabits.
 4. **It is accessibility, not optimisation.** The project's constraint D25 says so explicitly:
-   degrading in a comprehensible manner — audio before video, clear warnings, session resumption
-   — **is part of real accessibility**. Someone with a poor connection is not an edge case: they
+   degrading in a comprehensible manner - audio before video, clear warnings, session resumption
+   - **is part of real accessibility**. Someone with a poor connection is not an edge case: they
    are part of the reference population.
 
 The consequence in the interface is equally important: when video is sacrificed, **the system
@@ -1750,7 +1750,7 @@ The browser exposes a single source: the `getStats()` method of `RTCPeerConnecti
 returns a map of typed objects, each with an identifier, a timestamp and a type, linked together
 by mutual references.
 
-The specification is called ***Identifiers for WebRTC's Statistics API*** by the W3C — verified
+The specification is called ***Identifiers for WebRTC's Statistics API*** by the W3C - verified
 status: **Candidate Recommendation Draft of 25 September 2025**. It must be cited with this
 exact title.
 
@@ -1764,7 +1764,7 @@ by looking at a switched-off thermometer.
 This is the area in which mistakes are most frequent, so it is worth being precise about which
 dictionary contains what. Members **verified** against the specification:
 
-**`inbound-rtp`** — what *I* receive from the other party:
+**`inbound-rtp`** - what *I* receive from the other party:
 `jitter`, `packetsLost`, `framesPerSecond`, `freezeCount`, `totalFreezesDuration`, `pauseCount`,
 `nackCount`, `firCount`, `pliCount`, `framesDropped`, `totalInterFrameDelay`,
 `jitterBufferDelay`, `jitterBufferEmittedCount`.
@@ -1772,27 +1772,27 @@ dictionary contains what. Members **verified** against the specification:
 It does **not** contain: `roundTripTime`, `qualityLimitationReason`, `availableOutgoingBitrate`,
 `fractionLost`.
 
-**`outbound-rtp`** — what *I* send:
+**`outbound-rtp`** - what *I* send:
 `qualityLimitationReason`, `qualityLimitationDurations`, `nackCount`, `firCount`, `pliCount`,
 `retransmittedPacketsSent`, `framesPerSecond`, `framesEncoded`.
 
 It does **not** contain: `roundTripTime`, `jitter`, `packetsLost`, `freezeCount`.
 
-**`remote-inbound-rtp`** — what *the other party* observes on receiving **my** stream, reported
+**`remote-inbound-rtp`** - what *the other party* observes on receiving **my** stream, reported
 via the RTCP control channel: `roundTripTime`, `totalRoundTripTime`, `fractionLost`, plus
 `jitter` and `packetsLost` inherited.
 
 > **This is the dictionary that dissolves the commonest misconception.** Round-trip time is
 > **not** in `outbound-rtp`. It is in `remote-inbound-rtp`, and it is therefore the true measure
-> of the quality **perceived by the other side** — the only one that counts in a consultation,
+> of the quality **perceived by the other side** - the only one that counts in a consultation,
 > because nobody complains about how they hear themselves.
 
-**`candidate-pair`** — the pair of paths in use: `state`, `nominated`, `packetsSent`,
+**`candidate-pair`** - the pair of paths in use: `state`, `nominated`, `packetsSent`,
 `packetsReceived`, `bytesSent`, `bytesReceived`, `totalRoundTripTime`, `currentRoundTripTime`,
 `availableOutgoingBitrate`, `availableIncomingBitrate`, `requestsSent`, `responsesReceived`,
 `consentRequestsSent`, `packetsDiscardedOnSend`, `bytesDiscardedOnSend`.
 
-**`transport`** — the state of the encryption: `dtlsState`, `srtpCipher`, `dtlsCipher`,
+**`transport`** - the state of the encryption: `dtlsState`, `srtpCipher`, `dtlsCipher`,
 `tlsVersion`, `selectedCandidatePairId`, `dtlsRole`.
 
 > **These last are the documentary evidence of the actual encryption.** Recording them for every
@@ -1809,16 +1809,16 @@ streams. Five rules:
 2. **Narrow the scope where possible**: the variant that accepts a single track produces a
    smaller report.
 3. **Do not send a sample a second to the server.** Aggregate in windows of 10–30 seconds with
-   minimum, mean, ninety-fifth percentile and maximum, and send the summary. **Events** — a
-   change in the quality limitation reason, a threshold being crossed, a freeze — are instead
+   minimum, mean, ninety-fifth percentile and maximum, and send the summary. **Events** - a
+   change in the quality limitation reason, a threshold being crossed, a freeze - are instead
    sent immediately.
 4. **The counters are cumulative.** `packetsLost`, `bytesReceived`, `totalFreezesDuration`,
    `jitterBufferDelay` grow monotonically: **they must be differenced between consecutive
    samples**. Plotting the raw value and concluding that «quality is always getting worse» is by
    far the commonest error in this area.
 5. **Averages are computed as ratios of differences.** The mean jitter buffer delay is the
-   difference in `jitterBufferDelay` divided by the difference in `jitterBufferEmittedCount` —
-   seconds per emitted sample — not the absolute value divided by something.
+   difference in `jitterBufferDelay` divided by the difference in `jitterBufferEmittedCount` -
+   seconds per emitted sample - not the absolute value divided by something.
 
 ### 9.4 What can be inferred, and what cannot
 
@@ -1864,8 +1864,8 @@ formula of Annex B.
 3. There are wideband and fullband variants (G.107.1 and G.107.2), more appropriate, but
    **`[NV]`** on their actual coverage of Opus.
 4. **For video there is nothing comparable applicable to real time.** The ITU-T P.1203 and
-   P.1204 models concern adaptive streaming over HTTP, with assumptions — segments, buffer fill,
-   stalls — that do not hold here.
+   P.1204 models concern adaptive streaming over HTTP, with assumptions - segments, buffer fill,
+   stalls - that do not hold here.
 
 **The project's position**: publish a **proprietary, transparent and documented session quality
 index**, with the formula set out and an explicit statement that **it is not an ITU-T score**.
@@ -1927,7 +1927,7 @@ The diagnostic path, in order. Each step rules out a class of causes.
 7. **Was the encryption the expected one?** Check the recorded suite and version. It is also the
    check that catches the pathological cases of §6.2.
 
-The browsers' internal diagnostic tools — reachable from a dedicated internal address — show all
+The browsers' internal diagnostic tools - reachable from a dedicated internal address - show all
 these quantities in real time and export a complete summary of the connection's events. **That
 summary can be filed as an attachment to a problem report**, and it is useful material for
 post-market surveillance.
@@ -1945,7 +1945,7 @@ technical behaviour, alongside that of the clinical outcome.
 
 ```mermaid
 flowchart LR
-    subgraph M["Mesh — every node with every other"]
+    subgraph M["Mesh - every node with every other"]
         M1((A)) --- M2((B))
         M2 --- M3((C))
         M1 --- M3
@@ -1967,8 +1967,8 @@ flowchart LR
 ```
 
 **Mesh.** Each participant sends their own stream to every other. With `N` participants: `N−1`
-sends and `N−1` receives per node, `N(N−1)/2` connections in total, and — a point often ignored
-— **`N−1` parallel encodings** if the conditions towards the various parties differ.
+sends and `N−1` receives per node, `N(N−1)/2` connections in total, and - a point often ignored
+- **`N−1` parallel encodings** if the conditions towards the various parties differ.
 
 | Participants | Connections | Encodings per node | Upstream bandwidth required | Practicability |
 |---|---|---|---|---|
@@ -1990,7 +1990,7 @@ modest server CPU because in the base case it re-encodes nothing. **But it termi
 encryption: it sees the media in the clear.**
 
 **Composition.** The server decodes all the streams, composes them into a single mosaic and
-re-encodes. Downstream bandwidth becomes constant again — a single stream — which is ideal for
+re-encodes. Downstream bandwidth becomes constant again - a single stream - which is ideal for
 weak devices and for interoperability with traditional appliances. It costs **a great deal of
 CPU per session** and adds **tens of milliseconds** of latency between decoding, composition and
 re-encoding. No end-to-end encryption property, and the layout is imposed by the server.
@@ -2001,7 +2001,7 @@ re-encoding. No end-to-end encryption property, and the layout is imposed by the
 argument in favour of an intermediate server for two participants: it would add latency,
 infrastructural cost and **would destroy the property on which the entire positioning rests**.
 
-**For the third participant — sign language interpreter, carer, second specialist — the answer
+**For the third participant - sign language interpreter, carer, second specialist - the answer
 is a three-way mesh, not a server.** The reasons:
 
 1. **At three, mesh is technically sustainable.** Two sends and two receives per node. It must
@@ -2019,7 +2019,7 @@ declared limit is engineering; silent degradation is a defect.**
 
 On the implementation side, the three-way mesh requires: `N−1` connections per client;
 deterministic assignment of the negotiation roles for **each pair**; division of the upstream
-bandwidth budget between the recipients; and — a detail that escapes notice — the aggregation of
+bandwidth budget between the recipients; and - a detail that escapes notice - the aggregation of
 metrics across `N−1` connections, where **the session's quality is the minimum, not the average**,
 of the per-link qualities.
 
@@ -2028,7 +2028,7 @@ of the per-link qualities.
 End-to-end encryption would be recovered only by adding a layer of protection **above** SRTP,
 that is, by encrypting the frames before they enter the transport.
 
-The standard exists: **RFC 9605 — Secure Frame (SFrame)**, *Lightweight Authenticated Encryption
+The standard exists: **RFC 9605 - Secure Frame (SFrame)**, *Lightweight Authenticated Encryption
 for Real-Time Media*, **Standards Track, August 2024**. It provides encryption and authentication
 of the frames in such a way that intermediate servers can access the metadata but not the
 content. It operates on **whole frames** rather than on individual packets, which makes it more
@@ -2036,10 +2036,10 @@ bandwidth-efficient. It defines five cipher suites (§4.5), a variable-length he
 identifier and counter (§4.3), and compatibility with selective forwarding, simulcast and layered
 coding (§6.1).
 
-The alternative is **RFC 8723 — Double Encryption Procedures for SRTP**: two nested
+The alternative is **RFC 8723 - Double Encryption Procedures for SRTP**: two nested
 transformations, an inner end-to-end one and an outer hop-by-hop one. §4 establishes that the
-distributor may modify **only three fields** of the RTP header — payload type, sequence number
-and marker bit — while all the others *«MUST remain unmodified»*.
+distributor may modify **only three fields** of the RTP header - payload type, sequence number
+and marker bit - while all the others *«MUST remain unmodified»*.
 
 **The honest point**, which closes any hasty discussion: **RFC 9605 §5 does not define key
 exchange.** Verbatim, *«Applications bear responsibility for provisioning keys and managing
@@ -2065,7 +2065,7 @@ Only two possibilities follow:
   on the continuity of the user's device, and it produces a recording in which the local audio
   and the remote video are offset by the network latency.
 - **Recording on the server**: reliable, synchronised, device-independent, with format and
-  encryption at rest governed centrally — **but it requires a component that completes a
+  encryption at rest governed centrally - **but it requires a component that completes a
   handshake of its own and decrypts the stream. The session is no longer end-to-end encrypted.**
 
 **The project's decision D23 chooses server-side recording, and declares its consequences instead
@@ -2137,7 +2137,7 @@ Four non-negotiable rules on this mechanism:
 1. **The endpoint that issues the credential is authenticated, authorised and rate limited.** It
    must verify that the requester is actually party to that consultation. Otherwise it is a
    vending machine for relay access.
-2. **The lifetime is short** — the correct order of magnitude is between five minutes and an
+2. **The lifetime is short** - the correct order of magnitude is between five minutes and an
    hour.
 3. **The identifier inside the credential is opaque.** It ends up in the relay server's logs in
    the clear: **it must never be an identifier of the patient nor of the professional**, but a
@@ -2151,7 +2151,7 @@ Two clarifications of normative honesty, both verified:
 - **This mechanism is not an IETF standard.** It derives from an expired individual
   Internet-Draft. The real standard would be RFC 7635 (third-party authorisation via token). The
   mechanism described here is, however, the only one with universal support in browsers and in
-  the server: it is adopted, and **it is documented for what it is — a de facto convention**.
+  the server: it is adopted, and **it is documented for what it is - a de facto convention**.
 - **The hash algorithm underlying the HMAC** is generically indicated as `hmac(...)` in the
   server's documentation: `[NV]` that it is SHA-1. The correct way to resolve the doubt is not a
   documentary citation but **an integration test**: issue a credential with the project's
@@ -2171,15 +2171,15 @@ Figure verified against the upstream repository as at 25 August 2026: the curren
 were published, five of them in the month of August 2026 alone.
 
 **The minimum version permitted by the project is 4.17.2.** It is not a preference: earlier
-versions remain exposed to defects fixed later, some of them of high severity — including one
+versions remain exposed to defects fixed later, some of them of high severity - including one
 rated 9.8 out of 10 in the decoding of an authorisation token, fixed in 4.10.0.
 
 Three changes of default behaviour introduced in 4.17.0 must be known, because they break
 configurations written for earlier versions:
 
 1. **The DTLS listeners are now optional**: *«The server no longer starts DTLS listeners unless
-   `--dtls` is given.»* For the project this is the configuration wanted — browsers use the relay
-   over TCP with TLS, not over DTLS — and not enabling them removes an entire attack surface.
+   `--dtls` is given.»* For the project this is the configuration wanted - browsers use the relay
+   over TCP with TLS, not over DTLS - and not enabling them removes an entire attack surface.
 2. **The stateless nonce is on by default**, with a signing key **generated per process**. In an
    architecture with several independent nodes this means that every request that lands on a
    different node costs the client an additional round of re-authentication. **The secret for the
@@ -2200,8 +2200,8 @@ This is the most important part of the paragraph, and it is the one that in prac
 systematically got wrong.
 
 **The mechanism of the attack.** A relay server forwards bytes towards an address **chosen by
-the client**. If the destinations are not restricted, anyone who obtains a valid credential —
-and in the project **every authenticated patient** obtains one, by construction — can:
+the client**. If the destinations are not restricted, anyone who obtains a valid credential -
+and in the project **every authenticated patient** obtains one, by construction - can:
 
 - reach the server's own loopback address and talk to services believed to be unexposed;
 - scan the operator's internal network;
@@ -2255,8 +2255,8 @@ The four measures that follow from this fact, and that no line of configuration 
    **towards an address inside an IPv6 range not aligned to a prefix**; fail the build if any of
    them receives a success response. It is a traceable risk control measure.
 4. **Alerts on the logs, not on the metrics.** A verified fact: **the server's metrics exporter
-   exposes no counter of denied permissions**. The attack signal — a spike in rejected permission
-   requests, that is, a scan of the internal network — **must be extracted from the application
+   exposes no counter of denied permissions**. The attack signal - a spike in rejected permission
+   requests, that is, a scan of the internal network - **must be extracted from the application
    logs**. The useful metrics alongside are the number of current allocations (for saturation)
    and the counter of suppressed authentication responses (for reflection activity).
 
@@ -2272,7 +2272,7 @@ documentation: *«If there is no rule for an address, then it is allowed»*. The
 ranges**. One forgotten line means relaying allowed.
 
 **Second principle: allow rules always prevail over deny rules.** Again verbatim: *«If there is
-an 'allowed' rule that fits the address then it is allowed — no matter what»*. It follows that
+an 'allowed' rule that fits the address then it is allowed - no matter what»*. It follows that
 **in a healthcare profile allow rules are not used at all**: a single line would annul all the
 denials.
 
@@ -2309,7 +2309,7 @@ benefit to a two-party consultation.
   thousand ports: individual mapping is impracticable. The only sane configuration is host
   network mode, and it must be written into the composition file with a comment explaining why.
 
-An example of the only part that the application code needs — no real secrets, only placeholders:
+An example of the only part that the application code needs - no real secrets, only placeholders:
 
 ```yaml
 # Fragment of the application's configuration.
@@ -2329,8 +2329,8 @@ telemedic:
 ### 11.6 High availability: the redundancy is done by ICE
 
 The correct, anchorable formulation, to be used in place of absolute claims: **the upstream
-documentation offers only three scalability schemes — name resolution with service records,
-redirection towards an alternative server, network load balancer — all of them for distributing
+documentation offers only three scalability schemes - name resolution with service records,
+redirection towards an alternative server, network load balancer - all of them for distributing
 new requests; no source documents the replication of allocation state between nodes.** An
 allocation lives in the process that created it and cannot be reconstructed elsewhere.
 
@@ -2338,7 +2338,7 @@ From this follows the correct architecture, which is also the simplest: **N inde
 the same authentication realm, the same shared secret, the same secret for the stateless nonce,
 all announced to the client in the list of servers**. ICE allocates in parallel on several
 servers and chooses the best pair: **the redundancy is done by ICE, not by the relay**. No
-cluster, no session affinity, no anycast addressing — which for a stateful protocol over UDP is
+cluster, no session affinity, no anycast addressing - which for a stateful protocol over UDP is
 particularly wrong, because a change of route moves the packets onto a node that does not have
 the allocation.
 
@@ -2353,11 +2353,11 @@ quota.
 
 A recurrent confusion. A video file has three independent layers:
 
-- the **video codec** (VP8, VP9, H.264, AV1) and the **audio codec** (Opus, AAC) — how the two
+- the **video codec** (VP8, VP9, H.264, AV1) and the **audio codec** (Opus, AAC) - how the two
   streams are compressed;
-- the **container** (MP4, WebM) — how the two streams are interleaved into a single file together
+- the **container** (MP4, WebM) - how the two streams are interleaved into a single file together
   with index, timings and metadata;
-- **encryption at rest** — which in the project is applied **on top of** the file, with
+- **encryption at rest** - which in the project is applied **on top of** the file, with
   per-organisation keys.
 
 The container does not imply the codec, nor vice versa. The fact that the browser can **decode**
@@ -2430,7 +2430,7 @@ discovered in production.
    of** the encoding and decoding of the call in progress. On modest hardware it is a concrete
    risk of causing precisely the degradation the system is supposed to avoid. If the recording
    takes place on the device, it must be measured on low reference hardware and disabled
-   automatically — informing the user — when the quality limitation reason persistently indicates
+   automatically - informing the user - when the quality limitation reason persistently indicates
    CPU.
 2. **Synchronisation.** When recording the local composition, the remote video is already offset
    from the local audio by the network latency. It is not correctable downstream without the
@@ -2441,7 +2441,7 @@ discovered in production.
    professional shuts the laptop at the end of the consultation before the upload finishes, that
    recording no longer exists.
 4. **Retention.** Encryption at rest with per-organisation keys, configurable retention period,
-   and **cryptographic erasure** — destruction of the key — as the mechanism of effective
+   and **cryptographic erasure** - destruction of the key - as the mechanism of effective
    deletion.
 
 ---
@@ -2467,8 +2467,8 @@ Options **verified against the source code of the Chromium engine**, with the or
 **Three operational facts that are otherwise only discovered by losing a day:**
 
 1. **The correct option is the one that does not touch screen capture.** The other would also
-   auto-accept screen sharing, and a test that verifies the consent flow for sharing — «I show
-   the report to the patient» is a real use case of the project — would produce **false
+   auto-accept screen sharing, and a test that verifies the consent flow for sharing - «I show
+   the report to the patient» is a real use case of the project - would produce **false
    positives**.
 2. **Formats: Y4M for video, WAV for audio.** They are not interchangeable.
 3. **Playback of an audio file requires audio processing to be disabled** (echo, noise, gain),
@@ -2481,12 +2481,12 @@ preferences useful for quality testing: default number of frames per second, max
 frequency of the synthetic audio tone, activation of audio error correction.
 
 > **An asymmetry to know before designing the test suite.** **Firefox has no equivalent of
-> playback from a file.** The synthetic stream preference produces a browser-generated signal —
-> colour bars and a tone — it does not play back a file chosen by the developer. **Concrete
+> playback from a file.** The synthetic stream preference produces a browser-generated signal -
+> colour bars and a tone - it does not play back a file chosen by the developer. **Concrete
 > consequence: automatic measurement of camera-to-display latency based on a file with a
 > time counter burnt into it is achievable only on the Chromium engine.** On Firefox an
-> alternative strategy is needed — for example drawing the counter on a graphical element and
-> capturing its stream — or reduced coverage must be declared.
+> alternative strategy is needed - for example drawing the counter on a graphical element and
+> capturing its stream - or reduced coverage must be declared.
 
 **The idea of the latency test, for completeness**: a video file is prepared containing a time
 counter readable on screen; the receiving side captures the frames, reads the counter and
@@ -2572,7 +2572,7 @@ In order, from the most probable to the least probable:
 1. **Is the signalling arriving?** If the messages do not get through, there is no WebRTC to
    speak of. Look at the WebSocket connection before anything else.
 2. **Does the offer contain media sections?** An offer with no sections means that capture from
-   camera and microphone has failed — permissions denied, device busy, insecure context. **WebRTC
+   camera and microphone has failed - permissions denied, device busy, insecure context. **WebRTC
    requires a secure context**: over plain HTTP, `getUserMedia()` does not work, and in local
    development the only origin treated as secure is the loopback one.
 3. **Are candidates being produced?** If only one of type `host` appears, the STUN and TURN
@@ -2581,7 +2581,7 @@ In order, from the most probable to the least probable:
    requirement of RFC 8838 §9 (§4.5). A defect here produces sessions that establish
    «sometimes».
 5. **Do the fingerprints match?** A handshake that fails with mismatched fingerprints means that
-   something has altered the SDP along the way — or, far more often, that the code has applied
+   something has altered the SDP along the way - or, far more often, that the code has applied
    two descriptions belonging to different negotiations.
 6. **Does the connection state reach `connected` but the bytes stay at zero?** A firewall that
    lets the control traffic through and blocks the data.
@@ -2680,7 +2680,7 @@ and, when it concerns audio intelligibility, a patient safety problem (§8.5).
 6. **WebRTC is two bodies of rules**: the W3C's interface and the IETF's protocols, coordinated
    by RFC 8825.
 7. **Signalling is not in the standard, by declared choice** (RFC 8829 §1.1). It is a project's
-   choice — and, not being specified, **it is not protected either**.
+   choice - and, not being specified, **it is not protected either**.
 8. **The signalling server is the anchor point of trust for the entire session**, not an
    accessory component.
 9. **ICE does not choose: it gathers all the plausible paths, tries them all and keeps the best
@@ -2692,7 +2692,7 @@ and, when it concerns audio intelligibility, a patient safety problem (§8.5).
 12. **An ICE restart changes the path, not the keys**, and it requires signalling: without the
     WebSocket a change of network cannot be recovered from.
 13. **DTLS-SRTP protects the media, and the fingerprint in the SDP binds the certificate to the
-    signalled session.** It guarantees that the stream comes from whoever produced that SDP —
+    signalled session.** It guarantees that the stream comes from whoever produced that SDP -
     **not** that that SDP is authentic.
 14. **The signalling server can carry out a man-in-the-middle attack** (RFC 8827 §9.1) and no
     automatic check can notice it.
@@ -2705,8 +2705,8 @@ and, when it concerns audio intelligibility, a patient safety problem (§8.5).
     colour alone, with a defined procedure in the event of a mismatch.
 17. **There is no rotation of SRTP keys within a session.** Verified: TLS 1.3's
     `exporter_secret` *«is static for the lifetime of the connection and is not updated by a
-    standard key update»*. It is not a weakness — RFC 3711 §9.2 shows that the key lifetime
-    limits are unreachable in a consultation — but **it must not be claimed**.
+    standard key update»*. It is not a weakness - RFC 3711 §9.2 shows that the key lifetime
+    limits are unreachable in a consultation - but **it must not be claimed**.
 18. **The relay cannot decrypt anything**, but it sees metadata which in the healthcare domain
     are already data concerning health.
 19. **The mandatory codecs are Opus and G.711 for audio, VP8 and H.264 Constrained Baseline for

@@ -8,10 +8,10 @@ description: La mappa delle norme che toccano il progetto e perché ciascuna lo 
 
 > **Presupposto di lettura.** Che cosa siano un dispositivo medico, una destinazione d'uso, una
 > classe di rischio, un fabbricante, un organismo notificato, una norma armonizzata è spiegato
-> da zero in [10 §15 — Il quadro regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md).
+> da zero in [10 §15 - Il quadro regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md).
 > **Qui non si ripete: si attribuisce.** Questo capitolo risponde a tre domande per ciascuna
-> fonte — *chi è il soggetto obbligato*, *da quando*, *l'obbligo è del progetto o di chi
-> installa* — e a nessun'altra.
+> fonte - *chi è il soggetto obbligato*, *da quando*, *l'obbligo è del progetto o di chi
+> installa* - e a nessun'altra.
 >
 > **Avvertenza.** Questo capitolo è analisi tecnica di conformità, **non consulenza legale né
 > regolatoria**. La qualificazione giuridica di un soggetto e di un prodotto dipende da elementi
@@ -22,7 +22,7 @@ description: La mappa delle norme che toccano il progetto e perché ciascuna lo 
 ## 1. Perché una mappa e non un elenco
 
 Un elenco di norme applicabili è inutile e pericoloso allo stesso tempo. Inutile, perché non dice
-a chi fare che cosa. Pericoloso, perché produce nel lettore la convinzione di essere coperto —
+a chi fare che cosa. Pericoloso, perché produce nel lettore la convinzione di essere coperto -
 oppure quella opposta, di essere schiacciato da obblighi che in realtà non lo riguardano.
 
 La sola cosa che conta, in un progetto costruito come questo, è **l'attribuzione**. Il progetto
@@ -50,16 +50,16 @@ Si adotta la stessa legenda dell'area di sicurezza, per non introdurre un second
 
 | Sigla | Significato |
 |---|---|
-| **P** | **Progetto.** L'obbligo — o la porzione tecnica che lo rende soddisfacibile — è del progetto |
+| **P** | **Progetto.** L'obbligo - o la porzione tecnica che lo rende soddisfacibile - è del progetto |
 | **D** | **Chi installa, integra o mette in servizio.** Il progetto può fornire evidenze, modelli e capacità tecniche; non può sostituirsi |
 | **P+D** | **Condivisa.** Entrambe le parti hanno una porzione, e **la porzione dell'una non copre quella dell'altra** |
-| **—** | Non applicabile all'oggetto della riga |
+| **-** | Non applicabile all'oggetto della riga |
 
 **Una riga marcata `P` non esonera chi installa**: gli impone di verificare che la configurazione
 distribuita non abbia disattivato ciò che il prodotto attua, e di conservarne l'evidenza. Una riga
 marcata `D` non significa che il progetto se ne disinteressi: significa che il suo contributo è
 documentale. Il dettaglio misura per misura, per la sola sicurezza, è in
-[06 §09 — Ripartizione delle responsabilità](../06_security/09-ripartizione-delle-responsabilita.md),
+[06 §09 - Ripartizione delle responsabilità](../06_security/09-ripartizione-delle-responsabilita.md),
 che **quest'area riprende e non ridiscute**.
 
 ### 1.3 Il fatto da cui dipende quasi tutto
@@ -83,13 +83,13 @@ fabbricante» è falso se non accompagnato dal perché. La formulazione corretta
 è fabbricante perché non commercializza alcun dispositivo apponendovi il proprio nome, e cesserà
 di non esserlo nel momento in cui lo facesse*.
 
-## 2. Regolamento (UE) 2017/745 — dispositivi medici
+## 2. Regolamento (UE) 2017/745 - dispositivi medici
 
 **Perché tocca il progetto.** Perché il perimetro funzionale comprende il telemonitoraggio con
-valutazione delle soglie configurate dal professionista, e quella funzione — non il video, non la
-persistenza, non il trasporto — costituisce *interpretazione* del dato ai sensi di MDCG 2019-11
+valutazione delle soglie configurate dal professionista, e quella funzione - non il video, non la
+persistenza, non il trasporto - costituisce *interpretazione* del dato ai sensi di MDCG 2019-11
 Rev.1, Allegato I, lett. d.1). Il ragionamento completo è nel capitolo
-[02 — Qualificazione e classificazione](./02-qualificazione-e-classificazione.md).
+[02 - Qualificazione e classificazione](./02-qualificazione-e-classificazione.md).
 
 | Voce | Contenuto |
 |---|---|
@@ -110,19 +110,26 @@ modalità di integrazione principale prevista dal progetto. L'integratore che in
 componente nel proprio prodotto e lo presenta ai propri clienti **è fabbricante per legge**, e non
 per scelta contrattuale.
 
-**Che cosa produce il progetto, e perché lo produce pur non essendo fabbricante.** La decisione
-`D49` chiude la questione: il progetto produce e pubblica il fascicolo tecnico, la documentazione
-di ciclo di vita ai sensi di IEC 62304, la gestione del rischio ai sensi di ISO 14971 e il file di
-ingegneria dell'usabilità ai sensi di IEC 62366-1, **ma non costituisce un soggetto fabbricante,
-non ingaggia organismi notificati, non conduce la valutazione clinica e non appone la marcatura
-CE**. La ragione non è generosità: è che una parte di quel materiale **non è recuperabile a
-posteriori** (`D45`), e la sua assenza renderebbe impossibile a *chiunque* certificare in seguito.
-Il capitolo [04 — Fascicolo tecnico](./04-fascicolo-tecnico.md) elenca voce per voce che cosa
+**Che cosa produce il progetto e il ruolo che intende assumere.** Da `D58` il progetto
+intende assumere il ruolo di fabbricante, e con `D63` la marcatura al termine di una valutazione
+della conformità conclusa è un **requisito di prodotto**; il soggetto giuridico è ancora da
+costituire. La
+decisione `D58` allarga il perimetro della decisione `D49`: il progetto produce e pubblica il
+fascicolo tecnico, la documentazione di ciclo di vita ai sensi di IEC 62304, la gestione del
+rischio ai sensi di ISO 14971 e il file di ingegneria dell'usabilità ai sensi di IEC 62366-1
+come materiale che rende il percorso di valutazione della conformità possibile. Quando il soggetto
+fabbricante sarà costituito, assumerà gli atti riservati al ruolo: ingaggerà organismi
+notificati, condurrà la valutazione clinica e apporrà la marcatura CE. Oggi il progetto non reca
+marcatura CE, non è coperto da alcuna dichiarazione di conformità e non è utilizzabile per
+l'erogazione di prestazioni sanitarie su pazienti reali. La ragione per cui questo materiale **non
+è recuperabile a posteriori** (`D45`) è quella di sempre: la sua assenza renderebbe impossibile a
+*chiunque* certificare in seguito, indipendentemente da chi assuma il ruolo di fabbricante.
+Il capitolo [04 - Fascicolo tecnico](./04-fascicolo-tecnico.md) elenca voce per voce che cosa
 questo significa.
 
 **L'esenzione dell'art. 5, paragrafo 5, va menzionata solo per escluderla.** I dispositivi
 fabbricati e utilizzati esclusivamente all'interno di istituzioni sanitarie dell'Unione sono
-sottratti alla maggior parte del regolamento, a condizione — fra le altre — che non siano ceduti
+sottratti alla maggior parte del regolamento, a condizione - fra le altre - che non siano ceduti
 ad altra persona giuridica e che l'istituzione **giustifichi che le esigenze del gruppo di
 pazienti non possono essere soddisfatte da un dispositivo equivalente disponibile sul mercato**.
 Un'azienda sanitaria che installa un prodotto sviluppato da terzi **non lo ha fabbricato**, e la
@@ -131,19 +138,19 @@ d'uscita apparente, invocata impropriamente in sede di gara: la documentazione d
 avalla.
 
 **L'art. 7 vale già oggi, e vale sul repository.** Il divieto di dichiarazioni fuorvianti su
-destinazione d'uso, sicurezza e prestazioni — «in particolare attribuendo funzioni e proprietà che
-il dispositivo non possiede» — non presuppone la marcatura. Insieme all'art. 2, punto 12, che fa
+destinazione d'uso, sicurezza e prestazioni - «in particolare attribuendo funzioni e proprietà che
+il dispositivo non possiede» - non presuppone la marcatura. Insieme all'art. 2, punto 12, che fa
 del materiale promozionale una fonte da cui si ricava giuridicamente la destinazione d'uso,
 produce il vincolo **V-171** del § 11: nessun artefatto pubblico del progetto può contenere
 formule che affermino o lascino intendere una conformità che non esiste.
 
-## 3. Regolamento (UE) 2016/679 — protezione dei dati
+## 3. Regolamento (UE) 2016/679 - protezione dei dati
 
 **Perché tocca il progetto.** Perché il sistema tratta dati relativi alla salute ai sensi
 dell'art. 4, punto 15, e perché **il solo fatto che una persona abbia una sessione con uno
 specialista è già dato relativo alla salute**, prima e indipendentemente dal contenuto della
 sessione. Il presupposto è enunciato in
-[06 §00 — Sicurezza, indice e orientamento](../06_security/00-indice.md) e non si ridiscute qui.
+[06 §00 - Sicurezza, indice e orientamento](../06_security/00-indice.md) e non si ridiscute qui.
 
 | Voce | Contenuto |
 |---|---|
@@ -156,7 +163,7 @@ determina in base a chi decide finalità e mezzi (art. 4, punti 7 e 8) e **non s
 contratto**: il contratto ne prende atto. Nel momento in cui esiste un'installazione che tratta
 dati, i ruoli sono fra l'integratore, i suoi clienti e i suoi fornitori. La casistica è già
 mappata in
-[07 §09 — Obblighi di chi integra, §3.1](../07_integration/09-obblighi-di-chi-integra.md) e
+[07 §09 - Obblighi di chi integra, §3.1](../07_integration/09-obblighi-di-chi-integra.md) e
 questo capitolo la **conferma** al § 10.
 
 **Quattro punti di raccordo che appartengono a quest'area e non all'area dati.**
@@ -164,8 +171,8 @@ questo capitolo la **conferma** al § 10.
 1. **La valutazione del rischio ai sensi di ISO 14971 e la valutazione d'impatto ai sensi
    dell'art. 35 sono due esercizi diversi e non si fondono.** La prima riguarda il **danno alla
    persona**; la seconda i **rischi per i diritti e le libertà**. Un rischio può essere
-   accettabile nella prima e inaccettabile nella seconda, e viceversa. Si collegano — la
-   valutazione d'impatto attinge al catalogo dei rischi — ma un unico documento che pretenda di
+   accettabile nella prima e inaccettabile nella seconda, e viceversa. Si collegano - la
+   valutazione d'impatto attinge al catalogo dei rischi - ma un unico documento che pretenda di
    servire a entrambe è un documento che l'organismo notificato contesta e l'autorità di controllo
    non riconosce.
 2. **La protezione fin dalla progettazione (art. 25) si rivolge al titolare, non al produttore.**
@@ -176,9 +183,9 @@ questo capitolo la **conferma** al § 10.
    per impostazione predefinita (vincolo `V-150` di `SEC`).
 3. **La valutazione d'impatto è dovuta** per un trattamento su larga scala di dati relativi alla
    salute con tecnologie nuove: i presupposti dell'art. 35, paragrafo 3, lettera b), sono
-   ampiamente integrati. È del cliente. Fornirne il materiale strutturale — descrizione del
+   ampiamente integrati. È del cliente. Fornirne il materiale strutturale - descrizione del
    trattamento, diagrammi dei flussi, catalogo dei rischi, elenco delle misure con la prova
-   automatica che le verifica — è simultaneamente un servizio e un vantaggio competitivo.
+   automatica che le verifica - è simultaneamente un servizio e un vantaggio competitivo.
 4. **L'art. 32 chiede una procedura per testare e valutare regolarmente l'efficacia delle
    misure**, non le misure. È la differenza fra un elenco e un processo, ed è ciò che rende la
    pipeline di verifica automatica del progetto un'evidenza di conformità e non un dettaglio
@@ -189,13 +196,13 @@ settoriale e non generale: **ventiquattro mesi** per i registri di tracciabilit�
 per i dati di accesso e autenticazione, ai sensi del DM 19 novembre 2025, Allegato 4 (vincolo
 `V-152` di `SEC`).
 
-## 4. Direttiva (UE) 2022/2555 e d.lgs. 4 settembre 2024, n. 138 — sicurezza delle reti
+## 4. Direttiva (UE) 2022/2555 e d.lgs. 4 settembre 2024, n. 138 - sicurezza delle reti
 
-**Perché tocca il progetto.** Non perché il progetto vi sia soggetto — quasi certamente non lo è —
+**Perché tocca il progetto.** Non perché il progetto vi sia soggetto - quasi certamente non lo è -
 ma perché **i suoi utilizzatori lo sono**, e riversano contrattualmente sul fornitore una parte
 consistente dei propri obblighi. Il meccanismo, i codici delle misure e la ripartizione sono
 trattati per esteso in
-[06 §08 — Quadro normativo e misure](../06_security/08-quadro-normativo-e-misure.md) e
+[06 §08 - Quadro normativo e misure](../06_security/08-quadro-normativo-e-misure.md) e
 [06 §09](../06_security/09-ripartizione-delle-responsabilita.md): **quest'area non li ridecide e
 non li riscrive.** Qui si fissano soltanto i tre elementi di attribuzione.
 
@@ -215,8 +222,8 @@ dichiarare una data di adeguamento, perché la data appartiene al cliente.
 **Secondo: la sovranità del dato è diventata un campo obbligatorio verso un'autorità.** L'art. 18
 della Determinazione n. 127437/2026 obbliga il soggetto a dichiarare nominativamente i «fornitori
 rilevanti» con ragione sociale, codice fiscale, **Paese della sede legale**, codici della
-nomenclatura degli appalti e criterio di rilevanza. Il vincolo `V1` del progetto — nessun
-componente obbligatorio del percorso principale stabilito fuori dall'Unione — cessa quindi di
+nomenclatura degli appalti e criterio di rilevanza. Il vincolo `V1` del progetto - nessun
+componente obbligatorio del percorso principale stabilito fuori dall'Unione - cessa quindi di
 essere un argomento di posizionamento: **introdurre una dipendenza di esecuzione extra-UE è un
 dato che finisce in una dichiarazione ufficiale di qualcun altro.**
 
@@ -233,7 +240,7 @@ delle misure di base è citato testualmente in alcun documento di quest'area.** 
 sono i codici, la ripartizione fra le due tipologie di soggetto e l'aritmetica del catalogo, che
 sono verificati.
 
-### 4.1 Legge 28 giugno 2024, n. 90 — il secondo regime nazionale
+### 4.1 Legge 28 giugno 2024, n. 90 - il secondo regime nazionale
 
 Si affianca al precedente e non lo sostituisce. Riguarda le pubbliche amministrazioni, **incluse
 le aziende sanitarie**.
@@ -246,31 +253,31 @@ le aziende sanitarie**.
 
 Tre elementi rilevanti per il prodotto:
 
-- **art. 1** — segnalazione entro **ventiquattro ore** dalla conoscenza e notifica completa entro
+- **art. 1** - segnalazione entro **ventiquattro ore** dalla conoscenza e notifica completa entro
   **settantadue ore**;
-- **art. 8** — nomina del **referente per la cybersicurezza**, adempimento organizzativo del
+- **art. 8** - nomina del **referente per la cybersicurezza**, adempimento organizzativo del
   cliente;
-- **art. 14** — contratti pubblici di beni e servizi informatici in contesti connessi alla tutela
+- **art. 14** - contratti pubblici di beni e servizi informatici in contesti connessi alla tutela
   degli interessi nazionali strategici: obbligo di tenere conto degli **elementi essenziali di
   cybersicurezza**, individuati dal DPCM 30 aprile 2025 (GU del 5 maggio 2025) come modificato dal
   DPCM 2 ottobre 2025, con **criteri di premialità** anche geografici.
-  **`[NV]`** — i testi dei due DPCM non sono stati letti su fonte primaria in nessuna delle
+  **`[NV]`** - i testi dei due DPCM non sono stati letti su fonte primaria in nessuna delle
   ricerche del progetto, e non è verificato se una fornitura di telemedicina ricada nelle
   categorie tecnologiche dell'allegato: l'elenco non nomina il software sanitario ma comprende i
   **servizi cloud**. Va verificato con un consulente di appalti prima di qualunque uso in gara.
 
 **La conseguenza operativa che conta più di tutte, ed è una sola: le risposte del fornitore
-saranno valutate contro requisiti chiusi — sì o no, con evidenza — non contro narrazioni.** Le
+saranno valutate contro requisiti chiusi - sì o no, con evidenza - non contro narrazioni.** Le
 linee guida nazionali sugli approvvigionamenti raccomandano alle amministrazioni di formulare i
 requisiti in modo «chiaro, oggettivo e quanto più possibile chiuso». La documentazione di
 conformità del progetto è perciò strutturata come **matrice requisito → evidenza → riferimento
 puntuale**, che è esattamente la struttura richiesta dalla tracciabilità del ciclo di vita: **un
 artefatto per due scopi**, non due artefatti.
 
-## 5. Regolamento (UE) 2024/2847 — resilienza informatica dei prodotti
+## 5. Regolamento (UE) 2024/2847 - resilienza informatica dei prodotti
 
-**Perché tocca il progetto.** Perché l'esclusione dell'art. 2, paragrafo 2 — che sottrae al
-regolamento i prodotti già coperti dall'MDR e dall'IVDR — **opera per prodotto, non per soggetto e
+**Perché tocca il progetto.** Perché l'esclusione dell'art. 2, paragrafo 2 - che sottrae al
+regolamento i prodotti già coperti dall'MDR e dall'IVDR - **opera per prodotto, non per soggetto e
 non per progetto**. Il confine passa quindi *dentro* il perimetro degli artefatti prodotti, e non
 coincide con nessuno dei confini già tracciati.
 
@@ -281,9 +288,9 @@ coincide con nessuno dei confini già tracciati.
 | **Attribuzione** | **D** per gli obblighi di fabbricante. **P** per la produzione degli artefatti che li rendono soddisfacibili, adottati **volontariamente e senza invocare esenzioni** (`D27`) |
 
 **Perché il progetto non invoca esenzioni.** Non per prudenza: perché l'insieme minimo che
-l'integratore-fabbricante chiederà comunque per la propria diligenza dovuta — distinta dei
+l'integratore-fabbricante chiederà comunque per la propria diligenza dovuta - distinta dei
 materiali leggibile da macchina, politica di divulgazione coordinata, canale di contatto, periodo
-di supporto dichiarato, aggiornamenti gratuiti e tempestivi — **è lo stesso che soddisfa
+di supporto dichiarato, aggiornamenti gratuiti e tempestivi - **è lo stesso che soddisfa
 ISO/IEC 81001-5-1, i questionari di sicurezza dei clienti sanitari e le misure sulla catena di
 fornitura del regime sulle reti**. Costruirlo una volta soddisfa quattro regimi; costruirlo
 quattro volte è l'errore che la matrice di
@@ -297,27 +304,27 @@ indirizzata all'orchestrazione: **la tabella esiste, l'atto formale che la adott
 
 | # | Artefatto | Dispositivi medici | Resilienza informatica | Motivazione |
 |---|---|:-:|:-:|---|
-| A1 | **Repository di codice sorgente**, mantenuto fuori da attività commerciale | — | — | Non è prodotto immesso sul mercato; il titolare, in quanto **persona fisica**, non può essere custode di software open source, figura riservata a una persona giuridica (art. 3, punto 14) |
-| A2 | **Distribuzione identificata marcata CE** ai sensi dell'MDR | **●** | — | Esclusa dall'art. 2, par. 2. I requisiti di cibersicurezza arrivano dall'Allegato I, §§ 17.2 e 17.4, dell'MDR |
-| A3 | **Kit di sviluppo client** distribuito separatamente | — | **●** | Non è il dispositivo e non è coperto dalla marcatura; se immesso sul mercato nel corso di un'attività commerciale è prodotto con elementi digitali autonomo |
-| A4 | **Componente incorporabile**, quando distribuito come artefatto a sé | — | **●** | Idem A3. Se invece è **parte della distribuzione marcata**, segue A2: la collocazione dipende dal perimetro della marcatura, non dal nome del pacchetto |
-| A5 | **Immagini di contenitore e pacchetti di distribuzione** non coperti dalla marcatura | — | **●** | Idem A3 |
-| A6 | **Moduli sostituibili** forniti dall'integratore | — | dipende | Non sono artefatti del progetto: il regime è dell'integratore, e va determinato sul suo perimetro |
+| A1 | **Repository di codice sorgente**, mantenuto fuori da attività commerciale | - | - | Non è prodotto immesso sul mercato; il titolare, in quanto **persona fisica**, non può essere custode di software open source, figura riservata a una persona giuridica (art. 3, punto 14) |
+| A2 | **Distribuzione identificata marcata CE** ai sensi dell'MDR | **●** | - | Esclusa dall'art. 2, par. 2. I requisiti di cibersicurezza arrivano dall'Allegato I, §§ 17.2 e 17.4, dell'MDR |
+| A3 | **Kit di sviluppo client** distribuito separatamente | - | **●** | Non è il dispositivo e non è coperto dalla marcatura; se immesso sul mercato nel corso di un'attività commerciale è prodotto con elementi digitali autonomo |
+| A4 | **Componente incorporabile**, quando distribuito come artefatto a sé | - | **●** | Idem A3. Se invece è **parte della distribuzione marcata**, segue A2: la collocazione dipende dal perimetro della marcatura, non dal nome del pacchetto |
+| A5 | **Immagini di contenitore e pacchetti di distribuzione** non coperti dalla marcatura | - | **●** | Idem A3 |
+| A6 | **Moduli sostituibili** forniti dall'integratore | - | dipende | Non sono artefatti del progetto: il regime è dell'integratore, e va determinato sul suo perimetro |
 | A7 | **Prodotto commerciale dell'integratore** che incorpora il progetto | dipende | dipende | L'integratore è **fabbricante** per ciò che immette sul mercato; se il suo prodotto è dispositivo, vale l'esclusione, altrimenti no |
-| A8 | **Documentazione, sito, materiale pubblico** | — | — | Non è prodotto. Ma è **materiale regolatorio** ai sensi dell'art. 2, punto 12, dell'MDR: v. § 11 |
+| A8 | **Documentazione, sito, materiale pubblico** | - | - | Non è prodotto. Ma è **materiale regolatorio** ai sensi dell'art. 2, punto 12, dell'MDR: v. § 11 |
 
 **Le tre letture che questa tabella impedisce.**
 
-1. «Siamo un dispositivo medico, quindi il regolamento sulla resilienza non ci riguarda» — falso
+1. «Siamo un dispositivo medico, quindi il regolamento sulla resilienza non ci riguarda» - falso
    per A3, A4, A5.
-2. «Non siamo un dispositivo medico, quindi non abbiamo obblighi di cibersicurezza» — falso: è
+2. «Non siamo un dispositivo medico, quindi non abbiamo obblighi di cibersicurezza» - falso: è
    esattamente la condizione che fa entrare il prodotto nell'altro regime dall'11 dicembre 2027.
-3. «La licenza trasferisce gli obblighi a chi riceve il codice» — falso in radice. **Nessuna
+3. «La licenza trasferisce gli obblighi a chi riceve il codice» - falso in radice. **Nessuna
    clausola di esclusione di garanzia sposta sul ricevente la responsabilità di un regolamento.**
    Chi integra in un prodotto commerciale è fabbricante per legge, indipendentemente da quanto
    scritto nella licenza.
 
-## 6. Direttiva (UE) 2024/2853 — responsabilità per danno da prodotti difettosi
+## 6. Direttiva (UE) 2024/2853 - responsabilità per danno da prodotti difettosi
 
 **Perché tocca il progetto.** Perché è l'unica fonte di questo capitolo che opera **verso il
 danneggiato**, cioè verso una persona che non ha accettato alcuna licenza e non ha firmato alcun
@@ -334,7 +341,7 @@ dalla decisione `D28`:
 
 1. **Il software è un prodotto**, indipendentemente dalla modalità di fornitura: autonomo,
    incorporato, in cloud, come servizio. Il file sorgente in quanto tale è invece considerato
-   informazione e non prodotto. **`[NV]`** — la formulazione letterale dell'art. 4 e dei
+   informazione e non prodotto. **`[NV]`** - la formulazione letterale dell'art. 4 e dei
    considerando pertinenti non è stata verificata su fonte primaria.
 2. **La difettosità si presume** quando è dimostrato che il prodotto non è conforme a **requisiti
    obbligatori di sicurezza previsti dal diritto dell'Unione** destinati a proteggere dal rischio
@@ -347,7 +354,7 @@ dalla decisione `D28`:
    efficaci **fra le parti della licenza**, per la responsabilità contrattuale e il danno
    economico puro. Non proteggono da: azioni della persona danneggiata, responsabilità
    regolatoria, responsabilità per dolo o colpa grave.
-   **`[NV]`** — la numerazione della norma italiana equivalente dopo il recepimento è da
+   **`[NV]`** - la numerazione della norma italiana equivalente dopo il recepimento è da
    verificare.
 4. **Un prodotto sicuro alla data del rilascio può diventare difettoso in seguito**, quando chi ne
    mantiene il controllo non fornisce gli aggiornamenti di sicurezza necessari. Per un servizio
@@ -371,11 +378,11 @@ documentato di gestione delle vulnerabilità è, sul piano probatorio, in posizi
 **strutturalmente migliore** di un prodotto chiuso che deve ricostruire le proprie evidenze in
 giudizio. **In questo regime la trasparenza è una difesa**, non un rischio.
 
-## 7. Regolamento (UE) 2025/327 — spazio europeo dei dati sanitari
+## 7. Regolamento (UE) 2025/327 - spazio europeo dei dati sanitari
 
 **Perché tocca il progetto, ed è il punto meno intuitivo dell'intero capitolo.** Perché il capo
-III introduce un regime di conformità — documentazione tecnica, dichiarazione di conformità,
-marcatura CE, **di regola senza organismo notificato** — per i **sistemi di cartella clinica
+III introduce un regime di conformità - documentazione tecnica, dichiarazione di conformità,
+marcatura CE, **di regola senza organismo notificato** - per i **sistemi di cartella clinica
 elettronica**, definiti in funzione della finalità di archiviare, intermediare, esportare,
 importare, convertire, modificare o visualizzare dati sanitari elettronici personali appartenenti
 alle categorie prioritarie. **Un prodotto può ricadere nel capo III pur non essendo un dispositivo
@@ -384,14 +391,14 @@ medico.**
 | Voce | Contenuto |
 |---|---|
 | **Soggetto obbligato** | Il **fabbricante del sistema di cartella clinica elettronica**; obblighi specifici per importatori e distributori |
-| **Da quando** | In vigore dal **26 marzo 2025**; applicazione generale dal **26 marzo 2027**; il **capo III dal 26 marzo 2029**, e dal **26 marzo 2031** per i sistemi di cui all'art. 26, paragrafo 2. **`[NV]`** — la mappatura esatta delle date per ciascuna disposizione va confermata sull'articolo finale del regolamento: le fonti secondarie consultate divergono |
+| **Da quando** | In vigore dal **26 marzo 2025**; applicazione generale dal **26 marzo 2027**; il **capo III dal 26 marzo 2029**, e dal **26 marzo 2031** per i sistemi di cui all'art. 26, paragrafo 2. **`[NV]`** - la mappatura esatta delle date per ciascuna disposizione va confermata sull'articolo finale del regolamento: le fonti secondarie consultate divergono |
 | **Attribuzione** | **D**. Con l'avvertenza che l'orizzonte 2029–2031 **non autorizza a rinviare la progettazione**, perché ciò che il capo III chiede è strutturale |
 
 **Perché la valutazione del progetto è che il capo III lo riguardi con elevata probabilità.** Il
-sistema archivia contenuti riconducibili alle categorie prioritarie — referti, risultati,
-documenti di sintesi —, li esporta e li importa verso il sistema dell'integratore, e li converte
+sistema archivia contenuti riconducibili alle categorie prioritarie - referti, risultati,
+documenti di sintesi -, li esporta e li importa verso il sistema dell'integratore, e li converte
 in un formato di interscambio. Sono esattamente le funzioni che il capo III intende disciplinare.
-**`[NV]`** — la conclusione è tratta dalla definizione riportata in fonte secondaria e va
+**`[NV]`** - la conclusione è tratta dalla definizione riportata in fonte secondaria e va
 confermata con lettura diretta delle definizioni dell'art. 2 e del capo III.
 
 **Il raccordo con il regime dei dispositivi è già scritto dalla linea guida.** MDCG 2019-11
@@ -427,14 +434,14 @@ scomodo, è un controllo che per quell'utente **non esiste**.
 | Fonte | Soggetto obbligato | Da quando | Attribuzione |
 |---|---|---|---|
 | **Direttiva (UE) 2019/882**, recepita con **d.lgs. 27 maggio 2022, n. 82** | Operatori economici che immettono sul mercato i prodotti e i servizi elencati | Prodotti e servizi immessi sul mercato dal **28 giugno 2025** | **D**, con l'avvertenza del paragrafo seguente |
-| **Direttiva (UE) 2016/2102**, recepita in Italia dalla **legge 9 gennaio 2004, n. 4** e dalle linee guida dell'agenzia nazionale | Enti pubblici | Vigente | **D** quando il cliente è una pubblica amministrazione — cioè nel caso d'uso principale |
-| **EN 301 549** | Norma tecnica di riferimento, incorpora **WCAG 2.1 livello AA** nelle clausole 9, 10 e 11 | — | **P** per il prodotto, **D** per la dichiarazione di accessibilità del servizio |
+| **Direttiva (UE) 2016/2102**, recepita in Italia dalla **legge 9 gennaio 2004, n. 4** e dalle linee guida dell'agenzia nazionale | Enti pubblici | Vigente | **D** quando il cliente è una pubblica amministrazione - cioè nel caso d'uso principale |
+| **EN 301 549** | Norma tecnica di riferimento, incorpora **WCAG 2.1 livello AA** nelle clausole 9, 10 e 11 | - | **P** per il prodotto, **D** per la dichiarazione di accessibilità del servizio |
 
 **L'ambito soggettivo della prima riga è la parte delicata, e va detta com'è: la telemedicina non
 è nominata** fra le categorie di prodotti e servizi coperti dall'Accessibility Act. Il prodotto vi
 ricadrebbe indirettamente, se venduto tramite un canale di commercio elettronico rivolto ai
 consumatori, o eventualmente come componente di un servizio di comunicazione elettronica.
-**`[NV]`** — la qualificazione di un servizio di videoconsulto come «servizio di comunicazione
+**`[NV]`** - la qualificazione di un servizio di videoconsulto come «servizio di comunicazione
 interpersonale indipendente dal numero» è controversa e non è stata accertata; merita analisi
 specifica prima di essere affermata o negata in un documento contrattuale. La via **diretta e
 sicura** è la terza riga: quando il cliente è pubblico, l'obbligo esiste senza bisogno di
@@ -444,11 +451,11 @@ percorrere la prima.
 intercetta.** EN 301 549 contiene requisiti che non derivano da WCAG e che riguardano proprio una
 piattaforma di videocomunicazione: la **clausola 6** (comunicazione bidirezionale vocale) impone
 qualità audio, **comunicazione in tempo reale con testo** quando è supportata la voce,
-identificazione del chiamante e — per la videocomunicazione — **risoluzione, frequenza dei
+identificazione del chiamante e - per la videocomunicazione - **risoluzione, frequenza dei
 fotogrammi e sincronizzazione labiale sufficienti per la lingua dei segni**. Per un servizio
 sanitario destinato anche a persone sorde non sono dettagli.
 
-**`[NV]`** — la versione di EN 301 549 citata nella *Gazzetta ufficiale dell'Unione europea* a
+**`[NV]`** - la versione di EN 301 549 citata nella *Gazzetta ufficiale dell'Unione europea* a
 supporto dell'Accessibility Act non è verificata. Fino a quel momento il riferimento
 giuridicamente efficace resta la versione effettivamente citata, e la dichiarazione di
 accessibilità del progetto deve indicare la versione su cui è stata condotta la verifica, non
@@ -462,14 +469,14 @@ averla senza dichiararla non lo è.**
 
 **Perché tocca il progetto.** Perché è la fonte da cui derivano le **definizioni** delle
 prestazioni, i **requisiti funzionali** dell'infrastruttura, i **livelli di servizio**, le
-**tipologie documentali** e — in due punti espressi — l'**obbligo di certificazione come
+**tipologie documentali** e - in due punti espressi - l'**obbligo di certificazione come
 dispositivo medico**, che arriva dal capitolato di gara indipendentemente dall'esito dell'analisi
 di qualificazione europea.
 
 Il vocabolario delle prestazioni e il funzionamento del fascicolo sono nei moduli
 [10 §02](../10_fondamenti/02-prestazioni-di-telemedicina.md) e
 [10 §07](../10_fondamenti/07-fse-e-infrastrutture-nazionali.md); il modello di dominio che ne
-discende è in [05 — Il dominio sanitario](../05_domain/00-indice.md). **Qui si elencano solo gli
+discende è in [05 - Il dominio sanitario](../05_domain/00-indice.md). **Qui si elencano solo gli
 atti, con la loro forza e la loro attribuzione.**
 
 | Atto | Che cosa impone che rilevi qui | Attribuzione |
@@ -484,22 +491,22 @@ atti, con la loro forza e la loro attribuzione.**
 
 **Tre avvertenze di metodo su questo blocco, che valgono più delle singole righe.**
 
-**Prima — la catena delle fonti è irregolare, e va dichiarato.** L'Allegato 4 del DM 19 novembre
+**Prima - la catena delle fonti è irregolare, e va dichiarato.** L'Allegato 4 del DM 19 novembre
 2025 incorpora per rinvio il capitolo di un **capitolato tecnico di una gara regionale** ed
 estende le misure ivi previste a tutte le infrastrutture regionali, comprese quelle che non hanno
 partecipato alla procedura. Una fonte cogente che rinvia a un documento di gara non è
-consultabile con gli strumenti ordinari. **`[NV]`** — il capitolo richiamato non è stato reperito:
+consultabile con gli strumenti ordinari. **`[NV]`** - il capitolo richiamato non è stato reperito:
 va richiesto alla centrale di committenza o recuperato dagli atti della procedura. Finché non lo
 si legge, **nessuna affermazione di conformità a quelle misure è sostenibile**.
 
-**Seconda — la residenza dei dati ha due livelli e non vanno appiattiti.** Il DM 21 settembre 2022
+**Seconda - la residenza dei dati ha due livelli e non vanno appiattiti.** Il DM 21 settembre 2022
 prescrive i modelli di distribuzione «su territorio nazionale»; il DM 19 novembre 2025, per il
 nodo di interoperabilità, prescrive «territorio UE». **Le due formulazioni non coincidono.** La
 documentazione deve rappresentarle entrambe: **almeno UE** per il nodo di interoperabilità,
 **nazionale** per le infrastrutture regionali. È il fondamento normativo dei tre profili di
 distribuzione di `D24`.
 
-**Terza — la richiesta di certificazione può arrivare dal capitolato prima ancora che dalla
+**Terza - la richiesta di certificazione può arrivare dal capitolato prima ancora che dalla
 qualificazione.** È il punto per cui il capitolo
 [02 §6](./02-qualificazione-e-classificazione.md) esiste: nel mercato pubblico italiano
 l'obbligo di essere dispositivo medico può essere **contrattuale** e precedere di anni qualunque
@@ -519,7 +526,7 @@ non la contraddicono e la completano.
 
 | # | Precisazione | Riga interessata |
 |---|---|---|
-| 1 | **Il ruolo di operatore economico ai fini della responsabilità da prodotto va aggiunto come quinto ruolo**, perché non coincide con nessuno degli altri quattro e opera verso un soggetto — il danneggiato — che non compare in nessuna riga. Chi integra è **fabbricante di prodotto**; il progetto, se mai lo fosse, sarebbe **fabbricante di componente**, con la sola esenzione dell'art. 11 e alle condizioni del § 6 | nuova riga, dopo la 7 |
+| 1 | **Il ruolo di operatore economico ai fini della responsabilità da prodotto va aggiunto come quinto ruolo**, perché non coincide con nessuno degli altri quattro e opera verso un soggetto - il danneggiato - che non compare in nessuna riga. Chi integra è **fabbricante di prodotto**; il progetto, se mai lo fosse, sarebbe **fabbricante di componente**, con la sola esenzione dell'art. 11 e alle condizioni del § 6 | nuova riga, dopo la 7 |
 | 2 | **Il ruolo di fabbricante ai sensi del regolamento sulla resilienza è distinto da quello ai sensi dei dispositivi**, e può gravare su chi non è fabbricante di dispositivi: la tabella artefatto → regime del § 5.1 va allegata alla riga 4.4 di quel capitolo | riga 21 |
 | 3 | **Il ruolo di fabbricante ai sensi del regolamento sullo spazio dei dati sanitari è un sesto ruolo possibile**, con orizzonte 2029–2031, e **non è coperto da nessuna riga esistente**. Va aggiunto come voce da presidiare, non come adempimento attuale | nuova riga |
 | 4 | La riga sulla **contitolarità** va rafforzata: la contitolarità **non è una scelta di comodo** fra le due opzioni precedenti. Si determina quando due soggetti determinano *insieme* finalità e mezzi, e comporta l'accordo dell'art. 26 con la designazione di un punto di contatto e il contenuto essenziale reso disponibile all'interessato | riga 8 |
@@ -533,7 +540,7 @@ nessuno, e va assegnata nominativamente nel contratto, non nella documentazione.
 ## 11. Le formule che nessun artefatto del progetto può usare
 
 **Questa sezione istituisce il vincolo `V-171`.** Ha lo stesso fondamento del vincolo `V-133` di
-`PROTO` — che vieta le formule di conformità infondate sui protocolli — e ne estende la logica al
+`PROTO` - che vieta le formule di conformità infondate sui protocolli - e ne estende la logica al
 piano regolatorio. Il fondamento è l'art. 7 e l'art. 2, punto 12, del Regolamento (UE) 2017/745: il
 materiale promozionale **è** materiale regolatorio, e una dichiarazione fuorviante su destinazione
 d'uso, sicurezza o prestazioni è vietata **anche quando non esiste alcuna marcatura**.
@@ -569,8 +576,8 @@ L'intenzione di certificare **non copre nessuno**, non trasferisce alcun obbligo
 utilizzabile una versione non certificata: chi installa, integra o mette in servizio il software
 oggi assume per intero gli obblighi che ne derivano.
 
-**La verifica di questo vincolo non è documentale ma di processo.** Ogni testo pubblico —
-pagina, `README`, titolo di sezione, descrizione di interfaccia, messaggio di errore, annuncio —
+**La verifica di questo vincolo non è documentale ma di processo.** Ogni testo pubblico -
+pagina, `README`, titolo di sezione, descrizione di interfaccia, messaggio di errore, annuncio -
 è materiale da cui si ricava la destinazione d'uso. Ne discende la questione `Q-174`, indirizzata
 alle aree di prodotto e della guida: **serve un passaggio di revisione regolatoria prima della
 pubblicazione di qualunque testo rivolto all'esterno**, con questa tabella come lista di
@@ -583,12 +590,12 @@ revocabile va accompagnata dalle condizioni della sua revoca. Sono in ordine di 
 
 | # | Soglia | Che cosa cambia | Chi decide |
 |---|---|---|---|
-| 1 | **Monetizzazione**: supporto a pagamento, servizio gestito, consulenza sull'integrazione, sponsorizzazioni ricorrenti | Cade la condizione «fuori da un'attività commerciale». Ne discendono: possibile qualifica di fabbricante ai sensi del regolamento sulla resilienza; caduta dell'esenzione per il software libero nel regime della responsabilità da prodotto; avvicinamento alla nozione di messa a disposizione sul mercato | **Committente** — questione `Q-155` |
-| 2 | **Costituzione di una persona giuridica** che fornisca sostegno sistematico e continuativo allo sviluppo | Si apre la posizione di **custode di software open source** (art. 3, punto 14, e art. 24 del regolamento sulla resilienza), con obblighi alleggeriti e senza sanzioni amministrative. È una posizione **migliore** dell'attuale sotto il profilo della certezza, non peggiore | **Committente** — questione `Q-155` |
-| 3 | **Distribuzione di un artefatto pronto all'uso** che un'organizzazione sanitaria possa mettere in produzione senza ulteriore lavoro | Avvicina alla nozione di **messa in servizio** (art. 2, punto 29, dell'MDR), che è la soglia decisiva. C'è differenza sostanziale fra pubblicare sorgenti che richiedono compilazione, configurazione e integrazione e pubblicare un pacchetto immediatamente operativo. **`[NV]`** — non risultano linee guida dedicate alla distribuzione open source di software sanitario: è una lacuna reale del quadro europeo | **Committente**, con effetto immediato sulla politica di distribuzione |
+| 1 | **Monetizzazione**: supporto a pagamento, servizio gestito, consulenza sull'integrazione, sponsorizzazioni ricorrenti | Cade la condizione «fuori da un'attività commerciale». Ne discendono: possibile qualifica di fabbricante ai sensi del regolamento sulla resilienza; caduta dell'esenzione per il software libero nel regime della responsabilità da prodotto; avvicinamento alla nozione di messa a disposizione sul mercato | **Committente** - questione `Q-155` |
+| 2 | **Costituzione di una persona giuridica** che fornisca sostegno sistematico e continuativo allo sviluppo | Si apre la posizione di **custode di software open source** (art. 3, punto 14, e art. 24 del regolamento sulla resilienza), con obblighi alleggeriti e senza sanzioni amministrative. È una posizione **migliore** dell'attuale sotto il profilo della certezza, non peggiore | **Committente** - questione `Q-155` |
+| 3 | **Distribuzione di un artefatto pronto all'uso** che un'organizzazione sanitaria possa mettere in produzione senza ulteriore lavoro | Avvicina alla nozione di **messa in servizio** (art. 2, punto 29, dell'MDR), che è la soglia decisiva. C'è differenza sostanziale fra pubblicare sorgenti che richiedono compilazione, configurazione e integrazione e pubblicare un pacchetto immediatamente operativo. **`[NV]`** - non risultano linee guida dedicate alla distribuzione open source di software sanitario: è una lacuna reale del quadro europeo | **Committente**, con effetto immediato sulla politica di distribuzione |
 
 **La soglia 3 è quella che si supera per distrazione.** Le altre due sono decisioni; questa è la
-conseguenza di una scelta di comodità operativa — un'immagine preconfigurata, un pacchetto
+conseguenza di una scelta di comodità operativa - un'immagine preconfigurata, un pacchetto
 «pronto», una procedura di installazione a un comando. È la ragione per cui la separazione fra
 repository e distribuzione (`D17`) deve essere **formalizzata in un documento di politica** e non
 lasciata alla prassi.
@@ -605,21 +612,21 @@ fornirne l'evidenza.
 | **28 giugno 2025** | Accessibility Act sui prodotti e servizi immessi sul mercato | Operatore economico |
 | **15 gennaio 2026** | Applicabilità della determinazione sulle specifiche di sicurezza di base | Soggetto obbligato |
 | **11 settembre 2026** | Obblighi di segnalazione delle vulnerabilità attivamente sfruttate e degli incidenti gravi (regolamento sulla resilienza, art. 14) | Fabbricante di prodotti con elementi digitali |
-| **31 ottobre 2026** | **Limite esterno** della prima ondata per le misure di sicurezza di base — non un termine unico | Soggetto obbligato |
+| **31 ottobre 2026** | **Limite esterno** della prima ondata per le misure di sicurezza di base - non un termine unico | Soggetto obbligato |
 | **30 novembre 2026** | Consegna della versione 1.0: software completo, testato, con fascicolo tecnico avviato (`D5`, `D16`) | **Progetto** |
 | **9 dicembre 2026** | Termine di recepimento della direttiva sulla responsabilità da prodotto; si applica ai prodotti immessi dopo | Operatore economico |
 | **1° gennaio 2027** | Notifiche per i soggetti inseriti nel 2026 | Soggetto obbligato |
 | **26 marzo 2027** | Applicazione generale del regolamento sullo spazio europeo dei dati sanitari | Vari |
 | **31 luglio 2027** | Misure di sicurezza di base per i soggetti inseriti nel 2026 | Soggetto obbligato |
 | **11 dicembre 2027** | Applicazione generale del regolamento sulla resilienza: requisiti essenziali, valutazione della conformità, marcatura | Fabbricante |
-| **26 marzo 2029** | Capo III del regolamento sullo spazio europeo dei dati sanitari — sistemi di cartella clinica elettronica. **`[NV]`** sulla mappatura esatta | Fabbricante del sistema |
+| **26 marzo 2029** | Capo III del regolamento sullo spazio europeo dei dati sanitari - sistemi di cartella clinica elettronica. **`[NV]`** sulla mappatura esatta | Fabbricante del sistema |
 
 **Una data manca deliberatamente da questa tabella: quella della marcatura CE. L'omissione resta,
 e la sua ragione è cambiata.**
 
 Finché il percorso di certificazione era attribuito a un soggetto esterno, la ragione era semplice:
-la data non era del progetto. Da `D58` quella ragione **non è più vera** — il progetto intende
-assumere il ruolo di fabbricante, e il soggetto che lo eserciterebbe è ancora da costituire — ma
+la data non era del progetto. Da `D58` quella ragione **non è più vera** - il progetto intende
+assumere il ruolo di fabbricante, e il soggetto che lo eserciterebbe è ancora da costituire - ma
 **l'omissione non si attenua di un giorno**, perché la ragione che la sostiene è più forte della
 precedente:
 

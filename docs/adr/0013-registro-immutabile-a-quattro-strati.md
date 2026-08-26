@@ -1,10 +1,10 @@
 ---
-title: "ADR-0013 — Registro immutabile a quattro strati"
+title: "ADR-0013 - Registro immutabile a quattro strati"
 sidebar_position: 13
 description: Perché il registro degli accessi combina catena di impronte, archivio a sola scrittura, conservazione con privilegi disgiunti e ancoraggio periodico firmato, invece di scegliere una sola tecnica.
 ---
 
-# ADR-0013 — Registro immutabile a quattro strati
+# ADR-0013 - Registro immutabile a quattro strati
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Decisioni di riferimento**: D42; vincoli V5 e V-04 di bacheca
@@ -87,7 +87,7 @@ ed è la misura dello scenario di qualità SQ-01.
 - **Nell'installazione presso il cliente la separazione dei privilegi non è imponibile dal
   progetto**: è un requisito che il cliente soddisfa. Il progetto rende la separazione la
   configurazione predefinita, rileva e segnala la configurazione in cui i due archivi condividono
-  le credenziali, e dichiara la conseguenza — in quella configurazione la garanzia si riduce a
+  le credenziali, e dichiara la conseguenza - in quella configurazione la garanzia si riduce a
   quella della sola catena applicativa.
 
 ## Punto e periodicità dell'ancoraggio
@@ -128,4 +128,4 @@ disgiunti.
 
 ## Riferimenti
 
-[07 — Tracciamento e registro immutabile](../02_architecture/07-tracciamento-e-registro-immutabile.md)
+[07 - Tracciamento e registro immutabile](../02_architecture/07-tracciamento-e-registro-immutabile.md)

@@ -1,5 +1,5 @@
 ---
-title: "Protocolli — indice dell'area"
+title: "Protocolli - indice dell'area"
 sidebar_position: 0
 description: "Come Telemedic parla ciascun protocollo: versioni adottate, profili, garanzie verso chi integra, prove di conformità."
 ---
@@ -79,12 +79,12 @@ gli identificativi non sono trascritti.
 ## Rapporto con le altre aree
 
 Quest'area descrive **i contratti sul filo**: che cosa passa fra Telemedic e un sistema
-terzo, in quale forma e con quali garanzie. Non descrive come è fatto il sistema dentro —
-quello è compito dell'area di architettura — né che cosa il sistema fa dal punto di vista
+terzo, in quale forma e con quali garanzie. Non descrive come è fatto il sistema dentro -
+quello è compito dell'area di architettura - né che cosa il sistema fa dal punto di vista
 clinico e organizzativo, che è compito dell'area funzionale e di quella di dominio. Dove un
 protocollo impone un vincolo architetturale, il vincolo è dichiarato qui e ripreso lì; dove
 un'esigenza architetturale non è ancora decisa, quest'area **non decide al posto di chi
 compete** e apre una questione.
 
 Le questioni aperte da quest'area verso le altre sono elencate nel capitolo
-[10 — Conformità e prove](./10-conformita-e-prove.md) e riportate nella bacheca fra agenti.
+[10 - Conformità e prove](./10-conformita-e-prove.md) e riportate nella bacheca fra agenti.

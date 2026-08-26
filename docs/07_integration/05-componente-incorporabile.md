@@ -23,8 +23,8 @@ tre fatti.
 | **Nuova scheda** | Totale, e **nessuna delega di permessi da fare** | Non potete servire intestazioni: portale gestito da terzi, gestore di contenuti chiuso |
 | **Vista a pagina intera** in applicazione mobile nativa | Totale | Ospitante nativo: non c'è un documento HTML che possa delegare permessi |
 
-Esiste una quinta possibilità tecnica — un componente che gira **nello stesso contesto di
-esecuzione** della vostra applicazione — offerta **solo per elementi non clinici**: pulsante di
+Esiste una quinta possibilità tecnica - un componente che gira **nello stesso contesto di
+esecuzione** della vostra applicazione - offerta **solo per elementi non clinici**: pulsante di
 avvio, indicatore di stato, prova dei dispositivi audio e video, indicatore di qualità della
 rete. La motivazione è al §10.
 
@@ -36,7 +36,7 @@ Perché una cornice caricata da un'origine diversa possa usare la fotocamera, **
 condizioni devono valere:
 
 1. la funzione dev'essere consentita nella **politica dei permessi del documento di livello
-   superiore** — cioè l'intestazione servita dalla **vostra** pagina;
+   superiore** - cioè l'intestazione servita dalla **vostra** pagina;
 2. la funzione dev'essere consentita nell'**attributo della cornice**.
 
 **L'attributo restringe, non concede.** Non può dare ciò che il livello superiore nega. Se non
@@ -64,10 +64,10 @@ negato.
 Sulla pagina che ospita:
 
 ```http
-Permissions-Policy: camera=(self "https://embed.telemedic.esempio.it"),
-                    microphone=(self "https://embed.telemedic.esempio.it"),
-                    display-capture=(self "https://embed.telemedic.esempio.it"),
-                    fullscreen=(self "https://embed.telemedic.esempio.it")
+Permissions-Policy: camera=(self "https://embed.telemedic.example"),
+                    microphone=(self "https://embed.telemedic.example"),
+                    display-capture=(self "https://embed.telemedic.example"),
+                    fullscreen=(self "https://embed.telemedic.example")
 ```
 
 Nel markup:
@@ -75,8 +75,8 @@ Nel markup:
 ```html
 <iframe
   id="telemedic-frame"
-  src="https://embed.telemedic.esempio.it/room?s=ses-01J9ZC5P"
-  title="Televisita — stanza del consulto"
+  src="https://embed.telemedic.example/room?s=ses-01J9ZC5P"
+  title="Televisita - stanza del consulto"
   allow="camera 'src'; microphone 'src'; display-capture 'src'; fullscreen 'src'; autoplay 'src'"
   sandbox="allow-scripts allow-same-origin allow-forms allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
   referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -88,8 +88,8 @@ Nel markup:
    dimenticate, audio e video funzionano e la condivisione dello schermo no: è il sintomo più
    confondente di tutta la famiglia, perché sembra un difetto del prodotto.
 2. **L'attributo senza lista esplicita equivale a «solo l'origine dichiarata».** Se la cornice
-   **naviga verso un'origine diversa** dopo il caricamento — per esempio verso una schermata di
-   autenticazione — **il permesso si perde**. È una delle ragioni per cui la consegna del gettone
+   **naviga verso un'origine diversa** dopo il caricamento - per esempio verso una schermata di
+   autenticazione - **il permesso si perde**. È una delle ragioni per cui la consegna del gettone
    avviene fra back-end (§5) e la cornice **non effettua mai rinvii verso altre origini** dopo il
    caricamento.
 3. **La riproduzione automatica serve** perché l'elemento video remoto parta senza un gesto
@@ -129,7 +129,7 @@ restrizione dal proprio elemento, rendendo la restrizione inefficace.
 Nel caso di Telemedic **la cornice è su origine diversa**, quindi la combinazione è corretta.
 
 > **Ma l'avvertenza si applica in senso inverso se servite il componente dalla vostra stessa
-> origine** con un proxy inverso — cosa che alcuni integratori faranno per aggirare problemi di
+> origine** con un proxy inverso - cosa che alcuni integratori faranno per aggirare problemi di
 > archiviazione. In quel caso la restrizione diventa illusoria, **l'isolamento fra il vostro
 > codice e la sessione clinica cessa di esistere**, e la sicurezza poggia soltanto sulla politica
 > dei contenuti e sull'isolamento applicativo. È una configurazione che il progetto **non
@@ -150,9 +150,9 @@ Content-Security-Policy:
   default-src 'self';
   script-src 'self';
   style-src 'self' 'nonce-r4nd0m';
-  img-src 'self' data: https://cdn-branding.telemedic.esempio.it;
+  img-src 'self' data: https://cdn-branding.telemedic.example;
   media-src 'self' blob:;
-  connect-src 'self' https://api.telemedic.esempio.it wss://signaling.telemedic.esempio.it;
+  connect-src 'self' https://api.telemedic.example wss://signaling.telemedic.example;
   font-src 'self';
   frame-ancestors 'self' https://gestionale.integratore.example;
   base-uri 'none';
@@ -212,8 +212,8 @@ sequenceDiagram
 del proxy inverso, nell'intestazione di provenienza verso terzi, negli screenshot e negli
 strumenti di monitoraggio degli errori. Un gettone in un indirizzo è un gettone trapelato.
 
-Se un integratore non può eseguire codice nella pagina ospitante — accade con alcuni gestori di
-contenuti — l'unico compromesso accettabile è un gettone con validità **non superiore a trenta
+Se un integratore non può eseguire codice nella pagina ospitante - accade con alcuni gestori di
+contenuti - l'unico compromesso accettabile è un gettone con validità **non superiore a trenta
 secondi**, monouso, legato all'origine, con tracciamento di ogni riscatto. Va richiesto
 esplicitamente e resta documentato come deroga.
 
@@ -314,7 +314,7 @@ parti non funzionino è l'unica scelta difendibile.**
 
 | Strategia | Valutazione |
 |---|---|
-| **Nessun cookie** | **Adottata.** Immune al blocco su tutti i browser; nessuna dipendenza da meccanismi di accesso all'archiviazione. Costo: il ricaricamento della cornice perde lo stato e richiede un nuovo gettone — accettabile, perché una sessione di consulto ha durata definita e l'ospitante può riemettere il gettone |
+| **Nessun cookie** | **Adottata.** Immune al blocco su tutti i browser; nessuna dipendenza da meccanismi di accesso all'archiviazione. Costo: il ricaricamento della cornice perde lo stato e richiede un nuovo gettone - accettabile, perché una sessione di consulto ha durata definita e l'ospitante può riemettere il gettone |
 | **Cookie partizionati** | Ammessa **solo per stato non essenziale**: preferenze di dispositivo audio e video, lingua, con degradazione pulita se il cookie non c'è. La partizione per sito di primo livello è, in un prodotto multi-tenant, **funzionalmente corretta**: è esattamente l'isolamento che si desidera |
 | **Richiesta esplicita di accesso all'archiviazione** | **Esclusa.** Richiede un gesto dell'utente e, in molti browser, una finestra di richiesta. In un flusso clinico in cui il professionista si aspetta che il video parta al clic, inserire una richiesta di consenso all'archiviazione è un danno di usabilità e un segnale di scarsa qualità percepita. Inoltre le regole differiscono fra browser: è una superficie di assistenza permanente |
 
@@ -350,7 +350,7 @@ stili diventerebbe una modifica non compatibile per qualcuno.
   --tm-radius-md:              8px;
   --tm-spacing-unit:           4px;
   /* marchio */
-  --tm-logo-url:               url("https://cdn-branding.telemedic.esempio.it/t/asl-nord-01/logo.svg");
+  --tm-logo-url:               url("https://cdn-branding.telemedic.example/t/asl-nord-01/logo.svg");
 }
 ```
 
@@ -364,7 +364,7 @@ chiaro a scuro.
 
 Questa sezione non è negoziabile e non ha eccezioni per tenant, per contratto o per capitolato.
 
-**Limite 1 — Elementi non tematizzabili né occultabili.**
+**Limite 1 - Elementi non tematizzabili né occultabili.**
 
 | Elemento | Perché |
 |---|---|
@@ -374,13 +374,13 @@ Questa sezione non è negoziabile e non ha eccezioni per tenant, per contratto o
 | **Messaggi di errore clinico** | Un errore che nasconde la propria gravità è più pericoloso dell'errore stesso |
 | **Indicatore dello stato di cifratura** | Come sopra |
 
-**Limite 2 — Nessuna iniezione di fogli di stile arbitrari.** Consentire all'integratore di
+**Limite 2 - Nessuna iniezione di fogli di stile arbitrari.** Consentire all'integratore di
 iniettare stile è un vettore di manipolazione dell'interfaccia: si possono nascondere avvisi di
 consenso, alterare etichette cliniche, sovrapporre elementi, spostare un pulsante di conferma
 sotto il dito che sta per premerne un altro. In un sistema la cui usabilità è oggetto di
 validazione formale, è inaccettabile.
 
-**Limite 3 — Verifica automatica del contrasto, lato server, con rifiuto.** Se configurate un
+**Limite 3 - Verifica automatica del contrasto, lato server, con rifiuto.** Se configurate un
 colore di marchio che produce contrasto insufficiente, **la configurazione viene rifiutata al
 salvataggio**, con un errore che indica il rapporto ottenuto e quello richiesto. Non è un
 avviso: è un rifiuto. L'accessibilità è un requisito funzionale, e un integratore non deve poter
@@ -388,7 +388,7 @@ degradare l'accessibilità di un sistema che la dichiara.
 
 ```json
 {
-  "type": "https://docs.telemedic.esempio.it/problems/contrast-ratio-insufficient",
+  "type": "https://docs.telemedic.example/problems/contrast-ratio-insufficient",
   "title": "Contrasto insufficiente",
   "status": 422,
   "detail": "Il colore di marchio proposto produce un rapporto di contrasto di 2,7:1 sul testo normale. Il minimo richiesto è 4,5:1.",
@@ -399,18 +399,18 @@ degradare l'accessibilità di un sistema che la dichiara.
 }
 ```
 
-**Limite 4 — Le preferenze di sistema non sono disattivabili.** Movimento ridotto, contrasto
+**Limite 4 - Le preferenze di sistema non sono disattivabili.** Movimento ridotto, contrasto
 elevato, dimensione del carattere impostata dall'utente: il componente le rispetta sempre, e
 nessuna configurazione di tema può sovrascriverle.
 
-**Limite 5 — Validazione grammaticale di ogni valore.** Colore in una notazione ammessa,
+**Limite 5 - Validazione grammaticale di ogni valore.** Colore in una notazione ammessa,
 lunghezza in un'unità ammessa, nome di carattere in un elenco consentito. Un valore di stile non
 validato inserito in un blocco di stile è un vettore di iniezione. L'indirizzo del marchio
 accetta **solo** connessione sicura verso host in lista consentita: un indirizzo arbitrario
 sarebbe una richiesta uscente dal browser dell'assistito verso un terzo, con fuga di provenienza
 e possibilità di tracciamento.
 
-**Limite 6 — Se il tema viene applicato in linea, si usa un valore univoco per blocco**, non un
+**Limite 6 - Se il tema viene applicato in linea, si usa un valore univoco per blocco**, non un
 permesso generico di stile in linea nella politica dei contenuti.
 
 ### 7.3 Che cosa succede se provate ad aggirarli
@@ -472,7 +472,7 @@ Il confine fra due documenti è un confine anche per il focus e per l'ordine di 
 regole per la vostra pagina:
 
 1. **La cornice ha sempre un titolo descrittivo.** È ciò che un lettore di schermo annuncia:
-   «Televisita — stanza del consulto», non «iframe».
+   «Televisita - stanza del consulto», non «iframe».
 2. **Non intrappolate il focus fuori dalla cornice.** Se il vostro contenitore modale ha una
    trappola di focus, deve includere la cornice.
 3. **Non nascondete la cornice con tecniche che la rendono invisibile all'albero di
@@ -495,11 +495,11 @@ integratori: ergonomia di un tag HTML, isolamento della cornice.
 
 ```html
 <script type="module"
-        src="https://cdn.telemedic.esempio.it/elements/1.0.0/telemedic-room.js"></script>
+        src="https://cdn.telemedic.example/elements/1.0.0/telemedic-room.js"></script>
 
 <telemedic-room
   session-id="ses-01J9ZC5P"
-  api-base="https://api.telemedic.esempio.it/v1"></telemedic-room>
+  api-base="https://api.telemedic.example/v1"></telemedic-room>
 
 <script>
   const el = document.querySelector('telemedic-room');
@@ -512,14 +512,14 @@ integratori: ergonomia di un tag HTML, isolamento della cornice.
 > documento, negli screenshot, nelle istantanee del documento raccolte dagli strumenti di
 > monitoraggio degli errori e negli strumenti di sviluppo.
 
-L'elemento si occupa della configurazione difficile — restrizioni, permessi, validazione
-dell'origine, messaggistica — che è esattamente il punto in cui gli integratori sbagliano. **La
+L'elemento si occupa della configurazione difficile - restrizioni, permessi, validazione
+dell'origine, messaggistica - che è esattamente il punto in cui gli integratori sbagliano. **La
 documentazione dichiara esplicitamente che l'isolamento è garantito dalla cornice sottostante**,
 per non lasciar credere che si tratti di un componente in processo.
 
 Due avvertenze: se la vostra politica dei contenuti non ammette script da origini esterne, il
 caricamento fallisce e serve ospitare il file voi; e la versione va **fissata**, mai lasciata
-scorrere — un componente che si aggiorna da solo dentro un'applicazione validata è un rischio di
+scorrere - un componente che si aggiorna da solo dentro un'applicazione validata è un rischio di
 regressione non governabile.
 
 ## 10. Quando non usare l'incorporamento
@@ -531,5 +531,5 @@ regressione non governabile.
 | L'ospitante è un'applicazione mobile nativa | Non c'è un documento che possa delegare i permessi: la delega avviene a livello di sistema operativo | Vista a pagina intera |
 | Servite il componente dalla vostra origine con un proxy inverso | L'isolamento cessa di esistere e la configurazione non è supportata | Cornice su origine diversa |
 | Volete un componente in processo che maneggi il gettone di sessione | Il gettone sarebbe nello stesso contesto di esecuzione della vostra applicazione: **una vulnerabilità di iniezione di script nel vostro sistema diventa accesso a sessioni cliniche**, e il progetto non ha alcun controllo sulla qualità del vostro codice. In un'analisi dei rischi è un rischio non mitigabile con mezzi propri | Cornice |
-| Volete nascondere l'indicatore di registrazione o riformulare il testo di consenso | Non è consentito, e il rifiuto è tracciato | — |
-| L'ospitante è un sistema di cartella clinica che sa avviare applicazioni cliniche | Esiste un meccanismo standard che porta anche il contesto — quale assistito, quale contatto — senza che voi lo passiate a mano | Avvio applicativo in contesto clinico, [06 §7](06-identita-e-delega.md) |
+| Volete nascondere l'indicatore di registrazione o riformulare il testo di consenso | Non è consentito, e il rifiuto è tracciato | - |
+| L'ospitante è un sistema di cartella clinica che sa avviare applicazioni cliniche | Esiste un meccanismo standard che porta anche il contesto - quale assistito, quale contatto - senza che voi lo passiate a mano | Avvio applicativo in contesto clinico, [06 §7](06-identita-e-delega.md) |

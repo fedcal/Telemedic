@@ -16,8 +16,8 @@ documentale.
 ## 1. Il principio che governa tutto il capitolo
 
 > **Vincolo V-07.** Il contenuto informativo dei documenti destinati al fascicolo si modella
-> come **dataset canonico**. Le serializzazioni — documento strutturato per il fascicolo,
-> rappresentazione FHIR, rappresentazione impaginata — sono **sostituibili** e non vanno
+> come **dataset canonico**. Le serializzazioni - documento strutturato per il fascicolo,
+> rappresentazione FHIR, rappresentazione impaginata - sono **sostituibili** e non vanno
 > cablate.
 
 Non è una preferenza architetturale: è la conseguenza obbligata di un fatto verificato. Il
@@ -41,7 +41,7 @@ flowchart TD
     N["Set informativo normativo<br/>(fonte cogente)"]
     D["Dataset canonico di Telemedic<br/>modello interno, versionato"]
     S1["Serializzazione FHIR<br/>Composition in Bundle documento"]
-    S2["Serializzazione strutturata per il fascicolo<br/>template NON disponibile — [NV]"]
+    S2["Serializzazione strutturata per il fascicolo<br/>template NON disponibile - [NV]"]
     S3["Rappresentazione impaginata<br/>per la lettura umana e la firma"]
     S4["Proiezione di compatibilità<br/>referto diagnostico, sola lettura"]
     N --> D
@@ -61,9 +61,9 @@ paragrafi che definiscono ciascun set informativo. Il termine di messa a regime 
 
 | Lett. | Tipologia documentale | Paragrafo All. 1 | Prodotta da Telemedic |
 |---|---|---|---|
-| n) | Prescrizione di televisita, teleassistenza e telemonitoraggio | 2.18 | No — è a monte, e riusa i tracciati prescrittivi esistenti |
+| n) | Prescrizione di televisita, teleassistenza e telemonitoraggio | 2.18 | No - è a monte, e riusa i tracciati prescrittivi esistenti |
 | o) | Richiesta di teleconsulto | 2.19 | Sì, quando il teleconsulto nasce nel sistema |
-| p) | **Referto di specialistica per la televisita** | 2.20 | **Sì — è il documento principale** |
+| p) | **Referto di specialistica per la televisita** | 2.20 | **Sì - è il documento principale** |
 | q) | Relazione collaborativa per il teleconsulto o la teleconsulenza | 2.21 | Sì |
 | r) | Relazione clinico-assistenziale conclusiva per teleassistenza e teleriabilitazione | 2.22 | Sì |
 | s) | Tesserino dispositivi per il telemonitoraggio | 2.23 | Sì, con il limite di §8.3 |
@@ -82,13 +82,13 @@ Il set informativo del paragrafo 2.20 è la fonte. Qui è riportato per gruppi, 
 si traduce in modello dati. La formulazione segue la fonte; dove la fonte usa un termine tecnico
 italiano, il termine è mantenuto.
 
-**Gruppo A — Assistito.** Cognome; Nome; Codice identificativo, che può essere il codice fiscale
+**Gruppo A - Assistito.** Cognome; Nome; Codice identificativo, che può essere il codice fiscale
 oppure uno dei codici per soggetti privi di codice fiscale; Sesso; Data di nascita; Comune di
 nascita; Indirizzo, CAP, Comune, Provincia, Regione e Stato di residenza, con la descrizione del
 comune; Indirizzo, CAP e Comune di domicilio; Recapito telefonico fisso e mobile; indirizzo di
 posta elettronica; **indirizzo di posta elettronica certificata**.
 
-**Gruppo B — Professionisti e struttura.** Cognome, nome e codice fiscale del **medico
+**Gruppo B - Professionisti e struttura.** Cognome, nome e codice fiscale del **medico
 refertante**; cognome, nome e codice fiscale del **medico firmatario**, che la fonte tiene
 distinto dal refertante; codice e descrizione dell'azienda sanitaria, del presidio e dell'unità
 operativa; numero di telefono dell'unità operativa, del centro di prenotazione o dell'azienda;
@@ -99,13 +99,13 @@ Che il medico refertante e il medico firmatario siano campi distinti non è un d
 distinzione fra chi ha redatto il contenuto e chi lo ha validato assumendone la responsabilità
 giuridica, e si riflette direttamente sul modello di firma di §6.
 
-**Gruppo C — Riferimenti amministrativi.** Numero della ricetta; **data di firma del referto**;
+**Gruppo C - Riferimenti amministrativi.** Numero della ricetta; **data di firma del referto**;
 codice della prenotazione; **codici di identificazione di oggetti correlati**, che la fonte
 esemplifica con gli identificativi degli archivi di immagini e degli studi radiologici; codice
 nosologico; provenienza; **tipologia di accesso**, programmata o ad accesso diretto; disciplina
 specialistica ambulatoriale; branca.
 
-**Gruppo D — Contenuto clinico.** Codice e descrizione del quesito diagnostico, codificato con la
+**Gruppo D - Contenuto clinico.** Codice e descrizione del quesito diagnostico, codificato con la
 classificazione italiana delle malattie; anamnesi; allergie con le fonti dichiarate; precedenti
 esami eseguiti, con codice, descrizione, metodica e data; codice del farmaco e descrizione della
 terapia farmacologica in atto; esame obiettivo; codice e descrizione della prestazione eseguita;
@@ -198,7 +198,7 @@ documento assemblato.
 
 ### 4.2 La serializzazione strutturata per il fascicolo
 
-> **`[NV]` — non disponibile pubblicamente.** Il template della serializzazione strutturata, i
+> **`[NV]` - non disponibile pubblicamente.** Il template della serializzazione strutturata, i
 > codici di tipologia documentale e i metadati di indicizzazione per le dieci tipologie della
 > telemedicina **non sono stati reperiti su fonte pubblica**. È dichiarata pubblicata una nuova
 > versione delle specifiche tecniche di interoperabilità fra i sistemi regionali del fascicolo,
@@ -209,8 +209,8 @@ documento assemblato.
 > formale all'ente che gestisce l'infrastruttura nazionale di interoperabilità.
 >
 > **Fino ad allora il progetto non cabla alcun template.** L'adattatore esiste come punto di
-> estensione con un contratto dichiarato — riceve il dataset canonico, produce un artefatto
-> firmabile — e la sua implementazione concreta è rinviata. Questa non è una lacuna: è
+> estensione con un contratto dichiarato - riceve il dataset canonico, produce un artefatto
+> firmabile - e la sua implementazione concreta è rinviata. Questa non è una lacuna: è
 > l'applicazione letterale del vincolo V-07.
 
 ### 4.3 La rappresentazione impaginata
@@ -228,7 +228,7 @@ Regole di progetto:
   e ciò che il sistema comunica;
 - la sua impronta crittografica è calcolata e conservata insieme al documento, così che
   l'identità fra ciò che è stato firmato e ciò che viene esibito sia dimostrabile;
-- il formato di conservazione è idoneo alla conservazione a lungo termine. **`[NV]`** — il
+- il formato di conservazione è idoneo alla conservazione a lungo termine. **`[NV]`** - il
   profilo esatto del formato e i requisiti del sistema di conservazione sono materia dell'area di
   conformità, non di quest'area.
 
@@ -266,7 +266,7 @@ Regole di progetto sui metadati:
 4. **Lo stato di disponibilità segue il ciclo di vita del documento**, compresa la
    deprecazione a seguito di una sostituzione (§7).
 
-> **`[NV]` — codici di tipologia documentale e insiemi di valori dei metadati per le dieci
+> **`[NV]` - codici di tipologia documentale e insiemi di valori dei metadati per le dieci
 > tipologie della telemedicina.** Non reperiti su fonte pubblica, come già dichiarato in §4.2.
 > Senza di essi il progetto **non può** pubblicare verso un'infrastruttura di condivisione
 > documentale nazionale, perché produrrebbe metadati non riconosciuti. La pubblicazione verso il
@@ -312,7 +312,7 @@ Regole di progetto:
 - l'esito della verifica è registrato: un documento la cui firma non verifica non viene
   silenziosamente accettato né silenziosamente scartato.
 
-> **`[NV]` — formati di busta di firma, requisiti del certificato e requisiti della marca
+> **`[NV]` - formati di busta di firma, requisiti del certificato e requisiti della marca
 > temporale.** I formati ammessi per la firma di un documento destinato al fascicolo, e la
 > disciplina della firma di conferimento apposta dall'infrastruttura, sono materia normativa
 > puntuale che quest'area **non** ricostruisce a memoria. **Da chiedere a**: area di conformità e
@@ -390,8 +390,8 @@ consulenza.
 
 Ne discendono due conseguenze di modellazione:
 
-1. la relazione collaborativa è una **tipologia documentale autonoma** — non è vero che «il
-   teleconsulto non produce nulla» — ma **non è autoportante**: esiste in relazione a un
+1. la relazione collaborativa è una **tipologia documentale autonoma** - non è vero che «il
+   teleconsulto non produce nulla» - ma **non è autoportante**: esiste in relazione a un
    documento principale che non è prodotto da Telemedic quando il richiedente è esterno;
 2. la correlazione con la richiesta di teleconsulto è portata da un identificativo dedicato, e
    il progetto lo tratta come identificativo esterno di prima classe, non come annotazione.
@@ -488,8 +488,8 @@ Regole di progetto:
   **sopravvive comunque** alla cancellazione del contenuto: sono due cose diverse, e la seconda
   non può dipendere dalla prima;
 - la registrazione audiovisiva della sessione, quando esiste, ha una ritenzione **propria e
-  distinta** da quella del referto, perché ha una base giuridica distinta — un consenso esplicito
-  e revocabile — e va cancellata alla revoca anche quando il referto resta.
+  distinta** da quella del referto, perché ha una base giuridica distinta - un consenso esplicito
+  e revocabile - e va cancellata alla revoca anche quando il referto resta.
 
 ## 10. Che cosa il progetto non fa
 

@@ -1,10 +1,10 @@
 ---
-title: "ADR-0017 — Identificatore del sistema del codice fiscale e traduzione al confine"
+title: "ADR-0017 - Identificatore del sistema del codice fiscale e traduzione al confine"
 sidebar_position: 17
 description: Quale dei due URI in uso nelle guide italiane si adotta, perché, e come si gestisce la divergenza verso i consumatori allineati all'altro.
 ---
 
-# ADR-0017 — Identificatore del sistema del codice fiscale e traduzione al confine
+# ADR-0017 - Identificatore del sistema del codice fiscale e traduzione al confine
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
 **Origine**: questione posta dal modulo dei fondamenti a quest'area e all'area tecnica
@@ -28,7 +28,7 @@ la divergenza non è marginale.
 
 ## Alternative valutate
 
-### Alternativa 1 — Adottare il valore del profilo nazionale core
+### Alternativa 1 - Adottare il valore del profilo nazionale core
 
 *Vantaggi*: il profilo core è il riferimento trasversale, potenzialmente più longevo.
 
@@ -36,24 +36,24 @@ la divergenza non è marginale.
 Emettere un valore diverso da quello del profilo dichiarato è una non conformità al profilo su cui
 si dichiara conformità. **Scartata.**
 
-### Alternativa 2 — Adottare il valore della famiglia televisita
+### Alternativa 2 - Adottare il valore della famiglia televisita
 
 *Vantaggi*: coerenza con il profilo dichiarato; è anche il valore del profilo nazionale di base,
 quindi copre due dei tre artefatti.
 
 *Compromesso*: i consumatori allineati al profilo core non riconoscono l'identificatore.
 
-### Alternativa 3 — Emettere sempre entrambi nella stessa risorsa
+### Alternativa 3 - Emettere sempre entrambi nella stessa risorsa
 
 *Vantaggi*: ogni consumatore riconosce almeno uno dei due senza configurazione.
 
 *Compromesso decisivo*: **peggiora la deduplicazione a valle invece di migliorarla.** Un
 consumatore che trova due identificatori con sistemi diversi può leggerli come due identità
-distinte, e il difetto che ne deriva — anagrafiche duplicate presso il destinatario — è più grave
+distinte, e il difetto che ne deriva - anagrafiche duplicate presso il destinatario - è più grave
 del mancato riconoscimento, perché è silenzioso e si accumula. **Scartata**, coerentemente con la
 raccomandazione motivata dell'area dei protocolli.
 
-### Alternativa 4 — Un valore canonico interno, con emissione **singola** proiettata per
+### Alternativa 4 - Un valore canonico interno, con emissione **singola** proiettata per
 destinazione
 
 Tutte le forme note sono accettate in ingresso; **una sola è emessa in uscita**, e quale sia è
@@ -89,7 +89,7 @@ sistema da mantenere.
 
 Resta ferma la regola generale per cui **nessun identificatore esterno è chiave primaria**: il
 codice fiscale è un attributo qualificato dal proprio dominio di attribuzione, non l'identità
-interna. Non è universale — esistono codici temporanei, neonati non ancora codificati, omocodie —
+interna. Non è universale - esistono codici temporanei, neonati non ancora codificati, omocodie -
 può cambiare per rettifica anagrafica, e non è un segreto: usarlo come chiave incoraggia a usarlo
 come fattore di autenticazione, che è un difetto di sicurezza.
 
@@ -112,11 +112,11 @@ come fattore di autenticazione, che è un difetto di sicurezza.
 segmento anagrafico del canale legacy resta **contrattuale con l'integratore**. La forma conforme
 alla regola di formazione della tabella di riferimento è quella con il suffisso di Paese; la forma
 abbreviata senza suffisso **non esiste** come concetto enumerato.
-- `[NV]` — la posizione dell'ente di normazione nazionale sulla divergenza non è nota. La questione
+- `[NV]` - la posizione dell'ente di normazione nazionale sulla divergenza non è nota. La questione
   va sollevata dall'area di conformità, che ha già in carico l'interlocuzione per le tipologie
   documentali.
 
 ## Riferimenti
 
-[04 — Modello dati](../02_architecture/04-modello-dati.md#52-la-divergenza-verificata-degli-uri-del-codice-fiscale) ·
+[04 - Modello dati](../02_architecture/04-modello-dati.md#52-la-divergenza-verificata-degli-uri-del-codice-fiscale) ·
 ADR-0002

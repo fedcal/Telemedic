@@ -52,7 +52,7 @@ e insegna a ignorare i fallimenti.
    fallisce a intermittenza va **riparata o rimossa nella stessa giornata**, non annotata.
 2. **Orologio iniettato.** Nessuna chiamata diretta all'ora corrente nel codice di produzione.
    È ciò che rende provabili scadenze, finestre di attesa, validità temporali dei consensi e dei
-   ruoli — cioè gran parte del dominio.
+   ruoli - cioè gran parte del dominio.
 3. **Nessuna attesa a tempo fisso.** Si attende una **condizione**, con un limite. Un'attesa a
    tempo fisso è instabilità garantita su una macchina più lenta.
 4. **Isolamento reale.** Ogni prova di integrazione parte da uno stato noto e non lascia residui.
@@ -84,15 +84,15 @@ proprietà di tema.
 **Come fornitore.** La suite verifica che l'interfaccia esposta corrisponda al documento di
 interfaccia versionato e che **le modifiche siano additive**. Il confronto fra la specifica del
 ramo principale e quella della modifica proposta produce un elenco di differenze, e una
-differenza non additiva — rimozione di un campo, restringimento di un tipo, aggiunta di un
-obbligo, rimozione di un valore da un'enumerazione — **fa fallire la costruzione**, a meno che la
+differenza non additiva - rimozione di un campo, restringimento di un tipo, aggiunta di un
+obbligo, rimozione di un valore da un'enumerazione - **fa fallire la costruzione**, a meno che la
 modifica non dichiari esplicitamente una nuova versione maggiore.
 
 Lo stesso vale per gli schemi degli eventi e per i profili clinici: uno schema che restringe è uno
 schema che rompe un consumatore.
 
-**Come consumatore.** Verso i sistemi esterni — prodotto di federazione, gateway delle
-terminologie, sistemi regionali — le prove verificano che le **assunzioni** del progetto siano
+**Come consumatore.** Verso i sistemi esterni - prodotto di federazione, gateway delle
+terminologie, sistemi regionali - le prove verificano che le **assunzioni** del progetto siano
 esplicite e provate contro un doppio di prova costruito sulla specifica pubblicata, non su
 osservazione empirica. Quando la specifica cambia, la prova fallisce, ed è precisamente ciò che
 serve.
@@ -103,7 +103,7 @@ I messaggi in uscita verso terzi hanno una suite propria, perché sono il punto 
 si manifestano dal lato di qualcun altro:
 
 - **firma verificabile** con il materiale pubblico dichiarato dal progetto, secondo il vincolo
-  V-15 di `INTEG` — firma asimmetrica con identificativo di chiave risolvibile, non segreto
+  V-15 di `INTEG` - firma asimmetrica con identificativo di chiave risolvibile, non segreto
   condiviso;
 - **nessun contenuto clinico nella busta**, secondo il vincolo V-14 di `INTEG`: una prova ispeziona
   ogni tipo di evento e fallisce se un campo clinico compare;
@@ -126,7 +126,7 @@ prove di carico. È il vincolo trasversale della base architetturale §11.2 e no
 motivate dalla comodità.
 
 Il punto in cui il divieto si viola più spesso non è il codice: è l'ambiente di collaudo popolato
-con un'esportazione di produzione «anonimizzata». L'anonimizzazione di dati clinici longitudinali
+con un'esportazione dell'esercizio «anonimizzata». L'anonimizzazione di dati clinici longitudinali
 è, nella pratica, molto meno efficace di quanto si creda, e la reidentificazione a partire da
 combinazioni di attributi è un risultato consolidato. La regola del progetto è più semplice e più
 sicura: **si genera, non si anonimizza**.
@@ -172,7 +172,7 @@ si registra il posto nella suite e i vincoli.
 - **Due contesti di navigazione nella stessa esecuzione**, uno per il professionista e uno per
   l'assistito, con verifica della convergenza leggendo le statistiche da entrambi i lati.
 - **Sorgenti sintetiche deterministiche** con i flag verificati, incluso quello che accetta i
-  permessi di camera e microfono **senza** accettare la cattura dello schermo — necessario perché
+  permessi di camera e microfono **senza** accettare la cattura dello schermo - necessario perché
   il flusso di consenso alla condivisione dello schermo è un caso d'uso reale del prodotto e deve
   poter essere provato.
 - **Profili di rete come costanti condivise**, incluso il profilo limite, che verifica il degrado
@@ -195,7 +195,7 @@ che trasforma un'affermazione di sicurezza in un fatto verificato a ogni esecuzi
 ### 6.1 Tre livelli, e il primo non basta
 
 **Automatico.** Regole applicate al DOM renderizzato di ogni schermata e di ogni stato
-significativo — non solo lo stato iniziale: modale aperta, errore mostrato, elenco vuoto, elenco
+significativo - non solo lo stato iniziale: modale aperta, errore mostrato, elenco vuoto, elenco
 lungo, caricamento in corso. Gira su ogni modifica proposta e **blocca**.
 
 **Manuale strutturato.** Percorsi completi con la sola tastiera; percorsi completi con lettore di
@@ -245,19 +245,19 @@ avviso (vincolo V-16 di `INTEG`).
 | **Prove di abuso sul confine di autorizzazione** | Token manomessi, scaduti, con emittente errato, con destinatario errato, con chiave non consentita, con delega falsificata, riusati fra tenant | Ogni modifica del componente |
 | **Prove di isolamento fra tenant** | Tentativi deliberati di leggere e scrivere dati di un altro tenant, per ogni contesto e per ogni interfaccia | Ogni modifica |
 | Prove di configurazione della federazione | I tre difetti noti di §8.2 di [`01-stack-e-motivazioni.md`](./01-stack-e-motivazioni.md) restano chiusi | Ogni modifica della configurazione |
-| Verifica del profilo di produzione | Nessuna scorciatoia di sviluppo attiva | All'avvio e in pipeline |
+| Verifica del profilo di esercizio | Nessuna scorciatoia di sviluppo attiva | All'avvio e in pipeline |
 
 **Le prove di isolamento fra tenant sono le più importanti dell'intera suite.** Una fuga fra
 tenant in un sistema sanitario non è un difetto: è una violazione notificabile. Le prove non si
 limitano a verificare che l'accesso legittimo funzioni: **tentano attivamente l'accesso
-illegittimo**, per ogni contesto, per ogni interfaccia, e in condizioni avverse — pool di
+illegittimo**, per ogni contesto, per ogni interfaccia, e in condizioni avverse - pool di
 connessioni esaurito, contesto non risolto, richiesta senza tenant, tenant sostituito a metà
 percorso. Verificano inoltre, interrogando il catalogo di sistema, che le politiche siano attive e
 che il proprietario degli oggetti non ne sia esente (vedi
 [`03-persistenza.md`](./03-persistenza.md) §2.2–2.3).
 
-Le verifiche periodiche indipendenti — analisi del modello di minaccia, prove di penetrazione
-esterne — sono previste da D10 e appartengono a `docs/06_security/`.
+Le verifiche periodiche indipendenti - analisi del modello di minaccia, prove di penetrazione
+esterne - sono previste da D10 e appartengono a `docs/06_security/`.
 
 ---
 
@@ -288,7 +288,7 @@ il modo più rapido di rendere la metrica priva di significato.
 
 ### 8.2 La misura che dice davvero qualcosa
 
-Sui moduli critici — confine di autorizzazione, dominio clinico, valutazione delle soglie — si
+Sui moduli critici - confine di autorizzazione, dominio clinico, valutazione delle soglie - si
 aggiunge la **copertura per mutazione**: si introducono modifiche automatiche al codice e si
 verifica che le prove le rilevino. È la sola misura che distingua una suite che verifica da una
 suite che esegue.
@@ -327,7 +327,7 @@ Il rapporto di tracciabilità è un **artefatto di rilascio**, prodotto dalla pi
 con la versione. Contiene tre viste:
 
 1. **Requisito → prove**, con l'esito dell'ultima esecuzione.
-2. **Requisito senza prove** — l'elenco che conta davvero. È vuoto o è una lista di lacune
+2. **Requisito senza prove** - l'elenco che conta davvero. È vuoto o è una lista di lacune
    dichiarate, con motivazione.
 3. **Controllo di rischio → prove**, che è la vista richiesta da chi verifica la gestione del
    rischio, e che collega la verifica tecnica al file dei rischi.

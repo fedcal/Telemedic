@@ -1,16 +1,16 @@
 ---
-title: Security — index and orientation
+title: Security - index and orientation
 sidebar_position: 1
 description: How the Telemedic security area is organised, what it contains and what it defers elsewhere, what its binding premises are, and how to read it depending on the role of whoever is consulting it.
 ---
 
-# Security — index and orientation
+# Security - index and orientation
 
 > **This area is not a list of controls.** A list of controls is useful to someone who already
 > has in mind the model that justifies them, and harmful to someone who does not, because it
 > leads them to believe that applying the control is the same as obtaining the property. Here
 > every control comes after the asset it protects, the adversary it protects it from, and the
-> consequence — **clinical**, not merely technical — of its failure. Every control carries with
+> consequence - **clinical**, not merely technical - of its failure. Every control carries with
 > it the source that requires it.
 
 ## 1. The premise: what this system is from a security standpoint
@@ -25,11 +25,11 @@ within the meaning of Article 4(15) of Regulation (EU) 2016/679, before and inde
 content of the session. A log that says «patient X had a session with professional Y on day Z»
 reveals information about X's state of health even if it does not contain a single word of
 clinical history. Session metadata are therefore a first-class protected asset, not a technical
-by-product. The chapter [01 — Threat model](./01-modello-di-minaccia.md) starts from here.
+by-product. The chapter [01 - Threat model](./01-modello-di-minaccia.md) starts from here.
 
 **The second.** The primary adversary is not the external criminal: it is the **insider**.
-Abuse of legitimately granted privileges — the user who holds the technical authorisation to
-access a datum and uses it for a purpose extraneous to functional necessity — is a category
+Abuse of legitimately granted privileges - the user who holds the technical authorisation to
+access a datum and uses it for a purpose extraneous to functional necessity - is a category
 **expressly contemplated by the national cybersecurity authority** as an autonomous type of
 significant incident for essential entities, and it is the category of the enforcement measures
 issued by the data protection authority in the healthcare domain. A security architecture built
@@ -51,15 +51,15 @@ rewriting it:
 
 | If you are not familiar with… | Read first |
 |---|---|
-| Confidentiality, integrity, availability, authenticity, non-repudiation, traceability: what they mean precisely and how they differ | [10 §12 — Cryptography and security, §1](../10_fondamenti/12-crittografia-e-sicurezza.md) |
-| What a threat model is, what STRIDE, attack surface and trust boundary are | [10 §12 — Cryptography and security, §2](../10_fondamenti/12-crittografia-e-sicurezza.md) |
-| Symmetric and asymmetric encryption, modes of operation, authenticated encryption, key management | [10 §12 — Cryptography and security, §§3-4](../10_fondamenti/12-crittografia-e-sicurezza.md) |
-| Hash functions, HMAC, hash chains, digital signature, public key infrastructure, revocation, time-stamping | [10 §12 — Cryptography and security, §§5-6](../10_fondamenti/12-crittografia-e-sicurezza.md) |
-| Authentication, authorisation, factors, session, roles and attributes, break-glass | [10 §12 — Cryptography and security, §8](../10_fondamenti/12-crittografia-e-sicurezza.md) |
-| Why a video call is a hard problem: network traversal, signalling, relay, degradation | [10 §08 — WebRTC from scratch](../10_fondamenti/08-webrtc-da-zero.md) |
-| Patient identifiers in Italy, professional identity, assigning authorities | [10 §04 — Identity and demographic registries](../10_fondamenti/04-identita-e-anagrafiche.md) |
-| The regulatory framework in its entirety: medical devices, quality, life cycle | [10 §15 — Regulatory from scratch](../10_fondamenti/15-regolatorio-da-zero.md) |
-| The protocols one by one: OAuth, PKCE, token exchange, HTTP message signatures, body digest | [10 §13 — The protocols](../10_fondamenti/13-protocolli.md) |
+| Confidentiality, integrity, availability, authenticity, non-repudiation, traceability: what they mean precisely and how they differ | [10 §12 - Cryptography and security, §1](/10_fondamenti/12-crittografia-e-sicurezza.md) |
+| What a threat model is, what STRIDE, attack surface and trust boundary are | [10 §12 - Cryptography and security, §2](/10_fondamenti/12-crittografia-e-sicurezza.md) |
+| Symmetric and asymmetric encryption, modes of operation, authenticated encryption, key management | [10 §12 - Cryptography and security, §§3-4](/10_fondamenti/12-crittografia-e-sicurezza.md) |
+| Hash functions, HMAC, hash chains, digital signature, public key infrastructure, revocation, time-stamping | [10 §12 - Cryptography and security, §§5-6](/10_fondamenti/12-crittografia-e-sicurezza.md) |
+| Authentication, authorisation, factors, session, roles and attributes, break-glass | [10 §12 - Cryptography and security, §8](/10_fondamenti/12-crittografia-e-sicurezza.md) |
+| Why a video call is a hard problem: network traversal, signalling, relay, degradation | [10 §08 - WebRTC from scratch](/10_fondamenti/08-webrtc-da-zero.md) |
+| Patient identifiers in Italy, professional identity, assigning authorities | [10 §04 - Identity and demographic registries](/10_fondamenti/04-identita-e-anagrafiche.md) |
+| The regulatory framework in its entirety: medical devices, quality, life cycle | [10 §15 - Regulatory from scratch](/10_fondamenti/15-regolatorio-da-zero.md) |
+| The protocols one by one: OAuth, PKCE, token exchange, HTTP message signatures, body digest | [10 §13 - The protocols](/10_fondamenti/13-protocolli.md) |
 
 This area presupposes those modules. Where a concept already appears there, what appears here is
 only its **specific form in this system**, and the difference is stated.
@@ -104,8 +104,8 @@ stop you believing you are covered where you are not.
 [02](./02-identita-e-accessi.md), [07](./07-catena-di-fornitura.md).
 
 **If you are an integrator** embedding Telemedic in your own product:
-[02](./02-identita-e-accessi.md) — in particular the distinction between authentication performed
-and authentication reported —, [06](./06-sicurezza-applicativa.md),
+[02](./02-identita-e-accessi.md) - in particular the distinction between authentication performed
+and authentication reported -, [06](./06-sicurezza-applicativa.md),
 [07](./07-catena-di-fornitura.md), [09](./09-ripartizione-delle-responsabilita.md), and the
 integration area for the contract of the interfaces.
 
@@ -115,7 +115,7 @@ the artefacts that supplier due diligence requires.
 
 ## 5. Conventions of this area
 
-**`[NV]` marking — not verified.** This area rigorously distinguishes three states: what a
+**`[NV]` marking - not verified.** This area rigorously distinguishes three states: what a
 primary source **establishes** (with the article or section cited), what is **established
 practice**, and what is a **proposal of the project**. Whatever has not been verified against a
 primary source carries the `[NV]` marking and an indication of who should be asked. **Nothing is
@@ -128,8 +128,8 @@ invented**, and in particular:
   caution;
 - **no vulnerability identifier is cited unless it has been read on the source that publishes
   it**. Chapter [05](./05-sicurezza-del-tempo-reale.md) describes the defects of the relay server
-  by **mechanism and fix version** — which is the form that is useful to someone who has to decide
-  the minimum version to deploy — and, for the individual identifiers, refers to the verification
+  by **mechanism and fix version** - which is the form that is useful to someone who has to decide
+  the minimum version to deploy - and, for the individual identifiers, refers to the verification
   documented in `.telemedic/research/B3-verifica-coturn-webrtc.md`, carried out against a public
   vulnerability database and upstream project advisories. Identifiers change state and assessment
   over time: a document that hard-coded them would age worse than the description of the
@@ -168,7 +168,7 @@ noticeboard, not ignore them.
 And the constraints of others that this area adopts without arguing them: **V-04** (the immutable
 audit trail is hash-chained and separately retained; entity versioning does not replace it),
 **V-05** (the project is compliant and verifiable, **not accredited**), **V-06** (the project does
-not affix the CE marking), **V-10** (relay server: minimum version 4.17.2 and outbound network
+not affix the CE marking; the role of manufacturer will be assumed by the entity to be established), **V-10** (relay server: minimum version 4.17.2 and outbound network
 isolation as the primary defence), **V-11** (recording container negotiated at runtime), **V-12**
 (no technical threshold is imposed by Italian legislation), **V-21** (no clinical content in
 outbound messages), **V-22** (asymmetric signature of outbound messages), **V-25** (the level of

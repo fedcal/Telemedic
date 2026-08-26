@@ -8,9 +8,9 @@ description: "Authorisation profiles, delegation between organisations, propagat
 
 How OAuth works, the mechanics of code exchange with a verifier, the structure of a signed token,
 the validation pitfalls and the meaning of the levels of assurance are explained in the module
-[«The protocols, one by one», §4](../10_fondamenti/13-protocolli.md), and the three Italian
+[«The protocols, one by one», §4](/10_fondamenti/13-protocolli.md), and the three Italian
 identity channels in the module
-[«Identity and demographic registries»](../10_fondamenti/04-identita-e-anagrafiche.md). This chapter
+[«Identity and demographic registries»](/10_fondamenti/04-identita-e-anagrafiche.md). This chapter
 describes **which profiles Telemedic implements, how it propagates the identity of a user
 authenticated elsewhere and what it guarantees to integrating parties**.
 
@@ -66,7 +66,7 @@ prescriptions that bind the project:
 | **Authorisation in an IHE context** | rev. 2.5 | A tender specification that requires conformance with that profile | Documentary correspondence, §10 |
 | **Dynamic registration** | RFC 7591 / 7592 | Automated onboarding, **authenticated only** | Server, with restrictions |
 | **Introspection and revocation** | RFC 7662 / RFC 7009 | Token verification and revocation | Server |
-| Certificate-based dynamic federation | — | **Out of scope for v1.0**, §11 | — |
+| Certificate-based dynamic federation | - | **Out of scope for v1.0**, §11 | - |
 
 ## 4. The authorisation scopes
 
@@ -80,7 +80,7 @@ The letters in the current version are create, read, update, delete and search, 
 appear in the order of the string that enumerates them**: two reordered combinations are not valid.
 
 **Project choice:** the current syntax as the native form, **acceptance of the previous syntax on
-input** with the conversion defined by the specification itself — read to read and search, write to
+input** with the conversion defined by the specification itself - read to read and search, write to
 create, update and delete, wildcard to all. The justification is friction: the typical integrator
 quite probably has dated libraries, and refusing them would produce friction with no security gain,
 given that the conversion is normatively defined.
@@ -118,8 +118,8 @@ administrative act, and its presence in a token triggers the mandatory introspec
 
 It is a recurrent integration error and must be written into the public documentation: **the client
 must read the scope returned in the token response and not assume it coincides with the one
-requested**. Telemedic narrows the scope to the effective grant of the client, of the tenant and —
-in the case of delegation — of the subject's permissions.
+requested**. Telemedic narrows the scope to the effective grant of the client, of the tenant and -
+in the case of delegation - of the subject's permissions.
 
 ## 5. Delegation between organisations
 
@@ -263,7 +263,7 @@ external to an internal issuer **depends on the version of the federation produc
 ### 6.1 The values
 
 The values of the three national identity levels are verified and **identical** in the two technical
-profiles in which they can appear — the assertion in the XML envelope profile and the parameter in
+profiles in which they can appear - the assertion in the XML envelope profile and the parameter in
 the identity connection profile:
 
 | Level | Exact value | Correspondence per the international standard on levels of assurance |
@@ -278,7 +278,7 @@ and in decreasing order of preference**. The syntax is cited verbatim from the s
 space-separated string specifying the "acr" values requested of the authorisation server for
 processing the authentication request, with the values displayed in order of preference.»*
 
-> **`[NV]` — values accepted by the provider of the document-based electronic identity.** The
+> **`[NV]` - values accepted by the provider of the document-based electronic identity.** The
 > technical rules describe the context values parameter but **refer to the provider's metadata** for
 > the actual list. The values must therefore be **read from the metadata at runtime**, not
 > hard-coded. If a static list is needed, it must be requested from the identity operator and cited
@@ -312,8 +312,8 @@ must be able to say with what level of assurance, and on what basis, an operatio
 An established fact that binds the architecture: the connector towards the national identity channel
 configures the requested authentication context **statically on the individual provider instance**.
 A level that varies by operation therefore requires **one instance for each provider-and-level
-pair**. The scoping decision taken by the integration area reduces the factor to two — a base level
-and a higher one for administrative operations — rather than to the cardinality of the levels.
+pair**. The scoping decision taken by the integration area reduces the factor to two - a base level
+and a higher one for administrative operations - rather than to the cardinality of the levels.
 
 Towards the integrator **there is no interface impact**: what changes is that the level propagated
 is the one **requested**, not the one asserted in return. This distinction has a verified reason: on
@@ -321,7 +321,7 @@ the document-based electronic identity channel the technical rules declare that 
 is **always the highest level**, so **the effective level cannot be inferred from the assertion**.
 Whoever reads the level from the response reads a constant value.
 
-> **`[NV]` — forwarding of the requested level through the intermediating realm.** It is not
+> **`[NV]` - forwarding of the requested level through the intermediating realm.** It is not
 > verified whether the federation product, acting as a client towards an external provider, forwards
 > the requested level parameter through the realm that acts as intermediary. If it does not forward
 > it, per-operation level step-up is not obtainable by configuration alone. This is question
@@ -346,7 +346,7 @@ The parameters of the authorisation request, with their optionality:
 | Parameter | Optionality | Value |
 |---|---|---|
 | Response type | Required | Fixed value for the code flow |
-| Client identifier | Required | — |
+| Client identifier | Required | - |
 | Redirect URI | Required | **Exact** match with a pre-registered one |
 | Launch identifier | Conditional | Only for launch from the record system |
 | Scopes | Required | Resources, identity, context |
@@ -388,14 +388,14 @@ they must be used **before** inventing any:
 
 ### 7.3 The life cycle of the embedded component
 
-The embedded application must be able to ask the host to do something — close the activity, open
-another screen — without going through the clinical interface. There is a dedicated profile, at
+The embedded application must be able to ask the host to do something - close the activity, open
+another screen - without going through the clinical interface. There is a dedicated profile, at
 version **1.0.0 of 6 May 2022**, on an R4 base.
 
 The request envelope has four mandatory fields: a channel reference obtained during launch, a
 message identifier generated by the application, the message type and the payload. The response has
 the message identifier, the reference to the message it answers, an optional indicator of further
-responses expected — **plural**, and the detail matters — and the payload.
+responses expected - **plural**, and the detail matters - and the payload.
 
 The message types actually defined are **eight**, organised into four families:
 
@@ -415,7 +415,7 @@ giving its location, or the entire content by omitting the location. The resourc
 **SHALL** include both the type and the identifier.
 
 Not to be confused with the message types: the activity catalogue defines **three** launchable
-activities — appointment booking, order review, problem review — each with a mandatory parameter of
+activities - appointment booking, order review, problem review - each with a mandatory parameter of
 its own. They are not message types and must not be mixed with them.
 
 Channel security rules: the application **validates the origin** of every message received and the
@@ -452,7 +452,7 @@ area does not decide.
 |---|---|---|
 | User token in a clinical context | 5–10 minutes | It carries claims about a clinical context: minimal replay window |
 | System token | 300 seconds | The backend services specification explicitly indicates this value as recommended |
-| Refresh token tied to the session | Tied to the single sign-on session | — |
+| Refresh token tied to the session | Tied to the single sign-on session | - |
 | Refresh token that outlives logout | **Only for asymmetric confidential clients, with rotation** | On a public client, in healthcare, it is a custody risk hard to justify in a risk analysis |
 
 ### 8.3 The revocation window, honestly declared
@@ -461,7 +461,7 @@ A locally verified token **stays valid until expiry even after revocation**. It 
 clinical tokens last minutes and not hours, and it must be documented instead of letting people
 believe that revocation is instantaneous.
 
-For revocations that must be immediate — professional disabled, tenant suspended — there is an
+For revocations that must be immediate - professional disabled, tenant suspended - there is an
 additional mechanism: a **distributed deny-list** on token identifier and subject, with a lifetime
 equal to a token's maximum life, consulted by the gateway.
 
@@ -471,7 +471,7 @@ on the ordinary hot path, where they validate locally against the key set. They 
 bulk export, modifying a measurement plan. The cost is a network call on those operations; the
 benefit is that the revocation window does not apply precisely where it would be unacceptable.
 
-Both endpoints — introspection and revocation — are published and declared in the discovery
+Both endpoints - introspection and revocation - are published and declared in the discovery
 document. Revocation answers with a positive outcome even if the token was already invalid, so as
 not to provide an oracle.
 
@@ -493,7 +493,7 @@ protected transport and with short-lived tokens.
 
 Two caveats: a proof-of-possession key stored in an extractable way **adds no security** compared
 with a plain bearer, it adds complexity and a false sense of protection; and neither mechanism
-replaces audience restriction — a sender-constrained token with too broad an audience remains
+replaces audience restriction - a sender-constrained token with too broad an audience remains
 over-privileged.
 
 ## 9. Discovery
@@ -530,8 +530,8 @@ specification requiring that profile without rewriting anything.
 | Introspect Token (ITI-102) | Introspection endpoint, RFC 7662 |
 | Authorization Server Metadata (ITI-103) | Identity provider discovery document |
 
-The claims required by the profile — issuer, subject, client identifier, audience, expiry, scopes,
-token identifier — are all present. The optional extensions that gather organisation, roles and
+The claims required by the profile - issuer, subject, client identifier, audience, expiry, scopes,
+token identifier - are all present. The optional extensions that gather organisation, roles and
 purpose of use into a dedicated object are emitted **at the tenant's request**, not always, so as
 not to inflate tokens where they are not needed.
 
@@ -545,13 +545,13 @@ not to inflate tokens where they are not needed.
 2. **Authenticated dynamic registration**: the endpoint is protected by an initial access token
    issued per tenant, with maximum scopes limited by the tenant's policy.
 
-An anonymous registration endpoint on a multi-tenant healthcare platform is a vector for abuse —
+An anonymous registration endpoint on a multi-tenant healthcare platform is a vector for abuse -
 mass creation of clients, enumeration, requests towards internal resources through the key set
-address — with nothing in return. And an endpoint that automates registration is taking decisions
+address - with nothing in return. And an endpoint that automates registration is taking decisions
 that are contractual, not technical: which tenant, which scopes, which data processing agreement.
 
 **Certificate-based dynamic federation** is documented as a pattern and **not implemented in v1.0**:
 it is the trust mechanism of a non-European ecosystem, whereas in the target market trust is built
 with other instruments. The client registration model does, however, remain **ready** for a trust
-anchor based on a certificate chain, because the underlying mechanism — a signed assertion validated
-against a chain — is identical to what a national federation would require.
+anchor based on a certificate chain, because the underlying mechanism - a signed assertion validated
+against a chain - is identical to what a national federation would require.

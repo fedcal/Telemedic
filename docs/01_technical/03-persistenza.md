@@ -11,8 +11,8 @@ nel livello web si corregge con un rilascio; un errore nello schema si corregge 
 migrazione su dati esistenti, che in ambito clinico significa toccare informazione che ha valore
 probatorio. Questo capitolo descrive la struttura, le regole di evoluzione e i limiti conosciuti.
 
-I fondamenti — che cos'è una transazione, che cos'è l'isolamento, perché il tempo va modellato
-su due assi — stanno in
+I fondamenti - che cos'è una transazione, che cos'è l'isolamento, perché il tempo va modellato
+su due assi - stanno in
 [`docs/10_fondamenti/11-fondamenti-informatici.md`](../10_fondamenti/11-fondamenti-informatici.md).
 Il modello concettuale degli aggregati sta nella base architetturale §2 e in
 `docs/02_architecture/`.
@@ -51,7 +51,7 @@ Uno **schema per coppia tenant × contesto**, su base dati condivisa, con due sc
 
 ```
 telemedic (database)
-├─ platform            outbox, catalogo dei tenant, registro delle migrazioni, chiavi
+├─ platform            catalogo dei tenant, registro delle migrazioni, chiavi
 ├─ reference           dati di riferimento non clinici e non specifici di tenant
 ├─ t0001_identity
 ├─ t0001_registry
@@ -74,6 +74,18 @@ negli strumenti di amministrazione.
 La corrispondenza tenant → ordinale vive in `platform.tenant_directory`, ed è l'unico punto che
 il codice consulta. È anche ciò che rende possibile, un domani, spostare un tenant su una base
 dati separata senza toccare una riga di dominio: cambia la risoluzione, non l'accesso.
+
+**L'outbox non sta in `platform`.** La tabella degli eventi in uscita vive nello schema della
+coppia tenant × contesto che produce l'evento, come dispongono il punto 1 di
+[ADR-0008](../adr/0008-outbox-transazionale-unica-sorgente.md) e
+[06 - Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#23-dove-sta-la-tabella)
+§2.3. La ragione è l'atomicità - il dato e l'evento si scrivono nella stessa transazione, quindi
+nello stesso ambito transazionale - e le conseguenze che uno schema comune non darebbe sono tre:
+la dismissione di un tenant porta con sé la propria outbox invece di lasciarne le righe in una
+tabella condivisa; le politiche di riga dello schema del tenant coprono anche gli eventi in
+uscita; e il relay itera esplicitamente sui tenant, come impone
+[05 - Multi-tenancy](../02_architecture/05-multi-tenancy.md#33-i-processi-che-non-nascono-da-una-richiesta)
+§3.3, invece di leggere tutti gli schemi in una sola interrogazione. Vedi §7.
 
 ### 2.2 Ruoli e privilegi
 
@@ -124,7 +136,7 @@ risolto non deve vedere niente, non deve vedere tutto.
 **La trappola del pool di connessioni.** La variabile va impostata con `SET LOCAL` **dentro la
 transazione**, perché `SET LOCAL` è annullato al termine della transazione e non può sopravvivere
 al ritorno della connessione nel pool. Un `SET` senza `LOCAL` lascia il contesto attaccato alla
-connessione, e la connessione successiva — di un altro tenant — lo eredita. È la fuga di dati
+connessione, e la connessione successiva - di un altro tenant - lo eredita. È la fuga di dati
 fra tenant più insidiosa che esista, perché non produce errori: produce risultati sbagliati.
 Il meccanismo è realizzato una sola volta, in `platform/tenancy`, ed è provato con una prova che
 esaurisce deliberatamente il pool e verifica l'isolamento.
@@ -136,14 +148,14 @@ di sistema cresce con il prodotto tenant × contesti × tabelle; oltre una certa
 degradano la pianificazione delle interrogazioni, i tempi di esportazione logica e le operazioni
 di manutenzione, e il consumo di memoria per connessione aumenta.
 
-`[NV]` — **la soglia non è stata misurata dal progetto e non viene inventata qui.** Va
+`[NV]` - **la soglia non è stata misurata dal progetto e non viene inventata qui.** Va
 determinata con una prova di capacità su un'installazione rappresentativa, e il risultato va
 pubblicato come limite di prodotto, non come cifra generica presa altrove. Fino ad allora la
 documentazione dichiara: il modello è progettato per un ordine di grandezza di **centinaia** di
 tenant per installazione; oltre, la struttura corretta è la ripartizione su più basi dati, resa
 possibile senza modifiche al dominio dal registro dei tenant di §2.1.
 
-Dichiarare il limite è parte del prodotto. Un limite non dichiarato si scopre in produzione.
+Dichiarare il limite è parte del prodotto. Un limite non dichiarato si scopre in esercizio.
 
 ---
 
@@ -181,14 +193,14 @@ sequenceDiagram
 ```
 
 Ne discende che due versioni consecutive dell'applicazione devono poter convivere sulla stessa
-base dati — condizione necessaria all'aggiornamento senza interruzione, e condizione necessaria
+base dati - condizione necessaria all'aggiornamento senza interruzione, e condizione necessaria
 a poter tornare indietro di un rilascio senza perdere dati. È il vincolo che questa area pone
 alle altre aree in bacheca.
 
 **Non bloccanti.** L'aggiunta di una colonna con valore predefinito, la creazione di un indice,
 l'aggiunta di un vincolo hanno tutte una forma bloccante e una non bloccante. Si usa sempre la
-seconda: creazione dell'indice in modalità concorrente — che però **non può girare dentro una
-transazione**, e quindi va marcata come tale nella migrazione — e vincoli aggiunti come non
+seconda: creazione dell'indice in modalità concorrente - che però **non può girare dentro una
+transazione**, e quindi va marcata come tale nella migrazione - e vincoli aggiunti come non
 validati e poi validati in un passo separato, che prende un blocco più debole.
 
 ### 3.2 Migrare N schemi
@@ -214,7 +226,7 @@ una migrazione lunga, tenant su versioni di schema diverse coesistono per costru
 ### 4.1 Chiavi
 
 Chiave primaria tecnica, generata dall'applicazione, **ordinabile per tempo di creazione**. La
-generazione lato applicazione consente di conoscere l'identificativo prima della scrittura —
+generazione lato applicazione consente di conoscere l'identificativo prima della scrittura -
 necessario per costruire l'evento di outbox nella stessa transazione; l'ordinabilità temporale
 evita la frammentazione dell'indice che produce un identificativo interamente casuale, che su
 tabelle cliniche ad alto tasso di inserimento è un costo reale e crescente.
@@ -234,12 +246,12 @@ nello schema e la ripetizione produrrebbe due sorgenti di verità.
 Il fuso orario è sempre esplicito e la conservazione è in istante assoluto. La visualizzazione
 in ora locale è responsabilità dell'interfaccia. Conservare un'ora locale senza fuso in un
 sistema che opera su un territorio con ora legale significa avere, due volte l'anno, un'ora
-ambigua — e un'ora ambigua su un tracciato di monitoraggio è un difetto clinico.
+ambigua - e un'ora ambigua su un tracciato di monitoraggio è un difetto clinico.
 
 ### 4.3 Immutabilità applicata
 
-Per le tabelle che ospitano fatti immutabili — misure, documenti firmati, consensi, righe di
-registro — l'immutabilità non è una convenzione:
+Per le tabelle che ospitano fatti immutabili - misure, documenti firmati, consensi, righe di
+registro - l'immutabilità non è una convenzione:
 
 ```sql
 -- Illustrativo.
@@ -257,12 +269,12 @@ evidente a chi legge lo schema.
 
 ### 5.1 Due famiglie che non vanno confuse
 
-**Misure cliniche** — parametri del telemonitoraggio, questionari strutturati. Sono **dati
+**Misure cliniche** - parametri del telemonitoraggio, questionari strutturati. Sono **dati
 sanitari**: immutabili, con contesto di rilevazione completo, soggetti a conservazione normata,
 a diritto di accesso, a tracciamento degli accessi. Non si campionano, non si aggregano
 distruttivamente, non si scartano per anzianità senza una regola di conservazione dichiarata.
 
-**Campioni di qualità della sessione media** — indicatori di rete e di flusso. Sono **dati
+**Campioni di qualità della sessione media** - indicatori di rete e di flusso. Sono **dati
 tecnici** con una componente di dato personale (chi ha parlato con chi, quando, per quanto). Si
 aggregano, si assottigliano, hanno conservazione breve.
 
@@ -316,9 +328,9 @@ realizzazioni dietro la stessa interfaccia.
 | Interrogazione | Identica | Identica |
 
 **L'intervallo delle partizioni va scelto sul volume, non per abitudine.** Partizioni troppo
-piccole moltiplicano gli oggetti del catalogo — che, sommandosi al moltiplicatore dei tenant di
+piccole moltiplicano gli oggetti del catalogo - che, sommandosi al moltiplicatore dei tenant di
 §2.4, è il modo più rapido di raggiungere il limite del modello. Partizioni troppo grandi
-rendono la conservazione grossolana. `[NV]` — l'intervallo di riferimento va determinato con una
+rendono la conservazione grossolana. `[NV]` - l'intervallo di riferimento va determinato con una
 prova di capacità, non assunto.
 
 ### 5.4 Conservazione
@@ -370,7 +382,7 @@ livello di riga e alla ripartizione futura.
   stabile, e lo si espone come tale nell'interfaccia.
 - **Caricamento pigro nei cicli.** Il difetto classico del livello di persistenza a mappatura
   oggetto-relazionale. Le letture di elenchi usano proiezioni esplicite, non entità complete: una
-  proiezione dichiara che cosa serve, e ciò che non serve non viene letto — il che è anche un
+  proiezione dichiara che cosa serve, e ciò che non serve non viene letto - il che è anche un
   requisito di minimizzazione, non solo di prestazione.
 - **Interrogazioni costruite per concatenazione.** Vietate. Ogni parametro è associato, sempre.
   Il divieto è verificato da analisi statica.
@@ -381,11 +393,16 @@ livello di riga e alla ripartizione futura.
 
 ## 7. L'outbox
 
+**La tabella sta nello schema della coppia tenant × contesto che produce l'evento**, non in uno
+schema comune: lo dispone il punto 1 di
+[ADR-0008](../adr/0008-outbox-transazionale-unica-sorgente.md), e il capitolo di architettura lo
+ripete in [06](../02_architecture/06-eventi-e-integrazione-interna.md#23-dove-sta-la-tabella)
+§2.3. L'esempio che segue mostra quindi uno schema di coppia, non `platform`.
+
 ```sql
--- Illustrativo.
-CREATE TABLE platform.outbox (
+-- Illustrativo. Una tabella per ogni coppia tenant × contesto che produce eventi.
+CREATE TABLE t0001_clinical_document.outbox (
     id             uuid        PRIMARY KEY,
-    tenant_id      uuid        NOT NULL,
     tipo           text        NOT NULL,        -- tipo di evento, versionato nel nome
     chiave         text        NOT NULL,        -- chiave di partizionamento
     busta          jsonb       NOT NULL,        -- riferimenti, mai contenuto clinico
@@ -396,21 +413,42 @@ CREATE TABLE platform.outbox (
 );
 
 CREATE INDEX outbox_da_pubblicare
-    ON platform.outbox (creato_il)
+    ON t0001_clinical_document.outbox (creato_il)
     WHERE pubblicato_il IS NULL;
 ```
+
+**Non c'è una colonna per il tenant.** Lo schema che contiene la tabella lo determina già, e una
+colonna che ripete un'informazione implicita nella collocazione è un luogo in cui i due valori
+possono divergere: una riga con il tenant sbagliato in uno schema comune è indistinguibile da una
+riga corretta. Il tenant compare invece nella busta, in forma opaca, perché la busta esce dal
+perimetro e il suo destinatario non conosce lo schema di origine (§2.1 e
+[06](../02_architecture/06-eventi-e-integrazione-interna.md#32-regole-sulla-busta) §3.2).
 
 Il relay preleva con `SELECT ... FOR UPDATE SKIP LOCKED`, il che consente a più istanze di
 lavorare in parallelo senza coordinatore e senza che due istanze prendano la stessa riga. La
 pubblicazione avviene a blocchi; la marcatura è nella stessa transazione della lettura.
+
+**Il relay itera sui tenant, una tabella per volta.** Non esiste un'interrogazione unica che legga
+gli eventi di tutti gli schemi: sarebbe un percorso che attraversa il confine fra tenant, e
+[05 - Multi-tenancy](../02_architecture/05-multi-tenancy.md#33-i-processi-che-non-nascono-da-una-richiesta)
+§3.3 lo vieta esplicitamente per il relay dell'outbox. Il costo dichiarato è che il carico di
+interrogazione a vuoto non è costante ma **proporzionale al numero di tenant attivi**, ed è la
+grandezza che va dimensionata prima di moltiplicare le installazioni per tenant.
+
+Il prelievo parallelo che salta le righe già bloccate ha una conseguenza sull'ordinamento che va
+letta insieme a questa pagina: due istanze possono pubblicare in ordine invertito due eventi dello
+stesso aggregato. Le condizioni alle quali l'ordine per chiave vale, e quelle alle quali non vale,
+sono dichiarate in
+[06 - Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#41-ciò-che-si-garantisce-e-ciò-che-non-si-garantisce)
+§4.1.
 
 **La busta non contiene contenuto clinico.** È il vincolo V-14 di `INTEG`, ed è recepito qui a
 livello di schema: la colonna `busta` porta identificativi e riferimenti, il contenuto si rilegge
 con una chiamata autenticata sotto l'autorizzazione del ricevente. Il controllo che nessuna
 busta contenga campi clinici è una prova, non una convenzione.
 
-**Le righe pubblicate si potano.** Restano il tempo necessario alla diagnosi — l'orizzonte è
-configurato — poi vengono rimosse. La tracciabilità di lungo periodo di ciò che è stato inviato
+**Le righe pubblicate si potano.** Restano il tempo necessario alla diagnosi - l'orizzonte è
+configurato - poi vengono rimosse. La tracciabilità di lungo periodo di ciò che è stato inviato
 sta nel registro immutabile, non nell'outbox, che è un meccanismo di consegna e non un archivio.
 
 ---
@@ -463,7 +501,7 @@ Le proprietà che lo rendono un registro e non una tabella:
    riscrivere. La forma dell'ancoraggio e la sua periodicità sono decisione di `SEC`; questa area
    fornisce il punto di aggancio e il formato.
 5. **Nessun contenuto clinico.** Il registro dice chi, cosa, quando, su quale soggetto, con quale
-   esito e con quale livello di garanzia — non che cosa c'era scritto. Vincolo V-13 di `SEC`.
+   esito e con quale livello di garanzia - non che cosa c'era scritto. Vincolo V-13 di `SEC`.
 6. **Gli identificativi sono pseudonimi per tenant.** Il registro è il sistema con la
    conservazione più lunga e la platea di lettura più ampia: è l'ultimo posto in cui debbano
    comparire identificativi diretti.
@@ -491,7 +529,7 @@ titolare del trattamento nella propria analisi.
 | Copia fisica di base più archiviazione continua del registro delle transazioni | Guasto dell'archiviazione, corruzione, errore umano con ripristino a un istante preciso | Cancellazione logica propagata a valle |
 | Esportazione logica per schema | Ripristino di un singolo tenant, migrazione fra installazioni | Grandi volumi in tempi brevi |
 | Replica in continuo su nodo secondario | Guasto del nodo primario | Errore logico: si replica anche quello, all'istante |
-| Copia separata del registro immutabile | Integrità della tracciabilità | — |
+| Copia separata del registro immutabile | Integrità della tracciabilità | - |
 
 **Il ripristino di un singolo tenant è la ragione principale del modello a schema per tenant.**
 Su base dati condivisa senza separazione, ripristinare un tenant significa ripristinare tutto
@@ -502,7 +540,7 @@ amministratore di tenant, contestazione, migrazione verso un'installazione propr
 ### 9.3 Le regole che rendono reale il ripristino
 
 1. **Il salvataggio è cifrato a riposo con chiavi per tenant.** Ne discende la conseguenza
-   voluta: la distruzione della chiave rende il contenuto irrecuperabile anche dalle copie —
+   voluta: la distruzione della chiave rende il contenuto irrecuperabile anche dalle copie -
    cancellazione crittografica, che è il solo modo praticabile di onorare una richiesta di
    cancellazione senza riscrivere la storia delle copie.
 2. **Il ripristino è provato, con periodicità dichiarata, su un ambiente separato, con esito
@@ -521,7 +559,7 @@ amministratore di tenant, contestazione, migrazione verso un'installazione propr
 Il diritto alla cancellazione e l'obbligo di conservare copie coerenti sono in tensione, e la
 tensione non si risolve con una scelta tecnica: si governa. Il progetto adotta la cancellazione
 crittografica per il contenuto e mantiene nel registro immutabile la **traccia dell'avvenuta
-cancellazione** — chi l'ha richiesta, chi l'ha eseguita, quando, su quale perimetro — perché
+cancellazione** - chi l'ha richiesta, chi l'ha eseguita, quando, su quale perimetro - perché
 cancellare senza lasciare traccia dell'atto renderebbe impossibile dimostrare di aver adempiuto.
 La determinazione delle basi giuridiche e dei perimetri non è di questa area: è del titolare del
 trattamento e di `COMP`.
@@ -538,7 +576,7 @@ Riepilogo, perché un capitolo di persistenza senza limiti dichiarati è incompl
 | Latenza di consegna degli eventi | Pari all'intervallo di interrogazione del relay | Dichiarata in [`07-prestazioni-e-capacita.md`](./07-prestazioni-e-capacita.md) |
 | Compressione e aggregazioni continue delle serie temporali | Assenti nella realizzazione di ripiego | Dichiarato, con sostituzione tramite tabelle di sintesi |
 | Durata delle migrazioni su molti tenant | Cresce linearmente con il numero di tenant | Mitigata dall'esecuzione per tenant e dall'osservabilità dell'avanzamento |
-| Ripristino a un istante preciso | Granularità pari alla frequenza di archiviazione del registro delle transazioni | Configurabile dal deployer, dichiarata nel manuale |
+| Ripristino a un istante preciso | Granularità pari alla frequenza di archiviazione del registro delle transazioni | Configurabile da chi installa, dichiarata nel manuale |
 
 ---
 

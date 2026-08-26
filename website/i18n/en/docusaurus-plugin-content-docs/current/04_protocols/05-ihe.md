@@ -8,7 +8,7 @@ description: "Profiles adopted, actors and transactions implemented, with an ove
 
 What actors, transactions and integration profiles are, how to read a transaction's identifier and
 why IHE is not «another standard» is explained in the module
-[«Interoperability standards», §6](../10_fondamenti/05-standard-di-interoperabilita.md).
+[«Interoperability standards», §6](/10_fondamenti/05-standard-di-interoperabilita.md).
 This chapter declares **which actors Telemedic implements, with which transactions, in which
 revision, and under what conditions they are active**.
 
@@ -75,9 +75,9 @@ column for the functions they are interested in.
 | **PIXm** | **3.1.0** (4 November 2025) | Trial Implementation | Patient Identifier Cross-reference Consumer | **ITI-83** | Per tenant, if more than one identification domain exists |
 | **PDQm** | **3.2.0** (4 November 2025) | Trial Implementation | Patient Demographics Consumer | **ITI-78** | Per tenant, with the limits in §7 |
 | **IUA** | rev. **2.5** (18 June 2026) | Trial Implementation | Authorization Client, Resource Server | **ITI-71**, **ITI-72**, **ITI-102**, **ITI-103** | A documentary profiling of what is already implemented |
-| **BALP** | **1.1.4** (31 October 2025) | Trial Implementation | *content profile* | — | Form of the events produced by ATNA |
-| **XUA** | — | — | **None** | — | Out of scope, see §9 |
-| **XDS.b** | — | — | **None** | — | Out of scope, see §9 |
+| **BALP** | **1.1.4** (31 October 2025) | Trial Implementation | *content profile* | - | Form of the events produced by ATNA |
+| **XUA** | - | - | **None** | - | Out of scope, see §9 |
+| **XDS.b** | - | - | **None** | - | Out of scope, see §9 |
 
 Two rows carry an explicit warning that must be repeated to integrating parties.
 
@@ -153,8 +153,8 @@ requirement seen from three sides, and it must be implemented once only.
 ### 4.4 The form of the events
 
 The schemas to be used are those of the dedicated content profile, at version **1.1.4**, on an R4
-base. It defines ten schemas for the REST operations — create, read, update, delete and search,
-each in **two variants**, with and without an identified patient — plus two schemas for the
+base. It defines ten schemas for the REST operations - create, read, update, delete and search,
+each in **two variants**, with and without an identified patient - plus two schemas for the
 **communication of data to third parties**, one on the side of the party communicating and one on
 the side of the party receiving, and six schemas for authorisation, covering the opaque token, the
 authorisation profile token, the token in assertion form in the full and minimal variants, and the
@@ -180,7 +180,7 @@ constraint V-04 exists to prevent.
 ## 5. Consistent time
 
 Actors: time server and time client. Transaction: **ITI-1**. The profile requires the use of the
-time synchronisation protocol defined by **RFC 1305** — the specification cites that document —
+time synchronisation protocol defined by **RFC 1305** - the specification cites that document -
 with the simplified variant permitted for certain clients not grouped with a server. The accuracy
 required is a **median error of less than one second**, which the profile qualifies as sufficient
 for most purposes.
@@ -293,8 +293,8 @@ re-implementation**.
 ### 9.2 Business-to-business identity assertion in XML envelope form
 
 The profile that conveys claims about an authenticated principal across enterprise boundaries uses
-a web services security header with an assertion token. It has three relevant options — subject role,
-consent reference, purpose of use — and requires grouping with the audit profile.
+a web services security header with an assertion token. It has three relevant options - subject role,
+consent reference, purpose of use - and requires grouping with the audit profile.
 
 **It is out of scope.** It is needed in the world of web services based on XML envelopes, and
 introducing that stack into the core of the product for a hypothetical requirement would be an
@@ -303,8 +303,8 @@ the module for the legacy channel.
 
 ## 10. Authorisation in an IHE context
 
-The authorisation profile defines three actors — authorisation client, authorisation server,
-resource server — and four transactions: obtaining the token, incorporating the token into a
+The authorisation profile defines three actors - authorisation client, authorisation server,
+resource server - and four transactions: obtaining the token, incorporating the token into a
 transaction, token introspection, obtaining the authorisation server's metadata. The reference
 framework is **OAuth 2.1**, with two profiled grant types: authorisation code and client
 credentials. The required claims are `iss`, `sub`, `client_id`, `aud`, `exp`, `scope`, `jti`;

@@ -1,10 +1,10 @@
 ---
-title: Compliance — index and orientation
+title: Compliance - index and orientation
 sidebar_position: 1
 description: "How Telemedic's compliance area is organised, what it contains and what it defers elsewhere. Reading paths for those intending to certify, for deployers and for contributors; boundaries with respect to security and to the foundations guide; constraints received and imposed; what this area deliberately does not say; and the note on what changed with decisions D57 and D58 and on what did not."
 ---
 
-# Compliance — index and orientation
+# Compliance - index and orientation
 
 > **This area does not declare compliance: it attributes it.** There is no sentence in this
 > documentation asserting that the project is compliant with anything, and the absence is
@@ -20,16 +20,16 @@ legal positions, and almost every source in this area addresses the second.
 
 Three facts follow, and no chapter may contradict them.
 
-**First — the product bears no CE marking, and the project is not today a manufacturer** (`D28`,
+**First - the product bears no CE marking, and the project is not today a manufacturer** (`D28`,
 `D49` and `V-06`, as amended by `D58`). The project **intends** to assume the manufacturer role,
 and **the legal entity that would exercise it has not yet been constituted**. It produces and
-publishes the regulatory material — technical file, software lifecycle, risk management, usability
-engineering — **for that path**, and it stops exactly where an act begins that presupposes a legal
+publishes the regulatory material - technical file, software lifecycle, risk management, usability
+engineering - **for that path**, and it stops exactly where an act begins that presupposes a legal
 entity, a signature and a responsibility which do not exist today. The reason is not caution: it is
 that part of that material **cannot be recovered after the fact** (`D45`), and its absence would
 make it impossible for anyone to certify later, **ourselves included**.
 
-**Second — the distinction between the repository and the distribution is substantive, not
+**Second - the distinction between the repository and the distribution is substantive, not
 rhetorical** (`D17`). The repository is source code and says so in
 [`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md)
 and in
@@ -38,7 +38,7 @@ The device is an **identified distribution**, with a manufacturer, a version num
 identifier and a lifecycle of its own. The two artefacts do not share a name and do not share a
 regime.
 
-**Third — what has not been verified is declared as such.** Every regulatory statement in this area
+**Third - what has not been verified is declared as such.** Every regulatory statement in this area
 cites the precise source; where verification against the primary text has not been carried out, the
 entry is marked **`[NV]`** with an indication of what is to be verified and with whom. An invented
 reference in regulatory matters is not a stylistic error: it is a defect that propagates into a
@@ -64,16 +64,16 @@ to that party with the expression "whoever certifies". That figure no longer exi
 |---|---|---|
 | Who undertakes the certification path | An indefinite third party, "whoever certifies" | **The project in the manufacturer role**, a role it **intends** to assume and whose legal entity **is still to be constituted** (`D58`) |
 | Whose the roadmap and the dates are | Presented as a third party's path | **The project's internal planning** (`D57`), never an external party's path |
-| On whom the retroactively unrecoverable activities of `D45` fall | "On whoever intends to certify" | **On us**, directly instead of hypothetically — which makes them **more** urgent, not less |
+| On whom the retroactively unrecoverable activities of `D45` fall | "On whoever intends to certify" | **On us**, directly instead of hypothetically - which makes them **more** urgent, not less |
 | What the published regulatory material is | A package for a third party | The material **of our own path**, which remains usable by others too |
 
 **What did not change**, and is to be read with the same attention as the preceding table, because
 it is the part that gets lost in rewordings.
 
 1. **The technical allocation of responsibilities remains valid in full.** The acts the regulation
-   reserves to the manufacturer role — affixing the marking, signing the declaration of conformity,
+   reserves to the manufacturer role - affixing the marking, signing the declaration of conformity,
    compiling and maintaining the file, appointing the person responsible for regulatory compliance
-   — **remain reserved to that role even when the role is ours**. The distinction has not been
+   - **remain reserved to that role even when the role is ours**. The distinction has not been
    deleted because it is precisely what makes it legible **why those activities cannot be brought
    forward**: the intention is not the entity. The closed list is in
    [04 §12](./04-fascicolo-tecnico.md), and it has not grown shorter by a single line.
@@ -86,7 +86,7 @@ it is the part that gets lost in rewordings.
    allowing that to be inferred would be more harmful than silence.
 4. **No marking date, anywhere** (`V-171`). It is not written, and it is not implied, that the
    product will be marked by a deadline: internal planning **does not become a promise because it
-   is ours**. No date, no window, no "by" — the only admitted occurrence of that word is inside the
+   is ours**. No date, no window, no "by" - the only admitted occurrence of that word is inside the
    statement of the prohibition itself.
 5. **Liability towards the injured person cannot be excluded by contract** (Directive (EU)
    2024/2853, Article 15). It holds now as before, and with more force since the intention is ours.
@@ -97,9 +97,9 @@ being spoken of: **the project in the manufacturer role** where the subject is w
 undertake the path; **the manufacturer** where the subject is an act the regulation reserves to
 that formal role, whoever exercises it; **the manufacturer entity, to be constituted** where the
 step presupposes the legal existence that is missing today; **the deployer** or **the integrator**
-where the text refers to them. The formal rules by which the intention is to be named — the verb
+where the text refers to them. The formal rules by which the intention is to be named - the verb
 "intends", the absence of the entity repeated in the same sentence, the negative statement of fact
-in first position, no dates — are in
+in first position, no dates - are in
 [01 §11](./01-inquadramento-normativo.md) and are part of `V-171`.
 
 ## 2. The chapters
@@ -113,8 +113,9 @@ in first position, no dates — are in
 | [05](./05-gestione-del-rischio.md) | **Risk management** | How ISO 14971 applies to this system: acceptability criteria, register with real examples from the domain, hierarchy of measures, declared residual risk, connection with the threat model |
 | [06](./06-usabilita-e-accessibilita.md) | **Usability and accessibility** | Usability engineering as a regulatory obligation, formative and summative evaluation, and the relationship with accessibility, which is a distinct obligation on the same interface |
 | [07](./07-valutazione-clinica.md) | **Clinical evaluation** | What must be demonstrated, with what data, in what time, and why it is the second long-lead path after the notified body |
-| [08](./08-sorveglianza-post-commercializzazione.md) | **Post-market surveillance** | The two distinct processes — surveillance and vigilance —, the reporting deadlines, changes and when they require the notified body's intervention |
+| [08](./08-sorveglianza-post-commercializzazione.md) | **Post-market surveillance** | The two distinct processes - surveillance and vigilance -, the reporting deadlines, changes and when they require the notified body's intervention |
 | [09](./09-percorso-e-calendario.md) | **Path and schedule** | The attainments to be achieved, in what order, with what prerequisites, and the time scenarios with the irreversible decision points. **It is the single home of the dates**, which are **the project's internal planning** (`D57`) and never a marking date |
+| [10](./10-controllo-dei-documenti.md) | **Document control** | The approved document control procedure: list of documents, rules for identification and versioning, reviewers by category, form of approval, withdrawal. How the approval record works in the «documents as code» model, and the explicit declared gap: author and approver coincide, and it is the first entry of `Q-189` |
 
 **A placement rule that holds for the whole area: dates live only in chapter 09.** The other
 chapters refer to it. Two schedules in two places diverge at the first update, and in regulatory
@@ -129,7 +130,7 @@ compile the file and place an identified distribution on the market. **Since `D5
 first of all the project itself**, which intends to assume that role and has not yet constituted
 the entity that would exercise it; it remains valid also for an integrator assuming the role over
 its own distribution, and the two readings are not mutually exclusive. For both, the area is an
-**operating manual**, not an information notice — with the difference, not a small one, that for
+**operating manual**, not an information notice - with the difference, not a small one, that for
 the project it is a list of its own obligations and not a service rendered to a third party.
 
 | Order | Chapter | Why in this position |
@@ -141,9 +142,9 @@ the project it is a list of its own obligations and not a service rendered to a 
 | 5 | [03](./03-sistema-di-gestione-della-qualita.md), [05](./05-gestione-del-rischio.md), [06](./06-usabilita-e-accessibilita.md), [07](./07-valutazione-clinica.md), [08](./08-sorveglianza-post-commercializzazione.md) | The five parallel workstreams, each with its own timescales |
 
 **Two warnings that save them months, and that sit at the end of the chapters instead of at the
-opening.** The first: the activities of the first thirty days — constituting the manufacturer
+opening.** The first: the activities of the first thirty days - constituting the manufacturer
 entity, freezing the intended purpose, identifying the person responsible for regulatory
-compliance, first contacts with notified bodies, launching the clinical evaluation plan — **cannot
+compliance, first contacts with notified bodies, launching the clinical evaluation plan - **cannot
 be delegated to development** and are not recoverable downstream. Since `D58` these activities
 **fall on the project**: constituting the entity is an **internal prerequisite with a time of its
 own**, not a wait on a third party, and every week in which it is not started is a week the project
@@ -162,10 +163,10 @@ mine".**
 |---|---|
 | Which sources concern me and from when | [01](./01-inquadramento-normativo.md) |
 | What I cannot expect from the project | [01 §10](./01-inquadramento-normativo.md), [04 §12](./04-fascicolo-tecnico.md) |
-| How responsibilities are allocated between me, the integrator and the project | [06_security/09](../06_security/09-ripartizione-delle-responsabilita.md) and [07_integration/09](../07_integration/09-obblighi-di-chi-integra.md) |
+| How responsibilities are allocated between me, the integrator and the project | [06_security/09](/06_security/09-ripartizione-delle-responsabilita.md) and [07_integration/09](/07_integration/09-obblighi-di-chi-integra.md) |
 | Which residual risks the project declares and transfers to me | [05 §8.4](./05-gestione-del-rischio.md) |
 | Which components have a licence regime that limits offering them as a managed service | [03 §9.5](./03-sistema-di-gestione-della-qualita.md), [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md) |
-| What I must report to the authority about relevant suppliers | [01 §4](./01-inquadramento-normativo.md), [06_security/08](../06_security/08-quadro-normativo-e-misure.md) |
+| What I must report to the authority about relevant suppliers | [01 §4](./01-inquadramento-normativo.md), [06_security/08](/06_security/08-quadro-normativo-e-misure.md) |
 
 **The point to be made first to this reader, and that this area does not soften:** until a CE
 marking exists, the system **cannot be used to deliver healthcare services to real patients**
@@ -180,12 +181,12 @@ and all three have an immediate consequence for a change proposal.
 
 | What to read | Why a proposal may be rejected for it |
 |---|---|
-| [02 §6](./02-qualificazione-e-classificazione.md) — the twelve requests that shift the qualification | A feature on the list **is not rejected on technical merit, but on scope policy**. The rejection is regulatory and the reason is to be written as such (constraint `V-170`) |
-| [03 §§7, 9](./03-sistema-di-gestione-della-qualita.md) — traceability and third-party components | A change that does not cite the requirement breaks traceability, which cannot be reconstructed. A dependency added without a record and without an exact version is an unidentified configuration item (`V-173`) |
-| [01 §11](./01-inquadramento-normativo.md) — the prohibited formulations | A line of documentation, an error message or a section heading asserting a compliance that does not exist is a regulatory defect (`V-171`), even if the code is impeccable |
+| [02 §6](./02-qualificazione-e-classificazione.md) - the twelve requests that shift the qualification | A feature on the list **is not rejected on technical merit, but on scope policy**. The rejection is regulatory and the reason is to be written as such (constraint `V-170`) |
+| [03 §§7, 9](./03-sistema-di-gestione-della-qualita.md) - traceability and third-party components | A change that does not cite the requirement breaks traceability, which cannot be reconstructed. A dependency added without a record and without an exact version is an unidentified configuration item (`V-173`) |
+| [01 §11](./01-inquadramento-normativo.md) - the prohibited formulations | A line of documentation, an error message or a section heading asserting a compliance that does not exist is a regulatory defect (`V-171`), even if the code is impeccable |
 
 Anyone who has never encountered this material **should not start here**: module
-[10 §15 — The regulatory framework from scratch](../10_fondamenti/15-regolatorio-da-zero.md) is
+[10 §15 - The regulatory framework from scratch](/10_fondamenti/15-regolatorio-da-zero.md) is
 written for those starting from zero, is a declared prerequisite of
 [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md), and this area
 presupposes it on every page.
@@ -198,11 +199,11 @@ This area **does not explain**: it applies. The distinction is sharp and holds f
 
 | If you are looking for… | Go to |
 |---|---|
-| What a medical device, an intended purpose, a risk class, a notified body, a harmonised standard are | [10 §15, §§1–2](../10_fondamenti/15-regolatorio-da-zero.md) |
-| Who the manufacturer is and why this repository is not one | [10 §15, §3](../10_fondamenti/15-regolatorio-da-zero.md) |
-| What ISO 13485, IEC 62304, ISO 14971, IEC 62366-1 are and how they relate to one another | [10 §15, §5](../10_fondamenti/15-regolatorio-da-zero.md) |
-| What hazard, hazardous situation and residual risk are | [10 §10, §9.6](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) and [10 §15, §5.5](../10_fondamenti/15-regolatorio-da-zero.md) |
-| The Italian framework for telemedicine and the health record | [10 §02](../10_fondamenti/02-prestazioni-di-telemedicina.md), [10 §07](../10_fondamenti/07-fse-e-infrastrutture-nazionali.md) |
+| What a medical device, an intended purpose, a risk class, a notified body, a harmonised standard are | [10 §15, §§1–2](/10_fondamenti/15-regolatorio-da-zero.md) |
+| Who the manufacturer is and why this repository is not one | [10 §15, §3](/10_fondamenti/15-regolatorio-da-zero.md) |
+| What ISO 13485, IEC 62304, ISO 14971, IEC 62366-1 are and how they relate to one another | [10 §15, §5](/10_fondamenti/15-regolatorio-da-zero.md) |
+| What hazard, hazardous situation and residual risk are | [10 §10, §9.6](/10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) and [10 §15, §5.5](/10_fondamenti/15-regolatorio-da-zero.md) |
+| The Italian framework for telemedicine and the health record | [10 §02](/10_fondamenti/02-prestazioni-di-telemedicina.md), [10 §07](/10_fondamenti/07-fse-e-infrastrutture-nazionali.md) |
 
 A reader who skips those modules will find this area compact to the point of unintelligibility, and
 that will not be a defect of this area.
@@ -213,10 +214,10 @@ The two perimeters touch at three points and overlap at none.
 
 | Object | Sits in `docs/06_security/` | Sits here |
 |---|---|---|
-| Threats, adversaries, technical measures, incidents | In full | — |
+| Threats, adversaries, technical measures, incidents | In full | - |
 | **Risk file** | The threat model is an **input** | The risk file within the meaning of ISO 14971 and the rule by which the input enters it: [05 §9](./05-gestione-del-rischio.md) |
-| Obligations concerning network security and product resilience | The measures and their implementation: [06_security/08](../06_security/08-quadro-normativo-e-misure.md) | The attribution of the obliged party and the artefact → regime table: [01 §§4–5](./01-inquadramento-normativo.md) |
-| Allocation of responsibilities between parties | The operational table: [06_security/09](../06_security/09-ripartizione-delle-responsabilita.md) | The compliance check against that table, which confirms its rows and strengthens five of them: [01 §10](./01-inquadramento-normativo.md) |
+| Obligations concerning network security and product resilience | The measures and their implementation: [06_security/08](/06_security/08-quadro-normativo-e-misure.md) | The attribution of the obliged party and the artefact → regime table: [01 §§4–5](./01-inquadramento-normativo.md) |
+| Allocation of responsibilities between parties | The operational table: [06_security/09](/06_security/09-ripartizione-delle-responsabilita.md) | The compliance check against that table, which confirms its rows and strengthens five of them: [01 §10](./01-inquadramento-normativo.md) |
 
 **The rule that disambiguates doubtful cases:** if the question is "how is it protected", it is
 security; if it is "who answers, to whom, on the basis of which source", it is compliance.
@@ -224,10 +225,10 @@ security; if it is "who answers, to whom, on the basis of which source", it is c
 ### 4.3 With respect to the other areas
 
 This area **does not contain** the architecture
-([`02_architecture/`](../02_architecture/00-indice.md)), the requirements catalogue
-([`03_functional/`](../03_functional/00-indice.md)), the contract of the interfaces towards third
-parties ([`07_integration/`](../07_integration/00-indice.md)) or the product planning
-([`09_roadmap/`](../09_roadmap/00-indice.md)). Towards those areas it opens questions instead of
+([`02_architecture/`](/02_architecture/00-indice.md)), the requirements catalogue
+([`03_functional/`](/03_functional/00-indice.md)), the contract of the interfaces towards third
+parties ([`07_integration/`](/07_integration/00-indice.md)) or the product planning
+([`09_roadmap/`](/09_roadmap/00-indice.md)). Towards those areas it opens questions instead of
 deciding in their place, and the questions are recorded at the end of each chapter.
 
 ## 5. Constraints received and constraints imposed
@@ -283,8 +284,8 @@ answer. What follows is what has not been written, and why.
    the statement prohibited by `V-171`. The full rationale is in
    [01 §13](./01-inquadramento-normativo.md).
 7. **It does not decide in the project owner's place.** The decisions that require an
-   entrepreneurial choice — monetisation, constitution of a legal entity, declared support period,
-   form of publication of the intended-purpose outline — remain open and are marked as such.
+   entrepreneurial choice - monetisation, constitution of a legal entity, declared support period,
+   form of publication of the intended-purpose outline - remain open and are marked as such.
 8. **It does not close the verifications it has not carried out.** Where the primary text has not
    been read, the entry is `[NV]`: the most significant concern the precise numbering of certain
    sections of the annexes, the designation codes applicable to the device and the harmonisation

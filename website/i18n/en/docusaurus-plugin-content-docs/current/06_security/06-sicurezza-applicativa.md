@@ -6,9 +6,9 @@ description: Validation at the boundaries, sessions and headers, file upload, in
 
 # Application security
 
-> **Reading prerequisite.** The protocols referred to in this chapter — authorisation code grant
-> with proof of possession of the verifier, HTTP message signatures, body digest, problem details —
-> are described in [10 §13 — The protocols](../10_fondamenti/13-protocolli.md). Here we describe
+> **Reading prerequisite.** The protocols referred to in this chapter - authorisation code grant
+> with proof of possession of the verifier, HTTP message signatures, body digest, problem details -
+> are described in [10 §13 - The protocols](/10_fondamenti/13-protocolli.md). Here we describe
 > what the system does with them, and the rules that hold irrespective of the protocol.
 
 ## 1. The principle that governs the chapter
@@ -16,7 +16,7 @@ description: Validation at the boundaries, sessions and headers, file upload, in
 **Every control that counts is executed by the receiving side.** The browser is an untrusted zone,
 the professional's too; the integrator's system is an untrusted zone, even when it is a
 contractual partner; the internal network is not a trust boundary. Client-side controls are
-ergonomics — they spare the user from discovering the error after filling in a form — and have no
+ergonomics - they spare the user from discovering the error after filling in a form - and have no
 security value whatsoever.
 
 The second principle, which underpins §8: **a defence that depends on the correctness of code
@@ -31,7 +31,7 @@ The boundaries are those of [01 §4](./01-modello-di-minaccia.md). At each one, 
 not match it is refused, instead of searching for what is dangerous.
 
 The difference is substantive and must be written down: a list of what is forbidden is always
-incomplete — it is the same structural reason why the relay's list of forbidden addresses was
+incomplete - it is the same structural reason why the relay's list of forbidden addresses was
 bypassed four times ([05 §4.2](./05-sicurezza-del-tempo-reale.md)). A list of what is permitted is
 complete by construction.
 
@@ -62,7 +62,7 @@ requirement: a professional under time pressure must not have to interpret a cod
 | **Cross-site request forgery** | Neutralised by the originating-context policy **and** by a second independent mechanism on state-changing operations: two defences, because the first depends on the browser's behaviour |
 | **Cross-origin resource sharing** | A **closed** list of origins, per tenant, from the **same trust registry** as [02 §6.2](./02-identita-e-accessi.md). No wildcard, in any supported configuration |
 | **Embedding** | Allowed only to the origins on the list. The embeddable component communicates with the host container while **always** verifying the origin of the incoming message: a component that accepts messages from any origin is a component scriptable by any page |
-| **Response headers** | Restrictive policy on executable content and **with no inline sources**; prohibition on type sniffing; referrer control; permissions policy for device interfaces limited to what is needed — and in this system the camera and the microphone are needed, and must be granted over the smallest perimeter |
+| **Response headers** | Restrictive policy on executable content and **with no inline sources**; prohibition on type sniffing; referrer control; permissions policy for device interfaces limited to what is needed - and in this system the camera and the microphone are needed, and must be granted over the smallest perimeter |
 | **Storage in the browser** | No clinical content in the browser's persistent storage. Content lives in the session and does not outlive it |
 
 **On the embeddable component, a note that carries security weight and not just product weight.**
@@ -112,8 +112,8 @@ tenant boundary. The first case exposes one person; the second exposes an archiv
 1. **The tenant context is resolved at the boundary and verified at the boundary of every
    application context.** No query without a resolved tenant: it is not a convention, it is an
    invariant enforced at the persistence layer.
-2. **Isolation between tenants is enforced at the persistence layer** — a dedicated schema with
-   row-level security as defence in depth — **and not only in the application**. An application
+2. **Isolation between tenants is enforced at the persistence layer** - a dedicated schema with
+   row-level security as defence in depth - **and not only in the application**. An application
    defect must not be able to cross the boundary.
 3. **Object-level authorisation is founded on the care relationship**, not on the role alone
    ([02 §9](./02-identita-e-accessi.md)).
@@ -174,7 +174,7 @@ configurations: **protecting availability** and **slowing down abuse**.
 |---|---|
 | **Per actor** | The defence against abuse is by identity, not by address: the insider has a legitimate address |
 | **Per tenant** | One tenant must not be able to exhaust the resources of the others. It is the multi-tenant form of the problem |
-| **Per entry point** | Costly operations — exports, broad searches, document generation — have their own, much tighter, limits |
+| **Per entry point** | Costly operations - exports, broad searches, document generation - have their own, much tighter, limits |
 | **Per sensitive operation** | Authentication, credential recovery request, emergency access: tight thresholds and **every breach is a security event**, not just a refusal |
 | **Communicating the limit** | Rate limit headers in the current form, not in the superseded three-header form (correction C-03) |
 | **Controlled degradation** | Under pressure the system degrades in a declared manner and preserves the priority clinical path. A system that collapses uniformly has treated the clinical session in progress as just another request |
@@ -204,7 +204,7 @@ depends on the correctness of address parsing is not reliable; a defence that de
 
 ```mermaid
 flowchart LR
-    subgraph APP["Application components — no outbound route"]
+    subgraph APP["Application components - no outbound route"]
         A["Terminology gateway"]
         B["Interoperability towards<br/>national and regional<br/>infrastructures"]
         C["Outbound messages<br/>to the integrator"]
@@ -236,7 +236,7 @@ The order matters: two of the four checks are ineffective if applied in the wron
 2. **Verification of the resolved address** against: the loopback interface; private address spaces;
    link-local addresses; **the address of the infrastructure metadata service**; **the node's own
    public address**; IPv4-mapped IPv6 addresses; transition prefixes; multicast and broadcast. The
-   comparison is on the **normalised** form, and the ranges are **prefix-aligned** — this is the
+   comparison is on the **normalised** form, and the ranges are **prefix-aligned** - this is the
    mitigation stated in the advisory for the component-by-component comparison defect described in
    [05 §4.3](./05-sicurezza-del-tempo-reale.md).
 3. **Prohibition on following redirections that are not re-verified.** A redirection is a new
@@ -265,7 +265,7 @@ reachable.
 
 **The relay is not among these, and must not be.** The relay forwards transport packets towards a
 destination chosen by the client: it makes no application requests, it has no application layer on
-which to apply any of these four checks, and its defence is of a different nature — the outbound
+which to apply any of these four checks, and its defence is of a different nature - the outbound
 network isolation of constraint V-10, dealt with in
 [05 §4](./05-sicurezza-del-tempo-reale.md). Confusing them would produce a bad design of both.
 
@@ -290,8 +290,16 @@ cannot implement on their behalf:
 
 - **the network rules that deny egress to the application components** are installation
   configuration. The project documents them in the reference configuration and **checks them at
-  start-up** where technically possible, emitting an explicit warning if the component discovers
-  that it has a route to the outside;
+  start-up**: if the component discovers that it has a route to the outside, **start-up is
+  refused**. It is the same consequence the start-up check table of
+  `docs/02_architecture/08-viste-di-deployment.md` §8 assigns to this row, and it admits none of
+  the softening that table reserves, with a stated reason, to the log store row alone. The reason
+  is in §8.1: the constraint is architectural **because it does not depend on anyone's
+  diligence**, and a start-up that proceeds with a warning puts the property back into the hands
+  of whoever reads a start-up log, which is the least reliable form of diligence there is. Where
+  the check is not technically possible, that impossibility **is declared as a check not
+  performed** and does not count as a check passed: a check that could not run is not a check
+  that passed;
 - **the reachability of the infrastructure metadata service** depends on the platform being
   installed on, and must be denied or made unexploitable;
 - **the list of permitted destinations** for national and regional infrastructures is installation
@@ -303,7 +311,7 @@ All of it converges on the table in [09](./09-ripartizione-delle-responsabilita.
 
 | Reference | Question | To whom |
 |---|---|---|
-| Q-16 | **Closed by this area** with §8: protection against requests directed at internal resources is implemented **once only** in a shared component, as an architectural requirement with route denial at network level, and not repeated at every egress point | — |
+| Q-16 | **Closed by this area** with §8: protection against requests directed at internal resources is implemented **once only** in a shared component, as an architectural requirement with route denial at network level, and not repeated at every egress point | - |
 | Q-156 | Concrete form of the single trust registry, which also feeds the broker's allow-list (§8.2) | Architecture |
-| — | Placement of the broker: a standalone component or a function of an existing edge component. This area fixes its behaviour, not its placement | Architecture |
-| — | Default rate limiting thresholds (§7): a product specification, never compliance | Functional |
+| - | Placement of the broker: a standalone component or a function of an existing edge component. This area fixes its behaviour, not its placement | Architecture |
+| - | Default rate limiting thresholds (§7): a product specification, never compliance | Functional |

@@ -17,7 +17,7 @@ description: Control by control, what belongs to the project, what belongs to th
 > security measures. **Not incident notification.**
 >
 > The supplier **cannot discharge them, cannot attest to them, and no contractual clause moves
-> them.** What the supplier can do — and what this chapter lists — is **produce the evidence** that
+> them.** What the supplier can do - and what this chapter lists - is **produce the evidence** that
 > the obliged entity incorporates into its own plans, and **provide the technical capabilities**
 > without which those obligations are not materially performable.
 >
@@ -63,7 +63,7 @@ requirements for essential entities only.
 | `GV.OC-04` | Identification and listing of relevant systems | I+E | **D** | Description of the components, flows and interfaces, so the customer can correctly scope what the product introduces |
 | `GV.RM-03` | Integration of cyber risk management into the processes | I+E | **D** | The product's risk register and threat model ([01](./01-modello-di-minaccia.md)), reusable as an input |
 | `GV.RR-02` | Information security organisation, with roles and responsibilities | I+E | **D** | This table, as an input to the supplier/customer split |
-| `GV.RR-04` | Personnel security and reliability | I+E\* | **D** | — |
+| `GV.RR-04` | Personnel security and reliability | I+E\* | **D** | - |
 | `GV.PO-01` | Information security policies | I+E | **D** | Reference configuration and technical constraints that the policies must reflect |
 | `GV.PO-02` | Review and update of the policies | I+E\* | **D** | Security advisories and release notes as the event that triggers the review |
 
@@ -90,7 +90,7 @@ requirements for essential entities only.
 | `ID.RA-06` | Risk treatment plan | I+E | **D** | **Technical derogation statement** with the compensating controls, without which the endpoint derogation cannot be closed out ([08 §6](./08-quadro-normativo-e-misure.md)) |
 | `ID.RA-08` | Vulnerability management plan, approved by the governing bodies | I+E\* | **P+D** | **It is one of the two documents that cannot be drawn up without the supplier**: the plan has to take account of the vulnerabilities in the product's dependencies |
 | `ID.IM-01` | Assessment of the effectiveness of the controls and remediation plan | I+E\* | **D** | Outcomes of the automated checks, of the restore tests and of the third-party audit |
-| `ID.IM-04` | Business continuity, recovery and crisis management plans | I+E | **P+D** | A complete backup and restore procedure — system, application, database, configurations, **key material** — with declared objectives and at least one documented run in a test environment |
+| `ID.IM-04` | Business continuity, recovery and crisis management plans | I+E | **P+D** | A complete backup and restore procedure - system, application, database, configurations, **key material** - with declared objectives and at least one documented run in a test environment |
 
 ## 6. Identity, access and training
 
@@ -99,7 +99,7 @@ requirements for essential entities only.
 | `PR.AA-01` | Identity and credential management | I+E | **P+D** | Individual and inventoried accounts; no anonymous or shared account; lockout after failed attempts with each one recorded; mandatory change of the initial credential ([02 §11](./02-identita-e-accessi.md)) |
 | `PR.AA-03` | Authentication, including multi-factor | I+E | **P+D** | **Second factor imposed** on administrative accounts and on remote access; federation across the three national channels; level configurable per tenant and per operation |
 | `PR.AA-05` | Definition and enforcement of access permissions | I+E | **P+D** | **Authorisation founded on the care relationship**, not on the role alone; complete separation between privileged and unprivileged accounts; revocation when the engagement changes ([02 §9](./02-identita-e-accessi.md)) |
-| `PR.AA-06` | Physical access control | I+E | **D** | — |
+| `PR.AA-06` | Physical access control | I+E | **D** | - |
 | `PR.AT-01` | Staff training, with an approved plan | I+E | **D** | Operating documentation, material on the correct use of emergency access and on interpreting the alarms |
 | `PR.AT-02` | Specialist training for roles with security responsibilities | **E** | **D** | Technical configuration and response documentation |
 
@@ -112,7 +112,7 @@ requirements for essential entities only.
 | `PR.DS-11` | Backups created, protected, maintained and verified | I+E\* | **P+D** | Documented procedure, declared recovery objectives, encryption capability. **Execution, the copy not permanently reachable from the system, and the periodic restore test belong to the deployer** |
 | `PR.PS-01` | Secure reference configurations | **E** | **P+D** | Reference configuration for each component; **secure by default**; drift detection; restore to the reference configuration |
 | `PR.PS-02` | Software maintenance and updating | I+E\* | **P+D** | Release of updates over an authenticated channel, **free of charge**; test environment and procedure; **applying them belongs to the deployer** |
-| `PR.PS-03` | Hardware maintenance and updating | **E** | **D** | — |
+| `PR.PS-03` | Hardware maintenance and updating | **E** | **D** | - |
 | `PR.PS-04` | Generation and retention of logs | I+E | **P** | **Append-only audit trail with a hash chain and separate retention**, export in an open format with a digest, 24 and 12 months ([04](./04-tracciamento.md)) |
 | `PR.PS-06` | Security in the software development life cycle | I+E | **P** | Documented life cycle, traceable threat model, automated checks on every proposed change ([07 §5](./07-catena-di-fornitura.md)) |
 | `PR.IR-01` | Protection of networks and environments | I+E | **P+D** | Reference configuration for segmentation; **outbound network isolation of the relay** and **route denial for the application components** ([05 §4](./05-sicurezza-del-tempo-reale.md), [06 §8](./06-sicurezza-applicativa.md)). **The network rules belong to the deployer** |
@@ -138,9 +138,9 @@ requirements for essential entities only.
 
 | Category | Number | What it means in practice |
 |---|:-:|---|
-| **P** — implemented by the product | **5** | `PR.DS-02`, `PR.PS-04`, `PR.PS-06`, `PR.IR-03`, and — for the artefact production part only — the bill of materials inside `ID.AM-02`. The customer verifies and documents |
-| **P+D** — shared | **20** | The majority. These are the rows where misunderstanding is most costly, because **the supplier's portion does not cover the customer's** |
-| **D** — the deployer's | **18** | Governance, personnel, training, physical security, risk assessment, continuity, event correlation, and **all the obligations towards the authority** |
+| **P** - implemented by the product | **5** | `PR.DS-02`, `PR.PS-04`, `PR.PS-06`, `PR.IR-03`, and - for the artefact production part only - the bill of materials inside `ID.AM-02`. The customer verifies and documents |
+| **P+D** - shared | **20** | The majority. These are the rows where misunderstanding is most costly, because **the supplier's portion does not cover the customer's** |
+| **D** - the deployer's | **18** | Governance, personnel, training, physical security, risk assessment, continuity, event correlation, and **all the obligations towards the authority** |
 
 **No measure falls on the supplier alone in a way that discharges the customer.** Even the five
 marked **P** require the customer to verify that the deployed configuration has not been altered
@@ -169,7 +169,7 @@ invisible.
 | **Choice of the level of assurance** for its own services and its justification in the agreement | On joining | **Deployer**, who is the service provider (V-05) |
 | Applying the updates released | According to their own policy | **Deployer** |
 | Running the backups and the **periodic restore test** | Scheduled | **Deployer** |
-| **Network rules** denying egress to the application components and isolating the relay | At installation | **Deployer**; the product documents them and checks them at start-up where possible |
+| **Network rules** denying egress to the application components and isolating the relay | At installation | **Deployer**; the product documents them and checks them at start-up, **refusing start-up** if an application component discovers that it has a route to the outside; where the check is not technically possible, the omission is declared and does not count as a check passed ([06 §8.5](./06-sicurezza-applicativa.md)) |
 
 ## 12. What the project delivers, in a list
 

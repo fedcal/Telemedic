@@ -39,7 +39,7 @@ Il limite ha tre proprietà che chi valuta il prodotto tende a sottovalutare:
    impedisce la pubblicazione.
 3. **Non si trasferisce con la licenza.** Chi integra il software in un prodotto commerciale e lo
    immette sul mercato **è fabbricante per legge**, indipendentemente da quanto scritto nella
-   licenza — e indipendentemente dal fatto che il progetto intenda certificare la propria
+   licenza - e indipendentemente dal fatto che il progetto intenda certificare la propria
    distribuzione.
 
 La dichiarazione integrale di destinazione d'uso e di limiti d'uso è in
@@ -70,7 +70,7 @@ stesura di questo capitolo.
 | **Sito di documentazione** | **Impalcatura presente**: configurazione del generatore, definizione della barra laterale, flussi di lavoro di verifica e pubblicazione, file di internazionalizzazione delle **sole stringhe di interfaccia**. **Nessun contenuto documentale tradotto** |
 | **Versione inglese integrale** (`D3`, `D50`) | **Assente**. Nessun capitolo di `docs/` esiste in inglese |
 | **Codice applicativo** | **Assente.** Nessun file sorgente del servizio o dell'interfaccia |
-| **Catena di costruzione del software** | **Assente** per il software applicativo. Esistono i flussi di lavoro che verificano il corpo documentale — controlli redazionali, guardia sulle terminologie sotto licenza, ricerca di segreti, distinta dei materiali del sito, divergenza fra italiano e inglese — e generano la distinta del solo sito |
+| **Catena di costruzione del software** | **Assente** per il software applicativo. Esistono i flussi di lavoro che verificano il corpo documentale - controlli redazionali, guardia sulle terminologie sotto licenza, ricerca di segreti, distinta dei materiali del sito, divergenza fra italiano e inglese - e generano la distinta del solo sito |
 | **Capacità di sviluppo** (`D54`) | **Un contributore unico, a tempo parziale.** Non è più un'ipotesi: è il dato su cui ogni stima si costruisce |
 | **Soggetto fabbricante** (`D58`) | **Da costituire.** La decisione di assumere il ruolo è presa; il soggetto giuridico non esiste |
 
@@ -87,7 +87,7 @@ stesura di questo capitolo.
 **La prima.** Il progetto ha un corpo documentale di dimensione ragguardevole e **nessuna riga di
 software**. I registri delle aree dichiarano conteggi che vanno da circa ventunomila a circa
 cinquantamila parole per area, per un totale dell'ordine delle centinaia di migliaia di parole.
-`[NV]` — il conteggio esatto non è stato eseguito, e i valori dichiarati nei registri sono stime
+`[NV]` - il conteggio esatto non è stato eseguito, e i valori dichiarati nei registri sono stime
 da densità di riga. Il conteggio esatto è a sua volta un'attività da mettere a piano, perché è il
 moltiplicatore dell'obbligo di traduzione integrale imposto da `D50`.
 
@@ -100,8 +100,8 @@ perché il loro costo di omissione è irrecuperabile: le avvertenze pubbliche ob
 dei fondamenti e le aree di conformità e sicurezza.
 
 L'emendamento **non attenua** il vincolo `V-183` per le aree che restano prerequisito, e non
-elimina la conseguenza che conta: **con la capacità dichiarata da `D54` — un contributore unico a
-tempo parziale — l'ambito del primo rilascio si riduce a ciò che quella capacità può costruire e
+elimina la conseguenza che conta: **con la capacità dichiarata da `D54` - un contributore unico a
+tempo parziale - l'ambito del primo rilascio si riduce a ciò che quella capacità può costruire e
 verificare nel tempo disponibile.** Non esiste una terza via, e un ambito non ridotto sotto questa
 decisione produce semplicemente una data mancata in pubblico.
 
@@ -140,14 +140,14 @@ finché le tre aree esigite da `D56` non sono tradotte per intero: diventa blocc
 momento in cui l'ultima di esse è completata, perché un controllo che non può fallire è teatro e
 lasciarlo permanentemente indulgente è il modo più rapido per abituarsi a ignorarlo.
 
-**Quattro moduli della guida dei fondamenti** — il `16` sull'architettura del progetto, il `18`
+**Quattro moduli della guida dei fondamenti** - il `16` sull'architettura del progetto, il `18`
 sulla matrice area del codice → conoscenze richieste, il `19` glossario, il `20` sulle fonti
 primarie. Non è una lacuna come le altre: la guida è **prerequisito dichiarato di
 `CONTRIBUTING.md`** e `D56` la colloca fra i tre prerequisiti non negoziabili della traduzione,
 quindi i quattro moduli stanno sul percorso critico di due impegni distinti. Due pesano più degli
 altri: il **glossario**, perché è citato da più aree e perché il suo allineamento al glossario
-nazionale di telemedicina va compiuto **prima** della traduzione — una divergenza scoperta dopo si
-propaga su due lingue (questione `Q-146`) —; e il **18**, perché è il documento che dice a un
+nazionale di telemedicina va compiuto **prima** della traduzione - una divergenza scoperta dopo si
+propaga su due lingue (questione `Q-146`) -; e il **18**, perché è il documento che dice a un
 contributore che cosa deve sapere prima di toccare un'area. Questione `Q-201`.
 
 ## 4. I limiti dichiarati del primo rilascio
@@ -156,9 +156,16 @@ Il perimetro esatto è in
 [`docs/09_roadmap/03-primo-rilascio-utilizzabile.md`](../09_roadmap/03-primo-rilascio-utilizzabile.md).
 Il criterio di composizione è dichiarato: si consegna il **percorso verticale completo più stretto
 possibile**, non l'insieme più ampio possibile di funzioni. Il percorso scelto è la **televisita
-programmata**, dall'appuntamento ricevuto per riferimento fino al documento clinico validato e
-restituito al sistema di origine, perché è quello che attraversa il maggior numero di vincoli
-trasversali con il minor numero di dipendenze da terzi.
+programmata**, dall'appuntamento ricevuto per riferimento fino all'**esito strutturato** della
+prestazione, perché è quello che attraversa il maggior numero di vincoli trasversali con il minor
+numero di dipendenze da terzi.
+
+Il percorso **si ferma prima della refertazione**: bozza, validazione, firma, immodificabilità del
+documento firmato, rettifica come nuova versione e consegna del documento al sistema di origine
+escono tutte con il taglio `TG-01` dichiarato al §5 di
+[`03-primo-rilascio-utilizzabile.md`](../09_roadmap/03-primo-rilascio-utilizzabile.md). Il taglio è
+reversibile e la funzione è la prima della coda successiva, ma **finché non rientra, il primo
+rilascio non produce un referto**: restituisce un esito strutturato, non un documento firmato.
 
 Ne discende un elenco di limiti che è bene leggere come tale e non come una lista di funzioni in
 arrivo:
@@ -166,6 +173,7 @@ arrivo:
 | Limite | Natura |
 |---|---|
 | Un solo tipo di prestazione: **televisita programmata** | Perimetro di rilascio. Telemonitoraggio, teleconsulto, teleconsulenza e teleassistenza sono nel perimetro del prodotto ma non del primo rilascio |
+| **Nessun referto**: il percorso restituisce un esito strutturato, non un documento firmato | Perimetro di rilascio. È il taglio `TG-01`, reversibile: refertazione e consegna del documento al sistema di origine rientrano subito dopo `RU-1` |
 | **Due partecipanti** alla sessione | La topologia oltre due partecipanti è decisione dichiarata rinviata, e non è marginale: l'interprete è la misura alternativa dichiarata per la non conformità di accessibilità nota |
 | **Nessuna registrazione della sessione** | Perimetro di rilascio. L'indicatore e i suoi divieti esistono già nel modello |
 | **Nessun conferimento alle infrastrutture documentali** | Dipendenza esterna non disponibile: mancano i modelli documentali, non il progetto (`Q-07`) |
@@ -175,7 +183,7 @@ arrivo:
 | **Sottotitoli in tempo reale assenti** | Non conformità dichiarata su un criterio di accessibilità, con misura alternativa e canale dati comunque definito nel protocollo |
 | **Ordinamento degli eventi garantito solo dentro la partizione** | Nessun requisito funzionale può dipendere da un ordine globale |
 | **Consegna degli eventi almeno una volta** | I consumatori sono idempotenti per costruzione, con chiave di deduplicazione esplicita |
-| **Numero di tenant per installazione** | `[NV]` — non misurato. Ordine di grandezza dichiarato: centinaia. La misura è un'attività di rilascio, non una stima |
+| **Numero di tenant per installazione** | `[NV]` - non misurato. Ordine di grandezza dichiarato: centinaia. La misura è un'attività di rilascio, non una stima |
 | **Nessuna ridondanza del broker** nell'assetto a nodo singolo | La perdita del broker significa **ritardo nella consegna, non perdita di eventi**: la sorgente di verità è l'outbox transazionale |
 
 Due voci meritano una nota, perché è dove si concentrano i fraintendimenti.
@@ -243,9 +251,9 @@ confusione avvantaggia sempre chi legge in fretta.
 
 Il progetto produce fascicolo tecnico, documentazione di ciclo di vita, gestione del rischio e
 ingegneria dell'usabilità, e **ha deciso di assumere in proprio il ruolo di fabbricante** (`D58`).
-Ciò significa che le attività prima attribuite a un terzo — costituzione del soggetto, nomina della
+Ciò significa che le attività prima attribuite a un terzo - costituzione del soggetto, nomina della
 persona responsabile del rispetto della normativa, contatti con gli organismi notificati, avvio del
-piano di valutazione clinica — sono del progetto e hanno un proprio tempo a calendario.
+piano di valutazione clinica - sono del progetto e hanno un proprio tempo a calendario.
 
 **Non significa nulla di più.** Il soggetto giuridico non esiste ancora; il prodotto oggi non reca
 marcatura; chi installa una versione non certificata assume comunque gli obblighi che ne derivano,
@@ -277,8 +285,8 @@ i pazienti. Nessuna clausola di licenza cambia questo fatto.
 
 ### 5.5 Documentazione prima del codice, e la data che è stata confermata
 
-La sequenza iniziale è motivata — le attività retroattivamente irrecuperabili non si recuperano, e
-in sanità un software non documentato non è installabile — ma il costo è reale e va detto: **a
+La sequenza iniziale è motivata - le attività retroattivamente irrecuperabili non si recuperano, e
+in sanità un software non documentato non è installabile - ma il costo è reale e va detto: **a
 oltre metà dell'orizzonte temporale dichiarato non esiste software**.
 
 La tensione è stata portata al committente con tre opzioni argomentate, e la raccomandazione
@@ -288,7 +296,7 @@ novembre 2026 resta il primo rilascio installabile, e la decisione non si riliti
 
 Questa è una tensione accettata con gli occhi aperti, e il modo in cui viene retta è dichiarato
 invece di essere sperato: **si riduce l'ambito**, non si aumenta l'ottimismo. Con la capacità di
-`D54` — un contributore unico a tempo parziale — l'area roadmap è tenuta a dichiarare
+`D54` - un contributore unico a tempo parziale - l'area roadmap è tenuta a dichiarare
 esplicitamente che cosa entra, che cosa viene tagliato e quali tagli sono reversibili. Chi valuta
 il progetto dovrebbe leggere quel documento **prima** di leggere l'elenco delle capacità: un ambito
 non ridotto sotto questa decisione produce semplicemente una data mancata in pubblico, ed è il
@@ -298,8 +306,8 @@ rischio di programma più concreto oggi in essere.
 
 La scrittura sull'archivio primario del registro è **bloccante**: il suo fallimento fa fallire
 l'operazione applicativa. La conseguenza accettata e dichiarata è che **l'indisponibilità del
-registro sia indisponibilità del sistema per le operazioni cliniche**. L'alternativa — registrare
-in modo non bloccante — significherebbe che un accesso a dato sanitario può avvenire senza traccia,
+registro sia indisponibilità del sistema per le operazioni cliniche**. L'alternativa - registrare
+in modo non bloccante - significherebbe che un accesso a dato sanitario può avvenire senza traccia,
 che è precisamente ciò che il requisito esclude.
 
 Resta una finestra di vulnerabilità residua dichiarata: le voci fra due ancoraggi dell'impronta
@@ -352,8 +360,8 @@ sostituiti diversi (vincolo `V-188`).
 È la tensione dichiarata da `D54`, ed è quella che **nessuna quantità di lavoro individuale
 risolve**, perché non è un problema di ore ma di persone diverse.
 
-Alcune registrazioni richieste da un sistema di gestione della qualità — audit interno, riesame del
-rilascio, verifica di configurazione eseguita da chi non ha scritto il codice — **presuppongono
+Alcune registrazioni richieste da un sistema di gestione della qualità - audit interno, riesame del
+rilascio, verifica di configurazione eseguita da chi non ha scritto il codice - **presuppongono
 soggetti distinti e non sono producibili internamente** da un contributore unico. La conseguenza va
 accettata formalmente e non aggirata: va stabilito quale sottoinsieme si accetta come rischio
 dichiarato e quale si copre acquisendo la funzione all'esterno. È la questione `Q-189`, aperta verso
@@ -377,18 +385,18 @@ da `D56`). Le conseguenze di ciascuna sono recepite nei paragrafi precedenti.
 
 | Questione | Perché pesa |
 |---|---|
-| `Q-189` — continuità dei contributori e registrazioni a ruoli distinti | Determina quale parte del sistema qualità è producibile internamente e quale va acquisita all'esterno (§5.11) |
-| `Q-185` — allineamento della pagina pubblica alle riformulazioni approvate | Ogni giorno di esposizione è un giorno di affermazione non sostenibile, e **un periodo di pubblicazione non si annulla**: l'impatto è irrecuperabile, non ritardabile |
-| `Q-07` — modelli documentali delle tipologie del fascicolo | Non pubblicamente disponibili. Blocca il conferimento, non la progettazione |
-| `Q-115` — dispositivo e viewport di riferimento | Senza di esso nessuna soglia di prestazione dell'interfaccia è verificabile |
-| `Q-170` — forma di pubblicazione della traccia di destinazione d'uso | Un documento intitolato «destinazione d'uso» pubblicato sotto il nome del progetto è precisamente il materiale da cui un terzo può ricavarla |
-| `Q-172` — versionamento della distribuzione identificata | Va deciso **prima** del primo rilascio: una rinumerazione successiva è una discontinuità di identificazione, e in un dispositivo registrato non si sana con una nota di rilascio. Con `D58` diventa una decisione del progetto, non di un terzo |
-| `Q-186` — periodo di supporto dichiarato | Senza la durata, il piano di dismissione delle versioni non è pubblicabile ed è **prerequisito della prima distribuzione**, non voce di coda |
-| `Q-187` — concentrazione ammessa su un solo integratore | Il vincolo sulle prove presidia la **forma**, non la **deriva delle priorità**, che si compie in passi ciascuno localmente ragionevole ed è osservabile solo in revisione |
-| `Q-11` — licenze di scale e questionari clinici validati | Finché è aperta, il sistema conserva le risposte e **non calcola punteggi**, in via cautelativa e reversibile |
-| `Q-200` — recepimento di `D57` e `D58` nei vincoli e nelle aree | Due vincoli in vigore e diverse aree portano ancora l'attribuzione anteriore. Una riscrittura parziale produrrebbe **due attribuzioni coesistenti**, che è peggio di una attribuzione superata |
-| `Q-201` — i quattro moduli mancanti della guida dei fondamenti | Stanno sul percorso critico di due impegni distinti: il prerequisito di contribuzione e i prerequisiti di traduzione di `D56` |
-| `Q-202` — sede unica della fotografia dello stato di fatto | Una fotografia scritta a mano in due sedi diverge, e queste due hanno già cominciato |
+| `Q-189` - continuità dei contributori e registrazioni a ruoli distinti | Determina quale parte del sistema qualità è producibile internamente e quale va acquisita all'esterno (§5.11) |
+| `Q-185` - allineamento della pagina pubblica alle riformulazioni approvate | Ogni giorno di esposizione è un giorno di affermazione non sostenibile, e **un periodo di pubblicazione non si annulla**: l'impatto è irrecuperabile, non ritardabile |
+| `Q-07` - modelli documentali delle tipologie del fascicolo | Non pubblicamente disponibili. Blocca il conferimento, non la progettazione |
+| `Q-115` - dispositivo e viewport di riferimento | Senza di esso nessuna soglia di prestazione dell'interfaccia è verificabile |
+| `Q-170` - forma di pubblicazione della traccia di destinazione d'uso | Un documento intitolato «destinazione d'uso» pubblicato sotto il nome del progetto è precisamente il materiale da cui un terzo può ricavarla |
+| `Q-172` - versionamento della distribuzione identificata | Va deciso **prima** del primo rilascio: una rinumerazione successiva è una discontinuità di identificazione, e in un dispositivo registrato non si sana con una nota di rilascio. Con `D58` diventa una decisione del progetto, non di un terzo |
+| `Q-186` - periodo di supporto dichiarato | Senza la durata, il piano di dismissione delle versioni non è pubblicabile ed è **prerequisito della prima distribuzione**, non voce di coda |
+| `Q-187` - concentrazione ammessa su un solo integratore | Il vincolo sulle prove presidia la **forma**, non la **deriva delle priorità**, che si compie in passi ciascuno localmente ragionevole ed è osservabile solo in revisione |
+| `Q-11` - licenze di scale e questionari clinici validati | Finché è aperta, il sistema conserva le risposte e **non calcola punteggi**, in via cautelativa e reversibile |
+| `Q-200` - recepimento di `D57` e `D58` nei vincoli e nelle aree | Due vincoli in vigore e diverse aree portano ancora l'attribuzione anteriore. Una riscrittura parziale produrrebbe **due attribuzioni coesistenti**, che è peggio di una attribuzione superata |
+| `Q-201` - i quattro moduli mancanti della guida dei fondamenti | Stanno sul percorso critico di due impegni distinti: il prerequisito di contribuzione e i prerequisiti di traduzione di `D56` |
+| `Q-202` - sede unica della fotografia dello stato di fatto | Una fotografia scritta a mano in due sedi diverge, e queste due hanno già cominciato |
 
 ## 7. Che cosa chi adotta deve sapere prima di decidere
 
@@ -407,8 +415,8 @@ Otto punti. Se uno solo di essi è incompatibile con il contesto di chi legge, �
    categoria di riapribilità dichiarata. L'accesso di un pagatore al fascicolo non è riapribile
    finché la fonte è in vigore.
 5. **Una lista di presupposti di installazione va soddisfatta**, e comprende requisiti
-   infrastrutturali — isolamento di rete in uscita, separazione dei privilegi fra archivi, custodia
-   della chiave radice — che non sono opzioni.
+   infrastrutturali - isolamento di rete in uscita, separazione dei privilegi fra archivi, custodia
+   della chiave radice - che non sono opzioni.
 6. **Alcuni obblighi restano interamente di chi adotta**, e nessuna clausola contrattuale li
    sposta: valutazione d'impatto, notifica agli enti, approvazione dei piani, ruolo di fornitore di
    servizi verso la federazione delle identità.
@@ -443,8 +451,8 @@ della pubblicazione, con la tabella delle formule vietate come lista di controll
 
 ## Dove continuare
 
-- [`docs/09_roadmap/00-indice.md`](../09_roadmap/00-indice.md): le tre classi di enunciato —
-  impegno, intenzione, ipotesi — e la procedura con cui il piano si aggiorna.
+- [`docs/09_roadmap/00-indice.md`](../09_roadmap/00-indice.md): le tre classi di enunciato -
+  impegno, intenzione, ipotesi - e la procedura con cui il piano si aggiorna.
 - [`docs/09_roadmap/05-rischi-e-dipendenze.md`](../09_roadmap/05-rischi-e-dipendenze.md): il
   registro dei rischi di programma, ciascuno con indicatore anticipatore e titolare nominato.
 - [`docs/03_functional/07-fuori-perimetro.md`](../03_functional/07-fuori-perimetro.md): le

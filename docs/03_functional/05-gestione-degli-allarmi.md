@@ -21,9 +21,9 @@ La quarta manca praticamente sempre nelle prime implementazioni, ed è quella ch
 allarme da una notifica. **Un allarme senza escalation non è un allarme: è un registro con un
 suono** (`BR-133`).
 
-La teoria che giustifica queste scelte — sensibilità e specificità, valore predittivo positivo e
+La teoria che giustifica queste scelte - sensibilità e specificità, valore predittivo positivo e
 dipendenza dalla prevalenza, affaticamento da allarme come meccanismo documentato di produzione del
-danno — è nel modulo
+danno - è nel modulo
 [10, § 7](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md). Qui non si ripete: si applica.
 
 Una conseguenza va però ricordata, perché orienta ogni decisione di questo documento. Un allarme
@@ -43,7 +43,7 @@ in cronicità è spesso lo scostamento dal valore abituale di quella persona, no
 popolazione. *Organizzativa*: la soglia determina il carico di lavoro del servizio, e non è
 configurabile in astratto ma solo in rapporto alla capacità di risposta dichiarata. *Regolatoria*: la
 soglia è contenuto del piano di telemonitoraggio, che è un documento sanitario individuale firmato,
-con un contenuto informativo definito dal DM 19 novembre 2025, Allegato 1, § 2.24 — una soglia nel
+con un contenuto informativo definito dal DM 19 novembre 2025, Allegato 1, § 2.24 - una soglia nel
 codice sorgente è una parte di documento sanitario scritta da uno sviluppatore. *Di responsabilità*:
 se la soglia è del sistema, il sistema ha deciso.
 
@@ -63,7 +63,7 @@ una soglia equivale a stabilirla, con l'aggravante che la responsabilità appare
 confermato. Esistono inoltre sottopopolazioni identificabili per cui il valore «normale» è
 clinicamente sbagliato, e uno strumento diffuso arriva a prevedere una scala di punteggio
 alternativa proprio per riconoscerlo. Infine, un valore predefinito è una dichiarazione clinica non
-firmata: proviene da una fonte — quale, in quale versione, per quale popolazione? — oppure da
+firmata: proviene da una fonte - quale, in quale versione, per quale popolazione? - oppure da
 nessuno.
 
 > **La forma corretta.** Il campo parte **vuoto e obbligatorio**. Il sistema può mostrare accanto, in
@@ -270,14 +270,14 @@ sequenceDiagram
 
 ## 8. Riduzione del rumore: strumenti utili e pericolosi
 
-Le tecniche che riducono il rumore sono necessarie — senza di esse l'affaticamento da allarme è
-garantito — ma ciascuna introduce un rischio che va dichiarato e valutato. Tutte sono configurate da
+Le tecniche che riducono il rumore sono necessarie - senza di esse l'affaticamento da allarme è
+garantito - ma ciascuna introduce un rischio che va dichiarato e valutato. Tutte sono configurate da
 un professionista nel piano, mai costanti applicative (`RF-285`, `BR-139`).
 
 | Tecnica | A che cosa serve | Rischio introdotto | Requisito |
 |---|---|---|---|
-| **Isteresi** — soglie diverse per attivare e per rientrare | evita l'oscillazione attorno al limite | ritarda il rientro; con soglie mal poste ritarda la riattivazione | entrambe le soglie configurate e visibili al clinico |
-| **Persistenza** — la condizione deve durare N rilevazioni o N intervalli | filtra i valori spuri | ritarda la generazione di un tempo pari alla finestra | il ritardo introdotto è dichiarato, è attributo della regola ed è riportato accanto agli allarmi che ne derivano |
+| **Isteresi** - soglie diverse per attivare e per rientrare | evita l'oscillazione attorno al limite | ritarda il rientro; con soglie mal poste ritarda la riattivazione | entrambe le soglie configurate e visibili al clinico |
+| **Persistenza** - la condizione deve durare N rilevazioni o N intervalli | filtra i valori spuri | ritarda la generazione di un tempo pari alla finestra | il ritardo introdotto è dichiarato, è attributo della regola ed è riportato accanto agli allarmi che ne derivano |
 | **Raggruppamento** | riduce il carico sul destinatario | un allarme grave si nasconde in un gruppo di allarmi banali | il gruppo eredita la severità massima e la scadenza dell'allarme più severo (`RF-286`) |
 | **Soppressione dei duplicati** | evita la ripetizione della stessa condizione | una condizione che persiste smette di essere segnalata e sembra risolta | la persistenza resta rappresentata nello stato e la condizione è ripresentata al cambio di destinatario o di turno |
 | **Sospensione temporanea** | consente di gestire una condizione nota | l'allarme non torna | durata massima codificata, attribuzione, motivazione, riattivazione automatica (`RF-287`) |
@@ -370,12 +370,12 @@ che guarda i dati e risponde agli allarmi, e i tempi entro cui risponde. Per chi
 commerciale la tentazione è leggerla come un parametro di listino: più copertura, più costo, più
 valore. **In un servizio clinico non è così, e la ragione è strutturale.**
 
-Nel momento in cui una persona viene arruolata, le si dice — esplicitamente o implicitamente — che
+Nel momento in cui una persona viene arruolata, le si dice - esplicitamente o implicitamente - che
 qualcuno guarderà i suoi dati. Da quel momento **modifica il proprio comportamento**: attribuisce al
 servizio una funzione di sorveglianza e, in una certa misura, smette di essere l'unico sorvegliante
 di sé stessa. Se la copertura è dichiarata correttamente, sa che di notte deve rivolgersi altrove e
-lo fa: il servizio ha ridotto il rischio. Se è ambigua — o non dichiarata affatto, che è la stessa
-cosa — attende una risposta che non arriverà e ritarda l'accesso al canale corretto: **il servizio ha
+lo fa: il servizio ha ridotto il rischio. Se è ambigua - o non dichiarata affatto, che è la stessa
+cosa - attende una risposta che non arriverà e ritarda l'accesso al canale corretto: **il servizio ha
 aumentato il rischio rispetto alla situazione in cui non esisteva**.
 
 È un pericolo introdotto dal sistema, e la misura di controllo non è tecnologica: è informativa,
@@ -409,7 +409,7 @@ verificata con utenti reali e resa impossibile da non vedere.
 Il sistema deve saper dire «questo non è il canale giusto», e deve saperlo dire senza fare diagnosi.
 
 **Che cosa fa.** Presenta item configurati e redatti da un clinico; riconosce che la risposta
-corrisponde a un item **marcato** come uscita dal canale — è un confronto su un item strutturato, non
+corrisponde a un item **marcato** come uscita dal canale - è un confronto su un item strutturato, non
 un'inferenza; interrompe il flusso e mostra un'istruzione di instradamento configurata, con canale,
 recapito e urgenza; registra che cosa è stato mostrato, quando, a chi e che cosa l'utente ha fatto
 dopo; notifica il team secondo il piano.

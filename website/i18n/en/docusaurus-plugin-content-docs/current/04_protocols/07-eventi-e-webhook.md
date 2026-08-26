@@ -8,7 +8,7 @@ description: "Envelopes, catalogue of public events, signature, retries, orderin
 
 What an event envelope is, how HTTP message signing works and what the possible delivery semantics
 are is explained in the module
-[«The protocols, one by one», §6](../10_fondamenti/13-protocolli.md). This chapter describes
+[«The protocols, one by one», §6](/10_fondamenti/13-protocolli.md). This chapter describes
 **which events Telemedic publishes, in what form, with what guarantees and under what contract**.
 
 ## 1. Two channels, a single source
@@ -31,8 +31,8 @@ flowchart LR
 ```
 
 **The transactional outbox is the single source.** The event is written in the same transaction as
-the domain datum and published by a forwarding component. There are no lost events — because the
-write is atomic with the datum — nor phantom events — because no event is produced by a second
+the domain datum and published by a forwarding component. There are no lost events - because the
+write is atomic with the datum - nor phantom events - because no event is produced by a second
 application write that might not correspond to a fact that actually occurred.
 
 The three channels are fed from the same bus. The correspondence between the primary channel's
@@ -67,7 +67,7 @@ that are not the writing of a resource.
 ### 2.1 Structured mode
 
 The body is an event in the **CloudEvents 1.0** envelope format, in *structured* mode: the whole
-event in the JSON body. The mandatory context attributes are four — id, source, spec version, type —
+event in the JSON body. The mandatory context attributes are four - id, source, spec version, type -
 with the constraint that the producer **MUST** guarantee the uniqueness of the source-and-id pair
 for every distinct event. The optional attributes used are the data content type, the data schema,
 the subject and the time.
@@ -77,7 +77,7 @@ the subject and the time.
 | `specversion` | `1.0` |
 | `id` | Sortable event identifier, unique within the source |
 | `source` | `https://telemedic.example/tenants/{tenantId}` |
-| `type` | `telemedic.<domain>.<fact>.v<N>` — reverse namespace with explicit version |
+| `type` | `telemedic.<domain>.<fact>.v<N>` - reverse namespace with explicit version |
 | `subject` | Reference to the aggregate, e.g. `Encounter/enc-3c8f1a20` |
 | `time` | Instant in RFC 3339 format, with milliseconds and zero offset |
 | `datacontenttype` | `application/json` |
@@ -88,7 +88,7 @@ to type generation in the client libraries.
 
 ### 2.2 Binary mode, and the prohibition to respect
 
-*Binary* mode — attributes in the headers, application data in the body — is offered as a per-destination
+*Binary* mode - attributes in the headers, application data in the body - is offered as a per-destination
 option. The formation rule is verbatim:
 
 > *«all CloudEvents context attributes, including extensions, MUST be mapped to HTTP headers with
@@ -131,7 +131,7 @@ Content-Type: application/cloudevents+json; charset=utf-8
 User-Agent: Telemedic-Webhooks/1
 Telemedic-Event-Id: 01J9ZC7Y4Q7K9V0R2M4T8N1B3D
 Telemedic-Event-Type: telemedic.session.completed.v1
-Telemedic-Tenant: tenant-a
+Telemedic-Tenant: t0001
 Telemedic-Delivery-Id: 01J9ZC80B2W5F6H7J8K9L0M1N2
 Telemedic-Delivery-Attempt: 1
 Telemedic-Timestamp: 1789234882
@@ -141,7 +141,7 @@ Content-Digest: sha-256=:X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=:
 {
   "specversion": "1.0",
   "id": "01J9ZC7Y4Q7K9V0R2M4T8N1B3D",
-  "source": "https://telemedic.example/tenants/tenant-a",
+  "source": "https://telemedic.example/tenants/t0001",
   "type": "telemedic.session.completed.v1",
   "subject": "Encounter/enc-3c8f1a20",
   "time": "2026-09-14T10:41:22.481Z",
@@ -149,7 +149,7 @@ Content-Digest: sha-256=:X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=:
   "dataschema": "https://telemedic.example/schemas/session-completed/1.2.0.json",
   "data": {
     "sessionId": "ses_01J9ZC5P",
-    "tenantId": "tenant-a",
+    "tenantId": "t0001",
     "sequence": 412,
     "encounter": { "reference": "Encounter/enc-3c8f1a20" },
     "appointment": { "reference": "Appointment/apt-51b7" },
@@ -224,7 +224,7 @@ this area as a catalogue constraint.
 
 ## 4. The signature
 
-### 4.1 The symmetric scheme, the default
+### 4.1 The symmetric scheme, a declared option
 
 The signing base is constructed explicitly and does not depend on how the recipient normalises the
 headers:
@@ -250,11 +250,11 @@ are the main source of integration errors:
    the replay window.
 4. **Deduplicate on the event identifier**, with a window at least equal to the replay one.
 
-### 4.2 The asymmetric scheme, for non-repudiation
+### 4.2 The asymmetric scheme, the default
 
 **RFC 9421**, «HTTP Message Signatures», February 2024, standardises exactly this problem. It
-defines two fields: one for the metadata — which components of the message are covered and with
-which parameters — and one for the signature value. The derived components that can be used include
+defines two fields: one for the metadata - which components of the message are covered and with
+which parameters - and one for the signature value. The derived components that can be used include
 the method, the target URI, the authority, the path and the query string, as well as ordinary fields
 such as the content digest. The signature parameters are creation, expiry, key identifier,
 algorithm, nonce and tag.
@@ -271,12 +271,22 @@ documents and must be cited distinctly.
 | Mature libraries in 2026 | Ubiquitous | Growing, not ubiquitous |
 | Cost for the SME-bracket integrator | Low | Medium to high |
 
-**Project choice: both, configurable per destination.** The symmetric scheme is the default, because
-it is what the typical integrator can consume. The asymmetric scheme is **recommended and, in a
-public-sector context, required**: when the notification carries the outcome of a healthcare act and
+**Project choice: both configurable per destination, with the asymmetric scheme as the default**
+(`V-162`). The reason is that when the notification carries the outcome of a healthcare act and
 feeds an audit trail, the difference between «I can verify» and «I can demonstrate to a third
-party» is substantive. With a shared secret the recipient cannot prove to anyone that the message
+party» is substantive: with a shared secret the recipient cannot prove to anyone that the message
 came from Telemedic, because they could have forged it themselves.
+
+The symmetric scheme remains available as a **declared option per destination**, and the reason it
+has not been removed is that the typical SME integrator can consume HMAC and cannot always consume
+RFC 9421. **The cost of that choice is not concealed**: enabling the symmetric scheme towards a
+destination means giving up non-repudiation for that destination, and the waiver is to be recorded
+together with the configuration, not left implicit. Within the perimeter of `RU-1` the shared
+secret is **not offered as the default mode** (`V-162`,
+[`09_roadmap/03 §3.7`](/09_roadmap/03-primo-rilascio-utilizzabile.md)), and the order in which
+scope is sacrificed states that, should the asymmetric signature fall, **the shared secret is not
+its permitted substitute**: either the asymmetric signature, or the event does not go out to third
+parties.
 
 ### 4.3 Secret rotation
 
@@ -354,8 +364,8 @@ They must be stated in the contract, because they are the two things integrators
   deduplication key is the event identifier.
 - **There is no guarantee of global ordering.** With retries and concurrent delivery, a completion
   event may arrive before a start event.
-- **There is an optional per-key ordered mode.** Events with the same partition key — typically the
-  session or service identifier — are delivered in sequence, blocking that key's queue in the event
+- **There is an optional per-key ordered mode.** Events with the same partition key - typically the
+  session or service identifier - are delivered in sequence, blocking that key's queue in the event
   of a failure. **The cost is declared: a blocked event blocks the key.** It is offered as an
   option, never as the default behaviour.
 - **Reconstructing the order on the recipient's side is the recommended mechanism.** Every event
@@ -379,9 +389,9 @@ it directly:
 2. **The body of the recipient's response is never returned to the integrator through the
    interface**, other than as a status code and possibly the first sanitised bytes. Without this rule
    a request directed at internal resources would become a request with exfiltration.
-3. **The control must be implemented once only**, in a component shared by all the egress points —
+3. **The control must be implemented once only**, in a component shared by all the egress points -
    event delivery, resolution of public key sets, document retrieval, calls towards the system of
-   origin — and not repeated for each of them. This is question **Q-16** opened towards the security
+   origin - and not repeated for each of them. This is question **Q-16** opened towards the security
    area and the technical area, and this area supports it: four implementations of the same
    protection produce four different behaviours, and the weakest one is the one that counts.
 
@@ -442,8 +452,8 @@ The permitted destinations are on an **explicit list**, shared with the list of 
 
 ## 9. The pull channel
 
-For the integrator that cannot expose a public endpoint — an installation behind network address
-translation, a security policy that does not allow inbound connections — there is a paginated event
+For the integrator that cannot expose a public endpoint - an installation behind network address
+translation, a security policy that does not allow inbound connections - there is a paginated event
 list on the application plane, queryable by instant and by cursor. It is the same event stream, read
 instead of delivered.
 
@@ -469,7 +479,7 @@ a third party.
 
 **What is required of the recipient, and without which the integration does not work.** Idempotency
 on the declared key. Signature verification on the raw bytes. A fast response: the recipient accepts
-and enqueues, it does not process inline — a slow recipient reduces its own delivery capacity, not
+and enqueues, it does not process inline - a slow recipient reduces its own delivery capacity, not
 Telemedic's. Tolerance of unknown fields and unknown event types: **a new type is not a breaking
 change**, and a recipient that errors on a type it does not know will break the first time the
 catalogue is enriched.
