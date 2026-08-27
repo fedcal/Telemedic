@@ -52,9 +52,17 @@ confine di autorizzazione dall'essere ereditato da uno spike.
 
 ## 2. La finestra, e l'aritmetica dichiarata
 
-Fra `T-03` (26 settembre 2026) e `T-08` (14 novembre 2026) corrono **quarantanove giorni**, cioè
-**sette settimane esatte**. Con la capacità dichiarata da `D62` - dieci-venti ore a settimana,
-contributore unico - la finestra vale **settanta-centoquaranta ore**.
+Fra `T-03` e `T-08` (14 novembre 2026) corrono, dopo la ritaratura del 27 agosto 2026 che ha
+portato `T-03` dal 26 settembre al **5 settembre**, **settanta giorni**: dieci settimane invece di
+sette. Con la capacità dichiarata da `D62` - dieci-venti ore a settimana, contributore unico - la
+finestra vale **cento-duecento ore** invece di settanta-centoquaranta.
+
+> **Le tre settimane guadagnate non sono perimetro da spendere.** La fine di `T-08` resta al 14
+> novembre, e il lavoro di `T-08` resta quello che era: ciò che è cambiato è il **margine**, cioè la
+> riserva contro il rischio che questo stesso piano dichiara più avanti - la prima esecuzione di una
+> catena che non ha mai girato, e le ore che `T-14` potrebbe consumare se i suoi criteri 1 e 2, che
+> sono del Committente, si muovessero tardi. Trasformare margine in ambito è il modo più rapido di
+> tornare a settanta ore.
 
 Quelle ore non sono tutte di `T-08`. Nella stessa finestra cadono:
 

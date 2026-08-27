@@ -71,7 +71,7 @@ V-10, V-11, V-12, V-21, V-22, V-23, V-25.
 
 Voci altrui verso cui quest'area ha contribuito senza chiuderle: Q-08 (due modalità), Q-09
 (parametrizzazione del termine), Q-10 e Q-24 (tabella artefatto → regime), Q-17 (inventario di
-partenza dei componenti), Q-18 (residuo sul livello richiesto), Q-19 (registro di fiducia),
+partenza dei componenti), Q-160 (residuo sul livello richiesto), Q-156 (registro di fiducia),
 Q-20 (ripartizione dei ruoli).
 
 ---

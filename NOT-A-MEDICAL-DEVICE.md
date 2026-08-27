@@ -89,10 +89,8 @@ formulazione rende possibile fraintendere.
    «allora posso usarlo» trae una conclusione **sbagliata**, e le conseguenze di quella
    conclusione restano sue.
 2. **Nessuna data promessa.** Questo documento non promette, e **nessun artefatto del progetto
-   promette**, una data entro la quale il prodotto sarà marcato. Delle date esistono, e vanno
-   dette invece che taciute: la pianificazione interna ne porta - tre scenari che collocano la
-   marcatura fra dicembre 2027 e il primo trimestre 2029, con luglio - agosto 2028 come piano
-   di riferimento
+   promette**, una data entro la quale il prodotto sarà marcato. <!-- data-e-marcatura: enunciato del divieto, §11 regola 4 - il capoverso che vieta di promettere una data e' costretto a nominare sia la marcatura sia la forma temporale --> Delle date esistono, e vanno
+   dette invece che taciute: la pianificazione interna le contiene
    ([`docs/08_compliance/09-percorso-e-calendario.md`](docs/08_compliance/09-percorso-e-calendario.md),
    ripreso da [`docs/10_fondamenti/15-regolatorio-da-zero.md`](docs/10_fondamenti/15-regolatorio-da-zero.md)).
    Sono date di lavoro interno, non impegni verso chicchessia, e chi le legge come previsione di
@@ -218,10 +216,8 @@ it possible to misunderstand.
    "then I may use it" draws a **wrong** conclusion, and the consequences of that conclusion
    remain theirs.
 2. **No date promised.** This document does not promise, and **no project artefact promises**, a
-   date by which the product will be marked. Dates do exist, and they are to be stated rather
-   than withheld: the internal planning carries them - three scenarios placing the marking
-   between December 2027 and the first quarter of 2029, with July - August 2028 as the reference
-   plan
+   date by which the product will be marked. <!-- data-e-marcatura: statement of the prohibition, §11 rule 4 - the paragraph forbidding a promised date must name both the marking and the temporal form --> Dates do exist, and they are to be stated rather
+   than withheld: the internal planning holds them
    ([`docs/08_compliance/09-percorso-e-calendario.md`](docs/08_compliance/09-percorso-e-calendario.md),
    restated in [`docs/10_fondamenti/15-regolatorio-da-zero.md`](docs/10_fondamenti/15-regolatorio-da-zero.md)).
    They are internal working dates, not commitments to anyone, and whoever reads them as a

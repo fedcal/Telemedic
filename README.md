@@ -188,7 +188,7 @@ for deferred professional review.
 ## Why it exists
 
 **Because Italian telemedicine has rules of its own.** The Ministerial Decree of 19 November
-2025 created ten dedicated document types for the national health record. Article 3(4) allows
+2025 created ten dedicated document types for the national health record. <!-- data-e-marcatura: «certified standards» qualifies the standards, not this product, and the date is that of a decree already in force - neither refers to the marking of this software --> Article 3(4) allows
 regions to deliver telemedicine using applications other than those procured nationally,
 provided they meet certified standards and feed the national health record. That requires
 software built for it.

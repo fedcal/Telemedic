@@ -1,0 +1,52 @@
+# Registro degli invii agli organismi notificati
+#
+# Che cos'è. Risponde al terzo criterio del traguardo T-14 della roadmap
+# (docs/09_roadmap/02-traguardi.md), che chiede una riga per ciascun organismo notificato
+# designato per la categoria di dispositivo pertinente, con la data di invio e il canale.
+# Il testo della richiesta e la ricognizione delle fonti stanno in
+# docs/08_compliance/11-richiesta-agli-organismi-notificati.md; il formato di questo file
+# è descritto anche in registro/README.md.
+#
+# Formato: file di testo separato da carattere TAB, codifica UTF-8. Le righe che iniziano
+# con # sono commenti e vanno ignorate da un lettore automatico. Segue l'intestazione delle
+# colonne e poi una riga per organismo. Nessuna cella contiene un carattere TAB.
+#
+# Colonne: data_invio, organismo, numero, paese, codice_designazione, canale, recapito,
+#          revisione_del_testo, lingua, nota
+#
+# Regole che non si negoziano su questo file.
+#   1. data_invio è la data EFFETTIVA di invio, in forma ISO AAAA-MM-GG. Mai una data
+#      programmata, mai una data prevista. Una riga priva di data rende il criterio 3 di
+#      T-14 non soddisfatto anche se tutte le altre colonne sono compilate: senza quella
+#      data l'indicatore del rischio R-06 - quanti organismi rispondono con disponibilità
+#      reale entro un termine registrato a partire dall'invio - non è misurabile.
+#   2. Nessun dato personale. La colonna recapito accoglie SOLO recapiti istituzionali
+#      pubblicati dall'organismo: mai il nome di una persona fisica, mai un recapito
+#      personale.
+#   3. Nessun nome di organismo si scrive qui se non è stato letto sull'elenco pubblicato
+#      nella banca dati europea, con la data di lettura registrata nel capitolo 11 § 4.1.
+#      Un elenco ricostruito a memoria o da fonti secondarie è indistinguibile da un
+#      elenco verificato per chi lo legge, ed è l'esito peggiore possibile: peggiore di un
+#      elenco assente, perché sembra lavoro fatto.
+#   4. codice_designazione riporta il codice o i codici in base ai quali l'organismo è
+#      stato incluso fra i destinatari. Vale NV finché il codice pertinente non è
+#      determinato: la determinazione di Classe IIa di
+#      docs/08_compliance/02-qualificazione-e-classificazione.md non dichiara alcun codice,
+#      e il codice non si deduce dalla classe.
+#   5. Se l'elenco dei destinatari fosse costruito su un criterio diverso dal codice di
+#      designazione, quel criterio va dichiarato per esteso nella colonna nota di ciascuna
+#      riga. Inviare a un insieme scelto per comodità senza dichiarare come è stato
+#      costruito non è ammesso.
+#
+# STATO ALLA DATA DI ISTITUZIONE DI QUESTO REGISTRO, 27 agosto 2026: ZERO RIGHE DI DATO.
+# Zero righe significa zero invii, e zero invii significa che il criterio 3 di T-14 NON è
+# soddisfatto. La circostanza è dichiarata qui invece di essere lasciata dedurre da un file
+# corto: un registro assente si confonde con un registro non ancora popolato, un registro
+# vuoto e dichiarato tale no. La ragione per cui non ci sono righe non è che le lettere
+# siano pronte e non spedite - il testo lo è - ma che l'elenco dei destinatari non è
+# determinabile: il codice di designazione pertinente è NV e il contenuto dell'elenco
+# pubblicato non è stato letto (capitolo 11 § 4).
+#
+# Voci: 0
+
+data_invio	organismo	numero	paese	codice_designazione	canale	recapito	revisione_del_testo	lingua	nota

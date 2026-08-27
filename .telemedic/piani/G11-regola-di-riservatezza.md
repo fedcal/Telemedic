@@ -496,15 +496,42 @@ Campo per campo, da inserire da chi possiede quel file.
 | `nome` | `Regola di riservatezza R0 - termini vietati` |
 | `fascia` | `rapida` |
 | `stato` | `segnalazione` |
-| `bloccante_dal` | `2026-09-26` |
+| `bloccante_dal` | vuoto: **`G11` è bloccante dal 27 agosto 2026**, anticipato di trenta giorni. Vedi il paragrafo in calce a questa sezione |
 | `criterio` | `T-03/2` |
 | `eseguibile` | `scripts/verifica-termini-vietati.sh` |
 | `prova_negativa` | `termini vietati: dominio non ammesso in un documento` \| `termini vietati: dominio non ammesso in un file di configurazione di esempio` \| `termini vietati: forma societaria accostata a un nome` \| `termini vietati: marcatore di marchio su nome non ammesso` \| `termini vietati: coordinata a dominio inverso con fornitore non ammesso` \| `termini vietati: termine dell'elenco specifico nella prosa` \| `termini vietati: termine dell'elenco specifico in un commento` \| `termini vietati: elenco con sale cambiato e canarino assente` \| `termini vietati: dominio non ammesso in un messaggio di commit` |
-| `motivo_collocazione` | Obbligatorio del §3 di `01_technical/09` e del §9.2 di `10_fondamenti/17`. Sta nella **fascia rapida** per la stessa ragione di `G1` e di `G10` e non per il costo, che pure è di un secondo e tre decimi: la proprietà che presidia è **irrecuperabile** - un nome pubblicato in un repository pubblico è stato clonato, indicizzato e archiviato prima che qualcuno lo tolga, e la storia lo conserva anche dopo la rimozione dal ramo. Entra in **segnalazione con data** e non subito bloccante perché al 26 agosto 2026 gli appunti di ricerca sotto `.telemedic/` producono centodiciotto rilievi che **nessun contributore può correggere**: sono una decisione del committente (§7), non un difetto. Renderlo bloccante prima di quella decisione produrrebbe un cancello sempre rosso, che è la forma in cui un cancello smette di essere letto - lo stesso rischio già registrato in `Q-288`. La data del 26 settembre 2026 non è arbitraria: è il termine del criterio 2 di `T-03`, ed è quindi anche il termine entro cui la decisione del §7 va presa. |
+| `motivo_collocazione` | Obbligatorio del §3 di `01_technical/09` e del §9.2 di `10_fondamenti/17`. Sta nella **fascia rapida** per la stessa ragione di `G1` e di `G10` e non per il costo, che pure è di un secondo e tre decimi: la proprietà che presidia è **irrecuperabile** - un nome pubblicato in un repository pubblico è stato clonato, indicizzato e archiviato prima che qualcuno lo tolga, e la storia lo conserva anche dopo la rimozione dal ramo. Entra in **segnalazione con data** e non subito bloccante perché al 26 agosto 2026 gli appunti di ricerca sotto `.telemedic/` producono centodiciotto rilievi che **nessun contributore può correggere**: sono una decisione del committente (§7), non un difetto. Renderlo bloccante prima di quella decisione produrrebbe un cancello sempre rosso, che è la forma in cui un cancello smette di essere letto - lo stesso rischio già registrato in `Q-288`. La data del 26 settembre 2026 non era arbitraria: era il termine del criterio 2 di `T-03`, e quindi anche il termine entro cui la decisione del §7 andava presa. **La decisione è arrivata prima**, ed è quella del §7: `R0` non si applica a `.telemedic/`, che è contesto di lavoro interno e non artefatto pubblicato. |
 
 Va notato che la regola 3 del `README` di quella cartella rende la prova negativa **esigibile dal
 giorno di `bloccante_dal`**: qui la colonna è compilata subito, quindi la regola è soddisfatta in
 anticipo e non ci sono debiti nascosti dietro la data.
+
+**27 agosto 2026 - `G11` diventa bloccante, trenta giorni prima della data dichiarata.** Non è un
+irrigidimento della regola: è la conseguenza aritmetica della decisione del §7. Escluso
+`.telemedic/` dal perimetro, i rilievi sono passati da centoventiquattro a **sei**, su tre file, e
+letti uno per uno erano **tutti e sei legittimi**: `rekor.sigstore.dev` e `fulcio.sigstore.dev`,
+che la procedura di verifica dell'artefatto deve nominare per essere eseguibile da chi installa, e
+`slsa.dev`, il sito della specifica citata dallo script di firma. Nessuno dei tre è un rapporto
+commerciale, e tutti e tre sono ora in `pipeline/termini-ammessi.tsv` con il motivo scritto riga
+per riga - che è il luogo dove le eccezioni passano in revisione invece di sparire.
+
+Il settimo rilievo non era un'ammissione da concedere ma un errore da correggere:
+`docs/02_architecture/06-eventi-e-integrazione-interna.md` usava `esempio.invalido` in un esempio
+JSON. **`.invalido` non è un dominio riservato**; `.invalid` lo è, per la RFC 2606, e il gemello
+inglese usava già la forma corretta. Ammetterlo avrebbe reso permanente un difetto di un carattere.
+
+**Perché anticipare invece di aspettare.** A zero rilievi la sola segnalazione non compra nulla e
+costa la certezza. Un controllo che segnala e non blocca accumula rilievi fino al giorno in cui
+diventa bloccante, e quel giorno arriva sempre mentre l'attenzione è altrove - è il rischio
+registrato in `Q-288`, letto nella direzione opposta. La proprietà che `G11` presidia resta
+irrecuperabile: un nome pubblicato è stato clonato, indicizzato e archiviato prima che qualcuno lo
+tolga.
+
+**Che cosa questo non chiude.** Lo strato **specifico** resta spento, perché la lista dei termini
+per impronta vive fuori dal repository e nessuno ha ancora dichiarato se esista. Il controllo lo
+dichiara da sé a ogni esecuzione, verde o rosso che sia, e un verde dello strato strutturale non
+dice che non ci siano nomi privi di forma commerciale riconoscibile. Restano fuori anche i
+**messaggi di commit**, che `R0` nomina esplicitamente.
 
 **Riga da aggiungere a `.gitignore`**, come rete contro l'incidente più probabile - il file
 dell'elenco copiato dentro l'albero di lavoro e aggiunto senza guardare:

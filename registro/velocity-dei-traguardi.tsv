@@ -1,0 +1,63 @@
+# Registro della velocita' di avanzamento dei traguardi - giornale di eventi, in sola aggiunta.
+#
+# CHE COSA E'. Una riga per ogni evento che cambia la posizione di un traguardo nel tempo: la
+# prima allocazione, ogni ritaratura, la chiusura. Non e' una tabella di stati: lo stato di un
+# traguardo e' la PROIEZIONE degli eventi che lo riguardano, e si ottiene leggendo l'ultima riga
+# che lo nomina. La ragione e' la stessa gia' scritta in registro/README.md per gli identificativi
+# di requisito, e prima ancora nella vista V-121 sull'allarme: una colonna «stato» andrebbe
+# MODIFICATA a ogni cambiamento, e una riga modificata non e' piu' verificabile a posteriori.
+#
+# A CHE COSA SERVE. A misurare due cose che una roadmap da sola non dice. La prima e' la velocita'
+# reale: quanti criteri si chiudono per giornata di lavoro, misurati e non stimati. La seconda, piu'
+# utile, e' lo SCARTO SISTEMATICO fra previsione e realta': se tutte le previsioni sbagliano nello
+# stesso verso, la prossima previsione va corretta di quel verso invece di essere creduta.
+#
+# CHE COSA NON E'. Non e' una misura di produttivita' e non va letta come tale. Un traguardo chiuso
+# in anticipo puo' significare che il lavoro e' andato bene, oppure che era stato sopravvalutato,
+# oppure che i criteri erano gia' soddisfatti e nessuno l'aveva misurato - ed e' esattamente cio'
+# che e' successo il 27 agosto 2026 a T-03 e a T-07. La colonna «motivo» esiste per distinguere i
+# tre casi, che nei numeri hanno lo stesso aspetto.
+#
+# ONESTA' DELLA PRIMA POPOLAZIONE. Le righe con evento «previsto» e data 2026-08-25 sono
+# RICOSTRUITE dal capitolo dei traguardi al commit f82e0ca, non osservate: il registro nasce il
+# 27 agosto 2026 e non esisteva quando quelle allocazioni furono scritte. La colonna «nota» lo
+# dichiara riga per riga. Dal 27 agosto in avanti ogni evento e' registrato quando accade.
+#
+# Formato: dati separati da tabulazione, codifica UTF-8, righe di commento con «#».
+# Colonne:
+#   data                 data dell'evento, ISO AAAA-MM-GG
+#   traguardo            la sigla, nella forma T-NN
+#   evento               uno fra quattro valori: previsto | ritarato | misurato | chiuso
+#                        «misurato» registra un avanzamento dei criteri senza spostare la data:
+#                        senza di esso il registro misurerebbe solo le date, e la velocita' -
+#                        quanti criteri si chiudono per giornata - non sarebbe leggibile
+#   data_dichiarata      la data che l'evento stabilisce; per «chiuso» e' la data effettiva
+#   criteri              criteri soddisfatti su totali, nella forma n/m, al momento dell'evento
+#   scarto_giorni        rispetto alla data dichiarata dall'evento precedente sullo stesso
+#                        traguardo; positivo = anticipo, negativo = ritardo; vuoto per «previsto»
+#   motivo               perche' l'evento e' accaduto. Mai vuoto per «ritarato» e per «chiuso»
+#   nota                 testo libero, puo' essere vuoto; mai un carattere di tabulazione
+#
+data	traguardo	evento	data_dichiarata	criteri	scarto_giorni	motivo	nota
+2026-08-25	T-01	previsto	2026-09-12	0/8		Allocazione iniziale della roadmap	Ricostruita dal capitolo dei traguardi al commit f82e0ca, non osservata
+2026-08-25	T-02	previsto	2026-10-10	0/7		Allocazione iniziale della roadmap	Ricostruita dal capitolo dei traguardi al commit f82e0ca, non osservata
+2026-08-25	T-03	previsto	2026-09-26	0/8		Allocazione iniziale della roadmap	Ricostruita dal capitolo dei traguardi al commit f82e0ca, non osservata
+2026-08-25	T-04	previsto	2026-10-03	0/6		Allocazione iniziale della roadmap	Ricostruita dal capitolo dei traguardi al commit f82e0ca, non osservata
+2026-08-25	T-06	previsto	2026-11-21	0/6		Allocazione iniziale della roadmap	Ricostruita dal capitolo dei traguardi al commit f82e0ca, non osservata
+2026-08-25	T-07	previsto	2026-09-26	0/6		Allocazione iniziale della roadmap	Ricostruita dal capitolo dei traguardi al commit f82e0ca, non osservata
+2026-08-25	T-08	previsto	2026-11-14	0/6		Allocazione iniziale della roadmap	Ricostruita dal capitolo dei traguardi al commit f82e0ca, non osservata
+2026-08-25	T-14	previsto	2026-09-19	0/5		Allocazione iniziale della roadmap	Ricostruita dal capitolo dei traguardi al commit f82e0ca, non osservata
+2026-08-25	T-05	previsto	2026-10-03	0/5		Allocazione iniziale della roadmap	Ricostruita dal capitolo dei traguardi al commit f82e0ca, non osservata
+2026-08-25	T-10	previsto	2026-11-30	0/8		Allocazione iniziale della roadmap	Ricostruita dal capitolo dei traguardi al commit f82e0ca, non osservata
+2026-08-27	T-01	chiuso	2026-08-27	8/8	16	Lavoro concluso in anticipo, con la coincidenza fra redattore e approvatore dichiarata nell'atto invece che nascosta	Il criterio 8 non aveva alcun presidio: la riga che sembrava presidiarlo nominava un controllo senza rapporto con esso (voce D-24 del runbook). Il controllo mancante e' stato scritto lo stesso giorno
+2026-08-27	T-03	ritarato	2026-09-05	6/8	21	La roadmap dichiarava un criterio soddisfatto su otto; contati uno per uno sui criteri, e non sulla riga, i soddisfatti erano sei	Anticipo per misura, non per lavoro svolto: cinque criteri erano gia' soddisfatti e nessuno li aveva contati. Il sesto e' stato chiuso il 27 agosto scrivendo il generatore del registro dei componenti
+2026-08-27	T-07	ritarato	2026-09-05	5/6	21	I primi cinque criteri erano gia' soddisfatti e nessuno l'aveva registrato	Anticipo per misura, non per lavoro svolto
+2026-08-27	T-07	chiuso	2026-08-27	6/6	9	Il criterio 6 aveva gia' procedura, script e registro dal 26 agosto, ma le due sole esecuzioni registrate erano FALLITE: la costruzione si era interrotta. Rieseguita il 27 agosto, la procedura ha dato esito positivo sui tre criteri che copre	Trenta giorni di anticipo sull'allocazione iniziale del 26 settembre, nove sulla ritaratura dello stesso giorno. Il registro delle esecuzioni e' registro/verifiche-sito-di-documentazione.tsv
+2026-08-27	T-02	ritarato	2026-10-10	3/7	0	Anticipato l'inizio dal 26 settembre al 5 settembre, perche' l'innesco dichiarato e' T-01 e T-01 e' chiuso. La data di FINE non si sposta	Lo scarto e' zero perche' la data del traguardo e' la sua fine, e la fine non cambia: l'anticipo dell'inizio e' margine contro il rischio, non lavoro che si accorcia
+2026-08-27	T-04	ritarato	2026-10-03	0/6	0	Anticipato l'inizio dal 26 settembre al 5 settembre, al seguito di T-03. La data di fine non si sposta	Lo scarto e' zero per la stessa ragione di T-02
+2026-08-27	T-08	ritarato	2026-11-14	0/6	0	Anticipato l'inizio dal 3 ottobre al 12 settembre, circa tre settimane, perche' la catena T-01 piu' T-03 piu' T-04 si e' spostata. La fine resta al 14 novembre	Il primo codice applicativo. Guadagnare tre settimane sull'inizio non riduce il lavoro: riduce il rischio di arrivare alla fine senza margine
+2026-08-27	T-02	misurato	2026-10-10	4/7	0	Misurato criterio per criterio sul repository e non sul piano, che era superato su piu' punti. Il criterio 7 - i rinvii testuali all'area di conformita' trasformati in collegamenti - e' stato chiuso lo stesso giorno: 182 rinvii convertiti in due lingue, presidiati da RT-C1	Restano aperti il criterio 3 (372 marcature «non verificato» prive di destinatario riconoscibile su 503, presidiate in sola misura da NV-C1 fino al 10 ottobre), il criterio 4 (la bacheca, nessun controllo) e la seconda meta' del criterio 6 (lo strato specifico di R0, che e' una decisione del committente)
+2026-08-27	T-06	misurato	2026-11-21	3/6	0	Misurato criterio per criterio. La traduzione inglese e' integrale e non abbozzata - 154 documenti su 154, 948.649 parole contro 933.198 - e il criterio 4 sui riferimenti normativi italiani e' soddisfatto su un campione di sette	Il criterio 3 ha perso il proprio oggetto: tutte le aree sono passate a bloccante il 27 agosto, quindi non esiste piu' un «resto del corpus» su cui il controllo debba segnalare. La scelta fra dichiararlo soddisfatto per assenza di materia e produrre comunque un rapporto e' del committente
+2026-08-27	T-06	misurato	2026-11-21	4/6	0	Chiuso il criterio 6: la procedura di allineamento delle traduzioni esisteva ma viveva in .telemedic/context/, che il controllo dei documenti esclude esplicitamente dal perimetro. E' ora docs/01_technical/11-allineamento-delle-traduzioni.md, in due lingue, con categoria e revisore dichiarati	Il runbook interno resta il registro degli errori di traduzione gia' commessi, che e' un'altra cosa: il documento pubblico vi rimanda invece di ricopiarlo, perche' due copie divergono - lo stesso argomento con cui il progetto ha chiuso Q-26
+2026-08-27	T-02	misurato	2026-10-10	4/7	0	Sera del 27 agosto. Il criterio 3 ha ora i tre elementi che gli mancavano: la FORMA dichiarata del destinatario (CONTRIBUTING.md, tre forme ammesse e nessun'altra), il controllo NV-C1 che la presidia, e il rapporto pubblicato a ogni costruzione. La bonifica e' cominciata: le marcature prive di destinatario riconoscibile scendono da 372 a 47 in una serata, su due lingue	Il criterio resta NON soddisfatto perche' il suo enunciato chiede ZERO, e zero non e' 47. Ma il residuo ha cambiato natura: non sono piu' le marcature facili, sono quelle per cui un destinatario onesto forse non esiste, e ciascuna di quelle diventa una voce di bacheca invece che una riga bonificata
+2026-08-27	T-02	misurato	2026-10-10	4/7	0	Sera del 27 agosto. Il criterio 4 ha ora la decisione preliminare che lo bloccava - la definizione operativa di «area chiusa» - e il presidio della sua seconda meta'. Si adotta la LETTURA LETTERALE: tutte e dodici le aree sono dichiarate complete, quindi ogni voce APERTA e' indirizzata a un'area chiusa e la nota le riguarda tutte e 85	La lettura piu' stretta avrebbe ridotto il lavoro ridefinendo il criterio invece di soddisfarlo, e per questo e' stata scartata dichiarandolo. La nota e' in sola misura fino al 10 ottobre e bloccante da quella data; oggi le voci annotate sono zero su 85, ed e' un presidio che arriva PRIMA della disciplina, quindi con un debito e una data

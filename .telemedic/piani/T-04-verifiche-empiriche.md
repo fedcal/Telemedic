@@ -66,7 +66,7 @@ alcuna via di integrazione.
 
 ---
 
-## 3. Che cosa va prodotto prima del 26 settembre 2026
+## 3. Che cosa va prodotto prima della chiusura di `T-03`, ora al 5 settembre 2026
 
 Nessuna di queste voci è codice. Tutte sono massa sottratta alla finestra di sette giorni, e la
 loro assenza è la ragione più probabile per cui `T-04` non chiuderebbe in tempo.

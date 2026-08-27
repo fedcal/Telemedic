@@ -103,11 +103,11 @@ sequenza di eventi di un identificativo, dopo un `ritirato` non può comparire u
 `introdotto`: sarebbe un secondo requisito che si maschera dietro l'identificativo di un altro, e
 renderebbe inservibile ogni prova, ogni matrice di tracciabilità e ogni verifica retrospettiva
 costruita su quell'identificativo. Il controllo di costruzione promesso dal criterio 5 di `T-01`
-rifiuta questa sequenza; questo registro ne è il presupposto ma non ne è, da solo, l'imposizione:
-finché quel controllo non esiste (è un traguardo successivo, non ancora raggiunto), il divieto è
-qui dichiarato in modo esplicito ma **non è ancora verificato automaticamente**. Questa è una
-lacuna dichiarata, non una conformità: la disciplina di scrivere solo eventi coerenti con questa
-regola è, per ora, affidata a chi aggiorna il file.
+rifiuta questa sequenza; questo registro ne è il presupposto. Il controllo esiste in
+`scripts/verifica-identificativi-requisiti.sh`, che emette il rilievo `riuso vietato - <id>
+reintrodotto dopo essere stato ritirato` quando la sequenza è violata, e **il divieto è verificato
+automaticamente** come parte della fase 2 di quel controllo. Finché `V-182` vieta il codice
+applicativo, l'insieme dei riusi vietati rimane vuoto per costruzione.
 
 ## Che cosa il registro non è
 
@@ -273,3 +273,84 @@ appartengono alle otto famiglie elencate dal criterio 3 di `T-01`, ma la circost
 perché chi legge questo registro per capire lo stato completo degli identificativi del progetto deve
 sapere che esistono famiglie di identificativi **fuori dal perimetro di questo registro**, non solo
 quelle otto.
+
+# Gli altri registri di questa cartella
+
+La cartella `registro/` non contiene un solo registro. Tutto ciò che precede riguarda
+`identificativi-requisiti.tsv`; ciò che segue documenta gli altri file di dati, uno per sezione.
+La convenzione comune è sempre la stessa e non si ridiscute file per file: testo separato da
+carattere TAB, codifica UTF-8, righe di commento che iniziano con `#` e che un lettore automatico
+deve ignorare, poi la riga di intestazione delle colonne e infine una riga per voce. Nessuna cella
+contiene un carattere TAB, perché romperebbe l'allineamento delle colonne. Il blocco di commento in
+testa a ciascun file dichiara il proprio formato in forma leggibile anche senza questo documento:
+è deliberato, perché un file di dati che dipende da un documento esterno per essere interpretato
+diventa illeggibile nel momento in cui i due si separano.
+
+## `organismi-notificati.tsv` - il registro degli invii agli organismi notificati
+
+**Che cos'è.** Risponde al terzo criterio del traguardo `T-14` della roadmap
+(`docs/09_roadmap/02-traguardi.md`), che chiede l'invio della richiesta di informazioni a ciascun
+organismo notificato designato per la categoria di dispositivo pertinente, **con data e testo
+versionato**. Il criterio si dimostra con tre cose che devono coesistere: il testo della richiesta,
+la ricognizione degli organismi designati con la fonte e la data di consultazione, e questo
+registro. Le prime due stanno nel capitolo
+`docs/08_compliance/11-richiesta-agli-organismi-notificati.md` e nel suo gemello inglese; qui sta
+la terza.
+
+**Le colonne, in quest'ordine esatto.**
+
+| Colonna | Contenuto |
+|---|---|
+| `data_invio` | Data **effettiva** di invio, in formato ISO `AAAA-MM-GG` |
+| `organismo` | Denominazione dell'organismo come pubblicata nell'elenco ufficiale |
+| `numero` | Numero di identificazione dell'organismo, come pubblicato |
+| `paese` | Paese di stabilimento, come pubblicato |
+| `codice_designazione` | Codice o codici in base ai quali l'organismo è stato incluso fra i destinatari; vale `NV` finché il codice pertinente non è determinato |
+| `canale` | Come la lettera è partita: modulo pubblicato dall'organismo, recapito istituzionale di posta elettronica, posta elettronica certificata, altro dichiarato |
+| `recapito` | Recapito **istituzionale** effettivamente usato, come pubblicato dall'organismo |
+| `revisione_del_testo` | Versione del testo della richiesta effettivamente spedita |
+| `lingua` | `it` oppure `en`, secondo quale dei due testi è stato spedito |
+| `nota` | Testo libero, può essere vuoto; non contiene mai un carattere TAB |
+
+**Perché una tabella di righe e non un giornale di eventi.** È la differenza con
+`identificativi-requisiti.tsv`, ed è deliberata. Quel registro deve essere in sola aggiunta perché
+il criterio 3 di `T-01` lo impone e perché lo stato di un identificativo è una proiezione di eventi.
+Qui l'oggetto è diverso: una lettera parte una volta sola, verso un destinatario individuato una
+volta sola, e la riga registra un fatto compiuto invece di uno stato che evolve. Una risposta
+ricevuta, un sollecito, un secondo invio a una revisione successiva del testo sono **nuove righe**,
+distinte dalla prima e con la propria data: non modifiche della riga esistente. In questo senso la
+regola di sola aggiunta vale anche qui, e vale per la ragione più semplice, cioè che una data
+riscritta non è più una registrazione.
+
+**Le quattro regole che il file dichiara in testa, e che qui si ripetono perché sono la sostanza.**
+
+La prima: **`data_invio` è la data effettiva, mai una data programmata.** Una riga priva di data
+rende il criterio 3 di `T-14` non soddisfatto anche se tutte le altre colonne sono compilate, e la
+ragione non è formale: senza la data di invio non è misurabile l'indicatore del rischio `R-06`,
+che conta quanti organismi rispondono con una disponibilità reale entro un termine registrato a
+partire dall'invio. Un rischio senza indicatore osservabile non è sorvegliato.
+
+La seconda: **nessun dato personale.** La colonna `recapito` accoglie soltanto recapiti
+istituzionali pubblicati dall'organismo. Mai il nome di una persona fisica, mai un recapito
+personale, in nessuna colonna e in nessuna nota.
+
+La terza: **nessun nome di organismo si scrive se non è stato letto sull'elenco pubblicato nella
+banca dati europea**, con la data di lettura registrata nel capitolo. Un elenco ricostruito a
+memoria o da fonti secondarie ha esattamente l'aspetto di un elenco verificato, e chi lo legge non
+ha modo di distinguerlo: è l'esito peggiore possibile di questo lavoro, peggiore di un elenco
+assente, perché sembra lavoro fatto.
+
+La quarta: **il criterio di inclusione si dichiara.** Normalmente è il codice di designazione. Se
+per qualunque ragione l'elenco dei destinatari fosse costruito su un criterio diverso, quel criterio
+va dichiarato per esteso nella colonna `nota` di ciascuna riga. Inviare a un insieme scelto per
+comodità senza dichiarare come è stato costruito non è ammesso, ed è precisamente il modo in cui un
+criterio binario diventa una percentuale.
+
+**Stato alla data di istituzione, 27 agosto 2026: zero righe di dato.** Il file contiene il blocco
+di commento, la riga di intestazione e nient'altro. Zero righe significa zero invii, e zero invii
+significa che il criterio 3 di `T-14` **non è soddisfatto**. La ragione non è che le lettere siano
+pronte e non spedite - il testo esiste, versionato, in due lingue - ma che l'elenco dei destinatari
+non è determinabile: il codice di designazione pertinente è dichiarato `[NV]` e il contenuto
+dell'elenco pubblicato non è stato letto. La circostanza è scritta nel file invece che lasciata
+dedurre da un file corto, perché un registro assente si confonde con un registro non ancora
+popolato, mentre un registro vuoto e dichiarato tale no.

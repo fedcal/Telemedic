@@ -14,3 +14,8 @@ Thumbs.db
 # Registri locali
 *.log
 npm-debug.log*
+
+# Grafo della conoscenza generato da /graphify: artefatto derivato, rigenerabile.
+graphify-out/
+sbom-website.json
+registro-generato/

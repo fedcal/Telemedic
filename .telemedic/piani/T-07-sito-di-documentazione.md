@@ -1,12 +1,39 @@
 # Piano di lavoro - `T-07`, sito di documentazione con i controlli bloccanti attivi e la verifica registrata
 
-> **Traguardo** `T-07` · **Classe** `D` · `[IMPEGNO]` · **26 settembre 2026**
+> **Traguardo** `T-07` · **Classe** `D` · `[IMPEGNO]` · **CHIUSO il 27 agosto 2026**, trenta giorni
+> prima dell'allocazione iniziale del 26 settembre e nove prima della ritaratura dello stesso
+> giorno. Tutti e sei i criteri sono soddisfatti e misurati; l'esito è registrato in
+> `registro/verifiche-sito-di-documentazione.tsv` e in `docs/09_roadmap/00-indice.md` §ritaratura
 > **Innesco** - immediato: il sito è già costruito e pubblicato, e ciò che resta è verifica.
 > **Titolare** - contributore unico.
 > **Dipendenze dichiarate** - `T-01` criterio 8 per il testo dell'avvertenza (**soddisfatto** al 26
 > agosto 2026, per la rettifica di `00-indice.md` §8.4); `T-03` criterio 2 per la bloccanza del
 > controllo sui collegamenti (**non soddisfatto**, e allocato al medesimo 26 settembre).
 > **Data di misura dello stato** - 26 agosto 2026, sul ramo `main` al commit `b3498b7`.
+
+## Chiusura del 27 agosto 2026, e come si legge questo piano da oggi in avanti
+
+**Il traguardo è chiuso. Il corpo di questo piano non è stato riscritto, ed è una scelta.** Le
+sezioni da §1 in avanti descrivono lo stato del **26 agosto 2026**, quando il piano fu redatto, e
+oggi dicono «non soddisfatto» di cinque criteri su sei che nel frattempo sono stati soddisfatti. Un
+piano superato conserva un valore che una riscrittura distruggerebbe: dice **perché il lavoro
+sembrava difficile prima di essere fatto**, e il confronto fra quella previsione e l'esito è la sola
+materia da cui si impara a prevedere meglio. È la stessa disciplina dei registri in sola aggiunta -
+uno stato che si sovrascrive non è più verificabile a posteriori.
+
+Per non lasciare che il corpo affermi il falso, ogni titolo di criterio porta ora **due stati**:
+quello del 26 agosto, fra parentesi, e quello del 27. Le sezioni §2 e §3 - i controlli per stato, la
+sequenza - restano come furono scritte e vanno lette come storia, non come istruzioni.
+
+**Che cosa il confronto insegna, detto in una riga.** Dei cinque criteri che il piano dava per non
+soddisfatti, **tre lo erano già** e nessuno li aveva misurati; **due sono stati costruiti** il 26 e
+il 27 agosto - la ricerca locale e l'avviso di traduzione. La previsione non era sbagliata sul
+lavoro: era sbagliata sulla misura di partenza. È la ragione per cui il registro della velocità
+(`registro/velocity-dei-traguardi.tsv`) porta una colonna `motivo` che distingue l'anticipo per
+lavoro svolto dall'anticipo per misura - senza quella distinzione, questo traguardo direbbe che il
+progetto va tre volte più veloce di quanto vada davvero.
+
+---
 
 ## 0. La cosa da capire prima di tutto il resto
 
@@ -37,7 +64,7 @@ Questi due criteri sono il peso reale di `T-07`, e nessuno dei due si legge nel 
 
 ## 1. I sei criteri, uno per uno
 
-### 1.1 Criterio 1 - la navigazione funziona, e il controllo sui collegamenti è bloccante · **NON SODDISFATTO**
+### 1.1 Criterio 1 - la navigazione funziona, e il controllo sui collegamenti è bloccante · **SODDISFATTO il 27 agosto** (era: non soddisfatto)
 
 **Che cosa esiste.** Il criterio ha due metà e la prima è a buon punto. Le voci di menu di
 `docusaurus.config.mjs` - `/docs/fondamenti/come-usare-questa-guida`, `/docs/architecture/indice`,
@@ -88,7 +115,7 @@ che a un'attesa indefinita. Ma la scelta è di chi decide, e va registrata.
 inesistente, introdotti deliberatamente, **fanno fallire la costruzione**. Il caso va in
 `scripts/prove/esegui-prove.sh` accanto ai ventidue esistenti, non in un banco nuovo.
 
-### 1.2 Criterio 2 - la ricerca funziona e restituisce risultati nella lingua attiva · **NON SODDISFATTO, E NON ESISTE**
+### 1.2 Criterio 2 - la ricerca funziona e restituisce risultati nella lingua attiva · **SODDISFATTO il 27 agosto** (era: non soddisfatto, e non esisteva)
 
 **Che cosa esiste.** Nulla. Verificato: nessuna chiave `algolia` in `docusaurus.config.mjs`, nessun
 greffone di ricerca fra le dipendenze dichiarate di `website/package.json`, nessun componente
@@ -132,7 +159,7 @@ propria e sceglierla tardi la rende impraticabile entro il 26 settembre.
    di ricerca c'è»: una casella che non trova nulla è peggio dell'assenza della casella, perché
    afferma implicitamente che il termine non esiste nel corpus.
 
-### 1.3 Criterio 3 - il cambio di lingua funziona e atterra sulla pagina corrispondente · **NON SODDISFATTO**
+### 1.3 Criterio 3 - il cambio di lingua funziona e atterra sulla pagina corrispondente · **SODDISFATTO il 27 agosto** (era: non soddisfatto)
 
 **Che cosa esiste.** Il selettore di lingua è configurato (`{type: 'localeDropdown', position:
 'right'}`) e le due locali sono dichiarate con etichette e lingue HTML (`it-IT`, `en-GB`). Il tema
@@ -169,7 +196,7 @@ difetto che questo progetto ha già pagato.
 4. **prova negativa**: una pagina di area non tradotta **priva** dell'avviso fa fallire il controllo.
    Senza questo caso il criterio 3 è verificato a vista, e il criterio 6 chiede l'opposto.
 
-### 1.4 Criterio 4 - collegamento alla dichiarazione raggiungibile dal sito, con indirizzo assoluto · **SODDISFATTO NELLA SOSTANZA, CON UN RESIDUO**
+### 1.4 Criterio 4 - collegamento alla dichiarazione raggiungibile dal sito, con indirizzo assoluto · **SODDISFATTO il 27 agosto** (era: soddisfatto nella sostanza, con un residuo)
 
 **Che cosa esiste.** Il piè di pagina di `docusaurus.config.mjs`, colonna «Avvertenze», contiene tre
 voci con `href` assoluti verso il repository:
@@ -208,7 +235,7 @@ presente nella configurazione del sito e nei documenti corrisponde a un file esi
 repository; **prova negativa**: un `href` verso un percorso inesistente fa fallire il controllo.
 Chiuso questo, `Q-26` e `Q-198` si chiudono insieme, e il criterio 4 è chiuso con la sua prova.
 
-### 1.5 Criterio 5 - ogni pagina reca l'avvertenza di non marcatura, in entrambe le lingue · **VERO NEL FATTO, NON PROVATO**
+### 1.5 Criterio 5 - ogni pagina reca l'avvertenza di non marcatura, in entrambe le lingue · **SODDISFATTO il 27 agosto** (era: vero nel fatto, non provato)
 
 **Che cosa esiste.** Il testo di copyright del piè di pagina reca l'avvertenza su ogni pagina, in
 italiano nella configurazione - *«Questo software non è un dispositivo medico marcato CE. Chi lo
@@ -234,7 +261,7 @@ tenuta con una pagina HTML deliberatamente priva del marcatore fa fallire il con
 esistenti - `artefatto-valido/`, che contiene già `index.html` e `docs/pagina.html` - sono il posto
 dove il caso si aggiunge.
 
-### 1.6 Criterio 6 - la verifica dei criteri 1, 2 e 3 è procedura eseguibile e ripetibile, con l'esito dell'ultima esecuzione registrato e datato · **NON SODDISFATTO**
+### 1.6 Criterio 6 - la verifica dei criteri 1, 2 e 3 è procedura eseguibile e ripetibile, con l'esito dell'ultima esecuzione registrato e datato · **SODDISFATTO il 27 agosto** (era: non soddisfatto)
 
 **Che cosa il criterio chiede davvero.** Tre cose distinte, e la terza è quella su cui il mandato di
 questo piano chiede attenzione.

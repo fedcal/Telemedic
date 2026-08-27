@@ -59,6 +59,26 @@ jobs:
         working-directory: website
         run: npm run build
 
+      - name: Nessuna data di marcatura nei documenti pubblici (MARC-C1)
+        # Sta QUI, nel flusso che pubblica, e non solo in una fascia: e' la lezione D-23 del
+        # runbook applicata prima di pagarla una seconda volta. Una data di marcatura pubblicata
+        # e' stata clonata e indicizzata prima che qualcuno la tolga, e una corsia separata che
+        # diventa rossa dopo la pubblicazione non impedisce nulla.
+        run: ./scripts/verifica-date-di-marcatura.sh
+
+      - name: Dichiarazione di non marcatura nell'artefatto (T01-C7)
+        # Sta QUI, e non solo in fascia completa, perche' questo e' il flusso che pubblica
+        # davvero. Fino al 27 agosto 2026 il controllo esisteva, era provato e girava - su una
+        # corsia separata, che diventava rossa in parallelo mentre questa distribuiva lo stesso.
+        # Un artefatto pubblicato senza la dichiarazione resta pubblicato e la copia e' gia' stata
+        # scaricata: e' il danno che il criterio 7 di T-01 chiama irrecuperabile, ed e' la ragione
+        # per cui il traguardo e' di classe A. Voce D-13 del runbook, applicata al caso peggiore:
+        # una tabella che dice dove sta un controllo non dice che il controllo sia sul percorso
+        # che conta.
+        run: |
+          ./scripts/verifica-dichiarazione-non-marcatura.sh website/build
+          ./scripts/verifica-dichiarazione-non-marcatura.sh website/build/en
+
       - name: Caricamento dell'artefatto
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3

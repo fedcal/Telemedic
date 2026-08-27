@@ -39,10 +39,21 @@ apre una voce in bacheca; non sceglie l'opzione più comoda per proseguire.»*
 
 Va definito con precisione, perché è il criterio che ordina tutto il resto.
 
-**Il primo codice non esiste prima del 26 settembre 2026.** `V-182` vieta ogni riga di codice
-applicativo prima di `T-03`, con la sola eccezione del codice usa-e-getta delle verifiche di `T-04`,
-dichiarato tale e residente in area separata. Il diagramma di `02-traguardi.md` §7 colloca `T-08` -
-lo scheletro eseguibile e il percorso verticale - fra il **3 ottobre** e il **14 novembre 2026**.
+**Il primo codice non esiste prima della chiusura di `T-03`.** `V-182` vieta ogni riga di codice
+applicativo prima di quel traguardo, con la sola eccezione del codice usa-e-getta delle verifiche di
+`T-04`, dichiarato tale e residente in area separata.
+
+> **Ritaratura del 27 agosto 2026, e sposta le soglie di questo piano di tre settimane.** `T-03` è
+> passato dal 26 settembre al **5 settembre 2026**, misurato criterio per criterio: cinque degli
+> otto erano già soddisfatti e la roadmap ne dichiarava uno. La conseguenza per **questo** piano non
+> è una data più comoda ma una **più stretta**: le decisioni che dovevano essere poste «prima del
+> primo codice» hanno tre settimane in meno, non in più. Le quattro decisioni datate 26 settembre in
+> §3 - `Q-112`, `Q-191`, `Q-192`, `Q-190` - vanno **poste entro il 5 settembre 2026**, perché la
+> loro data non era un termine proprio: era il riflesso della data di `T-03`. Le date restano
+> scritte come erano nelle tabelle che seguono, con questa nota che le corregge tutte in una volta,
+> perché riscriverle una per una farebbe perdere la ragione per cui erano quelle.
+>
+> Il ragionamento del §5 di [`00-indice.md`](../../docs/09_roadmap/00-indice.md) porta la misura.
 
 Ne discendono **tre soglie distinte**, e confonderle è l'errore che questo piano esiste per evitare.
 

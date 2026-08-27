@@ -28,8 +28,8 @@ La sequenza reale (§2), il percorso critico (§3), l'elenco di ciò che `V-182`
 | 2 | Capacità: **dieci-venti ore settimanali**, un contributore unico | `D62`, che emenda `D54` | brief §5-quater |
 | 3 | **Nessuna riga di codice applicativo esiste** | Nessun albero dei sorgenti nel repository: esistono `scripts/`, `registro/`, `docs/`, `website/`, `.github/` | `00 §4`, `V-182` |
 | 4 | `V-182` **vieta ogni riga di codice applicativo prima di `T-03`** (26 settembre), con la sola eccezione del codice usa-e-getta delle verifiche di `T-04`, dichiarato tale, in area separata, non incluso in alcun artefatto distribuito | `00 §9.5`, `T-03` «che cosa non comprende» | `D45` |
-| 5 | `T-01` è chiuso **salvo il criterio 1**, che resta *in parte*: la procedura esiste con tutte le voci in `docs/08_compliance/10-controllo-dei-documenti.md`, ma il criterio chiede una procedura **approvata**, e sotto `D54` redattore e approvatore coincidono | Il file esiste; il suo `§9` dichiara la coincidenza come **lacuna e non come conformità** | `00 §8.4`, `Q-189` |
-| 6 | I criteri 3, 4, 5, 7 di `T-01` hanno artefatti in esercizio | `registro/identificativi-requisiti.tsv` con `registro/README.md`; `scripts/verifica-identificativi-requisiti.sh`; `scripts/verifica-dichiarazione-non-marcatura.sh`; banco `scripts/prove/esegui-prove.sh`; entrambi i lavori sono in `.github/workflows/verifiche.yml` **senza `continue-on-error`** | `00 §8.4` |
+| 5 | `T-01` è **chiuso per intero dal 27 agosto 2026**, sedici giorni prima della data prevista. L'ultimo criterio aperto era il primo, e si è chiuso con l'approvazione della procedura nella sola forma producibile sotto `D54`: quella in cui redattore e approvatore coincidono, **con la coincidenza dichiarata nell'atto**. La lacuna non è chiusa né attenuata, resta `Q-189` | `docs/08_compliance/PROCEDURA-controllo-dei-documenti.md` §1 (data di approvazione, stato «in vigore») e §10 voce `i` | `00 §8.4`, `Q-189` |
+| 6 | I criteri 3, 4, 5, 7 di `T-01` hanno artefatti in esercizio | `registro/identificativi-requisiti.tsv` con `registro/README.md`; `scripts/verifica-identificativi-requisiti.sh`; `scripts/verifica-dichiarazione-non-marcatura.sh`; banco `scripts/prove/esegui-prove.sh`; entrambi i lavori sono nella fascia completa (`.github/workflows/fascia-completa.yml`) **senza `continue-on-error`**; `verifiche.yml` è stato ritirato il 27 agosto 2026 e sostituito dal sistema di quattro fasce | `00 §8.4` |
 | 7 | La **protezione del ramo principale è attiva dal 26 agosto 2026**, nella forma dichiarata: revisione obbligatoria per i contributori esterni, il mantenitore unisce il proprio lavoro | `docs/08_compliance/10-controllo-dei-documenti.md §5` e `§10` (`Q-283` marcata **RISOLTA il 26 agosto 2026**) | `D54`, `Q-189` |
 | 8 | **`S-8` è deciso**: il percorso verticale di `RU-1` si riduce alla sola **televisita programmata a due partecipanti** | `03 §6.2` riga `S-8`; registrazione in `00 §8.4` | `01 §4.2` |
 | 9 | **L'aritmetica non chiude nemmeno con `S-8`**, e la soglia è la settimana del **19 ottobre 2026** | `00 §8.4`, «Aritmetica dopo `S-8`» | `R-28` |
@@ -53,9 +53,33 @@ Una **dipendenza vera** è una relazione per cui il lavoro a valle non è esegui
 
 | Traguardo | Innesco dichiarato (`02 §3`) | Dipendenze **vere** ricavate | Dipendenze **solo cronologiche** | Dipendenze vere **non dichiarate** dalla roadmap |
 |---|---|---|---|---|
+> **Ritaratura del 27 agosto 2026.** Le date di questa sezione e di quelle che seguono sono quelle
+> con cui il piano è nato, e restano scritte così di proposito: riscriverle una per una farebbe
+> perdere il ragionamento che le ha prodotte. Questa nota le corregge tutte in una volta.
+>
+> - **`T-01`: CHIUSO il 27 agosto 2026**, previsto per il 12 settembre. Tutti e otto i criteri.
+> - **`T-03`: dal 26 settembre al 5 settembre 2026.** Misurato criterio per criterio: cinque degli
+>   otto erano già soddisfatti e il piano ne dichiarava uno. Restano il 6 - il registro dei
+>   componenti come artefatto generato - e la catena 7 → 8, cioè una esecuzione reale della fascia
+>   di rilascio seguita dalla dimostrazione della procedura sull'artefatto firmato che ne esce.
+> - **`T-07`: dal 26 settembre al 5 settembre 2026.** I primi cinque criteri erano già soddisfatti.
+> - **`T-08`: l'inizio anticipa di circa tre settimane, la fine resta al 14 novembre.** La finestra
+>   passa da quarantanove a settanta giorni. **Le tre settimane sono margine, non perimetro.**
+> - **`T-14`: resta al 19 settembre**, e non per prudenza: i suoi criteri 1 e 2 sono atti del
+>   Committente, e anticipare quella data significherebbe scrivere una previsione su lavoro altrui.
+> - **`T-10`: resta al 30 novembre 2026.** È l'impegno da cui il piano discende, non una previsione.
+>
+> **Che cosa la ritaratura rende più stretto, e va letto prima di rallegrarsene.** Le decisioni di
+> `T-05` datate 26 settembre lo erano perché quella era la data di `T-03`: hanno ora tre settimane
+> in meno, non in più. E il cancello `A1` del §8 - «al 26 settembre esiste un controllo del
+> criterio 2 di `T-03` privo di un caso che lo faccia fallire» - va letto al **5 settembre**.
+>
+> La misura completa è nella sezione di ritaratura di
+> [`docs/09_roadmap/00-indice.md`](../../docs/09_roadmap/00-indice.md).
+
 | `T-01` (12 set) | Immediato | Nessuna interna. Il criterio 1 dipende da una **decisione**, non da un lavoro: `Q-189` | - | - |
 | `T-14` (19 set) | Immediato (`D58`) | Nessuna. Il criterio 3 **può precedere** il criterio 1 e conviene che lo preceda (`T-14`, «Dipendenze») | La collocazione al 19 settembre | - |
-| `T-03` (26 set) | `T-01` criteri 3–4 | **`T-01` c.3–4**: il controllo del criterio 5 di `T-01` si appoggia al registro. **Già soddisfatte** al 26 agosto | Il resto di `T-01`, compreso il criterio 1 aperto | **`T-02` criterio 6**: il criterio 2 di `T-03` esige che il controllo dei termini vietati (`R0`) blocchi dal primo giorno, e la lista che lo alimenta è prodotto di `T-02`, datato **10 ottobre**, cioè *dopo* `T-03`. Vedi §11.1 |
+| `T-03` (26 set) | `T-01` criteri 3–4 | **`T-01` c.3–4**: il controllo del criterio 5 di `T-01` si appoggia al registro. **Già soddisfatte** al 26 agosto | Nulla: dal 27 agosto 2026 `T-01` è chiuso per intero | **`T-02` criterio 6**: il criterio 2 di `T-03` esige che il controllo dei termini vietati (`R0`) blocchi dal primo giorno, e la lista che lo alimenta è prodotto di `T-02`, datato **10 ottobre**, cioè *dopo* `T-03`. Vedi §11.1 |
 | `T-07` (26 set) | Immediato | **`T-03` c.2** per la sola bloccanza del controllo sui collegamenti (criterio 1). **`T-01` c.8** per il testo dell'avvertenza: già soddisfatto | Criteri 2, 3, 4, 5, 6: eseguibili oggi | - |
 | `T-04` (3 ott) | `T-03` | **`T-03`**, in senso proprio: `V-182` ammette il codice usa-e-getta delle verifiche solo come eccezione dichiarata al traguardo che istituisce la catena, e le verifiche «girano **attraverso** la pipeline» | - | - |
 | `T-05` (3 ott) | Immediato | Nessuna. Sono decisioni **poste**, non lavori eseguiti; la data è quella entro cui il progetto le pone | - | - |
@@ -86,7 +110,7 @@ Ogni anello ha la proprietà che ne fa un anello: **il suo slittamento si trasfe
 
 | # | Traguardo | Sul percorso critico di `RU-1`? | Che cosa accade se slitta |
 |---|---|---|---|
-| `T-01` | Artefatti irrecuperabili | **In parte.** I criteri 3–4 lo erano e sono chiusi. Il **criterio 1 non è sul percorso critico**: non impedisce alcun criterio di `T-10` | Produce una **lacuna datata**, non un ritardo. È l'esito predefinito di `Q-189` (`02 §6`), da dichiarare nel fascicolo (criterio 3 di `T-10`) |
+| `T-01` | Artefatti irrecuperabili | **Chiuso** il 27 agosto 2026, tutti e otto i criteri | Non produce più né ritardo né lacuna datata sul traguardo. **Resta** la lacuna di `Q-189` - redattore e approvatore coincidono - che l'approvazione dichiara e non chiude, e che va portata nel fascicolo (criterio 3 di `T-10`) esattamente come prima |
 | `T-14` | Percorso di fabbricante | **No** per il 30 novembre. **Sì** per tutto ciò che sta oltre | `RU-1` si costruisce e si pubblica senza il soggetto costituito (`03 §1.1`, `R-30`). Lo slittamento **si trasferisce integralmente in fondo alla catena 2027-2028** (`01 §5.2`, `R-06`) |
 | `T-03` | Catena di costruzione | **Sì. È il cancello.** | Ogni giorno di ritardo è tolto ai quarantanove della finestra del codice. Non si può anticipare `T-08` per compensare: `V-182` lo vieta |
 | `T-07` | Sito con controlli attivi | **No**, salvo il criterio 1 che condivide con `T-03` il controllo sui collegamenti | Slitta senza spostare `RU-1`: il sito è già pubblicato, questo traguardo **accerta** |
@@ -492,6 +516,7 @@ mancata non si riscrive: resta in tabella con la sua causa.
 | Data | Che cosa | Prova | Effetto sulla roadmap |
 |---|---|---|---|
 | 26 ago 2026 | **Prodotti i quattordici piani** di `.telemedic/piani/`, ~94.000 parole. `T-01` non ne ha uno: è chiuso salvo il criterio 1, che dipende da `Q-189` | i file | Registrato in `00-indice.md` §8.4. Nessun criterio cambia stato: sono pianificazione interna (`D57`) |
+| 27 ago 2026 | **`T-01` chiude per intero**, sedici giorni prima della data. Il Committente approva la procedura di controllo dei documenti con la coincidenza redattore/approvatore **dichiarata nell'atto** | `docs/08_compliance/PROCEDURA-controllo-dei-documenti.md` §1 e §10 voce `i`, in entrambe le lingue | Il criterio 1 passa a soddisfatto. `Q-189` **resta aperta**: l'approvazione la dichiara, non la chiude. Sblocca il criterio 6 di `T-06` |
 | 26 ago 2026 | **Verificato che il sito di documentazione esiste ed è raggiungibile.** GitHub Pages attivo, `build_type: workflow`, dominio `fedcal.github.io/Telemedic/` | `gh api repos/fedcal/Telemedic/pages`; `curl -sI` su radice e su `/en/` → **200** su entrambe | Concorre al criterio 1 di `T-07`, che però resta non soddisfatto: il criterio chiede il controllo sui collegamenti **bloccante**, non la raggiungibilità |
 | 26 ago 2026 | **Misurate le traduzioni.** 4 aree complete su 12 (54 file), 8 da tradurre (91 file, ~317.000 parole). Zero marcatori di continuazione residui | `verifica-divergenza-traduzioni.sh`: `Allineati 52 · Divergenti 2 · Assenti ed esigiti 0`; conteggio per area IT/EN; `grep -rn 'CONT-->' website/i18n/en/` → 0 | Conferma il criterio 1 di `T-06` soddisfatto e il perimetro di `T-09` |
 | 26 ago 2026 | **Corretto un difetto del controllo di divergenza.** `git log` esce con successo restituendo vuoto su file non tracciato: `\|\| echo 0` non scattava e il confronto riceveva una stringa vuota. Il valore predefinito si impone ora dopo la sostituzione | prima: `[: : atteso intero` ripetuto; dopo: nessun errore, stessi conteggi | Nessuno sui criteri. **Resta dovuto un caso di prova negativo** in `scripts/prove/esegui-prove.sh`: un controllo corretto e non provato è un controllo che nessuno ha visto fallire |

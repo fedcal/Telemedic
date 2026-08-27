@@ -9,10 +9,137 @@
 > `.telemedic/context/REGISTRO-DIFETTI-TRADUZIONE.md`, `.telemedic/context/GLOSSARIO-TRADUZIONE-EN.md`,
 > `scripts/verifica-divergenza-traduzioni.sh`, `.github/workflows/verifiche.yml`.
 > **Data di redazione**: 26 agosto 2026.
+> **Data di misura dello stato**: 27 agosto 2026 - vedi la sezione dedicata, subito sotto.
 
 Questo è un piano. **Non traduce nulla** e non modifica `docs/`, `website/`, `scripts/` né i file di
 contesto in `.telemedic/context/`. Dove un dato è stato misurato, il piano dice come; dove non è
 verificabile con gli strumenti usati, lo marca `[NV]` e lo dichiara.
+
+---
+
+## Misura dello stato al 27 agosto 2026
+
+> **Chi ha misurato**: un agente esterno di misura documentale, incaricato di verificare lo stato
+> reale di `T-06` criterio per criterio, non l'autore di questo piano. Il corpo del piano che segue,
+> scritto il 26 agosto 2026, non è stato riscritto: resta come previsione, e il confronto fra la
+> previsione e questa misura è la sola materia da cui si impara a prevedere meglio. Dove i due
+> divergono, questa sezione lo dice e non lo scioglie.
+>
+> **Limite dichiarato della misura**. L'ambiente in cui la misura è stata condotta non aveva uno
+> strumento di shell: non è stato possibile eseguire `scripts/verifica-divergenza-traduzioni.sh` né
+> interrogare `git log` per le date di commit su cui quello script fonda il proprio confronto di
+> divergenza. La misura è stata condotta per lettura diretta del contenuto, per conteggio dei titoli
+> `## ` file per file (non solo in aggregato), per ispezione dei flussi di integrazione continua e
+> per lo stato di `git status` al momento della misura. Dove questo limite pesa su un giudizio, il
+> paragrafo del criterio interessato lo dice.
+
+### Tabella di sintesi
+
+| Criterio | Stato al 27 agosto | Nodo centrale |
+|:-:|---|---|
+| 1 | **IN PARTE** (era: soddisfatto il 26 agosto) | contenuto completo sul disco; due traduzioni intere e una correzione non ancora committate - assenti quindi sull'ultimo commit reale |
+| 2 | **IN PARTE** (era: non soddisfatto) | il meccanismo bloccante è correttamente cablato e provato al contrario, ma fallirebbe oggi sull'ultimo commit reale per lo stesso motivo del criterio 1 |
+| 3 | **NON SODDISFATTO** (era: in parte) | il «resto del corpus» in sola segnalazione non esiste più: tutte le tredici aree sono state promosse a bloccante il 27 agosto 2026; nessun rapporto pubblicato come artefatto, né prima né dopo |
+| 4 | **SODDISFATTO** (invariato) | campione di sette riferimenti normativi verificato, tutti in forma italiana originale con glossa inglese |
+| 5 | **NON SODDISFATTO** (invariato) | la decisione di design (`ADR-0019`) è bilingue e coerente; zero controlli automatici, zero casi di prova che possano farla fallire |
+| 6 | **IN PARTE** (invariato) | la procedura è completa nei contenuti; vive in `.telemedic/context/`, area esplicitamente esclusa dal controllo dei documenti da `08_compliance/10-controllo-dei-documenti.md` §1 |
+
+### Che cosa manca, criterio per criterio
+
+**Criterio 1 - il difetto trovato, e perché non si considera chiuso qui.** I file `.md` in
+`docs/<area>/` e in `website/i18n/en/.../<area>/` sono in parità perfetta **sul disco** - stesso
+numero, stessi titoli `## ` per ciascun file preso singolarmente - per `10_fondamenti` (21/21),
+`08_compliance` (14/14) e `06_security` (11/11). Ma `git status` al momento della misura mostra tre
+file della traduzione inglese non committati: `08_compliance/07-valutazione-clinica.md` (nuovo, mai
+entrato nella cronologia), `10_fondamenti/05-standard-di-interoperabilita.md` (nuovo, idem) e
+`10_fondamenti/09-fondamenti-clinici.md` (modificato, non ancora salvato in un commit). I due
+originali italiani corrispondenti sono già committati da tempo: la parità che il criterio 1 esige è
+oggi vera **sull'albero di lavoro**, non sull'ultimo commit pubblicato. Il coordinamento segnala che
+questi file sono in attesa della finestra di commit di questa sera: il difetto è quindi reale e già
+in via di chiusura, non un lavoro da avviare. **Lavoro residuo**: nessuna traduzione da scrivere;
+eseguire i cancelli già dichiarati al §4.2 di questo piano (marcatori di continuazione assenti,
+ampiezza entro il ±15%, costruzione del sito) e poi committare e spingere i tre file. Stima: 1-2 ore,
+quasi interamente di verifica prima del commit.
+
+**Criterio 2 - lo stesso difetto, vista dal lato del controllo.** `.github/workflows/fascia-completa.yml`
+(il file di flusso è stato rinominato rispetto a `verifiche.yml`, citato nell'intestazione di questo
+piano) mostra che il lavoro `divergenza-traduzioni` **non porta più `continue-on-error`**: il debito
+che il §11 di questo piano registrava è stato chiuso il 26 agosto 2026, e il banco di prova
+(`scripts/prove/esegui-prove.sh`) contiene casi negativi per file sorgente non tracciato, divergenza
+strutturale, pagina orfana e area esigita senza gemello - il meccanismo è stato visto fallire, non
+solo dichiarato attivo. Proprio perché il meccanismo funziona, applicato all'ultimo commit reale
+troverebbe le due traduzioni mancanti del criterio 1 e uscirebbe con errore: il lavoro bloccante
+fallirebbe oggi. La condizione «non produce rilievi su quelle aree» non è quindi vera sul repository
+pubblicato, per lo stesso motivo del criterio 1. **Lavoro residuo**: contingente al criterio 1;
+committati i tre file, rieseguire il controllo e verificare `Assenti ed esigiti: 0` e `Divergenti: 0`
+sulle tre aree. Il confronto per data di commit sugli altri file delle tre aree non è stato
+rieseguibile con gli strumenti di questa misura (limite dichiarato sopra) e resta da confermare
+quando lo script potrà girare. Stima: 1-2 ore oltre a quelle del criterio 1.
+
+**Criterio 3 - la contraddizione trovata, e le due vie per chiuderla. Non si sceglie qui.**
+`pipeline/differenziazione-traduzioni.tsv`, alla data del 27 agosto 2026, non contiene più alcuna
+riga in stato `pianificata` o `segnalazione`: le tredici aree sono tutte `esigita` e tutti gli otto
+documenti bilingui alla radice sono `bloccante`, transizione motivata nel file stesso dal
+completamento anticipato del criterio di chiusura di `T-09` («il traguardo è chiuso quando nessuna
+area è più in sola segnalazione»). Il criterio 3 di `T-06` chiede testualmente che il controllo
+«segnali sul resto del corpus» e che quel rapporto sia «pubblicato a ogni costruzione»: il «resto»
+che dovrebbe essere segnalato **non esiste più** come oggetto della configurazione, e nessun flusso
+pubblica comunque un rapporto come artefatto o come riepilogo della corsia - l'unico output resta il
+log del passo, che richiede di aprire quella specifica esecuzione per essere letto.
+
+C'è inoltre una contraddizione fra due fonti datate lo stesso giorno, che questa misura registra
+invece di scioglierla d'autorità: `docs/09_roadmap/00-indice.md` §8.4 dichiara i criteri «2 e 3» di
+`T-06` soddisfatti, descrivendo un comportamento differenziato («segnala sul resto») che
+`pipeline/differenziazione-traduzioni.tsv`, stessa data, mostra non avere più oggetto. Nessuna delle
+due fonti dichiara quale delle due transizioni sia avvenuta per prima nella giornata del 27 agosto,
+e senza quell'ordine le due non sono conciliabili.
+
+Due vie, non lavoro da avviare senza una decisione preliminare, e la scelta **spetta al
+committente**, non a questa misura né a questo piano:
+
+- **(a) Il criterio ha perso il proprio oggetto e si dichiara soddisfatto per assenza di materia.**
+  Costo: riscrivere la riga del registro (`docs/09_roadmap/00-indice.md` §8.4) in questi termini
+  espliciti - non «segnala sul resto», ma «il resto non esiste più: tutte le aree sono bloccanti dal
+  27 agosto 2026, e il criterio non ha più un oggetto su cui esercitarsi» - e verosimilmente
+  aggiornare anche il testo di `docs/09_roadmap/02-traguardi.md` perché non descriva più un
+  meccanismo che non è più in esercizio nella forma scritta. Rischio accettato: il criterio, letto
+  alla lettera, resta ineseguibile per definizione se in futuro una nuova area entrasse nel corpus
+  prima di essere tradotta - andrebbe riletto in quel momento.
+- **(b) Si aggiunge comunque un rapporto pubblicato**, coerente con quanto `R-03` chiede come
+  «indicatore anticipatore» - la distanza fra corpus italiano e inglese, misurata e confrontabile fra
+  due costruzioni consecutive. Costo: un passo nel lavoro `divergenza-traduzioni` che scriva l'esito
+  su `$GITHUB_STEP_SUMMARY` o lo carichi come artefatto scaricabile, più la decisione di che cosa
+  quel rapporto misuri ora che non esiste più una parte «pianificata» distinta da una «esigita» -
+  probabilmente il solo esito binario (allineato/divergente) per ciascun documento, che resta un dato
+  utile anche senza differenziazione. Stima: mezza giornata di implementazione, oltre alla decisione.
+
+Nessuna delle due vie è lavoro di traduzione. Entrambe presuppongono che il committente scelga fra
+esse, perché cambiano che cosa il registro dei traguardi afferma pubblicamente, non solo come lo
+strumento gira.
+
+**Criterio 5 - invariato dal 26 agosto.** `docs/adr/0019-separazione-stringhe-di-interfaccia-ed-etichette-ufficiali.md`
+e la sua traduzione inglese restano bilingui e coerenti, ancore comprese verso
+`02_architecture/04-modello-dati.md` §6.2 in entrambe le lingue. Nessuno script sotto `scripts/`
+nomina «etichette ufficiali» o opera sui cataloghi di internazionalizzazione del sito (`code.json`,
+`current.json`), e nessun caso del banco di `scripts/prove/esegui-prove.sh` lo esercita: il controllo
+che possa fallire, che questo piano già chiedeva al §1, non esiste ancora. **Lavoro residuo**:
+decidere il perimetro (oggi non deciso, per assenza di codice applicativo sotto `V-182`) -
+verosimilmente i cataloghi i18n del sito contro le etichette ufficiali citate nel corpus - poi
+scrivere lo script e il caso negativo che lo fa fallire davvero, e collegarlo alla corsia che già
+esegue gli altri controlli bloccanti. Stima: 1-2 giornate, decisione di perimetro compresa.
+
+**Criterio 6 - invariato dal 26 agosto.** `.telemedic/context/RUNBOOK-TRADUZIONE-EN.md` contiene per
+intero le tre cose che il criterio esige - Definition of Done al §7, protocollo di continuazione al
+§2, differenziazione delle aree ora in `pipeline/differenziazione-traduzioni.tsv` - ed è tracciato in
+git, quindi versionato in senso tecnico. Ma `docs/08_compliance/10-controllo-dei-documenti.md` §1
+elenca esplicitamente fra i «documenti non sottoposti a controllo formale» la «documentazione interna
+nella bacheca inter-agenti e nei log di sessione (`/.telemedic/context/`)», ed è esattamente dove il
+runbook vive: non ha identificazione univoca, revisore nominato per categoria né regola di ritiro ai
+sensi di quella procedura. **Lavoro residuo**: spostare o duplicare il contenuto sotto un percorso
+che rientri nel perimetro di quella procedura - verosimilmente `docs/01_technical/` o
+`docs/09_roadmap/` - assegnargli una categoria e un revisore secondo la tabella §4 dello stesso
+documento, e aggiornare i rinvii che oggi puntano al runbook interno. Il contenuto esiste già: è
+redazione e categorizzazione, non ricerca. Stima: 0,5-1 giornata.
 
 ---
 
@@ -44,7 +171,7 @@ La lezione che la rettifica stessa enuncia governa tutto il resto di questo pian
 Lo stato è **binario**. Dove il registro delle revisioni e lo stato di fatto misurato divergono, il
 piano lo dichiara al §9 e **non corregge il registro**: non è lavoro di questo piano.
 
-### Criterio 1 - le aree prerequisito esistono in inglese, integrali e in posizione speculare
+### Criterio 1 - le aree prerequisito esistono in inglese, integrali e in posizione speculare · **IN PARTE il 27 agosto** (era: soddisfatto il 26 agosto)
 
 **Esiste già.** Misurato il 26 agosto 2026 contando i file `.md` in `docs/<area>/` e in
 `website/i18n/en/docusaurus-plugin-content-docs/current/<area>/`:
@@ -68,7 +195,7 @@ coincide; `grep -rn "CONT-->" website/i18n/en/` è vuoto.
 > **Non si ripianifica.** Qualsiasi attività che riapra il criterio 1 è ambito aggiunto, non ambito di
 > `T-06`.
 
-### Criterio 2 - il controllo **blocca** su quelle aree e **non produce rilievi** su di esse
+### Criterio 2 - il controllo **blocca** su quelle aree e **non produce rilievi** su di esse · **IN PARTE il 27 agosto** (era: non soddisfatto)
 
 **Non soddisfatto**, per due ragioni distinte, da chiudere entrambe.
 
@@ -103,7 +230,7 @@ prerequisito e verificando che la costruzione fallisca - è la regola del criter
 controllo che non è stato visto fallire non è un controllo») ed è il metodo con cui la rettifica del
 26 agosto è stata a sua volta verificata.
 
-### Criterio 3 - il controllo **segnala** sul resto del corpus, con rapporto pubblicato a ogni costruzione
+### Criterio 3 - il controllo **segnala** sul resto del corpus, con rapporto pubblicato a ogni costruzione · **NON SODDISFATTO il 27 agosto** (era: in parte)
 
 **Esiste in parte.** Il comportamento differenziato esiste ed è versionato, non cablato:
 `AREE_ESIGITE="10_fondamenti 06_security 08_compliance"` nello script, e per ogni file non tradotto di
@@ -216,17 +343,41 @@ costo di ritardare**. Il lavoro si ordina per irrecuperabilità, non per volume.
 2. **Scrivere il controllo del criterio 5 e vederlo fallire.** Secondo perché è l'unico criterio di
    `T-06` che oggi **non ha alcuna prova**, e un criterio senza prova non è distinguibile da
    un'intenzione (`W-2`, e la regola del criterio 2 di `T-03`).
-3. **Portare la procedura di allineamento sotto controllo dei documenti.** Terzo perché dipende da
-   `T-01` criterio 1, che alla data di questo piano è «in parte» - la procedura di controllo esiste,
-   l'approvazione è la lacuna di `Q-189`. Anticiparlo non compra nulla: si otterrebbe un documento
-   controllato da una procedura non ancora approvata.
+
+   > **Riesaminato il 27 agosto 2026, e l'esito cambia la voce invece di eseguirla.** Le tre regole
+   > che l'`ADR-0019` dichiara «tutte verificabili automaticamente» sono, lette una per una, tutte
+   > **regole sul codice applicativo**: nessun percorso di codice scrive nel campo di etichetta
+   > ufficiale se non il gateway terminologico; l'interfaccia non mostra mai quel campo
+   > direttamente; in uscita verso un terzo si emette l'etichetta ufficiale e mai la stringa di
+   > interfaccia. **Il codice applicativo non esiste**, e `V-182` ne vieta la scrittura prima di
+   > `T-08`. Non esistono nemmeno le etichette ufficiali, perché il progetto non versiona
+   > terminologie sotto licenza.
+   >
+   > L'unico archivio di internazionalizzazione presente è quello del **sito documentale** - 159
+   > voci in quattro cataloghi di Docusaurus - che contiene stringhe di interfaccia del sito, non
+   > del prodotto, e che con i sistemi di codifica non ha rapporto alcuno.
+   >
+   > Un controllo scritto oggi verificherebbe quindi **l'assenza di qualcosa che non può esserci**,
+   > sarebbe verde per costruzione, e nessuno lo vedrebbe mai fallire su una tenuta realistica: è
+   > esattamente il difetto `D-26` del runbook, e la voce di piano che lo chiede lo produrrebbe in
+   > buona fede. **Il criterio 5 non è «non soddisfatto»: è non producibile prima di `T-08`**, per
+   > la stessa ragione per cui `V-182` esiste, e la sua allocazione al 21 novembre va riletta - la
+   > fine di `T-08` è il 14 novembre, quindi la finestra reale è di una settimana e non di tre mesi.
+   > Se `T-08` slitta, questo criterio slitta con lui: è una dipendenza che il piano non dichiarava.
+   > Va posta a chi decide, non risolta qui.
+3. **Portare la procedura di allineamento sotto controllo dei documenti.** Era terzo perché
+   dipendeva da `T-01` criterio 1, che alla stesura di questo piano era «in parte». **Dal 27 agosto
+   2026 la dipendenza è sciolta**: la procedura di controllo è approvata, e un documento portato
+   sotto controllo oggi è controllato da una procedura in vigore. Il vincolo che rimandava questa
+   voce non c'è più, e la voce può essere presa quando conviene invece che per ultima.
 4. **Fissare la forma del rapporto del criterio 3.** Ultimo perché è l'unica voce che richiede una
    decisione e non un lavoro, e perché la decisione va posta con i primi tre esiti davanti.
 
 **Le aree prerequisito, nell'ordine in cui `T-06` le tocca.** Non è un ordine di traduzione ma di
 chiusura dei rilievi, ed è determinato da dove i rilievi stanno: `06_security` (due file),
 `08_compliance` (un file), `10_fondamenti` (nessun rilievo), avvertenze pubbliche alla radice (nessun
-rilievo di contenuto; resta la data di bloccanza del 12 settembre 2026, che è di `T-01`).
+rilievo di contenuto; la data di bloccanza era il 12 settembre 2026, ed è stata **anticipata al 27
+agosto 2026** insieme alla chiusura di `T-01`: le avvertenze pubbliche bloccano da oggi).
 
 **Che cosa `T-06` consegna a `T-09`, ed è l'unico rapporto d'ordine fra i due.** Il controllo bloccante
 è **il meccanismo con cui `T-09` registra le proprie transizioni**: senza la rimozione di
@@ -396,9 +547,11 @@ cambiarla.
    il perimetro sono i cataloghi di stringhe del sito e le etichette ufficiali citate nel corpus.
    Deciso il perimetro, il costo è quello di uno script più i suoi casi di prova; non deciso, è
    indeterminato.
-3. **Lo stato di `T-01` criterio 1**, da cui dipende il criterio 6: una procedura di controllo dei
-   documenti *approvata*. Sotto `D54` redattore e approvatore coincidono ed è `Q-189`, con punto di
-   decisione al **30 settembre 2026**.
+3. ~~**Lo stato di `T-01` criterio 1**, da cui dipende il criterio 6.~~ **Sciolto il 27 agosto
+   2026**: la procedura di controllo dei documenti è approvata, con la coincidenza fra redattore e
+   approvatore dichiarata nell'atto. `Q-189` resta aperta e il suo punto di decisione resta al
+   **30 settembre 2026**, ma non blocca più il criterio 6 di `T-06`: quel criterio chiedeva una
+   procedura approvata, non una procedura approvata da un secondo.
 4. **La decisione sulla forma del rapporto** del criterio 3, oggi `[NV]`.
 
 **Le date sono allocazioni di calendario, non stime.** Il 21 novembre 2026 è l'allocazione che `02 §3`

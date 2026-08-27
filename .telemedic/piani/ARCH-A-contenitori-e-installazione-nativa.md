@@ -10,8 +10,8 @@
 Il committente vuole due cose che convivono male: **tutto a contenitori**, con le tecnologie
 moderne dell'ecosistema, per avere flessibilità; **e** la possibilità di installare presso il
 proprio server senza contenitori, per chi li preferisce evitare. Il compito non è progettare
-nessuna delle due cose - non esiste ancora codice da containerizzare, e non ne esisterà prima del
-26 settembre 2026 - mentre è dire con onestà tecnica **quanto costa** ciascuna delle due strade e
+nessuna delle due cose - non esiste ancora codice da containerizzare, e non ne esisterà prima
+della chiusura di `T-03`, portata al 5 settembre 2026 dalla ritaratura del 27 agosto - mentre è dire con onestà tecnica **quanto costa** ciascuna delle due strade e
 **che cosa si rompe** se si prova a percorrerle entrambe senza dichiararne il prezzo.
 
 Ho ristretto il compito in tre modi, tutti dichiarati qui perché non siano scoperti a metà

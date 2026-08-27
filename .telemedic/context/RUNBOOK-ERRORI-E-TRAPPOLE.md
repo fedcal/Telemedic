@@ -226,9 +226,15 @@ seguono. Il controllo leggeva il campo sbagliato e dichiarava il falso con sicur
 **La regola.** I campi di un file separato da tabulazioni si estraggono per **posizione** con
 `cut -f`, che i campi vuoti li conta. Mai con `read`.
 
-**Il presidio.** Caso di regressione nel banco. Ha rivelato che il difetto colpiva **ogni riga
-bloccante reale**, non i soli casi patologici, perché una riga bloccante ha per costruzione la
-casella della data vuota.
+**Il presidio.** Dal 27 agosto 2026 un cancello e non più un avvertimento:
+`scripts/verifica-lettura-dei-tsv.sh` rifiuta la forma vietata in **ogni** script del repository,
+ed è bloccante in fascia rapida. Prima di quel giorno il presidio era un caso di regressione nel
+banco più tre commenti sparsi negli script, e **non è bastato**: la regola è stata riviolata due
+volte il 27 agosto, ed è la voce `D-29`.
+
+Il caso di regressione originario resta, e conserva ciò che aveva rivelato: il difetto colpiva
+**ogni riga bloccante reale**, non i soli casi patologici, perché una riga bloccante ha per
+costruzione la casella della data vuota.
 
 ### C-2. `git log` esce con successo su un file non tracciato
 
@@ -740,6 +746,553 @@ si dice contando.
 rapida. Il controllo esamina l'intervallo non ancora spinto e non tutta la cronologia: pretendere il
 marcatore da commit scritti prima che il controllo esistesse renderebbe il cancello impossibile da
 soddisfare, e **un cancello impossibile non è un cancello, è un cancello che qualcuno aggirerà**.
+
+---
+
+### D-19. Una sigla superata continua a designare, in prosa, il vincolo di prima
+
+**Che cosa è successo.** I vincoli e le questioni nascevano con una numerazione **locale di area** -
+`V-13` di `SEC`, `V-13` di `INTEG` - e venivano poi globalizzati in blocchi da dieci: `SEC` in
+`V-150`…`V-157`, `INTEG` in `V-160`…`V-166`. La globalizzazione ha riscritto la tabella e **non ha
+riscritto il corpus**. Al 27 agosto 2026 la documentazione pubblicata portava **settantasei
+citazioni** con numerazione superata, in entrambe le lingue, e almeno **tre numerazioni diverse**
+convivevano per gli stessi sei vincoli: quella locale di `INTEG` (`V-13`…`V-18`), una intermedia
+usata solo nell'area di sicurezza (`V-21`…`V-25`) e quella ufficiale (`V-160`…`V-165`). Nessuna
+delle tre risolveva, perché la tabella globale non contiene affatto l'intervallo `V-13`…`V-109`.
+
+**Perché è insidioso.** La citazione **resta leggibile e sembra corretta**: «il vincolo `V-13` di
+`SEC`» nomina l'area giusta, dice una cosa vera sul contenuto e rinvia a una sigla che, per chi
+legge, ha tutta l'aria di esistere. Solo chi va a cercarla scopre che non c'è. E non poteva
+accorgersene nessuno: i vincoli vivevano in una tabella di prosa dentro `.telemedic/`, che nessuno
+proiettava in una forma leggibile da macchina, quindi non esisteva l'insieme rispetto a cui
+verificare. La stessa cosa vale per le questioni: `Q-18` era il numero superato di `Q-160`, `Q-19`
+di `Q-156`, e `Q-20` non era mai stata registrata affatto.
+
+**La regola.** Una rinumerazione non è finita quando la tabella è corretta: è finita quando **ogni
+citazione nel corpus è stata riscritta e un controllo lo verifica**. E finché una famiglia di sigle
+non ha una forma leggibile da macchina, nessuno può dire se una citazione risolva - quindi la forma
+leggibile da macchina viene **prima** della rinumerazione, non dopo.
+
+**Il presidio.** `scripts/verifica-registri-di-vincoli-e-questioni.sh`, riga `SIG-C1` della tabella,
+lavoro `registri-delle-sigle` in fascia completa. Verifica che ogni sigla citata in `docs/` e nello
+specchio inglese risolva nei registri, e che le due lingue citino lo stesso insieme.
+
+---
+
+### D-20. Un controllo che vieta un carattere non può contenerlo, nemmeno per spiegare la regola
+
+**Che cosa è successo.** La convenzione dei trattini vieta il trattino lungo in ogni file e ammette
+quello medio solo fra due cifre. Il controllo che la presidia, e la sezione di `CLAUDE.md` che la
+enuncia, devono quindi essere scritti **senza mai contenere in forma letterale i caratteri che
+vietano**: nel controllo i due caratteri si nominano per punto di codice, e nel documento il medio
+compare solo nei due esempi ammessi e il lungo mai.
+
+**Perché è insidioso.** È il rovescio di `D-10`. Là un controllo che porta dentro di sé una copia di
+ciò che sorveglia **smette di sorvegliare**; qui un controllo che porta dentro di sé un esempio di
+ciò che vieta **non può passare sul proprio repository**, e il fallimento si presenta come un
+difetto del corpus invece che dello strumento. Chi lo incontra corregge il corpus, non trova nulla,
+e conclude che il controllo è rotto.
+
+**La regola.** Chi modifica un controllo testuale, o il documento che ne enuncia la regola, deve
+**mantenere la proprietà che il file soddisfa la regola che descrive**. Se la regola non si può
+spiegare senza esibire ciò che vieta, si esibisce per punto di codice, mai in forma letterale.
+
+**Il presidio.** `scripts/verifica-trattini.sh`, riga `CV-C1` della tabella, lavoro `trattini` in
+fascia rapida: il controllo passa sull'intero repository, se stesso compreso.
+
+---
+
+### D-21. Una tabella usata come registro e mai analizzata accumula malformazioni invisibili
+
+**Che cosa è successo.** La tabella dei vincoli e delle questioni della bacheca inter-agenti è la
+fonte di verità di duecentoventuno sigle. Nessuno l'aveva mai analizzata a macchina. Alla prima
+proiezione, il 27 agosto 2026, sono emerse **sei righe malformate**: quattro con una colonna in più
+- la risoluzione scritta come colonna a sé invece che dentro lo stato -, una con una barra verticale
+spuria dentro la prosa che spezzava la questione in due celle, e una, `Q-26`, **priva del tutto
+della colonna di stato**. La riga di `Q-135` diceva nello stesso momento «`RISOLTA` da `ARCH`» nel
+testo e `APERTA` nel gettone di stato, con l'ADR che la risolve già sul disco.
+
+**Perché è insidioso.** Una tabella markdown malformata **si legge lo stesso**: l'occhio umano
+ricompone le celle e non nota la colonna mancante. Il difetto resta invisibile finché qualcosa non
+prova a leggerla in modo univoco - e in quel momento non è un difetto solo di forma, perché una riga
+senza stato è una questione di cui **nessuno sa se sia aperta**.
+
+**La regola.** Una struttura che funge da registro va **proiettata da uno strumento severo fin dal
+primo giorno**: un generatore che rifiuta di produrre l'uscita e nomina la riga, invece di assorbire
+la malformazione in silenzio. Il difetto sta nella fonte, non nella proiezione, e assorbirlo lo
+renderebbe invisibile proprio nell'istante in cui è stato scoperto.
+
+**Il presidio.** `scripts/genera-registri-di-vincoli-e-questioni.py` fallisce con il numero di riga
+e non scrive nulla; `scripts/verifica-registri-di-vincoli-e-questioni.sh` fa fallire la costruzione
+quando la proiezione non è rigenerabile o non è aggiornata.
+
+---
+
+### D-22. La definizione più citata di un progetto può essere quella che non è mai stata pubblicata
+
+**Che cosa è successo.** I sei vincoli fondanti del progetto - sovranità del dato, separazione dal perimetro del dispositivo medico, integrabilità totale, consapevolezza del tenant, auditabilità immutabile, usabilità e accessibilità - erano citati **duecento volte** nella documentazione pubblicata e dichiarati in **nessun file pubblicato**. Vivevano solo in `.telemedic/context/00_PROJECT_BRIEF.md` §7, un documento di contesto interno. Ogni lettore esterno che seguiva uno di quei duecento rinvii trovava prosa che dava per nota la loro natura e il loro significato, senza mai trovare dove fossero definiti. Una ricerca nel corpus per «sovranità» produceva duecento risultati; una ricerca per «V1» produceva zero risultati. Il 27 agosto 2026 sono stati pubblicati in `docs/11_registri/03-vincoli-fondanti.md`, nelle due lingue, insieme a un controllo che li verifica.
+
+**Perché è insidioso.** Ciò che è ovvio a chi lo usa ogni giorno viene taciuto come se fosse risaputo. La ricerca per una sigla fallisce non perché la sigla sia assente, ma perché è stata usata così a lungo che nessuno ricorda di averla mai visto scrivere. E il silenzio è invisibile: non è una lacuna nota, è l'assenza di una domanda - nessuno si accorge che qualcosa manca finché qualcuno non la cerca in un modo che la rivela. Nel frattempo ogni nuovo lettore deduce la natura dei vincoli dal contesto locale, e dieci lettori producono dieci interpretazioni.
+
+**La regola.** Una definizione centrale a un progetto - cioè una che compare nel discorso più di qualche decina di volte - va dichiarata una volta sola, in un luogo designato e reso scopribile, **prima** che il corpus la citi in forma narrativa. Se il corpus la cita già, la dichiarazione recupera quel vincolo da `[NV]` a definizione verificabile. Una volta dichiarata, ogni nuova citazione nel corpus la può dare per nota. Una citazione che non sa dove la definizione vive non è una citazione: è un rimando che fallisce silenziosamente.
+
+**Il presidio.** `scripts/verifica-registri-di-vincoli-e-questioni.sh`, riga `SIG-C1` della tabella, verifica che le sigle della forma `V-<numero>` citate nel corpus risolvano nei registri generati. **Il controllo attuale non copre le sigle `V1`…`V6`**, che designano i vincoli fondanti e seguono una forma diversa - nessun trattino, nessun numero a due cifre. Una copertura completa richiederebbe un'estensione del controllo per cercare anche la forma `V[1-6]` senza trattino. Fino a quel momento, la dichiarazione che il controllo presidia D-22 nel registro dei difetti è falsa, e va marcata `non-presidiata` o corredata di un'eccezione scoperta.
+
+---
+
+### D-23. Un cancello sulla corsia sbagliata protegge un percorso che nessuno percorre
+
+**Che cosa è successo.** `scripts/verifica-dichiarazione-non-marcatura.sh` esiste dal principio,
+è provato con sette casi negativi nel banco - fra cui un artefatto costruito deliberatamente privo
+della dichiarazione - ed è invocato senza `continue-on-error` in fascia completa. La riga `T01-C7`
+della tabella di collocazione lo dichiara bloccante, e il controllo che sorveglia quella tabella
+apre il file di corsia e verifica che il comando ci sia davvero. Tutto in regola.
+
+Il 27 agosto 2026 si è scoperto che `.github/workflows/docs.yml` - **il flusso che pubblica**, e
+l'unico - costruisce il sito, carica l'artefatto delle Pages e lo distribuisce con
+`actions/deploy-pages@v4` **senza invocare quel controllo nemmeno una volta**. Nemmeno
+`fascia-di-rilascio.yml` lo invocava: firmava un artefatto che nessuno aveva verificato.
+L'intestazione dello script affermava di sé «Questo controllo impedisce la pubblicazione».
+
+**Perché è insidioso.** Ogni singolo presidio funzionava. Il controllo era scritto bene, provato
+bene, collocato in una corsia reale, e la tabella che lo descrive diceva il vero. Il difetto non
+sta in nessuno di quei livelli: sta nel fatto che **la corsia dichiarata non è il percorso che
+produce il danno**. Un artefatto privo della dichiarazione veniva pubblicato mentre, in parallelo,
+una corsia separata diventava rossa - e la rossa arrivava dopo, quando la copia era già scaricabile.
+È la voce `D-13` portata al caso peggiore: là una tabella diceva dove stava un controllo che non
+c'era; qui il controllo c'è, gira, e sorveglia un percorso che non è quello.
+
+**La regola.** Per ogni controllo che protegge da un danno **irrecuperabile**, non ci si chiede
+«in quale fascia sta», ma **«qual è il percorso che produce il danno, e il controllo sta su
+quello?»**. Le due domande hanno risposte diverse più spesso di quanto sembri, perché le fasce
+sono organizzate per costo di esecuzione e i danni per momento in cui accadono. Un controllo che
+impedisce una pubblicazione sta nel flusso che pubblica; uno che impedisce una firma sta prima
+della firma; uno che impedisce un rilascio sta nel rilascio. La fascia è dove il controllo gira
+**anche**, non dove basta che giri.
+
+**Il corollario, che vale da solo.** Se l'intestazione di uno script afferma di impedire qualcosa,
+quell'affermazione è verificabile: si apre il flusso che compie l'atto e si cerca il comando. Una
+capacità affermata da uno script su se stesso è una dichiarazione come le altre, e in questo
+progetto una dichiarazione senza una prova che possa fallire è essa stessa un difetto.
+
+**Il presidio.** Il controllo è ora invocato in `.github/workflows/docs.yml`, come passo del lavoro
+`costruzione` **prima** di `actions/upload-pages-artifact`, e in `.github/workflows/fascia-di-rilascio.yml`
+**prima** dei due passi di firma. La riga `T01-C7` della tabella nomina entrambe le collocazioni.
+
+---
+
+### D-24. La colonna che nomina il criterio non dimostra che il controllo lo verifichi
+
+**Che cosa è successo.** `pipeline/collocazione-dei-controlli.tsv` ha una colonna `criterio` che
+lega ogni controllo al criterio di traguardo che presidia. Il 27 agosto 2026, mentre si verificava
+che cosa restasse aperto di `T-01`, sono emerse due righe che quella colonna faceva sembrare
+presidiate e non lo erano.
+
+La riga `T01-C8` dichiarava `T-01/8` e nominava `scripts/verifica-conformita-redazionale.sh`. Quel
+controllo verifica il frontmatter YAML non quotato, i rinvii relativi che escono da `docs/` e i
+segnaposto di segreti. Il criterio 8 di `T-01` riguarda le avvertenze pubbliche riallineate a
+`D58` e prive di qualunque data di marcatura. Fra le due cose non c'è alcun rapporto. La seconda,
+`SIG-C1`, dichiarava `T-01/5`, che era già di `T01-C5`: due righe sullo stesso criterio, e i due
+controlli verificano oggetti diversi - identificativi di requisito citati nelle prove l'uno, sigle
+`V-` e `Q-` citate nella documentazione l'altro.
+
+**Perché è insidioso.** L'identificativo stesso della riga, `T01-C8`, ripete l'affermazione che la
+colonna fa, e due affermazioni concordi si leggono come una conferma invece che come una sola
+affermazione scritta due volte. Chi contava i criteri presidiati di `T-01` trovava otto righe e
+otto criteri e concludeva che il traguardo fosse coperto per intero; il criterio 8 non aveva, e non
+ha, alcun controllo. È la famiglia di `D-13` - una tabella che dice dove sta un controllo non dice
+che il controllo sia là - spostata di un passo: qui il controllo esiste, gira, blocca ed è provato,
+e ciò che è falso è **che cosa presidia**.
+
+**La regola.** Una colonna che lega un controllo a un criterio afferma un fatto sul mondo, e va
+verificata come tale: si apre il criterio, si legge che cosa chiede, si apre il controllo e si
+guarda che cosa verifica. Quando l'identificativo del controllo contiene già il numero del
+criterio, la coincidenza fra i due **non è una prova**: è la stessa affermazione che si conferma da
+sola.
+
+**Il corollario.** Correggere questa colonna **riduce** la copertura dichiarata, e questo è
+l'esito giusto. Una tabella che sovrastima il presidio è peggiore di una che lo dichiara assente,
+perché la seconda produce lavoro e la prima produce quiete. Corrette le due righe, il criterio 8 di
+`T-01` è risultato privo di qualsiasi controllo, ed è così che è stato scritto nella roadmap.
+
+**Il presidio.** Regola 6 di `scripts/verifica-collocazione-dei-controlli.sh`: ogni criterio nella
+forma `T-NN/M` deve risolvere sul registro dei traguardi - il traguardo esiste e ha almeno `M`
+criteri numerati. Non dimostra che il controllo verifichi quel criterio, che nessuno script può
+sapere, ma toglie di mezzo il caso in cui il criterio citato non esiste affatto. La regola 7,
+sotto, copre il resto.
+
+---
+
+### D-25. Una regola dedotta da due casi è un'ipotesi, e va provata sull'insieme prima di diventare un cancello
+
+**Che cosa è successo.** Trovato il difetto di `D-24` su due righe, la regola per impedirne il
+ritorno è stata dettata così: «nessun criterio datato può essere citato da due righe diverse,
+perché se due controlli lo presidiano davvero la riga è una sola nella forma `A + B` che la tabella
+già prevede». Sembrava una deduzione e non lo era: era una generalizzazione da due soli casi, e i
+due casi erano entrambi difetti. Applicata al repository reale, la regola ha segnalato **diciannove
+righe**, e tutte e diciannove erano legittime.
+
+I criteri `T-03/2` e `T-03/4` sono, per il proprio testo, **collettivi**: il secondo enumera per
+nome più controlli come oggetto congiunto, il quarto si applica per definizione a «i controlli non
+compresi nel criterio 2», cioè al complemento di un insieme. E la forma `A + B`, invocata come
+soluzione, non li rappresenta: descrive **un** controllo che vive in due luoghi e ammette una sola
+fascia, mentre i controlli che presidiano `T-03/2` stanno in fasce diverse. La via d'uscita
+proposta insieme alla regola non esisteva.
+
+**Perché è insidioso.** La regola era vera sui casi da cui era stata tratta, e li avrebbe colti
+entrambi. Il campione era piccolo e composto di soli esempi positivi: nessun controesempio poteva
+comparire, perché non se ne era cercato alcuno. Un cancello nato così non si vede sbagliato quando
+lo si scrive - si vede sbagliato quando lo si esegue, e a quel punto la tentazione è di disattivarlo
+o di piegare i dati perché tornino, che sono i due modi di perdere la regola.
+
+**La regola.** Prima di trasformare in cancello una regola dedotta da pochi casi, la si **esegue in
+sola misura sull'insieme reale** e si guarda quante righe segnala. Se ne segnala molte, l'ipotesi
+da esaminare per prima non è che il repository sia pieno di difetti: è che la regola sia scritta
+male. E la domanda che decide non è «quante ne segnala», ma **«ho letto una per una le segnalazioni
+prima di scegliere che farne?»**.
+
+**Il corollario, sul come si corregge.** Una regola che segnala casi legittimi si **riscrive**, non
+si disattiva e non si annacqua. Qui l'eccezione dei criteri collettivi vive in un file versionato
+con la ragione scritta accanto a ciascuna voce - non in una lista dentro il controllo, che sarebbe
+`D-10` - e se quel file manca il controllo esce `2` invece di indovinare. Una regola con
+un'eccezione dichiarata e motivata è più forte di una regola senza eccezioni che nessuno esegue.
+
+**Il presidio.** Regola 7 di `scripts/verifica-collocazione-dei-controlli.sh`, nella forma
+riscritta, e `pipeline/criteri-collettivi.tsv` che ne porta le eccezioni. Quattro casi di banco: il
+duplicato non dichiarato deve fallire, il duplicato dichiarato deve passare, `N/D` ripetuto deve
+passare, e la dichiarazione assente deve uscire `2`. Quest'ultimo caso non usa l'attesa «fallisce»,
+che accetterebbe qualunque uscita diversa da zero e confonderebbe l'errore d'uso con la violazione:
+verifica il codice esatto.
+
+---
+
+### D-32. Una bonifica applicata a un file generato sparisce alla generazione successiva
+
+**Che cosa è successo.** Il 27 agosto 2026 centottantadue rinvii testuali sono stati convertiti in
+collegamenti per chiudere il criterio 7 di `T-02`, e il controllo `RT-C1` è passato al verde.
+Centoventi di quelle conversioni stavano nei due capitoli di `docs/11_registri/`, che **sono
+generati** da `scripts/genera-capitoli-dei-registri.py`. La sera dello stesso giorno una modifica
+alla bacheca ha reso necessario rigenerarli. La rigenerazione ha annullato tutte e centoventi le
+conversioni in un colpo solo, e `RT-C1` è tornato rosso con quaranta rilievi.
+
+Il difetto non era nel controllo, che ha fatto esattamente il suo mestiere segnalando la
+regressione lo stesso giorno in cui è avvenuta. Era nel punto in cui la correzione era stata
+applicata: **al prodotto invece che alla sorgente**. Un file generato non ha memoria di ciò che
+qualcuno gli ha scritto sopra.
+
+**Perché è insidioso.** I due capitoli portano in testa l'avvertenza «Questo capitolo è generato.
+Modificarlo a mano non ha effetto: la modifica sparisce alla rigenerazione successiva». L'avvertenza
+c'era, era in cima al file, ed è stata letta da chi ha fatto la bonifica. Non è servita, perché una
+bonifica non si vive come «modificare a mano un capitolo»: si vive come «far passare un controllo»,
+e il file su cui il controllo segnala è il prodotto. **L'avvertenza parla del gesto, mentre chi
+lavora pensa all'esito**, e i due non si incontrano.
+
+C'è un secondo motivo per cui è insidioso: fra la bonifica e la rigenerazione può passare molto
+tempo. Se la bacheca non fosse cambiata quel giorno, la regressione sarebbe arrivata settimane dopo,
+in un commit che non c'entrava nulla, e la causa sarebbe stata cercata ovunque tranne che in una
+correzione fatta un mese prima.
+
+**La regola.** Prima di applicare una bonifica che fa passare un controllo, si guarda **se il file
+è generato**, e se lo è la correzione si scrive **nel generatore**. Vale per ogni artefatto
+prodotto da uno script di `scripts/`: i due capitoli dei registri, i registri `.tsv` proiettati
+dalla bacheca, il registro dei componenti, la matrice di tracciabilità. La domanda da farsi non è
+«dove segnala il controllo» ma **«chi scrive questo file»**.
+
+**Il presidio.** La conversione dei rinvii ora vive in `collega_rinvii()` dentro
+`scripts/genera-capitoli-dei-registri.py`, con il commento che spiega perché sta lì e non nel testo.
+Il banco ha un caso che genera un capitolo da una tenuta sintetica contenente un rinvio testuale e
+verifica che l'uscita porti un collegamento: se qualcuno riportasse la conversione fuori dal
+generatore, quel caso cadrebbe. Resta scoperto il caso generale - **nessun controllo verifica oggi
+che una bonifica non sia stata applicata a un file generato** -, ed è debito dichiarato: sarebbe
+scrivibile confrontando l'uscita del generatore con il file versionato, ed è la stessa forma del
+controllo di divergenza già in uso per le due lingue.
+
+### D-31. Un banco scritto da chi ha scritto il controllo prova la forma prevista, non la regola
+
+**Che cosa è successo.** Il 27 agosto 2026 sei controlli nuovi erano tutti verdi sul repository e
+tutti provati per mutazione: duecentoquarantotto casi, nessuno rosso, ogni controllo visto fallire
+almeno una volta su una tenuta costruita apposta. Una revisione indipendente, condotta lo stesso
+giorno con il mandato esplicito di cercare **ciò che il banco non aveva colto**, ha trovato
+**cinque falsi negativi riproducibili** - casi in cui una violazione reale e ben formata viene
+ignorata e lo script dichiara «conforme» con uscita zero.
+
+Nessuno dei cinque era esotico. Una scheda di traguardo con il mese abbreviato - `1 ago. 2026`
+invece di `1 agosto 2026` - nella stessa forma già in uso nella tabella di sintesi dello stesso
+documento: il traguardo finiva fra i «saltati» e una divergenza di un mese intero passava. `IFS`
+impostato su una riga e `read` sulla successiva, che è **peggio** della forma vietata perché `IFS`
+resta impostato per il resto dello script. Un recinto di codice aperto indentato dentro un elenco
+numerato e chiuso a colonna 1, che rendeva invisibile ogni rinvio del resto del file. Una riga di
+tabella scritta `|Q-99|` invece di `| Q-99 |`, resa identica dal markdown e completamente ignorata
+dal controllo. E un limite di analisi che il commento dello script dichiarava in un verso solo.
+
+**Perché è insidioso, e non è una questione di casi in più.** Chi scrive un controllo costruisce la
+tenuta a partire dalla forma che ha in mente, cioè **la stessa forma su cui ha scritto
+l'espressione regolare**. La tenuta e il controllo condividono l'assunzione, e nessun numero di casi
+scritti dallo stesso autore la mette in discussione: sono tutti dentro lo stesso presupposto. Il
+banco verifica che il controllo faccia ciò che l'autore intendeva; non verifica che ciò che l'autore
+intendeva copra la regola.
+
+**La regola.** Ogni controllo nuovo va sottoposto a una lettura di qualcuno - o qualcosa - che **non
+lo ha scritto**, con un mandato preciso: non «va bene?», ma **«trova un caso che dovrebbe segnalare
+e non segnala»**. La domanda formulata così produce risultati; formulata come richiesta di parere
+generico produce complimenti. E il risultato torna nel banco: un falso negativo trovato e corretto
+senza un caso che lo fissi è un difetto che aspetta la prossima riscrittura.
+
+**Il corollario, sui limiti che non si correggono.** Uno dei cinque non era correggibile - legare un
+destinatario alla singola marcatura richiede di capire il testo, non di leggerlo. Quel limite è
+diventato **un caso di prova che attende esito positivo**, con il nome che dichiara di essere un
+limite noto. Vale più della sua descrizione in un commento: chi un giorno lo correggerà vedrà il
+caso cambiare esito, invece di dover scoprire da solo che cosa il controllo non guardava.
+
+**Il presidio.** Il blocco «Controllo 31» di `scripts/prove/esegui-prove.sh`, che raccoglie i sette
+casi in un gruppo separato invece di distribuirli fra i controlli di appartenenza: raggruppati
+dicono **che classe di errore rappresentano** - la forma legittima ma diversa da quella prevista -
+e ricordano di cercarla per ogni controllo nuovo. La regola sulla revisione indipendente, invece,
+resta disciplina: nessuno script può verificare che una revisione sia stata fatta da qualcuno che
+non ha scritto il codice.
+
+---
+
+### D-30. L'esito che si legge in fondo a una catena di comandi non e' quello del comando
+
+**Che cosa è successo.** Il 27 agosto 2026 la costruzione del sito è stata lanciata come
+`npm run build 2>&1 | tail -25`, e il codice di uscita letto è stato `0`. **La costruzione era
+fallita**: la locale inglese si era interrotta su quattro collegamenti verso file inesistenti, e
+`website/build/en` non era stato prodotto affatto. Lo `0` era l'esito di `tail`, che aveva letto le
+sue venticinque righe con successo - come fa sempre, qualunque cosa dica il comando a monte.
+
+Il falso verde è durato più di un'ora, e in quell'ora il lavoro è proseguito sulla convinzione che
+i collegamenti nuovi risolvessero tutti. Se ne è accorto un altro controllo,
+`scripts/verifica-ricerca.sh`, che ha detto una cosa apparentemente diversa - «directory
+dell'artefatto assente (inglese)» - e che era invece la stessa cosa vista dall'altro capo.
+
+**Perché è insidioso.** Non è un errore di distrazione ed è per questo che vale una voce: la forma
+`comando | tail` è **il modo normale** di guardare l'esito di un comando prolisso, e in quella forma
+l'informazione che serve - l'esito - è esattamente quella che la catena distrugge. Il testo che
+resta a schermo, poi, viene dal comando vero, quindi *sembra* la sua risposta; solo il numero non lo
+è. E la coda di una costruzione fallita di Docusaurus contiene messaggi di errore che assomigliano a
+quelli che compaiono anche nelle costruzioni riuscite.
+
+**La regola.** L'esito di un comando si legge **sul comando**, mai in fondo a una catena. In forma
+interattiva: `comando > registro.log 2>&1; echo $?`, e la coda si guarda dopo, sul file. Negli
+script: `set -o pipefail`, oppure `${PIPESTATUS[0]}` quando la catena serve davvero. Vale anche per
+la forma opposta, già registrata come `C-2`: un comando che **esce con successo** restituendo una
+riga vuota - `git log` su un file non tracciato - richiede di imporre il valore predefinito
+**dopo**, con `[ -n "$t" ] || t=0`, mai con `||` sul comando.
+
+**Il corollario, sulla lettura degli esiti in generale.** Quando due controlli dicono cose diverse,
+la spiegazione più probabile non è che uno dei due sbagli: è che **guardino cose diverse**. Qui il
+controllo della ricerca vedeva l'assenza dell'artefatto inglese e la costruzione dichiarava
+successo, e la contraddizione era l'unico indizio disponibile. Una contraddizione fra due
+osservazioni va inseguita fino a capire quale delle due misura che cosa, e non risolta scegliendo
+quella più comoda.
+
+**Il presidio.** `scripts/verifica-pipefail.sh`, riga `PF-C1` di
+`pipeline/collocazione-dei-controlli.tsv`, bloccante in fascia rapida: ogni script **eseguibile**
+che contiene una catena di comandi deve dichiarare `pipefail`. Le librerie - file non eseguibili,
+inclusi con `source` - sono escluse, perché le loro catene girano con le impostazioni del chiamante
+e una libreria che imponesse `set` altererebbe l'ambiente di chi la include.
+
+**Una rettifica sulla misura, fatta il giorno stesso.** La prima stesura di questa voce affermava
+che `verifica-trattini.sh` «contiene quattro catene ed è quindi esposto allo stesso difetto».
+**È falso.** Le quattro barre verticali contate erano `||` e occorrenze dentro commenti: contate
+con `grep -c '|'`, che non distingue l'operatore dalla catena. Lo script ha **zero** catene, e
+l'unico file senza `pipefail` era la libreria `scripts/lib/date-dei-traguardi.sh`, che non deve
+averlo. La misura grezza aveva prodotto un'accusa sbagliata dentro la voce di runbook scritta per
+denunciare un'accusa sbagliata - e la lezione è la stessa che la voce `D-25` già porta: contare non
+è misurare, e il conteggio va fatto sullo stesso criterio che il controllo poi applicherà.
+
+**Ciò che resta senza presidio, ed è la metà del difetto.** Il falso verde del 27 agosto non è nato
+dentro uno script: è nato da un comando digitato a mano. Nessun controllo può presidiare la forma
+usata da chi lavora in forma interattiva, dove la disciplina resta l'unica difesa - si scrive
+`comando > registro.log 2>&1; echo $?` e si guarda la coda dopo, sul file.
+
+---
+
+### D-29. Una regola scritta nel runbook e presidiata da soli commenti viene riviolata da chi l'ha scritta
+
+**Che cosa è successo.** Il 26 agosto 2026 il repository ha trovato, corretto e registrato la voce
+`C-1`: per `bash` la tabulazione è un carattere di `IFS` **bianco**, due tabulazioni consecutive
+vengono fuse, e ogni campo vuoto fa scalare di uno tutti quelli che seguono. La regola è stata
+scritta in chiaro - *«i campi si estraggono per posizione con `cut -f`, che i campi vuoti li conta.
+Mai con `read`»* - e presidiata con un caso di regressione nel banco e **tre commenti di
+avvertimento** in tre script diversi.
+
+Il 27 agosto, scrivendo due controlli nuovi con il runbook aperto sulla stessa scrivania, la regola
+è stata **riviolata due volte**. Il difetto si è manifestato in un modo che merita di essere
+riportato: un caso di prova costruito apposta per fallire **è passato**, perché il campo vuoto della
+tenuta era stato riassorbito e la condizione che doveva scattare leggeva un'altra colonna.
+
+Nel misurarne l'estensione è emerso il resto. La correzione del 26 agosto aveva lasciato in piedi
+una **seconda occorrenza nello stesso script già corretto**, `verifica-registro-dei-difetti.sh`, su
+una proiezione a cinque colonne di cui la quarta è la casella `bloccante_dal`. Quella casella è
+vuota **per costruzione su ogni voce ancora bloccante**: oggi il registro non ne ha alcuna, quindi
+il difetto non cade; la prima voce bloccante che vi entrerà farà leggere al controllo il **numero di
+riga** come se fosse una data.
+
+**Perché è insidioso, e non è una questione di disattenzione.** Chi scrive uno script nuovo non
+legge i commenti degli script vecchi: li legge chi modifica *quegli* script. Un commento presidia il
+punto in cui sta, non la regola. E il runbook stesso - il documento che esiste perché un errore non
+si ripeta - non è un presidio: è una memoria, e una memoria non si oppone a nulla nel momento in cui
+si scrive la riga sbagliata. Fra il momento della lettura e quello della violazione passano ore, e
+in mezzo c'è il resto del lavoro.
+
+**La regola.** Ogni voce di questo runbook che descriva una proprietà **meccanicamente verificabile**
+va trasformata in un cancello, non in un avvertimento. Il criterio per distinguere è netto: se si
+può scrivere uno script che risponda sì o no leggendo i file, allora l'avvertimento non basta e la
+voce resta debito finché il cancello non esiste. Le voci che restano legittimamente senza presidio
+sono quelle che descrivono un **errore di metodo** - una deduzione sbagliata, una fretta - dove uno
+script cadrebbe nello stesso errore di categoria che la voce descrive.
+
+**Il corollario, sulla misura dell'estensione.** Quando una regola nota viene riviolata, la domanda
+giusta non è «dove ho sbagliato adesso» ma **«quante altre volte è già successo e non lo sappiamo»**.
+Qui la seconda domanda ha prodotto un difetto latente in uno script che si riteneva corretto - e
+lo ha prodotto solo perché la ricerca è stata fatta su **tutti** gli script, non sui due appena
+scritti.
+
+**Il presidio.** `scripts/verifica-lettura-dei-tsv.sh`, riga `TSV-C1` di
+`pipeline/collocazione-dei-controlli.tsv`, bloccante in fascia rapida. Cinque casi nel blocco
+«Controllo 27» di `scripts/prove/esegui-prove.sh`, fra cui quello che distingue una riga che **usa**
+la forma vietata da un commento che la **nomina** per spiegarla: senza quella distinzione il
+controllo segnalerebbe i tre commenti di avvertimento che presidiavano la regola prima di lui, il
+che sarebbe insieme corretto e inutile.
+
+---
+
+### D-28. La stessa data scritta in tre punti si aggiorna in uno, e il documento contraddice se stesso
+
+**Che cosa è successo.** Il 27 agosto 2026 la ritaratura del calendario ha spostato `T-03` e `T-07`
+dal 26 settembre al 5 settembre. La modifica ha toccato le **schede** dei due traguardi in
+`docs/09_roadmap/02-traguardi.md` e ha lasciato intatte le altre due rappresentazioni della stessa
+data nello stesso capitolo: la barra del **diagramma di Gantt** al §7 e la riga della **tabella di
+sintesi** al §7.1. In entrambe le lingue. Per un giorno il capitolo ha dichiarato «5 settembre» in
+un punto e «26 settembre» in altri due, senza che nulla lo segnalasse.
+
+Nel misurarlo è emerso che la divergenza era **anteriore** alla ritaratura e più estesa di essa: il
+diagramma italiano faceva cominciare `T-03` il 27 agosto e quello inglese il 12 settembre, e il
+paragrafo che spiega la sovrapposizione fra `T-01` e `T-03` esisteva soltanto in italiano. Il
+disallineamento non era l'effetto di una modifica frettolosa: era lo stato normale di un documento
+in cui la stessa affermazione vive in sei copie e nessuna sa delle altre.
+
+**Perché è insidioso.** Nessuna delle sei copie è sbagliata in sé. Ciascuna, letta da sola, è
+plausibile, e chi legge il capitolo per decidere qualcosa ne legge **una**: la tabella di sintesi se
+vuole il quadro, il diagramma se vuole la catena, la scheda se vuole la motivazione. Il lettore non
+ha modo di sapere che le altre due dicono altro, e il documento non ha modo di dirglielo. Peggio:
+gli strumenti che il progetto ha - il controllo di divergenza fra le lingue, quello delle ancore,
+quello della conformità redazionale - guardano tutti la **relazione fra documenti**, e nessuno
+guardava la coerenza di un documento **con sé stesso**.
+
+**La regola.** Quando un dato compare più di una volta nello stesso documento, una delle occorrenze
+è la **fonte** e le altre sono **copie**; e la fonte è quella che porta con sé la motivazione, non
+quella che compare per prima. Qui la fonte è la scheda del traguardo, perché è l'unica delle tre a
+dire *perché* quella data è quella. Le copie si aggiornano nella stessa modifica che tocca la fonte,
+mai in una successiva, e la loro coerenza non si affida all'attenzione di chi modifica: la verifica
+uno script.
+
+**Il corollario, che vale oltre le date.** Un diagramma e una tabella di sintesi non sono
+illustrazioni del testo: sono **affermazioni autonome**, che continuano a dire ciò che dicevano anche
+dopo che il testo è cambiato. Ogni volta che si aggiunge una rappresentazione sintetica di un dato
+già scritto altrove - un diagramma, una tabella riassuntiva, un cruscotto - si aggiunge una copia
+che potrà divergere, e la si aggiunge **insieme al controllo che la lega alla fonte**, non dopo.
+
+**Il presidio.** `scripts/verifica-coerenza-delle-date.sh`, riga `CD-C1` di
+`pipeline/collocazione-dei-controlli.tsv`, bloccante in fascia rapida dal primo giorno - senza data
+di innesco, perché il repository era già stato riportato alla coerenza quando il controllo è nato, e
+un controllo che nasce verde su un repository conforme non ha debito da scadenzare. Otto casi nel
+blocco «Controllo 25» di `scripts/prove/esegui-prove.sh`, provati per mutazione su tenute costruite
+apposta: diagramma divergente, tabella divergente, inglese divergente, traguardo datato e assente
+dal diagramma, e i due errori d'uso che devono uscire `2` e non `0`. Il controllo **dichiara a ogni
+esecuzione quali schede salta** - quelle la cui data non è di calendario, «2027» o «successiva al
+congelamento dell'interfaccia» - perché un salto silenzioso è indistinguibile da una verifica
+riuscita.
+
+---
+
+### D-27. Una corsia mai eseguita diverge in silenzio, e la scoperta arriva nel momento peggiore
+
+**Che cosa è successo.** Il 27 agosto 2026, preparando l'esecuzione della fascia di rilascio - mai
+eseguita: zero esecuzioni, zero rilasci - sono emerse due divergenze fra quella corsia e le altre
+due, che nessuno poteva vedere perché nessuno l'aveva mai fatta girare.
+
+La prima: `fascia-di-rilascio.yml` dichiarava `actions/setup-node@v4` e `node-version: 24.x`,
+mentre `docs.yml` e `fascia-completa.yml` dichiarano `@v5` e `node 22`. **La corsia che firma
+costruiva l'artefatto con un major di Node diverso da quella che pubblica.** Un artefatto firmato
+ha senso se è l'artefatto che le persone ricevono; costruito con un altro interprete non è
+garantito che lo sia, e la firma attesterebbe qualcosa che nessuno ha visto.
+
+La seconda discende dalla prima ed è più concreta. Node 24 porta npm 11, e il comando che
+`@cyclonedx/cyclonedx-npm` esegue per produrre la distinta - `npm ls --all` - **fallisce con npm
+11.6.3**: `Cannot read properties of undefined (reading 'ruleset')`, dentro `OverrideSet.
+haveConflictingRules` di arborist. Il difetto scatta quando il progetto dichiara `overrides` in
+`package.json`, e questo progetto ne ha due, messi lì per ragioni di sicurezza. Misurato: con npm
+10.9.8, che accompagna Node 22, lo stesso comando esce `0`. **Il passo della distinta di quella
+corsia sarebbe quindi fallito alla prima esecuzione**, e con esso i due controlli bloccanti che
+dalla distinta dipendono.
+
+**Perché è insidioso.** Una corsia che non gira non è rossa: è **assente**, e l'assenza non compare
+in nessun cruscotto. Peggio, la corsia di rilascio è per costruzione quella che gira **meno** e nel
+momento in cui conta di più - il primo rilascio, quando l'attenzione è sul contenuto e non
+sull'infrastruttura. Ogni divergenza accumulata in mesi si presenta tutta insieme, lì.
+
+**La regola.** Una corsia che non è mai stata eseguita **va trattata come non funzionante finché
+non lo è**, e la sua configurazione va **confrontata riga per riga** con quella delle corsie che
+girano: versione dell'interprete, versione delle azioni, ordine dei passi. Le differenze si
+giustificano una per una o si eliminano. E la prima esecuzione **si programma in anticipo, su un
+oggetto che si può buttare**, mai sul primo rilascio vero.
+
+**Il corollario, sugli strumenti di terze parti.** Uno strumento che invoca un altro programma
+eredita i difetti di quel programma, e la versione di quel programma dipende dall'ambiente e non
+dallo strumento. `@cyclonedx/cyclonedx-npm` non ha difetti qui: ne ha `npm`, che è la sua
+dipendenza invisibile. Fissare la versione dell'interprete in tutte le corsie **allo stesso
+valore** non è pedanteria di uniformità: è l'unico modo per cui un difetto trovato in una corsia
+valga anche come garanzia per le altre.
+
+**Il presidio.** Nessuno automatico, e va detto invece di lasciarlo intendere. Un controllo che
+confronti le versioni dichiarate dalle corsie sarebbe scrivibile - è una lettura di YAML e un
+confronto - e **non esiste**. Oggi la garanzia è l'allineamento appena fatto e questa voce. La
+riga sta nell'elenco delle voci senza presidio di questo runbook finché lo script non esiste.
+
+---
+
+### D-26. Un controllo verde sempre non si vede leggendo il codice: si vede solo sulle tenute
+
+**Che cosa è successo.** Il 27 agosto 2026 è nato
+`scripts/verifica-date-di-marcatura.sh`, il controllo che il criterio 8 di `T-01` non aveva mai
+avuto. Cerca, dentro uno stesso capoverso, la co-occorrenza di una menzione della marcatura e di un
+riferimento temporale. Eseguito sul repository reale ha detto: **nessun rilievo**. Eseguito sulle
+tenute costruite apposta per farlo fallire - un capoverso che promette la marcatura «entro il primo
+trimestre del 2029», un altro che la annuncia «no later than July» - ha detto la stessa cosa:
+nessun rilievo. **Era verde sempre.**
+
+La causa è di un carattere. I confini di parola erano scritti `\b`, che è sintassi PCRE. Il motore
+usato, `awk`, adotta le espressioni regolari estese POSIX, dove `\b` non è un confine di parola:
+ogni alternativa della famiglia temporale ne conteneva uno, nessuna corrispondeva mai, e la
+condizione «c'è un riferimento temporale» era falsa per costruzione. Il controllo non era rotto in
+modo rumoroso: rispondeva, contava i documenti, stampava il proprio verde.
+
+**Perché è insidioso.** Un controllo verde su un repository sano è indistinguibile da un controllo
+verde perché non guarda. Nessuna lettura del codice se n'era accorta - la riga *sembra* giusta a
+chiunque abbia scritto più espressioni regolari in un linguaggio che le supporta - e nessuna
+esecuzione sul repository reale poteva accorgersene, perché su un repository conforme il risultato
+atteso è esattamente quel verde. **L'unico osservabile che distingue i due casi è la tenuta
+deliberatamente non conforme**, ed è per questo che il banco esiste.
+
+**La regola.** Un controllo appena scritto si esegue **prima** sulla tenuta che deve farlo fallire,
+e solo **dopo** sul repository. L'ordine non è di comodo: eseguirlo prima sul repository produce un
+verde che si legge come conferma e che spegne il sospetto proprio quando servirebbe. Vale in
+particolare per i controlli che cercano l'**assenza** di qualcosa, dove il successo e il guasto
+totale hanno lo stesso aspetto.
+
+**Il corollario, sulle espressioni regolari.** La sintassi delle espressioni regolari non è una:
+`grep -E`, `grep -P`, `awk`, `sed` e Python accettano cose diverse e ne **ignorano** altre in
+silenzio invece di rifiutarle. `\b` in ERE non è un errore di sintassi: è la lettera `b`, oppure
+niente. Ogni espressione regolare che usa una scorciatoia - `\b`, `\d`, `\w`, `\s` - va provata
+nel motore in cui girerà davvero, e non in quello in cui è stata pensata.
+
+**Il presidio.** Nove casi nel blocco «Controllo 23» di `scripts/prove/esegui-prove.sh`, fra cui i
+due che hanno colto il guasto, e tre mutazioni che li isolano uno per uno. Non esiste un controllo
+che verifichi le espressioni regolari altrui: il presidio è il banco, ed è sufficiente **solo se
+ogni controllo nuovo vi entra con almeno una tenuta che deve farlo fallire**.
 
 ---
 

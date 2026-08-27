@@ -108,6 +108,18 @@ jobs:
       - name: Generazione della distinta
         working-directory: website
         run: npx --yes @cyclonedx/cyclonedx-npm@latest --output-file ../sbom-website.json --omit dev --package-lock-only
+      - name: Generazione del registro dei componenti di terze parti (T-03, criterio 6)
+        # Il criterio 6 chiede due cose. La seconda - «un componente presente nella distinta e
+        # assente dalle annotazioni fa fallire la costruzione» - e' il passo qui sotto, e c'era
+        # dal principio. La PRIMA - «il registro e' GENERATO dalla distinta e arricchito da un
+        # file di annotazioni versionato» - non esisteva fino al 27 agosto 2026: c'erano le
+        # annotazioni e c'era il confronto, non c'era il registro.
+        #
+        # La differenza non e' terminologica. Le annotazioni dicono che cosa il progetto pensa di
+        # ciascun componente; la distinta dice che cosa e' entrato nell'artefatto. Il registro e'
+        # la loro giunzione, ed e' l'unico dei tre che risponda alla domanda che chi installa pone
+        # davvero: che cosa sto installando, con quale licenza, e chi ce l'ha messo.
+        run: python3 scripts/genera-registro-componenti.py sbom-website.json registro-generato
       - name: Verifica del registro dei componenti
         # G2 e G5 (docs/10_fondamenti/17-ambiente-di-sviluppo.md §9.2): confronta la distinta appena
         # generata con pipeline/annotazioni-componenti.tsv e fa fallire la costruzione quando un
@@ -191,6 +203,22 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - run: ./scripts/verifica-registro-dei-difetti.sh
+
+  registri-delle-sigle:
+    name: Sigle di vincolo e di questione (SIG-C1)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # Verifica che ogni sigla «V-» e «Q-» citata nella documentazione, in entrambe le lingue,
+    # trovi la propria definizione nei registri, e che i registri siano la proiezione aggiornata
+    # della bacheca inter-agenti da cui derivano.
+    #
+    # Nasce da settantasei citazioni che portavano numerazioni superate: quando la numerazione
+    # per area e' stata globalizzata, il corpus non e' stato riscritto, e per mesi «V-13 di SEC»
+    # ha designato un vincolo che nessuna tabella definiva. Nessun controllo poteva accorgersene,
+    # perche' i vincoli vivevano in una tabella di prosa che nessuno proiettava.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-registri-di-vincoli-e-questioni.sh
 
   dichiarazione-non-marcatura:
     name: Costruzione del sito - non marcatura (T-01/7) e criteri 1, 2 e 3 di T-07
@@ -441,3 +469,32 @@ jobs:
         run: |
           echo "G6 - Compatibilità di contratto: nessun oggetto oggi (V-182 vieta il codice applicativo prima di T-03, 26 settembre 2026)."
           echo "Diventa bloccante il 2026-11-30 - chiusura di T-10 (RU-1), primo consumatore reale dell'interfaccia."
+
+  rinvii-testuali:
+    name: RT-C1 - ogni rinvio a un documento del corpus e' un collegamento
+    runs-on: ubuntu-latest
+    # In fascia completa e non in rapida: esamina 308 documenti, e il danno che previene non e'
+    # irrecuperabile - un rinvio testuale sbagliato si corregge quando lo si trova. Blocca da
+    # subito perche' il corpus e' stato bonificato prima che il controllo entrasse: dei 182 rinvii
+    # convertiti il 27 agosto 2026, trentasette nella traduzione inglese puntavano a nomi di file
+    # tradotti che non esistono, invisibili finche' erano testo.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-rinvii-testuali.sh
+
+  marcature-non-verificate:
+    name: NV-C1 - ogni marcatura «non verificato» dichiara il destinatario (sola misura fino al 2026-10-10)
+    runs-on: ubuntu-latest
+    # In sola segnalazione con data dichiarata, come impone il criterio 4 di T-03: alla prima
+    # esecuzione le marcature prive di destinatario sono 372 su 503, e un cancello sempre rosso
+    # smette di essere letto (Q-288). Il 10 ottobre 2026 e' il termine del criterio 3 di T-02,
+    # quindi anche il termine entro cui quelle 372 vanno chiuse.
+    steps:
+      - uses: actions/checkout@v5
+      - name: Rapporto sulle marcature non verificate
+        run: RAPPORTO=marcature-non-verificate.tsv ./scripts/verifica-marcature-non-verificate.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: marcature-non-verificate
+          path: marcature-non-verificate.tsv
+          retention-days: 90

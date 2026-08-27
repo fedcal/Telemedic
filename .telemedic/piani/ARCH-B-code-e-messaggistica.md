@@ -2,7 +2,8 @@
 
 > **Che cos'è questo documento.** È **analisi interna di area architetturale**, non pianificazione
 > di traguardo e non codice: `V-182` vieta ogni riga di codice applicativo prima di `T-03`
-> (26 settembre 2026), e questo documento lo rispetta alla lettera - non contiene codice, non
+> (5 settembre 2026 dopo la ritaratura del 27 agosto, era il 26 settembre), e questo documento lo
+> rispetta alla lettera - non contiene codice, non
 > contiene SQL, non contiene manifesti di dispiegamento.
 >
 > **Che cosa non fa.** Non riapre di soppiatto nessuna decisione già presa. Le decisioni degli

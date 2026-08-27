@@ -5,10 +5,15 @@
 # artefatto, la firma con identità effimera della pipeline, le attestazioni di provenienza e il
 # rapporto di tracciabilità (§§6-8 di quel capitolo).
 #
-# Oggi il solo artefatto pubblicato è il sito di documentazione, e la sua distinta è generata nel
-# lavoro «distinta-dei-materiali» di fascia-completa.yml - perché è così che la colloca, oggi,
-# pipeline/collocazione-dei-controlli.tsv (riga G5, fascia «completa», stato «segnalazione»):
-# questo flusso non duplica quel lavoro.
+# Oggi il solo artefatto pubblicato è il sito di documentazione. La sua distinta si genera in DUE
+# luoghi, e non è una duplicazione: sono due costruzioni diverse dello stesso sito. Il lavoro
+# «distinta-dei-materiali» di fascia-completa.yml genera la distinta della costruzione che gira a
+# ogni proposta di modifica, mai firmata; il lavoro «costruzione-e-firma-artefatti» di QUESTO
+# flusso genera la distinta della costruzione che viene firmata e distribuita - corretto il 27
+# agosto 2026, quando questo flusso firmava un artefatto senza aver mai generato la distinta della
+# propria costruzione, appoggiandosi a quella (diversa) generata altrove. Il criterio 5 di T-03
+# esige la distinta «a ogni costruzione, per ogni artefatto»: una costruzione che firma senza
+# generare la propria non lo soddisfa, anche se un'altra costruzione dello stesso sito lo fa.
 #
 # Innesco: manuale ed esplicito, mai automatico. La procedura di rilascio è documentata in
 # docs/01_technical/09-integrazione-continua-e-rilascio.md §10.
@@ -38,14 +43,27 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Controllo del codice
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 1
 
+      # ALLINEATO ALLE ALTRE CORSIE IL 27 AGOSTO 2026, e la divergenza precedente merita di essere
+      # raccontata perche' e' il genere di cosa che solo una corsia mai eseguita puo' nascondere.
+      # Questa corsia usava setup-node@v4 e node-version 24.x, mentre docs.yml e fascia-completa.yml
+      # usano @v5 e node 22. Due conseguenze, in ordine di gravita':
+      #
+      # 1. LA CORSIA CHE FIRMA COSTRUIVA UN ARTEFATTO DIVERSO da quella che pubblica. Un artefatto
+      #    firmato ha senso se e' l'artefatto che le persone ricevono; costruito con un major di Node
+      #    diverso non e' garantito che lo sia, e la firma attesterebbe qualcosa che nessuno ha visto.
+      # 2. Node 24 porta npm 11, e «npm ls --all» - il comando che @cyclonedx/cyclonedx-npm esegue
+      #    per produrre la distinta - fallisce con npm 11.6.3: «Cannot read properties of undefined
+      #    (reading 'ruleset')». Misurato in locale il 27 agosto 2026. Il passo della distinta di
+      #    QUESTA corsia sarebbe quindi fallito alla prima esecuzione, e questa corsia non e' mai
+      #    stata eseguita: zero esecuzioni, zero rilasci.
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 24.x
+          node-version: 22
           cache: 'npm'
           cache-dependency-path: website/package-lock.json
 
@@ -54,6 +72,60 @@ jobs:
           cd website
           npm ci
           npm run build
+
+      # Criterio 5 di T-03: «la distinta dei materiali è generata a ogni costruzione, per ogni
+      # artefatto, e non per il solo servizio principale». Fino al 27 agosto 2026 questo flusso -
+      # quello che COSTRUISCE E FIRMA l'artefatto distribuito - non generava alcuna distinta: si
+      # appoggiava a un'esecuzione separata del lavoro «distinta-dei-materiali» di
+      # fascia-completa.yml, che costruisce lo stesso sito ma non è la costruzione che viene
+      # firmata. Un artefatto firmato senza la distinta generata dalla SUA costruzione dichiara la
+      # provenienza del contenuto senza dichiarare di che cosa è fatto. Genera qui, PRIMA dei passi
+      # di firma, nella stessa forma già usata dal lavoro «distinta-dei-materiali» di
+      # fascia-completa.yml: stesso comando, stesso --package-lock-only per la stessa ragione (la
+      # camminata dell'albero via «npm ls» va in errore dentro @npmcli/arborist quando il campo
+      # «overrides» di website/package.json punta a dipendenze transitive - vedi il commento
+      # gemello in fascia-completa.yml), stesso controllo del registro dei componenti.
+      - name: Generazione della distinta dei materiali (T-03, criterio 5)
+        working-directory: website
+        run: npx --yes @cyclonedx/cyclonedx-npm@latest --output-file ../sbom-website.json --omit dev --package-lock-only
+
+      - name: Generazione del registro dei componenti di terze parti (T-03, criterio 6)
+        # Il criterio 6 chiede due cose. La seconda - «un componente presente nella distinta e
+        # assente dalle annotazioni fa fallire la costruzione» - e' il passo qui sotto, e c'era
+        # dal principio. La PRIMA - «il registro e' GENERATO dalla distinta e arricchito da un
+        # file di annotazioni versionato» - non esisteva fino al 27 agosto 2026: c'erano le
+        # annotazioni e c'era il confronto, non c'era il registro.
+        #
+        # La differenza non e' terminologica. Le annotazioni dicono che cosa il progetto pensa di
+        # ciascun componente; la distinta dice che cosa e' entrato nell'artefatto. Il registro e'
+        # la loro giunzione, ed e' l'unico dei tre che risponda alla domanda che chi installa pone
+        # davvero: che cosa sto installando, con quale licenza, e chi ce l'ha messo.
+        run: python3 scripts/genera-registro-componenti.py sbom-website.json registro-generato
+      - name: Verifica del registro dei componenti (G2, G5)
+        run: ./scripts/verifica-registro-componenti.sh
+
+      - uses: actions/upload-artifact@v4
+        # if: always() e non il default, per la stessa ragione del lavoro gemello in
+        # fascia-completa.yml: se la verifica sopra fallisce, l'artefatto che ha fatto fallire il
+        # controllo resta comunque scaricabile per l'indagine.
+        if: always()
+        with:
+          name: distinta-dei-materiali-rilascio
+          path: sbom-website.json
+          retention-days: 90
+
+      - name: Dichiarazione di non marcatura nell'artefatto (T01-C7)
+        # Sta QUI perche' i due passi che seguono FIRMANO l'artefatto: una firma su un artefatto
+        # non verificato attesta la provenienza di un contenuto che nessuno ha guardato. Fino al 27 agosto 2026 il controllo esisteva, era provato e girava - su una
+        # corsia separata, che diventava rossa in parallelo mentre questa distribuiva lo stesso.
+        # Un artefatto pubblicato senza la dichiarazione resta pubblicato e la copia e' gia' stata
+        # scaricata: e' il danno che il criterio 7 di T-01 chiama irrecuperabile, ed e' la ragione
+        # per cui il traguardo e' di classe A. Voce D-13 del runbook, applicata al caso peggiore:
+        # una tabella che dice dove sta un controllo non dice che il controllo sia sul percorso
+        # che conta.
+        run: |
+          ./scripts/verifica-dichiarazione-non-marcatura.sh website/build
+          ./scripts/verifica-dichiarazione-non-marcatura.sh website/build/en
 
       - name: Installazione di cosign (Sigstore)
         uses: sigstore/cosign-installer@v4

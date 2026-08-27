@@ -6,7 +6,176 @@
 > **Fonte dei criteri** - `docs/09_roadmap/02-traguardi.md`, sezione `T-02`. Questo piano non li
 > riscrive e non li interpreta più largamente di come sono scritti: dove una lettura è necessaria,
 > la dichiara come lettura e ne indica la conseguenza sull'alternativa.
-> **Data di misura dello stato** - 26 agosto 2026, sul ramo `main` al commit `b3498b7`.
+> **Data di misura dello stato** - 27 agosto 2026, sul ramo `main`, su un commit successivo a
+> `b3498b7` (hash non verificato in questa misura: nessun accesso a un interprete di comandi
+> nell'ambiente di misura). Il corpo del piano che segue descrive ancora la fotografia del 26
+> agosto e resta la previsione da cui si impara: la sezione seguente la confronta con l'esito
+> misurato il giorno dopo, senza sostituirla.
+
+## Misura dello stato al 27 agosto 2026
+
+Misura eseguita su richiesta del coordinatore, in sola lettura sul repository. **Limite dichiarato
+della misura**: l'ambiente di misura non dava accesso a un interprete di comandi, quindi dove la
+verifica avrebbe richiesto un'esecuzione - `npm run build`, `wc -w`, uno script di `scripts/` - non
+è stata eseguita di persona: la conclusione si fonda sulla lettura diretta dei file di
+configurazione e sulla documentazione datata del 26 e del 27 agosto, incrociata fra più fonti, e
+questo è detto ovunque conti invece di presentare una deduzione come un'esecuzione.
+
+| Criterio | Stato che questo piano registrava (26 agosto) | Stato misurato il 27 agosto | La misura |
+|---|---|---|---|
+| 1 - glossario bilingue | Soddisfatto | **Soddisfatto, invariato** | I due file esistono in posizione speculare; `V-07-ter` registra la revisione incrociata del glossario |
+| 2 - zero collegamenti rotti | Non soddisfatto | **Soddisfatto in gran parte, con riserva** | `website/docusaurus.config.mjs` porta oggi `onBrokenLinks`, `onBrokenAnchors` e `onBrokenMarkdownLinks` a `throw`; la riga `G9` di `pipeline/collocazione-dei-controlli.tsv` registra la bonifica di ottantotto collegamenti e quarantaquattro ancore il 26 agosto. Costruzione non rieseguita da chi misura |
+| 3 - `[NV]` con destinatario | Non soddisfatto | **Non soddisfatto, invariato** | Quattrocentonovantotto occorrenze su novantasei file (erano quattrocentosettanta su novantuno); nessun controllo in `scripts/` |
+| 4 - bacheca senza `APERTA` orfane | Non misurato in forma binaria | **Non soddisfatto, invariato nella sostanza** | Centoventitré righe `Q-*`; le voci in stato `APERTA` si contano fra settantatré e ottantasette a seconda della forma della riga, il che è già il sintomo di un criterio verificato a vista. Nessun controllo esiste |
+| 5 - conteggio delle parole | Soddisfatto | **Soddisfatto, ma disallineato** | Il conteggio registrato (centoquarantaquattro file in `docs/`) è ora superato: `docs/**/*.md` ne conta oggi centocinquantaquattro |
+| 6 - lista dei termini vietati (`R0`) | Non soddisfatto, componente `A` | **In parte** | Lo strato strutturale del controllo `G11` è bloccante dal 27 agosto, con zero rilievi fuori da `.telemedic/`; lo strato specifico - l'elenco vero e proprio - resta spento, in attesa di una decisione del committente |
+| 7 - rinvii conformità in collegamenti | Parzialmente misurato | **Non soddisfatto, invariato** | Letto per intero lo script: nessun controllo sui rinvii testuali esiste ancora |
+
+**Criterio 2, la riserva che resta aperta.** Il controllo blocca davvero - lo dice la configurazione
+del sito letta direttamente, non una dichiarazione altrove - e la bonifica di collegamenti e
+ancore è registrata con data nella riga `G9` della tabella di collocazione. Manca però il caso
+automatico nel banco `scripts/prove/esegui-prove.sh`: la prova negativa - collegamento rotto
+introdotto, costruzione che fallisce, collegamento tolto, costruzione che torna a passare - è
+stata eseguita a mano una sola volta e non è ripetibile da chi non la rifà a mano. È la terza
+istanza del problema già registrato in `Q-288`. Il lavoro residuo è di poche ore: scrivere il caso
+nel banco, non riprogettare il controllo.
+
+**Criterio 3, che cosa manca esattamente.** Mancano tutti e tre gli elementi che questo piano
+elencava il 26 agosto: una forma dichiarata del destinatario - le occorrenze, cresciute nel
+frattempo, portano il destinatario in prosa non uniforme -, il controllo che ne accerti l'assenza
+e la sua prova negativa e simmetrica, e il rapporto pubblicato. Nessuno dei tre esiste in
+`scripts/`. Il lavoro residuo è, in ordine: la decisione sulla forma, il controllo, poi la
+bonifica della partizione priva di destinatario, la cui dimensione resta ignota finché il
+controllo non gira una prima volta. Complessivamente, fra due e quattro giornate di lavoro.
+
+**Criterio 4, che cosa manca esattamente.** Nessun controllo legge la bacheca a colonne, e la
+misura stessa lo dimostra: due criteri di ricerca diversi sulle stesse centoventitré righe `Q-*`
+restituiscono conteggi diversi di voci `APERTA`, a seconda che si accetti o no una forma marcata
+dello stato - è esattamente il sintomo di un criterio verificato a vista. Manca inoltre la
+definizione operativa di «area chiusa», da cui dipende se la nota obbligatoria vada scritta su
+tutte le voci `APERTA` o su un sottoinsieme: è una decisione di `ORCH`, con un tempo di
+attraversamento proprio, e va posta prima di scrivere il controllo. Il lavoro residuo è, in
+ordine: la decisione, il controllo con la sua prova negativa su tenuta sintetica, e infine la
+bonifica delle righe prive di nota, non parallelizzabile per la regola sui file di contesto
+condivisi. Complessivamente, fra due e quattro giornate, in gran parte condizionate dalla
+decisione preliminare.
+
+**Criterio 5, il disallineamento da riconciliare.** Il criterio come scritto chiede che il
+conteggio sia eseguito e registrato, non che resti aggiornato in permanenza, e sotto quella
+lettura resta soddisfatto. Ma il numero di file su cui poggia è già superato di dieci unità: il
+corpus è cresciuto in un solo giorno, verosimilmente per il lavoro di `T-14`. Non è lavoro
+residuo di `T-02` in senso proprio, ma un secondo conteggio prima della chiusura del traguardo è
+opportuno, perché quel numero determina il piano di `T-06`.
+
+**Criterio 6, il residuo dopo il progresso del 27 agosto.** Lo strato strutturale del controllo
+`G11` esiste, è versionato in `pipeline/termini-ammessi.tsv` come elenco di ammissione ed è
+bloccante da oggi, con zero rilievi fuori dal contesto di lavoro interno escluso per decisione del
+committente. Ciò che il criterio chiede alla lettera - una lista dei termini vietati, definita e
+versionata - non esiste ancora nella forma propria: lo strato specifico a impronte resta spento, e
+la decisione se attivarlo, e come distribuire l'elenco e il sale fuori dal repository, è del
+committente. Anche i messaggi di commit, che `R0` nomina esplicitamente, non sono ancora
+esaminati. Il lavoro di scrittura è già fatto; il residuo è quasi interamente la decisione, poi
+poche ore per collegarla.
+
+**Criterio 7, che cosa manca esattamente.** Lo script `scripts/verifica-conformita-redazionale.sh`
+è stato letto per intero: implementa tre controlli - frontmatter non quotato, rinvii relativi che
+escono da `docs/`, segnaposto di segreti - e nessuno riguarda i rinvii testuali all'area di
+conformità. Le sessantuno occorrenze restano da partizionare fra collegamento e testo nudo, e la
+partizione non è nota. È il lavoro più piccolo dei quattro ancora aperti: mezza giornata per
+l'estensione dello script con la sua prova negativa, poi la conversione dei riscontri, con
+l'attenzione già nota a non introdurre percorsi relativi che escano da `docs/` verso i documenti
+di radice.
+
+## Avanzamento della sera del 27 agosto 2026
+
+La misura riportata sopra è stata redatta al mattino, in sola lettura e **senza accesso a un
+interprete di comandi**. Quattro dei sette criteri si sono mossi nel corso della stessa giornata, e
+riscrivere la misura del mattino ne cancellerebbe il ragionamento: questa sezione la aggiorna senza
+toccarla, come si è già fatto per `T-07`.
+
+| Criterio | Stato al mattino | Stato la sera | Che cosa è cambiato |
+|---|---|---|---|
+| 3 - `[NV]` con destinatario | Non soddisfatto, mancano tutti e tre gli elementi | **Non soddisfatto, ma i tre elementi esistono** | La forma dichiarata, il controllo `NV-C1`, il rapporto pubblicato. Le marcature prive di destinatario riconoscibile scendono da **372 a 47** |
+| 4 - bacheca senza `APERTA` orfane | Non soddisfatto, manca anche la decisione preliminare | **Prima metà soddisfatta e presidiata, seconda metà presidiata con data** | La decisione su «area chiusa» è presa e versionata; `BAC-C1` verifica ora entrambe le metà |
+| 6 - lista dei termini vietati | In parte, strato specifico spento | **Invariato** | Resta una decisione del committente |
+| 7 - rinvii in collegamenti | Non soddisfatto, nessun controllo esiste | **Soddisfatto** | 182 rinvii convertiti in due lingue, presidiati da `RT-C1` |
+
+### Criterio 3 - i tre elementi mancanti ora ci sono, e il residuo ha cambiato natura
+
+**La forma dichiarata.** Era il primo dei tre elementi e il più trascurato, perché senza di essa
+«privo di destinatario» non è accertabile e il criterio non è binario. È ora in
+`CONTRIBUTING.md`, sezione «Come si marca un'affermazione non verificata», con tre forme ammesse e
+nessun'altra: sigla d'area fra apici inversi, identificativo `Q-nnn` di una questione **esistente**,
+soggetto esterno nominato con formula esplicita. La sezione dice anche la cosa che conta più delle
+tre forme: **se nessuna area può chiuderla e nessuna questione la copre, si apre una questione, non
+si sceglie un destinatario perché il controllo diventi verde.** Il rinvio è in `09_roadmap/00-indice.md`
+§11, in entrambe le lingue.
+
+**Il controllo e il rapporto.** `NV-C1` esiste, è in sola misura fino al 10 ottobre - la scadenza
+del criterio stesso - ed **è** il rapporto pubblicato che la seconda metà del criterio chiede: la
+fascia completa lo conserva come artefatto con novanta giorni di ritenzione.
+
+**Che cosa la bonifica ha insegnato, e non era previsto dal piano.** Il piano dichiarava che il
+costo dipende da quanto grande sia la minoranza priva di destinatario, e che quel numero **non è
+noto finché il controllo non gira**. Ha girato, e il numero era 372 su 503. La serata ne ha chiuse
+oltre trecento in entrambe le lingue. Ma il residuo non è il resto della stessa cosa: sono le
+marcature che tre passate successive hanno lasciato indietro, cioè quelle per cui **il destinatario
+ovvio non esiste**. Ciascuna di esse è una decisione di attribuzione, e per alcune l'esito onesto
+sarà una voce di bacheca invece di una riga bonificata - esattamente come il piano prevedeva, ma per
+una frazione del corpus molto più piccola di quanto il numero 372 lasciasse temere.
+
+**Un difetto di metodo, registrato perché non si ripeta.** Due passate su sette hanno attribuito
+un'intera area alla stessa sigla con la stessa formula - ventisei volte «da verificare da `COMP`» in
+un capitolo della guida dei fondamenti. Un'attribuzione uniforme non è una decisione di
+attribuzione: è un timbro, e ha l'aspetto di una responsabilità assegnata senza esserlo. È stato
+corretto rimandando indietro il lavoro, e il mandato porta ora l'avvertenza in testa.
+
+**Un limite del controllo, trovato e corretto.** Quattordici occorrenze su cinquecento non sono
+marcature poste ma marcature **nominate**: «chiude il `[NV]` che quest'area portava» parla *di* una
+marcatura e non ne pone una. Non potranno mai ricevere un destinatario, quindi sarebbero rimaste
+rilievi per sempre e il criterio non si sarebbe chiuso nemmeno con il corpus interamente bonificato.
+La distinzione è di forma - una marcatura posta non è mai preceduta da un articolo - ed è ora
+presidiata, con due casi di banco: quello che la riconosce e quello che verifica che una marcatura
+posta **accanto** a una citazione resti visibile.
+
+### Criterio 4 - la decisione preliminare è presa, e ha reso il criterio più oneroso
+
+Il piano aveva individuato correttamente il punto: la seconda metà del criterio presuppone che sia
+definito **che cosa sia un'area chiusa**, e da quella definizione dipende se la nota vada su tutte
+le voci aperte o su un sottoinsieme. La decisione è presa il 27 agosto ed è versionata nel
+protocollo della bacheca. **Si adotta la lettura letterale**: `09_roadmap/00-indice.md` §4 dichiara
+complete o scritte tutte e dodici le aree, quindi ogni voce `APERTA` è indirizzata a un'area chiusa
+e la nota riguarda tutte e ottantacinque.
+
+La ragione per cui si è scelta la lettura onerosa va scritta, perché la scelta opposta era
+disponibile e comoda: una definizione più stretta di «area chiusa» **non esiste in nessuna fonte
+versionata del repository**, e inventarla adesso avrebbe ridotto il lavoro ridefinendo il criterio
+invece di soddisfarlo.
+
+La **forma della nota** è dichiarata insieme alla decisione: nella colonna dello stato, la formula
+`**Resta aperta perché**:` seguita da una ragione di uno di tre tipi - attende una decisione, e di
+chi; attende un lavoro datato, e quale traguardo; attende un fatto esterno, e chi lo produce. Il
+controllo verifica che la formula ci sia e che dietro non ci sia il vuoto, e **dichiara di non poter
+verificare che la ragione sia vera**: una nota che dica «attende una decisione» quando nessuno ha
+chiesto nulla a nessuno supera il controllo. È per questo che i tre tipi sono fissati invece di
+lasciare il campo libero.
+
+Oggi le voci annotate sono **zero su ottantacinque**. È il caso opposto a quello della prima metà:
+un presidio che arriva **prima** della disciplina, quindi con un debito, quindi con una data - il 10
+ottobre, come impone il criterio 4 di `T-03` a ogni controllo in sola segnalazione.
+
+### Che cosa resta, in ordine
+
+1. **La bonifica delle ottantacinque note di bacheca.** Non parallelizzabile: la bacheca è un file
+   di contesto condiviso e il runbook di traduzione §9.1 vieta di darla in scrittura a più agenti.
+2. **Il residuo del criterio 3**, e per ciascuna marcatura residua la scelta fra un destinatario
+   onesto e una voce di bacheca.
+3. **Il criterio 6**, che attende una decisione del committente e non un lavoro.
+4. **Il caso di banco del criterio 2**, la riserva già dichiarata: collegamento rotto introdotto,
+   costruzione che fallisce, collegamento tolto, costruzione che torna a passare. È la terza istanza
+   di `Q-288`.
+
+---
 
 ## 0. Che cos'è questo piano, e che cosa non è
 
@@ -142,7 +311,7 @@ successiva attinge al glossario e vi riversa le nuove rese (`RUNBOOK-TRADUZIONE-
 resa aggiunta in `GLOSSARIO-TRADUZIONE-EN.md` e non riversata nel modulo 19 è la forma in cui questo
 criterio si riapre in silenzio.
 
-### 2.2 Criterio 2 - zero collegamenti interni rotti in tutto il corpus · **NON SODDISFATTO**
+### 2.2 Criterio 2 - zero collegamenti interni rotti in tutto il corpus · **SODDISFATTO IN GRAN PARTE il 27 agosto, con riserva** (era: NON SODDISFATTO)
 
 **Che cosa esiste.** La costruzione del sito passa con uscita 0 e riporta **tre ancore rotte** e
 **quarantasei collegamenti rotti**, dei quali **quarantadue nella locale inglese**. I quarantadue
@@ -290,7 +459,7 @@ chiuso, `T-06` è innescato dal 26 agosto e non attende `T-02`. Ne discende che 
 aree prerequisito può cominciare adesso**, in parallelo a tutto il resto di questo piano, e che
 attenderne la chiusura sarebbe una perdita netta.
 
-### 2.6 Criterio 6 - lista dei termini vietati e controllo `R0` · **NON SODDISFATTO** · componente `A`
+### 2.6 Criterio 6 - lista dei termini vietati e controllo `R0` · **IN PARTE dal 27 agosto** (era: NON SODDISFATTO) · componente `A`
 
 **Che cosa esiste.** La regola `R0` è enunciata in due punti di
 `.telemedic/context/00_PROJECT_BRIEF.md` - §6, come regola di riservatezza vincolante per ogni

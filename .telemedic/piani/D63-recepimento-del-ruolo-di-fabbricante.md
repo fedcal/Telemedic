@@ -108,7 +108,7 @@ Tre inneschi al ricorrere dei quali si toccano, e **nessuno ricorre oggi**:
 1. **costituzione del soggetto avvenuta** - la frase «il soggetto non è ancora costituito» diventa
    falsa; è il criterio 1 di `T-14`, e la modifica va nello stesso atto;
 2. **pubblicazione del perimetro di `RU-1`**, in un atto solo con `Q-281`, `Q-185`, `Q-174`;
-3. **dal 12 settembre 2026** il controllo sulle avvertenze diventa bloccante
+3. **dal 27 agosto 2026**, anticipato dal 12 settembre, il controllo sulle avvertenze diventa bloccante
    (`AVVERTENZE_BLOCCANTI_DAL` in `scripts/verifica-divergenza-traduzioni.sh`): sono bilingui in un
    file solo, e una riscrittura dell'italiano che dimentichi il blocco inglese non produce un file
    mancante ma **due testi divergenti**.

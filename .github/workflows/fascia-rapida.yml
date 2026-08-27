@@ -225,7 +225,99 @@ jobs:
     # scritta qui perche' nessuno l'ha ancora eseguita sulla piattaforma, e un'espressione non
     # provata che finisse in errore di configurazione darebbe un rosso che non riguarda R0. E'
     # debito dichiarato, non copertura.
-    continue-on-error: true
+    #
+    # BLOCCANTE DAL 27 AGOSTO 2026, anticipato dal 26 settembre. La data era stata scelta quando lo
+    # strato strutturale produceva centoventiquattro rilievi; escluso .telemedic/ dal perimetro di
+    # R0 - contesto di lavoro interno, non artefatto pubblicato - ne restavano sei, su tre file, e
+    # tutti e sei erano infrastruttura tecnica che il progetto puo' legittimamente nominare: il
+    # registro di trasparenza e l'autorita' effimera di Sigstore, che la procedura di verifica deve
+    # nominare per essere eseguibile, e il sito della specifica SLSA. Ammessi in
+    # pipeline/termini-ammessi.tsv con il motivo, riga per riga. Il settimo era esempio.invalido,
+    # che NON e' un dominio riservato: .invalid lo e' (RFC 2606), .invalido no, e il gemello
+    # inglese usava gia' la forma corretta. Corretto invece che ammesso.
+    #
+    # A zero rilievi la sola segnalazione non compra nulla e costa la certezza: un controllo che
+    # segnala e non blocca accumula rilievi fino al giorno in cui diventa bloccante, e quel giorno
+    # arriva sempre mentre l'attenzione e' altrove.
     steps:
       - uses: actions/checkout@v5
       - run: ./scripts/verifica-termini-vietati.sh
+
+  date-di-marcatura:
+    name: MARC-C1 - nessuna data di marcatura nei documenti pubblici
+    runs-on: ubuntu-latest
+    # BLOCCANTE DAL PRIMO GIORNO, e non per zelo: il criterio di appartenenza al sottoinsieme
+    # bloccante di T-03 e' che il controllo presidi «una proprieta' irrecuperabile o un divieto
+    # pubblico», e questo li presidia entrambi. Sta anche in docs.yml, prima della pubblicazione,
+    # perche' la fascia dice dove il controllo gira ANCHE, non dove basta che giri (voce D-23).
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-date-di-marcatura.sh
+
+  coerenza-delle-date:
+    name: CD-C1 - coerenza delle date dei traguardi fra le tre rappresentazioni
+    runs-on: ubuntu-latest
+    # BLOCCANTE DAL PRIMO GIORNO, senza data di innesco, e la ragione e' che il repository e' gia'
+    # conforme nel momento in cui il controllo entra: un controllo che nasce verde su un repository
+    # conforme non ha alcun debito da scadenzare, e la disciplina della data (criterio 4 di T-03)
+    # esiste per il caso opposto - la riduzione temporanea che diventa permanente.
+    #
+    # PERCHE' IN FASCIA RAPIDA. Non per il costo, che e' la lettura di due file markdown, ma per il
+    # momento in cui il danno si produce: una data incoerente e' un'affermazione falsa in un
+    # documento di pianificazione pubblicato, e chi la legge non ha modo di sapere quale delle due
+    # copie creda. La fascia rapida gira sull'invio, che e' quando quella falsa affermazione entra
+    # nella cronologia.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-coerenza-delle-date.sh
+
+  registro-di-velocity:
+    name: VEL-C1 - il registro della velocita' accorda con il capitolo dei traguardi
+    runs-on: ubuntu-latest
+    # Bloccante dal primo giorno, per la stessa ragione di CD-C1: il repository e' gia' conforme
+    # quando il controllo entra, e un controllo che nasce verde non ha debito da scadenzare.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-registro-di-velocity.sh
+
+  lettura-dei-tsv:
+    name: TSV-C1 - nessuno script legge un file separato da tabulazioni con «read»
+    runs-on: ubuntu-latest
+    # Questo passo esiste perche' la regola che presidia - la voce C-1 del runbook - era gia'
+    # scritta e con tre commenti di avvertimento sparsi negli script, e il 27 agosto 2026 e' stata
+    # riviolata due volte dallo stesso repository che l'aveva scritta. Un commento non e' un
+    # cancello: chi scrive uno script nuovo non legge i commenti degli script vecchi.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-lettura-dei-tsv.sh
+
+  bacheca:
+    name: BAC-C1 - ogni voce aperta della bacheca ha un destinatario
+    runs-on: ubuntu-latest
+    # Bloccante da subito: la proprieta' era gia' vera quando il controllo e' nato - 85 voci
+    # aperte, zero senza destinatario - e un presidio che arriva dopo la disciplina non ha debito
+    # da scadenzare. Verifica la PRIMA META' del criterio 4 di T-02 e dichiara a ogni esecuzione
+    # di non verificare la seconda, che dipende da una definizione di «area chiusa» non ancora
+    # versionata.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-bacheca.sh
+
+  coerenza-delle-corsie:
+    name: CORSIE-C1 - le corsie dichiarano le stesse versioni
+    runs-on: ubuntu-latest
+    # Chiude la voce D-27: la fascia di rilascio dichiarava un interprete diverso da quello delle
+    # corsie che pubblicano, e nessuno poteva accorgersene perche' quella corsia non era mai stata
+    # eseguita. Una corsia che non gira non e' rossa: e' assente.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-coerenza-delle-corsie.sh
+
+  pipefail:
+    name: PF-C1 - ogni script con catene di comandi dichiara «pipefail»
+    runs-on: ubuntu-latest
+    # Chiude la voce D-30: in una catena l'esito e' quello dell'ultimo comando, e «npm run build |
+    # tail» esce zero anche quando la costruzione fallisce.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-pipefail.sh

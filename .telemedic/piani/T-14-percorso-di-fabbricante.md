@@ -245,6 +245,34 @@ non conforme che deve farlo fallire: *un controllo che non è stato visto fallir
 > viola `V-182`, che vieta il **codice applicativo**: è la stessa collocazione deliberata dei criteri
 > 5 e 7 di `T-01`, che precedono la pipeline di `T-03` e sono i primi due controlli che essa riceve.
 
+**Una trappola incontrata prima ancora che il controllo esistesse, 27 agosto 2026.** Redigendo la
+bozza di `CE-PLAN-001` sono comparse due frasi che il controllo di co-occorrenza avrebbe fatto
+cadere, ed erano entrambe legittime: «regga fino al primo confronto esterno *e non oltre*» e
+«*starting from* zero». Nessuna delle due parla di tempo, e tutte e due contengono una delle forme
+sorvegliate. La tentazione è di raffinare il controllo perché distingua il senso temporale dagli
+altri; è la strada sbagliata, perché un controllo che deve capire il senso di una frase è un
+controllo che fallirà in silenzio nel caso che conta. **La regola giusta è più severa e più
+semplice: in un documento che nomina la marcatura o la dichiarazione di conformità, quelle forme
+non si usano in alcun senso, e la frase si riformula.** Le due sopra sono diventate «e non più in
+là» e «from scratch», senza perdere nulla. Il costo di riscrivere una frase innocente è la ragione
+per cui il controllo può restare stupido, ed è un costo che conviene pagare.
+
+**Il criterio 5 è soddisfatto dal 27 agosto 2026.** Il controllo esiste:
+`scripts/verifica-date-di-marcatura.sh`, bloccante in fascia rapida e invocato in
+`.github/workflows/docs.yml` **prima** della pubblicazione, perché è lì che il danno accade. Cerca
+la co-occorrenza, dentro uno stesso capoverso, di una menzione della marcatura e di un riferimento
+temporale, e non prova a capire se il riferimento riguardi davvero la marcatura - resta
+deliberatamente stupido, per la ragione scritta qui sopra. I documenti sorvegliati stanno in
+`pipeline/documenti-senza-data-di-marcatura.tsv` e comprendono entrambi i documenti prodotti da
+questo traguardo, nelle due lingue, oltre alle tre avvertenze pubbliche del criterio 8 di `T-01`.
+
+**Che cosa è costato scoprirlo, e vale la pena registrarlo qui.** Alla prima esecuzione il controllo
+passava anche sulle tenute scritte apposta per farlo fallire: i confini di parola erano in sintassi
+PCRE e il motore usato adotta quella POSIX, quindi l'intera famiglia temporale non corrispondeva
+mai. Era verde sempre. È la voce `D-26` del runbook, e la sua conseguenza per chi scriverà il
+prossimo controllo di questo traguardo: **si esegue prima sulla tenuta che deve farlo fallire, e
+solo dopo sul repository.**
+
 ---
 
 ## 4. La sequenza dei lavori, con le dipendenze
