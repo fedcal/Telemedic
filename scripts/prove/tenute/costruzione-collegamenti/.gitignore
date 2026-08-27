@@ -1,0 +1,7 @@
+# Prodotti dalla costruzione di prova, mai versionati: la cache dei file generati resta sempre
+# dentro questa cartella (Docusaurus non offre un'opzione per spostarla), l'output della
+# costruzione va invece in una cartella temporanea fuori repository - queste righe restano per
+# chi lancia il comando a mano, fuori dal banco.
+.docusaurus/
+build/
+build-*/

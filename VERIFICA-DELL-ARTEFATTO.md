@@ -19,18 +19,47 @@ Questa procedura consente a chi installa Telemedic di verificare che un artefatt
 
 ## 1. Preparazione
 
-Scaricare l'artefatto dalla distribuzione ufficiale. L'artefatto è accompagnato da:
-- **`sbom.json`** - la distinta dei materiali (Software Bill of Materials) in formato CycloneDX
-- **`.sig`** - la firma dell'artefatto, registrata in Rekor
-- **`.att`** - l'attestazione di provenienza in formato SLSA
+Scaricare l'artefatto dalla distribuzione ufficiale. Ogni artefatto è accompagnato da tre file, e
+**servono tutti e tre**:
 
-Esempio per il sito di documentazione (quando sarà distribuito):
+| File | Che cos'è | Perché serve |
+|---|---|---|
+| `<nome>.tar.gz` | **L'archivio che è stato firmato** | La firma è su questi byte esatti. Non è la cartella: ricomprimerla da sé produce byte diversi e la verifica fallisce, senza che nulla sia stato alterato |
+| `<nome>.sig` | La firma, registrata nel registro di trasparenza pubblico | È ciò che si confronta con l'archivio |
+| `<nome>.crt` | **Il certificato effimero** emesso al momento della firma | La firma keyless non ha una chiave pubblica da distribuire: l'identità che ha firmato vive qui, e senza questo file la verifica non è possibile - non «meno robusta»: **impossibile** |
+| `<nome>.att` | L'attestazione di provenienza in formato SLSA | Dice da quale sorgente, revisione ed esecuzione l'archivio proviene |
+
+A questi si aggiunge la **distinta dei materiali** `sbom-website.json`, pubblicata dalla stessa
+esecuzione, che elenca i componenti di terze parti con licenze e impronte.
+
+**Perché l'archivio si scarica invece di ricostruirlo.** Il sito costruito è una cartella di
+migliaia di file, e una firma si appone su una sequenza di byte, non su un albero di directory. La
+catena comprime quindi la cartella in un archivio **deterministico** - ordine dei nomi fissato, tempi
+e proprietari azzerati, compressione senza nome né istante nell'intestazione - e firma quello. Il
+determinismo serve a chi vuole ricostruire l'archivio dal contenuto e ottenere la stessa impronta;
+non serve, e non è richiesto, per verificare la firma: per quello basta scaricare l'archivio
+pubblicato.
+
+**Dove si trovano, oggi.** Gli artefatti sono pubblicati dalla corsia di rilascio come artefatti di
+esecuzione di GitHub Actions, con conservazione di novanta giorni. Con la riga di comando `gh`:
+
 ```bash
-wget https://releases.example.com/telemedic-website-v1.0.0/index.html
-wget https://releases.example.com/telemedic-website-v1.0.0/index.html.sig
-wget https://releases.example.com/telemedic-website-v1.0.0/sbom.json
-wget https://releases.example.com/telemedic-website-v1.0.0/sbom.json.att
+# l'ultima esecuzione riuscita della corsia di rilascio
+gh run list --repo fedcal/Telemedic --workflow=fascia-di-rilascio.yml --status=success --limit 1
+
+# gli artefatti firmati e la distinta di quell'esecuzione
+gh run download <ID-ESECUZIONE> --repo fedcal/Telemedic --name artefatti-firmati
+gh run download <ID-ESECUZIONE> --repo fedcal/Telemedic --name distinta-dei-materiali-rilascio
 ```
+
+Si ottengono `build.tar.gz`, `build.sig`, `build.crt`, `build.att` per il sito italiano, i quattro
+corrispondenti `en.tar.gz`, `build-en.sig`, `build-en.crt`, `build-en.att` per quello inglese, e
+`sbom-website.json`.
+
+**Che cosa questo non è.** Non è ancora una distribuzione con versioni: non esiste un rilascio
+etichettato, e gli artefatti di esecuzione scadono. Quando esisterà una distribuzione con etichetta
+di versione, **i comandi di verifica di questo documento resteranno identici** - cambierà soltanto il
+modo di procurarsi i file.
 
 ---
 
@@ -40,17 +69,21 @@ La firma attesta che l'artefatto non è stato alterato dopo la costruzione. Eseg
 
 ```bash
 cosign verify-blob \
+  --certificate build.crt \
   --certificate-identity-regexp "https://github.com/fedcal/Telemedic" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
-  --signature index.html.sig \
-  index.html
+  --signature build.sig \
+  build.tar.gz
 ```
 
 **Spiegazione dei parametri**:
 - `--certificate-identity-regexp`: il repository GitHub da cui deve provenire la firma
 - `--certificate-oidc-issuer`: l'autorità di emissione del token OIDC (sempre GitHub Actions)
+- `--certificate`: **il certificato effimero**. Ometterlo non produce un avviso ma un errore -
+  «provide a key with `--key` or `--sk`, a certificate to verify against with `--certificate`, or a
+  bundle» - perché senza di esso `cosign` non sa contro quale identità confrontare la firma
 - `--signature`: il file di firma
-- L'ultimo parametro è l'artefatto da verificare
+- L'ultimo parametro è **l'archivio scaricato**, non la cartella che se ne estrae
 
 **Esito atteso**: nessun errore, e un messaggio che conferma la verifica. Se la firma non corrisponde, `cosign` esce con codice diverso da zero e stampa un errore.
 
@@ -64,11 +97,12 @@ La firma è registrata nel registro pubblico di trasparenza di Rekor. Eseguire:
 
 ```bash
 cosign verify-blob \
+  --certificate build.crt \
   --certificate-identity-regexp "https://github.com/fedcal/Telemedic" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
-  --signature index.html.sig \
+  --signature build.sig \
   --offline \
-  index.html
+  build.tar.gz
 ```
 
 Nel caso di falllimento con errore **offline mode**, il registro di Rekor non è raggiungibile. Saltare al §5.
@@ -119,12 +153,13 @@ Salvarla in un file e usarla per verificare offline:
 
 ```bash
 cosign verify-blob \
+  --certificate build.crt \
   --certificate-identity-regexp "https://github.com/fedcal/Telemedic" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
-  --signature index.html.sig \
+  --signature build.sig \
   --offline \
   --public-key ./fulcio-root.crt \
-  index.html
+  build.tar.gz
 ```
 
 **Limitazione nota**: la verifica offline non consulta Rekor, quindi non accerta quale revisione
@@ -202,18 +237,46 @@ This procedure allows anyone installing Telemedic to verify that a distributed a
 
 ## 1. Preparation
 
-Download the artifact from the official distribution. The artifact is accompanied by:
-- **`sbom.json`** - Software Bill of Materials in CycloneDX format
-- **`.sig`** - the artifact signature, registered in Rekor
-- **`.att`** - the provenance attestation in SLSA format
+Download the artifact from the official distribution. Every artifact comes with four files, and
+**all four are needed**:
 
-Example for the documentation site (when distributed):
+| File | What it is | Why it is needed |
+|---|---|---|
+| `<name>.tar.gz` | **The archive that was signed** | The signature is over these exact bytes. It is not the directory: recompressing it yourself yields different bytes and verification fails, with nothing having been altered |
+| `<name>.sig` | The signature, recorded in the public transparency log | This is what is compared against the archive |
+| `<name>.crt` | **The ephemeral certificate** issued at signing time | Keyless signing has no public key to distribute: the signing identity lives here, and without this file verification is not possible - not «weaker»: **impossible** |
+| `<name>.att` | The provenance attestation in SLSA format | It states the source, revision and run the archive comes from |
+
+Alongside these, the same run publishes the **Software Bill of Materials** `sbom-website.json`,
+listing third-party components with licences and digests.
+
+**Why the archive is downloaded rather than rebuilt.** The built site is a directory of thousands of
+files, and a signature is applied to a byte sequence, not to a directory tree. The chain therefore
+compresses the directory into a **deterministic** archive - fixed name ordering, zeroed times and
+owners, compression carrying neither name nor timestamp in its header - and signs that. Determinism
+serves whoever wants to rebuild the archive from its contents and obtain the same digest; it is
+neither needed nor required to verify the signature, for which downloading the published archive is
+enough.
+
+**Where they are today.** Artifacts are published by the release lane as GitHub Actions run
+artifacts, retained for ninety days. With the `gh` command line:
+
 ```bash
-wget https://releases.example.com/telemedic-website-v1.0.0/index.html
-wget https://releases.example.com/telemedic-website-v1.0.0/index.html.sig
-wget https://releases.example.com/telemedic-website-v1.0.0/sbom.json
-wget https://releases.example.com/telemedic-website-v1.0.0/sbom.json.att
+# the latest successful run of the release lane
+gh run list --repo fedcal/Telemedic --workflow=fascia-di-rilascio.yml --status=success --limit 1
+
+# the signed artifacts and the bill of materials of that run
+gh run download <RUN-ID> --repo fedcal/Telemedic --name artefatti-firmati
+gh run download <RUN-ID> --repo fedcal/Telemedic --name distinta-dei-materiali-rilascio
 ```
+
+You obtain `build.tar.gz`, `build.sig`, `build.crt`, `build.att` for the Italian site, the four
+matching `en.tar.gz`, `build-en.sig`, `build-en.crt`, `build-en.att` for the English one, and
+`sbom-website.json`.
+
+**What this is not.** It is not yet a versioned distribution: there is no tagged release, and run
+artifacts expire. When a tagged distribution exists, **the verification commands in this document
+will stay identical** - only the way of obtaining the files will change.
 
 ---
 
@@ -223,15 +286,19 @@ The signature attests that the artifact has not been altered since construction.
 
 ```bash
 cosign verify-blob \
+  --certificate build.crt \
   --certificate-identity-regexp "https://github.com/fedcal/Telemedic" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
-  --signature index.html.sig \
-  index.html
+  --signature build.sig \
+  build.tar.gz
 ```
 
 **Parameter explanation**:
 - `--certificate-identity-regexp`: the GitHub repository from which the signature must originate
 - `--certificate-oidc-issuer`: the OIDC token issuer (always GitHub Actions)
+- `--certificate`: **the ephemeral certificate**. Omitting it produces not a warning but an error -
+  «provide a key with `--key` or `--sk`, a certificate to verify against with `--certificate`, or a
+  bundle» - because without it `cosign` has no identity to check the signature against
 - `--signature`: the signature file
 - The last parameter is the artifact to verify
 
@@ -247,11 +314,12 @@ The signature is registered in Rekor's public transparency registry. Run:
 
 ```bash
 cosign verify-blob \
+  --certificate build.crt \
   --certificate-identity-regexp "https://github.com/fedcal/Telemedic" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
-  --signature index.html.sig \
+  --signature build.sig \
   --offline \
-  index.html
+  build.tar.gz
 ```
 
 If the command fails with **offline mode** error, Rekor is not reachable. Skip to §5.
@@ -300,12 +368,13 @@ Save it to a file and use it for offline verification:
 
 ```bash
 cosign verify-blob \
+  --certificate build.crt \
   --certificate-identity-regexp "https://github.com/fedcal/Telemedic" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
-  --signature index.html.sig \
+  --signature build.sig \
   --offline \
   --public-key ./fulcio-root.crt \
-  index.html
+  build.tar.gz
 ```
 
 **Known limitation**: offline verification does not consult Rekor, so it does not verify which exact 

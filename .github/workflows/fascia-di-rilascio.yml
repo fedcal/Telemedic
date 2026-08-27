@@ -187,8 +187,10 @@ jobs:
           path: |
             website/build.tar.gz
             website/build.sig
+            website/build.crt
             website/build.att
             website/build/en.tar.gz
             website/build-en.sig
+            website/build-en.crt
             website/build-en.att
           retention-days: 90

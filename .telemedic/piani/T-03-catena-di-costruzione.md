@@ -82,10 +82,15 @@ regola scritta e non presidiata non è una regola*, *un cancello prescritto in u
 da uno script non è un cancello* - e questa volta l'oggetto è una corsia: **una corsia mai eseguita
 non è una corsia, è un file YAML**.
 
-C'è un secondo difetto nella stessa esecuzione, e va registrato perché non è quello che ha fermato la
-corsia e quindi si scoprirebbe solo dopo aver corretto il primo: il registro elenca i permessi
-concessi al token - `Contents: read`, `Metadata: read` - e **`id-token: write` non compare**, benché
-sia dichiarato in testa al file. La firma keyless non funziona senza.
+Nella stessa esecuzione era stato annotato un **secondo difetto che non esiste**, e la smentita vale
+più dell'annotazione. Il registro elenca sotto «GITHUB_TOKEN Permissions» soltanto `Contents: read` e
+`Metadata: read`, e da quell'assenza si era concluso che `id-token: write` non fosse concesso e che
+la firma keyless non potesse funzionare. **Quel gruppo elenca i permessi del solo `GITHUB_TOKEN`.**
+Il permesso `id-token` governa un token OIDC diverso, non compare in quell'elenco per costruzione, e
+la sua presenza si accerta soltanto guardando se la firma riesce. Riesce: l'esecuzione del 27 agosto
+2026 registra «Generating ephemeral keys», «Retrieving signed certificate», «Successfully verified
+SCT» e due voci nel registro di trasparenza. **Un'assenza in un registro non è una prova di
+assenza**, se non si sa che cosa quel registro elenca - ed è la voce `D-38` del runbook.
 
 #### La pila, e perché il numero di tentativi non era stimabile
 

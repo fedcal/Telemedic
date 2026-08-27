@@ -7,12 +7,15 @@
 # e verificabile da chiunque con i comandi dichiarati in VERIFICA-DELL-ARTEFATTO.md.
 #
 # Uso:
-#   ./scripts/firma-artefatto.sh <artefatto> <output-sig> <output-att>
+#   ./scripts/firma-artefatto.sh <artefatto> <output-sig> <output-att> [<output-cert>]
 #
 # Parametri:
 #   <artefatto>    - percorso dell'artefatto da firmare
 #   <output-sig>   - percorso del file di firma (es. artefatto.txt.sig)
 #   <output-att>   - percorso dell'attestazione di provenienza (es. artefatto.txt.att)
+#   <output-cert>  - percorso del certificato effimero (per difetto <output-sig> con estensione
+#                    .crt al posto di .sig). SENZA DI ESSO LA FIRMA NON E' VERIFICABILE: si veda
+#                    il commento al comando di firma.
 #
 # Variabili d'ambiente (fornite dalla pipeline GitHub Actions):
 #   GITHUB_SERVER_URL - URL del server GitHub (es. https://github.com)
@@ -28,6 +31,7 @@ set -euo pipefail
 artefatto="${1:?Artefatto non specificato}"
 output_sig="${2:?Output firma non specificato}"
 output_att="${3:?Output attestazione non specificato}"
+output_cert="${4:-${output_sig%.sig}.crt}"
 
 [ -e "$artefatto" ] || { echo "Errore: artefatto inesistente: $artefatto" >&2; exit 1; }
 
@@ -98,12 +102,24 @@ nome_firmato="$(basename "$artefatto_per_firma")"
 # essere mai stata eseguita, e come i primi quattro era invisibile finche' il precedente non era
 # corretto. Il consenso e' dato qui, consapevolmente: la firma e il certificato effimero finiscono
 # in un registro pubblico e immutabile, ed e' esattamente lo scopo della firma keyless.
+# --output-certificate NON E' FACOLTATIVO, ED E' IL SESTO DIFETTO DI QUESTA CORSIA.
+# La firma keyless non ha una chiave pubblica da distribuire: l'identita' che ha firmato vive nel
+# CERTIFICATO EFFIMERO emesso al momento della firma, e chi verifica deve poterlo confrontare con
+# l'identita' che si aspetta. Senza, `cosign verify-blob --signature ...` risponde «provide a key
+# with --key or --sk, a certificate to verify against with --certificate, or a bundle»: la firma
+# esiste, e' registrata nel registro di trasparenza, e non e' verificabile da nessuno.
+# Il difetto e' stato scoperto il 27 agosto 2026 ESEGUENDO la procedura pubblicata in
+# VERIFICA-DELL-ARTEFATTO.md su un artefatto realmente firmato - cioe' facendo esattamente cio' che
+# il criterio 8 di T-03 prescrive. Nessuna lettura lo avrebbe mostrato: il comando di firma non
+# fallisce, e i due file che produceva avevano l'aspetto di un lavoro completo.
 cosign sign-blob \
   --yes \
   --output-signature "$output_sig" \
+  --output-certificate "$output_cert" \
   "$artefatto_per_firma"
 
 echo "Firma salvata in: $output_sig"
+echo "Certificato effimero salvato in: $output_cert"
 
 # Attestazione di provenienza in formato SLSA
 # Contiene: sorgente, revisione, definizione della pipeline, esecutore, parametri di ingresso

@@ -1501,6 +1501,41 @@ richiede lo strumento di firma installato, che oggi il banco non ha.
 
 ---
 
+### D-38. Un'assenza in un registro non è una prova di assenza, se non si sa che cosa elenca
+
+**Che cosa è successo.** Il 27 agosto 2026, esaminando la prima esecuzione della corsia di rilascio,
+ho letto il gruppo «GITHUB_TOKEN Permissions» del registro - `Contents: read`, `Metadata: read` - e
+ho concluso che il permesso `id-token: write` non fosse concesso, benché dichiarato in testa al file,
+e che la firma keyless non potesse quindi funzionare. L'ho scritto nel piano di `T-03` come secondo
+difetto della corsia, accanto a quello vero.
+
+**Perché era falso.** Quel gruppo elenca i permessi di **un solo token**, quello che la piattaforma
+espone come `GITHUB_TOKEN`. Il permesso `id-token` governa un token diverso, emesso da un altro
+servizio, e **non compare in quell'elenco per costruzione**: cercarlo lì è come cercare il numero di
+targa in un passaporto. La prova sta altrove ed è inequivocabile - se il permesso mancasse, la firma
+fallirebbe alla richiesta del certificato. Il registro della prima esecuzione riuscita mostra
+«Generating ephemeral keys», «Retrieving signed certificate», «Successfully verified SCT» e due voci
+nel registro di trasparenza pubblico.
+
+**Perché è insidioso.** L'affermazione aveva tutte le apparenze di un accertamento: nominava un
+registro, citava valori testuali, e la conclusione era plausibile. Mancava l'unica domanda che
+contava - **che cosa elenca questo elenco?** - ed è la stessa forma della voce `A-1`: contare le
+occorrenze misura la pratica, non la regola. Qui: leggere un elenco misura ciò che quell'elenco
+contiene, non ciò che esiste. Il difetto è peggiore quando l'assenza *sembra* confermare un sospetto
+che si aveva già, come qui, dove la corsia stava effettivamente fallendo per altro.
+
+**La regola.** Da un'assenza non si conclude nulla finché non si è stabilito che cosa la fonte
+elencherebbe se la cosa ci fosse. In concreto: si cerca la **prova positiva** - il passo che non
+potrebbe riuscire senza ciò che si sospetta mancante - invece della conferma negativa. E se la prova
+positiva non è disponibile perché il passo non è mai stato eseguito, l'affermazione si marca come
+**non verificata** con il suo destinatario, non si scrive come fatto.
+
+**Il presidio.** Nessuno, ed è disciplina di accertamento, non di costruzione. Il costo è pagato da
+chi legge il piano: un difetto inesistente scritto accanto a uno vero fa perdere tempo con la stessa
+efficacia di un difetto vero taciuto.
+
+---
+
 ### D-37. Una versione maggiore nuova cambia il formato dell'uscita, non solo l'implementazione
 
 **Che cosa è successo.** Risolti i tre difetti precedenti, la corsia è caduta di nuovo: la versione

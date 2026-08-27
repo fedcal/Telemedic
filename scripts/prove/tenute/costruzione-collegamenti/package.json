@@ -1,0 +1,6 @@
+{
+  "name": "tenuta-costruzione-collegamenti",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Tenuta minima per il criterio 2 di T-02 (D-8/D-9): prova che un collegamento rotto ferma la costruzione del sito. Riusa website/node_modules tramite il collegamento simbolico versionato in questa cartella - vedi il commento in testa a docusaurus.config.mjs."
+}
