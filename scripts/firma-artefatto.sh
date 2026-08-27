@@ -67,8 +67,10 @@ fi
 # Firma dell'artefatto con cosign e identità effimera
 # --identity-token è il token OIDC fornito da GitHub Actions
 # La firma è automaticamente registrata in Rekor (registro di trasparenza pubblico)
+# Nota: il vecchio flag --output-signature è deprecato a partire da cosign v4.
+# Usiamo --bundle per il nuovo formato e --legacy-output-signature per la compatibilità
 cosign sign-blob \
-  --output-signature "$output_sig" \
+  --legacy-output-signature "$output_sig" \
   "$artefatto_per_firma"
 
 echo "Firma salvata in: $output_sig"
