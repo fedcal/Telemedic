@@ -7,7 +7,7 @@ description: "Why the system conserves responses to structured questionnaires bu
 # ADR-0024 - Scores of Clinical Scales and Questionnaires Excluded From the Model as a Precaution
 
 **Status**: accepted, provisional · **Date**: 25 August 2026 · **Area**: ARCH
-**Origin**: question raised by the foundational module to the conformity area and this area
+**Origin**: question raised by the foundational module to the `COMP` area and this area
 
 ## Context
 
@@ -40,7 +40,7 @@ The project's terminology policy, which assigns each terminology to a verified l
 1. The domain model **represents and conserves the response to a structured questionnaire**, with reference to an **immutable version of the instrument**, the instant and the completing subject.
 2. The model **does not represent clinical scale scores** and the telemonitoring context **does not calculate** them.
 3. **The content of the instrument**-text of questions, response options, calculation algorithm-**is not included in the distribution**: it is configuration data per tenant, loaded by whoever instals, who is the subject who has or can obtain the licence for use. It is the same choice adopted for catalogues of reference data.
-4. The decision is **provisional** and lapses when the conformity area closes the question, formally extending the licensing policy to scales and scores.
+4. The decision is **provisional** and lapses when the `COMP` area closes the question, formally extending the licensing policy to scales and scores.
 
 **Suggested criterion for closure**: the same taxonomy of regimes already adopted for terminologies-full coexistence, separate placement with own licence, acquisition by whoever instals, total exclusion-applied **instrument by instrument**, verifying the primary licence and not the declaration of the container that comprehends it. The principle is already acquired elsewhere: a declaration of free reusability appended to a container **does not dispose of third-party rights** on the content comprehended.
 
@@ -63,3 +63,4 @@ The project's terminology policy, which assigns each terminology to a verified l
 [03 - Domain Model](../02_architecture/03-modello-di-dominio.md#10-what-the-model-does-not-represent) ·
 [09 - Deferred Decisions](../02_architecture/09-decisioni-rinviate.md#b-3---extension-of-terminological-policy-to-validated-clinical-scales-and-questionnaires) ·
 ADR-0016 · ADR-0018
+<!--TRAD-VERIFICATA: 418d0d9f489a072e8f8ceacaa3cddaebbab96faf-->

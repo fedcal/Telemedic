@@ -210,8 +210,31 @@ fare. Il costo della dimenticanza resta dell'orchestratore, che ha poi eseguito 
 li ha passati all'agente perché li sostituisse: due passaggi invece di uno, ma nessuna affermazione
 non verificata rimasta in mezzo.
 
+**La quinta e la sesta ricaduta, e l'affinamento che ne discende.** Il 27 agosto 2026, un'ora
+dopo aver riletto questa stessa voce. Due compiti aperti contemporaneamente: a
+`documentation-engineer` era chiesto di eseguire `scripts/verifica-divergenza-traduzioni.sh` per
+**ottenere l'elenco** degli otto documenti su cui lavorare; a `technical-writer` di eseguire
+`scripts/verifica-bacheca.sh` per **ottenere l'elenco** delle ventidue voci da annotare. Nessuno dei
+due ha la shell. La clausola di ripiego ha funzionato dove era stata scritta - il primo agente ha
+dichiarato apertamente di non poter eseguire lo script e si è fermato invece di dedurre l'elenco -
+ma il lavoro non è stato fatto da nessuno dei due, e sono andati perduti circa duecentoquarantamila
+gettoni e due esecuzioni.
+
+**La regola si affina, e l'affinamento è più stretto della regola.** Non basta non chiedere a un
+agente di **verificare** con un comando: non gli si chiede nemmeno di **procurarsi con un comando
+l'oggetto del proprio lavoro**. La distinzione che conta non è fra «eseguire» e «descrivere» - è
+fra un compito che contiene **i dati** e uno che contiene **il comando che li produce**. Un elenco
+di otto percorsi o di ventidue sigle sta in venti righe di compito: l'orchestratore lo produce una
+volta, in un secondo, e lo incolla. Il compito riscritto con gli elenchi dentro è partito e ha
+lavorato.
+
+Ne discende una regola di lettura del compito prima di inviarlo: **si cerca ogni imperativo che
+comincia con «esegui» e ci si chiede se ciò che quel comando produce sia un dato o una verifica.**
+Se è un dato, va sostituito dal dato. Se è una verifica, va spostato all'orchestratore.
+
 **Il presidio.** Nessuno. È disciplina di orchestrazione, e il costo di dimenticarla è pagato
-dall'orchestratore, che deve rieseguire tutto ciò che ha creduto verificato.
+dall'orchestratore, che deve rieseguire tutto ciò che ha creduto verificato - e, da questa
+ricaduta, anche rilanciare gli agenti che si sono fermati sulla soglia.
 
 ---
 
@@ -1408,89 +1431,103 @@ ogni controllo nuovo vi entra con almeno una tenuta che deve farlo fallire**.
 
 ---
 
-### D-27. Una corsia mai eseguita accumula errori incompatibili
+### D-34. Un tag di versione che sembra un tag maggiore, e non esiste
 
-[Vedi D-27 nel runbook di collocazione - è il problema della divergenza delle versioni di Node.js]
+**Che cosa è successo.** Il 27 agosto 2026, alla prima esecuzione della corsia di rilascio, il
+lavoro è caduto in nove secondi con `unable to resolve action 'sigstore/cosign-installer@v4'`. Il
+tag `v4` non esiste in quel deposito: i tag pubblicati sono `v4.0.0`, `v4.1.0`, `v4.1.1`, `v4.1.2`.
+La corsia era stata scritta giorni prima, era coerente con le altre e compariva nella tabella di
+collocazione: nulla, nella sua lettura, la distingueva da una corsia funzionante.
 
-### D-28. Un tag di versione inesistente ferma la corsia prima del primo passo
+**Perché è insidioso.** La forma `@v4` è **corretta e diffusa**: molte azioni pubblicano
+deliberatamente un tag mobile di versione maggiore che segue l'ultima minore, e `actions/checkout@v5`
+- che sta tre righe più sopra nello stesso file - funziona esattamente così. Non è una convenzione
+della piattaforma: è una scelta di chi pubblica l'azione, e chi la usa non ha modo di dedurla dal
+nome. GitHub Actions non risolve nulla da sé, si limita a cercare il riferimento e a fallire.
 
-**Che cosa è successo.** Il 27 agosto 2026, al primo tentativo di esecuzione della corsia di
-rilascio, il workflow falliva immediatamente con `unable to resolve action 'sigstore/cosign-installer@v4'`.
-Il tag `v4` non esiste nei rilasci di sigstore/cosign-installer; i tag pubblicati sono `v4.0.0`,
-`v4.1.0`, `v4.1.1`, `v4.1.2` e successivi. GitHub Actions non risolve automaticamente `@v4` a una
-versione specifica come farebbe con un branch.
+**La regola.** Ogni `uses: proprietario/azione@versione` si verifica contro i tag realmente
+pubblicati, non contro l'aspetto del riferimento:
+`gh api repos/proprietario/azione/git/refs/tags --jq '.[].ref'`. Vale anche - e soprattutto - per
+le azioni copiate da un esempio della documentazione a monte, che invecchia.
 
-**Perché.** Il workflow dichiarava `sigstore/cosign-installer@v4`, che non è uno schema di
-versione valido per GitHub Actions. Lo sviluppatore aveva probabilmente inteso usare un tag che
-esiste - come `@v4.1.2` - oppure si aspettava che GitHub risolvesse automaticamente il major al
-minore disponibile più recente.
-
-**La regola.** Ogni dichiarazione `uses: proprietario/azione@versione` deve referenziare un tag
-effettivamente pubblicato in quel repository. Non si indovinano versioni: si verifica contro i
-tag reali con `curl https://api.github.com/repos/proprietario/azione/tags`.
-
-**Il presidio.** Non esiste automatico: la verifica è manuale. Una proposta di controllo: le
-righe di GitHub Actions che referenziano tag potrebbero essere estratte da un'espressione regolare
-e confrontate contro l'API del repository, con fallimento se un tag non esiste.
-
----
-
-### D-29. Script eseguibile solo nel repository, non nel workflow
-
-**Che cosa è successo.** Lo script `scripts/firma-artefatto.sh` era versionato con permessi
-`-rw-rw-r--` (644) invece di `755`. Su Linux, i permessi sono versionati, e il checkout da GitHub
-Actions riproduce gli stessi permessi. Il workflow falliva quando `bash scripts/firma-artefatto.sh`
-veniva eseguito, perché il file non era eseguibile nella piattaforma virtuale.
-
-**La regola.** Ogni script nella cartella `scripts/` deve avere permessi di esecuzione
-(`chmod +x`). Se uno script è versionato senza il bit di esecuzione, il checkout lo riprodurrà
-senza e l'esecuzione in una pipeline fallirà con un errore "permission denied" o "No such file"
-(perché la shell lo ignora se non è eseguibile).
-
-**Il presidio.** `git ls-files --stage scripts/*.sh | grep -v 100755` mostra gli script senza
-permesso di esecuzione. Potrebbe essere automatizzato come controllo pre-commit o in una corsia.
+**Il presidio.** Nessuno oggi, ed è debito dichiarato. È scrivibile: le righe `uses:` delle cinque
+corsie si estraggono con un'espressione regolare e si confrontano contro l'API dei tag, con
+fallimento sul riferimento inesistente. Costa una chiamata di rete per riferimento distinto, e
+appartiene alla fascia estesa, non a quella rapida.
 
 ---
 
-### D-30. Cosign sign-blob non accetta cartelle, solo file
+### D-35. Il bit di esecuzione è versionato, e uno script che gira qui può non girare in corsia
 
-**Che cosa è successo.** Il workflow tentava di firmare la cartella `website/build` con
-`cosign sign-blob website/build`, ma cosign richiede un file singolo, non una cartella. Falliva
-con `signing website/build: reading payload: read website/build: is a directory`.
+**Che cosa è successo.** `scripts/firma-artefatto.sh` era versionato con permessi `644`. Sulla
+macchina di sviluppo veniva sempre invocato come `bash scripts/firma-artefatto.sh`, che funziona a
+prescindere dal bit, e nessuno se n'era accorto. In corsia l'invocazione diretta è fallita.
 
-**Perché.** Lo script `firma-artefatto.sh` riceveva il percorso della cartella e lo passava
-direttamente a cosign, senza verificare che fosse un file.
+**Perché è insidioso.** È lo stesso difetto già pagato due volte in questo repository - il registro
+dei difetti rifiuta una riga che nomini un controllo privo del bit di esecuzione - ma qui si è
+presentato dall'altro lato: non un controllo, uno script di rilascio, e non su questa macchina, in
+corsia. **Il modo in cui si invoca uno script durante lo sviluppo nasconde il difetto che l'invoca
+in produzione lo rivelerà.**
 
-**La regola.** Un artefatto di distribuzione può essere una cartella (il sito compilato) o un
-file (una singola immagine). Se lo script riceve una cartella, deve comprimerla in un
-single-file tar.gz per la firma, utilizzando un nome temporaneo univoco. L'attestazione di
-provenienza SLSA deve registrare il nome e l'hash del **contenuto originale** (la cartella),
-non del tar.gz temporaneo.
+**La regola.** Ogni file `.sh` di `scripts/` porta il bit di esecuzione al momento in cui entra nel
+deposito. Si verifica con `git ls-files --stage 'scripts/*.sh' | grep -v '^100755'`, che deve
+restituire il vuoto - **sul contenuto dell'indice, non sui permessi della cartella di lavoro**, che
+possono divergere.
 
-**Il presidio.** Lo script `scripts/firma-artefatto.sh` è stato aggiornato il 27 agosto 2026 per
-riconoscere le cartelle, comprimerle, e registrare il nome e hash corretti nell'attestazione.
+**Il presidio.** Parziale: `scripts/verifica-registro-dei-difetti.sh` rifiuta una riga che nomini
+come controllo uno script non eseguibile, quindi copre i controlli e non gli altri script. La
+copertura piena è debito dichiarato, e costa una riga di banco.
 
 ---
 
-### D-31. Cosign v4.1.2 ha deprecato il flag --output-signature
+### D-36. Un artefatto di distribuzione è una cartella, e ciò che lo firma vuole un file
 
-**Che cosa è successo.** Il 27 agosto 2026, dopo aver risolto i problemi D-28, D-29 e D-30, il
-workflow falliva con `create bundle file: open : no such file or directory` quando tentava di
-eseguire `cosign sign-blob --output-signature`. Cosign v4.x ha cambiato il formato di output
-predefinito e il flag `--output-signature` è stato deprecato, ignorato con il nuovo formato di
-bundle.
+**Che cosa è successo.** La corsia tentava di firmare `website/build`, che è una cartella. Lo
+strumento di firma accetta un solo file e ha risposto `reading payload: read website/build: is a
+directory`. Il difetto era invisibile finché la corsia non è girata, perché nessun controllo di
+lettura può sapere che cosa quello strumento accetti.
 
-**Perché.** Cosign ha introduito un nuovo formato di output (bundle) che include firma,
-certificati e log di trasparenza in un'unica struttura. Il vecchio flag `--output-signature`
-viene ignorato in questo formato, causando l'errore quando il percorso non viene creato.
+**La regola, che non è «comprimere».** La compressione è la parte facile. La parte che si sbaglia è
+**che cosa l'attestazione di provenienza dichiara**: se registra il nome e l'impronta dell'archivio
+temporaneo, attesta un file che non esiste più e che nessuno potrà mai riprodurre, perché il nome
+contiene un istante e l'impronta dipende dai metadati che l'archiviatore vi ha messo dentro.
+L'attestazione deve dichiarare **il contenuto originale** - il nome della cartella e un'impronta
+calcolata in modo riproducibile - e l'archivio resta un dettaglio del gesto di firma.
 
-**La regola.** Quando si aggiorna una dipendenza di CI/CD, va verificato se ha cambato
-l'interfaccia dei comandi critici. Per cosign sign-blob: dalla versione 4.0 in poi, occorre usare
-`--legacy-output-signature` per mantenere il vecchio formato di firma separata, oppure
-restructurare lo script per usare il nuovo formato bundle.
+**Il presidio.** `scripts/firma-artefatto.sh` riconosce la cartella, calcola l'impronta prima di
+comprimere, registra nome e impronta originali nell'attestazione e rimuove l'archivio temporaneo
+con una trappola sull'uscita. Il caso di banco corrispondente è debito dichiarato: provarlo
+richiede lo strumento di firma installato, che oggi il banco non ha.
 
-**Il presidio.** Lo script `scripts/firma-artefatto.sh` è stato aggiornato il 27 agosto 2026 per
-usare il flag `--legacy-output-signature`.
+---
+
+### D-37. Una versione maggiore nuova cambia il formato dell'uscita, non solo l'implementazione
+
+**Che cosa è successo.** Risolti i tre difetti precedenti, la corsia è caduta di nuovo: la versione
+maggiore `4` dello strumento di firma ha sostituito le due uscite separate - firma e attestazione -
+con un unico contenitore, e l'opzione che chiedeva le due uscite separate non produce più nulla.
+Il primo tentativo di rimedio è stato aggiungere l'opzione che, secondo le note di rilascio,
+ripristina il comportamento precedente. **Quell'opzione non esiste nella versione installata**, e
+la corsia è caduta una quarta volta su `unknown flag`. Il rimedio adottato è stato tornare alla
+versione `3.10.1`, che produce nativamente le due uscite che il resto della catena si aspetta.
+
+**Perché è insidioso, ed è la parte che vale.** Il difetto era sotto altri tre, e **ciascuno era
+visibile solo dopo che il precedente era stato corretto**. Una corsia mai eseguita non contiene un
+difetto: ne contiene una pila, e il numero di tentativi necessari non si può stimare guardandola.
+Il secondo insegnamento è più scomodo: **le note di rilascio di un progetto a monte descrivono
+l'intenzione, non ciò che è stato pubblicato.** L'opzione di compatibilità era annunciata e non
+c'era. Ciò che decide è `--help` della versione che sta girando, non la pagina che la descrive.
+
+**La regola.** Il salto di versione maggiore di uno strumento della catena di rilascio non è un
+aggiornamento: è una migrazione, e si fa in un cambiamento suo, con la corsia eseguita davvero. Fino
+a quel momento si resta sulla versione che produce il formato che il resto della catena consuma, e
+la si dichiara **esatta** - `@v3.10.1`, mai `@v3` - così che la corsia non migri da sola il giorno in
+cui il tag mobile avanza.
+
+**Il presidio.** `scripts/verifica-coerenza-delle-corsie.sh` verifica che le dichiarazioni di
+versione siano concordi fra le corsie, e questo copre la divergenza fra corsie ma non l'esattezza
+del riferimento. Il presidio vero di questa voce è l'esecuzione: **una corsia mai eseguita non è una
+corsia.** Vedi `D-27`, che dice la stessa cosa dal lato della divergenza silenziosa.
 
 ---
 

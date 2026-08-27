@@ -875,6 +875,52 @@ stretta era disponibile e comoda, e **non esiste in nessuna fonte versionata del
 adottarla avrebbe ridotto il lavoro ridefinendo il criterio invece di soddisfarlo. Il presidio copre
 ora entrambe le metà, in sola misura sulla nota fino al 10 ottobre.
 
+**Il criterio 4 di `T-02` è chiuso, e la chiusura ha corretto il modo in cui si conta.** Le
+ottantaquattro voci aperte della bacheca dichiarano tutte perché restano aperte, nei tre soli tipi di
+ragione ammessi - attende una decisione, attende un lavoro datato, attende un fatto esterno - e
+ciascuna nomina chi deve deciderla o il traguardo che la chiude. Erano ottantacinque: **una era
+contata aperta per una parola citata fra apici inversi.** La sua colonna dichiara `RISOLTA` in
+apertura e più avanti *racconta* che «la casella dello stato era rimasta `APERTA`»; il controllo
+cercava la parola invece di leggere lo stato, e le chiedeva di dichiarare perché resta aperta una
+voce che non lo era. La correzione ha portato alla luce il verso opposto nella stessa riga di codice:
+una voce genuinamente riaperta era contata giusta **solo perché «RIAPERTA» contiene «APERTA»** - un
+accordo fra due parole, non una regola, che sarebbe sparito il giorno in cui qualcuno avesse scritto
+«Riaperta».
+
+**Una revisione indipendente ha trovato due falsi negativi su un controllo verde.** Il presidio delle
+marcature `[NV]` era passato al verde con oltre duecentosettanta casi di banco, ciascuno provato per
+mutazione. Una lettura condotta da chi non lo aveva scritto, con il mandato formulato al negativo -
+*trova un caso che dovrebbe segnalare e non segnala* - ne ha riprodotti due, entrambi con capoversi
+reali del corpus. Il primo: la parola «destinatario» era accettata **nuda**, unica alternativa priva
+di preposizione, verbo o apice inverso, e in questo dominio è parola d'uso corrente per tutt'altro -
+destinatario di un flusso, di un documento clinico, della disciplina; due marcature realmente prive
+di responsabile passavano per conformi perché la parola compariva lì per un motivo estraneo. Il
+secondo: una riga fatta del solo `>` e una riga di recinto di codice **separano per chi legge e non
+per l'espressione «riga vuota»**, così che un destinatario dichiarato nel primo paragrafo di una
+citazione copriva una marcatura scoperta nel secondo.
+
+Nella stessa giornata era già stato trovato, per la stessa via, un terzo difetto della stessa
+famiglia: le formule di destinatario erano state **misurate nel corpus in minuscolo**, e ogni formula
+a inizio di periodo o di cella - ventisei occorrenze reali - era invisibile. **Misura ed espressione
+condividevano l'assunzione**, quindi il conteggio con cui ci si convince di aver coperto la forma è
+prodotto dallo stesso comando che la sbaglia. È la lezione che vale oltre questo controllo: un banco
+verde prova che il controllo fa ciò che l'autore intendeva, **mai che l'intenzione copra la regola**.
+Le tre voci sono `D-33`, e i sei casi nuovi portano il banco a duecentottantasei.
+
+**La corsia di rilascio ha prodotto cinque difetti in sei esecuzioni, e il quinto non è ancora
+chiuso.** È il cammino critico di `T-03`: i criteri 7 e 8 - artefatti firmati con provenienza, e
+procedura di verifica dimostrata su un artefatto firmato - non sono producibili finché la corsia non
+gira. Ogni difetto era **visibile soltanto dopo la correzione del precedente**: un riferimento di
+azione inesistente, un bit di esecuzione mancante, uno strumento che vuole un file e riceve una
+cartella, una versione maggiore che cambia il formato dell'uscita con un'opzione di compatibilità
+**annunciata nelle note di rilascio e assente dal pacchetto**, e infine una richiesta interattiva di
+consenso che, senza terminale, viene considerata *rifiutata* - l'errore in corsia recita «user
+declined the prompt», e descrive un gesto che nessuno ha compiuto. Ne discende una regola di
+pianificazione, non solo di ingegneria: **il primo passaggio in verde di un automatismo mai eseguito
+non si stima, si programma come un'attività a sé.** Il piano del 26 agosto dava quei due criteri per
+«poche ore» presupponendo un difetto solo; una corsia mai eseguita non ne contiene uno, ne contiene
+una pila, e la profondità della pila non si osserva leggendo il file.
+
 **Prima correzione: la diagnosi dei collegamenti inglesi è superata.** Il testo che precede dichiara
 che portare i tre criteri `onBroken*` a `throw` **fermerebbe la costruzione del sito**. Non è più
 vero, e lo si accerta eseguendo invece che leggendo: i tre criteri sono a `throw` in

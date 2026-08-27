@@ -70,7 +70,15 @@ fi
 # Nota: cosign v3.x produce due file separati (firma + attestazione);
 # cosign v4.x ha cambiato il formato di output predefinito a bundle JSON.
 # Questo script usa cosign v3 che supporta --output-signature.
+# --yes NON e' una comodita': senza, cosign apre una richiesta interattiva di consenso alla
+# registrazione nel registro di trasparenza pubblico e, non trovando un terminale, la considera
+# RIFIUTATA. In corsia l'errore che si legge e' «user declined the prompt», che descrive un gesto
+# che nessuno ha compiuto: e' il quinto difetto della pila che questa corsia ha accumulato senza
+# essere mai stata eseguita, e come i primi quattro era invisibile finche' il precedente non era
+# corretto. Il consenso e' dato qui, consapevolmente: la firma e il certificato effimero finiscono
+# in un registro pubblico e immutabile, ed e' esattamente lo scopo della firma keyless.
 cosign sign-blob \
+  --yes \
   --output-signature "$output_sig" \
   "$artefatto_per_firma"
 

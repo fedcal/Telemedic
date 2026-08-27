@@ -72,7 +72,17 @@ esito=$(gawk -F'|' '
     totale++
     if (NF != 7) { printf "FORMA\t%s\t%d\t%d\n", sigla, FNR, NF; prossima = 1 }
     if (stato == "") { printf "STATO\t%s\t%d\n", sigla, FNR; next }
-    if (stato ~ /APERTA/) {
+    # LO STATO SI LEGGE, NON SI CERCA. La prima stesura chiedeva soltanto che la parola comparisse
+    # nella colonna, e due righe su centoventitre'\'' ne pagavano il prezzo in versi opposti. Q-156 e'\''
+    # RISOLTA e la sua colonna lo dice in apertura, ma piu'\'' avanti RACCONTA che «la casella dello
+    # stato era rimasta `APERTA`»: la voce risultava aperta per una parola citata fra apici inversi
+    # a proposito di una condizione passata. Q-270 e'\'' davvero riaperta e veniva contata giusta per
+    # il motivo sbagliato - «RIAPERTA» CONTIENE «APERTA», e un accordo casuale fra due parole non e'\''
+    # una regola. La forma ora e'\'' esplicita: parola intera, «APERTA» o «RIAPERTA», mai preceduta da
+    # un apice inverso. Resta deliberatamente riconosciuto lo stato COMPOSTO «RISOLTA da X, APERTA
+    # verso Y», che tre voci usano: una questione risolta da un'\''area e ancora aperta verso un'\''altra
+    # e'\'' aperta, e chiuderla perche'\'' la prima parola dice RISOLTA nasconderebbe cio'\'' che resta.
+    if (stato ~ /(^|[^A-Za-z`])(RI)?APERTA([^A-Za-z]|$)/) {
       aperte++
       if (dest == "") printf "DEST\t%s\t%d\n", sigla, FNR
       # La formula si cerca troncata prima della vocale accentata: si veda il commento in testa.

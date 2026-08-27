@@ -1139,7 +1139,7 @@ expected frequency, not by severity.
 | Real-time transport, degradation, relay | [08 - WebRTC from scratch](08-webrtc-da-zero.md) |
 | Parameters, measurements, limits of measurement at home | [09 - Clinical fundamentals](09-fondamenti-clinici.md) |
 | Chronicity, pathways, alerts, silence, patient safety | [10 - Care pathways and patient safety](10-percorsi-di-cura-e-sicurezza.md) |
-| Requirements, use cases, rules, typed outcomes | functional area, `docs/03_functional/` |
+| Requirements, use cases, rules, typed outcomes | `FUNZ`, `docs/03_functional/` |
 
 ---
 
@@ -1160,3 +1160,4 @@ expected frequency, not by severity.
 | **Virtual waiting room** | The state of the encounter in which the person is connected, technically checked and awaiting admission, plus the associated queue |
 | **Monitoring of the expected volume** | Comparison between the measurements expected and those received in a window, to detect collective silence before the individual absences |
 | **Side room** | A private discussion between professionals during an encounter with the patient present, always announced and recorded |
+<!--TRAD-VERIFICATA: 418d0d9f489a072e8f8ceacaa3cddaebbab96faf-->

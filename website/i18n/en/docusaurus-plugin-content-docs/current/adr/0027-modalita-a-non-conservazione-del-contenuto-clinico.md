@@ -7,7 +7,7 @@ description: "How the system operates when the installation must not retain the 
 # ADR-0027 - Operating Mode With No Retention of Clinical Content
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Origin**: questions raised by the domain area and the functional area
+**Origin**: questions raised by the domain area and the `FUNZ` area
 
 ## Context
 
@@ -15,7 +15,7 @@ There exists a normative arrangement where the infrastructure **does not retain*
 
 The domain area envisages this as an **operating mode**: after submission remain identifier, minimal metadata and proof of receipt, and reading always goes through an assertion towards the external archive.
 
-The functional area however poses a question that the mode does not resolve by itself: **where does the alarm history live**? The register of alarms-current threshold, rule applied, data that produced it, deliveries, receipts, forwards, outcomes-is **documentation of an act**. Without it, it is not reconstructible why an alarm did not fire, and safety indicators are not calculable.
+The `FUNZ` area however poses a question that the mode does not resolve by itself: **where does the alarm history live**? The register of alarms-current threshold, rule applied, data that produced it, deliveries, receipts, forwards, outcomes-is **documentation of an act**. Without it, it is not reconstructible why an alarm did not fire, and safety indicators are not calculable.
 
 ## Alternatives Evaluated
 
@@ -82,9 +82,10 @@ Constraint that follows, and which is the non-obvious part of the decision: **al
 - Reading a submitted document requires a call towards the external archive, with its latency and its failure mode: the behaviour in case of unavailability must be declared.
 - The alarm history without the values of measurements is less readable for whoever consults it: must be explained, otherwise read as data loss.
 
-**Deferred to the conformity area**: confirmation of the taxonomy against applicable obligations, and determination of durations for categories not already fixed.
+**Deferred to the `COMP` area**: confirmation of the taxonomy against applicable obligations, and determination of durations for categories not already fixed.
 
 ## References
 
 [04 - Data Model](../02_architecture/04-modello-dati.md#8-conservation-and-deletion) ·
 ADR-0013 · ADR-0020
+<!--TRAD-VERIFICATA: 418d0d9f489a072e8f8ceacaa3cddaebbab96faf-->

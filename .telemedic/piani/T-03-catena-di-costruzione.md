@@ -87,6 +87,35 @@ corsia e quindi si scoprirebbe solo dopo aver corretto il primo: il registro ele
 concessi al token - `Contents: read`, `Metadata: read` - e **`id-token: write` non compare**, benché
 sia dichiarato in testa al file. La firma keyless non funziona senza.
 
+#### La pila, e perché il numero di tentativi non era stimabile
+
+Alla sera dello stesso giorno la corsia era stata eseguita **sei volte** e aveva prodotto **cinque
+difetti distinti**, ciascuno visibile soltanto dopo che il precedente era stato corretto:
+
+| # | Che cosa ha fermato la corsia | Perché non si vedeva prima |
+|---|---|---|
+| 1 | `sigstore/cosign-installer@v4` non esiste: quel deposito pubblica solo tag pieni | Prima riga eseguita: nove secondi, nulla dopo di essa gira |
+| 2 | `scripts/firma-artefatto.sh` versionato con permessi `644` | Sulla macchina di sviluppo si invoca `bash script.sh`, che ignora il bit |
+| 3 | Lo strumento di firma accetta un file, e l'artefatto è una cartella | Serve che l'installazione sia riuscita e lo script sia partito |
+| 4 | La versione maggiore `4` ha cambiato il formato dell'uscita, e l'opzione di compatibilità **annunciata nelle note di rilascio non esiste** nel pacchetto pubblicato | Serve che la firma sia stata invocata davvero |
+| 5 | Senza `--yes` la firma apre una richiesta interattiva di consenso al registro di trasparenza e, non trovando un terminale, la considera **rifiutata**: l'errore in corsia è «user declined the prompt», che descrive un gesto che nessuno ha compiuto | Serve che tutto il resto funzioni, e che si arrivi alla rete |
+
+**Questo è l'insegnamento, e non riguarda soltanto questa corsia.** Il piano del 26 agosto dava i
+criteri 7 e 8 per «lavoro di poche ore»: la stima presupponeva che la corsia contenesse *un* difetto.
+Una corsia mai eseguita non contiene un difetto, ne contiene una **pila**, e la profondità della pila
+non è osservabile leggendo il file - ogni strato nasconde quello sotto. Ne discende una regola di
+pianificazione, non solo di ingegneria: **il primo passaggio in verde di un automatismo mai eseguito
+non si stima, si programma come un'attività a sé**, e finché non è avvenuto ogni criterio che ne
+dipende resta non producibile per definizione, non per ritardo.
+
+Il quarto difetto porta un secondo insegnamento, indipendente: **le note di rilascio di un progetto a
+monte descrivono l'intenzione, non ciò che è stato pubblicato.** L'opzione di compatibilità era
+annunciata e non c'era. Ciò che decide è l'aiuto in linea della versione che sta girando.
+
+Le cinque voci sono nel runbook come `D-34`, `D-35`, `D-36`, `D-37` e nella riscrittura di `D-27`, e
+ciascuna è registrata in `registro/difetti.tsv` con lo stato del proprio presidio - tre su cinque
+dichiarano di non averne, ed è debito dichiarato, non copertura.
+
 ---
 
 ### 2.1 Quadro sintetico

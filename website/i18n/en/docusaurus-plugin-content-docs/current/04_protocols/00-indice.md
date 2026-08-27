@@ -80,7 +80,7 @@ identifiers are not transcribed.
 This area describes **the contracts on the wire**: what passes between Telemedic and a third-party
 system, in what form and with what guarantees. It does not describe how the system is built inside
 - that is the architecture area's job - nor what the system does from a clinical and
-organisational standpoint, which is the job of the functional area and of the domain area. Where a
+organisational standpoint, which is the job of the `FUNZ` area and of the domain area. Where a
 protocol imposes an architectural constraint, the constraint is declared here and taken up there;
 where an architectural need has not yet been decided, this area **does not decide on behalf of
 those responsible** and opens a question.
@@ -88,3 +88,4 @@ those responsible** and opens a question.
 The questions this area opens towards the others are listed in chapter
 [10 - Conformance and testing](./10-conformita-e-prove.md) and reported on the inter-agent
 noticeboard.
+<!--TRAD-VERIFICATA: 418d0d9f489a072e8f8ceacaa3cddaebbab96faf-->

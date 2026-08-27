@@ -216,7 +216,7 @@ The digital resilience discipline for products with digital elements **excludes 
 
 The project adopts the entire framework without invoking exemptions, and maintains a table artefact → applicable regime. **You must produce yours**, because your artefacts are not ours.
 
-> **`[NV]`** - The exact composition of your table depends on what you distribute and how. Must be built with your consultants; the project provides its own as model, not as answer.
+> The exact composition of your table depends on what you distribute and how, to be built with your consultants according to the procedure that `INTEG` must verify `[NV]`; the project provides its own as model, not as answer.
 
 ## 5. The payer is not a consultant
 
@@ -380,3 +380,4 @@ If you are negotiating with a supplier integrating Telemedic on your behalf, the
 10. **Who answers if a replacement module introduces generated clinical content?**
 
 An absent answer to one of these questions is not a detail to clarify after signature: it is exactly the point on which, in case of challenge, it will be established who answers.
+<!--TRAD-VERIFICATA: 418d0d9f489a072e8f8ceacaa3cddaebbab96faf-->

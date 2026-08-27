@@ -7,7 +7,7 @@ description: "Why the executable form of the plan and the documentary form desti
 # ADR-0030 - The Two Projections of the Telemonitoring Plan Derive From a Single Source
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Origin**: question raised by the domain area to this area and the integration area
+**Origin**: question raised by the domain area to this area and the `INTEG` area
 
 ## Context
 
@@ -71,3 +71,4 @@ The authoritative artefact is the plan in its declarative form; **both** project
 
 ADR-0026 · ADR-0005 ·
 [04 - Data Model](../02_architecture/04-modello-dati.md#3-the-canonical-dataset-of-documents)
+<!--TRAD-VERIFICATA: 418d0d9f489a072e8f8ceacaa3cddaebbab96faf-->

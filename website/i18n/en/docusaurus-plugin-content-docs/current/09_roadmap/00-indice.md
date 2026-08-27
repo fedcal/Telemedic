@@ -715,6 +715,50 @@ available and convenient, and **exists in no versioned source in the repository*
 have reduced the work by redefining the criterion instead of satisfying it. The guard now covers both
 halves, measure-only on the note until 10 October.
 
+**Criterion 4 of `T-02` is closed, and closing it corrected the way the count is taken.** All
+eighty-four open entries on the board now declare why they remain open, in the only three admitted
+kinds of reason - awaiting a decision, awaiting dated work, awaiting an external fact - and each
+names who must decide it or the milestone that closes it. There had been eighty-five: **one was
+counted open because of a word quoted inside backticks.** Its column declares `RISOLTA` at the top
+and later *recounts* that «the status cell had been left `APERTA`»; the check searched for the word
+instead of reading the status, and demanded that an entry which was not open declare why it remained
+so. The correction brought the opposite error in the same line of code to light: a genuinely
+reopened entry was counted correctly **only because «RIAPERTA» contains «APERTA»** - an accident
+between two words, not a rule, which would have vanished the day someone wrote «Riaperta».
+
+**An independent review found two false negatives in a check that was green.** The guard on `[NV]`
+markings had gone green with more than two hundred and seventy bench cases, each proved by mutation.
+A reading by someone who had not written it, with the brief stated in the negative - *find a case it
+should report and does not* - reproduced two, both with real paragraphs from the corpus. The first:
+the word «destinatario» was accepted **bare**, the only alternative with no preposition, verb or
+backtick, and in this domain it is an everyday word for something else entirely - the recipient of a
+data flow, of a clinical document, of a legal duty; two markings with no responsible party at all
+passed as compliant because the word happened to be there for an unrelated reason. The second: a
+line consisting of `>` alone, and a code-fence line, **separate for a reader and not for the
+«blank line» expression**, so that a recipient declared in the first paragraph of a quotation covered
+an undeclared marking in the second.
+
+Earlier the same day a third defect of the same family had been found the same way: the recipient
+formulas had been **measured in the corpus in lower case**, and every formula opening a sentence or a
+table cell - twenty-six real occurrences - was invisible. **The measurement and the expression shared
+the assumption**, so the count by which one convinces oneself the form is covered is produced by the
+very command that gets it wrong. This is the lesson beyond this one check: a green bench proves the
+check does what its author intended, **never that the intention covers the rule**. The three entries
+are `D-33`, and the six new cases bring the bench to two hundred and eighty-six.
+
+**The release lane produced five defects in six runs, and the fifth is not yet closed.** It is the
+critical path of `T-03`: criteria 7 and 8 - signed artefacts with provenance, and a verification
+procedure demonstrated on a signed artefact - are not producible until the lane runs. Each defect was
+**visible only after the previous one had been fixed**: a non-existent action reference, a missing
+execute bit, a tool that wants a file and receives a directory, a major version that changes the
+output format with a compatibility option **announced in the release notes and absent from the
+published package**, and finally an interactive consent prompt which, with no terminal, is treated as
+*declined* - the lane's error reads «user declined the prompt», describing an act nobody performed.
+A planning rule follows, not only an engineering one: **the first green run of an automation that has
+never run is not estimated, it is scheduled as work in its own right.** The 26 August plan gave those
+two criteria as «a few hours», assuming a single defect; a lane that has never run does not contain
+one defect, it contains a stack, and the depth of the stack cannot be observed by reading the file.
+
 **First correction: the diagnosis of the English links is superseded.** The text above states that
 bringing the three `onBroken*` criteria to `throw` **would stop the site build**. That is no longer
 true, and it is established by running rather than by reading: the three criteria are at `throw` in

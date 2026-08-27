@@ -93,7 +93,7 @@ Deferred decisions divide into three families:
 
 **Not decided**: anchoring interval, form of temporal attestation, anchor preservation, frequency of integrity verifications, minimum form of request origin compatible with minimisation.
 
-**Who decides**: security area, with compliance area for evidentiary implications.
+**Who decides**: security area, with `COMP` for evidentiary implications.
 
 **What this area has already fixed**: the combination of four layers, per-tenant chain, separate preservation, blocking nature of write, the closed list of what does not appear, independent verifiability of the extract.
 
@@ -115,7 +115,7 @@ Deferred decisions divide into three families:
 
 **Not decided**: whether and how the system can calculate scores of validated clinical scales and questionnaires, which have their own distinct licenses from those of terminologies.
 
-**Who decides**: compliance area, with this area for structural consequences.
+**Who decides**: `COMP`, with this area for structural consequences.
 
 **Why it is blocking**: the question must close **before** the first calculation engine is written. Writing it then discovering the tool is not usable means removing a function already promised.
 
@@ -145,7 +145,7 @@ Deferred decisions divide into three families:
 
 **Not decided**: structured document models, document codes and indexing metadata for telemedicine document typologies, not publicly available.
 
-**Who decides**: compliance area, who has the interlocution.
+**Who decides**: `COMP`, who has the interlocution.
 
 **Why this area can proceed anyway**: the information content is modelled as a **canonical dataset** and every serialisation is replaceable. Arrival of the material will be writing a mapper, not a domain model migration.
 
@@ -153,7 +153,7 @@ Deferred decisions divide into three families:
 
 **Not decided**: whether the closed set of constructs adopted for monitoring plan rules (ADR-0026) remains within the frozen intended use.
 
-**Who decides**: compliance area.
+**Who decides**: `COMP`.
 
 **What this area has already fixed**: the set is **closed**, each construct has declared semantics and its own tests, no constructs exist that deduce thresholds from population or history nor that interpolate series, and the generic clinical logic executor is **absent by construction, not disabled by configuration**.
 
@@ -161,17 +161,17 @@ Deferred decisions divide into three families:
 
 ### B-9 - Minimum contract of third-party measurement gateway
 
-**Not decided**: `[NV]` whether market gateways expose the **periodic presence signal independent of measurement** and **device status telemetry**.
+**Not decided** (to be verified with `INTEG` `[NV]`): whether market gateways expose the **periodic presence signal independent of measurement** and **device status telemetry**.
 
-**Who decides**: integration area, with market verification; safety consequences to the functional area.
+**Who decides**: `INTEG`, with market verification; safety consequences to the `FUNZ` area.
 
 **Architectural consequence**: without those two elements the taxonomy of silence loses technical categories, and the system does not distinguish "device did not measure" from "device did not transmit". This area assumes precautionarily that absence of measurement is represented anyway as entity, with cause marked as **not determinable** rather than inferred.
 
 ### B-8 - Propagation of assurance level through intermediation
 
-**Not decided**: `[NV]` - if the identity federation product, acting toward an external identity provider, **forwards the required level** through the intermediation realm. If it does not, level elevation per operation is not obtainable by configuration alone.
+**Not decided** (question `Q-160` `[NV]`): if the identity federation product, acting toward an external identity provider, **forwards the required level** through the intermediation realm. If it does not, level elevation per operation is not obtainable by configuration alone.
 
-**Who decides**: empirical verification by the integration area and technical area.
+**Who decides**: empirical verification by the `INTEG` area and the `TECH` area.
 
 **Why it is on the critical path**: public documentation cannot describe how assurance level propagates before the verification is done. The cost of verification is nearly nil; the cost of having documented non-existent behaviour is not.
 
@@ -250,3 +250,4 @@ Deferred decisions divide into three families:
 | C-4 | Declared support period | C | Sponsor | Before first distribution |
 
 Three rows are in bold because the cost of deciding late is qualitatively different from deciding early: B-3 because it would entail removal of already-written function, B-8 because it would entail correction of public documentation on a security mechanism, C-1 because correction would require shifting responsibility between contexts after code exists.
+<!--TRAD-VERIFICATA: 418d0d9f489a072e8f8ceacaa3cddaebbab96faf-->

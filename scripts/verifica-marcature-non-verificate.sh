@@ -85,7 +85,17 @@ misura=$(gawk '
     # Si rende indifferente SOLO l'\'\''iniziale, mai l'\'\''intera espressione: IGNORECASE farebbe
     # riconoscere `comp` come se fosse la sigla d'\'\''area `COMP`, e una sigla d'\'\''area e'\'\'' maiuscola
     # per convenzione dichiarata.
-    DEST = "`(" AREE ")`|Q-[0-9]+|[Pp]resso chi|[Cc]hi deve chiuderla|[Cc]hi decide|[Dd]estinatari" \
+    # «DESTINATARIO» NUDO NON E'\'''\'' UN DESTINATARIO. Era l'\'''\''unica alternativa di DEST priva di
+    # qualunque struttura sintattica - nessuna preposizione, nessun verbo, nessun apice inverso - e
+    # in questo dominio «destinatario» e'\'''\'' parola d'\'''\''uso corrente per tutt'\'''\''altro: destinatario di un
+    # flusso, di un documento clinico, di un messaggio, della disciplina. Una revisione indipendente
+    # del 27 agosto 2026 ha riprodotto due capoversi REALI in cui una marcatura senza alcun
+    # responsabile passava per conforme perche'\'''\'' la parola compariva nello stesso capoverso per un
+    # motivo estraneo - fra questi uno che dice «vanno verificate sul testo consolidato», cioe'\'''\''
+    # esattamente la famiglia che questo script dichiara di scartare. Ora si riconosce solo l'\'''\''uso
+    # da ETICHETTA: la parola seguita dai due punti, oppure intestazione di colonna fra barre.
+    DEST = "`(" AREE ")`|Q-[0-9]+|[Pp]resso chi|[Cc]hi deve chiuderla|[Cc]hi decide" \
+           "|[Dd]estinatari[oa]?:|\\| *\\**[Dd]estinatari[oa]? *\\**[ ]*\\|" \
            "|[Vv]a(nno)? chiest[oaie] a|[Vv]a(nno)? richiest[oaie] a|[Vv]a(nno)? confermat[oaie] da" \
            "|[Vv]a(nno)? verificat[oaie] presso|[Dd]a chiedere a|[Rr]ichiesta a|[Ii]nterlocuzione con" \
            "|[Ss]petta(no)? a|[Aa] cura d[ei]|[Cc]ompet(e|ono) a|[Dd]eve chiuder|[Dd]eve (colmarl|risolverl)" \
@@ -102,7 +112,16 @@ misura=$(gawk '
     MENZIONE = "(^|[^[:alnum:]])((il|lo|la|i|gli|le|un|uno|una|del|dello|della|dei|degli|delle" \
                "|nel|nello|nella|nei|negli|nelle|quel|quei|questo|questi|ogni|due|tre" \
                "|the|a|an|each|every|those|these)[ ]+" \
+               "|(marcator[ei]|marcatur[ae])[ ]+`?" \
                "|(l|un|dell|nell|quell|all|dall)'\''[ ]*)`?\\[NV\\]"
+    # LA FORMA DEFINITORIA E'\'''\'' L'\'''\''ALTRA META'\'''\'' DELLA STESSA DISTINZIONE. «`[NV]` segnala
+    # un'\'''\''informazione non verificata» non pone una marcatura: la DEFINISCE, ed e'\'''\'' il modo in cui
+    # tredici indici di area e il glossario dichiarano la convenzione. Come la marcatura nominata,
+    # non potra'\'''\'' MAI ricevere un destinatario. Si riconosce per forma, non per senso: il marcatore
+    # seguito da un verbo di definizione, oppure solo nella prima cella di una riga di tabella, che
+    # e'\'''\'' la forma della voce di glossario. Una marcatura POSTA non e'\'''\'' mai il soggetto di «segnala».
+    DEFINIZIONE = "`?\\[NV\\]`?\\**[ ]+(segnala|marca|indica|significa|denota)" \
+                  "|^[ ]*\\|[ ]*\\**`?\\[NV\\]`?\\**[ ]*\\|"
   }
   # L'\''UNITA'\'' DI ANALISI E'\'' IL CAPOVERSO, non la riga: in markdown un capoverso occupa piu'\'' righe,
   # e il destinatario di una marcatura sta spesso nella riga successiva a quella che la porta.
@@ -123,6 +142,17 @@ misura=$(gawk '
       valuta($0, FILENAME, FNR)
       next
     }
+    # UNA RIGA CHE SEPARA PER CHI LEGGE SEPARA ANCHE QUI. Una riga fatta del solo «>» divide due
+    # paragrafi dentro la stessa citazione, e una riga di recinto apre o chiude un blocco di codice:
+    # entrambe sono confini evidenti a occhio e nessuna delle due e'\'''\'' «riga vuota» per l'\'''\''espressione
+    # di sopra, perche'\'''\'' contengono un carattere. Senza questa regola il destinatario dichiarato nel
+    # primo paragrafo di una citazione copre una marcatura scoperta nel secondo. Trovato in revisione
+    # indipendente il 27 agosto 2026 con una riproduzione minima; zero vittime nel corpus di oggi,
+    # ma otto file hanno la struttura che lo rende possibile.
+    if ($0 ~ /^[[:space:]]*>[[:space:]]*$/ || $0 ~ /^[[:space:]]*(```|~~~)/) {
+      if (accumulo != "") { valuta(accumulo, file_corrente, riga_capoverso); accumulo = "" }
+      next
+    }
     if ($0 ~ /^[[:space:]]*$/) {             # riga vuota: chiude il capoverso
       if (accumulo != "") { valuta(accumulo, file_corrente, riga_capoverso); accumulo = "" }
       next
@@ -140,7 +170,7 @@ misura=$(gawk '
     n = gsub(/\[NV\]/, "[NV]", testo)
     if (n == 0) return
     copia = testo
-    menzioni = gsub(MENZIONE, "", copia)
+    menzioni = gsub(MENZIONE, "", copia) + gsub(DEFINIZIONE, "", copia)
     n = n - menzioni
     if (n <= 0) return
     area = dove; sub(/^[^\/]*\//, "", area); sub(/\/.*$/, "", area)

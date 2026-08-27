@@ -113,6 +113,34 @@ if [ "${#VOCI_CANONICHE[@]}" -eq 0 ]; then
   exit 2
 fi
 
+# REGOLA 6 - NESSUNA SIGLA COMPARE DUE VOLTE FRA I TITOLI DEL RUNBOOK.
+#
+# PERCHE' ESISTE. Il 27 agosto 2026 un agente ha aggiunto cinque voci al runbook riusando sigle
+# gia' in uso, da D-27 a D-31: ha letto la coda del file, ha visto dove finiva e ha continuato a
+# numerare da li'. Questo controllo non se n'e' accorto, e non poteva: confronta l'INSIEME delle
+# sigle estratte con quelle del registro, e un doppione appartiene all'insieme esattamente come
+# l'originale. Ha dichiarato «57 voci, tutte presenti» mentre cinque voci nuove erano invisibili,
+# ciascuna nascosta dietro un titolo che il registro copriva gia'.
+#
+# PERCHE' CONTA PIU' DI UN FASTIDIO REDAZIONALE. Il registro dei difetti e' un giornale in sola
+# aggiunta indicizzato per sigla: due voci con la stessa sigla non sono due righe da distinguere,
+# sono UNA riga che ne descrive un'altra. Chi legge lo stato di «D-30» ne trova due, e quella che
+# leggera' dipende dall'ordine del file. Peggio, la voce nuova risulta gia' registrata e gia'
+# presidiata dal presidio di quella vecchia, che non la riguarda: e' una copertura dichiarata e
+# inesistente, che e' il difetto D-6 di questo stesso runbook.
+#
+# E' un rilievo, non un errore d'uso: il runbook si legge, la sigla e' semplicemente sbagliata.
+mapfile -t SIGLE_DOPPIE < <(printf '%s\n' "${VOCI_CANONICHE[@]}" | sort | uniq -d)
+if [ "${#SIGLE_DOPPIE[@]}" -gt 0 ]; then
+  printf '\n\033[31m✗ Sigla ripetuta fra i titoli di %s: %s\033[0m\n' \
+    "${VOCI_CANONICHE_FILE:-$RUNBOOK}" "${SIGLE_DOPPIE[*]}" >&2
+  printf 'Due voci con la stessa sigla non sono due righe da distinguere: sono una riga che ne\n' >&2
+  printf 'descrive un altra. La voce nuova risulta gia registrata e gia presidiata dal presidio\n' >&2
+  printf 'della vecchia, che non la riguarda - una copertura dichiarata e inesistente.\n' >&2
+  printf 'Rinumera la voce aggiunta per ultima e registrala in %s.\n' "$REGISTRO_DIFETTI" >&2
+  exit 1
+fi
+
 esito=0
 rilievi=0
 

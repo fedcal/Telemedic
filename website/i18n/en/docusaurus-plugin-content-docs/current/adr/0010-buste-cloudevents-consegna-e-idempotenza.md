@@ -76,10 +76,11 @@ Every consumer is idempotent, verified by a test that delivers the same event tw
 
 - Every consumer, internal and external, must deduplicate.
 - Sequence number per aggregate requires a monotonic source per aggregate, thus a serialisation point in write.
-- `[NV]` - increase in number of partitions in exercise can break per-aggregate order during rebalancing: verification the responsibility of the technical area **before** any resizing.
-- `[NV]` - the retention window of deduplication keys must be fixed by the technical area and cannot be less than the maximum retry window.
+- Increase in the number of partitions in exercise can break per-aggregate order during rebalancing: verification by `TECH` **before** any resizing `[NV]`.
+- The retention window of deduplication keys must be fixed by `TECH` and cannot be less than the maximum retry window, criteria to be verified `[NV]`.
 
 ## References
 
 [06 - Events and internal integration](../02_architecture/06-eventi-e-integrazione-interna.md#3-the-envelope) ·
 ADR-0008 · ADR-0011
+<!--TRAD-VERIFICATA: 418d0d9f489a072e8f8ceacaa3cddaebbab96faf-->

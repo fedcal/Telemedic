@@ -1990,6 +1990,30 @@ verifica_registro_difetti_runbook_zero_voci_uscita_2_messaggio_specifico() {
 esegui_caso "registro-difetti: runbook senza titoli riconoscibili, zero voci estratte, uscita 2 e messaggio specifico" passa \
   verifica_registro_difetti_runbook_zero_voci_uscita_2_messaggio_specifico
 
+# REGOLA 6, E IL FALSO NEGATIVO CHE L'HA RESA NECESSARIA. Il 27 agosto 2026 cinque voci nuove sono
+# entrate nel runbook riusando sigle gia' in uso (da D-27 a D-31): chi le ha scritte ha letto la
+# coda del file e ha continuato a numerare da li'. Il controllo ha dichiarato «57 voci, tutte
+# presenti» - non poteva accorgersene, perche' confronta INSIEMI di sigle e un doppione appartiene
+# all'insieme come l'originale. Il danno non e' redazionale: la voce nuova risulta gia' registrata e
+# gia' presidiata dal presidio di quella vecchia, che non la riguarda, ed e' la copertura dichiarata
+# e inesistente della voce D-6. Il caso asserisce sull'uscita E sul messaggio, come i due sopra: un
+# rilievo con uscita 1 non va confuso con uno schianto.
+verifica_registro_difetti_sigla_ripetuta_uscita_1_messaggio_specifico() {
+  local uscita testo
+  set +e
+  trap 'set -e' RETURN
+  testo=$(env REGISTRO_DIFETTI="$REGISTRO_DIFETTI_TENUTE/registro-valido.tsv" \
+    RUNBOOK="$REGISTRO_DIFETTI_TENUTE/runbook-sintetico-sigla-ripetuta.md" VOCI_CANONICHE_FILE="" \
+    BANCO="$BANCO_FITTIZIO_DIFETTI" RADICE_CONTROLLI="$REGISTRO_DIFETTI_TENUTE" \
+    "$RADICE_REPO/scripts/verifica-registro-dei-difetti.sh" 2>&1)
+  uscita=$?
+  [ "$uscita" -eq 1 ] || return 1
+  printf '%s' "$testo" | grep -qF 'Sigla ripetuta fra i titoli'
+}
+
+esegui_caso "registro-difetti: una sigla ripetuta fra i titoli del runbook, uscita 1 e messaggio specifico" passa \
+  verifica_registro_difetti_sigla_ripetuta_uscita_1_messaggio_specifico
+
 printf '\n== Controllo 15 - verifica-firma-e-provenienza.sh (L-17 di T-03, criterio 7) ==\n\n'
 
 # L-17: firma degli artefatti con identità effimera della pipeline di GitHub Actions.
@@ -3138,6 +3162,47 @@ esegui_caso "marcature non verificate: le quattro forme piu' usate dal corpus re
 esegui_caso "marcature non verificate: la formula a inizio di periodo e di cella si riconosce" passa \
   mnv_caso iniziale-maiuscola
 
+# I TRE CASI CHE SEGUONO VENGONO DA UNA REVISIONE INDIPENDENTE, condotta il 27 agosto 2026 con il
+# mandato formulato al negativo - «trova un caso che dovrebbe segnalare e non segnala» - da chi non
+# aveva scritto il controllo. Il banco era verde con oltre 270 casi. La revisione ha riprodotto due
+# falsi negativi, ed e' la voce D-31 del runbook vista in azione: un banco verde prova che il
+# controllo fa cio' che l'autore intendeva, mai che l'intenzione copra la regola.
+#
+# PRIMO. «Destinatario» era in DEST come parola nuda - l'unica alternativa priva di preposizione,
+# verbo o apice inverso - e in questo dominio e' parola d'uso corrente per tutt'altro: destinatario
+# di un flusso, di un documento, della disciplina. Due capoversi REALI del corpus passavano per
+# conformi perche' la parola compariva per un motivo estraneo alla marcatura. La tenuta e' uno dei
+# due, trascritto quasi alla lettera: dice «vanno verificate sul testo consolidato», cioe' proprio
+# la famiglia che il controllo dichiara di scartare perche' nomina il CHE COSA e non il CHI.
+esegui_caso "marcature non verificate: «destinatario» come parola comune non e' un destinatario" fallisce \
+  mnv_caso destinatario-parola-nuda
+
+# SECONDO. La forma DEFINITORIA e' l'altra meta' della distinzione fra marcatura nominata e
+# marcatura posta: «`[NV]` segnala un'informazione non verificata» DEFINISCE il marcatore invece di
+# porlo, ed e' il modo in cui tredici indici di area e il glossario dichiarano la convenzione. Come
+# la nominata, non potra' mai ricevere un destinatario. La tenuta ne porta tre forme - il verbo di
+# definizione, la riga di glossario, il titolo di sezione - e il controllo non deve contarne
+# nessuna, ne' fra le conformi ne' fra le mancanti: contarle fra le conformi sarebbe peggio, perche'
+# gonfierebbe il numero che dichiara il lavoro fatto.
+esegui_caso "marcature non verificate: un capoverso che DEFINISCE il marcatore non ne pone uno" passa \
+  mnv_caso definizione-non-marcatura
+
+# TERZO. Una riga fatta del solo «>» separa due paragrafi dentro una citazione, e una riga di
+# recinto apre o chiude un blocco di codice: per chi legge sono confini evidenti, per l'espressione
+# «riga vuota» non lo erano, perche' contengono un carattere. Senza la regola, il destinatario
+# dichiarato nel primo paragrafo copriva la marcatura scoperta del secondo. La tenuta porta
+# entrambi i confini e due marcature scoperte, una per confine.
+# Le due tenute sono SEPARATE e ciascuna porta UNA SOLA marcatura: la prima stesura ne aveva una
+# sola con due marcature, e non discriminava - senza la regola restava comunque una marcatura
+# scoperta, quindi il controllo usciva 1 lo stesso e la mutazione non faceva cadere il caso. E' la
+# voce D-9 del runbook: una mutazione che non cambia l'esito non prova la regola. Cosi' come sono,
+# ciascuna esce 1 con la regola e 0 senza.
+esegui_caso "marcature non verificate: due paragrafi della stessa citazione sono due capoversi" fallisce \
+  mnv_caso confine-citazione
+
+esegui_caso "marcature non verificate: un recinto di codice separa i capoversi" fallisce \
+  mnv_caso confine-recinto
+
 esegui_caso "marcature non verificate: radice inesistente - esce 2, errore d'uso" passa \
   bash -c 'env RADICE_CORPUS="$1/non-esiste" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
   _ "$MNV_TENUTE" "$RADICE_REPO/scripts/verifica-marcature-non-verificate.sh"
@@ -3238,6 +3303,20 @@ esegui_caso "bacheca: la stessa voce senza nota, in sola misura - passa e lo dic
 esegui_caso "bacheca: la formula della nota senza la ragione dietro - un titolo senza testo" fallisce \
   bac_caso_datato nota-vuota.md 2020-01-01
 
+
+# I DUE CASI CHE SEGUONO DISTINGUONO LO STATO DICHIARATO DALLO STATO RACCONTATO. Il 27 agosto 2026
+# la colonna dello stato era interrogata con una semplice ricerca della parola, e due voci su
+# centoventitre' ne pagavano il prezzo in versi opposti. Q-156 e' RISOLTA e piu' avanti RACCONTA che
+# «la casella dello stato era rimasta `APERTA`»: contata aperta per una parola citata fra apici
+# inversi a proposito di una condizione passata, le si chiedeva di dichiarare perche' resta aperta
+# una voce che non lo e'. Q-270 e' davvero riaperta ed era contata giusta per il motivo sbagliato,
+# perche' «RIAPERTA» CONTIENE «APERTA»: un accordo casuale fra due parole non e' una regola, e
+# sarebbe sparito il giorno in cui qualcuno avesse scritto «Riaperta».
+esegui_caso "bacheca: la parola «aperta» citata fra apici inversi non e' uno stato" passa \
+  bac_caso_datato stato-narrato.md 2020-01-01
+
+esegui_caso "bacheca: una voce RIAPERTA e' aperta, e deve la nota come le altre" fallisce \
+  bac_caso_datato stato-riaperta.md 2020-01-01
 printf '\n== Controllo 31 - i falsi negativi trovati in revisione il 27 agosto 2026 ==\n\n'
 
 # PERCHE' QUESTO BLOCCO ESISTE, ED E' SEPARATO DAGLI ALTRI. I sei controlli scritti il 27 agosto
