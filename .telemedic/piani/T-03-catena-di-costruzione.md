@@ -46,6 +46,49 @@ Le altre quattro leve di anticipazione, tutte applicate nel §5:
 
 ## 2. Il divario, misurato criterio per criterio
 
+### 2.0 Misura del 27 agosto 2026, sera - la tabella che segue è superata
+
+La tabella del §2.1 è del 26 agosto e **non descrive più il repository**. Non viene riscritta: dice
+come si è arrivati qui, e cancellarla toglierebbe il ragionamento. Questa sezione la corregge tutta
+in una volta, con la misura eseguita sul disco e non letta in un piano.
+
+| Criterio | Stato al 26 agosto | **Misurato il 27 agosto, sera** | Come è stato misurato |
+|---|---|---|---|
+| 1 - quattro fasce | Non soddisfatto | **Soddisfatto** | Cinque file di corsia in `.github/workflows/`; il criterio di collocazione è dichiarato in `pipeline/README.md` e presidiato da `scripts/verifica-collocazione-dei-controlli.sh` |
+| 2 - otto controlli bloccanti, ciascuno provato a fallire | Due su otto | **Soddisfatto, e ampiamente** | **Ventinove** righe `bloccante` nella tabella di collocazione, ciascuna con il caso di banco che la fa fallire; il banco conta 278 casi |
+| 3 - divergenza fra le lingue, versionata | Parziale | **Soddisfatto** | `pipeline/differenziazione-traduzioni.tsv` esiste ed è la configurazione versionata; il controllo la legge invece di cablarla |
+| 4 - sola segnalazione, ciascuna con la data | Non soddisfatto | **Soddisfatto** | Quindici righe `segnalazione`, **nessuna priva di `bloccante_dal`**: è la regola 2 del `README` della tabella, e un controllo la fa valere |
+| 5 - distinta a ogni costruzione | Parziale | **Soddisfatto sul solo artefatto esistente** | La generazione della distinta è nella fascia di rilascio e nella fascia completa. L'unico artefatto è oggi il sito; quando ne usciranno altri il criterio va rimisurato |
+| 6 - registro dei componenti generato | Non soddisfatto | **Soddisfatto** | `scripts/genera-registro-componenti.py` produce il registro dalla distinta, `pipeline/annotazioni-componenti.tsv` lo arricchisce, `scripts/verifica-registro-componenti.sh` fa fallire la costruzione se un componente della distinta manca dalle annotazioni |
+| 7 - firma e provenienza | Non soddisfatto | **Non soddisfatto** | **Zero esecuzioni riuscite della fascia di rilascio.** La prima esecuzione in assoluto è del 27 agosto 2026 ed è fallita in nove secondi |
+| 8 - verifica a cura di chi installa | Non soddisfatto | **Non soddisfatto** | `VERIFICA-DELL-ARTEFATTO.md` esiste con i comandi; manca l'artefatto firmato su cui dimostrarla, quindi il criterio dipende interamente dal 7 |
+
+**Sei su otto.** I due che restano sono **lo stesso lavoro visto due volte**: senza una esecuzione
+riuscita della fascia di rilascio non esiste artefatto firmato, e senza artefatto firmato la
+procedura di verifica resta un testo.
+
+### La prima esecuzione della fascia di rilascio, e che cosa ha insegnato
+
+Il 27 agosto 2026 la fascia di rilascio è stata eseguita **per la prima volta da quando esiste**, ed
+è fallita dopo nove secondi:
+
+```
+Unable to resolve action `sigstore/cosign-installer@v4`, unable to find version `v4`
+```
+
+La corsia era scritta, dichiarata nella tabella di collocazione, coerente con le altre, e **nessuno
+l'aveva mai fatta girare**. È la terza istanza nel repository della stessa forma di difetto - *una
+regola scritta e non presidiata non è una regola*, *un cancello prescritto in un piano e non eseguito
+da uno script non è un cancello* - e questa volta l'oggetto è una corsia: **una corsia mai eseguita
+non è una corsia, è un file YAML**.
+
+C'è un secondo difetto nella stessa esecuzione, e va registrato perché non è quello che ha fermato la
+corsia e quindi si scoprirebbe solo dopo aver corretto il primo: il registro elenca i permessi
+concessi al token - `Contents: read`, `Metadata: read` - e **`id-token: write` non compare**, benché
+sia dichiarato in testa al file. La firma keyless non funziona senza.
+
+---
+
 ### 2.1 Quadro sintetico
 
 | Criterio | Oggetto | Stato oggi | Lavori |

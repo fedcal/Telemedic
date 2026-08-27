@@ -41,7 +41,7 @@ flowchart TD
     N["Statutory information set<br/>(binding source)"]
     D["Telemedic's canonical dataset<br/>internal model, versioned"]
     S1["FHIR serialisation<br/>Composition in a document Bundle"]
-    S2["Structured serialisation for the health record<br/>template NOT available - [NV] COMP"]
+    S2["Structured serialisation for the health record<br/>template NOT available - [NV] to be asked of COMP"]
     S3["Rendered representation<br/>for human reading and signing"]
     S4["Compatibility projection<br/>diagnostic report, read-only"]
     N --> D

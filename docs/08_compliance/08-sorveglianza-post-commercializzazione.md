@@ -179,11 +179,11 @@ a dispositivi messi a disposizione sul mercato dell'Unione.
 | **Minaccia grave per la salute pubblica** | **immediatamente**, e comunque **non oltre 2 giorni** |
 
 `[NV]` - i termini sono verificati; la corrispondenza con i numeri di paragrafo dell'art. 87 va
-confermata sul testo consolidato. La definizione di **incidente grave** è nell'art. 2, punto 65:
+confermata da `COMP` sul testo consolidato dell'MDR. La definizione di **incidente grave** è nell'art. 2, punto 65:
 un incidente che ha direttamente o indirettamente causato, può aver causato o può causare il
 decesso di un paziente, di un utilizzatore o di altre persone, il grave deterioramento temporaneo
-o permanente del loro stato di salute, o una grave minaccia per la salute pubblica. `[NV]` sul
-numero del punto.
+o permanente del loro stato di salute, o una grave minaccia per la salute pubblica. `[NV]` - il
+numero del punto va confermato da `COMP` sul testo consolidato.
 
 **Il punto operativo che determina tutto è quando decorre il termine.** Decorre dalla
 **conoscenza** dell'evento e del suo **possibile** nesso con il dispositivo, non dalla certezza

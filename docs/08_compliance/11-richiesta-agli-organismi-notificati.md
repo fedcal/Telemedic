@@ -172,7 +172,7 @@ concordanza fra due fonti secondarie non fa una fonte primaria**, e va detto per
 cui una convinzione si consolida senza essere verificata: le due fonti potrebbero derivare l'una
 dall'altra, o entrambe da una terza. **Il
 testo dell'atto non è stato letto su fonte primaria**, nessun codice è quindi riportato in questo
-capitolo, e il riferimento all'atto stesso va confermato prima di comparire in un documento
+capitolo, e il riferimento all'atto stesso va confermato da `COMP` prima di comparire in un documento
 destinato a una trattativa. È la stessa cautela che [01 §9](./01-inquadramento-normativo.md)
 impone per le fonti italiane e che [09 §2](./09-percorso-e-calendario.md) impone per le cifre di
 mercato: una fonte secondaria non diventa primaria perché è comoda.

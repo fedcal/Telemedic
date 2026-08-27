@@ -41,7 +41,7 @@ flowchart TD
     N["Set informativo normativo<br/>(fonte cogente)"]
     D["Dataset canonico di Telemedic<br/>modello interno, versionato"]
     S1["Serializzazione FHIR<br/>Composition in Bundle documento"]
-    S2["Serializzazione strutturata per il fascicolo<br/>template NON disponibile - [NV] COMP"]
+    S2["Serializzazione strutturata per il fascicolo<br/>template NON disponibile - [NV] da chiedere a COMP"]
     S3["Rappresentazione impaginata<br/>per la lettura umana e la firma"]
     S4["Proiezione di compatibilità<br/>referto diagnostico, sola lettura"]
     N --> D

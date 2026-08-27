@@ -179,7 +179,7 @@ jobs:
       - run: ./scripts/verifica-trattini.sh
 
   termini-vietati:
-    name: Regola di riservatezza R0 (G11) - in sola segnalazione fino al 2026-09-26
+    name: Regola di riservatezza R0 (G11) - bloccante dal 2026-08-27
     runs-on: ubuntu-latest
     timeout-minutes: 20
     # G11 (tabella di docs/01_technical/09-integrazione-continua-e-rilascio.md §3 e di

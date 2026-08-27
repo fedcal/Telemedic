@@ -516,8 +516,8 @@ has to be **contractualised** and verifiable, and the formulation excludes an oc
 arrangement.
 
 `[NV]` - the qualification requirements and the derogation are verified in substance; the
-correspondence with the paragraph numbers of Article 15 is to be confirmed against the consolidated
-text.
+correspondence with the paragraph numbers of Article 15 is to be confirmed by `COMP` against the consolidated
+text of the MDR.
 
 **The responsibilities under the article** - verification of conformity before release, drafting
 and updating of the technical documentation and of the declaration of conformity, discharge of the

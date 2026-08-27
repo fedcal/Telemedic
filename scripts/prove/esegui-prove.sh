@@ -3127,6 +3127,17 @@ esegui_caso "marcature non verificate: «va verificato» dice che cosa, non a ch
 esegui_caso "marcature non verificate: le quattro forme piu' usate dal corpus reggono un destinatario" passa \
   mnv_caso forme-lette-nel-corpus
 
+# QUESTO CASO NASCE DA UN FALSO NEGATIVO RIPRODOTTO, non sospettato. Le formule erano state
+# misurate nel corpus con grep in minuscolo, e l'espressione fu scritta su quella forma: ogni
+# formula a INIZIO DI PERIODO o a inizio di CELLA DI TABELLA restava invisibile. Ventisei
+# occorrenze reali il 27 agosto 2026, e fra queste tre marcature che indirizzavano esplicitamente
+# a un ente nominato. Il banco precedente non poteva vederlo, perche' le sue tenute erano state
+# scritte dallo stesso autore e sulla stessa forma dell'espressione: e' la ragione per cui un
+# banco verde non dimostra che il controllo copra la regola, ma solo che faccia cio' che l'autore
+# intendeva.
+esegui_caso "marcature non verificate: la formula a inizio di periodo e di cella si riconosce" passa \
+  mnv_caso iniziale-maiuscola
+
 esegui_caso "marcature non verificate: radice inesistente - esce 2, errore d'uso" passa \
   bash -c 'env RADICE_CORPUS="$1/non-esiste" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
   _ "$MNV_TENUTE" "$RADICE_REPO/scripts/verifica-marcature-non-verificate.sh"

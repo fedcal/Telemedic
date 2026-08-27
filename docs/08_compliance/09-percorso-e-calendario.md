@@ -523,7 +523,7 @@ averla **permanentemente e continuamente a disposizione**. Sono due implicazioni
 va **contrattualizzata** e verificabile, e la formula esclude il rapporto occasionale a chiamata.
 
 `[NV]` - i requisiti di qualifica e la deroga sono verificati nella sostanza; la corrispondenza con
-i numeri di paragrafo dell'art. 15 va confermata sul testo consolidato.
+i numeri di paragrafo dell'art. 15 va confermata da `COMP` sul testo consolidato dell'MDR.
 
 **Le responsabilità dell'articolo** - verifica della conformità prima del rilascio, redazione e
 aggiornamento della documentazione tecnica e della dichiarazione di conformità, adempimento degli

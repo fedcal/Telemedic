@@ -171,7 +171,7 @@ secondary sources does not make a primary one**, and this must be said because i
 consolidates without being verified: the two sources may derive one from the other, or both from a
 third. **The text of the act
 was not read on a primary source**, no code is therefore reported in this chapter, and the
-reference to the act itself is to be confirmed before it appears in a document intended for a
+reference to the act itself is to be confirmed by `COMP` before it appears in a document intended for a
 negotiation. It is the same caution that [01 §9](./01-inquadramento-normativo.md) imposes for the
 Italian sources and that [09 §2](./09-percorso-e-calendario.md) imposes for the market figures: a
 secondary source does not become primary because it is convenient.

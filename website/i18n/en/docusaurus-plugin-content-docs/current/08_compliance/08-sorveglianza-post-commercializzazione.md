@@ -177,11 +177,11 @@ market to be reported to the competent authorities.
 | **Serious public health threat** | **immediately**, and in any event **no later than 2 days** |
 
 `[NV]` - the deadlines are verified; the correspondence with the paragraph numbers of Article 87
-must be confirmed against the consolidated text. The definition of **serious incident** is in
+must be confirmed by `COMP` against the consolidated text of the MDR. The definition of **serious incident** is in
 Article 2, point 65: an incident that directly or indirectly led, may have led or may lead to the
 death of a patient, of a user or of other persons, to the temporary or permanent serious
-deterioration of their state of health, or to a serious public health threat. `[NV]` on the number
-of the point.
+deterioration of their state of health, or to a serious public health threat. `[NV]` - the number
+of the point must be confirmed by `COMP` against the consolidated text.
 
 **The operational point that determines everything is when the deadline starts running.** It runs
 from **becoming aware** of the event and of its **possible** link with the device, not from

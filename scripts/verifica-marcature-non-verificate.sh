@@ -74,10 +74,21 @@ misura=$(gawk '
     # marcature «con destinatario» di oltre settanta unita'\'' senza che una sola di esse dichiari
     # chi deve chiudere la lacuna. Si riconoscono soltanto le forme che reggono un complemento di
     # destinazione: «va verificato PRESSO», «va confermato DA», «va richiesto A».
-    DEST = "`(" AREE ")`|Q-[0-9]+|presso chi|chi deve chiuderla|chi decide|destinatari" \
-           "|va(nno)? chiest[oaie] a|va(nno)? richiest[oaie] a|va(nno)? confermat[oaie] da" \
-           "|va(nno)? verificat[oaie] presso|da chiedere a|richiesta a|interlocuzione con" \
-           "|spetta(no)? a|a cura d[ei]|compet(e|ono) a|deve (chiuderl|colmarl|risolverl)" \
+    # L'\'\''INIZIALE E'\'\'' INDIFFERENTE, e non lo era. La prima stesura misuro'\'\'' le formule con grep
+    # in minuscolo e scrisse l'\'\''espressione su quella forma: ogni formula scritta a INIZIO DI PERIODO
+    # o a inizio di CELLA DI TABELLA restava invisibile. Ventisei occorrenze reali, misurate il 27
+    # agosto 2026 - «Da chiedere a» 19, «Va richiesto a» 4, «Spetta a» 3 - e fra queste le tre
+    # marcature che l'\'\''area di sicurezza e la guida ai fondamenti indirizzavano esplicitamente
+    # all'\'\''agenzia SPID, ad AGENAS e all'\'\''area tecnica del fascicolo. Il difetto non e'\'\'' di
+    # disattenzione: chi scrive il controllo costruisce l'\'\''espressione sulla stessa forma su cui ha
+    # misurato, e la misura in minuscolo non poteva mostrargli le maiuscole.
+    # Si rende indifferente SOLO l'\'\''iniziale, mai l'\'\''intera espressione: IGNORECASE farebbe
+    # riconoscere `comp` come se fosse la sigla d'\'\''area `COMP`, e una sigla d'\'\''area e'\'\'' maiuscola
+    # per convenzione dichiarata.
+    DEST = "`(" AREE ")`|Q-[0-9]+|[Pp]resso chi|[Cc]hi deve chiuderla|[Cc]hi decide|[Dd]estinatari" \
+           "|[Vv]a(nno)? chiest[oaie] a|[Vv]a(nno)? richiest[oaie] a|[Vv]a(nno)? confermat[oaie] da" \
+           "|[Vv]a(nno)? verificat[oaie] presso|[Dd]a chiedere a|[Rr]ichiesta a|[Ii]nterlocuzione con" \
+           "|[Ss]petta(no)? a|[Aa] cura d[ei]|[Cc]ompet(e|ono) a|[Dd]eve chiuder|[Dd]eve (colmarl|risolverl)" \
            "|Ministero|AgID|organismo notificato|Garante|garante|Commissione"
     # UNA MARCATURA NOMINATA NON E'\'' UNA MARCATURA. «Chiude il [NV] che quest'\''area portava» parla
     # DI una marcatura, non ne pone una: chiedergli un destinatario e'\'' chiedere a chi vada

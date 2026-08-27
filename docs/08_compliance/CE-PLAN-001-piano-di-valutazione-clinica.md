@@ -491,7 +491,7 @@ che va detta: **una stringa di interrogazione scritta senza competenza di domini
 che sembra completo e non lo è**, e il difetto si scopre in sede di quesiti, quando la ricerca va
 rifatta e non integrata.
 
-**L'elenco delle banche dati bibliografiche pertinenti `[NV]` da determinare dal Committente non è determinato in questa bozza**
+**L'elenco delle banche dati bibliografiche pertinenti `[NV]` da chiedere al Committente non è determinato in questa bozza**
 e non viene ipotizzato. Alcune delle banche dati usate in questo campo sono prodotti commerciali ad
 accesso oneroso: la loro individuazione ha quindi una componente di scelta e una componente di
 spesa, entrambe fuori dalla portata di questo documento, e nominarne alcune a titolo di esempio

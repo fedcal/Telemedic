@@ -482,7 +482,7 @@ reason that must be stated: **a query string written without domain competence p
 that looks complete and is not**, and the defect is discovered under questions, when the search must
 be redone and not supplemented.
 
-**The list of pertinent bibliographic databases `[NV]` - to be determined by the Project owner - is not determined in this draft** and is
+**The list of pertinent bibliographic databases `[NV]` - to be asked of the Project owner - is not determined in this draft** and is
 not guessed at. Some of the databases used in this field are commercial products with paid access:
 identifying them therefore has a component of choice and a component of expenditure, both beyond the
 reach of this document, and naming a few by way of example would produce a list that somebody would
