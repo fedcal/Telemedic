@@ -746,18 +746,44 @@ very command that gets it wrong. This is the lesson beyond this one check: a gre
 check does what its author intended, **never that the intention covers the rule**. The three entries
 are `D-33`, and the six new cases bring the bench to two hundred and eighty-six.
 
-**The release lane produced five defects in six runs, and the fifth is not yet closed.** It is the
-critical path of `T-03`: criteria 7 and 8 - signed artefacts with provenance, and a verification
-procedure demonstrated on a signed artefact - are not producible until the lane runs. Each defect was
-**visible only after the previous one had been fixed**: a non-existent action reference, a missing
-execute bit, a tool that wants a file and receives a directory, a major version that changes the
-output format with a compatibility option **announced in the release notes and absent from the
-published package**, and finally an interactive consent prompt which, with no terminal, is treated as
-*declined* - the lane's error reads «user declined the prompt», describing an act nobody performed.
-A planning rule follows, not only an engineering one: **the first green run of an automation that has
-never run is not estimated, it is scheduled as work in its own right.** The 26 August plan gave those
-two criteria as «a few hours», assuming a single defect; a lane that has never run does not contain
-one defect, it contains a stack, and the depth of the stack cannot be observed by reading the file.
+**`T-03` is closed, eight criteria out of eight.** The release lane went green on the seventh run,
+and the two remaining criteria - signed artefacts with provenance, verification procedure
+demonstrated - closed in the same movement, because they were the same work seen twice.
+
+**They did not, however, close when the lane went green**, and that is the part that matters. The
+first successful run produced signatures nobody could download, a digest matching nothing
+reproducible, and no certificate: without the ephemeral certificate, keyless verification is not
+weaker, it is **impossible**. None of those defects was visible by reading - the signing command does
+not fail, and the files produced looked like finished work - and all of them would have reached
+whoever installs. They were found by criterion 8, that is by the obligation to **demonstrate** the
+procedure rather than write it, and that is exactly why the criterion exists.
+
+The outcome is now recorded with its observed values in §0 of
+[`VERIFICA-DELL-ARTEFATTO.md`](https://github.com/fedcal/Telemedic/blob/main/VERIFICA-DELL-ARTEFATTO.md),
+in Italian and English: `Verified OK` with exit zero on the downloaded artefact, the attestation's
+digest matching the archive's, the declared revision equal to the one built, and a certificate naming
+the lane's own file as signer and valid for **ten minutes**. The signing identity is the chain run,
+not a key held by someone: there is no private key to steal, revoke or safeguard. Alongside the
+outcome the **negative proof** is recorded - changing only the expected identity makes verification
+exit with code one, so it discriminates - and one declared limitation: the parameters used are
+reported as deprecated in favour of the single-container format, and migrating must change what the
+chain produces and what the document prescribes together.
+
+**The project thereby earns its third maxim**, next to the two it already carries - *a check nobody
+has seen fail is not a check*, *a gate prescribed in a plan and not executed by a script is not a
+gate*: **a verification procedure that has never been run is not a procedure, it is a text.**
+
+**The release lane produced six defects in seven runs, and each was visible only after the previous
+one had been fixed**: a non-existent action reference, a missing execute bit, a tool that wants a
+file and receives a directory, a major version that changes the output format with a compatibility
+option **announced in the release notes and absent from the published package**, an interactive
+consent prompt which with no terminal is treated as *declined* - the error reads «user declined the
+prompt», describing an act nobody performed - and finally the ephemeral certificate not being
+emitted. A planning rule follows, not only an engineering one: **the first green run of an automation
+that has never run is not estimated, it is scheduled as work in its own right.** The 26 August plan
+gave those two criteria as «a few hours», assuming a single defect; a lane that has never run does
+not contain one defect, it contains a stack, and the depth of the stack cannot be observed by reading
+the file.
 
 **First correction: the diagnosis of the English links is superseded.** The text above states that
 bringing the three `onBroken*` criteria to `throw` **would stop the site build**. That is no longer

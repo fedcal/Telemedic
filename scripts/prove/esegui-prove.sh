@@ -359,6 +359,75 @@ verifica_parita_strutturale_sezioni_allineate() {
 esegui_caso "sezioni allineate fra originale e traduzione: nessuna divergenza strutturale" passa \
   verifica_parita_strutturale_sezioni_allineate
 
+# UN CAPITOLO GENERATO NON HA UN TRADUTTORE CHE POSSA RESTARE INDIETRO, e il 27 agosto 2026 il
+# controllo lo accusava lo stesso. Le due lingue di 11_registri escono dalla STESSA esecuzione dello
+# stesso generatore, dalla stessa fonte: se il testo italiano cambia in un punto che l'inglese non
+# riporta, il file inglese non produce alcun commit e la coppia risulta divergente pur essendo stata
+# scritta nello stesso istante dallo stesso codice. La relazione che il controllo sorveglia - un
+# umano ha tradotto, poi l'originale e' cambiato - non esiste per loro.
+#
+# I DUE CASI SONO GEMELLI E DIFFERISCONO PER UNA SOLA RIGA: il banner che il generatore scrive in
+# testa al file tradotto. Senza banner la coppia e' divergente e il controllo deve dirlo; con il
+# banner e' saltata. Cosi' la coppia discrimina davvero: rimuovendo la regola dal controllo, il
+# primo caso cade e il secondo resta verde, che e' la condizione della voce D-9.
+_prepara_sandbox_capitolo_generato() {
+  local sandbox="$1" con_banner="$2"
+  # L'area e' una di quelle realmente dichiarate in pipeline/differenziazione-traduzioni.tsv:
+  # un'area inventata non verrebbe nemmeno enumerata, e la tenuta passerebbe senza aver provato nulla.
+  local area="02_architecture" file_src file_dst
+
+  mkdir -p \
+    "$sandbox/scripts" \
+    "$sandbox/docs/$area" \
+    "$sandbox/website/i18n/en/docusaurus-plugin-content-docs/current/$area" || return 1
+  cp "$RADICE_REPO/scripts/verifica-divergenza-traduzioni.sh" "$sandbox/scripts/" || return 1
+
+  file_src="$sandbox/docs/$area/generato.md"
+  file_dst="$sandbox/website/i18n/en/docusaurus-plugin-content-docs/current/$area/generato.md"
+
+  printf '# Capitolo sintetico di collaudo\n\n## Sezione unica\nTesto sintetico.\n' > "$file_src"
+  {
+    printf '# Synthetic test chapter\n\n'
+    [ "$con_banner" = "con-banner" ] && printf '> **This chapter is generated.** Synthetic banner.\n\n'
+    printf '## Only section\nSynthetic text.\n'
+  } > "$file_dst"
+
+  # LE DATE SI IMPONGONO, NON SI SPERANO. Due commit consecutivi cadono quasi sempre nello stesso
+  # secondo, e «git log --format=%ct» ha la risoluzione del secondo: il confronto «originale piu'
+  # recente della traduzione» risulterebbe falso e la tenuta non produrrebbe la divergenza che deve
+  # produrre. Il caso passerebbe per la ragione sbagliata, che e' il difetto D-8.
+  (
+    cd "$sandbox" || exit 1
+    git init -q -b main
+    git config user.email "prove@telemedic.test"
+    git config user.name "Banco di prova"
+    git add "website/i18n/en/docusaurus-plugin-content-docs/current/$area/generato.md"
+    GIT_AUTHOR_DATE="2026-01-01T00:00:00+00:00" GIT_COMMITTER_DATE="2026-01-01T00:00:00+00:00" \
+      git commit -q -m "traduzione sintetica, committata PRIMA dell originale"
+    git add "docs/$area/generato.md"
+    GIT_AUTHOR_DATE="2026-06-01T00:00:00+00:00" GIT_COMMITTER_DATE="2026-06-01T00:00:00+00:00" \
+      git commit -q -m "originale sintetico, committato DOPO: per data la coppia diverge"
+  )
+}
+
+_caso_capitolo_generato() {
+  local sandbox uscita
+  set +e
+  trap 'set -e' RETURN
+  sandbox=$(mktemp -d) || return 1
+  _prepara_sandbox_capitolo_generato "$sandbox" "$1" || { rm -rf "$sandbox"; return 1; }
+  (cd "$sandbox" && bash scripts/verifica-divergenza-traduzioni.sh >/dev/null 2>&1)
+  uscita=$?
+  rm -rf "$sandbox"
+  return "$uscita"
+}
+
+esegui_caso "capitolo generato: il banner del generatore esenta la coppia dal confronto fra date" passa \
+  _caso_capitolo_generato con-banner
+
+esegui_caso "capitolo NON generato, stesse date: la divergenza si vede" fallisce \
+  _caso_capitolo_generato senza-banner
+
 esegui_caso "divergenza strutturale rilevata anche con date allineate (traduzione più recente ma monca)" fallisce \
   verifica_parita_strutturale_con_date_allineate
 
@@ -3444,6 +3513,64 @@ esegui_caso "pipefail: una libreria non eseguibile, con catene, non è segnalata
 esegui_caso "pipefail: cartella inesistente - esce 2, errore d'uso" passa \
   bash -c 'env RADICE_SCRIPT="$1/non-esiste" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
   _ "$PF_TENUTE" "$RADICE_REPO/scripts/verifica-pipefail.sh"
+
+printf '\n== Controllo 33 - costruzione del sito, collegamento rotto (criterio 2 di T-02, terza istanza di Q-288) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. onBrokenLinks, onBrokenAnchors e onBrokenMarkdownLinks sono a
+# "throw" in website/docusaurus.config.mjs dal 26 agosto 2026, ma la prova negativa - un
+# collegamento rotto che ferma la costruzione, tolto che la fa tornare a passare - era stata
+# eseguita una sola volta a mano sul sito vero (minuti di costruzione: 310 documenti in due
+# lingue) e non era ripetibile: e' la terza istanza del problema registrato in Q-288. Questo
+# blocco la rende un caso del banco costruendo non il sito vero ma una TENUTA di due pagine,
+# scripts/prove/tenute/costruzione-collegamenti/, con lo stesso motore
+# (@docusaurus/core, website/node_modules riusato tramite collegamento simbolico - la tenuta non
+# installa una copia propria) e con gli stessi tre criteri onBroken*: NON duplicati qui - sarebbe
+# la stessa copia che smette di sorvegliare gia' registrata come D-10 - ma LETTI dal sito vero a
+# ogni costruzione. Vedi il commento in testa a
+# scripts/prove/tenute/costruzione-collegamenti/docusaurus.config.mjs per il dettaglio e per
+# perche' questo rende il caso sensibile anche a una futura regressione del sito vero, non solo
+# alla tenuta.
+#
+# ENTRAMBI I VERSI, non uno solo (D-8/D-9): "docs-valido" non contiene il collegamento e la
+# costruzione deve uscire zero; "docs-collegamento-rotto" e' identico salvo un unico collegamento
+# in piu' verso un documento inesistente, e la costruzione deve uscire diversa da zero. Verificato
+# a mano che il messaggio prodotto sul caso rotto sia quello atteso - "Markdown link with URL
+# `./pagina-assente.md` ... couldn't be resolved" - e non un crash per un'altra ragione.
+#
+# COSTO MISURATO su questa macchina: circa 13 secondi la costruzione valida, circa 5 la rotta
+# (fallisce prima: la compilazione si interrompe all'errore) - insieme sotto la soglia dei
+# quaranta secondi indicata per restare in fascia rapida, e ben sotto i minuti che la costruzione
+# reale del sito richiede.
+#
+# PERCHE' PUO' ESSERE SALTATO. La tenuta riusa website/node_modules con un collegamento simbolico
+# invece di installare una copia propria (2,5 GB gia' presenti sul disco quando "npm ci" e' stato
+# eseguito in website/): se non lo e' stato - come nella corsia che esegue solo questo banco,
+# "identificativi-requisiti" di fascia-completa.yml - il collegamento e' spezzato e i due casi si
+# dichiarano SALTATI, mai superati, la stessa convenzione gia' in uso per gitleaks piu' sopra.
+TENUTA_COLLEGAMENTI="$TENUTE/costruzione-collegamenti"
+DOCUSAURUS_TENUTA="$TENUTA_COLLEGAMENTI/node_modules/.bin/docusaurus"
+
+_costruzione_tenuta_collegamenti() {
+  local docs_path="$1" cartella_uscita uscita
+  cartella_uscita=$(mktemp -d) || return 1
+  ( cd "$TENUTA_COLLEGAMENTI" && env DOCS_PATH="$docs_path" "$DOCUSAURUS_TENUTA" build --out-dir "$cartella_uscita" )
+  uscita=$?
+  rm -rf "$cartella_uscita" "$TENUTA_COLLEGAMENTI/.docusaurus"
+  return "$uscita"
+}
+
+tc_collegamenti_validi_passa()  { set +e; trap 'set -e' RETURN; _costruzione_tenuta_collegamenti ./docs-valido; }
+tc_collegamento_rotto_fallisce() { set +e; trap 'set -e' RETURN; _costruzione_tenuta_collegamenti ./docs-collegamento-rotto; }
+
+if [ -x "$DOCUSAURUS_TENUTA" ]; then
+  esegui_caso "collegamenti: la tenuta con documentazione valida costruisce senza errori" passa \
+    tc_collegamenti_validi_passa
+  esegui_caso "collegamenti: un collegamento rotto introdotto nella tenuta ferma la costruzione" fallisce \
+    tc_collegamento_rotto_fallisce
+else
+  printf '\033[33m· website/node_modules non è presente (nessun "npm ci" eseguito in website/): i due\n'
+  printf '  casi sulla costruzione dei collegamenti sono SALTATI, non superati.\033[0m\n'
+fi
 
 printf "\n%d/%d casi con esito conforme all'atteso.\n" "$attese_rispettate" "$totale"
 

@@ -136,6 +136,7 @@ done < "$DIFFERENZIAZIONE_TRADUZIONI"
 mancanti=0
 divergenti=0
 allineati=0
+generati=0
 avvertenze_assenti=0
 avvertenze_bloccanti=0
 radice_avvertenze_rilievi=0
@@ -169,6 +170,24 @@ for src in $(find "$SORGENTE" -name '*.md' | sort); do
   # Il conteggio dei titoli di secondo livello è grossolano di proposito: non
   # misura la qualità, intercetta l'unica cosa che conta qui, cioè che manchi
   # interamente un pezzo di documento.
+  # UN CAPITOLO GENERATO NON HA UN TRADUTTORE CHE POSSA RESTARE INDIETRO. Le due lingue escono
+  # dalla STESSA esecuzione dello stesso generatore, dalla stessa fonte: la relazione che questo
+  # controllo sorveglia - «un umano ha tradotto, poi l'originale e' cambiato» - non esiste per loro.
+  # Basta che il testo italiano cambi in un punto che l'inglese non riporta, e il file inglese non
+  # produce alcun commit: la coppia risulta divergente pur essendo stata scritta nello stesso
+  # istante dallo stesso codice. Accaduto il 27 agosto 2026 su 11_registri/02-questioni-aperte.md.
+  #
+  # NON SI SALTA IN SILENZIO, E NON SI SALTA PER ELENCO. Il riconoscimento avviene sul BANNER che il
+  # generatore stesso scrive in testa al file tradotto - «This chapter is generated» - quindi questo
+  # controllo non porta dentro di se' una copia dell'elenco dei capitoli generati (voce D-10), e un
+  # capitolo che smettesse di essere generato tornerebbe da solo sorvegliato. Il conteggio dei
+  # saltati e' stampato accanto agli altri: un salto che non si vede e' un salto che nessuno rimette
+  # mai in discussione, ed e' cosi' che un'esenzione temporanea diventa permanente.
+  if grep -q 'This chapter is generated' "$dst" 2>/dev/null; then
+    generati=$((generati+1))
+    continue
+  fi
+
   s_src=$(grep -c '^## ' "$src" || true)
   s_dst=$(grep -c '^## ' "$dst" || true)
   if [ "$s_src" -ne "$s_dst" ]; then
@@ -403,8 +422,8 @@ for doc in $AVVERTENZE_PUBBLICHE; do
   fi
 done
 
-printf '\nAllineati: %d · Divergenti: %d · Assenti ed esigiti: %d · Orfani: %d\n' \
-  "$allineati" "$divergenti" "$mancanti" "$orfani"
+printf '\nAllineati: %d · Divergenti: %d · Assenti ed esigiti: %d · Orfani: %d · Generati e saltati: %d\n' \
+  "$allineati" "$divergenti" "$mancanti" "$orfani" "$generati"
 
 if [ "$avvertenze_assenti" -gt 0 ]; then
   printf 'Avvertenze pubbliche non allineate (contenuto): %d, di cui %d bloccanti - vedi %s\n' \

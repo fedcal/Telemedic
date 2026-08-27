@@ -236,6 +236,39 @@ Se è un dato, va sostituito dal dato. Se è una verifica, va spostato all'orche
 dall'orchestratore, che deve rieseguire tutto ciò che ha creduto verificato - e, da questa
 ricaduta, anche rilanciare gli agenti che si sono fermati sulla soglia.
 
+### B-7. `git add -A` in una cartella condivisa committa il lavoro in corso di un altro
+
+**Che cosa è successo.** Il 27 agosto 2026, mentre un agente stava costruendo una tenuta di banco non
+ancora tracciata, ho chiuso un lavoro mio con `git add -A` seguito da un commit sulla firma degli
+artefatti. Il commit ha inglobato **per intero** la tenuta dell'agente, che non c'entrava nulla con
+il suo messaggio. L'agente se n'è accorto e l'ha segnalato: nessuna perdita, nessuna corruzione - il
+contenuto committato coincide byte per byte con quello che aveva scritto - ma la tenuta vive oggi
+sotto un messaggio di commit che non la nomina, e chi un giorno cercherà quando è entrata nel
+repository non la troverà dove si aspetta.
+
+**Perché è insidioso.** `git add -A` è il gesto che si compie a fine lavoro senza pensarci, ed è
+corretto in una cartella con un solo autore. Il presupposto - «tutto ciò che è cambiato è mio» -
+smette di valere nel momento in cui un agente lavora in parallelo, e non c'è nulla, nell'esito del
+comando, che segnali la differenza: il commit riesce, i controlli passano, la storia sembra pulita.
+Il danno non è tecnico ma **archivistico**, e si manifesta mesi dopo, quando la storia è l'unica
+fonte rimasta.
+
+C'è un aggravante che questo repository conosce già: il messaggio di commit di questo progetto non è
+un'etichetta, è **la spiegazione del perché**. Un commit che dice «la firma senza certificato non è
+verificabile» e contiene anche una tenuta Docusaurus per i collegamenti rotti afferma implicitamente
+un nesso che non esiste.
+
+**La regola.** Con agenti attivi sulla stessa cartella non si usa `git add -A` né `git commit -a`.
+Si aggiungono **i percorsi che si è scritti**, elencandoli - `git add <percorso> <percorso>` -
+oppure, quando sono molti, si verifica prima `git status --porcelain` e si esclude ciò che non si
+riconosce. Se un file cambiato non si riconosce, **è di qualcun altro**, e va lasciato dov'è: la
+domanda non è «questo file è pronto» ma «questo file l'ho scritto io».
+
+**Il presidio.** Nessuno, ed è disciplina di orchestrazione: un controllo non può sapere chi ha
+scritto un file. L'unica difesa praticabile è la lettura di `git status --porcelain` prima di ogni
+commit fatto mentre un agente è in esecuzione, ed è la stessa disciplina della voce `B-5` - non si
+tocca un file mentre un agente lo sta mutando - applicata al gesto che tocca tutti i file insieme.
+
 ---
 
 ## C. Trappole degli strumenti

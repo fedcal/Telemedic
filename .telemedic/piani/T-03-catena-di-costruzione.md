@@ -60,8 +60,8 @@ in una volta, con la misura eseguita sul disco e non letta in un piano.
 | 4 - sola segnalazione, ciascuna con la data | Non soddisfatto | **Soddisfatto** | Quindici righe `segnalazione`, **nessuna priva di `bloccante_dal`**: è la regola 2 del `README` della tabella, e un controllo la fa valere |
 | 5 - distinta a ogni costruzione | Parziale | **Soddisfatto sul solo artefatto esistente** | La generazione della distinta è nella fascia di rilascio e nella fascia completa. L'unico artefatto è oggi il sito; quando ne usciranno altri il criterio va rimisurato |
 | 6 - registro dei componenti generato | Non soddisfatto | **Soddisfatto** | `scripts/genera-registro-componenti.py` produce il registro dalla distinta, `pipeline/annotazioni-componenti.tsv` lo arricchisce, `scripts/verifica-registro-componenti.sh` fa fallire la costruzione se un componente della distinta manca dalle annotazioni |
-| 7 - firma e provenienza | Non soddisfatto | **Non soddisfatto** | **Zero esecuzioni riuscite della fascia di rilascio.** La prima esecuzione in assoluto è del 27 agosto 2026 ed è fallita in nove secondi |
-| 8 - verifica a cura di chi installa | Non soddisfatto | **Non soddisfatto** | `VERIFICA-DELL-ARTEFATTO.md` esiste con i comandi; manca l'artefatto firmato su cui dimostrarla, quindi il criterio dipende interamente dal 7 |
+| 7 - firma e provenienza | Non soddisfatto | **Soddisfatto la sera del 27 agosto 2026** | Esecuzione `33107559784` riuscita, con quattro file per lingua pubblicati come artefatti: l'archivio deterministico che è stato firmato, la firma, il certificato effimero e l'attestazione di provenienza. Il certificato nomina come firmatario `.github/workflows/fascia-di-rilascio.yml@refs/heads/main` ed è valido **dieci minuti**: l'identità è l'esecuzione della catena, non una chiave custodita. L'attestazione dichiara la revisione `52edc5b`, che è quella costruita. Nessuna chiave privata nel repository |
+| 8 - verifica a cura di chi installa | Non soddisfatto | **Soddisfatto la sera del 27 agosto 2026** | La procedura è stata **eseguita**, non solo scritta: `cosign verify-blob` sull'artefatto scaricato risponde `Verified OK` con uscita `0`, e l'impronta dichiarata nell'attestazione coincide con quella dell'archivio. Provata anche al negativo - cambiando la sola identità attesa, uscita `1` -, quindi la verifica **distingue**. L'esito, con i valori osservati, è registrato nel §0 di `VERIFICA-DELL-ARTEFATTO.md`, in entrambe le lingue. L'esecuzione ha trovato i due difetti che chiudevano il criterio: l'archivio firmato non era pubblicato e il certificato non era emesso |
 
 **Sei su otto.** I due che restano sono **lo stesso lavoro visto due volte**: senza una esecuzione
 riuscita della fascia di rilascio non esiste artefatto firmato, e senza artefatto firmato la
@@ -91,6 +91,37 @@ la sua presenza si accerta soltanto guardando se la firma riesce. Riesce: l'esec
 2026 registra «Generating ephemeral keys», «Retrieving signed certificate», «Successfully verified
 SCT» e due voci nel registro di trasparenza. **Un'assenza in un registro non è una prova di
 assenza**, se non si sa che cosa quel registro elenca - ed è la voce `D-38` del runbook.
+
+#### `T-03` è chiuso, otto criteri su otto, la sera del 27 agosto 2026
+
+La corsia è passata al verde alla settima esecuzione, e i due criteri che restavano si sono chiusi
+nello stesso movimento - perché erano lo stesso lavoro visto due volte. **Ma non si sono chiusi
+quando la corsia è diventata verde:** la prima esecuzione riuscita ha prodotto firme che nessuno
+poteva scaricare e un'impronta che non corrispondeva a nulla di riproducibile. Il criterio 8 -
+*dimostrare* la procedura di verifica - ha trovato quei difetti nel solo modo in cui erano
+trovabili, cioè eseguendola.
+
+| Difetto | Come si presentava | Come è stato trovato |
+|---|---|---|
+| L'archivio firmato viveva in `/tmp` con un nome contenente l'istante in nanosecondi, e una trappola lo rimuoveva | La corsia era verde e pubblicava la distinta dei materiali: sembrava completa | Cercando che cosa scaricare per verificare, e non trovandolo |
+| L'impronta nell'attestazione non era quella dell'archivio firmato: il flusso veniva compresso **due volte**, una per l'impronta e una per il file, e due compressioni successive differiscono nell'intestazione | Nessun comando falliva | Confrontando i due valori, che nessuno aveva mai confrontato |
+| Il certificato effimero non veniva emesso | Il comando di firma non fallisce senza, e i due file prodotti avevano l'aspetto di un lavoro completo | Eseguendo `cosign verify-blob`, che risponde «provide a key with `--key` or `--sk`, a certificate to verify against with `--certificate`, or a bundle» |
+| La procedura pubblicata descriveva una distribuzione inesistente - un dominio di esempio e un `index.html` | Il documento era scritto bene e citava comandi plausibili | Provando a seguirla alla lettera |
+
+**Ne discende la regola che questo traguardo lascia al progetto.** Il criterio 8 non chiedeva un
+documento: chiedeva una **dimostrazione**, e la differenza fra le due cose è esattamente questa
+tabella. Nessuno dei quattro difetti era visibile per lettura, e tutti e quattro avrebbero raggiunto
+chi installa. È la stessa forma delle due massime che il repository già porta - *un controllo che
+nessuno ha visto fallire non è un controllo*, *un cancello prescritto e non eseguito non è un
+cancello* - applicata a un terzo oggetto: **una procedura di verifica mai eseguita non è una
+procedura, è un testo.**
+
+L'esito osservato è registrato con i suoi valori nel §0 di `VERIFICA-DELL-ARTEFATTO.md`, in italiano
+e in inglese, insieme alla prova negativa e a un limite dichiarato: i parametri usati sono segnalati
+come deprecati in favore del formato a contenitore unico, e la migrazione va fatta cambiando insieme
+ciò che la catena produce e ciò che il documento prescrive.
+
+---
 
 #### La pila, e perché il numero di tentativi non era stimabile
 

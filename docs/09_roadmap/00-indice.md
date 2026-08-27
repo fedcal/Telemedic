@@ -907,19 +907,46 @@ prodotto dallo stesso comando che la sbaglia. È la lezione che vale oltre quest
 verde prova che il controllo fa ciò che l'autore intendeva, **mai che l'intenzione copra la regola**.
 Le tre voci sono `D-33`, e i sei casi nuovi portano il banco a duecentottantasei.
 
-**La corsia di rilascio ha prodotto cinque difetti in sei esecuzioni, e il quinto non è ancora
-chiuso.** È il cammino critico di `T-03`: i criteri 7 e 8 - artefatti firmati con provenienza, e
-procedura di verifica dimostrata su un artefatto firmato - non sono producibili finché la corsia non
-gira. Ogni difetto era **visibile soltanto dopo la correzione del precedente**: un riferimento di
-azione inesistente, un bit di esecuzione mancante, uno strumento che vuole un file e riceve una
-cartella, una versione maggiore che cambia il formato dell'uscita con un'opzione di compatibilità
-**annunciata nelle note di rilascio e assente dal pacchetto**, e infine una richiesta interattiva di
-consenso che, senza terminale, viene considerata *rifiutata* - l'errore in corsia recita «user
-declined the prompt», e descrive un gesto che nessuno ha compiuto. Ne discende una regola di
-pianificazione, non solo di ingegneria: **il primo passaggio in verde di un automatismo mai eseguito
-non si stima, si programma come un'attività a sé.** Il piano del 26 agosto dava quei due criteri per
-«poche ore» presupponendo un difetto solo; una corsia mai eseguita non ne contiene uno, ne contiene
-una pila, e la profondità della pila non si osserva leggendo il file.
+**`T-03` è chiuso, otto criteri su otto.** La corsia di rilascio è passata al verde alla settima
+esecuzione, e i due criteri che restavano - artefatti firmati con provenienza, procedura di verifica
+dimostrata - si sono chiusi nello stesso movimento, perché erano lo stesso lavoro visto due volte.
+
+**Non si sono però chiusi quando la corsia è diventata verde**, ed è la parte che vale. La prima
+esecuzione riuscita produceva firme che nessuno poteva scaricare, un'impronta che non corrispondeva a
+nulla di riproducibile, e nessun certificato: senza il certificato effimero la verifica keyless non
+è meno robusta, è **impossibile**. Nessuno di quei difetti era visibile per lettura - il comando di
+firma non fallisce, i file prodotti avevano l'aspetto di un lavoro completo - e tutti avrebbero
+raggiunto chi installa. Li ha trovati il criterio 8, cioè l'obbligo di **dimostrare** la procedura
+invece di scriverla, ed è la ragione per cui quel criterio esiste.
+
+L'esito è ora registrato con i valori osservati nel §0 di
+[`VERIFICA-DELL-ARTEFATTO.md`](https://github.com/fedcal/Telemedic/blob/main/VERIFICA-DELL-ARTEFATTO.md),
+in italiano e in inglese: `Verified OK` con uscita zero sull'artefatto scaricato, l'impronta
+dell'attestazione coincidente con quella dell'archivio, la revisione dichiarata uguale a quella
+costruita, e un certificato che nomina come firmatario il file della corsia stessa ed è valido
+**dieci minuti**. L'identità che firma è l'esecuzione della catena, non una chiave custodita da
+qualcuno: non c'è una chiave privata da rubare, da revocare o da proteggere. Insieme all'esito è
+registrata la **prova negativa** - cambiando la sola identità attesa la verifica esce con codice uno,
+quindi distingue - e un limite dichiarato: i parametri usati sono segnalati come deprecati in favore
+del formato a contenitore unico, e la migrazione va fatta cambiando insieme ciò che la catena produce
+e ciò che il documento prescrive.
+
+**Il progetto guadagna così la sua terza massima**, accanto alle due che già porta - *un controllo che
+nessuno ha visto fallire non è un controllo*, *un cancello prescritto in un piano e non eseguito da
+uno script non è un cancello*: **una procedura di verifica mai eseguita non è una procedura, è un
+testo.**
+
+**La corsia di rilascio ha prodotto sei difetti in sette esecuzioni, e ciascuno era visibile solo
+dopo la correzione del precedente**: un riferimento di azione inesistente, un bit di esecuzione
+mancante, uno strumento che vuole un file e riceve una cartella, una versione maggiore che cambia il
+formato dell'uscita con un'opzione di compatibilità **annunciata nelle note di rilascio e assente dal
+pacchetto**, una richiesta interattiva di consenso che senza terminale viene considerata *rifiutata*
+- l'errore recita «user declined the prompt» e descrive un gesto che nessuno ha compiuto -, e infine
+il certificato effimero non emesso. Ne discende una regola di pianificazione, non solo di ingegneria:
+**il primo passaggio in verde di un automatismo mai eseguito non si stima, si programma come
+un'attività a sé.** Il piano del 26 agosto dava i due criteri per «poche ore» presupponendo un
+difetto solo; una corsia mai eseguita non ne contiene uno, ne contiene una pila, e la profondità
+della pila non si osserva leggendo il file.
 
 **Prima correzione: la diagnosi dei collegamenti inglesi è superata.** Il testo che precede dichiara
 che portare i tre criteri `onBroken*` a `throw` **fermerebbe la costruzione del sito**. Non è più

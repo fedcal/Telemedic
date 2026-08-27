@@ -2,9 +2,47 @@
 
 # Verifica degli artefatti - Procedura per chi installa
 
-**Data di ultimo aggiornamento**: 26 agosto 2026 · **Stato**: gli artefatti sono oggi il solo sito di documentazione; quando usciranno altri artefatti (servizio, interfaccia, immagini), i comandi di verifica resteranno identici.
+**Data di ultimo aggiornamento**: 27 agosto 2026 · **Stato**: gli artefatti sono oggi il solo sito di documentazione; quando usciranno altri artefatti (servizio, interfaccia, immagini), i comandi di verifica resteranno identici.
 
 Questa procedura consente a chi installa Telemedic di verificare che un artefatto distribuito non è stato alterato e proviene effettivamente dalla catena di costruzione dichiarata. La verifica è possibile da chiunque abbia accesso ai comandi standard e a Internet.
+
+---
+
+## 0. Questa procedura è stata eseguita, non solo scritta
+
+**Il 27 agosto 2026 questi comandi sono stati eseguiti su un artefatto realmente firmato**, e ciò che
+segue è l'esito, non una previsione. Fino a quel giorno la procedura era scritta e mai provata, e
+provarla ha trovato **due difetti che nessuna lettura avrebbe mostrato**: la catena non pubblicava
+l'archivio che aveva firmato, e non emetteva il certificato effimero senza il quale la verifica non
+è possibile. Entrambi sono corretti, ed è la ragione per cui questa sezione esiste: **una procedura
+di verifica mai eseguita non è una procedura, è un testo.**
+
+| Che cosa | Valore osservato |
+|---|---|
+| Esecuzione della catena | `33107559784`, ramo `main`, esito riuscito |
+| Revisione costruita | `52edc5b6320b58889c404b70aee84d6d7cc46fa6` |
+| Archivio firmato | `build.tar.gz`, 28 468 084 byte |
+| Impronta dell'archivio | `6b466cb19f39febf37f65473945bc68cc8b13847ce7e4fd12beb62ebf1a2564e` |
+| Impronta dichiarata nell'attestazione | **la stessa**, campo `subject[0].digest.sha256` |
+| Revisione dichiarata nell'attestazione | **la stessa**, campo `invocation.configSource.digest.sha1` |
+| Identità nel certificato effimero | `https://github.com/fedcal/Telemedic/.github/workflows/fascia-di-rilascio.yml@refs/heads/main` |
+| Validità del certificato | dalle 19:19:36 alle **19:29:36** dello stesso giorno - dieci minuti |
+| Esito di `cosign verify-blob` | **`Verified OK`**, codice di uscita `0` |
+
+**La prova negativa, che conta quanto quella positiva.** Ripetuto lo stesso comando cambiando la sola
+identità attesa in un repository diverso, `cosign` esce con codice `1`. La verifica quindi
+**distingue**: non risponde «va bene» a qualunque cosa le si dia.
+
+**Che cosa dimostra il certificato di dieci minuti.** L'identità che ha firmato non è una persona né
+una chiave custodita da qualcuno: è **l'esecuzione della catena**, nominata con il percorso del
+proprio file e il ramo. Il certificato che la attesta è già scaduto mentre leggete, e questo è il
+punto: non esiste una chiave privata da rubare, da revocare o da custodire. Ciò che resta verificabile
+per sempre è la registrazione nel registro pubblico di trasparenza.
+
+**Un limite dichiarato.** I parametri `--certificate` e `--signature` usati qui sono segnalati da
+`cosign` come **deprecati** in favore di `--bundle`: funzionano, e il comando lo dice a ogni
+esecuzione. La migrazione al formato a contenitore unico è lavoro aperto, e va fatta cambiando
+insieme ciò che la catena produce e ciò che questo documento prescrive - mai una delle due sole.
 
 ---
 
@@ -220,9 +258,47 @@ sempre.
 
 *[Versione italiana sopra](#verifica-degli-artefatti---procedura-per-chi-installa)*
 
-**Last updated**: August 26, 2026 · **Status**: artifacts today are only the documentation site; when other artifacts arrive (service, interface, images), the verification commands will remain identical.
+**Last updated**: August 27, 2026 · **Status**: artifacts today are only the documentation site; when other artifacts arrive (service, interface, images), the verification commands will remain identical.
 
 This procedure allows anyone installing Telemedic to verify that a distributed artifact has not been altered and actually comes from the declared build pipeline. Verification is possible for anyone with access to standard commands and Internet.
+
+---
+
+## 0. This Procedure Has Been Run, Not Merely Written
+
+**On 27 August 2026 these commands were run against a genuinely signed artifact**, and what follows
+is the outcome, not a prediction. Until that day the procedure was written and never tried, and
+trying it found **two defects no amount of reading would have shown**: the chain did not publish the
+archive it had signed, and it did not emit the ephemeral certificate without which verification is
+impossible. Both are fixed, and that is why this section exists: **a verification procedure that has
+never been run is not a procedure, it is a text.**
+
+| What | Observed value |
+|---|---|
+| Chain run | `33107559784`, branch `main`, successful |
+| Revision built | `52edc5b6320b58889c404b70aee84d6d7cc46fa6` |
+| Signed archive | `build.tar.gz`, 28,468,084 bytes |
+| Archive digest | `6b466cb19f39febf37f65473945bc68cc8b13847ce7e4fd12beb62ebf1a2564e` |
+| Digest declared in the attestation | **the same**, field `subject[0].digest.sha256` |
+| Revision declared in the attestation | **the same**, field `invocation.configSource.digest.sha1` |
+| Identity in the ephemeral certificate | `https://github.com/fedcal/Telemedic/.github/workflows/fascia-di-rilascio.yml@refs/heads/main` |
+| Certificate validity | 19:19:36 to **19:29:36** the same day - ten minutes |
+| `cosign verify-blob` result | **`Verified OK`**, exit code `0` |
+
+**The negative proof, which counts as much as the positive one.** Repeating the same command with
+only the expected identity changed to a different repository, `cosign` exits with code `1`.
+Verification therefore **discriminates**: it does not answer «fine» to whatever it is given.
+
+**What the ten-minute certificate demonstrates.** The identity that signed is neither a person nor a
+key held by someone: it is **the chain run itself**, named by its own file path and branch. The
+certificate attesting it has already expired as you read this, and that is the point: there is no
+private key to steal, to revoke or to safeguard. What stays verifiable forever is the record in the
+public transparency log.
+
+**A declared limitation.** The `--certificate` and `--signature` parameters used here are reported by
+`cosign` as **deprecated** in favour of `--bundle`: they work, and the command says so on every run.
+Migrating to the single-container format is open work, and must change what the chain produces and
+what this document prescribes **together** - never one of the two alone.
 
 ---
 
