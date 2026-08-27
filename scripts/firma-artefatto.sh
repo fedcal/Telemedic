@@ -29,7 +29,7 @@ artefatto="${1:?Artefatto non specificato}"
 output_sig="${2:?Output firma non specificato}"
 output_att="${3:?Output attestazione non specificato}"
 
-[ -r "$artefatto" ] || { echo "Errore: artefatto non leggibile: $artefatto" >&2; exit 1; }
+[ -e "$artefatto" ] || { echo "Errore: artefatto inesistente: $artefatto" >&2; exit 1; }
 
 # Verifica che cosign sia disponibile
 if ! command -v cosign &>/dev/null; then
@@ -44,12 +44,32 @@ fi
 
 echo "Firma dell'artefatto: $artefatto"
 
+# Calcola il nome e l'hash prima di eventuali trasformazioni
+nome_artefatto="$(basename "$artefatto")"
+hash_artefatto=""
+
+# Se l'artefatto è una cartella, comprimila per la firma
+# Calcola l'hash PRIMA della compressione per l'attestazione
+artefatto_per_firma="$artefatto"
+if [ -d "$artefatto" ]; then
+  echo "L'artefatto è una cartella: compressione in tar.gz per la firma"
+  # Calcola l'hash della cartella per l'attestazione
+  hash_artefatto=$(tar --gzip --create --to-stdout --directory "$(dirname "$artefatto")" "$(basename "$artefatto")" | sha256sum | cut -d' ' -f1)
+
+  artefatto_per_firma="/tmp/artefatto-$(date +%s%N).tar.gz"
+  tar --gzip --create --file "$artefatto_per_firma" --directory "$(dirname "$artefatto")" "$(basename "$artefatto")"
+  trap "rm -f '$artefatto_per_firma'" EXIT
+else
+  # Se è un file, calcola l'hash del file
+  hash_artefatto=$(sha256sum "$artefatto" | cut -d' ' -f1)
+fi
+
 # Firma dell'artefatto con cosign e identità effimera
 # --identity-token è il token OIDC fornito da GitHub Actions
 # La firma è automaticamente registrata in Rekor (registro di trasparenza pubblico)
 cosign sign-blob \
   --output-signature "$output_sig" \
-  "$artefatto"
+  "$artefatto_per_firma"
 
 echo "Firma salvata in: $output_sig"
 
@@ -60,9 +80,9 @@ cat > "$output_att" <<EOF
   "attestationType": "https://slsa.dev/provenance/v0.2",
   "subject": [
     {
-      "name": "$(basename "$artefatto")",
+      "name": "$nome_artefatto",
       "digest": {
-        "sha256": "$(sha256sum "$artefatto" | cut -d' ' -f1)"
+        "sha256": "$hash_artefatto"
       }
     }
   ],
