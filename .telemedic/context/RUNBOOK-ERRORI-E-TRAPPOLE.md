@@ -1033,6 +1033,51 @@ verifica il codice esatto.
 
 ---
 
+### D-33. Un'espressione regolare scritta su una misura in minuscolo non vede le maiuscole
+
+**Che cosa è successo.** Il 27 agosto 2026 il controllo `NV-C1` è stato allargato per riconoscere
+quattro formule di destinatario che il corpus usava e l'espressione non vedeva. Le formule sono
+state **misurate**, non dedotte, ed è la cosa giusta da fare: `grep -rho 'spetta a' docs | wc -l`
+e così per le altre. L'espressione è stata scritta sulla forma misurata, il banco l'ha provata per
+mutazione, il controllo è passato al verde e il numero delle marcature prive di destinatario è
+sceso da 372 a 37.
+
+Ventisei occorrenze reali restavano invisibili. Ogni formula scritta a **inizio di periodo** o a
+inizio di **cella di tabella** porta l'iniziale maiuscola - «Da chiedere a» diciannove volte, «Va
+richiesto a» quattro, «Spetta a» tre - e nessuna di esse corrispondeva a un'espressione costruita
+su `da chiedere a`. Fra quelle ventisei c'erano tre marcature che indirizzavano **esplicitamente e
+per nome** a un ente: all'agenzia dell'identità digitale, ad AGENAS, all'area tecnica del fascicolo.
+Il controllo le accusava di non dichiarare un destinatario che stava scritto nella stessa riga.
+
+**Perché è insidioso.** Non è disattenzione, ed è per questo che va scritto qui: **la misura e
+l'espressione condividono la stessa assunzione**. Chi misura con `grep 'da chiedere a'` vede
+diciannove occorrenze in meno e non ha modo di accorgersene, perché il conteggio che userà per
+convincersi di aver coperto la forma è prodotto dallo stesso comando che la sbaglia. Il banco non
+poteva aiutare: le tenute erano state scritte dallo stesso autore, sulla stessa forma, e sono
+passate tutte. È la voce `D-31` vista da un'altra angolazione - un banco verde prova che il
+controllo fa ciò che l'autore intendeva, mai che ciò che l'autore intendeva copra la regola.
+
+C'è un secondo motivo. L'iniziale maiuscola non è un caso limite del corpus: è **la forma normale**
+di una frase italiana che comincia, e di una cella di tabella. La forma più frequente era quella
+esclusa.
+
+**La regola.** Quando si misura una forma nel corpus per scriverci sopra un'espressione regolare,
+**si misura anche il verso che si sta per escludere**: `grep -c 'da chiedere a'` va accompagnato da
+`grep -c 'Da chiedere a'` prima di concludere. Vale per l'iniziale, e per ogni altra variazione che
+un testo naturale produce da sé senza che nessuno l'abbia decisa: maiuscola d'inizio, accento,
+apostrofo tipografico contro apostrofo dritto, forma plurale, forma passiva. Nell'espressione si
+rende indifferente **solo la parte che deve esserlo** - qui l'iniziale, con `[Dd]a` - e mai
+l'espressione intera: `IGNORECASE` avrebbe fatto riconoscere `comp` come se fosse la sigla d'area
+`COMP`, che è maiuscola per convenzione dichiarata.
+
+**Il presidio.** Il caso «marcature non verificate: la formula a inizio di periodo e di cella si
+riconosce» in `scripts/prove/esegui-prove.sh`, su una tenuta che porta le formule a inizio di
+periodo e dentro una cella. Provato per mutazione: riportando l'iniziale a sola minuscola cade
+quel caso e nessun altro. Resta scoperto il caso generale - **nessun controllo verifica che
+un'espressione regolare copra le varianti tipografiche della forma che dichiara di riconoscere** -,
+ed è debito dichiarato: non è presidiabile da uno script, perché richiede di sapere quale forma
+l'espressione intendeva coprire, e quell'intenzione vive solo nel commento.
+
 ### D-32. Una bonifica applicata a un file generato sparisce alla generazione successiva
 
 **Che cosa è successo.** Il 27 agosto 2026 centottantadue rinvii testuali sono stati convertiti in
@@ -1363,6 +1408,92 @@ ogni controllo nuovo vi entra con almeno una tenuta che deve farlo fallire**.
 
 ---
 
+### D-27. Una corsia mai eseguita accumula errori incompatibili
+
+[Vedi D-27 nel runbook di collocazione - è il problema della divergenza delle versioni di Node.js]
+
+### D-28. Un tag di versione inesistente ferma la corsia prima del primo passo
+
+**Che cosa è successo.** Il 27 agosto 2026, al primo tentativo di esecuzione della corsia di
+rilascio, il workflow falliva immediatamente con `unable to resolve action 'sigstore/cosign-installer@v4'`.
+Il tag `v4` non esiste nei rilasci di sigstore/cosign-installer; i tag pubblicati sono `v4.0.0`,
+`v4.1.0`, `v4.1.1`, `v4.1.2` e successivi. GitHub Actions non risolve automaticamente `@v4` a una
+versione specifica come farebbe con un branch.
+
+**Perché.** Il workflow dichiarava `sigstore/cosign-installer@v4`, che non è uno schema di
+versione valido per GitHub Actions. Lo sviluppatore aveva probabilmente inteso usare un tag che
+esiste - come `@v4.1.2` - oppure si aspettava che GitHub risolvesse automaticamente il major al
+minore disponibile più recente.
+
+**La regola.** Ogni dichiarazione `uses: proprietario/azione@versione` deve referenziare un tag
+effettivamente pubblicato in quel repository. Non si indovinano versioni: si verifica contro i
+tag reali con `curl https://api.github.com/repos/proprietario/azione/tags`.
+
+**Il presidio.** Non esiste automatico: la verifica è manuale. Una proposta di controllo: le
+righe di GitHub Actions che referenziano tag potrebbero essere estratte da un'espressione regolare
+e confrontate contro l'API del repository, con fallimento se un tag non esiste.
+
+---
+
+### D-29. Script eseguibile solo nel repository, non nel workflow
+
+**Che cosa è successo.** Lo script `scripts/firma-artefatto.sh` era versionato con permessi
+`-rw-rw-r--` (644) invece di `755`. Su Linux, i permessi sono versionati, e il checkout da GitHub
+Actions riproduce gli stessi permessi. Il workflow falliva quando `bash scripts/firma-artefatto.sh`
+veniva eseguito, perché il file non era eseguibile nella piattaforma virtuale.
+
+**La regola.** Ogni script nella cartella `scripts/` deve avere permessi di esecuzione
+(`chmod +x`). Se uno script è versionato senza il bit di esecuzione, il checkout lo riprodurrà
+senza e l'esecuzione in una pipeline fallirà con un errore "permission denied" o "No such file"
+(perché la shell lo ignora se non è eseguibile).
+
+**Il presidio.** `git ls-files --stage scripts/*.sh | grep -v 100755` mostra gli script senza
+permesso di esecuzione. Potrebbe essere automatizzato come controllo pre-commit o in una corsia.
+
+---
+
+### D-30. Cosign sign-blob non accetta cartelle, solo file
+
+**Che cosa è successo.** Il workflow tentava di firmare la cartella `website/build` con
+`cosign sign-blob website/build`, ma cosign richiede un file singolo, non una cartella. Falliva
+con `signing website/build: reading payload: read website/build: is a directory`.
+
+**Perché.** Lo script `firma-artefatto.sh` riceveva il percorso della cartella e lo passava
+direttamente a cosign, senza verificare che fosse un file.
+
+**La regola.** Un artefatto di distribuzione può essere una cartella (il sito compilato) o un
+file (una singola immagine). Se lo script riceve una cartella, deve comprimerla in un
+single-file tar.gz per la firma, utilizzando un nome temporaneo univoco. L'attestazione di
+provenienza SLSA deve registrare il nome e l'hash del **contenuto originale** (la cartella),
+non del tar.gz temporaneo.
+
+**Il presidio.** Lo script `scripts/firma-artefatto.sh` è stato aggiornato il 27 agosto 2026 per
+riconoscere le cartelle, comprimerle, e registrare il nome e hash corretti nell'attestazione.
+
+---
+
+### D-31. Cosign v4.1.2 ha deprecato il flag --output-signature
+
+**Che cosa è successo.** Il 27 agosto 2026, dopo aver risolto i problemi D-28, D-29 e D-30, il
+workflow falliva con `create bundle file: open : no such file or directory` quando tentava di
+eseguire `cosign sign-blob --output-signature`. Cosign v4.x ha cambiato il formato di output
+predefinito e il flag `--output-signature` è stato deprecato, ignorato con il nuovo formato di
+bundle.
+
+**Perché.** Cosign ha introduito un nuovo formato di output (bundle) che include firma,
+certificati e log di trasparenza in un'unica struttura. Il vecchio flag `--output-signature`
+viene ignorato in questo formato, causando l'errore quando il percorso non viene creato.
+
+**La regola.** Quando si aggiorna una dipendenza di CI/CD, va verificato se ha cambato
+l'interfaccia dei comandi critici. Per cosign sign-blob: dalla versione 4.0 in poi, occorre usare
+`--legacy-output-signature` per mantenere il vecchio formato di firma separata, oppure
+restructurare lo script per usare il nuovo formato bundle.
+
+**Il presidio.** Lo script `scripts/firma-artefatto.sh` è stato aggiornato il 27 agosto 2026 per
+usare il flag `--legacy-output-signature`.
+
+---
+
 ## Voci senza presidio, in un elenco solo
 
 Sono il debito di questo runbook. Chi scrive un controllo per una di queste voci aggiorni la
@@ -1380,3 +1511,5 @@ colonna corrispondente e tolga la riga da qui.
 | C-5 | Nessun controllo su `"type": "module"` |
 | D-1 | Il controllo di divergenza non guarda la forma dei rinvii |
 | D-6 | Nessun controllo sulle formule di conformità vietate (`Q-289`) |
+| D-28 | Controllo dei tag di GitHub Actions non automatico; proposta: verificare contro l'API |
+| D-29 | Controllo dei permessi eseguibili negli script: `git ls-files --stage scripts/*.sh` |
