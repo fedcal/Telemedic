@@ -128,7 +128,7 @@ jobs:
           ./scripts/verifica-dichiarazione-non-marcatura.sh website/build/en
 
       - name: Installazione di cosign (Sigstore)
-        uses: sigstore/cosign-installer@v4
+        uses: sigstore/cosign-installer@v4.1.2
 
       - name: Firma del sito italiano
         run: |
