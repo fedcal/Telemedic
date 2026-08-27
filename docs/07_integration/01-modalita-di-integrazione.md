@@ -64,7 +64,7 @@ flowchart LR
 
 | Prerequisito | Dettaglio |
 |---|---|
-| Un ambiente di esecuzione | Distribuzione a contenitori, con base dati relazionale, prodotto di federazione delle identità, server di inoltro per il media, archiviazione oggetti per le registrazioni. Il profilo di installazione è documentato nell'area tecnica |
+| Un ambiente di esecuzione | Distribuzione a contenitori, con base dati relazionale, prodotto di federazione delle identità, server di inoltro per il media, archiviazione oggetti per le registrazioni. Il profilo di installazione è documentato nell'`TECH` |
 | Un dominio e un certificato | Il componente serve pagine con permessi su fotocamera e microfono: **richiede connessione sicura**, senza eccezioni, anche in prova |
 | Una decisione sul profilo di collocazione | Unione europea, territorio italiano, o cloud qualificato. Nessuna dipendenza obbligatoria impedisce il profilo più restrittivo (decisione D24) |
 | Un amministratore | Non serve uno sviluppatore, serve qualcuno che sappia leggere una configurazione e gestire certificati e rotazioni |
@@ -129,7 +129,7 @@ La conseguenza pratica più utile: **le metriche di qualità della rete non sono
 cliniche.** Modellare la latenza o la perdita di pacchetti come osservazione FHIR le farebbe
 finire nella cartella clinica dell'assistito. È un problema di qualità del dato e, in
 prospettiva regolatoria, sposta il confine di ciò che il sistema afferma sul paziente
-(vincolo V2). Stanno sul piano applicativo, e non sono negoziabili.
+(vincolo [V2](../11_registri/03-vincoli-fondanti.md#v2)). Stanno sul piano applicativo, e non sono negoziabili.
 
 ### 2.2 Che cosa richiede
 
@@ -143,7 +143,7 @@ prospettiva regolatoria, sposta il confine di ciò che il sistema afferma sul pa
 
 ### 2.3 Che cosa si ottiene
 
-Tutto. È il corollario del vincolo V3: **nessuna capacità del sistema è raggiungibile solo
+Tutto. È il corollario del vincolo [V3](../11_registri/03-vincoli-fondanti.md#v3): **nessuna capacità del sistema è raggiungibile solo
 dall'interfaccia utente**. Se una cosa si può fare cliccando, si può fare chiamando.
 
 In pratica: creare una prestazione da un appuntamento esistente, generare e recapitare gli

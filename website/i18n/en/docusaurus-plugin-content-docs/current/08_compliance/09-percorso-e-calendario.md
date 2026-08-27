@@ -11,7 +11,7 @@ description: "The project's internal schedule towards CE marking: what has to be
 > external party's path and not a commitment to anyone.
 >
 > Internal planning, however, **does not become a promise merely because it is ours**. It remains
-> prohibited - by constraint `V-171` and without exception - to write, or to allow it to be
+> prohibited - by constraint [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) and without exception - to write, or to allow it to be
 > understood, in any place, documentation, public communication or presentation material, **that
 > the product will be marked by a date**. The distinction is not a formal one: a device's intended
 > purpose is derived from published material too, so a date presented as a commitment produces a
@@ -270,7 +270,7 @@ understood that the product is marked or usable on real patients** (`D16`). The 
 derived from promotional material too: a commercial statement not aligned with the formal
 declaration **modifies the intended purpose**, and it is detected at the first comparison between
 the file and the public channels. The list of the prohibited formulations and of their admissible
-versions is at constraint `V-171`.
+versions is at constraint [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171).
 
 ## 5. The retroactively unrecoverable activities
 
@@ -287,7 +287,7 @@ certify later. They are the four activities of `D45`.
 
 **An admission that has to be made instead of being circumvented.** Activity 3 has **already been
 breached in fact**: this documentation was produced before any document control existed, and it is
-not a controlled document. The consequence is already declared by constraint `V-174`
+not a controlled document. The consequence is already declared by constraint [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174)
 ([03 §4.1](./03-sistema-di-gestione-della-qualita.md)): **no chapter of this documentation is a
 quality management system procedure**, and none of them may be presented as such. The chapters are
 **inputs**: they contain the analysis from which a procedure is written, not the procedure. The
@@ -362,7 +362,7 @@ and on parties the project does not control.
 
 ### 7.2 How the artefacts enter the quality management system
 
-> **`V-179`.** The artefacts produced by the project enter the quality management system of
+> **[`V-179`](../11_registri/01-vincoli-in-vigore.md#v-179).** The artefacts produced by the project enter the quality management system of
 > whoever acquires them as **identified inputs**, never as controlled documents: whoever acquires
 > them **reissues them under their own document control**, with their own identifier, their own revision
 > and their own approval. For the reissue to be possible and traceable, the project guarantees that
@@ -371,7 +371,7 @@ and on parties the project does not control.
 > acquired without these three properties is an artefact the manufacturer **cannot justify** at
 > audit, because it cannot demonstrate what exactly it acquired and when.
 
-It is the operational complement of `V-174` and the technical reason why the two constraints exist
+It is the operational complement of [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174) and the technical reason why the two constraints exist
 together: the first says that these chapters **are not** procedures, the second says what is needed
 for them to be able to become the input to the manufacturer entity to be constituted's procedure.
 
@@ -536,8 +536,8 @@ belongs to the first thirty days and not to the phase of engaging the body.
 
 | Reference | Question | To whom |
 |---|---|---|
-| `Q-179` | **Whether and how to publish this schedule.** The chapter contains certification dates that are the **project's own internal planning** (`D57`), not the path of an external party - and precisely for that reason the risk of misreading is **greater**, not smaller: a date the project plans for itself reads as a commitment of the project far more readily than a date attributed to others. Publishing them without a warning placed **above** and not below is the quickest way of producing exactly the statement prohibited by `V-171`, namely that the product will be marked by a date. A decision is needed on the form of publication and on its warning, consistent with `Q-170` and `Q-174` | → Project owner |
-| `Q-144` | **CLOSED by `D55`.** The intended purpose **is frozen** on deferred collection. The **second** irreversible decision point of § 3.5 - the freezing of the intended purpose - is therefore passed; the **first**, the request for information to the bodies, is not affected. **A condition of `D46` remains unsatisfied, however**: the external review of the formulation, which is the only prescription of that decision executable **without** the manufacturer entity constituted, and which must therefore be started immediately (`Q-275`) | **RESOLVED, with a residual condition** |
+| [`Q-179`](../11_registri/02-questioni-aperte.md#q-179) | **Whether and how to publish this schedule.** The chapter contains certification dates that are the **project's own internal planning** (`D57`), not the path of an external party - and precisely for that reason the risk of misreading is **greater**, not smaller: a date the project plans for itself reads as a commitment of the project far more readily than a date attributed to others. Publishing them without a warning placed **above** and not below is the quickest way of producing exactly the statement prohibited by [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), namely that the product will be marked by a date. A decision is needed on the form of publication and on its warning, consistent with [`Q-170`](../11_registri/02-questioni-aperte.md#q-170) and [`Q-174`](../11_registri/02-questioni-aperte.md#q-174) | → Project owner |
+| [`Q-144`](../11_registri/02-questioni-aperte.md#q-144) | **CLOSED by `D55`.** The intended purpose **is frozen** on deferred collection. The **second** irreversible decision point of § 3.5 - the freezing of the intended purpose - is therefore passed; the **first**, the request for information to the bodies, is not affected. **A condition of `D46` remains unsatisfied, however**: the external review of the formulation, which is the only prescription of that decision executable **without** the manufacturer entity constituted, and which must therefore be started immediately ([`Q-275`](../11_registri/02-questioni-aperte.md#q-275)) | **RESOLVED, with a residual condition** |
 | `[FONTI SECONDARIE]` | All the figures in § 2 come from industry surveys not read in the original publications: they must not be cited as official data | Compliance |
 | `[NV]` | Numbering of the paragraphs of Article 15; publication obligation for the fees and link to the list maintained by the Commission (§§ 8.2, 9.1) | Compliance |
 | - | **None of the dates in this chapter is a commitment of the project.** The project has a single column in the schedule, and it is § 5 | - |

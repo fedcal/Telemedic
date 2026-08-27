@@ -36,7 +36,7 @@ requisito. Vanno tenute distinte perché una sola di esse non basta a giustifica
 | Fonte | Che cosa aggiunge |
 |---|---|
 | Art. 32 del Regolamento (UE) 2016/679 | Integrità e riservatezza, e la capacità di **verificare l'efficacia** delle misure |
-| Vincolo di progetto V-05 | «Ogni accesso a dato sanitario è tracciato in modo non ripudiabile e non alterabile» |
+| Vincolo di progetto [V-05](../11_registri/01-vincoli-in-vigore.md#v-05) | «Ogni accesso a dato sanitario è tracciato in modo non ripudiabile e non alterabile» |
 | Requisito R30 dell'appendice sui requisiti di sicurezza eleggibili delle linee guida nazionali sugli approvvigionamenti | «Gli accessi degli utenti devono essere registrati su un archivio (log) **non cancellabile con il reset**» |
 | Requisiti R43 e R44 della stessa appendice | **Sequenza temporale degli eventi** in caso di incidente; **esportazione in formato aperto entro il giorno successivo** alla richiesta |
 | Misura ABSC 3.5.1 delle misure minime nazionali per le pubbliche amministrazioni | Integrità delle registrazioni |
@@ -46,7 +46,7 @@ requisito. Vanno tenute distinte perché una sola di esse non basta a giustifica
 
 ## 2. Il versionamento delle entità non è un registro immutabile
 
-**Vincolo V-04, e questa sezione esiste per non farlo dimenticare.**
+**Vincolo [V-04](../11_registri/01-vincoli-in-vigore.md#v-04), e questa sezione esiste per non farlo dimenticare.**
 
 Lo strumento di versionamento adottato per il modello di dominio produce tabelle di storico
 accanto alle tabelle applicative. È utile, e non è ciò che serve qui. Tre differenze, ciascuna
@@ -73,7 +73,7 @@ compromissione del sistema non comporti la compromissione della prova.
 | Alterabile da chi amministra la base dati | **Sì** | No, o rilevabile |
 | Conservazione | Con il dato | **Separata** |
 | Verificabile da un terzo | No | **Sì** |
-| Contiene contenuto clinico | Sì, per costruzione | **No** (V-150) |
+| Contiene contenuto clinico | Sì, per costruzione | **No** ([V-150](../11_registri/01-vincoli-in-vigore.md#v-150)) |
 | Serve a | Ricostruire lo stato di un'entità nel tempo | **Dimostrare chi ha fatto che cosa** |
 
 I due strumenti **coesistono** e servono a scopi diversi. Il versionamento resta, per la
@@ -116,7 +116,7 @@ garanzia di identità**. Non contiene ciò che è stato letto o scritto.
 }
 ```
 
-Ogni riga porta l'**identificativo di tenant** (vincolo V4 della base architetturale) e
+Ogni riga porta l'**identificativo di tenant** (vincolo [V4](../11_registri/03-vincoli-fondanti.md#v4) della base architetturale) e
 l'**esito**: un tentativo respinto è una riga, non un silenzio. Le righe di esito negativo sono
 spesso più informative di quelle positive, perché descrivono ciò che qualcuno ha provato a fare.
 
@@ -190,7 +190,7 @@ eventi**. Separatamente significa, come minimo:
 **La forma tecnica concreta non è decisa da quest'area.** Le opzioni in campo sono almeno
 quattro: catena di impronte applicativa su archivio dedicato; archiviazione a sola aggiunta imposta
 dal supporto; scrittura singola su oggetto con blocco di ritenzione; firma periodica con marca
-temporale. Hanno costi, garanzie e dipendenze diversi. È la **questione Q-150** della bacheca,
+temporale. Hanno costi, garanzie e dipendenze diversi. È la **questione [Q-150](../11_registri/02-questioni-aperte.md#q-150)** della bacheca,
 indirizzata all'architettura, e va chiusa con un documento di decisione architetturale.
 
 ## 5. Conservazione - vincolo V-152
@@ -337,7 +337,7 @@ Per simmetria con l'onestà richiesta al capitolo [03 §5](./03-protezione-dei-d
 - **non sostituisce l'autorizzazione**: un sistema che registri tutto e autorizzi male produce
   ottime prove di un cattivo funzionamento;
 - **non è utilizzabile come archivio clinico di riserva**, perché per costruzione non contiene
-  contenuto clinico (V-150);
+  contenuto clinico ([V-150](../11_registri/01-vincoli-in-vigore.md#v-150));
 - **non vale più della sua conservazione**: un registro conservato su un supporto che si degrada
   o in un formato che fra ventiquattro mesi nessuno legge è un registro che non esiste. Il
   formato di esportazione è aperto e documentato anche per questa ragione.
@@ -346,7 +346,7 @@ Per simmetria con l'onestà richiesta al capitolo [03 §5](./03-protezione-dei-d
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| Q-150 | **Documento di decisione architetturale sul registro immutabile**: catena di impronte applicativa, archiviazione a sola aggiunta, scrittura singola su oggetto, o firma periodica con marca temporale (§4.2) | Architettura |
-| Q-152 | Livelli di servizio attesi ai fini del monitoraggio continuo, distinti da quelli previsti dal decreto sulle infrastrutture regionali: la tipologia di incidente sui livelli di servizio dipende da valori che il cliente definisce, e il prodotto deve saperli misurare | Architettura, roadmap |
-| Q-158 | Punto e periodicità dell'ancoraggio esterno dell'impronta cumulativa (§4.1) | Architettura |
-| - | Soglie predefinite degli indicatori del §7: sono **specifica di prodotto, mai conformità** (V-12), e vanno tarate con chi installa | Funzionale |
+| [Q-150](../11_registri/02-questioni-aperte.md#q-150) | **Documento di decisione architetturale sul registro immutabile**: catena di impronte applicativa, archiviazione a sola aggiunta, scrittura singola su oggetto, o firma periodica con marca temporale (§4.2) | Architettura |
+| [Q-152](../11_registri/02-questioni-aperte.md#q-152) | Livelli di servizio attesi ai fini del monitoraggio continuo, distinti da quelli previsti dal decreto sulle infrastrutture regionali: la tipologia di incidente sui livelli di servizio dipende da valori che il cliente definisce, e il prodotto deve saperli misurare | Architettura, roadmap |
+| [Q-158](../11_registri/02-questioni-aperte.md#q-158) | Punto e periodicità dell'ancoraggio esterno dell'impronta cumulativa (§4.1) | Architettura |
+| - | Soglie predefinite degli indicatori del §7: sono **specifica di prodotto, mai conformità** ([V-12](../11_registri/01-vincoli-in-vigore.md#v-12)), e vanno tarate con chi installa | Funzionale |

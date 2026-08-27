@@ -12,7 +12,8 @@ Nel resto della roadmap questo rilascio è il traguardo `T-10`, datato **30 nove
 > **`[NV]` - la denominazione della distribuzione non è decisa.** `D17` impone che il repository
 > e la distribuzione abbiano **nomi, numeri di versione e cicli di vita distinti**. La sigla
 > `RU-1` è una designazione di pianificazione, non il nome dell'artefatto: il nome della
-> distribuzione va deciso prima della prima pubblicazione. Fino ad allora nessun documento del
+> distribuzione **va deciso dal committente** - è una scelta di prodotto e non un lavoro di
+> quest'area - prima della prima pubblicazione, e la decisione è segnalata all'orchestrazione, `ORCH`, che la porta alla persona. Fino ad allora nessun documento del
 > progetto deve usare `RU-1` come se fosse un nome di prodotto.
 
 > **Come è cambiato questo capitolo, e perché.** `D53` conferma il 30 novembre 2026 come primo
@@ -47,7 +48,7 @@ convivono e vanno lette insieme:
 | Chi installa, integra o mette in servizio **assume gli obblighi che ne derivano** | **Nulla.** L'intenzione di certificare in futuro non trasferisce alcun obbligo e non copre alcuna installazione presente |
 
 > **In nessun luogo di questo documento, e in nessun materiale del progetto, si scrive che il
-> prodotto sarà marcato entro una data** (`V-171`, `V-280`). L'intenzione di certificare e la
+> prodotto sarà marcato entro una data** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). L'intenzione di certificare e la
 > promessa di un esito datato sono cose diverse, e la seconda produce un effetto regolatorio che
 > la prima non produce. Lasciare intendere il contrario sarebbe **più dannoso del silenzio**.
 
@@ -111,17 +112,17 @@ il maggior numero di vincoli trasversali con il minor numero di dipendenze da te
 
 | Vincolo trasversale | Il percorso lo attraversa? | Dove |
 |---|---|---|
-| Separazione fra prestazione e sessione media (`V-01`) | **Sì**, ed è il percorso che la rende visibile: una caduta di rete non chiude l'atto clinico | Sessione media distinta dalla prestazione |
-| Tenant risolto e applicato dal motore (`V-04`, `V-112`) | **Sì**, in ogni interrogazione | Tutti i contesti coinvolti |
-| Registro immutabile a catena di impronte (`V-04`, `V-150`) | **Sì**: ogni accesso a dato sanitario del percorso è tracciato. **Senza ancoraggio periodico firmato**: taglio `TG-23`, irreversibile per il periodo | Contesto di tracciamento |
-| Consenso come fatto con validità temporale (`V-146`) | **Sì**, con tre oggetti di consenso distinti sui cinque del modello: gli altri due riguardano funzioni non presenti | Contesto del consenso |
+| Separazione fra prestazione e sessione media ([`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01)) | **Sì**, ed è il percorso che la rende visibile: una caduta di rete non chiude l'atto clinico | Sessione media distinta dalla prestazione |
+| Tenant risolto e applicato dal motore ([`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04), [`V-112`](../11_registri/01-vincoli-in-vigore.md#v-112)) | **Sì**, in ogni interrogazione | Tutti i contesti coinvolti |
+| Registro immutabile a catena di impronte ([`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04), [`V-150`](../11_registri/01-vincoli-in-vigore.md#v-150)) | **Sì**: ogni accesso a dato sanitario del percorso è tracciato. **Senza ancoraggio periodico firmato**: taglio `TG-23`, irreversibile per il periodo | Contesto di tracciamento |
+| Consenso come fatto con validità temporale ([`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)) | **Sì**, con tre oggetti di consenso distinti sui cinque del modello: gli altri due riguardano funzioni non presenti | Contesto del consenso |
 | Verifica delle chiavi obbligatoria per impostazione predefinita (`D22`) | **Sì**, ed è uno stato bloccante della macchina a stati della sessione. **Non tagliabile** (§5.4) | Interfaccia e sessione media |
 | Accessibilità e *mobile first* come criteri di accettazione (`D25`) | **Sì**, su entrambi i lati: assistito su smartphone in rete mobile, professionista con sola tastiera e lettore di schermo | Interfaccia |
-| Nessuna funzionalità raggiungibile solo dall'interfaccia (`V3`, `V-164`) | **Sì**: l'interfaccia consuma le stesse interfacce applicative offerte agli integratori | Piani di esposizione |
-| Eventi con soli riferimenti, mai contenuto clinico (`V-135`, `V-161`) | **Sì**, sull'evento di conclusione della prestazione. **Non tagliabile** (§5.4) | Outbox ed eventi |
-| Esito distinto dallo stato, con effetti amministrativi opposti (`V-141`) | **Sì**: mancata presentazione e fallimento tecnico attribuibile all'assistito condividono lo stato terminale e hanno effetti opposti | Prestazione clinica |
+| Nessuna funzionalità raggiungibile solo dall'interfaccia ([`V3`](../11_registri/03-vincoli-fondanti.md#v3), [`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)) | **Sì**: l'interfaccia consuma le stesse interfacce applicative offerte agli integratori | Piani di esposizione |
+| Eventi con soli riferimenti, mai contenuto clinico ([`V-135`](../11_registri/01-vincoli-in-vigore.md#v-135), [`V-161`](../11_registri/01-vincoli-in-vigore.md#v-161)) | **Sì**, sull'evento di conclusione della prestazione. **Non tagliabile** (§5.4) | Outbox ed eventi |
+| Esito distinto dallo stato, con effetti amministrativi opposti ([`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)) | **Sì**: mancata presentazione e fallimento tecnico attribuibile all'assistito condividono lo stato terminale e hanno effetti opposti | Prestazione clinica |
 | Documento immutabile con catena di rettifica | **No**: esce con `TG-01` | - |
-| Sistema pienamente funzionale senza le terminologie a licenza vincolata (`V-03`) | **Sì**, ma **in forma degenere**: nel perimetro ridotto non esiste contenuto codificato da risolvere. La verifica va rifatta quando esiste (`TG-05`) | Gateway terminologico disattivato |
+| Sistema pienamente funzionale senza le terminologie a licenza vincolata ([`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)) | **Sì**, ma **in forma degenere**: nel perimetro ridotto non esiste contenuto codificato da risolvere. La verifica va rifatta quando esiste (`TG-05`) | Gateway terminologico disattivato |
 
 Un percorso che attraversa questi vincoli **li prova**. Un insieme largo di funzioni incomplete non
 ne prova nessuno, e in più non consente di dire che cosa è fatto.
@@ -147,13 +148,13 @@ con cui va verificato. Il catalogo completo dei requisiti è in
 | Capacità | Contenuto |
 |---|---|
 | **Multi-tenancy attiva** | Isolamento applicato dal motore con negazione predefinita in assenza di contesto. L'installazione a tenant unico è il **caso degenere dello stesso codice**, non una variante |
-| **Confine di autorizzazione unico** | Validazione integrale del token in ingresso, emissione del token interno, **delega sempre rappresentata con il claim dell'attore, mai impersonificazione** (`V-132`) |
-| **Livello di garanzia qualificato** | Distinzione fra autenticazione **eseguita** e **riferita** da un integratore, propagata fino al punto di decisione (`V-154`, `V-165`). Resta nel perimetro benché la federazione nazionale non vi sia: è il marcatore che impedisce di scambiare le due cose quando arriverà |
+| **Confine di autorizzazione unico** | Validazione integrale del token in ingresso, emissione del token interno, **delega sempre rappresentata con il claim dell'attore, mai impersonificazione** ([`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)) |
+| **Livello di garanzia qualificato** | Distinzione fra autenticazione **eseguita** e **riferita** da un integratore, propagata fino al punto di decisione ([`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154), [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165)). Resta nel perimetro benché la federazione nazionale non vi sia: è il marcatore che impedisce di scambiare le due cose quando arriverà |
 | **Registro immutabile** | Struttura in sola aggiunta con catena di impronte e archiviazione a privilegi disgiunti, verifica dell'integrità su richiesta e programmata, esportazione in formato aperto con impronta. **Copertura integrale degli accessi**; **senza ancoraggio periodico firmato** (`TG-23`) |
 | **Outbox transazionale** | Unica sorgente degli eventi in uscita; buste con **soli riferimenti**; consegna almeno una volta per **chiamata autenticata** verso il sistema di origine; consumatori idempotenti per costruzione. **Senza broker** (`TG-04`) |
-| **Due sole rappresentazioni dell'errore** | Rappresentazione del problema sul piano applicativo, esito dell'operazione sul piano di interoperabilità, con catalogo **generato** e divieto di emettere un errore non catalogato (`V-110`, `V-130`) |
-| **Mediatore unico di uscita** | Nessun componente applicativo apre connessioni verso destinazioni derivate da un dato in ingresso; l'uscita è negata a livello di rete a tutti tranne che al mediatore (`V-157`) |
-| **Misura della disponibilità per tenant e per servizio** | Storicizzata con granularità sufficiente a riconoscere il superamento di una soglia dell'ordine del punto percentuale su base giornaliera. **La soglia la sceglie chi installa; il prodotto fornisce la misura** (`Q-184`) |
+| **Due sole rappresentazioni dell'errore** | Rappresentazione del problema sul piano applicativo, esito dell'operazione sul piano di interoperabilità, con catalogo **generato** e divieto di emettere un errore non catalogato ([`V-110`](../11_registri/01-vincoli-in-vigore.md#v-110), [`V-130`](../11_registri/01-vincoli-in-vigore.md#v-130)) |
+| **Mediatore unico di uscita** | Nessun componente applicativo apre connessioni verso destinazioni derivate da un dato in ingresso; l'uscita è negata a livello di rete a tutti tranne che al mediatore ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)) |
+| **Misura della disponibilità per tenant e per servizio** | Storicizzata con granularità sufficiente a riconoscere il superamento di una soglia dell'ordine del punto percentuale su base giornaliera. **La soglia la sceglie chi installa; il prodotto fornisce la misura** ([`Q-184`](../11_registri/02-questioni-aperte.md#q-184)) |
 
 ### 3.2 Identità e accessi
 
@@ -165,14 +166,14 @@ con cui va verificato. Il catalogo completo dei requisiti è in
 - Autorizzazione fondata sulla **relazione di cura**, non sul solo ruolo; ruolo come relazione fra
   persona e organizzazione con validità temporale, non come attributo della persona.
 - **Separazione fra ruolo tecnico e ruolo clinico** applicata dal motore di autorizzazione: la
-  composizione di un ruolo che la violi è rifiutata con errore di validazione (`V-125`).
+  composizione di un ruolo che la violi è rifiutata con errore di validazione ([`V-125`](../11_registri/01-vincoli-in-vigore.md#v-125)).
 
 ### 3.3 Anagrafiche per riferimento
 
 - Assistiti, professionisti, organizzazioni e sedi trattati **per riferimento** sugli
   identificativi del sistema di origine. Il prodotto **non è** il dato di riferimento e non esegue
   riconciliazione delle identità (`OUT-15`).
-- Normalizzazione degli identificatori **al confine, mai nel dominio** (`V-142`); registro degli
+- Normalizzazione degli identificatori **al confine, mai nel dominio** ([`V-142`](../11_registri/01-vincoli-in-vigore.md#v-142)); registro degli
   identificatori di sistema versionato come **file di configurazione**, senza interfaccia di
   amministrazione (`TG-10`).
 - **Nessun identificatore esterno è chiave primaria.**
@@ -180,7 +181,7 @@ con cui va verificato. Il catalogo completo dei requisiti è in
 ### 3.4 Prestazione clinica e sessione media
 
 - **Televisita programmata** come unico tipo di prestazione, con la propria macchina a stati
-  selezionata dal catalogo (`V-140`).
+  selezionata dal catalogo ([`V-140`](../11_registri/01-vincoli-in-vigore.md#v-140)).
 - Invito recapitato con i canali di chi installa; **verifica tecnica preventiva** prima della
   sessione; sala d'attesa; ammissione; abbandono.
 - Sessione media punto a punto **cifrata fino agli estremi come modalità predefinita**, con
@@ -196,11 +197,11 @@ con cui va verificato. Il catalogo completo dei requisiti è in
   anche senza vista e senza udito.
 - **Misura della qualità per sessione**, con indice proprietario dichiarato tale, costruito sul
   **minimo** fra le dimensioni e non sulla media, e con i contatori cumulativi **differenziati fra
-  campioni consecutivi** (`V-113`, `V-114`).
+  campioni consecutivi** ([`V-113`](../11_registri/01-vincoli-in-vigore.md#v-113), [`V-114`](../11_registri/01-vincoli-in-vigore.md#v-114)).
 - **Avviso di qualità inadeguata al professionista** come controllo di rischio registrato, con
   l'esito della decisione del professionista conservato. **Non tagliabile** (§5.4).
 - **Chiusura con esito tipizzato**, con lo stato distinto dall'esito e con gli effetti
-  amministrativi opposti mantenuti separati (`V-141`).
+  amministrativi opposti mantenuti separati ([`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)).
 - **Ripiego telefonico** come esito tipizzato: il cambio di canale è registrato e riportato
   nell'esito restituito.
 
@@ -208,7 +209,7 @@ con cui va verificato. Il catalogo completo dei requisiti è in
 
 - **Tre oggetti di consenso distinti** con cicli di vita indipendenti - atto sanitario, trattamento
   dei dati ove applicabile, trasmissione dell'esito al sistema esterno - e nessun «consenso alla
-  piattaforma» (`V-146`). Gli altri due oggetti del modello, registrazione e presenza di terzi,
+  piattaforma» ([`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)). Gli altri due oggetti del modello, registrazione e presenza di terzi,
   riguardano funzioni non presenti in `RU-1`: **il modello li prevede, il rilascio non li
   esercita**, e la differenza è dichiarata.
 - Consenso riferito alla **versione del testo** dell'informativa; revoca con effetto; nessun
@@ -233,9 +234,9 @@ Sostituisce la sezione sulla documentazione clinica, che esce con `TG-01`.
   le direzioni. È l'**unica** superficie di integrazione di `RU-1`.
 - **Eventi in uscita firmati con firma asimmetrica** e identificativo di chiave risolvibile dal
   materiale pubblico del progetto; il segreto condiviso **non è offerto come modalità
-  predefinita** (`V-162`).
+  predefinita** ([`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162)).
 - **Nessun percorso, diretto o mediato, verso contenuto clinico** per il profilo del pagatore
-  amministrativo (`V-166`, `OUT-18`). Nel perimetro ridotto il divieto è **una convenzione
+  amministrativo ([`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166), `OUT-18`). Nel perimetro ridotto il divieto è **una convenzione
   verificata da prova e non un confine strutturale**, perché il contesto autonomo della
   rendicontazione è decisione rinviata (`C-1`): la differenza è dichiarata e non attenuata.
 
@@ -299,7 +300,7 @@ il criterio di composizione impone un percorso verticale stretto.
 | Esclusa da `RU-1` | Perché non ora | Dove torna |
 |---|---|---|
 | **Telemonitoraggio** in tutte le sue componenti | È il contesto più esteso del catalogo. `D55` ne ha congelato la destinazione d'uso, quindi il lavoro non è più a rischio di riscrittura: resta però la ragione di ampiezza, che sotto `D54` è dirimente | [04 §3](./04-oltre-il-primo-rilascio.md), prima posizione |
-| **Teleconsulto, teleconsulenza, teleassistenza** | Ciascuna è una macchina a stati propria con attori ammessi diversi; il vincolo professionale si applica all'**attività**, non al servizio minimo (`V-147`) | [04 §3](./04-oltre-il-primo-rilascio.md) |
+| **Teleconsulto, teleconsulenza, teleassistenza** | Ciascuna è una macchina a stati propria con attori ammessi diversi; il vincolo professionale si applica all'**attività**, non al servizio minimo ([`V-147`](../11_registri/01-vincoli-in-vigore.md#v-147)) | [04 §3](./04-oltre-il-primo-rilascio.md) |
 | **Registrazione della sessione lato server** | È una **seconda modalità di sicurezza**, non una funzione opzionale: comporta la terminazione della cifratura sul server, un componente distinto con perimetro proprio, un flusso di consenso dedicato e la cifratura a riposo con chiavi per tenant | [04 §3](./04-oltre-il-primo-rilascio.md) |
 | **Terzo partecipante** alla sessione | La decisione sulla topologia oltre due partecipanti è dichiarata rinviata (`C-2`), e non è marginale: l'interprete è la misura alternativa dichiarata per la non conformità di accessibilità nota | Dopo la chiusura di `C-2` |
 | **Moduli di agenda e fatturazione propri** | Il percorso di `RU-1` riceve l'appuntamento **per riferimento** dal sistema di origine, che è il caso d'uso di riferimento | [04 §3](./04-oltre-il-primo-rilascio.md) |
@@ -312,10 +313,10 @@ Sono nel perimetro, sono pianificate, e **la loro data non dipende dal lavoro de
 
 | Esclusa da `RU-1` | Da che cosa dipende |
 |---|---|
-| **Conferimento dei documenti alle infrastrutture documentali nazionali e regionali** | I modelli documentali, i codici di tipologia e i metadati di indicizzazione delle tipologie di telemedicina **non sono pubblicamente disponibili** (`Q-07`). Il progetto ha già la risposta strutturale - dataset canonico e serializzazione sostituibile: **manca il contenuto, non il progetto** |
+| **Conferimento dei documenti alle infrastrutture documentali nazionali e regionali** | I modelli documentali, i codici di tipologia e i metadati di indicizzazione delle tipologie di telemedicina **non sono pubblicamente disponibili** ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07)). Il progetto ha già la risposta strutturale - dataset canonico e serializzazione sostituibile: **manca il contenuto, non il progetto** |
 | **Conformità verificata sull'identità digitale nazionale** in tutti e tre i canali | Richiede ambienti di pre-produzione, credenziali di prova e, per uno dei canali, **due istanze di fornitore di identità per ciascun fornitore** (`D38`): è il lotto sistematicamente sottovalutato |
-| **Soglie di prestazione dell'interfaccia dichiarate** | Il **dispositivo di riferimento non è dichiarato** (`Q-115`, `Q-175`), e senza dispositivo il requisito corrispondente non è verificabile. `RU-1` misura e pubblica le condizioni; non dichiara una soglia non misurata |
-| **Valori di riferimento dei livelli di servizio attesi** | La soglia la sceglie il cliente (`Q-152`, `Q-184`). `RU-1` fornisce la **capacità di misura**, che è il requisito |
+| **Soglie di prestazione dell'interfaccia dichiarate** | Il **dispositivo di riferimento non è dichiarato** ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115), [`Q-175`](../11_registri/02-questioni-aperte.md#q-175)), e senza dispositivo il requisito corrispondente non è verificabile. `RU-1` misura e pubblica le condizioni; non dichiara una soglia non misurata |
+| **Valori di riferimento dei livelli di servizio attesi** | La soglia la sceglie il cliente ([`Q-152`](../11_registri/02-questioni-aperte.md#q-152), [`Q-184`](../11_registri/02-questioni-aperte.md#q-184)). `RU-1` fornisce la **capacità di misura**, che è il requisito |
 
 ### 4.4 Categoria IV - Rinviate per decisione non presa
 
@@ -326,8 +327,8 @@ in una proposta di modifica**.
 |---|---|
 | Calcolo di punteggi di scale e questionari clinici validati | `B-3` - regime di licenza degli strumenti. La conseguenza già assunta in via cautelativa è che il dominio **non rappresenta punteggi** |
 | Contesto autonomo della rendicontazione | `C-1` - con l'avvertenza dichiarata al §3.7 |
-| Piano di dismissione delle versioni pubblicato | `C-4`, `Q-186` - è **prerequisito di `T-10`** e non voce di coda: senza il periodo di supporto non è determinabile quante versioni maggiori vanno mantenute |
-| Oscuramento selettivo del contenuto audio-video ai fini del diritto di accesso | Resta a `COMP` stabilire se il rilascio parziale soddisfi l'istanza dell'interessato (`Q-157`) |
+| Piano di dismissione delle versioni pubblicato | `C-4`, [`Q-186`](../11_registri/02-questioni-aperte.md#q-186) - è **prerequisito di `T-10`** e non voce di coda: senza il periodo di supporto non è determinabile quante versioni maggiori vanno mantenute |
+| Oscuramento selettivo del contenuto audio-video ai fini del diritto di accesso | Resta a `COMP` stabilire se il rilascio parziale soddisfi l'istanza dell'interessato ([`Q-157`](../11_registri/02-questioni-aperte.md#q-157)) |
 
 ---
 
@@ -372,7 +373,7 @@ una prova.
 | `TG-03` | **Componente incorporabile white-label** come elemento personalizzato, con proprietà di tema validate lato server | Porta con sé la validazione del contrasto lato server, l'insieme chiuso di proprietà, gli elementi non tematizzabili e le prove negative corrispondenti | L'integratore avvia la sessione **per rinvio, con token d'ingresso a uso singolo** (§3.2), non incorporando l'interfaccia. **Il tema personalizzato non è disponibile**, e l'utente vede l'interfaccia del prodotto: chi ha requisiti di identità visiva deve saperlo prima |
 | `TG-04` | **Broker di eventi** e il suo assetto a nodo singolo | Un componente in più da installare, configurare, aggiornare e sorvegliare, per una capacità che con un solo consumatore non è ancora necessaria | **Un componente in meno da installare**: è l'unico taglio che alleggerisce chi installa. L'outbox resta la sorgente di verità e consegna per **chiamata autenticata**. Conseguenza: **un solo consumatore configurato per tenant**, nessuna sottoscrizione multipla, nessuna riproduzione della cronologia degli eventi |
 | `TG-05` | **Gateway terminologico attivo** con lista di ammissione e modalità degradata esercitata | Nel perimetro ridotto **non esiste contenuto codificato** da risolvere: il punto di estensione esiste, disattivato per impostazione predefinita | Il criterio di rilascio sul funzionamento senza terminologie a licenza vincolata è **soddisfatto in forma degenere**, e questo documento lo dichiara invece di contarlo come verifica. **Va rifatto quando il contenuto codificato entra**, ed è annotato come tale |
-| `TG-06` | **Accesso d'emergenza** con motivazione obbligatoria, finestra limitata, notifica e riesame (`V-153`) | È un percorso di deroga con un proprio ciclo di riesame, e senza contenuto clinico persistente ha poco da derogare | **Non esiste un percorso di accesso in deroga.** Chi installa non può provarlo, e nessuna procedura organizzativa può appoggiarvisi. L'assenza è **più sicura**, non meno: ciò che manca è la funzione, non un controllo |
+| `TG-06` | **Accesso d'emergenza** con motivazione obbligatoria, finestra limitata, notifica e riesame ([`V-153`](../11_registri/01-vincoli-in-vigore.md#v-153)) | È un percorso di deroga con un proprio ciclo di riesame, e senza contenuto clinico persistente ha poco da derogare | **Non esiste un percorso di accesso in deroga.** Chi installa non può provarlo, e nessuna procedura organizzativa può appoggiarvisi. L'assenza è **più sicura**, non meno: ciò che manca è la funzione, non un controllo |
 | `TG-07` | **Oscuramento applicato dal motore di autorizzazione**, con i sei canali di inferenza chiusi | Applica a contenuto clinico persistente, che con `TG-01` non esiste | Nessuna conseguenza operativa in `RU-1`. Conseguenza di verifica sì, e va detta: **i sei canali di inferenza non sono stati esercitati**, e la loro chiusura resta una proprietà di progettazione non ancora provata |
 | `TG-08` | **Profilo di dispiegamento su orchestratore** | Un secondo profilo è una seconda matrice di prova e una seconda superficie di supporto | `RU-1` si installa **solo** nel profilo a tenant unico con definizioni a contenitori. Chi vuole l'orchestratore costruisce i propri manifesti, **e il progetto non li supporta**: è una dichiarazione, non una cortesia |
 | `TG-09` | **Tre cruscotti versionati** nel repository: salute del servizio, qualità del media, integrità e sicurezza | Sono presentazione di dati che il prodotto già espone | Chi installa **costruisce i propri cruscotti** sull'esportazione delle metriche, di cui il progetto documenta i nomi delle serie. Il tempo di attivazione della sorveglianza si sposta sul cliente |
@@ -383,7 +384,7 @@ una prova.
 | `TG-14` | **Verifica di riproducibilità su tutti gli artefatti**, su esecutori indipendenti | Il controllo di ogni sorgente di non determinismo su ogni artefatto è lavoro proporzionale al numero di artefatti | La verifica di riproducibilità è eseguita **sull'artefatto principale del servizio**, con esito conservato, e **non sugli altri artefatti**. Chi vuole verificare la corrispondenza fra distribuzione e sorgente può farlo per quell'artefatto e non per gli altri: è dichiarato nel fascicolo di rilascio |
 | `TG-15` | **Tutti i controlli obbligatori della pipeline bloccanti dal primo giorno** | Ogni controllo va provato con un caso deliberatamente non conforme prima di poter bloccare | Blocca da subito ogni controllo che presidia una **proprietà irrecuperabile o un divieto pubblico** ([02, `T-03`](./02-traguardi.md)); gli altri esistono **in sola segnalazione, ciascuno con la data dichiarata in cui diventa bloccante**. Un controllo in segnalazione senza quella data non è ammesso |
 | `TG-16` | **Modulo delle fonti primarie** della guida dei fondamenti | È una bibliografia ragionata, e il glossario ha priorità perché tiene ferma la terminologia della traduzione | Ogni rinvio normativo resta **citato per esteso nel testo in cui compare**, e non esiste un indice unico da cui partire |
-| `TG-17` | **Traduzione integrale del corpus** prima del codice | `D56` emenda `D52`: la traduzione procede **in parallelo** e non è più prerequisito di ogni riga di codice | Esistono in inglese **le avvertenze pubbliche, la guida dei fondamenti, l'area di conformità e l'area di sicurezza**, dove il controllo di divergenza **blocca**. Sul resto del corpus il controllo **segnala**, e il rapporto è pubblicato: la parte non tradotta è **visibile e misurata** |
+| `TG-17` | **Traduzione integrale del corpus** prima del codice | `D56` emenda `D52`: la traduzione procede **in parallelo** e non è più prerequisito di ogni riga di codice | Esistono in inglese **le avvertenze pubbliche, la guida dei fondamenti, l'`COMP` e l'area di sicurezza**, dove il controllo di divergenza **blocca**. Sul resto del corpus il controllo **segnala**, e il rapporto è pubblicato: la parte non tradotta è **visibile e misurata** |
 | `TG-18` | **Riemissione sotto controllo dei documenti prodotti prima di `T-01`** | Il volume del corpus rende la riemissione un lavoro dell'ordine della sua produzione | È dichiarata come **lacuna** nel fascicolo di rilascio, con la data in cui è nata. **È l'unico taglio reversibile il cui costo cresce ogni giorno**, ed è la ragione per cui `T-01` è il primo traguardo |
 | `TG-19` | **Manuale di installazione ed esercizio in inglese** | È il documento più lungo del rilascio e il meno rischioso da avere in una sola lingua | Il manuale è **in italiano**. **Le avvertenze e i limiti d'uso sono in entrambe le lingue** e non sono tagliabili: è la parte il cui fraintendimento produce danno |
 
@@ -409,7 +410,7 @@ una prova.
 **presuppone soggetti distinti per definizione**: un auditor non audita la propria attività, un
 riesame non accerta chi lo conduce, una verifica indipendente non è indipendente se la esegue
 l'autore. **Non è un problema di ore disponibili**, e nessuna quantità di lavoro individuale lo
-risolve ([01 §9-bis](./01-principi-e-metodo.md), vincolo `V-281`).
+risolve ([01 §9-bis](./01-principi-e-metodo.md), vincolo [`V-281`](../11_registri/01-vincoli-in-vigore.md#v-281)).
 
 **Perché il taglio è irreversibile.** Perché una registrazione di riesame **di un rilascio già
 avvenuto** non è un riesame: è una ricostruzione a posteriori, e chi verifica la riconosce come
@@ -431,7 +432,7 @@ entrambe vere ed entrambe scritte.
 
 **Che cosa resta da decidere.** La **ripartizione**: quale sottoinsieme si accetta come lacuna
 dichiarata e quale si copre acquisendo la funzione all'esterno. È decisione del committente ed è la
-questione `Q-189`, con punto di decisione al **30 settembre 2026**. In assenza di decisione l'esito
+questione [`Q-189`](../11_registri/02-questioni-aperte.md#q-189), con punto di decisione al **30 settembre 2026**. In assenza di decisione l'esito
 predefinito è la lacuna dichiarata, ed è dichiarato in anticipo proprio per non farlo apparire come
 una scelta presa dopo.
 
@@ -548,7 +549,7 @@ di [00 §8](./00-indice.md), con la data e la causa. Una riduzione non registrat
 deciso, e fa perdere alla scelta la sola proprietà che `D53` obbliga a garantirle: **essere
 leggibile**.
 
-**Seconda - nell'ordine entrano soltanto tagli reversibili.** È parte del vincolo `V-282`. Un taglio
+**Seconda - nell'ordine entrano soltanto tagli reversibili.** È parte del vincolo [`V-282`](../11_registri/01-vincoli-in-vigore.md#v-282). Un taglio
 irreversibile non si decide sotto pressione di calendario: si decide con la procedura ordinaria,
 sapendo che cosa costa, oppure non si decide.
 
@@ -566,7 +567,7 @@ che funziona.
 | `S-3` | **Sala d'attesa e ammissione come stati distinti** | Il professionista perde la visibilità dell'assistito in attesa | La verifica tecnica preventiva **resta**: è ciò che protegge l'assistito da una sessione che non funzionerà |
 | `S-4` | **Elenco delle prestazioni del giorno** nell'interfaccia del professionista | Si entra in sessione dal rinvio dell'integratore, non da un elenco proprio | Il percorso di sessione resta integro, e il caso d'uso di riferimento è proprio l'ingresso dal sistema di origine |
 | `S-5` | **Ripiego telefonico come esito tipizzato** | Il cambio di canale non è un valore del catalogo degli esiti | Resta registrabile come esito generico con nota: si perde la tipizzazione, non la tracciabilità |
-| `S-6` | **Firma asimmetrica degli eventi in uscita** con identificativo di chiave risolvibile | Gli eventi sono autenticati dal solo canale | **Non è ammesso il segreto condiviso come sostituto** (`V-162`): o la firma asimmetrica, o l'evento non esce verso terzi e resta il recupero per chiamata autenticata |
+| `S-6` | **Firma asimmetrica degli eventi in uscita** con identificativo di chiave risolvibile | Gli eventi sono autenticati dal solo canale | **Non è ammesso il segreto condiviso come sostituto** ([`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162)): o la firma asimmetrica, o l'evento non esce verso terzi e resta il recupero per chiamata autenticata |
 | `S-7` | **Conteggio esatto delle parole** del corpus (`T-02` criterio 5) | Il piano di traduzione resta su stime, e l'`[NV]` sul volume resta aperto | La traduzione delle aree prerequisito **non dipende dal conteggio**: si esegue comunque |
 | `S-8` | **Teleconsulto e telemonitoraggio dal percorso verticale dimostrabile** | `RU-1` **non implementa le tre prestazioni del modello di dominio**: implementa la sola televisita programmata a due partecipanti. Chi valuta il progetto vede un solo caso d'uso esercitato, e i modelli delle altre due prestazioni restano progettati nel dominio e nei requisiti senza esercizio nel codice. È il taglio che morde sul criterio 6 di `T-08`, il percorso verticale, portandolo da "completo" a "completo per una sola prestazione" | Teleconsulto e telemonitoraggio restano **integralmente progettati**: modello di dominio, requisiti funzionali (`RF-*`), regole di business (`BR-*`), scenari di test (`ATT-*`), protocollazione. La loro implementazione è rinviata e non annullata. Nel criterio 6 di `T-08` e nella coda di [04](./04-oltre-il-primo-rilascio.md) il rinvio è dichiarato con la conseguenza che due percorsi verticali restano da costruire in rilasci successivi |
 
@@ -590,8 +591,8 @@ saperlo prima vale più di scoprirlo dopo.
 |---|---|
 | **Nome di dominio e certificati**, con rinnovo automatico | Il prodotto non gestisce il proprio ciclo di vita dei certificati |
 | **Indirizzi raggiungibili dall'esterno per il nodo di relay** | È l'unico componente che lo richiede insieme alla frontiera |
-| **Isolamento di rete in uscita del nodo di relay**, applicato dall'infrastruttura | È la **difesa primaria**, e non dipende dalla correttezza del codice. Le liste di indirizzi vietati sono difesa in profondità (`V-10`) |
-| **Negazione di rotta in uscita ai componenti applicativi**, con la sola eccezione del mediatore | Requisito architetturale (`V-157`), non regola di codifica |
+| **Isolamento di rete in uscita del nodo di relay**, applicato dall'infrastruttura | È la **difesa primaria**, e non dipende dalla correttezza del codice. Le liste di indirizzi vietati sono difesa in profondità ([`V-10`](../11_registri/01-vincoli-in-vigore.md#v-10)) |
+| **Negazione di rotta in uscita ai componenti applicativi**, con la sola eccezione del mediatore | Requisito architetturale ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)), non regola di codifica |
 | **Separazione dei privilegi fra archivio applicativo e archivio del registro** | **Requisito, non raccomandazione**, e con `TG-23` il suo peso aumenta: senza ancoraggio periodico firmato, la separazione dei privilegi è **lo strato che resta**. In sua assenza la garanzia di non alterabilità si riduce a quella della sola catena applicativa, e la riduzione va dichiarata negli adempimenti di chi installa |
 | **Custodia della chiave radice** della gerarchia di cifratura | La chiave che protegge le copie non può risiedere nel sistema che le produce |
 | **Copie di sicurezza, con prova periodica di ripristino** | Una copia mai ripristinata ha probabilità sconosciuta di funzionare |
@@ -649,13 +650,13 @@ la verifica è automatica dove può esserlo.
 | # | Criterio | Come si verifica |
 |---|---|---|
 | 1 | **Isolamento fra tenant**: nessun percorso, per nessuna interfaccia, consente di leggere o scrivere dati di un altro tenant | Prove che tentano attivamente l'accesso illegittimo, in condizioni avverse: pool esaurito, contesto non risolto, richiesta senza tenant, tenant sostituito a metà percorso |
-| 2 | **Nessuna configurazione supportata emette un token privo del claim dell'attore** (`V-132`) | Prova negativa su tutte le configurazioni supportate |
+| 2 | **Nessuna configurazione supportata emette un token privo del claim dell'attore** ([`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)) | Prova negativa su tutte le configurazioni supportate |
 | 3 | **La catena del registro immutabile è verificabile**, e l'alterazione indotta viene rilevata | Esecuzione della verifica su un caso alterato deliberatamente |
 | 4 | **Nessun contenuto clinico** in registri, metriche, tracce, buste degli eventi, messaggi di errore | Prove che tentano di far passare dati sensibili e falliscono se ci riescono |
 | 5 | **I controlli di pipeline dichiarati bloccanti hanno superato la prova di fallimento**, e i controlli in sola segnalazione hanno ciascuno la data dichiarata in cui diventano bloccanti | Ciascuno provato con un caso deliberatamente non conforme; file di configurazione versionato per le date |
 | 6 | **Riproducibilità dell'artefatto principale verificata**: ricostruzione su esecutore diverso, impronte identiche, esito conservato | Lavoro pianificato con esito conservato. Il perimetro ridotto è dichiarato (`TG-14`) |
 | 7 | **Distinta dei materiali completa**: nessun componente presente nella distinta e assente dalle annotazioni | Controllo di pipeline |
-| 8 | **Nessuna migrazione insieme distruttiva e funzionale**: due versioni consecutive convivono sulla stessa base dati (`V-111`) | Prova di convivenza e prova di ritorno alla versione precedente |
+| 8 | **Nessuna migrazione insieme distruttiva e funzionale**: due versioni consecutive convivono sulla stessa base dati ([`V-111`](../11_registri/01-vincoli-in-vigore.md#v-111)) | Prova di convivenza e prova di ritorno alla versione precedente |
 | 9 | **Accessibilità**: nessuna violazione delle regole automatizzabili su alcuna schermata e alcuno stato significativo; almeno una verifica manuale con tecnologia assistiva reale eseguita e registrata | Controllo di pipeline più lista di controllo manuale versionata. **Non è una valutazione formativa** (`TG-22`) |
 | 10 | **L'indicatore di registrazione non è occultabile**: la prova che tenta di nasconderlo con ogni mezzo previsto dalla configurazione fallisce in tutti | Prova negativa |
 | 11 | **Le prove negative delle esclusioni di perimetro passano**: nessuna interfaccia accetta il calcolo di una priorità, la deduzione di una soglia, la generazione di contenuto interpretativo | Prove negative per ciascuna esclusione con verifica dichiarata |
@@ -665,7 +666,7 @@ la verifica è automatica dove può esserlo.
 | 15 | **Ogni artefatto reca la dichiarazione di non marcatura**, nel testo riallineato a `D58`, e **nessun materiale del rilascio contiene una data di marcatura** | Controllo di pubblicazione più verifica testuale |
 | 16 | **Nessun `[NV]` aperto su un componente rilasciato** | Rapporto degli `[NV]` con destinatario |
 | 17 | **Il fascicolo di rilascio contiene l'elenco delle lacune dichiarate**, con i quattro tagli irreversibili del §5.3 in testa e la dichiarazione che nessuna verifica è stata eseguita da un secondo soggetto, **in entrambe le lingue** | Artefatto di rilascio, verificato testualmente |
-| 18 | **Il periodo di supporto è dichiarato** e il piano di dismissione delle versioni è pubblicato | Documento pubblicato. Dipende da `C-4` / `Q-186` |
+| 18 | **Il periodo di supporto è dichiarato** e il piano di dismissione delle versioni è pubblicato | Documento pubblicato. Dipende da `C-4` / [`Q-186`](../11_registri/02-questioni-aperte.md#q-186) |
 
 **Il criterio 17 è quello che sostituisce il riesame del rilascio, e non lo sostituisce
 davvero.** Nella versione precedente di questo capitolo il criterio 18 chiedeva un **riesame
@@ -697,14 +698,14 @@ in [`docs/01_technical/07-prestazioni-e-capacita.md`](../01_technical/07-prestaz
 | 11 | **Aggiornamenti in finestra di manutenzione** | Taglio `TG-11`, reversibile |
 | 12 | **Registro immutabile senza ancoraggio esterno**: garanzia ridotta di uno strato per il periodo | Taglio `TG-23`, **irreversibile per il periodo** |
 | 13 | **Nessuna registrazione della sessione** | Perimetro. L'indicatore e i suoi divieti esistono già |
-| 14 | **Nessun conferimento alle infrastrutture documentali** | Dipendenza esterna non disponibile (`Q-07`) |
+| 14 | **Nessun conferimento alle infrastrutture documentali** | Dipendenza esterna non disponibile ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07)) |
 | 15 | **Latenza da obiettivo a schermo non garantibile e non sorvegliata da prova di regressione** | Dipende da telecamera, calcolo, schermo, rete e buffer. Il sistema la **misura** in sessione e la registra (`TG-13`) |
 | 16 | **Degrado provato agli estremi, non lungo la scala** | Taglio `TG-12`, reversibile |
 | 17 | **Nessuna modalità fuori linea per il contenuto clinico** | Scelta dichiarata, motivata dal rischio di contenuto clinico su un dispositivo che il titolare non controlla |
 | 18 | **Nessuna rotazione delle chiavi durante la sessione** | **Non esiste nella tecnologia.** Non si rivendica |
 | 19 | **Sottotitoli in tempo reale assenti** | Non conformità dichiarata su un criterio di accessibilità, con l'interprete come misura alternativa e il canale dati comunque definito nel protocollo |
 | 20 | **Consegna degli eventi almeno una volta** | I consumatori sono idempotenti per costruzione |
-| 21 | **Numero di tenant per installazione** | `[NV]` - non misurato. Ordine di grandezza dichiarato: centinaia. La misura è un'attività di rilascio, non una stima |
+| 21 | **Numero di tenant per installazione** | `[NV]` - non misurato. Ordine di grandezza dichiarato: centinaia. La misura spetta a `TECH` su un'installazione rappresentativa ed è un'attività di rilascio, non una stima |
 | 22 | **Riproducibilità verificata sul solo artefatto principale** | Taglio `TG-14`, reversibile |
 | 23 | **Interfaccia verificata rispetto ai criteri di accessibilità, non validata con gli utenti destinatari** | Taglio irreversibile `TG-22` |
 | 24 | **Confine di autorizzazione non rivisto da un terzo indipendente** | Taglio `TG-21`, irreversibile per il periodo |
@@ -744,7 +745,7 @@ esisterà su `RU-1`**, e la esegue chi installa.
 | **Cifratura in transito** | Fornirla su tutti i canali, impedire il declassamento, **misurare e registrare** ciò che viene negoziato invece di dichiararlo | Verificare che la configurazione distribuita non l'abbia alterata, e conservarne l'evidenza |
 | **Cifratura a riposo** | Fornire il meccanismo con chiavi per tenant separabili dal dato e la cancellazione crittografica | **Custodire la chiave radice**, fuori dal sistema che produce le copie |
 | **Registro non alterabile** | Fornirlo con catena di impronte, esportazione firmata in formato aperto, verifica di integrità. **Senza ancoraggio esterno in `RU-1`** (`TG-23`) | Garantire la **separazione dei privilegi** fra archivio applicativo e archivio del registro, che con `TG-23` è lo strato che resta |
-| **Aggiornamenti di sicurezza** | Rilasciarli su canale autenticato, con avviso pubblicato, entro il livello di servizio dichiarato in **giorni per gravità** (`V-185`) | **Applicarli**, secondo la propria politica, in finestra di manutenzione (`TG-11`) |
+| **Aggiornamenti di sicurezza** | Rilasciarli su canale autenticato, con avviso pubblicato, entro il livello di servizio dichiarato in **giorni per gravità** ([`V-185`](../11_registri/01-vincoli-in-vigore.md#v-185)) | **Applicarli**, secondo la propria politica, in finestra di manutenzione (`TG-11`) |
 | **Isolamento di rete** | Documentare la configurazione di riferimento e verificarla all'avvio dove possibile | **Applicare le regole di rete**: negazione di rotta in uscita ai componenti applicativi, isolamento del relay |
 | **Copie di sicurezza** | Fornire procedura, obiettivi dichiarati e capacità di cifratura | **Eseguirle**, tenerne una non raggiungibile in permanenza dal sistema, **provare il ripristino** |
 | **Incidenti** | Notificare al cliente **sotto le ventiquattro ore**, immediatamente per gravità elevata; fornire il rapporto entro il giorno successivo con la sequenza temporale; consegnare i registri in formato aperto | **Notificare alle autorità**, entro i propri termini, secondo i propri orologi |

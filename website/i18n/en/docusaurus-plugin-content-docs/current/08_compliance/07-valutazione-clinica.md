@@ -51,7 +51,7 @@ description: "What clinical evaluation is within the meaning of Article 61 and o
 >
 > **No date appears in this chapter.** The durations of the activities are declared because they
 > are the substance of the argument - clinical evaluation is not compressed with resources - but
-> a duration is not a deadline: constraint `V-171` prohibits asserting or implying that the
+> a duration is not a deadline: constraint [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) prohibits asserting or implying that the
 > product will be marked by a deadline, and this is the only admitted occurrence of that word.
 > The project's dates are solely in [09](./09-percorso-e-calendario.md), and they are internal
 > planning (`D57`).
@@ -65,7 +65,7 @@ assess the clinical data pertaining to a device, in order to verify its safety a
 indicated by the manufacturer. The obligation is in **Article 61**; the procedure is in
 **Annex XIV, Part A**.
 `[NV]` - the precise numbering of the points of Article 2 must be verified against the
-consolidated text before being cited in the file.
+consolidated text before being cited in the file, by `COMP`.
 
 Three connected notions must be kept distinct, because a notified body distinguishes them and
 their conflation is a recurrent finding.
@@ -165,9 +165,9 @@ part the project produces today.** The arrow entering from the left is the upstr
 ### 2.2 The upstream dependency: frozen, and not thereby satisfied
 
 The formulation of the intended purpose of remote monitoring (telemonitoraggio) **is frozen**
-(`D55`, which closes `Q-144`): "**deferred collection of parameters for periodic review by the
+(`D55`, which closes [`Q-144`](../11_registri/02-questioni-aperte.md#q-144)): "**deferred collection of parameters for periodic review by the
 professional**". It is the formulation on which the whole domain model is written (constraint
-`V-144`) and it maintains Class IIa and software safety class B. The alternative formulation -
+[`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144)) and it maintains Class IIa and software safety class B. The alternative formulation -
 "real-time monitoring of vital parameters", which would take it into Class IIb and class C - is
 **excluded**.
 
@@ -191,18 +191,18 @@ anything that § 4 reserves to the role capable of being brought forward**.
 
 **A clarification this section owes to its own history.** The previous version declared the
 intended purpose not frozen and the dependency blocking. It is no longer so, and the two chapters
-that take `Q-144` up again - [02 §12](./02-qualificazione-e-classificazione.md) and
+that take [`Q-144`](../11_registri/02-questioni-aperte.md#q-144) up again - [02 §12](./02-qualificazione-e-classificazione.md) and
 [09 §10](./09-percorso-e-calendario.md) - already report it as **closed by `D55`**. What remains to
 be done is not a correction of those chapters but the **residual condition** that `09` §10
-declares: the external review of the formulation, which is `Q-275` and has not been conducted.
+declares: the external review of the formulation, which is [`Q-275`](../11_registri/02-questioni-aperte.md#q-275) and has not been conducted.
 
 ## 3. MDCG 2020-1: the three components of the evidence for software
 
 **MDCG 2020-1** translates the framework of Article 61 into the specific case of software and
 establishes that the clinical evidence of medical device software is articulated in **three
 distinct components, all of them necessary**.
-`[NV]` - the current revision of the document must be verified at the moment of use: the
-coordination group's documents are revised.
+`[NV]` - the current revision of the document must be verified at the moment of use by `COMP`:
+the coordination group's documents are revised.
 
 | Component | Question it answers | How it is demonstrated | The project's position |
 |---|---|---|---|
@@ -210,18 +210,28 @@ coordination group's documents are revised.
 | **Technical validation** | Does the software generate the expected output from the inputs, accurately, reliably and repeatably? | Technical verification and validation | **The project produces it in bulk**: it is its most substantial contribution |
 | **Clinical validation** | Does the software's output, used in the intended clinical context, produce the expected effect on patient management or on the outcome? | Clinical data: literature, documented clinical experience, clinical follow-up | **The gap**: it is the component the report must build and the follow-up must fill |
 
-### 3.1 The good news, and the condition for it to be such
+### 3.1 The good news, and the two conditions for it to be such
 
-The second component is the one on which the project has invested disproportionately compared
-with the average: high test coverage, integration tests, end-to-end tests, real-time channel
-quality tests with simulation of loss and delay variation, load tests, requirements ↔ tests
-traceability generated and not compiled by hand (`D10`, chapter
+The second component is the one on which the project has decided to invest disproportionately
+compared with the average: high test coverage, integration tests, end-to-end tests, real-time
+channel quality tests with simulation of loss and delay variation, load tests, requirements ↔
+tests traceability generated and not compiled by hand (`D10`, chapter
 [03 §7](./03-sistema-di-gestione-della-qualita.md)).
 
-**That evidence is directly reusable as a component of the clinical evidence** - but only on one
-condition, and it is a product condition, not a drafting one.
+**None of those tests exists today, and it is right to say so in this very sentence rather than
+further down.** The project is in its design phase: not one line of application code exists, and
+[`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182) forbids writing any before the build chain
+exists. What exists is the **decision** on how those tests will be produced and preserved, taken
+before the code rather than after it - which is the real advantage, and it is not the same
+advantage as having the tests. A compliance chapter that writes a future capacity in the present
+tense produces exactly the misreading this chapter exists to prevent.
 
-> **`V-176`.** Every test outcome intended to be cited as evidence - clinical or technical - must
+**That evidence will be directly reusable as a component of the clinical evidence** - on two
+conditions. The first is that it exist at all, and that depends on the build chain and on the
+code. The second is a product condition, not a drafting one, and it holds for each outcome
+produced.
+
+> **[`V-176`](../11_registri/01-vincoli-in-vigore.md#v-176).** Every test outcome intended to be cited as evidence - clinical or technical - must
 > be produced in **citable form** and preserved as an **immutable artefact**: exact version of the
 > software, declared environment, date and time, who ran it, outcome, integrity hash. A report
 > **regenerable but not preserved** is not evidence: at the moment of citation the environment has
@@ -263,7 +273,7 @@ the manufacturer entity - **still to be constituted** - will one day demonstrate
 | `CE-PLAN-001` **Clinical evaluation plan** | Intended purpose and claims to be demonstrated, state of the art, clinical parameters and acceptability criteria, evidence strategy for each of the three components, search protocol, follow-up plan | **Technical draft** with the technical validation part already filled in | **The manufacturer approves and assumes it** |
 | **State-of-the-art dossier** | What the reference clinical practice is today for the services within the perimeter, with the sources: national instruments and agreements, guidelines of scientific societies, literature | **Fully producible**: it is not specific to a manufacturer, it is specific to the domain | **The manufacturer** adopts it or supplements it |
 | **Protocol and results of the systematic search** | Databases queried, strings, dates, inclusion and exclusion criteria, selection diagram, critical appraisal of each source included | Can **prepare the protocol** and the documentary infrastructure | **The manufacturer performs it**, with a qualified writer |
-| **Technical validation evidence** | Citable reports, with version, environment, date, who ran it, outcome | **In full** (`V-176`) | **The manufacturer** reviews it and cites it |
+| **Technical validation evidence** | Citable reports, with version, environment, date, who ran it, outcome | **Producible in full, and non-existent today**: not one line of application code exists and [`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182) forbids writing any before the build chain. What exists is the rule of form that will make them citable ([`V-176`](../11_registri/01-vincoli-in-vigore.md#v-176)), decided before the code | **The manufacturer** reviews it and cites it |
 | **Evidence from usability engineering** | Report of the summative validation: it is **clinical data** for the purposes of patient management by a user | Conducts the formative ones; contributes to the specification | **The manufacturer conducts or commissions the summative one** ([06 §9](./06-usabilita-e-accessibilita.md)) |
 | `CE-REP-001` **Clinical evaluation report** | Synthesis and qualified judgement, with the determination that the evidence is **sufficient** | - | **Only the manufacturer**, signed by a qualified assessor with a declaration of absence of conflict |
 | `PMCF-PLAN-001` **Clinical follow-up plan** | What will be collected from the field to fill the evidence gaps, with methods and periodicity | Supplies the **instrumentation** (§ 7) | **Only the manufacturer**: it is a commitment, not an analysis |
@@ -298,7 +308,7 @@ clinical evaluation:
 
 The cost, however, is real and must be stated: it requires a documentable clinical competence that
 the project today **does not have internally**, and producing it is a commitment of resources, not a
-by-product of the documentation. It is question `Q-176`, addressed to the project owner.
+by-product of the documentation. It is question [`Q-176`](../11_registri/02-questioni-aperte.md#q-176), addressed to the project owner.
 
 ## 5. The Article 61(10) exemption, and why it is not worth invoking
 
@@ -308,7 +318,7 @@ justification is to be provided founded on the results of the risk management an
 consideration of the specifics of the interaction between the device and the human body, of the
 clinical performance intended and of the manufacturer's claims. The provision does not apply to
 implantable devices and to Class III devices.
-`[NV]` - the numbering of the paragraph must be verified against the consolidated text.
+`[NV]` - the numbering of the paragraph must be verified against the consolidated text by `COMP`.
 
 **It is an apparent way out**, and it must be documented as such instead of being ignored. Three
 reasons for not taking it:
@@ -377,7 +387,7 @@ manufacturer's document** - an act reserved to a role the project **intends** to
 **legal entity is still to be constituted** - and it would not appear here even then. § 6.2 explains
 why, for this product, the question does not concretely arise.
 
-> **`V-274`.** **The Annex XIV equivalence analysis does not enter the project's public
+> **[`V-274`](../11_registri/01-vincoli-in-vigore.md#v-274).** **The Annex XIV equivalence analysis does not enter the project's public
 > documentation, in any form and at any stage.** It necessarily names a comparator device and
 > violates `R0` by construction; it belongs to the technical file under the manufacturer's document
 > control. The constraint **is not softened** by effect of `D58`: assuming the manufacturer role
@@ -414,7 +424,7 @@ is not.
 
 ### 7.1 The product consequence, which must be taken now and not later
 
-> **`V-177`.** The quantities the clinical follow-up plan commits to collecting must **exist as
+> **[`V-177`](../11_registri/01-vincoli-in-vigore.md#v-177).** The quantities the clinical follow-up plan commits to collecting must **exist as
 > data** - with a stable definition, versioned and comparable across deployments and over time -
 > **before** the plan is written. Designing the instrumentation after writing the plan means
 > discovering that the datum is not there, and a datum that is not there is not recovered
@@ -426,15 +436,15 @@ The plausible quantities for this product, and what each of them requires of the
 
 | Quantity | What it measures | Requirement on the datum |
 |---|---|---|
-| Fraction of services **completed** with respect to those started, by typed outcome | Whether the device actually enables delivery | The typed outcomes are domain values and not error codes (`V-126`): the distinction between non-attendance and technical failure must be preserved (`V-141`) |
+| Fraction of services **completed** with respect to those started, by typed outcome | Whether the device actually enables delivery | The typed outcomes are domain values and not error codes ([`V-126`](../11_registri/01-vincoli-in-vigore.md#v-126)): the distinction between non-attendance and technical failure must be preserved ([`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)) |
 | Frequency of the **fallbacks to attendance in person** | Whether the remote mode holds up for the declared use case | The executability assessment with three independent outcomes must be recorded, not merely applied |
 | **Completeness of the clinical information** transmitted to the system of origin | It is the claim contained in the intended purpose (§ 1.1) | Explicit transmission status with confirmation that the recipient has taken it on: no ambiguous intermediate status (`RM-08`) |
-| Frequency of **alarms not responded to** within the declared window | Safety of the remote monitoring pathway | Acknowledgement is a transition recorded within the alarm's sequence of immutable events, not a status column updated in place (`V-121`, `BR-136`): without it, the failure to respond is not reconstructible after the fact. The service hours are versioned runtime data (`V-122`) and establish whether a failure to respond was expected or anomalous |
+| Frequency of **alarms not responded to** within the declared window | Safety of the remote monitoring pathway | Acknowledgement is a transition recorded within the alarm's sequence of immutable events, not a status column updated in place ([`V-121`](../11_registri/01-vincoli-in-vigore.md#v-121), `BR-136`): without it, the failure to respond is not reconstructible after the fact. The service hours are versioned runtime data ([`V-122`](../11_registri/01-vincoli-in-vigore.md#v-122)) and establish whether a failure to respond was expected or anomalous |
 | Frequency of **association errors** reported | Safety of identification | Recording of the act of identification as an event, not as an attribute |
 
 **None of these quantities contains clinical content**, and that is a condition, not a coincidence:
 the clinical follow-up must be capable of being fed from deployments at third parties without
-identifiable data leaving those deployments. It is the same reason for which constraint `V-150`
+identifiable data leaving those deployments. It is the same reason for which constraint [`V-150`](../11_registri/01-vincoli-in-vigore.md#v-150)
 excludes clinical content from the audit trails, and it must be preserved even where it would
 increase the informative value of the datum.
 
@@ -458,14 +468,15 @@ full quarter or more.
 
 **The order of the table is by priority and status, not by identifier**: first the two open
 questions awaiting a decision, then the one closed in the course of the cross-check, then the
-`[NV]` verifications, and finally what remains reserved to the manufacturer role.
+`[NV]` verifications with the indication of who must close them according to the three admitted forms in `CONTRIBUTING.md`,
+and finally what remains reserved to the manufacturer role.
 
 | Reference | Question | To whom |
 |---|---|---|
-| `Q-176` | **Whether the project should produce and publish the state-of-the-art dossier** (§ 4.1). With `D58` the question changes in nature: it is no longer "whether to contribute to a third party's package" but **whether to start now an item of our own path** that is long-running, not compressible and upstream of the systematic search. It lends itself to the open form and is reusable by anyone; it requires, however, a documentable clinical competence that the project **does not have internally** and it is therefore a commitment of external resources, not an extension of the documentation | → Project owner |
-| `Q-275` | **The external review of the frozen intended purpose has not been conducted** (§ 2.2). `D46` and `D55` require it **before** engaging any notified body; the engagement presupposes the manufacturer entity still to be constituted, but **the review does not** - it is the only one of the two that can be commissioned now, and deferring it exposes to the risk that the freezing holds until the first external confrontation and no further | → Project owner |
-| `Q-274` | **CLOSED in the course of the cross-check.** The question asserted that `Q-144` was still listed among the open questions in `02` §12 and in `09` §10. Verification against the two chapters shows that **this is not so**: both report it as «**CLOSED by `D55`**» with the outcome **RESOLVED**, and `09` §10 adds to it the one residual condition of the external review, which is `Q-275` and remains open above. No reader derives a blocking dependency from those chapters: `Q-274` was itself a rewording residue, and it is closed without being passed on to anyone | **CLOSED**, verified against the two chapters |
-| `[NV]` | Precise numbering of Article 2, point 44, and of Article 61, paragraph 10 (§§ 1, 5) | Compliance |
-| `[NV]` | Current revision of MDCG 2020-1 (§ 3) | Compliance |
+| [`Q-176`](../11_registri/02-questioni-aperte.md#q-176) | **Whether the project should produce and publish the state-of-the-art dossier** (§ 4.1). With `D58` the question changes in nature: it is no longer "whether to contribute to a third party's package" but **whether to start now an item of our own path** that is long-running, not compressible and upstream of the systematic search. It lends itself to the open form and is reusable by anyone; it requires, however, a documentable clinical competence that the project **does not have internally** and it is therefore a commitment of external resources, not an extension of the documentation | → Project owner |
+| [`Q-275`](../11_registri/02-questioni-aperte.md#q-275) | **The external review of the frozen intended purpose has not been conducted** (§ 2.2). `D46` and `D55` require it **before** engaging any notified body; the engagement presupposes the manufacturer entity still to be constituted, but **the review does not** - it is the only one of the two that can be commissioned now, and deferring it exposes to the risk that the freezing holds until the first external confrontation and no further | → Project owner |
+| [`Q-274`](../11_registri/02-questioni-aperte.md#q-274) | **CLOSED in the course of the cross-check.** The question asserted that [`Q-144`](../11_registri/02-questioni-aperte.md#q-144) was still listed among the open questions in `02` §12 and in `09` §10. Verification against the two chapters shows that **this is not so**: both report it as «**CLOSED by `D55`**» with the outcome **RESOLVED**, and `09` §10 adds to it the one residual condition of the external review, which is [`Q-275`](../11_registri/02-questioni-aperte.md#q-275) and remains open above. No reader derives a blocking dependency from those chapters: [`Q-274`](../11_registri/02-questioni-aperte.md#q-274) was itself a rewording residue, and it is closed without being passed on to anyone | **CLOSED**, verified against the two chapters |
+| `[NV]` | Precise numbering of Article 2, point 44, and of Article 61, paragraph 10 (§§ 1, 5) | `COMP` |
+| `[NV]` | Current revision of MDCG 2020-1 (§ 3) | `COMP` |
 | - | **The clinical evaluation report is not producible by the project in any form**, not even in draft: it requires a qualified assessor with a declaration of absence of conflict, and the signature is the act itself (§ 4). The act **remains reserved to the manufacturer role even when the role is ours** | **The manufacturer**, with the entity constituted and the assessor appointed |
-| - | **The equivalence analysis is not producible in this documentation** because it necessarily names a comparator device (§ 6.1, `R0`, `V-274`). The limit is one of **perimeter of the public documentation** and it does not move with `D58` | **The manufacturer**, in the technical file and never here |
+| - | **The equivalence analysis is not producible in this documentation** because it necessarily names a comparator device (§ 6.1, `R0`, [`V-274`](../11_registri/01-vincoli-in-vigore.md#v-274)). The limit is one of **perimeter of the public documentation** and it does not move with `D58` | **The manufacturer**, in the technical file and never here |

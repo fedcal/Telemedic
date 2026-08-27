@@ -317,9 +317,9 @@ Il progetto adotta l'intero impianto senza invocare esenzioni, e mantiene una ta
 regime applicabile. **Voi dovete produrre la vostra**, perché i vostri artefatti non sono i
 nostri.
 
-> **`[NV]`** - La composizione esatta della vostra tabella dipende da che cosa distribuite e come.
-> Va costruita con i vostri consulenti; il progetto fornisce la propria come modello, non come
-> risposta.
+> La composizione esatta della vostra tabella dipende da che cosa distribuite e come, da costruire
+> con i vostri consulenti secondo la procedura che `INTEG` deve verificare `[NV]`; il progetto fornisce
+> la propria come modello, non come risposta.
 
 ## 5. Il pagatore non è un consultatore
 

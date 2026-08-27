@@ -26,7 +26,7 @@ autorità.
 | Livello | Fonte | Esempio di termine | Che cosa comporta |
 |---|---|---|---|
 | **1** | **Norma o atto amministrativo italiano** | *televisita*, *teleconsulto*, *dati a maggiore tutela dell'anonimato*, *oscuramento* | La definizione è vincolante. Il progetto non può restringerla, estenderla né rinominarla |
-| **2** | **Guida di implementazione nazionale** | *`EncounterTelemedicina`*, *`CompositionRefertoTelevisita`* | Prevale sul modello generico in caso di divergenza **[BASE]**, `04_BASELINE_ARCHITETTURALE.md` § 3 |
+| **2** | **Guida di implementazione nazionale** | *`EncounterTelemedicina`*, *`CompositionRefertoTelevisita`* | Prevale sul modello generico in caso di divergenza **[BASE]**, [`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 3 |
 | **3** | **Standard internazionale adottato** | *`Encounter`*, *`Observation`*, *`Consent`*, *`Provenance`* | Definisce la struttura, non il significato clinico. Si adotta salvo divergenza con i livelli 1 e 2 |
 | **4** | **Definizione operativa del progetto** | *sessione media*, *pre-verifica tecnica*, *ambito di consulto*, *finestra di refertazione* | Ammessa **solo** dove i tre livelli superiori tacciono, e sempre dichiarata come tale |
 
@@ -51,7 +51,7 @@ e rinvia per il resto.
 ### 1.2 Il glossario nazionale
 
 AGENAS ha pubblicato un **Glossario nazionale di Telemedicina, v. 1.0.0 del 29 gennaio 2026**
-(fonte: `B1-verifiche-documentali-italiane.md`, § 14). Il **Business Glossary** è inoltre un
+(fonte: [`B1-verifiche-documentali-italiane.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/B1-verifiche-documentali-italiane.md), § 14). Il **Business Glossary** è inoltre un
 modulo dichiarato dell'Infrastruttura nazionale di telemedicina (DM 19 novembre 2025, art. 2).
 
 > **`DM-02` [MOD]** - Il glossario del progetto ([capitolo 09](09-glossario-del-dominio.md))
@@ -96,7 +96,7 @@ loro traduzione è un'**opera derivata** che, nel caso di LOINC, è assegnata a 
 (decisione `D34`).
 
 > **[BASE]** Le stringhe di internazionalizzazione del progetto sono **separate
-> architetturalmente** da `Coding.display` (`04_BASELINE_ARCHITETTURALE.md` § 7). L'etichetta
+> architetturalmente** da `Coding.display` ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 7). L'etichetta
 > che l'utente legge non è mai il `display` ufficiale tradotto: è una stringa del progetto,
 > collegata al codice, con un proprio ciclo di vita.
 
@@ -184,16 +184,16 @@ senza necessità è rumore nel vocabolario.
 
 | Termine del progetto | Definizione operativa | Perché serve un termine proprio |
 |---|---|---|
-| **Sessione media** | Istanza di collegamento in tempo reale fra i partecipanti a un contatto, con negoziazione, qualità e ciclo di vita propri | «Sessione» da sola è ambigua fra atto clinico, connessione e unità rendicontabile (`R6` § 8.1). Il termine composto rende il confine `V-01` visibile nel linguaggio |
+| **Sessione media** | Istanza di collegamento in tempo reale fra i partecipanti a un contatto, con negoziazione, qualità e ciclo di vita propri | «Sessione» da sola è ambigua fra atto clinico, connessione e unità rendicontabile (`R6` § 8.1). Il termine composto rende il confine [`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01) visibile nel linguaggio |
 | **Pre-verifica tecnica** | Controllo di dispositivo, permessi, banda e raggiungibilità del relay eseguito **prima** dell'ingresso in sala d'attesa, con esito registrato | La norma non la nomina, ma l'Accordo 215/CSR 2020 impone al medico di attestare l'idoneità del collegamento: l'attestazione ha bisogno di un fatto registrato a cui riferirsi |
 | **Compliance digitale dell'assistito** | Accertamento della capacità della persona di interagire con i sistemi digitali, distinto dalla verifica tecnica del dispositivo | Introdotta dal *Modello orientativo di erogazione della Televisita* AGENAS, v. 1.0.25 del 16 aprile 2026, come fase della «verifica di eseguibilità» **[RACCOMANDATO, non vincolante]**. È una **proprietà della persona**, non del dispositivo: confonderle produce un pre-check verde su un paziente che non sa usare il sistema |
 | **Ambito di consulto** | Insieme chiuso ed effimero di documenti a cui un consulente accede in forza di una richiesta di teleconsulto, con scadenza | Il consulente non ha titolo sul dossier: serve un oggetto che rappresenti *che cosa* gli è stato mostrato e *fino a quando* (`BR-014`) |
 | **Finestra di refertazione** | Intervallo fra conclusione del contatto e termine entro cui il documento deve essere firmato | Il tempo di refertazione è un fatto misurabile con conseguenze organizzative (`BR-042`); senza un termine di dominio resta un numero in un rapporto |
 | **Esito del contatto** | Codice strutturato che dichiara come l'atto si è concluso, distinto dallo stato del contatto | Lo stato dice *dove* è il contatto; l'esito dice *che cosa è successo*. `EX-NOSHOW` ed `EX-TECH-PATIENT` sono due esiti dello stesso stato terminale, con effetti amministrativi opposti (`BR-024`) |
 | **Ripiego di canale** | Passaggio dichiarato da un canale a un altro durante l'atto, con motivazione registrata | «Fallback» è termine tecnico; qui è un fatto clinico-amministrativo che può incidere sulla natura dell'atto (`BR-006`) e va nominato come tale |
-| **Copertura oraria dichiarata** | Fascia oraria e giorni in cui il servizio garantisce presa in carico degli allarmi e risposta, resa esplicita all'assistito | È un **requisito di sicurezza**, non un parametro commerciale: un servizio mal dichiarato produce falsa rassicurazione (modulo [10 dei fondamenti](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 4.5; questione `Q-14` in bacheca) |
-| **Dataset canonico** | Rappresentazione del contenuto informativo di un documento, indipendente dal formato di serializzazione | Imposto da `V-07`. Senza un termine proprio si dice «il CDA» e in tre mesi il modello dipende dal template |
-| **Registro degli accessi** | Catena append-only con impronte, conservata separatamente, che registra chi ha fatto cosa su quale soggetto | «Audit» in italiano corrente significa anche revisione contabile e verifica di conformità. Il termine composto evita che `V-04` venga soddisfatto con un versionamento di entità (`D42`) |
+| **Copertura oraria dichiarata** | Fascia oraria e giorni in cui il servizio garantisce presa in carico degli allarmi e risposta, resa esplicita all'assistito | È un **requisito di sicurezza**, non un parametro commerciale: un servizio mal dichiarato produce falsa rassicurazione (modulo [10 dei fondamenti](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 4.5; questione [`Q-14`](../11_registri/02-questioni-aperte.md#q-14) in bacheca) |
+| **Dataset canonico** | Rappresentazione del contenuto informativo di un documento, indipendente dal formato di serializzazione | Imposto da [`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07). Senza un termine proprio si dice «il CDA» e in tre mesi il modello dipende dal template |
+| **Registro degli accessi** | Catena append-only con impronte, conservata separatamente, che registra chi ha fatto cosa su quale soggetto | «Audit» in italiano corrente significa anche revisione contabile e verifica di conformità. Il termine composto evita che [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04) venga soddisfatto con un versionamento di entità (`D42`) |
 
 ## 5. I falsi sinonimi
 
@@ -293,7 +293,7 @@ Tre contenitori a tre scale diverse, con tre regimi di accesso diversi: il **fas
 sanitario elettronico** è nazionale-regionale e sotto il controllo dell'assistito; il **dossier
 sanitario** è l'insieme dei dati presso una singola struttura; la **cartella clinica
 elettronica** è il repository del singolo erogante. Nel modello di integrazione la cartella
-resta al sistema del partner (`00_PROJECT_BRIEF.md` § 6.2.5).
+resta al sistema del partner ([`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) § 6.2.5).
 
 ### 5.10 Slot e appuntamento
 
@@ -305,9 +305,9 @@ doppia prenotazione (`BR-020`).
 
 Una **soglia tecnica** riguarda il canale (perdita di pacchetti, ritardo, banda) ed è una
 specifica di prodotto configurabile per tenant. Una **soglia clinica** riguarda un parametro
-del paziente ed è configurazione **per assistito**, decisa dal professionista (`V-02`).
+del paziente ed è configurazione **per assistito**, decisa dal professionista ([`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)).
 
-Nessuna delle due è imposta dalla normativa italiana: il vincolo `V-12` in bacheca lo dichiara
+Nessuna delle due è imposta dalla normativa italiana: il vincolo [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12) in bacheca lo dichiara
 come fatto verificato in `B1`, § «Requisiti tecnici minimi». Chiamarle entrambe «soglia» in un
 unico modulo di configurazione è l'errore che porta a esporre a un amministratore di tenant un
 campo che è decisione clinica individuale.
@@ -331,7 +331,7 @@ capitolo [05](05-parametri-e-osservazioni.md) la rende modello.
 ### 5.14 Tenant, organizzazione, struttura erogante, integratore
 
 Quattro concetti che coincidono nei casi semplici e divergono in quelli reali. Il **tenant** è
-il confine di isolamento (`V-04`); l'**organizzazione** è un soggetto giuridico; la **struttura
+il confine di isolamento ([`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04)); l'**organizzazione** è un soggetto giuridico; la **struttura
 erogante** è chi risponde dell'erogazione; l'**integratore** è un principal applicativo, non un
 utente. Un tenant può contenere più strutture eroganti; un integratore può operare su più
 tenant.

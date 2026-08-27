@@ -7,7 +7,7 @@ description: "Why clinical parameters and channel metrics are two series with op
 # ADR-0020 - Time Series in Dedicated Storage; Channel Metrics Are Not Clinical Observations
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference constraints**: V2; V-155 of the security area
+**Reference constraints**: [V2](../11_registri/03-vincoli-fondanti.md#v2); [V-155](../11_registri/01-vincoli-in-vigore.md#v-155) of the security area
 
 ## Context
 

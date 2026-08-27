@@ -14,7 +14,7 @@ Un booleano non risponde a nessuna delle quattro parti della domanda. Lo si scop
 peggiore, quando la domanda arriva da chi ha titolo per porla.
 
 > **[BASE]** Il consenso è un **fatto con validità temporale**, non un flag booleano
-> (`04_BASELINE_ARCHITETTURALE.md` § 2).
+> ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 2).
 
 Il modulo [03 dei fondamenti](../10_fondamenti/03-il-dato-clinico.md) § 2 spiega perché, per la
 finalità di cura, il consenso non è tipicamente la base giuridica del trattamento, e perché
@@ -61,7 +61,7 @@ terzi, non quello dell'autore.
 
 ### 1.2 Chi non accede mai
 
-> **[BASE] `V-08`, `D48`** - L'art. 15, c. 4 del DM 7 settembre 2023 esclude **sempre** dal
+> **[BASE] [`V-08`](../11_registri/01-vincoli-in-vigore.md#v-08), `D48`** - L'art. 15, c. 4 del DM 7 settembre 2023 esclude **sempre** dal
 > fascicolo periti, compagnie di assicurazione, datori di lavoro, associazioni e organizzazioni
 > scientifiche, organismi amministrativi anche operanti in ambito sanitario, e il personale
 > medico nell'esercizio di attività medico-legale.
@@ -90,7 +90,7 @@ pagatore non è un consultatore. È un caso in cui il modello deve rendere l'ope
 > | **Validità** | sì | inizio e, quando prevista, fine |
 > | **Stato** | sì | vigente, revocato, scaduto, superato da nuova manifestazione |
 > | **Chi ha registrato** | sì | l'atto di registrazione ha un autore, anche quando è il sistema |
-> | **Tenant** | sì | `V-04` |
+> | **Tenant** | sì | [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04) |
 
 Due componenti meritano una nota, perché sono quelli che vengono omessi.
 
@@ -289,8 +289,8 @@ del consenso ricadono tre conseguenze.
    conferibile» del documento, distinto da «non ancora conferito» (capitolo
    [04](04-documenti-clinici.md) § 8.2).
 
-> **[NV]** Le categorie di dati sanitari a tutela rafforzata e le loro conseguenze operative sono
-> fra le questioni rimesse alla verifica (`R6` § 11.1, voce Q10).
+> Le categorie di dati sanitari a tutela rafforzata e le loro conseguenze operative sono
+> fra le questioni rimesse alla verifica da `DOM` `[NV]` (`R6` § 11.1, voce Q10).
 
 ## 8. Il consenso alla registrazione
 
@@ -329,7 +329,7 @@ istante e autore, non una variazione di configurazione.
 ### 9.1 Non è un'eccezione: è un requisito
 
 > **[BASE]** La procedura di accesso d'emergenza è tracciata **come requisito, non come
-> eccezione** (`04_BASELINE_ARCHITETTURALE.md` § 8).
+> eccezione** ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 8).
 
 Un sistema che non la preveda non è più sicuro: costringe a soluzioni fuori dal sistema, che non
 lasciano traccia. La sicurezza sta nel renderla **costosa e visibile**, non nel non averla.
@@ -477,13 +477,13 @@ Due proprietà del diagramma sono decisioni:
    e va conservato con la stessa cura dell'accesso riuscito.
 2. **L'ordine delle condizioni non è ottimizzabile liberamente.** La verifica del tenant è
    l'ultima nel diagramma per leggibilità, ma nell'esecuzione è la prima: nessuna interrogazione
-   avviene senza tenant risolto (`04_BASELINE_ARCHITETTURALE.md` § 4).
+   avviene senza tenant risolto ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 4).
 
 ## 13. Che cosa il registro degli accessi contiene, e che cosa no
 
 > **[BASE]** Il registro non contiene contenuto clinico: contiene chi, cosa, quando, su quale
 > soggetto, con quale esito e con quale livello di garanzia dell'autenticazione
-> (`04_BASELINE_ARCHITETTURALE.md` § 6).
+> ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 6).
 
 Aggiunte che discendono dalla normativa italiana e che il modello deve prevedere:
 

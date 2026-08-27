@@ -122,7 +122,7 @@ utilizzabile in entrambi i formati.
 | | |
 |---|---|
 | **Destinatario** | Autorità competenti degli Stati membri |
-| **Soggetto obbligato** | Il **fabbricante** del dispositivo. Non è il progetto **oggi** (vincolo V-06): è il **soggetto fabbricante, da costituire**, per la nostra distribuzione, e chi immette sul mercato per ogni derivata |
+| **Soggetto obbligato** | Il **fabbricante** del dispositivo. Non è il progetto **oggi** (vincolo [V-06](../11_registri/01-vincoli-in-vigore.md#v-06)): è il **soggetto fabbricante, da costituire**, per la nostra distribuzione, e chi immette sul mercato per ogni derivata |
 | **Termini** | **2 giorni** in caso di minaccia grave per la salute pubblica; **10 giorni** in caso di decesso o grave deterioramento imprevisto dello stato di salute; **15 giorni** per gli altri incidenti gravi (art. 87 del Regolamento (UE) 2017/745) |
 
 **Perché compare in un capitolo di sicurezza.** Perché un incidente di sicurezza può **essere
@@ -136,7 +136,7 @@ innesca richiede di stabilire un nesso fra l'evento tecnico e la conseguenza cli
 in cui la tabella delle conseguenze cliniche di [01 §5](./01-modello-di-minaccia.md) smette di
 essere un esercizio di modellazione e diventa uno strumento operativo di triage.
 
-**Dichiarazione di `Q-276`.** La riscrittura della riga di soggetto obbligato rende il progetto titolare di due obblighi di vigilanza che richiedono capacità tecniche non ancora progettate: la **tassonomia stabile degli eventi contati** e la **conservazione della diagnostica pari alla finestra di vigilanza**. Entrambi gli obblighi contano eventi; non si accendono a posteriori; la serie storica mancante non si ricostruisce. Con il ruolo di fabbricante, la titolarità di questa lacuna sarà nostra, e va dichiarata esplicitamente come rischio rilevante nel registro delle capacità abilitanti mancanti.
+**Dichiarazione di [`Q-276`](../11_registri/02-questioni-aperte.md#q-276).** La riscrittura della riga di soggetto obbligato rende il progetto titolare di due obblighi di vigilanza che richiedono capacità tecniche non ancora progettate: la **tassonomia stabile degli eventi contati** e la **conservazione della diagnostica pari alla finestra di vigilanza**. Entrambi gli obblighi contano eventi; non si accendono a posteriori; la serie storica mancante non si ricostruisce. Con il ruolo di fabbricante, la titolarità di questa lacuna sarà nostra, e va dichiarata esplicitamente come rischio rilevante nel registro delle capacità abilitanti mancanti.
 
 ### 2.5 Il quinto - Resilienza informatica, dall'11 settembre 2026
 
@@ -145,7 +145,7 @@ essere un esercizio di modellazione e diventa uno strumento operativo di triage.
 | **Destinatario** | Struttura nazionale di risposta agli incidenti e agenzia europea per la cibersicurezza |
 | **Soggetto obbligato** | Il **fabbricante** ai sensi del regolamento sulla resilienza informatica e, nei limiti previsti, l'amministratore fiduciario di software libero |
 | **Oggetto** | **Vulnerabilità attivamente sfruttate** e **incidenti gravi** che incidono sulla sicurezza del prodotto |
-| **Termini** | Segnalazione iniziale entro **24 ore**, notifica entro **72 ore**, relazione conclusiva successiva. **Il termine puntuale della relazione conclusiva non è stato verificato sul testo: `[NV]`** |
+| **Termini** | Segnalazione iniziale entro **24 ore**, notifica entro **72 ore**, relazione conclusiva successiva. **Il termine puntuale della relazione conclusiva non è stato verificato da `COMP` sul testo: `[NV]`** |
 | **Decorrenza dell'obbligo** | **11 settembre 2026** (art. 71 del Regolamento (UE) 2024/2847) |
 
 **Due fatti da tenere insieme.** Il primo: l'11 settembre 2026 **cade prima** del rilascio della
@@ -266,7 +266,7 @@ del punto percentuale su base giornaliera, con soglie configurabili e allarme al
 I livelli di servizio attesi ai sensi della misura di monitoraggio e gli accordi contrattuali
 previsti dal decreto sulle infrastrutture regionali **non sono la stessa cosa**, ma il cliente
 tenderà a tarare gli uni sugli altri. Definire i valori di riferimento da proporre è la
-questione Q-152, indirizzata all'architettura e alla roadmap.
+questione [Q-152](../11_registri/02-questioni-aperte.md#q-152), indirizzata all'architettura e alla roadmap.
 
 ## 6. Il processo, dal segnale alla chiusura
 
@@ -316,8 +316,8 @@ dalla notifica delle 72 ore. È un compromesso che va deciso prima, nella proced
   non è una procedura: è un documento. L'esercitazione verifica anche i canali di notifica verso
   il cliente, che è la parte che si scopre rotta al primo uso reale.
 - **La procedura è raccordata** con il modello di processo delle linee guida nazionali sulla
-  gestione degli incidenti pubblicate a fine 2025. **Il documento non è stato acquisito
-  integralmente: `[NV]`**, va acquisito prima del consolidamento della procedura.
+  gestione degli incidenti pubblicate a fine 2025. **Delle linee guida non si dispone ancora della
+  versione completa**: una lacuna `[NV]` che `SEC` deve risolvere acquisendole prima del consolidamento della procedura.
 - **Il registro delle manutenzioni, dei collaudi e dei controlli di sicurezza** effettuati
   sull'installazione è mantenuto ed esportabile: è evidenza documentale richiesta sia dalle
   specifiche di base sia dalle indicazioni nazionali sulla telemedicina.
@@ -341,8 +341,8 @@ dalla notifica delle 72 ore. È un compromesso che va deciso prima, nella proced
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| Q-152 | Valori di riferimento dei livelli di servizio attesi da proporre, distinti dagli accordi contrattuali previsti dal decreto sulle infrastrutture regionali (§5) | Architettura, roadmap |
-| `[NV]` | Acquisizione integrale delle linee guida nazionali sul processo di gestione degli incidenti e allineamento della procedura (§7) | Sicurezza, conformità |
-| `[NV]` | Termine puntuale della relazione conclusiva nel regime della resilienza informatica (§2.5) | Conformità |
-| Q-154 | Se l'operatore del servizio gestito diventa soggetto obbligato in proprio, **gli orologi 2 e 3 diventano suoi**, non del solo cliente | → Committente |
-| Q-20 | Ripartizione dei ruoli fra titolare, responsabile, fabbricante e soggetto obbligato, che determina chi conta quale orologio | Conformità |
+| [Q-152](../11_registri/02-questioni-aperte.md#q-152) | Valori di riferimento dei livelli di servizio attesi da proporre, distinti dagli accordi contrattuali previsti dal decreto sulle infrastrutture regionali (§5) | Architettura, roadmap |
+| `[NV]` | Acquisizione integrale delle linee guida nazionali sul processo di gestione degli incidenti e allineamento della procedura (§7) | `SEC`, `COMP` |
+| `[NV]` | Termine puntuale della relazione conclusiva nel regime della resilienza informatica (§2.5) | `COMP` |
+| [Q-154](../11_registri/02-questioni-aperte.md#q-154) | Se l'operatore del servizio gestito diventa soggetto obbligato in proprio, **gli orologi 2 e 3 diventano suoi**, non del solo cliente | → Committente |
+| [`Q-159`](../11_registri/02-questioni-aperte.md#q-159) | Ripartizione dei ruoli fra titolare, responsabile, fabbricante e soggetto obbligato, che determina chi conta quale orologio | `COMP` |

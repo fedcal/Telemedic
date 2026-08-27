@@ -10,7 +10,7 @@ description: Perché il piano del tempo reale ha un meccanismo proprio, che cosa
 **Origine**: questione sollevata dal modulo dei fondamenti informatici; risponde inoltre alle
 questioni poste dall'area tecnica sulla topologia del segnale su più istanze e dall'area dei
 protocolli sulla distribuzione dello stato di sessione
-**Vincolo di riferimento**: V-131 posto dall'area dei protocolli
+**Vincolo di riferimento**: [V-131](../11_registri/01-vincoli-in-vigore.md#v-131) posto dall'area dei protocolli
 
 ## Contesto
 

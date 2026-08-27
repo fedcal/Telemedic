@@ -31,7 +31,7 @@ risparmiati a ogni integrazione.
 
 ### 1.2 È compatibile con la sovranità del dato
 
-Il vincolo V1 del progetto vieta che un componente **obbligatorio del percorso principale**
+Il vincolo [V1](../11_registri/03-vincoli-fondanti.md#v1) del progetto vieta che un componente **obbligatorio del percorso principale**
 dipenda da un servizio non sostituibile o stabilito fuori dall'Unione europea. Applicato ai
 protocolli, produce tre conseguenze concrete.
 
@@ -42,7 +42,7 @@ script di proxy - è esclusa anche a prescindere dal suo stato di adozione (capi
 [09](./09-tempo-reale.md)).
 
 Secondo: un servizio terminologico esterno è ammesso solo come componente **opzionale**, con
-il sistema pienamente funzionante quando è disattivato. È il vincolo V-03 della bacheca, e
+il sistema pienamente funzionante quando è disattivato. È il vincolo [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) della bacheca, e
 il capitolo [02](./02-fhir.md) ne descrive il costo esatto.
 
 Terzo: le dipendenze di **compilazione** verso registri esterni sono ammesse (i pacchetti
@@ -88,7 +88,7 @@ quello FHIR, proprio per avere un'unica catena di correlazione.
 Un protocollo si adotta dietro un confine di adattamento, mai nel cuore del dominio. Il
 modello di dominio non importa i tipi delle librerie FHIR, non conosce i segmenti di HL7 v2,
 non sa che cosa sia un `Bundle`. È ciò che permette di aggiungere una serializzazione o una
-versione senza riscrivere le regole cliniche, ed è la precondizione del vincolo V-07
+versione senza riscrivere le regole cliniche, ed è la precondizione del vincolo [V-07](../11_registri/01-vincoli-in-vigore.md#v-07)
 (dataset canonico, serializzazioni sostituibili).
 
 ## 2. Le versioni adottate, e perché
@@ -154,7 +154,7 @@ quello di `Deprecation`.
 |---|---|---|---|
 | Interoperabilità clinica | Facciata FHIR R4 REST | GraphQL su FHIR | Nessun interlocutore del dominio lo richiede; raddoppierebbe la superficie di autorizzazione |
 | Capacità di prodotto | API REST descritta in OpenAPI 3.1 | Modellazione delle capacità di prodotto come risorse FHIR | Una sessione video, una quota o una chiave del relay non sono concetti clinici: forzarli in FHIR produce un formato proprietario travestito |
-| Documenti | Dataset canonico + serializzazioni | Un template documentale cablato | Vincolo V-07: i template nazionali per le nuove tipologie di telemedicina non sono pubblicamente disponibili (capitolo [03](./03-documenti-clinici.md)) |
+| Documenti | Dataset canonico + serializzazioni | Un template documentale cablato | Vincolo [V-07](../11_registri/01-vincoli-in-vigore.md#v-07): i template nazionali per le nuove tipologie di telemedicina non sono pubblicamente disponibili (capitolo [03](./03-documenti-clinici.md)) |
 | Messaggistica legacy | HL7 v2.5/2.5.1 su MLLP protetto, in modulo separato | Un motore di integrazione incorporato | Il cliente tipico ne ha già uno; incorporarlo allargherebbe il perimetro regolatorio |
 | Condivisione documentale | IHE MHD come sorgente di documenti | IHE XDS.b come interfaccia primaria | SOAP ed ebXML sono una pila tecnologica interamente diversa. Chi la richiede si raggiunge con un gateway |
 | Identità fra imprese | IHE IUA come profilazione documentale su OAuth 2.1 | IHE XUA (SAML su WS-Security) | Serve solo in domini SOAP preesistenti; entrerebbe nel nucleo per un requisito ipotetico |
@@ -195,7 +195,7 @@ sono, per una macchina, due identificatori diversi. Le conseguenze sono la ricer
 trova, la deduplicazione che fallisce, la validazione che fallisce e il consumatore che
 riconcilia su nome e data di nascita, cioè nel modo peggiore.
 
-> **Questione aperta Q-06 - non decisa in quest'area.**
+> **Questione aperta [Q-06](../11_registri/02-questioni-aperte.md#q-06) - non decisa in quest'area.**
 > La scelta dell'URI da scrivere e il punto in cui avviene l'eventuale traduzione sono
 > decisioni di modello dati e appartengono all'area di architettura, in concorso con l'area
 > tecnica. Quest'area **documenta il problema, la sua misura e la raccomandazione**, e non
@@ -257,7 +257,7 @@ storici resi obsoleti. La spiegazione di che cosa siano è nel modulo
 ## 5. Le dieci scelte che attendono una decisione architetturale
 
 Il modulo 13 della guida ha rilevato che dieci scelte di quest'area sono oggi **proposte
-motivate** e non decisioni formali, e ha aperto la questione Q-15 verso quest'area e verso
+motivate** e non decisioni formali, e ha aperto la questione [Q-15](../11_registri/02-questioni-aperte.md#q-15) verso quest'area e verso
 l'area di architettura. Quest'area risponde per la parte che le compete: **formula la
 proposta, la motiva e ne dichiara il costo**; la decisione formale, con il relativo record di
 decisione architetturale, spetta all'area di architettura.
@@ -265,7 +265,7 @@ decisione architetturale, spetta all'area di architettura.
 | # | Scelta | Proposta di quest'area | Motivazione e costo dichiarato | Dove è dettagliata |
 |---|---|---|---|---|
 | P-01 | Dove sta la versione dell'interfaccia applicativa | **Versione maggiore nel percorso** (`/v1`), più un'intestazione facoltativa di versione datata per le aggiunte | È visibile nei registri, nelle cache e in una chiamata da riga di comando; l'alternativa a tipo di media è formalmente più corretta ma mal gestita da proxy e client reali. Costo: duplicazione dei percorsi a ogni versione maggiore | [06 §7](./06-api-di-progetto.md) |
-| P-02 | Codice di stato quando manca il validatore di concorrenza su una risorsa clinica | **`428 Precondition Required`** sulle scritture cliniche, non silenzioso ultimo-scrittore-vince | Una sovrascrittura non tracciata su una risorsa clinica è perdita di dato non rilevabile, incompatibile con V5. La specifica FHIR ammette il rifiuto ma non lo impone: è scelta di progetto. Costo: rompe i client che non inviano il validatore | [06 §5](./06-api-di-progetto.md) |
+| P-02 | Codice di stato quando manca il validatore di concorrenza su una risorsa clinica | **`428 Precondition Required`** sulle scritture cliniche, non silenzioso ultimo-scrittore-vince | Una sovrascrittura non tracciata su una risorsa clinica è perdita di dato non rilevabile, incompatibile con [V5](../11_registri/03-vincoli-fondanti.md#v5). La specifica FHIR ammette il rifiuto ma non lo impone: è scelta di progetto. Costo: rompe i client che non inviano il validatore | [06 §5](./06-api-di-progetto.md) |
 | P-03 | Risposta quando la risorsa esiste ma il chiamante non è autorizzato a vederla | **Non trovato**, non vietato, sulle risorse riferite a un assistito | Distinguere «non esiste» da «non puoi vederlo» è un oracolo di enumerazione su una base pazienti. Costo: diagnosi più difficile per l'integratore, mitigata dal codice di errore nel corpo | [06 §6](./06-api-di-progetto.md) |
 | P-04 | Ritenzione delle chiavi di idempotenza | **Ventiquattro ore**, ambito `(tenant, client, operazione, chiave)` | Copre il ciclo di ritentativo più lungo previsto per le scritture sincrone senza trasformare il registro in un archivio. Costo: un ritentativo oltre le 24 ore crea un duplicato | [06 §4](./06-api-di-progetto.md) |
 | P-05 | Doppia emissione delle intestazioni di limitazione del traffico | **No**: si emettono solo le intestazioni nella forma corrente | La forma storica non è mai stata standard ed è superata; emettere una forma mai standardizzata la legittimerebbe. La doppia emissione per compatibilità non si adotta | [ADR-0021 §5](../adr/0021-convenzioni-delle-interfacce-pubbliche.md) |
@@ -365,7 +365,7 @@ quale esito, senza aprire un ticket.
 carico del ricevente su una chiave dichiarata. Non è esattamente una volta e non lo sarà.
 
 **Garanzie di correttezza clinica.** Ciò che il progetto emette come contenuto clinico è
-**contenuto redatto da un professionista**, mai generato dal sistema. È il vincolo V2, ed è
+**contenuto redatto da un professionista**, mai generato dal sistema. È il vincolo [V2](../11_registri/03-vincoli-fondanti.md#v2), ed è
 un'affermazione di perimetro regolatorio prima che di protocollo.
 
 **Non garanzie, dichiarate.** Non è garantito l'ordine globale degli eventi: solo l'ordine per

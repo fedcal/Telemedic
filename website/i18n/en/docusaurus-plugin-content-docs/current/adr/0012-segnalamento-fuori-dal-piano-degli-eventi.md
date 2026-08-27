@@ -8,7 +8,7 @@ description: "Why the real-time plane has its own mechanism, what crosses the bo
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
 **Origin**: question raised by module on IT foundations; also answers questions posed by technical area on signal topology across multiple instances and by protocols area on session state distribution
-**Reference constraint**: V-131 placed by protocols area
+**Reference constraint**: [V-131](../11_registri/01-vincoli-in-vigore.md#v-131) placed by protocols area
 
 ## Context
 

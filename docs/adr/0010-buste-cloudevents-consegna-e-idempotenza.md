@@ -97,11 +97,11 @@ in un'infrastruttura esterna.
 - Ogni consumatore, interno ed esterno, deve deduplicare.
 - Il numero di sequenza per aggregato richiede una sorgente monotona per aggregato, quindi un punto
   di serializzazione in scrittura.
-- `[NV]` - l'aumento del numero di partizioni in esercizio può spezzare l'ordine per aggregato
-  durante il riassestamento: verifica a carico dell'area tecnica **prima** di qualunque
-  ridimensionamento.
-- `[NV]` - la finestra di conservazione delle chiavi di deduplicazione va fissata dall'area tecnica
-  e non può essere inferiore alla finestra massima di ritentativo.
+- L'aumento del numero di partizioni in esercizio può spezzare l'ordine per aggregato
+  durante il riassestamento: verifica da `TECH` **prima** di qualunque
+  ridimensionamento `[NV]`.
+- La finestra di conservazione delle chiavi di deduplicazione va fissata da `TECH`
+  e non può essere inferiore alla finestra massima di ritentativo, criteri da verificare `[NV]`.
 
 ## Riferimenti
 

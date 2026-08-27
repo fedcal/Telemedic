@@ -19,9 +19,9 @@ seguono sono stati fissati **prima** delle decisioni del capitolo
 Telemedic ha, al 25 agosto 2026, sei grandezze e **tutte e sei sono note**:
 
 1. Una **data di consegna decisa dal committente**: il 30 novembre 2026 è il **primo rilascio
-   installabile** (`D53`, che chiude `Q-180`).
+   installabile** (`D53`, che chiude [`Q-180`](../11_registri/02-questioni-aperte.md#q-180)).
 2. Una **capacità dichiarata**: **un contributore unico, a tempo parziale** (`D54`, che chiude
-   `Q-181`).
+   [`Q-181`](../11_registri/02-questioni-aperte.md#q-181)).
 3. Un perimetro funzionale ampio e già catalogato.
 4. Un obbligo di tracciabilità che non ammette scorciatoie.
 5. Un obbligo di traduzione integrale (`D50`), che `D56` rende **parallelo allo sviluppo** e non
@@ -211,7 +211,7 @@ dispositivi medici lega un requisito alla progettazione, al codice e alla prova.
 identificativi cambiano dopo che il codice esiste, la matrice non si aggiorna: **si ricostruisce
 a mano**, requisito per requisito, e la ricostruzione è essa stessa non verificabile perché
 nessuno può dimostrare che il requisito `RF-142` di oggi sia quello di sei mesi fa.
-*Stato*: gli intervalli sono congelati e dichiarati (vincolo `V-120`); manca il **registro in
+*Stato*: gli intervalli sono congelati e dichiarati (vincolo [`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)); manca il **registro in
 sola aggiunta** e il controllo che faccia fallire la costruzione su un identificativo inesistente.
 *Costo di ometterla*: non quantificabile, perché non è un ritardo: è l'impossibilità per
 chiunque di certificare in seguito.
@@ -222,7 +222,7 @@ pipeline.**
 secondo la fonte richiamata da `D45`, **da tre a cinque volte** il costo di censirle mentre
 entrano. La ragione è che una dipendenza entrata senza valutazione porta con sé le proprie
 transitive, e il grafo va ricostruito quando nessuno ricorda perché una libreria è lì.
-*Conseguenza operativa*, posta come vincolo `V-182`: **la prima pipeline precede il primo codice
+*Conseguenza operativa*, posta come vincolo [`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182): **la prima pipeline precede il primo codice
 applicativo.** Non «accompagna»: precede. Il controllo `G5` - un componente presente nella
 distinta e assente dalle annotazioni fa fallire la costruzione - è ciò che rende la regola
 effettiva invece che esortativa.
@@ -247,7 +247,7 @@ registrazione di approvazione.
 *Perché è irrecuperabile*: non è il documento a essere irrecuperabile, è il **periodo di
 pubblicazione senza dichiarazione**. Un artefatto reso disponibile senza l'avvertenza di non
 marcatura è un'affermazione implicita che nessuna correzione successiva cancella.
-*Stato*: **soddisfatta**. `NOT-A-MEDICAL-DEVICE.md` e `DISTRIBUTION-POLICY.md` sono presenti nel
+*Stato*: **soddisfatta**. [`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md) e [`DISTRIBUTION-POLICY.md`](https://github.com/fedcal/Telemedic/blob/main/DISTRIBUTION-POLICY.md) sono presenti nel
 repository pubblico. Resta il controllo di pipeline che impedisce la pubblicazione di un
 artefatto privo della dichiarazione.
 
@@ -260,8 +260,8 @@ della valutazione clinica e l'ordine di grandezza del costo (`D46`).
 *Stato*: **soddisfatta**. `D55` congela la formulazione su «**raccolta differita di parametri per
 la revisione periodica del professionista**», mantiene Classe IIa e classe di sicurezza software
 B, ed esclude la formulazione in tempo reale. Il modello di dominio era già scritto **interamente**
-su questa formulazione (vincolo `V-144`): la decisione lo conferma e non comporta riscritture.
-Chiude `Q-144`.
+su questa formulazione (vincolo [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144)): la decisione lo conferma e non comporta riscritture.
+Chiude [`Q-144`](../11_registri/02-questioni-aperte.md#q-144).
 *Conseguenza permanente, che sostituisce quella precedente*: non è più un rischio di riscrittura,
 è un **divieto**. Nessuna funzione può essere aggiunta se sposta il sistema verso il tempo reale
 clinico, e **la valutazione va fatta prima di scrivere la funzione, non dopo**. È il caso in cui
@@ -270,7 +270,7 @@ confine.
 
 ### 5.2 Le attività di classe B che il progetto assume con `D58`
 
-`D58` **emenda `D28`, `D45`, `D49` e il vincolo `V-06` quanto al destinatario del percorso di
+`D58` **emenda `D28`, `D45`, `D49` e il vincolo [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06) quanto al destinatario del percorso di
 certificazione**: il ruolo di fabbricante sarà assunto dal progetto, e il soggetto giuridico va
 costituito. Le attività che `D45` attribuiva a «chi intende certificare» diventano quindi
 **attività del progetto**, e sono quattro:
@@ -293,7 +293,7 @@ questo capitolo, e va enunciata senza attenuazioni:
 
 Sono a calendario in [02 §5](./02-traguardi.md), con il progetto come titolare, e con una
 avvertenza che accompagna ogni data di quel paragrafo e non si separa mai da essa: **sono date di
-pianificazione interna, non promesse di esito.** Il divieto di `V-171` resta intero - **in nessun
+pianificazione interna, non promesse di esito.** Il divieto di [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) resta intero - **in nessun
 luogo si scrive che il prodotto sarà marcato entro una data** - e resta intero lo stato di fatto:
 oggi il prodotto **non reca marcatura CE** e chi lo installa o lo mette in servizio assume
 comunque gli obblighi che ne derivano.
@@ -308,10 +308,10 @@ di aver documentato un comportamento inesistente**.
 |---|---|---|---|
 | Scambio di token nel gateway con delega esplicita (`D18`) | L'intera modalità di identità federata verso l'integratore | Riprogettazione del confine di autorizzazione dopo che il codice esiste | **Sì** - è il percorso di ingresso di `RU-1` |
 | Ripiego a token d'ingresso a uso singolo, emesso su canale posteriore (`D18`) | L'avvio della sessione da parte dell'integratore **senza componente incorporabile** | L'assenza di ogni via di integrazione, una volta tagliato l'incorporamento | **Sì**, e con peso maggiore di prima: nel perimetro ridotto non è un ripiego, è **la** modalità |
-| Isolamento di rete in uscita del nodo di relay | La postura di sicurezza del componente più esposto | Una via di uscita verso le reti interne di chi installa | **Sì** - difesa primaria (`V-10`) |
+| Isolamento di rete in uscita del nodo di relay | La postura di sicurezza del componente più esposto | Una via di uscita verso le reti interne di chi installa | **Sì** - difesa primaria ([`V-10`](../11_registri/01-vincoli-in-vigore.md#v-10)) |
 | Difetti noti del prodotto di federazione (`D37`) chiusi in configurazione e sorvegliati da prova | La postura di sicurezza dell'identità | Una via di scalata di privilegio che ritorna al primo aggiornamento | **Sì** |
-| Inoltro del contesto di autenticazione richiesto attraverso l'intermediazione (`Q-160`, `B-8`) | La propagazione del livello di garanzia, e la sua descrizione pubblica | **Rettifica di documentazione pubblica su un meccanismo di sicurezza** | **No** - segue la conformità sull'identità digitale nazionale, fuori dal perimetro ridotto. **La regola resta**: finché l'esito non è registrato, la documentazione pubblica non descrive il meccanismo |
-| Contenitore di registrazione negoziato a runtime (`V-11`, `V-115`, `C-3`) | La formulazione pubblica sulla registrazione | Un'affermazione falsa per una parte del parco installato | **No** - segue la registrazione della sessione, tagliata da `RU-1` |
+| Inoltro del contesto di autenticazione richiesto attraverso l'intermediazione ([`Q-160`](../11_registri/02-questioni-aperte.md#q-160), `B-8`) | La propagazione del livello di garanzia, e la sua descrizione pubblica | **Rettifica di documentazione pubblica su un meccanismo di sicurezza** | **No** - segue la conformità sull'identità digitale nazionale, fuori dal perimetro ridotto. **La regola resta**: finché l'esito non è registrato, la documentazione pubblica non descrive il meccanismo |
+| Contenitore di registrazione negoziato a runtime ([`V-11`](../11_registri/01-vincoli-in-vigore.md#v-11), [`V-115`](../11_registri/01-vincoli-in-vigore.md#v-115), `C-3`) | La formulazione pubblica sulla registrazione | Un'affermazione falsa per una parte del parco installato | **No** - segue la registrazione della sessione, tagliata da `RU-1` |
 | Comportamento del broker in assetto a nodo singolo | Le garanzie dichiarabili nell'installazione presso il cliente | Requisiti funzionali che dipendono da garanzie non disponibili | **No** - il broker è tagliato da `RU-1` (taglio reversibile, [03 §5](./03-primo-rilascio-utilizzabile.md)) |
 
 `D18` è esplicita sulla collocazione della prima: **spike di verifica nella prima settimana di
@@ -418,7 +418,7 @@ non esiste la possibilità di dichiararlo accettabile: l'accettabilità la decid
 |---|---|---|
 | **Requisito senza prova** | Il rapporto di tracciabilità elenca il requisito nella vista «senza prove» | Alla richiesta di dimostrare la copertura |
 | **Controllo di rischio senza verifica di efficacia** | Esiste la prova che la misura c'è, non quella che funziona | Alla verifica del file di gestione del rischio |
-| **`[NV]` non chiuso** su un componente rilasciato | Un'affermazione tecnica non verificata è in produzione | Alla prima contestazione, o al primo incidente |
+| Una marcatura `[NV]` non chiusa o priva di destinatario su un componente rilasciato | Un'affermazione tecnica non verificata è in produzione senza indicazione di chi la debba chiudere | Alla prima contestazione, o al primo incidente |
 | **Divergenza fra le due lingue** | Un contenuto normativo dice due cose diverse in due lingue | È **un difetto documentale in un dispositivo medico**, non un problema di traduzione |
 | **Esclusione di perimetro non verificabile** | Nella colonna «verifica» c'è una dichiarazione, non una prova | Alla prima consegna sotto pressione, quando l'esclusione rientra dalla finestra |
 | **Documento prodotto fuori dal controllo** | Non ha revisore, approvazione o versione registrata | Alla riemissione, che è integrale |
@@ -446,9 +446,9 @@ Onestà minima: il progetto ne ha già. Elencarlo è la prima rata.
 | **Riemissione sotto controllo dei documenti già prodotti**: sotto `D54` non è eseguibile entro il 30 novembre 2026 ed è **dichiarata come lacuna**, non pianificata | Da `T-01` in avanti | `COMP`, dopo il primo rilascio. Il volume da riemettere **cresce ogni giorno**: è la lacuna con il costo di omissione più rapidamente crescente |
 | Versione inglese assente per la maggior parte del corpus, con obbligo di integralità (`D50`) | Dall'inizio | `D56`: traduzione assistita area per area, **parallela allo sviluppo**. Prerequisiti non rinviabili: avvertenze pubbliche, guida dei fondamenti, aree di conformità e sicurezza |
 | Numerosi `[NV]` aperti nelle aree già scritte, ciascuno con destinatario dichiarato | Progressivamente | Le aree destinatarie |
-| Pagina pubblica non allineata alle riformulazioni approvate (`D19`, `D29`) | Dall'approvazione di `D19` | `Q-185` → `PROD`, `ORCH` |
-| **Registrazioni a ruoli distinti non producibili** - audit interno, riesame del rilascio, verifica di configurazione eseguita da chi non ha scritto il codice | Da `D54` | **Nessuno internamente.** Non è un problema di ore: `Q-189` decide quale sottoinsieme si accetta come lacuna dichiarata e quale si copre acquisendo la funzione all'esterno |
-| **Ruolo di fabbricante non ancora costituito**, mentre `D58` lo attribuisce al progetto e più passi del calendario lo presuppongono formalmente | Da `D58` | Committente, con `Q-280`. È di classe `B`: la sua durata non dipende dalla capacità di lavoro |
+| Pagina pubblica non allineata alle riformulazioni approvate (`D19`, `D29`) | Dall'approvazione di `D19` | [`Q-185`](../11_registri/02-questioni-aperte.md#q-185) → `PROD`, `ORCH` |
+| **Registrazioni a ruoli distinti non producibili** - audit interno, riesame del rilascio, verifica di configurazione eseguita da chi non ha scritto il codice | Da `D54` | **Nessuno internamente.** Non è un problema di ore: [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) decide quale sottoinsieme si accetta come lacuna dichiarata e quale si copre acquisendo la funzione all'esterno |
+| **Ruolo di fabbricante non ancora costituito**, mentre `D58` lo attribuisce al progetto e più passi del calendario lo presuppongono formalmente | Da `D58` | Committente, con [`Q-280`](../11_registri/02-questioni-aperte.md#q-280). È di classe `B`: la sua durata non dipende dalla capacità di lavoro |
 
 Le ultime due righe non sono come le altre, e la differenza va detta. Le prime cinque sono lacune
 che **il lavoro chiude**: qualcuno le paga in ore e spariscono. Le ultime due **non si chiudono
@@ -467,10 +467,10 @@ tempo ogni mese, per sempre, e vanno sottratte prima di pianificare qualunque co
 
 | Voce ricorrente | Perché è ricorrente | Ordine di grandezza |
 |---|---|---|
-| Sorveglianza e aggiornamento dei componenti di terze parti | Il livello di servizio è in giorni dall'avviso (`V-185`), e la cadenza di rilascio dei componenti esposti è alta | Non trascurabile e non stimabile senza cronologia. `[NV]` |
+| Sorveglianza e aggiornamento dei componenti di terze parti | Il livello di servizio è in giorni dall'avviso ([`V-185`](../11_registri/01-vincoli-in-vigore.md#v-185)), e la cadenza di rilascio dei componenti esposti è alta | Non trascurabile e non stimabile senza cronologia: `[NV]`, e la stima spetta a `ROAD` quando esisterà una cronologia di consegna propria su cui calibrarla |
 | Mantenimento dell'allineamento fra le due lingue | Ogni modifica al contenuto italiano è incompleta finché non aggiorna l'inglese (`D50`, controllo `G8`) | **Raddoppia** il costo marginale di ogni modifica documentale |
 | Manutenzione della matrice di tracciabilità | Si genera automaticamente, ma le lacune vanno giustificate a ogni rilascio | Basso, se automatizzato dall'inizio; alto se recuperato |
-| Risposta alle segnalazioni e divulgazione coordinata | Il canale deve funzionare, e un canale che non risponde è peggio di un canale assente | Non stimabile senza volume osservato. `[NV]` |
+| Risposta alle segnalazioni e divulgazione coordinata | Il canale deve funzionare, e un canale che non risponde è peggio di un canale assente | Non stimabile senza volume osservato: `[NV]`, e la stima spetta a `ROAD` dopo il primo anno di segnalazioni ricevute |
 | Revisione mensile della roadmap e dei rischi | È la procedura del §8.1 del capitolo [00](./00-indice.md) | Ore, non giorni |
 
 Ne discende la formulazione che il capitolo [02](./02-traguardi.md) usa per tutte le date
@@ -498,7 +498,7 @@ e nessuna quantità di lavoro individuale le produce:
 | **Verifica di configurazione eseguita da chi non ha scritto il codice** | La verifica serve a intercettare ciò che chi ha scritto non vede, per costruzione | Nulla, per la stessa ragione |
 | **Revisione esterna indipendente del codice di sicurezza critico** (`D18`) | La prescrizione dice **esterna e indipendente**, ed è una proprietà del revisore, non della revisione | Nulla |
 
-**Non è un problema di ore.** È la ragione per cui questo capitolo pone il vincolo `V-281`:
+**Non è un problema di ore.** È la ragione per cui questo capitolo pone il vincolo [`V-281`](../11_registri/01-vincoli-in-vigore.md#v-281):
 
 > **Nessun traguardo entra nel piano se richiede due soggetti distinti e il secondo non esiste.**
 > La registrazione che ne deriverebbe si dichiara come **lacuna, con la data in cui nasce**, e
@@ -506,7 +506,7 @@ e nessuna quantità di lavoro individuale le produce:
 > di farla sparire dalla vista.
 
 La ripartizione - quale sottoinsieme si accetta come lacuna dichiarata e quale si copre
-acquisendo la funzione all'esterno - è **decisione del committente** e resta aperta come `Q-189`.
+acquisendo la funzione all'esterno - è **decisione del committente** e resta aperta come [`Q-189`](../11_registri/02-questioni-aperte.md#q-189).
 Il capitolo [03 §5](./03-primo-rilascio-utilizzabile.md) la elenca fra i tagli **irreversibili**,
 perché una registrazione datata a un periodo non si produce dopo che il periodo è passato.
 
@@ -522,8 +522,10 @@ con un **innesco** e un **titolare**. La sequenza è la parte robusta del piano:
 cambiano le dipendenze, che sono poche e dichiarate.
 
 **2. L'allocazione del calendario residuo.** Non una stima: la ripartizione dei giorni che
-restano fra i traguardi della sequenza, sotto la capacità dichiarata da `D54` e con
-`[NV]` sul numero di ore settimanali (§4.1).
+restano fra i traguardi della sequenza, sotto la capacità dichiarata da `D54` e quantificata da
+`D62` in dieci-venti ore a settimana (§4.1). **Che le ore siano note non trasforma
+l'allocazione in stima**: mancano ancora la cronologia di consegna e l'unità di misura
+condivisa.
 
 **3. La regola di assorbimento degli scostamenti.** Che cosa succede quando un traguardo non
 chiude alla sua data. La regola è dichiarata una volta e vale per tutte, ed è cambiata rispetto
@@ -536,7 +538,7 @@ alla versione precedente di questo capitolo perché è cambiato ciò che è fiss
 > rilascio bloccanti di [03 §8](./03-primo-rilascio-utilizzabile.md) e l'elenco del §7.3 di
 > questo capitolo, dove il debito non è ammesso in nessuna forma.
 
-Posta come vincolo **`V-282`**. Ne discendono due proprietà, e la seconda è quella che conta:
+Posta come vincolo **[`V-282`](../11_registri/01-vincoli-in-vigore.md#v-282)**. Ne discendono due proprietà, e la seconda è quella che conta:
 
 - **Una data non si sposta in silenzio.** Se l'ambito non è più riducibile senza toccare un
   criterio bloccante, la data **si dichiara mancata** con la causa registrata (§8.2 del capitolo
@@ -549,11 +551,54 @@ Posta come vincolo **`V-282`**. Ne discendono due proprietà, e la seconda è qu
 **Che cosa questa disciplina rende impossibile**, ed è il suo scopo: consegnare un ambito ridotto
 facendolo apparire come l'ambito previsto.
 
+### 10.1 Che cosa si misura quando una data si sposta
+
+Le tre parti del §10 dicono come una data nasce e che cosa succede quando non si tiene. Non dicono
+come si impara dagli scostamenti già accaduti, e senza quella parte una roadmap ripete gli stessi
+errori di previsione a ogni ciclo.
+
+Per questo esiste
+[`registro/velocity-dei-traguardi.tsv`](https://github.com/fedcal/Telemedic/blob/main/registro/velocity-dei-traguardi.tsv):
+un **giornale di eventi in sola aggiunta**, una riga per ogni prima allocazione, ogni ritaratura,
+ogni chiusura. Non è una tabella di stati - lo stato di un traguardo è la proiezione degli eventi
+che lo riguardano - per la stessa ragione già scritta in
+[`registro/README.md`](https://github.com/fedcal/Telemedic/blob/main/registro/README.md) per gli
+identificativi di requisito e, prima ancora, nella vista `V-121` sull'allarme: una colonna «stato»
+andrebbe **modificata** a ogni cambiamento, e una riga modificata non è più verificabile a
+posteriori.
+
+**Le due grandezze che il registro rende leggibili.** La prima è la velocità: quanti criteri si
+chiudono per giornata di lavoro, misurati e non stimati. La seconda, più utile, è lo **scarto
+sistematico**: se tutte le previsioni sbagliano nello stesso verso, la previsione successiva va
+corretta di quel verso invece di essere creduta.
+
+**La colonna che rende il registro onesto è `motivo`, e la ragione va detta.** Un traguardo chiuso
+in anticipo può significare tre cose diverse che nei numeri hanno lo stesso aspetto: che il lavoro
+è andato meglio del previsto, che era stato sopravvalutato, oppure che i criteri erano **già
+soddisfatti e nessuno li aveva contati**. Il 27 agosto 2026 sono accaduti tutti e tre i casi nella
+stessa giornata - `T-01` chiuso perché il lavoro era finito, `T-03` e `T-07` anticipati perché la
+roadmap dichiarava meno di quanto fosse vero. Senza la colonna `motivo` il registro li
+confonderebbe, e la velocità che se ne ricava sarebbe **falsa in eccesso**: si attribuirebbe alla
+capacità di esecuzione ciò che era un difetto di misura.
+
+**Che cosa il registro non è.** Non è una misura di produttività e non va letto come tale. Non
+autorizza a promettere di più: la capacità resta quella dichiarata da `D54`, e l'anticipo guadagnato
+è **margine contro il rischio**, non ambito da riempire - è la stessa regola del §10, vista dal lato
+in cui le cose vanno bene invece che dal lato in cui vanno male.
+
+Il registro è presidiato da
+[`scripts/verifica-registro-di-velocity.sh`](https://github.com/fedcal/Telemedic/blob/main/scripts/verifica-registro-di-velocity.sh),
+che verifica cinque proprietà: la forma, la presenza del motivo su ogni ritaratura e ogni chiusura,
+il divieto di eventi successivi a una chiusura, la copertura di ogni traguardo datato, e l'accordo
+fra l'ultimo evento e la data dichiarata dalla scheda del traguardo. Ciò che **non** verifica è la
+sola aggiunta, che è una proprietà della cronologia e non del file: si vede confrontando le righe
+precedenti fra due revisioni, non leggendo lo stato attuale.
+
 ---
 
 ## 11. La capacità dichiarata
 
-`D54` chiude `Q-181`. La capacità **non è più un'ipotesi**: è il dato su cui ogni allocazione si
+`D54` chiude [`Q-181`](../11_registri/02-questioni-aperte.md#q-181). La capacità **non è più un'ipotesi**: è il dato su cui ogni allocazione si
 costruisce.
 
 > **Capacità del progetto: un contributore unico, a tempo parziale.**
@@ -570,7 +615,7 @@ costruisce.
 | **Attività di classe `C`** (sbloccanti) | Ridotte al sottoinsieme che serve al perimetro effettivo del primo rilascio. Una verifica empirica su una funzione tagliata **è essa stessa una funzione tagliata** |
 | **Attività di classe `D`** (comprimibili) | È da qui che viene tutta la riduzione di ambito. L'ordine è dichiarato in [03 §6](./03-primo-rilascio-utilizzabile.md) |
 | **Competenze specialistiche** - usabilità, sicurezza offensiva, redazione clinica, traduzione | **Non presenti internamente.** Ciascuna è o acquisita all'esterno, o dichiarata come lacuna. Non esiste una terza possibilità, e in particolare non esiste quella di supplirvi con più ore |
-| **Registrazioni a ruoli distinti** | **Non producibili**, per il §9-bis. `Q-189` |
+| **Registrazioni a ruoli distinti** | **Non producibili**, per il §9-bis. [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) |
 
 ### 11.2 La differenza fra questa formulazione e la precedente
 
@@ -623,7 +668,7 @@ La seconda **non è producibile** (§9-bis) e non entra nei criteri di completam
 fonte la richiede - riesame del rilascio, audit interno, verifica di configurazione da parte di
 chi non ha scritto il codice - la roadmap **non finge di soddisfarla**. La dichiara come lacuna,
 la marca come **irreversibile** in [03 §5](./03-primo-rilascio-utilizzabile.md), e ne rinvia la
-ripartizione a `Q-189`.
+ripartizione a [`Q-189`](../11_registri/02-questioni-aperte.md#q-189).
 
 È la distinzione che consente di dire con precisione che cosa `RU-1` è: un rilascio i cui
 criteri sono **tutti verificabili da chiunque**, e sul quale **nessuna verifica è stata eseguita
@@ -637,7 +682,7 @@ scritte.
 Sono sette e sono verificabili sul testo.
 
 1. **Ogni traguardo ha criteri di completamento verificabili.** Un traguardo senza criterio è un
-   desiderio, e non entra. È il vincolo `V-181`.
+   desiderio, e non entra. È il vincolo [`V-181`](../11_registri/01-vincoli-in-vigore.md#v-181).
 2. **Si dichiara ciò che non entra, e perché.** Il capitolo [03](./03-primo-rilascio-utilizzabile.md)
    dedica alle esclusioni almeno lo spazio che dedica alle inclusioni, perché per chi deve
    decidere se adottare il prodotto le due informazioni hanno lo stesso valore.
@@ -647,13 +692,13 @@ Sono sette e sono verificabili sul testo.
 4. **Si distingue l'impegno del progetto da quello di chi installa**, riga per riga, e non con
    un'avvertenza generale in fondo.
 5. **Nessun dato reale, nessun segreto, nessun nome commerciale** (`R0`). Nessuna soglia clinica.
-   Il sistema resta pienamente funzionale senza le terminologie a licenza vincolata (`V-02`,
-   `V-03`), e la roadmap non pianifica nulla che lo contraddica.
+   Il sistema resta pienamente funzionale senza le terminologie a licenza vincolata ([`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02),
+   [`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)), e la roadmap non pianifica nulla che lo contraddica.
 6. **La roadmap è pianificazione interna del progetto** (`D57`). Nessun traguardo è attribuito a
    «terzi», a «chi certifica» o a un soggetto indefinito. Dove un passo presuppone formalmente il
    ruolo di fabbricante, il documento scrive che **quel ruolo va costituito e formalizzato**
-   (`D58`, `Q-280`), con il proprio tempo, invece di spostare il passo su qualcun altro.
-7. **Una data di pianificazione interna non è una promessa di esito** (`V-171`, `V-280`). In
+   (`D58`, [`Q-280`](../11_registri/02-questioni-aperte.md#q-280)), con il proprio tempo, invece di spostare il passo su qualcun altro.
+7. **Una data di pianificazione interna non è una promessa di esito** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). In
    nessun punto di quest'area si scrive che il prodotto **sarà marcato entro una data**; in ogni
    punto in cui la marcatura è nominata si dichiara lo stato di fatto: **oggi il prodotto non
    reca marcatura CE**, non è coperto da alcuna dichiarazione di conformità, e chi lo installa,

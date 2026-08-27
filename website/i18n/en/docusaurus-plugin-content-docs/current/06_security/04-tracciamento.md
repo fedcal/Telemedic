@@ -35,7 +35,7 @@ the cost:
 | Source | What it adds |
 |---|---|
 | Article 32 of Regulation (EU) 2016/679 | Integrity and confidentiality, and the ability to **verify the effectiveness** of the measures |
-| Project constraint V-05 | «Every access to health data is traced in a non-repudiable and non-alterable way» |
+| Project constraint [V-05](../11_registri/01-vincoli-in-vigore.md#v-05) | «Every access to health data is traced in a non-repudiable and non-alterable way» |
 | Requirement R30 of the appendix on eligible security requirements of the national procurement guidelines | «User accesses must be recorded in a log **that cannot be deleted by a reset**» |
 | Requirements R43 and R44 of the same appendix | **Timeline of events** in the event of an incident; **export in an open format by the following day** after the request |
 | Measure ABSC 3.5.1 of the national minimum measures for public administrations | Integrity of the records |
@@ -45,7 +45,7 @@ the cost:
 
 ## 2. Entity versioning is not an immutable audit trail
 
-**Constraint V-04, and this section exists so that it is not forgotten.**
+**Constraint [V-04](../11_registri/01-vincoli-in-vigore.md#v-04), and this section exists so that it is not forgotten.**
 
 The versioning tool adopted for the domain model produces history tables alongside the
 application tables. It is useful, and it is not what is needed here. Three differences, each
@@ -72,7 +72,7 @@ compromise of the evidence.
 | Alterable by the database administrator | **Yes** | No, or detectable |
 | Retention | With the datum | **Separate** |
 | Verifiable by a third party | No | **Yes** |
-| Contains clinical content | Yes, by construction | **No** (V-150) |
+| Contains clinical content | Yes, by construction | **No** ([V-150](../11_registri/01-vincoli-in-vigore.md#v-150)) |
 | Serves to | Reconstruct the state of an entity over time | **Demonstrate who did what** |
 
 The two tools **coexist** and serve different purposes. Versioning remains, for rectification and
@@ -115,7 +115,7 @@ identity assurance**. It does not contain what was read or written.
 }
 ```
 
-Every row carries the **tenant identifier** (constraint V4 of the architectural baseline) and the
+Every row carries the **tenant identifier** (constraint [V4](../11_registri/03-vincoli-fondanti.md#v4) of the architectural baseline) and the
 **outcome**: a rejected attempt is a row, not a silence. Rows with a negative outcome are often
 more informative than positive ones, because they describe what somebody tried to do.
 
@@ -188,7 +188,7 @@ events**. Separately means, as a minimum:
 **The concrete technical form is not decided by this area.** There are at least four options on the
 table: an application-level hash chain on a dedicated store; append-only storage enforced by the
 medium; write-once object storage with a retention lock; periodic signing with a timestamp. They
-have different costs, guarantees and dependencies. This is **question Q-150** on the noticeboard,
+have different costs, guarantees and dependencies. This is **question [Q-150](../11_registri/02-questioni-aperte.md#q-150)** on the noticeboard,
 addressed to architecture, and it must be closed with an architecture decision record.
 
 ## 5. Retention - constraint V-152
@@ -329,7 +329,7 @@ For symmetry with the honesty required in chapter [03 §5](./03-protezione-dei-d
 - **it does not replace authorisation**: a system that logs everything and authorises badly
   produces excellent evidence of a malfunction;
 - **it cannot be used as a backup clinical archive**, because by construction it contains no
-  clinical content (V-150);
+  clinical content ([V-150](../11_registri/01-vincoli-in-vigore.md#v-150));
 - **it is worth no more than its preservation**: an audit trail kept on a degrading medium or in a
   format that nobody will read twenty-four months from now is an audit trail that does not exist.
   The export format is open and documented for this reason too.
@@ -338,7 +338,7 @@ For symmetry with the honesty required in chapter [03 §5](./03-protezione-dei-d
 
 | Reference | Question | To whom |
 |---|---|---|
-| Q-150 | **Architecture decision record on the immutable audit trail**: application-level hash chain, append-only storage, write-once object storage, or periodic signing with a timestamp (§4.2) | Architecture |
-| Q-152 | Expected service levels for the purposes of continuous monitoring, distinct from those set by the decree on regional infrastructures: the incident type based on service levels depends on values the customer defines, and the product must be able to measure them | Architecture, roadmap |
-| Q-158 | Point and periodicity of the external anchoring of the cumulative digest (§4.1) | Architecture |
-| - | Default thresholds for the indicators of §7: they are a **product specification, never compliance** (V-12), and must be tuned with the deployer | Functional |
+| [Q-150](../11_registri/02-questioni-aperte.md#q-150) | **Architecture decision record on the immutable audit trail**: application-level hash chain, append-only storage, write-once object storage, or periodic signing with a timestamp (§4.2) | Architecture |
+| [Q-152](../11_registri/02-questioni-aperte.md#q-152) | Expected service levels for the purposes of continuous monitoring, distinct from those set by the decree on regional infrastructures: the incident type based on service levels depends on values the customer defines, and the product must be able to measure them | Architecture, roadmap |
+| [Q-158](../11_registri/02-questioni-aperte.md#q-158) | Point and periodicity of the external anchoring of the cumulative digest (§4.1) | Architecture |
+| - | Default thresholds for the indicators of §7: they are a **product specification, never compliance** ([V-12](../11_registri/01-vincoli-in-vigore.md#v-12)), and must be tuned with the deployer | Functional |

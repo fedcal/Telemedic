@@ -38,15 +38,16 @@ the project takes no interest: it means its contribution is documentary.
 
 ## 2. A note on the form of this table
 
-**Question Q-151.** The detailed annexes of the national authority's determination have not been
+**Question [Q-151](../11_registri/02-questioni-aperte.md#q-151).** The detailed annexes of the national authority's determination have not been
 read line by line. It follows that this table:
 
 - states the **codes** of the 43 measures, which are verified, and their allocation between
   important and essential entities, which is verified;
 - gives a **thematic description** of each measure, following the category of the national
   reference framework from which the codes derive;
-- **does not state the text of the individual requirements**: `[NV]`. The «project contribution»
-  column describes what the product supplies, not what the requirement prescribes.
+- **does not state the text of the individual requirements** - the full text is a gap `[NV]`
+  that `COMP` must close by reading the technical annexes of the national determination. The
+  «project contribution» column describes what the product supplies, not what the requirement prescribes.
 
 Before the definitive compliance matrix is published, the table must be completed with the text of
 the 116 requirements. Until then it is **a reliable thematic allocation and an incomplete
@@ -166,7 +167,7 @@ invisible.
 | **Data protection impact assessment** | Before the processing | **Deployer**, as controller. The project supplies the structural material ([03](./03-protezione-dei-dati.md)) |
 | **Determination of the retention periods** for health documentation | In force | **Deployer**; the product makes them configurable, it does not decide them |
 | **Definition of the expected service levels** for detection purposes | By the deadline for the measures | **Deployer**; the product measures them ([10 §5](./10-risposta-agli-incidenti.md)) |
-| **Choice of the level of assurance** for its own services and its justification in the agreement | On joining | **Deployer**, who is the service provider (V-05) |
+| **Choice of the level of assurance** for its own services and its justification in the agreement | On joining | **Deployer**, who is the service provider ([V-05](../11_registri/01-vincoli-in-vigore.md#v-05)) |
 | Applying the updates released | According to their own policy | **Deployer** |
 | Running the backups and the **periodic restore test** | Scheduled | **Deployer** |
 | **Network rules** denying egress to the application components and isolating the relay | At installation | **Deployer**; the product documents them and checks them at start-up, **refusing start-up** if an application component discovers that it has a route to the outside; where the check is not technically possible, the omission is declared and does not count as a check passed ([06 §8.5](./06-sicurezza-applicativa.md)) |
@@ -179,7 +180,7 @@ operational translation of the «project contribution» columns:
 1. **Compliance file** per release: signed bill of materials, exploitability statement, list of
    outbound network flows with the five attributes, list of remotely accessible systems, reference
    configurations.
-2. **This table**, completed with the text of the requirements after Q-151 is closed.
+2. **This table**, completed with the text of the requirements after [Q-151](../11_registri/02-questioni-aperte.md#q-151) is closed.
 3. **Technical derogation statement** on endpoint protection, with the native compensating controls
    and the supported configuration.
 4. **A negotiable data processing agreement template**, with a technical annex of the controls.
@@ -191,7 +192,7 @@ operational translation of the «project contribution» columns:
 9. **Incident report template** conforming to the requirement on the timeline of events, and an
    agreed notification channel.
 10. **A register of the maintenance, acceptance tests and checks** carried out, exportable.
-11. **Artefact → applicable regime table**, once Q-10 is closed.
+11. **Artefact → applicable regime table**, once [Q-10](../11_registri/02-questioni-aperte.md#q-10) is closed.
 12. **Secure development documentation**: life cycle, threat model, outcomes of the automated
     checks, outcome of the third-party audit.
 
@@ -199,6 +200,6 @@ operational translation of the «project contribution» columns:
 
 | Reference | Question | To whom |
 |---|---|---|
-| Q-151 | Completion of the table with the text of the 116 requirements, after reading the detailed annexes (§2) | Compliance |
-| Q-20 | Review of the allocation of roles between data controller, data processor, manufacturer, identity service provider and obliged entity, before publication | Compliance |
-| Q-154 | If the managed service operator becomes an obliged entity in its own right, **the rows marked D in the table become its own**. It is the most significant change of perimeter the project could undergo | → Project owner |
+| [Q-151](../11_registri/02-questioni-aperte.md#q-151) | Completion of the table with the text of the 116 requirements, after reading the detailed annexes (§2) | Compliance |
+| [`Q-159`](../11_registri/02-questioni-aperte.md#q-159) | Review of the allocation of roles between data controller, data processor, manufacturer, identity service provider and obliged entity, before publication | Compliance |
+| [Q-154](../11_registri/02-questioni-aperte.md#q-154) | If the managed service operator becomes an obliged entity in its own right, **the rows marked D in the table become its own**. It is the most significant change of perimeter the project could undergo | → Project owner |

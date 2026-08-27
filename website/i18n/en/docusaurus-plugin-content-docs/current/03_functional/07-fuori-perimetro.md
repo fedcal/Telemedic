@@ -85,7 +85,7 @@ This section exists because a misread scope does as much harm as wrong scope: on
 | Automatic threshold evaluation and alert generation | **yes**, and it is the element that founds the assumed qualification | the threshold is set by the professional, never deduced (`OUT-08`) |
 | Recognition of an item marked as channel exit and routing instruction | **yes** | it is comparison on a structured item, not an inference; the text is configured, not generated (`RF-315`, `RF-316`) |
 | Calculation of a score from a validated scale | **yes**, if the scale is registered with version, rule and licence | complete calculation traceability, attribution to whoever validates, impact assessment before introduction (`RF-323` … `RF-332`) |
-| Detection of missing data and conversion of technical to clinical alarm | **yes** | it is detection of a fact, not clinical interpretation; constraint V-09 makes it mandatory |
+| Detection of missing data and conversion of technical to clinical alarm | **yes** | it is detection of a fact, not clinical interpretation; constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) makes it mandatory |
 | Presentation to professional of references indicated by the pathway | **yes** | read-only, attributed with source and version, never precompiled (`RF-240`) |
 | Registration of the clinical outcome decided by the professional, including priority code | **yes** | the system records, does not calculate (`OUT-03`) |
 | Own modules for reporting, scheduling and billing | **yes** | disableable and replaceable by configuration: where a regional or integrator module exists, the system integrates instead of duplicating |

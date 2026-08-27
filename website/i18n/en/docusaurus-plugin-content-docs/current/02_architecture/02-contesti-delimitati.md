@@ -168,17 +168,17 @@ For each context: what is entrusted to it, which language it speaks, which invar
    The separation between **service centre and delivery centre** is an authorisation constraint and not
    an organisational convention: whoever manages technical alarms does not access clinical content,
    and composing a role that violates the separation is **rejected with a validation error**
-   (constraint V-125 of the functional area).
+   (constraint [V-125](../11_registri/01-vincoli-in-vigore.md#v-125) of the functional area).
 4. Derogation access has finite duration, is not automatically renewable, requires a free motivation
    and produces an obligation of review with registered outcome.
 5. The guarantee level of identity is always qualified by the source: **executed** by
    the system or **reported** by an integrator. A reported level does not satisfy a requirement of
-   strong authentication (constraint V-154 of the security area, V-165 of the integration area).
+   strong authentication (constraint [V-154](../11_registri/01-vincoli-in-vigore.md#v-154) of the security area, [V-165](../11_registri/01-vincoli-in-vigore.md#v-165) of the integration area).
 6. The representation of delegation is explicit: it always registers **which system acted on
    behalf of which person**. Impersonation is not allowed.
 
 **What it does not do.** It does not preserve the clinical demographics of the patient: it knows a subject exists, not who they are clinically. It does not decide the legal bases of processing, which belong to the controller and live in CTX-09 as registered facts. It does not issue primary credentials for the citizen: the service provider towards the national federation is the installing party
-(constraint V-05), not the project.
+(constraint [V-05](../11_registri/01-vincoli-in-vigore.md#v-05)), not the project.
 
 **Relationships.** It is **conformist** towards the identity federation: the assertion schema is imposed from outside and is not negotiated. It is **conformist in reverse** towards other contexts, in that they accept the access decision without renegotiating it: no context implements its own authorisation logic. It publishes to tracing a versioned language of events of authentication, role assignment, derogation and denial.
 
@@ -234,9 +234,9 @@ Participant is the subject admitted with a role - provider, patient, carer, inte
 **Invariants.**
 
 1. **The state of the encounter does not depend on the state of the media session.** It is the most important invariant of the system and the reason for the separation between CTX-04 and CTX-05.
-1-bis. **Every type of performance is its own state machine**, selected by type; allowed actors, obligatory presence of the patient, asynchrony, obligatory artefacts, allowed outcomes, recordability and windows are **attributes of the catalogue**, not conditions scattered in the code (constraint V-140 of the domain area).
-1-ter. **State and outcome are distinct attributes** and not collapsible: two outcomes can share the terminal state and have opposite administrative effects (constraint V-141).
-1-quater. **The setting discriminates the rules**: the obligation of report is not unconditional and must not be hardcoded - there exist settings in which the performance produces a digital note in place of the report (constraint V-145 of the domain area).
+1-bis. **Every type of performance is its own state machine**, selected by type; allowed actors, obligatory presence of the patient, asynchrony, obligatory artefacts, allowed outcomes, recordability and windows are **attributes of the catalogue**, not conditions scattered in the code (constraint [V-140](../11_registri/01-vincoli-in-vigore.md#v-140) of the domain area).
+1-ter. **State and outcome are distinct attributes** and not collapsible: two outcomes can share the terminal state and have opposite administrative effects (constraint [V-141](../11_registri/01-vincoli-in-vigore.md#v-141)).
+1-quater. **The setting discriminates the rules**: the obligation of report is not unconditional and must not be hardcoded - there exist settings in which the performance produces a digital note in place of the report (constraint [V-145](../11_registri/01-vincoli-in-vigore.md#v-145) of the domain area).
 2. The encounter does not pass to concluded without an **outcome declared by a professional**. No automatic closure by timeout produces a clinical outcome.
 3. The session is not started if obligatory manifestations of will are not verified. Verification is blocking and not degradable.
 4. Every participant is **visible to all** the others. No silent presence, for any role, not even technical support.
@@ -259,11 +259,11 @@ Participant is the subject admitted with a role - provider, patient, carer, inte
 1. **No recording without reference to a current and specific manifestation of will.** General consent to the platform does not cover recording of the single session.
 2. Encryption keys at rest of recorded material are **per tenant** and never shared.
 3. Every piece of recorded material has a set and applied conservation expiry. No recording without term exists.
-4. The cryptographic material of the session is **generated fresh for every session**, without reuse. The project **does not declare protocol versions nor negotiated suites**: it measures them per session, registers them among metadata and renders them exportable; a value below the minimum threshold configured for tenant produces an event (constraint V-156 of the security area).
+4. The cryptographic material of the session is **generated fresh for every session**, without reuse. The project **does not declare protocol versions nor negotiated suites**: it measures them per session, registers them among metadata and renders them exportable; a value below the minimum threshold configured for tenant produces an event (constraint [V-156](../11_registri/01-vincoli-in-vigore.md#v-156) of the security area).
 4-bis. **The session key and the room address are not metadata: they are credentials.**
-   They are not persisted in queryable resources nor transported in fields that transit through third-party systems; they are obtained with an authenticated call, are single-use and have very short life (constraint V-137 of the protocols area).
+   They are not persisted in queryable resources nor transported in fields that transit through third-party systems; they are obtained with an authenticated call, are single-use and have very short life (constraint [V-137](../11_registri/01-vincoli-in-vigore.md#v-137) of the protocols area).
 5. Degradation preserves **audio before video**, always.
-6. Quality samples do not contain direct identifiers of the patient, and no relay infrastructure metric is labelled with the session identifier (constraint V-155 of the security area).
+6. Quality samples do not contain direct identifiers of the patient, and no relay infrastructure metric is labelled with the session identifier (constraint [V-155](../11_registri/01-vincoli-in-vigore.md#v-155) of the security area).
 7. The two operational modes - encrypted end-to-end without recording, and with server-side recording - are **distinct states and mutually exclusive** of the session, with traced transition.
 
 **What it does not do.** It does not attribute clinical meaning to what happens. It does not decide if quality is sufficient for the act: it measures, compares with configured thresholds and informs the professional, who decides. It does not conserve clinical content: recorded material is an artefact of its own, with its own access regime, and is not clinical documentation.
@@ -288,8 +288,8 @@ Participant is the subject admitted with a role - provider, patient, carer, inte
 
 7. The **report of a telehealth visit has its own document typology** of the fascicle: the hypothesis of
    tracing it back to outpatient specialised medicine is **incorrect** and must not be used in any document,
-   example, profile or public material (constraint V-143 of the domain area).
-8. **No document model is hardcoded**: the serialisation adapter exists as an extension point with declared contract (constraint V-136 of the protocols area).
+   example, profile or public material (constraint [V-143](../11_registri/01-vincoli-in-vigore.md#v-143) of the domain area).
+8. **No document model is hardcoded**: the serialisation adapter exists as an extension point with declared contract (constraint [V-136](../11_registri/01-vincoli-in-vigore.md#v-136) of the protocols area).
 
 **What it does not do.** It does not send anything outside: transmission to the source system and documentary infrastructures is CTX-11. It does not decide who can read: it applies the decision of CTX-01 and the obscurings of CTX-09. It does not produce content.
 
@@ -305,8 +305,8 @@ Silence is the absence of an expected measure, and is information in its own rig
 
 **Invariants.**
 
-0. **The context is written on the formulation "deferred collection of parameters for the professional's periodic review".** No artefact - documentation, interface, public material, class name or event name - can use "real-time monitoring", "continuous surveillance" or equivalent formulas (constraint V-144 of the domain area): the difference between the two formulations is worth a risk class.
-1. **No threshold is hardcoded.** Thresholds are per-patient configuration, attributed to an identified professional, with temporal validity. The field starts **empty and mandatory**: no pre-filling, not even with values from the path or the last plan (constraint V-123 of the functional area).
+0. **The context is written on the formulation "deferred collection of parameters for the professional's periodic review".** No artefact - documentation, interface, public material, class name or event name - can use "real-time monitoring", "continuous surveillance" or equivalent formulas (constraint [V-144](../11_registri/01-vincoli-in-vigore.md#v-144) of the domain area): the difference between the two formulations is worth a risk class.
+1. **No threshold is hardcoded.** Thresholds are per-patient configuration, attributed to an identified professional, with temporal validity. The field starts **empty and mandatory**: no pre-filling, not even with values from the path or the last plan (constraint [V-123](../11_registri/01-vincoli-in-vigore.md#v-123) of the functional area).
 2. The measure is **immutable** and carries with it instrument, method, instant of detection, instant of receipt and subject who inserted it. A correction produces a new measure that replaces the previous one, not an overwrite.
 3. **The absence of data is information.** The plan declares the expected volume of detections and
    the system watches the variance; silence is never treated as normality.
@@ -317,12 +317,12 @@ Silence is the absence of an expected measure, and is information in its own rig
 6. The window within which an alarm must be engaged and the behaviour in case of non-engagement are
    **declared and configured**, and inoltro failure is explicit, never silent.
 6-bis. **The alarm is a sequence of immutable events** and the current state is a projection:
-   no state column updated in place, neither for the alarm nor for the measure nor for the plan (constraint V-121 of the functional area).
+   no state column updated in place, neither for the alarm nor for the measure nor for the plan (constraint [V-121](../11_registri/01-vincoli-in-vigore.md#v-121) of the functional area).
 6-ter. **Measurement expectation is an entity**: the absence of a measure is a row that declares
-   the absence, with expected window, expiry instant and cause when known (constraint V-148
+   the absence, with expected window, expiry instant and cause when known (constraint [V-148](../11_registri/01-vincoli-in-vigore.md#v-148)
    of the domain area).
 6-quater. **No care pathway is codified in the software**: adding a pathway requires
-   definition drafting, loading validation, publication with version and scope, associated document and consent models, coverage configuration - **never a release or a schema migration** (constraint V-147 of the domain area).
+   definition drafting, loading validation, publication with version and scope, associated document and consent models, coverage configuration - **never a release or a schema migration** (constraint [V-147](../11_registri/01-vincoli-in-vigore.md#v-147) of the domain area).
 7. The system **does not dialogue directly with medical devices**: it acquires from a third-party gateway and does not assume responsibility for the accuracy of the hardware measurement chain.
 
 **What it does not do.** It does not decide clinically. It does not infer thresholds from historical series. It does not produce prognosis, does not verify therapy interactions, does not formulate interpretive judgements in notices. It does not calculate clinical scale scores while the question of scale licence is unresolved
@@ -343,7 +343,7 @@ Delivery is the channel plus the address; preference is the recipient's choice, 
 2. No sending to unverified recipients.
 3. Essential communications always remain **available in authenticated area**, independent of delivery outcome: the channel is an accelerator, not the seat of the message.
 4. Delivery failure is **declared**: when the escalation chain is exhausted without engagement, the system renders it visible and does not absorb it.
-5. The **declared service hours are a runtime datum versioned** and condition the recipient's validity in the forwarding chain: **a recipient outside service hours is not a valid recipient** and is skipped with registered reason (constraint V-122 of the functional area). It is not a commercial parameter nor a contractual clause. An alarm generated outside service hours is marked as such and never assumes a state suggesting engagement has occurred.
+5. The **declared service hours are a runtime datum versioned** and condition the recipient's validity in the forwarding chain: **a recipient outside service hours is not a valid recipient** and is skipped with registered reason (constraint [V-122](../11_registri/01-vincoli-in-vigore.md#v-122) of the functional area). It is not a commercial parameter nor a contractual clause. An alarm generated outside service hours is marked as such and never assumes a state suggesting engagement has occurred.
 
 **What it does not do.** It does not define the thresholds that generate alarms: it receives them. It does not decide who is the recipient of a clinical alarm: it applies the configuration. It does not preserve clinical content beyond the time necessary for delivery.
 
@@ -358,13 +358,13 @@ the message models and forwarding policies. It has no read access to clinical co
 
 **Invariants.**
 
-0. **Consents are five distinct objects** with independent life cycles: health act, data processing where applicable, recording, presence of third parties, transmission to external systems. **No "consent to the platform" exists in the model** (constraint V-146 of the domain area).
+0. **Consents are five distinct objects** with independent life cycles: health act, data processing where applicable, recording, presence of third parties, transmission to external systems. **No "consent to the platform" exists in the model** (constraint [V-146](../11_registri/01-vincoli-in-vigore.md#v-146) of the domain area).
 1. **Consent is a fact with temporal validity**, never a boolean value on an entity.
 2. Every consent is referred to an **immutable version** of an informational text. Without versioning the notice, consent is undemonstrable.
 3. Consent types are **independent**: the presence of one does not imply the other and revocation of one does not sweep the others away.
 4. Revocation has **immediate effect** on what is in progress: recording is interrupted, transmission is blocked.
 5. **Obscuring is also obscuring of the obscuring**: the existence of the obscured document must not be inferable. The channels of inference to close are **six and must all be closed**: numbering, counts, pagination, notifications, differences between successive queries,
-   error messages. **Application belongs to the authorisation engine in a single point**, which filters and calculates totals on the filtered set, never to consumers (constraint V-149 of the domain area). Test data for acceptance include obscured documents, otherwise no test path exercises the route.
+   error messages. **Application belongs to the authorisation engine in a single point**, which filters and calculates totals on the filtered set, never to consumers (constraint [V-149](../11_registri/01-vincoli-in-vigore.md#v-149) of the domain area). Test data for acceptance include obscured documents, otherwise no test path exercises the route.
 6. The manifestation of will bears its own evidence: declarant, instant, channel, presented text, and - where relevant - the representation title by which it was given.
 
 **What it does not do.** It does not establish the legal bases of processing: those belong to the controller and the context registers them as configured facts. It does not decide who accesses: it provides CTX-01 the negative component of the decision.
@@ -381,7 +381,7 @@ the message models and forwarding policies. It has no read access to clinical co
 
 1. **Single gateway**: no context queries a terminology source directly.
 2. **No persistent cache on disk** for systems whose licence does not permit derivatives.
-3. **No patient identifier** leaves the perimeter towards an external terminology service (constraint V-151 of the security area). The sovereignty of this dependency is satisfied by
+3. **No patient identifier** leaves the perimeter towards an external terminology service (constraint [V-151](../11_registri/01-vincoli-in-vigore.md#v-151) of the security area). The sovereignty of this dependency is satisfied by
    **absence of data**, not by location.
 4. The system is **fully functional** with cost-licensed systems disabled: no main path requires them.
 5. Every codified concept carries its own coding system explicit. A code without system is ambiguous and is not representable.
@@ -403,7 +403,7 @@ the message models and forwarding policies. It has no read access to clinical co
 
 1. **No structure of an external format enters the domain contexts.** Translation is complete and occurs here, in both directions.
 2. Every message outbound is **identified and idempotent**, with explicit deduplication key.
-3. **No clinical content in messages outbound towards third-party systems** (constraint V-161 of the integration area): the event transports identifiers and references; content is reread with an authenticated call under the recipient's authorisation.
+3. **No clinical content in messages outbound towards third-party systems** (constraint [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) of the integration area): the event transports identifiers and references; content is reread with an authenticated call under the recipient's authorisation.
 4. No clinical operation occurs without context of delegation of the user on whose behalf the application principal acts.
 5. Definite delivery failure **is not silent**: it enters a visible reconciliation queue, with a possible action.
 6. One integrator's noise does not degrade the others: automatic switches and quotas are per tenant and per destination, never global.
@@ -412,7 +412,7 @@ the message models and forwarding policies. It has no read access to clinical co
    allowed destinations outbound. Separate registers diverge, and divergence always favours whoever attacks.
 8. **Every outgoing call towards a destination derived from an input datum passes through the
    single outbound mediator**, and to application components output is **denied at the network level**
-   (constraint V-157 of the security area). The relay **does not flow into it**: for it dedicated network isolation applies.
+   (constraint [V-157](../11_registri/01-vincoli-in-vigore.md#v-157) of the security area). The relay **does not flow into it**: for it dedicated network isolation applies.
 
 **What it does not do.** It does not define the canonical model: it receives it. It does not make clinical or administrative decisions: it applies transformations and delivery policies.
 
@@ -430,7 +430,7 @@ Anchor is the point at which the chain becomes opposable outside. Verification i
 1. **Append-only**: no modification, no deletion, for any role.
 2. **Tracing write failure makes the application operation fail.** There is no operation on health data executed without a trace.
 3. Register read is itself registered.
-4. The register **does not contain clinical content** (constraint V-150 of the security area): it contains who, what, when, on which subject, with what outcome.
+4. The register **does not contain clinical content** (constraint [V-150](../11_registri/01-vincoli-in-vigore.md#v-150) of the security area): it contains who, what, when, on which subject, with what outcome.
 5. Storage occurs **separately from the system that generates events**: a database administrator of the application database must not be able to alter the evidence.
 6. The fingerprint chain is verifiable independently from whoever produced the records.
 
@@ -452,7 +452,7 @@ Anchor is the point at which the chain becomes opposable outside. Verification i
 2. The geographic location of a tenant is not modifiable without an explicit migration.
 3. Tenant creation and disposal occur **without manual steps**.
 4. Customisation of appearance is a **closed and versioned** set of properties, validated
-   with contrast verification: a configuration that degrades accessibility is **rejected at save**. Registration indicator, notices, consent texts, key verification outcome, clinical error messages and encryption status indicator are not themeable nor concealable (constraint V-163 of the integration area).
+   with contrast verification: a configuration that degrades accessibility is **rejected at save**. Registration indicator, notices, consent texts, key verification outcome, clinical error messages and encryption status indicator are not themeable nor concealable (constraint [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) of the integration area).
 5. **Clinical** thresholds are not tenant configuration: they are per-patient and belong to
    CTX-07. Tenant configuration can define the limits within which a per-patient threshold can be set, not its value.
 
@@ -464,17 +464,17 @@ Anchor is the point at which the chain becomes opposable outside. Verification i
 
 Domain research had identified a thirteenth support context - the production of billable events and aggregations towards the administrative system - which **does not appear among the thirteen contexts of the binding architectural baseline**.
 
-The fact of the domain that motivates it is real and verified: the performance delivered at distance is billed with the code of the corresponding performance in person, with the channel attribute that qualifies the mode; confusing the axis "what was delivered" with the axis "how it was delivered" renders a telemedicine system not billable. There is moreover an explicit constraint, V-166 of the integration area, according to which the payer integration profile is **administrative by construction**: identifier of the performance, administrative outcome, amount, never references to clinical documents. That constraint presupposes a place where the billable event is formed and where it is guaranteed not to transport anything else.
+The fact of the domain that motivates it is real and verified: the performance delivered at distance is billed with the code of the corresponding performance in person, with the channel attribute that qualifies the mode; confusing the axis "what was delivered" with the axis "how it was delivered" renders a telemedicine system not billable. There is moreover an explicit constraint, [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) of the integration area, according to which the payer integration profile is **administrative by construction**: identifier of the performance, administrative outcome, amount, never references to clinical documents. That constraint presupposes a place where the billable event is formed and where it is guaranteed not to transport anything else.
 
 The options are three and are not equivalent:
 
 | Option | Consequence |
 |---|---|
-| A fourteenth support context dedicated | Clear boundary, making the separation between the clinical plane and the administrative plane structural and making V-166 verifiable. Cost: one more context to govern |
-| Responsibility distributed between CTX-04 and CTX-11 | No new context, but the administrative event is formed inside the clinical context, and guarantee of V-166 becomes a code convention instead of a boundary |
+| A fourteenth support context dedicated | Clear boundary, making the separation between the clinical plane and the administrative plane structural and making [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) verifiable. Cost: one more context to govern |
+| Responsibility distributed between CTX-04 and CTX-11 | No new context, but the administrative event is formed inside the clinical context, and guarantee of [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) becomes a code convention instead of a boundary |
 | Responsibility entirely in CTX-11 | Consistent with the idea that everything exiting passes the boundary, but loads the anticorruption layer with a domain responsibility - which event is billable and with which code - that does not belong to it |
 
-**This area proposes the first option**, argued in the corresponding ADR, but **does not adopt it on its own**: modifying the list of contexts of the binding architectural baseline exceeds the mandate of an area. The question is brought to the orchestrator. Until it is decided, responsibility remains where the baseline leaves it implicitly - that is in CTX-04 for the determination of the billable fact and in CTX-11 for delivery - **with the explicit notice that this placement makes V-166 a convention and not a boundary**, and must be verified with a dedicated test.
+**This area proposes the first option**, argued in the corresponding ADR, but **does not adopt it on its own**: modifying the list of contexts of the binding architectural baseline exceeds the mandate of an area. The question is brought to the orchestrator. Until it is decided, responsibility remains where the baseline leaves it implicitly - that is in CTX-04 for the determination of the billable fact and in CTX-11 for delivery - **with the explicit notice that this placement makes [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) a convention and not a boundary**, and must be verified with a dedicated test.
 
 ## 6. Rules for crossing boundaries
 

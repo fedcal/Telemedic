@@ -22,7 +22,7 @@ Questo capitolo ne ricava la struttura dati, e parte da una decisione:
 > entrambe. È lo stesso principio del documento firmato, per la stessa ragione: qualcuno ha già
 > preso una decisione sulla base del valore precedente.
 
-Il vincolo è già in base architetturale (`04_BASELINE_ARCHITETTURALE.md` § 2). Qui se ne ricava
+Il vincolo è già in base architetturale ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 2). Qui se ne ricava
 la forma.
 
 ## 1. Il contesto obbligatorio
@@ -48,7 +48,7 @@ valore è strano.
 | **Indicatori di qualità riportati dal dispositivo** | quando disponibili | segnalazioni di errore, indici di attendibilità del rilevamento | si perde l'unico segnale automatico di misura non attendibile |
 | **Stato** | sì | preliminare, definitiva, corretta, annullata | non si sa se il valore è utilizzabile |
 | **Piano e versione del piano** | sì per le misure di piano | quale piano l'ha richiesta e in quale versione | la valutazione rispetto alle soglie non è ricostruibile |
-| **Tenant** | sì | `V-04` | scrittura rifiutata |
+| **Tenant** | sì | [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04) | scrittura rifiutata |
 
 > **`DM-51` [MOD] - Il contesto non è un campo note.** Ogni attributo della tabella è un
 > elemento distinto con un proprio tipo. Un campo di testo libero «note sulla misurazione»
@@ -65,7 +65,7 @@ ripete.
 
 Il problema si presenta al primo reinvio: un gateway di terze parti ritrasmette un lotto di
 misure già inviate, perché la consegna è **almeno una volta**
-(`04_BASELINE_ARCHITETTURALE.md` § 5). Senza una chiave, si registrano duplicati; con una chiave
+([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 5). Senza una chiave, si registrano duplicati; con una chiave
 sbagliata, si perdono misure legittime.
 
 > **`DM-52` [MOD] - Chiave di deduplicazione esplicita, dichiarata dal produttore.** La misura
@@ -132,7 +132,7 @@ dà l'esempio clinico.
 
 L'ultima riga è più importante di quanto sembri. Alcune conversioni fra unità di uso clinico
 richiedono un fattore che dipende dalla sostanza misurata. Un sistema che le esegua sta
-compiendo un'operazione interpretativa, non una normalizzazione, e il vincolo `V2` di
+compiendo un'operazione interpretativa, non una normalizzazione, e il vincolo [`V2`](../11_registri/03-vincoli-fondanti.md#v2) di
 separazione impone che l'operazione sia riconoscibile come tale.
 
 ### 3.3 La codifica delle unità
@@ -174,7 +174,7 @@ lo verifica e non deve lasciar credere di verificarlo.
 > sistema applica.
 
 L'ultima frase è una scelta di perimetro. Applicare pesi di attendibilità sarebbe interpretazione
-del dato, e sposterebbe il sistema oltre il confine di `V2`.
+del dato, e sposterebbe il sistema oltre il confine di [`V2`](../11_registri/03-vincoli-fondanti.md#v2).
 
 ### 4.2 Il tesserino dispositivi
 
@@ -223,7 +223,7 @@ La consegna almeno-una-volta e i gateway di terze parti producono regolarmente d
 fuori ordine. Il modello lo assume come normale, non come anomalia:
 
 1. **L'ordine di arrivo non è l'ordine clinico.** Nessuna logica di dominio può dipendere
-   dall'ordine di ricezione (`04_BASELINE_ARCHITETTURALE.md` § 5).
+   dall'ordine di ricezione ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 5).
 2. **Un dato tardivo può riaprire una valutazione.** Una misura che arriva dopo che una finestra
    è stata dichiarata mancata **modifica** il fatto: lo stato passa da mancata a ricevuta, e
    l'evento di assenza precedentemente emesso va contraddetto esplicitamente, non dimenticato.
@@ -235,7 +235,7 @@ fuori ordine. Il modello lo assume come normale, non come anomalia:
 
 È il punto in cui questo capitolo incontra il vincolo che l'orchestrazione ha reso trasversale.
 
-> **[BASE] `V-09`** - L'assenza di dato è informazione clinica: il silenzio non è mai trattato
+> **[BASE] [`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09)** - L'assenza di dato è informazione clinica: il silenzio non è mai trattato
 > come normalità.
 
 ### 6.1 L'attesa come entità
@@ -303,7 +303,7 @@ per questo è l'unico che il sistema può e deve rilevare da solo.
 > per tenant, distinta dalla sorveglianza per singolo assistito. Un crollo del volume aggregato
 > è un evento tecnico che precede di ore o giorni la comparsa di assenze individuali, e va
 > trattato come incidente della piattaforma, non come somma di casi clinici. È la voce
-> «sorveglianza del volume atteso» della questione `Q-12` in bacheca.
+> «sorveglianza del volume atteso» della questione [`Q-12`](../11_registri/02-questioni-aperte.md#q-12) in bacheca.
 
 La sorveglianza aggregata non ha problemi di riservatezza - conta eventi, non li legge - ma va
 progettata perché il conteggio non diventi un canale di inferenza: il capitolo
@@ -315,7 +315,7 @@ progettata perché il conteggio non diventi un canale di inferenza: il capitolo
 
 > **[BASE]** Le serie temporali dei parametri sono conservate in strutture dedicate a serie
 > temporali; **la rappresentazione conforme allo standard è una proiezione, non lo strumento di
-> archiviazione** (`04_BASELINE_ARCHITETTURALE.md` § 3).
+> archiviazione** ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 3).
 
 Sul piano del dominio la conseguenza è che l'aggregato «misura» è definito dal dominio e
 proiettato verso lo standard, non definito dallo standard. La differenza si vede su tre punti:
@@ -353,7 +353,7 @@ regolare produce interpolazioni che non corrispondono a nulla.
 
 ### 8.1 Il vincolo
 
-> **[BASE] `V-02`** - Nessuna soglia clinica è cablata: le soglie sono **configurazione per
+> **[BASE] [`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)** - Nessuna soglia clinica è cablata: le soglie sono **configurazione per
 > assistito**, decise dal professionista.
 
 Il modulo [10 dei fondamenti](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 7.9 e § 7.10
@@ -388,11 +388,11 @@ e ciò che il sistema fa.
 > allarme è scattato» né alla domanda opposta, che è quella che conta davvero: «perché non è
 > scattato».
 
-È la voce «tracciabilità del calcolo» della questione `Q-12` in bacheca.
+È la voce «tracciabilità del calcolo» della questione [`Q-12`](../11_registri/02-questioni-aperte.md#q-12) in bacheca.
 
 ### 8.4 Che cosa il sistema non fa
 
-Tre esclusioni che delimitano il perimetro, coerenti con la questione `Q-01` in bacheca:
+Tre esclusioni che delimitano il perimetro, coerenti con la questione [`Q-01`](../11_registri/02-questioni-aperte.md#q-01) in bacheca:
 
 1. **Non deduce soglie** dalla popolazione, dallo storico dell'assistito o da altri assistiti.
 2. **Non formula giudizi** negli avvisi: l'avviso dichiara che un valore è fuori dalla soglia
@@ -423,7 +423,7 @@ medico. Ne discende una decisione di perimetro che quest'area prende esplicitame
 
 ### 9.3 Le scale hanno licenze proprie
 
-> **Questione `Q-11` in bacheca, indirizzata alle aree `COMP` e `ARCH`, con concorso di questa
+> **Questione [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) in bacheca, indirizzata alle aree `COMP` e `ARCH`, con concorso di questa
 > area.** Le scale e i questionari clinici validati **hanno licenze proprie**: la policy
 > terminologica va estesa formalmente a scale e punteggi **prima** di scrivere il primo motore
 > di calcolo.

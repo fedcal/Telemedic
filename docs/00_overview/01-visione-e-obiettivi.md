@@ -39,7 +39,7 @@ un'adozione.
 
 **Non è un prodotto pensato per un solo interlocutore.** È progettato per una molteplicità di
 integratori, e la proprietà multi-integratore è verificata dalla suite di prove, non dichiarata
-(vincolo `V-188`: ogni prova di integrazione esercita almeno due tenant e due integratori
+(vincolo [`V-188`](../11_registri/01-vincoli-in-vigore.md#v-188): ogni prova di integrazione esercita almeno due tenant e due integratori
 distinti, con configurazioni deliberatamente divergenti).
 
 ## 2. Il problema reale
@@ -71,13 +71,13 @@ Il DM 19 novembre 2025, art. 7, ha introdotto **dieci nuove tipologie documental
 sanitario elettronico dedicate alla telemedicina, con set informativo definito in Gazzetta
 Ufficiale (Allegato 1). Non sono varianti del referto di specialistica ambulatoriale: sono
 tipologie proprie, e usare quella sbagliata è un difetto di conformità, non un'imprecisione
-(vincolo `V-143`).
+(vincolo [`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)).
 
 Il progetto ne ricava una scelta strutturale: il contenuto informativo dei documenti destinati al
 fascicolo si modella come **dataset canonico**, e le serializzazioni concrete sono
-**sostituibili** e non cablate (vincolo `V-07`). È l'unica forma che sopravvive al fatto che i
+**sostituibili** e non cablate (vincolo [`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07)). È l'unica forma che sopravvive al fatto che i
 modelli documentali, i codici di tipologia e i metadati di indicizzazione di quelle dieci
-tipologie **non sono oggi pubblicamente disponibili** (questione `Q-07`, aperta).
+tipologie **non sono oggi pubblicamente disponibili** (questione [`Q-07`](../11_registri/02-questioni-aperte.md#q-07), aperta).
 
 ### 2.3 Esiste una terza via per gli applicativi non nazionali
 
@@ -90,13 +90,13 @@ parlare.
 ### 2.4 L'integrazione viene prima delle funzionalità
 
 Un sistema di telemedicina che non dialoga con il gestionale già in uso non viene adottato, per
-quanto buono sia. Da qui il vincolo architetturale `V3` - **ogni capacità del sistema deve essere
+quanto buono sia. Da qui il vincolo architetturale [`V3`](../11_registri/03-vincoli-fondanti.md#v3) - **ogni capacità del sistema deve essere
 raggiungibile da un sistema terzo tramite interfaccia documentata; nessuna funzionalità è
-accessibile soltanto dall'interfaccia utente** - e il suo corollario operativo `V-164`: l'area
+accessibile soltanto dall'interfaccia utente** - e il suo corollario operativo [`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164): l'area
 che introduce una capacità introduce anche il contratto, e finché il contratto non c'è la
 capacità non è completa.
 
-Ne discendono tre proprietà che l'area di integrazione tratta come condizioni di progetto e non
+Ne discendono tre proprietà che l'`INTEG` tratta come condizioni di progetto e non
 come opzioni: Telemedic **non impone la propria interfaccia**, **non impone la propria
 autenticazione**, **non diventa il dato di riferimento** di assistiti, professionisti e agende.
 
@@ -111,19 +111,19 @@ maggior parte.
 che non sa distinguere un assistito che non si è presentato da un assistito che ha tentato e non
 è riuscito a collegarsi non è impreciso: è falso, e produce addebiti ingiusti. Gli esiti
 `EX-NOSHOW` ed `EX-TECH-PATIENT` condividono lo stesso stato terminale e hanno effetti
-amministrativi **opposti**, e nessuna area può collassarli in un unico campo (vincolo `V-141`).
+amministrativi **opposti**, e nessuna area può collassarli in un unico campo (vincolo [`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)).
 
 Lo stesso criterio genera altre regole apparentemente scollegate: il documento clinico firmato è
 immutabile e si rettifica con una versione successiva; il consenso è un fatto con validità
 temporale e non un valore booleano; il ruolo è una relazione fra persona e organizzazione con
 validità temporale e non un attributo della persona; **l'assenza di dato è informazione clinica**
-e il silenzio non è mai trattato come normalità (vincolo `V-09`).
+e il silenzio non è mai trattato come normalità (vincolo [`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09)).
 
 ### 3.2 Il confine fra registrare e interpretare è la linea che regge la qualificazione
 
 Il sistema **trasporta, struttura, firma e conserva** contenuto clinico redatto da un
 professionista. Non lo **genera** e non lo **interpreta**. La formulazione positiva del confine,
-che vale come criterio di progettazione, è nell'area funzionale:
+che vale come criterio di progettazione, è nell'`FUNZ`:
 
 > l'instradamento risponde alla domanda «questo canale è adeguato?», la valutazione risponde alla
 > domanda «che cosa ha questa persona?». La prima è una proprietà del servizio, e il servizio la
@@ -144,15 +144,15 @@ mesi e un ordine di grandezza di costo (`D46`).
 
 Il modello di dominio è scritto **interamente** sulla seconda formulazione, e nessun artefatto del
 progetto - documentazione, interfaccia, materiale pubblico, nome di classe o di evento - può usare
-«monitoraggio in tempo reale», «sorveglianza continua» o formule equivalenti (vincolo `V-144`).
+«monitoraggio in tempo reale», «sorveglianza continua» o formule equivalenti (vincolo [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144)).
 Non è cautela redazionale: è la scelta da cui dipende tutto il percorso regolatorio a valle. Il
-**congelamento formale è stato deliberato** (`D55`, che chiude la questione `Q-144`), e ne discende
+**congelamento formale è stato deliberato** (`D55`, che chiude la questione [`Q-144`](../11_registri/02-questioni-aperte.md#q-144)), e ne discende
 un divieto permanente: **nessuna funzione può essere aggiunta se sposta il sistema verso il tempo
 reale clinico**, e la valutazione va fatta prima di scrivere la funzione, non dopo.
 
 ### 3.4 Sovranità del dato come proprietà verificabile, non come slogan
 
-Il vincolo `V1` stabilisce che **nessun componente obbligatorio del percorso principale dipenda da
+Il vincolo [`V1`](../11_registri/03-vincoli-fondanti.md#v1) stabilisce che **nessun componente obbligatorio del percorso principale dipenda da
 servizi non sostituibili o stabiliti fuori dall'Unione europea**. Tre profili di dispiegamento
 sono documentati e supportati - Unione europea, territorio italiano, cloud qualificato nazionale -
 e nessuna dipendenza di runtime può impedire il profilo più restrittivo (`D24`).
@@ -169,7 +169,7 @@ architetturale (`D40`). Il progetto fornisce, come artefatto, la scheda con i da
 La stessa logica vale in negativo: il servizio esterno di terminologia, se stabilito fuori
 dall'Unione, è un trasferimento nel momento in cui riceve dati riferibili a un assistito. La
 risposta del progetto non è collocarlo altrove ma **non mandargli mai identificativi
-dell'assistito** - la sovranità si soddisfa per assenza di dato (vincolo `V-151`).
+dell'assistito** - la sovranità si soddisfa per assenza di dato (vincolo [`V-151`](../11_registri/01-vincoli-in-vigore.md#v-151)).
 
 ### 3.5 Accessibilità e progettazione a partire dallo schermo piccolo sono requisiti funzionali
 
@@ -186,7 +186,7 @@ Ne discende un limite invalicabile per chi incorpora il componente: indicatore d
 corso, avvisi e testi di consenso, esito della verifica delle chiavi, messaggi di errore clinico e
 indicatore dello stato di cifratura **non sono tematizzabili né occultabili**, e una configurazione
 di tema che degradi il contrasto **viene rifiutata al salvataggio**, non segnalata come avviso
-(vincolo `V-163`).
+(vincolo [`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)).
 
 ## 4. Chi ne beneficia, e in che modo
 
@@ -242,7 +242,7 @@ costituire**, ed è un prerequisito interno con un proprio tempo.
    documentazione, per la comunicazione pubblica e per il materiale di presentazione. Una
    pianificazione interna non diventa una promessa solo perché è del progetto, e la promessa di un
    esito regolatorio datato è precisamente ciò che il divieto sulle dichiarazioni fuorvianti
-   colpisce (vincolo `V-171`).
+   colpisce (vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)).
 4. **La responsabilità verso il danneggiato non è escludibile per contratto** (Direttiva (UE)
    2024/2853, art. 15). Vale ora come prima, e con più forza da quando l'intenzione di certificare
    è del progetto.
@@ -259,7 +259,7 @@ indefinito; lo sono a maggior ragione ora che il fabbricante sarà il progetto.
 Un progetto open source **non può** esserlo. Il fornitore di servizi ai sensi del DPCM 24 ottobre
 2014, art. 1, c. 1, lett. i), è chi *eroga servizi in rete*, e la convenzione impegna a dichiarare
 all'autorità l'elenco dei servizi attivi: il fornitore di servizi è **chi installa**, mai il
-progetto (`D36`, vincolo `V-05`, `OUT-22`).
+progetto (`D36`, vincolo [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05), `OUT-22`).
 
 L'obiettivo è quindi un prodotto **conforme e verificabile in integrazione continua**, non
 un'installazione accreditata. La differenza non è nominale: i tempi dell'accreditamento non sono
@@ -271,7 +271,7 @@ Assistiti, professionisti, sedi e appuntamenti sono già gestiti altrove. Il sis
 riferimento**, con gli identificatori del dominio di attribuzione di chi integra, e non implementa
 un indice di riconciliazione delle identità né fusioni automatiche per somiglianza (`OUT-15`).
 Nessun identificatore esterno è chiave primaria, e la normalizzazione avviene al confine, mai nel
-dominio (vincolo `V-142`).
+dominio (vincolo [`V-142`](../11_registri/01-vincoli-in-vigore.md#v-142)).
 
 ### 5.4 Telemedic non vuole essere l'archivio clinico della struttura
 
@@ -303,7 +303,7 @@ soglie, non decide di non allarmare sulla base di altri dati clinici (`OUT-01` �
 
 Il presidio non è documentale: una proposta che introduca una di queste funzioni **non si valuta
 nel merito tecnico, si rifiuta per politica di perimetro**, con motivazione regolatoria scritta
-(vincolo `V-170`). Vale anche per l'introduzione di un componente di intelligenza artificiale, che
+(vincolo [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)). Vale anche per l'introduzione di un componente di intelligenza artificiale, che
 è un cambio di regime normativo e non una scelta tecnica.
 
 ### 5.7 Telemedic non vuole mediare l'accesso di un pagatore al fascicolo
@@ -311,13 +311,13 @@ nel merito tecnico, si rifiuta per politica di perimetro**, con motivazione rego
 L'art. 15, c. 4, del DM 7 settembre 2023 esclude **sempre** le compagnie di assicurazione
 dall'accesso al Fascicolo sanitario elettronico, insieme a periti e datori di lavoro. Il caso
 d'uso in cui una prestazione è **pagata** da un fondo, una mutua o una polizza resta pienamente
-valido: **il pagatore non è un consultatore** (`D48`, vincolo `V-08`, `OUT-18`).
+valido: **il pagatore non è un consultatore** (`D48`, vincolo [`V-08`](../11_registri/01-vincoli-in-vigore.md#v-08), `OUT-18`).
 
 Nessun ambito di autorizzazione, nessun tipo di evento, nessun modulo sostituibile e nessuna
 configurazione di tenant può costituire un percorso - diretto o mediato da un professionista - con
 cui un pagatore ottiene contenuto clinico. Il profilo di integrazione del pagatore è
 **amministrativo per costruzione**: identificativo della prestazione, esito amministrativo,
-importo (vincolo `V-166`). È l'esclusione **non riapribile** finché la fonte è in vigore.
+importo (vincolo [`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166)). È l'esclusione **non riapribile** finché la fonte è in vigore.
 
 ### 5.8 Telemedic non vuole distribuire contenuto di terzi che non può distribuire
 
@@ -329,7 +329,7 @@ installa. Le condizioni e le conseguenze per chi installa sono in
 [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md).
 
 Il corollario obbligato, che non è un ripiego: **il sistema è pienamente funzionale senza SNOMED
-CT** e nessun percorso principale può richiederlo (vincolo `V-03`). Il costo è dichiarato invece
+CT** e nessun percorso principale può richiederlo (vincolo [`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)). Il costo è dichiarato invece
 di essere taciuto.
 
 Con la stessa logica il progetto **non distribuisce alcun catalogo di prestazioni**, nemmeno come
@@ -349,7 +349,7 @@ può suggerire il contrario.
 
 Nessun capitolo di `docs/` è una procedura del sistema di gestione della qualità né un documento
 del fascicolo tecnico, e nessuna area può presentarlo come tale: i capitoli sono **ingressi**,
-contengono l'analisi da cui un documento controllato si scrive (vincolo `V-174`). È il punto di
+contengono l'analisi da cui un documento controllato si scrive (vincolo [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174)). È il punto di
 giunzione dell'intero modello: il progetto può compilare quasi tutto il fascicolo tecnico, tranne
 ciò che presuppone un sistema di controllo dei documenti di un fabbricante.
 
@@ -359,14 +359,14 @@ Due elenchi di formule vietate sono in vigore, e valgono per ogni artefatto pubb
 documentazione, sito, `README`, titolo di sezione, descrizione di interfaccia, messaggio di
 errore, nota di rilascio, risposta a una gara.
 
-Il primo è di natura tecnica (vincolo `V-133`, elenco completo in
+Il primo è di natura tecnica (vincolo [`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133), elenco completo in
 [`docs/04_protocols/10-conformita-e-prove.md`](../04_protocols/10-conformita-e-prove.md) §2):
 niente «conforme» su mappe che le specifiche stesse qualificano come informative; niente
 «standard» su intestazioni che non sono mai state standardizzate; niente «conforme alla guida
 italiana» senza la versione, che oggi è una bozza; niente «cifrato fino agli estremi» senza la
 condizione della modalità senza registrazione.
 
-Il secondo è di natura regolatoria (vincolo `V-171`, tabella in
+Il secondo è di natura regolatoria (vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), tabella in
 [`docs/08_compliance/01-inquadramento-normativo.md`](../08_compliance/01-inquadramento-normativo.md)
 §11): nessun testo può affermare o lasciare intendere una conformità, una marcatura o una
 certificazione inesistenti. Il fondamento è che l'art. 7 e l'art. 2, punto 12, del Regolamento (UE)
@@ -384,7 +384,7 @@ ha corretto invece di ereditarle:
 
 Una quarta riformulazione riguarda l'indice di qualità della sessione: è **proprietario e va
 dichiarato tale**, perché non esiste un punteggio di opinione media applicabile al tempo reale
-secondo alcuna raccomandazione internazionale (vincolo `V-114`).
+secondo alcuna raccomandazione internazionale (vincolo [`V-114`](../11_registri/01-vincoli-in-vigore.md#v-114)).
 
 ## 7. Perché la documentazione è venuta prima del codice
 
@@ -402,7 +402,7 @@ Il primo è regolatorio. Alcune attività non sono recuperabili a posteriori: la
 richiesta da IEC 62304 non si ricostruisce, gli identificativi di requisito riusati per un
 requisito diverso rendono inservibile l'intera matrice, censire i componenti di terze parti a
 posteriori costa molte volte tanto, e ciò che nasce fuori dal controllo dei documenti va riemesso
-(`D45`). Da qui il vincolo `V-182`: **nessuna riga di codice applicativo precede la catena di
+(`D45`). Da qui il vincolo [`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182): **nessuna riga di codice applicativo precede la catena di
 costruzione** che genera la distinta dei materiali e il registro degli identificativi.
 
 Il secondo è di adozione. In sanità un software non documentato non è installabile. La

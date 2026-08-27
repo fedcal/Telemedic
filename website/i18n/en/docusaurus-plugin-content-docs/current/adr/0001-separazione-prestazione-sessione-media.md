@@ -7,7 +7,7 @@ description: "Why the remote clinical act and the real-time connection are two d
 # ADR-0001 - Separation between clinical service and media session
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference constraints**: V-01 of noticeboard; architectural foundation §2
+**Reference constraints**: [V-01](../11_registri/01-vincoli-in-vigore.md#v-01) of noticeboard; architectural foundation §2
 
 ## Context
 
@@ -78,7 +78,7 @@ Operational rule that follows, and which is the substance of the decision:
 - No path in which an event of the media session invokes a state transition of the act.
 - Proof that, after drop and reconnection, a single service exists.
 
-**Who else is constrained**: all areas. It is constraint V-01 of noticeboard and no area can unite them.
+**Who else is constrained**: all areas. It is constraint [V-01](../11_registri/01-vincoli-in-vigore.md#v-01) of noticeboard and no area can unite them.
 
 ## References
 

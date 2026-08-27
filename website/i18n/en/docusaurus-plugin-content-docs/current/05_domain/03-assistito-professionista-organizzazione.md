@@ -33,7 +33,7 @@ observable:
 
 | Defect | How it manifests |
 |---|---|
-| **Impossibility of multiple context** | The professional sees in a single list patients of different organisations, which are independent data controllers (`V-04`) |
+| **Impossibility of multiple context** | The professional sees in a single list patients of different organisations, which are independent data controllers ([`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04)) |
 | **Loss of history** | On cessation of the relationship with organisation A the role is deleted or overwritten, and historical contacts lose the context in which they were delivered |
 | **Authorisation not representable** | "Can sign reports of this branch **at this structure**" is not expressible with attributes on the person |
 | **Ambiguous billing** | The service is attributed to the delivering structure, which is a property of the role, not the person |
@@ -54,14 +54,14 @@ error from a didactic side; here the data structure follows from it.
 > **[BASE]** In the integration model demographics are not the project's: patients, professionals
 > and schedules are already managed elsewhere. The system works **by reference** - external
 > identifiers with explicit attribution domain - and does not become the *master data*
-> (`00_PROJECT_BRIEF.md` § 6.2.3).
+> ([`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) § 6.2.3).
 
 Four properties of the model follow from this, all verifiable.
 
 1. **The working identity is the pair `system` + `value`.** An identifier without attribution
    domain is a string, not an identifier. The pair is unique per tenant (`RF-021`) and repeated
    creation with the same values does not generate duplicates.
-2. **No external identifier is a primary key** (`04_BASELINE_ARCHITETTURALE.md` § 3). The tax
+2. **No external identifier is a primary key** ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 3). The tax
    code is an identifier with explicit domain, not a key: it changes, is missing, is provisional,
    is affected by homonymy. Module 04 of the foundations, § 2.3 and § 2.9, gives the cases.
 3. **The model admits multiple identifiers for the same person**, each with its own domain:
@@ -73,7 +73,7 @@ Four properties of the model follow from this, all verifiable.
 
 ### 2.2 The tax code and its two domains
 
-> **[NV] - Question `Q-06` on the board, addressed to areas `ARCH` and `TECH`.** Italian
+> **[NV] - Question [`Q-06`](../11_registri/02-questioni-aperte.md#q-06) on the board, addressed to areas `ARCH` and `TECH`.** Italian
 > implementation guides use **two different URIs** for the tax code:
 > `http://hl7.it/sid/codiceFiscale` in *IT Base* and *Televisita* families,
 > `http://hl7.it/fhir/itcore/CodeSystem/cs-codicefiscale` in *IT-Core*. They are two distinct
@@ -120,7 +120,7 @@ calendar export (`RF-051`).
 
 ### 2.4 No global patient index
 
-> **[BASE] `V-04`** - Every entity carries the tenant identifier. The same physical person
+> **[BASE] [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04)** - Every entity carries the tenant identifier. The same physical person
 > present in two tenants is represented by **distinct and non-correlatable entities** with any
 > query of the platform (`RF-023`).
 
@@ -130,7 +130,7 @@ the correct price to pay, because two tenants are typically **two independent da
 and a correlation between their data is a communication of healthcare data that no one has
 authorised.
 
-The project **does not implement a primary patient index** (`00_PROJECT_BRIEF.md` § 6.2.3):
+The project **does not implement a primary patient index** ([`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) § 6.2.3):
 it consumes the identity of the source system.
 
 ## 3. The professional
@@ -220,7 +220,7 @@ The two centres have responsibilities that the model must be able to separate:
 ### 3.5 Non-human subjects
 
 Not all actors are persons. The **integrator** is an application principal with its own keys, its
-own webhooks, its own limits and its own personalisation configuration (`00_PROJECT_BRIEF.md` §
+own webhooks, its own limits and its own personalisation configuration ([`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) §
 6.2.6).
 
 > **[BASE]** An integrator's application credentials **do not alone confer access to clinical
@@ -451,7 +451,7 @@ part of the care relationship. Three distinct paths, with three distinct treatme
 |---|---|
 | **Foreseen in booking** | consent gathered beforehand; own access link; appearance in the list of participants |
 | **Arose during session** | professional declares them; system asks the beneficiary for **explicit** confirmation, not silence-consent; entry and exit recorded |
-| **Present but undeclared** | system **does not execute automatic face detection** (constraint `V2` and confidentiality profile). The burden of asking is the professional's; the system provides the field to record the response |
+| **Present but undeclared** | system **does not execute automatic face detection** (constraint [`V2`](../11_registri/03-vincoli-fondanti.md#v2) and confidentiality profile). The burden of asking is the professional's; the system provides the field to record the response |
 
 The third row is a domain decision worth making explicit: **the system deliberately renounces a
 technical capability available**. Introducing automatic face recognition would change the risk
@@ -499,12 +499,12 @@ contradictory decisions.
 - **Federated digital identity** - realm, provider, assurance levels, propagation of
   authentication context - is for areas `SEC` and `INTEG`. This area consumes the assurance
   level as a subject attribute and does not decide its production.
-- **Divergence of tax code URIs** is question `Q-06`, addressed to `ARCH` and `TECH`. This area
+- **Divergence of tax code URIs** is question [`Q-06`](../11_registri/02-questioni-aperte.md#q-06), addressed to `ARCH` and `TECH`. This area
   contributes with `DM-31` and does not close it.
 - **Partition data-controller/data-processor** in service model and at-customer installation is
   for area `COMP` (`R6` § 11.2, voce Q14). This area limits itself to requiring that the model
   **can represent different data controllers on the same installation**, which is a structural
-  requirement already satisfied by `V-04`.
+  requirement already satisfied by [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04).
 
 ## Remember
 

@@ -39,11 +39,11 @@ sono quelle in cui l'errore di modellazione è più probabile.
 | Parola ambigua | Le accezioni che vanno separate | Conseguenza sul modello |
 |---|---|---|
 | **Sessione** | Atto clinico · connessione in tempo reale · unità rendicontabile | Tre tipi distinti: `Prestazione`, `SessioneMedia`, evento rendicontabile |
-| **Consenso** | **Cinque oggetti distinti**: atto sanitario · trattamento dei dati ove applicabile · registrazione · presenza di terzi · trasmissione a sistemi esterni | Un solo aggregato `Consenso` con un tipo esplicito e **cinque istanze indipendenti** con cicli di vita separati, mai un valore booleano. **Nessun «consenso alla piattaforma» esiste nel modello** (vincolo V-146 dell'area di dominio) |
+| **Consenso** | **Cinque oggetti distinti**: atto sanitario · trattamento dei dati ove applicabile · registrazione · presenza di terzi · trasmissione a sistemi esterni | Un solo aggregato `Consenso` con un tipo esplicito e **cinque istanze indipendenti** con cicli di vita separati, mai un valore booleano. **Nessun «consenso alla piattaforma» esiste nel modello** (vincolo [V-146](../11_registri/01-vincoli-in-vigore.md#v-146) dell'area di dominio) |
 | **Prestazione** | Richiesta · esecuzione · addebito | Tre concetti: la richiesta è un riferimento esterno, l'esecuzione è `Prestazione`, l'addebito è un evento |
 | **Paziente** | Qualifica clinica · qualifica amministrativa (assistito) | Un solo riferimento anagrafico, con la copertura amministrativa come attributo separato e temporale |
 | **Registrazione** | Cattura audiovisiva · atto di registrare un fatto nel sistema | Nel codice, `RegistrazioneSessione` per la prima, `traccia` o `evento` per la seconda: la collisione è reale e produce difetti |
-| **Esito** | Dove si trova il contatto (stato) · che cosa è successo (esito) | **Due attributi distinti**, mai collassabili: due esiti possono condividere lo stato terminale e avere effetti amministrativi **opposti** (vincolo V-141 dell'area di dominio). L'esito è **valore di dominio, non codice di errore**: un esito sfavorevole è un'operazione **riuscita** che registra un fatto (vincolo V-126 dell'area funzionale) |
+| **Esito** | Dove si trova il contatto (stato) · che cosa è successo (esito) | **Due attributi distinti**, mai collassabili: due esiti possono condividere lo stato terminale e avere effetti amministrativi **opposti** (vincolo [V-141](../11_registri/01-vincoli-in-vigore.md#v-141) dell'area di dominio). L'esito è **valore di dominio, non codice di errore**: un esito sfavorevole è un'operazione **riuscita** che registra un fatto (vincolo [V-126](../11_registri/01-vincoli-in-vigore.md#v-126) dell'`FUNZ`) |
 | **Disponibile** | Pubblicato · prenotabile da un canale · non ancora occupato | Tre attributi distinti dell'intervallo, mai un solo valore booleano |
 
 Una regola che discende da qui e vale per tutto il codice: **nessun tipo del dominio si chiama con
@@ -52,7 +52,7 @@ una parola ambigua senza qualificazione**. `Sessione` da sola non è un nome amm
 ## 3. La separazione fra prestazione clinica e sessione media
 
 È la decisione di modellazione più importante del sistema. La base architetturale la impone come
-vincolo, la bacheca inter-agenti la registra come V-01, e la ricerca di dominio la definisce
+vincolo, la bacheca inter-agenti la registra come [V-01](../11_registri/01-vincoli-in-vigore.md#v-01), e la ricerca di dominio la definisce
 «l'errore di modellazione più costoso di questo dominio» quando viene violata. Questa sezione ne
 ricostruisce integralmente la motivazione, perché una decisione imposta e non compresa viene
 aggirata alla prima occasione.
@@ -219,13 +219,13 @@ stateDiagram-v2
 > televisita: **ogni tipo di prestazione è la propria macchina a stati**, selezionata dal tipo, e
 > attori ammessi, obbligo di presenza dell'assistito, asincronia, artefatti obbligatori, esiti
 > ammessi, registrabilità e finestre sono **attributi del catalogo delle prestazioni**, non
-> condizioni sparse nel codice (vincolo V-140 dell'area di dominio). Aggiungere una prestazione è
+> condizioni sparse nel codice (vincolo [V-140](../11_registri/01-vincoli-in-vigore.md#v-140) dell'area di dominio). Aggiungere una prestazione è
 > una riga di catalogo più una macchina a stati, mai una modifica del dominio.
 > Inoltre **stato ed esito sono attributi distinti**: lo stato dice dove si trova il contatto,
 > l'esito che cosa è successo. Due esiti possono condividere lo stato terminale e avere effetti
 > amministrativi opposti - la mancata presentazione e il fallimento tecnico attribuibile
 > all'assistito ne sono il caso canonico - e collassarli in un unico campo è vietato
-> (vincolo V-141).
+> (vincolo [V-141](../11_registri/01-vincoli-in-vigore.md#v-141)).
 
 Le due macchine hanno cardinalità diversa - una prestazione, da zero a molte sessioni - durata
 diversa, granularità diversa e ritmo diverso. La seconda cambia stato decine di volte in una
@@ -336,17 +336,17 @@ qui perché condizionano la forma dei tipi.
 
 **L'allarme è una sequenza di eventi immutabili; lo stato corrente è una proiezione.** Nessuna
 colonna di stato aggiornata sul posto, né per l'allarme né per la misura né per il piano (vincolo
-V-121 dell'area funzionale). La ragione è probatoria: la domanda a cui il sistema deve rispondere
+[V-121](../11_registri/01-vincoli-in-vigore.md#v-121) dell'`FUNZ`). La ragione è probatoria: la domanda a cui il sistema deve rispondere
 non è «in che stato è l'allarme», ma «che cosa è successo, in quale ordine, e chi ha fatto che
 cosa». Una colonna aggiornata sul posto cancella la risposta ogni volta che la scrive.
 
 **L'identità della misura, ai fini dell'idempotenza, è la quintupla** sorgente, soggetto,
 parametro, istante di misura, valore; **istante di misura e istante di ricezione sono due campi
 distinti obbligatori** e le regole di valutazione operano **sull'istante di misura** (vincolo
-V-124). Valutare sull'istante di ricezione produrrebbe allarmi con l'ora sbagliata e aderenze
+[V-124](../11_registri/01-vincoli-in-vigore.md#v-124)). Valutare sull'istante di ricezione produrrebbe allarmi con l'ora sbagliata e aderenze
 calcolate su una finestra che non è quella prescritta.
 
-**L'attesa di rilevazione è un'entità**, non l'assenza di una riga (vincolo V-148 dell'area di
+**L'attesa di rilevazione è un'entità**, non l'assenza di una riga (vincolo [V-148](../11_registri/01-vincoli-in-vigore.md#v-148) dell'area di
 dominio). È la forma operativa del principio secondo cui il silenzio non è mai normalità, ed è la
 condizione perché l'aderenza sia una grandezza definita: senza una riga che dichiari che una
 rilevazione era attesa, «non pervenuta» e «mai prevista» sono indistinguibili.
@@ -359,7 +359,7 @@ rilevazione era attesa, «non pervenuta» e «mai prevista» sono indistinguibil
 | **Informativa** | `Informativa` | Testo, versione, validità, lingue | Immutabile una volta pubblicata |
 | **Oscuramento** | `Oscuramento` | Perimetro, destinatari, decorrenza | L'esistenza dell'oscurato non è inferibile; **l'applicazione spetta al motore di autorizzazione**, non ai consumatori |
 
-I **cinque oggetti di consenso** sono, con cicli di vita indipendenti (vincolo V-146 dell'area di
+I **cinque oggetti di consenso** sono, con cicli di vita indipendenti (vincolo [V-146](../11_registri/01-vincoli-in-vigore.md#v-146) dell'area di
 dominio): adesione all'atto sanitario; trattamento dei dati ove il consenso sia la base giuridica
 applicabile; registrazione della sessione; presenza di terzi in sessione; trasmissione a sistemi
 esterni. **La revoca di uno non tocca gli altri**, e **nessun «consenso alla piattaforma» esiste
@@ -367,7 +367,7 @@ nel modello**: un oggetto che li aggreghi renderebbe la revoca dell'uno una revo
 sia scorretto sia dannoso per la cura.
 
 L'**oscuramento è applicato dal motore di autorizzazione in un unico punto**, che filtra e calcola
-i totali sull'insieme filtrato (vincolo V-149 dell'area di dominio). Applicarlo nei consumatori
+i totali sull'insieme filtrato (vincolo [V-149](../11_registri/01-vincoli-in-vigore.md#v-149) dell'area di dominio). Applicarlo nei consumatori
 significherebbe chiuderlo in alcuni e lasciarlo aperto in altri. I canali di inferenza da chiudere
 sono sei e vanno chiusi tutti: numerazione, conteggi, paginazione, notifiche, differenze fra
 interrogazioni successive, messaggi d'errore. **I dati sintetici di collaudo devono comprendere
@@ -479,7 +479,7 @@ per comodità a evento pubblicato diventa un vincolo permanente senza che nessun
 
 1. **Immutabili e versionati.** Ogni evento porta la versione del proprio schema. Un evento
    modificato senza incremento di versione è un difetto.
-2. **Nessun contenuto clinico negli eventi che escono verso sistemi terzi** (vincolo V-161
+2. **Nessun contenuto clinico negli eventi che escono verso sistemi terzi** (vincolo [V-161](../11_registri/01-vincoli-in-vigore.md#v-161)
    dell'area integrazione): identificativi e riferimenti; il contenuto si rilegge con una chiamata
    autenticata sotto l'autorizzazione del ricevente.
 3. **Nominati al passato.** `PrestazioneConclusa`, non `ConcludiPrestazione`. Un evento nominato

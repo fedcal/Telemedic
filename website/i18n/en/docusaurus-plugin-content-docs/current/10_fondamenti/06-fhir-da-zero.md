@@ -1147,7 +1147,7 @@ resource typically used in document indexing systems.
    the IHE profile for document publication.
 2. **Video recording of the session**: it is modelled on `DocumentReference` with
    `content.attachment.contentType` populated with the type of the video container **negotiated at
-   runtime and never presumed** (constraint `V-11`, [`04_protocols/02 §10.3`](/04_protocols/02-fhir.md)).
+   runtime and never presumed** (constraint [`V-11`](../11_registri/01-vincoli-in-vigore.md#v-11), [`04_protocols/02 §10.3`](/04_protocols/02-fhir.md)).
    **Never** on
    the resource removed in R5 **[V]**.
 

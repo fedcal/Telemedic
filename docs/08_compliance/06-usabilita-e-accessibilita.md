@@ -42,10 +42,10 @@ description: "Due obblighi distinti che si incontrano sulla stessa interfaccia: 
 > non trasferisce alcun obbligo e non rende utilizzabile una versione non certificata. Chi
 > installa o mette in servizio il software oggi assume per intero gli obblighi che ne derivano -
 > compresa la dichiarazione di accessibilità del servizio, che grava su di lui e **non graverà
-> sul progetto nemmeno quando il soggetto fabbricante sarà costituito** (§ 9, `V-273`).
+> sul progetto nemmeno quando il soggetto fabbricante sarà costituito** (§ 9, [`V-273`](../11_registri/01-vincoli-in-vigore.md#v-273)).
 >
 > **Nessuna data compare in questo capitolo, e nessuna può comparirvi.** Il § 8 parla di
-> sequenza e di condizioni di validità, mai di quando: il vincolo `V-171` vieta di affermare o
+> sequenza e di condizioni di validità, mai di quando: il vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) vieta di affermare o
 > lasciare intendere che il prodotto sarà marcato entro un termine - questa è l'unica occorrenza
 > ammessa di quella parola - e una pianificazione interna non diventa una promessa solo perché è
 > nostra. Le date del progetto stanno unicamente in
@@ -93,13 +93,14 @@ meglio o peggio senza che nulla di formale ne dipenda. In un dispositivo medico 
   possibile i rischi connessi a **possibili errori di utilizzazione**, tenendo conto delle
   conoscenze tecniche, dell'esperienza, dell'istruzione, della formazione e, ove applicabile,
   delle condizioni mediche e fisiche degli utilizzatori previsti; e di ridurre per quanto possibile
-  i rischi derivanti dall'**ergonomia** e dall'ambiente d'uso previsto.
-  `[NV]` - la numerazione puntuale dei punti della sezione va verificata sul testo consolidato
-  prima della citazione nel fascicolo.
+  i rischi derivanti dall'**ergonomia** e dall'ambiente d'uso previsto. La numerazione puntuale
+  dei punti della sezione va verificata da `COMP` sul testo consolidato prima della citazione nel
+  fascicolo. **`[NV]`** sulla numerazione.
 - **EN 62366-1:2015** con l'emendamento **A1:2020** è la norma che descrive il processo con cui si
-  soddisfa quel requisito. `[NV]` - **la presenza e la formulazione esatta del riferimento
-  nell'elenco delle norme armonizzate sotto il regolamento non sono verificate**: non tutte le
-  norme di processo dell'era delle direttive sono state ripubblicate. La verifica è documentale, a
+  soddisfa quel requisito. La presenza e la formulazione esatta del riferimento nell'elenco delle
+  norme armonizzate sotto il regolamento vanno verificate da `COMP` sulla lista della Commissione,
+  dato che non tutte le norme di processo dell'era delle direttive sono state ripubblicate. **`[NV]`**
+  sulla presenza nell'elenco. La verifica è documentale, a
   costo nullo, e va fatta prima di compilare la matrice dei requisiti generali di sicurezza e
   prestazione.
 
@@ -144,7 +145,7 @@ sistema di gestione della qualità, non lasciate alla sensibilità di chi proget
 
 **Esempio preso da questo dominio, e non didattico.** Il campo che contiene la soglia individuale
 di un piano di monitoraggio parte vuoto e obbligatorio, senza alcuna precompilazione, nemmeno con
-i valori del percorso o dell'ultimo piano (vincolo `V-123` dell'area funzionale). La ragione non è
+i valori del percorso o dell'ultimo piano (vincolo [`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123) dell'`FUNZ`). La ragione non è
 di preferenza: un campo precompilato è **accessibile in modo impeccabile** e produce
 sistematicamente la conferma per inerzia di un valore che nessuno ha valutato. È la riga `RM-06`
 del registro dei rischi ed è una misura di **livello 1** - sicurezza intrinseca per progettazione:
@@ -170,7 +171,7 @@ riservato al ruolo di fabbricante cade in punti diversi per ciascuno.
 
 L'insieme, più le tracciature verso il registro dei rischi, costituisce il **fascicolo di
 ingegneria dell'usabilità** `UEF-001`. Gli identificativi appartengono allo spazio dichiarato dal
-vincolo `V-172` al capitolo [03 §5](./03-sistema-di-gestione-della-qualita.md).
+vincolo [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172) al capitolo [03 §5](./03-sistema-di-gestione-della-qualita.md).
 
 **Che cosa nomina la quinta colonna, ora che quel ruolo sarà nostro.** Non nomina un terzo: nomina
 il **ruolo formale di fabbricante**, che il progetto **intende** assumere e il cui **soggetto
@@ -179,7 +180,7 @@ assumere l'esito sono atti che la norma riserva a quel ruolo, e **la riserva non
 ruolo sarà nostro**: cade quando il soggetto esiste **e** il controllo dei documenti è in
 esercizio, perché senza quest'ultimo ciò che si firma è una firma su un testo e non una
 dichiarazione ([02 §5.2](./02-qualificazione-e-classificazione.md);
-[03 §4.1](./03-sistema-di-gestione-della-qualita.md), `V-174`). Leggere quella colonna come «lavoro
+[03 §4.1](./03-sistema-di-gestione-della-qualita.md), [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174)). Leggere quella colonna come «lavoro
 di qualcun altro» era corretto prima di `D58` ed è scorretto ora: è **lavoro nostro non ancora
 eseguibile**, che è una condizione più onerosa e non meno.
 
@@ -196,7 +197,7 @@ ne ricava alcuna data, e il ritardo sull'artefatto 8 **è nostro**, non di un so
 
 Il piano di validazione richiede che **ogni gruppo distinto di utilizzatori sia coperto**. La
 domanda operativa è quindi quanti gruppi esistono, e la risposta non coincide con il numero dei
-profili di utente descritti dall'area funzionale.
+profili di utente descritti dall'`FUNZ`.
 
 I **sei profili** di [03 §06 §3](../03_functional/06-accessibilita-e-usabilita.md) sono insiemi di
 vincoli osservabili che servono a progettare. I **gruppi di utilizzatori** ai sensi della norma
@@ -208,7 +209,7 @@ servono a stabilire quante coorti la validazione deve reclutare. La corrisponden
 | **Medico** | Professionista sotto pressione di tempo | Assume l'atto sanitario, redige il documento clinico, configura la soglia individuale |
 | **Professionista sanitario non medico** | Professionista sotto pressione, case manager | Prende in carico gli allarmi e opera sul piano senza redigere il referto: compiti e vincoli professionali diversi |
 | **Utilizzatore laico** | Persona anziana con bassa alfabetizzazione digitale, caregiver | Nessuna formazione, nessun addestramento, nessun supporto sul posto |
-| **Operatore non sanitario** | Operatore di front-office, operatore tecnico del centro servizi | La separazione fra centro servizi e centro erogatore è vincolo di autorizzazione (`V-125`): non accede al contenuto clinico e vede un'interfaccia diversa |
+| **Operatore non sanitario** | Operatore di front-office, operatore tecnico del centro servizi | La separazione fra centro servizi e centro erogatore è vincolo di autorizzazione ([`V-125`](../11_registri/01-vincoli-in-vigore.md#v-125)): non accede al contenuto clinico e vede un'interfaccia diversa |
 
 **Quattro gruppi significano quattro coorti**, e ogni coorte ha reclutamento, consensi,
 conduzione, osservazione e analisi propri. È la variabile che determina l'ordine di grandezza del
@@ -224,8 +225,9 @@ l'accessibilità in un adempimento separato, che è esattamente ciò che il § 6
 
 **Il numero di partecipanti.** IEC 62366-1 **non prescrive un numero**. La cifra di quindici
 partecipanti per gruppo, largamente usata nell'industria, proviene dalla linea guida sui fattori
-umani dell'autorità regolatoria statunitense e **non è un requisito dell'Unione europea**:
-`[NV]`, e in nessun caso va citata come obbligo. Ciò che il piano deve motivare è il **criterio di
+umani dell'autorità regolatoria statunitense e **non è un requisito dell'Unione europea**. Questo
+deve essere confermato da `COMP`, **`[NV]`**, e in nessun caso va citata come obbligo. Ciò che
+il piano deve motivare è il **criterio di
 sufficienza adottato**, tipicamente la saturazione degli errori d'uso osservati. La numerosità
 attesa è una delle domande da porre all'organismo notificato in fase di offerta, insieme al
 riesame preliminare (capitolo [09 §8.3](./09-percorso-e-calendario.md)). **Porre quella domanda
@@ -254,7 +256,7 @@ flowchart TB
     UE --> NOACC --> RM
 ```
 
-**Il nodo centrale è l'unico punto in cui i due obblighi coincidono, e il vincolo `V-175` del
+**Il nodo centrale è l'unico punto in cui i due obblighi coincidono, e il vincolo [`V-175`](../11_registri/01-vincoli-in-vigore.md#v-175) del
 § 6.3 governa esattamente quel nodo.** I due nodi laterali sono le due direzioni in cui non
 coincidono, e sono la ragione per cui nessuna delle due verifiche sostituisce l'altra.
 
@@ -271,7 +273,7 @@ conformità di accessibilità e un errore d'uso con conseguenza sulla sicurezza 
 | Dichiarazione dello stato della copertura del servizio | Contrasto insufficiente o occultata da una personalizzazione di tema | Falsa rassicurazione: la persona crede di essere sorvegliata e ritarda l'accesso all'emergenza | `RM-12` |
 | Messaggio di errore su un percorso critico | Solo codice tecnico, senza causa, conseguenza e azione | L'utilizzatore abbandona il percorso o compie l'azione sbagliata | `RNF-054` |
 
-La riga sulla personalizzazione è quella che rende il vincolo `V-163` dell'area di integrazione un
+La riga sulla personalizzazione è quella che rende il vincolo [`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163) dell'`INTEG` un
 **requisito regolatorio e non una scelta di prodotto**: le dichiarazioni obbligatorie non sono
 tematizzabili né occultabili, e una configurazione di tema che degrada il contrasto è rifiutata al
 salvataggio, non segnalata come avviso.
@@ -302,7 +304,7 @@ non li fonde.
 
 ### 6.3 La regola del collegamento bidirezionale - vincolo `V-175`
 
-> **`V-175`.** Il fascicolo di ingegneria dell'usabilità dichiara, per **ogni caratteristica
+> **[`V-175`](../11_registri/01-vincoli-in-vigore.md#v-175).** Il fascicolo di ingegneria dell'usabilità dichiara, per **ogni caratteristica
 > dell'interfaccia legata alla sicurezza**, quali criteri di accessibilità la rendono percepibile
 > e azionabile; il rapporto di conformità all'accessibilità dichiara, per **ogni criterio
 > verificato su quelle caratteristiche**, che è anche misura di controllo del rischio. Il
@@ -323,7 +325,7 @@ la verifica è meccanica una volta che entrambi gli elenchi sono versionati.
 
 Il progetto dichiara **una sola non conformità**, sul criterio 1.2.4 relativo ai sottotitoli in
 tempo reale per i contenuti audio-video dal vivo (`D24`), con l'interprete come misura
-alternativa. Applicando `V-175`:
+alternativa. Applicando [`V-175`](../11_registri/01-vincoli-in-vigore.md#v-175):
 
 - l'indisponibilità dei sottotitoli in tempo reale **non rende inaccessibile** alcuna delle
   caratteristiche legate alla sicurezza elencate al § 6.1, che sono tutte testuali o di stato e
@@ -337,7 +339,7 @@ alternativa. Applicando `V-175`:
   sarebbe indifendibile in una delle due sedi.
 
 **Dipendenza da segnalare e non da scoprire.** Il limite dichiarato di partecipanti alla sessione
-è rinviato in attesa di misura (`Q-111`). Se la misura dovesse escludere il terzo partecipante,
+è rinviato in attesa di misura ([`Q-111`](../11_registri/02-questioni-aperte.md#q-111)). Se la misura dovesse escludere il terzo partecipante,
 **l'interprete non sarebbe più ammissibile in sessione** e la misura alternativa cadrebbe insieme
 alla dichiarabilità della non conformità. È un legame fra una decisione di ingegneria e un
 adempimento di accessibilità che non è visibile da nessuno dei due lati.
@@ -345,7 +347,7 @@ adempimento di accessibilità che non è visibile da nessuno dei due lati.
 ## 7. Progettare prima per il dispositivo mobile, quando l'utilizzatore è chi è
 
 Il metodo di progettazione - schermo piccolo e connessione peggiore per primi, non desktop
-adattato - è già fissato dall'area funzionale e non va ripetuto qui. Quello che va detto è la sua
+adattato - è già fissato dall'`FUNZ` e non va ripetuto qui. Quello che va detto è la sua
 **qualificazione regolatoria**, che è diversa e più stringente di quella di una scelta di
 prodotto.
 
@@ -359,8 +361,8 @@ discendono tre conseguenze che non sono ottimizzazioni.
 1. **Il dispositivo di riferimento non è quello di chi sviluppa.** Finché non è dichiarato, la
    specifica d'uso non è completabile e il requisito `RNF-106` - nove partecipanti su dieci
    completano l'inserimento di una misura al primo tentativo, senza assistenza, su dispositivo di
-   fascia bassa e rete limitata - **non è verificabile**. La scelta è di prodotto (`Q-115`); la
-   conseguenza regolatoria è di questa area ed è la questione `Q-175`.
+   fascia bassa e rete limitata - **non è verificabile**. La scelta è di prodotto ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115)); la
+   conseguenza regolatoria è di questa area ed è la questione [`Q-175`](../11_registri/02-questioni-aperte.md#q-175).
 2. **La resilienza è accessibilità, non ottimizzazione.** Degradare in modo comprensibile - audio
    prima del video, avviso chiaro, ripresa della sessione, misura conservata localmente e
    trasmessa al ripristino - è ciò che rende il servizio utilizzabile da chi ha meno risorse.
@@ -432,7 +434,7 @@ allora lo incontra una persona.
 | Valutazioni formative | **Conduce e pubblica gli esiti**, ora, senza attendere la costituzione del soggetto | **Il fabbricante** le riesamina quando compone il fascicolo |
 | Protocollo di validazione sommativa | Bozza tecnica | **Il fabbricante approva prima dell'esecuzione** |
 | Conduzione della validazione sommativa | - | **Il fabbricante** la conduce o la commissiona, e **ne assume l'esito** |
-| Fascicolo `UEF-001` consolidato | Contributi identificati, con versione, data e impronta verificabile (`V-179`) | **Il fabbricante compone e firma** |
+| Fascicolo `UEF-001` consolidato | Contributi identificati, con versione, data e impronta verificabile ([`V-179`](../11_registri/01-vincoli-in-vigore.md#v-179)) | **Il fabbricante compone e firma** |
 | **Dichiarazione di accessibilità** del servizio | Modello e contenuti tecnici verificati | **Chi installa la emette**: il soggetto obbligato è chi eroga il servizio in rete, e **non è il fabbricante** |
 
 **Come si legge la terza colonna, e perché non nomina più un terzo.** Dove dice «il fabbricante»
@@ -452,7 +454,7 @@ l'ambiente di installazione ne modificano l'esito - e **non potrà emetterla nem
 costituito il soggetto fabbricante**: il fabbricante di un dispositivo non è, per ciò solo, il
 fornitore del servizio in rete, e i due ruoli hanno fonti, presupposti e destinatari diversi.
 
-> **`V-273`.** **La dichiarazione di accessibilità del servizio non è mai del progetto**, e non lo
+> **[`V-273`](../11_registri/01-vincoli-in-vigore.md#v-273).** **La dichiarazione di accessibilità del servizio non è mai del progetto**, e non lo
 > diventa per effetto di `D58`. Il soggetto obbligato è **chi eroga il servizio in rete**, cioè
 > chi installa e mette in esercizio; il progetto è obbligato alle **proprietà di accessibilità del
 > prodotto**, che sono cosa distinta e che chi installa non può aggiungere a valle. Nessun
@@ -465,8 +467,9 @@ pomeriggio invece che in un mese**: elenco dei criteri verificati con metodo e d
 non conformità con misura alternativa, elenco dei percorsi critici coperti, versione della norma
 su cui la verifica è stata condotta.
 
-`[NV]` - la versione di EN 301 549 giuridicamente efficace è quella citata nella pubblicazione
-ufficiale dell'Unione a supporto della fonte applicabile, e **non è stata verificata** in questa
+La versione di EN 301 549 giuridicamente efficace è quella citata nella pubblicazione ufficiale
+dell'Unione a supporto della fonte applicabile, e deve essere verificata da `COMP`, **`[NV]`**,
+e **non è stata verificata** in questa
 documentazione (vedi [01 §8](./01-inquadramento-normativo.md)). La dichiarazione deve indicare la
 versione su cui la verifica è stata effettivamente condotta, non «EN 301 549» in astratto.
 
@@ -474,10 +477,10 @@ versione su cui la verifica è stata effettivamente condotta, non «EN 301 549»
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| `Q-175` | **Il dispositivo e l'ambiente di riferimento sono parte della specifica d'uso, non un parametro di prestazione.** Finché non sono dichiarati, `UE-SPEC-001` non è completabile e `RNF-106` non è verificabile. Rilancia `Q-115` con la conseguenza regolatoria che quella questione non registrava: non è un ritardo di misura, è una lacuna del fascicolo | Prodotto, tecnica |
-| `[NV]` | Presenza e formulazione del riferimento a EN 62366-1:2015+A1:2020 nell'elenco delle norme armonizzate sotto il regolamento (§ 2) | Conformità |
-| `[NV]` | Numerazione puntuale dei punti dell'Allegato I sui rischi da errore di utilizzazione e da ergonomia (§ 2) | Conformità |
-| `[NV]` | Versione di EN 301 549 giuridicamente efficace, e conseguente formulazione della dichiarazione (§ 9) | Conformità |
-| `Q-111` | Se la misura del limite di partecipanti escludesse il terzo, la misura alternativa alla non conformità dichiarata cadrebbe (§ 6.4) | Architettura, tecnica |
-| `Q-273` | **Le valutazioni formative con utenti reali sono ora un'attività nostra e non differibile (§ 8), ma non sono producibili da una persona sola.** Osservare un utilizzatore rappresentativo mentre esegue un compito richiede **soggetti distinti** da chi ha progettato l'interfaccia, esattamente come l'audit interno e il riesame del rilascio (`D54`): non è un problema di ore. Va stabilito se la funzione si acquisisce all'esterno o se l'assenza di formative si accetta come rischio dichiarato - sapendo che è il rischio che il § 8 indica come il più costoso | Prodotto, → **ORCH** |
+| [`Q-175`](../11_registri/02-questioni-aperte.md#q-175) | **Il dispositivo e l'ambiente di riferimento sono parte della specifica d'uso, non un parametro di prestazione.** Finché non sono dichiarati, `UE-SPEC-001` non è completabile e `RNF-106` non è verificabile. Rilancia [`Q-115`](../11_registri/02-questioni-aperte.md#q-115) con la conseguenza regolatoria che quella questione non registrava: non è un ritardo di misura, è una lacuna del fascicolo | Prodotto, tecnica |
+| `[NV]` | Presenza e formulazione del riferimento a EN 62366-1:2015+A1:2020 nell'elenco delle norme armonizzate: da verificare nella Gazzetta Ufficiale dell'Unione europea (§ 2) | richiesta a Commissione, Gazzetta UE |
+| `[NV]` | Numerazione puntuale dei punti dell'Allegato I sui rischi da errore di utilizzazione e da ergonomia (§ 2) | `COMP` |
+| `[NV]` | Versione di EN 301 549 giuridicamente efficace per l'Accessibility Act: da verificare nella Gazzetta Ufficiale dell'Unione europea (§ 9) | richiesta a Commissione, Gazzetta UE |
+| [`Q-111`](../11_registri/02-questioni-aperte.md#q-111) | Se la misura del limite di partecipanti escludesse il terzo, la misura alternativa alla non conformità dichiarata cadrebbe (§ 6.4) | Architettura, tecnica |
+| [`Q-273`](../11_registri/02-questioni-aperte.md#q-273) | **Le valutazioni formative con utenti reali sono ora un'attività nostra e non differibile (§ 8), ma non sono producibili da una persona sola.** Osservare un utilizzatore rappresentativo mentre esegue un compito richiede **soggetti distinti** da chi ha progettato l'interfaccia, esattamente come l'audit interno e il riesame del rilascio (`D54`): non è un problema di ore. Va stabilito se la funzione si acquisisce all'esterno o se l'assenza di formative si accetta come rischio dichiarato - sapendo che è il rischio che il § 8 indica come il più costoso | Prodotto, → **ORCH** |
 | - | **Numerosità e composizione delle coorti della sommativa** non sono fissate e non lo saranno finché non c'è un organismo notificato con cui concordarle (§ 5), e ingaggiarlo presuppone il **soggetto fabbricante, da costituire**. Il progetto dichiara il criterio di sufficienza, non il numero | **Il fabbricante**, quando il soggetto sarà costituito |

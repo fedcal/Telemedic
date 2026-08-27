@@ -1135,7 +1135,7 @@ ordinata per frequenza attesa, non per gravità.
 | Trasporto in tempo reale, degrado, relay | [08 - WebRTC da zero](08-webrtc-da-zero.md) |
 | Parametri, misure, limiti della misura a domicilio | [09 - Fondamenti clinici](09-fondamenti-clinici.md) |
 | Cronicità, percorsi, allarmi, silenzio, sicurezza del paziente | [10 - Percorsi di cura e sicurezza del paziente](10-percorsi-di-cura-e-sicurezza.md) |
-| Requisiti, casi d'uso, regole, esiti tipizzati | area funzionale, `docs/03_functional/` |
+| Requisiti, casi d'uso, regole, esiti tipizzati | `FUNZ`, `docs/03_functional/` |
 
 ---
 

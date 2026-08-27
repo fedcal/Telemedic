@@ -94,11 +94,11 @@ It is also the only service with **conditions of deliverability** set by the sou
 ### 4.3 The distinct obligations it carries
 
 **The mandatory report - but conditioned to the setting.** «The televisita delivered in outpatient specialist setting must always conclude with a report» (Agreement 215/CSR 2020, Annex A). The Decree of 30 September 2022, Annex B, corrections establish however that the *remote consultation* scheduled and delivered directly by general practitioner or paediatrician of free choice **does not require prescription** and provides for **digital annotation in place of the report**.
-Hardcoding the report obligation as unconditional is an error that manifests at the first customer who is a group practice (constraint `V-145`).
+Hardcoding the report obligation as unconditional is an error that manifests at the first customer who is a group practice (constraint [`V-145`](../11_registri/01-vincoli-in-vigore.md#v-145)).
 
-**Compulsory contents of the report.** Agreement 215/CSR 2020 requires that the *remote consultation (televisita)* report state any **collaborating participants** - carer, other doctor - and the **quality of the connection with confirmation of suitability for service delivery**. The ministerial template of the *remote consultation* report (Decree of 19 November 2025, Annex 1, § 2.20) **does not provide a dedicated field** for the latter: the project proposes its placement among the «descriptive parameters of the procedure», with the constraint that **the value is measured by the system and confirmed by the professional**, never generated independently and inserted in the document. Verification of conformity of this choice is still an open question (`Q-131`).
+**Compulsory contents of the report.** Agreement 215/CSR 2020 requires that the *remote consultation (televisita)* report state any **collaborating participants** - carer, other doctor - and the **quality of the connection with confirmation of suitability for service delivery**. The ministerial template of the *remote consultation* report (Decree of 19 November 2025, Annex 1, § 2.20) **does not provide a dedicated field** for the latter: the project proposes its placement among the «descriptive parameters of the procedure», with the constraint that **the value is measured by the system and confirmed by the professional**, never generated independently and inserted in the document. Verification of conformity of this choice is still an open question ([`Q-131`](../11_registri/02-questioni-aperte.md#q-131)).
 
-**Dedicated document typology.** The *remote consultation* (televisita) report has a dedicated Electronic Health Record typology (Decree of 19 November 2025, art. 7, letter p, and Annex 1 § 2.20). The hypothesis «outpatient specialist report» is **wrong** and must not be used in any document, example, profile or public material (constraint `V-143`).
+**Dedicated document typology.** The *remote consultation* (televisita) report has a dedicated Electronic Health Record typology (Decree of 19 November 2025, art. 7, letter p, and Annex 1 § 2.20). The hypothesis «outpatient specialist report» is **wrong** and must not be used in any document, example, profile or public material (constraint [`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)).
 
 **Exclusion from urgency.** The Decree of 30 September 2022, Annex B, excludes *remote consultation (televisita)* from urgency-emergency contexts, because «it must not be a reason for delaying in-person intervention».
 
@@ -109,7 +109,7 @@ Hardcoding the report obligation as unconditional is an error that manifests at 
 The **state** says where the contact is; the **outcome** says what happened. They are distinct attributes, and the second determines administrative effects.
 
 Two outcomes share the same terminal state - the patient was not seen - and have **opposite** economic effects: non-attendance, detectable by absence of any connection attempt, and technical failure attributable to the patient, detectable by telemetry, which **is not** non-attendance and entails rescheduling without charge.
-Charging non-attendance to someone who tried and failed to connect is a domain defect, not an edge case (constraint `V-141`).
+Charging non-attendance to someone who tried and failed to connect is a domain defect, not an edge case (constraint [`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)).
 
 ## 5. *Specialist-to-specialist consultation (teleconsulto)* and *teleconsulenza*
 
@@ -212,7 +212,7 @@ by the patient or caregiver**, plus **structured questionnaires**. The project *
 
 The formulation of the intended purpose is **frozen by sponsor decision** (`D55`) on
 «**deferred collection of parameters for the professional's periodic review**», and not on
-«real-time monitoring of vital parameters». The difference is worth a risk classification, a software safety classification, months and an order of magnitude of cost (`D46`). In the model **there does not exist** any concept of «continuous surveillance», «real-time alarm» or «active patient monitoring»: there are a measurement plan, deferred measurements, an evaluation against thresholds configured by the professional and a **clinical review queue** (constraint `V-144`).
+«real-time monitoring of vital parameters». The difference is worth a risk classification, a software safety classification, months and an order of magnitude of cost (`D46`). In the model **there does not exist** any concept of «continuous surveillance», «real-time alarm» or «active patient monitoring»: there are a measurement plan, deferred measurements, an evaluation against thresholds configured by the professional and a **clinical review queue** (constraint [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144)).
 
 From the freezing descends a **permanent prohibition**, which stands as the admissibility criterion of every future proposal: **no function can be added if it shifts the system toward clinical real time**, and the evaluation must be made before writing the function, not after.
 
@@ -220,7 +220,7 @@ From the freezing descends a **permanent prohibition**, which stands as the admi
 
 The Decree of 21 September 2022 is explicit in requiring that «the regional telemedicine infrastructure for the minimum *remote monitoring (telemonitoraggio)* service must be certified as a medical device», and adds that for advanced *remote monitoring (telemonitoraggio)* «a risk classification higher than IIa might be required».
 
-The element that grounds the qualification is the **automatic evaluation of thresholds**: at the moment the system compares a measurement against a threshold and generates an alert, it is *interpreting* clinical data. The project accepts this, declares it and derives its scope from it: the threshold and the alert rule are **configured by the professional, never deduced by the system** (constraint `V-02`), the threshold field **starts empty and mandatory** with no pre-filling (constraint `V-123`), and the calculation is traceable afterwards with plan version, rule version, input values and outcome.
+The element that grounds the qualification is the **automatic evaluation of thresholds**: at the moment the system compares a measurement against a threshold and generates an alert, it is *interpreting* clinical data. The project accepts this, declares it and derives its scope from it: the threshold and the alert rule are **configured by the professional, never deduced by the system** (constraint [`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)), the threshold field **starts empty and mandatory** with no pre-filling (constraint [`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123)), and the calculation is traceable afterwards with plan version, rule version, input values and outcome.
 
 ### 7.5 The three entities that must not be merged
 
@@ -230,12 +230,12 @@ The element that grounds the qualification is the **automatic evaluation of thre
 Annex 1, § 2.24): typology, number of cycles, cycle duration, number of activities per cycle,
 frequency, time band, planned duration **with maximum of one year**, type of measurement, alarm threshold and behaviour rules on threshold violation. The plan is **versioned, and the version is part of the identity of the measurement**: a measurement acquired under one plan version must not be compared against the thresholds of a subsequent version, otherwise every change retroactively rewrites the meaning of history.
 
-**The measurement.** It is immutable and carries with it its own context: instrument, method, **measurement instant and receipt instant as two distinct mandatory fields**, subject who entered it, explicit unit never presumed. Rules operate on the measurement instant, not on the receipt instant (constraint `V-124`).
+**The measurement.** It is immutable and carries with it its own context: instrument, method, **measurement instant and receipt instant as two distinct mandatory fields**, subject who entered it, explicit unit never presumed. Rules operate on the measurement instant, not on the receipt instant (constraint [`V-124`](../11_registri/01-vincoli-in-vigore.md#v-124)).
 
 **The absence of measurement.** It is an entity, not the absence of a row: it is a row that declares absence,
-with the expected window, the deadline instant and the cause when known (constraint `V-148`). It is the operative form of `V-09` and the condition for adherence to be a defined quantity. Without it, the clinical deterioration that prevents measurement remains invisible.
+with the expected window, the deadline instant and the cause when known (constraint [`V-148`](../11_registri/01-vincoli-in-vigore.md#v-148)). It is the operative form of [`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09) and the condition for adherence to be a defined quantity. Without it, the clinical deterioration that prevents measurement remains invisible.
 
-To these is added the **alarm**, which is a sequence of immutable events with the current state as projection (constraint `V-121`), and which has three properties that are decisions and not details:
+To these is added the **alarm**, which is a sequence of immutable events with the current state as projection (constraint [`V-121`](../11_registri/01-vincoli-in-vigore.md#v-121)), and which has three properties that are decisions and not details:
 «delivered» is not «acknowledged»; failure to respond is a state to be recorded and measured,
 not an absence; **escalation can fail, and the failure is declared** - an escalation that exhausts itself without recipient must not end in silence.
 
@@ -244,7 +244,7 @@ not an absence; **escalation can fail, and the failure is declared** - an escala
 It is the least intuitive consequence and the most important. **A poorly declared service is more dangerous than absence of service, because it produces false reassurance.**
 
 In the model service hours is a versioned runtime datum, per customer and per pathway; it is
-**a condition for plan activation** - a plan without declared service hours does not activate, and no configuration passes the control; it is visible persistently to the patient and carer **with the current state**, not with the theoretical schedule, and is not hideable for theme personalisation; **conditions the validity of the recipient in the escalation chain** - a recipient outside service hours is not a valid recipient (constraint `V-122`); and its reduction on an active service is a security event with motivation, list of affected plans and notification to the enrolled.
+**a condition for plan activation** - a plan without declared service hours does not activate, and no configuration passes the control; it is visible persistently to the patient and carer **with the current state**, not with the theoretical schedule, and is not hideable for theme personalisation; **conditions the validity of the recipient in the escalation chain** - a recipient outside service hours is not a valid recipient (constraint [`V-122`](../11_registri/01-vincoli-in-vigore.md#v-122)); and its reduction on an active service is a security event with motivation, list of affected plans and notification to the enrolled.
 
 ### 7.7 What *remote monitoring (telemonitoraggio)* produces
 
@@ -320,7 +320,7 @@ system calculated priority instead of recording it, it would exit the scope**. E
 |---|---|
 | «teleconsulto and televisita are the same thing with one more participant» | A model that does not know who the provider is, who documents and who is responsible; and that attempts to produce a report where regulation forbids it |
 | «telemonitoraggio is collecting data from a device» | A product without versioned plan, without measurement expectation, without declared service hours and without escalation with declared failure - that is without everything that makes it a healthcare service instead of an archive of numbers |
-| «An enum with the service types is enough» | Null fields, fragile conditional rules, impossible reporting. Every service is its own state machine, and the type selects it instead of adding a field (constraint `V-140`) |
+| «An enum with the service types is enough» | Null fields, fragile conditional rules, impossible reporting. Every service is its own state machine, and the type selects it instead of adding a field (constraint [`V-140`](../11_registri/01-vincoli-in-vigore.md#v-140)) |
 | «telecontrollo is telemonitoraggio with a video call» | A reporting error: telecontrollo is billable, telemonitoraggio alone is not |
 | «A boolean attribute is enough for use in urgency» | Two different rules collapsed into one: televisita is excluded from urgency, teleconsulenza is admitted to it but cannot replace rescue |
 

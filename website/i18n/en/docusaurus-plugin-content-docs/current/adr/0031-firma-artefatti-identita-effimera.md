@@ -7,7 +7,7 @@ description: "Why artefacts are signed with a key derived from the identity of t
 # ADR-0031 - Signing of Artefacts With Ephemeral Identity of the Pipeline
 
 **Status**: accepted · **Date**: 26 August 2026 · **Area**: TECH
-**Reference constraints**: D54, Q-287 of the dashboard, criteria 7–8 of T-03
+**Reference constraints**: D54, [Q-287](../11_registri/02-questioni-aperte.md#q-287) of the dashboard, criteria 7–8 of T-03
 
 ## Context
 
@@ -86,6 +86,6 @@ The attestation is generated automatically by `cosign attest` and kept as an art
 
 ### Extensibility
 
-When the project produces other artefacts (container images, packages, Helm charts), the same mechanism applies: the release workflow invokes `cosign sign-blob` for every artefact in the list declared in `pipeline/artefatti.tsv`.
+When the project produces other artefacts (container images, packages, Helm charts), the same mechanism applies: the release workflow invokes `cosign sign-blob` for every artefact in the list that will then be declared in `pipeline/artefatti.tsv`, a file that does not exist today.
 
 ---

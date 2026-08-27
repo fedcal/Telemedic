@@ -42,7 +42,10 @@ Il modulo copre quattro domande, in quest'ordine:
 > quelle che sono.
 
 > **Convenzione di lettura.** `[NV]` significa «non verificato o non pubblicamente
-> disponibile alla data di redazione». Il § 12 raccoglie tutti i punti così marcati, con
+> disponibile alla data di redazione» e dichiara a chi va chiesta la verifica. Ogni `[NV]` porta,
+> nello stesso capoverso, l'indicazione del destinatario in una delle tre forme ammesse: la sigla
+> di un'area fra backtick, un identificativo di questione, oppure un soggetto esterno nominato
+> secondo le regole di `CONTRIBUTING.md`. Il § 12 raccoglie tutti i punti così marcati, con
 > l'indicazione di dove vada richiesta l'informazione mancante. Quando un'affermazione è una
 > **proposta del progetto** e non una prescrizione normativa, è detto esplicitamente: la
 > differenza fra «la norma stabilisce», «è prassi» e «il progetto propone» è la spina
@@ -381,8 +384,7 @@ Entrambi sono codici di **sedici caratteri**, così che possano transitare nei t
 costruiti sul formato del codice fiscale. La composizione documentata è del tipo `STP` (o
 `ENI`) seguito da un codice della struttura o dell'azienda sanitaria che lo attribuisce e da
 un numero progressivo. **La composizione esatta, il numero di cifre riservate a ciascun campo
-e le regole di attribuzione non sono state verificate su fonte primaria in questa
-redazione.** `[NV]`
+e le regole di attribuzione rimangono da verificare su fonte primaria, come dichiarato dall'area `GUIDA` `[NV]`.
 
 Ciò che invece va detto senza incertezze, perché è il punto che conta per il modello dati:
 
@@ -501,7 +503,7 @@ Ricomponendo il quadro con la griglia del § 1.5:
 | Identificativo interno | sì | sì | sì (nel dominio) | sì | **no** |
 
 Da cui le regole di modellazione che il progetto adotta come **proposta di progetto**,
-coerenti con il vincolo di tenant-awareness dichiarato nel contesto (V4):
+coerenti con il vincolo di tenant-awareness dichiarato nel contesto ([V4](../11_registri/03-vincoli-fondanti.md#v4)):
 
 1. **La chiave primaria del paziente è un identificatore interno opaco**, senza significato,
    generato dal sistema. Non è il codice fiscale, non è un numero progressivo leggibile, non
@@ -617,7 +619,7 @@ dedicati. I valori verificati sono:
 | Identificativo ANPR | `http://hl7.it/sid/anpr` **[V]** |
 | Codice ANA | `urn:oid:2.16.840.1.113883.2.9.4.3.15` **[V]** |
 | Numero TEAM | `urn:oid:2.16.840.1.113883.2.9.4.3.7` **[V]** |
-| Codice STP, codice ENI, identificativo regionale | sistema vincolato da un insieme di valori dedicato **[V]**, i cui valori puntuali non sono stati trascritti in questa redazione `[NV]` |
+| Codice STP, codice ENI, identificativo regionale | sistema vincolato da un insieme di valori dedicato **[V]**, i cui valori puntuali rimangono da accertare da parte dell'area `GUIDA` `[NV]` |
 
 ### 3.3 Un secondo strato: il tipo di identificatore
 
@@ -1000,7 +1002,7 @@ Ne discende un requisito del progetto: il sistema registra gli **estremi di iscr
 all'albo** del professionista, con **data della verifica** e **identità di chi l'ha
 effettuata**, e segnala i profili privi di verifica. La verifica non è automatica: **il
 progetto non dispone di un canale nazionale di interrogazione degli albi verificato su fonte
-primaria** `[NV]`. Va quindi modellata come **attestazione tracciata dell'organizzazione**,
+primaria**. Va quindi modellata come **attestazione tracciata dell'organizzazione** in sede di scelta architetturale per le ragioni dichiarate dall'area `ARCH` `[NV]`,
 con periodicità di rinnovo configurabile - che è, peraltro, ciò che le organizzazioni
 sanitarie già fanno in sede di accreditamento del personale.
 
@@ -1355,7 +1357,7 @@ l'esclusione della maggior parte degli assistiti.
 | **Chi verifica l'identità al momento dell'accesso** | Il gestore scelto dall'utente | Il gestore unico | **Il server del fornitore di servizi**, contro l'elenco di fiducia |
 | **Che cosa deve fare chi eroga il servizio** | Convenzione con l'Agenzia, metadata approvato, certificato di federazione, elenco dei servizi pubblicato | Adesione sul portale di federazione, approvazione ministeriale, dati tecnici di pre-produzione e produzione | **Nulla presso terzi**: solo configurare il magazzino di fiducia e mantenerlo |
 | **Attributi ottenibili** | Catalogo esteso: identificativi e secondari | **Soltanto** nome, cognome, data di nascita, codice fiscale | **Solo ciò che è nel certificato**: tipicamente codice fiscale, nome, cognome |
-| **Costo per accesso** | **Sì**, a carico del fornitore di servizi, secondo una tabella di corrispettivi (§ 11.1) | **Non dichiarato** nelle fonti consultate `[NV]` | **Nessuno** |
+| **Costo per accesso** | **Sì**, a carico del fornitore di servizi, secondo una tabella di corrispettivi (§ 11.1) | **Non dichiarato** nelle fonti consultate; rimane da richiesta a questo soggetto esterno `[NV]` | **Nessuno** |
 | **Protocolli utilizzabili in produzione** | **SAML 2.0 soltanto** | **SAML 2.0 e OpenID Connect** | Autenticazione bilaterale TLS |
 | **Livello effettivo desumibile dalla risposta** | **Sì** | **No** (§ 7.4) | Non esiste un livello dichiarato: va asserito dal fornitore (§ 7.5) |
 
@@ -1495,7 +1497,7 @@ i tre livelli *basso*, *significativo* ed *elevato*. Il sistema italiano è stat
 sede europea come regime di identificazione elettronica. La corrispondenza LoA3 ↔
 *significativo* e LoA4 ↔ *elevato* è quella comunemente assunta, ma **la mappatura puntuale
 fra la scala italiana e quella eIDAS non è enunciata testualmente nel regolamento attuativo**:
-se serve una dichiarazione formale va verificata sull'atto di notifica. `[NV]`
+se serve una dichiarazione formale va richiesta all'Agenzia per l'Italia digitale `[NV]`.
 
 Il collegamento che conta per il dominio sanitario resta però quello del CAD: la verifica
 dell'identità digitale «con livello di garanzia almeno **significativo**» produce gli effetti
@@ -1520,8 +1522,7 @@ perché una documentazione che la semplifichi in un senso o nell'altro sarebbe s
 - la stessa appendice riconosce espressamente la facoltà di ciascuna amministrazione di
   definire criteri diversi in relazione alle modalità di erogazione e ai dati resi disponibili;
 - il regolamento prevede che l'Agenzia pubblichi **il livello da associare alle categorie di
-  servizi omogenee**, ma **non è stato possibile reperire il documento che associa un livello
-  alla categoria dei servizi sanitari** `[NV]`: va richiesto all'Agenzia;
+  servizi omogenee**, ma tale documento `[NV]` va richiesto all'Agenzia per l'Italia digitale;
 - il livello 3 richiede al cittadino un **dispositivo crittografico**. Imporlo per accedere a
   una televisita produrrebbe un'esclusione di massa, in tensione diretta con il vincolo di
   accessibilità del progetto e con la finalità di equità del servizio;
@@ -1597,7 +1598,7 @@ della carta e conoscenza del PIN - su certificato digitale con chiave privata cu
 dispositivo. È ragionevole trattarla come equivalente al livello 3, **ma questa è una stima di
 progetto e non una mappatura normativa**: le fonti consultate non contengono un'equivalenza
 dichiarata fra la carta nazionale dei servizi e i livelli del sistema pubblico di identità
-digitale `[NV]`. Va documentata come scelta motivata e resa configurabile.
+digitale; questa mancanza va documentata come scelta motivata e resa configurabile da parte dell'area `ARCH` `[NV]`.
 
 Infine, una conseguenza di sicurezza che discende dal far convergere tre canali sulla stessa
 identità: **il canale più debole determina la sicurezza dell'account**. Ne discendono tre
@@ -1678,7 +1679,7 @@ utilizzabile**. L'Agenzia ha pubblicato le linee guida su OpenID Connect e le ha
 un avviso tecnico del 23 marzo 2023, ma **nessun gestore di identità SPID lo supporta in
 produzione**. La fonte di questa affermazione è il forum ufficiale presidiato dal team SPID,
 consultato il 25 agosto 2026, ed è una fonte pubblica ma **non normativa**: va riverificata
-prima di qualunque decisione architetturale definitiva `[NV]`. La sua conseguenza pratica è
+da parte dell'area `ARCH` `[NV]` prima di qualunque decisione architetturale definitiva. La sua conseguenza pratica è
 però netta e va assunta nel piano: **per SPID si implementa SAML 2.0**, e il supporto a
 OpenID Connect si progetta come estensione futura, non come alternativa disponibile.
 
@@ -1973,7 +1974,7 @@ esiste un'impostazione che lo consenta, nemmeno a un amministratore.
 
 | Figura | Fonte del titolo | Ampiezza dei poteri | Trappola |
 |---|---|---|---|
-| **Esercente la responsabilità genitoriale** | La legge, per il minore | Piena sulle decisioni sanitarie, con l'obbligo di tenere conto dell'opinione del minore in ragione di età e maturità | Non coincide sempre con «il genitore che accompagna»; in caso di affidamento condiviso possono servire **due** manifestazioni di volontà `[NV]` |
+| **Esercente la responsabilità genitoriale** | La legge, per il minore | Piena sulle decisioni sanitarie, con l'obbligo di tenere conto dell'opinione del minore in ragione di età e maturità | Non coincide sempre con «il genitore che accompagna»; in caso di affidamento condiviso possono servire **due** manifestazioni di volontà, da verificare da parte dell'area `GUIDA` `[NV]` |
 | **Tutore** | Provvedimento del giudice | **Sostitutivi**: la volontà del tutore prende il posto di quella del rappresentato | Il titolo va verificato **vigente**, non solo presente |
 | **Amministratore di sostegno** | **Decreto di nomina del giudice tutelare**, che ne delimita i poteri | **Delimitati dal decreto**, che può includere o non includere le decisioni sanitarie | **Trattarlo come un tutore è l'errore più frequente.** I poteri vanno registrati come **ambito** e verificati **per singolo atto** |
 | **Delegato del paziente capace** | La volontà dell'interessato | Quelli che il paziente conferisce | **Senza scadenza diventa un accesso permanente non presidiato** |
@@ -2042,7 +2043,7 @@ flowchart TB
     V3 -->|sì| ATTO
 ```
 
-Il rombo **V2** è quello che quasi tutti i sistemi omettono, ed è quello che distingue un
+Il rombo **[V2](../11_registri/03-vincoli-fondanti.md#v2)** è quello che quasi tutti i sistemi omettono, ed è quello che distingue un
 amministratore di sostegno da un tutore.
 
 ### 10.4 Autenticazione eseguita e autenticazione riferita
@@ -2161,11 +2162,11 @@ poliambulatorio.
 > **Avvertenza sulla vigenza.** La tabella dei corrispettivi qui riportata è quella allegata
 > alla determinazione dell'Agenzia, **datata 2019**. **Non è stato possibile verificare in
 > questa redazione se sia tuttora la tabella vigente**, in particolare alla luce del rinnovo
-> biennale delle convenzioni con i gestori annunciato l'8 ottobre 2025. `[NV]` Nessuna stima
+> biennale delle convenzioni con i gestori annunciato l'8 ottobre 2025, rimane da accertare da parte dell'area `GUIDA` `[NV]`. Nessuna stima
 > economica pubblica va prodotta senza aver richiesto all'Agenzia la tabella corrente.
 
 Per la carta d'identità elettronica **non è stata reperita, nelle fonti primarie consultate,
-alcuna previsione di corrispettivi** a carico dei fornitori di servizi `[NV]`. **L'assenza di
+alcuna previsione di corrispettivi** a carico dei fornitori di servizi: va richiesto al Ministero dell'Interno `[NV]`. **L'assenza di
 una previsione non equivale a una dichiarazione di gratuità**: il dato va richiesto al
 Ministero dell'Interno. Esiste un indizio strutturale nella direzione dell'assenza di
 corrispettivi - il metadata della federazione della carta non prevede la sezione con i dati di

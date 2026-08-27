@@ -248,7 +248,7 @@ casi, non può accertare in anticipo con certezza. Il controllo preventivo può 
 l'insieme, non azzerarlo - e se lo azzerasse bloccherebbe la cura in emergenza.
 
 Ne discende il modello: **si consente più di quanto si vorrebbe, e si registra tutto in modo
-non ripudiabile e non alterabile**. È esattamente il vincolo **V5** del progetto, ed è la
+non ripudiabile e non alterabile**. È esattamente il vincolo **[V5](../11_registri/03-vincoli-fondanti.md#v5)** del progetto, ed è la
 ragione per cui l'obbligo di tracciabilità compare in tutte le fonti applicabili
 contemporaneamente: art. 5, par. 2 GDPR (responsabilizzazione), misure `PR.PS-04` e `DE.CM-01`
 delle specifiche di base ACN, requisito R30 delle linee guida AgID sulla sicurezza nel
@@ -298,7 +298,7 @@ perché lo sfigmomanometro è tarato male. La sicurezza informatica garantisce c
 arrivi come è partito; non garantisce che sia partito giusto. È il motivo per cui la decisione
 **D21** stabilisce che il progetto non si assume responsabilità sull'accuratezza della catena
 di misura hardware, e per cui soglie e allerte sono configurate dal professionista e mai
-dedotte dal sistema (vincolo **V2**).
+dedotte dal sistema (vincolo **[V2](../11_registri/03-vincoli-fondanti.md#v2)**).
 
 ---
 
@@ -336,7 +336,7 @@ corrispondente è **SEC-049**: il modello esiste, è datato, e ogni minaccia ril
 un requisito e un test associati.
 
 > **Nota di stato.** Lo stato di armonizzazione di EN IEC 81001-5-1:2022 sotto MDR non è
-> accertato su fonte primaria in questo progetto: `[NV]`. La norma resta comunque il
+> accertato su fonte primaria in questo progetto: `[NV]` deve verificarlo `COMP`. La norma resta comunque il
 > riferimento tecnico di elezione per dimostrare lo «stato dell'arte» richiesto dall'Allegato I
 > del Regolamento (UE) 2017/745, indipendentemente dalla presunzione di conformità.
 
@@ -437,7 +437,7 @@ distanza fra lui e i dati altrui è una sola riga di codice sbagliata. La perdit
 attraverso il confine di tenant è, nella matrice di rischio del progetto, uno dei due scenari
 di severità **S4** da tenere sotto controllo assoluto. Contromisura strutturale: l'isolamento
 imposto **a livello di persistenza** - sicurezza a livello di riga o schema dedicato - e non
-soltanto a livello applicativo (requisito **SEC-018**, vincolo **V4**), più un test di accesso
+soltanto a livello applicativo (requisito **SEC-018**, vincolo **[V4](../11_registri/03-vincoli-fondanti.md#v4)**), più un test di accesso
 trasversale negativo su ogni endpoint dell'interfaccia.
 
 **A7 - Il fornitore compromesso e la catena di fornitura.** L'avversario non attacca il
@@ -467,7 +467,7 @@ affermazioni con valore probatorio diverso e non vanno confuse in un unico campo
 familiare, che riusa una password, che clicca su un collegamento in un messaggio che sembra
 provenire dalla struttura. Non è malevolo: è la condizione ordinaria. Contromisure: percorsi
 brevi e reversibili, autenticazione forte tramite identità digitale nazionale, messaggi che
-non chiedono mai credenziali, e - per il vincolo **V6** - la consapevolezza che una misura di
+non chiedono mai credenziali, e - per il vincolo **[V6](../11_registri/03-vincoli-fondanti.md#v6)** - la consapevolezza che una misura di
 sicurezza che l'utente reale non riesce a eseguire è una misura che non esiste.
 
 ### 2.5 Superficie di attacco
@@ -561,7 +561,7 @@ Cinque letture del diagramma che vale la pena esplicitare.
 1. **Il browser non è mai fidato.** Nemmeno quello del professionista, nemmeno su una rete
    ospedaliera. Qualunque controllo eseguito soltanto nell'interfaccia è un suggerimento di
    usabilità, non una misura di sicurezza. Se una regola conta, deve essere applicata anche
-   dal lato server - e siccome il vincolo **V3** impone che ogni capacità sia raggiungibile da
+   dal lato server - e siccome il vincolo **[V3](../11_registri/03-vincoli-fondanti.md#v3)** impone che ogni capacità sia raggiungibile da
    un sistema terzo tramite interfaccia documentata, il lato server è comunque l'unico punto
    di applicazione possibile.
 2. **L'integratore è in una zona propria.** Non è pubblico come un browser né fidato come un
@@ -570,7 +570,7 @@ Cinque letture del diagramma che vale la pena esplicitare.
 3. **Il server di relay sta sulla frontiera e vede più di quanto sembri.** Non vede il
    contenuto del media, che resta cifrato da estremo a estremo, ma vede gli indirizzi IP di
    entrambe le parti - che sono dati personali e che possono rivelare la posizione. È il
-   motivo per cui il vincolo **V1** ne impone l'autogestione nell'Unione: è una misura ai
+   motivo per cui il vincolo **[V1](../11_registri/03-vincoli-fondanti.md#v1)** ne impone l'autogestione nell'Unione: è una misura ai
    sensi dell'art. 32 GDPR, non soltanto una scelta di sovranità.
 4. **Il media non attraversa la zona applicativa** nella modalità predefinita. È la ragione
    per cui la modalità con registrazione (D23) è architetturalmente un'altra cosa, e va
@@ -730,7 +730,7 @@ graduali:
 Non esiste un modo di «riusare un po'» un nonce. È la ragione per cui le costruzioni AEAD
 hanno un **limite al numero di messaggi cifrabili sotto una singola chiave**, oltre il quale la
 chiave va sostituita: il limite dipende dalla dimensione del nonce e dalla strategia con cui lo
-si genera. `[NV]` sui valori numerici puntuali, che vanno letti sulla specifica della
+si genera. `[NV]` deve verificarli `TECH` sui valori numerici puntuali, che vanno letti sulla specifica della
 costruzione adottata e non su una sintesi.
 
 **Le tre strategie corrette**, in ordine di preferenza:
@@ -795,7 +795,7 @@ aggiungerlo dopo significa non sapere quale chiave si applica a quale dato.
 Sulla frequenza di rotazione la letteratura è meno perentoria di quanto si creda: la rotazione
 periodica «per igiene» ha benefici limitati, mentre la rotazione **su evento** - sospetto di
 compromissione, cessazione di un amministratore, dismissione di un componente - è quella che
-conta. `[NV]` su qualunque periodicità numerica raccomandata: non è ricavabile dalle fonti
+conta. `[NV]` deve verificarla `TECH` su qualunque periodicità numerica raccomandata: non è ricavabile dalle fonti
 consultate in questo progetto e va fissata nella politica di gestione delle chiavi con
 motivazione esplicita.
 
@@ -974,7 +974,7 @@ per il proprio conto: sarebbe una scelta senza fonte e senza maturità implement
 garantire l'**agilità crittografica** del § 4.6, così che l'adozione sia una migrazione di
 configurazione e non una riscrittura. E per il traffico protetto da TLS, seguire l'evoluzione
 delle librerie e delle indicazioni ETSI/SOG-IS/AgID-ACN, che è dove la migrazione arriverà
-per prima. `[NV]` su qualunque data, algoritmo puntuale o scadenza di migrazione: le fonti
+per prima. `[NV]` deve verificarli `TECH` su qualunque data, algoritmo puntuale o scadenza di migrazione: le fonti
 consultate in questo progetto non le forniscono, e vanno lette sui documenti primari
 aggiornati al momento della decisione.
 
@@ -1053,7 +1053,7 @@ laterale. Restano in uso costruzioni più antiche basate su iterazione di HMAC o
 consumo di memoria; sono accettabili con parametri adeguati, ma non sono la scelta di
 riferimento per un sistema nuovo.
 
-`[NV]` sui **valori numerici dei parametri di costo**: non sono ricavabili dalle fonti
+`[NV]` deve verificarli `TECH` sui **valori numerici dei parametri di costo**: non sono ricavabili dalle fonti
 consultate in questo progetto e dipendono dall'hardware su cui gira il verificatore. Il metodo
 corretto è misurare sul proprio hardware e scegliere i parametri più alti compatibili con un
 tempo di verifica accettabile, ridiscutendoli periodicamente; il valore va in configurazione,
@@ -1188,7 +1188,7 @@ del § 2.4.
 
 **Perché questo è il punto più costoso del catalogo di sicurezza del progetto.** Perché la
 decisione **D42** stabilisce esplicitamente che il versionamento delle entità **non è** un
-registro immutabile, e che il vincolo **V5**, il requisito R30 delle linee guida AgID sul
+registro immutabile, e che il vincolo **[V5](../11_registri/03-vincoli-fondanti.md#v5)**, il requisito R30 delle linee guida AgID sul
 procurement ICT, la misura ABSC 3.5.1 della Circolare AgID 2/2017 e il requisito `PR.PS-04`
 delle specifiche di base ACN richiedono catena di impronte **e** conservazione separata dal sistema
 che genera gli eventi. La decisione lo qualifica come «lo sforzo maggiore dell'intero catalogo
@@ -1403,11 +1403,11 @@ perché è un termine con una definizione normativa precisa.
 
 **Cosa cambia per un referto.** Il modulo [03 § 7.1](03-il-dato-clinico.md) riporta che
 l'Accordo Stato-Regioni del 17 dicembre 2020 (rep. 215/CSR) richiede la «sottoscrizione
-digitale» e, per la telerefertazione, la «firma digitale validata del medico responsabile». La
-stessa fonte marca `[NV]` l'individuazione puntuale del livello richiesto dall'ordinamento per
-ciascuna tipologia documentale sanitaria: la scelta va documentata come decisione motivata e
-non assunta implicitamente. Ciò che il progetto può affermare senza incertezze è la
-conseguenza architetturale:
+digitale» e, per la telerefertazione, la «firma digitale validata del medico responsabile».
+`[NV]` Va richiesto all'area `COMP` l'individuazione puntuale del livello richiesto
+dall'ordinamento per ciascuna tipologia documentale sanitaria: la scelta va documentata come
+decisione motivata e non assunta implicitamente. Ciò che il progetto può affermare senza
+incertezze è la conseguenza architetturale:
 
 1. **La firma è un atto della persona, non del sistema.** Un sistema che firma «per conto del
    medico» con una chiave che il sistema custodisce non produce firma qualificata e non produce
@@ -1647,7 +1647,7 @@ anzi, la maschera, perché produce fiducia nel soggetto autenticato.
 
 La regola operativa che ne discende: **l'autorizzazione si verifica a ogni richiesta, sulla
 risorsa specifica, sul lato server**. Non all'ingresso, non nella costruzione del menu, non
-nella schermata. Il vincolo **V3** - nessuna funzionalità raggiungibile solo dall'interfaccia -
+nella schermata. Il vincolo **[V3](../11_registri/03-vincoli-fondanti.md#v3)** - nessuna funzionalità raggiungibile solo dall'interfaccia -
 rende questa regola inevitabile: se ogni capacità è invocabile da un sistema terzo, non esiste
 alcun controllo lato interfaccia che possa essere considerato una difesa.
 
@@ -1879,7 +1879,7 @@ scorciatoia:
    coordinate con i limiti che il modulo [03 § 8.3](03-il-dato-clinico.md) descrive per le
    categorie a maggiore tutela dell'anonimato, dove la disciplina è più stringente.
 
-**Nota per chi progetta l'interfaccia.** Il vincolo **V6** vale anche qui: l'avviso deve essere
+**Nota per chi progetta l'interfaccia.** Il vincolo **[V6](../11_registri/03-vincoli-fondanti.md#v6)** vale anche qui: l'avviso deve essere
 comprensibile, accessibile da tecnologia assistiva, e non veicolato dal solo colore. Una
 schermata di rottura del vetro che un professionista sotto pressione non capisce produce
 accessi non consapevoli, che sono il difetto peggiore fra tutti quelli possibili.
@@ -1892,7 +1892,7 @@ accessi non consapevoli, che sono il difetto peggiore fra tutti quelli possibili
 
 Il **registro degli accessi** - o registro di tracciabilità, o *audit trail* - è la sequenza
 degli eventi che documentano chi ha fatto cosa, quando, su quale dato e con quale esito. È la
-realizzazione tecnica della proprietà di tracciabilità del § 1.6 e del vincolo **V5** del
+realizzazione tecnica della proprietà di tracciabilità del § 1.6 e del vincolo **[V5](../11_registri/03-vincoli-fondanti.md#v5)** del
 progetto.
 
 Va tenuto distinto da tre cose con cui viene regolarmente confuso.
@@ -1925,7 +1925,7 @@ contestazione senza ulteriori indagini:
 | **Da dove** - provenienza, canale, applicazione chiamante | Serve a distinguere l'accesso da rete interna da quello remoto |
 | **Con quale esito** - consentito, negato, parziale | I dinieghi sono l'informazione più utile per rilevare un abuso in corso |
 | **In forza di cosa** - la motivazione dell'autorizzazione, e in emergenza la motivazione dichiarata | § 8.5, punto 2 |
-| **Tenant** | Vincolo **V4**: ogni riga di audit porta l'identificativo di tenant |
+| **Tenant** | Vincolo **[V4](../11_registri/03-vincoli-fondanti.md#v4)**: ogni riga di audit porta l'identificativo di tenant |
 | **Anello della catena** - impronta dell'evento precedente | § 5.6 |
 
 **Cosa non deve contenere, mai.** Questa parte è più importante della precedente, perché un
@@ -1972,7 +1972,7 @@ parallele. È utile, risolve problemi reali, ed è la scelta dichiarata dallo st
    non esiste un modo di dimostrare che **nessuna riga sia stata cancellata**. Senza un
    collegamento fra le righe, la rimozione di una riga lascia un insieme perfettamente coerente.
 
-Le fonti che impongono di andare oltre sono quattro e concordano: il vincolo **V5** del
+Le fonti che impongono di andare oltre sono quattro e concordano: il vincolo **[V5](../11_registri/03-vincoli-fondanti.md#v5)** del
 progetto; il requisito **R30** delle linee guida AgID sulla sicurezza nel procurement ICT; la
 misura **ABSC 3.5.1** della Circolare AgID 18 aprile 2017, n. 2/2017; il requisito `PR.PS-04`
 delle specifiche di base ACN adottate con la **Determinazione ACN n. 379907 del 19 dicembre
@@ -1998,7 +1998,7 @@ tabella di registro è una vulnerabilità, indipendentemente da come il codice s
 
 **Secondo: catena di impronte.** Ogni evento contiene l'impronta del precedente, secondo la
 costruzione del § 5.6. La catena è **per tenant**, con un'ancora iniziale nota, così che
-l'isolamento del vincolo V4 valga anche qui e la verifica di un tenant non richieda di leggere
+l'isolamento del vincolo [V4](../11_registri/03-vincoli-fondanti.md#v4) valga anche qui e la verifica di un tenant non richieda di leggere
 gli eventi di un altro.
 
 **Terzo: conservazione separata.** Gli eventi sono replicati, in continuo o a lotti, verso un
@@ -2148,7 +2148,7 @@ IEC 62366-1 - e il soggetto fabbricante, **una volta costituito, ingaggerà orga
 valutazione clinica e apporrà la marcatura CE**. La decisione **D63**
 autorizza il percorso; i compiti che restano a carico del progetto fino a quel momento e quelli
 che assumerà il soggetto fabbricante sono dettagliati dal piano di recepimento in
-`.telemedic/piani/D63-recepimento-del-ruolo-di-fabbricante.md`.
+[`.telemedic/piani/D63-recepimento-del-ruolo-di-fabbricante.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/piani/D63-recepimento-del-ruolo-di-fabbricante.md).
 
 ### 10.1 GDPR: l'art. 32 e cosa richiede davvero
 
@@ -2252,9 +2252,9 @@ chiudere le proprie evidenze documentali.
 registra: l'art. 18 della **Determinazione ACN n. 127437 del 13 aprile 2026** obbliga il soggetto
 NIS a dichiarare nominativamente ad ACN i propri «fornitori rilevanti», con ragione sociale,
 codice fiscale, **Paese della sede legale**, codici CPV e criterio di rilevanza. Il vincolo
-**V1** cessa così di essere un argomento e diventa **un dato che il cliente deve comunicare a
-un'autorità**. Gli estremi dell'art. 18 sono `[NV]` sul testo: ricostruiti da fonti secondarie
-qualificate concordanti e dalla comunicazione istituzionale.
+**[V1](../11_registri/03-vincoli-fondanti.md#v1)** cessa così di essere un argomento e diventa **un dato che il cliente deve comunicare a
+un'autorità**. Gli estremi dell'art. 18 `[NV]` vanno verificati presso ACN: sono stati
+ricostruiti da fonti secondarie qualificate concordanti e dalla comunicazione istituzionale.
 
 ### 10.3 Il Cyber Resilience Act: l'esclusione è per prodotto, non per progetto
 
@@ -2330,7 +2330,7 @@ Per l'artefatto che diventa dispositivo medico, i requisiti di cibersicurezza ar
   informatica**, compresa la protezione contro l'accesso non autorizzato, necessari per far
   funzionare il software come previsto.
 
-`[NV]` sulla numerazione puntuale 17.1–17.4 dell'Allegato I: la ricerca di riferimento del
+`[NV]` deve verificarla `COMP` sulla numerazione puntuale 17.1–17.4 dell'Allegato I: la ricerca di riferimento del
 progetto la riporta come non confermata su testo primario, pur essendo la numerazione
 comunemente citata.
 
@@ -2506,7 +2506,7 @@ punto 2 del CRA.
 **La divulgazione coordinata.** È la procedura con cui chi scopre una vulnerabilità la comunica
 a chi può correggerla, concordando una finestra prima della pubblicazione. Non è cortesia: è
 l'unico assetto in cui la scoperta produce una correzione invece di un incidente. Il requisito
-**SEC-045** richiede un file `SECURITY.md` con politica di divulgazione coordinata, **canale di
+**SEC-045** richiede un file [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md) con politica di divulgazione coordinata, **canale di
 contatto dedicato, tempi di riscontro e di rimedio dichiarati**. Vanno aggiunti, perché sono ciò
 che determina se i ricercatori la useranno: una chiave pubblica per la comunicazione riservata,
 una finestra di embargo esplicita, e una clausola di **porto sicuro** che dichiari che il
@@ -2638,7 +2638,7 @@ integratore e da un soggetto NIS:
 
 1. **Distinta dei materiali** CycloneDX firmata, per ogni rilascio (**SEC-043**).
 2. **Dichiarazione di esposizione** aggiornata all'ultimo rilascio (**SEC-044**).
-3. **`SECURITY.md`** con politica di divulgazione coordinata, contatto, chiave pubblica, termini
+3. **[`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md)** con politica di divulgazione coordinata, contatto, chiave pubblica, termini
    dichiarati, porto sicuro (**SEC-045**).
 4. **Avvisi di sicurezza** pubblicati per le vulnerabilità corrette (**SEC-046**).
 5. **Dichiarazione del periodo di supporto** per ogni rilascio maggiore, non inferiore a cinque
@@ -2719,7 +2719,7 @@ forma in cui si applicano mentre si scrive codice o si rivede una proposta di mo
 21. **Ogni accesso a dato sanitario produce un evento del registro, comprese le sole letture.**
 22. **Nel registro non entra contenuto clinico**, né corpi di richiesta o risposta, né
     credenziali, né token (§ 9.2).
-23. **Ogni evento porta l'identificativo di tenant** (**V4**).
+23. **Ogni evento porta l'identificativo di tenant** (**[V4](../11_registri/03-vincoli-fondanti.md#v4)**).
 24. **Il registro si scrive, non si modifica.** Se stai scrivendo un'operazione di aggiornamento
     o cancellazione su una tabella di registro, fermati.
 25. **Non registrare nel log applicativo ciò che il registro degli accessi già registra**, e non
@@ -2750,10 +2750,10 @@ forma in cui si applicano mentre si scrive codice o si rivede una proposta di mo
     pubblico va aggiornato nella stessa proposta di modifica.** Vale in particolare per le
     affermazioni sulla cifratura da estremo a estremo (**D19**, **D23**).
 35. **Se scopri una vulnerabilità, non aprire una segnalazione pubblica.** Usa il canale di
-    `SECURITY.md`.
+    [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md).
 36. **Se una misura di sicurezza rende un percorso inutilizzabile per un paziente anziano su
     smartphone in rete mobile, o per un professionista con la sola tastiera e uno screen reader,
-    la misura non è completa** (**D25**, **V6**). Una misura che l'utente reale non riesce a
+    la misura non è completa** (**D25**, **[V6](../11_registri/03-vincoli-fondanti.md#v6)**). Una misura che l'utente reale non riesce a
     eseguire non esiste.
 
 ---
@@ -2817,7 +2817,7 @@ forma in cui si applicano mentre si scrive codice o si rivede una proposta di mo
     di prodotto.
 23. **La licenza non trasferisce obblighi regolatori**, e le clausole di esclusione della
     garanzia valgono fra le parti, non verso il paziente (**D28**).
-24. **Una misura di sicurezza che l'utente reale non riesce a eseguire non esiste** (**V6**).
+24. **Una misura di sicurezza che l'utente reale non riesce a eseguire non esiste** (**[V6](../11_registri/03-vincoli-fondanti.md#v6)**).
 
 ---
 

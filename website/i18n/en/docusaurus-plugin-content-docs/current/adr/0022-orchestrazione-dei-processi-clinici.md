@@ -83,7 +83,7 @@ The decisive motivation is **demonstrability, not elegance**. In this domain it 
 
 - One additional component, with the permanent risk of accumulation of logic: must be overseen with explicit review, because degeneration is gradual and produces no immediate symptoms.
 - Four orchestrated processes are few: the fixed cost of orchestration amortises little.
-- `[NV]` - The **mechanism** of realisation-dedicated engine, persistent state machine in table, application component-**is not decided** and is a deferred decision with stated criteria. Strategy is decided because it constrains other areas; mechanism is not.
+- The **mechanism** of realisation-dedicated engine, persistent state machine in table, application component-**must be decided by the architecture area** with stated criteria `[NV]`. Strategy is decided because it constrains other areas; mechanism is not.
 
 ## References
 

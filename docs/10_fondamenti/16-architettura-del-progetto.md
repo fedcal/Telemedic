@@ -208,7 +208,7 @@ interpretare sia impossibile.
 - **Nessuna soglia clinica è cablata nel codice.** Non esiste un valore numerico scritto da un
   programmatore che decida quando una misura è anomala. Le soglie sono configurazione **per
   assistito**, sempre attribuite a un professionista identificato, con una validità temporale.
-  È il vincolo **V-02** del progetto.
+  È il vincolo **[V-02](../11_registri/01-vincoli-in-vigore.md#v-02)** del progetto.
 - **Nessun campo di documento clinico è popolato da testo prodotto dal sistema.** Nessun
   riepilogo automatico, nessuna conclusione, nessun codice diagnostico dedotto. Il sistema
   struttura e conserva ciò che il professionista scrive.
@@ -237,7 +237,7 @@ lo ospita. Un integratore che ha già la propria interfaccia non userà la nostr
 che deve automatizzare un flusso non può farlo cliccando.
 
 **La regola.** **Nessuna capacità del sistema è raggiungibile solo dall'interfaccia utente.** È
-il vincolo **V3** del progetto.
+il vincolo **[V3](../11_registri/03-vincoli-fondanti.md#v3)** del progetto.
 
 **Che cosa ne discende, e non è ovvio.** La conseguenza non è «esporre tutto in REST». È che il
 **livello applicativo non può contenere logica di dominio**. Se contenesse una regola - poniamo,
@@ -456,7 +456,7 @@ impossibile.
 
 **Il servizio terminologico è tratteggiato.** È l'unica dipendenza esterna del disegno che il
 sistema deve poter **perdere restando pienamente operativo**. Non è una gentilezza verso chi
-installa: è il vincolo **V-03** del progetto, e §9.4 spiega perché è così importante.
+installa: è il vincolo **[V-03](../11_registri/01-vincoli-in-vigore.md#v-03)** del progetto, e §9.4 spiega perché è così importante.
 
 ### 2.11 Che cosa questa forma costa
 
@@ -946,7 +946,7 @@ suo prezzo, e chi decide. §11 torna sull'argomento.
 Questa sezione è più lunga delle altre in proporzione alla sua complessità tecnica, e la ragione
 è che descrive **una decisione che verrà messa in discussione**. Non «potrebbe essere»: verrà.
 Ogni persona che arriva sul progetto la incontra, la trova inutilmente complicata, e propone in
-buona fede di semplificarla. È il vincolo **V-01** del progetto, e nessuna area può violarlo.
+buona fede di semplificarla. È il vincolo **[V-01](../11_registri/01-vincoli-in-vigore.md#v-01)** del progetto, e nessuna area può violarlo.
 
 Una decisione imposta e non compresa viene aggirata alla prima occasione. Quindi qui la si
 ricostruisce dall'inizio.
@@ -1070,7 +1070,7 @@ attraverso l'interfaccia del contesto proprietario.
 
 **Nessuna riga di questa tabella produce un cambio di stato automatico.** Se stai scrivendo
 codice e ti trovi a far sì che una riga di questa tabella cambi lo stato della prestazione, ti
-sei imbattuto in V-01: fermati e chiedi.
+sei imbattuto in [V-01](../11_registri/01-vincoli-in-vigore.md#v-01): fermati e chiedi.
 
 ### 5.5 Le due macchine a stati
 
@@ -1142,7 +1142,7 @@ attribuibile condividono lo stato terminale e hanno effetti amministrativi oppos
 
 ### 5.6 Come si riconosce il tentativo di unirli
 
-La violazione di V-01 non si presenta quasi mai nella forma «uniamo le due entità». Si presenta
+La violazione di [V-01](../11_registri/01-vincoli-in-vigore.md#v-01) non si presenta quasi mai nella forma «uniamo le due entità». Si presenta
 in queste forme, tutte apparentemente innocue:
 
 - «Aggiungiamo alla prestazione un campo *connessa*, così l'interfaccia sa se mostrare il
@@ -1509,7 +1509,7 @@ amministrazione sull'archivio applicativo cancella la riga di storico corrispond
 verifica lo rileva, perché non esiste nulla che affermi quante righe **avrebbero dovuto**
 esserci. Il registro torna positivo, e la sua positività non significa niente.
 
-Nel progetto questa distinzione **non va attenuata in nessun documento**: è il vincolo **V-04**.
+Nel progetto questa distinzione **non va attenuata in nessun documento**: è il vincolo **[V-04](../11_registri/01-vincoli-in-vigore.md#v-04)**.
 Il versionamento delle entità resta utile - per ricostruire lo stato applicativo passato - e non
 è, e non viene mai presentato come, il registro degli accessi.
 
@@ -2504,7 +2504,7 @@ può darsi che il ragionamento abbia un difetto, ed è esattamente così che si 
 5. **La colonna «che cosa non è affar suo» è la più utile della mappa dei contesti.** I confini si
    erodono per accumulo di eccezioni ragionevoli, e il momento pericoloso è quando qualcuno
    propone di aggiungere «solo un campo».
-6. **Prestazione clinica e sessione media non si uniscono mai.** È il vincolo V-01. La sessione
+6. **Prestazione clinica e sessione media non si uniscono mai.** È il vincolo [V-01](../11_registri/01-vincoli-in-vigore.md#v-01). La sessione
    può informare, mai decidere; il verso inverso è di comando.
 7. **L'outbox transazionale è l'unica sorgente degli eventi in uscita.** Elimina per costruzione
    l'evento perso e l'evento fantasma. Nessun percorso applicativo scrive direttamente sul broker.

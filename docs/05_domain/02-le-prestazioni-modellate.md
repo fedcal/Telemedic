@@ -32,7 +32,7 @@ Tre decisioni governano l'intero capitolo e vanno enunciate prima dei diagrammi.
 > condizioni `if` sparse nel codice. Aggiungere una prestazione deve essere una riga di
 > catalogo più una macchina a stati, non una modifica diffusa.
 
-> **[BASE] `V-01` - `Encounter` e `MediaSession` sono aggregati distinti.** Una prestazione può
+> **[BASE] [`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01) - `Encounter` e `MediaSession` sono aggregati distinti.** Una prestazione può
 > avvenire senza media (teleconsulto asincrono), con più sessioni (caduta e riconnessione), o
 > con sessioni fallite; una sessione media può esistere senza prestazione (prova tecnica).
 > Unirli è l'errore di modellazione più costoso di questo dominio.
@@ -121,7 +121,7 @@ di terapia in corso, valutazione anamnestica per prescrizione di esami, verifica
 esami effettuati). Il testo integrale è nel modulo
 [02 dei fondamenti](../10_fondamenti/02-prestazioni-di-telemedicina.md) § 4.1.
 
-Il modello **non decide l'appropriatezza**: la registra (`BR-004`, vincolo `V2` di separazione
+Il modello **non decide l'appropriatezza**: la registra (`BR-004`, vincolo [`V2`](../11_registri/03-vincoli-fondanti.md#v2) di separazione
 MDR). Concretamente:
 
 - il **catalogo** marca il tipo di prestazione come erogabile in televisita e, se del caso, come
@@ -194,7 +194,7 @@ stateDiagram-v2
    esito che ne dichiara l'incompletezza. Ammettere l'annullamento di un atto iniziato
    significa poter cancellare la traccia di un'interazione clinica avvenuta.
 2. **`In corso → Concluso` automatica** non esiste. La chiusura con esito è **sempre atto del
-   professionista** (`BR-032`, vincolo `V2`): in assenza, il contatto resta sospeso ed è
+   professionista** (`BR-032`, vincolo [`V2`](../11_registri/03-vincoli-fondanti.md#v2)): in assenza, il contatto resta sospeso ed è
    segnalato. Un sistema che chiude da solo attribuisce un esito clinico, e attribuire esiti
    clinici lo sposta di classificazione.
 3. **`Documentato → InRefertazione`** non esiste. Il documento firmato è immutabile
@@ -203,7 +203,7 @@ stateDiagram-v2
 
 ### 2.4 Sospensione e ripresa: l'invariante
 
-L'invariante più importante del capitolo, e la ragione di `V-01`:
+L'invariante più importante del capitolo, e la ragione di [`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01):
 
 > **`DM-13` [MOD] - Lo stato del contatto non dipende dallo stato della sessione media.** Una
 > caduta di rete non modifica lo stato del contatto. Il contatto passa da `In corso` a
@@ -213,7 +213,7 @@ L'invariante più importante del capitolo, e la ragione di `V-01`:
 La finestra di ripresa è un parametro di configurazione per tenant e per tipo di prestazione.
 `R6` § 3.4 propone dieci minuti come valore predefinito: è una **proposta di progetto**, non una
 prescrizione normativa - nessuna fonte italiana stabilisce soglie tecniche (`B1`, mandato
-aggiuntivo; vincolo `V-12`).
+aggiuntivo; vincolo [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12)).
 
 ### 2.5 Gli esiti
 
@@ -550,9 +550,9 @@ comportamento in violazione delle soglie**.
 > **`DM-21` [MOD] - Il piano è versionato e la versione è parte dell'identità della misura.** Una
 > misura acquisita sotto la versione 2 del piano non va confrontata con le soglie della versione
 > 3. Senza versionamento, ogni modifica del piano riscrive retroattivamente il significato dello
-> storico. È la questione `Q-12` in bacheca, per la parte «piano di telemonitoraggio versionato».
+> storico. È la questione [`Q-12`](../11_registri/02-questioni-aperte.md#q-12) in bacheca, per la parte «piano di telemonitoraggio versionato».
 
-> **[BASE] `V-02`** - La soglia è **configurazione per assistito**, decisa dal professionista, e
+> **[BASE] [`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)** - La soglia è **configurazione per assistito**, decisa dal professionista, e
 > non è mai una costante del codice né un valore predefinito «ragionevole». Il modulo
 > [10 dei fondamenti](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 7.10 spiega perché
 > un valore predefinito ragionevole può essere clinicamente sbagliato per la persona a cui si
@@ -582,7 +582,7 @@ stateDiagram-v2
     Mancata --> Ricevuta : arrivo tardivo entro la finestra di tolleranza
 ```
 
-Lo stato `Mancata` è la traduzione modellistica del vincolo `V-09`: **l'assenza di dato è
+Lo stato `Mancata` è la traduzione modellistica del vincolo [`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09): **l'assenza di dato è
 informazione**. Non è l'assenza di una riga; è **una riga che dichiara l'assenza**, con la
 finestra attesa, l'istante in cui l'attesa è scaduta e la causa quando è nota. Il capitolo
 [05](05-parametri-e-osservazioni.md) ne dà la struttura e la tassonomia delle cause.
@@ -623,14 +623,14 @@ Tre proprietà di questa macchina a stati sono decisioni, non dettagli:
 2. **`Non riscontrato` è uno stato, non un'assenza.** Il mancato riscontro è un fatto da
    registrare, misurare e sottoporre a revisione.
 3. **L'escalation può fallire, e il fallimento è dichiarato.** Un'escalation che si esaurisce
-   senza destinatario non deve terminare in silenzio: è la questione `Q-12`, voce «escalation
+   senza destinatario non deve terminare in silenzio: è la questione [`Q-12`](../11_registri/02-questioni-aperte.md#q-12), voce «escalation
    con fallimento dichiarato».
 
 > **[BASE] `D26`** - La valutazione automatica delle soglie nel telemonitoraggio è l'elemento
 > che costituisce *interpretazione* e fonda la qualificazione come dispositivo medico. Il
 > modello lo isola in un componente identificabile, con tracciabilità del calcolo - versione del
 > piano, versione della regola, valori in ingresso, esito - perché sia verificabile a posteriori
-> (questione `Q-12`, voce «tracciabilità del calcolo»).
+> (questione [`Q-12`](../11_registri/02-questioni-aperte.md#q-12), voce «tracciabilità del calcolo»).
 
 ### 6.3 Che cosa produce il telemonitoraggio
 
@@ -781,7 +781,7 @@ Le due macchine a stati si osservano e non si comandano a vicenda, con tre eccez
 > incompatibili: `D23` impone due modalità distinte, dichiarate nel consenso e segnalate in modo
 > persistente. Sul piano del dominio ne discende che **la modalità di sessione è un attributo
 > del fatto**, non una configurazione di infrastruttura: il passaggio fra le due modalità è
-> tracciato e ha effetti sul consenso richiesto. La questione `Q-08` in bacheca resta aperta
+> tracciato e ha effetti sul consenso richiesto. La questione [`Q-08`](../11_registri/02-questioni-aperte.md#q-08) in bacheca resta aperta
 > verso l'area `ARCH` per gli effetti sul modello dati.
 
 ### 8.3 La sessione media senza contatto
@@ -789,7 +789,7 @@ Le due macchine a stati si osservano e non si comandano a vicenda, con tre eccez
 Esiste ed è deliberata: la **prova tecnica**. Una sessione media può essere avviata per
 verificare dispositivo, permessi e raggiungibilità senza che vi sia un atto sanitario. Se il
 modello richiedesse un contatto per ogni sessione media, ogni prova tecnica creerebbe un
-contatto fantasma da filtrare in ogni rapporto - che è esattamente il difetto che `V-01`
+contatto fantasma da filtrare in ogni rapporto - che è esattamente il difetto che [`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01)
 previene, osservato dal lato opposto.
 
 ## 9. La sala d'attesa virtuale
@@ -818,7 +818,7 @@ avere un evento acuto, senza possibilità di intervento diretto.
 
 Il modello ha un solo compito, ed è **logistico, non clinico**:
 
-> **[BASE] `V2`** - Il sistema **non valuta la gravità e non suggerisce condotte cliniche**. Rende
+> **[BASE] [`V2`](../11_registri/03-vincoli-fondanti.md#v2)** - Il sistema **non valuta la gravità e non suggerisce condotte cliniche**. Rende
 > immediatamente disponibili al professionista le informazioni che non ha perché il paziente non
 > è nella stessa stanza: **indirizzo in cui la persona si trova in quel momento**, recapiti,
 > contatto di emergenza dichiarato.
@@ -851,7 +851,7 @@ sempre una dichiarazione di una persona qualificata.
 ## 12. Mappatura sullo standard e sui profili nazionali
 
 > **[BASE]** Il modello canonico è FHIR R4 (4.0.1) profilato secondo le guide di implementazione
-> italiane, che **prevalgono** in caso di divergenza (`04_BASELINE_ARCHITETTURALE.md` § 3).
+> italiane, che **prevalgono** in caso di divergenza ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 3).
 
 | Stato di dominio del contatto | `Encounter.status` | Nota |
 |---|---|---|
@@ -893,7 +893,7 @@ La validità temporale non è un dettaglio: un catalogo senza di essa rende irri
 rendicontazione storica, perché non si può più sapere quali regole erano vigenti alla data
 dell'erogazione.
 
-> **Questione `Q-02` in bacheca** - Il catalogo è dato di riferimento incluso nel prodotto o
+> **Questione [`Q-02`](../11_registri/02-questioni-aperte.md#q-02) in bacheca** - Il catalogo è dato di riferimento incluso nel prodotto o
 > esclusivamente riferito dal tenant? I cataloghi regionali sono ventuno cicli indipendenti di
 > aggiornamento. La questione è indirizzata all'area `ARCH`; quest'area vi concorre con una
 > proposta e non la chiude:

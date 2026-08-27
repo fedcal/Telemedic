@@ -37,14 +37,14 @@ un ramo separato che diverge alla seconda versione.
 **Isolamento applicato dal motore, non dalla correttezza del codice.** Uno schema per tenant su
 base dati condivisa, con sicurezza a livello di riga come difesa in profondità e **negazione
 predefinita** in assenza di contesto di tenant risolto: nessun accesso ai dati avviene fuori da una
-transazione con tenant impostato (vincolo `V-112`).
+transazione con tenant impostato (vincolo [`V-112`](../11_registri/01-vincoli-in-vigore.md#v-112)).
 
 **Un registro immutabile che regge a un'indagine.** Non è il versionamento delle entità, che
 versiona ma non rende immutabile: è una struttura in sola aggiunta con catena di impronte,
 archiviazione a privilegi disgiunti, ancoraggio periodico dell'impronta cumulativa, verifica
-dell'integrità su richiesta e programmata, esportazione in formato aperto (vincolo `V-04`). Il
+dell'integrità su richiesta e programmata, esportazione in formato aperto (vincolo [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04)). Il
 registro non contiene contenuto clinico: contiene chi, cosa, quando, su quale soggetto, con quale
-esito e con quale livello di garanzia dell'autenticazione (vincolo `V-150`).
+esito e con quale livello di garanzia dell'autenticazione (vincolo [`V-150`](../11_registri/01-vincoli-in-vigore.md#v-150)).
 
 **La ripartizione delle responsabilità scritta riga per riga.** Il documento
 [`docs/06_security/09-ripartizione-delle-responsabilita.md`](../06_security/09-ripartizione-delle-responsabilita.md)
@@ -68,8 +68,8 @@ di scoprirlo dopo. I sei che si sottovalutano più spesso:
 
 | Presupposto | Perché non è un'opzione |
 |---|---|
-| **Isolamento di rete in uscita del nodo di relay**, applicato dall'infrastruttura | È la **difesa primaria** e non dipende dalla correttezza del codice. Le liste di indirizzi vietati sono difesa in profondità (vincolo `V-10`) |
-| **Negazione di rotta in uscita ai componenti applicativi**, con la sola eccezione del mediatore | È requisito architetturale, non regola di codifica: la difesa non deve dipendere dal fatto che un programmatore non sbagli (vincolo `V-157`) |
+| **Isolamento di rete in uscita del nodo di relay**, applicato dall'infrastruttura | È la **difesa primaria** e non dipende dalla correttezza del codice. Le liste di indirizzi vietati sono difesa in profondità (vincolo [`V-10`](../11_registri/01-vincoli-in-vigore.md#v-10)) |
+| **Negazione di rotta in uscita ai componenti applicativi**, con la sola eccezione del mediatore | È requisito architetturale, non regola di codifica: la difesa non deve dipendere dal fatto che un programmatore non sbagli (vincolo [`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)) |
 | **Separazione dei privilegi fra archivio applicativo e archivio del registro** | In sua assenza la garanzia di non alterabilità **si riduce alla fiducia nell'operatore**, che è precisamente ciò che il requisito esclude. La riduzione va dichiarata |
 | **Custodia della chiave radice** della gerarchia di cifratura | La chiave che protegge le copie non può risiedere nel sistema che le produce |
 | **Determinazione dei termini di conservazione** della documentazione sanitaria | Il prodotto li rende configurabili, **non li decide**: la determinazione è del titolare del trattamento |
@@ -92,7 +92,7 @@ degli organi di amministrazione.
 - **Non gli dà una data di conformità alle misure nazionali di sicurezza.** Il termine è
   **soggettivo**: decorre dalla comunicazione di inserimento che ha ricevuto **lui**, e non è
   determinabile dal fornitore. Il progetto dichiara **quali evidenze** consegna e **da quale
-  rilascio** ciascuna è disponibile (vincolo `V-186`).
+  rilascio** ciascuna è disponibile (vincolo [`V-186`](../11_registri/01-vincoli-in-vigore.md#v-186)).
 - **Non gli dà i valori dei livelli di servizio.** Il prodotto li **misura** e storicizza la
   disponibilità per tenant e per servizio; la soglia la sceglie chi installa.
 - **Non gli dà una consulenza legale o regolatoria.** La qualificazione giuridica di un soggetto e
@@ -118,9 +118,9 @@ questo sistema, ed è composta di regole verificabili:
   precompilazione riguarda dati anagrafici, amministrativi e temporali (`OUT-07`);
 - **nessuna soglia è dedotta o proposta.** Il campo parte vuoto e obbligatorio, senza
   precompilazione nemmeno con i valori del percorso o dell'ultimo piano; i riferimenti si mostrano
-  attribuiti, in sola lettura, con un'azione esplicita di copia (vincolo `V-123`);
+  attribuiti, in sola lettura, con un'azione esplicita di copia (vincolo [`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123));
 - **una caduta di rete non chiude l'atto clinico.** Prestazione e sessione media sono aggregati
-  distinti (vincolo `V-01`), e l'unica transizione che la sessione media provoca sul contatto è la
+  distinti (vincolo [`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01)), e l'unica transizione che la sessione media provoca sul contatto è la
   sospensione dopo una riconnessione fallita oltre la finestra configurata.
 
 **Strumenti che riflettono la realtà dell'atto a distanza.** La sala d'attesa ha **due controlli
@@ -132,7 +132,7 @@ dichiarato, con inizio, fine e annuncio: non esiste modalità silenziosa.
 
 **Un accesso d'emergenza che è un requisito, non un'eccezione tollerata**: motivazione libera
 obbligatoria, finestra e perimetro limitati, notifica, riesame con esito registrato (vincolo
-`V-153`).
+[`V-153`](../11_registri/01-vincoli-in-vigore.md#v-153)).
 
 **Una procedura di emergenza che gli dà ciò che gli manca davvero.** Non una valutazione di
 gravità, ma le informazioni logistiche che non ha perché l'assistito non è nella stessa stanza:
@@ -195,7 +195,7 @@ può incidere sulla natura dell'atto.
 **Consensi che sono fatti, non caselle.** Cinque oggetti di consenso distinti con cicli di vita
 indipendenti - atto sanitario, trattamento dei dati ove applicabile, registrazione, presenza di
 terzi, trasmissione a sistemi esterni - e la revoca di uno non tocca gli altri. **Non esiste, nel
-modello, un «consenso alla piattaforma»** (vincolo `V-146`).
+modello, un «consenso alla piattaforma»** (vincolo [`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)).
 
 **Una verifica delle chiavi pensata per essere usata da lui.** Il codice breve derivato dalle
 impronte della sessione, confrontato a voce con l'interlocutore, è obbligatorio per impostazione
@@ -207,7 +207,7 @@ alfabetizzata digitalmente, con una procedura definita in caso di mancata corris
 **Avvertenze che non si possono nascondere.** L'indicatore di registrazione in corso, i testi di
 consenso, l'esito della verifica delle chiavi, i messaggi di errore clinico e l'indicatore dello
 stato di cifratura **non sono tematizzabili né occultabili da nessun integratore** (vincolo
-`V-163`). Il canale asincrono, il ripiego telefonico e l'inserimento manuale delle misure
+[`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)). Il canale asincrono, il ripiego telefonico e l'inserimento manuale delle misure
 dichiarano in modo persistente e non chiudibile i tempi di risposta attesi e la **non idoneità
 all'emergenza**. La copertura oraria del servizio è visibile con lo **stato corrente**, non con
 l'orario teorico, insieme al canale alternativo.
@@ -267,18 +267,18 @@ con due oscuramenti programmati a nove e undici mesi - l'interfaccia applicativa
 profili pubblicati e il documento di capacità, i tipi di evento e i loro schemi, gli ambiti di
 autorizzazione, gli identificatori dei tipi di problema e i codici di esito, le interfacce dei
 moduli sostituibili, il protocollo del componente incorporabile e l'insieme chiuso delle proprietà
-di tema. **Tutto il resto è interno e può cambiare senza preavviso** (vincolo `V-160`).
+di tema. **Tutto il resto è interno e può cambiare senza preavviso** (vincolo [`V-160`](../11_registri/01-vincoli-in-vigore.md#v-160)).
 
 **Regole che lo proteggono anche quando gli costano.** Gli eventi in uscita trasportano
 **riferimenti, mai contenuto clinico**: il contenuto si rilegge con una chiamata autenticata sotto
-l'autorizzazione del ricevente (vincolo `V-161`). La firma dei messaggi in uscita è **asimmetrica**,
+l'autorizzazione del ricevente (vincolo [`V-161`](../11_registri/01-vincoli-in-vigore.md#v-161)). La firma dei messaggi in uscita è **asimmetrica**,
 perché un segreto condiviso non dà non ripudio e la sua rotazione richiede coordinamento con
-ciascun integratore (vincolo `V-162`). L'identità proveniente da un emittente esterno è sempre
+ciascun integratore (vincolo [`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162)). L'identità proveniente da un emittente esterno è sempre
 rappresentata come **delega, mai come impersonificazione**: nessuna configurazione supportata
-emette un token privo del claim dell'attore (vincolo `V-132`).
+emette un token privo del claim dell'attore (vincolo [`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)).
 
 **Due sole rappresentazioni dell'errore**, con catalogo **generato** da un file versionato e il
-divieto di emettere un errore non catalogato (vincoli `V-110`, `V-130`).
+divieto di emettere un errore non catalogato (vincoli [`V-110`](../11_registri/01-vincoli-in-vigore.md#v-110), [`V-130`](../11_registri/01-vincoli-in-vigore.md#v-130)).
 
 ### 4.2 Che cosa deve mettere di suo
 
@@ -305,12 +305,12 @@ va letto **prima** della firma di un contratto, non dopo.
 - **Non gli dà personalizzazione illimitata del componente incorporabile.** Le proprietà di tema
   sono un insieme chiuso e versionato, validate lato server con verifica del contrasto: una
   configurazione che degrada l'accessibilità **viene rifiutata al salvataggio**, non segnalata come
-  avviso. Nessuna iniezione di fogli di stile arbitrari dall'esterno (vincolo `V-163`).
+  avviso. Nessuna iniezione di fogli di stile arbitrari dall'esterno (vincolo [`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)).
 - **Non gli dà un livello di garanzia che valga come autenticazione forte.** Il livello propagato è
   quello **richiesto**, non quello asserito, ed è sempre qualificato per distinguere
   l'autenticazione **eseguita** dal progetto da quella **riferita** da lui. Un'operazione che la
-  normativa lega all'autenticazione forte richiede autenticazione eseguita (vincoli `V-154`,
-  `V-165`).
+  normativa lega all'autenticazione forte richiede autenticazione eseguita (vincoli [`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154),
+  [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165)).
 - **Non gli dà token ispezionabili dall'esterno.** I token verso l'esterno sono opachi, tradotti in
   token autoportanti dal gateway: la ragione è la **revoca effettiva**, perché in un sistema che
   tratta dati sanitari la domanda «da quando ha smesso di poter accedere?» deve avere come risposta
@@ -320,7 +320,7 @@ va letto **prima** della firma di un contratto, non dopo.
   una mutua o una polizza, il profilo di integrazione è **amministrativo per costruzione**:
   identificativo della prestazione, esito amministrativo, importo. Nessun ambito, evento o modulo
   può costituire un percorso - diretto o mediato da un professionista - verso il contenuto clinico
-  (vincolo `V-166`, `OUT-18`).
+  (vincolo [`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166), `OUT-18`).
 - **Non gli dà un kit di sviluppo nel primo rilascio.** L'interfaccia applicativa versionata è
   sufficiente alla prima integrazione; il kit è comodità, non capacità.
 
@@ -376,33 +376,33 @@ cliente.
 
 - **Non gli dà un fornitore accreditato presso la federazione nazionale delle identità.** Non
   perché non voglia: perché **non può**. Il fornitore di servizi è chi eroga il servizio in rete
-  (`D36`, vincolo `V-05`, `OUT-22`). Il progetto punta a essere conforme e verificabile in
+  (`D36`, vincolo [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05), `OUT-22`). Il progetto punta a essere conforme e verificabile in
   integrazione continua, e non dichiara tempi che nessuna fonte primaria stabilisce.
 - **Non gli dà, oggi, il conferimento ai repository documentali nazionali e regionali.** I modelli
   documentali, i codici di tipologia e i metadati di indicizzazione delle dieci tipologie della
-  telemedicina **non sono pubblicamente disponibili** (questione `Q-07`). La risposta strutturale
+  telemedicina **non sono pubblicamente disponibili** (questione [`Q-07`](../11_registri/02-questioni-aperte.md#q-07)). La risposta strutturale
   esiste - dataset canonico e serializzazione sostituibile, con l'adattatore come punto di
   estensione a contratto dichiarato - ma **manca il contenuto, non il progetto**, e nessun modello
-  documentale è cablato (vincolo `V-136`).
+  documentale è cablato (vincolo [`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136)).
 - **Non gli dà una data per un esito che non dipende soltanto dal progetto.** Per
   l'accreditamento presso la federazione delle identità, per il termine di adeguamento alle misure
   nazionali di sicurezza e per la disponibilità dei modelli documentali il motivo è che il
-  traguardo **non è del progetto** (vincolo `V-180`). Per la **marcatura CE** il motivo è diverso e
+  traguardo **non è del progetto** (vincolo [`V-180`](../11_registri/01-vincoli-in-vigore.md#v-180)). Per la **marcatura CE** il motivo è diverso e
   va detto con precisione: la pianificazione è interna al progetto (`D57`, `D58`), ma **una
   pianificazione interna non diventa una promessa solo perché è nostra**, e la promessa di un esito
   regolatorio datato produce un effetto che l'intenzione non produce. Di ciascuno il progetto
   dichiara **le condizioni** e **ciò che fornisce**; mai la data.
 - **Non gli dà una voce `[INTENZIONE]` presentata come `[IMPEGNO]`.** Nessun materiale del progetto
-  - documentazione, sito, risposta a gara, nota di rilascio - può farlo (vincolo `V-184`). Una voce
+  - documentazione, sito, risposta a gara, nota di rilascio - può farlo (vincolo [`V-184`](../11_registri/01-vincoli-in-vigore.md#v-184)). Una voce
   della coda successiva al primo rilascio non è **pianificata** se non ha insieme criterio di
   completamento binario, innesco dichiarato e titolare nominato: in assenza anche di uno solo dei
-  tre è **desiderabile**, e va marcata tale anche in una risposta a capitolato (vincolo `V-187`).
+  tre è **desiderabile**, e va marcata tale anche in una risposta a capitolato (vincolo [`V-187`](../11_registri/01-vincoli-in-vigore.md#v-187)).
 
 ## 6. Due lettori adiacenti, che questo capitolo non tratta
 
 **Chi immette sul mercato un prodotto derivato.** Integra il codice in un proprio prodotto, lo
 immette sul mercato e **assume per ciò stesso il ruolo di fabbricante**, indipendentemente da
-quanto scritto nella licenza. Per lui l'area di conformità è un **manuale operativo**, non
+quanto scritto nella licenza. Per lui l'`COMP` è un **manuale operativo**, non
 un'informativa, e il percorso di lettura è in
 [`docs/08_compliance/00-indice.md`](../08_compliance/00-indice.md) §3.1. Le due avvertenze che gli
 risparmiano mesi: le attività dei primi trenta giorni non sono delegabili allo sviluppo e non si

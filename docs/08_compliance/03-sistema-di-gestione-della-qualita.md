@@ -140,8 +140,9 @@ dell'art. 61, la sorveglianza post-commercializzazione nella forma degli artt. 8
 obblighi di vigilanza degli artt. 87–92. Occorrono procedure aggiuntive, ed è il blocco B del § 4.
 
 **`[NV]`** - lo stato di armonizzazione va verificato sull'elenco consolidato pubblicato dalla
-Commissione **alla data d'uso**, non a memoria: l'elenco è modificato con frequenza, e una
-presunzione di conformità invocata su una versione non più citata è una presunzione che non opera.
+Commissione **alla data d'uso**, non a memoria, da `COMP`: l'elenco è modificato con frequenza, e
+una presunzione di conformità invocata su una versione non più citata è una presunzione che non
+opera.
 
 ## 3. Il sistema di gestione della qualità come codice
 
@@ -207,7 +208,7 @@ paziente o con materiale biologico; non esiste quindi processo di pulizia da con
 
 Una delle esclusioni abituali **va invece riconsiderata**, ed è il motivo per cui questa sezione
 esiste: il controllo dei dispositivi di misurazione. Se la posizione sulla **funzione di misura**
-(questione `Q-173`, [02 §12](./02-qualificazione-e-classificazione.md)) dovesse concludere che la
+(questione [`Q-173`](../11_registri/02-questioni-aperte.md#q-173), [02 §12](./02-qualificazione-e-classificazione.md)) dovesse concludere che la
 presentazione di parametri costituisce funzione di misura, l'esclusione cade e con essa cade la
 motivazione già scritta. È un esempio di come una questione aperta apparentemente marginale abbia
 effetti a distanza sul perimetro del sistema.
@@ -268,12 +269,12 @@ superabile - non perché l'auditor sia severo, ma perché **non c'è nulla da au
 che la data di avvio dell'esercizio determina, con circa sei mesi di scarto, la prima data utile
 per la certificazione. **Da `D58` discende che quella data di avvio è una decisione nostra, non
 un'attesa**: è un ritardo che il progetto si infligge da solo se non avvia l'esercizio. Ciò non
-autorizza a scrivere da nessuna parte una data di marcatura - `V-171` lo vieta senza eccezioni, e
+autorizza a scrivere da nessuna parte una data di marcatura - [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) lo vieta senza eccezioni, e
 una pianificazione interna non diventa una promessa perché è nostra - ma sposta il costo del
 rinvio dal conto di un terzo al nostro.
 
 **Terza - e riguarda quest'area direttamente.** Le procedure sono **documenti controllati**; la
-documentazione pubblicata in queste pagine **non lo è**. È il vincolo `V-174`: nessun capitolo di
+documentazione pubblicata in queste pagine **non lo è**. È il vincolo [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174): nessun capitolo di
 questa documentazione è una procedura del sistema di gestione della qualità, e nessuna area può
 presentare un proprio capitolo come tale. I capitoli sono **ingressi**: contengono l'analisi da
 cui una procedura si scrive, non la procedura.
@@ -281,8 +282,8 @@ cui una procedura si scrive, non la procedura.
 ## 5. Gli identificativi dei documenti regolatori
 
 Il progetto adotta uno spazio di identificativi per i documenti regolatori, distinto da quello dei
-requisiti (`RF-*`, `RNF-*`, `BR-*`, congelati da `V-120`) e da quello dei documenti di decisione
-architetturale. **Questo spazio è dichiarato qui e vale come vincolo `V-172`:** nessuna area può
+requisiti (`RF-*`, `RNF-*`, `BR-*`, congelati da [`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)) e da quello dei documenti di decisione
+architetturale. **Questo spazio è dichiarato qui e vale come vincolo [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172):** nessuna area può
 coniare un identificativo in questi prefissi senza dichiararlo in bacheca.
 
 | Prefisso | Ambito |
@@ -333,7 +334,7 @@ percorso di dati - è un rilievo garantito.
 punteggio calcolato, una soglia definita dal sistema o l'estensione a pazienti instabili **riporta
 la determinazione a C**, con l'obbligo della progettazione dettagliata a livello di unità
 (clausola 5.4) e della verifica di ogni unità. **È una decisione architetturale, non una scelta di
-prodotto**, ed è il motivo per cui il vincolo `V-170` esiste.
+prodotto**, ed è il motivo per cui il vincolo [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170) esiste.
 
 ### 6.2 Che cosa cambia in classe B, e quanto costa davvero
 
@@ -393,7 +394,7 @@ posteriori che cosa qualcuno intendeva fare, e l'organismo notificato non ha mot
 
 Da qui i due presidi, entrambi già in vigore:
 
-1. **gli identificativi sono congelati** e non si rinumerano mai (`V-120`);
+1. **gli identificativi sono congelati** e non si rinumerano mai ([`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120));
 2. **la matrice è generata**, non redatta. Una matrice mantenuta a mano diverge dal codice al
    terzo rilascio; una matrice generata dai riferimenti nelle modifiche e nelle prove è vera per
    costruzione, e la sua generazione **fallisce** quando un riferimento manca.
@@ -452,7 +453,7 @@ produttore e versione; non contiene funzione nel sistema, alternativa nota, impa
 livello di servizio di aggiornamento e data di riesame. Questi cinque campi vivono in un file di
 annotazioni versionato, e **la costruzione fallisce se un componente compare nella distinta e non
 nelle annotazioni**: è il meccanismo che impedisce l'ingresso di una dipendenza non valutata, ed è
-già stabilito dall'area tecnica come esito della questione `Q-17`.
+già stabilito dall'area tecnica come esito della questione [`Q-17`](../11_registri/02-questioni-aperte.md#q-17).
 
 ### 9.3 Perché `latest` è vietato
 
@@ -474,7 +475,7 @@ Un riferimento a un'etichetta mobile:
 **La conseguenza pratica è la regola più semplice dell'intero capitolo, e la più violata:** ogni
 dipendenza, ogni immagine di base, ogni strumento della catena di costruzione porta una versione
 esatta, e l'aggiornamento è **un atto, con una data, una motivazione e una valutazione**. Il
-vincolo `V-173` lo rende bloccante.
+vincolo [`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173) lo rende bloccante.
 
 ### 9.4 Sorveglianza e finestre di rimedio
 
@@ -483,7 +484,7 @@ non di correggerla sempre. **La decisione motivata di non aggiornare è ammessa 
 è spesso la decisione giusta: un aggiornamento non valutato introduce più rischio di quanto ne
 tolga.
 
-**Questa sezione risponde alla questione `Q-113`**, aperta dall'area tecnica, che chiedeva un
+**Questa sezione risponde alla questione [`Q-113`](../11_registri/02-questioni-aperte.md#q-113)**, aperta dall'area tecnica, che chiedeva un
 livello di servizio di aggiornamento espresso in giorni dalla pubblicazione dell'avviso e
 differenziato per gravità.
 
@@ -517,13 +518,13 @@ descrive alcun comportamento.
 
 **Ciò che resta fuori da questa sezione e appartiene al committente:** il **periodo di supporto
 dichiarato** per ciascun rilascio maggiore, minimo cinque anni secondo la disciplina sulla
-resilienza. È la questione `Q-155`, e finché è aperta **il progetto non può pubblicare una data di
+resilienza. È la questione [`Q-155`](../11_registri/02-questioni-aperte.md#q-155), e finché è aperta **il progetto non può pubblicare una data di
 fine supporto**, che è però un elemento obbligatorio della documentazione richiesta dai clienti e
 dalla norma sulla sicurezza del ciclo di vita.
 
 ### 9.5 Il regime di licenza di un componente non è un dettaglio del componente
 
-**Questa sezione risponde alla questione `Q-112`**, aperta dall'area tecnica sull'estensione per
+**Questa sezione risponde alla questione [`Q-112`](../11_registri/02-questioni-aperte.md#q-112)**, aperta dall'area tecnica sull'estensione per
 serie temporali, le cui funzionalità avanzate risulterebbero distribuite non sotto licenza open
 source approvata ma sotto una licenza propria di tipo sorgente disponibile, con restrizioni
 sull'offerta come servizio gestito a terzi.
@@ -547,13 +548,13 @@ sull'offerta come servizio gestito a terzi.
    verifica va fatta **artefatto per artefatto**.
 
 **`[NV]`** - la lettura del testo della licenza primaria, artefatto per artefatto e versione per
-versione, **non è stata compiuta** e quest'area non la sostituisce con una ricostruzione. Finché
-non è compiuta, nessun documento del progetto può affermare né che il componente sia open source
-né che non lo sia. La questione resta quindi aperta nella sua parte di verifica.
+versione, **non è stata compiuta** da `COMP` e quest'area non la sostituisce con una ricostruzione.
+Finché non è compiuta, nessun documento del progetto può affermare né che il componente sia open
+source né che non lo sia. La questione resta quindi aperta nella sua parte di verifica.
 
 ### 9.6 Le scale e i questionari clinici hanno licenze proprie
 
-**Questa sezione risponde parzialmente alla questione `Q-11`**, aperta dall'area della guida, che
+**Questa sezione risponde parzialmente alla questione [`Q-11`](../11_registri/02-questioni-aperte.md#q-11)**, aperta dall'area della guida, che
 chiedeva di estendere formalmente la politica sulle terminologie a scale e punteggi **prima** di
 scrivere il primo motore di calcolo.
 
@@ -571,7 +572,7 @@ Ne discendono tre regole operative:
 
 1. **Nessun testo di item, nessuna tabella di punteggio e nessuna soglia di interpretazione di una
    scala entra nel repository prima che il suo regime sia accertato e dichiarato**;
-2. **la definizione della scala è un dato, non codice**: come per i percorsi di cura (`V-147`),
+2. **la definizione della scala è un dato, non codice**: come per i percorsi di cura ([`V-147`](../11_registri/01-vincoli-in-vigore.md#v-147)),
    aggiungere una scala non deve richiedere un rilascio del software. Ne discende anche che una
    scala il cui regime lo richieda può essere **acquisita a runtime da chi installa**, che è il
    regime C;
@@ -616,15 +617,15 @@ questa documentazione, e la sua produzione richiede il piano di gestione del ris
 di accettabilità che lo precede. Ma tre questioni della bacheca hanno prodotto **ingressi
 identificati** che, se non registrati ora, andrebbero ricostruiti dopo.
 
-**Questa sezione risponde alle questioni `Q-13` e `Q-114`** e recepisce l'esito di `Q-12`.
+**Questa sezione risponde alle questioni [`Q-13`](../11_registri/02-questioni-aperte.md#q-13) e [`Q-114`](../11_registri/02-questioni-aperte.md#q-114)** e recepisce l'esito di [`Q-12`](../11_registri/02-questioni-aperte.md#q-12).
 
 | Origine | Ingresso | Che cosa va determinato nel file di rischio |
 |---|---|---|
-| `Q-13`, area della guida | Due scenari d'uso pericolosi individuati nel modulo sulla sicurezza del paziente | Gravità e probabilità, che quest'area **non determina**: la stima richiede i criteri di accettabilità del piano |
-| `Q-12`, area funzionale | **Dieci scenari d'uso pericolosi del telemonitoraggio**, mappati con **il rischio introdotto dalla mitigazione** | Il rischio introdotto dalla mitigazione è l'elemento che ISO 14971 richiede espressamente e che si omette quasi sempre: va conservato nella forma in cui è stato prodotto |
-| `Q-114`, area tecnica | **Soglie di qualità e avviso al professionista**: al superamento della soglia di inidoneità il sistema informa e offre il rinvio | È **una misura di controllo del rischio**, non una funzione di comodità. Ne discende che va verificata nella sua efficacia, non solo implementata (§ 7.1) |
-| `Q-114`, area tecnica | **Obiettivo del buffer di variazione del ritardo**: abbassarlo riduce la latenza **al costo di un aumento della perdita udibile** | È un compromesso con conseguenza clinica: la scelta va registrata con la motivazione, non lasciata come parametro di configurazione |
-| `Q-114`, area tecnica | **Preferenza di degradazione** fra risoluzione e fluidità | La formulazione difendibile è **preferenza di resa scelta dall'utente**, mai adattamento automatico guidato dal contenuto clinico: in quest'ultima forma sarebbe elaborazione a fini clinici |
+| [`Q-13`](../11_registri/02-questioni-aperte.md#q-13), area della guida | Due scenari d'uso pericolosi individuati nel modulo sulla sicurezza del paziente | Gravità e probabilità, che quest'area **non determina**: la stima richiede i criteri di accettabilità del piano |
+| [`Q-12`](../11_registri/02-questioni-aperte.md#q-12), `FUNZ` | **Dieci scenari d'uso pericolosi del telemonitoraggio**, mappati con **il rischio introdotto dalla mitigazione** | Il rischio introdotto dalla mitigazione è l'elemento che ISO 14971 richiede espressamente e che si omette quasi sempre: va conservato nella forma in cui è stato prodotto |
+| [`Q-114`](../11_registri/02-questioni-aperte.md#q-114), area tecnica | **Soglie di qualità e avviso al professionista**: al superamento della soglia di inidoneità il sistema informa e offre il rinvio | È **una misura di controllo del rischio**, non una funzione di comodità. Ne discende che va verificata nella sua efficacia, non solo implementata (§ 7.1) |
+| [`Q-114`](../11_registri/02-questioni-aperte.md#q-114), area tecnica | **Obiettivo del buffer di variazione del ritardo**: abbassarlo riduce la latenza **al costo di un aumento della perdita udibile** | È un compromesso con conseguenza clinica: la scelta va registrata con la motivazione, non lasciata come parametro di configurazione |
+| [`Q-114`](../11_registri/02-questioni-aperte.md#q-114), area tecnica | **Preferenza di degradazione** fra risoluzione e fluidità | La formulazione difendibile è **preferenza di resa scelta dall'utente**, mai adattamento automatico guidato dal contenuto clinico: in quest'ultima forma sarebbe elaborazione a fini clinici |
 
 **La regola che questa sezione istituisce**, e che vale per tutte le aree: **un compromesso
 tecnico con conseguenza clinica non si risolve in una configurazione. Si registra come voce del
@@ -635,10 +636,10 @@ configurabile senza traccia della decisione è, per l'organismo notificato, una 
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| `Q-155` | **Periodo di supporto dichiarato**, minimo cinque anni. Finché è aperta, il progetto non può pubblicare una data di fine supporto, che è però elemento obbligatorio della documentazione al cliente (§ 9.4) | → Committente |
-| `Q-11` | Accertamento del regime di licenza **scala per scala**. La regola è stabilita (§ 9.6); l'accertamento non è stato compiuto per alcuna scala | Conformità, dominio |
-| `Q-112` | Lettura del testo della licenza primaria del componente per serie temporali, artefatto per artefatto (§ 9.5) | Conformità, tecnica |
-| `Q-173` | Se la presentazione di parametri costituisca funzione di misura: da essa dipende la validità di un'esclusione già motivata (§ 3.3) | Dominio, funzionale |
-| `Q-13`, `Q-114` | Gravità e probabilità degli ingressi registrati al § 10: determinabili **solo dopo** il piano di gestione del rischio con i criteri di accettabilità | Conformità, alla produzione del file di rischio |
-| `[NV]` | Stato di armonizzazione di ISO 13485 e della norma sulla sicurezza del ciclo di vita, da verificare sull'elenco consolidato **alla data d'uso** (§ 2) | Conformità |
-| `[NV]` | Numerazione puntuale delle clausole di IEC 62304 e di ISO 13485 citate in questo capitolo: derivano dalla ricerca del progetto e vanno riverificate sul testo delle norme prima di comparire in un documento controllato | Conformità |
+| [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) | **Periodo di supporto dichiarato**, minimo cinque anni. Finché è aperta, il progetto non può pubblicare una data di fine supporto, che è però elemento obbligatorio della documentazione al cliente (§ 9.4) | → Committente |
+| [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) | Accertamento del regime di licenza **scala per scala**. La regola è stabilita (§ 9.6); l'accertamento non è stato compiuto per alcuna scala | Conformità, dominio |
+| [`Q-112`](../11_registri/02-questioni-aperte.md#q-112) | Lettura del testo della licenza primaria del componente per serie temporali, artefatto per artefatto (§ 9.5) | Conformità, tecnica |
+| [`Q-173`](../11_registri/02-questioni-aperte.md#q-173) | Se la presentazione di parametri costituisca funzione di misura: da essa dipende la validità di un'esclusione già motivata (§ 3.3) | Dominio, funzionale |
+| [`Q-13`](../11_registri/02-questioni-aperte.md#q-13), [`Q-114`](../11_registri/02-questioni-aperte.md#q-114) | Gravità e probabilità degli ingressi registrati al § 10: determinabili **solo dopo** il piano di gestione del rischio con i criteri di accettabilità | Conformità, alla produzione del file di rischio |
+| `[NV]` | Stato di armonizzazione di ISO 13485 e della norma sulla sicurezza del ciclo di vita, da verificare sull'elenco consolidato **alla data d'uso** (§ 2) | `COMP` |
+| `[NV]` | Numerazione puntuale delle clausole di IEC 62304 e di ISO 13485 citate in questo capitolo: derivano dalla ricerca del progetto e vanno riverificate sul testo delle norme prima di comparire in un documento controllato | `COMP` |

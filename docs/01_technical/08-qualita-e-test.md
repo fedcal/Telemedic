@@ -68,7 +68,7 @@ e insegna a ignorare i fallimenti.
 
 ### 3.1 Il perimetro
 
-Il vincolo V-13 di `INTEG` definisce che cosa è contratto pubblico. Questa area lo recepisce
+Il vincolo [V-160](../11_registri/01-vincoli-in-vigore.md#v-160) di `INTEG` definisce che cosa è contratto pubblico. Questa area lo recepisce
 integralmente e ne trae la conseguenza operativa: **ciò che è contratto ha una prova a contratto;
 ciò che non lo è, non ce l'ha e può cambiare**. Estendere le prove a contratto oltre il perimetro
 significa congelare per sbaglio dettagli interni.
@@ -103,9 +103,9 @@ I messaggi in uscita verso terzi hanno una suite propria, perché sono il punto 
 si manifestano dal lato di qualcun altro:
 
 - **firma verificabile** con il materiale pubblico dichiarato dal progetto, secondo il vincolo
-  V-15 di `INTEG` - firma asimmetrica con identificativo di chiave risolvibile, non segreto
+  [V-162](../11_registri/01-vincoli-in-vigore.md#v-162) di `INTEG` - firma asimmetrica con identificativo di chiave risolvibile, non segreto
   condiviso;
-- **nessun contenuto clinico nella busta**, secondo il vincolo V-14 di `INTEG`: una prova ispeziona
+- **nessun contenuto clinico nella busta**, secondo il vincolo [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) di `INTEG`: una prova ispeziona
   ogni tipo di evento e fallisce se un campo clinico compare;
 - **ritentativi con attesa esponenziale e jitter**, con verifica che il ricevente non riceva
   raffiche;
@@ -152,14 +152,14 @@ Requisiti delle fabbriche:
 ### 4.3 Il vincolo terminologico
 
 Le prove **non possono includere contenuto di sistemi di codifica a licenza vincolata**. È il
-vincolo V-03 e la policy di D31-D33: nel repository non entrano concetti la cui licenza non lo
+vincolo [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) e la policy di D31-D33: nel repository non entrano concetti la cui licenza non lo
 consenta, in nessuna forma, incluse le fixture di prova e le cache.
 
 Conseguenza operativa: la suite gira con il gateway delle terminologie in **modalità degradata per
 i sistemi non abilitati**, e questa è la configurazione predefinita delle prove. Ne discende un
 beneficio collaterale non trascurabile: **il percorso principale viene provato in continuazione
 nella configurazione senza terminologie a licenza vincolata**, che è esattamente ciò che il
-vincolo V-03 richiede di garantire. Una modalità degradata che gira in ogni esecuzione della
+vincolo [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) richiede di garantire. Una modalità degradata che gira in ogni esecuzione della
 suite è una modalità che funziona davvero.
 
 ---
@@ -230,7 +230,7 @@ Due prove meritano menzione separata perché verificano un divieto invece di una
 che tenta di **occultare l'indicatore di registrazione** con ogni mezzo previsto dalla
 configurazione e deve fallire in tutti; e la prova che tenta di **salvare una configurazione di
 tema che degrada il contrasto** e deve essere rifiutata al salvataggio, non accettata con un
-avviso (vincolo V-16 di `INTEG`).
+avviso (vincolo [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) di `INTEG`).
 
 ---
 

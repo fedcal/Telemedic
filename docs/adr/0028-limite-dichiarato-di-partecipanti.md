@@ -69,9 +69,9 @@ scelta di ingegneria; un degrado silenzioso è un difetto.
 non costante di codice: un tenant può abbassarlo, mai alzarlo oltre il massimo. Il massimo imposto
 è quello derivato dalla misura.
 
-**Rinviata - il numero.** `[NV]` Il valore massimo dipende dal budget di banda in trasmissione del
-partecipante peggio connesso, e quel budget si misura su un dispositivo e una rete di riferimento
-che non sono ancora dichiarati. Fissare il numero prima della misura significherebbe scriverlo per
+**Rinviata - il numero.** Il valore massimo dipende dal budget di banda in trasmissione del
+partecipante peggio connesso, e quel budget deve essere misurato da `TECH` e `PROD` su un dispositivo e una rete di riferimento
+che non sono ancora dichiarati `[NV]`. Fissare il numero prima della misura significherebbe scriverlo per
 preferenza. Il criterio è dichiarato: **il massimo è il numero oltre il quale il partecipante di
 riferimento non regge il proprio budget di trasmissione con margine**, misurato e non stimato.
 

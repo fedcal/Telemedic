@@ -33,7 +33,7 @@ crittografiche per le firme elettroniche; gli accordi di riconoscimento europei 
 valutazione della sicurezza; le linee guida dell'agenzia nazionale per l'Italia digitale e
 dell'agenzia per la cybersicurezza nazionale. **Il riferimento puntuale alla revisione vigente
 di ciascuna raccomandazione, con l'estremo esatto e la data, non è stato verificato su fonte
-primaria in questa stesura: `[NV]`.** Va accertato prima della pubblicazione della matrice di
+primaria in questa stesura: `[NV]`.** Va accertato da `COMP` prima della pubblicazione della matrice di
 conformità, e va accertato ogni volta che la matrice viene riemessa.
 
 Questa regola chiude anche un punto di comunicazione che il progetto ha già corretto: il
@@ -75,7 +75,7 @@ lo stato dell'arte.
 | Segnalazione della sessione | Descrittori della sessione, candidati di connettività, identificativi | Stesso canale delle interfacce applicative |
 | Media punto a punto | Voce, video, dati della sessione | Cifratura fino agli estremi con materiale derivato dalla stretta di mano ([05](./05-sicurezza-del-tempo-reale.md)) |
 | Media attraverso il relay | Pacchetti già cifrati | Il relay inoltra pacchetti già protetti: **non li decifra** ([05 §4](./05-sicurezza-del-tempo-reale.md)) |
-| Messaggi in uscita verso l'integratore | Identificativi e riferimenti, **mai contenuto clinico** (V-21) | Trasporto cifrato, **firma asimmetrica** del messaggio (V-22) |
+| Messaggi in uscita verso l'integratore | Identificativi e riferimenti, **mai contenuto clinico** ([V-161](../11_registri/01-vincoli-in-vigore.md#v-161)) | Trasporto cifrato, **firma asimmetrica** del messaggio ([V-162](../11_registri/01-vincoli-in-vigore.md#v-162)) |
 | Verso infrastrutture nazionali e regionali | Documenti e metadati | Secondo il profilo dell'infrastruttura, tramite il mediatore unico di uscita |
 | Fra componenti interni | Tutto | Trasporto cifrato anche all'interno del perimetro: la rete interna non è un confine di fiducia |
 | Amministrazione remota | Comandi e configurazioni | Esclusivamente su canali sicuri, con utenze nominative e secondo fattore |
@@ -92,7 +92,7 @@ un'affermazione sul trasporto resta vera dopo il primo aggiornamento di libreria
 
 ### 2.3 Non si dichiara la versione negoziata: la si misura
 
-**Vincolo V-156.** Il progetto **non dichiara** in documentazione quale versione di protocollo o
+**Vincolo [V-156](../11_registri/01-vincoli-in-vigore.md#v-156).** Il progetto **non dichiara** in documentazione quale versione di protocollo o
 quale suite crittografica sia in uso su una sessione. **La misura per sessione e la registra.**
 
 La ragione è che una parte della negoziazione avviene fra due estremi che il progetto non
@@ -101,7 +101,7 @@ dipende dal motore, dalla versione, dalla configurazione della libreria crittogr
 sottostante e da impostazioni sperimentali. Il quadro accertato nella ricerca di verifica del
 progetto è che due motori su tre negoziano per impostazione predefinita la versione più recente
 del protocollo di trasporto per il datagramma, mentre per il terzo lo stato **non è
-verificabile**: `[NV]`. In queste condizioni **qualunque affermazione statica in documentazione
+verificabile da `TECH` su fonte primaria**: `[NV]`. In queste condizioni **qualunque affermazione statica in documentazione
 sarebbe falsa per una parte del parco installato**.
 
 Ne discendono tre requisiti:
@@ -162,8 +162,8 @@ accessi nella sua conservazione separata; le copie di sicurezza, **senza eccezio
 materiale di chiave, custodito in un deposito distinto dai dati che protegge.
 
 Che cosa **non** deve trovarsi in un archivio cifrato perché non deve trovarsi affatto: i dati
-di prova che siano dati reali; il contenuto clinico dentro i log applicativi (V-150); il
-contenuto clinico dentro i messaggi in uscita (V-21).
+di prova che siano dati reali; il contenuto clinico dentro i log applicativi ([V-150](../11_registri/01-vincoli-in-vigore.md#v-150)); il
+contenuto clinico dentro i messaggi in uscita ([V-161](../11_registri/01-vincoli-in-vigore.md#v-161)).
 
 ## 4. Gestione e rotazione delle chiavi
 
@@ -202,7 +202,7 @@ che deteneva la chiave; risultanza di un accertamento di sicurezza.
 distribuiti e la chiave con cui l'installazione firma i messaggi in uscita non ruotano con lo
 stesso meccanismo, perché la loro rotazione richiede che i verificatori acquisiscano la nuova
 chiave pubblica prima che la vecchia cessi. Ne discende che l'identificativo di chiave deve
-essere **risolvibile dal materiale pubblico** (V-22) e che le due chiavi devono poter coesistere
+essere **risolvibile dal materiale pubblico** ([V-162](../11_registri/01-vincoli-in-vigore.md#v-162)) e che le due chiavi devono poter coesistere
 durante una finestra di sovrapposizione dichiarata. Il segreto condiviso non è offerto come
 modalità predefinita: non dà non ripudio e la sua rotazione richiede coordinamento con ciascun
 integratore, cioè non avviene.
@@ -230,12 +230,12 @@ lasciando dedurre una proprietà che non ha.**
 | Punto | Che cosa vede | Che cosa non vede | Mitigazione |
 |---|---|---|---|
 | **Segnalazione della sessione** | Chi partecipa, quando, per quanto, con quale tenant; i descrittori di sessione e i candidati di connettività, **compresi gli indirizzi di rete locale** | Il contenuto audio-video | Trasporto cifrato; **conservazione breve** dei candidati; nessun candidato nei log di diagnostica; dichiarazione nell'informativa |
-| **Server di relay** | **Gli indirizzi di rete di entrambe le parti**, il volume e l'andamento del traffico, la durata dell'allocazione | Il contenuto: inoltra pacchetti già cifrati | Relay **gestito da chi installa, nell'Unione**; nessuna etichettatura delle metriche con l'identificativo di sessione (V-155); conservazione breve dei log del relay |
+| **Server di relay** | **Gli indirizzi di rete di entrambe le parti**, il volume e l'andamento del traffico, la durata dell'allocazione | Il contenuto: inoltra pacchetti già cifrati | Relay **gestito da chi installa, nell'Unione**; nessuna etichettatura delle metriche con l'identificativo di sessione ([V-155](../11_registri/01-vincoli-in-vigore.md#v-155)); conservazione breve dei log del relay |
 | **Componente di registrazione** (solo in modalità con registrazione) | **Tutto**: la cifratura è terminata sul componente | - | La modalità è **distinta, dichiarata nel consenso e segnalata in modo persistente**: [05 §5](./05-sicurezza-del-tempo-reale.md) |
 | **I due dispositivi** | Tutto ciò che l'utente vede e sente | - | Fuori dal controllo del progetto: **rischio residuo dichiarato** ([01 §6](./01-modello-di-minaccia.md)) |
 | **Motore della base dati** | Il contenuto applicativo che gli passa | Ciò che è cifrato al livello applicativo | Cifratura per artefatto; separazione delle utenze; registro separato |
-| **Mediatore unico di uscita** | Le destinazioni e il contenuto delle richieste in uscita | - | Nessun contenuto clinico (V-21); nessun identificativo dell'assistito verso la terminologia (V-151); [06 §8](./06-sicurezza-applicativa.md) |
-| **Osservabilità e metriche** | Ciò che l'applicazione decide di mandarle | Ciò che l'applicazione non manda | **Divieto** di contenuto clinico e di identificativi diretti nei log di diagnostica (V-150) |
+| **Mediatore unico di uscita** | Le destinazioni e il contenuto delle richieste in uscita | - | Nessun contenuto clinico ([V-161](../11_registri/01-vincoli-in-vigore.md#v-161)); nessun identificativo dell'assistito verso la terminologia ([V-151](../11_registri/01-vincoli-in-vigore.md#v-151)); [06 §8](./06-sicurezza-applicativa.md) |
+| **Osservabilità e metriche** | Ciò che l'applicazione decide di mandarle | Ciò che l'applicazione non manda | **Divieto** di contenuto clinico e di identificativi diretti nei log di diagnostica ([V-150](../11_registri/01-vincoli-in-vigore.md#v-150)) |
 
 Due punti meritano di essere scritti per esteso, perché sono quelli che vengono attenuati.
 
@@ -263,7 +263,7 @@ runtime, non dipendenza di compilazione. Se è stabilito fuori dall'Unione, dive
 trasferimento **nel momento in cui riceve dati riferibili a un assistito**. La difesa
 contrattuale sarebbe fragile e verificabile solo a posteriori; la difesa architetturale è
 definitiva: **le interrogazioni non portano mai identificativi dell'assistito** (vincolo
-V-151). Un'interrogazione che chiede «esiste il codice X nel sistema Y» non è un trasferimento
+[V-151](../11_registri/01-vincoli-in-vigore.md#v-151)). Un'interrogazione che chiede «esiste il codice X nel sistema Y» non è un trasferimento
 di dato personale, indipendentemente da dove risponda il servizio. **La sovranità si soddisfa
 per assenza di dato, non per collocazione.** Conseguenza correlata: **nessuna cache persistita
 su disco**, sia per la ragione di licenza sia perché una cache persistente è un archivio non
@@ -274,9 +274,9 @@ Le altre applicazioni del principio, ciascuna con la sua verifica:
 | Applicazione | Regola | Verifica |
 |---|---|---|
 | Anagrafica | **Non si duplica**: si lavora per riferimento con gli identificativi del dominio di chi integra | Ispezione del modello dati: assenza di attributi anagrafici non necessari |
-| Messaggi in uscita | Trasportano identificativi e riferimenti, **mai contenuto clinico**; il contenuto si rilegge con una chiamata autenticata sotto l'autorizzazione del ricevente (V-21) | Ispezione degli schemi degli eventi pubblicati |
-| Log di diagnostica | Nessun identificativo diretto dell'assistito, nessun contenuto clinico (V-150) | Analisi automatica dei log di un'esecuzione di prova contro un dizionario di schemi |
-| Metriche infrastrutturali | Nessuna etichetta con l'identificativo di sessione (V-155) | Ispezione della configurazione dell'esportatore |
+| Messaggi in uscita | Trasportano identificativi e riferimenti, **mai contenuto clinico**; il contenuto si rilegge con una chiamata autenticata sotto l'autorizzazione del ricevente ([V-161](../11_registri/01-vincoli-in-vigore.md#v-161)) | Ispezione degli schemi degli eventi pubblicati |
+| Log di diagnostica | Nessun identificativo diretto dell'assistito, nessun contenuto clinico ([V-150](../11_registri/01-vincoli-in-vigore.md#v-150)) | Analisi automatica dei log di un'esecuzione di prova contro un dizionario di schemi |
+| Metriche infrastrutturali | Nessuna etichetta con l'identificativo di sessione ([V-155](../11_registri/01-vincoli-in-vigore.md#v-155)) | Ispezione della configurazione dell'esportatore |
 | Attributi richiesti alla federazione | Solo quelli necessari, per la ragione di §3.1 di [02](./02-identita-e-accessi.md) - che ha anche un prezzo | Confronto fra gli attributi dichiarati e quelli effettivamente usati |
 | Riconoscimento biometrico | **Escluso per progettazione.** Il flusso video contiene il volto ma non è per ciò solo dato biometrico ai sensi dell'art. 4, punto 14: la qualificazione richiede un trattamento tecnico finalizzato all'identificazione univoca. Introdurlo aprirebbe una **seconda** via all'art. 9 con requisiti autonomi | L'esclusione è documentata, non implicita |
 | Impostazioni predefinite | Registrazione **disattivata**; conservazione minima; telemetria a adesione esplicita; log senza contenuto clinico | Prova sulla configurazione iniziale |
@@ -288,12 +288,12 @@ Le altre applicazioni del principio, ciascuna con la sua verifica:
 **Il progetto non decide la conservazione: la rende configurabile per tenant e per tipo di
 artefatto.** La ragione è che i termini hanno fonti diverse e non tutte generali: la
 documentazione sanitaria segue obblighi propri, che variano per tipo di documento e in parte per
-disciplina regionale; **i termini puntuali vanno confermati sulla normativa applicabile al
+disciplina regionale; **i termini puntuali vanno confermati da `DOM` e `COMP` sulla normativa applicabile al
 singolo cliente**: `[NV]`.
 
 I due termini che il progetto **impone** come predefinito perché hanno fonte determinata sono
 quelli del tracciamento, e stanno in [04 §5](./04-tracciamento.md): **24 mesi** per i log di
-tracciabilità, **12 mesi** per i dati di accesso e autenticazione (vincolo V-152).
+tracciabilità, **12 mesi** per i dati di accesso e autenticazione (vincolo [V-152](../11_registri/01-vincoli-in-vigore.md#v-152)).
 
 ### 7.2 La registrazione della sessione è un caso a sé
 
@@ -302,7 +302,7 @@ consenso esplicito**. Ne discendono conseguenze che nessun altro artefatto ha:
 
 - la conservazione dev'essere **breve e giustificata**. Il progetto propone un valore
   predefinito conservativo e configurabile; il valore è **specifica di prodotto, mai
-  conformità** (vincolo V-12);
+  conformità** (vincolo [V-12](../11_registri/01-vincoli-in-vigore.md#v-12));
 - **il consenso è revocabile con la stessa facilità con cui è stato prestato** (art. 7, par. 3
   del Regolamento (UE) 2016/679) e **separato** dall'accettazione del servizio: il divieto di
   aggregazione dell'art. 7, par. 4, esclude che il consenso alla registrazione possa essere
@@ -377,8 +377,8 @@ tempi utili.
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| `[NV]` | Estremi e revisione vigente delle raccomandazioni crittografiche europee e nazionali da citare nella matrice di conformità (§1) | Conformità |
-| `[NV]` | Termini di conservazione della documentazione sanitaria applicabili, per tipo di documento e per disciplina regionale (§7.1) | Dominio, conformità |
-| `[NV]` | Stato del supporto della versione più recente del protocollo di trasporto per il datagramma sul terzo motore (§2.3) | Verifica empirica |
+| `[NV]` | Estremi e revisione vigente delle raccomandazioni crittografiche europee e nazionali da citare nella matrice di conformità (§1) | `COMP` |
+| `[NV]` | Termini di conservazione della documentazione sanitaria applicabili, per tipo di documento e per disciplina regionale (§7.1) | `DOM`, `COMP` |
+| `[NV]` | Stato del supporto della versione più recente del protocollo di trasporto per il datagramma sul terzo motore (§2.3) | `TECH` |
 | - | Collocazione del deposito delle chiavi e sua interfaccia: componente proprio dell'installazione o servizio dell'infrastruttura (§4) | Architettura |
-| Q-157 | Oscuramento selettivo del video ai fini del diritto di accesso: capacità da progettare o esclusione da motivare (§7.5) | Funzionale, conformità |
+| [Q-157](../11_registri/02-questioni-aperte.md#q-157) | Oscuramento selettivo del video ai fini del diritto di accesso: capacità da progettare o esclusione da motivare (§7.5) | Funzionale, conformità |

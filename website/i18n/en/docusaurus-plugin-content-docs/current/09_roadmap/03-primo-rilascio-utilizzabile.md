@@ -8,7 +8,7 @@ description: "The scope of the first installable release of 30 November 2026 und
 
 Throughout the rest of the roadmap this release is the milestone `T-10`, dated **30 November 2026** from `D53`. In this chapter it is designated **`RU-1`**.
 
-> **`[NV]` - the name of the distribution is not decided.** `D17` requires that the repository and the distribution have **distinct names, version numbers and lifecycles**. The designation `RU-1` is a planning designation, not the name of the artefact: the distribution name must be decided before the first publication. Until then, no project document should use `RU-1` as if it were a product name.
+> **`[NV]` - the name of the distribution is not decided.** `D17` requires that the repository and the distribution have **distinct names, version numbers and lifecycles**. The designation `RU-1` is a planning designation, not the name of the artefact: the distribution name **must be decided by the client** - it is a product choice, not work for this area - before the first publication, and the decision is raised with orchestration, `ORCH`, which takes it to the person. Until then, no project document should use `RU-1` as if it were a product name.
 
 > **How this chapter has changed, and why.** `D53` confirms 30 November 2026 as the first installable release; `D54` declares the capacity: **a single contributor on a part-time basis**. With date and capacity fixed, **the only variable left is the scope** ([01 §1](./01-principi-e-metodo.md)). The perimeter of §§3 and 4 is therefore **reduced**, and §5 - *what has been cut to respect the date* - is the most important section of the document for anyone who must decide whether to adopt the product. It contains, for each item removed, **whether the cut is recoverable or not**. The non-recoverable cuts are four, they are marked as such, and they are the information this chapter exists to give.
 
@@ -27,7 +27,7 @@ Throughout the rest of the roadmap this release is the milestone `T-10`, dated *
 | The product **bears no CE marking**, is covered by no conformity declaration, is not usable on actual patients | The project **intends** to assume the role of manufacturer, and the entity is **still to be established** |
 | Whoever installs, integrates or places into service **assumes the obligations that follow** | **Nothing.** The intention to certify in future transfers no obligation and covers no current installation |
 
-> **In no place in this document, and in no project material, is it written that the product will be marked by a date** (`V-171`, `V-280`). The intention to certify and the promise of a dated outcome are different things, and the latter produces a regulatory effect that the former does not. Suggesting otherwise would be **more damaging than silence**.
+> **In no place in this document, and in no project material, is it written that the product will be marked by a date** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). The intention to certify and the promise of a dated outcome are different things, and the latter produces a regulatory effect that the former does not. Suggesting otherwise would be **more damaging than silence**.
 
 The limit has three properties that those evaluating the product tend to undervalue:
 
@@ -70,17 +70,17 @@ The choice of path is not one of convenience. It is the one that, amongst all th
 
 | Cross-cutting constraint | Does the path cross it? | Where |
 |---|---|---|
-| Separation between service and media session (`V-01`) | **Yes**, and it is the path that renders it visible: a network failure does not close the clinical act | Media session distinct from the service |
-| Tenant resolved and applied by the engine (`V-04`, `V-112`) | **Yes**, in every query | All contexts involved |
-| Immutable register with hash chain (`V-04`, `V-150`) | **Yes**: every access to health data in the path is logged. **Without periodic signed anchoring**: cut `TG-23`, irreversible for the period | Tracing context |
-| Consent as an act with temporal validity (`V-146`) | **Yes**, with three distinct consent objects on five in the model: the other two concern functions not present | Consent context |
+| Separation between service and media session ([`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01)) | **Yes**, and it is the path that renders it visible: a network failure does not close the clinical act | Media session distinct from the service |
+| Tenant resolved and applied by the engine ([`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04), [`V-112`](../11_registri/01-vincoli-in-vigore.md#v-112)) | **Yes**, in every query | All contexts involved |
+| Immutable register with hash chain ([`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04), [`V-150`](../11_registri/01-vincoli-in-vigore.md#v-150)) | **Yes**: every access to health data in the path is logged. **Without periodic signed anchoring**: cut `TG-23`, irreversible for the period | Tracing context |
+| Consent as an act with temporal validity ([`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)) | **Yes**, with three distinct consent objects on five in the model: the other two concern functions not present | Consent context |
 | Mandatory key verification by default (`D22`) | **Yes**, and it is a blocking state of the media session state machine. **Not cuttable** (§5.4) | Interface and media session |
 | Accessibility and *mobile first* as acceptance criteria (`D25`) | **Yes**, on both sides: care recipient on smartphone on mobile network, professional with keyboard only and screen reader | Interface |
-| No functionality reachable only from the interface (`V3`, `V-164`) | **Yes**: the interface consumes the same application interfaces offered to integrators | Exposure planes |
-| Events with references only, never clinical content (`V-135`, `V-161`) | **Yes**, on the event concluding the service. **Not cuttable** (§5.4) | Outbox and events |
-| Outcome distinct from state, with opposite administrative effects (`V-141`) | **Yes**: non-attendance and technically attributable failure share the terminal state and have opposite effects | Clinical service |
+| No functionality reachable only from the interface ([`V3`](../11_registri/03-vincoli-fondanti.md#v3), [`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)) | **Yes**: the interface consumes the same application interfaces offered to integrators | Exposure planes |
+| Events with references only, never clinical content ([`V-135`](../11_registri/01-vincoli-in-vigore.md#v-135), [`V-161`](../11_registri/01-vincoli-in-vigore.md#v-161)) | **Yes**, on the event concluding the service. **Not cuttable** (§5.4) | Outbox and events |
+| Outcome distinct from state, with opposite administrative effects ([`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)) | **Yes**: non-attendance and technically attributable failure share the terminal state and have opposite effects | Clinical service |
 | Immutable document with rectification chain | **No**: exits with `TG-01` | - |
-| System fully functional without the terminologies with constrained licences (`V-03`) | **Yes**, but **in degenerate form**: in the reduced perimeter there is no encoded content to resolve. The verification must be redone when there is content (`TG-05`) | Terminology gateway disabled |
+| System fully functional without the terminologies with constrained licences ([`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)) | **Yes**, but **in degenerate form**: in the reduced perimeter there is no encoded content to resolve. The verification must be redone when there is content (`TG-05`) | Terminology gateway disabled |
 
 A path that crosses these constraints **proves them**. A broad set of incomplete functions proves none of them, and moreover it does not permit one to say what is done.
 
@@ -99,42 +99,42 @@ The list is by bounded context, because that is the structure by which the syste
 | Capability | Content |
 |---|---|
 | **Active multi-tenancy** | Isolation applied by the engine with default denial in the absence of context. Single-tenant installation is the **degenerate case of the same code**, not a variant |
-| **Single authorisation boundary** | Complete token validation on ingress, internal token emission, **delegation always represented with the claim of the actor, never impersonation** (`V-132`) |
-| **Qualified assurance level** | Distinction between authentication **performed** and **asserted** by an integrator, propagated to the point of decision (`V-154`, `V-165`). Remains in scope even though national federation is not: it is the marker that prevents confusing the two when it arrives |
+| **Single authorisation boundary** | Complete token validation on ingress, internal token emission, **delegation always represented with the claim of the actor, never impersonation** ([`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)) |
+| **Qualified assurance level** | Distinction between authentication **performed** and **asserted** by an integrator, propagated to the point of decision ([`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154), [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165)). Remains in scope even though national federation is not: it is the marker that prevents confusing the two when it arrives |
 | **Immutable register** | Append-only structure with hash chain and archiving with separated privileges, integrity verification on demand and scheduled, export in open format with digest. **Complete coverage of all access**; **without periodic signed anchoring** (`TG-23`) |
 | **Transactional outbox** | Single source of outgoing events; envelopes with **references only**; delivery at least once per **authenticated call** to the system of origin; consumers idempotent by construction. **Without broker** (`TG-04`) |
-| **Two alone representations of error** | Problem representation on the application plane, operation outcome on the interoperability plane, with catalogue **generated** and prohibition of emitting an error not catalogued (`V-110`, `V-130`) |
-| **Single outbound mediator** | No application component opens connections to destinations derived from incoming data; outbound access is denied at network level to all except the mediator (`V-157`) |
-| **Availability measurement by tenant and by service** | Historicised with granularity sufficient to recognise the breach of a threshold on the order of one percentage point on a daily basis. **Whoever installs chooses the threshold; the product provides the measurement** (`Q-184`) |
+| **Two alone representations of error** | Problem representation on the application plane, operation outcome on the interoperability plane, with catalogue **generated** and prohibition of emitting an error not catalogued ([`V-110`](../11_registri/01-vincoli-in-vigore.md#v-110), [`V-130`](../11_registri/01-vincoli-in-vigore.md#v-130)) |
+| **Single outbound mediator** | No application component opens connections to destinations derived from incoming data; outbound access is denied at network level to all except the mediator ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)) |
+| **Availability measurement by tenant and by service** | Historicised with granularity sufficient to recognise the breach of a threshold on the order of one percentage point on a daily basis. **Whoever installs chooses the threshold; the product provides the measurement** ([`Q-184`](../11_registri/02-questioni-aperte.md#q-184)) |
 
 ### 3.2 Identity and access
 
 - Federation with distinct realms for the clinical context and the care recipient context.
 - Acceptance of an identity already authenticated by the integrator's system, **without second access**, with explicit delegation, and **session start with single-use input token issued over a back channel** - in the reduced perimeter this is not a fallback but the primary mode, because the embeddable component is cut (`TG-03`).
 - Authorisation founded on the **relationship of care**, not on role alone; role as a relationship between person and organisation with temporal validity, not as an attribute of the person.
-- **Separation between technical role and clinical role** applied by the authorisation engine: composition of a role that violates it is rejected with a validation error (`V-125`).
+- **Separation between technical role and clinical role** applied by the authorisation engine: composition of a role that violates it is rejected with a validation error ([`V-125`](../11_registri/01-vincoli-in-vigore.md#v-125)).
 
 ### 3.3 Demographics by reference
 
 - Care recipients, professionals, organisations and sites treated **by reference** on the identifiers of the system of origin. The product **is not** the reference data and does not perform identity reconciliation (`OUT-15`).
-- Normalisation of identifiers **at the boundary, never in the domain** (`V-142`); registry of system identifiers versioned as a **configuration file**, with no administration interface (`TG-10`).
+- Normalisation of identifiers **at the boundary, never in the domain** ([`V-142`](../11_registri/01-vincoli-in-vigore.md#v-142)); registry of system identifiers versioned as a **configuration file**, with no administration interface (`TG-10`).
 - **No external identifier is a primary key.**
 
 ### 3.4 Clinical service and media session
 
-- **remote consultation** as the sole service type, with its selected state machine from the catalogue (`V-140`).
+- **remote consultation** as the sole service type, with its selected state machine from the catalogue ([`V-140`](../11_registri/01-vincoli-in-vigore.md#v-140)).
 - Invitation delivered through the inviter's channels; **technical verification beforehand** before the session; waiting room; admission; abandonment.
 - Point-to-point media session **encrypted to the endpoints as the default mode**, with direct routing where the network permits and relay where it does not.
 - **Mandatory key verification by default** (`D22`), as a **blocking state** of the state machine, with the accessibility requirements that render it usable by an elderly care recipient: legible character by character to a screen reader, never conveyed by colour alone, alphabet free of ambiguous characters, **procedure defined in case of mismatch** with the same prominence as the positive case.
 - **Declared degradation**: reduction in resolution, then fluidity according to the set preference, then video suspension with **audio maintained**, then unsuitability notice with proposal of deferral or alternative channel. Each transition is announced in a way perceptible even without sight and without hearing.
-- **Quality measurement per session**, with proprietary index declared as such, built on the **minimum** across dimensions and not on the mean, and with cumulative counters **differentiated between consecutive samples** (`V-113`, `V-114`).
+- **Quality measurement per session**, with proprietary index declared as such, built on the **minimum** across dimensions and not on the mean, and with cumulative counters **differentiated between consecutive samples** ([`V-113`](../11_registri/01-vincoli-in-vigore.md#v-113), [`V-114`](../11_registri/01-vincoli-in-vigore.md#v-114)).
 - **Notice of inadequate quality to the professional** as a logged risk control, with the outcome of the professional's decision preserved. **Not cuttable** (§5.4).
-- **Closure with typed outcome**, with state distinct from outcome and opposite administrative effects kept separate (`V-141`).
+- **Closure with typed outcome**, with state distinct from outcome and opposite administrative effects kept separate ([`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)).
 - **Telephone fallback** as a typed outcome: the channel change is logged and reported in the returned outcome.
 
 ### 3.5 Consent
 
-- **Three distinct consent objects** with independent lifecycles - healthcare act, data processing where applicable, transmission of outcome to the external system - and no "consent to the platform" (`V-146`). The other two objects in the model, recording and presence of third parties, concern functions not present in `RU-1`: **the model provides for them, the release does not exercise them**, and the difference is declared.
+- **Three distinct consent objects** with independent lifecycles - healthcare act, data processing where applicable, transmission of outcome to the external system - and no "consent to the platform" ([`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)). The other two objects in the model, recording and presence of third parties, concern functions not present in `RU-1`: **the model provides for them, the release does not exercise them**, and the difference is declared.
 - Consent referring to the **version of the text** of the informative material; withdrawal with effect; no boolean consent.
 
 ### 3.6 Return of outcome to the system of origin
@@ -149,8 +149,8 @@ Replaces the section on clinical documentation, which exits with `TG-01`.
 ### 3.7 Interfaces towards third parties
 
 - **Project application interface** described and versioned, with contract tests in both directions. It is the **sole** integration surface of `RU-1`.
-- **Outgoing events signed with asymmetric signature** and key identifier resolvable by project public material; shared secret **is not offered as the default mode** (`V-162`).
-- **No path, direct or mediated, towards clinical content** for the profile of the administrative payer (`V-166`, `OUT-18`). In the reduced perimeter the prohibition is **a convention verified by test and not a structural boundary**, because the autonomous context of invoicing is a deferred decision (`C-1`): the difference is declared and not softened.
+- **Outgoing events signed with asymmetric signature** and key identifier resolvable by project public material; shared secret **is not offered as the default mode** ([`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162)).
+- **No path, direct or mediated, towards clinical content** for the profile of the administrative payer ([`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166), `OUT-18`). In the reduced perimeter the prohibition is **a convention verified by test and not a structural boundary**, because the autonomous context of invoicing is a deferred decision (`C-1`): the difference is declared and not softened.
 
 ### 3.8 User interface
 
@@ -186,7 +186,7 @@ They are within the product scope, they are planned, and they were not in `RU-1`
 | Excluded from `RU-1` | Why not now | Where it returns |
 |---|---|---|
 | **telemonitoraggio (telemonitoring)** in all its components | It is the broadest context in the catalogue. `D55` has frozen its intended use, so the work is no longer at risk of rewrite: the reason of breadth remains, and under `D54` it is deciding | [04 §3](./04-oltre-il-primo-rilascio.md), first position |
-| **teleconsulto (teleconsultation), teleconsulenza (teleconsultancy), teleassistenza (teleassistance)** | Each is its own state machine with different permitted actors; the professional constraint applies to the **activity**, not to the minimum service (`V-147`) | [04 §3](./04-oltre-il-primo-rilascio.md) |
+| **teleconsulto (teleconsultation), teleconsulenza (teleconsultancy), teleassistenza (teleassistance)** | Each is its own state machine with different permitted actors; the professional constraint applies to the **activity**, not to the minimum service ([`V-147`](../11_registri/01-vincoli-in-vigore.md#v-147)) | [04 §3](./04-oltre-il-primo-rilascio.md) |
 | **Server-side session recording** | It is a **second security mode**, not an optional function: it involves termination of encryption on the server, a distinct component with its own scope, a dedicated consent flow and encryption at rest with per-tenant keys | [04 §3](./04-oltre-il-primo-rilascio.md) |
 | **Third participant** to the session | The decision on topology beyond two participants is declared deferred (`C-2`), and it is not marginal: the interpreter is the declared alternative measure for the known accessibility non-conformity | After closure of `C-2` |
 | **Own agenda and invoicing modules** | The `RU-1` path receives the appointment **by reference** from the system of origin, which is the reference use case | [04 §3](./04-oltre-il-primo-rilascio.md) |
@@ -199,10 +199,10 @@ They are within scope, they are planned, and **their date does not depend on pro
 
 | Excluded from `RU-1` | Depends on |
 |---|---|
-| **Submission of documents to national and regional documentary infrastructures** | The documentary models, typology codes and indexing metadata for telemedicine typologies **are not publicly available** (`Q-07`). The project already has the structural response - canonical dataset and substitutable serialisation: **the content is missing, not the project** |
+| **Submission of documents to national and regional documentary infrastructures** | The documentary models, typology codes and indexing metadata for telemedicine typologies **are not publicly available** ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07)). The project already has the structural response - canonical dataset and substitutable serialisation: **the content is missing, not the project** |
 | **Conformity verified on national digital identity** on all three channels | Requires pre-production environments, test credentials and, for one channel, **two provider instances for each provider** (`D38`): this is the systematically underestimated workstream |
-| **Interface performance thresholds declared** | The **reference device is not declared** (`Q-115`, `Q-175`), and without a device the corresponding requirement is not verifiable. `RU-1` measures and publishes the conditions; does not declare an unmeasured threshold |
-| **Reference values of expected service levels** | The customer chooses the threshold (`Q-152`, `Q-184`). `RU-1` provides the **measurement capability**, which is the requirement |
+| **Interface performance thresholds declared** | The **reference device is not declared** ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115), [`Q-175`](../11_registri/02-questioni-aperte.md#q-175)), and without a device the corresponding requirement is not verifiable. `RU-1` measures and publishes the conditions; does not declare an unmeasured threshold |
+| **Reference values of expected service levels** | The customer chooses the threshold ([`Q-152`](../11_registri/02-questioni-aperte.md#q-152), [`Q-184`](../11_registri/02-questioni-aperte.md#q-184)). `RU-1` provides the **measurement capability**, which is the requirement |
 
 ### 4.4 Category IV - Deferred for a decision not taken
 
@@ -212,8 +212,8 @@ They are not excluded by choice: they are excluded because **a declared deferred
 |---|---|
 | Scoring of validated scales and questionnaires | `B-3` - licensing regime of the tools. The consequence already adopted cautiously is that the domain **does not represent scores** |
 | Autonomous invoicing context | `C-1` - with the caveat declared in §3.7 |
-| Version dismissal plan published | `C-4`, `Q-186` - it is a **prerequisite of `T-10`** and not a backlog item: without the support period the number of major versions to maintain is not determinable |
-| Selective concealment of audio-video content for the purpose of the right of access | Remains for `COMP` to establish whether partial release satisfies the person's instance (`Q-157`) |
+| Version dismissal plan published | `C-4`, [`Q-186`](../11_registri/02-questioni-aperte.md#q-186) - it is a **prerequisite of `T-10`** and not a backlog item: without the support period the number of major versions to maintain is not determinable |
+| Selective concealment of audio-video content for the purpose of the right of access | Remains for `COMP` to establish whether partial release satisfies the person's instance ([`Q-157`](../11_registri/02-questioni-aperte.md#q-157)) |
 
 ---
 
@@ -247,7 +247,7 @@ The designations `TG-nn` are **planning designations**, like `RU-1`, `OL-nn` and
 | `TG-03` | **Embeddable white-label component** as a customisable element, with theme properties validated server-side | It brings with it the server-side contrast validation, the closed set of properties, the non-themeable elements and the corresponding negative tests | The integrator initiates the session **by referral, with single-use input token** (§3.2), not by embedding the interface. **The personalised theme is not available**, and the user sees the product's interface: whoever has visual identity requirements must know this beforehand |
 | `TG-04` | **Event broker** and its single-node configuration | One more component to install, configure, update and monitor, for a capability that with a single consumer is not yet necessary | **One component fewer to install**: it is the only cut that eases whoever installs. The outbox remains the source of truth and delivers per **authenticated call**. Consequence: **a single consumer configured per tenant**, no multiple subscriptions, no replay of event history |
 | `TG-05` | **Active terminology gateway** with allow list and exercised fallback mode | In the reduced perimeter **no encoded content exists** to resolve: the extension point exists, disabled by default | The release criterion for functioning without terminology with constrained licences is **satisfied in degenerate form**, and this document declares it rather than counting it as verification. **It must be redone when encoded content enters**, and is annotated as such |
-| `TG-06` | **Emergency access** with mandatory reason, limited window, notification and review (`V-153`) | It is a deviation path with its own review cycle, and without persistent clinical content it has little to deviate | **No deviation access path exists.** Whoever installs cannot test it, and no organisational procedure can rely on it. The absence is **safer**, not less so: what is missing is the function, not a control |
+| `TG-06` | **Emergency access** with mandatory reason, limited window, notification and review ([`V-153`](../11_registri/01-vincoli-in-vigore.md#v-153)) | It is a deviation path with its own review cycle, and without persistent clinical content it has little to deviate | **No deviation access path exists.** Whoever installs cannot test it, and no organisational procedure can rely on it. The absence is **safer**, not less so: what is missing is the function, not a control |
 | `TG-07` | **Concealment applied by the authorisation engine**, with the six inference channels closed | It applies to persistent clinical content, which with `TG-01` does not exist | No operational consequence in `RU-1`. A verification consequence yes, and must be stated: **the six inference channels have not been exercised**, and their closure remains a design property not yet proven |
 | `TG-08` | **Deployment profile on orchestrator** | A second profile is a second test matrix and a second support surface | `RU-1` installs **only** in the single-tenant profile with container definitions. Whoever wants the orchestrator builds their own manifests, **and the project does not support them**: it is a declaration, not a courtesy |
 | `TG-09` | **Three versioned dashboards** in the repository: service health, media quality, integrity and security | They are presentation of data the product already exposes | Whoever installs **builds their own dashboards** on the metrics export, of which the project documents the series names. The time to activate monitoring transfers to the customer |
@@ -275,7 +275,7 @@ The designations `TG-nn` are **planning designations**, like `RU-1`, `OL-nn` and
 - the **internal audit** of the quality management system on the period;
 - the **configuration verification performed by someone who did not write the code**, including execution of the verification procedure by whoever installs by a second subject.
 
-**Why they have left.** Because `D54` declares **a single contributor**, and each of them **by definition presupposes distinct subjects**: an auditor does not audit their own activity, a review does not verify who conducts it, an independent verification is not independent if the author performs it. **It is not a matter of available hours**, and no amount of individual work resolves it ([01 §9-bis](./01-principi-e-metodo.md), constraint `V-281`).
+**Why they have left.** Because `D54` declares **a single contributor**, and each of them **by definition presupposes distinct subjects**: an auditor does not audit their own activity, a review does not verify who conducts it, an independent verification is not independent if the author performs it. **It is not a matter of available hours**, and no amount of individual work resolves it ([01 §9-bis](./01-principi-e-metodo.md), constraint [`V-281`](../11_registri/01-vincoli-in-vigore.md#v-281)).
 
 **Why the cut is irreversible.** Because a review recording **of an already-occurred release** is not a review: it is a post-hoc reconstruction, and verification recognises it as such. The same holds for an audit referring to a concluded period. What can be done afterwards is to review **the subsequent release**, not that one. **The gap remains dated to `RU-1` forever.**
 
@@ -283,7 +283,7 @@ The designations `TG-nn` are **planning designations**, like `RU-1`, `OL-nn` and
 
 **What the project does anyway.** All criteria of `RU-1` remain **verifiable by anyone**, with the procedure described: it is the property producible with a single contributor, and is non-negotiable ([01 §12.1](./01-principi-e-metodo.md)). The two statements - "all criteria are verifiable by anyone" and "no verification has been performed by a second subject" - are both true and both written.
 
-**What remains to be decided.** The **allocation**: which subset is accepted as a declared gap and which is covered by acquiring the function externally. It is a decision of the contracting party and is the question `Q-189`, with a decision point on **30 September 2026**. In the absence of a decision the default outcome is the declared gap, and it is declared in advance precisely so as not to make it appear as a choice taken afterwards.
+**What remains to be decided.** The **allocation**: which subset is accepted as a declared gap and which is covered by acquiring the function externally. It is a decision of the contracting party and is the question [`Q-189`](../11_registri/02-questioni-aperte.md#q-189), with a decision point on **30 September 2026**. In the absence of a decision the default outcome is the declared gap, and it is declared in advance precisely so as not to make it appear as a choice taken afterwards.
 
 #### `TG-21` - Independent external review of critical security code · **IRREVERSIBLE FOR THE PERIOD**
 
@@ -347,7 +347,7 @@ The plan of chapter [02](./02-traguardi.md) **has no time margin**: nine milesto
 
 **First - the order is executed from the top, in its entirety, and each execution is recorded** in the review of [00 §8](./00-indice.md), with the date and reason. An unrecorded reduction is an undeemed cut, and causes the choice to lose the sole property that `D53` requires to guarantee: **legibility**.
 
-**Second - only reversible cuts enter the order.** It is part of constraint `V-282`. An irreversible cut is not decided under calendar pressure: it is decided with the ordinary procedure, knowing what it costs, or it is not decided.
+**Second - only reversible cuts enter the order.** It is part of constraint [`V-282`](../11_registri/01-vincoli-in-vigore.md#v-282). An irreversible cut is not decided under calendar pressure: it is decided with the ordinary procedure, knowing what it costs, or it is not decided.
 
 **Third - the blocking release criteria of §8 and the list of §5.4 never enter this order.** If scope cannot be reduced further without touching them, **the date is declared missed** with the cause recorded ([01 §10](./01-principi-e-metodo.md)). It is not a failure of the method: the method is working.
 
@@ -360,7 +360,7 @@ The plan of chapter [02](./02-traguardi.md) **has no time margin**: nine milesto
 | `S-3` | **Waiting room and admission as distinct states** | The professional loses visibility of the care recipient waiting | Technical verification beforehand **remains**: it is what protects the care recipient from a session that will not work |
 | `S-4` | **List of today's services** in the professional's interface | One enters the session from the integrator's referral, not from a personal list | The session path remains whole, and the reference use case is entry from the system of origin |
 | `S-5` | **Telephone fallback as typed outcome** | The channel change is not a value in the outcome catalogue | It remains recordable as generic outcome with note: the typing is lost, not the traceability |
-| `S-6` | **Asymmetric signature of outgoing events** with resolvable key identifier | Events are authenticated by channel alone | **Shared secret is not admitted as a substitute** (`V-162`): either asymmetric signature, or the event does not exit towards third parties and recovery remains via authenticated call |
+| `S-6` | **Asymmetric signature of outgoing events** with resolvable key identifier | Events are authenticated by channel alone | **Shared secret is not admitted as a substitute** ([`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162)): either asymmetric signature, or the event does not exit towards third parties and recovery remains via authenticated call |
 | `S-7` | **Exact word count** of the corpus (`T-02` criterion 5) | The translation plan remains on estimates, and the `[NV]` on volume remains open | Translation of prerequisite areas **does not depend on the count**: it happens anyway |
 | `S-8` | **teleconsulto and telemonitoraggio from the demonstrable vertical path** | `RU-1` **does not implement the three services of the domain model**: it implements the sole televisita with two participants. Whoever evaluates the project sees a single use case exercised, and the models of the other two services remain designed in the domain and requirements without exercise in the code. It is the cut that bites on criterion 6 of `T-08`, the vertical path, taking it from "complete" to "complete for a single service" | teleconsulto and telemonitoraggio remain **wholly designed**: domain model, functional requirements (`RF-*`), business rules (`BR-*`), test scenarios (`ATT-*`), protocolisation. Their implementation is deferred and not cancelled. In criterion 6 of `T-08` and in the backlog of [04](./04-oltre-il-primo-rilascio.md) the deferral is declared with the consequence that two vertical paths remain to be built in subsequent releases |
 
@@ -378,8 +378,8 @@ The plan of chapter [02](./02-traguardi.md) **has no time margin**: nine milesto
 |---|---|
 | **Domain name and certificates**, with automatic renewal | The product does not manage its own certificate lifecycle |
 | **Reachable addresses from outside for the relay node** | It is the only component that requires it together with the frontier |
-| **Egress network isolation of the relay node**, applied by the infrastructure | It is the **primary defence**, and does not depend on code correctness. Forbidden address lists are defence in depth (`V-10`) |
-| **Outbound route denial to application components**, with the sole exception of the mediator | Architectural requirement (`V-157`), not a coding rule |
+| **Egress network isolation of the relay node**, applied by the infrastructure | It is the **primary defence**, and does not depend on code correctness. Forbidden address lists are defence in depth ([`V-10`](../11_registri/01-vincoli-in-vigore.md#v-10)) |
+| **Outbound route denial to application components**, with the sole exception of the mediator | Architectural requirement ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)), not a coding rule |
 | **Separation of privileges between application archive and register archive** | **Requirement, not recommendation**, and with `TG-23` its weight increases: without periodic signed anchoring, privilege separation is **the layer that remains**. In its absence the non-alterability assurance drops to that of the application chain alone, and the drop must be declared in whoever installs's obligations |
 | **Custody of the key root** of the encryption hierarchy | The key protecting the copies cannot reside in the system that produces them |
 | **Backups, with periodic restoration testing** | A backup never restored has unknown probability of functioning |
@@ -429,13 +429,13 @@ This area recalls the three discovered most often too late:
 | # | Criterion | How it is verified |
 |---|---|---|
 | 1 | **Tenant isolation**: no path, for any interface, permits reading or writing data of another tenant | Tests that actively attempt unauthorised access, in adverse conditions: pool exhausted, context unresolved, request without tenant, tenant substituted mid-path |
-| 2 | **No supported configuration emits a token lacking the claim of the actor** (`V-132`) | Negative test on all supported configurations |
+| 2 | **No supported configuration emits a token lacking the claim of the actor** ([`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)) | Negative test on all supported configurations |
 | 3 | **The immutable register chain is verifiable**, and deliberately induced alteration is detected | Execution of verification on a deliberately altered case |
 | 4 | **No clinical content** in logs, metrics, traces, event envelopes, error messages | Tests that attempt to pass sensitive data and fail if they succeed |
 | 5 | **The pipeline controls declared blocking have passed the failure test**, and controls in reporting only each have the date declared on which they become blocking | Each tested with a deliberately non-conforming case; version-controlled configuration file for the dates |
 | 6 | **Reproducibility of the main artefact verified**: rebuild on different executor, identical digests, outcome conserved | Work scheduled with outcome conserved. The reduced perimeter is declared (`TG-14`) |
 | 7 | **Complete bill of materials**: no component present in the bill and absent from annotations | Pipeline control |
-| 8 | **No migration both destructive and functional**: two consecutive versions coexist on the same database (`V-111`) | Test of coexistence and test of return to the previous version |
+| 8 | **No migration both destructive and functional**: two consecutive versions coexist on the same database ([`V-111`](../11_registri/01-vincoli-in-vigore.md#v-111)) | Test of coexistence and test of return to the previous version |
 | 9 | **Accessibility**: no violation of automatable rules on any screen and any significant state; at least one verification with actual assistive technology executed and recorded | Pipeline control plus manually versioned checklist. **Not a formative evaluation** (`TG-22`) |
 | 10 | **The recording indicator is not hideable**: the test that attempts to hide it with every configured means fails in all | Negative test |
 | 11 | **The tests negative of the scope exclusions pass**: no interface accepts calculation of a priority, inference of a threshold, generation of interpretive content | Negative tests for each exclusion with declared verification |
@@ -445,7 +445,7 @@ This area recalls the three discovered most often too late:
 | 15 | **Each artefact carries the declaration of non-marking**, in text realigned to `D58`, and **no release material contains a marking date** | Publication control plus textual verification |
 | 16 | **No `[NV]` open on a released component** | Report of `[NV]` with addressee |
 | 17 | **The release dossier contains the list of declared gaps**, with the four irreversible cuts of §5.3 at the head and the declaration that no verification has been performed by a second subject, **in both languages** | Release artefact, textually verified |
-| 18 | **The support period is declared** and the version dismissal plan is published | Published document. Depends on `C-4` / `Q-186` |
+| 18 | **The support period is declared** and the version dismissal plan is published | Published document. Depends on `C-4` / [`Q-186`](../11_registri/02-questioni-aperte.md#q-186) |
 
 **Criterion 17 is the one that substitutes the release review, and does not really substitute it.** In the earlier version of this chapter criterion 18 requested a **documentary release review with responsible and date**: under `D54` it is not producible (`TG-20`). What remains producible - and is therefore a blocking criterion - is the **explicit declaration that the review has not occurred**. It is not the same thing and must not be presented as such: it is the minimum that permits whoever receives the artefact to know what they have in hand.
 
@@ -470,14 +470,14 @@ A declared limit is a functionality of the product; a limit discovered in produc
 | 11 | **Updates in maintenance window** | Cut `TG-11`, reversible |
 | 12 | **Immutable register without external anchoring**: reduced assurance by one layer for the period | Cut `TG-23`, **irreversible for the period** |
 | 13 | **No session recording** | Scope. The indicator and its prohibitions already exist |
-| 14 | **No submission to documentary infrastructures** | Unavailable external dependency (`Q-07`) |
+| 14 | **No submission to documentary infrastructures** | Unavailable external dependency ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07)) |
 | 15 | **Latency from objective to screen not guaranteeable and not monitored by regression test** | Depends on camera, computation, screen, network and buffer. The system **measures** it in session and records it (`TG-13`) |
 | 16 | **Degradation tested at extremes, not along the scale** | Cut `TG-12`, reversible |
 | 17 | **No offline mode for clinical content** | Declared choice, motivated by risk of clinical content on a device the controller does not control |
 | 18 | **No key rotation during session** | **Does not exist in the technology.** Not claimed |
 | 19 | **Real-time subtitles absent** | Declared non-conformity on an accessibility criterion, with the interpreter as alternative measure and the data channel defined in the protocol anyway |
 | 20 | **Event delivery at least once** | Consumers are idempotent by construction |
-| 21 | **Number of tenants per installation** | `[NV]` - not measured. Order of magnitude declared: hundreds. Measurement is a release activity, not an estimate |
+| 21 | **Number of tenants per installation** | `[NV]` - not measured. Order of magnitude declared: hundreds. Measurement falls to `TECH` on a representative installation and is a release activity, not an estimate |
 | 22 | **Reproducibility verified on main artefact alone** | Cut `TG-14`, reversible |
 | 23 | **Interface verified against accessibility criteria, not validated with target users** | Irreversible cut `TG-22` |
 | 24 | **Authorisation boundary not reviewed by an independent third party** | Cut `TG-21`, irreversible for the period |
@@ -505,7 +505,7 @@ The question is from whoever installs and the answer is a procedure, not a decla
 | **Encryption in transit** | Provide it on all channels, prevent downgrade, **measure and record** what is negotiated instead of declaring it | Verify that the deployed configuration has not altered it, and retain the evidence |
 | **Encryption at rest** | Provide the mechanism with per-tenant keys separable from data and cryptographic deletion | **Custody of the root key**, outside the system that produces the copies |
 | **Non-alterable register** | Provide it with hash chain, export signed in open format, integrity verification. **Without external anchoring in `RU-1`** (`TG-23`) | Guarantee **privilege separation** between application archive and register archive, which with `TG-23` is the layer that remains |
-| **Security updates** | Release them on authenticated channel, with notice published, within the declared service level in **days per severity** (`V-185`) | **Apply them**, according to your policy, in maintenance window (`TG-11`) |
+| **Security updates** | Release them on authenticated channel, with notice published, within the declared service level in **days per severity** ([`V-185`](../11_registri/01-vincoli-in-vigore.md#v-185)) | **Apply them**, according to your policy, in maintenance window (`TG-11`) |
 | **Network isolation** | Document the reference configuration and verify it on startup where possible | **Apply the network rules**: outbound route denial to application components, relay isolation |
 | **Backups** | Provide procedure, declared objectives and encryption capability | **Execute them**, keep one unreachable permanently from the system, **test the restore** |
 | **Incidents** | Notify the customer **within twenty-four hours**, immediately for high severity; deliver the report within the next day with the timeline; provide the logs in open format | **Notify the authorities**, within your terms, according to your clocks |

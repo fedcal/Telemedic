@@ -212,12 +212,12 @@ per suo conto.
    La separazione fra **centro servizi e centro erogatore** è un vincolo di autorizzazione e non
    una convenzione organizzativa: chi gestisce gli allarmi tecnici non accede al contenuto clinico,
    e la composizione di un ruolo che violi la separazione è **rifiutata con errore di validazione**
-   (vincolo V-125 dell'area funzionale).
+   (vincolo [V-125](../11_registri/01-vincoli-in-vigore.md#v-125) dell'`FUNZ`).
 4. L'accesso in deroga ha durata finita, non è rinnovabile in automatico, richiede una motivazione
    libera e produce un obbligo di riesame con esito registrato.
 5. Il livello di garanzia dell'identità è sempre qualificato dalla provenienza: **eseguito** dal
    sistema oppure **riferito** da un integratore. Un livello riferito non soddisfa un requisito di
-   autenticazione forte (vincolo V-154 dell'area sicurezza, V-165 dell'area integrazione).
+   autenticazione forte (vincolo [V-154](../11_registri/01-vincoli-in-vigore.md#v-154) dell'area sicurezza, [V-165](../11_registri/01-vincoli-in-vigore.md#v-165) dell'area integrazione).
 6. La rappresentazione della delega è esplicita: si registra sempre **quale sistema ha agito per
    conto di quale persona**. L'impersonificazione non è ammessa.
 
@@ -225,7 +225,7 @@ per suo conto.
 non chi è clinicamente. Non decide le basi giuridiche del trattamento, che appartengono al
 titolare e vivono in CTX-09 come fatti registrati. Non emette credenziali primarie per il
 cittadino: il fornitore di servizi verso la federazione nazionale è il soggetto che installa
-(vincolo V-05), non il progetto.
+(vincolo [V-05](../11_registri/01-vincoli-in-vigore.md#v-05)), non il progetto.
 
 **Relazioni.** È **conformista** verso la federazione di identità: lo schema dell'asserzione è
 imposto dall'esterno e non si negozia. È **conformista in senso inverso** verso gli altri
@@ -325,12 +325,12 @@ sul risultato dell'atto, e comprende esiti legittimi come il rinvio in presenza.
 1-bis. **Ogni tipo di prestazione è la propria macchina a stati**, selezionata dal tipo; attori
    ammessi, presenza obbligatoria dell'assistito, asincronia, artefatti obbligatori, esiti
    ammessi, registrabilità e finestre sono **attributi del catalogo**, non condizioni sparse nel
-   codice (vincolo V-140 dell'area di dominio).
+   codice (vincolo [V-140](../11_registri/01-vincoli-in-vigore.md#v-140) dell'area di dominio).
 1-ter. **Stato ed esito sono attributi distinti** e non collassabili: due esiti possono condividere
-   lo stato terminale e avere effetti amministrativi opposti (vincolo V-141).
+   lo stato terminale e avere effetti amministrativi opposti (vincolo [V-141](../11_registri/01-vincoli-in-vigore.md#v-141)).
 1-quater. **Il setting discrimina le regole**: l'obbligo di referto non è incondizionato e non va
    cablato come tale - esistono setting in cui la prestazione produce un'annotazione digitale in
-   luogo del referto (vincolo V-145 dell'area di dominio).
+   luogo del referto (vincolo [V-145](../11_registri/01-vincoli-in-vigore.md#v-145) dell'area di dominio).
 2. Il contatto non passa a concluso senza un **esito dichiarato da un professionista**. Nessuna
    chiusura automatica per scadenza produce un esito clinico.
 3. La sessione non si avvia se le manifestazioni di volontà obbligatorie non sono verificate. La
@@ -374,14 +374,14 @@ dimostrabile la cifratura fino agli estremi e un controllo di rischio tracciabil
 4. Il materiale crittografico della sessione è **generato ex novo per ogni sessione**, senza
    riuso. Il progetto **non dichiara versioni di protocollo né suite negoziate**: le misura per
    sessione, le registra fra i metadati e le rende esportabili; un valore sotto la soglia minima
-   configurata per tenant produce un evento (vincolo V-156 dell'area di sicurezza).
+   configurata per tenant produce un evento (vincolo [V-156](../11_registri/01-vincoli-in-vigore.md#v-156) dell'area di sicurezza).
 4-bis. **La chiave di sessione e l'indirizzo della stanza non sono metadati: sono credenziali.**
    Non sono persistiti in risorse interrogabili né veicolati in campi che transitano per sistemi
-   terzi; si ottengono con chiamata autenticata, sono monouso e a vita brevissima (vincolo V-137
+   terzi; si ottengono con chiamata autenticata, sono monouso e a vita brevissima (vincolo [V-137](../11_registri/01-vincoli-in-vigore.md#v-137)
    dell'area dei protocolli).
 5. La degradazione preserva **l'audio prima del video**, sempre.
 6. I campioni di qualità non contengono identificatori diretti dell'assistito, e nessuna metrica
-   infrastrutturale del relay è etichettata con l'identificativo di sessione (vincolo V-155
+   infrastrutturale del relay è etichettata con l'identificativo di sessione (vincolo [V-155](../11_registri/01-vincoli-in-vigore.md#v-155)
    dell'area sicurezza).
 7. Le due modalità operative - cifrata fino agli estremi senza registrazione, e con registrazione
    lato server - sono **stati distinti e mutuamente esclusivi** della sessione, con transizione
@@ -426,9 +426,9 @@ catena. Firma indica un livello preciso, e livelli diversi hanno effetti giuridi
 
 7. Il **referto di televisita ha una tipologia documentale propria** del fascicolo: l'ipotesi di
    ricondurlo alla specialistica ambulatoriale è **errata** e non va usata in alcun documento,
-   esempio, profilo o materiale pubblico (vincolo V-143 dell'area di dominio).
+   esempio, profilo o materiale pubblico (vincolo [V-143](../11_registri/01-vincoli-in-vigore.md#v-143) dell'area di dominio).
 8. **Nessun modello di documento è cablato**: l'adattatore di serializzazione esiste come punto di
-   estensione con contratto dichiarato (vincolo V-136 dell'area dei protocolli).
+   estensione con contratto dichiarato (vincolo [V-136](../11_registri/01-vincoli-in-vigore.md#v-136) dell'area dei protocolli).
 
 **Che cosa non fa.** Non invia nulla all'esterno: la trasmissione al sistema di origine e alle
 infrastrutture documentali è di CTX-11. Non decide chi può leggere: applica la decisione di
@@ -455,12 +455,12 @@ Silenzio è l'assenza di una misura attesa, ed è un'informazione a pieno titolo
 0. **Il contesto è scritto sulla formulazione «raccolta differita di parametri per la revisione
    periodica del professionista».** Nessun artefatto - documentazione, interfaccia, materiale
    pubblico, nome di classe o di evento - può usare «monitoraggio in tempo reale», «sorveglianza
-   continua» o formule equivalenti (vincolo V-144 dell'area di dominio): la differenza fra le due
+   continua» o formule equivalenti (vincolo [V-144](../11_registri/01-vincoli-in-vigore.md#v-144) dell'area di dominio): la differenza fra le due
    formulazioni vale una classe di rischio.
 1. **Nessuna soglia è cablata.** Le soglie sono configurazione per assistito, attribuite a un
    professionista identificato, con validità temporale. Il campo parte **vuoto e obbligatorio**:
-   nessuna precompilazione, nemmeno con i valori del percorso o dell'ultimo piano (vincolo V-123
-   dell'area funzionale).
+   nessuna precompilazione, nemmeno con i valori del percorso o dell'ultimo piano (vincolo [V-123](../11_registri/01-vincoli-in-vigore.md#v-123)
+   dell'`FUNZ`).
 2. La misura è **immutabile** e porta con sé strumento, metodo, istante di rilevazione, istante di
    ricezione e soggetto che l'ha inserita. Una correzione produce una nuova misura che sostituisce
    la precedente, non una sovrascrittura.
@@ -475,14 +475,14 @@ Silenzio è l'assenza di una misura attesa, ed è un'informazione a pieno titolo
    esplicito, mai silenzioso.
 6-bis. **L'allarme è una sequenza di eventi immutabili** e lo stato corrente è una proiezione:
    nessuna colonna di stato aggiornata sul posto, né per l'allarme né per la misura né per il
-   piano (vincolo V-121 dell'area funzionale).
+   piano (vincolo [V-121](../11_registri/01-vincoli-in-vigore.md#v-121) dell'`FUNZ`).
 6-ter. **L'attesa di rilevazione è un'entità**: l'assenza di misura è una riga che dichiara
-   l'assenza, con finestra attesa, istante di scadenza e causa quando nota (vincolo V-148
+   l'assenza, con finestra attesa, istante di scadenza e causa quando nota (vincolo [V-148](../11_registri/01-vincoli-in-vigore.md#v-148)
    dell'area di dominio).
 6-quater. **Nessun percorso di cura è codificato nel software**: aggiungere un percorso richiede
    redazione della definizione, validazione al caricamento, pubblicazione con versione e ambito,
    modelli di documento e di consenso associati, configurazione della copertura - **mai un
-   rilascio né una migrazione di schema** (vincolo V-147 dell'area di dominio).
+   rilascio né una migrazione di schema** (vincolo [V-147](../11_registri/01-vincoli-in-vigore.md#v-147) dell'area di dominio).
 7. Il sistema **non dialoga direttamente con i dispositivi medici**: acquisisce da un gateway di
    terze parti e non si assume responsabilità sull'accuratezza della catena di misura hardware.
 
@@ -517,7 +517,7 @@ avviene.
    presa in carico, il sistema lo rende visibile e non lo assorbe.
 5. La **copertura oraria dichiarata è un dato di runtime versionato** e condiziona la validità del
    destinatario nella catena di inoltro: **un destinatario fuori copertura non è un destinatario
-   valido** e viene saltato con motivo registrato (vincolo V-122 dell'area funzionale). Non è un
+   valido** e viene saltato con motivo registrato (vincolo [V-122](../11_registri/01-vincoli-in-vigore.md#v-122) dell'`FUNZ`). Non è un
    parametro commerciale né una clausola contrattuale. Un allarme generato fuori copertura è
    marcato come tale e non assume mai uno stato che lasci intendere una presa in carico avvenuta.
 
@@ -544,7 +544,7 @@ può prestare uno nuovo, non annullare la revoca.
 **Invarianti.**
 0. **I consensi sono cinque oggetti distinti** con cicli di vita indipendenti: atto sanitario,
    trattamento dei dati ove applicabile, registrazione, presenza di terzi, trasmissione a sistemi
-   esterni. **Nessun «consenso alla piattaforma» esiste nel modello** (vincolo V-146 dell'area di
+   esterni. **Nessun «consenso alla piattaforma» esiste nel modello** (vincolo [V-146](../11_registri/01-vincoli-in-vigore.md#v-146) dell'area di
    dominio).
 1. **Il consenso è un fatto con validità temporale**, mai un valore booleano su un'entità.
 2. Ogni consenso è riferito a una **versione immutabile** di un testo informativo. Senza
@@ -557,7 +557,7 @@ può prestare uno nuovo, non annullare la revoca.
    deve essere inferibile. I canali di inferenza da chiudere sono **sei e vanno chiusi tutti**:
    numerazione, conteggi, paginazione, notifiche, differenze fra interrogazioni successive,
    messaggi d'errore. **L'applicazione spetta al motore di autorizzazione in un unico punto**, che
-   filtra e calcola i totali sull'insieme filtrato, mai ai consumatori (vincolo V-149 dell'area di
+   filtra e calcola i totali sull'insieme filtrato, mai ai consumatori (vincolo [V-149](../11_registri/01-vincoli-in-vigore.md#v-149) dell'area di
    dominio). I dati sintetici di collaudo comprendono documenti oscurati, altrimenti nessuna prova
    esercita il percorso.
 6. La manifestazione di volontà porta la propria evidenza: dichiarante, istante, canale, testo
@@ -586,7 +586,7 @@ terminologia, la seconda al progetto.
 1. **Gateway unico**: nessun contesto interroga direttamente una fonte terminologica.
 2. **Nessuna cache persistita su disco** per i sistemi la cui licenza non consente derivati.
 3. **Nessun identificativo dell'assistito** lascia il perimetro verso un servizio terminologico
-   esterno (vincolo V-151 dell'area sicurezza). La sovranità di questa dipendenza si soddisfa per
+   esterno (vincolo [V-151](../11_registri/01-vincoli-in-vigore.md#v-151) dell'area sicurezza). La sovranità di questa dipendenza si soddisfa per
    **assenza di dato**, non per collocazione.
 4. Il sistema è **pienamente funzionale** con i sistemi a licenza onerosa disattivati: nessun
    percorso principale li richiede.
@@ -619,7 +619,7 @@ origine, destinazione. È l'unico contesto in cui compaiono i nomi degli standar
    completa e avviene qui, in entrambe le direzioni.
 2. Ogni messaggio in uscita è **identificato e idempotente**, con chiave di deduplicazione
    esplicita.
-3. **Nessun contenuto clinico nei messaggi in uscita verso sistemi terzi** (vincolo V-161 dell'area
+3. **Nessun contenuto clinico nei messaggi in uscita verso sistemi terzi** (vincolo [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) dell'area
    integrazione): l'evento trasporta identificativi e riferimenti; il contenuto si rilegge con una
    chiamata autenticata sotto l'autorizzazione del ricevente.
 4. Nessuna operazione clinica avviene senza contesto di delega dell'utente per conto del quale il
@@ -635,7 +635,7 @@ origine, destinazione. È l'unico contesto in cui compaiono i nomi degli standar
    di chi attacca.
 8. **Ogni chiamata uscente verso una destinazione derivata da un dato in ingresso passa dal
    mediatore unico di uscita**, e ai componenti applicativi l'uscita è **negata a livello di rete**
-   (vincolo V-157 dell'area di sicurezza). Il relay **non vi confluisce**: per esso vale
+   (vincolo [V-157](../11_registri/01-vincoli-in-vigore.md#v-157) dell'area di sicurezza). Il relay **non vi confluisce**: per esso vale
    l'isolamento di rete dedicato.
 
 **Che cosa non fa.** Non definisce il modello canonico: lo riceve. Non prende decisioni cliniche
@@ -663,7 +663,7 @@ periodico di integrità.
 2. **Il fallimento della scrittura di tracciamento fa fallire l'operazione applicativa.** Non
    esiste operazione su dato sanitario eseguita senza traccia.
 3. La lettura del registro è a sua volta registrata.
-4. Il registro **non contiene contenuto clinico** (vincolo V-150 dell'area sicurezza): contiene chi,
+4. Il registro **non contiene contenuto clinico** (vincolo [V-150](../11_registri/01-vincoli-in-vigore.md#v-150) dell'area sicurezza): contiene chi,
    cosa, quando, su quale soggetto, con quale esito.
 5. La conservazione avviene **separatamente dal sistema che genera gli eventi**: un
    amministratore della base dati applicativa non deve poter alterare l'evidenza.
@@ -697,7 +697,7 @@ funzione è una scelta di installazione, non un ramo di codice.
    con verifica del contrasto: una configurazione che degrada l'accessibilità è **rifiutata al
    salvataggio**. Indicatore di registrazione, avvisi, testi di consenso, esito della verifica
    delle chiavi, messaggi di errore clinico e indicatore dello stato di cifratura non sono
-   tematizzabili né occultabili (vincolo V-163 dell'area integrazione).
+   tematizzabili né occultabili (vincolo [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) dell'area integrazione).
 5. Le soglie **cliniche** non sono configurazione di tenant: sono per assistito e appartengono a
    CTX-07. La configurazione di tenant può definire i limiti entro cui una soglia per assistito
    può essere impostata, non il suo valore.
@@ -720,7 +720,7 @@ Il fatto di dominio che lo motiva è reale e verificato: la prestazione erogata 
 rendiconta con il codice della corrispondente prestazione in presenza, con l'attributo di canale
 che ne qualifica la modalità; confondere l'asse «che cosa è stato erogato» con l'asse «come è
 stato erogato» rende un sistema di telemedicina non rendicontabile. Esiste inoltre un vincolo
-esplicito, il V-166 dell'area integrazione, secondo cui il profilo di integrazione del pagatore è
+esplicito, il [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) dell'area integrazione, secondo cui il profilo di integrazione del pagatore è
 **amministrativo per costruzione**: identificativo della prestazione, esito amministrativo,
 importo, mai riferimenti a documenti clinici. Quel vincolo presuppone un luogo in cui l'evento
 rendicontabile è formato e in cui si garantisce che non trasporti altro.
@@ -729,8 +729,8 @@ Le opzioni sono tre e non sono equivalenti:
 
 | Opzione | Conseguenza |
 |---|---|
-| Un quattordicesimo contesto di supporto dedicato | Confine netto, che rende strutturale la separazione fra il piano clinico e il piano amministrativo e rende verificabile V-166. Costo: un contesto in più da governare |
-| Responsabilità distribuita fra CTX-04 e CTX-11 | Nessun contesto nuovo, ma l'evento amministrativo si forma dentro il contesto clinico, e la garanzia di V-166 diventa una convenzione di codice invece che un confine |
+| Un quattordicesimo contesto di supporto dedicato | Confine netto, che rende strutturale la separazione fra il piano clinico e il piano amministrativo e rende verificabile [V-166](../11_registri/01-vincoli-in-vigore.md#v-166). Costo: un contesto in più da governare |
+| Responsabilità distribuita fra CTX-04 e CTX-11 | Nessun contesto nuovo, ma l'evento amministrativo si forma dentro il contesto clinico, e la garanzia di [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) diventa una convenzione di codice invece che un confine |
 | Responsabilità interamente in CTX-11 | Coerente con l'idea che tutto ciò che esce passa dalla frontiera, ma carica il livello anticorruzione di una responsabilità di dominio - quale evento è rendicontabile e con quale codice - che non gli appartiene |
 
 **Questa area propone la prima opzione**, argomentata nell'ADR corrispondente, ma **non la adotta
@@ -738,7 +738,7 @@ d'ufficio**: modificare l'elenco dei contesti della base architetturale è una d
 eccede il mandato di un'area. La questione è portata all'orchestratore. Fino a quando non è
 decisa, la responsabilità resta dove la base la lascia implicitamente - cioè in CTX-04 per la
 determinazione del fatto rendicontabile e in CTX-11 per il recapito - **con l'avvertenza esplicita
-che questa collocazione rende V-166 una convenzione e non un confine**, e che va verificata con una
+che questa collocazione rende [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) una convenzione e non un confine**, e che va verificata con una
 prova dedicata.
 
 ## 6. Regole di attraversamento dei confini
@@ -787,4 +787,4 @@ operativa, purché la separazione degli accessi sia imposta e non affidata alla 
 **Non implica che il codice sia organizzato per strato.** L'organizzazione dei moduli segue i
 contesti, non i tipi di componente: le classi che servono la prestazione clinica stanno insieme,
 non divise fra un pacchetto di controllori, uno di servizi e uno di entità. È una scelta di
-struttura del codice che appartiene all'area tecnica ma discende da qui.
+struttura del codice che appartiene all'`TECH` ma discende da qui.

@@ -121,39 +121,39 @@ A decision in `proposed` status **is not binding**, and the document containing 
 
 | Constraint | Decisions that implement it |
 |---|---|
-| **V1** - Data sovereignty | 0016 (sovereignty by absence of data) · 0009 (no additional component) |
-| **V2** - Separation between vehicle and interpretation | 0004 · 0020 · 0024 |
-| **V3** - Total integrability | 0006 · 0021 |
-| **V4** - Tenant awareness | 0007 · 0008 (outbox per tenant) · 0010 (tenant mandatory in envelope) · 0013 (chain per tenant) |
-| **V5** - Immutable auditability | 0013 · 0015 |
-| **V6** - Usability, accessibility, mobile first | 0014 (indicator not concealable) · 0019 (adaptable strings) · 0028 (declared limit instead of silent degradation) |
+| **[V1](../11_registri/03-vincoli-fondanti.md#v1)** - Data sovereignty | 0016 (sovereignty by absence of data) · 0009 (no additional component) |
+| **[V2](../11_registri/03-vincoli-fondanti.md#v2)** - Separation between vehicle and interpretation | 0004 · 0020 · 0024 |
+| **[V3](../11_registri/03-vincoli-fondanti.md#v3)** - Total integrability | 0006 · 0021 |
+| **[V4](../11_registri/03-vincoli-fondanti.md#v4)** - Tenant awareness | 0007 · 0008 (outbox per tenant) · 0010 (tenant mandatory in envelope) · 0013 (chain per tenant) |
+| **[V5](../11_registri/03-vincoli-fondanti.md#v5)** - Immutable auditability | 0013 · 0015 |
+| **[V6](../11_registri/03-vincoli-fondanti.md#v6)** - Usability, accessibility, mobile first | 0014 (indicator not concealable) · 0019 (adaptable strings) · 0028 (declared limit instead of silent degradation) |
 
 ## Constraints from Other Areas Adopted in ADRs
 
 | Constraint | From | Adopted in |
 |---|---|---|
-| V-111 expand and contract on every migration | `TECH` | 0007 |
-| V-112 tenant context inside the transaction | `TECH` | 0007 |
-| V-113 no raw cumulative counter as an indicator | `TECH` | 0020 |
-| V-121 the alarm is a sequence of immutable events | `FUNC` | 0026 |
-| V-123 the threshold field starts empty and mandatory | `FUNC` | 0026 |
-| V-124 measurement instant and reception instant distinct | `FUNC` | 0020 · 0026 |
-| V-126 typed outcomes are not error codes | `FUNC` | 0021 |
-| V-131 delivery of candidates exactly once and in order | `PROTO` | 0012 |
-| V-134 no dedicated header for content type | `PROTO` | 0010 |
-| V-135 loading of events with references only | `PROTO` | 0011 |
-| V-136 no hardcoded documentary model | `PROTO` | 0005 |
-| V-137 session key and room address are credentials | `PROTO` | 0025 |
-| V-142 normalisation of identifiers at the boundary | `DOM` | 0017 |
-| V-144 formulation of the intended purpose of telemonitoring | `DOM` | 0026 |
-| V-146 five distinct objects of consent | `DOM` | 0014 |
-| V-147 no care pathway in code | `DOM` | 0026 |
-| V-149 obscuration applied by the authorisation engine | `DOM` | 0027 |
-| V-151 no patient identifier to the terminology service | `SEC` | 0016 |
-| V-156 no static declaration of negotiated suites | `SEC` | 0014 |
-| V-157 single outbound mediator | `SEC` | 0029 |
-| V-161 no clinical content in outbound messages | `INTEG` | 0011 |
-| V-166 administrative payer profile by construction | `INTEG` | 0023 |
+| [V-111](../11_registri/01-vincoli-in-vigore.md#v-111) expand and contract on every migration | `TECH` | 0007 |
+| [V-112](../11_registri/01-vincoli-in-vigore.md#v-112) tenant context inside the transaction | `TECH` | 0007 |
+| [V-113](../11_registri/01-vincoli-in-vigore.md#v-113) no raw cumulative counter as an indicator | `TECH` | 0020 |
+| [V-121](../11_registri/01-vincoli-in-vigore.md#v-121) the alarm is a sequence of immutable events | `FUNC` | 0026 |
+| [V-123](../11_registri/01-vincoli-in-vigore.md#v-123) the threshold field starts empty and mandatory | `FUNC` | 0026 |
+| [V-124](../11_registri/01-vincoli-in-vigore.md#v-124) measurement instant and reception instant distinct | `FUNC` | 0020 · 0026 |
+| [V-126](../11_registri/01-vincoli-in-vigore.md#v-126) typed outcomes are not error codes | `FUNC` | 0021 |
+| [V-131](../11_registri/01-vincoli-in-vigore.md#v-131) delivery of candidates exactly once and in order | `PROTO` | 0012 |
+| [V-134](../11_registri/01-vincoli-in-vigore.md#v-134) no dedicated header for content type | `PROTO` | 0010 |
+| [V-135](../11_registri/01-vincoli-in-vigore.md#v-135) loading of events with references only | `PROTO` | 0011 |
+| [V-136](../11_registri/01-vincoli-in-vigore.md#v-136) no hardcoded documentary model | `PROTO` | 0005 |
+| [V-137](../11_registri/01-vincoli-in-vigore.md#v-137) session key and room address are credentials | `PROTO` | 0025 |
+| [V-142](../11_registri/01-vincoli-in-vigore.md#v-142) normalisation of identifiers at the boundary | `DOM` | 0017 |
+| [V-144](../11_registri/01-vincoli-in-vigore.md#v-144) formulation of the intended purpose of telemonitoring | `DOM` | 0026 |
+| [V-146](../11_registri/01-vincoli-in-vigore.md#v-146) five distinct objects of consent | `DOM` | 0014 |
+| [V-147](../11_registri/01-vincoli-in-vigore.md#v-147) no care pathway in code | `DOM` | 0026 |
+| [V-149](../11_registri/01-vincoli-in-vigore.md#v-149) obscuration applied by the authorisation engine | `DOM` | 0027 |
+| [V-151](../11_registri/01-vincoli-in-vigore.md#v-151) no patient identifier to the terminology service | `SEC` | 0016 |
+| [V-156](../11_registri/01-vincoli-in-vigore.md#v-156) no static declaration of negotiated suites | `SEC` | 0014 |
+| [V-157](../11_registri/01-vincoli-in-vigore.md#v-157) single outbound mediator | `SEC` | 0029 |
+| [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) no clinical content in outbound messages | `INTEG` | 0011 |
+| [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) administrative payer profile by construction | `INTEG` | 0023 |
 
 ## Mapping between Decisions and Noticeboard Questions
 

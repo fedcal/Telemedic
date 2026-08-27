@@ -78,7 +78,7 @@ sistema da mantenere.
 4. **Esiste un registro degli identificatori di sistema versionato** che dichiara, per ciascun
    identificatore riconosciuto, se è accettato in ingresso, se è emesso in uscita e con quale
    precedenza. Sta nel livello anticorruzione del contesto di frontiera e **mai nel dominio**
-   (vincolo V-142 dell'area di dominio). Con questa forma la scelta è un valore di configurazione
+   (vincolo [V-142](../11_registri/01-vincoli-in-vigore.md#v-142) dell'area di dominio). Con questa forma la scelta è un valore di configurazione
    e non una migrazione.
 5. L'identificatore esterno **non è mai una colonna della tabella principale**: vive in una tabella
    di identificatori con sistema, valore, uso e validità temporale.
@@ -112,9 +112,8 @@ come fattore di autenticazione, che è un difetto di sicurezza.
 segmento anagrafico del canale legacy resta **contrattuale con l'integratore**. La forma conforme
 alla regola di formazione della tabella di riferimento è quella con il suffisso di Paese; la forma
 abbreviata senza suffisso **non esiste** come concetto enumerato.
-- `[NV]` - la posizione dell'ente di normazione nazionale sulla divergenza non è nota. La questione
-  va sollevata dall'area di conformità, che ha già in carico l'interlocuzione per le tipologie
-  documentali.
+- La posizione dell'ente di normazione nazionale sulla divergenza va verificata da `COMP`, che ha già in carico l'interlocuzione per le tipologie
+  documentali `[NV]`.
 
 ## Riferimenti
 

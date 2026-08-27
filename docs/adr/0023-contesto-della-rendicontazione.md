@@ -7,7 +7,7 @@ description: Perché quest'area propone un quattordicesimo contesto delimitato p
 # ADR-0023 - Il contesto della rendicontazione: proposta di scostamento dalla base architetturale
 
 **Stato**: **proposta - in attesa di decisione del committente** · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Vincolo interessato**: V-166 posto dall'area di integrazione, confermato da `FUNZ` in Q-163 con `BR-170` e `BR-171`
+**Vincolo interessato**: [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) posto dall'`INTEG`, confermato da `FUNZ` in [Q-163](../11_registri/02-questioni-aperte.md#q-163) con `BR-170` e `BR-171`
 
 ## Contesto
 

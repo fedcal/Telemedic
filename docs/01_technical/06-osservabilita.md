@@ -25,7 +25,7 @@ L'elenco è tassativo e la sua violazione è un difetto, non un'imprecisione.
 
 | Categoria | Esempi | Perché |
 |---|---|---|
-| **Contenuto clinico** | Testo del referto, anamnesi, valore di una misura, esito di una valutazione, motivo del consulto | Vincolo V-13 di `SEC`. Un registro di diagnostica è replicato, esportato, letto da personale operativo e conservato con criteri diversi da quelli del dato clinico |
+| **Contenuto clinico** | Testo del referto, anamnesi, valore di una misura, esito di una valutazione, motivo del consulto | Vincolo [V-150](../11_registri/01-vincoli-in-vigore.md#v-150) di `SEC`. Un registro di diagnostica è replicato, esportato, letto da personale operativo e conservato con criteri diversi da quelli del dato clinico |
 | **Identificativi diretti dell'assistito** | Codice fiscale, nome, data di nascita, recapiti, identificativo del sistema di origine | Idem. Nei registri si usano pseudonimi per tenant (§1.2) |
 | **Corpi di richiesta e di risposta** | Documento inviato, risorsa clinica ricevuta | Contengono per definizione entrambe le categorie precedenti |
 | **Indirizzi con identificativi** | Percorsi che contengono un identificativo di assistito o di documento | Gli indirizzi finiscono nei registri di accesso, nei proxy, nelle intestazioni di provenienza e nella cronologia |
@@ -127,13 +127,13 @@ I livelli sono inutili se ciascuno li usa a proprio giudizio. Questi sono i crit
 regolarmente e non c'è niente da fare, non è un errore: è una caratteristica della realtà, e va
 declassata e misurata. La proliferazione di errori non azionabili è il modo in cui un sistema di
 allerta smette di essere letto, e un sistema di allerta che nessuno legge è peggio dell'assenza di
-allerta, perché produce falsa rassicurazione - lo stesso ragionamento che il vincolo V-14 di
+allerta, perché produce falsa rassicurazione - lo stesso ragionamento che la questione [`Q-14`](../11_registri/02-questioni-aperte.md#q-14) di
 `GUIDA` applica alla copertura oraria dichiarata.
 
 ### 2.3 Conservazione
 
 I termini per i dati di tracciabilità e per i dati di accesso e autenticazione sono fissati dal
-vincolo V-15 di `SEC` e questa area li recepisce senza reinterpretarli. Per i registri di
+vincolo [V-152](../11_registri/01-vincoli-in-vigore.md#v-152) di `SEC` e questa area li recepisce senza reinterpretarli. Per i registri di
 diagnostica applicativa, che non sono né l'uno né l'altro, la conservazione è **breve e
 dichiarata**, dimensionata sul tempo di indagine di un incidente e non oltre. Un registro
 conservato più a lungo del necessario è un archivio di dati personali senza una base che lo
@@ -153,7 +153,7 @@ giustifichi.
 | **Qualità del media** | Sintesi delle misure di sessione | Distribuzione dell'indice di qualità, quota di sessioni instradate dal relay, quota di sessioni con avviso di inidoneità |
 
 La famiglia di dominio è quella che manca più spesso e che vale di più. «Il servizio risponde in
-40 millisecondi» non dice se le allerte cliniche vengono prese in carico. Il vincolo V-09 -
+40 millisecondi» non dice se le allerte cliniche vengono prese in carico. Il vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) -
 l'assenza di dato è informazione - si traduce qui in una regola concreta: **si misurano gli
 eventi attesi e non accaduti**, non solo quelli accaduti. Una misura attesa e non pervenuta, una
 notifica non riscontrata, una sessione programmata e mai avviata sono metriche di prima classe.
@@ -251,7 +251,7 @@ dalla disponibilità del sistema di osservabilità.
 | Destinatario | Chi opera il sistema | Chi indaga, chi vigila, l'interessato |
 | Mutabilità | Ruota, si potano, si perdono | In sola aggiunta, a catena di impronte |
 | Collocazione | Sistema di osservabilità | Archivio separato con credenziali proprie |
-| Conservazione | Breve | Fissata dal vincolo V-15 di `SEC` |
+| Conservazione | Breve | Fissata dal vincolo [V-152](../11_registri/01-vincoli-in-vigore.md#v-152) di `SEC` |
 | Contenuto | Nessun dato clinico, pseudonimi | Nessun dato clinico, pseudonimi, più livello di garanzia ed esito |
 | Perdita | Fastidiosa | **Incidente** |
 
@@ -323,7 +323,7 @@ flowchart TB
 **Il contenuto non è disponibile.** Per progetto. Quando l'indagine richiede di sapere che cosa
 conteneva un documento, la strada è l'accesso deliberato al dato nel perimetro applicativo, con
 autorizzazione, motivazione e **registrazione nel registro immutabile**. È lo stesso meccanismo
-dell'accesso d'emergenza (vincolo V-16 di `SEC`): motivazione libera obbligatoria, perimetro e
+dell'accesso d'emergenza (vincolo [V-153](../11_registri/01-vincoli-in-vigore.md#v-153) di `SEC`): motivazione libera obbligatoria, perimetro e
 finestra limitati, notifica, riesame con esito registrato.
 
 **Questo rende alcune indagini più lente.** Va dichiarato invece di essere scoperto: è il prezzo

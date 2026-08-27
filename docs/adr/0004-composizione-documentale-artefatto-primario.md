@@ -7,7 +7,7 @@ description: Perché il referto di una prestazione a distanza è una composizion
 # ADR-0004 - Composizione documentale come artefatto primario del referto
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Decisioni di riferimento**: D13; vincolo V2
+**Decisioni di riferimento**: D13; vincolo [V2](../11_registri/03-vincoli-fondanti.md#v2)
 
 ## Contesto
 

@@ -293,7 +293,7 @@ This block is, together with 5.T, the safety core of the system. The theory that
 
 ## 6. Block 5.T - Silence, adherence and expected volume surveillance (`RF-293` … `RF-306`)
 
-The principle ordering the block is constraint **V-09**: absence of data is clinical information and silence is never treated as normality. In a remote monitoring service the failure to transmit an expected measurement has the same informational status as an out-of-threshold measurement, because among its causes is, with non-negligible probability, exactly what the service exists to intercept.
+The principle ordering the block is constraint **[V-09](../11_registri/01-vincoli-in-vigore.md#v-09)**: absence of data is clinical information and silence is never treated as normality. In a remote monitoring service the failure to transmit an expected measurement has the same informational status as an out-of-threshold measurement, because among its causes is, with non-negligible probability, exactly what the service exists to intercept.
 
 > **RF-293 · Measurement expectation window** - *System* · *M* · *Dep.: RF-242*
 > Every parameter of the plan has an expectation window derived from the coded frequency and the plan's time window; no window derives from an application constant.
@@ -513,7 +513,7 @@ This block translates into requirements the normative obligations governing the 
 > **RF-350 · Attestation of connection quality in report** - *System, Physician* · *M* · *Dep.: RF-129, RF-172*
 > The report must include the attestation of connection quality and suitability for service delivery, and the indication of any collaborating participants present, in structured and repeatable form, fed by the session technical report.
 > › **Given** a contact with a degradation episode and a channel fallback · **When** the report is generated · **Then** the attestation is present with summary technical evidence, the channel actually used is reported, and the physician must confirm suitability with an explicit action before signature.
-> *The ministerial format does not provide a dedicated field: placement is the subject of documented architectural decision.* `[NV]` *on the final destination field - open question toward the compliance area.*
+> *The ministerial format does not provide a dedicated field: placement is the subject of documented architectural decision.* *The choice of final destination field remains an uncertainty* `[NV]` *that* `COMP` *must resolve when regional templates become available.*
 
 > **RF-351 · Safe alternative channel for report delivery** - *Patient* · *S* · *Dep.: RF-131*
 > When the patient declares difficulty accessing their own dossier, the system must permit report delivery on a safe channel with dual authentication, on request and with request recording.

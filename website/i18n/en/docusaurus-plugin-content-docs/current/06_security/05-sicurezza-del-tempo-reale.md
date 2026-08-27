@@ -68,7 +68,7 @@ Consequences to be written out in full:
 
 ### 2.3 The negotiated version is not declared: it is measured
 
-**Constraint V-156**, already stated in [03 §2.3](./03-protezione-dei-dati.md) and here applied to
+**Constraint [V-156](../11_registri/01-vincoli-in-vigore.md#v-156)**, already stated in [03 §2.3](./03-protezione-dei-dati.md) and here applied to
 the media.
 
 The established picture: the cryptographic library of two of the three reference engines adopts as
@@ -135,7 +135,7 @@ It is at once what makes end-to-end encryption **demonstrable** and a **traceabl
 under the standard on risk management for medical devices. The corresponding risk must be
 classified as having no standard alternative mitigation: there is no other road.
 
-**Accessibility requirements, binding** (decision D22 and cross-cutting constraint V6):
+**Accessibility requirements, binding** (decision D22 and cross-cutting constraint [V6](../11_registri/03-vincoli-fondanti.md#v6)):
 
 - **readable by a screen reader**: the code has an accessible textual representation, it is not an
   image;
@@ -146,7 +146,7 @@ classified as having no standard alternative mitigation: there is no other road.
 - **a defined procedure in the event of a mismatch**: what to do, whom to alert, how to break off. A
   security control with no failure procedure is a control that, on the first failure, gets ignored;
 - the outcome of the verification **cannot be re-themed or hidden** by whoever embeds the component
-  (constraint V-23 of the integration area).
+  (constraint [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) of the integration area).
 
 The outcome of the verification - performed, not performed, mismatched - is **recorded among the
 session metadata**.
@@ -155,7 +155,7 @@ session metadata**.
 
 ### 4.1 The constraint, to the letter
 
-**Constraint V-10: minimum version 4.17.2 and outbound network isolation as the primary defence.**
+**Constraint [V-10](../11_registri/01-vincoli-in-vigore.md#v-10): minimum version 4.17.2 and outbound network isolation as the primary defence.**
 
 The minimum version is not a preference. Below it, known vulnerabilities verified against a public
 database remain open: a 4.16.0 version remains exposed to defects of relay port pool exhaustion
@@ -168,7 +168,7 @@ at every minor version update, and the outcome recorded in the post-market surve
 
 ### 4.2 Why the list of forbidden addresses is not the primary defence
 
-This is the counter-intuitive part, and it is the reason why constraint V-10 is worded the way it
+This is the counter-intuitive part, and it is the reason why constraint [V-10](../11_registri/01-vincoli-in-vigore.md#v-10) is worded the way it
 is.
 
 The peer denial directive is the defence everybody configures. **It has been bypassed four times in
@@ -213,7 +213,7 @@ into the reference configuration as a prohibition, not as a preference.
 for the comparison defect: the advisory recommends verbatim avoiding arbitrary boundaries and
 relying on exact addresses or on prefix-aligned ranges, **enforcing the relay's egress
 restrictions through external mechanisms**. That last part is the confirmation, from the upstream
-source, of constraint V-10.
+source, of constraint [V-10](../11_registri/01-vincoli-in-vigore.md#v-10).
 
 **Fourth - no co-located service, and the infrastructure metadata service must be unreachable.** No
 database, no management agent listening on the loopback interface, no reachable infrastructure
@@ -292,13 +292,13 @@ All mandatory, all verifiable.
 3. **Consent is bilateral.** The professional too is a data subject as regards their own image and
    voice, and their legal basis may be different but must exist.
 4. **The recording-in-progress indicator is persistent and cannot be hidden** for the whole
-   duration. It cannot be re-themed or removed by whoever embeds the component (constraint V-23 of
+   duration. It cannot be re-themed or removed by whoever embeds the component (constraint [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) of
    the integration area). It is readable by a screen reader and is not conveyed by colour alone.
 5. **The switch between the two modes is traced in the audit trail**, with the instant, the actor
    and the reference to the consent.
 6. **The file is encrypted at rest with a tenant key**, retention is configurable and withdrawal
    produces effective erasure ([03 §7](./03-protezione-dei-dati.md)).
-7. **The container is negotiated at runtime, never assumed** (constraint V-11). The established
+7. **The container is negotiated at runtime, never assumed** (constraint [V-11](../11_registri/01-vincoli-in-vigore.md#v-11)). The established
    picture is that neither of the two widespread containers is universal: the first is supported by
    two engines out of three, the second by the third and - only from a recent version - by one of
    the others too. The actual container is **recorded among the recording's metadata**, as is done
@@ -328,12 +328,12 @@ Requirements that follow:
   available for inclusion in the clinical document with the professional's explicit confirmation;
 - there is a **declared fallback** - the telephone channel - and the procedure is known to the
   patient before the session, not communicated during the fault;
-- interruption of the session is a **recorded outcome**, not an absence of data: constraint V-09
+- interruption of the session is a **recorded outcome**, not an absence of data: constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09)
   applies here too.
 
 ## 7. Metrics and observability
 
-**Constraint V-155: no infrastructure metric of the relay may be labelled with the session
+**Constraint [V-155](../11_registri/01-vincoli-in-vigore.md#v-155): no infrastructure metric of the relay may be labelled with the session
 identifier.**
 
 The reason is in the metadata table of [01 §2.2](./01-modello-di-minaccia.md). The relay's
@@ -366,8 +366,8 @@ metrics**: they are two stores with two regimes.
 
 | Reference | Question | To whom |
 |---|---|---|
-| Q-08 | Confirmation of the two-mode solution and of its effects on the data model | Architecture |
-| `[NV]` | Support status of the most recent version of the datagram transport protocol on the engine for which it has not been established (§2.3) | Empirical verification |
-| `[NV]` | Digest algorithm underlying the computation of the relay's ephemeral credentials: the upstream documentation writes generically «hmac». It must be **verified empirically** with an integration test against the version actually distributed, which is more solid than any documentary citation | Technical |
-| `[NV]` | Support for prefix notation in the denial directives: not verified upstream, so the reference configuration uses exclusively the range form, which is documented (§4.3) | Technical |
-| - | Minimum negotiated protocol version threshold below which the session is refused: it is a **product specification, never compliance** (V-12) | Functional |
+| [Q-08](../11_registri/02-questioni-aperte.md#q-08) | Confirmation of the two-mode solution and of its effects on the data model | Architecture |
+| `[NV]` | Support status of the most recent version of the datagram transport protocol on the engine for which it has not been established (§2.3) | `TECH` |
+| `[NV]` | Digest algorithm underlying the computation of the relay's ephemeral credentials: the upstream documentation writes generically «hmac». It must be **verified empirically** with an integration test against the version actually distributed, which is more solid than any documentary citation | `TECH` |
+| `[NV]` | Support for prefix notation in the denial directives: not verified upstream, so the reference configuration uses exclusively the range form, which is documented (§4.3) | `TECH` |
+| - | Minimum negotiated protocol version threshold below which the session is refused: it is a **product specification, never compliance** ([V-12](../11_registri/01-vincoli-in-vigore.md#v-12)) | Functional |

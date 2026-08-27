@@ -895,8 +895,8 @@ interoperate with the national digital health ecosystem*» (Annex 3, § 3.1).
 The two conditions are therefore: **AGENAS-certified technical standards** and **feeding the
 health record**. The second is technically defined and the project knows what it entails
 (module [07](07-fse-e-infrastrutture-nazionali.md)). The first **is not publicly documented**:
-`[NV]` on what the Validation Process operationally consists of, what the criteria, duration
-and required artefacts are. It is a declared gap, to be filled by a direct request to AGENAS.
+it is a declared gap. `[NV]` Must be requested from AGENAS what the Validation Process
+operationally consists of, what the criteria, duration and required artefacts are.
 
 ### 6.3 The essential micro-services
 
@@ -978,7 +978,7 @@ published in the Gazzetta Ufficiale.
 
 Deadline for bringing the integration of the contents into the health record fully into
 operation: **30 June 2026** (art. 7, para. 3). As at the date of writing the deadline has
-passed; the actual state of regional implementation has not been ascertained. `[NV]`
+passed; the actual state of regional implementation has not been ascertained and remains to be ascertained by the `GUIDA` `[NV]` area.
 
 > **Correction of a mistaken hypothesis, documented for transparency.** Until this verification
 > the project's research hypothesised that the televisita report was carried as an «Outpatient

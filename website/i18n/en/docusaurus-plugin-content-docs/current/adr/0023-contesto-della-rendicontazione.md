@@ -7,7 +7,7 @@ description: "Why this area proposes a fourteenth bounded context for formation 
 # ADR-0023 - The Billing Context: Proposal for Deviation from the Architectural Base
 
 **Status**: **proposed - awaiting stakeholder decision** · **Date**: 25 August 2026 · **Area**: ARCH
-**Interested constraint**: V-166 set by the integration area, confirmed by `FUNC` in Q-163 with `BR-170` and `BR-171`
+**Interested constraint**: [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) set by the integration area, confirmed by `FUNC` in [Q-163](../11_registri/02-questioni-aperte.md#q-163) with `BR-170` and `BR-171`
 
 ## Context
 

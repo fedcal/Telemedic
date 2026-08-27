@@ -7,7 +7,7 @@ description: Perché gli eventi trasportano identificativi e riferimenti e non c
 # ADR-0011 - Eventi magri: nessun contenuto clinico nei messaggi verso l'esterno
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Vincoli di riferimento**: V-161 posto dall'area di integrazione; V-135 posto dall'area dei protocolli
+**Vincoli di riferimento**: [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) posto dall'`INTEG`; [V-135](../11_registri/01-vincoli-in-vigore.md#v-135) posto dall'area dei protocolli
 
 ## Contesto
 

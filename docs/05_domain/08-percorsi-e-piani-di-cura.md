@@ -87,7 +87,7 @@ Traduzione in requisiti di modello del § 3.7 del modulo dei fondamenti.
 | 3 | **Versionamento con immutabilità** | § 1 |
 | 4 | **Ambito e tenancy** | Ogni definizione appartiene a un tenant e a un ambito organizzativo; un percorso «nazionale» è una configurazione, non un presupposto |
 | 5 | **Validazione al caricamento** | Nodo irraggiungibile, cadenza senza unità, soglia senza parametro, ciclo senza uscita: rifiutati alla pubblicazione, con messaggio comprensibile a chi ha redatto |
-| 6 | **Nessuna soglia individuale nella definizione** | Il percorso propone, il piano individuale dispone (`V-02`) |
+| 6 | **Nessuna soglia individuale nella definizione** | Il percorso propone, il piano individuale dispone ([`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)) |
 | 7 | **Tracciabilità del perché** | Per ogni attività eseguita, da quale nodo derivava; per ogni attività non eseguita, se era prevista |
 
 ### 3.2 Il confine del motore
@@ -192,7 +192,7 @@ con almeno un ruolo marcato come responsabile della presa in carico.
 
 ### 4.4 La copertura oraria dichiarata
 
-> **Questione `Q-14` in bacheca**, indirizzata alle aree `PROD` e `FUNZ`: **la copertura oraria
+> **Questione [`Q-14`](../11_registri/02-questioni-aperte.md#q-14) in bacheca**, indirizzata alle aree `PROD` e `FUNZ`: **la copertura oraria
 > dichiarata è un requisito di sicurezza**, non un parametro commerciale. Un servizio mal
 > dichiarato è più pericoloso dell'assenza di servizio, perché produce falsa rassicurazione.
 
@@ -311,7 +311,7 @@ tipi:
 
 > **`DM-99` [MOD]** - Il sistema **non calcola esiti clinici** e non produce alcun indice
 > sintetico di risultato clinico. Aggrega fatti dichiarati e conta eventi registrati. La
-> distinzione è il confine di `V2` applicato agli esiti, e va presidiata perché è quella su cui
+> distinzione è il confine di [`V2`](../11_registri/03-vincoli-fondanti.md#v2) applicato agli esiti, e va presidiata perché è quella su cui
 > la pressione di prodotto è più forte.
 
 ### 7.2 Gli indicatori del percorso
@@ -360,10 +360,10 @@ schema dati, né l'intervento di chi ha scritto il motore.
 
 | Punto | Stato | A chi va chiesto |
 |---|---|---|
-| Identificativi di requisito per le sei aree scoperte su cronicità, allarmi e sicurezza del paziente: piano versionato, finestra di attesa, escalation con fallimento dichiarato, sorveglianza del volume atteso, copertura oraria dichiarata, tracciabilità del calcolo | **aperto** | `FUNZ` - questione `Q-12` |
-| Formulazione verso l'utente della copertura oraria e requisito corrispondente | **aperto** | `PROD`, `FUNZ` - questione `Q-14` |
-| Regime di licenza delle scale usate nella valutazione di arruolabilità e negli esiti riferiti dalla persona | **[NV]** | `COMP` - questione `Q-11` |
-| Confini di perimetro rispetto alla destinazione d'uso: nessun giudizio interpretativo negli avvisi, nessuna prognosi | **aperto** | `COMP` - questione `Q-01` |
+| Identificativi di requisito per le sei aree scoperte su cronicità, allarmi e sicurezza del paziente: piano versionato, finestra di attesa, escalation con fallimento dichiarato, sorveglianza del volume atteso, copertura oraria dichiarata, tracciabilità del calcolo | **aperto** | `FUNZ` - questione [`Q-12`](../11_registri/02-questioni-aperte.md#q-12) |
+| Formulazione verso l'utente della copertura oraria e requisito corrispondente | **aperto** | `PROD`, `FUNZ` - questione [`Q-14`](../11_registri/02-questioni-aperte.md#q-14) |
+| Regime di licenza delle scale usate nella valutazione di arruolabilità e negli esiti riferiti dalla persona | **[NV]** | `COMP` - questione [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) |
+| Confini di perimetro rispetto alla destinazione d'uso: nessun giudizio interpretativo negli avvisi, nessuna prognosi | **aperto** | `COMP` - questione [`Q-01`](../11_registri/02-questioni-aperte.md#q-01) |
 
 ## Cosa devi ricordare
 

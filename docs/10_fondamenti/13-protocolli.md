@@ -42,7 +42,7 @@ Ogni protocollo è trattato con sei voci, sempre nello stesso ordine:
 |---|---|
 | *(nessuno)* | Riferimento a un documento normativo pubblicato: il numero identifica in modo stabile il testo e si trova su `rfc-editor.org`, su `w3.org`, su `hl7.org` o sul sito dell'ente indicato |
 | **`[B6]` `[B7]` `[R5]`** | Verificato su fonte primaria durante la fase di ricerca del progetto, nel documento indicato. Sono le affermazioni su cui il progetto ha già fatto il lavoro di controllo |
-| **`[NV]`** | **Non verificato** su fonte primaria mentre questo modulo veniva scritto. Non significa «falso»: significa «controlla prima di implementare» |
+| **`[NV]` PROTO`** | **Non verificato** su fonte primaria mentre questo modulo veniva scritto, con l'indicazione del destinatario in una delle tre forme ammesse: sigla d'area, identificativo di questione, oppure soggetto esterno. Non significa «falso»: significa «controlla con il destinatario prima di implementare» |
 | **«proposta di progetto»** | Non è uno standard: è una scelta di Telemedic. Nomi di intestazione, di scope, di claim e di endpoint marcati così **non vanno mai presentati come standard** |
 
 Questa disciplina non è pedanteria. Buona parte degli errori di integrazione nasce da
@@ -199,7 +199,7 @@ Nel progetto i contratti sono tre, e sono di natura diversa:
 | API clinica | **FHIR `CapabilityStatement`** + profili `StructureDefinition` | risorse cliniche, ricerche, operazioni |
 | Eventi | **Schema CloudEvents** + registro degli schemi dei payload (§6.2) | ciò che il sistema pubblica verso l'esterno |
 
-Il vincolo **V3** del progetto («nessuna funzionalità accessibile solo dalla UI») ha una
+Il vincolo **[V3](../11_registri/03-vincoli-fondanti.md#v3)** del progetto («nessuna funzionalità accessibile solo dalla UI») ha una
 conseguenza diretta e spesso sottovalutata: **se una capacità non compare in uno dei tre
 contratti, non esiste**. Il contratto non è la documentazione della funzione: è la funzione.
 
@@ -427,7 +427,7 @@ caso di ripresa - con l'avvertenza, non trascurabile, che i dati inviati a zero 
 esposti a replay e non devono quindi veicolare operazioni non idempotenti.
 
 **Nel progetto.** È il trasporto di HTTP/3 (§2.9). Rilevante soprattutto per il vincolo
-**V6**: il paziente tipico è su smartphone in rete mobile, e la migrazione di connessione è
+**[V6](../11_registri/03-vincoli-fondanti.md#v6)**: il paziente tipico è su smartphone in rete mobile, e la migrazione di connessione è
 la funzione che gli evita di perdere la sessione applicativa mentre esce di casa. Il media
 non usa QUIC: usa RTP su UDP come descritto in [08](08-webrtc-da-zero.md).
 
@@ -625,7 +625,7 @@ client moderni, e per il traffico interno fra servizi. La negoziazione avviene c
 **Errori tipici.** Mantenere il *domain sharding* (distribuire le risorse su più nomi host)
 ereditato da HTTP/1.1: con HTTP/2 è controproducente, perché impedisce di sfruttare la
 connessione unica. Dimenticare che il *server push*, molto pubblicizzato all'inizio, è stato
-**abbandonato in pratica** dai browser: non va progettato nulla che ne dipenda `[NV]`.
+**abbandonato in pratica** dai browser, va confermato da `PROTO` `[NV]`: non va progettato nulla che ne dipenda.
 
 ### 2.9 HTTP/3
 
@@ -640,7 +640,7 @@ volta dipendenze d'ordine fra flussi.
 
 **Nel progetto.** Abilitato sul gateway pubblico, con **ripiego automatico obbligatorio** su
 HTTP/2 quando UDP è bloccato. Il beneficio si concentra dove il progetto ne ha più bisogno:
-paziente su smartphone, rete mobile, qualità variabile - cioè il vincolo **V6**.
+paziente su smartphone, rete mobile, qualità variabile - cioè il vincolo **[V6](../11_registri/03-vincoli-fondanti.md#v6)**.
 
 **Specifica.** RFC 9114 (2022); QPACK in RFC 9204.
 
@@ -701,9 +701,9 @@ interattive verso la UI clinica. È il caso d'uso in cui la bidirezionalità ser
 perché entrambe le parti generano eventi in modo indipendente e imprevedibile.
 
 **Specifica.** **RFC 6455** (2011). Il funzionamento su HTTP/2 come flusso multiplato è
-definito da **RFC 8441** e non è universalmente supportato: il progetto non ci fa affidamento
-`[NV]`. La `WebSocket API` lato browser è definita dallo standard HTML del WHATWG, non
-dall'IETF: sono due documenti diversi per due strati diversi.
+definito da **RFC 8441**, e il progetto non ci fa affidamento poiché non è universalmente supportato,
+va confermato da `PROTO` `[NV]`. La `WebSocket API` lato browser è definita dallo standard HTML del
+WHATWG, non dall'IETF: sono due documenti diversi per due strati diversi.
 
 **Errori tipici.**
 
@@ -885,7 +885,7 @@ progetto sceglie la versione nel percorso per una ragione pratica: è visibile n
 grafici e nei ticket di assistenza, e un integratore può dire «sto usando la v1» senza dover
 ispezionare le intestazioni.
 
-Un'ultima regola, che discende dai vincoli **V4** e §6.2.3 del profilo di integrazione: **gli
+Un'ultima regola, che discende dai vincoli **[V4](../11_registri/03-vincoli-fondanti.md#v4)** e §6.2.3 del profilo di integrazione: **gli
 identificativi esterni non diventano mai identificativi interni**. Il paziente è identificato
 dall'integratore; Telemedic lo referenzia con la coppia (sistema di identificazione,
 valore), come fa FHIR con `Patient.identifier`. Il progetto non è il master data e non deve
@@ -990,9 +990,9 @@ Politica di progetto, in tre punti:
 
 **Specifica.** OpenAPI Specification 3.1, pubblicata dalla OpenAPI Initiative (Linux
 Foundation), su `spec.openapis.org`. **Non è una RFC.** Il dialetto di JSON Schema è
-`2020-12`. Le versioni successive alla 3.1 esistono `[NV]`: prima di adottarne una va
-verificato il supporto degli strumenti effettivamente in uso, che storicamente arriva con
-molto ritardo.
+`2020-12`. Le versioni successive alla 3.1 esistono e vanno sottoposte a `PROTO` `[NV]` prima di
+adottarne una, per verificare il supporto degli strumenti effettivamente in uso, che
+storicamente arriva con molto ritardo.
 
 **Errori tipici.** Un unico file di seimila righe non navigabile: si spezza per dominio e si
 compone con `$ref`. Descrivere solo il caso felice e nessun errore: l'integratore scoprirà i
@@ -1209,7 +1209,7 @@ sequenceDiagram
 ```
 
 Il passaggio decisivo è l'ultimo, e non è tecnico: **cosa mostra l'interfaccia quando arriva
-il `412`**. Un messaggio «errore 412» è inaccettabile per il vincolo **V6**; scartare
+il `412`**. Un messaggio «errore 412» è inaccettabile per il vincolo **[V6](../11_registri/03-vincoli-fondanti.md#v6)**; scartare
 silenziosamente il lavoro dell'utente è peggio. Il comportamento richiesto è: conservare ciò
 che l'utente ha scritto, mostrare che cosa è cambiato nel frattempo e chi l'ha cambiato,
 chiedere una decisione esplicita.
@@ -1556,7 +1556,7 @@ comparire in un URL e perché esistono i meccanismi di vincolo al possessore (§
 | **Authorization Code + PKCE** | C'è un essere umano davanti a un browser | **L'unico flusso interattivo ammesso nel progetto** |
 | **Client Credentials** | Nessun utente: sistema che chiama sistema | Ammesso, con autenticazione asimmetrica (§4.3) |
 | **Refresh Token** | Rinnovare l'accesso senza reinteragire | Ammesso, con rotazione |
-| **Device Authorization Grant** (RFC 8628) | Dispositivo senza browser | Fuori perimetro v1.0 `[NV]` |
+| **Device Authorization Grant** (RFC 8628) | Dispositivo senza browser | Fuori perimetro v1.0, da decidere nell'area `ROAD` `[NV]` |
 | **Implicit** | - | **Vietato.** RFC 9700 §2.1.2: i client «SHOULD NOT use the implicit grant» `[R5]` |
 | **Resource Owner Password Credentials** | - | **Vietato.** RFC 9700 §2.4: «MUST NOT be used» `[R5]` |
 
@@ -1786,11 +1786,11 @@ esplicita di SMART Backend Services `[R5]`.
 chiunque, esistono meccanismi che lo legano a una chiave del client: **DPoP** (RFC 9449), che
 allega alla richiesta una prova firmata, e i **token vincolati a mTLS** (RFC 8705). Il
 progetto li considera irrobustimenti applicabili per tenant, non requisiti generali della
-v1.0 `[NV]`.
+v1.0, da decidere nell'area `ROAD` `[NV]`.
 
 **Specifica.** RFC 7519 (JWT), RFC 7515 (JWS), RFC 7516 (JWE), RFC 7517 (JWK), RFC 7518
 (JWA), **RFC 8725** (BCP sui JWT). Per gli access token in forma JWT esiste un profilo
-dedicato che definisce fra l'altro il `typ: at+jwt` `[NV]`.
+dedicato che definisce fra l'altro il `typ: at+jwt`, va confermato da `PROTO` `[NV]`.
 
 ### 4.5 JWKS e rotazione delle chiavi
 
@@ -1912,7 +1912,7 @@ revocato nulla.
 **Problema.** È il problema centrale dell'architettura di integrazione del progetto. Un medico
 è già autenticato nel sistema dell'integratore. Clicca «avvia teleconsulto». Deve comparire la
 stanza video **senza un secondo login e senza rinvii visibili**. Ma Telemedic deve sapere chi
-è il medico (per l'audit non ripudiabile, vincolo **V5**), quale tenant (**V4**), quali
+è il medico (per l'audit non ripudiabile, vincolo **[V5](../11_registri/03-vincoli-fondanti.md#v5)**), quale tenant (**[V4](../11_registri/03-vincoli-fondanti.md#v4)**), quali
 permessi ha, e deve saperlo da una fonte fidata - non dal browser, che è manipolabile.
 
 **Meccanismo.** RFC 8693 definisce un tipo di concessione OAuth che scambia un token con un
@@ -1963,7 +1963,7 @@ esiti:
   L'audit può rispondere alla domanda «quale sistema ha agito per conto di quale persona».
 
 Il progetto **usa sempre la delega, mai l'impersonificazione** - è la decisione D18, ed è una
-conseguenza diretta dei vincoli di auditabilità (**V5**) e degli obblighi di tracciabilità in
+conseguenza diretta dei vincoli di auditabilità (**[V5](../11_registri/03-vincoli-fondanti.md#v5)**) e degli obblighi di tracciabilità in
 contesto MDR e GDPR `[R5]`. Le catene annidate si preservano: se l'integratore agiva a sua
 volta per conto di un terzo, l'`act` annidato lo registra.
 
@@ -2053,7 +2053,7 @@ ripetere il punto di sostanza fissato dalla decisione D36: **il Service Provider
 il servizio in rete, cioè chi installa, mai il progetto**. Telemedic è «SPID/CIE/TS-CNS ready»,
 verificabile in integrazione continua; non è né può essere «accreditato».
 
-**Specifica.** *OASIS Security Assertion Markup Language (SAML) V2.0*, standard OASIS del
+**Specifica.** *OASIS Security Assertion Markup Language (SAML) [V2](../11_registri/03-vincoli-fondanti.md#v2).0*, standard OASIS del
 15 marzo 2005 (Core, Bindings, Profiles, Metadata sono documenti distinti). Il profilo
 italiano è nelle *Regole tecniche SPID* di AgID, integrate dagli **avvisi**, che modificano il
 testo base e vanno letti insieme a esso `[B7]`.
@@ -2099,7 +2099,7 @@ realizzazione dello SPID* `[B7]`:
    uno con carta e PIN (CIE L3) producono **la stessa asserzione**. L'unica leva è la
    *richiesta*: il livello va imposto in `RequestedAuthnContext` `[B7]`. Da qui la regola:
    **si registrano sempre entrambi, `acr_requested` e `acr_asserted`**, ed è l'unico modo di
-   rispettare **V5** senza affermare il falso.
+   rispettare **[V5](../11_registri/03-vincoli-fondanti.md#v5)** senza affermare il falso.
 2. **Il livello non viaggia nel claim `act`.** RFC 8693 §4.1 esprime la delega - *chi agisce* -
    non il livello di autenticazione del soggetto. Metterlo lì è un abuso semantico. Il livello
    sta in `acr` `[B7]`.
@@ -2311,8 +2311,8 @@ dove il modello di minaccia era un altro. È un difetto **del deployment** usarl
 **Specifica.** *HL7 Transport Specification: MLLP*, standard HL7 distinto dallo standard di
 messaggistica. I valori esadecimali dell'incorniciamento sono confermati da due fonti
 indipendenti che citano la specifica ufficiale; il documento primario non è stato letto
-direttamente in fase di ricerca. `[NV]` La porta 6660, spesso citata come convenzionale,
-**non** risulta registrata per MLLP: nella pratica si concorda fra le parti.
+direttamente in fase di ricerca e va confermato da `PROTO` `[NV]`. La porta 6660, spesso citata
+come convenzionale, **non** risulta registrata per MLLP: nella pratica si concorda fra le parti.
 
 **Errori tipici.** Cercare i byte di incorniciamento con una ricerca di sottostringa senza
 gestire i messaggi frammentati su più segmenti TCP. Assumere che una connessione serva un solo
@@ -2355,7 +2355,7 @@ divieto:
 Ne discende che, quando serve, l'immagine si apre da un visualizzatore che la recupera per
 DICOMweb dalla sua fonte autorevole, con la propria autorizzazione e il proprio audit. Il
 canale video resta un canale di comunicazione. È anche un confine rilevante per la
-qualificazione MDR (vincolo **V2**).
+qualificazione MDR (vincolo **[V2](../11_registri/03-vincoli-fondanti.md#v2)**).
 
 **Specifica.** DICOM PS3.18, *Web Services*. Lo standard DICOM è pubblicato per parti e
 aggiornato con cadenza frequente: si cita la parte, non «DICOM» in generale.
@@ -2400,7 +2400,7 @@ problemi reali del progetto senza estensioni proprietarie `[R5]`:
 |---|---|
 | `need_patient_banner` | Dice se il sistema ospitante mostra già l'intestazione con il paziente: risolve il problema della doppia intestazione nel componente incorporabile |
 | `smart_style_url` | È il **meccanismo standard di white-label** per applicazioni SMART: l'ospitante pubblica colori e caratteri, l'applicazione li applica. Va trattato come input non fidato - è un URL controllato da un terzo |
-| `tenant` | Mappa direttamente sul vincolo **V4** |
+| `tenant` | Mappa direttamente sul vincolo **[V4](../11_registri/03-vincoli-fondanti.md#v4)** |
 | `fhirContext` | È la sede naturale del riferimento all'`Appointment` che ha originato il consulto |
 
 **Meccanismo - Backend Services.** È il pattern per **backend che chiama backend, senza
@@ -2608,7 +2608,7 @@ sia verso l'esterno nei webhook. Convenzioni di progetto:
 - **`type` gerarchico e versionato**: `telemedic.<dominio>.<fatto>.v<N>`. La versione fa
   parte del tipo, così che un consumatore possa ignorare una versione che non conosce invece
   di fallire su un campo inatteso.
-- **`source` contiene il tenant**, coerentemente con **V4**.
+- **`source` contiene il tenant**, coerentemente con **[V4](../11_registri/03-vincoli-fondanti.md#v4)**.
 - **`subject` è l'entità a cui l'evento si riferisce**, il che consente il filtraggio senza
   deserializzare `data`.
 - **`dataschema` punta a uno schema pubblicato e versionato**: è il terzo contratto di §1.4.
@@ -2794,7 +2794,7 @@ canale dati:  SCTP  sopra  DTLS  sopra  ICE/UDP
 | Protocollo | Problema che risolve | Specifica | Nel progetto |
 |---|---|---|---|
 | **ICE** (*Interactive Connectivity Establishment*) | Due dispositivi dietro NAT non sanno quale percorso funzioni fra loro. ICE non sceglie: **prova tutte le combinazioni** di candidati e tiene quella che funziona, con un ordine di priorità | RFC 8445 | Ogni sessione. Il riavvio di ICE è il meccanismo di ripresa quando la rete cambia |
-| **STUN** (*Session Traversal Utilities for NAT*) | Un dispositivo dietro NAT non conosce il proprio indirizzo pubblico. Lo chiede a un server esterno, che gli risponde «ti vedo come questo indirizzo e questa porta» | RFC 8489 | Server `coturn` proprio, nei profili di installazione previsti (vincolo **V1**) |
+| **STUN** (*Session Traversal Utilities for NAT*) | Un dispositivo dietro NAT non conosce il proprio indirizzo pubblico. Lo chiede a un server esterno, che gli risponde «ti vedo come questo indirizzo e questa porta» | RFC 8489 | Server `coturn` proprio, nei profili di installazione previsti (vincolo **[V1](../11_registri/03-vincoli-fondanti.md#v1)**) |
 | **TURN** (*Traversal Using Relays around NAT*) | Quando nessun percorso diretto funziona - NAT simmetrici da entrambi i lati, firewall restrittivo - serve un **relay** che inoltri il traffico | RFC 8656 | Stesso server. È il caso in cui la parola «peer-to-peer» smette di descrivere il percorso: vedi la riformulazione della decisione D19 |
 | **DTLS** (*Datagram TLS*) | TLS presuppone un trasporto affidabile e ordinato. Su UDP non c'è: DTLS riporta la stretta di mano e la cifratura sopra i datagrammi | RFC 6347 (1.2); RFC 9147 (1.3) | Negoziazione delle chiavi del media e trasporto del canale dati |
 | **DTLS-SRTP** | Legare la stretta di mano DTLS alla derivazione delle chiavi SRTP, così che il media sia cifrato con chiavi negoziate direttamente fra i due estremi | RFC 5764 | È ciò che consente l'affermazione «cifrato end-to-end», **condizionata alla verifica indipendente delle chiavi** (D19, D22) |
@@ -2835,7 +2835,7 @@ subdole perché non generano errori:
    confrontando le loro marche temporali è **scorretto**, e il modulo
    [11 - Fondamenti informatici](11-fondamenti-informatici.md) spiega perché in termini
    generali. Per questo il progetto usa numeri di sequenza per soggetto (§6.4).
-3. **Prova legale.** L'audit non ripudiabile (**V5**, decisione D42) ha valore solo se le sue
+3. **Prova legale.** L'audit non ripudiabile (**[V5](../11_registri/03-vincoli-fondanti.md#v5)**, decisione D42) ha valore solo se le sue
    marche temporali sono attendibili e la loro attendibilità è dimostrabile.
 
 **Meccanismo.** **NTP** stima insieme lo scarto dell'orologio locale e il ritardo di rete,
@@ -2858,7 +2858,7 @@ la rete può spostare l'orologio di un sistema - e con esso la validità dei tok
   parete: un aggiustamento NTP nel mezzo produrrebbe durate negative;
 - per l'audit conservato a lungo termine, la marca temporale interna **non è una marca
   temporale qualificata**: se serve opponibilità a terzi, occorre un servizio di validazione
-  temporale, ed è una decisione da prendere esplicitamente `[NV]`.
+  temporale, decisione da prendere esplicitamente dall'area `ROAD` `[NV]`.
 
 **Specifica.** NTP versione 4: **RFC 5905**. NTS: **RFC 8915**. Per sincronizzazioni molto più
 strette esiste PTP (IEEE 1588), che il progetto non usa: non serve, e richiede supporto
@@ -3004,13 +3004,13 @@ silenzioso, che è il peggior modo di rompersi.
 
 **Nel progetto.** **Non usato nelle interfacce pubbliche**, e la ragione è deliberata:
 l'integratore archetipico (§6.1 del profilo di progetto) non ha strumenti né competenze per
-consumare un formato binario con schema compilato, e il vincolo **V3** impone che ogni
+consumare un formato binario con schema compilato, e il vincolo **[V3](../11_registri/03-vincoli-fondanti.md#v3)** impone che ogni
 capacità sia raggiungibile da un sistema terzo. Un formato che richiede una catena di
 compilazione alza la barriera d'ingresso più di quanto la prestazione la abbassi.
 
 Resta valutabile per il traffico interno ad alto volume - le metriche di qualità della
 sessione verso TimescaleDB sono il candidato naturale - dove entrambe le parti sono controllate
-dal progetto `[NV]`.
+dal progetto, va valutato da `PROTO` `[NV]`.
 
 **Specifica.** *Protocol Buffers Language Guide*, pubblicata dal progetto stesso. Non è uno
 standard di un ente di normazione. La versione corrente del linguaggio è `proto3`.
@@ -3050,7 +3050,7 @@ specifica è una bozza, se è scaduta o se è superata, è detto qui.
 | HTTP/1.1 | Sintassi testuale | Compatibilità universale | RFC 9112 | Standards Track; sostituisce RFC 7230 e RFC 2616 |
 | HTTP/2 | Multiplazione, compressione delle intestazioni | Predefinito su gateway e traffico interno | RFC 9113, RFC 7541 | Standards Track |
 | HTTP/3 | Nessun blocco in testa alla coda, migrazione | Gateway pubblico, con ripiego obbligatorio | RFC 9114, RFC 9204 | Standards Track |
-| WebSocket | Canale bidirezionale a messaggi | Segnalazione WebRTC, notifiche interattive | RFC 6455; su HTTP/2 RFC 8441 | Standards Track. RFC 8441 non universalmente supportato `[NV]` |
+| WebSocket | Canale bidirezionale a messaggi | Segnalazione WebRTC, notifiche interattive | RFC 6455; su HTTP/2 RFC 8441 | Standards Track. RFC 8441 non universalmente supportato, va confermato da `PROTO` `[NV]` |
 | Server-Sent Events | Spinta a senso unico verso il browser | Cambi di stato, avanzamenti, allerte | **WHATWG HTML Living Standard**, sezione *Server-sent events* | **Non è una RFC**: standard vivo, senza versione |
 
 ### 9.2 Interfacce applicative
@@ -3086,8 +3086,8 @@ specifica è una bozza, se è scaduta o se è superata, è detto qui.
 | Introspezione | Validità del token adesso | Operazioni ad alto impatto | RFC 7662 | Standards Track |
 | Revoca | Invalidare un token | Logout, incidenti | RFC 7009 | Standards Track |
 | Token Exchange | Delega fra organizzazioni | Identità dell'integratore, claim `act` | **RFC 8693** | Standards Track. Delega, mai impersonificazione (D18) `[R5]` |
-| Vincolo al possessore | Token non riutilizzabile se rubato | Irrobustimento per tenant | RFC 9449 (DPoP), RFC 8705 (mTLS) | Standards Track. Fuori dal minimo v1.0 `[NV]` |
-| SAML 2.0 | Federazione con asserzioni firmate | **SPID** | OASIS SAML V2.0, 15 marzo 2005 | Standard OASIS. **Necessario: SPID non è esercito in OIDC** `[B7]` |
+| Vincolo al possessore | Token non riutilizzabile se rubato | Irrobustimento per tenant | RFC 9449 (DPoP), RFC 8705 (mTLS) | Standards Track. Fuori dal minimo v1.0, va confermato da `PROTO` `[NV]` |
+| SAML 2.0 | Federazione con asserzioni firmate | **SPID** | OASIS SAML [V2](../11_registri/03-vincoli-fondanti.md#v2).0, 15 marzo 2005 | Standard OASIS. **Necessario: SPID non è esercito in OIDC** `[B7]` |
 | Livelli di garanzia | Quanto è forte l'autenticazione | `acr`, autorizzazione per operazione | Regole tecniche SPID / CIE; ISO/IEC 29115 | `SpidL1\|L2\|L3` = LoA2/3/4. **Con CIE l'asserzione è sempre `SpidL3`** `[B7]` |
 
 ### 9.4 Integrazione sanitaria, eventi, tempo reale, trasversali
@@ -3168,7 +3168,7 @@ Il profilo dell'integratore archetipico è un gestionale sanitario cloud di fasc
 media, con un'équipe di sviluppo ridotta e nessuna specializzazione in interoperabilità
 sanitaria. Un protocollo che richiede una catena di compilazione, una libreria specifica o una
 conoscenza approfondita di uno standard è un protocollo che **non verrà adottato**, e il
-vincolo **V3** ne uscirebbe soddisfatto solo sulla carta.
+vincolo **[V3](../11_registri/03-vincoli-fondanti.md#v3)** ne uscirebbe soddisfatto solo sulla carta.
 
 Da qui tre scelte concrete già prese: JSON e non Protocol Buffers sulle interfacce pubbliche;
 accettare gli scope SMART nella sintassi v1 convertendoli, invece di rifiutarli `[R5]`;
@@ -3274,7 +3274,7 @@ differenza fra una documentazione affidabile e una che genera aspettative infond
 
 **10. Progettare per il caso felice della rete.** Banda larga, latenza bassa, nessuna perdita.
 Il paziente reale è su smartphone in rete mobile, in un corridoio, con due tacche di segnale.
-Il vincolo **V6** dice che degradare in modo comprensibile - audio prima del video, avvisi
+Il vincolo **[V6](../11_registri/03-vincoli-fondanti.md#v6)** dice che degradare in modo comprensibile - audio prima del video, avvisi
 chiari, ripresa della sessione - **è parte dell'accessibilità**, non un'ottimizzazione.
 
 **11. Costruire un protocollo proprietario dove ne esiste uno.** Costa la progettazione, la

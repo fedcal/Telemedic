@@ -29,12 +29,12 @@ description: "The project's document control procedure: list of documents subjec
 > procedures of the quality management system, when written by the manufacturing entity, will reside
 > in its own document management system, in accordance with ISO 13485 § 4.2.4.
 >
-> **What remains true of `V-174`, and what no longer is.** It remains true of the **chapters**: this
+> **What remains true of [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174), and what no longer is.** It remains true of the **chapters**: this
 > one, like every other in this documentation, is an input for the creation of the manufacturing
 > entity's quality management system and **is not itself subject to the controls it describes**. It
 > is no longer true of the repository as a whole, because the procedure referred to above is under
 > its own control. The distinction is not formal: a chapter declaring itself a procedure would breach
-> `V-174`, and a procedure exempting itself from its own controls would not be a procedure.
+> [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174), and a procedure exempting itself from its own controls would not be a procedure.
 
 ---
 
@@ -103,7 +103,7 @@ It cites the commit hash to which it corresponds, making it traceable to the spe
 every included document.
 
 **Numbering of regulatory documents:** Documents that generate requirement identifiers -
-specifications, files, development plans - use declared and frozen identifier spaces (`V-120`).
+specifications, files, development plans - use declared and frozen identifier spaces ([`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)).
 They are never renumbered and never reused after withdrawal
 ([08/03 § 5](./03-sistema-di-gestione-della-qualita.md)). A withdrawn identifier remains in the
 history and is marked as such.
@@ -192,7 +192,7 @@ person would be accepted by the system without any warning. The `require_code_ow
 is to be reconsidered when there are at least two maintainers - not before, because before that it
 would make the repository unusable without the very bypass it is meant to avoid. To this is added
 that the Sponsor, being an administrator, may approve and merge their own work. This form **does not
-resolve the gap of `Q-189`** - under the declared capacity of `D54`, the author of documents is the same person who
+resolve the gap of [`Q-189`](../11_registri/02-questioni-aperte.md#q-189)** - under the declared capacity of `D54`, the author of documents is the same person who
 approves them - but **makes it visible and confined**: the system records it, the trace is
 immutable, and the circumstance is attestable in the technical file as a declared gap. The
 approval record now has the form this procedure describes.
@@ -272,7 +272,7 @@ A typical process is as follows:
    trace of the commit in the git log and the timeline of the proposal remain alongside it, as
    before. What the protection does **not** cover must be stated precisely: it does not apply to
    repository administrators, and the owner therefore retains the ability to merge their own work
-   after approving it themselves - a circumstance stated in § 5 and recorded as a gap in `Q-189`,
+   after approving it themselves - a circumstance stated in § 5 and recorded as a gap in [`Q-189`](../11_registri/02-questioni-aperte.md#q-189),
    not concealed by this implementation.
 
 6. **Immediacy of publication.** The document comes into force immediately after the merge, because
@@ -313,13 +313,13 @@ The approval record described in § 7 rests on four tools:
 | **git** (distributed versioning) | Calculation and verifiability of the hash of every commit; immutability of history | Conformance with clauses 4.2.4 and 8 of IEC 62304 (configuration control). Validation: the history is not alterable without trace; every commit is uniquely identifiable |
 | **GitHub** (hosting platform) | Trace of change proposals; branch protection; recording of review and merge events; immutability of logs | Conformance with clause 8.2 of IEC 62304 (software configuration management and verification). Validation: no favourable review can be recorded retroactively; no merge can occur without the trace of the proposal |
 | **Automatic build checks** (linter, syntax, link checker, identifiers) | Verification that every proposal respects the technical and regulatory rules before merge | Conformance with clauses 5.5–5.7 of IEC 62304 (integration and system testing). Validation: a check that does not block when it says it would is a defect of the check (criterion 5 of `T-01`). Each blocking check is tested with a deliberately non-conforming case that must make it fail |
-| **Cryptographic signing of commits** (adopted, mandatory signing on branch pending) | Cryptographic attestation of the identity of whoever performed the commit (GPG sign) | Conformance with clause 7.5.8 of ISO 13485 (traceability of the author). Note: the clause is today satisfied by the mandatory `Signed-off-by` (DCO, textual name traceability). Cryptographic signing is a **stronger and additional control**. **Adopted on 26 August 2026:** local configuration `user.signingkey`, `gpg.format`, `commit.gpgsign` set; key `ed25519`, registered to `Federico Calò <fedcal01@gmail.com>`, expiration 20 February 2029. **Step pending:** mandatory signing on the branch, with **specific trigger**: whilst the public key is not uploaded to GitHub, signed commits would appear "unverified" and push would be refused. It is the final step and has a specific trigger, not a date. Recorded as open question `Q-284` | <!-- dato-reale-consentito: intestazione della chiave di firma, tracciabilità nominativa richiesta dalla clausola 7.5.8 di ISO 13485 -->
+| **Cryptographic signing of commits** (adopted, mandatory signing on branch pending) | Cryptographic attestation of the identity of whoever performed the commit (GPG sign) | Conformance with clause 7.5.8 of ISO 13485 (traceability of the author). Note: the clause is today satisfied by the mandatory `Signed-off-by` (DCO, textual name traceability). Cryptographic signing is a **stronger and additional control**. **Adopted on 26 August 2026:** local configuration `user.signingkey`, `gpg.format`, `commit.gpgsign` set; key `ed25519`, registered to `Federico Calò <fedcal01@gmail.com>`, expiration 20 February 2029. **Step pending:** mandatory signing on the branch, with **specific trigger**: whilst the public key is not uploaded to GitHub, signed commits would appear "unverified" and push would be refused. It is the final step and has a specific trigger, not a date. Recorded as open question [`Q-284`](../11_registri/02-questioni-aperte.md#q-284) | <!-- dato-reale-consentito: intestazione della chiave di firma, tracciabilità nominativa richiesta dalla clausola 7.5.8 di ISO 13485 -->
 
 **State of implementation today:** Automatic build checks (terminology, editorial conformance,
 secrets, bill of materials, divergence between languages) are active and blocking in the pipeline.
 Branch protection is enforced as of 26 August 2026 (configuration verified, form declared);
 cryptographic signing is adopted at the local level (26 August 2026), whilst mandatory signing on
-the branch is prescribed and not yet implemented (open question `Q-284`, pending until the public
+the branch is prescribed and not yet implemented (open question [`Q-284`](../11_registri/02-questioni-aperte.md#q-284), pending until the public
 key is uploaded to GitHub). **When these tools will be validated:** Milestones `T-01` criteria 5
 and 7, and `T-03`, presuppose formal validation of all tools. Until this validation exists, the
 checks are assertions of functioning, not proofs. Validation is included in the milestones of the
@@ -371,7 +371,7 @@ Until that date:
 
 - **It is not a conformance.** No chapter of this repository describes document control as
   conformant to ISO 13485.
-- **It is the first item of Q-189.** Q-189 asks to establish which subset of records with distinct
+- **It is the first item of [Q-189](../11_registri/02-questioni-aperte.md#q-189).** [Q-189](../11_registri/02-questioni-aperte.md#q-189) asks to establish which subset of records with distinct
   roles the project accepts as a declared gap and which it proposes to cover by acquiring the
   function from outside. Author/approver coincidence is the first item of this allocation.
 - **It is recorded in the technical file.** In the file that will accompany the marking, the gap is
@@ -396,8 +396,8 @@ approval records according to the rules described in §§ 7–8, because:
 
 | Reference | Question | To whom |
 |---|---|---|
-| **`Q-189`** | **Allocation of records with distinct roles.** Which subset of records that the quality management system requires - internal audit, release review, configuration verification by someone who did not write the code, external review of critical code - does the project accept as a declared gap under `D54`, and which does it propose to cover by acquiring people from outside. Author/approver coincidence is the first item of this allocation. The predetermined outcome is the declared gap, to be marked in the technical file at the date of first distribution | → Sponsor |
-| **`Q-283`** | **Main branch protection - RESOLVED on 26 August 2026.** Configured with `gh api -X PUT repos/fedcal/Telemedic/branches/main/protection --input -` and verified the same day. A change proposal to a controlled document cannot now be merged without at least one favourable review. **What the configuration enforces and what it does not**: it enforces one review, not that the review come from the reviewer nominated for the category - `require_code_owner_reviews` is deliberately set to `false`, for the reason given in [`.github/CODEOWNERS`](https://github.com/fedcal/Telemedic/blob/main/.github/CODEOWNERS), and the correspondence between the actual reviewer and the nominated reviewer remains a matter of discipline (§ 5). **Form declared by the Sponsor**: the repository owner (Sponsor), being an administrator, may approve and merge their own work; external contributors receive a favourable review before merge is possible. This form **does not resolve the gap of `Q-189`** - the author approves themselves under `D54` - but **makes it visible and confined**: the system records it and the circumstance is attestable in the technical file. Declared structural gap | Technique, compliance |
-| **`Q-284`** | **Cryptographic signing of commits - adopted on 26 August 2026, mandatory signing on branch pending.** The procedure prescribes that commits on the main branch carry verifiable cryptographic signature (GPG). **Status adopted**: local configuration `user.signingkey` `13EEEA8DBE18B284`, `gpg.format openpgp`, `commit.gpgsign true`, `tag.gpgsign true`. Key `ed25519` registered to `Federico Calò <fedcal01@gmail.com>`, expiration 20 February 2029. **Step remaining open**: mandatory signing on the `main` branch with specific trigger - whilst the public key is not uploaded to GitHub, signed commits would appear "unverified" and push would be refused. It is the final step and has a specific trigger, not a date. Distinguish from `Signed-off-by` (DCO, today mandatory and active, which satisfies ISO 13485 § 7.5.8 on nominative traceability): cryptographic signing is an additional and stronger control | Technique, compliance | <!-- dato-reale-consentito: intestazione della chiave di firma, tracciabilità nominativa richiesta dalla clausola 7.5.8 di ISO 13485 -->
-| `[NV]` | **Formal validation of the four tools.** Validation of the tools (git, GitHub, automatic checks, cryptographic signing) is a functional prerequisite of milestones `T-01` criteria 5 and 7, and `T-03`. The form of validation (how to prove that a tool does what it should) is defined in [03 § 3.2](./03-sistema-di-gestione-della-qualita.md); execution of the validation has not been started. Until validation exists, the control is assertion, not proof | Conformance, technique, pipeline |
+| **[`Q-189`](../11_registri/02-questioni-aperte.md#q-189)** | **Allocation of records with distinct roles.** Which subset of records that the quality management system requires - internal audit, release review, configuration verification by someone who did not write the code, external review of critical code - does the project accept as a declared gap under `D54`, and which does it propose to cover by acquiring people from outside. Author/approver coincidence is the first item of this allocation. The predetermined outcome is the declared gap, to be marked in the technical file at the date of first distribution | → Sponsor |
+| **[`Q-283`](../11_registri/02-questioni-aperte.md#q-283)** | **Main branch protection - RESOLVED on 26 August 2026.** Configured with `gh api -X PUT repos/fedcal/Telemedic/branches/main/protection --input -` and verified the same day. A change proposal to a controlled document cannot now be merged without at least one favourable review. **What the configuration enforces and what it does not**: it enforces one review, not that the review come from the reviewer nominated for the category - `require_code_owner_reviews` is deliberately set to `false`, for the reason given in [`.github/CODEOWNERS`](https://github.com/fedcal/Telemedic/blob/main/.github/CODEOWNERS), and the correspondence between the actual reviewer and the nominated reviewer remains a matter of discipline (§ 5). **Form declared by the Sponsor**: the repository owner (Sponsor), being an administrator, may approve and merge their own work; external contributors receive a favourable review before merge is possible. This form **does not resolve the gap of [`Q-189`](../11_registri/02-questioni-aperte.md#q-189)** - the author approves themselves under `D54` - but **makes it visible and confined**: the system records it and the circumstance is attestable in the technical file. Declared structural gap | Technique, compliance |
+| **[`Q-284`](../11_registri/02-questioni-aperte.md#q-284)** | **Cryptographic signing of commits - adopted on 26 August 2026, mandatory signing on branch pending.** The procedure prescribes that commits on the main branch carry verifiable cryptographic signature (GPG). **Status adopted**: local configuration `user.signingkey` `13EEEA8DBE18B284`, `gpg.format openpgp`, `commit.gpgsign true`, `tag.gpgsign true`. Key `ed25519` registered to `Federico Calò <fedcal01@gmail.com>`, expiration 20 February 2029. **Step remaining open**: mandatory signing on the `main` branch with specific trigger - whilst the public key is not uploaded to GitHub, signed commits would appear "unverified" and push would be refused. It is the final step and has a specific trigger, not a date. Distinguish from `Signed-off-by` (DCO, today mandatory and active, which satisfies ISO 13485 § 7.5.8 on nominative traceability): cryptographic signing is an additional and stronger control | Technique, compliance | <!-- dato-reale-consentito: intestazione della chiave di firma, tracciabilità nominativa richiesta dalla clausola 7.5.8 di ISO 13485 -->
+| `[NV]` | **Formal validation of the four tools.** Validation of the tools (git, GitHub, automatic checks, cryptographic signing) is a functional prerequisite of milestones `T-01` criteria 5 and 7, and `T-03`. The form of validation (how to prove that a tool does what it should) is defined in [03 § 3.2](./03-sistema-di-gestione-della-qualita.md); execution of the validation has not been started. Until validation exists, the control is assertion, not proof | `TECH` |
 | - | **Access and delegations for main branch control.** Who can merge a change proposal without further approval, when and for what reason, remains in the project's internal documentation and is not repeated here. The decision must remain open to review every six months, because it is the point at which an informal expansion of capacity risks becoming permanent | → Single contributor for quarterly review |

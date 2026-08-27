@@ -7,7 +7,7 @@ description: Perché parametri clinici e metriche di canale sono due serie con r
 # ADR-0020 - Serie temporali in archivio dedicato; le metriche del canale non sono osservazioni cliniche
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Vincoli di riferimento**: V2; V-155 dell'area sicurezza
+**Vincoli di riferimento**: [V2](../11_registri/03-vincoli-fondanti.md#v2); [V-155](../11_registri/01-vincoli-in-vigore.md#v-155) dell'area sicurezza
 
 ## Contesto
 

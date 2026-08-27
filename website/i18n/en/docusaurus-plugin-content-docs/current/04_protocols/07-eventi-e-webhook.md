@@ -202,12 +202,12 @@ recipients that have subscribed to them.
 
 Three observations on the catalogue.
 
-**A missing measurement is an event.** Constraint V-09 requires the absence of a datum to be clinical
+**A missing measurement is an event.** Constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) requires the absence of a datum to be clinical
 information and silence not to be treated as normality. A measurement plan that provides for two
 readings a day and receives none for three days **produces an event**: not staying silent is the
 function.
 
-**The recording's container is in the event's content, not assumed.** This is constraint V-11: the
+**The recording's container is in the event's content, not assumed.** This is constraint [V-11](../11_registri/01-vincoli-in-vigore.md#v-11): the
 container is negotiated at runtime and the actual value travels in the notification, because the
 recipient must not have to infer it.
 
@@ -219,7 +219,7 @@ professional who takes decisions.
 **Events do not carry disclosure capability to those who have no right to it.** In particular the
 variant of a completion event intended for financial settlement carries only the service identifier,
 the administrative outcome and the amount, **never references to clinical documents**: it is the
-corollary of constraint V-08, raised as question **Q-163** by the integration area and adopted by
+corollary of constraint [V-08](../11_registri/01-vincoli-in-vigore.md#v-08), raised as question **[Q-163](../11_registri/02-questioni-aperte.md#q-163)** by the integration area and adopted by
 this area as a catalogue constraint.
 
 ## 4. The signature
@@ -272,7 +272,7 @@ documents and must be cited distinctly.
 | Cost for the SME-bracket integrator | Low | Medium to high |
 
 **Project choice: both configurable per destination, with the asymmetric scheme as the default**
-(`V-162`). The reason is that when the notification carries the outcome of a healthcare act and
+([`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162)). The reason is that when the notification carries the outcome of a healthcare act and
 feeds an audit trail, the difference between «I can verify» and «I can demonstrate to a third
 party» is substantive: with a shared secret the recipient cannot prove to anyone that the message
 came from Telemedic, because they could have forged it themselves.
@@ -282,7 +282,7 @@ has not been removed is that the typical SME integrator can consume HMAC and can
 RFC 9421. **The cost of that choice is not concealed**: enabling the symmetric scheme towards a
 destination means giving up non-repudiation for that destination, and the waiver is to be recorded
 together with the configuration, not left implicit. Within the perimeter of `RU-1` the shared
-secret is **not offered as the default mode** (`V-162`,
+secret is **not offered as the default mode** ([`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162),
 [`09_roadmap/03 §3.7`](/09_roadmap/03-primo-rilascio-utilizzabile.md)), and the order in which
 scope is sacrificed states that, should the asymmetric signature fall, **the shared secret is not
 its permitted substitute**: either the asymmetric signature, or the event does not go out to third
@@ -391,7 +391,7 @@ it directly:
    a request directed at internal resources would become a request with exfiltration.
 3. **The control must be implemented once only**, in a component shared by all the egress points -
    event delivery, resolution of public key sets, document retrieval, calls towards the system of
-   origin - and not repeated for each of them. This is question **Q-16** opened towards the security
+   origin - and not repeated for each of them. This is question **[Q-16](../11_registri/02-questioni-aperte.md#q-16)** opened towards the security
    area and the technical area, and this area supports it: four implementations of the same
    protection produce four different behaviours, and the weakest one is the one that counts.
 
@@ -448,7 +448,7 @@ credentials had been revoked.
 tenant. Revocation of the client's credentials, suspension of the tenant and expiry of the
 engagement automatically deactivate the linked subscriptions, with notification to the administrator.
 The permitted destinations are on an **explicit list**, shared with the list of webhook destinations
-(question **Q-161**).
+(question **[Q-161](../11_registri/02-questioni-aperte.md#q-161)**).
 
 ## 9. The pull channel
 

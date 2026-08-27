@@ -67,7 +67,7 @@ they are projections built by an adapter. The domain model knows neither FHIR no
 
 | Resource | Path | Operations | What it is |
 |---|---|---|---|
-| Sessions | `/v1/sessions` | create, read, list, terminate | The media session, distinct from the service by constraint V-01 |
+| Sessions | `/v1/sessions` | create, read, list, terminate | The media session, distinct from the service by constraint [V-01](../11_registri/01-vincoli-in-vigore.md#v-01) |
 | Session grants | `/v1/sessions/{id}/grants` | create | Single-use entry credential, very short life |
 | Session metrics | `/v1/sessions/{id}/metrics` | read, list | Quality time series |
 | Readiness check | `/v1/readiness-checks` | create, read | Preventive test of the device and the network |
@@ -79,7 +79,7 @@ they are projections built by an adapter. The domain model knows neither FHIR no
 | Recording consents | `/v1/recording-consents` | create, read, revoke | The flow; the state lives on the clinical plane |
 | Monitoring plans | `/v1/monitoring-plans` | CRUD, version | Telemonitoraggio |
 | Measurements | `/v1/measurements` | create, list | Acquisition from third-party gateways or manual entry |
-| Alerts | `/v1/alerts` | list, read, take on | Under the rules of constraint V-02 |
+| Alerts | `/v1/alerts` | list, read, take on | Under the rules of constraint [V-02](../11_registri/01-vincoli-in-vigore.md#v-02) |
 | Tenant configuration | `/v1/tenants/{id}/settings` | read, update | Including visual customisation |
 | Quotas and usage | `/v1/tenants/{id}/usage` | read | Transparency about the limits |
 | Error catalogue | `/v1/problems/{code}` | read | Every problem type is a resolvable address |
@@ -87,7 +87,7 @@ they are projections built by an adapter. The domain model knows neither FHIR no
 Three clarifications.
 
 **Sessions are not services.** Creating a session does not create a service, and terminating a
-session does not conclude a service. They are distinct aggregates by constraint V-01, and the
+session does not conclude a service. They are distinct aggregates by constraint [V-01](../11_registri/01-vincoli-in-vigore.md#v-01), and the
 interface reflects this: the session carries a reference to the service, the service may have zero,
 one or many sessions.
 
@@ -215,7 +215,7 @@ resources, the client returns it in the modification request, the server compare
 
 The last point is a **project choice**, listed as P-02 among those awaiting a formal architectural
 decision. The justification: a write without a validator is a silent last-writer-wins, which on a
-clinical resource is untracked data loss, incompatible with constraint V5. The declared cost: it
+clinical resource is untracked data loss, incompatible with constraint [V5](../11_registri/03-vincoli-fondanti.md#v5). The declared cost: it
 breaks clients that do not send the validator. That is the intended effect - that they break in
 integration, not in production.
 
@@ -483,7 +483,7 @@ front end and from the embedded component. Rules:
   «lose» headers with no explanation;
 - **the permitted origins are the same registry** used for the ancestors permitted to embed and for
   the permitted webhook destinations. Three separate registries always diverge: this is question
-  **Q-161** opened by the integration area, and this area supports it.
+  **[Q-161](../11_registri/02-questioni-aperte.md#q-161)** opened by the integration area, and this area supports it.
 
 ## 11. The interface descriptor
 

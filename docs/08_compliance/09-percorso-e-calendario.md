@@ -11,7 +11,7 @@ description: "Il calendario interno del progetto verso la marcatura CE: che cosa
 > nostra**, non il percorso di un soggetto esterno e non un impegno verso alcuno.
 >
 > Una pianificazione interna, però, **non diventa una promessa solo perché è nostra**. Resta
-> vietato - dal vincolo `V-171` e senza eccezioni - scrivere o lasciare intendere in qualunque
+> vietato - dal vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) e senza eccezioni - scrivere o lasciare intendere in qualunque
 > luogo, documentazione, comunicazione pubblica o materiale di presentazione, **che il prodotto
 > sarà marcato entro una data**. La distinzione non è formale: la destinazione d'uso di un
 > dispositivo si ricava anche dal materiale pubblicato, quindi una data presentata come impegno
@@ -271,7 +271,7 @@ lasciare intendere che il prodotto sia marcato o utilizzabile su pazienti reali*
 destinazione d'uso si ricava anche dal materiale promozionale: un'affermazione commerciale non
 allineata alla dichiarazione formale **modifica la destinazione d'uso**, e viene rilevata al primo
 confronto fra il fascicolo e i canali pubblici. L'elenco delle formule vietate e delle loro
-versioni ammissibili è al vincolo `V-171`.
+versioni ammissibili è al vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171).
 
 ## 5. Le attività retroattivamente irrecuperabili
 
@@ -288,7 +288,7 @@ seguito. Sono le quattro attività di `D45`.
 
 **Un'ammissione che va fatta invece di essere aggirata.** L'attività 3 è **già stata violata di
 fatto**: questa documentazione è stata prodotta prima che esistesse un controllo documentale, e
-non è un documento controllato. La conseguenza è già dichiarata dal vincolo `V-174`
+non è un documento controllato. La conseguenza è già dichiarata dal vincolo [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174)
 ([03 §4.1](./03-sistema-di-gestione-della-qualita.md)): **nessun capitolo di questa documentazione è
 una procedura del sistema di gestione della qualità**, e nessuno può essere presentato come tale.
 I capitoli sono **ingressi**: contengono l'analisi da cui una procedura si scrive, non la
@@ -363,7 +363,7 @@ interamente dal § 2 e da soggetti che il progetto non controlla.
 
 ### 7.2 Come gli artefatti entrano nel sistema di gestione della qualità
 
-> **`V-179`.** Gli artefatti prodotti dal progetto entrano nel sistema di gestione della qualità di
+> **[`V-179`](../11_registri/01-vincoli-in-vigore.md#v-179).** Gli artefatti prodotti dal progetto entrano nel sistema di gestione della qualità di
 > chi li acquisisce come **ingressi identificati**, mai come documenti controllati: chi li acquisisce
 > li **riemette sotto il proprio controllo documentale**, con proprio identificativo, propria
 > revisione e propria approvazione. Perché la riemissione sia possibile e tracciabile, il progetto
@@ -373,7 +373,7 @@ interamente dal § 2 e da soggetti che il progetto non controlla.
 > fabbricante **non può giustificare** in sede di audit, perché non può dimostrare che cosa
 > esattamente abbia acquisito e quando.
 
-È il complemento operativo di `V-174` e la ragione tecnica per cui i due vincoli esistono
+È il complemento operativo di [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174) e la ragione tecnica per cui i due vincoli esistono
 insieme: il primo dice che questi capitoli **non sono** procedure, il secondo dice che cosa
 occorre perché possano diventare l'ingresso di una procedura del soggetto fabbricante da costituire.
 
@@ -541,8 +541,8 @@ candidato appartiene ai primi trenta giorni e non alla fase di ingaggio dell'org
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| `Q-179` | **Se e come pubblicare questo calendario.** Il capitolo contiene date di certificazione che sono **pianificazione interna del progetto** (`D57`), non il percorso di un soggetto esterno - e proprio per questo il rischio di lettura è **maggiore**, non minore: una data che il progetto pianifica per sé si legge come un impegno del progetto molto più facilmente di una data attribuita ad altri. Pubblicarle senza un'avvertenza collocata **sopra** e non sotto è il modo più rapido di produrre esattamente l'affermazione vietata da `V-171`, cioè che il prodotto sarà marcato entro una data. Serve la decisione sulla forma di pubblicazione e sulla sua avvertenza, coerente con `Q-170` e `Q-174` | → Committente |
-| `Q-144` | **CHIUSA da `D55`.** La destinazione d'uso **è congelata** sulla raccolta differita. Il **secondo** punto di decisione irreversibile del § 3.5 - il congelamento della destinazione d'uso - è quindi superato; il **primo**, la richiesta di informazioni agli organismi, resta impregiudicato. **Resta però una condizione di `D46` non soddisfatta**: la revisione esterna della formulazione, che è l'unica prescrizione di quella decisione eseguibile **senza** il soggetto fabbricante costituito, e va quindi avviata subito (`Q-275`) | **RISOLTA, con una condizione residua** |
+| [`Q-179`](../11_registri/02-questioni-aperte.md#q-179) | **Se e come pubblicare questo calendario.** Il capitolo contiene date di certificazione che sono **pianificazione interna del progetto** (`D57`), non il percorso di un soggetto esterno - e proprio per questo il rischio di lettura è **maggiore**, non minore: una data che il progetto pianifica per sé si legge come un impegno del progetto molto più facilmente di una data attribuita ad altri. Pubblicarle senza un'avvertenza collocata **sopra** e non sotto è il modo più rapido di produrre esattamente l'affermazione vietata da [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), cioè che il prodotto sarà marcato entro una data. Serve la decisione sulla forma di pubblicazione e sulla sua avvertenza, coerente con [`Q-170`](../11_registri/02-questioni-aperte.md#q-170) e [`Q-174`](../11_registri/02-questioni-aperte.md#q-174) | → Committente |
+| [`Q-144`](../11_registri/02-questioni-aperte.md#q-144) | **CHIUSA da `D55`.** La destinazione d'uso **è congelata** sulla raccolta differita. Il **secondo** punto di decisione irreversibile del § 3.5 - il congelamento della destinazione d'uso - è quindi superato; il **primo**, la richiesta di informazioni agli organismi, resta impregiudicato. **Resta però una condizione di `D46` non soddisfatta**: la revisione esterna della formulazione, che è l'unica prescrizione di quella decisione eseguibile **senza** il soggetto fabbricante costituito, e va quindi avviata subito ([`Q-275`](../11_registri/02-questioni-aperte.md#q-275)) | **RISOLTA, con una condizione residua** |
 | `[FONTI SECONDARIE]` | Tutte le cifre del § 2 provengono da indagini di settore non lette sulle pubblicazioni originali: non vanno citate come dati ufficiali | Conformità |
 | `[NV]` | Numerazione dei paragrafi dell'art. 15; obbligo di pubblicazione delle tariffe e collegamento all'elenco mantenuto dalla Commissione (§§ 8.2, 9.1) | Conformità |
 | - | **Nessuna delle date di questo capitolo è un impegno del progetto.** Il progetto ha una sola colonna nel calendario, ed è il § 5 | - |

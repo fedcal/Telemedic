@@ -34,7 +34,7 @@ of their own obligations on to the supplier by contract**, through three cumulat
 
 ## 2. Citation rule: what this chapter does not write
 
-**Question Q-151.** The detailed annexes of the national authority's determination have not been
+**Question [Q-151](../11_registri/02-questioni-aperte.md#q-151).** The detailed annexes of the national authority's determination have not been
 read line by line. A binding rule follows for this area and for every public document of the
 project:
 
@@ -82,7 +82,7 @@ contracts in force**, but they must insert the security requirements «into cont
 **Product consequence, and it is written down because it is the part that gets forgotten:
 compliance must be parameterised on the individual user's deadline, not on a hard-coded date.** The
 product must be able to declare which evidence it supplies; **it cannot declare a date**, because
-the date is the customer's. This is question Q-09 on the noticeboard, addressed to the roadmap.
+the date is the customer's. This is question [Q-09](../11_registri/02-questioni-aperte.md#q-09) on the noticeboard, addressed to the roadmap.
 
 ### 3.1 The other dates that matter
 
@@ -181,7 +181,7 @@ follow:
 **The asymmetry must be documented**, because the boundary runs **inside** the project's perimeter
 and coincides only partly with the boundary already drawn between communication vehicle and
 clinical decision support. An architecture decision record is needed with the artefact → applicable
-regime table: this is question Q-10 on the noticeboard, and Q-24 opened by the compliance area.
+regime table: this is question [Q-10](../11_registri/02-questioni-aperte.md#q-10) on the noticeboard, and [Q-24](../11_registri/02-questioni-aperte.md#q-24) opened by the compliance area.
 
 Two further points, which are the questions every integrator asks.
 
@@ -197,7 +197,7 @@ obligation arises for the project today. **Three thresholds would change the pic
 likelihood: the move to a legal person providing systematic and sustained support; **monetisation**,
 which makes whoever monetises a manufacturer; incorporation by a commercial integrator, which makes
 the integrator the manufacturer. The first and the second are **decisions of the project owner**:
-question Q-155.
+question [Q-155](../11_registri/02-questioni-aperte.md#q-155).
 
 Regardless of obligation, the declared strategy is to **be a good component**: to adopt voluntarily
 the minimum set that the integrator-manufacturer will ask for anyway in the course of their due
@@ -245,12 +245,12 @@ little and that almost no supplier provides.
 | **Article 25 of Regulation (EU) 2016/679** | Data controller | Protection by design and by default. Formally it is not addressed to the producer, but recital 78 brings them in: it must be **documented as a process**, not asserted |
 | **Regulation (EU) 2017/745, Annex I §§ 17.2 and 17.4** | Manufacturer | Development in accordance with the **state of the art** with risk management covering information security; **minimum requirements for hardware, network and security controls** needed for the intended operation |
 | Guidance on medical device cybersecurity | Manufacturer | A cybersecurity risk management process that is distinct from, and connected to, the safety one; security by design and by default; pre-market and post-market aspects |
-| **Standard on security activities in the health software life cycle** | Manufacturer | A secure development life cycle integrated into the quality management system. **Its harmonisation status has not been established: `[NV]`.** Even if not harmonised it remains the reference of choice for demonstrating the state of the art |
+| **Standard on security activities in the health software life cycle** | Manufacturer | A secure development life cycle integrated into the quality management system. Its harmonisation status, to be asked of a notified body, has not been established: `[NV]`. Even if not harmonised it remains the reference of choice for demonstrating the state of the art |
 | **Circular on minimum security measures for public administrations** | Public administrations | The public customer must demonstrate the controls **on the supplied component too**: software inventory, secure configurations, vulnerability management, separation of privileged accounts, log centralisation, encrypted and verified backups |
 | **National guidelines on security in ICT procurement** | Purchasing administrations | **Made mandatory for regional telemedicine infrastructures** by DM 21 settembre 2022 (the Ministerial Decree of 21 September 2022) in the part concerning the actions on the choice of instrument, on tender requirements, on the committee's competences and on personal data protection. It is, in effect, **the security tender specification the product will find in front of it** |
 | **Accordo Stato-Regioni del 17 dicembre 2020** (State-Regions Agreement of 17 December 2020) | Providers of telemedicine services | **All transfers of voice, video, images and files must be encrypted**; a register of maintenance and acceptance tests; functional testing after every significant update |
-| **DM 19 novembre 2025, Annex 4** | Controllers in the telemedicine context | The **retention periods**: 24 and 12 months (V-152) |
-| **Essential cybersecurity elements in public contracts** | Contracting authorities | Secure design free of known vulnerabilities; automatic updates; authentication and access control; encryption; transparent vulnerability management; assessment of the chain. **Geographic award criteria.** `[NV]` on the text of the implementing decrees |
+| **DM 19 novembre 2025, Annex 4** | Controllers in the telemedicine context | The **retention periods**: 24 and 12 months ([V-152](../11_registri/01-vincoli-in-vigore.md#v-152)) |
+| **Essential cybersecurity elements in public contracts** | Contracting authorities | Secure design free of known vulnerabilities; automatic updates; authentication and access control; encryption; transparent vulnerability management; assessment of the chain. Geographic award criteria, to be asked of the Ministry of Public Function which issues the implementing decrees: `[NV]` |
 
 A note on the procurement guidelines that has a direct effect on the form of the documentation: the
 guidelines recommend that administrations draw on the appendix of eligible requirements instead of
@@ -321,10 +321,10 @@ are the absolute priority:
 
 | Reference | Question | To whom |
 |---|---|---|
-| Q-151 | Line-by-line reading of the detailed annexes and completion of the allocation of responsibilities with the text of the requirements. **No precise citation before then** | Compliance |
-| Q-10, Q-24 | Artefact → applicable regime table as an architecture decision record (§5) | Compliance, architecture |
-| Q-09 | Parameterisation of compliance on the individual user's deadline (§3) | Roadmap |
-| Q-154 | If the managed service operator exceeds the medium-sized enterprise thresholds it **becomes an entity in its own right**, with all the obligations of chapter [09](./09-ripartizione-delle-responsabilita.md) | → Project owner |
-| Q-155 | Monetisation and the manufacturer role; **declared support period**, minimum five years (§5) | → Project owner |
-| `[NV]` | Harmonisation status of the standard on security activities in the life cycle (§7) | Compliance |
+| [Q-151](../11_registri/02-questioni-aperte.md#q-151) | Line-by-line reading of the detailed annexes and completion of the allocation of responsibilities with the text of the requirements. **No precise citation before then** | `COMP` |
+| [Q-10](../11_registri/02-questioni-aperte.md#q-10), [Q-24](../11_registri/02-questioni-aperte.md#q-24) | Artefact → applicable regime table as an architecture decision record (§5) | Compliance, architecture |
+| [Q-09](../11_registri/02-questioni-aperte.md#q-09) | Parameterisation of compliance on the individual user's deadline (§3) | Roadmap |
+| [Q-154](../11_registri/02-questioni-aperte.md#q-154) | If the managed service operator exceeds the medium-sized enterprise thresholds it **becomes an entity in its own right**, with all the obligations of chapter [09](./09-ripartizione-delle-responsabilita.md) | → Project owner |
+| [Q-155](../11_registri/02-questioni-aperte.md#q-155) | Monetisation and the manufacturer role; **declared support period**, minimum five years (§5) | → Project owner |
+| `[NV]` | Harmonisation status of the standard on security activities in the life cycle (§7) | `COMP` |
 | `[NV]` | Text of the decrees on essential cybersecurity elements in public contracts, and verification of whether the supply falls within the technology categories listed (§7) | Compliance, with a procurement adviser |

@@ -38,7 +38,7 @@ They are equally important, and are stated here instead of being discovered in p
 | N2 | **There is no global ordering** | Do not depend on arrival order. §7 |
 | N3 | **Delivery is not immediate** | Do not use the absence of an event as information within a few seconds |
 | N4 | **An event is not a transaction** | Receiving the event does not mean your work is atomic with ours |
-| N5 | **Absence of events does not prove nothing happened** | The channel may be degraded. Watch the **expected volume**: silence is never normality (constraint V-09) |
+| N5 | **Absence of events does not prove nothing happened** | The channel may be degraded. Watch the **expected volume**: silence is never normality (constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09)) |
 
 The N5 row escapes most often. A notification channel that stops working produces exactly the
 same signal as a period with no activity: no incoming request. If your system treats silence as
@@ -100,7 +100,7 @@ the only question that matters when there is a dispute.
 |---|---|---|
 | `it.telemedic.monitoring.plan.activated.v1` | A monitoring plan is active | The plan is versioned: the event carries the version |
 | `it.telemedic.monitoring.measurement.received.v1` | A measurement arrived | Reference, **never the value** |
-| `it.telemedic.monitoring.adherence.missed.v1` | An expected measurement **did not** arrive within the window | It is the direct application of constraint V-09 |
+| `it.telemedic.monitoring.adherence.missed.v1` | An expected measurement **did not** arrive within the window | It is the direct application of constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) |
 | `it.telemedic.alert.raised.v1` | A threshold configured by the professional was exceeded | **The threshold is configuration per patient, never deduced by the system** |
 | `it.telemedic.alert.acknowledged.v1` | The alert was taken into account | With the identifier of who took it into account, in indirect form |
 | `it.telemedic.alert.escalated.v1` | The alert moved to the next level due to lack of response | |

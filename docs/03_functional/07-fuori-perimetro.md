@@ -108,7 +108,7 @@ sbagliato: si finisce per non implementare cose che sono nel perimetro e sono ne
 | Valutazione automatica delle soglie e generazione dell'allerta | **sì**, ed è l'elemento che fonda la qualificazione assunta | la soglia è fissata dal professionista, mai dedotta (`OUT-08`) |
 | Riconoscimento di un item marcato come uscita dal canale e istruzione di instradamento | **sì** | è un confronto su un item strutturato, non un'inferenza; il testo è configurato, non generato (`RF-315`, `RF-316`) |
 | Calcolo di un punteggio da una scala validata | **sì**, se la scala è registrata con versione, regola e licenza | tracciabilità completa del calcolo, attribuzione a chi valida, valutazione di impatto prima dell'introduzione (`RF-323` … `RF-332`) |
-| Rilevazione dell'assenza di dato e conversione dell'allarme tecnico in clinico | **sì** | è rilevazione di un fatto, non interpretazione clinica; il vincolo V-09 la rende obbligatoria |
+| Rilevazione dell'assenza di dato e conversione dell'allarme tecnico in clinico | **sì** | è rilevazione di un fatto, non interpretazione clinica; il vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) la rende obbligatoria |
 | Presentazione al professionista di riferimenti indicati dal percorso | **sì** | in sola lettura, attribuiti con fonte e versione, mai precompilati (`RF-240`) |
 | Registrazione dell'esito clinico deciso dal professionista, compreso il codice di priorità | **sì** | il sistema registra, non calcola (`OUT-03`) |
 | Moduli propri di refertazione, agenda e fatturazione | **sì** | disattivabili e sostituibili per configurazione: dove esiste un modulo regionale o dell'integratore, il sistema si integra invece di duplicare |

@@ -31,10 +31,12 @@ method is at [§11](#11-how-to-check-that-a-source-is-still-in-force), and it is
 contributing, not an optional nicety.
 
 > **Binding rule that governs this module.** Whatever is not verifiable with certainty is marked
-> `[NV]`, with an indication of what is missing. **Numbers, dates and titles of legislation are
-> never invented.** In a document that serves as a reference for all the others, an invented
-> particular is the most damaging defect there is: it gets copied, and nobody goes back to the
-> source because it already looks verified.
+> `[NV]`, with the indication of the recipient in one of three permitted forms (area code in
+> backticks, question identifier, or external party named according to the rules in
+> `CONTRIBUTING.md`) and an indication of what is missing. **Numbers, dates and titles of
+> legislation are never invented.** In a document that serves as a reference for all the others,
+> an invented particular is the most damaging defect there is: it gets copied, and nobody goes
+> back to the source because it already looks verified.
 
 ---
 
@@ -141,7 +143,7 @@ system](01-sistema-sanitario-italiano.md).
 | **Decreto legislativo 15 marzo 2024, n. 29** (Legislative Decree no. 29 of 15 March 2024) | Provisions on policies in favour of older people | [01](01-sistema-sanitario-italiano.md) |
 | **Decreto legislativo 31 marzo 2023, n. 36** (Legislative Decree no. 36 of 31 March 2023) | Codice dei contratti pubblici (the Public Contracts Code): it is the route of access to the public healthcare market | [01](01-sistema-sanitario-italiano.md) |
 | **Legge 30 dicembre 2025, n. 199** (Law no. 199 of 30 December 2025) | Budget law for 2026. Two distinct provisions matter for the project: art. 1, **subsections 405-406**, funds the services for cross-border exchange of health documents; art. 1, **subsections 410-412**, allocates 20 million euro for 2026 to AGENAS for the strengthening of telemedicine services | [07 §10](07-fse-e-infrastrutture-nazionali.md) for subsections 405-406; [01 §9.4](01-sistema-sanitario-italiano.md) for subsections 410-412 |
-| **D.L. 31 dicembre 2025, n. 200** (Decree-Law no. 200 of 31 December 2025), converted with amendments by **legge 27 febbraio 2026, n. 26** (Law no. 26 of 27 February 2026), the *Milleproroghe* | Defers the expiry of the previous tariff regime. `[NV]` on the article and the subsection | [01](01-sistema-sanitario-italiano.md) |
+| **D.L. 31 dicembre 2025, n. 200** (Decree-Law no. 200 of 31 December 2025), converted with amendments by **legge 27 febbraio 2026, n. 26** (Law no. 26 of 27 February 2026), the *Milleproroghe* | Defers the expiry of the previous tariff regime. `[NV]` on the article and the subsection, to be verified by `COMP` | [01](01-sistema-sanitario-italiano.md) |
 
 **How this block is read.** Not in full. What is needed is the structure - who plans, who delivers,
 who pays, who supervises - and that is in module 01, which is written so that they do not have to
@@ -228,8 +230,8 @@ Journal).
 [`docs/08_compliance/01`](/08_compliance/01-inquadramento-normativo.md),
 [`02`](/08_compliance/02-qualificazione-e-classificazione.md) and
 [`03`](/08_compliance/03-sistema-di-gestione-della-qualita.md).
-*How it is read*: after Accordo 215/CSR, and with the warning that it **refers to methodological
-documents that have not been located** `[NV]`
+*How it is read*: after Accordo 215/CSR, and with the warning that it refers to **methodological
+documents that have not been located**, a gap to be verified by `COMP` `[NV]`
 ([07 §7.3](07-fse-e-infrastrutture-nazionali.md)).
 
 **DM 30 settembre 2022** (the Ministerial Decree of 30 September 2022) - GU no. 298 of 22 December
@@ -309,7 +311,7 @@ software components including third-party and open source libraries**.
 [`08`](/06_security/08-quadro-normativo-e-misure.md).
 *How it is read*: **the annexes count for more than the body.** And Annex 4, § 7, **incorporates by
 reference the chapter of a regional technical tender specification** and extends the measures laid
-down there to all the regional infrastructures. `[NV]` - that chapter **has not been located**:
+down there to all the regional infrastructures. `[NV]` - that chapter **has not been located**, a gap to be verified by `COMP`:
 until it is read, no assertion of conformity with those measures is tenable.
 
 ### 4.4 How these acts fit together
@@ -352,7 +354,7 @@ letter i).
 It defines the **service provider** in the identity federation as whoever *delivers online
 services*. It is the source from which the constraint descends whereby **the project cannot be
 accredited**: the service provider is whoever installs.
-*Where it is used*: [04](04-identita-e-anagrafiche.md), decision `D36`, constraint `V-05`,
+*Where it is used*: [04](04-identita-e-anagrafiche.md), decision `D36`, constraint [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05),
 [`docs/07_integration/06`](/07_integration/06-identita-e-delega.md).
 
 **Technical rules of the national digital identity channels** and **Avviso AgID n. 41, versione 2,
@@ -421,7 +423,7 @@ Confirmed catalogue: **37 measures and 87 requirements** for important entities,
 *How it is read*: **the deadline is not a date.** «31 October 2026» appears in no act: it is the
 outer limit of the first wave. The deadline is subjective for each addressee, and this is the fact
 that no roadmap can hard-code.
-`[NV]` - the **detailed annexes have not been read line by line**: no project document quotes a
+`[NV]` - the **detailed annexes have not been read line by line**, to be verified by `COMP`: no project document quotes a
 specific requirement verbatim. What are cited are the codes of the measures, which are public and
 verified.
 
@@ -453,7 +455,7 @@ amended by **DPCM 2 ottobre 2025** (the Prime Ministerial Decree of 2 October 20
 cybersecurity elements in public contracts, with award-premium criteria that are also geographical.
 `[NV]` - **the texts have not been read on a primary source** in any of the project's research, and
 it is not verified whether a telemedicine supply falls within the technological categories of the
-annex. It must be checked with a procurement adviser before any use in a tender.
+annex. It must be checked by `COMP` in coordination with a procurement adviser before any use in a tender.
 *Where it is used*: [`docs/08_compliance/01 §4.1`](/08_compliance/01-inquadramento-normativo.md).
 
 **Circolare AgID 18 aprile 2017, n. 2/2017** (AgID circular no. 2/2017 of 18 April 2017) - minimum
@@ -530,7 +532,7 @@ transposition of the European directive on the accessibility of products and ser
 [`06`](/08_compliance/06-usabilita-e-accessibilita.md).
 *How they are read*: **the direct route is the national law on the public customer**, not the
 directive on the accessibility of products and services, whose scope *ratione personae* for
-telemedicine is contested and `[NV]`.
+telemedicine is contested and to be verified by `COMP` `[NV]`.
 
 ### 5.7 National terminologies and catalogues
 
@@ -539,7 +541,7 @@ telemedicine is contested and `[NV]`.
 | **DM 18 dicembre 2008** (the Ministerial Decree of 18 December 2008) | Adoption of the Italian 2007 version of the international classification of diseases, ninth revision, clinical modification | [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md), [`docs/05_domain/07`](/05_domain/07-terminologie-nel-dominio.md) |
 | **DM 23 giugno 2023** (the Ministerial Decree of 23 June 2023) and **DM 26 novembre 2024** (the Ministerial Decree of 26 November 2024) | National fee schedule (nomenclatore) and catalogue of services | as above |
 | **Art. 5 of the L. 22 aprile 1941, n. 633** (Law no. 633 of 22 April 1941) | Exclusion of official acts of the State from copyright protection: it is the foundation of the conditional redistribution regime of the two preceding entries, together with art. 52, subsection 2, of the Codice dell'amministrazione digitale | decision `D31`, [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md) |
-| **Glossario nazionale di telemedicina, versione 1.0.0 del 29 gennaio 2026** (the national telemedicine glossary, version 1.0.0 of 29 January 2026) | National reference vocabulary | [`docs/05_domain/09`](/05_domain/09-glossario-del-dominio.md). **The entry-by-entry alignment has not been carried out** and must be done before the domain glossary is frozen and before translation (`Q-146`) |
+| **Glossario nazionale di telemedicina, versione 1.0.0 del 29 gennaio 2026** (the national telemedicine glossary, version 1.0.0 of 29 January 2026) | National reference vocabulary | [`docs/05_domain/09`](/05_domain/09-glossario-del-dominio.md). **The entry-by-entry alignment has not been carried out** and must be done before the domain glossary is frozen and before translation ([`Q-146`](../11_registri/02-questioni-aperte.md#q-146)) |
 
 ---
 
@@ -554,11 +556,11 @@ used in the repository:
 
 | Reference | What it establishes | Where it is used |
 |---|---|---|
-| **Art. 2, point 12** | Definition of intended purpose, which can also be derived from promotional material | `V-171`, [`08_compliance/01 §11`](/08_compliance/01-inquadramento-normativo.md) |
+| **Art. 2, point 12** | Definition of intended purpose, which can also be derived from promotional material | [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`08_compliance/01 §11`](/08_compliance/01-inquadramento-normativo.md) |
 | **Art. 2, point 29** | Putting into service | [15 §3](15-regolatorio-da-zero.md), [`08_compliance/01 §12`](/08_compliance/01-inquadramento-normativo.md) |
 | **Art. 2, point 30** | Definition of manufacturer, with **two cumulative elements** | [15 §3](15-regolatorio-da-zero.md), [`08_compliance/01 §2`](/08_compliance/01-inquadramento-normativo.md) |
 | **Art. 5, paragraph 5** | Exemption for devices manufactured and used within health institutions - cited **only in order to rule it out** | [`08_compliance/01 §2`](/08_compliance/01-inquadramento-normativo.md) |
-| **Art. 7** | Prohibition on misleading claims: it applies **already today** and **does not presuppose the marking** | `V-171` |
+| **Art. 7** | Prohibition on misleading claims: it applies **already today** and **does not presuppose the marking** | [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) |
 | **Art. 8** | Presumption of conformity of harmonised standards | [15 §5.1](15-regolatorio-da-zero.md) |
 | **Art. 10** | Obligations of the manufacturer | [`08_compliance/01 §2`](/08_compliance/01-inquadramento-normativo.md) |
 | **Arts. 11, 13, 14, 16(1)(a)** | Authorised representative, importer, distributor, and the case of the **white-label product** | [`08_compliance/01 §2`](/08_compliance/01-inquadramento-normativo.md) |
@@ -574,7 +576,7 @@ used in the repository:
 `[NV]` - the **precise numbering of some sections** of Annexes I, IX and XI, the designation codes
 of the implementing regulation, the number of the point of art. 2 on the serious incident and the
 division between the paragraphs of arts. 86 and 87 according to class **have not been verified
-against the text**.
+against the text**, to be verified by `COMP`.
 *Where it is to be found*: the Official Journal of the European Union, Italian version.
 *How it is read*: **not on its own.** Annex VIII, Rule 11, without the guidance that follows is all
 but unreadable for a piece of software.
@@ -592,9 +594,9 @@ a written justification, and that makes them operationally decisive.
 |---|---|---|
 | **MDCG 2019-11**, *Qualification and classification of software in Regulation (EU) 2017/745 and Regulation (EU) 2017/746*, **revision 1 of June 2025** | The five-step qualification decision tree; the case material of Annex I; the breakdown of Rule 11 into three sub-rules at § 4.2.1; the **delimitation of modules** at § 7; the orientation matrix of Annex III | [10](10-percorsi-di-cura-e-sicurezza.md), [15](15-regolatorio-da-zero.md), [`08_compliance/01`](/08_compliance/01-inquadramento-normativo.md) and [`02`](/08_compliance/02-qualificazione-e-classificazione.md) |
 | **MDCG 2019-16**, revision 1 | How to satisfy the Annex I requirements on cybersecurity | [12](12-crittografia-e-sicurezza.md), [15 §5.7](15-regolatorio-da-zero.md), [`08_compliance/03`](/08_compliance/03-sistema-di-gestione-della-qualita.md) |
-| **MDCG 2020-1** | Clinical evaluation of software: the **three components of the evidence** - validity of the scientific association, technical or analytical performance, clinical performance. `[NV]` on the current revision | [15 §7](15-regolatorio-da-zero.md), [`08_compliance/07`](/08_compliance/07-valutazione-clinica.md) |
+| **MDCG 2020-1** | Clinical evaluation of software: the **three components of the evidence** - validity of the scientific association, technical or analytical performance, clinical performance. `[NV]` on the current revision, to be verified by `COMP` | [15 §7](15-regolatorio-da-zero.md), [`08_compliance/07`](/08_compliance/07-valutazione-clinica.md) |
 | **MDCG 2018-5** | Criterion of **major revision** and unique software identifiers | [15 §§7, 9](15-regolatorio-da-zero.md) |
-| **MDCG 2020-3** | Significant changes. `[NV]` on scope and current revision: the decision diagrams are widely used for devices certified under the regulation as well, and the transposition must be verified | [`08_compliance/08`](/08_compliance/08-sorveglianza-post-commercializzazione.md) |
+| **MDCG 2020-3** | Significant changes. `[NV]` on scope and current revision, to be verified by `COMP`: the decision diagrams are widely used for devices certified under the regulation as well, and the transposition must be verified | [`08_compliance/08`](/08_compliance/08-sorveglianza-post-commercializzazione.md) |
 
 **Documents of the *International Medical Device Regulators Forum*.** Used for the orientation
 matrix referred to by Annex III of MDCG 2019-11 Rev.1, which crosses the significance of the
@@ -662,7 +664,7 @@ party).
 party**, that is, towards a person who has accepted no licence. The warranty-disclaimer clauses of
 the project's licence hold between the parties, not towards the patient.
 `[NV]` - the literal wording of art. 4 and of the recitals on the notion of product, and the
-numbering of the equivalent Italian provision after transposition, **are not verified**.
+numbering of the equivalent Italian provision after transposition, **are not verified** by `COMP`.
 
 ### 6.5 Accessibility
 
@@ -671,7 +673,7 @@ decreto legislativo 27 maggio 2022, n. 82. It applies to products and services p
 from **28 June 2025**.
 `[NV]` - **telemedicine is not named** among the categories covered; the qualification of a video
 consultation service as a number-independent interpersonal communication service is contested and
-not ascertained.
+not ascertained by `COMP`.
 
 **Directive (EU) 2016/2102** - accessibility of the websites and mobile applications of public
 sector bodies. In Italy it operates through legge 9 gennaio 2004, n. 4, and the AgID guidelines.
@@ -696,15 +698,15 @@ health data belonging to the priority categories.
 [`08_compliance/01 §7`](/08_compliance/01-inquadramento-normativo.md).
 *How it is read*: **it is the least intuitive point of the whole framework**, because a product may
 fall within it **while not being a medical device**.
-`[NV]` - the **exact mapping of the dates** for each provision and the definitions of art. 2 must
-be confirmed against the text: the secondary sources consulted diverge. It is also an open question
-whether the project should produce the Chapter III documentation package as well (`Q-171`).
+The **exact mapping of the dates** for each provision and the definitions of art. 2 must
+be confirmed against the text by `COMP`: the secondary sources consulted diverge `[NV]`. It is also an open question
+whether the project should produce the Chapter III documentation package as well ([`Q-171`](../11_registri/02-questioni-aperte.md#q-171)).
 
 ### 6.7 Other European sources of context
 
 | Source | What it establishes | Where it is used |
 |---|---|---|
-| **Regulation (EU) 2024/1689** | Artificial intelligence systems. **No current function falls within it**; a single addition would change the regime, and that is why the introduction of an artificial intelligence component is treated as a change of regulatory regime and not as a technical choice (`V-170`) | [15 §§2.8, 8.6](15-regolatorio-da-zero.md), [`08_compliance/02`](/08_compliance/02-qualificazione-e-classificazione.md) |
+| **Regulation (EU) 2024/1689** | Artificial intelligence systems. **No current function falls within it**; a single addition would change the regime, and that is why the introduction of an artificial intelligence component is treated as a change of regulatory regime and not as a technical choice ([`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)) | [15 §§2.8, 8.6](15-regolatorio-da-zero.md), [`08_compliance/02`](/08_compliance/02-qualificazione-e-classificazione.md) |
 | **Regulation (EU) 2023/2854** | Data generated by connected products; **switching cloud service provider**; interoperability | [15 §8.6](15-regolatorio-da-zero.md) |
 | **Regulation (EU) 2024/1183** | European digital identity framework | [03](03-il-dato-clinico.md), [12](12-crittografia-e-sicurezza.md) |
 | **Directive (EU) 2015/1535** | Information procedure in the field of technical regulations: it is the procedure followed for the adoption of the national guidelines on interoperability | [07 §5.2](07-fse-e-infrastrutture-nazionali.md) |
@@ -760,13 +762,13 @@ the clear: the project **always** uses it with mutual authentication at transpor
 [`docs/04_protocols/04`](/04_protocols/04-hl7-v2.md).
 
 **HL7 CDA release 2** - clinical document architecture. In the project the document serialisation
-is **replaceable** and the content is modelled as a canonical dataset (`V-07`): no document
+is **replaceable** and the content is modelled as a canonical dataset ([`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07)): no document
 template is hard-coded.
 *Where it is used*: [05 §5](05-standard-di-interoperabilita.md),
 [`docs/04_protocols/03`](/04_protocols/03-documenti-clinici.md),
 [`docs/05_domain/04`](/05_domain/04-documenti-clinici.md).
-`[NV]` - the **templates, the type codes and the indexing metadata** of the ten telemedicine
-document types **are not publicly available** (`Q-07`).
+The **templates, the type codes and the indexing metadata** of the ten telemedicine
+document types **are not publicly available**, a gap flagged in [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) calling for verification by `COMP` `[NV]`.
 
 ### 7.3 IHE interoperability profiles
 
@@ -828,23 +830,23 @@ The families actually used by the project, with the module that deals with them:
 **Two references from this family that the project treats as constraints and not as citations.**
 The first: the specification on the incremental gathering of connection candidates requires
 delivery **exactly once and in the same order**, and this determines the architecture of the
-signalling (`V-131`). The second: the specification on token exchange defines the claim that
-represents the delegation, and the project **never issues** a token that lacks it (`V-132`).
+signalling ([`V-131`](../11_registri/01-vincoli-in-vigore.md#v-131)). The second: the specification on token exchange defines the claim that
+represents the delegation, and the project **never issues** a token that lacks it ([`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)).
 
 ### 8.2 Specifications of other bodies
 
 | Specification | Body | Version | Role in the project |
 |---|---|---|---|
-| **SAML V2.0**, 15 March 2005 | OASIS | 2.0 | Federation with signed assertions: it is the protocol that is **necessary** for the most widespread national identity channel |
+| **SAML [V2](../11_registri/03-vincoli-fondanti.md#v2).0**, 15 March 2005 | OASIS | 2.0 | Federation with signed assertions: it is the protocol that is **necessary** for the most widespread national identity channel |
 | **OpenID Connect Core 1.0** | OpenID Foundation | 1.0 | Authentication and identity. **It is not a request for comments** |
 | **HTML Living Standard**, section on server-sent events | WHATWG | living standard, **without a version** | One-way push towards the browser |
 | **OpenAPI** | OpenAPI Initiative | 3.1 | A contract verifiable by a machine. Data schema `2020-12` |
-| **CloudEvents** | CNCF | 1.0; binding over the web protocol **1.0.2** | Common envelope of the events. It contains an **explicit negative obligation** on a header, encoded in the project as a negative test (`V-134`) |
+| **CloudEvents** | CNCF | 1.0; binding over the web protocol **1.0.2** | Common envelope of the events. It contains an **explicit negative obligation** on a header, encoded in the project as a negative test ([`V-134`](../11_registri/01-vincoli-in-vigore.md#v-134)) |
 | **ECMA-404** | Ecma International | - | Data interchange syntax, in parallel with the corresponding request for comments |
 | **Recommendations on the extensible markup language** | W3C | - | An external constraint, not a choice: documents that can be signed in part |
 | **Web content accessibility criteria**, level AA | W3C | **2.1** | Incorporated into the European technical standard on accessibility. The project declares a single non-conformity, on criterion **1.2.4** |
 | **Specifications of the event broker protocol** | upstream project | - | The specification of **an implementation**, not of a standards body: it is a third-party component to be qualified |
-| **CycloneDX** | `[NV]` - publishing body and reference version not verified | `[NV]` | Format of the software bill of materials, published for every release and validatable against the schema. It is the format adopted by requirement `SEC-043` |
+| **CycloneDX** | Format of the software bill of materials, published for every release and validatable against the schema. It is the format adopted by requirement `SEC-043`. `[NV]` on publishing body and reference version, to be verified by `COMP` | `COMP` | Software bill of materials |
 
 *How this block is read*: the «body» column counts as much as the specification. A specification
 from a project or from an implementation does not have the same value as a standard from a
@@ -863,7 +865,7 @@ catalogue of the national or international standards organisation.
 | Standard | Subject matter | Question it answers | Where it is used |
 |---|---|---|---|
 | **ISO 13485:2016** | Quality management system for medical devices | *How is whoever produces the software organised?* | [15 §5.3](15-regolatorio-da-zero.md), [`08_compliance/03`](/08_compliance/03-sistema-di-gestione-della-qualita.md), [`09`](/08_compliance/09-percorso-e-calendario.md) |
-| **IEC 62304:2006+A1:2015** | Life cycle of medical device software. Clause **8.1.2** requires every configuration item to be identified by title, producer and **version** - it is the foundation of the prohibition on floating version labels (`V-173`); clause **5.1.1** concerns traceability | *How was it built and verified?* | [15 §5.4](15-regolatorio-da-zero.md), [`01_technical/01`](/01_technical/01-stack-e-motivazioni.md) and [`09`](/01_technical/09-integrazione-continua-e-rilascio.md), [`08_compliance/03`](/08_compliance/03-sistema-di-gestione-della-qualita.md) |
+| **IEC 62304:2006+A1:2015** | Life cycle of medical device software. Clause **8.1.2** requires every configuration item to be identified by title, producer and **version** - it is the foundation of the prohibition on floating version labels ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)); clause **5.1.1** concerns traceability | *How was it built and verified?* | [15 §5.4](15-regolatorio-da-zero.md), [`01_technical/01`](/01_technical/01-stack-e-motivazioni.md) and [`09`](/01_technical/09-integrazione-continua-e-rilascio.md), [`08_compliance/03`](/08_compliance/03-sistema-di-gestione-della-qualita.md) |
 | **ISO 14971:2019** | Risk management for medical devices | *What harms can it cause and what has been done to avoid them?* | [09](09-fondamenti-clinici.md), [10](10-percorsi-di-cura-e-sicurezza.md), [12](12-crittografia-e-sicurezza.md), [15 §5.5](15-regolatorio-da-zero.md), [`08_compliance/05`](/08_compliance/05-gestione-del-rischio.md) |
 | **IEC 62366-1:2015+A1:2020** | Usability engineering | *How was it designed so that it is not used badly?* | [04](04-identita-e-anagrafiche.md), [10](10-percorsi-di-cura-e-sicurezza.md), [15 §5.6](15-regolatorio-da-zero.md), [`01_technical/08`](/01_technical/08-qualita-e-test.md), [`08_compliance/06`](/08_compliance/06-usabilita-e-accessibilita.md) |
 | **IEC 82304-1:2016** | Health software product | *In what environment does it work and with what limits?* | [15 §5.7](15-regolatorio-da-zero.md) |
@@ -883,9 +885,9 @@ catalogue of the national or international standards organisation.
 
 **First, on harmonisation.** A **harmonised** standard confers a presumption of conformity with the
 requirements it covers (art. 8 of the regulation on medical devices); a non-harmonised standard
-remains usable as the state of the art but confers no presumption. `[NV]` - the harmonisation
-status of **EN IEC 62304, EN IEC 62366-1, EN IEC 82304-1 and EN ISO/IEC 81001-5-1 is not
-unambiguously ascertained**: the secondary sources diverge. **EN ISO 13485:2016** and **EN ISO
+remains usable as the state of the art but confers no presumption. The harmonisation
+status of **EN IEC 62304, EN IEC 62366-1, EN IEC 82304-1 and EN ISO/IEC 81001-5-1** is not
+unambiguously ascertained by `COMP`, because the secondary sources diverge `[NV]`. **EN ISO 13485:2016** and **EN ISO
 14971:2019**, by contrast, are uncontroversially harmonised. Until the check has been carried out
 against the most recent consolidated list published by the Commission, the correct formulation is
 «applied as the state of the art», and presence in the list is to be **verified at the date of
@@ -949,7 +951,7 @@ artefact**, and not on the strength of the package's declaration.
 *A warning that no documentation can soften.* **Querying an external terminology service run by
 third parties does not exempt anyone from the licence obligation**, because a system that creates
 or analyses coded data is itself a data processing system within the meaning of the agreement. The
-system is in any case **fully functional** with the burdensome terminology switched off (`V-03`),
+system is in any case **fully functional** with the burdensome terminology switched off ([`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)),
 and the cost of that choice is declared, not passed over in silence.
 
 ---
@@ -1049,8 +1051,8 @@ not an address**.
 
 **Tenth and eleventh revisions of the international classification of diseases.** Excluded in every
 form. For the eleventh, the prohibition descends from the clause that forbids derivatives and from
-the indemnity imposed; for the tenth, the regime is **`[NV]`** and not ascertained, and that is the
-reason why caution prevails. Verified note on the identifier: the correct identifier of the
+the indemnity imposed; for the tenth, the regime is not ascertained by `COMP`, and that is the
+reason why caution prevails `[NV]`. Verified note on the identifier: the correct identifier of the
 eleventh revision **is not** the one that many secondary sources report.
 
 **SNOMED CT content.** Not downloaded, not included, not embedded in examples, tests or value sets.
@@ -1064,7 +1066,8 @@ interoperability profiles, procedural terminology of the United States medical a
 Excluded as content; use by reference through the system identifier and the code is admitted, as is
 citation by address and revision.
 
-**United States vaccination codes**, excluded in version 1.0 with a licence regime marked `[NV]`:
+**United States vaccination codes**, excluded in version 1.0 because the licence regime
+is not ascertained and must be verified by `COMP` `[NV]`:
 the risk is reduced to zero by excluding them from the perimeter.
 
 ### 12.2 Technical and methodological sources excluded
@@ -1077,12 +1080,12 @@ does not have and which is not the pertinent one in the European context.
 **International recommendations on the mean opinion score.** Not used as the basis of the session
 quality index. Reason: the classic models are for **planning** narrowband networks, the factors for
 modern audio coding are not standardised and for video there is nothing applicable to real time.
-The project's index is **proprietary and declared to be so** (`V-114`).
+The project's index is **proprietary and declared to be so** ([`V-114`](../11_registri/01-vincoli-in-vigore.md#v-114)).
 
 **Expired or non-standardised drafts presented as standards.** The header for the idempotency key is
 an **expired and archived draft**; those for rate limiting are an **active draft**, and the
 three-field form has never been a standard. The project uses them and declares them for what they
-are (`V-133`).
+are ([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)).
 
 **Maps between hospital messaging and clinical resources as a basis of conformity.** They are
 **informative** documents: they are used as a mapping reference, never to declare conformity.
@@ -1103,7 +1106,7 @@ hard-coded them would age worse than the description of the mechanism.
 
 **The specific requirements of the national security measures, before the annexes have been read
 line by line.** What are cited are the **codes**, which are public and verified, and the content of
-the individual requirements is marked as unverified (`Q-151`).
+the individual requirements is marked as unverified ([`Q-151`](../11_registri/02-questioni-aperte.md#q-151)).
 
 **Tender documents and methodological documents not published**, where they have not been located.
 They are cited as **an existing and unsatisfied cross-reference**, with the `[NV]` marking, and
@@ -1137,13 +1140,13 @@ and absent is a useful report, not a defect of this list.
 This module says **where to look**, not **what the text says**: the latter is the business of the
 modules and of the areas, which refer to it.
 
-**The condition for it to remain true over time, posed as a constraint (`V-195`).** An inventory of
+**The condition for it to remain true over time, posed as a constraint ([`V-195`](../11_registri/01-vincoli-in-vigore.md#v-195)).** An inventory of
 sources degrades in one way only: a new source enters a chapter and does not enter here, and from
 that moment the list is incomplete without anybody noticing. The rule that prevents it is simple
 and verifiable: **no area introduces a new primary source into the documentation without entering
 it in this module with its full particulars and with the date at which it was verified.** It is not
 an editorial formality: it is what makes it possible, when a rule changes, to know in a single step
-which documents depend on it. The mechanism for recording the date is question `Q-199`.
+which documents depend on it. The mechanism for recording the date is question [`Q-199`](../11_registri/02-questioni-aperte.md#q-199).
 
 ---
 
@@ -1151,19 +1154,19 @@ which documents depend on it. The mechanism for recording the date is question `
 
 | Reference | What is missing | Whose responsibility it is |
 |---|---|---|
-| `[NV]` | Chapter of a technical tender specification incorporated by reference from Annex 4 of DM 19 novembre 2025: **not located**. Until it is read, no assertion of conformity with those measures is tenable | Compliance |
-| `[NV]` | Methodological documents referred to by DM 21 settembre 2022 for the functional requirements of the micro-services: **not located** | Compliance |
-| `[NV]` | Detailed annexes of the determination on baseline security specifications: not read line by line (`Q-151`) | Compliance |
-| `[NV]` | Texts of the two Prime Ministerial decrees on essential cybersecurity elements in public contracts, and verification of applicability to the technological categories | Compliance, with a procurement adviser |
-| `[NV]` | Precise numbering of some sections of Annexes I, IX and XI of the regulation on medical devices; designation codes; number of the point on the serious incident; division between the paragraphs of arts. 86 and 87 according to the class | Compliance |
-| `[NV]` | Definitions and mapping of the dates of the regulation on the European health data space | Compliance |
-| `[NV]` | Harmonisation status of four technical process standards and of two standards on the information supplied by the manufacturer | Compliance |
-| `[NV]` | Version of the European technical standard on accessibility cited in support of the directive on products and services | Compliance |
-| `[NV]` | Literal wording of the notion of product in the directive on liability, and numbering of the Italian transposing provision | Compliance |
-| `[NV]` | Document templates, type codes and indexing metadata of the ten telemedicine types (`Q-07`) | Compliance |
-| `[NV]` | Licence regime of two terminology entries and regime of the tenth revision of the classification of diseases | Compliance |
-| `Q-146` | Entry-by-entry alignment with the national glossary, to be carried out **before** the domain glossary is frozen and before translation | Domain |
-| `Q-199` | **Register of currency checks**: today the date of consultation is recorded unevenly across the documents. A single form and a periodic trigger are needed, otherwise §11 remains a method without verifiable application | → orchestration, with compliance |
+| `[NV]` | Chapter of a technical tender specification incorporated by reference from Annex 4 of DM 19 novembre 2025: **not located**. Until it is read, no assertion of conformity with those measures is tenable | `COMP` |
+| `[NV]` | Methodological documents referred to by DM 21 settembre 2022 for the functional requirements of the micro-services: **not located** | `COMP` |
+| `[NV]` | Detailed annexes of the determination on baseline security specifications: not read line by line, open question recorded in [`Q-151`](../11_registri/02-questioni-aperte.md#q-151) | `COMP` |
+| `[NV]` | Texts of the two Prime Ministerial decrees on essential cybersecurity elements in public contracts, and verification of applicability to the technological categories | `COMP` with a procurement adviser |
+| `[NV]` | Precise numbering of some sections of Annexes I, IX and XI of the regulation on medical devices; designation codes; number of the point on the serious incident; division between the paragraphs of arts. 86 and 87 according to the class | `COMP` |
+| `[NV]` | Definitions and mapping of the dates of the regulation on the European health data space | `COMP` |
+| `[NV]` | Harmonisation status of four technical process standards and of two standards on the information supplied by the manufacturer | `COMP` |
+| `[NV]` | Version of the European technical standard on accessibility cited in support of the directive on products and services | `COMP` |
+| `[NV]` | Literal wording of the notion of product in the directive on liability, and numbering of the Italian transposing provision | `COMP` |
+| `[NV]` | Document templates, type codes and indexing metadata of the ten telemedicine types, open question recorded in [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) | `COMP` |
+| `[NV]` | Licence regime of two terminology entries and regime of the tenth revision of the classification of diseases | `COMP` |
+| [`Q-146`](../11_registri/02-questioni-aperte.md#q-146) | Entry-by-entry alignment with the national glossary, to be carried out **before** the domain glossary is frozen and before translation | Domain |
+| [`Q-199`](../11_registri/02-questioni-aperte.md#q-199) | **Register of currency checks**: today the date of consultation is recorded unevenly across the documents. A single form and a periodic trigger are needed, otherwise §11 remains a method without verifiable application | → orchestration, with compliance |
 
 ---
 

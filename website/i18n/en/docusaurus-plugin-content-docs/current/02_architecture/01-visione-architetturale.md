@@ -26,14 +26,14 @@ The decisions approved by the client and the derived constraints condense into s
 
 ### F1 - Demonstrability before everything else
 
-Constraint **V5** and decision **D42** impose a register of accesses **non-repudiable and non-alterable**. The decision is categorical on a point the industry systematically confuses: the versioning of application entities - the history table that the persistence layer maintains automatically - **versions but does not render immutable**, because whoever has write access to the database also alters the history. Demonstrability requires a chain of cryptographic fingerprints and **separate storage from the system that generates events**.
+Constraint **[V5](../11_registri/03-vincoli-fondanti.md#v5)** and decision **D42** impose a register of accesses **non-repudiable and non-alterable**. The decision is categorical on a point the industry systematically confuses: the versioning of application entities - the history table that the persistence layer maintains automatically - **versions but does not render immutable**, because whoever has write access to the database also alters the history. Demonstrability requires a chain of cryptographic fingerprints and **separate storage from the system that generates events**.
 
 This force has a real architectural cost and is first because it is **retroactive**: a register built badly cannot be repaired after the fact, because events already written do not acquire demonstrable integrity after the fact. Document
 [07 - Tracing and immutable register](07-tracciamento-e-registro-immutabile.md) is its full consequence.
 
 ### F2 - The boundary between vehicle and interpretation
 
-Constraint **V2** and decisions **D26** and **D46** place the project on a precise ridge: the system **records clinical content drafted by a professional** and **applies thresholds defined by a professional**, but does not generate its own clinical information and does not deduce thresholds. The boundary is not a communicative stance: it is a structural property that must be readable in the code. From this follow, without margin of discretion:
+Constraint **[V2](../11_registri/03-vincoli-fondanti.md#v2)** and decisions **D26** and **D46** place the project on a precise ridge: the system **records clinical content drafted by a professional** and **applies thresholds defined by a professional**, but does not generate its own clinical information and does not deduce thresholds. The boundary is not a communicative stance: it is a structural property that must be readable in the code. From this follow, without margin of discretion:
 
 - no clinical threshold hardcoded (transverse constraint of the binding architectural baseline, point 1);
 - no field of a document populated by system-generated text;
@@ -42,17 +42,17 @@ Constraint **V2** and decisions **D26** and **D46** place the project on a preci
 
 ### F3 - Sovereignty and replaceability
 
-Constraint **V1**, decision **D24** and decision **D40** transform what arose as a positioning argument into a verifiable requirement: **no obligatory component of the main path can depend on a non-replaceable service or one established outside the European Union**, and the three distribution profiles - European Union, Italian territory, qualified cloud - must all be traversable. Decision **D40** adds that the installing party must be able to declare to an authority the nominative list of relevant suppliers: sovereignty becomes therefore a datum to produce, not a promise to display.
+Constraint **[V1](../11_registri/03-vincoli-fondanti.md#v1)**, decision **D24** and decision **D40** transform what arose as a positioning argument into a verifiable requirement: **no obligatory component of the main path can depend on a non-replaceable service or one established outside the European Union**, and the three distribution profiles - European Union, Italian territory, qualified cloud - must all be traversable. Decision **D40** adds that the installing party must be able to declare to an authority the nominative list of relevant suppliers: sovereignty becomes therefore a datum to produce, not a promise to display.
 
 Architecturally this force translates into a single rule: **every external dependency stands behind a project interface and has a stated fallback**. This applies to the terminology gateway, to the signature service, to notification delivery, to the event broker. Where the fallback does not exist, the path is not principal.
 
 ### F4 - Total integrability
 
-Constraint **V3** establishes that **no capability of the system is reachable only through the user interface**. The consequence is not "expose everything in REST": it is that the application level cannot contain domain logic, otherwise the same capability would have two divergent implementations - one for the interface and one for the application interface. The domain model is therefore the only place where invariants live, and every exposure plane is a thin adapter above it.
+Constraint **[V3](../11_registri/03-vincoli-fondanti.md#v3)** establishes that **no capability of the system is reachable only through the user interface**. The consequence is not "expose everything in REST": it is that the application level cannot contain domain logic, otherwise the same capability would have two divergent implementations - one for the interface and one for the application interface. The domain model is therefore the only place where invariants live, and every exposure plane is a thin adapter above it.
 
 ### F5 - Isolation between independent controllers
 
-Constraint **V4** imposes that every entity, every event and every row of register carry the tenant identifier. Decision **D8** imposes the dual model: managed multi-tenant service and installation at customer site with a single tenant, **with the same code**. The structuring force is not the multiplicity of clients: it is that in the managed service tenants are typically **autonomous controllers of processing**, not divisions of the same organisation. A data leak between tenants is not a product defect: it is a violation between distinct legal entities.
+Constraint **[V4](../11_registri/03-vincoli-fondanti.md#v4)** imposes that every entity, every event and every row of register carry the tenant identifier. Decision **D8** imposes the dual model: managed multi-tenant service and installation at customer site with a single tenant, **with the same code**. The structuring force is not the multiplicity of clients: it is that in the managed service tenants are typically **autonomous controllers of processing**, not divisions of the same organisation. A data leak between tenants is not a product defect: it is a violation between distinct legal entities.
 
 ### F6 - Real-time does not tolerate the long path
 
@@ -60,7 +60,7 @@ The media session has a latency budget that does not allow transit through infra
 
 ### F7 - Accessibility and real use as functional requirements
 
-Constraint **V6** and decision **D25** render accessibility, design method starting from the small screen and usability engineering acceptance criteria for every screen, not finishing touches. The architectural impact is less obvious than it seems and concerns three points: **understandable degradation** (audio before video, session resumption, stated fallback) is domain behaviour and not optimisation; the **embeddable component inherits the constraints** and must not be able to be degraded by the host; **internationalisation is structural**, and in particular the interface strings of the project are separated by construction from official labels of terminologies.
+Constraint **[V6](../11_registri/03-vincoli-fondanti.md#v6)** and decision **D25** render accessibility, design method starting from the small screen and usability engineering acceptance criteria for every screen, not finishing touches. The architectural impact is less obvious than it seems and concerns three points: **understandable degradation** (audio before video, session resumption, stated fallback) is domain behaviour and not optimisation; the **embeddable component inherits the constraints** and must not be able to be degraded by the host; **internationalisation is structural**, and in particular the interface strings of the project are separated by construction from official labels of terminologies.
 
 ## 3. The form that results
 
@@ -133,7 +133,7 @@ Three readings of this diagram merit explicit statement.
 
 **The core does not speak with the outside.** Every translation to and from a third-party format occurs in the anticorruption layer of the boundary. This is the condition that allows supporting multiple integrators simultaneously without partner-specific logic in the domain, and surviving a version change of an external standard without touching invariants.
 
-**The media session does not touch clinical content.** The connection between the media session context and the performance context passes through identifiers and state events alone. It is the structural translation of constraint **V2** and at the same time the condition that makes the media session replaceable.
+**The media session does not touch clinical content.** The connection between the media session context and the performance context passes through identifiers and state events alone. It is the structural translation of constraint **[V2](../11_registri/03-vincoli-fondanti.md#v2)** and at the same time the condition that makes the media session replaceable.
 
 **Tracing receives from everyone and feeds no one.** No application path reads from the register to make a decision. The register is a destination, not a source: this is what allows storing it separately and rendering it append-only without compromise.
 
@@ -299,7 +299,7 @@ More instructive than the preceding list is the list of shortcuts that were avai
 
 ### R1 - Merging clinical performance and media session into a single object
 
-It is the most natural shortcut - there is only one consultation, why two entities? - and it is the most costly modelling error in this domain. The consequences are all real: every disconnection would create a phantom performance; a technical test before the appointment would create a non-existent health act; a performance concluded in audio after video failure would appear not delivered; the count of performances delivered would coincide with the count of successful connections, which is a different quantity and serves something else. **Rejected without exception**; it is constraint V-01 of the inter-agent noticeboard.
+It is the most natural shortcut - there is only one consultation, why two entities? - and it is the most costly modelling error in this domain. The consequences are all real: every disconnection would create a phantom performance; a technical test before the appointment would create a non-existent health act; a performance concluded in audio after video failure would appear not delivered; the count of performances delivered would coincide with the count of successful connections, which is a different quantity and serves something else. **Rejected without exception**; it is constraint [V-01](../11_registri/01-vincoli-in-vigore.md#v-01) of the inter-agent noticeboard.
 
 ### R2 - Treating entity versioning as an immutable register
 
@@ -332,7 +332,7 @@ It would have been useful to user experience and would have moved the system fro
 
 ### R9 - A function reachable only through the interface
 
-It occurs in every project as "this is only an administration screen". It produces a non-automatable and non-verifiable system, and violates V3. **Rejected**: if a capability exists, it exists also as a documented application interface.
+It occurs in every project as "this is only an administration screen". It produces a non-automatable and non-verifiable system, and violates [V3](../11_registri/03-vincoli-fondanti.md#v3). **Rejected**: if a capability exists, it exists also as a documented application interface.
 
 ### R10 - Updating in-place the state of alarms, measures and plans
 
@@ -353,7 +353,7 @@ An architecture stated and not verified degrades silently. The project adopts a 
 | No query reaches the database without tenant context | Data leak between autonomous controllers |
 | No context accesses tables of another context | Silent erosion of boundaries |
 | Every write of data producing an event writes it in the same transaction | Lost events and phantom events |
-| No numeric literal used as a clinical threshold in code | Sliding beyond the boundary of V2 |
+| No numeric literal used as a clinical threshold in code | Sliding beyond the boundary of [V2](../11_registri/03-vincoli-fondanti.md#v2) |
 | No field of a document populated by system-generated text | Idem |
 | Every published event has a versioned and registered schema | Unannounced public contract breaks |
 | The connection returned to the pool does not preserve the tenant of the previous request | Contamination between tenants through connection reuse |

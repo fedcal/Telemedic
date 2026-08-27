@@ -47,8 +47,8 @@ Regulation (EU) 2017/745, supplemented by **Annex III** for the post-market surv
 **Article 10(4)** requires it to be drawn up and **kept up to date**: it is not a delivery
 obligation, it is a continuing obligation lasting as long as the device does. The regulation also
 requires it to be kept available to the authorities for a period of years after the last device is
-placed on the market `[NV]` - the exact duration and the paragraph establishing it must be
-re-verified against the consolidated text.
+placed on the market. The exact duration and the paragraph establishing it `[NV]` - to be verified
+by `Compliance`.
 
 Three misconceptions must be cleared away at once, because all three are common in a development
 team encountering this material for the first time.
@@ -66,7 +66,7 @@ properties the content does not possess on its own:
    manufacturer.
 
 None of the three properties belongs to the documentation published on these pages. This is
-constraint `V-174`, established by [03 §4.1](./03-sistema-di-gestione-della-qualita.md): **no
+constraint [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174), established by [03 §4.1](./03-sistema-di-gestione-della-qualita.md): **no
 chapter of this documentation is a document of the file, and no area may present it as such.** The
 chapters are **inputs**: they contain the analysis from which the file's document is written, not
 the document.
@@ -108,7 +108,7 @@ all, an admissible one.
 The tables in §§ 4–10 use three stable columns.
 
 **Regulatory document.** The identifier of the file's document, in the identifier space established
-by [03 §5](./03-sistema-di-gestione-della-qualita.md) and made binding as `V-172`. An identifier
+by [03 §5](./03-sistema-di-gestione-della-qualita.md) and made binding as [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172). An identifier
 listed here **does not imply that the document exists**: it implies that, when it does, it will be
 called that.
 
@@ -163,7 +163,7 @@ produces concrete consequences.**
 registered manufacturer, an issuing entity and a versioning structure for the **identified
 distribution**. The project cannot assign it and must not pretend it can. But the project's choice
 of **how the distribution is versioned** conditions what that code will identify, and it is a choice
-to be taken deliberately and not out of habit: it is question `Q-172` of § 17.
+to be taken deliberately and not out of habit: it is question [`Q-172`](../11_registri/02-questioni-aperte.md#q-172) of § 17.
 
 **Row 1.1 k.** "Not applicable" is not an answer: it is a **rationale to be written**. A file that
 skips the non-applicable items is an incomplete file, not a lean one. The correct form is the item
@@ -192,8 +192,9 @@ the packaging - the manufacturer's name and address, the unique device identifie
 CE marking with the notified body's number, standardised symbols - for software lives in a "Device
 information" screen reachable without authentication and without deep navigation. The reference
 standards are **EN ISO 20417** for information supplied by the manufacturer and **EN ISO 15223-1**
-for symbols `[NV]` - their presence in the consolidated list of harmonised standards must be
-verified at the date of use.
+for symbols. Their presence in the consolidated list of harmonised standards must be verified at
+the date of use by `Compliance` against the Commission's list. **`[NV]`** on presence in the
+harmonised standards list.
 
 **What the project can and must do, despite not being a manufacturer.** Prepare the **space**: the
 screen exists, it is reachable, it is accessible, and the fields it will have to contain are
@@ -204,19 +205,19 @@ can eliminate **today**, at almost no cost, and that becomes expensive later - a
 is a cost that would fall **on us**.
 
 **Language is not an editorial choice.** The instructions for use intended for the Italian market
-must be in Italian `[NV]` - the obligation derives from the national implementing legislative
-decree, and the precise article reference must be verified against the published text before
-appearing in a controlled document. The project adopts in any case full Italian and English (`D50`),
+must be in Italian `[NV]` to be verified by `Compliance` - the obligation derives from the national
+implementing legislative decree, and the precise article reference must be verified against the
+published text before appearing in a controlled document. The project adopts in any case full Italian and English (`D50`),
 which covers the minimum condition but does not exhaust the obligation: only the manufacturer knows
 the Member States in which the distribution will be marketed, and with them the languages required.
 
 **A constraint that arises here and holds for the whole interface.** The instructions for use of a
 software device are not a separate manual nobody opens: they are **the sum of the texts the user
 encounters**, including persistent warnings, consent texts, error messages and the declarations of
-unsuitability for emergencies (`BR-168`, question `Q-126`). It follows that every change to those
+unsuitability for emergencies (`BR-168`, question [`Q-126`](../11_registri/02-questioni-aperte.md#q-126)). It follows that every change to those
 texts is a change to the information supplied by the manufacturer, that is, a change to the file. It
-is the same reason why constraint `V-171` on prohibited formulations exists
-([01 §11](./01-inquadramento-normativo.md)) and why `V-163` of `INTEG` makes those texts **neither
+is the same reason why constraint [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) on prohibited formulations exists
+([01 §11](./01-inquadramento-normativo.md)) and why [`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163) of `INTEG` makes those texts **neither
 themeable nor concealable** by the integrator.
 
 ## 6. Annex II, section 3 - Information on design and manufacture
@@ -259,7 +260,7 @@ identification of the build chain runners, of the image registry, of the signing
 every critical supplier, with the registered office and the country: these are data that depend on
 where the manufacturer hosts its own infrastructure, not on where the project hosts its own. The
 project supplies the **method** and the requirements those suppliers must meet - data sovereignty
-(`V1`), absence of runtime dependencies outside the Union, the ability to declare the relevant
+([`V1`](../11_registri/03-vincoli-fondanti.md#v1)), absence of runtime dependencies outside the Union, the ability to declare the relevant
 supplier to the authority (`D40`) - and nothing more.
 
 ## 7. Annex II, section 4 - General safety and performance requirements
@@ -278,12 +279,12 @@ electronic systems**: repeatability, reliability and performance in line with th
 development according to the state of the art with lifecycle, risk management, verification and
 validation; minimum hardware and network requirements; IT security measures including protection
 against unauthorised access. The second is that of the **reduction of risks related to use error**.
-`[NV]` - the precise numbering of the sections of Annex I must be re-read against the consolidated
-text before appearing in the matrix.
+The precise numbering of the sections of Annex I `[NV]` to be verified by `Compliance` before
+appearing in the matrix.
 
 **The structural limit of the project's contribution, and it must be said without softening.** The
 column "precise identification of the controlled documents" **cannot be completed by the project**,
-because it presupposes controlled documents, which the project does not have (`V-174`). The project
+because it presupposes controlled documents, which the project does not have ([`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174)). The project
 can therefore produce the matrix up to the penultimate column: requirement, applicability with
 rationale, method of demonstration, standard applied, and **a reference to the analysis** in this
 repository. The last column is completed by **the manufacturer**, replacing the reference to the
@@ -336,7 +337,7 @@ It is the most voluminous section for software and the one to which the project 
 | 6.1 | **Stability and lifetime** | `MDR-LIFE-001` | [03 §9.4](./03-sistema-di-gestione-della-qualita.md) | P/F | ☐ |
 | 6.1 | Biocompatibility, sterility, substances, radiation | **Not applicable** | - | P/F | ☐ |
 | 6.1 | **Clinical data**: clinical evaluation plan and report, post-market clinical follow-up | `CE-PLAN-001`, `CE-REP-001`, `PMCF-PLAN-001` | [07 - Clinical evaluation](./07-valutazione-clinica.md) | **F** | ☐ |
-| 6.2 | Specific cases, including devices with a **measuring function** | `MDR-TD-001` § 6.2 | [02 §12](./02-qualificazione-e-classificazione.md), question `Q-173` | P/F | ☐ |
+| 6.2 | Specific cases, including devices with a **measuring function** | `MDR-TD-001` § 6.2 | [02 §12](./02-qualificazione-e-classificazione.md), question [`Q-173`](../11_registri/02-questioni-aperte.md#q-173) | P/F | ☐ |
 | - | **Cybersecurity**: threat model, requirements, tests, vulnerability handling, coordinated disclosure, bill of materials | `SEC-TM-001`, `SEC-RMF-001`, `SEC-PT-001`, `SEC-LC-001` | [06_security/01](/06_security/01-modello-di-minaccia.md), [06](/06_security/06-sicurezza-applicativa.md), [07](/06_security/07-catena-di-fornitura.md), [10](/06_security/10-risposta-agli-incidenti.md), [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md) | P | ◐ |
 | - | **Usability engineering file** | `UEF-001` and the linked documents | [06 - Usability and accessibility](./06-usabilita-e-accessibilita.md), [03_functional/06](/03_functional/06-accessibilita-e-usabilita.md) | P/F | ☐ |
 | - | Complete **software lifecycle documentation** | `SW-*` | [03 §§6–8](./03-sistema-di-gestione-della-qualita.md) | P | ◐ |
@@ -355,7 +356,7 @@ attributed to a release and is worth nothing in the file.
 requires verification on all the declared configurations. The declared configurations derive from
 `MDR-ENV-001`, which in turn derives from the operating environment thresholds - minimum bandwidth,
 latency, loss, delay variation - and from the **reference device** against which the mobile first
-criteria are checked. None of these quantities has been measured to date: it is question `Q-115`,
+criteria are checked. None of these quantities has been measured to date: it is question [`Q-115`](../11_registri/02-questioni-aperte.md#q-115),
 opened by the technical area towards product and functional. While it remains open, section 10 of
 the intended purpose cannot be completed
 ([02 §5.1](./02-qualificazione-e-classificazione.md)) and **item 6.1 b has no defined test
@@ -372,7 +373,7 @@ schedule.
 **Fourth - item 6.2 is open and its closure does not depend on this area.** Whether the presentation
 of measured parameters constitutes a "measuring function" within the meaning of the MDR depends on a
 fact: whether the system converts units, rounds or transforms the values received, or presents them
-as received. It is question `Q-173`, addressed to the domain and functional areas. The answer
+as received. It is question [`Q-173`](../11_registri/02-questioni-aperte.md#q-173), addressed to the domain and functional areas. The answer
 determines the applicability of a block of metrological requirements of Annex I, and therefore whole
 rows of the section 4 matrix.
 
@@ -394,13 +395,13 @@ an incomplete application, and an incomplete application puts you back in the qu
 The second is technical and concerns the product, not the documents. The plan states **indicators,
 thresholds and collection windows**; if the system does not produce that data, the plan states
 something nobody will be able to execute. The operational consequence is a question that must be
-asked now and that is question `Q-116` of the technical area: **for how long are the observability
+asked now and that is question [`Q-116`](../11_registri/02-questioni-aperte.md#q-116) of the technical area: **for how long are the observability
 signals retained?** If an incident can emerge weeks later and the diagnostic logs last days,
 reconstruction is impossible and the vigilance obligation cannot be satisfied. The period depends on
 the vigilance obligations for devices and on the reporting obligations in the field of
 cybersecurity: it belongs to this area, is dealt with in chapter
 [08](./08-sorveglianza-post-commercializzazione.md), and is distinct from the periods already fixed
-by `V-152` for traceability and access data.
+by [`V-152`](../11_registri/01-vincoli-in-vigore.md#v-152) for traceability and access data.
 
 ## 11. What is missing today
 
@@ -409,20 +410,20 @@ absences, not as a work plan. No row is consoling.
 
 | # | What is missing | Why it is not there | Whom it depends on | Recoverable later? |
 |---|---|---|---|:-:|
-| 1 | **Draft intended purpose** `MDR-IU-001` as a document | The structure exists ([02 §5.1](./02-qualificazione-e-classificazione.md)); the text is missing, and section 10 cannot be completed until the thresholds are measured (`Q-115`) | Project, with a technical dependency | Yes, but changing it after engaging the body costs a reassessment (`D46`) |
+| 1 | **Draft intended purpose** `MDR-IU-001` as a document | The structure exists ([02 §5.1](./02-qualificazione-e-classificazione.md)); the text is missing, and section 10 cannot be completed until the thresholds are measured ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115)) | Project, with a technical dependency | Yes, but changing it after engaging the body costs a reassessment (`D46`) |
 | 2 | **Qualification and classification determination** `MDR-CLS-001` as a document | The content is entirely in [02](./02-qualificazione-e-classificazione.md); what is missing is the document form with a revision and verified references | Project | Yes |
 | 3 | **General requirements matrix** `MDR-GSPR-001` | It has never been compiled. It is the longest document in the file and the one requiring a line-by-line reading of Annex I | Project up to the penultimate column, then manufacturer | Yes, but it is the most underestimated work package |
 | 4 | **Risk file** `RM-FILE-001` | The entries and the method exist ([05](./05-gestione-del-rischio.md)); what is missing is the plan with the acceptability criteria, which is a choice of the manufacturer | Manufacturer for the plan, project for the content | Partly: the entries yes, the history of the decisions no |
 | 5 | **Usability engineering file** `UEF-001` | The formative evaluation must be carried out **during** development; a formative evaluation reconstructed afterwards is not a formative evaluation | Project | **No** for the formative part |
 | 6 | **Clinical evaluation plan and report** | An autonomous 6–9 month path that has not been started | Manufacturer | Yes, but it lengthens the schedule by the same amount |
-| 7 | **Post-market surveillance plan** `PMS-PLAN-001` | Not drafted; and some indicators require product capabilities not yet declared (`Q-116`) | Project for the capabilities, manufacturer for the plan | Yes for the document, **no** for the data not collected |
+| 7 | **Post-market surveillance plan** `PMS-PLAN-001` | Not drafted; and some indicators require product capabilities not yet declared ([`Q-116`](../11_registri/02-questioni-aperte.md#q-116)) | Project for the capabilities, manufacturer for the plan | Yes for the document, **no** for the data not collected |
 | 8 | **Label and instructions for use** | Neither the device information screen nor the document exists | Project for the space, manufacturer for the content | Yes, but a late interface change reopens the usability evaluation |
 | 9 | **Register of third-party components** complete with the annotations | The mechanism is defined ([01_technical/01 §14](/01_technical/01-stack-e-motivazioni.md), [01_technical/09](/01_technical/09-integrazione-continua-e-rilascio.md)); the complete inventory is populated with the first build chain | Project | **No at full cost**: inventorying the components after the fact costs 3–5 times as much (`D45`) |
-| 10 | **Traceability matrix** as a release artefact | The identifiers are frozen (`V-120`), the generation is not yet in operation | Project | **No**: it is the retroactively unrecoverable element par excellence |
-| 11 | **Operating environment requirements** `MDR-ENV-001` | No threshold has been measured; no reference device is declared (`Q-115`) | Technical and product | Yes |
-| 12 | **Determination of the measuring function** | Question `Q-173` open | Domain and functional | Yes, but it conditions whole rows of the matrix |
-| 13 | **Document templates for the health record document types** | Templates, codes and metadata do not appear to be publicly available: question `Q-07` | External to the project | Yes, with a dependency on a third-party body |
-| 14 | **Declared support period** and end-of-support date | Question `Q-155`, a decision of the project owner | Project owner | Yes, but it is a mandatory element of the documentation for the customer |
+| 10 | **Traceability matrix** as a release artefact | The identifiers are frozen ([`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)), the generation is not yet in operation | Project | **No**: it is the retroactively unrecoverable element par excellence |
+| 11 | **Operating environment requirements** `MDR-ENV-001` | No threshold has been measured; no reference device is declared ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115)) | Technical and product | Yes |
+| 12 | **Determination of the measuring function** | Question [`Q-173`](../11_registri/02-questioni-aperte.md#q-173) open | Domain and functional | Yes, but it conditions whole rows of the matrix |
+| 13 | **Document templates for the health record document types** | Templates, codes and metadata do not appear to be publicly available: question [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) | External to the project | Yes, with a dependency on a third-party body |
+| 14 | **Declared support period** and end-of-support date | Question [`Q-155`](../11_registri/02-questioni-aperte.md#q-155), a decision of the project owner | Project owner | Yes, but it is a mandatory element of the documentation for the customer |
 
 **Rows 5, 9 and 10 are of a different nature from the others and are to be read together.** They are
 the three items in which time cannot be recovered with money: a formative usability evaluation
@@ -449,7 +450,7 @@ legal entity, an act of will or a responsibility that **do not exist today**.
 
 > **Why this section did not grow shorter with `D58`, and could not.** `D58` establishes that the
 > project **intends** to assume the manufacturer role - with the entity that would exercise it
-> **still to be constituted** - and amends `D28`, `D49` and `V-06` **in their addressee**, not in
+> **still to be constituted** - and amends `D28`, `D49` and [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06) **in their addressee**, not in
 > their technical substance. The fifteen items remain fifteen, for a reason that is not formal: they
 > are **acts the regulation reserves to the manufacturer role**, and they remain reserved to that
 > role **even when the role is ours**. Affixing the marking, signing the declaration of conformity,
@@ -467,7 +468,7 @@ legal entity, an act of will or a responsibility that **do not exist today**.
 > declaration of conformity and **whoever deploys it, integrates it or puts it into service assumes
 > the resulting obligations**: the project's intention to certify in future **transfers none of them
 > to them**, and allowing that to be inferred would be more harmful than silence. No date appears in
-> this section, nor can any appear in it (`V-171`).
+> this section, nor can any appear in it ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)).
 
 | # | Element | Why it is irreducible |
 |---|---|---|
@@ -483,8 +484,8 @@ legal entity, an act of will or a responsibility that **do not exist today**.
 | 10 | **Affixing of the CE marking** with the notified body's number | Articles 20 and 52(6) |
 | 11 | **Application to the notified body**, including the declaration that the same application has not been submitted to another body | An express requirement of Annex IX. It is a declaration, not a technical document |
 | 12 | **Quality management system manual and procedures**, with the evidence of the cycle: internal audit, management review, corrective actions | Article 10(9); Annex IX, section 2. It presupposes an organisation operating the system for at least one full cycle |
-| 13 | **List of sites, suppliers and critical subcontractors**, and the related contracts | Annex IX, section 2.2; Article 10(9)(d) `[NV]` on the precise references |
-| 14 | **Insurance cover** for liability for defective products | Article 10(16) `[NV]`. It is a contract, and no technical document substitutes for it |
+| 13 | **List of sites, suppliers and critical subcontractors**, and the related contracts | Annex IX, section 2.2; Article 10(9)(d) `[NV]` to be verified by `Compliance` |
+| 14 | **Insurance cover** for liability for defective products | Article 10(16) `[NV]` to be verified by `Compliance`. It is a contract, and no technical document substitutes for it |
 | 15 | **Submission to an on-site audit** of its own premises and infrastructure | The body inspects the development environment and the build chain **of the manufacturer**, not those of a public repository |
 
 **Row 15 deserves to be developed, because it is the surprising one.** A notified body does not
@@ -532,9 +533,9 @@ activities.
 | 1 | **Assessment of the quality management system**, with an on-site audit | Annex IX, section 2 | The "premises" are the development environment and the build and release infrastructure |
 | 2 | **Assessment of the technical documentation** | Annex IX, section 4 | With a single product it means: the file is examined in full |
 | 3 | **Surveillance** at least annually, with audits also without notice | Annex IX, section 3 | Verification of implementation, of the surveillance data, of the corrective actions and of the updating of the file |
-| 4 | **Prior approval of substantial changes** to the system and to the device | Annex IX, sections 2.4 and 4.10 `[NV]` | It is the point at which the software release cycle and the regulatory regime come into conflict |
+| 4 | **Prior approval of substantial changes** to the system and to the device | Annex IX, sections 2.4 and 4.10 `[NV]` to be verified by `Compliance` | It is the point at which the software release cycle and the regulatory regime come into conflict |
 
-**The certificate has a maximum duration of five years** `[NV]` on the precise section reference,
+**The certificate has a maximum duration of five years** `[NV]` to be verified by `Compliance` on the precise section reference,
 renewable on a new assessment.
 
 **What the body does not do, and which needs to be known before looking for one.** It does not
@@ -553,7 +554,7 @@ III, must appear - and the **designation codes** relating to device types, estab
 and falls under a code of the `MDA` family corresponding to the clinical function, alongside a
 horizontal code of the `MDS` family relating to devices incorporating software.
 
-> **`[NV]` - The exact codes have not been confirmed against a primary source.** The number of the
+> **The exact codes `[NV]` - to be asked of the candidate bodies have not been confirmed against a primary source.** The number of the
 > `MDA` code applicable to telemedicine and remote monitoring software and the literal wording of
 > the horizontal code must be taken from the annex to the implementing regulation. In any event, and
 > independently of that verification, the reliable route is **to ask each candidate body to state in
@@ -644,7 +645,7 @@ a banal form: the file refers to an artefact that was automatically deleted nine
 a change to the information supplied by the manufacturer (§ 5), and every change to public
 communication may be an uncontrolled change to the intended purpose
 ([02 §10](./02-qualificazione-e-classificazione.md)). The guard is the regulatory review step for
-public texts, question `Q-174`. It is the only guard in the whole area that does not go through an
+public texts, question [`Q-174`](../11_registri/02-questioni-aperte.md#q-174). It is the only guard in the whole area that does not go through an
 automated check and that no continuous integration control catches.
 
 ## 16. Self-check list before delivering a file
@@ -662,21 +663,21 @@ quality of the product. They must be checked before delivery, and checking costs
 6. **The risk file and the general requirements matrix cite each other** and do not diverge.
 7. **The intended purpose cited in the file, the one in the interface and the one in the public
    material are the same**, word for word wherever they are quoted.
-8. **No document of the file uses a formulation prohibited** by constraint `V-171`.
+8. **No document of the file uses a formulation prohibited** by constraint [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171).
 9. **The release's bill of materials corresponds to what a new build would produce**: no floating
-   tags, for the reason in clause 8.1.2 and not out of operational preference (`V-173`).
+   tags, for the reason in clause 8.1.2 and not out of operational preference ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)).
 10. **The surveillance plan states indicators the system actually produces.**
 
 ## 17. What this chapter leaves open
 
 | Reference | Question | To whom |
 |---|---|---|
-| `Q-172` | **Versioning structure of the identified distribution and its relationship with the unique device identifier.** The project does not assign the identifier (item 1.1 b), but its choice of how a distribution is numbered and composed determines what that code will identify, which changes are new versions and which are new devices. It must be decided **before** the first release of the distribution, because a later renumbering is a discontinuity of identification | → Project owner, with architecture |
-| `Q-115` | Operating environment thresholds and reference device: without them item 6.1 b has no test perimeter and `MDR-ENV-001` cannot be drafted (§ 9) | Technical, product |
-| `Q-173` | Whether the presentation of parameters constitutes a **measuring function**: it determines the applicability of a block of Annex I requirements (§ 9) | Domain, functional |
-| `Q-116` | Retention of observability signals and window for reconstructing an incident: it conditions the executability of the surveillance plan (§ 10) | Compliance, technical |
-| `Q-155` | Declared support period and end-of-support date, an element of `MDR-LIFE-001` (§ 9) | → Project owner |
-| `Q-07` | Document templates, type codes and metadata of the health record document types: not publicly available. It conditions item 6.1 for the documentary part | Compliance, with a third-party body |
-| `Q-24` | Formal adoption as an architecture decision record of the artefact → regime table ([01 §5.1](./01-inquadramento-normativo.md)): it affects the perimeter of the file, because it establishes which artefacts are covered by the marking and which are not | → Project owner, with architecture |
-| `[NV]` | Precise numbering of the sections of Annex I and Annex IX cited in §§ 7 and 13, and the duration of the retention obligation in § 1: to be re-verified against the consolidated text before appearing in a controlled document | Compliance |
-| `[NV]` | Designation codes applicable to the device (§ 13) and harmonisation status of the standards on information supplied by the manufacturer and on symbols (§ 5) | Compliance |
+| [`Q-172`](../11_registri/02-questioni-aperte.md#q-172) | **Versioning structure of the identified distribution and its relationship with the unique device identifier.** The project does not assign the identifier (item 1.1 b), but its choice of how a distribution is numbered and composed determines what that code will identify, which changes are new versions and which are new devices. It must be decided **before** the first release of the distribution, because a later renumbering is a discontinuity of identification | → Project owner, with architecture |
+| [`Q-115`](../11_registri/02-questioni-aperte.md#q-115) | Operating environment thresholds and reference device: without them item 6.1 b has no test perimeter and `MDR-ENV-001` cannot be drafted (§ 9) | Technical, product |
+| [`Q-173`](../11_registri/02-questioni-aperte.md#q-173) | Whether the presentation of parameters constitutes a **measuring function**: it determines the applicability of a block of Annex I requirements (§ 9) | Domain, functional |
+| [`Q-116`](../11_registri/02-questioni-aperte.md#q-116) | Retention of observability signals and window for reconstructing an incident: it conditions the executability of the surveillance plan (§ 10) | Compliance, technical |
+| [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) | Declared support period and end-of-support date, an element of `MDR-LIFE-001` (§ 9) | → Project owner |
+| [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) | Document templates, type codes and metadata of the health record document types: not publicly available. It conditions item 6.1 for the documentary part | Compliance, with a third-party body |
+| [`Q-24`](../11_registri/02-questioni-aperte.md#q-24) | Formal adoption as an architecture decision record of the artefact → regime table ([01 §5.1](./01-inquadramento-normativo.md)): it affects the perimeter of the file, because it establishes which artefacts are covered by the marking and which are not | → Project owner, with architecture |
+| `[NV]` | Precise numbering of the sections of Annex I and Annex IX cited in §§ 7 and 13, and the duration of the retention obligation in § 1: to be re-verified against the consolidated text before appearing in a controlled document | `COMP` |
+| `[NV]` | Designation codes applicable to the device (§ 13): to be verified in the Commission's NANDO database; harmonisation status of the standards on information supplied by the manufacturer and on symbols (§ 5): to be verified against the Commission's consolidated list | a request to the Commission, NANDO |

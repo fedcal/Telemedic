@@ -27,7 +27,7 @@ distingua produce un'affermazione che non regge in sede di accertamento.
 
 ## 2. Il progetto non è accreditato, e questo cambia il perimetro
 
-**Vincolo V-05, che governa l'intero capitolo.** Un progetto software non può essere
+**Vincolo [V-05](../11_registri/01-vincoli-in-vigore.md#v-05), che governa l'intero capitolo.** Un progetto software non può essere
 accreditato presso la federazione nazionale delle identità digitali. Il fornitore di servizi,
 ai sensi del DPCM 24 ottobre 2014, art. 1, comma 1, lettera i), è chi **eroga servizi in rete**,
 e la convenzione con l'agenzia impegna a dichiarare l'elenco dei servizi attivi: **è chi
@@ -65,8 +65,8 @@ per agevolare gli sviluppi di chi ha già aderito alla federazione.
 
 La corrispondenza con i livelli europei - sostanziale e elevato ai sensi dell'art. 8, par. 2,
 del Regolamento (UE) 910/2014 - è quella comunemente assunta, **ma non è enunciata testualmente
-nel regolamento sulle modalità attuative**: `[NV]`. Se serve una dichiarazione formale, va
-verificata sulla documentazione di notifica del regime in sede europea. Non va asserita qui.
+nel regolamento sulle modalità attuative**: `[NV]`. Se serve una dichiarazione formale, deve essere
+verificata da `COMP` sulla documentazione di notifica del regime in sede europea. Non va asserita qui.
 
 ### 3.1 Quale livello per i dati sanitari: la risposta scomoda
 
@@ -87,7 +87,7 @@ semplifichi in un senso o nell'altro sarebbe scorretta:
   non è stato reperito**: `[NV]`, va richiesto all'agenzia;
 - il livello 3 richiede all'assistito un dispositivo crittografico. Imporlo per accedere a una
   televisita produrrebbe **esclusione di massa**, in tensione diretta con il vincolo di
-  accessibilità V6 e con la finalità di equità del servizio. È una considerazione di sicurezza
+  accessibilità [V6](../11_registri/03-vincoli-fondanti.md#v6) e con la finalità di equità del servizio. È una considerazione di sicurezza
   del paziente, non di comodità: un servizio inaccessibile alla popolazione che ne ha più
   bisogno non è un servizio più sicuro.
 
@@ -185,7 +185,7 @@ Per confronto, il token emesso quando è il progetto ad aver autenticato la pers
 ```
 
 **Le quattro regole di autorizzazione che ne discendono** - proposta di progetto, pubblicate
-come vincolo V-154:
+come vincolo [V-154](../11_registri/01-vincoli-in-vigore.md#v-154):
 
 1. Un'operazione che la normativa lega all'**autenticazione forte** ai sensi dell'art. 64 del
    Codice dell'amministrazione digitale - accesso al fascicolo, accesso a infrastrutture
@@ -200,7 +200,7 @@ come vincolo V-154:
    rispondere alla domanda «quale sistema ha agito per conto di quale persona, con quale
    garanzia di identità».
 
-**Il livello propagato è quello richiesto, non quello asserito** (vincolo V-25 dell'area di
+**Il livello propagato è quello richiesto, non quello asserito** (vincolo [V-165](../11_registri/01-vincoli-in-vigore.md#v-165) dell'area di
 integrazione, che quest'area recepisce). Ne discende un obbligo di registrazione doppia:
 `acr_requested` e `acr_asserted` sono **entrambi** conservati, sempre. La ragione è nel §5.
 
@@ -212,7 +212,7 @@ l'elemento del contesto di autenticazione **nella risposta è sempre valorizzato
 
 Se questa formulazione è quella corrente - e va verificata empiricamente in preproduzione
 prima di dichiarare in documentazione pubblica come il progetto propaga il livello: `[NV]`,
-questione Q-153 della bacheca - ne discendono tre conseguenze che non sono cosmetiche:
+questione [Q-153](../11_registri/02-questioni-aperte.md#q-153) della bacheca - ne discendono tre conseguenze che non sono cosmetiche:
 
 1. **Il fornitore di servizi non può dedurre dalla risposta con quale fattore la persona si sia
    effettivamente autenticata.** Un accesso con sola password e un accesso con carta e codice
@@ -229,8 +229,8 @@ Resta aperta una verifica ulteriore, di costo quasi nullo e sul percorso critico
 verificato** se il prodotto di federazione, agendo da client verso un fornitore di identità
 esterno, inoltri il parametro di livello richiesto attraverso il realm di intermediazione. Se
 non lo inoltra, l'innalzamento di livello per operazione non è ottenibile per sola
-configurazione. È la questione Q-18 della bacheca, aperta dall'area di integrazione, e la
-Q-153 aperta da quest'area.
+configurazione. È la questione [`Q-160`](../11_registri/02-questioni-aperte.md#q-160) della bacheca, aperta dall'`INTEG`, e la
+[Q-153](../11_registri/02-questioni-aperte.md#q-153) aperta da quest'area.
 
 ## 6. Il realm broker
 
@@ -317,7 +317,7 @@ alimentare anche:
 Tre registri separati divergono, sempre, e **la divergenza è sistematicamente a favore di chi
 attacca**: l'origine rimossa da un elenco e non dall'altro resta valida sul secondo. La forma
 concreta del registro - una sola tabella, una sola configurazione, un solo punto di verifica -
-è **decisione di architettura**, e quest'area la apre come questione (Q-156) invece di
+è **decisione di architettura**, e quest'area la apre come questione ([Q-156](../11_registri/02-questioni-aperte.md#q-156)) invece di
 deciderla.
 
 ## 7. I tre difetti del prodotto di federazione, trattati come rischi
@@ -447,7 +447,7 @@ Tre regole ulteriori, tutte con effetto sul modello di autorizzazione:
 
 ## 10. L'accesso d'emergenza è un requisito, non un'eccezione
 
-**Vincolo V-153.** In sanità esistono situazioni in cui l'accesso al dato è necessario e la
+**Vincolo [V-153](../11_registri/01-vincoli-in-vigore.md#v-153).** In sanità esistono situazioni in cui l'accesso al dato è necessario e la
 relazione di cura non è ancora formalizzata: un soggetto in condizione critica, un turno
 sostitutivo non registrato, un guasto della componente che gestisce le prese in carico.
 
@@ -497,9 +497,9 @@ Requisiti, tutti obbligatori e tutti verificabili:
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| Q-153 | Verifica empirica dell'inoltro del contesto di autenticazione richiesto attraverso il broker e della sua traduzione nel protocollo di federazione. **Bloccante prima di dichiarare pubblicamente come si propaga il livello** | Integrazione, architettura |
-| Q-156 | Forma concreta del registro di fiducia unico per tenant (§6.2): una sola configurazione che alimenti federazione, origini di incorporamento, condivisione fra origini, destinazioni dei messaggi in uscita ed elenco consentito del mediatore | Architettura |
-| `[NV]` | Documento dell'agenzia che associa il livello di garanzia alla categoria dei servizi sanitari (§3.1) | Da richiedere all'agenzia |
-| `[NV]` | Mappatura formale fra i livelli nazionali e i livelli europei, che il regolamento non enuncia testualmente (§3) | Da verificare sulla documentazione di notifica |
-| `[NV]` | Conferma che il livello nella risposta dello schema documentale sia effettivamente sempre il massimo (§5) | Verifica empirica in preproduzione |
+| [Q-153](../11_registri/02-questioni-aperte.md#q-153) | Verifica empirica dell'inoltro del contesto di autenticazione richiesto attraverso il broker e della sua traduzione nel protocollo di federazione. **Bloccante prima di dichiarare pubblicamente come si propaga il livello** | Integrazione, architettura |
+| [Q-156](../11_registri/02-questioni-aperte.md#q-156) | Forma concreta del registro di fiducia unico per tenant (§6.2): una sola configurazione che alimenti federazione, origini di incorporamento, condivisione fra origini, destinazioni dei messaggi in uscita ed elenco consentito del mediatore | Architettura |
+| `[NV]` | Documento dell'agenzia che associa il livello di garanzia alla categoria dei servizi sanitari (§3.1) | Da chiedere all'agenzia SPID |
+| `[NV]` | Mappatura formale fra i livelli nazionali e i livelli europei, che il regolamento non enuncia testualmente (§3) | `COMP` sulla documentazione di notifica |
+| `[NV]` | Conferma che il livello nella risposta dello schema documentale sia effettivamente sempre il massimo (§5) | Q-153 - verifica empirica in preproduzione |
 | - | Scelta fra elenco di revoca e interrogazione puntuale dello stato del certificato (§8.1) | Architettura |

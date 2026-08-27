@@ -27,7 +27,9 @@ la teoria va riletta attraverso di esse, non applicata meccanicamente.
 Tutti gli esempi contengono **esclusivamente dati sintetici**.
 
 Convenzione di questo modulo: le affermazioni marcate **`[NV]`** non sono state verificate su
-fonte primaria durante la stesura e vanno confermate prima di trasformarle in codice o in
+fonte primaria durante la stesura e portano l'indicazione del destinatario in una delle tre forme
+ammesse (sigla d'area fra backtick, identificativo di questione, oppure soggetto esterno nominato
+secondo le regole di `CONTRIBUTING.md`); vanno confermate prima di trasformarle in codice o in
 requisito. Le decisioni del progetto sono citate con il loro identificativo (`D15`, `V4`…)
 e si trovano nel *context pack* del progetto.
 
@@ -83,8 +85,8 @@ sette è un punto in cui la terza possibilità si manifesta.
 Peter Deutsch formulò alla Sun Microsystems, alla fine degli anni Novanta, un elenco di
 assunzioni che ogni programmatore inesperto di sistemi distribuiti fa senza accorgersene, e
 che sono tutte false; James Gosling aggiunse l'ottava. L'elenco circola come «le otto
-fallacie del calcolo distribuito». **`[NV]`** la paternità esatta e la data di prima
-formulazione non sono state verificate su fonte primaria durante la stesura di questo modulo;
+fallacie del calcolo distribuito". La paternità esatta e la data di prima
+formulazione non sono state verificate su fonte primaria durante la stesura di questo modulo: **`[NV]`** deve verificarle `GUIDA`;
 il contenuto tecnico, invece, è ampiamente riscontrabile nell'esperienza operativa.
 
 Le riprendiamo una per una con l'esempio del dominio che le smentisce.
@@ -222,8 +224,7 @@ fiducia in ambito clinico non si recupera.
 ### 2.2 Il teorema CAP, e soprattutto cosa non dice
 
 Il **teorema CAP** - congetturato da Eric Brewer nel 2000 e dimostrato formalmente da Gilbert
-e Lynch nel 2002 **`[NV]`** (attribuzione e date non verificate su fonte primaria in questa
-stesura) - afferma che un sistema distribuito che replica dati non può garantire
+e Lynch nel 2002; l'attribuzione e le date non sono state verificate su fonte primaria durante la stesura: **`[NV]`** deve verificarle `GUIDA` - afferma che un sistema distribuito che replica dati non può garantire
 contemporaneamente tutte e tre le proprietà seguenti:
 
 - **C**onsistenza, nel senso di linearizzabilità;
@@ -242,8 +243,7 @@ obsoleto (si privilegia A), oppure rifiutare di rispondere finché la partizione
 (si privilegia C).
 
 **Non è vero che CAP dica qualcosa sul comportamento normale.** Il teorema parla solo del
-regime di partizione. Un modello più utile in progettazione è **PACELC**, formulato da Daniel
-Abadi **`[NV]`**: *if Partition, then A or C; Else, then L or C* - cioè, quando la rete
+regime di partizione. Un modello più utile in progettazione è **PACELC**, formulato da Daniel Abadi, secondo la formulazione che non è stata verificata su fonte primaria durante la stesura: **`[NV]`** deve verificarla `GUIDA`: *if Partition, then A or C; Else, then L or C* - cioè, quando la rete
 funziona, resta comunque un compromesso fra **latenza** e consistenza. Ogni garanzia di
 consistenza più forte si paga con round-trip aggiuntivi. In un sistema con un budget di
 latenza di 200 ms questo non è un dettaglio accademico.
@@ -358,11 +358,7 @@ Le anomalie classiche:
 Due precisazioni operative che valgono più della tabella.
 
 **Il livello predefinito di PostgreSQL è *read committed*.** Significa che, salvo che tu non
-faccia qualcosa di esplicito, le tue transazioni ammettono letture non ripetibili e fantasmi.
-**`[NV]`** il comportamento esatto del livello *repeatable read* in PostgreSQL - che è
-implementato come *snapshot isolation* e in pratica esclude anche i fantasmi, pur ammettendo
-la scrittura obliqua - va verificato sulla documentazione della versione effettivamente
-adottata prima di farne affidamento in un requisito.
+faccia qualcosa di esplicito, le tue transazioni ammettono letture non ripetibili e fantasmi. Il comportamento esatto del livello *repeatable read* in PostgreSQL - che è implementato come *snapshot isolation* e in pratica esclude anche i fantasmi, pur ammettendo la scrittura obliqua - va verificato sulla documentazione della versione effettivamente adottata prima di farne affidamento in un requisito: **`[NV]`** deve farlo `TECH`.
 
 **La scrittura obliqua è il modo in cui l'overbooking involontario entra nel sistema.** Ecco
 l'esempio del dominio nella sua forma esatta. Due operatori di front-office prenotano
@@ -440,8 +436,7 @@ Una **saga** è una sequenza di transazioni locali. Ogni passo confermato è vis
 immediatamente; se un passo successivo fallisce, i passi già eseguiti vengono neutralizzati
 non annullandoli, ma eseguendo per ciascuno una **transazione di compensazione** che ne
 contrasta gli effetti. Il concetto è stato introdotto da Hector Garcia-Molina e Kenneth Salem
-in un articolo del 1987 **`[NV]`** (riferimento bibliografico esatto non verificato in questa
-stesura).
+in un articolo del 1987; il riferimento bibliografico esatto non è stato verificato su fonte primaria durante la stesura: **`[NV]`** deve verificarlo `GUIDA`.
 
 Esistono due stili di orchestrazione.
 
@@ -455,10 +450,7 @@ Esistono due stili di orchestrazione.
   esterno come si comporta il sistema in caso di guasto (ciclo di vita del software secondo
   `RNF-077`), la leggibilità del flusso non è un lusso.
 
-Il progetto adotta l'orchestrazione per i flussi clinici critici. **`[NV]`** la scelta
-specifica del meccanismo di orchestrazione (motore di workflow dedicato, macchina a stati
-persistita in tabella, componente applicativo) non è oggetto di una decisione approvata al
-momento della stesura e va formalizzata in un registro di decisione architetturale.
+Il progetto adotta l'orchestrazione per i flussi clinici critici. La scelta specifica del meccanismo di orchestrazione (motore di workflow dedicato, macchina a stati persistita in tabella, componente applicativo) non è oggetto di una decisione approvata al momento della stesura: **`[NV]`** deve formalizzarla e documentarla `ARCH`.
 
 ### 3.5 Perché una compensazione clinica non è un annullamento
 
@@ -654,9 +646,7 @@ esiste e va usata.
 Va detto con chiarezza che **il partizionamento non è gratis**: sceglierlo per aggregato
 significa che il numero di partizioni determina il parallelismo massimo, e che aumentare le
 partizioni a posteriori **cambia la funzione di assegnazione** e quindi può spezzare l'ordine
-degli aggregati in transito. **`[NV]`** il comportamento esatto del riassegnamento in
-aumento di partizioni per la versione di Kafka adottata va verificato sulla documentazione
-prima di pianificare un ridimensionamento in esercizio.
+degli aggregati in transito. Il comportamento esatto del riassegnamento in aumento di partizioni per la versione di Kafka adottata va verificato sulla documentazione prima di pianificare un ridimensionamento in esercizio: **`[NV]`** deve verificarlo `TECH`.
 
 ### 4.5 Gruppi di consumatori
 
@@ -843,11 +833,7 @@ costrutto che permette a più lavoratori di prendere lotti disgiunti senza blocc
 della base dati e ne estrae le inserzioni sulla tabella outbox. Latenza molto più bassa,
 nessun carico di interrogazione, ma introduce un componente infrastrutturale in più da
 installare, aggiornare, sorvegliare e censire come componente software di terze parti - con
-tutti gli obblighi che questo comporta nel regime del progetto. **`[NV]`** la scelta fra le
-due modalità non è oggetto di una decisione approvata al momento della stesura; il criterio
-ragionevole è adottare l'interrogazione periodica come modalità predefinita, per contenere il
-peso operativo dell'installazione presso il cliente, e la cattura delle modifiche come
-opzione per gli assetti a volume elevato.
+tutti gli obblighi che questo comporta nel regime del progetto. La scelta fra le due modalità non è oggetto di una decisione approvata al momento della stesura: il criterio ragionevole è adottare l'interrogazione periodica come modalità predefinita, per contenere il peso operativo dell'installazione presso il cliente, e la cattura delle modifiche come opzione per gli assetti a volume elevato; **`[NV]`** deve decidere `ARCH`.
 
 ### 5.4 Quali garanzie dà l'outbox, e quali no
 
@@ -938,9 +924,7 @@ legittime, nessuna delle quali è ciò che il nome suggerisce.
 - **Elaborazione esattamente una volta *all'interno* del sistema**: se lettura del messaggio,
   aggiornamento dello stato e scrittura del risultato avvengono nella stessa transazione del
   broker, l'effetto interno è unico anche in presenza di duplicati di trasporto. Kafka lo offre
-  per flussi che restano dentro Kafka. **`[NV]`** i limiti esatti di questa garanzia nella
-  versione adottata e nell'assetto a nodo singolo previsto da `D15` vanno verificati sulla
-  documentazione prima di farne affidamento.
+  per flussi che restano dentro Kafka. I limiti esatti di questa garanzia nella versione adottata e nell'assetto a nodo singolo previsto da `D15` vanno verificati sulla documentazione prima di farne affidamento: **`[NV]`** deve verificarli `TECH`.
 - **Deduplicazione al ricevente**: il ricevente riconosce di aver già visto quel messaggio e
   non ripete l'effetto. È *almeno una volta* più idempotenza, e produce un risultato
   osservabile equivalente all'esattamente-una-volta.
@@ -1192,8 +1176,7 @@ verifica di sicurezza o di liceità. `RF-114` non ammette eccezioni per lentezza
 
 ## 7. Domain-Driven Design
 
-Il *Domain-Driven Design* - «progettazione guidata dal dominio», formulato da Eric Evans in un
-libro del 2003 **`[NV]`** - non è un insieme di tecniche di codifica. È una tesi: **in un
+Il *Domain-Driven Design* - «progettazione guidata dal dominio», formulato da Eric Evans in un libro del 2003; la fonte non è stata verificata durante la stesura: **`[NV]`** deve verificarla `GUIDA` - non è un insieme di tecniche di codifica. È una tesi: **in un
 sistema complesso, la difficoltà principale non è tecnica ma di comprensione del dominio**, e
 il codice deve essere organizzato in modo da rendere quella comprensione esplicita e
 verificabile da chi il dominio lo conosce.
@@ -1670,9 +1653,7 @@ professionista che refertata da un'altra sede.
 **L'ora legale crea istanti che non esistono e istanti che esistono due volte.** L'ultima
 domenica di marzo, nel fuso italiano, le 02:30 non esistono: l'orologio salta da 02:00 a
 03:00. L'ultima domenica di ottobre, le 02:30 esistono due volte. Un'agenda che genera slot
-ricorrenti alle 02:30 produrrà, in quei due giorni, uno slot inesistente e uno slot doppio.
-**`[NV]`** il comportamento specifico della libreria di gestione delle date adottata su queste due
-condizioni va verificato con prove dedicate, non assunto.
+ricorrenti alle 02:30 produrrà, in quei due giorni, uno slot inesistente e uno slot doppio. Il comportamento specifico della libreria di gestione delle date adottata su queste due condizioni va verificato con prove dedicate, non assunto: **`[NV]`** deve verificarlo `TECH`.
 
 **Il fuso non è uno scostamento.** «+01:00» è uno scostamento; «Europe/Rome» è un fuso, cioè
 una regola che nel tempo cambia scostamento. Per un evento **futuro** ricorrente va
@@ -1707,8 +1688,7 @@ servono, cioè in un'indagine post-incidente.
 Poiché l'orologio fisico non è affidabile per l'ordinamento, si usa un **orologio logico**: un
 contatore che non misura il tempo ma cattura la **relazione di precedenza causale**.
 
-Il modello di base è il contatore di Lamport **`[NV]`** (formulato da Leslie Lamport in un
-articolo del 1978; riferimento non verificato in questa stesura): ogni processo tiene un
+Il modello di base è il contatore di Lamport, formulato da Leslie Lamport in un articolo del 1978; il riferimento non è stato verificato durante la stesura: **`[NV]`** deve verificarlo `GUIDA`: ogni processo tiene un
 contatore, lo incrementa a ogni evento locale, lo allega a ogni messaggio inviato, e alla
 ricezione lo porta al massimo fra il proprio e quello ricevuto, più uno. La proprietà che ne
 deriva: se un evento A ha causato un evento B, allora il contatore di A è minore di quello di
@@ -2168,9 +2148,7 @@ tempo di rete del paziente su rete mobile, che è precisamente la parte peggiore
 richieste al minuto è calcolato su una richiesta al minuto: è rumore. E un generatore di carico
 che attende la risposta prima di inviare la richiesta successiva **non misura** i ritardi di
 attesa in coda, perché smette di generare carico proprio quando il sistema rallenta - un
-fenomeno noto come omissione coordinata, che fa apparire buoni i sistemi saturi. **`[NV]`** il
-comportamento specifico degli strumenti di prova di carico adottati rispetto a questo fenomeno
-va verificato prima di considerare valide le misure.
+fenomeno noto come omissione coordinata, che fa apparire buoni i sistemi saturi. Il comportamento specifico degli strumenti di prova di carico adottati rispetto a questo fenomeno va verificato prima di considerare valide le misure: **`[NV]`** deve verificarlo `TECH`.
 
 Un fatto poco intuitivo e importante per il progetto: **con più chiamate a valle, il caso
 peggiore diventa il caso normale**. Se una schermata clinica richiede dieci chiamate
@@ -2193,8 +2171,7 @@ L = λ × W
 - **λ** = tasso medio di arrivo (richieste al secondo);
 - **W** = tempo medio di permanenza nel sistema.
 
-La legge è dimostrata da John Little **`[NV]`** (1961; riferimento non verificato in questa
-stesura) e ha una proprietà notevole: **non dipende dalla distribuzione degli arrivi né dalla
+La legge è dimostrata da John Little nel 1961; il riferimento non è stato verificato durante la stesura: **`[NV]`** deve verificarlo `GUIDA`. La legge ha una proprietà notevole: **non dipende dalla distribuzione degli arrivi né dalla
 disciplina della coda**. Vale per qualunque sistema stabile.
 
 Tre usi pratici nel dominio.

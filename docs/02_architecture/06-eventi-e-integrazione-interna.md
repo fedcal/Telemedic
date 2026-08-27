@@ -128,7 +128,7 @@ dato nel corpo - non è adottata come predefinita.
   "subject": "documento/doc-000042",
   "time": "2026-08-25T09:14:07.412Z",
   "datacontenttype": "application/json",
-  "dataschema": "https://esempio.invalido/schemi/documento-firmato/1.json",
+  "dataschema": "https://esempio.invalid/schemi/documento-firmato/1.json",
   "tenantid": "t0001",
   "sequence": "184",
   "correlationid": "01J8ZK4M0000000000000000",
@@ -246,7 +246,7 @@ esercizio, in modo intermittente, presso un integratore. L'ordine fra eventi che
 chiave di partizionamento vale **se e solo se** valgono insieme le tre condizioni seguenti.
 
 1. **Un solo lavoratore per volta detiene le righe di una data chiave.** Il relay preleva le righe
-   dall'outbox con un blocco che **salta quelle già prese** (`03-persistenza.md` §7): è ciò che
+   dall'outbox con un blocco che **salta quelle già prese** ([`03-persistenza.md`](../01_technical/03-persistenza.md) §7): è ciò che
    consente a più istanze di lavorare in parallelo senza coordinatore, ed è anche ciò che consente
    a due istanze di prendere due lotti che contengono eventi dello stesso aggregato e di
    pubblicarli in ordine invertito. Non è un difetto di realizzazione: è una proprietà del
@@ -258,7 +258,7 @@ chiave di partizionamento vale **se e solo se** valgono insieme le tre condizion
 3. **Il numero di partizioni non cambia.** L'aumento delle partizioni in esercizio può spezzare
    l'ordine per aggregato durante il riassestamento: è il punto `[NV]` già dichiarato in
    [ADR-0010](../adr/0010-buste-cloudevents-consegna-e-idempotenza.md) e in §4.2, e la verifica è a
-   carico dell'area tecnica **prima** di qualunque ridimensionamento.
+   carico dell'`TECH` **prima** di qualunque ridimensionamento.
 
 Fuori da queste condizioni l'ordine **non è garantito**, e il contratto pubblico lo dichiara come
 non garantito. È la stessa disciplina che l'ADR si impone quando scrive che il contratto è
@@ -287,10 +287,9 @@ Il consumatore che ha già applicato il numero `n` scarta ciò che arriva con un
 uguale. È il meccanismo che rende l'ordine di arrivo **irrilevante** senza costringere a code
 ordinate, che sono costose e fragili - un evento bloccato blocca tutta la chiave.
 
-Una nota di prudenza operativa: `[NV]` - l'aumento del numero di partizioni di un argomento in
-esercizio può cambiare la funzione di assegnazione e quindi spezzare l'ordine per aggregato durante
-il riassestamento. La verifica sul broker adottato è a carico dell'area tecnica **prima** di
-qualunque ridimensionamento in esercizio.
+Una nota di prudenza operativa: l'aumento del numero di partizioni di un argomento in esercizio
+può cambiare la funzione di assegnazione durante il riassestamento, con verifica da `TECH` `[NV]`
+sul broker adottato **prima** di qualunque ridimensionamento in esercizio.
 
 ### 4.3 Idempotenza per costruzione
 
@@ -308,10 +307,9 @@ Le tre forme, in ordine di preferenza:
 
 Due effetti in questo sistema **non sono ritrattabili** e vanno protetti con la terza forma: il
 recapito di un messaggio a una persona, e il deposito di un documento in un'infrastruttura
-documentale esterna. Un messaggio inviato due volte a un assistito non è un difetto tecnico
-invisibile: è un'esperienza che genera dubbio su un contenuto sanitario. `[NV]` - la finestra di
-conservazione delle chiavi di deduplicazione va fissata dall'area tecnica in coerenza con la
-finestra massima di ritentativo di §5.1 e non può essere inferiore a essa.
+documentale esterna. Un messaggio inviato due volte a un assistito non è un difetto tecnico invisibile: è un'esperienza
+che genera dubbio su un contenuto sanitario. La finestra di conservazione delle chiavi di deduplicazione va fissata da `TECH` in coerenza con
+la finestra massima di ritentativo di §5.1 e non può essere inferiore a essa `[NV]`.
 
 ## 5. Ritentativi e fallimento
 
@@ -430,9 +428,9 @@ cancellazione; rettifica di un documento già trasmesso.
 5. **Il processo ha un termine.** Un processo che resta indefinitamente in un passo intermedio è un
    fallimento silenzioso: dopo la durata dichiarata entra in una coda presidiata.
 
-`[NV]` - Il **meccanismo** di realizzazione dell'orchestrazione - motore dedicato, macchina a stati
-persistita in tabella, componente applicativo - non è deciso in quest'area: la decisione è
-rinviata con i criteri in [09 - Decisioni rinviate](09-decisioni-rinviate.md). Ciò che è deciso è
+Il **meccanismo** di realizzazione dell'orchestrazione - motore dedicato, macchina a stati
+persistita in tabella, componente applicativo - **non è deciso da questa area** e rimanda a `ARCH` `[NV]`
+con i criteri in [09 - Decisioni rinviate](09-decisioni-rinviate.md). Ciò che è deciso è
 la **strategia**, perché è quella che vincola le altre aree.
 
 ## 7. Eventi verso l'esterno
@@ -453,7 +451,7 @@ di integrazione. Quest'area fissa i vincoli architetturali che ne discendono.
    un indirizzo non fidato. La protezione è realizzata **una volta sola nel mediatore unico di
    uscita**, ed è un **requisito architetturale e non una regola di codifica**: ai componenti
    applicativi l'uscita è **negata a livello di rete**, così che la difesa non dipenda dalla
-   correttezza del codice (vincolo V-157 dell'area di sicurezza). Vi confluiscono cinque punti di
+   correttezza del codice (vincolo [V-157](../11_registri/01-vincoli-in-vigore.md#v-157) dell'area di sicurezza). Vi confluiscono cinque punti di
    uscita: gateway terminologico, interoperabilità verso le infrastrutture, messaggi verso
    l'integratore, risoluzione di riferimenti assoluti nelle risorse, recupero di materiale di
    chiavi. **Il relay non vi confluisce e non deve**: per esso vale l'isolamento di rete dedicato.
@@ -510,9 +508,9 @@ del bilanciatore senza risolvere l'ordinamento.
 | EV-1 | La scrittura del dato e quella dell'evento sono nella stessa transazione: se la transazione fallisce, non esiste evento | Assenza di eventi fantasma |
 | EV-2 | Interrompendo il processo fra il consolidamento e la pubblicazione, l'evento viene pubblicato al ripristino | Assenza di eventi persi |
 | EV-3 | Consegnando due volte lo stesso evento, lo stato del consumatore è identico | Idempotenza effettiva |
-| EV-4 | Ogni evento pubblicato porta il tenant | Vincolo V4 |
+| EV-4 | Ogni evento pubblicato porta il tenant | Vincolo [V4](../11_registri/03-vincoli-fondanti.md#v4) |
 | EV-5 | Un evento senza tenant finisce nella coda dei messaggi non elaborabili | §3.2 |
-| EV-6 | Nessun evento verso l'esterno contiene contenuto clinico | Vincolo V-161 dell'area integrazione |
+| EV-6 | Nessun evento verso l'esterno contiene contenuto clinico | Vincolo [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) dell'area integrazione |
 | EV-7 | Ogni tipo di evento ha uno schema registrato e versionato | Contratto pubblico |
 | EV-8 | Una modifica non retrocompatibile di uno schema fa fallire la costruzione se non è accompagnata da una nuova versione del tipo | Evoluzione governata |
 | EV-9 | La riesecuzione di un messaggio non elaborabile riusa lo stesso identificativo | Deduplicazione preservata |
@@ -528,4 +526,4 @@ del bilanciatore senza risolvere l'ordinamento.
 | §4.2 | Effetto dell'aumento del numero di partizioni sull'ordine per aggregato durante il riassestamento | Area tecnica, prima di qualunque ridimensionamento |
 | §4.3 | Finestra di conservazione delle chiavi di deduplicazione, in coerenza con la finestra massima di ritentativo | Area tecnica |
 | §2.4 | Limiti effettivi delle garanzie del broker nell'assetto a nodo singolo previsto per l'installazione presso il cliente | Area tecnica |
-| §6.3 | Meccanismo di realizzazione dell'orchestrazione | Decisione rinviata, criteri in `09-decisioni-rinviate.md` |
+| §6.3 | Meccanismo di realizzazione dell'orchestrazione | Decisione rinviata, criteri in [`09-decisioni-rinviate.md`](../02_architecture/09-decisioni-rinviate.md) |

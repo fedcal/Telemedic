@@ -97,7 +97,7 @@ The Telemedic gateway realises token exchange in-house, as D18 imposes. On the t
 
 1. **The integrator's incoming token is validated entirely before anything else**: signature on key resolved from public material declared for that tenant, expected issuer, expected audience, time window with declared tolerance, key identifier present in the set allowed for that tenant. A token that does not pass even one of these checks does not produce an internal token and does not produce an access record: it is an attempt rejected and as such ends up in tracing.
 2. **Delegation is always represented with the actor claim**, never by substituting the subject. The difference is substantial at post-incident investigation time: delegation says "X acted for account of Y", impersonation says "it was Y", and erases real responsibility.
-3. **The authentication assurance level travels in the dedicated claim and is qualified with a marker own to the project** that distinguishes authentication **performed** by Telemedic from that **reported** by the integrator. Constraint V-18 of `INTEG` and constraint V-17 of `SEC` converge on this point and this area adopts them: an operation that the standard ties to strong authentication requires a level **performed**, and verification happens at the decision point, not at the gateway.
+3. **The authentication assurance level travels in the dedicated claim and is qualified with a marker own to the project** that distinguishes authentication **performed** by Telemedic from that **reported** by the integrator. Constraint [V-165](../11_registri/01-vincoli-in-vigore.md#v-165) of `INTEG` and constraint [V-154](../11_registri/01-vincoli-in-vigore.md#v-154) of `SEC` converge on this point and this area adopts them: an operation that the standard ties to strong authentication requires a level **performed**, and verification happens at the decision point, not at the gateway.
 4. **The tenant context is resolved here and only here.** From this point on it is a datum of the execution context, propagated explicitly and verified at the entrance of each context. It is never a request parameter: a parameter is controllable by the caller.
 
 The code of this boundary is critical security code and entails obligations of its own - independent external review, dedicated abuse tests, substantially total coverage on the validation path. The threat model is in `docs/06_security/`.
@@ -164,7 +164,7 @@ public class ChiudiSessioneMediaUseCase {
         sessioni.salva(sessione);
 
         // Same transaction as the datum: it is rule R1.
-        // The envelope carries no clinical content: it is constraint V-14 of INTEG.
+        // The envelope carries no clinical content: it is constraint V-161 of INTEG.
         outbox.accoda(EventoDominio.di(
                 "dev.telemedic.mediasession.chiusa.v1",
                 sessione.id(),
@@ -229,7 +229,7 @@ No datum coming from outside the process is considered valid: not that of the us
 
 **Profile validation is not optional and is not free.** Validating a clinical resource against a national profile requires the profile package and, for strong constraints, code resolution. The package is **fixed per version** and preserved as a build artefact: validation that changes outcome because upstream a package changed is validation that is not reproducible, which is unacceptable in a traceable system.
 
-**The terminology gateway must be able to be absent.** Constraint V-03 imposes that no main path requires a constrained-licence terminology. On the technical plane this means: the gateway has a declared degraded mode per coding system, in which the structure is validated and the code is accepted with outcome "not verified" recorded on the datum, not with a rejection. Constraint V-14 of `SEC` adds that to the external gateway no patient identifiers pass through and that no persistent cache on disk exists: both are implementation constraints of this component and must be tested.
+**The terminology gateway must be able to be absent.** Constraint [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) imposes that no main path requires a constrained-licence terminology. On the technical plane this means: the gateway has a declared degraded mode per coding system, in which the structure is validated and the code is accepted with outcome "not verified" recorded on the datum, not with a rejection. Constraint [V-151](../11_registri/01-vincoli-in-vigore.md#v-151) of `SEC` adds that to the external gateway no patient identifiers pass through and that no persistent cache on disk exists: both are implementation constraints of this component and must be tested.
 
 **Input validation is not invariant validation.** That a date is a date is checked at the boundary. That that date is compatible with the state of the service is checked in the domain. Confusing the two leads to duplicating clinical rules in the web layer, where no one looks for them and where they will diverge.
 
@@ -260,11 +260,11 @@ Project structure, with allowed extension members:
 
 ### 7.2 The non-negotiable rules
 
-1. **`detail` never contains clinical content nor patient direct identifiers.** It ends up in the caller's logs, which the project does not control. In the example above the message says *what* is wrong without saying *who* and *when*: the specific information is found with `traceId`, inside the perimeter. This adopts constraint V-13 of `SEC` and extends it to the errors channel, which is where leakage happens most often.
+1. **`detail` never contains clinical content nor patient direct identifiers.** It ends up in the caller's logs, which the project does not control. In the example above the message says *what* is wrong without saying *who* and *when*: the specific information is found with `traceId`, inside the perimeter. This adopts constraint [V-150](../11_registri/01-vincoli-in-vigore.md#v-150) of `SEC` and extends it to the errors channel, which is where leakage happens most often.
 2. **`type` is a resolvable address** that leads to the documentation page of the error, with typical causes and resolution. It is what transforms an error into an instruction.
 3. **The catalogue is generated.** The problem identifiers live in a versioned file from which the code constants, documentation and SDK types are generated. An uncatalogued error **must not be able to be emitted**: the default handler converts any unmapped exception into a generic problem with code 500, logs the original exception with its own correlation identifier and **does not** expose its message. An exposed exception message is a leak of structural information.
 4. **Errors are distinguished by nature, not by HTTP code.** A validation error, a domain state conflict, an unavailability of a downstream system and an internal defect are four different things for whoever investigates, even when two of them produce the same code. The distinction lives in the problem type identifier and in the internal classification.
-5. **No clinical error is silent.** If an alert was not delivered, the failure is a recorded fact subject to follow-up, not a log line. It descends directly from constraint V-09: the absence of data is information.
+5. **No clinical error is silent.** If an alert was not delivered, the failure is a recorded fact subject to follow-up, not a log line. It descends directly from constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09): the absence of data is information.
 
 ### 7.3 Hierarchy of exceptions
 
@@ -327,7 +327,7 @@ Profiles are orthogonal and combine; they are not a flat list.
 |---|---|---|
 | **Environment** | `dev` · `test` · `staging` · `prod` | Log verbosity, synthetic data generation, exposure of diagnostics endpoints, rigour of startup checks |
 | **Installation model** | `single-tenant` · `multi-tenant` | Tenant resolution (fixed vs token-derived), presence of multi-tenant administration panels |
-| **Time-series persistence** | `timeseries-extension` · `timeseries-native` | Implementation of the time-series repository (see `01-stack-e-motivazioni.md` §7.3) |
+| **Time-series persistence** | `timeseries-extension` · `timeseries-native` | Implementation of the time-series repository (see [`01-stack-e-motivazioni.md`](../01_technical/01-stack-e-motivazioni.md) §7.3) |
 | **Replaceable modules** | per module: `internal` · `external` · `disabled` | Reporting, agenda, billing: D14 imposes they be disableable and replaceable by configuration |
 | **Recording** | `off` · `server-side` | Presence of the recording component. See [`05-media-e-tempo-reale.md`](./05-media-e-tempo-reale.md) §8 |
 
@@ -341,11 +341,11 @@ Profiles are orthogonal and combine; they are not a flat list.
 
 A short list, but it is what keeps the boundaries.
 
-- **Does not generate clinical content.** It persists what the professional has drafted. It is constraint V2 and goes all the way: no precompletion that produces clinical statements, no automatic synthesis presented as report content.
-- **Does not infer thresholds.** Thresholds are configured by the professional per patient (V-02). The system applies them and traces the calculation; it does not propose them and does not adapt them.
+- **Does not generate clinical content.** It persists what the professional has drafted. It is constraint [V2](../11_registri/03-vincoli-fondanti.md#v2) and goes all the way: no precompletion that produces clinical statements, no automatic synthesis presented as report content.
+- **Does not infer thresholds.** Thresholds are configured by the professional per patient ([V-02](../11_registri/01-vincoli-in-vigore.md#v-02)). The system applies them and traces the calculation; it does not propose them and does not adapt them.
 - **Does not decipher media.** In the default mode it does not have the keys and cannot have them. In recording mode the recording component is a separate service, with its own perimeter, and the difference is declared in consent and signalled in interface in a persistent way.
 - **Is not the owner of demographic data.** It works by reference to external identifiers of the origin system, as the archetype integrator profile imposes.
-- **Has no functionality reachable only from the interface.** It is constraint V3, reinforced by constraint V-17 of `INTEG`: capability and its contract are born together.
+- **Has no functionality reachable only from the interface.** It is constraint [V3](../11_registri/03-vincoli-fondanti.md#v3), reinforced by constraint [V-164](../11_registri/01-vincoli-in-vigore.md#v-164) of `INTEG`: capability and its contract are born together.
 
 ---
 

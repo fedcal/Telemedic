@@ -23,10 +23,9 @@ an iterative process throughout the device's entire lifecycle. **EN ISO 14971:20
 that describes that process and it is harmonised under the regulation.
 
 `[NV]` - **Whether the published reference is `EN ISO 14971:2019` or `EN ISO 14971:2019+A11:2021`
-must be verified against the Commission's consolidated list**, and the difference is not
+must be verified against the Commission's consolidated list** by `COMP`, and the difference is not
 nominalistic: it is amendment A11 that contains the annexes stating the deviations between the
-standard and the regulation (§ 3.4). The verification falls on whoever compiles the general safety
-and performance requirements matrix.
+standard and the regulation (§ 3.4).
 
 **The allocation, which holds for the whole chapter.** From `D58` the project intends to
 assume the role of manufacturer, and with `D63` that assumption is a **product requirement**; the
@@ -147,8 +146,8 @@ The method adopted by the project, to be taken up in the plan:
 `[NV]` - The approach is consistent with the framework of IEC 62304, which determines the safety
 class on the **possible harm** and not on the probability of the defect, and it is indicated as
 practicable by the technical report accompanying ISO 14971. **The precise reference to the section
-of that report must be verified against the text**, which is behind a paywall and has not been read:
-until then the plan's rationale rests on the technical argument, not on a citation.
+of that report must be verified against the text** by `COMP`, which is behind a paywall and has
+not been read: until then the plan's rationale rests on the technical argument, not on a citation.
 
 ### 3.4 "As far as possible", not "until the cell turns green"
 
@@ -159,8 +158,8 @@ correspondence annexes of amendment A11 to the standard flag a **deviation**: th
 the manufacturer to stop at its own acceptability criteria, the regulation does not.
 
 `[NV]` - **The literal wording and the numbering of the Annex I section must be verified against the
-consolidated text.** The substance - reduction "as far as possible" without economic considerations,
-and not "to a reasonably practicable level" - is settled and is to be adopted.
+consolidated text** by `COMP`. The substance - reduction "as far as possible" without economic
+considerations, and not "to a reasonably practicable level" - is settled and is to be adopted.
 
 Three editorial rules for the register follow, binding on the project:
 
@@ -534,7 +533,7 @@ Section 1 of Annex I requires risks to be acceptable **when weighed against the 
 patient**.
 
 `[NV]` - the precise numbering of the point in Article 2 and of the sections of Annex I must be
-verified against the consolidated text.
+verified against the consolidated text by `COMP`.
 
 **The point with organisational consequences.** The benefit is a **clinical** fact. The numerator is
 not "the system works well": it is "a person obtains a measurable health advantage". It follows
@@ -700,7 +699,8 @@ six months later, a false document.
 ## 11. The ten recurrent findings, as a self-check list
 
 To be used before considering the file closed. `[NV]` - the list derives from industry literature on
-recurrent findings, not from an institutional document, and it is ordered by expected frequency.
+recurrent findings, not from an institutional document, and it is ordered by expected frequency, to
+be verified by `COMP` against published guidance from notified bodies.
 
 | # | Finding | Where it is dealt with |
 |---|---|---|

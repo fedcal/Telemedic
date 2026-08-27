@@ -7,7 +7,7 @@ description: "Why the report of a remote service is a composition within a docum
 # ADR-0004 - Documentary composition as primary artefact of the report
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference decisions**: D13; constraint V2
+**Reference decisions**: D13; constraint [V2](../11_registri/03-vincoli-fondanti.md#v2)
 
 ## Context
 

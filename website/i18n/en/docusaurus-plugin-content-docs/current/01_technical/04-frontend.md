@@ -59,7 +59,7 @@ This matters because the reference use case is a patient on mobile network openi
 
 The artefact that the integrator embeds in their interface is a **custom element conforming to the web components standard**, not an application mounted inside another. The reasons are contractual: not imposing a framework (project implication n. 1 of the archetype integrator profile) and not letting the container's styles alter the component.
 
-Implementation constraints, which adopt constraint V-16 of `INTEG`:
+Implementation constraints, which adopt constraint [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) of `INTEG`:
 
 - **Style isolation** with shadow root. No injection of external stylesheets, in any form.
 - **Closed and versioned set of theme properties**, exposed as platform custom properties. The proposed value is **validated server-side with contrast verification**, and configuration that degrades accessibility is **rejected on save**, not accepted with a warning.
@@ -128,7 +128,7 @@ Actions that modify state - accepting consent, closing a session, entering a mea
 
 The header the key travels in must be documented for what it is: **a consolidated convention between implementations, not a standard**. The draft that defined it has expired and been archived (correction C-02 on the noticeboard), and citing it as a standard would be an error that shows.
 
-The queue is **limited and visible**. If an operation does not succeed after the foreseen attempts, the user knows and knows what to do; an icon does not spin silently. Constraint V-09 applies here too: an operation in unknown clinical state is a risk, not a detail of user experience.
+The queue is **limited and visible**. If an operation does not succeed after the foreseen attempts, the user knows and knows what to do; an icon does not spin silently. Constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) applies here too: an operation in unknown clinical state is a risk, not a detail of user experience.
 
 ### 4.3 Degradation
 
@@ -152,7 +152,10 @@ The balance is a project constraint, verified in continuous integration, not an 
 | Time to first useful interaction on reference device and simulated mobile network | Declared threshold | Synthetic test on declared network and CPU profile |
 | Number of blocking requests before first useful screen | The minimum necessary, declared per path | Test |
 
-`[NV]` - **the numeric values of the thresholds are not fixed in this document.** They must be determined on a chosen and declared reference device, with a measurement, and published as product specification. Fixing them here a priori would produce unverified figures, and constraint V-12 applies also in the opposite sense: an invented threshold does not become true because it is written.
+The numeric values of the thresholds **must be measured and fixed by the technical area** `[NV]` on a
+chosen and declared reference device, and published as product specification. Fixing them here a
+priori would produce unverified figures, and constraint [V-12](../11_registri/01-vincoli-in-vigore.md#v-12)
+applies also in the opposite sense: an invented threshold does not become true because it is written.
 
 The **reference device must be chosen and declared**: not the developer's device, but a mid-range device of a few years ago, which is what the reference population has in hand. The choice is a product decision and is open on the noticeboard.
 
@@ -213,7 +216,7 @@ The accessibility requirements that follow are binding and must be designed, not
 
 ### 7.4 The recording indicator
 
-When recording is active, the indicator is **persistent and non-hideable** for the entire duration, for both participants. On the technical plane this means: always in the document flow, never in an element that can leave the viewport, announced on activation and deactivation, present even in full-screen views and in the embeddable component, and not themable (V-16 of `INTEG`). Verification is a test that attempts to hide it by every means the configuration provides and must fail in all.
+When recording is active, the indicator is **persistent and non-hideable** for the entire duration, for both participants. On the technical plane this means: always in the document flow, never in an element that can leave the viewport, announced on activation and deactivation, present even in full-screen views and in the embeddable component, and not themable ([V-163](../11_registri/01-vincoli-in-vigore.md#v-163) of `INTEG`). Verification is a test that attempts to hide it by every means the configuration provides and must fail in all.
 
 ### 7.5 Automated and manual
 
@@ -249,7 +252,7 @@ Implementation:
 
 They are never mixed, never substitute for each other and their origin is distinguishable in the interface. When the official label is not available - coding system not enabled for that tenant, gateway in degraded mode - the code is shown with its own system, never by a convenient translation written by the project: it would be an unauthorised derivative and, worse, a clinically untraceable statement.
 
-Question Q-03 on the noticeboard asks exactly "how is this separation realised concretely" and is addressed to `ARCH`. What this area can state without overstepping is the **technical form**: two separate channels, two licences, no substitution, and declared behaviour in the absence of official label. The data model that follows is from `ARCH`.
+Question [Q-03](../11_registri/02-questioni-aperte.md#q-03) on the noticeboard asks exactly "how is this separation realised concretely" and is addressed to `ARCH`. What this area can state without overstepping is the **technical form**: two separate channels, two licences, no substitution, and declared behaviour in the absence of official label. The data model that follows is from `ARCH`.
 
 ---
 
@@ -269,7 +272,7 @@ The threat model is in `docs/06_security/`; here stand the implementation constr
 
 - **Does not decide.** No clinical evaluation happens in the client. A threshold evaluated in the client would be an untraceable and manipulable threshold.
 - **Does not retain.** See §9.
-- **Is not the sole way to do things.** Constraint V3 and constraint V-17 of `INTEG` impose that every capability be reachable by a third-party system through documented interface. The interface is a consumer of the same application interfaces offered to integrators, without privileged paths: it is also the most effective way to notice if a contract is awkward.
+- **Is not the sole way to do things.** Constraint [V3](../11_registri/03-vincoli-fondanti.md#v3) and constraint [V-164](../11_registri/01-vincoli-in-vigore.md#v-164) of `INTEG` impose that every capability be reachable by a third-party system through documented interface. The interface is a consumer of the same application interfaces offered to integrators, without privileged paths: it is also the most effective way to notice if a contract is awkward.
 - **Does not hide technical state when technical state has clinical consequences.** Inadequate quality, active recording, key verification not performed, operation not confirmed: they are user information, not system details.
 
 ---

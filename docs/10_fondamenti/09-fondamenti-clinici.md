@@ -614,8 +614,7 @@ confrontabile, non è aggregabile e non ha unità.
 
 #### 3.1.4 Intervalli di riferimento e dipendenza dal contesto
 
-I valori di riferimento comunemente citati per l'adulto sano si collocano attorno a 120/80 mm[Hg]
-`[NV]`, ma questa cifra è didattica e non utilizzabile come regola. Le ragioni per cui non lo è:
+I valori di riferimento comunemente citati per l'adulto sano si collocano attorno a 120/80 mm[Hg]; questa cifra va verificata dall'area `GUIDA` dei fondamenti ed è didattica e non utilizzabile come regola. `[NV]` Le ragioni per cui non lo è:
 
 - le soglie diagnostiche di ipertensione **differiscono a seconda della linea guida** adottata e
   sono state riviste più volte, in direzioni diverse, da società scientifiche diverse;
@@ -652,7 +651,7 @@ paragonabile alla differenza fra le categorie cliniche.
 - **Fumo, caffeina, pasto recente.**
 - **Effetto camice bianco** - pressione più alta in presenza del personale sanitario che a
   domicilio. Ha un corrispettivo in telemedicina che non è stato oggetto di quantificazione
-  affidabile: l'effetto di essere osservati attraverso una videocamera durante la misura. `[NV]`
+  affidabile: l'effetto di essere osservati attraverso una videocamera durante la misura, che l'area `GUIDA` deve quantificare. `[NV]`
 - **Ipertensione mascherata** - il fenomeno opposto: valori normali in ambulatorio ed elevati a
   domicilio. È la ragione principale per cui l'automisurazione ha valore autonomo e non è un
   ripiego.
@@ -730,8 +729,7 @@ visualizzazione, non un'unità codificata.
 
 #### 3.2.4 Intervalli di riferimento e contesto
 
-Per l'adulto a riposo si cita comunemente un intervallo attorno a 60–100 battiti al minuto
-`[NV]`. Le dipendenze dal contesto sono più forti che in quasi ogni altro parametro:
+Per l'adulto a riposo si cita comunemente un intervallo attorno a 60–100 battiti al minuto; questo intervallo va verificato dall'area `GUIDA` dei fondamenti. `[NV]` Le dipendenze dal contesto sono più forti che in quasi ogni altro parametro:
 
 - **l'età** cambia tutto: il neonato ha frequenze molto più elevate, e i riferimenti pediatrici
   scendono progressivamente con la crescita;
@@ -787,8 +785,8 @@ codice:
   (§ 2.3.3);
 - **è una stima**, non una misura diretta. La grandezza di riferimento è la saturazione misurata
   su sangue arterioso in laboratorio; il valore periferico ne è un'approssimazione, con un errore
-  che i fabbricanti dichiarano e che è dell'ordine di alcuni punti percentuali. `[NV]` sul valore
-  numerico esatto, che dipende dal dispositivo e dal contesto.
+  che i fabbricanti dichiarano e che è dell'ordine di alcuni punti percentuali; il valore
+  numerico esatto, che dipende dal dispositivo e dal contesto, va confermato dall'area `TECH`. `[NV]`
 
 Il metodo si basa sul fatto che l'emoglobina legata all'ossigeno e quella non legata assorbono
 in modo diverso la luce rossa e infrarossa; il dispositivo illumina il tessuto, misura
@@ -828,7 +826,7 @@ arterioso che non è avvenuto.
 - **Pigmentazione cutanea.** La letteratura scientifica ha documentato differenze sistematiche
   di accuratezza dell'ossimetria in relazione al colore della pelle, con tendenza a sovrastimare
   la saturazione nelle persone con pigmentazione più scura. Il progetto registra il fatto senza
-  quantificarlo: `[NV]` sull'entità, che dipende da dispositivo e popolazione. La conseguenza
+  quantificarlo; l'entità, che dipende da dispositivo e popolazione, va stabilita dall'area `GUIDA`. `[NV]` La conseguenza
   progettuale è però indipendente dalla quantificazione - **è una fonte di iniquità di sistema
   che va dichiarata nella documentazione destinata al professionista e considerata nella
   gestione del rischio**, non un dettaglio tecnico.
@@ -880,7 +878,7 @@ distinguere i due parametri confonde due serie completamente diverse.
 
 #### 3.4.4 Intervalli e contesto
 
-Per l'adulto a riposo si cita un intervallo attorno a 12–20 atti al minuto `[NV]`. La dipendenza
+Per l'adulto a riposo si cita un intervallo attorno a 12–20 atti al minuto; questo intervallo va verificato dall'area `GUIDA`. `[NV]` La dipendenza
 dall'età è ancora più marcata che per la frequenza cardiaca: i valori pediatrici sono nettamente
 più alti e scendono con l'età. Febbre, dolore, ansia, sforzo, alterazioni metaboliche e
 condizioni respiratorie la aumentano; alcune sostanze la deprimono.
@@ -914,7 +912,7 @@ accessibile**, che ne è un'approssimazione con un errore sistematico dipendente
 Le sedi di uso corrente - ascellare, orale, timpanica, rettale, temporale - danno valori
 **sistematicamente diversi fra loro**, con la sede ascellare tipicamente più bassa e quella
 rettale tipicamente più alta rispetto all'orale. L'entità esatta degli scarti varia per fonte e
-per metodo: `[NV]`.
+per metodo; questa variabilità va documentata dall'area `GUIDA`. `[NV]`
 
 Conseguenza inderogabile: **una serie temporale di temperature con sedi diverse e non
 qualificate è priva di significato.** Se il paziente misura in ascella al mattino e con un
@@ -933,7 +931,7 @@ conversione produce valori plausibili invece che assurdi. È esattamente il dife
 
 #### 3.5.4 Intervalli e contesto
 
-Il valore comunemente citato come riferimento è attorno a 36,5–37,5 °C in sede orale `[NV]`, ma
+Il valore comunemente citato come riferimento è attorno a 36,5–37,5 °C in sede orale; questo intervallo va verificato dall'area `GUIDA`. `[NV]` Ma
 la nozione di «temperatura normale» è meno solida di quanto si creda: varia per individuo, per
 sede, per ora del giorno (con un minimo notturno e un massimo nel tardo pomeriggio: § 4.2), per
 fase del ciclo mestruale, per età. Nella persona anziana la risposta febbrile può essere
@@ -985,8 +983,8 @@ confrontabili.
 
 Due unità in uso: **milligrammi per decilitro** (`mg/dL`) e **millimoli per litro** (`mmol/L`).
 Il fattore di conversione per il glucosio è circa **18,0** - più precisamente il rapporto
-determinato dalla massa molare del glucosio `[NV]` sul valore esatto da usare, che va fissato in
-un unico punto del codice e non ripetuto.
+determinato dalla massa molare del glucosio; il valore esatto da usare va confermato dall'area `GUIDA`, che va fissato in
+un unico punto del codice e non ripetuto. `[NV]`
 
 Poiché gli ordini di grandezza dei valori nelle due unità non si sovrappongono, in questo caso
 specifico l'errore di unità produce valori **assurdi** e quindi rilevabili. È l'eccezione, non la
@@ -1021,7 +1019,7 @@ pasto e dose: la misura da sola è metà del dato.
 citato qui perché è il caso in cui la conversione di unità è più insidiosa. Si esprime in
 **percentuale** secondo una convenzione e in **millimoli per mole** secondo un'altra. I valori
 numerici sono di ordini di grandezza diversi, ma esistono referti che riportano entrambi, e la
-relazione fra le due è affine, non proporzionale `[NV]` sui coefficienti esatti.
+relazione fra le due è affine, non proporzionale; i coefficienti esatti vanno stabiliti dall'area `GUIDA`. `[NV]`
 
 Regola: **si conserva il valore con la sua unità come è stato refertato**, e la conversione, se
 serve, è una funzione esplicita, tracciabile e reversibile - mai una normalizzazione silenziosa
@@ -1060,8 +1058,8 @@ Ne discendono due conseguenze di modellazione:
   e la sua storia, perché il riferimento stesso viene aggiornato dal clinico;
 - **la finestra temporale della variazione è parte della regola.** Criteri del tipo «aumento di
   una certa quantità in un certo numero di giorni» ricorrono nei piani di telemonitoraggio dello
-  scompenso; `[NV]` su una fonte normativa italiana che ne fissi i valori, che restano
-  configurazione clinica del piano.
+  scompenso; l'area `GUIDA` deve ricercare una fonte normativa italiana che fissi i valori, che restano
+  configurazione clinica del piano. `[NV]`
 
 Va aggiunto un caso che il software deve gestire senza inventare: **una variazione rapida può
 anche essere un errore di misura** (bilancia diversa, vestiti, scarpe). La distinzione fra
@@ -1084,12 +1082,7 @@ professionista deve riportare senza addolcirli.
 
 **Nessuno dei codici riportati è stato verificato dal progetto contro un rilascio LOINC
 pinnato.** Sono i codici comunemente citati nella documentazione dello standard e nei profili
-FHIR per i segni vitali, riportati qui a fini didattici e marcati `[NV]` in blocco. La verifica
-puntuale, con dichiarazione della versione LOINC adottata e attribuzione richiesta dalla licenza,
-è un'attività separata: LOINC è collocato nel regime A della policy terminologica del progetto -
-coesistenza piena nei sorgenti con attribuzione. Si ricorda inoltre che **le traduzioni italiane
-di LOINC sono derivati assegnati all'ente che lo mantiene**: le stringhe di interfaccia del
-progetto vanno tenute architetturalmente separate dal campo di visualizzazione del codice.
+FHIR per i segni vitali, riportati qui a fini didattici. `[NV]` La verifica puntuale, con dichiarazione della versione LOINC adottata e attribuzione richiesta dalla licenza, deve essere richiesta all'area `PROTO`: è un'attività separata. LOINC è collocato nel regime A della policy terminologica del progetto - coesistenza piena nei sorgenti con attribuzione. Si ricorda inoltre che **le traduzioni italiane di LOINC sono derivati assegnati all'ente che lo mantiene**: le stringhe di interfaccia del progetto vanno tenute architetturalmente separate dal campo di visualizzazione del codice.
 
 :::
 
@@ -1099,7 +1092,7 @@ progetto vanno tenute architetturalmente separate dal campo di visualizzazione d
 | Pressione diastolica | Pressione minima nel ciclo cardiaco | `mm[Hg]` | 8462-4 | Come sopra; nei misuratori oscillometrici è **derivata da un algoritmo**, non misurata |
 | Pannello pressorio | Contenitore delle due componenti | - | 85354-9 | Rappresentare la pressione come stringa «120/80» rende il dato inutilizzabile |
 | Pressione arteriosa media | Media temporale nel ciclo | `mm[Hg]` | 8478-0 | **È una formula**: la formula usata va dichiarata; non è la media aritmetica di sistolica e diastolica |
-| Pressione differenziale | Sistolica meno diastolica | `mm[Hg]` | - `[NV]` | Valore derivato: va ricalcolato, mai memorizzato come misura indipendente |
+| Pressione differenziale | Sistolica meno diastolica | `mm[Hg]` | (da verificare da `PROTO`) `[NV]` | Valore derivato: va ricalcolato, mai memorizzato come misura indipendente |
 | Frequenza cardiaca | Cicli cardiaci al minuto | `/min` | 8867-4 | Stessa unità della frequenza respiratoria: il codice è l'unico discriminante. Quasi sempre è in realtà frequenza **del polso** |
 | Saturazione periferica di ossigeno | Percentuale di emoglobina ossigenata, stimata otticamente | `%` | 59408-5 (ossimetria) / 2708-6 (sangue arterioso) | Scala non lineare; non media; codice diverso da quello del prelievo arterioso; priva di significato senza il dato sull'ossigeno supplementare |
 | Frequenza respiratoria | Atti respiratori al minuto | `/min` | 9279-1 | La consapevolezza di essere osservati altera la misura; campo che resta vuoto se l'inserimento è scomodo |
@@ -1693,8 +1686,8 @@ proprio i suoni non vocali. Un rumore respiratorio, un sibilo, un tono cardiaco 
 buona parte a frequenze basse e hanno ampiezza modesta - sono esattamente ciò che il soppressore
 di rumore rimuove. **Ne segue che non si ausculta attraverso il microfono di uno smartphone, e
 non è una questione di qualità del microfono: è la catena di elaborazione che rimuove il segnale
-per progetto.** `[NV]` sui limiti di banda esatti, che dipendono dal codificatore e dalla
-configurazione; il punto qualitativo non dipende dalle cifre.
+per progetto.** `[NV]` I limiti di banda esatti vanno richiesti all'area `TECH` (dipendono
+dal codificatore e dalla configurazione); il punto qualitativo non dipende dalle cifre.
 
 **Lo schermo del professionista.** Non è calibrato, ha un profilo colore ignoto, una luminosità
 regolata a piacere e sta in un ambiente con illuminazione arbitraria. L'ultimo anello della

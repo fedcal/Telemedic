@@ -1,6 +1,6 @@
 ---
 title: "Document control procedure"
-sidebar_position: 12
+sidebar_position: 14
 description: "The project's operational document control procedure: named list of documents subject to control with their status, rule for identification and versioning, nominated reviewer for each category, form of approval, rule for withdrawal. It is itself a controlled document and appears in its own list. It is not an explanatory chapter: it states who does what, when, and what trace remains."
 ---
 
@@ -12,11 +12,15 @@ description: "The project's operational document control procedure: named list o
 > mind, that line is defective and must be reported.
 >
 > **Relationship with the explanatory chapter.** The reasoning, the reference standard, the
-> allocation between the functions of the manufacturer and those of whoever installs, the validation
-> of tools and - most important of all - the gap whereby author and approver coincide are set out in
+> allocation between the functions of the manufacturer and those of whoever installs, and - most
+> important of all - the gap whereby author and approver coincide are set out in
 > [08/10 - Document control](/08_compliance/10-controllo-dei-documenti.md). This procedure **refers
 > to it and does not copy it**: two texts saying the same thing in two places diverge at the first
-> update, and in regulatory matters a divergence is a double declaration.
+> update, and in regulatory matters a divergence is a double declaration. The four tools on which the
+> approval record rests are **git** (distributed versioning), **GitHub** (hosting platform),
+> **automated build checks** (linter, syntax, link checker, identifiers) and **cryptographic signing
+> of commits** (adopted 26 August 2026, mandatory signing on branch pending); their **validation** is
+> described at § 8 of chapter 10.
 >
 > **This document declares no conformance.** It does not state that the project conforms to ISO
 > 13485 or to anything else. It cannot: the gap declared at § 10 prevents it, and that gap remains.
@@ -27,16 +31,16 @@ description: "The project's operational document control procedure: named list o
 
 | Item | Value |
 |---|---|
-| **Identifier** | The absolute path in the repository: `docs/08_compliance/PROCEDURA-controllo-dei-documenti.md`. It is the identification rule of § 4, applied to this very document |
-| **English twin** | `website/i18n/en/docusaurus-plugin-content-docs/current/08_compliance/PROCEDURA-controllo-dei-documenti.md`. The two versions are **the same controlled document in two languages**, not two documents |
+| **Identifier** | The absolute path in the repository: [`docs/08_compliance/PROCEDURA-controllo-dei-documenti.md`](../08_compliance/PROCEDURA-controllo-dei-documenti.md). It is the identification rule of § 4, applied to this very document |
+| **English twin** | [`website/i18n/en/docusaurus-plugin-content-docs/current/08_compliance/PROCEDURA-controllo-dei-documenti.md`](https://github.com/fedcal/Telemedic/blob/main/website/i18n/en/docusaurus-plugin-content-docs/current/08_compliance/PROCEDURA-controllo-dei-documenti.md). The two versions are **the same controlled document in two languages**, not two documents |
 | **`QMS-*` identifier** | **None assigned.** The reason, which is a gap and not an oversight, is at § 10, item `c` |
 | **Category** | Procedures of the quality management system the project operates on itself |
 | **Version** | The hash of the commit that last modified the file, readable with `git log -1 --format=%H -- docs/08_compliance/PROCEDURA-controllo-dei-documenti.md`. **It is not transcribed into this field**: a hash written here would be false from the next commit onwards, and a version field that lies is worse than an absent one |
 | **Nominated reviewer** | Federico Calò (`@fedcal`), by the `/docs/08_compliance/` line of [`.github/CODEOWNERS`](https://github.com/fedcal/Telemedic/blob/main/.github/CODEOWNERS) |
 | **Who must approve it** | The **Sponsor**. This is not a choice made by this procedure: it is the owner of approval declared by `T-01` in [09/02 - The milestones](/09_roadmap/02-traguardi.md), which assigns production to the single contributor and approval of the procedure to the Sponsor |
 | **Form of approval** | Favourable review ("Approved") on the change proposal introducing this file, per § 6 |
-| **Date of approval** | **None. The procedure is awaiting approval.** A date that has not occurred is not written, and approval is not presumed from the circumstance that the file has been merged into the main branch |
-| **Status** | **Awaiting approval.** Until approval the document is versioned but not in force, and the corresponding row at § 3 carries the same status |
+| **Date of approval** | **27 August 2026.** Approval of the declared gap without attenuation, recorded as the first item of [`Q-189`](../11_registri/02-questioni-aperte.md#q-189): author and approver coincide. The gap remains open |
+| **Status** | **In force.** The document is approved by the Sponsor on 27 August 2026 with the declared gap, which remains open as the first item of [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) |
 | **Review** | Under the conditions of § 12 |
 
 **How the "Status" field is read, and why it matters.** "Awaiting approval" does not mean "provisional
@@ -65,8 +69,8 @@ system procedures of the manufacturing entity, which will be constituted and wil
 own document management system; issues and change proposals, whose immutability by construction
 **is** their control; internal working documentation in `.telemedic/`.
 
-**Relationship with `V-174`, which must be stated in full because it is the point where this
-procedure and the rest of the corpus appear to contradict each other.** Constraint `V-174`,
+**Relationship with [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174), which must be stated in full because it is the point where this
+procedure and the rest of the corpus appear to contradict each other.** Constraint [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174),
 instituted in [08/03 § 4.1](/08_compliance/03-sistema-di-gestione-della-qualita.md), states that
 **no chapter** of this documentation is a quality management system procedure and that no area may
 present one of its chapters as such: chapters are inputs, they hold the analysis from which a
@@ -117,7 +121,7 @@ texts diverging silently exactly where divergence costs most.
 
 | Document | Nominated reviewer | Status | When it is reviewed |
 |---|---|---|---|
-| `docs/08_compliance/PROCEDURA-controllo-dei-documenti.md` and its English twin | `@fedcal` | **Awaiting approval** | Under the conditions of § 12 |
+| [`docs/08_compliance/PROCEDURA-controllo-dei-documenti.md`](../08_compliance/PROCEDURA-controllo-dei-documenti.md) and its English twin | `@fedcal` | **In force** | Under the conditions of § 12 |
 
 **Published documentation.** Every area appears in full, **in both languages**. The English version
 of a controlled document is the same controlled document, not an accessory artefact: it resides in
@@ -153,9 +157,9 @@ of publishing it as an orphan page.
   Immutability **is** the control, and adding another would add nothing.
 - Internal working documentation in `.telemedic/`: briefs, the inter-agent noticeboard, session
   logs, research. It is not published and declares no obligation towards anyone.
-- `CLAUDE.md`: operating instructions for whoever works in the repository. **The tension must be
+- [`CLAUDE.md`](https://github.com/fedcal/Telemedic/blob/main/CLAUDE.md): operating instructions for whoever works in the repository. **The tension must be
   stated rather than settled by fiat**: that file sets out the project's non-negotiable rules, which
-  also appear in `CONTRIBUTING.md`, which is controlled. A divergence between the two would be caught
+  also appear in [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md), which is controlled. A divergence between the two would be caught
   by nothing. It is recorded at § 10, item `h`.
 - `.editorconfig`, `.gitignore` and the site configuration: they declare no obligation and contain no
   normative statement.
@@ -205,10 +209,10 @@ From this choice follows what must be known before saying "which version was app
 
 **Identifiers of regulatory documents.** The spaces `MDR-*`, `QMS-*`, `SW-*`, `RM-*`, `UE-*`, `CE-*`,
 `PMS-*`, `ON-*` are declared and frozen in
-[08/03 § 5](/08_compliance/03-sistema-di-gestione-della-qualita.md) and hold as constraint `V-172`:
+[08/03 § 5](/08_compliance/03-sistema-di-gestione-della-qualita.md) and hold as constraint [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172):
 no area coins an identifier there without declaring it. They are neither renumbered nor reused after
-a withdrawal. The same holds for requirement identifiers, frozen by `V-120` and recorded in
-`registro/identificativi-requisiti.tsv`.
+a withdrawal. The same holds for requirement identifiers, frozen by [`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120) and recorded in
+[`registro/identificativi-requisiti.tsv`](https://github.com/fedcal/Telemedic/blob/main/registro/identificativi-requisiti.tsv).
 
 ---
 
@@ -229,7 +233,7 @@ line of it assigns `@fedcal`, because the project has a single maintainer
 
 | Category | Nominated reviewer | `CODEOWNERS` line assigning it | Required competence |
 |---|---|---|---|
-| Public statements and warnings | Federico Calò (`@fedcal`) | `/NOT-A-MEDICAL-DEVICE.md`, `/DISTRIBUTION-POLICY.md`, `/THIRD-PARTY-TERMINOLOGY.md`, `/publiccode.yml`, `/CONTRIBUTING.md`, `/CODE_OF_CONDUCT.md`, `/GOVERNANCE.md`; `README.md`, `SUPPORT.md`, `LICENSE` and `NOTICE` through the fallback line `*` | Authority over the public representation of the project and over regulatory warnings |
+| Public statements and warnings | Federico Calò (`@fedcal`) | `/NOT-A-MEDICAL-DEVICE.md`, `/DISTRIBUTION-POLICY.md`, `/THIRD-PARTY-TERMINOLOGY.md`, `/publiccode.yml`, `/CONTRIBUTING.md`, `/CODE_OF_CONDUCT.md`, `/GOVERNANCE.md`; [`README.md`](https://github.com/fedcal/Telemedic/blob/main/README.md), [`SUPPORT.md`](https://github.com/fedcal/Telemedic/blob/main/SUPPORT.md), `LICENSE` and `NOTICE` through the fallback line `*` | Authority over the public representation of the project and over regulatory warnings |
 | Regulatory specifications | Federico Calò (`@fedcal`) | `/docs/08_compliance/` | Knowledge of the applicable standard and ability to map it onto the technical solution |
 | Security | Federico Calò (`@fedcal`) | `/docs/06_security/`, `/SECURITY.md` | Threat model, identity, data protection, incident response |
 | Requirements and milestones | Federico Calò (`@fedcal`) | `/docs/03_functional/`, `/docs/09_roadmap/` | Intended purpose, functional perimeter, planning and declared capacity |
@@ -243,7 +247,7 @@ line of it assigns `@fedcal`, because the project has a single maintainer
 
 **The consequence, stated and not attenuated.** That the nominated reviewer coincides, for every
 category, with the only person who drafts **is precisely the gap** described in
-[08/10 § 9](/08_compliance/10-controllo-dei-documenti.md), the first item of `Q-189`. This procedure
+[08/10 § 9](/08_compliance/10-controllo-dei-documenti.md), the first item of [`Q-189`](../11_registri/02-questioni-aperte.md#q-189). This procedure
 does not resolve it and does not pretend to: it makes it **named rather than abstract**, because a
 reviewer with a name is a reviewer of whom one can say what they could not do. It is not said that
 the drafting is of poor quality; it is said that no third party establishes that it is not.
@@ -257,7 +261,7 @@ and not evidenced by a record**. The circumstance is already stated in
 **What changes when a second maintainer arrives**, and it must be written now because that is the
 moment a procedure written for a single reviewer becomes dangerous:
 [`.github/CODEOWNERS`](https://github.com/fedcal/Telemedic/blob/main/.github/CODEOWNERS) is updated,
-this table is updated, `require_code_owner_reviews` is reconsidered per § 6, and the `GOVERNANCE.md`
+this table is updated, `require_code_owner_reviews` is reconsidered per § 6, and the [`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md)
 rule requiring approval from a maintainer other than the author becomes applicable again **without
 any new decision being needed**.
 
@@ -304,7 +308,7 @@ time somebody asks "and who guarantees that?".
   `require_code_owner_reviews` is reconsidered, and an approval given by the wrong person would be
   accepted by the system without any warning.
 
-**The `GOVERNANCE.md` rule, and why it is not applicable today.**
+**The [`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md) rule, and why it is not applicable today.**
 [`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md), "How changes land",
 requires approval from **at least one maintainer other than the author**. Under the capacity declared
 by `D54` that rule cannot be met by anyone: there is one maintainer, and a set of one contains no
@@ -426,15 +430,15 @@ is listed here instead of being left to be inferred from a silence.
 
 | | Gap | Status |
 |---|---|---|
-| `a` | **Author and approver coincide.** Under `D54` whoever drafts is whoever approves, and the control that only independence guarantees does not exist. It is not resolvable with more hours: it takes a second person. The full text is in [08/10 § 9](/08_compliance/10-controllo-dei-documenti.md) | First item of `Q-189`. **Declared gap, not conformance** |
+| `a` | **Author and approver coincide.** Under `D54` whoever drafts is whoever approves, and the control that only independence guarantees does not exist. It is not resolvable with more hours: it takes a second person. The full text is in [08/10 § 9](/08_compliance/10-controllo-dei-documenti.md) | First item of [`Q-189`](../11_registri/02-questioni-aperte.md#q-189). **Declared gap, not conformance** |
 | `b` | **The reviewers' competence dossier does not exist.** The competence declared at § 5 is asserted, not evidenced by a record | Stated in [08/10 § 4](/08_compliance/10-controllo-dei-documenti.md). Tied to the constitution of the manufacturing entity (`T-14`) |
-| `c` | **No `QMS-*` identifier is assigned to this procedure.** The space is frozen by `V-172`, which requires every coined identifier to be declared on the noticeboard; coining one here without that declaration would breach the very constraint this procedure should enforce. Identification therefore remains the absolute path, per § 4 | Open. To be closed by the declaration, not by unilateral assignment |
+| `c` | **No `QMS-*` identifier is assigned to this procedure.** The space is frozen by [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172), which requires every coined identifier to be declared on the noticeboard; coining one here without that declaration would breach the very constraint this procedure should enforce. Identification therefore remains the absolute path, per § 4 | Open. To be closed by the declaration, not by unilateral assignment |
 | `d` | **The correspondence between actual reviewer and nominated reviewer is not enforced.** `require_code_owner_reviews` is `false` for the reason given at § 6 | Stated. To be reconsidered upon the arrival of the second maintainer, not before |
-| `e` | **Mandatory cryptographic signing on the branch is not in force.** Local configuration has been adopted since 26 August 2026; the obligation on the branch awaits the upload of the public key. `Signed-off-by` remains mandatory and active | `Q-284`, with a declared trigger and no date |
-| `f` | **The tools on which the approval record rests have not been formally validated.** Until validation exists, the checks are assertions of functioning and not proofs | `[NV]`. Prerequisite of criteria 5 and 7 of `T-01` and of `T-03` |
+| `e` | **Mandatory cryptographic signing on the branch is not in force.** Local configuration has been adopted since 26 August 2026; the obligation on the branch awaits the upload of the public key. `Signed-off-by` remains mandatory and active | [`Q-284`](../11_registri/02-questioni-aperte.md#q-284), with a declared trigger and no date |
+| `f` | **The tools on which the approval record rests have not been formally validated.** Until validation exists, the checks are assertions of functioning and not proofs. **`[NV]`** - validation is a prerequisite of criteria 5 and 7 of `T-01` and of `T-03`, to be done by `TECH` |  |
 | `g` | **Documents produced before this procedure have not been reissued under control.** The volume to reissue grows every day | Declared gap, not planned. It is the reason `T-01` is the first milestone |
-| `h` | **No automated check verifies that the list at § 3 matches the files that actually exist.** A document added at the root and not listed here would stay outside control with nothing to signal it; the same holds for a divergence between `CLAUDE.md` and `CONTRIBUTING.md`. A table asserting a fact about the repository must be compared with the repository, and today the comparison is manual | Declared debt. It is the easiest gap to close and the easiest to forget |
-| `i` | **The procedure is not yet approved.** The status is at § 1 and in the row at § 3 | Awaiting the Sponsor |
+| `h` | **No automated check verifies that the list at § 3 matches the files that actually exist.** A document added at the root and not listed here would stay outside control with nothing to signal it; the same holds for a divergence between [`CLAUDE.md`](https://github.com/fedcal/Telemedic/blob/main/CLAUDE.md) and [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md). A table asserting a fact about the repository must be compared with the repository, and today the comparison is manual | Declared debt. It is the easiest gap to close and the easiest to forget |
+| `i` | **The procedure is approved on 27 August 2026.** The status is at § 1 and in the row at § 3. The gap referred to in item `a` is not closed by the approval | Approval recorded, declared gap not attenuated |
 
 ---
 
@@ -445,8 +449,8 @@ recorded here so that whoever meets them knows they are known, and because the c
 aligning the corpus and amending the rule does not belong to whoever drafts.
 
 1. **The list in chapter 10, § 1, is incomplete.** Among public statements it cites three files out
-   of thirteen: missing are `README.md`, `GOVERNANCE.md`, `SECURITY.md`, `SUPPORT.md`,
-   `THIRD-PARTY-TERMINOLOGY.md`, `CODE_OF_CONDUCT.md`, `publiccode.yml`, `LICENSE`, `NOTICE` and
+   of thirteen: missing are [`README.md`](https://github.com/fedcal/Telemedic/blob/main/README.md), [`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md), [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md), [`SUPPORT.md`](https://github.com/fedcal/Telemedic/blob/main/SUPPORT.md),
+   [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md), [`CODE_OF_CONDUCT.md`](https://github.com/fedcal/Telemedic/blob/main/CODE_OF_CONDUCT.md), [`publiccode.yml`](https://github.com/fedcal/Telemedic/blob/main/publiccode.yml), `LICENSE`, `NOTICE` and
    `.github/CODEOWNERS`. Section 3 of this procedure lists them all. The divergence is **remedied in
    the operational list and not in the chapter**, which stands as it is.
 2. **Three documentation areas do not appear in the list in chapter 10**: `docs/00_overview/`,
@@ -463,12 +467,12 @@ aligning the corpus and amending the rule does not belong to whoever drafts.
 6. **Chapter 10, § 2 point 4, postulates a register of document status that did not exist.**
    `registro/` holds only the register of requirement identifiers. The table at § 3 of this procedure
    is that register, and this is why it carries a "Status" column.
-7. **`GOVERNANCE.md` prescribes a rule that under `D54` nobody can observe.** Addressed at § 6.
+7. **[`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md) prescribes a rule that under `D54` nobody can observe.** Addressed at § 6.
 8. **Chapter 10 lists `CHANGELOG.md` among the uncontrolled documents, and that file does not
    exist.**
-9. **`V-174` and criterion 1 of `T-01` touch each other.** The constraint states that this
+9. **[`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174) and criterion 1 of `T-01` touch each other.** The constraint states that this
    documentation is not a controlled document; the criterion requires a procedure that is one. The
-   composition is at § 2: `V-174` holds for the **chapters**, which remain explanatory; this
+   composition is at § 2: [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174) holds for the **chapters**, which remain explanatory; this
    procedure is not a chapter. The composition is declared, not hidden in a rewording.
 
 ---

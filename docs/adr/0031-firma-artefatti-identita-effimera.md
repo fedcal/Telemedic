@@ -7,7 +7,7 @@ description: Perché gli artefatti sono firmati con una chiave derivata dall'ide
 # ADR-0031 - Firma degli artefatti con identità effimera della pipeline
 
 **Stato**: accettata · **Data**: 26 agosto 2026 · **Area**: TECH
-**Vincoli di riferimento**: D54, Q-287 di bacheca, criteri 7-8 di T-03
+**Vincoli di riferimento**: D54, [Q-287](../11_registri/02-questioni-aperte.md#q-287) di bacheca, criteri 7-8 di T-03
 
 ## Contesto
 
@@ -119,7 +119,7 @@ dichiarare che cosa fare in questo caso.
 
 ### Quando il registro di trasparenza non è raggiungibile
 
-Questo è il compromesso documentato. Il §7.3 di `docs/01_technical/09-integrazione-continua-e-rilascio.md`
+Questo è il compromesso documentato. Il §7.3 di [`docs/01_technical/09-integrazione-continua-e-rilascio.md`](../01_technical/09-integrazione-continua-e-rilascio.md)
 deve dichiarare una procedura fallback - tipicamente, il confronto offline della firma con la chiave
 pubblica di Fulcio conservata localmente, che è possibile ma richiede una preparazione anticipata.
 
@@ -144,6 +144,6 @@ L'attestazione è generata automaticamente da `cosign attest` e conservata come 
 
 Quando il progetto produrrà altri artefatti (immagini di contenitori, pacchetti, chart Helm),
 il medesimo meccanismo si applica: il workflow di rilascio invoca `cosign sign-blob` per ogni
-artefatto dell'elenco dichiarato in `pipeline/artefatti.tsv`.
+artefatto dell'elenco che sarà allora dichiarato in `pipeline/artefatti.tsv`, file che oggi non esiste.
 
 ---

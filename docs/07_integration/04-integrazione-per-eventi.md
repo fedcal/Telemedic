@@ -38,7 +38,7 @@ Sono altrettanto importanti, e vengono dette qui invece di essere scoperte in pr
 | N2 | **Non esiste un ordine globale** | Non dipendere dall'ordine di arrivo. §7 |
 | N3 | **La consegna non è immediata** | Non usare l'assenza di un evento come informazione entro pochi secondi |
 | N4 | **Un evento non è una transazione** | Ricevere l'evento non significa che il vostro lavoro sia atomico con il nostro |
-| N5 | **L'assenza di eventi non prova che non sia successo nulla** | Il canale può essere degradato. Sorvegliate il **volume atteso**: il silenzio non è mai normalità (vincolo V-09) |
+| N5 | **L'assenza di eventi non prova che non sia successo nulla** | Il canale può essere degradato. Sorvegliate il **volume atteso**: il silenzio non è mai normalità (vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09)) |
 
 La riga N5 è quella che sfugge più spesso. Un canale di notifiche che smette di funzionare
 produce esattamente lo stesso segnale di un periodo senza attività: nessuna richiesta in
@@ -101,7 +101,7 @@ momento?», che è l'unica domanda che conta quando c'è una contestazione.
 |---|---|---|
 | `it.telemedic.monitoring.plan.activated.v1` | Un piano di rilevazione è attivo | Il piano è versionato: l'evento porta la versione |
 | `it.telemedic.monitoring.measurement.received.v1` | È arrivata una misura | Riferimento, **mai il valore** |
-| `it.telemedic.monitoring.adherence.missed.v1` | Una rilevazione attesa **non** è arrivata entro la finestra | È l'applicazione diretta del vincolo V-09 |
+| `it.telemedic.monitoring.adherence.missed.v1` | Una rilevazione attesa **non** è arrivata entro la finestra | È l'applicazione diretta del vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) |
 | `it.telemedic.alert.raised.v1` | Una soglia configurata dal professionista è stata superata | **La soglia è configurazione per assistito, mai dedotta dal sistema** |
 | `it.telemedic.alert.acknowledged.v1` | L'allerta è stata presa in carico | Con l'identificativo di chi l'ha presa in carico, in forma indiretta |
 | `it.telemedic.alert.escalated.v1` | L'allerta è passata al livello successivo per mancato riscontro | |

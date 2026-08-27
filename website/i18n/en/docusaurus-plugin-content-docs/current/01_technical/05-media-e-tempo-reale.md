@@ -125,7 +125,7 @@ The time-limited credential mechanism is used: the username is the expiry time j
 
 ### 4.3 Configuration of the relay node
 
-Minimum version **4.17.2**, for constraint V-10 and for architectural foundation §9. The complete configuration verified on primary source is in `.telemedic/research/B3-verifica-coturn-webrtc.md`; here are reported the points that have architectural consequences, not the entire file.
+Minimum version **4.17.2**, for constraint [V-10](../11_registri/01-vincoli-in-vigore.md#v-10) and for architectural foundation §9. The complete configuration verified on primary source is in [`.telemedic/research/B3-verifica-coturn-webrtc.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/B3-verifica-coturn-webrtc.md); here are reported the points that have architectural consequences, not the entire file.
 
 ```ini
 # Illustrative - annotated extract. Minimum version 4.17.2.
@@ -171,7 +171,7 @@ Three verified facts that change the configuration from what is commonly written
 
 The family of vulnerabilities that has historically afflicted relay nodes is always the same: relaying to internal or loopback addresses, obtained by circumventing blocked address lists with alternative or non-normalised address forms. **Six distinct vulnerabilities in eight years, four in the last eight months.**
 
-The constraint V-10 follows and the formulation that this area adopts without mitigation:
+The constraint [V-10](../11_registri/01-vincoli-in-vigore.md#v-10) follows and the formulation that this area adopts without mitigation:
 
 > **The list of forbidden peer addresses is defence in depth. Primary defence is egress network isolation of the relay node**, applied by infrastructure and not by the process: the node can reach public Internet and nothing else. It is the only defence that has stood up to all six vulnerabilities in the family.
 
@@ -267,7 +267,7 @@ The **concentration of loss** must also be captured: five per cent distributed u
 
 ### 6.4 Thresholds and clinical consequence
 
-Thresholds are **product specification, never compliance**: constraint V-12 is explicit and no technical threshold in this area is imposed by Italian regulation. The values are configurable, have a documented default value, and their calibration occurs on data measured by the project, not on tables taken elsewhere.
+Thresholds are **product specification, never compliance**: constraint [V-12](../11_registri/01-vincoli-in-vigore.md#v-12) is explicit and no technical threshold in this area is imposed by Italian regulation. The values are configurable, have a documented default value, and their calibration occurs on data measured by the project, not on tables taken elsewhere.
 
 **The consequence must be designed, not only measured.** Upon crossing the threshold of inadequacy the system **informs the professional** that technical conditions may not be suitable for the assessment underway and offers the option to defer. It is a **risk control** and must be treated as such: recorded, traceable, with the professional's decision outcome conserved. The issue is open on the noticeboard at `COMP` for insertion in the risk management file.
 
@@ -293,7 +293,7 @@ Two notes that belong in this section and not in public communication.
 
 **Degradation preference is a choice with clinical implications.** Preserving resolution at the expense of fluidity is correct for evaluating a skin lesion or reading a recording shown on video; preserving fluidity at the expense of resolution is correct for assessing movement and facial microexpression. There is also a value that requests degradation of neither, discarding frames instead: semantically it is the most interesting for this domain and also the least likely to be implemented, being the most recent. **It must be verified at runtime by rereading the parameter, not assumed.**
 
-**Exposure of this choice has a regulatory constraint**, declared by constraint V2: the defensible formulation is that it is a **rendering preference chosen by the user**, not automatic adaptation guided by clinical content. A system that adapted quality based on a declared diagnostic purpose would approach the classification rule threshold. The issue is forwarded to `COMP`.
+**Exposure of this choice has a regulatory constraint**, declared by constraint [V2](../11_registri/03-vincoli-fondanti.md#v2): the defensible formulation is that it is a **rendering preference chosen by the user**, not automatic adaptation guided by clinical content. A system that adapted quality based on a declared diagnostic purpose would approach the classification rule threshold. The issue is forwarded to `COMP`.
 
 ---
 
@@ -329,11 +329,11 @@ Obligations that follow, all verifiable:
 4. **The file is encrypted at rest with keys per tenant**, with configurable retention and cryptographic deletion as the deletion mechanism.
 5. **The recording component is a distinct service**, with its own scope, credentials, logs and monitoring. It is not a function of the application service.
 
-The issue Q-08 on the noticeboard - the incompatibility between server-side recording and end-to-end encryption, and its effects on the data model - is directed to `ARCH` and remains open. This area **does not anticipate it**: receives D23 and describes the technical consequences.
+The issue [Q-08](../11_registri/02-questioni-aperte.md#q-08) on the noticeboard - the incompatibility between server-side recording and end-to-end encryption, and its effects on the data model - is directed to `ARCH` and remains open. This area **does not anticipate it**: receives D23 and describes the technical consequences.
 
 ### 8.2 The container is negotiated, not assumed
 
-Constraint V-11 is explicit and this area applies it even to server-side recording, where it is not obvious.
+Constraint [V-11](../11_registri/01-vincoli-in-vigore.md#v-11) is explicit and this area applies it even to server-side recording, where it is not obvious.
 
 The resulting container **depends on the codecs actually negotiated in the session**, which vary by browser, platform and conditions. An assumed container a priori - "the file is in a certain format" - is an assertion that will be false for part of the installed base. The correct implementation:
 

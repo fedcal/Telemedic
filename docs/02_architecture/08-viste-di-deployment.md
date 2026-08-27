@@ -150,9 +150,9 @@ dal progetto oppure con il pacchetto per orchestratore di contenitori, secondo l
 cliente. Tenancy attiva con un solo tenant, o pochi.
 
 Il **broker in assetto a nodo singolo** è la scelta prevista per contenere il peso operativo. È una
-scelta consapevole con una conseguenza dichiarata: `[NV]` - i limiti effettivi delle garanzie del
-broker in quell'assetto vanno verificati dall'area tecnica, e ogni garanzia che dipenda dalla
-replica non è disponibile. Nessun requisito funzionale può dipendere da garanzie non disponibili
+scelta consapevole con una conseguenza dichiarata: i limiti effettivi delle garanzie del broker in
+quell'assetto vanno verificati da `TECH` `[NV]`, e ogni garanzia che dipenda dalla replica non è
+disponibile. Nessun requisito funzionale può dipendere da garanzie non disponibili
 nell'assetto minimo.
 
 ### 3.2 Che cosa il cliente deve fornire
@@ -360,18 +360,18 @@ sistema che non le espone può essere gravemente guasto e apparire sano.
 Due avvertenze sulle grandezze esposte. **Nessun contatore cumulativo grezzo può essere citato
 come indicatore di qualità**: perdita, byte, durata dei congelamenti e ritardo del cuscinetto
 anti-jitter crescono in modo monotono e vanno differenziati fra campioni consecutivi; le medie
-corrette sono rapporti fra differenze (vincolo V-113 dell'area tecnica). E **l'indice sintetico di
+corrette sono rapporti fra differenze (vincolo [V-113](../11_registri/01-vincoli-in-vigore.md#v-113) dell'`TECH`). E **l'indice sintetico di
 qualità della sessione è proprietario e va dichiarato tale**: non è un punteggio di opinione media
-secondo alcuna raccomandazione internazionale (vincolo V-114).
+secondo alcuna raccomandazione internazionale (vincolo [V-114](../11_registri/01-vincoli-in-vigore.md#v-114)).
 
-`[NV]` - I livelli di servizio attesi per la sorveglianza in esercizio, distinti da quelli previsti
-dalla normativa sulle infrastrutture regionali, sono oggetto di una questione aperta in bacheca
-indirizzata all'area di sicurezza e alla roadmap. Quest'area fissa **che cosa** va sorvegliato,
+I livelli di servizio attesi per la sorveglianza in esercizio, da misurare da `TECH` `[NV]`,, distinti da quelli previsti
+dalla normativa sulle infrastrutture regionali, **vanno decisi dall'area di sicurezza e dalla roadmap**
+secondo una questione aperta in bacheca. Quest'area fissa **che cosa** va sorvegliato,
 non **con quale soglia**.
 
 > **Nota terminologica vincolante.** In tutta la documentazione «sorveglianza» riferita ai
 > componenti indica l'osservabilità di esercizio. Riferita all'assistito, le formule «monitoraggio
-> in tempo reale» e «sorveglianza continua» **sono vietate** (vincolo V-144 dell'area di dominio):
+> in tempo reale» e «sorveglianza continua» **sono vietate** (vincolo [V-144](../11_registri/01-vincoli-in-vigore.md#v-144) dell'area di dominio):
 > il perimetro del telemonitoraggio è la raccolta differita di parametri per la revisione periodica
 > del professionista, e la differenza fra le due formulazioni vale una classe di rischio.
 

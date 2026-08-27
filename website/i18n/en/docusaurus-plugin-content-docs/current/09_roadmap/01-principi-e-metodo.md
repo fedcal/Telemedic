@@ -18,9 +18,9 @@ follow have been fixed **before** the decisions of chapter [02 - Milestones](./0
 Telemedic has, as of 25 August 2026, six quantities and **all six are known**:
 
 1. A **delivery date decided by the client**: 30 November 2026 is the **first releasable
-   deliverable** (`D53`, which closes `Q-180`).
+   deliverable** (`D53`, which closes [`Q-180`](../11_registri/02-questioni-aperte.md#q-180)).
 2. A **declared capacity**: **a single contributor, working part-time** (`D54`, which closes
-   `Q-181`).
+   [`Q-181`](../11_registri/02-questioni-aperte.md#q-181)).
 3. A broad functional scope and already catalogued.
 4. An obligation of traceability that admits no shortcuts.
 5. An obligation of full translation (`D50`), which `D56` makes **parallel to development** and no
@@ -201,7 +201,7 @@ temporal placement.
 medical devices binds a requirement to design, code and test. If identifiers change after code exists,
 the matrix is not updated: it is **reconstructed by hand**, requirement by requirement, and the reconstruction
 is itself not verifiable because nobody can prove that requirement `RF-142` today is the one of six months ago.
-*State*: the intervals are frozen and declared (constraint `V-120`); missing is the **register in
+*State*: the intervals are frozen and declared (constraint [`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)); missing is the **register in
 addition only** and the check that makes the build fail on a non-existent identifier.
 *Cost of omitting it*: not quantifiable, because it is not a delay: it is the impossibility for
 anyone to certify afterwards.
@@ -212,7 +212,7 @@ pipeline.**
 according to the source cited by `D45`, **from three to five times** the cost of censusing them as they
 enter. The reason is that a dependency entered without evaluation brings its own
 transitives with it, and the graph must be reconstructed when nobody remembers why a library is there.
-*Operational consequence*, placed as constraint `V-182`: **the first pipeline precedes the first line of application code.** Not "accompanies": precedes. Check `G5` - a
+*Operational consequence*, placed as constraint [`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182): **the first pipeline precedes the first line of application code.** Not "accompanies": precedes. Check `G5` - a
 component present in the bill and absent from annotations makes the build fail - is what makes the rule
 effective instead of exhortatory.
 
@@ -235,7 +235,7 @@ correspondence between review, reviewer and approval constitutes the approval re
 *Why it is unrecoverable*: it is not the document that is unrecoverable, it is the **period of
 publication without disclaimer**. An artefact made available without the non-marking warning is an implicit
 statement that no subsequent correction cancels.
-*State*: **satisfied**. `NOT-A-MEDICAL-DEVICE.md` and `DISTRIBUTION-POLICY.md` are present in the public
+*State*: **satisfied**. [`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md) and [`DISTRIBUTION-POLICY.md`](https://github.com/fedcal/Telemedic/blob/main/DISTRIBUTION-POLICY.md) are present in the public
 repository. The pipeline check remains that prevents publication of an artefact lacking the
 declaration.
 
@@ -248,8 +248,8 @@ the software safety class, the perimeter of clinical evaluation and the order of
 *State*: **satisfied**. `D55` freezes the formulation to "**deferred collection of parameters for
 periodic review by the professional**", keeps Class IIa and software safety class B, and excludes the
 real-time formulation. The domain model was already written **entirely**
-on this formulation (constraint `V-144`): the decision confirms it and requires no rewrites.
-Closes `Q-144`.
+on this formulation (constraint [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144)): the decision confirms it and requires no rewrites.
+Closes [`Q-144`](../11_registri/02-questioni-aperte.md#q-144).
 *Permanent consequence, replacing the previous one*: it is no longer a risk of rewriting,
 it is a **prohibition**. No function can be added if it moves the system towards clinical real-time, and
 **the evaluation must be done before writing the function, not after**. It is the case where
@@ -258,7 +258,7 @@ boundary.
 
 ### 5.2 The class B activities that the project assumes with `D58`
 
-`D58` **amends `D28`, `D45`, `D49` and constraint `V-06` regarding the recipient of the
+`D58` **amends `D28`, `D45`, `D49` and constraint [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06) regarding the recipient of the
 certification pathway**: the role of manufacturer will be assumed by the project, and the legal entity must
 be established. The activities that `D45` attributed to "whoever intends to certify" thus become
 **activities of the project**, and there are four:
@@ -281,7 +281,7 @@ and must be stated without attenuation:
 
 They are on the calendar in [02 §5](./02-traguardi.md), with the project as owner, and with a
 warning that accompanies every date in that paragraph and is never separated from it: **they are dates of
-internal planning, not promises of outcome.** The prohibition of `V-171` is intact - **in no place is it
+internal planning, not promises of outcome.** The prohibition of [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) is intact - **in no place is it
 written that the product will be marked by a date** - and the state of fact is intact:
 today the product **does not bear the CE marking** and whoever installs or places it in service assumes
 the obligations that follow.
@@ -296,10 +296,10 @@ of having documented a non-existent behaviour**.
 |---|---|---|---|
 | Token exchange in the gateway with explicit delegation (`D18`) | The entire federated identity mode towards the integrator | Redesign of the authorisation boundary after code exists | **Yes** - it is the entry path of `RU-1` |
 | Fallback to single-use entry token, issued on back channel (`D18`) | Start of the session by the integrator **without embedded component** | The absence of every integration pathway, once embedding is cut | **Yes**, with greater weight than before: in the reduced scope it is not a fallback, it is **the** mode |
-| Network isolation in egress of the relay node | The security posture of the most exposed component | An exit path to the internal networks of whoever installs | **Yes** - primary defence (`V-10`) |
+| Network isolation in egress of the relay node | The security posture of the most exposed component | An exit path to the internal networks of whoever installs | **Yes** - primary defence ([`V-10`](../11_registri/01-vincoli-in-vigore.md#v-10)) |
 | Known defects of the identity federation product (`D37`) closed in configuration and monitored by test | The security posture of identity | An escalation path that returns at first update | **Yes** |
-| Forwarding of authentication context required through intermediation (`Q-160`, `B-8`) | Propagation of the level of assurance, and its public description | **Correction of public documentation on a security mechanism** | **No** - follows conformity on national identity, outside the reduced scope. **The rule stays**: until the outcome is recorded, public documentation does not describe the mechanism |
-| Recording container negotiated at runtime (`V-11`, `V-115`, `C-3`) | Public formulation on recording | A false statement for a part of the installed base | **No** - follows session recording, cut from `RU-1` |
+| Forwarding of authentication context required through intermediation ([`Q-160`](../11_registri/02-questioni-aperte.md#q-160), `B-8`) | Propagation of the level of assurance, and its public description | **Correction of public documentation on a security mechanism** | **No** - follows conformity on national identity, outside the reduced scope. **The rule stays**: until the outcome is recorded, public documentation does not describe the mechanism |
+| Recording container negotiated at runtime ([`V-11`](../11_registri/01-vincoli-in-vigore.md#v-11), [`V-115`](../11_registri/01-vincoli-in-vigore.md#v-115), `C-3`) | Public formulation on recording | A false statement for a part of the installed base | **No** - follows session recording, cut from `RU-1` |
 | Behaviour of the broker in single-node configuration | The guarantees declarable in customer installation | Functional requirements that depend on guarantees not available | **No** - the broker is cut from `RU-1` (reversible cut, [03 §5](./03-primo-rilascio-utilizzabile.md)) |
 
 `D18` is explicit on the placement of the first: **verification spike in the first week of
@@ -403,7 +403,7 @@ decided by whoever verifies.
 |---|---|---|
 | **Requirement without proof** | The traceability report lists the requirement in the "without proofs" view | On the request to demonstrate coverage |
 | **Risk control without efficacy verification** | Exists the proof that the measure is there, not the one that it works | On verification of the risk management file |
-| **`[NV]` not closed** on a released component | An unverified technical statement is in production | On first challenge, or at first incident |
+| An `[NV]` marking left unclosed or without recipient on a released component | An unverified technical statement is in production with no indication of who must close it | On first challenge, or at first incident |
 | **Divergence between the two languages** | A regulatory content says two different things in two languages | It is **a documentary defect in a medical device**, not a translation problem |
 | **Non-verifiable scope exclusion** | In the "verification" column there is a statement, not a proof | On first delivery under pressure, when the exclusion comes back in the window |
 | **Document produced outside control** | It has no reviewer, approval or recorded version | On reissue, which is entire |
@@ -431,9 +431,9 @@ Basic honesty: the project already has some. Listing it is the first instalment.
 | **Reissue under document control of already produced documents**: under `D54` it is not executable by 30 November 2026 and is **declared as a gap**, not planned | From `T-01` onwards | `COMP`, after the first release. The volume to be reissued **grows every day**: it is the gap with the fastest-growing cost of omission |
 | English version absent for most of the corpus, with obligation of full translation (`D50`) | From the beginning | `D56`: assisted translation area by area, **parallel to development**. Non-deferrable prerequisites: public warnings, foundations guide, compliance and security areas |
 | Numerous `[NV]` open in already written areas, each with declared recipient | Progressively | The recipient areas |
-| Public page not aligned with approved reformulations (`D19`, `D29`) | From approval of `D19` | `Q-185` → `PROD`, `ORCH` |
-| **Records in distinct roles not producible** - internal audit, release review, configuration verification performed by someone other than the code author | From `D54` | **Nobody internally.** It is not a problem of hours: `Q-189` decides which subset is accepted as a declared gap and which is covered by acquiring the function externally |
-| **Manufacturer role not yet established**, while `D58` attributes it to the project and multiple calendar steps presuppose it formally | From `D58` | Client, with `Q-280`. It is class `B`: its duration does not depend on working capacity |
+| Public page not aligned with approved reformulations (`D19`, `D29`) | From approval of `D19` | [`Q-185`](../11_registri/02-questioni-aperte.md#q-185) → `PROD`, `ORCH` |
+| **Records in distinct roles not producible** - internal audit, release review, configuration verification performed by someone other than the code author | From `D54` | **Nobody internally.** It is not a problem of hours: [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) decides which subset is accepted as a declared gap and which is covered by acquiring the function externally |
+| **Manufacturer role not yet established**, while `D58` attributes it to the project and multiple calendar steps presuppose it formally | From `D58` | Client, with [`Q-280`](../11_registri/02-questioni-aperte.md#q-280). It is class `B`: its duration does not depend on working capacity |
 
 The last two rows are not like the others, and the difference must be said. The first five are gaps that
 **work closes**: someone pays them in hours and they disappear. The last two **do not close by working more**, because one
@@ -451,10 +451,10 @@ time every month, forever, and must be subtracted before planning anything.
 
 | Recurring item | Why it is recurring | Order of magnitude |
 |---|---|---|
-| Surveillance and updating of third-party components | The service level is in days from advisory (`V-185`), and the release cadence of exposed components is high | Not negligible and not estimable without history. `[NV]` |
+| Surveillance and updating of third-party components | The service level is in days from advisory ([`V-185`](../11_registri/01-vincoli-in-vigore.md#v-185)), and the release cadence of exposed components is high | Not negligible and not estimable without history: `[NV]`, and the estimate falls to `ROAD` once the project has a delivery history of its own to calibrate against |
 | Maintaining alignment between the two languages | Every modification to Italian content is incomplete until it updates English (`D50`, check `G8`) | **Doubles** the marginal cost of every documentary modification |
 | Maintenance of the traceability matrix | It is generated automatically, but gaps must be justified at every release | Low if automated from the start; high if recovered |
-| Response to reports and coordinated disclosure | The channel must work, and a channel that does not respond is worse than one absent | Not estimable without observed volume. `[NV]` |
+| Response to reports and coordinated disclosure | The channel must work, and a channel that does not respond is worse than one absent | Not estimable without observed volume: `[NV]`, and the estimate falls to `ROAD` after the first year of reports received |
 | Monthly review of the roadmap and risks | It is the procedure of §8.1 of chapter [00](./00-indice.md) | Hours, not days |
 
 It follows the formulation that chapter [02](./02-traguardi.md) uses for all internal dates:
@@ -481,7 +481,7 @@ and no amount of individual work produces them:
 | **Configuration verification performed by someone other than the code author** | Verification serves to intercept what the author does not see, by construction | Nothing, for the same reason |
 | **External independent review of critical security code** (`D18`) | The prescription says **external and independent**, and it is a property of the reviewer, not of the review | Nothing |
 
-**It is not a problem of hours.** It is the reason why this chapter places constraint `V-281`:
+**It is not a problem of hours.** It is the reason why this chapter places constraint [`V-281`](../11_registri/01-vincoli-in-vigore.md#v-281):
 
 > **No milestone enters the plan if it requires two distinct subjects and the second does not exist.**
 > The record that would follow is declared as a **gap, with the date on which it is born**, and
@@ -489,7 +489,7 @@ and no amount of individual work produces them:
 > to make it disappear from view.
 
 The allocation - which subset is accepted as a declared gap and which is covered by
-acquiring the function externally - is **a client decision** and remains open as `Q-189`.
+acquiring the function externally - is **a client decision** and remains open as [`Q-189`](../11_registri/02-questioni-aperte.md#q-189).
 Chapter [03 §5](./03-primo-rilascio-utilizzabile.md) lists it amongst **irreversible** cuts,
 because a record dated to a period is not produced after the period has passed.
 
@@ -504,8 +504,10 @@ with a **trigger** and an **owner**. The sequence is the robust part of the plan
 dependencies change, which are few and declared.
 
 **2. The allocation of the remaining calendar.** Not an estimate: the apportionment of the
-days remaining between the milestones of the sequence, under the capacity declared by `D54` and with
-`[NV]` on the number of hours per week (§4.1).
+days remaining between the milestones of the sequence, under the capacity declared by `D54` and
+quantified by `D62` at ten to twenty hours per week (§4.1). **That the hours are known does not
+turn the allocation into an estimate**: the delivery history and the shared unit of measure are
+still missing.
 
 **3. The rule for absorbing deviations.** What happens when a milestone does not close at its date. The rule is
 declared once and applies to all, and has changed from the previous version of this chapter because what is
@@ -518,7 +520,7 @@ fixed has changed:
 > [03 §8](./03-primo-rilascio-utilizzabile.md) and the list of §7.3 of this chapter, where debt is
 > not permitted in any form.
 
-Placed as constraint **`V-282`**. Two properties follow, and the second is the one that matters:
+Placed as constraint **[`V-282`](../11_registri/01-vincoli-in-vigore.md#v-282)**. Two properties follow, and the second is the one that matters:
 
 - **A date is never moved in silence.** If scope is no longer reducible without affecting a blocking criterion,
   the date **is declared missed** with cause recorded (§8.2 of chapter [00](./00-indice.md)). It is not a failure
@@ -531,11 +533,54 @@ Placed as constraint **`V-282`**. Two properties follow, and the second is the o
 **What this discipline makes impossible**, and it is its purpose: deliver a reduced scope
 while making it appear as the planned scope.
 
+### 10.1 What is measured when a date moves
+
+The three parts of §10 say how a date is set and what happens when it does not hold. They do not
+say how we learn from deviations that have already occurred, and without that part a roadmap
+repeats the same forecasting errors at every cycle.
+
+This is why
+[`registro/velocity-dei-traguardi.tsv`](https://github.com/fedcal/Telemedic/blob/main/registro/velocity-dei-traguardi.tsv)
+exists: an **addition-only event journal**, one row for every first allocation, every
+recalibration, every closure. It is not a table of states - the state of a milestone is the
+projection of the events that concern it - for the same reason already written in
+[`registro/README.md`](https://github.com/fedcal/Telemedic/blob/main/registro/README.md) for
+requirement identifiers and, before that, in view `V-121` on alarms: a "state" column would need
+to be **modified** on every change, and a modified row is no longer verifiable after the fact.
+
+**The two quantities the register makes readable.** The first is velocity: how many criteria
+close per working day, measured and not estimated. The second, more useful, is the **systematic
+deviation**: if every forecast is wrong in the same direction, the next forecast must be
+corrected by that amount instead of being believed.
+
+**The column that keeps the register honest is `motivo`, and the reason must be stated.** A
+milestone closed ahead of schedule can mean three different things that look the same in the
+numbers: that the work went better than expected, that it had been overestimated, or that the
+criteria were **already satisfied and nobody had counted them**. On 27 August 2026 all three
+cases occurred on the same day - `T-01` closed because the work was finished, `T-03` and `T-07`
+brought forward because the roadmap declared less than was actually true. Without the `motivo`
+column the register would conflate them, and the velocity derived from it would be **false on
+the high side**: what was a measurement defect would be attributed to execution capacity.
+
+**What the register is not.** It is not a measure of productivity and must not be read as one. It
+does not authorise promising more: capacity remains the one declared by `D54`, and the lead
+gained is **margin against risk**, not scope to be filled - it is the same rule of §10, seen from
+the side where things go well instead of the side where they go badly.
+
+The register is guarded by
+[`scripts/verifica-registro-di-velocity.sh`](https://github.com/fedcal/Telemedic/blob/main/scripts/verifica-registro-di-velocity.sh),
+which verifies five properties: the form, the presence of the reason on every recalibration and
+every closure, the prohibition of events following a closure, coverage of every dated milestone,
+and agreement between the last event and the date declared by the milestone's record. What it
+**does not** verify is addition-only status, which is a property of the history and not of the
+file: it is seen by comparing preceding rows between two revisions, not by reading the current
+state.
+
 ---
 
 ## 11. The declared capacity
 
-`D54` closes `Q-181`. Capacity **is no longer an assumption**: it is the datum on which every allocation
+`D54` closes [`Q-181`](../11_registri/02-questioni-aperte.md#q-181). Capacity **is no longer an assumption**: it is the datum on which every allocation
 is built.
 
 > **Capacity of the project: a single contributor, working part-time.**
@@ -551,7 +596,7 @@ is built.
 | **Class `C` activities** (unblocking) | Reduced to the subset needed for the actual perimeter of the first release. An empirical verification on a function that is cut **is itself a function that is cut** |
 | **Class `D` activities** (compressible) | All the scope reduction comes from here. The order is declared in [03 §6](./03-primo-rilascio-utilizzabile.md) |
 | **Specialist competences** - usability, security research, clinical writing, translation | **Not present internally.** Each is either acquired externally, or declared as a gap. There is no third option, and in particular there is not the one of supplying it with more hours |
-| **Records in distinct roles** | **Not producible**, for §9-bis. `Q-189` |
+| **Records in distinct roles** | **Not producible**, for §9-bis. [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) |
 
 ### 11.2 The difference between this formulation and the previous one
 
@@ -604,7 +649,7 @@ The second **is not producible** (§9-bis) and does not enter the completion cri
 source requires it - release review, internal audit, configuration verification by someone other than the code author -
 the roadmap **does not pretend to satisfy it**. It declares it as a gap,
 marks it as **irreversible** in [03 §5](./03-primo-rilascio-utilizzabile.md), and defers its allocation to
-`Q-189`.
+[`Q-189`](../11_registri/02-questioni-aperte.md#q-189).
 
 It is the distinction that permits saying precisely what `RU-1` is: a release whose
 criteria are **all verifiable by anyone**, and on which **no verification has been executed
@@ -618,7 +663,7 @@ be written.
 They are seven and are verifiable on the text.
 
 1. **Every milestone has verifiable completion criteria.** A milestone without a criterion is a
-   wish, and does not enter. It is constraint `V-181`.
+   wish, and does not enter. It is constraint [`V-181`](../11_registri/01-vincoli-in-vigore.md#v-181).
 2. **What does not enter is declared, and why.** Chapter [03](./03-primo-rilascio-utilizzabile.md)
    dedicates to exclusions at least the space it dedicates to inclusions, because for whoever must
    decide whether to adopt the product the two pieces of information have the same value.
@@ -628,13 +673,13 @@ They are seven and are verifiable on the text.
 4. **The project's obligation is distinguished from that of whoever installs**, line by line, and not
    with a general warning at the bottom.
 5. **Synthetic data only, no real data, no secret** (`R0`). No clinical threshold.
-   The system stays fully functional without terminologies with binding licences (`V-02`,
-   `V-03`), and the roadmap plans nothing that contradicts it.
+   The system stays fully functional without terminologies with binding licences ([`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02),
+   [`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)), and the roadmap plans nothing that contradicts it.
 6. **The roadmap is internal project planning** (`D57`). No milestone is attributed to
    "third parties", to "those who certify" or to an undefined subject. Where a step formally presupposes the
    role of manufacturer, the document states that **that role must be established and formalised**
-   (`D58`, `Q-280`), with its own time, instead of shifting the step to someone else.
-7. **An internal planning date is not a promise of outcome** (`V-171`, `V-280`). At no point in this area
+   (`D58`, [`Q-280`](../11_registri/02-questioni-aperte.md#q-280)), with its own time, instead of shifting the step to someone else.
+7. **An internal planning date is not a promise of outcome** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). At no point in this area
    is it written that the product **will be marked by a date**; at every point where marking is mentioned it
    is declared: **today the product does not bear the CE marking**, is not covered by any declaration of
    conformity, and whoever instals, integrates or places the software in service assumes the obligations

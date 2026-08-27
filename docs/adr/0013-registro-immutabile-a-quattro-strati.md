@@ -7,7 +7,7 @@ description: Perché il registro degli accessi combina catena di impronte, archi
 # ADR-0013 - Registro immutabile a quattro strati
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Decisioni di riferimento**: D42; vincoli V5 e V-04 di bacheca
+**Decisioni di riferimento**: D42; vincoli [V5](../11_registri/03-vincoli-fondanti.md#v5) e [V-04](../11_registri/01-vincoli-in-vigore.md#v-04) di bacheca
 **Origine**: questioni poste dall'area di sicurezza sulla scelta della tecnica e sul punto e la
 periodicità dell'ancoraggio esterno
 
@@ -120,10 +120,10 @@ operazioni non ripudiabili.
    l'installazione presso il cliente potrebbe non avere; quando è assente, la garanzia dichiarabile
    si riduce e la riduzione va dichiarata.
 
-**Rinviato all'area di sicurezza** (`[NV]`): il **valore** dell'intervallo e della soglia di
+**Rinviato all'area di sicurezza**: il **valore** dell'intervallo e della soglia di
 volume, la scelta del servizio di marcatura temporale, la conservazione degli ancoraggi, la cadenza
 delle verifiche, la forma minima dell'origine della richiesta compatibile con la minimizzazione, e
-se l'archivio del registro possa essere lo stesso motore dell'archivio applicativo con privilegi
+se l'archivio del registro possa essere lo stesso motore dell'archivio applicativo con privilegi, decisi da `SEC` `[NV]`
 disgiunti.
 
 ## Riferimenti

@@ -171,7 +171,7 @@ defences are four, and they are all product features:
   detecting abuse ([04 §7](./04-tracciamento.md));
 - **emergency access as a declared path**, with mandatory free-text justification and after-the-fact
   review: making the exception a traced function instead of leaving it as a silent privilege
-  ([02 §10](./02-identita-e-accessi.md), constraint V-153).
+  ([02 §10](./02-identita-e-accessi.md), constraint [V-153](../11_registri/01-vincoli-in-vigore.md#v-153)).
 
 ### 3.2 The untargeted external attacker
 
@@ -235,7 +235,7 @@ the queries.
 
 *Design consequence.* The defence is not contractual but **architectural, by absence of the
 datum**: if a patient identifier never reaches the external terminology service, its geographical
-location becomes irrelevant for transfer purposes. This is the reasoning with which question Q-04
+location becomes irrelevant for transfer purposes. This is the reasoning with which question [Q-04](../11_registri/02-questioni-aperte.md#q-04)
 on the noticeboard was closed, and which chapter [07 §7](./07-catena-di-fornitura.md) sets out in
 full.
 
@@ -293,7 +293,7 @@ flowchart TB
 | **B** - integrator → ingress | Delegated identity token, application calls, references | Issuer admitted for that tenant, signature, admitted algorithm, expected audience, scope, **marking of the level as reported and not performed** |
 | **C** - ingress → application | Request context | Tenant resolved: **no query without a tenant**; identity propagated in non-forgeable form |
 | **D** - application → broker | Egress request with destination | Scheme, port, size, time, hop count against closed lists; **resolved address checked** |
-| **E** - broker → external | Queries, notifications, retrieval of material | No clinical content ([V-21](./06-sicurezza-applicativa.md)); no patient identifier towards terminology ([V-151](./03-protezione-dei-dati.md)); asymmetric signature on egress ([V-22](./06-sicurezza-applicativa.md)) |
+| **E** - broker → external | Queries, notifications, retrieval of material | No clinical content ([V-161](./06-sicurezza-applicativa.md)); no patient identifier towards terminology ([V-151](./03-protezione-dei-dati.md)); asymmetric signature on egress ([V-162](./06-sicurezza-applicativa.md)) |
 | **media** - browser → relay | Encrypted transport packets | Valid ephemeral credential; destination not belonging to the forbidden address ranges; **outbound network isolation as the primary defence** ([05 §4](./05-sicurezza-del-tempo-reale.md)) |
 
 Two observations that the table does not convey on its own.
@@ -304,7 +304,7 @@ counts is executed server-side; client-side controls are ergonomics.
 
 **The subtlest boundary is B.** The identity that arrives from an integrator is an identity of
 which the project knows only the assertion. This is the subject of chapter
-[02 §4](./02-identita-e-accessi.md) and the reason for constraint V-154.
+[02 §4](./02-identita-e-accessi.md) and the reason for constraint [V-154](../11_registri/01-vincoli-in-vigore.md#v-154).
 
 ## 5. From threat to clinical consequence
 
@@ -321,7 +321,7 @@ person**.
 | M-05 | Recording started without consent, or consent that cannot be withdrawn | Clinical content | Processing without a legal basis | Harm to the person; **chilling effect** on the consultation if the patient suspects being recorded |
 | M-06 | Alteration of a signed clinical document | Clinical content | Loss of integrity | **Therapeutic decision on a false datum.** It is the threat with the worst potential outcome in the whole list |
 | M-07 | Alteration of a vital sign measurement or of its time-stamp | Clinical content | Loss of integrity | Threshold assessment on a false datum; alert missed or alert unjustified |
-| M-08 | Loss of an alarm or of a threshold-breach notification | Availability | Message lost | **Failure to intervene** on a clinical deterioration. Constraint V-09 - silence is never normality - is born here |
+| M-08 | Loss of an alarm or of a threshold-breach notification | Availability | Message lost | **Failure to intervene** on a clinical deterioration. Constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) - silence is never normality - is born here |
 | M-09 | Service hours declared differently from the actual ones | Integrity of the information | None, on the technical plane | **False reassurance.** A person who believes they are being monitored and is not is in a worse condition than a declared absence of service |
 | M-10 | Confusion between patients: a datum attributed to the wrong person | Clinical content | Loss of integrity | Report or measurement in the wrong record: **two people harmed** by a single error |
 | M-11 | Data leakage between tenants | Clinical content, metadata | Loss of confidentiality | As M-01, with mass exposure and with no identifiable actor |

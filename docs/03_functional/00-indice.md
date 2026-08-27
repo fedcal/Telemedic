@@ -1,7 +1,7 @@
 ---
 title: Area funzionale - indice
 sidebar_position: 1
-description: "Mappa dell'area funzionale di Telemedic: attori e ruoli, catalogo dei requisiti con identificativi congelati, casi d'uso con flussi alternativi e di errore, regole di business, gestione degli allarmi, accessibilità e usabilità verificabili, perimetro escluso."
+description: "Mappa dell'`FUNZ` di Telemedic: attori e ruoli, catalogo dei requisiti con identificativi congelati, casi d'uso con flussi alternativi e di errore, regole di business, gestione degli allarmi, accessibilità e usabilità verificabili, perimetro escluso."
 ---
 
 # Area funzionale
@@ -79,7 +79,7 @@ perché non producono un test che possa fallire.
 
 **Nessuna soglia clinica compare in questi documenti.** Non per prudenza redazionale: perché la
 soglia è contenuto di un documento sanitario individuale, redatto e firmato da un professionista
-(vincolo V-02 e decisione D21). Un valore numerico clinico scritto in un documento tecnico
+(vincolo [V-02](../11_registri/01-vincoli-in-vigore.md#v-02) e decisione D21). Un valore numerico clinico scritto in un documento tecnico
 finisce, prima o poi, in una costante. Dove serve un esempio, si usa una lettera o un simbolo.
 
 **Ogni affermazione normativa cita la fonte** con l'atto, l'articolo o l'allegato. Ciò che non è
@@ -102,7 +102,7 @@ di destinazione d'uso e di limiti d'uso è un artefatto autonomo del pacchetto r
 capitolo [07 - Fuori perimetro](07-fuori-perimetro.md) è il punto di raccordo fra i due.
 
 > **Avvertenza che vale su tutta l'area.** Il repository non è un dispositivo medico e oggi il
-> progetto non appone marcatura CE (decisioni D28, D49, vincolo V-06). Con la decisione D63
+> progetto non appone marcatura CE (decisioni D28, D49, vincolo [V-06](../11_registri/01-vincoli-in-vigore.md#v-06)). Con la decisione D63
 > del 26 agosto 2026 il progetto intende assumere il ruolo di fabbricante, ancora da costituire
 > come soggetto giuridico: il percorso è avviato e la marcatura è un requisito di prodotto.
 > Nessun requisito di questo catalogo può essere letto come attestazione di conformità: sono

@@ -799,7 +799,7 @@ operatore impegnato **in un atto in corso**, tipicamente in emergenza-urgenza te
 La sincronia è vincolante e la latenza tollerabile è molto più bassa che in televisita: gli
 obiettivi di servizio non sono riusabili. La fattispecie non compare nell'elenco delle
 prestazioni dell'Accordo 215/CSR 2020 e nel progetto è trattata come contesto d'uso fuori
-perimetro della versione corrente. `[NV]` su una definizione normativa nazionale autonoma.
+perimetro della versione corrente. Una definizione normativa nazionale autonoma rimane da accertare da parte dell'area `GUIDA` `[NV]`.
 
 ---
 
@@ -897,9 +897,7 @@ nazionale*» (Allegato 3, § 3.1).
 Le due condizioni sono quindi: **standard tecnici certificati AGENAS** e **alimentazione del
 FSE**. La seconda è tecnicamente definita e il progetto sa cosa comporta (modulo
 [07](07-fse-e-infrastrutture-nazionali.md)). La prima **non è pubblicamente documentata**:
-`[NV]` su in cosa consista operativamente il Processo di Validazione, quali siano i criteri,
-la durata e gli artefatti richiesti. È una lacuna dichiarata, da colmare con richiesta
-diretta ad AGENAS.
+è una lacuna dichiarata. `[NV]` Va richiesto ad AGENAS quali siano il Processo di Validazione, i criteri, la durata e gli artefatti richiesti.
 
 ### 6.3 I micro-servizi essenziali
 
@@ -982,7 +980,7 @@ nell'Allegato 1, paragrafi 2.18-2.27, pubblicato in Gazzetta Ufficiale.
 
 Termine di messa a regime dell'integrazione dei contenuti nel FSE: **30 giugno 2026** (art. 7,
 c. 3). Alla data di redazione il termine è scaduto; lo stato di attuazione regionale effettivo
-non è stato accertato. `[NV]`
+non è stato accertato e rimane da accertare da parte dell'area `GUIDA` `[NV]`.
 
 > **Correzione di un'ipotesi errata, documentata per trasparenza.** Fino a questa verifica la
 > ricerca del progetto ipotizzava che il referto di televisita fosse veicolato come «Referto
@@ -1042,7 +1040,7 @@ controintuitivi:
 **Non sono stati reperiti i template CDA2 né i codici di tipologia documentale né i metadati
 IHE XDS per le nuove dieci tipologie.** La ricerca ha accertato che il portale del fascicolo
 dichiara pubblicata la versione 2.6.4 delle specifiche tecniche di interoperabilità, ma non è
-stato possibile verificare se contenga già i template di telemedicina. `[NV]`
+stato possibile verificare se contenga già i template di telemedicina da parte dell'area `GUIDA` `[NV]`.
 
 **Conseguenza operativa vincolante**: fino ad allora il progetto modella il contenuto
 informativo dell'Allegato 1 come **dataset canonico** e tratta CDA2 come **serializzazione
@@ -1135,8 +1133,7 @@ Non esiste una tariffa «di telemedicina»: si applica quella della prestazione 
 
 Il nuovo decreto tariffe, con intesa in Conferenza Stato-Regioni del 23 luglio 2026 e
 decorrenza dichiarata dal 21 settembre 2026, comprende 448 prestazioni di specialistica
-ambulatoriale e 222 codici di assistenza protesica. **Nessuna voce di telemedicina.** `[NV]`
-sugli estremi di pubblicazione in Gazzetta Ufficiale, non accertati.
+ambulatoriale e 222 codici di assistenza protesica. **Nessuna voce di telemedicina.** Gli estremi di pubblicazione in Gazzetta Ufficiale rimangono da accertare da parte dell'area `GUIDA` `[NV]`.
 
 C'è però un elemento di segno opposto che va registrato con altrettanta precisione: il DM 19
 novembre 2025, Allegato 2, istituisce presso l'Ecosistema dati sanitari un servizio di

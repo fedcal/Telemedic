@@ -123,7 +123,7 @@ The surface is **dual**, and the separation is not cosmetic:
 The most useful practical consequence: **network quality metrics are not clinical observations.** Modelling
 latency or packet loss as FHIR observations would make them end up in the patient's medical record.
 It is a data quality problem and, from a regulatory perspective, shifts the boundary of what the
-system claims about the patient (constraint V2). They stay on the application plane, and are non-negotiable.
+system claims about the patient (constraint [V2](../11_registri/03-vincoli-fondanti.md#v2)). They stay on the application plane, and are non-negotiable.
 
 ### 2.2 What it requires
 
@@ -137,7 +137,7 @@ system claims about the patient (constraint V2). They stay on the application pl
 
 ### 2.3 What you get
 
-Everything. It is the corollary of constraint V3: **no capability of the system is reachable only
+Everything. It is the corollary of constraint [V3](../11_registri/03-vincoli-fondanti.md#v3): **no capability of the system is reachable only
 from the user interface**. If something can be done by clicking, it can be done by calling.
 
 In practice: create a service from an existing appointment, generate and deliver invitations via your

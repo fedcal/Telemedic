@@ -24,7 +24,7 @@ decision:
 > It is the same principle as the signed document, for the same reason: someone has already made a
 > decision on the basis of the previous value.
 
-The constraint is already in the architectural baseline (`04_BASELINE_ARCHITETTURALE.md` § 2). Here
+The constraint is already in the architectural baseline ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 2). Here
 its form is derived.
 
 ## 1. Mandatory context
@@ -50,7 +50,7 @@ why a value looks strange.
 | **Quality indicators reported by the device** | when available | error reports, measurement reliability indices | the only automatic signal of unreliable measurement is lost |
 | **State** | yes | preliminary, final, corrected, voided | it is not known whether the value is usable |
 | **Plan and plan version** | yes for planned measurements | which plan requested it and in which version | evaluation against thresholds cannot be reconstructed |
-| **Tenant** | yes | `V-04` | write rejected |
+| **Tenant** | yes | [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04) | write rejected |
 
 > **`DM-51` [MOD] - Context is not a notes field.** Each attribute in the table is a distinct
 > element with its own type. A free-text field «notes on measurement» meets the letter of the
@@ -66,7 +66,7 @@ does not repeat it.
 ### 2.1 What makes a measurement the same measurement
 
 The problem arises at the first resend: a third-party gateway retransmits a batch of measurements
-already sent, because delivery is **at least once** (`04_BASELINE_ARCHITETTURALE.md` § 5). Without
+already sent, because delivery is **at least once** ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 5). Without
 a key, duplicates are recorded; with a wrong key, legitimate measurements are lost.
 
 > **`DM-52` [MOD] - Explicit deduplication key, declared by the producer.** The measurement
@@ -133,7 +133,7 @@ that uses the other unit. Module [09 of the foundations guide](../10_fondamenti/
 
 The last row is more important than it seems. Some conversions between units in clinical use
 require a factor that depends on the substance measured. A system that executes them is performing
-an interpretive operation, not a normalisation, and the constraint `V2` on separation requires
+an interpretive operation, not a normalisation, and the constraint [`V2`](../11_registri/03-vincoli-fondanti.md#v2) on separation requires
 that the operation be recognisable as such.
 
 ### 3.3 Coding of units
@@ -175,7 +175,7 @@ not verify it and must not allow the impression that it does.
 > system applies.
 
 The last sentence is a scope choice. Applying reliability weights would be data interpretation,
-and would move the system beyond the boundary of `V2`.
+and would move the system beyond the boundary of [`V2`](../11_registri/03-vincoli-fondanti.md#v2).
 
 ### 4.2 The device card
 
@@ -224,7 +224,7 @@ At-least-once delivery and third-party gateways regularly produce data that arri
 The model assumes this as normal, not as an anomaly:
 
 1. **The order of arrival is not the clinical order.** No domain logic may depend on the order of
-   reception (`04_BASELINE_ARCHITETTURALE.md` § 5).
+   reception ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 5).
 2. **A late datum may reopen an evaluation.** A measurement that arrives after a window has been
    declared missed **changes** the fact: the state transitions from missed to received, and the
    absence event previously issued must be contradicted explicitly, not forgotten.
@@ -237,7 +237,7 @@ The model assumes this as normal, not as an anomaly:
 This is the point at which this chapter meets the constraint that orchestration has rendered
 transversal.
 
-> **[BASE] `V-09`** - The absence of data is clinical information: silence is never treated as
+> **[BASE] [`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09)** - The absence of data is clinical information: silence is never treated as
 > normality.
 
 ### 6.1 Expectation as an entity
@@ -305,7 +305,7 @@ for this reason it is the only one the system can and must detect by itself.
 > tenant, distinct from surveillance per beneficiary. An aggregate volume collapse is a technical
 > event that precedes by hours or days the appearance of individual absences, and is to be treated
 > as a platform incident, not as a sum of clinical cases. It is the entry «monitoring of expected
-> volume» of question `Q-12` on the noticeboard.
+> volume» of question [`Q-12`](../11_registri/02-questioni-aperte.md#q-12) on the noticeboard.
 
 Aggregate surveillance has no privacy problems - it counts events, it does not read them - but
 must be designed so that the count does not become an inference channel: chapter
@@ -317,7 +317,7 @@ must be designed so that the count does not become an inference channel: chapter
 
 > **[BASE]** Time series of parameters are retained in structures dedicated to time series; **the
 > representation conforming to the standard is a projection, not the storage tool**
-> (`04_BASELINE_ARCHITETTURALE.md` § 3).
+> ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 3).
 
 On the modelling plane the consequence is that the «measurement» aggregate is defined by the
 domain and projected towards the standard, not defined by the standard. The difference is seen on
@@ -354,7 +354,7 @@ produces interpolations that do not correspond to anything.
 
 ### 8.1 The constraint
 
-> **[BASE] `V-02`** - No clinical threshold is hard-coded: thresholds are **configuration per
+> **[BASE] [`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)** - No clinical threshold is hard-coded: thresholds are **configuration per
 > beneficiary**, decided by the professional.
 
 Module [10 of the foundations guide](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 7.9
@@ -388,11 +388,11 @@ what the system does.
 > is not possible to answer, months later, the question «why did this alarm trigger» or the
 > opposite question, which is the one that really matters: «why did it not trigger».
 
-It is the entry «calculation traceability» of question `Q-12` on the noticeboard.
+It is the entry «calculation traceability» of question [`Q-12`](../11_registri/02-questioni-aperte.md#q-12) on the noticeboard.
 
 ### 8.4 What the system does not do
 
-Three exclusions that delimit scope, consistent with question `Q-01` on the noticeboard:
+Three exclusions that delimit scope, consistent with question [`Q-01`](../11_registri/02-questioni-aperte.md#q-01) on the noticeboard:
 
 1. **It does not infer thresholds** from the population, from the beneficiary's history or from
    other beneficiaries.
@@ -423,7 +423,7 @@ scope decision follows that this area makes explicitly:
 
 ### 9.3 Scales have their own licences
 
-> **Question `Q-11` on the noticeboard, addressed to areas `COMP` and `ARCH`, with contribution
+> **Question [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) on the noticeboard, addressed to areas `COMP` and `ARCH`, with contribution
 > from this area.** Validated clinical scales and questionnaires **have their own licences**: the
 > terminology policy is to be formally extended to scales and scores **before** writing the first
 > calculation engine.

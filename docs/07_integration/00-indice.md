@@ -17,7 +17,7 @@ teleassistenza, telemonitoraggio - dentro un sistema che esiste già. Non è un 
 mandare gli utenti, non è la cartella clinica, non è l'anagrafica, non è l'agenda.
 
 Tre affermazioni discendono direttamente dal profilo di integratore su cui il progetto è
-costruito (`00_PROJECT_BRIEF.md` §6.2) e vanno lette prima di tutto il resto, perché
+costruito ([`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) §6.2) e vanno lette prima di tutto il resto, perché
 determinano la forma di ogni interfaccia descritta in quest'area:
 
 1. **Non impone la propria interfaccia.** Chi integra ha già la propria, e la propria identità
@@ -198,7 +198,7 @@ spiega che cosa significa per voi in concreto.
 ### 6.2 Il progetto non è accreditato presso la federazione delle identità
 
 Il progetto è **conforme e verificabile** su identità digitale nazionale, **non accreditato**
-(vincolo V-05, decisione D36). Il fornitore di servizi verso la federazione è **chi installa**,
+(vincolo [V-05](../11_registri/01-vincoli-in-vigore.md#v-05), decisione D36). Il fornitore di servizi verso la federazione è **chi installa**,
 non il progetto: la convenzione, l'elenco dei servizi attivi, i livelli di sicurezza dichiarati
 e gli obblighi ricorrenti gravano su di voi. Il capitolo [06 §6](06-identita-e-delega.md) elenca
 che cosa dovete fare e quali sono i tempi che **non** sono dichiarati da alcuna fonte.

@@ -7,7 +7,7 @@ description: Perché l'isolamento fra titolari autonomi si realizza con schemi s
 # ADR-0007 - Uno schema per tenant con sicurezza a livello di riga come difesa in profondità
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Decisioni di riferimento**: D8; vincolo V4; base architetturale §4
+**Decisioni di riferimento**: D8; vincolo [V4](../11_registri/03-vincoli-fondanti.md#v4); base architetturale §4
 
 ## Contesto
 
@@ -98,10 +98,10 @@ tenant richiedono un percorso dedicato.
 - Iterazione esplicita sui tenant per ogni processo che non nasce da una richiesta: costa più cicli
   e rende impossibile la classe di difetti in cui un'operazione pensata per un tenant tocca gli
   altri.
-- `[NV]` - il limite pratico di schemi gestibili prima che il costo dei metadati diventi
-  significativo va misurato dall'area tecnica prima della prima installazione a molti tenant.
+- Il limite pratico di schemi gestibili prima che il costo dei metadati diventi
+  significativo va misurato da `TECH` prima della prima installazione a molti tenant `[NV]`.
 
-**Chi altro è vincolato**: tutte le aree, per il vincolo V4.
+**Chi altro è vincolato**: tutte le aree, per il vincolo [V4](../11_registri/03-vincoli-fondanti.md#v4).
 
 ## Riferimenti
 

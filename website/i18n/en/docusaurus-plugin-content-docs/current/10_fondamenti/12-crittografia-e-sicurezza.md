@@ -247,7 +247,7 @@ advance with certainty. Preventive control can reduce the set, not eliminate it 
 eliminate it, it would block care in an emergency.
 
 From this follows the model: **more is allowed than one would wish, and everything is recorded
-in a non-repudiable and non-alterable way**. It is exactly the project's constraint **V5**, and
+in a non-repudiable and non-alterable way**. It is exactly the project's constraint **[V5](../11_registri/03-vincoli-fondanti.md#v5)**, and
 it is the reason why the traceability obligation appears in all the applicable sources at the
 same time: Article 5(2) GDPR (accountability), measures `PR.PS-04` and `DE.CM-01` of the national
 authority's baseline specifications, requirement R30 of the AgID guidelines on security in ICT
@@ -296,7 +296,7 @@ sphygmomanometer is badly calibrated. Information security guarantees that the d
 it left; it does not guarantee that it left correct. It is the reason why decision **D21**
 establishes that the project assumes no responsibility for the accuracy of the hardware
 measurement chain, and why thresholds and alerts are configured by the professional and never
-inferred by the system (constraint **V2**).
+inferred by the system (constraint **[V2](../11_registri/03-vincoli-fondanti.md#v2)**).
 
 ---
 ## 2. Modelling threats
@@ -332,7 +332,7 @@ modelling as a process activity of the life cycle, and the European Commission's
 dated, and every relevant threat has at least one requirement and one test associated with it.
 
 > **Status note.** The harmonisation status of EN IEC 81001-5-1:2022 under MDR has not been
-> ascertained against a primary source in this project: `[NV]`. The standard nevertheless
+> ascertained against a primary source in this project: `[NV]` `TECH` must verify it. The standard nevertheless
 > remains the technical reference of choice for demonstrating the «state of the art» required by
 > Annex I of Regulation (EU) 2017/745, independently of the presumption of conformity.
 
@@ -432,7 +432,7 @@ distance between them and other people's data is a single wrong line of code. Da
 across the tenant boundary is, in the project's risk matrix, one of the two scenarios of
 severity **S4** to be kept under absolute control. Structural countermeasure: isolation imposed
 **at the persistence level** - row-level security or a dedicated schema - and not only at the
-application level (requirement **SEC-018**, constraint **V4**), plus a negative cross-tenant
+application level (requirement **SEC-018**, constraint **[V4](../11_registri/03-vincoli-fondanti.md#v4)**), plus a negative cross-tenant
 access test on every endpoint of the interface.
 
 **A7 - The compromised supplier and the supply chain.** The adversary does not attack the
@@ -462,7 +462,7 @@ into a single field.
 who reuses a password, who clicks on a link in a message that appears to come from the
 organisation. They are not malicious: they are the ordinary condition. Countermeasures: short
 and reversible paths, strong authentication through the national digital identity, messages that
-never ask for credentials, and - by virtue of constraint **V6** - the awareness that a security
+never ask for credentials, and - by virtue of constraint **[V6](../11_registri/03-vincoli-fondanti.md#v6)** - the awareness that a security
 measure the real user cannot carry out is a measure that does not exist.
 
 ### 2.5 Attack surface
@@ -556,7 +556,7 @@ Five readings of the diagram that are worth making explicit.
 1. **The browser is never trusted.** Not even the professional's, not even on a hospital
    network. Any check carried out only in the interface is a usability suggestion, not a
    security measure. If a rule matters, it must be applied on the server side as well - and
-   since constraint **V3** requires that every capability be reachable by a third-party system
+   since constraint **[V3](../11_registri/03-vincoli-fondanti.md#v3)** requires that every capability be reachable by a third-party system
    through a documented interface, the server side is in any case the only possible point of
    application.
 2. **The integrator is in a zone of their own.** They are neither public like a browser nor
@@ -566,7 +566,7 @@ Five readings of the diagram that are worth making explicit.
 3. **The relay server sits on the frontier and sees more than it seems.** It does not see the
    content of the media, which remains encrypted end to end, but it does see the IP addresses of
    both parties - which are personal data and which can reveal location. It is the reason why
-   constraint **V1** requires it to be self-operated within the Union: it is a measure under
+   constraint **[V1](../11_registri/03-vincoli-fondanti.md#v1)** requires it to be self-operated within the Union: it is a measure under
    Article 32 GDPR, not merely a sovereignty choice.
 4. **The media does not cross the application zone** in the default mode. It is the reason why
    the mode with recording (D23) is architecturally another thing, and must be treated as such
@@ -723,7 +723,7 @@ and not gradual:
 There is no way of «reusing a nonce a little». It is the reason why AEAD constructions have a
 **limit on the number of messages that can be encrypted under a single key**, beyond which the
 key must be replaced: the limit depends on the size of the nonce and on the strategy by which it
-is generated. `[NV]` on the precise numerical values, which must be read on the specification of
+is generated. `[NV]` `TECH` must verify on the precise numerical values, which must be read on the specification of
 the construction adopted and not on a summary.
 
 **The three correct strategies**, in order of preference:
@@ -786,7 +786,7 @@ because adding it afterwards means not knowing which key applies to which datum.
 On the frequency of rotation the literature is less peremptory than is commonly believed:
 periodic rotation «for hygiene» has limited benefits, whereas rotation **on event** - suspected
 compromise, departure of an administrator, decommissioning of a component - is what counts.
-`[NV]` on any recommended numerical periodicity: it cannot be derived from the sources consulted
+`[NV]` `TECH` must verify on any recommended numerical periodicity: it cannot be derived from the sources consulted
 in this project and must be fixed in the key management policy with an explicit justification.
 
 **Destruction.** Deleting a key is the most effective way of making an encrypted datum
@@ -960,7 +960,7 @@ What can honestly be said, as things stand:
 account: that would be a choice without a source and without implementation maturity. But
 guarantee the **cryptographic agility** of § 4.6, so that adoption is a configuration migration
 and not a rewrite. And for traffic protected by TLS, follow the evolution of the libraries and
-of the ETSI/SOG-IS/AgID-ACN indications, which is where the migration will arrive first. `[NV]`
+of the ETSI/SOG-IS/AgID-ACN indications, which is where the migration will arrive first. `[NV]` `TECH` must verify
 on any date, precise algorithm or migration deadline: the sources consulted in this project do
 not provide them, and they must be read on the primary documents updated at the moment of the
 decision.
@@ -1039,7 +1039,7 @@ designed to resist both attacks with dedicated hardware and side-channel attacks
 constructions based on the iteration of HMAC or on memory consumption remain in use; they are
 acceptable with adequate parameters, but they are not the reference choice for a new system.
 
-`[NV]` on the **numerical values of the cost parameters**: they cannot be derived from the
+`[NV]` `TECH` must verify on the **numerical values of the cost parameters**: they cannot be derived from the
 sources consulted in this project and they depend on the hardware on which the verifier runs.
 The correct method is to measure on one's own hardware and choose the highest parameters
 compatible with an acceptable verification time, revisiting them periodically; the value goes in
@@ -1169,7 +1169,7 @@ proves nothing against the operator of that system - which is exactly adversary 
 
 **Why this is the most expensive point in the project's security catalogue.** Because decision
 **D42** explicitly establishes that entity versioning **is not** an immutable audit trail, and
-that constraint **V5**, requirement R30 of the AgID guidelines on ICT procurement, measure
+that constraint **[V5](../11_registri/03-vincoli-fondanti.md#v5)**, requirement R30 of the AgID guidelines on ICT procurement, measure
 ABSC 3.5.1 of AgID Circular 2/2017 and requirement `PR.PS-04` of the national authority's
 baseline specifications require a hash chain **and** retention separate from the system that
 generates the events. The decision qualifies it as «the greatest effort in the whole security
@@ -1381,10 +1381,11 @@ is a term with a precise regulatory definition.
 **What changes for a report.** Module [03 § 7.1](03-il-dato-clinico.md) reports that the Accordo
 Stato-Regioni del 17 dicembre 2020 (rep. 215/CSR) (the State-Regions Agreement of 17 December
 2020, act no. 215/CSR) requires «digital subscription» and, for telerefertazione (remote
-reporting), the «validated digital signature of the responsible doctor». The same source marks
-`[NV]` the precise identification of the level required by the legal order for each health
-document type: the choice must be documented as a reasoned decision and not assumed implicitly.
-What the project can assert without uncertainty is the architectural consequence:
+reporting), the «validated digital signature of the responsible doctor».
+`[NV]` Must be requested of the `COMP` area the precise identification of the level required
+by the legal order for each health document type: the choice must be documented as a reasoned
+decision and not assumed implicitly. What the project can assert without uncertainty is the
+architectural consequence:
 
 1. **The signature is an act of the person, not of the system.** A system that signs «on behalf
    of the doctor» with a key the system holds in custody does not produce a qualified signature
@@ -1620,7 +1621,7 @@ it, because it produces trust in the authenticated subject.
 
 The operational rule that follows: **authorisation is verified on every request, on the specific
 resource, on the server side**. Not at the entrance, not in the construction of the menu, not in
-the screen. Constraint **V3** - no functionality reachable only from the interface - makes this
+the screen. Constraint **[V3](../11_registri/03-vincoli-fondanti.md#v3)** - no functionality reachable only from the interface - makes this
 rule inevitable: if every capability is invocable by a third-party system, no interface-side
 check can be considered a defence.
 
@@ -1849,7 +1850,7 @@ short cut:
    coordinated with the limits that module [03 § 8.3](03-il-dato-clinico.md) describes for the
    categories with greater protection of anonymity, where the rules are stricter.
 
-**A note for whoever designs the interface.** Constraint **V6** holds here too: the warning must
+**A note for whoever designs the interface.** Constraint **[V6](../11_registri/03-vincoli-fondanti.md#v6)** holds here too: the warning must
 be comprehensible, accessible from assistive technology, and not conveyed by colour alone. A
 break-glass screen that a professional under pressure does not understand produces unaware
 accesses, which are the worst defect of all those possible.
@@ -1861,7 +1862,7 @@ accesses, which are the worst defect of all those possible.
 
 The **audit trail** - or traceability register, or record of accesses - is the sequence of events
 that document who did what, when, on which datum and with what outcome. It is the technical
-realisation of the traceability property of § 1.6 and of the project's constraint **V5**.
+realisation of the traceability property of § 1.6 and of the project's constraint **[V5](../11_registri/03-vincoli-fondanti.md#v5)**.
 
 It must be kept distinct from three things with which it is regularly confused.
 
@@ -1892,7 +1893,7 @@ without further investigation:
 | **From where** - provenance, channel, calling application | It serves to distinguish access from the internal network from remote access |
 | **With what outcome** - allowed, denied, partial | Denials are the most useful information for detecting an abuse in progress |
 | **By virtue of what** - the justification of the authorisation, and in an emergency the declared justification | § 8.5, point 2 |
-| **Tenant** | Constraint **V4**: every audit row carries the tenant identifier |
+| **Tenant** | Constraint **[V4](../11_registri/03-vincoli-fondanti.md#v4)**: every audit row carries the tenant identifier |
 | **Link of the chain** - digest of the previous event | § 5.6 |
 
 **What it must never contain.** This part is more important than the previous one, because a
@@ -1939,7 +1940,7 @@ immutable audit trail**, for three cumulative reasons.
    removal of a row leaves a perfectly consistent set.
 
 The sources that require going beyond this are four and they agree: the project's constraint
-**V5**; requirement **R30** of the AgID guidelines on security in ICT procurement; measure
+**[V5](../11_registri/03-vincoli-fondanti.md#v5)**; requirement **R30** of the AgID guidelines on security in ICT procurement; measure
 **ABSC 3.5.1** of AgID Circular no. 2/2017 of 18 April 2017; requirement `PR.PS-04` of the
 national authority's baseline specifications adopted with **Determinazione ACN n. 379907 del
 19 dicembre 2025**. Decision **D42** draws the operational conclusion: a **hash chain and
@@ -1964,7 +1965,7 @@ trail table is a vulnerability, irrespective of how the code behaves.
 
 **Second: a hash chain.** Every event contains the digest of the previous one, according to the
 construction of § 5.6. The chain is **per tenant**, with a known initial anchor, so that the
-isolation of constraint V4 holds here too and the verification of one tenant does not require
+isolation of constraint [V4](../11_registri/03-vincoli-fondanti.md#v4) holds here too and the verification of one tenant does not require
 reading the events of another.
 
 **Third: separate retention.** The events are replicated, continuously or in batches, towards a
@@ -2112,7 +2113,7 @@ manufacturer entity, **once established, will engage notified bodies, will condu
 evaluation and will affix the CE marking**. Decision **D63** authorises
 the pathway; the tasks that remain the project's responsibility until then and those that the
 manufacturer entity will assume are detailed by the implementation plan in
-`.telemedic/piani/D63-recepimento-del-ruolo-di-fabbricante.md`.
+[`.telemedic/piani/D63-recepimento-del-ruolo-di-fabbricante.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/piani/D63-recepimento-del-ruolo-di-fabbricante.md).
 
 ### 10.1 GDPR: Article 32 and what it really requires
 
@@ -2214,8 +2215,8 @@ closing their own documentary evidence.
 Article 18 of **Determinazione ACN n. 127437 del 13 aprile 2026** obliges the NIS entity to declare
 to the national cybersecurity authority, by name, its own «relevant suppliers», with company name,
 tax code, **country of the registered office**, CPV codes and criterion of relevance. Constraint
-**V1** thus ceases to be an argument and becomes **a datum the customer must communicate to an
-authority**. The particulars of Article 18 are `[NV]` as to the text: reconstructed from concurring
+**[V1](../11_registri/03-vincoli-fondanti.md#v1)** thus ceases to be an argument and becomes **a datum the customer must communicate to an
+authority**. The particulars of Article 18 are `[NV]` `COMP` must verify as to the text: reconstructed from concurring
 qualified secondary sources and from institutional communication.
 
 ### 10.3 The Cyber Resilience Act: the exclusion is per product, not per project
@@ -2288,7 +2289,7 @@ For the artefact that becomes a medical device, the cybersecurity requirements c
   characteristics of IT networks and IT security measures**, including protection against
   unauthorised access, necessary to run the software as intended.
 
-`[NV]` on the precise numbering 17.1–17.4 of Annex I: the project's reference research reports it
+`[NV]` `COMP` must verify on the precise numbering 17.1–17.4 of Annex I: the project's reference research reports it
 as unconfirmed against the primary text, even though it is the numbering commonly cited.
 
 The European Commission's guidance **MDCG 2019-16 rev. 1** explains how to satisfy those
@@ -2460,7 +2461,7 @@ AgID guidelines, measures ABSC 4.7.1, 4.8.1 and 4.8.2, Annex I Part II point 2 o
 **Coordinated disclosure.** It is the procedure by which whoever discovers a vulnerability
 communicates it to whoever can correct it, agreeing a window before publication. It is not
 courtesy: it is the only arrangement in which the discovery produces a correction instead of an
-incident. Requirement **SEC-045** requires a `SECURITY.md` file with a coordinated disclosure
+incident. Requirement **SEC-045** requires a [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md) file with a coordinated disclosure
 policy, a **dedicated contact channel, declared response and remediation times**. To these must be
 added, because they are what determines whether researchers will use it: a public key for
 confidential communication, an explicit embargo window, and a **safe harbour** clause declaring
@@ -2589,7 +2590,7 @@ and by a NIS entity:
 
 1. **CycloneDX bill of materials**, signed, for every release (**SEC-043**).
 2. **Exploitability statement** updated to the latest release (**SEC-044**).
-3. **`SECURITY.md`** with a coordinated disclosure policy, contact, public key, declared deadlines,
+3. **[`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md)** with a coordinated disclosure policy, contact, public key, declared deadlines,
    safe harbour (**SEC-045**).
 4. **Security advisories** published for the corrected vulnerabilities (**SEC-046**).
 5. **Declaration of the support period** for every major release, not less than five years
@@ -2665,7 +2666,7 @@ in which they apply while one is writing code or reviewing a proposed change.
 21. **Every access to health data produces an event of the audit trail, including mere reads.**
 22. **No clinical content enters the audit trail**, nor request or response bodies, nor
     credentials, nor tokens (§ 9.2).
-23. **Every event carries the tenant identifier** (**V4**).
+23. **Every event carries the tenant identifier** (**[V4](../11_registri/03-vincoli-fondanti.md#v4)**).
 24. **The audit trail is written, not modified.** If you are writing an update or delete operation
     on an audit trail table, stop.
 25. **Do not record in the application log what the audit trail already records**, and do not use
@@ -2695,10 +2696,10 @@ in which they apply while one is writing code or reviewing a proposed change.
     updated in the same proposed change.** This holds in particular for assertions about
     end-to-end encryption (**D19**, **D23**).
 35. **If you discover a vulnerability, do not open a public report.** Use the channel in
-    `SECURITY.md`.
+    [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md).
 36. **If a security measure makes a path unusable for an elderly patient on a smartphone over a
     mobile network, or for a professional with only a keyboard and a screen reader, the measure is
-    not complete** (**D25**, **V6**). A measure the real user cannot carry out does not exist.
+    not complete** (**D25**, **[V6](../11_registri/03-vincoli-fondanti.md#v6)**). A measure the real user cannot carry out does not exist.
 
 ---
 
@@ -2761,7 +2762,7 @@ in which they apply while one is writing code or reviewing a proposed change.
     deliverable.
 23. **The licence does not transfer regulatory obligations**, and the warranty disclaimer clauses
     hold between the parties, not towards the patient (**D28**).
-24. **A security measure the real user cannot carry out does not exist** (**V6**).
+24. **A security measure the real user cannot carry out does not exist** (**[V6](../11_registri/03-vincoli-fondanti.md#v6)**).
 
 ---
 

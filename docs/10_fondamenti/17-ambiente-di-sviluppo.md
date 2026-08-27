@@ -20,7 +20,7 @@ description: Dal clone a un sistema che gira in locale, e poi a un sistema che s
 > documentazione e i documenti di governo; la catena di costruzione e il codice sono in corso
 > di realizzazione. Ne discende una regola redazionale che questo modulo applica senza
 > eccezioni: **dove il nome esatto di un comando, di uno script, di una variabile o di un
-> servizio non è ancora stato fissato, il modulo lo dichiara `[NV]` e indica a chi spetta
+> servizio non è ancora stato fissato, il modulo lo dichiara `[NV]`TECH`` e indica a chi spetta
 > fissarlo, invece di inventarlo.** Un modulo che promettesse comandi inesistenti sarebbe
 > peggio di un modulo incompleto: farebbe perdere un pomeriggio a ogni lettore, e il primo
 > pomeriggio perso è quello in cui la maggior parte delle persone abbandona. I nomi degli
@@ -67,7 +67,7 @@ del progetto (§5.1) senza che nessuno se ne accorga.
 
 Da questo criterio discende una conseguenza pratica utile a chi legge: **se una procedura di
 questo modulo ti chiede di registrarti da qualche parte, la procedura è sbagliata.** Segnalalo.
-Questo modulo lo pone come vincolo esplicito verso tutte le aree (**V-190** in bacheca): una
+Questo modulo lo pone come vincolo esplicito verso tutte le aree (**[V-190](../11_registri/01-vincoli-in-vigore.md#v-190)** in bacheca): una
 procedura di avvio che richieda una registrazione presso un fornitore è un difetto, non una
 configurazione.
 
@@ -78,7 +78,7 @@ configurazione.
 | **Sistema di controllo di versione** | Recente e mantenuta | Clone del repository, rami, firma di origine del contributo | Non parte nulla |
 | **Piattaforma Java, versione a supporto esteso 21** | **21** | È la piattaforma del servizio. La soglia non è estetica: i thread virtuali e il pattern matching esaustivo sono finalizzati nella 21 e sono usati dal dominio clinico | Il servizio non compila |
 | **Costruttore del progetto** | Quella dichiarata dal file di blocco | Compilazione, esecuzione delle prove, produzione degli artefatti. Il progetto usa il **costruttore incapsulato nel repository** (*wrapper*), quindi non va installato a parte: si usa quello versionato | La costruzione non è riproducibile |
-| **Ambiente di esecuzione dell'interfaccia** | Quella dichiarata nel file di blocco del quadro di lavoro dell'interfaccia `[NV]` | Costruzione e servizio di sviluppo dell'applicazione web | L'interfaccia non parte |
+| **Ambiente di esecuzione dell'interfaccia** | Quella dichiarata nel file di blocco del quadro di lavoro dell'interfaccia `[NV]`TECH`` | Costruzione e servizio di sviluppo dell'applicazione web | L'interfaccia non parte |
 | **Motore di contenitori con orchestrazione locale** | Specifica di composizione v2 | Avvia base dati, prodotto di federazione, broker, nodo di relay senza installarli sulla macchina | Bisogna installare a mano quattro servizi: praticamente impossibile |
 | **Client della base dati a riga di comando** | Corrispondente alla versione maggiore del motore | Ispezione, diagnosi, verifica delle politiche di sicurezza a livello di riga | Si diagnostica alla cieca |
 | **Due motori di navigazione distinti** | Versioni correnti | Le prove media **devono** girare su più di un motore: il comportamento diverge, ed è la fonte di difetti più costosa di quest'area | Si scoprono i difetti dagli utenti |
@@ -120,14 +120,14 @@ strumento.
 - **Non serve alcun contenuto terminologico a licenza vincolata**, e soprattutto **non va
   scaricato** (§7.2 e [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md)). Il
   sistema è progettato per funzionare senza, e la configurazione predefinita delle prove è
-  proprio quella senza (vincolo **V-03**).
+  proprio quella senza (vincolo **[V-03](../11_registri/01-vincoli-in-vigore.md#v-03)**).
 - **Non serve un dispositivo medico, un lettore di tessera sanitaria o un certificato di firma
   reale.** Tutto ciò che riguarda quelle catene si prova con doppi di prova costruiti sulla
   specifica pubblicata.
 
 ### 1.4 Memoria e disco: il metodo, non un numero inventato
 
-`[NV]` - **il progetto non ha misurato il consumo di risorse dell'ambiente locale, e questo
+`[NV]`TECH`` - **il progetto non ha misurato il consumo di risorse dell'ambiente locale, e questo
 modulo non pubblica cifre non misurate.** Ciò che pubblica è il **metodo per calcolarle sulla
 propria macchina**, che è più utile di una cifra sbagliata e resta valido quando il numero dei
 servizi cambia.
@@ -157,7 +157,7 @@ sintetici generati e in particolare con i profili di dataset grandi (§5.8).
 **Regola pratica onesta**: misura una volta, sulla tua macchina, con l'ambiente completo acceso
 e una suite di integrazione in esecuzione, e annota il risultato. È il solo numero che ti
 riguarda. Se vuoi contribuire a questo modulo, quel numero, insieme al modello della macchina,
-è un contributo prezioso: la questione è aperta in bacheca all'area tecnica (**Q-191**).
+è un contributo prezioso: la questione è aperta in bacheca all'area tecnica (**[Q-191](../11_registri/02-questioni-aperte.md#q-191)**).
 
 ### 1.5 Se la macchina è modesta
 
@@ -167,9 +167,9 @@ non come eccezione. Cinque strategie, in ordine di efficacia.
 **Non accendere ciò che non ti serve.** Il primo errore è avviare tutto per lavorare su una
 funzionalità che tocca un contesto solo. Il profilo di avvio dovrebbe essere **selettivo per
 gruppi di servizi** - base dati sola; base dati più servizio applicativo; insieme completo con
-media e federazione - e ogni gruppo dovrebbe essere avviabile in autonomia. `[NV]` - la
+media e federazione - e ogni gruppo dovrebbe essere avviabile in autonomia. `[NV]`TECH`` - la
 definizione esatta dei gruppi e i loro nomi spettano all'area tecnica insieme alla stesura del
-file di composizione: la questione è aperta in bacheca (**Q-190**).
+file di composizione: la questione è aperta in bacheca (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**).
 
 **Lavora sul dominio senza accendere niente.** È il beneficio pratico più sottovalutato della
 regola di dipendenza n. 5 di [`02-backend.md`](../01_technical/02-backend.md) §1: il dominio non
@@ -254,9 +254,9 @@ dell'applicazione, e non lo è. È spiegato per esteso nel modulo
 Ne discende anche il problema, reale, di provare fra **due dispositivi diversi** sulla stessa
 rete locale - il portatile e un telefono, che è lo scenario del prodotto: in quel caso
 l'indirizzo di loopback non serve, e serve un certificato per l'origine locale, ottenuto da
-un'autorità di certificazione locale creata a posteriori sulla macchina di sviluppo. `[NV]` - la
+un'autorità di certificazione locale creata a posteriori sulla macchina di sviluppo. `[NV]`TECH`` - la
 procedura esatta adottata dal progetto non è ancora fissata, ed è aperta in bacheca all'area
-tecnica insieme al resto della composizione locale (**Q-190**).
+tecnica insieme al resto della composizione locale (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**).
 
 ---
 
@@ -293,7 +293,7 @@ producono conseguenze **non annullabili con una modifica successiva**:
 | [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md) | Che cosa il progetto non distribuisce e non scarica, e perché | La licenza di alcuni sistemi di codifica **si perfeziona scaricando**: basta un download «solo per provare» |
 | [`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md) | Che il repository è codice sorgente e non un dispositivo medico, e che cosa se ne può e non se ne può fare | Determina che cosa puoi affermare del sistema che stai per avviare |
 
-Se hai poco tempo, leggi almeno le cinque regole di `CONTRIBUTING.md`. Sono meno di due pagine
+Se hai poco tempo, leggi almeno le cinque regole di [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md). Sono meno di due pagine
 e sono le uniche il cui costo di violazione non è recuperabile.
 
 ### 2.3 Passo 1 - Clone e identità del contributo
@@ -325,9 +325,9 @@ dati degli esempi sono sintetici** (§5).
 
 ### 2.4 Passo 2 - Verifica dei prerequisiti
 
-`[NV]` - il progetto prevede uno **script di verifica dei prerequisiti** che controlli, in un
+`[NV]`TECH`` - il progetto prevede uno **script di verifica dei prerequisiti** che controlli, in un
 colpo solo, presenza e versione di ciascun componente di §1.2 e dichiari che cosa manca in
-linguaggio comprensibile. Nome, collocazione e forma spettano all'area tecnica (**Q-190**).
+linguaggio comprensibile. Nome, collocazione e forma spettano all'area tecnica (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**).
 
 La ragione per cui vale la pena averlo, e per cui va invocato **prima** di ogni altra cosa, è
 che quasi tutti i fallimenti dei passi successivi si riducono a un prerequisito mancante o alla
@@ -365,7 +365,7 @@ Poi si compila. Le regole sono tre, e sono le stesse che varranno per l'intero p
 openssl rand -base64 32
 ```
 
-`[NV]` - l'elenco esatto delle variabili, i loro nomi e i valori predefiniti sono definiti dal
+`[NV]`TECH`` - l'elenco esatto delle variabili, i loro nomi e i valori predefiniti sono definiti dal
 file di esempio quando la composizione sarà scritta. Questo modulo **non li anticipa** e non ne
 inventa i nomi.
 
@@ -408,8 +408,8 @@ Due operazioni distinte, che vanno tenute distinte anche mentalmente:
 2. **La generazione dei dati sintetici** popola l'ambiente. Non fa parte delle migrazioni e non
    deve mai farne parte: una migrazione che inserisca dati di esempio finirebbe in esercizio.
 
-`[NV]` - i comandi esatti dipendono dallo strumento di migrazione scelto dall'area tecnica e dal
-nome del generatore, entrambi non ancora fissati (**Q-190**). Ciò che è già deciso e non cambia
+`[NV]`TECH`` - i comandi esatti dipendono dallo strumento di migrazione scelto dall'area tecnica e dal
+nome del generatore, entrambi non ancora fissati (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**). Ciò che è già deciso e non cambia
 è la **semantica**: migrazioni solo in avanti, mai modificate a posteriori, con lo stato
 registrato per tenant in `platform.migration_state`.
 
@@ -431,7 +431,7 @@ fallimenti, e una interrogazione di controllo sulla base dati mostra gli schemi 
 
 Il comando riflette la **proposta di progetto** di adottare un costruttore dichiarativo a
 modello, motivata in [`01-stack-e-motivazioni.md`](../01_technical/01-stack-e-motivazioni.md)
-§12; `[NV]` sulla forma definitiva dell'invocazione e sul profilo attivato per l'ambiente
+§12; `[NV]`TECH`` sulla forma definitiva dell'invocazione e sul profilo attivato per l'ambiente
 locale.
 
 **Esito atteso**: il servizio raggiunge lo stato di prontezza e i due endpoint distinti di
@@ -445,7 +445,7 @@ curl -s http://localhost:<porta>/actuator/health/liveness
 curl -s http://localhost:<porta>/actuator/health/readiness
 ```
 
-`[NV]` - porta e percorsi esatti sono definiti dalla configurazione dell'applicazione, non
+`[NV]`TECH`` - porta e percorsi esatti sono definiti dalla configurazione dell'applicazione, non
 ancora scritta.
 
 ### 2.9 Passo 7 - Avvio dell'interfaccia
@@ -592,7 +592,7 @@ Due indicazioni di orientamento che risparmiano ricerche inutili:
   funziona così, parti dai fondamenti; se cerchi *quale versione, quale vincolo, quale limite*,
   vai all'area tecnica. Questo modulo è l'unico dei fondamenti che dà comandi, e li dà per
   metterti in condizione di leggere gli altri.
-- **`docs/07_integration/02-primo-avvio.md` non è questo modulo.** Quello descrive il primo
+- **[`docs/07_integration/02-primo-avvio.md`](../07_integration/02-primo-avvio.md) non è questo modulo.** Quello descrive il primo
   avvio di **chi integra Telemedic in un altro sistema**; questo descrive il primo avvio di
   **chi sviluppa Telemedic**. Sono due percorsi con destinatari, prerequisiti e obiettivi
   diversi, e confonderli è una perdita di tempo evitabile.
@@ -650,8 +650,8 @@ si prova senza infrastruttura; `application` è l'unico livello con la transazio
 | La forma di un errore restituito a un chiamante | `platform/problem/` |
 | Come si risolve e si propaga il tenant | `platform/tenancy/` |
 | Perché una chiamata verso l'esterno viene rifiutata | Il componente unico delle chiamate uscenti, in `platform/` |
-| Le migrazioni dello schema | La directory delle migrazioni, ordinata per versione `[NV]` |
-| Le fabbriche dei dati di prova | Il modulo del generatore sintetico `[NV]` |
+| Le migrazioni dello schema | La directory delle migrazioni, ordinata per versione `[NV]`TECH`` |
+| Le fabbriche dei dati di prova | Il modulo del generatore sintetico `[NV]`TECH`` |
 | I profili di rete delle prove media | Le costanti condivise della suite media |
 | La configurazione del nodo di relay | Il file di esempio versionato, mai quello reale |
 | Il catalogo dei codici di errore | Il file versionato da cui il catalogo è **generato** |
@@ -801,7 +801,7 @@ progetto in miniatura:
   sincronizzata alle 19:00 è un dato normale nel telemonitoraggio, e confonderle produce una
   valutazione clinicamente errata.
 - **Lo stato può valere «attesa, non pervenuta».** L'assenza di dato è informazione clinica
-  (vincolo **V-09**): il silenzio non è mai trattato come normalità, e nello schema questa
+  (vincolo **[V-09](../11_registri/01-vincoli-in-vigore.md#v-09)**): il silenzio non è mai trattato come normalità, e nello schema questa
   regola diventa una **riga che esiste** invece di una riga che manca.
 - **L'unità di misura sta accanto al valore.** Un numero senza unità, in un contesto clinico,
   non è un dato: è un rischio.
@@ -866,7 +866,7 @@ generatore**. Sei proprietà, ciascuna con la ragione tecnica per cui esiste.
 L'ultima proprietà è quella che si dimentica sempre e che vale di più il giorno in cui serve.
 Un attributo di sinteticità persistito trasforma la domanda «questo ambiente contiene dati
 reali?» da un'indagine in una interrogazione. Il progetto la pone come **vincolo verso le aree
-che definiscono il modello dati** (bacheca, **V-192**).
+che definiscono il modello dati** (bacheca, **[V-192](../11_registri/01-vincoli-in-vigore.md#v-192)**).
 
 ### 5.3 Anagrafiche coerenti
 
@@ -927,7 +927,7 @@ riconoscibili di identificativo reale nei sorgenti, nelle fixture e negli esempi
 deve quindi produrre identificativi che siano insieme **sintatticamente validi** e
 **riconoscibilmente sintetici**, il che non è una contraddizione ma un requisito preciso: è
 esattamente ciò che ottiene la tecnica del codice di comune non assegnato. La verifica che le
-due esigenze siano compatibili nella realizzazione è aperta in bacheca (**Q-194**).
+due esigenze siano compatibili nella realizzazione è aperta in bacheca (**[Q-194](../11_registri/02-questioni-aperte.md#q-194)**).
 
 ### 5.5 Serie di parametri con andamento plausibile
 
@@ -955,7 +955,7 @@ un episodio isolato che rientra, una misura fuori scala per errore d'uso.
 
 **E soprattutto vanno generate le assenze.** Una serie completa, con tutte le misure attese
 puntualmente arrivate, è la serie meno realistica che esista e non fa emergere il
-comportamento che il vincolo **V-09** impone: *l'assenza di dato è informazione*. Il generatore
+comportamento che il vincolo **[V-09](../11_registri/01-vincoli-in-vigore.md#v-09)** impone: *l'assenza di dato è informazione*. Il generatore
 deve produrre aderenza incompleta, buchi di più giorni, riprese, misure inserite in blocco a
 posteriori. Nello schema, ricordiamolo, la misura attesa e non pervenuta **è una riga con quello
 stato**, non una riga mancante.
@@ -1028,8 +1028,8 @@ coperto.
 
 ### 5.8 Come si usa il generatore
 
-`[NV]` - nome del comando, forma degli argomenti e nomi dei profili spettano all'area tecnica
-(**Q-190**). Ciò che questo modulo fissa è **la semantica che il generatore deve avere**, perché
+`[NV]`TECH`` - nome del comando, forma degli argomenti e nomi dei profili spettano all'area tecnica
+(**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**). Ciò che questo modulo fissa è **la semantica che il generatore deve avere**, perché
 è quella che riguarda chi lo usa:
 
 | Elemento | Comportamento richiesto |
@@ -1225,7 +1225,7 @@ configurazione locale: **la lista di indirizzi vietati è difesa in profondità;
 è l'isolamento di rete in uscita del nodo**, applicato dall'infrastruttura e non dal file di
 configurazione. In locale questo significa che il nodo di relay **non va lasciato libero di
 raggiungere la rete interna della tua macchina**. Gli intervalli esatti da vietare sono
-competenza dell'area sicurezza (**Q-196** in bacheca).
+competenza dell'area sicurezza (**[Q-196](../11_registri/02-questioni-aperte.md#q-196)** in bacheca).
 
 C'è poi un fatto della configurazione che sorprende chi la legge per la prima volta e che vale
 la pena sapere prima di sbagliare: **il comportamento predefinito delle liste è consentire**, e
@@ -1235,8 +1235,8 @@ ammissione**, perché una singola riga permissiva annullerebbe qualunque diniego
 
 ### 6.7 Le trappole verificate
 
-**Il contenitore di registrazione si negozia a runtime, non si assume.** È il vincolo **V-11**,
-esteso dal vincolo **V-115** anche alla registrazione lato server. Il contenitore risultante
+**Il contenitore di registrazione si negozia a runtime, non si assume.** È il vincolo **[V-11](../11_registri/01-vincoli-in-vigore.md#v-11)**,
+esteso dal vincolo **[V-115](../11_registri/01-vincoli-in-vigore.md#v-115)** anche alla registrazione lato server. Il contenitore risultante
 dipende dai **codec effettivamente negoziati nella sessione**, che variano per navigatore, per
 piattaforma e per condizioni: un contenitore assunto a priori è un'affermazione che sarà falsa
 per una parte del parco installato. La realizzazione corretta legge i codec negoziati, sceglie
@@ -1311,9 +1311,9 @@ Due regole di progetto governano la validazione locale:
   profili fissati nel repository, non li scarica al momento.
 - **Lo strumento di validazione è a sua volta un componente da qualificare.** Uno strumento che
   valida artefatti regolatori entra nell'inventario dei componenti di terze parti con versione
-  esatta. `[NV]` - nome, versione e modalità di invocazione **non sono ancora fissati** e questo
-  modulo non li inventa: la questione è aperta dall'area protocolli (**Q-163**) e ripresa qui
-  come necessità del contributore (**Q-193**).
+  esatta. `[NV]`TECH`` - nome, versione e modalità di invocazione **non sono ancora fissati** e questo
+  modulo non li inventa: la questione è aperta dall'area protocolli (**[Q-163](../11_registri/02-questioni-aperte.md#q-163)**) e ripresa qui
+  come necessità del contributore (**[Q-193](../11_registri/02-questioni-aperte.md#q-193)**).
 
 ### 7.2 Un server terminologico per lo sviluppo
 
@@ -1349,7 +1349,7 @@ quadro completo, terminologia per terminologia, è nel documento di policy.
 
 **È la configurazione predefinita delle prove, e non è un ripiego.**
 
-Il vincolo **V-03** stabilisce che il sistema è pienamente funzionale senza i sistemi di codifica
+Il vincolo **[V-03](../11_registri/01-vincoli-in-vigore.md#v-03)** stabilisce che il sistema è pienamente funzionale senza i sistemi di codifica
 a licenza vincolata: nessun percorso principale può richiederli. Non è una dichiarazione di
 principio, è una proprietà che va **mantenuta viva**, e il modo in cui il progetto la mantiene
 viva è semplice ed efficace: **la suite gira, a ogni esecuzione, con il gateway in modalità
@@ -1515,7 +1515,7 @@ Non si eseguono sulla macchina di sviluppo. Il risultato sarebbe privo di signif
 macchina è satura, condivisa con l'ambiente di sviluppo, e i numeri non sono confrontabili - e
 la macchina risulterebbe inutilizzabile per ore. Girano in ambiente dedicato, su pianificazione,
 e servono a determinare limiti che il progetto poi **dichiara**, come il numero di tenant per
-installazione o l'intervallo di partizionamento delle serie temporali, entrambi oggi `[NV]`
+installazione o l'intervallo di partizionamento delle serie temporali, entrambi oggi `[NV]`TECH``
 perché non ancora misurati.
 
 ### 8.8 Come si scrive un test che serva davvero
@@ -1647,7 +1647,7 @@ proposta. La lista di ammissione del controllo sulle terminologie, per esempio, 
 sua modifica richiede la revisione prevista per il materiale di conformità: non è un file che si
 aggiorna per far passare la propria modifica. Questo modulo pone come vincolo esplicito, in
 bacheca, che **nessuna procedura documentata dell'ambiente di sviluppo può contenere
-l'aggiramento di un controllo obbligatorio** (**V-191**).
+l'aggiramento di un controllo obbligatorio** (**[V-191](../11_registri/01-vincoli-in-vigore.md#v-191)**).
 
 ### 9.5 Eseguirli in locale, prima di proporre
 
@@ -1655,8 +1655,8 @@ La regola pratica è semplice: **tutto ciò che blocca in pipeline deve poter es
 prima**. Scoprire un blocco dopo aver aperto la proposta costa un ciclo di attesa a te e una
 notifica a chi rivede.
 
-`[NV]` - il comando aggregato che esegue in locale l'insieme dei controlli obbligatori è previsto
-ma non ancora fissato (**Q-190**). Nel frattempo, la sequenza minima prima di proporre è:
+`[NV]`TECH`` - il comando aggregato che esegue in locale l'insieme dei controlli obbligatori è previsto
+ma non ancora fissato (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**). Nel frattempo, la sequenza minima prima di proporre è:
 costruzione completa, suite di prove del perimetro toccato, controllo dei segreti, controllo
 delle terminologie, verifica automatica di accessibilità se hai toccato l'interfaccia, e - se
 hai toccato un documento italiano - **l'aggiornamento del corrispondente inglese**.
@@ -1935,21 +1935,21 @@ comando che scrive: **l'unico momento in cui questo problema è gratuito è prim
 
 ## 12. Punti non verificati di questo modulo
 
-Riepilogo dei `[NV]`, per non doverli cercare nel testo. Ciascuno indica a chi spetta la
+Riepilogo dei `[NV]`TECH``, per non doverli cercare nel testo. Ciascuno indica a chi spetta la
 decisione.
 
 | Riferimento | Che cosa non è fissato | A chi spetta |
 |---|---|---|
-| §1.2, §2.4-§2.9 | Nomi e forma dei comandi di verifica dei prerequisiti, di migrazione, di generazione dei dati e di avvio selettivo dei servizi | Area tecnica (**Q-190**) |
-| §1.4 | Consumo reale di memoria e disco dell'ambiente locale: **non misurato** | Area tecnica (**Q-191**) |
-| §1.6 | Procedura adottata per il certificato locale nella prova fra due dispositivi | Area tecnica (**Q-190**) |
+| §1.2, §2.4-§2.9 | Nomi e forma dei comandi di verifica dei prerequisiti, di migrazione, di generazione dei dati e di avvio selettivo dei servizi | Area tecnica (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**) |
+| §1.4 | Consumo reale di memoria e disco dell'ambiente locale: **non misurato** | Area tecnica (**[Q-191](../11_registri/02-questioni-aperte.md#q-191)**) |
+| §1.6 | Procedura adottata per il certificato locale nella prova fra due dispositivi | Area tecnica (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**) |
 | §2.5 | Elenco e nomi delle variabili della configurazione locale | Definiti dal file di esempio, non ancora scritto |
 | §2.8 | Porte e percorsi esatti degli endpoint di stato | Configurazione dell'applicazione |
-| §5.4 | Compatibilità fra identificativi sintatticamente validi e controllo sui dati non sintetici | Aperta in bacheca (**Q-194**) |
-| §6.6 | Intervalli di indirizzi vietati per la prova di confinamento del nodo di relay | Area sicurezza (**Q-196**) |
-| §7.1 | Nome, versione e invocazione degli strumenti di validazione dei profili clinici | Aperta da area protocolli (**Q-163**), ripresa qui (**Q-193**) |
+| §5.4 | Compatibilità fra identificativi sintatticamente validi e controllo sui dati non sintetici | Aperta in bacheca (**[Q-194](../11_registri/02-questioni-aperte.md#q-194)**) |
+| §6.6 | Intervalli di indirizzi vietati per la prova di confinamento del nodo di relay | Area sicurezza (**[Q-196](../11_registri/02-questioni-aperte.md#q-196)**) |
+| §7.1 | Nome, versione e invocazione degli strumenti di validazione dei profili clinici | Aperta da area protocolli (**[Q-163](../11_registri/02-questioni-aperte.md#q-163)**), ripresa qui (**[Q-193](../11_registri/02-questioni-aperte.md#q-193)**) |
 | §8.7 | Limiti da misurare: numero di tenant per installazione, intervallo di partizionamento delle serie temporali | Prove di capacità, non ancora eseguite |
-| §9.5 | Comando aggregato per eseguire in locale i controlli obbligatori | Area tecnica (**Q-190**) |
+| §9.5 | Comando aggregato per eseguire in locale i controlli obbligatori | Area tecnica (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**) |
 
 ---
 

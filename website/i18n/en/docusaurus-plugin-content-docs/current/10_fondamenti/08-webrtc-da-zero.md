@@ -21,9 +21,11 @@ up copying lines whose reason they do not know, and that is exactly how a vulner
 introduced in this area.
 
 Conventions: every technical statement cites the normative document with number and section.
-Anything not verified against a primary source is marked `[NV]`. All the examples contain
-exclusively synthetic data and documentation addresses; **no real secret appears in this
-guide**, only environment variable placeholders.
+Anything not verified against a primary source is marked `[NV]` with the indication of the
+recipient in one of three permitted forms: the code of an area in backticks, a question
+identifier, or an external party named according to the rules in `CONTRIBUTING.md`. All the
+examples contain exclusively synthetic data and documentation addresses; **no real secret appears
+in this guide**, only environment variable placeholders.
 
 The overall threat model of the system, the audit obligations and identity management are
 dealt with in the [module on cryptography and security](12-crittografia-e-sicurezza.md);
@@ -1049,21 +1051,21 @@ Total moved: **2B inbound + 2B outbound = 4B**. If **both** sides use a relayed 
 possible with two hostile networks - the traffic **doubles again**, to `8B`.
 
 With medium-definition video around 1.5 Mbit/s per direction plus audio, and a header overhead
-of the order of 10 % `[NV]` on the exact percentage:
+of the order of 10 %; the exact percentage must be confirmed by the `TECH` area: `[NV]`
 
 | Scenario | Aggregate traffic on the relay per session |
 |---|---|
-| Medium definition, one relay allocation | ~6.8 Mbit/s `[NV]` |
-| Medium definition, both sides on the relay | ~13.6 Mbit/s `[NV]` |
-| Audio only | ~0.18 Mbit/s `[NV]` |
+| Medium definition, one relay allocation | ~6.8 Mbit/s (measurement to be verified by `TECH`) `[NV]` |
+| Medium definition, both sides on the relay | ~13.6 Mbit/s (measurement to be verified by `TECH`) `[NV]` |
+| Audio only | ~0.18 Mbit/s (measurement to be verified by `TECH`) `[NV]` |
 
 From this follows a fact that must be stated without mitigation: **a hundred medium-definition
 consultations all routed through the relay saturate a one gigabit per second link.** Sizing
 must be done on the adverse case, not on the average.
 
 **What proportion of sessions ends up on the relay?** The industry figures commonly reported
-range between 5 % and 20 %, but **`[NV]`**: they are not verified against a primary source and
-must not be cited. The project measures it on its own traffic by reading the type of the
+range between 5 % and 20 %, but they are not verified against a primary source and
+must not be cited; this assessment must be confirmed by the `TECH` area of the project. `[NV]` The project measures it on its own traffic by reading the type of the
 selected candidate (§9.4), and publishes its own figure.
 
 ### 5.10 The consequence for the word «peer-to-peer»
@@ -1165,7 +1167,7 @@ preference is not directly controllable from the interface, but it is **observab
 **On the DTLS version**: it has been verified that the cryptographic library of one of the two
 major engines has **DTLS 1.3 as its default maximum version**, and that Firefox has enabled
 DTLS 1.3 for WebRTC on release and beta from version **127**. The exact milestone of the other
-main engine and the state of Safari/WebKit are **`[NV]`**. Operational consequence: **the
+main engine and the state of Safari/WebKit must be confirmed by the `TECH` area. `[NV]` Operational consequence: **the
 project does not declare a DTLS version, it measures it per session** by reading `tlsVersion`
 and records it in the audit trail. Any static statement would be false for part of the
 installed base.
@@ -1271,7 +1273,7 @@ equivalent to a mechanism that does not work.
 There is a second argument, independent and equally decisive for this project: even supposing
 universal support, that interface would require **a third-party identity provider** hosting the
 verification script. Introducing it would mean creating a runtime dependency on an external
-party - in direct tension with the project's data sovereignty constraint (V1) - and **moving
+party - in direct tension with the project's data sovereignty constraint ([V1](../11_registri/03-vincoli-fondanti.md#v1)) - and **moving
 the anchor point of trust from the signalling server to the identity provider, without
 eliminating it**.
 
@@ -1338,7 +1340,7 @@ with a specialist of a particular organisation is already data concerning health
 meaning of Article 9 of the General Data Protection Regulation. The relay must therefore be
 treated as a system that processes personal data: minimised logging, short and documented
 retention, entry in the record of processing activities, and location in the European Union
-for constraint V1.
+for constraint [V1](../11_registri/03-vincoli-fondanti.md#v1).
 
 **Case C - through a server that composes the streams.** A selective forwarding or composition
 server **terminates the encryption**: it performs a handshake of its own with each participant,
@@ -1442,7 +1444,7 @@ characteristics that matter clinically:
 
 - **Built-in error correction** (`useinbandfec=1`): each packet carries a low-fidelity version
   of the previous one, so that an isolated loss is recovered **without asking for anything and
-  without waiting a round trip**. It costs a bitrate increase of the order of 10–30 % `[NV]` on
+  without waiting a round trip**. It costs a bitrate increase of the order of 10–30 %; the exact figure must be verified by the `TECH` area. `[NV]` on
   the exact figure. **RFC 8854 §4.1 recommends it explicitly**, and the project enables it: the
   intelligibility of the patient's voice is functionally critical.
 - **Discontinuous transmission** (`usedtx=1`): suspends sending during silence. It saves
@@ -1478,7 +1480,7 @@ traditional videoconferencing appliance, that is the meeting ground.
 > non-vocal signals**. For specialties in which sound has semiological value, the ability to
 > disable them must be offered and documented - but if the sound is used for a diagnostic
 > evaluation one enters the perimeter of rule 11 of the medical devices regulation, which is
-> precisely the boundary that constraint V2 requires be made explicit.
+> precisely the boundary that constraint [V2](../11_registri/03-vincoli-fondanti.md#v2) requires be made explicit.
 
 ### 7.3 Video
 
@@ -1495,14 +1497,14 @@ RFC 7741.
 | Codec | Standard | Patents | Assessment |
 |---|---|---|---|
 | **VP8** | RFC 6386; transport RFC 7741 | Declared royalty-free | Mandatory. A safe baseline, lower efficiency than its successors. |
-| **VP9** | Open project specification | Declared royalty-free | Better efficiency than VP8 `[NV]` on the percentage; wide but not universal support; natively supports layered coding. |
+| **VP9** | Open project specification | Declared royalty-free | Better efficiency than VP8 (percentage to be verified by `TECH`) `[NV]` on the percentage; wide but not universal support; natively supports layered coding. |
 | **H.264** | ITU-T H.264 / ISO 14496-10; transport RFC 6184 | **Covered by a patent pool**, with licensing costs and conditions | Mandatory, therefore present everywhere, and with **almost universal hardware acceleration**. On mobile devices that means less battery and less encoding delay: in a remote consultation from a smartphone it is often the best choice in practice. |
 | **AV1** | AOMedia; transport format not yet an RFC | Declared royalty-free | Superior efficiency, but **real-time software encoding costs a lot of CPU** and hardware acceleration for encoding is still rare. |
 
 **State of AV1, verified**: AV1 encoding for WebRTC has been present in one of the main engines
 since 2021, and in Firefox it is **on by default from version 136** (sending and receiving,
-including in multi-stream mode). Its state on Safari and iOS is **`[NV]`**: no release note was
-found declaring it for WebRTC, and the adoption figures that can be found come from commercial
+including in multi-stream mode). Its state on Safari and iOS must be confirmed by the `TECH` area. `[NV]`
+No release note was found declaring it for WebRTC, and the adoption figures that can be found come from commercial
 sources and **must not be cited**.
 
 > **The project's rule on codecs: do not force, measure.** In version 1.0 no preference is
@@ -1586,7 +1588,7 @@ suggested. It must be used knowingly: **lowering it reduces latency and increase
 under high jitter**. It is a clinical trade-off, and as such it must be documented in the risk
 management file, not decided silently by whoever writes the code.
 
-The overall delay budget, from camera to remote display - all values **`[NV]`**, orders of
+The overall delay budget, from camera to remote display - all values that must be confirmed by the `TECH` area, orders of. `[NV]`
 magnitude to be replaced with one's own measurements:
 
 | Stage | Typical contribution |
@@ -1697,7 +1699,7 @@ It costs bandwidth **always**, even when there is no loss at all.
 **When the loss is too extensive** and the decoder has lost its reference, there is nothing for
 it but to ask for a full frame: picture loss indication (`PLI`, RFC 4585, type 206 format 1) or
 explicit intra-frame request (`FIR`, RFC 5104, type 206 format 4). **A full frame is expensive**
-- of the order of 5–10 times a differential frame `[NV]` - and a burst of requests can trigger a
+- of the order of 5–10 times a differential frame; the proportion must be verified by the `TECH` area. `[NV]` A burst of requests can trigger a
 spiral: congestion → loss → request → heavy frame → more congestion. Implementations rate-limit
 these requests precisely for this reason.
 
@@ -1858,11 +1860,11 @@ formula of Annex B.
 1. **G.107 is a planning model for narrowband telephone networks**, not a model for measuring a
    WebRTC session.
 2. **The impairment coefficients for Opus are not standardised** in the table of Appendix I of
-   ITU-T G.113, which covers telephone codecs of an earlier generation `[NV]` on whether they
+   ITU-T G.113, which covers telephone codecs of an earlier generation; whether they were added in recent revisions must be confirmed by the `TECH` area. `[NV]` 
    have been added in recent revisions. Anyone computing an «Opus» score with the E-model is
    using the coefficients of another codec or a made-up value.
 3. There are wideband and fullband variants (G.107.1 and G.107.2), more appropriate, but
-   **`[NV]`** on their actual coverage of Opus.
+   on their actual coverage of Opus must be confirmed by the `TECH` area. `[NV]` coverage of Opus.
 4. **For video there is nothing comparable applicable to real time.** The ITU-T P.1203 and
    P.1204 models concern adaptive streaming over HTTP, with assumptions - segments, buffer fill,
    stalls - that do not hold here.
@@ -1878,10 +1880,10 @@ This must be said without ambiguity, because it is the sort of statement that ge
 the chain until somebody mistakes it for an obligation.
 
 > **No technical threshold for resolution, frame rate or latency is imposed on telemedicine by
-> Italian law, so far as the research carried out shows.** `[NV]` on the existence of minimum
-> technical requirements in the national indications for the delivery of telemedicine services:
-> the verification has not been completed, and if such requirements existed they would
-> **prevail** over any value proposed here.
+> Italian law, so far as the research carried out shows.** `[NV]` Must be verified with the
+> Ministry of Health whether minimum technical requirements exist in its national indications for
+> the delivery of telemedicine services; if such requirements existed they would **prevail** over
+> any value proposed here.
 
 The project's target values are therefore **product specification**: engineering choices that
 are justified, verifiable and modifiable, not compliance obligations. They must be presented as
@@ -2108,7 +2110,7 @@ The project uses **coturn**, an open source implementation of STUN and TURN. It 
 it answers the questions «what address do you see arriving from me?» (STUN, §5.3) and it lends an
 address of its own to route the packets when no direct path works (TURN, §5.3).
 
-The data sovereignty constraint (V1) requires that it be **hosted by the project or by the
+The data sovereignty constraint ([V1](../11_registri/03-vincoli-fondanti.md#v1)) requires that it be **hosted by the project or by the
 distributor, in the European Union**. No third-party managed service.
 
 ### 11.2 Authentication with temporary credentials
@@ -2372,7 +2374,7 @@ less reassuring than is commonly assumed:
 | Engine | `video/mp4` for recording | `video/webm` for recording |
 |---|---|---|
 | Chrome, Edge and derivatives (desktop and Android) | **Yes**, from version 126, on by default (H.264 + AAC) | Yes |
-| Chrome on iOS | **No** | `[NV]` |
+| Chrome on iOS | **No** | To be verified by `TECH` `[NV]` |
 | Safari and Safari iOS | **Yes**, since the interface was introduced (H.264 + AAC) | **Yes, but only from version 18.4** |
 | Firefox and Firefox Android | **No.** Open report with no resolution; comment from the vendor: *«We don't support an mp4 muxer.»* | Yes |
 

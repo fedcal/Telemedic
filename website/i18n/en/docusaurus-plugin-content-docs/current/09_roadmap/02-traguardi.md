@@ -32,14 +32,14 @@ Every milestone has the same form, and the entries are not decorative.
 > a unit that spans heterogeneous work. What protects the date of 30 November 2026 is not
 > therefore a forecast of effort: it is **the sacrifice order for scope**,
 > declared in advance in [03 §6](./03-primo-rilascio-utilizzabile.md) and executed top-down when
-> an allocation proves insufficient ([01 §10](./01-principi-e-metodo.md), constraint `V-282`).
+> an allocation proves insufficient ([01 §10](./01-principi-e-metodo.md), constraint [`V-282`](../11_registri/01-vincoli-in-vigore.md#v-282)).
 
 > **Warning on attribution.** This is **internal project planning** (`D57`).
 > No milestone is attributed to "third parties" or to "those who certify". Where a step formally
 > presupposes the role of manufacturer, the role **must be established and formalised** (`D58`), and
 > is itself a milestone with its own time. **No date in this chapter is a promise
 > of outcome**: in particular, at no point is it written that the product will be marked by a date
-> (`V-171`, `V-280`). Today the product **does not bear the CE marking**, is not covered by any
+> ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). Today the product **does not bear the CE marking**, is not covered by any
 > declaration of conformity, and whoever instals, integrates or places in service assumes the obligations
 > that follow.
 
@@ -72,8 +72,8 @@ this means, and §4 says at what price the milestone of 30 November stays on its
 
 | # | Decision | Effect on this chapter |
 |---|---|---|
-| **`D53`** | The **30 November 2026 remains the first releasable deliverable**. The decision is taken after the orchestration had exposed the tension and recommended the alternative. Closes `Q-180` | The date is **fixed** and is not negotiated in this document |
-| **`D54`** | Declared capacity: **single contributor, working part-time**. Closes `Q-181` | Capacity is **fixed** and is not increased in this document |
+| **`D53`** | The **30 November 2026 remains the first releasable deliverable**. The decision is taken after the orchestration had exposed the tension and recommended the alternative. Closes [`Q-180`](../11_registri/02-questioni-aperte.md#q-180) | The date is **fixed** and is not negotiated in this document |
+| **`D54`** | Declared capacity: **single contributor, working part-time**. Closes [`Q-181`](../11_registri/02-questioni-aperte.md#q-181) | Capacity is **fixed** and is not increased in this document |
 | **`D56`** | Translation **assisted, area by area**, with divergence check. **Amends `D52`**: full translation is no longer a prerequisite of every line of code | The sequence "all documentation, then website, then code" **lapses**. Remain non-negotiable prerequisites the public warnings, the foundations guide and the compliance and security areas |
 
 ### 2.2 The only free variable is scope
@@ -100,11 +100,11 @@ Some records required by the quality management system **presuppose distinct sub
 release review, configuration verification performed by someone other than the code author, external independent review of critical security code (`D18`).
 
 **They are not producible internally, and not for lack of hours** ([01 §9-bis](./01-principi-e-metodo.md)).
-It follows constraint `V-281`: **they do not enter the plan as activities**, because planning
+It follows constraint [`V-281`](../11_registri/01-vincoli-in-vigore.md#v-281): **they do not enter the plan as activities**, because planning
 an activity that cannot be produced is the most effective way to make it disappear from view. They enter as
 **declared gaps with the date on which they are born**, are listed amongst the irreversible cuts of
 [03 §5](./03-primo-rilascio-utilizzabile.md), and their allocation - which subset is accepted as a gap and which is covered
-by acquiring the function externally - is a client decision and remains open as `Q-189`.
+by acquiring the function externally - is a client decision and remains open as [`Q-189`](../11_registri/02-questioni-aperte.md#q-189).
 
 ### 2.4 What `D58` adds, and why it goes at the front not at the back
 
@@ -121,7 +121,7 @@ as milestone `T-14`, and not after the first release.
 ## 3. The milestones until 30 November 2026
 
 ### `T-01` - Retroactively unrecoverable artefacts in operation
-*Class `A`* · `[COMMITMENT]` · **12 September 2026**
+*Class `A`* · `[COMMITMENT]` · **CLOSED on 27 August 2026**, planned for 12 September
 **Trigger.** Immediate: no dependencies, and the cost of omitting it grows every day.
 **Owner.** Single contributor, for production. Client for approval of the procedure.
 
@@ -138,7 +138,7 @@ paid in delay but in impossibility.
 2. The procedure declares **how the correspondence between review, reviewer and approval
    constitutes the approval record** in the "documents as code" model, and lists the four tools in view of their
    validation. **Declares moreover, explicitly and not in a note, that under `D54` author and approver coincide**, and
-   that this is a **declared gap** not a conformity: it is the first entry of `Q-189`.
+   that this is a **declared gap** not a conformity: it is the first entry of [`Q-189`](../11_registri/02-questioni-aperte.md#q-189).
 3. The **register of requirement identifiers** (`RF-*`, `RNF-*`, `BR-*`, `ATT-*`,
    `UC-*`, `OUT-*`, `EX-*`, `DM-*`) exists, in **addition only**, with the state of each identifier
    (in force / retired) and explicit prohibition of reuse of a retired identifier.
@@ -154,7 +154,7 @@ paid in delay but in impossibility.
    the subject **is still to be established**, **without attenuating any existing warning** - it remains written with the same
    prominence as before that today the product does not bear the CE marking, is not covered by any declaration of conformity
    and that whoever instals or places in service assumes the obligations that follow. The text **contains no
-   marking date** (`V-171`, `V-280`). Applies to the non-medical device declaration, to the distribution policy and to the
+   marking date** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). Applies to the non-medical device declaration, to the distribution policy and to the
    prominence recall of the repository presentation document, **in both languages**.
 
 **Dependencies.** None internal. Criteria 5 and 7 are pipeline checks and precede the existence of the complete pipeline of
@@ -205,12 +205,12 @@ evaluation nor the application of any marking. The dates of those activities are
 ---
 
 ### `T-03` - Minimum blocking build chain, with generated bill of materials
-*Class `A`* · `[COMMITMENT]` · **26 September 2026**
+*Class `A`* · `[COMMITMENT]` · **5 September 2026**, brought forward from 26 September on 27 August ([00 §recalibration](./00-indice.md))
 **Trigger.** Closure of criteria 3 and 4 of `T-01`, which provide the register on which the first check relies.
 **Owner.** Single contributor.
 
 **Objective.** Exist as build chain **before** existing as software. It is the operational translation of constraint
-`V-182` and the prescription of `D45` that the bill of materials is generated by the first pipeline.
+[`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182) and the prescription of `D45` that the bill of materials is generated by the first pipeline.
 
 **The reduction from the previous version of this milestone, declared.** The previous version asked that **all**
 mandatory checks block on day one. Under `D54` this milestone reduces to a **declared blocking subset**, and the remaining checks
@@ -248,7 +248,7 @@ of omitting it is not a delay.
 produced by the domain and compliance areas.
 
 **What it does not comprise.** Does not comprise application code: **no line of application code
-precedes this milestone** (`V-182`), with the sole exception of the throwaway code of the verifications of `T-04`, declared
+precedes this milestone** ([`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182)), with the sole exception of the throwaway code of the verifications of `T-04`, declared
 as such, resident in a separate area and not included in any distributed artefact. **Does not comprise verification of
 reproducibility of the build**, which has been moved to `T-10` with reduced and declared scope ([03 §5](./03-primo-rilascio-utilizzabile.md)).
 
@@ -258,7 +258,7 @@ reproducibility of the build**, which has been moved to `T-10` with reduced and 
 ---
 
 ### `T-07` - Website with blocking controls and registered verification
-*Class `D`* · `[COMMITMENT]` · **26 September 2026**
+*Class `D`* · `[COMMITMENT]` · **CLOSED on 27 August 2026**, brought forward from 26 September on 27 August and closed the same day ([00 §recalibration](./00-indice.md))
 **Trigger.** Immediate: the website is already built and published, and what remains is verification.
 **Owner.** Single contributor.
 
@@ -275,7 +275,7 @@ properties are blocking.
    on the root. Where the English page does not yet exist, it lands on a notice stating that translation is in progress and
    refers to the Italian page - **never on an error and never silently on the root**.
 4. The link to the "this repository is not a medical device" declaration is
-   **reachable from the website**, with absolute address to the repository. Closes `Q-26`.
+   **reachable from the website**, with absolute address to the repository. Closes [`Q-26`](../11_registri/02-questioni-aperte.md#q-26).
 5. Every published page bears the non-marking warning, **in both languages**, in the text realigned to `D58`
    produced by `T-01` criterion 8.
 6. The verification of criteria 1, 2 and 3 is **described as an executable and repeatable procedure**, with
@@ -311,7 +311,7 @@ because the risk is not forgetting the verification: it is forgetting the prohib
 **Completion criteria.** Each verification produces a recorded outcome - success, failure, or success with conditions - and
 the consequence on design is written.
 
-1. **Token exchange in the gateway with explicit delegation** (`D18`, `V-132`): it is demonstrated that the gateway
+1. **Token exchange in the gateway with explicit delegation** (`D18`, [`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)): it is demonstrated that the gateway
    fully validates the integrator's token and issues an internal token with the actor claim, and that
    **no supported configuration** produces a token lacking that claim.
    Negative test included.
@@ -353,19 +353,19 @@ actually released scope, plus two new ones that `D58` introduces.
 **Completion criteria.** Each item has a recorded outcome - decided, with the corresponding architectural decision record, or
 **explicitly confirmed as open with its consequence declared**.
 
-1. `C-4` / `Q-186` - **declared support period**. Without the duration, the dismissal plan is not publishable and the number of major versions
+1. `C-4` / [`Q-186`](../11_registri/02-questioni-aperte.md#q-186) - **declared support period**. Without the duration, the dismissal plan is not publishable and the number of major versions
    to maintain is not determinable. **It is a prerequisite of first distribution**, therefore of `T-10`, and is not deferrable beyond.
-2. `Q-110` - signal topology on multiple instances. It is a structural decision with effects on distribution and update without interruption.
-3. `Q-111` - declared limit of participants in the average session. In the reduced scope the
+2. [`Q-110`](../11_registri/02-questioni-aperte.md#q-110) - signal topology on multiple instances. It is a structural decision with effects on distribution and update without interruption.
+3. [`Q-111`](../11_registri/02-questioni-aperte.md#q-111) - declared limit of participants in the average session. In the reduced scope the
    limit is **two**, and must be declared as a limit of the release and not as a property of the product.
-4. `Q-145` - confirmation of the six deliberate renunciations of available technical capacities. With `D55` freezing intended use,
+4. [`Q-145`](../11_registri/02-questioni-aperte.md#q-145) - confirmation of the six deliberate renunciations of available technical capacities. With `D55` freezing intended use,
    confirmation of these renunciations is what makes it defensible: they are the functions that would move the system towards clinical real-time.
-5. `Q-280` - **legal form of the manufacturer subject and profile of the person
+5. [`Q-280`](../11_registri/02-questioni-aperte.md#q-280) - **legal form of the manufacturer subject and profile of the person
    responsible for compliance** (`D58`). It is the item in this list with the longest traversal time and lowest cost in hours.
-6. `Q-189` - **allocation of records to distinct roles**: which subset is accepted as a declared gap and which is covered by
+6. [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) - **allocation of records to distinct roles**: which subset is accepted as a declared gap and which is covered by
    acquiring the function externally. Without this decision, `T-10` is published with the declared gap, which is the default outcome and must
    be said in advance.
-7. `Q-185` - correction of the public page according to `D19` and `D29`. **Every day of exposure is unrecoverable**, and its consequence
+7. [`Q-185`](../11_registri/02-questioni-aperte.md#q-185) - correction of the public page according to `D19` and `D29`. **Every day of exposure is unrecoverable**, and its consequence
    is not cancelled by deciding after.
 
 **Deferred items with the functions they govern, and the rule that stays in force.** `B-3` (licence regime of scales and questionnaires)
@@ -504,7 +504,7 @@ in which the check blocks.
 *Class `D`* · `[COMMITMENT]` · **30 November 2026**
 **Trigger.** Closure of `T-08` and `T-06`.
 **Owner.** Single contributor for production. **The release review has no internal owner**:
-it is the gap of `Q-189`, declared and not planned.
+it is the gap of [`Q-189`](../11_registri/02-questioni-aperte.md#q-189), declared and not planned.
 
 **Objective.** The first artefact that a structure can install, configure and use in trial exercise, training and integration - **not on real patients**. The exact scope, what was cut to respect
 the date and the blocking criteria are chapter [03](./03-primo-rilascio-utilizzabile.md).
@@ -525,7 +525,7 @@ the sacrifice order of scope.** To them are added the three criteria proper to t
 **Why it is `[COMMITMENT]` and not `[CONDITIONAL]`.** Because `D53` fixes the date and `D54` fixes capacity,
 and scope has been reduced as a consequence: the milestone is therefore a commitment **on the
 declared scope**, not on the scope the project would have liked to deliver. Presenting it as a commitment
-without chapter [03 §5](./03-primo-rilascio-utilizzabile.md) at the side would be a violation of `V-184`.
+without chapter [03 §5](./03-primo-rilascio-utilizzabile.md) at the side would be a violation of [`V-184`](../11_registri/01-vincoli-in-vigore.md#v-184).
 
 **Risks.** `R-28` (dominant risk), `R-02`, `R-20`, `R-24`.
 
@@ -582,7 +582,7 @@ The last three rows are the part that matters, and chapter
 
 ## 5. Beyond 30 November 2026 - internal planning
 
-The dates of this section are **internal project planning** (`D57`). They are not attributed to third parties and are not promises of outcome. **At no point is it written that the product will be marked by a date** (`V-171`, `V-280`).
+The dates of this section are **internal project planning** (`D57`). They are not attributed to third parties and are not promises of outcome. **At no point is it written that the product will be marked by a date** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)).
 
 ### `T-09` - Full translation of remaining corpus
 *Class `D`* · `[INTENTION]` · **2027, in parallel to development**
@@ -615,7 +615,7 @@ before execution. It does not depend on project speed.
 
 ### `T-12` - Regulatory package deliverable
 *Class `D` with `A` components already closed* · `[INTENTION]` · **2027**
-**Trigger.** Closure of `Q-183` to the compliance area. **Owner.** Project.
+**Trigger.** Closure of [`Q-183`](../11_registri/02-questioni-aperte.md#q-183) to the compliance area. **Owner.** Project.
 
 **Objective.** Make available the material that, with `D58`, the project produces **for itself** in
 the role of manufacturer still to be established, and that remains anyway useful to whoever integrates: technical dossier,
@@ -628,7 +628,7 @@ to find, and its absence would be worse than the gap itself ([01 §8.2](./01-pri
 
 ### `T-13` - The certification pathway, as internal planning
 *Class `B`* · `[INTENTION]` · **internal planning dates, never promises of outcome**
-**Trigger.** Establishment of the manufacturer subject (`T-14` criterion 1, and `Q-280`).
+**Trigger.** Establishment of the manufacturer subject (`T-14` criterion 1, and [`Q-280`](../11_registri/02-questioni-aperte.md#q-280)).
 **Owner.** Project, in the role of manufacturer **still to be established**.
 
 With `D57` and `D58` this milestone no longer reports "milestones of third parties": it reports **our
@@ -636,7 +636,7 @@ planning**. Attribution changes, not the factual state of the product.
 
 | Step | Internal planning temporal reference | On what it rests |
 |---|---|---|
-| Establishment of the manufacturer subject and appointment of the person responsible for compliance | **Not estimable by the project**: depends on administrative proceedings and on availability of a figure with documented qualification. `[NV]` | `D58`, `Q-280` |
+| Establishment of the manufacturer subject and appointment of the person responsible for compliance | **Not estimable by the project**: depends on administrative proceedings and on availability of a figure with documented qualification. `[NV]` | `D58`, [`Q-280`](../11_registri/02-questioni-aperte.md#q-280) |
 | Signing of contract with a notified body | December 2026 in the reference scenario | `D44`, scenario B of the research on the certification pathway |
 | Certificate of quality management system | July 2027 in the reference scenario | *ibidem* |
 | Complete technical dossier and submitted | June 2027 in the reference scenario | *ibidem* |
@@ -645,7 +645,7 @@ planning**. Attribution changes, not the factual state of the product.
 **Three warnings that accompany this table and are never separated from it.**
 
 1. **They are planning dates, not outcome dates.** None of them authorises writing, in any material,
-   that the product will be marked by a date (`V-171`, `V-280`). The difference between the intention to certify and the promise
+   that the product will be marked by a date ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). The difference between the intention to certify and the promise
    of a dated outcome is not formal: the second produces a regulatory effect that the first does not.
 2. **The first step does not yet exist.** Until the manufacturer subject is established, the
    subsequent steps have no subject that can take them, and **their date is not calculable**. It is risk `R-30`.
@@ -657,8 +657,8 @@ planning**. Attribution changes, not the factual state of the product.
 A sole family of dates is not of the project, and does not become so with `D57`: **the deadline by which
 a user must have adopted national security measures**. It is subject-specific - it runs from the insertion notification
 received by the single subject (`D39`) - and the supplier does not know it. The product declares
-**the evidence and the date of availability of each**, never the deadline (`V-186`). The same applies to
-**accreditation as a service provider** to the national identity federation, which is of whoever instals (`D36`, `V-05`, `OUT-22`) and whose times
+**the evidence and the date of availability of each**, never the deadline ([`V-186`](../11_registri/01-vincoli-in-vigore.md#v-186)). The same applies to
+**accreditation as a service provider** to the national identity federation, which is of whoever instals (`D36`, [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05), `OUT-22`) and whose times
 **are not declared by any primary source**.
 
 ---
@@ -670,13 +670,13 @@ a decision**, and produces a consequence that is not cancelled by deciding after
 
 | Date | Decision | Who | If not taken by that date |
 |---|---|---|---|
-| **19 September 2026** | Legal form of the manufacturer subject and profile of the person responsible for compliance (`Q-280`, `D58`) | Client | The initial step of §5 slides, and **entirely** with it everything it rests on. It is class `B`: delay is not recovered by working more |
-| **30 September 2026** | Allocation of records to distinct roles (`Q-189`) | Client | `T-10` is published with the **declared gap**, which is the default outcome. Records related to the period of `RU-1` are not producible after |
-| **15 October 2026** | Declared support period (`C-4`, `Q-186`) | Client, `COMP` | The dismissal plan is not publishable and the number of major versions to maintain is not determinable. **It is a prerequisite of `T-10`** |
-| **31 October 2026** | Correction of the public page according to `D19` and `D29` (`Q-185`) | Client, `PROD` | The risk of unsustainable statement continues and **is not recoverable after**: a period of publication is not cancelled |
-| **31 October 2026** | Formulation of the difference between what public material declares and what `RU-1` delivers (`Q-281`) | `PROD`, client | `RU-1` is published while public material declares capacities the release does not have: it is the same aggravating factor of `Q-185`, on one more artefact |
+| **19 September 2026** | Legal form of the manufacturer subject and profile of the person responsible for compliance ([`Q-280`](../11_registri/02-questioni-aperte.md#q-280), `D58`) | Client | The initial step of §5 slides, and **entirely** with it everything it rests on. It is class `B`: delay is not recovered by working more |
+| **30 September 2026** | Allocation of records to distinct roles ([`Q-189`](../11_registri/02-questioni-aperte.md#q-189)) | Client | `T-10` is published with the **declared gap**, which is the default outcome. Records related to the period of `RU-1` are not producible after |
+| **15 October 2026** | Declared support period (`C-4`, [`Q-186`](../11_registri/02-questioni-aperte.md#q-186)) | Client, `COMP` | The dismissal plan is not publishable and the number of major versions to maintain is not determinable. **It is a prerequisite of `T-10`** |
+| **31 October 2026** | Correction of the public page according to `D19` and `D29` ([`Q-185`](../11_registri/02-questioni-aperte.md#q-185)) | Client, `PROD` | The risk of unsustainable statement continues and **is not recoverable after**: a period of publication is not cancelled |
+| **31 October 2026** | Formulation of the difference between what public material declares and what `RU-1` delivers ([`Q-281`](../11_registri/02-questioni-aperte.md#q-281)) | `PROD`, client | `RU-1` is published while public material declares capacities the release does not have: it is the same aggravating factor of [`Q-185`](../11_registri/02-questioni-aperte.md#q-185), on one more artefact |
 | **Before every further reduction** | Execution of the sacrifice order of [03 §6](./03-primo-rilascio-utilizzabile.md) | Single contributor, with recording in review | An unrecorded reduction is an undecided cut, and the choice of what to sacrifice **stops being readable** - which is precisely what `D53` requires to avoid |
-| **Before public documentation of the mechanism** | Outcome of the verification on forwarding of level of assurance (`B-8`, `Q-160`) | `INTEG`, `TECH` | Correction of public documentation on a security mechanism |
+| **Before public documentation of the mechanism** | Outcome of the verification on forwarding of level of assurance (`B-8`, [`Q-160`](../11_registri/02-questioni-aperte.md#q-160)) | `INTEG`, `TECH` | Correction of public documentation on a security mechanism |
 
 **Four decision points have lapsed** because the decisions have been taken: declaration of
 capacity (`D54`), reformulation of the milestone of 30 November (`D53`), mode of production of the English version (`D56`)
@@ -693,23 +693,23 @@ gantt
     axisFormat %d %b
 
     section Class A - unrecoverable
-    T-01 Retroactively unrecoverable artefacts        :crit, t01, 2026-08-25, 2026-09-12
-    T-03 Minimum blocking build chain                 :crit, t03, 2026-09-12, 2026-09-26
+    T-01 Retroactively unrecoverable artefacts        :crit, t01, 2026-08-25, 2026-08-27
+    T-03 Minimum blocking build chain                 :crit, t03, 2026-08-27, 2026-09-05
 
     section Class B - third party time
     T-14 Manufacturer pathway launched                :crit, t14, 2026-08-25, 2026-09-19
 
     section Class C - critical path
-    T-04 Empirical verifications reduced              :crit, t04, 2026-09-26, 2026-10-03
+    T-04 Empirical verifications reduced              :crit, t04, 2026-09-05, 2026-10-03
     T-05 Decisions with deadline before code          :t05, 2026-08-25, 2026-10-03
 
     section Class D - documentation
-    T-07 Website with blocking checks and verification :t07, 2026-09-12, 2026-09-26
-    T-02 Documentary body at minimum prerequisite     :t02, 2026-09-26, 2026-10-10
+    T-07 Website with blocking checks and verification :t07, 2026-08-25, 2026-08-27
+    T-02 Documentary body at minimum prerequisite     :t02, 2026-09-05, 2026-10-10
     T-06 Translation of prerequisite areas            :crit, t06, 2026-11-07, 2026-11-21
 
     section Class D - software
-    T-08 Skeleton and reduced vertical path           :crit, t08, 2026-10-03, 2026-11-14
+    T-08 Skeleton and reduced vertical path           :crit, t08, 2026-09-12, 2026-11-14
     T-10 RU-1 first releasable deliverable            :crit, t10, 2026-11-14, 2026-11-30
 
     section Decision points
@@ -722,14 +722,39 @@ gantt
 
 **How to read the diagram.** The bars marked as critical are those whose slippage transfers entirely to the end of the chain. **There are nine out of ten**, and it is the graphic representation of the fact declared in §4.1: the plan has no margin, and the margin sits in scope.
 
+**The overlap between `T-01` and `T-03` is deliberate, and must be read correctly.** The `T-03` bar
+starts on **27 August** and not on 12 September, because the milestone's declared trigger is the
+closure of **criteria 3 and 4** of `T-01`, not of `T-01` as a whole, and those two criteria have
+been satisfied since 26 August 2026. The diagram said something different from the milestone text;
+between the two the text prevails, because it is the one that states the trigger.
+
+Under `D54` the overlap **does not mean two milestones executed together**: a single contributor
+alternates between them. What it produces is the freedom to choose which one to advance when the
+other is waiting on an input that does not depend on the project - and it is the only form of
+margin this plan can create without touching scope.
+
+**The diagram is recalibrated to 27 August 2026**, together with the table in §7.1 and the milestone
+entries, and the three representations must be read as one: they are the same date written three
+times, and where they diverge the milestone entry prevails, because it is the only one of the three
+that carries its own justification. Consistency between the three is not left to the attention of
+whoever edits them:
+[`scripts/verifica-coerenza-delle-date.sh`](https://github.com/fedcal/Telemedic/blob/main/scripts/verifica-coerenza-delle-date.sh)
+verifies it at every build, and the reason it exists is that on 27 August the recalibration had
+touched the milestone entries and **not** these two copies, in either language.
+
+**`T-02` brings forward its start to 5 September and not its end.** Its declared trigger is `T-01`,
+closed since 27 August: the bar could no longer start on 26 September without contradicting its own
+trigger. The end remains 10 October, for the same reason as `T-08` - bringing the start forward is
+margin against risk, not work that gets shorter.
+
 ### 7.1 Summary table
 
 | # | Milestone | Class | Statement | Date | Trigger | Owner |
 |---|---|---|:-:|:-:|---|---|
-| `T-01` | Retroactively unrecoverable artefacts in operation | `A` | `[COMMITMENT]` | 12 Sep 2026 | Immediate | Single contributor |
+| `T-01` | Retroactively unrecoverable artefacts in operation | `A` | `[COMMITMENT]` | **closed on 27 Aug 2026** | Immediate | Single contributor |
 | `T-14` | Manufacturer pathway launched | `B` | `[COMMITMENT]` | 19 Sep 2026 | Immediate (`D58`) | Client |
-| `T-03` | Minimum blocking build chain | `A` | `[COMMITMENT]` | 26 Sep 2026 | `T-01` criteria 3–4 | Single contributor |
-| `T-07` | Website with blocking checks and verification recorded | `D` | `[COMMITMENT]` | 26 Sep 2026 | Immediate | Single contributor |
+| `T-03` | Minimum blocking build chain | `A` | `[COMMITMENT]` | 5 Sep 2026 | `T-01` criteria 3–4 | Single contributor |
+| `T-07` | Website with blocking checks and verification recorded | `D` | `[COMMITMENT]` | **closed on 27 Aug 2026** | Immediate | Single contributor |
 | `T-04` | Empirical verifications on critical path reduced | `C` | `[COMMITMENT]` | 3 Oct 2026 | `T-03` | Single contributor |
 | `T-05` | Decisions with deadline before first code | `C` | `[INTENTION]` | 3 Oct 2026 | Immediate | Client |
 | `T-02` | Documentary body at minimum prerequisite | `D` | `[COMMITMENT]` | 10 Oct 2026 | `T-01` | Single contributor |
@@ -738,7 +763,7 @@ gantt
 | `T-10` | **`RU-1`, first releasable deliverable** | `D` | `[COMMITMENT]` | **30 Nov 2026** | `T-08`, `T-06` | Single contributor; **review with no internal owner** |
 | `T-09` | Full translation of remaining corpus | `D` | `[INTENTION]` | 2027 | `T-06` | Single contributor |
 | `T-11` | Summative validation of usability | `B` | `[INTENTION]` | After interface freeze | Freeze | Client, for engagement |
-| `T-12` | Regulatory package deliverable | `D` | `[INTENTION]` | 2027 | `Q-183` | Project |
+| `T-12` | Regulatory package deliverable | `D` | `[INTENTION]` | 2027 | [`Q-183`](../11_registri/02-questioni-aperte.md#q-183) | Project |
 | `T-13` | Certification pathway, internal planning | `B` | `[INTENTION]` | See §5 | `T-14` criterion 1 | Project, in role to be established |
 
 ---
@@ -749,14 +774,14 @@ The list is the most useful part of the chapter for whoever must trust this road
 
 | Item | Why it is not dated | On what the date would depend |
 |---|---|---|
-| **Establishment of the manufacturer subject** (`T-14` criterion 1) | Depends on external administrative proceedings and on availability of a figure with documented qualification. `[NV]` | `Q-280`; times are not declared by a source the project can cite |
-| **Interoperability in egress towards the dossier** | The documentary models, codes of typology and metadata of indexation of telemedicine typologies **are not publicly available** (`Q-07`) | Availability of material |
+| **Establishment of the manufacturer subject** (`T-14` criterion 1) | Depends on external administrative proceedings and on availability of a figure with documented qualification. `[NV]` | [`Q-280`](../11_registri/02-questioni-aperte.md#q-280); times are not declared by a source the project can cite |
+| **Interoperability in egress towards the dossier** | The documentary models, codes of typology and metadata of indexation of telemedicine typologies **are not publicly available** ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07)) | Availability of material |
 | **Profiles of interoperability on documentation and hospital messaging** | Require a counterparty with a testing environment | Availability of an integrator or entity |
 | **Conformity verified on national digital identity** | Requires pre-production environments and test credentials not under project control | Access to environments; the batch of multiple instances per identity provider is the systematically underestimated one (`D38`) |
-| **Performance thresholds of the interface** | The reference device is not declared (`Q-115`, `Q-175`), and without device the corresponding requirement is not verifiable | Product decision |
-| **Expected service levels** | The threshold is chosen by the customer; the product provides the measurement | `Q-152`, `Q-184` |
-| **Deadline for adopting national security measures** | Subject-specific for each user (`V-186`) | The insertion notification received by the individual subject |
-| **Accreditation as service provider to the national identity federation** | It is of whoever instals, and times **are not declared by any primary source** | `D36`, `V-05`, `OUT-22` |
+| **Performance thresholds of the interface** | The reference device is not declared ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115), [`Q-175`](../11_registri/02-questioni-aperte.md#q-175)), and without device the corresponding requirement is not verifiable | Product decision |
+| **Expected service levels** | The threshold is chosen by the customer; the product provides the measurement | [`Q-152`](../11_registri/02-questioni-aperte.md#q-152), [`Q-184`](../11_registri/02-questioni-aperte.md#q-184) |
+| **Deadline for adopting national security measures** | Subject-specific for each user ([`V-186`](../11_registri/01-vincoli-in-vigore.md#v-186)) | The insertion notification received by the individual subject |
+| **Accreditation as service provider to the national identity federation** | It is of whoever instals, and times **are not declared by any primary source** | `D36`, [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05), `OUT-22` |
 
 > **The rule that this list applies.** A date that depends entirely on a third party is not a
 > date of the project: it is a hope with a format. With `D57` the roadmap **assumes the

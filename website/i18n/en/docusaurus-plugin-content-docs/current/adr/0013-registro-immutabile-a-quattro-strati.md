@@ -7,7 +7,7 @@ description: "Why the access register combines hash chain, write-only archive, r
 # ADR-0013 - Immutable register with four layers
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference decisions**: D42; constraints V5 and V-04 of noticeboard
+**Reference decisions**: D42; constraints [V5](../11_registri/03-vincoli-fondanti.md#v5) and [V-04](../11_registri/01-vincoli-in-vigore.md#v-04) of noticeboard
 **Origin**: questions posed by security area on choice of technique and on point and periodicity of external anchoring
 
 ## Context

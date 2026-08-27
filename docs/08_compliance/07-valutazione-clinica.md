@@ -49,7 +49,7 @@ description: "Che cos'è la valutazione clinica ai sensi dell'art. 61 e dell'All
 >
 > **Nessuna data compare in questo capitolo.** Le durate delle attività sono dichiarate perché
 > sono la sostanza dell'argomento - la valutazione clinica non si comprime con risorse - ma una
-> durata non è un termine: il vincolo `V-171` vieta di affermare o lasciare intendere che il
+> durata non è un termine: il vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) vieta di affermare o lasciare intendere che il
 > prodotto sarà marcato entro un termine, e questa è l'unica occorrenza ammessa di quella parola.
 > Le date del progetto stanno unicamente in [09](./09-percorso-e-calendario.md) e sono
 > pianificazione interna (`D57`).
@@ -63,7 +63,7 @@ sicurezza e le prestazioni, **compresi i benefici clinici**, quando è utilizzat
 alla destinazione d'uso indicata dal fabbricante. L'obbligo è nell'**art. 61**; la procedura è
 nell'**Allegato XIV, Parte A**.
 `[NV]` - la numerazione puntuale dei punti dell'art. 2 va verificata sul testo consolidato prima
-della citazione nel fascicolo.
+della citazione nel fascicolo, da `COMP`.
 
 Tre nozioni collegate vanno tenute distinte, perché un organismo notificato le distingue e la
 loro confusione è un rilievo ricorrente.
@@ -163,8 +163,8 @@ deve seguire.
 ### 2.2 La dipendenza a monte: congelata, e non per questo soddisfatta
 
 La formulazione della destinazione d'uso del telemonitoraggio **è congelata** (`D55`, che chiude
-`Q-144`): «**raccolta differita di parametri per la revisione periodica del professionista**». È
-la formulazione su cui l'intero modello di dominio è scritto (vincolo `V-144`) e mantiene la
+[`Q-144`](../11_registri/02-questioni-aperte.md#q-144)): «**raccolta differita di parametri per la revisione periodica del professionista**». È
+la formulazione su cui l'intero modello di dominio è scritto (vincolo [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144)) e mantiene la
 Classe IIa e la classe di sicurezza software B. La formulazione alternativa - «monitoraggio in
 tempo reale dei parametri vitali», che porterebbe in Classe IIb e classe C - è **esclusa**.
 
@@ -188,18 +188,18 @@ dello stato dell'arte - e **non rende anticipabile** nulla di ciò che il § 4 r
 
 **Una precisazione che questa sezione deve alla propria storia.** La versione precedente
 dichiarava la destinazione d'uso non congelata e la dipendenza bloccante. Non lo è più, e i due
-capitoli che riprendono `Q-144` - [02 §12](./02-qualificazione-e-classificazione.md) e
+capitoli che riprendono [`Q-144`](../11_registri/02-questioni-aperte.md#q-144) - [02 §12](./02-qualificazione-e-classificazione.md) e
 [09 §10](./09-percorso-e-calendario.md) - la riportano già come **chiusa da `D55`**. Ciò che resta
 da fare non è una rettifica di quei capitoli ma la **condizione residua** che `09` §10 dichiara: la
-revisione esterna della formulazione, che è `Q-275` e non è stata condotta.
+revisione esterna della formulazione, che è [`Q-275`](../11_registri/02-questioni-aperte.md#q-275) e non è stata condotta.
 
 ## 3. MDCG 2020-1: le tre componenti dell'evidenza per un software
 
 **MDCG 2020-1** traduce l'impianto dell'art. 61 nel caso specifico del software e stabilisce che
 l'evidenza clinica di un software dispositivo medico si articola in **tre componenti distinte,
 tutte necessarie**.
-`[NV]` - la revisione corrente del documento va verificata al momento dell'uso: i documenti del
-gruppo di coordinamento vengono revisionati.
+`[NV]` - la revisione corrente del documento va verificata al momento dell'uso da `COMP`: i
+documenti del gruppo di coordinamento vengono revisionati.
 
 | Componente | Domanda a cui risponde | Come si dimostra | Posizione del progetto |
 |---|---|---|---|
@@ -207,18 +207,27 @@ gruppo di coordinamento vengono revisionati.
 | **Validazione tecnica** | Il software genera l'uscita attesa a partire dagli ingressi, in modo accurato, affidabile e ripetibile? | Verifica e validazione tecnica | **Il progetto la produce in massa**: è il suo contributo più sostanzioso |
 | **Validazione clinica** | L'uscita del software, usata nel contesto clinico previsto, produce l'effetto atteso sulla gestione del paziente o sull'esito? | Dati clinici: letteratura, esperienza clinica documentata, seguito clinico | **Il vuoto**: è la componente che il rapporto deve costruire e il seguito colmare |
 
-### 3.1 La buona notizia, e la condizione perché sia tale
+### 3.1 La buona notizia, e le due condizioni perché sia tale
 
-La seconda componente è quella su cui il progetto ha investito in modo sproporzionato rispetto
-alla media: copertura di prova elevata, prove di integrazione, prove end-to-end, prove di qualità
-del canale in tempo reale con simulazione di perdita e variazione del ritardo, prove di carico,
-tracciabilità requisiti ↔ prove generata e non compilata (`D10`, capitolo
+La seconda componente è quella su cui il progetto ha deciso di investire in modo sproporzionato
+rispetto alla media: copertura di prova elevata, prove di integrazione, prove end-to-end, prove di
+qualità del canale in tempo reale con simulazione di perdita e variazione del ritardo, prove di
+carico, tracciabilità requisiti ↔ prove generata e non compilata (`D10`, capitolo
 [03 §7](./03-sistema-di-gestione-della-qualita.md)).
 
-**Quelle evidenze sono direttamente riusabili come componente dell'evidenza clinica** - ma solo a
-una condizione, ed è una condizione di prodotto, non di redazione.
+**Nessuna di quelle prove esiste oggi, ed è bene dirlo in questa stessa frase invece che più
+avanti.** Il progetto è in fase di progettazione: non esiste una riga di codice applicativo, e
+[`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182) ne vieta la scrittura prima che esista la
+catena di costruzione. Ciò che esiste è la **decisione** su come quelle prove saranno prodotte e
+conservate, presa prima del codice invece che dopo - che è il vantaggio reale, e non è lo stesso
+vantaggio di avere le prove. Un capitolo di conformità che scrive al presente indicativo una
+capacità futura produce esattamente l'equivoco che questo capitolo esiste per evitare.
 
-> **`V-176`.** Ogni esito di prova destinato a essere citato come evidenza - clinica o tecnica -
+**Quelle evidenze saranno direttamente riusabili come componente dell'evidenza clinica** - a due
+condizioni. La prima è che esistano, e dipende dalla catena di costruzione e dal codice. La
+seconda è una condizione di prodotto, non di redazione, e vale su ciascun esito prodotto.
+
+> **[`V-176`](../11_registri/01-vincoli-in-vigore.md#v-176).** Ogni esito di prova destinato a essere citato come evidenza - clinica o tecnica -
 > deve essere prodotto in **forma citabile** e conservato come **artefatto immutabile**: versione
 > esatta del software, ambiente dichiarato, data e ora, esecutore, esito, impronta di integrità.
 > Un rapporto **rigenerabile ma non conservato** non è evidenza: al momento della citazione
@@ -260,7 +269,7 @@ un giorno lo dimostrerà.
 | `CE-PLAN-001` **Piano di valutazione clinica** | Destinazione d'uso e affermazioni da dimostrare, stato dell'arte, parametri clinici e criteri di accettabilità, strategia dell'evidenza per ciascuna delle tre componenti, protocollo della ricerca, piano di seguito | **Bozza tecnica** con la parte di validazione tecnica già compilata | **Il fabbricante approva e assume** |
 | **Dossier dello stato dell'arte** | Qual è oggi la pratica clinica di riferimento per le prestazioni nel perimetro, con le fonti: atti e accordi nazionali, linee guida di società scientifiche, letteratura | **Integralmente producibile**: non è specifico di un fabbricante, è specifico del dominio | **Il fabbricante** lo adotta o lo integra |
 | **Protocollo e risultati della ricerca sistematica** | Banche dati interrogate, stringhe, date, criteri di inclusione ed esclusione, diagramma di selezione, valutazione critica di ciascuna fonte inclusa | Può **predisporre il protocollo** e l'infrastruttura documentale | **Il fabbricante esegue**, con redattore qualificato |
-| **Evidenza di validazione tecnica** | Rapporti citabili, con versione, ambiente, data, esecutore, esito | **Integrale** (`V-176`) | **Il fabbricante** la riesamina e la cita |
+| **Evidenza di validazione tecnica** | Rapporti citabili, con versione, ambiente, data, esecutore, esito | **Integralmente producibile, e oggi inesistente**: nessuna riga di codice applicativo esiste e [`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182) ne vieta la scrittura prima della catena di costruzione. Ciò che esiste è la regola di forma che li renderà citabili ([`V-176`](../11_registri/01-vincoli-in-vigore.md#v-176)), decisa prima del codice | **Il fabbricante** la riesamina e la cita |
 | **Evidenza dall'ingegneria dell'usabilità** | Rapporto della validazione sommativa: è **dato clinico** ai fini della gestione del paziente da parte di un utilizzatore | Conduce le formative; contribuisce alla specifica | **Il fabbricante conduce o commissiona la sommativa** ([06 §9](./06-usabilita-e-accessibilita.md)) |
 | `CE-REP-001` **Rapporto di valutazione clinica** | Sintesi e giudizio qualificato, con la determinazione che l'evidenza è **sufficiente** | - | **Solo il fabbricante**, firmato da valutatore qualificato con dichiarazione di assenza di conflitto |
 | `PMCF-PLAN-001` **Piano di seguito clinico** | Che cosa si raccoglierà dal campo per colmare i vuoti di evidenza, con metodi e periodicità | Fornisce la **strumentazione** (§ 7) | **Solo il fabbricante**: è un impegno, non un'analisi |
@@ -295,7 +304,7 @@ alla valutazione clinica:
 
 Il costo è però reale e va detto: richiede una competenza clinica documentabile che il progetto
 oggi **non ha internamente**, e la sua produzione è un impegno di risorse, non un sottoprodotto
-della documentazione. È la questione `Q-176`, indirizzata al committente.
+della documentazione. È la questione [`Q-176`](../11_registri/02-questioni-aperte.md#q-176), indirizzata al committente.
 
 ## 5. L'esenzione dell'art. 61(10), e perché non conviene invocarla
 
@@ -305,7 +314,7 @@ un'adeguata giustificazione fondata sui risultati della gestione del rischio e s
 considerazione delle specificità dell'interazione fra dispositivo e corpo umano, delle prestazioni
 cliniche previste e delle indicazioni del fabbricante. La disposizione non si applica ai
 dispositivi impiantabili e di Classe III.
-`[NV]` - la numerazione del paragrafo va verificata sul testo consolidato.
+`[NV]` - la numerazione del paragrafo va verificata sul testo consolidato da `COMP`.
 
 **È una via d'uscita apparente**, e va documentata come tale invece di essere ignorata. Tre
 ragioni per non percorrerla:
@@ -374,7 +383,7 @@ ruolo che il progetto **intende** assumere e il cui **soggetto giuridico è anco
 e non comparirebbe qui nemmeno allora. Il § 6.2 spiega perché, per questo prodotto, la questione
 in concreto non si pone.
 
-> **`V-274`.** **L'analisi di equivalenza dell'Allegato XIV non entra nella documentazione
+> **[`V-274`](../11_registri/01-vincoli-in-vigore.md#v-274).** **L'analisi di equivalenza dell'Allegato XIV non entra nella documentazione
 > pubblica del progetto, in nessuna forma e in nessuna fase.** Nomina necessariamente un
 > dispositivo di confronto e viola `R0` per costruzione; appartiene al fascicolo tecnico sotto il
 > controllo dei documenti del fabbricante. Il vincolo **non si attenua** per effetto di `D58`:
@@ -413,7 +422,7 @@ questo dispositivo** - ed è precisamente il vuoto che il seguito deve colmare. 
 
 ### 7.1 La conseguenza di prodotto, che va presa ora e non dopo
 
-> **`V-177`.** Le grandezze che il piano di seguito clinico si impegna a raccogliere devono
+> **[`V-177`](../11_registri/01-vincoli-in-vigore.md#v-177).** Le grandezze che il piano di seguito clinico si impegna a raccogliere devono
 > **esistere come dati** - con definizione stabile, versionata e confrontabile fra installazioni e
 > nel tempo - **prima** che il piano sia scritto. Progettare la strumentazione dopo aver scritto
 > il piano significa scoprire che il dato non c'è, e un dato che non c'è non si recupera
@@ -425,16 +434,16 @@ Le grandezze plausibili per questo prodotto, e ciò che ciascuna richiede al mod
 
 | Grandezza | Che cosa misura | Requisito sul dato |
 |---|---|---|
-| Frazione di prestazioni **concluse** rispetto a quelle avviate, per esito tipizzato | Se il dispositivo consente effettivamente l'erogazione | Gli esiti tipizzati sono valori di dominio e non codici di errore (`V-126`): la distinzione fra mancata presentazione e fallimento tecnico deve restare (`V-141`) |
+| Frazione di prestazioni **concluse** rispetto a quelle avviate, per esito tipizzato | Se il dispositivo consente effettivamente l'erogazione | Gli esiti tipizzati sono valori di dominio e non codici di errore ([`V-126`](../11_registri/01-vincoli-in-vigore.md#v-126)): la distinzione fra mancata presentazione e fallimento tecnico deve restare ([`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)) |
 | Frequenza dei **ripieghi in presenza** | Se la modalità a distanza regge il caso d'uso dichiarato | La valutazione di eseguibilità a tre esiti indipendenti deve essere registrata, non solo applicata |
 | **Completezza dell'informazione clinica** trasmessa al sistema di origine | È l'affermazione contenuta nella destinazione d'uso (§ 1.1) | Stato di trasmissione esplicito con conferma di presa in carico dal ricevente: nessuno stato intermedio ambiguo (`RM-08`) |
-| Frequenza di **allarmi non riscontrati** nella finestra dichiarata | Sicurezza del percorso di telemonitoraggio | La presa in carico è una transizione registrata nella sequenza di eventi immutabili dell'allarme, non una colonna di stato aggiornata sul posto (`V-121`, `BR-136`): senza di essa il mancato riscontro non è ricostruibile a posteriori. La copertura oraria è dato di runtime versionato (`V-122`) e stabilisce se un mancato riscontro fosse atteso o anomalo |
+| Frequenza di **allarmi non riscontrati** nella finestra dichiarata | Sicurezza del percorso di telemonitoraggio | La presa in carico è una transizione registrata nella sequenza di eventi immutabili dell'allarme, non una colonna di stato aggiornata sul posto ([`V-121`](../11_registri/01-vincoli-in-vigore.md#v-121), `BR-136`): senza di essa il mancato riscontro non è ricostruibile a posteriori. La copertura oraria è dato di runtime versionato ([`V-122`](../11_registri/01-vincoli-in-vigore.md#v-122)) e stabilisce se un mancato riscontro fosse atteso o anomalo |
 | Frequenza di **errori di associazione** segnalati | Sicurezza dell'identificazione | Registrazione dell'atto di identificazione come evento, non come attributo |
 
 **Nessuna di queste grandezze contiene contenuto clinico**, ed è una condizione, non una
 coincidenza: il seguito clinico deve poter essere alimentato da installazioni presso terzi senza
 che dati identificabili escano da quelle installazioni. È la stessa ragione per cui il vincolo
-`V-150` esclude il contenuto clinico dai registri, e va conservata anche quando aumenterebbe il
+[`V-150`](../11_registri/01-vincoli-in-vigore.md#v-150) esclude il contenuto clinico dai registri, e va conservata anche quando aumenterebbe il
 valore informativo del dato.
 
 ## 8. Dove questo capitolo si salda con gli altri
@@ -457,14 +466,15 @@ più.
 
 **L'ordine della tabella è per priorità e stato, non per identificativo**: prima le due questioni
 aperte che attendono una decisione, poi quella chiusa in sede di verifica incrociata, poi le
-verifiche `[NV]`, infine ciò che resta riservato al ruolo di fabbricante.
+verifiche `[NV]` con l'indicazione di chi le deve chiudere secondo le tre forme ammesse in `CONTRIBUTING.md`,
+infine ciò che resta riservato al ruolo di fabbricante.
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| `Q-176` | **Se il progetto produca e pubblichi il dossier dello stato dell'arte** (§ 4.1). Con `D58` la domanda cambia di natura: non è più «se contribuire al pacchetto di un terzo» ma **se avviare ora una voce del nostro percorso** che è a tempo lungo, non comprimibile e a monte della ricerca sistematica. Si presta alla forma aperta ed è riusabile da chiunque; richiede però una competenza clinica documentabile che il progetto **non ha internamente** ed è quindi un impegno di risorse esterne, non un'estensione della documentazione | → Committente |
-| `Q-275` | **La revisione esterna della destinazione d'uso congelata non è stata condotta** (§ 2.2). `D46` e `D55` la impongono **prima** di ingaggiare qualunque organismo notificato; l'ingaggio presuppone il soggetto fabbricante da costituire, ma **la revisione no** - è la sola delle due che si può commissionare ora, e rinviarla espone al rischio che il congelamento regga fino al primo confronto esterno e non oltre | → Committente |
-| `Q-274` | **CHIUSA in sede di verifica incrociata.** La questione affermava che `Q-144` risultasse ancora elencata fra le questioni aperte in `02` §12 e in `09` §10. La verifica sui due capitoli mostra che **non è così**: entrambi la riportano come «**CHIUSA da `D55`**» con esito **RISOLTA**, e `09` §10 vi aggiunge la sola condizione residua della revisione esterna, che è `Q-275` e resta aperta qui sopra. Nessun lettore ricava da quei capitoli una dipendenza bloccante: `Q-274` era essa stessa un residuo di riformulazione, e si chiude senza girarla ad altri | **CHIUSA**, verificata sui due capitoli |
-| `[NV]` | Numerazione puntuale dell'art. 2, punto 44, e dell'art. 61, paragrafo 10 (§§ 1, 5) | Conformità |
-| `[NV]` | Revisione corrente di MDCG 2020-1 (§ 3) | Conformità |
+| [`Q-176`](../11_registri/02-questioni-aperte.md#q-176) | **Se il progetto produca e pubblichi il dossier dello stato dell'arte** (§ 4.1). Con `D58` la domanda cambia di natura: non è più «se contribuire al pacchetto di un terzo» ma **se avviare ora una voce del nostro percorso** che è a tempo lungo, non comprimibile e a monte della ricerca sistematica. Si presta alla forma aperta ed è riusabile da chiunque; richiede però una competenza clinica documentabile che il progetto **non ha internamente** ed è quindi un impegno di risorse esterne, non un'estensione della documentazione | → Committente |
+| [`Q-275`](../11_registri/02-questioni-aperte.md#q-275) | **La revisione esterna della destinazione d'uso congelata non è stata condotta** (§ 2.2). `D46` e `D55` la impongono **prima** di ingaggiare qualunque organismo notificato; l'ingaggio presuppone il soggetto fabbricante da costituire, ma **la revisione no** - è la sola delle due che si può commissionare ora, e rinviarla espone al rischio che il congelamento regga fino al primo confronto esterno e non oltre | → Committente |
+| [`Q-274`](../11_registri/02-questioni-aperte.md#q-274) | **CHIUSA in sede di verifica incrociata.** La questione affermava che [`Q-144`](../11_registri/02-questioni-aperte.md#q-144) risultasse ancora elencata fra le questioni aperte in `02` §12 e in `09` §10. La verifica sui due capitoli mostra che **non è così**: entrambi la riportano come «**CHIUSA da `D55`**» con esito **RISOLTA**, e `09` §10 vi aggiunge la sola condizione residua della revisione esterna, che è [`Q-275`](../11_registri/02-questioni-aperte.md#q-275) e resta aperta qui sopra. Nessun lettore ricava da quei capitoli una dipendenza bloccante: [`Q-274`](../11_registri/02-questioni-aperte.md#q-274) era essa stessa un residuo di riformulazione, e si chiude senza girarla ad altri | **CHIUSA**, verificata sui due capitoli |
+| `[NV]` | Numerazione puntuale dell'art. 2, punto 44, e dell'art. 61, paragrafo 10 (§§ 1, 5) | `COMP` |
+| `[NV]` | Revisione corrente di MDCG 2020-1 (§ 3) | `COMP` |
 | - | **Il rapporto di valutazione clinica non è producibile dal progetto in nessuna forma**, nemmeno in bozza: richiede un valutatore qualificato con dichiarazione di assenza di conflitto, e la firma è l'atto stesso (§ 4). L'atto **resta riservato al ruolo di fabbricante anche quando il ruolo sarà nostro** | **Il fabbricante**, con soggetto costituito e valutatore nominato |
-| - | **L'analisi di equivalenza non è producibile in questa documentazione** perché nomina necessariamente un dispositivo di confronto (§ 6.1, `R0`, `V-274`). Il limite è di **perimetro della documentazione pubblica** e non si sposta con `D58` | **Il fabbricante**, nel fascicolo tecnico e mai qui |
+| - | **L'analisi di equivalenza non è producibile in questa documentazione** perché nomina necessariamente un dispositivo di confronto (§ 6.1, `R0`, [`V-274`](../11_registri/01-vincoli-in-vigore.md#v-274)). Il limite è di **perimetro della documentazione pubblica** e non si sposta con `D58` | **Il fabbricante**, nel fascicolo tecnico e mai qui |

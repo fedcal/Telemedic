@@ -127,8 +127,8 @@ materiale di conformità.** Non è un file che si aggiorna per far passare la pr
 
 **Il complemento a runtime.** Il controllo di pipeline protegge il repository; il gateway delle
 terminologie protegge l'esercizio, con la disattivazione per sistema di codifica, l'assenza di
-cache persistita su disco (vincolo V-14 di `SEC`) e la modalità degradata che rende vero il
-vincolo V-03. Le prove girano nella configurazione senza sistemi a licenza vincolata, che è ciò
+cache persistita su disco (vincolo [V-151](../11_registri/01-vincoli-in-vigore.md#v-151) di `SEC`) e la modalità degradata che rende vero il
+vincolo [V-03](../11_registri/01-vincoli-in-vigore.md#v-03). Le prove girano nella configurazione senza sistemi a licenza vincolata, che è ciò
 che rende quella modalità realmente funzionante (vedi
 [`08-qualita-e-test.md`](./08-qualita-e-test.md) §4.3).
 
@@ -160,8 +160,8 @@ alla guida di migrazione, almeno due versioni maggiori attive contemporaneamente
 d'uso per versione - perché senza sapere chi usa ancora la versione vecchia non si può contattare
 nessuno.
 
-`[NV]` - lo stato normativo di una delle due intestazioni va verificato prima di citarla come
-standard: una è definita da una specifica pubblicata, l'altra è oggetto di lavoro in corso.
+Lo stato normativo di una delle due intestazioni `[NV]` va verificato dall'`PROTO` prima
+di citarla come standard: una è definita da una specifica pubblicata, l'altra è oggetto di lavoro in corso.
 
 ### 5.3 Identificativo di costruzione
 
@@ -254,6 +254,38 @@ Contenuto minimo: identificativo, versione esatta, licenza, impronta, relazione 
 controllo G5: **un componente nella distinta e assente dalle annotazioni fa fallire la
 costruzione**. È il meccanismo che impedisce a una dipendenza di entrare senza essere stata
 valutata.
+
+### Il registro dei componenti, generato dalla distinta
+
+La distinta dice che cosa è entrato nell'artefatto; le annotazioni versionate dicono che cosa il
+progetto ha valutato di ciascun componente. **Il registro dei componenti di terze parti è la loro
+giunzione**, generato a ogni costruzione da
+[`scripts/genera-registro-componenti.py`](https://github.com/fedcal/Telemedic/blob/main/scripts/genera-registro-componenti.py),
+e non si scrive a mano: una modifica manuale si perderebbe alla costruzione successiva.
+
+La distinzione fra i tre oggetti non è terminologica, ed è la ragione per cui il registro esiste
+come artefatto proprio. Il registro è l'unico dei tre che risponda alla domanda che chi installa
+pone davvero: **che cosa sto installando, con quale licenza, e chi ce l'ha messo.** Quest'ultima
+parte è la meno ovvia e la più utile: su milleduecentotrentasei componenti del sito di
+documentazione, **nove** sono dipendenze scelte dal progetto e **milleduecentoventisette** sono
+transitive, tirate da quelle. Il registro dichiara per ciascuna transitiva **chi la tira**, perché
+una dipendenza che nessuno ha scelto va comunque valutata da qualcuno, e sapere da dove entra è il
+primo passo per deciderne il destino.
+
+Il registro esce in due forme, e la ragione della seconda è che milleduecento righe di tabella non
+si leggono: un file separato da tabulazione con l'elenco **completo**, una riga per componente, che
+accompagna la distribuzione ed è l'oggetto su cui si fanno le domande automatiche; e un documento
+leggibile che porta gli aggregati per licenza, le dipendenze dirette per intero con il motivo di
+inclusione scritto da una persona, e **per intero ogni componente la cui compatibilità non è
+accertata** - che è la parte per cui il registro esiste, e che in un elenco di milleduecento righe
+sparirebbe.
+
+Il generatore **riporta e non giudica**: la compatibilità viene dalle annotazioni, che a loro volta
+la derivano dall'identificativo di licenza dichiarato e non dal testo della licenza. Ciò che non è
+nell'elenco di riferimento esce «indeterminabile» e resta indeterminabile nel registro, in
+evidenza. Un generatore che indovinasse produrrebbe un registro rassicurante e falso.
+
+### Pubblicazione
 
 La distinta è **pubblicata** insieme all'artefatto. Serve a chi installa per rispondere ai propri
 obblighi - fra cui la dichiarazione dei fornitori rilevanti prevista da D40, per la quale il

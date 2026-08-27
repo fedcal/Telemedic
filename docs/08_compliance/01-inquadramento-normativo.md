@@ -110,6 +110,10 @@ modalità di integrazione principale prevista dal progetto. L'integratore che in
 componente nel proprio prodotto e lo presenta ai propri clienti **è fabbricante per legge**, e non
 per scelta contrattuale.
 
+**Gazzetta ufficiale.** La ricognizione della norma applicabile, della data di entrata in vigore
+e dei considerando rilevanti vanno verificate su fonte primaria; **`[NV]`** su fonte primaria,
+da verificare da `COMP`.
+
 **Che cosa produce il progetto e il ruolo che intende assumere.** Da `D58` il progetto
 intende assumere il ruolo di fabbricante, e con `D63` la marcatura al termine di una valutazione
 della conformità conclusa è un **requisito di prodotto**; il soggetto giuridico è ancora da
@@ -141,7 +145,7 @@ avalla.
 destinazione d'uso, sicurezza e prestazioni - «in particolare attribuendo funzioni e proprietà che
 il dispositivo non possiede» - non presuppone la marcatura. Insieme all'art. 2, punto 12, che fa
 del materiale promozionale una fonte da cui si ricava giuridicamente la destinazione d'uso,
-produce il vincolo **V-171** del § 11: nessun artefatto pubblico del progetto può contenere
+produce il vincolo **[V-171](../11_registri/01-vincoli-in-vigore.md#v-171)** del § 11: nessun artefatto pubblico del progetto può contenere
 formule che affermino o lascino intendere una conformità che non esiste.
 
 ## 3. Regolamento (UE) 2016/679 - protezione dei dati
@@ -180,7 +184,7 @@ questo capitolo la **conferma** al § 10.
    Ciò che ne discende per il progetto è comunque vincolante sul piano del prodotto, perché sono
    impostazioni che **nessun titolare può ricostruire dopo**: registrazione disattivata per
    impostazione predefinita, conservazione minima predefinita, registri privi di contenuto clinico
-   per impostazione predefinita (vincolo `V-150` di `SEC`).
+   per impostazione predefinita (vincolo [`V-150`](../11_registri/01-vincoli-in-vigore.md#v-150) di `SEC`).
 3. **La valutazione d'impatto è dovuta** per un trattamento su larga scala di dati relativi alla
    salute con tecnologie nuove: i presupposti dell'art. 35, paragrafo 3, lettera b), sono
    ampiamente integrati. È del cliente. Fornirne il materiale strutturale - descrizione del
@@ -194,7 +198,7 @@ questo capitolo la **conferma** al § 10.
 **Termini di conservazione che non sono negoziabili** e che si citano qui perché sono di fonte
 settoriale e non generale: **ventiquattro mesi** per i registri di tracciabilità e **dodici mesi**
 per i dati di accesso e autenticazione, ai sensi del DM 19 novembre 2025, Allegato 4 (vincolo
-`V-152` di `SEC`).
+[`V-152`](../11_registri/01-vincoli-in-vigore.md#v-152) di `SEC`).
 
 ## 4. Direttiva (UE) 2022/2555 e d.lgs. 4 settembre 2024, n. 138 - sicurezza delle reti
 
@@ -222,7 +226,7 @@ dichiarare una data di adeguamento, perché la data appartiene al cliente.
 **Secondo: la sovranità del dato è diventata un campo obbligatorio verso un'autorità.** L'art. 18
 della Determinazione n. 127437/2026 obbliga il soggetto a dichiarare nominativamente i «fornitori
 rilevanti» con ragione sociale, codice fiscale, **Paese della sede legale**, codici della
-nomenclatura degli appalti e criterio di rilevanza. Il vincolo `V1` del progetto - nessun
+nomenclatura degli appalti e criterio di rilevanza. Il vincolo [`V1`](../11_registri/03-vincoli-fondanti.md#v1) del progetto - nessun
 componente obbligatorio del percorso principale stabilito fuori dall'Unione - cessa quindi di
 essere un argomento di posizionamento: **introdurre una dipendenza di esecuzione extra-UE è un
 dato che finisce in una dichiarazione ufficiale di qualcun altro.**
@@ -235,7 +239,7 @@ un deliverable del progetto, non un problema del cliente: la *dichiarazione tecn
 descritta in [06 §08 §6](../06_security/08-quadro-normativo-e-misure.md).
 
 **Regola di citazione che quest'area eredita e rispetta.** Gli allegati di dettaglio della
-determinazione non sono stati letti riga per riga (questione `Q-151`). **Nessun requisito puntuale
+determinazione non sono stati letti riga per riga (questione [`Q-151`](../11_registri/02-questioni-aperte.md#q-151)). **Nessun requisito puntuale
 delle misure di base è citato testualmente in alcun documento di quest'area.** Ciò che si cita
 sono i codici, la ripartizione fra le due tipologie di soggetto e l'aritmetica del catalogo, che
 sono verificati.
@@ -260,11 +264,11 @@ Tre elementi rilevanti per il prodotto:
 - **art. 14** - contratti pubblici di beni e servizi informatici in contesti connessi alla tutela
   degli interessi nazionali strategici: obbligo di tenere conto degli **elementi essenziali di
   cybersicurezza**, individuati dal DPCM 30 aprile 2025 (GU del 5 maggio 2025) come modificato dal
-  DPCM 2 ottobre 2025, con **criteri di premialità** anche geografici.
-  **`[NV]`** - i testi dei due DPCM non sono stati letti su fonte primaria in nessuna delle
-  ricerche del progetto, e non è verificato se una fornitura di telemedicina ricada nelle
-  categorie tecnologiche dell'allegato: l'elenco non nomina il software sanitario ma comprende i
-  **servizi cloud**. Va verificato con un consulente di appalti prima di qualunque uso in gara.
+  DPCM 2 ottobre 2025, con **criteri di premialità** anche geografici. I testi dei due DPCM vanno
+  verificati su Normattiva per accertare il contenuto esatto; **`[NV]`** va chiesto a un
+  consulente di appalti se una fornitura di telemedicina ricada nelle categorie tecnologiche
+  dell'allegato, dato che l'elenco non nomina il software sanitario ma comprende i **servizi
+  cloud**: la qualificazione richiede competenza di gara, non solo lettura normativa.
 
 **La conseguenza operativa che conta più di tutte, ed è una sola: le risposte del fornitore
 saranno valutate contro requisiti chiusi - sì o no, con evidenza - non contro narrazioni.** Le
@@ -298,8 +302,8 @@ quattro volte è l'errore che la matrice di
 
 ### 5.1 Tabella artefatto → regime applicabile
 
-**Questa tabella chiude la questione `Q-10` della bacheca ed è il contributo richiesto da `D41`.**
-La sua formalizzazione come documento di decisione architetturale resta la questione `Q-24`,
+**Questa tabella chiude la questione [`Q-10`](../11_registri/02-questioni-aperte.md#q-10) della bacheca ed è il contributo richiesto da `D41`.**
+La sua formalizzazione come documento di decisione architetturale resta la questione [`Q-24`](../11_registri/02-questioni-aperte.md#q-24),
 indirizzata all'orchestrazione: **la tabella esiste, l'atto formale che la adotta no.**
 
 | # | Artefatto | Dispositivi medici | Resilienza informatica | Motivazione |
@@ -341,8 +345,9 @@ dalla decisione `D28`:
 
 1. **Il software è un prodotto**, indipendentemente dalla modalità di fornitura: autonomo,
    incorporato, in cloud, come servizio. Il file sorgente in quanto tale è invece considerato
-   informazione e non prodotto. **`[NV]`** - la formulazione letterale dell'art. 4 e dei
-   considerando pertinenti non è stata verificata su fonte primaria.
+   informazione e non prodotto. La formulazione letterale dell'art. 4 e dei considerando pertinenti
+   della Direttiva (UE) 2024/2853 vanno verificati su fonte primaria nella Gazzetta ufficiale
+   dell'Unione europea; **`[NV]`** su fonte primaria, da verificare da `COMP`.
 2. **La difettosità si presume** quando è dimostrato che il prodotto non è conforme a **requisiti
    obbligatori di sicurezza previsti dal diritto dell'Unione** destinati a proteggere dal rischio
    verificatosi (art. 10). Fra questi rientrano, secondo i casi, i requisiti dell'Allegato I
@@ -353,9 +358,10 @@ dalla decisione `D28`:
    della licenza Apache-2.0 sono espressamente subordinate al diritto imperativo e restano
    efficaci **fra le parti della licenza**, per la responsabilità contrattuale e il danno
    economico puro. Non proteggono da: azioni della persona danneggiata, responsabilità
-   regolatoria, responsabilità per dolo o colpa grave.
-   **`[NV]`** - la numerazione della norma italiana equivalente dopo il recepimento è da
-   verificare.
+   regolatoria, responsabilità per dolo o colpa grave. La numerazione della norma italiana
+   equivalente dopo il recepimento della Direttiva (UE) 2024/2853 sarà determinata dal decreto
+   legislativo e va verificata su Normattiva; **`[NV]`** sulla norma nazionale equivalente, da
+   verificare da `COMP`.
 4. **Un prodotto sicuro alla data del rilascio può diventare difettoso in seguito**, quando chi ne
    mantiene il controllo non fornisce gli aggiornamenti di sicurezza necessari. Per un servizio
    gestito il controllo è permanente. **La mancata correzione di una vulnerabilità nota è, in
@@ -391,15 +397,16 @@ medico.**
 | Voce | Contenuto |
 |---|---|
 | **Soggetto obbligato** | Il **fabbricante del sistema di cartella clinica elettronica**; obblighi specifici per importatori e distributori |
-| **Da quando** | In vigore dal **26 marzo 2025**; applicazione generale dal **26 marzo 2027**; il **capo III dal 26 marzo 2029**, e dal **26 marzo 2031** per i sistemi di cui all'art. 26, paragrafo 2. **`[NV]`** - la mappatura esatta delle date per ciascuna disposizione va confermata sull'articolo finale del regolamento: le fonti secondarie consultate divergono |
+| **Da quando** | In vigore dal **26 marzo 2025**; applicazione generale dal **26 marzo 2027**; il **capo III dal 26 marzo 2029**, e dal **26 marzo 2031** per i sistemi di cui all'art. 26, paragrafo 2. La mappatura esatta delle date per ciascuna disposizione va confermata sull'articolo finale del regolamento su EUR-Lex, verificando i testi in entrambe le lingue, dato che le fonti secondarie consultate divergono. **`[NV]`** da verificare da `COMP` |
 | **Attribuzione** | **D**. Con l'avvertenza che l'orizzonte 2029–2031 **non autorizza a rinviare la progettazione**, perché ciò che il capo III chiede è strutturale |
 
 **Perché la valutazione del progetto è che il capo III lo riguardi con elevata probabilità.** Il
 sistema archivia contenuti riconducibili alle categorie prioritarie - referti, risultati,
 documenti di sintesi -, li esporta e li importa verso il sistema dell'integratore, e li converte
 in un formato di interscambio. Sono esattamente le funzioni che il capo III intende disciplinare.
-**`[NV]`** - la conclusione è tratta dalla definizione riportata in fonte secondaria e va
-confermata con lettura diretta delle definizioni dell'art. 2 e del capo III.
+La conclusione è tratta dalla definizione riportata in fonte secondaria e va confermata con lettura
+diretta delle definizioni dell'art. 2 e del capo III sul testo del Regolamento (UE) 2025/327 in
+Gazzetta ufficiale; **`[NV]`** su fonte primaria, da verificare da `COMP`.
 
 **Il raccordo con il regime dei dispositivi è già scritto dalla linea guida.** MDCG 2019-11
 Rev.1, Allegato I, lett. c.1), riporta il considerando 42 del regolamento: quando un software
@@ -413,7 +420,7 @@ Due conseguenze di programma, entrambe attuali:
 
 1. **L'architettura dei dati va progettata oggi** per le categorie prioritarie e per i formati di
    interscambio europei, che è precisamente ciò che il modello a dataset canonico con
-   serializzazioni sostituibili (`V-07`) rende possibile senza riscritture.
+   serializzazioni sostituibili ([`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07)) rende possibile senza riscritture.
 2. **La posizione del prodotto rispetto a questo regolamento va dichiarata**, come la stessa
    sezione 7 della linea guida richiede: occorre comunicare esattamente quali moduli
    costituiscono il prodotto e se il prodotto o qualcuno dei suoi moduli è soggetto alla
@@ -422,7 +429,7 @@ Due conseguenze di programma, entrambe attuali:
 
 Resta aperta una questione di perimetro che non è di quest'area: **se il progetto debba produrre
 anche il pacchetto documentale del capo III**, raddoppiando in parte lo sforzo. È la questione
-`Q-171`, indirizzata all'orchestrazione.
+[`Q-171`](../11_registri/02-questioni-aperte.md#q-171), indirizzata all'orchestrazione.
 
 ## 8. Accessibilità
 
@@ -440,12 +447,12 @@ scomodo, è un controllo che per quell'utente **non esiste**.
 **L'ambito soggettivo della prima riga è la parte delicata, e va detta com'è: la telemedicina non
 è nominata** fra le categorie di prodotti e servizi coperti dall'Accessibility Act. Il prodotto vi
 ricadrebbe indirettamente, se venduto tramite un canale di commercio elettronico rivolto ai
-consumatori, o eventualmente come componente di un servizio di comunicazione elettronica.
-**`[NV]`** - la qualificazione di un servizio di videoconsulto come «servizio di comunicazione
-interpersonale indipendente dal numero» è controversa e non è stata accertata; merita analisi
-specifica prima di essere affermata o negata in un documento contrattuale. La via **diretta e
-sicura** è la terza riga: quando il cliente è pubblico, l'obbligo esiste senza bisogno di
-percorrere la prima.
+consumatori, o eventualmente come componente di un servizio di comunicazione elettronica. La
+qualificazione di un servizio di videoconsulto come «servizio di comunicazione interpersonale
+indipendente dal numero» è controversa e non è stata accertata; **`[NV]`** merita analisi specifica
+con interlocuzione con autorità competenti prima di essere affermata o negata in un documento
+contrattuale, da compiere da `COMP`. La via **diretta e sicura** è la terza riga: quando il cliente è pubblico,
+l'obbligo esiste senza bisogno di percorrere la prima.
 
 **Perché il requisito del progetto va oltre WCAG, ed è il punto che un'analisi WCAG non
 intercetta.** EN 301 549 contiene requisiti che non derivano da WCAG e che riguardano proprio una
@@ -455,11 +462,11 @@ identificazione del chiamante e - per la videocomunicazione - **risoluzione, fre
 fotogrammi e sincronizzazione labiale sufficienti per la lingua dei segni**. Per un servizio
 sanitario destinato anche a persone sorde non sono dettagli.
 
-**`[NV]`** - la versione di EN 301 549 citata nella *Gazzetta ufficiale dell'Unione europea* a
-supporto dell'Accessibility Act non è verificata. Fino a quel momento il riferimento
-giuridicamente efficace resta la versione effettivamente citata, e la dichiarazione di
-accessibilità del progetto deve indicare la versione su cui è stata condotta la verifica, non
-«EN 301 549» in astratto.
+La versione di EN 301 549 citata nella *Gazzetta ufficiale dell'Unione europea* a supporto
+dell'Accessibility Act va verificata su quella fonte primaria; **`[NV]`** da verificare in Gazzetta
+ufficiale, da compiere da `COMP`. Fino a quel momento il riferimento giuridicamente efficace resta
+la versione effettivamente citata, e la dichiarazione di accessibilità del progetto deve indicare
+la versione su cui è stata condotta la verifica, non «EN 301 549» in astratto.
 
 Il progetto dichiara una sola non conformità, sul criterio relativo ai sottotitoli in tempo reale,
 con l'interprete come misura alternativa (`D24`). **Dichiarare una non conformità è legittimo;
@@ -484,10 +491,10 @@ atti, con la loro forza e la loro attribuzione.**
 | **Accordo Stato-Regioni 17 dicembre 2020, rep. atti n. 215/CSR**, Allegato A | Definizioni canoniche delle prestazioni; condizioni tassative di erogabilità della televisita; **obbligo di referto** con indicazione dei collaboratori partecipanti e della **qualità del collegamento con conferma di idoneità**; **cifratura di tutti i trasferimenti** di voce, video, immagini e file; adesione preventiva dell'assistito; obbligo di completare in modalità tradizionale se lo strumento non consente di mantenere inalterato il contenuto della prestazione; certificazione dell'hardware e/o del software come dispositivo medico «idonea alla tipologia di prestazione» | **D** per l'erogazione; **P** per le capacità: il campo della qualità del collegamento, la cifratura, il ripiego dichiarato |
 | **DM 23 maggio 2022, n. 77** | Colloca la telemedicina dentro il modello organizzativo territoriale. Non detta requisiti software: **determina il contesto** in cui la prestazione è appropriata (percorsi assistenziali programmati) | **D** |
 | **DM 21 settembre 2022** (GU n. 256 del 2 novembre 2022, atto 22A06184), Allegato A | L'atto **tecnicamente più prescrittivo**: quattro servizi minimi; architettura a microservizi; architettura a eventi; interoperabilità su modello FHIR; contenitori; modelli di distribuzione **su territorio nazionale**; **paradigma mobile first**; multilingua; conformità alle linee guida di design dei servizi digitali pubblici e a quelle sull'accessibilità; presenza organizzativa obbligatoria di **Centro servizi** tecnico e **Centro erogatore** sanitario; livelli di servizio di manutenzione correttiva vincolanti per i fornitori; **obbligo di certificazione come dispositivo medico** per il telemonitoraggio e per *viewer* e refertazione nei teleconsulti istopatologici e radiologici | **P+D**: i requisiti tecnici sono di prodotto, la presenza dei due centri e i livelli di servizio sono organizzativi |
-| **DM 30 settembre 2022** (GU n. 298 del 22 dicembre 2022, atto 22A07125) | Disciplina la selezione delle soluzioni: piani operativi regionali, commissione tecnica, **acquisto esclusivamente attraverso le gare delle regioni capofila** nel perimetro del piano nazionale. Allegato B: la televisita erogata da medico di assistenza primaria o pediatra **non richiede prescrizione** e produce **annotazione digitale in luogo del referto** (vincolo `V-145` di `DOM`) | **D**, con effetto determinante sulla via di accesso al mercato pubblico |
-| **DM 7 settembre 2023** (GU n. 249 del 24 ottobre 2023) | Quadro del fascicolo sanitario elettronico: contenuti, soggetti, consensi, alimentazione, consultazione. **Art. 15, comma 4: esclusione permanente delle compagnie di assicurazione, dei periti e dei datori di lavoro dall'accesso** (`D48`, `V-08`) | **D** |
+| **DM 30 settembre 2022** (GU n. 298 del 22 dicembre 2022, atto 22A07125) | Disciplina la selezione delle soluzioni: piani operativi regionali, commissione tecnica, **acquisto esclusivamente attraverso le gare delle regioni capofila** nel perimetro del piano nazionale. Allegato B: la televisita erogata da medico di assistenza primaria o pediatra **non richiede prescrizione** e produce **annotazione digitale in luogo del referto** (vincolo [`V-145`](../11_registri/01-vincoli-in-vigore.md#v-145) di `DOM`) | **D**, con effetto determinante sulla via di accesso al mercato pubblico |
+| **DM 7 settembre 2023** (GU n. 249 del 24 ottobre 2023) | Quadro del fascicolo sanitario elettronico: contenuti, soggetti, consensi, alimentazione, consultazione. **Art. 15, comma 4: esclusione permanente delle compagnie di assicurazione, dei periti e dei datori di lavoro dall'accesso** (`D48`, [`V-08`](../11_registri/01-vincoli-in-vigore.md#v-08)) | **D** |
 | **DM 31 dicembre 2024** (GU n. 53 del 5 marzo 2025) | Istituzione dell'ecosistema dei dati sanitari | **D** |
-| **DM 19 novembre 2025** (GU n. 301 del 30 dicembre 2025, atto 25A06938) | Disciplina del trattamento dei dati nella piattaforma nazionale di telemedicina. **Art. 7: dieci nuove tipologie documentali** del fascicolo dedicate alla telemedicina, con set informativo in Gazzetta Ufficiale (`D30`, `V-143`); **art. 12: le infrastrutture regionali non conservano** i dati e i documenti generati; **art. 14–15**: registrazione delle operazioni e misure di sicurezza; **Allegato 4**: termini di conservazione (24 e 12 mesi), autenticazione con i tre canali nazionali e secondo fattore, **obbligo di inventario delle componenti software comprensive delle librerie di terzi e open source** | **P+D**. L'obbligo di inventario è il punto in cui una **distinta dei materiali diventa conformità normativa italiana**, non buona pratica |
+| **DM 19 novembre 2025** (GU n. 301 del 30 dicembre 2025, atto 25A06938) | Disciplina del trattamento dei dati nella piattaforma nazionale di telemedicina. **Art. 7: dieci nuove tipologie documentali** del fascicolo dedicate alla telemedicina, con set informativo in Gazzetta Ufficiale (`D30`, [`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)); **art. 12: le infrastrutture regionali non conservano** i dati e i documenti generati; **art. 14–15**: registrazione delle operazioni e misure di sicurezza; **Allegato 4**: termini di conservazione (24 e 12 mesi), autenticazione con i tre canali nazionali e secondo fattore, **obbligo di inventario delle componenti software comprensive delle librerie di terzi e open source** | **P+D**. L'obbligo di inventario è il punto in cui una **distinta dei materiali diventa conformità normativa italiana**, non buona pratica |
 
 **Tre avvertenze di metodo su questo blocco, che valgono più delle singole righe.**
 
@@ -495,8 +502,8 @@ atti, con la loro forza e la loro attribuzione.**
 2025 incorpora per rinvio il capitolo di un **capitolato tecnico di una gara regionale** ed
 estende le misure ivi previste a tutte le infrastrutture regionali, comprese quelle che non hanno
 partecipato alla procedura. Una fonte cogente che rinvia a un documento di gara non è
-consultabile con gli strumenti ordinari. **`[NV]`** - il capitolo richiamato non è stato reperito:
-va richiesto alla centrale di committenza o recuperato dagli atti della procedura. Finché non lo
+consultabile con gli strumenti ordinari. Il capitolo richiamato non è stato reperito e va richiesto alla
+centrale di committenza **`[NV]`** o recuperato dagli atti della procedura. Finché non lo
 si legge, **nessuna affermazione di conformità a quelle misure è sostenibile**.
 
 **Seconda - la residenza dei dati ha due livelli e non vanno appiattiti.** Il DM 21 settembre 2022
@@ -514,7 +521,7 @@ conclusione tratta dall'albero di qualificazione europeo.
 
 ## 10. Riscontro sulla ripartizione dei ruoli
 
-**Questa sezione risponde alla questione `Q-162` di `INTEG`**, che chiedeva a quest'area una
+**Questa sezione risponde alla questione [`Q-162`](../11_registri/02-questioni-aperte.md#q-162) di `INTEG`**, che chiedeva a quest'area una
 revisione di conformità sulla tabella di ripartizione fra titolare e responsabile del trattamento,
 fabbricante, fornitore di servizi di identità e soggetto obbligato in materia di sicurezza delle
 reti, prima della pubblicazione di
@@ -530,7 +537,7 @@ non la contraddicono e la completano.
 | 2 | **Il ruolo di fabbricante ai sensi del regolamento sulla resilienza è distinto da quello ai sensi dei dispositivi**, e può gravare su chi non è fabbricante di dispositivi: la tabella artefatto → regime del § 5.1 va allegata alla riga 4.4 di quel capitolo | riga 21 |
 | 3 | **Il ruolo di fabbricante ai sensi del regolamento sullo spazio dei dati sanitari è un sesto ruolo possibile**, con orizzonte 2029–2031, e **non è coperto da nessuna riga esistente**. Va aggiunto come voce da presidiare, non come adempimento attuale | nuova riga |
 | 4 | La riga sulla **contitolarità** va rafforzata: la contitolarità **non è una scelta di comodo** fra le due opzioni precedenti. Si determina quando due soggetti determinano *insieme* finalità e mezzi, e comporta l'accordo dell'art. 26 con la designazione di un punto di contatto e il contenuto essenziale reso disponibile all'interessato | riga 8 |
-| 5 | La riga sul **livello di garanzia dell'autenticazione** va letta insieme al vincolo `V-165` di `INTEG` e a `V-154` di `SEC`: **un livello riferito da un integratore non soddisfa un obbligo di autenticazione forte**. È una precisazione di conformità, non di architettura, e appartiene a questa tabella perché è il punto in cui un errore produce una violazione di legge e non un difetto | riga 26 |
+| 5 | La riga sul **livello di garanzia dell'autenticazione** va letta insieme al vincolo [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165) di `INTEG` e a [`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154) di `SEC`: **un livello riferito da un integratore non soddisfa un obbligo di autenticazione forte**. È una precisazione di conformità, non di architettura, e appartiene a questa tabella perché è il punto in cui un errore produce una violazione di legge e non un difetto | riga 26 |
 
 **Nessuna riga viene rimossa e nessuna attribuzione viene rovesciata.** In particolare, questa
 area **conferma** l'attribuzione delle righe condivise 7, 16, 19, 20, 23, 29, 32 e 37 e ne
@@ -539,7 +546,7 @@ nessuno, e va assegnata nominativamente nel contratto, non nella documentazione.
 
 ## 11. Le formule che nessun artefatto del progetto può usare
 
-**Questa sezione istituisce il vincolo `V-171`.** Ha lo stesso fondamento del vincolo `V-133` di
+**Questa sezione istituisce il vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171).** Ha lo stesso fondamento del vincolo [`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133) di
 `PROTO` - che vieta le formule di conformità infondate sui protocolli - e ne estende la logica al
 piano regolatorio. Il fondamento è l'art. 7 e l'art. 2, punto 12, del Regolamento (UE) 2017/745: il
 materiale promozionale **è** materiale regolatorio, e una dichiarazione fuorviante su destinazione
@@ -553,8 +560,8 @@ d'uso, sicurezza o prestazioni è vietata **anche quando non esiste alcuna marca
 | «classe IIa» usata come attributo del prodotto | La classe è l'esito di una determinazione formale riferita a una destinazione d'uso e a una revisione esatta. Fuori da quel contesto è un'affermazione priva di oggetto | «la determinazione di classificazione del progetto, riferita alla destinazione d'uso nella revisione *n*, conclude per la classe IIa» |
 | «conforme al GDPR», «conforme a NIS2» | La conformità è di un titolare o di un soggetto obbligato, non di un software. Un prodotto **abilita**, non è conforme | «fornisce le capacità tecniche e le evidenze documentali richieste da…» |
 | «qualità clinica», «adeguato alla diagnosi» riferito al canale | È una rivendicazione di prestazione clinica, e come tale va dimostrata nella valutazione clinica | enunciati tecnici verificabili su risoluzione, frequenza dei fotogrammi e continuità, **senza rivendicare adeguatezza diagnostica** (`D29`) |
-| «accreditato» riferito ai canali di identità nazionali | Il fornitore di servizi è chi eroga il servizio in rete, cioè chi installa (`V-05`) | «conforme e verificabile in integrazione continua, **non accreditato**» |
-| «monitoraggio in tempo reale», «sorveglianza continua» | Sposta la classificazione e contraddice `V-144` | «raccolta **differita** di parametri per la **revisione periodica** del professionista» |
+| «accreditato» riferito ai canali di identità nazionali | Il fornitore di servizi è chi eroga il servizio in rete, cioè chi installa ([`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05)) | «conforme e verificabile in integrazione continua, **non accreditato**» |
+| «monitoraggio in tempo reale», «sorveglianza continua» | Sposta la classificazione e contraddice [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144) | «raccolta **differita** di parametri per la **revisione periodica** del professionista» |
 
 **Il registro con cui si nomina l'intenzione, e perché è vincolante quanto la tabella.** Da `D58`
 il progetto intende assumere il ruolo di fabbricante, e nominare quell'intenzione è la formulazione
@@ -578,7 +585,7 @@ oggi assume per intero gli obblighi che ne derivano.
 
 **La verifica di questo vincolo non è documentale ma di processo.** Ogni testo pubblico -
 pagina, `README`, titolo di sezione, descrizione di interfaccia, messaggio di errore, annuncio -
-è materiale da cui si ricava la destinazione d'uso. Ne discende la questione `Q-174`, indirizzata
+è materiale da cui si ricava la destinazione d'uso. Ne discende la questione [`Q-174`](../11_registri/02-questioni-aperte.md#q-174), indirizzata
 alle aree di prodotto e della guida: **serve un passaggio di revisione regolatoria prima della
 pubblicazione di qualunque testo rivolto all'esterno**, con questa tabella come lista di
 controllo.
@@ -590,9 +597,9 @@ revocabile va accompagnata dalle condizioni della sua revoca. Sono in ordine di 
 
 | # | Soglia | Che cosa cambia | Chi decide |
 |---|---|---|---|
-| 1 | **Monetizzazione**: supporto a pagamento, servizio gestito, consulenza sull'integrazione, sponsorizzazioni ricorrenti | Cade la condizione «fuori da un'attività commerciale». Ne discendono: possibile qualifica di fabbricante ai sensi del regolamento sulla resilienza; caduta dell'esenzione per il software libero nel regime della responsabilità da prodotto; avvicinamento alla nozione di messa a disposizione sul mercato | **Committente** - questione `Q-155` |
-| 2 | **Costituzione di una persona giuridica** che fornisca sostegno sistematico e continuativo allo sviluppo | Si apre la posizione di **custode di software open source** (art. 3, punto 14, e art. 24 del regolamento sulla resilienza), con obblighi alleggeriti e senza sanzioni amministrative. È una posizione **migliore** dell'attuale sotto il profilo della certezza, non peggiore | **Committente** - questione `Q-155` |
-| 3 | **Distribuzione di un artefatto pronto all'uso** che un'organizzazione sanitaria possa mettere in produzione senza ulteriore lavoro | Avvicina alla nozione di **messa in servizio** (art. 2, punto 29, dell'MDR), che è la soglia decisiva. C'è differenza sostanziale fra pubblicare sorgenti che richiedono compilazione, configurazione e integrazione e pubblicare un pacchetto immediatamente operativo. **`[NV]`** - non risultano linee guida dedicate alla distribuzione open source di software sanitario: è una lacuna reale del quadro europeo | **Committente**, con effetto immediato sulla politica di distribuzione |
+| 1 | **Monetizzazione**: supporto a pagamento, servizio gestito, consulenza sull'integrazione, sponsorizzazioni ricorrenti | Cade la condizione «fuori da un'attività commerciale». Ne discendono: possibile qualifica di fabbricante ai sensi del regolamento sulla resilienza; caduta dell'esenzione per il software libero nel regime della responsabilità da prodotto; avvicinamento alla nozione di messa a disposizione sul mercato | **Committente** - questione [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) |
+| 2 | **Costituzione di una persona giuridica** che fornisca sostegno sistematico e continuativo allo sviluppo | Si apre la posizione di **custode di software open source** (art. 3, punto 14, e art. 24 del regolamento sulla resilienza), con obblighi alleggeriti e senza sanzioni amministrative. È una posizione **migliore** dell'attuale sotto il profilo della certezza, non peggiore | **Committente** - questione [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) |
+| 3 | **Distribuzione di un artefatto pronto all'uso** che un'organizzazione sanitaria possa mettere in produzione senza ulteriore lavoro | Avvicina alla nozione di **messa in servizio** (art. 2, punto 29, dell'MDR), che è la soglia decisiva. C'è differenza sostanziale fra pubblicare sorgenti che richiedono compilazione, configurazione e integrazione e pubblicare un pacchetto immediatamente operativo. Non risultano linee guida dedicate alla distribuzione open source di software sanitario `[NV]` da chiedere al Committente: è una lacuna reale del quadro europeo | **Committente**, con effetto immediato sulla politica di distribuzione |
 
 **La soglia 3 è quella che si supera per distrazione.** Le altre due sono decisioni; questa è la
 conseguenza di una scelta di comodità operativa - un'immagine preconfigurata, un pacchetto
@@ -619,7 +626,7 @@ fornirne l'evidenza.
 | **26 marzo 2027** | Applicazione generale del regolamento sullo spazio europeo dei dati sanitari | Vari |
 | **31 luglio 2027** | Misure di sicurezza di base per i soggetti inseriti nel 2026 | Soggetto obbligato |
 | **11 dicembre 2027** | Applicazione generale del regolamento sulla resilienza: requisiti essenziali, valutazione della conformità, marcatura | Fabbricante |
-| **26 marzo 2029** | Capo III del regolamento sullo spazio europeo dei dati sanitari - sistemi di cartella clinica elettronica. **`[NV]`** sulla mappatura esatta | Fabbricante del sistema |
+| **26 marzo 2029** | Capo III del regolamento sullo spazio europeo dei dati sanitari - sistemi di cartella clinica elettronica. La mappatura esatta va verificata su EUR-Lex da `COMP` alla data di applicazione. **`[NV]`** sulla mappatura | Fabbricante del sistema |
 
 **Una data manca deliberatamente da questa tabella: quella della marcatura CE. L'omissione resta,
 e la sua ragione è cambiata.**
@@ -639,7 +646,7 @@ precedente:
 2. **L'esito non dipende solo da noi.** La valutazione della documentazione tecnica e la
    certificazione del sistema di gestione della qualità hanno tempi di organismi notificati con
    code non misurate: una data sarebbe un impegno su un esito che il progetto non determina.
-3. **`V-171` non ammette eccezioni per la pianificazione interna.** Una pianificazione nostra
+3. **[`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) non ammette eccezioni per la pianificazione interna.** Una pianificazione nostra
    **non diventa una promessa perché è nostra**, e non diventa pubblicabile come data perché è
    sincera. Nessuna data, nessuna finestra, nessun «entro».
 
@@ -651,16 +658,16 @@ l'avvertenza che apre quel capitolo.
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| `Q-24` | Adozione formale come documento di decisione architetturale della tabella artefatto → regime del § 5.1. **La tabella ora esiste; l'atto che la adotta no** | → Committente, con architettura |
-| `Q-171` | Se il progetto debba produrre anche il pacchetto documentale del capo III del regolamento sullo spazio europeo dei dati sanitari | → Committente |
-| `Q-174` | Passaggio di revisione regolatoria dei testi pubblici prima della pubblicazione, con la tabella del § 11 come lista di controllo | Prodotto, guida |
-| `Q-151` | Lettura riga per riga degli allegati di dettaglio della determinazione sulla sicurezza. **Nessuna citazione puntuale prima di allora** | Conformità |
-| `[NV]` | Testi dei DPCM sugli elementi essenziali di cybersicurezza nei contratti pubblici e verifica se la fornitura ricada nelle categorie tecnologiche (§ 4.1) | Conformità, con consulente di appalti |
-| `[NV]` | Definizioni e mappatura delle date del regolamento sullo spazio europeo dei dati sanitari (§ 7) | Conformità |
-| `[NV]` | Formulazione letterale della definizione di prodotto e dei considerando pertinenti nella direttiva sulla responsabilità (§ 6) | Conformità |
-| `[NV]` | Numerazione della norma italiana che vieta la limitazione preventiva di responsabilità verso il danneggiato, dopo il recepimento (§ 6) | Conformità |
-| `[NV]` | Versione di EN 301 549 citata a supporto dell'Accessibility Act (§ 8) | Conformità |
-| `[NV]` | Qualificazione del videoconsulto come servizio di comunicazione interpersonale indipendente dal numero (§ 8) | Conformità |
-| `[NV]` | Capitolo del capitolato tecnico richiamato per rinvio dall'Allegato 4 del DM 19 novembre 2025 (§ 9) | Conformità |
-| `[NV]` | Riferimenti puntuali di articolo del d.lgs. 5 agosto 2022, n. 137, sugli adempimenti nazionali e sull'obbligo di lingua italiana | Conformità |
-| `[NV]` | Stato di armonizzazione della norma sulle attività di sicurezza nel ciclo di vita del software sanitario | Conformità |
+| [`Q-24`](../11_registri/02-questioni-aperte.md#q-24) | Adozione formale come documento di decisione architetturale della tabella artefatto → regime del § 5.1. **La tabella ora esiste; l'atto che la adotta no** | → Committente, con architettura |
+| [`Q-171`](../11_registri/02-questioni-aperte.md#q-171) | Se il progetto debba produrre anche il pacchetto documentale del capo III del regolamento sullo spazio europeo dei dati sanitari | → Committente |
+| [`Q-174`](../11_registri/02-questioni-aperte.md#q-174) | Passaggio di revisione regolatoria dei testi pubblici prima della pubblicazione, con la tabella del § 11 come lista di controllo | Prodotto, guida |
+| [`Q-151`](../11_registri/02-questioni-aperte.md#q-151) | Lettura riga per riga degli allegati di dettaglio della determinazione sulla sicurezza. **Nessuna citazione puntuale prima di allora** | Conformità |
+| `[NV]` | Testi dei DPCM sugli elementi essenziali di cybersicurezza nei contratti pubblici e verifica se la fornitura ricada nelle categorie tecnologiche (§ 4.1) | `COMP`, con consulente di appalti |
+| `[NV]` | Definizioni e mappatura delle date del regolamento sullo spazio europeo dei dati sanitari (§ 7) | `COMP` |
+| `[NV]` | Formulazione letterale della definizione di prodotto e dei considerando pertinenti nella direttiva sulla responsabilità (§ 6) | `COMP` |
+| `[NV]` | Numerazione della norma italiana che vieta la limitazione preventiva di responsabilità verso il danneggiato, dopo il recepimento (§ 6) | `COMP` |
+| `[NV]` | Versione di EN 301 549 citata a supporto dell'Accessibility Act (§ 8) | `COMP` |
+| `[NV]` | Qualificazione del videoconsulto come servizio di comunicazione interpersonale indipendente dal numero (§ 8) | `COMP` |
+| `[NV]` | Capitolo del capitolato tecnico richiamato per rinvio dall'Allegato 4 del DM 19 novembre 2025 (§ 9) | `COMP` |
+| `[NV]` | Riferimenti puntuali di articolo del d.lgs. 5 agosto 2022, n. 137, sugli adempimenti nazionali e sull'obbligo di lingua italiana | `COMP` |
+| `[NV]` | Stato di armonizzazione della norma sulle attività di sicurezza nel ciclo di vita del software sanitario | `COMP` |

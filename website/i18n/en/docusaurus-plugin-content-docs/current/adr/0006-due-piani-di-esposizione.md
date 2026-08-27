@@ -7,7 +7,7 @@ description: "Why Telemedic exposes a clinical facade in exchange format and an 
 # ADR-0006 - Two exposure planes above a single domain model
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference constraints**: V3; V-160 and V-164 of noticeboard
+**Reference constraints**: [V3](../11_registri/03-vincoli-fondanti.md#v3); [V-160](../11_registri/01-vincoli-in-vigore.md#v-160) and [V-164](../11_registri/01-vincoli-in-vigore.md#v-164) of noticeboard
 
 ## Context
 

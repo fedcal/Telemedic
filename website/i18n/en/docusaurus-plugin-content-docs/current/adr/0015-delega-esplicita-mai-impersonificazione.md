@@ -7,7 +7,7 @@ description: "Why an operation carried out by a system on behalf of a person rec
 # ADR-0015 - Explicit delegation, never impersonation
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference decisions**: D18; constraints V-165 of integration area and V-154 of security area
+**Reference decisions**: D18; constraints [V-165](../11_registri/01-vincoli-in-vigore.md#v-165) of integration area and [V-154](../11_registri/01-vincoli-in-vigore.md#v-154) of security area
 
 ## Context
 

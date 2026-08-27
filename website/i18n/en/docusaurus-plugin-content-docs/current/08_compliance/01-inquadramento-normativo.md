@@ -138,7 +138,7 @@ proceedings: the project's documentation does not endorse it.
 misleading claims about intended purpose, safety and performance - "in particular by ascribing
 functions and properties to the device which the device does not have" - does not presuppose the
 marking. Together with Article 2(12), which makes promotional material a source from which the
-intended purpose is legally derived, it produces constraint **V-171** of § 11: no public artefact of
+intended purpose is legally derived, it produces constraint **[V-171](../11_registri/01-vincoli-in-vigore.md#v-171)** of § 11: no public artefact of
 the project may contain formulations asserting or implying a compliance that does not exist.
 
 ## 3. Regulation (EU) 2016/679 - data protection
@@ -175,7 +175,7 @@ this chapter **confirms** it in § 10.
    invokes producers, but does not create a direct obligation on them. What follows for the project
    is nonetheless binding at product level, because these are settings that **no controller can
    reconstruct afterwards**: recording disabled by default, minimal retention by default, logs free
-   of clinical content by default (constraint `V-150` of `SEC`).
+   of clinical content by default (constraint [`V-150`](../11_registri/01-vincoli-in-vigore.md#v-150) of `SEC`).
 3. **The impact assessment is due** for large-scale processing of data concerning health with new
    technologies: the conditions of Article 35(3)(b) are amply met. It is the customer's. Supplying
    the structural material for it - description of the processing, flow diagrams, risk catalogue,
@@ -189,7 +189,7 @@ this chapter **confirms** it in § 10.
 **Retention periods that are not negotiable** and that are cited here because they come from a
 sectoral rather than a general source: **twenty-four months** for traceability logs and **twelve
 months** for access and authentication data, under DM 19 novembre 2025 (the Ministerial Decree of
-19 November 2025), Annex 4 (constraint `V-152` of `SEC`).
+19 November 2025), Annex 4 (constraint [`V-152`](../11_registri/01-vincoli-in-vigore.md#v-152) of `SEC`).
 
 ## 4. Directive (EU) 2022/2555 and d.lgs. 4 settembre 2024, n. 138 - network security
 
@@ -217,7 +217,7 @@ date, because the date belongs to the customer.
 **Second: data sovereignty has become a mandatory field in a filing to an authority.** Article 18
 of determination no. 127437/2026 obliges the entity to declare its "relevant suppliers" by name,
 with company name, tax code (codice fiscale), **country of the registered office**, procurement
-nomenclature codes and relevance criterion. The project's constraint `V1` - no mandatory component
+nomenclature codes and relevance criterion. The project's constraint [`V1`](../11_registri/03-vincoli-fondanti.md#v1) - no mandatory component
 of the main path established outside the Union - therefore ceases to be a positioning argument:
 **introducing a runtime dependency outside the EU is a data item that ends up in somebody else's
 official filing.**
@@ -230,7 +230,7 @@ invalidate it. It is a project deliverable, not a customer problem: the *technic
 statement* is described in [06 §08 §6](/06_security/08-quadro-normativo-e-misure.md).
 
 **A citation rule this area inherits and observes.** The detailed annexes of the determination have
-not been read line by line (question `Q-151`). **No specific requirement of the baseline measures
+not been read line by line (question [`Q-151`](../11_registri/02-questioni-aperte.md#q-151)). **No specific requirement of the baseline measures
 is quoted verbatim in any document of this area.** What is cited are the codes, the split between
 the two categories of entity and the arithmetic of the catalogue, which are verified.
 
@@ -255,12 +255,11 @@ Three elements relevant to the product:
   protection of strategic national interests: obligation to take account of the **essential
   cybersecurity elements**, identified by DPCM 30 aprile 2025 (the Prime Ministerial Decree of 30
   April 2025, Gazzetta Ufficiale of 5 May 2025) as amended by DPCM 2 ottobre 2025, with **reward
-  criteria** including geographical ones.
-  **`[NV]`** - the texts of the two DPCM have not been read against the primary source in any of
-  the project's research, and it is not verified whether a telemedicine supply falls within the
-  technological categories of the annex: the list does not name healthcare software but does
-  include **cloud services**. This is to be verified with a procurement adviser before any use in a
-  tender.
+  criteria** including geographical ones. The texts of the two DPCM must be verified on Normattiva
+  to establish the exact content, and **`[NV]`** must be asked of a procurement adviser whether a
+  telemedicine supply falls within the technological categories of the annex, given that the list
+  does not name healthcare software but does include **cloud services**: such qualification requires
+  procurement expertise, not only regulatory reading.
 
 **The operational consequence that matters more than any other, and there is only one: the
 supplier's answers will be assessed against closed requirements - yes or no, with evidence - not
@@ -293,8 +292,8 @@ satisfies four regimes; building it four times is the error that the matrix in
 
 ### 5.1 Artefact → applicable regime table
 
-**This table closes question `Q-10` on the noticeboard and is the contribution required by `D41`.**
-Its formalisation as an architecture decision record remains question `Q-24`, addressed to the
+**This table closes question [`Q-10`](../11_registri/02-questioni-aperte.md#q-10) on the noticeboard and is the contribution required by `D41`.**
+Its formalisation as an architecture decision record remains question [`Q-24`](../11_registri/02-questioni-aperte.md#q-24), addressed to the
 orchestration: **the table exists, the formal act adopting it does not.**
 
 | # | Artefact | Medical devices | Cyber resilience | Rationale |
@@ -336,8 +335,9 @@ without softening:
 
 1. **Software is a product**, irrespective of the mode of supply: standalone, embedded, in the
    cloud, as a service. The source file as such is instead considered information and not a
-   product. **`[NV]`** - the literal wording of Article 4 and of the relevant recitals has not been
-   verified against the primary source.
+   product. The literal wording of Article 4 and of the relevant recitals of Directive (EU)
+   2024/2853 are to be verified against the primary source in the Official Journal of the European
+   Union; **`[NV]`** on primary source, to be verified by `COMP`.
 2. **Defectiveness is presumed** where it is demonstrated that the product does not comply with
    **mandatory product safety requirements laid down in Union law** intended to protect against the
    risk that materialised (Article 10). These include, as the case may be, the requirements of
@@ -349,9 +349,10 @@ without softening:
    and 8 of the Apache-2.0 licence are expressly subordinate to mandatory law and remain effective
    **between the parties to the licence**, for contractual liability and pure economic loss. They
    do not protect against: claims by the injured person, regulatory liability, liability for wilful
-   misconduct or gross negligence.
-   **`[NV]`** - the numbering of the equivalent Italian provision after transposition remains to be
-   verified.
+   misconduct or gross negligence. The numbering of the equivalent Italian provision after
+   transposition of Directive (EU) 2024/2853 will be determined by the legislative decree and is to
+   be verified on Normattiva; **`[NV]`** on the equivalent Italian provision, to be verified by
+   `COMP`.
 4. **A product safe at the date of release may become defective later**, where whoever retains
    control over it does not supply the necessary security updates. For a managed service, control
    is permanent. **Failure to fix a known vulnerability is, in this regime, defectiveness**: it is
@@ -385,15 +386,16 @@ fall under Chapter III while not being a medical device.**
 | Item | Content |
 |---|---|
 | **Obliged party** | The **manufacturer of the electronic health record system**; specific obligations for importers and distributors |
-| **From when** | In force since **26 March 2025**; general application from **26 March 2027**; **Chapter III from 26 March 2029**, and from **26 March 2031** for the systems referred to in Article 26(2). **`[NV]`** - the exact mapping of the dates to each provision is to be confirmed against the final article of the regulation: the secondary sources consulted diverge |
+| **From when** | In force since **26 March 2025**; general application from **26 March 2027**; **Chapter III from 26 March 2029**, and from **26 March 2031** for the systems referred to in Article 26(2). The exact mapping of the dates to each provision is to be confirmed against the final article of Regulation (EU) 2025/327 on EUR-Lex, verifying the texts in both languages, as the secondary sources consulted diverge. **`[NV]`** to be verified by `Compliance` |
 | **Attribution** | **D**. With the warning that the 2029–2031 horizon **does not authorise postponing the design**, because what Chapter III requires is structural |
 
 **Why the project's assessment is that Chapter III concerns it with high probability.** The system
 stores content attributable to the priority categories - reports, results, summary documents -,
 exports and imports it to and from the integrator's system, and converts it into an exchange
-format. These are exactly the functions Chapter III sets out to regulate. **`[NV]`** - the
-conclusion is drawn from the definition as reported in a secondary source and is to be confirmed by
-direct reading of the definitions in Article 2 and in Chapter III.
+format. These are exactly the functions Chapter III sets out to regulate. The conclusion is drawn
+from the definition as reported in a secondary source and is to be confirmed by direct reading of
+the definitions in Article 2 and Chapter III against the text of Regulation (EU) 2025/327 in the
+Official Journal; **`[NV]`** on primary source, to be verified by `COMP`.
 
 **The connection with the device regime is already written by the guidance.** MDCG 2019-11 Rev.1,
 Annex I, point c.1), reproduces recital 42 of the regulation: where medical device software
@@ -406,14 +408,14 @@ Two programme consequences, both current:
 
 1. **The data architecture must be designed today** for the priority categories and for the
    European exchange formats, which is precisely what the canonical dataset model with replaceable
-   serialisations (`V-07`) makes possible without rewrites.
+   serialisations ([`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07)) makes possible without rewrites.
 2. **The product's position with respect to this regulation must be declared**, as section 7 of the
    guidance itself requires: it is necessary to communicate exactly which modules make up the
    product and whether the product or any of its modules is subject to the device rules or **to
    other applicable legislation**. Not declaring it is in itself a documentary non-compliance.
 
 One scope question remains open that is not this area's: **whether the project should also produce
-the Chapter III documentation package**, partly doubling the effort. It is question `Q-171`,
+the Chapter III documentation package**, partly doubling the effort. It is question [`Q-171`](../11_registri/02-questioni-aperte.md#q-171),
 addressed to the orchestration.
 
 ## 8. Accessibility
@@ -433,11 +435,11 @@ is a control that for that user **does not exist**.
 telemedicine is not named** among the categories of products and services covered by the
 Accessibility Act. The product would fall under it indirectly, if sold through a consumer-facing
 electronic commerce channel, or possibly as a component of an electronic communications service.
-**`[NV]`** - the qualification of a video consultation service as a "number-independent
-interpersonal communications service" is contested and has not been ascertained; it deserves
-specific analysis before being asserted or denied in a contractual document. The **direct and safe**
-route is the third row: where the customer is public, the obligation exists without any need to go
-through the first.
+The qualification of a video consultation service as a "number-independent interpersonal
+communications service" is contested and has not been ascertained; **`[NV]`** it deserves specific
+analysis with liaison with the competent authorities before being asserted or denied in a
+contractual document, to be conducted by `COMP`. The **direct and safe** route is the third row:
+where the customer is public, the obligation exists without any need to go through the first.
 
 **Why the project's requirement goes beyond WCAG, and it is the point a WCAG analysis does not
 catch.** EN 301 549 contains requirements that do not derive from WCAG and that concern precisely a
@@ -446,10 +448,11 @@ video communication platform: **clause 6** (two-way voice communication) mandate
 communication - **resolution, frame rate and lip synchronisation sufficient for sign language**.
 For a healthcare service intended also for deaf people these are not details.
 
-**`[NV]`** - the version of EN 301 549 cited in the *Official Journal of the European Union* in
-support of the Accessibility Act is not verified. Until then the legally effective reference
-remains the version actually cited, and the project's accessibility statement must indicate the
-version against which the verification was carried out, not "EN 301 549" in the abstract.
+The version of EN 301 549 cited in the *Official Journal of the European Union* in support of the
+Accessibility Act is to be verified against that primary source; **`[NV]`** to be verified in the
+Official Journal, to be done by `COMP`. Until then the legally effective reference remains the
+version actually cited, and the project's accessibility statement must indicate the version against
+which the verification was carried out, not "EN 301 549" in the abstract.
 
 The project declares one single non-conformity, on the criterion concerning real-time captions,
 with the interpreter as an alternative measure (`D24`). **Declaring a non-conformity is legitimate;
@@ -473,10 +476,10 @@ here, with their force and their attribution.**
 | **Accordo Stato-Regioni 17 dicembre 2020, rep. atti n. 215/CSR** (the State-Regions Agreement of 17 December 2020, act no. 215/CSR), Annex A | Canonical definitions of the services; mandatory conditions for delivering a remote consultation (televisita); **obligation to produce a clinical report** stating the participating collaborators and the **quality of the connection with confirmation of its adequacy**; **encryption of all transfers** of voice, video, images and files; the patient's prior enrolment; obligation to complete in the traditional manner where the tool does not allow the content of the service to be kept unaltered; certification of the hardware and/or software as a medical device "appropriate to the type of service" | **D** for delivery; **P** for the capabilities: the connection-quality field, the encryption, the declared fallback |
 | **DM 23 maggio 2022, n. 77** (Ministerial Decree no. 77 of 23 May 2022) | Places telemedicine inside the territorial organisational model. It lays down no software requirements: **it determines the context** in which the service is appropriate (planned care pathways) | **D** |
 | **DM 21 settembre 2022** (Ministerial Decree of 21 September 2022, Gazzetta Ufficiale no. 256 of 2 November 2022, act 22A06184), Annex A | The **technically most prescriptive** act: four minimum services; microservice architecture; event-driven architecture; interoperability on the FHIR model; containers; distribution models **on national territory**; **mobile first paradigm**; multilingual support; conformity with the design guidelines for public digital services and with those on accessibility; mandatory organisational presence of a technical **Centro servizi** (service centre) and a clinical **Centro erogatore** (delivering centre); corrective maintenance service levels binding on suppliers; **obligation of certification as a medical device** for remote monitoring and for *viewers* and reporting in histopathology and radiology specialist-to-specialist consultations (teleconsulti) | **P+D**: the technical requirements are product requirements, the presence of the two centres and the service levels are organisational |
-| **DM 30 settembre 2022** (Ministerial Decree of 30 September 2022, Gazzetta Ufficiale no. 298 of 22 December 2022, act 22A07125) | Governs the selection of solutions: regional operational plans, technical commission, **purchase exclusively through the tenders of the lead regions** within the perimeter of the national plan. Annex B: a remote consultation (televisita) delivered by a primary care physician or paediatrician **requires no prescription** and produces a **digital note in place of the clinical report** (constraint `V-145` of `DOM`) | **D**, with a determining effect on the route of access to the public market |
-| **DM 7 settembre 2023** (Ministerial Decree of 7 September 2023, Gazzetta Ufficiale no. 249 of 24 October 2023) | Framework of the electronic health record (Fascicolo Sanitario Elettronico): contents, parties, consents, feeding, consultation. **Article 15(4): permanent exclusion of insurance companies, loss adjusters and employers from access** (`D48`, `V-08`) | **D** |
+| **DM 30 settembre 2022** (Ministerial Decree of 30 September 2022, Gazzetta Ufficiale no. 298 of 22 December 2022, act 22A07125) | Governs the selection of solutions: regional operational plans, technical commission, **purchase exclusively through the tenders of the lead regions** within the perimeter of the national plan. Annex B: a remote consultation (televisita) delivered by a primary care physician or paediatrician **requires no prescription** and produces a **digital note in place of the clinical report** (constraint [`V-145`](../11_registri/01-vincoli-in-vigore.md#v-145) of `DOM`) | **D**, with a determining effect on the route of access to the public market |
+| **DM 7 settembre 2023** (Ministerial Decree of 7 September 2023, Gazzetta Ufficiale no. 249 of 24 October 2023) | Framework of the electronic health record (Fascicolo Sanitario Elettronico): contents, parties, consents, feeding, consultation. **Article 15(4): permanent exclusion of insurance companies, loss adjusters and employers from access** (`D48`, [`V-08`](../11_registri/01-vincoli-in-vigore.md#v-08)) | **D** |
 | **DM 31 dicembre 2024** (Ministerial Decree of 31 December 2024, Gazzetta Ufficiale no. 53 of 5 March 2025) | Establishment of the health data ecosystem | **D** |
-| **DM 19 novembre 2025** (Gazzetta Ufficiale no. 301 of 30 December 2025, act 25A06938) | Rules on the processing of data in the national telemedicine platform. **Article 7: ten new health record document types** dedicated to telemedicine, with the information set published in the Gazzetta Ufficiale (`D30`, `V-143`); **Article 12: regional infrastructures do not retain** the data and documents generated; **Articles 14–15**: logging of operations and security measures; **Annex 4**: retention periods (24 and 12 months), authentication through the three national channels and a second factor, **obligation to inventory the software components including third-party and open source libraries** | **P+D**. The inventory obligation is the point at which a **bill of materials becomes Italian regulatory compliance**, not good practice |
+| **DM 19 novembre 2025** (Gazzetta Ufficiale no. 301 of 30 December 2025, act 25A06938) | Rules on the processing of data in the national telemedicine platform. **Article 7: ten new health record document types** dedicated to telemedicine, with the information set published in the Gazzetta Ufficiale (`D30`, [`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)); **Article 12: regional infrastructures do not retain** the data and documents generated; **Articles 14–15**: logging of operations and security measures; **Annex 4**: retention periods (24 and 12 months), authentication through the three national channels and a second factor, **obligation to inventory the software components including third-party and open source libraries** | **P+D**. The inventory obligation is the point at which a **bill of materials becomes Italian regulatory compliance**, not good practice |
 
 **Three methodological warnings about this block, which count for more than the individual rows.**
 
@@ -484,8 +487,8 @@ here, with their force and their attribution.**
 2025 incorporates by reference the chapter of a **technical tender specification of a regional
 procurement**, and extends the measures set out there to all regional infrastructures, including
 those that did not take part in the procedure. A binding source referring to a tender document is
-not consultable by ordinary means. **`[NV]`** - the chapter referred to has not been obtained: it
-must be requested from the central purchasing body or retrieved from the records of the procedure.
+not consultable by ordinary means. The chapter referred to has not been obtained and must be requested from
+the central purchasing body **`[NV]`** or retrieved from the records of the procedure.
 Until it is read, **no assertion of compliance with those measures is tenable**.
 
 **Second - data residency has two levels and they must not be flattened.** DM 21 settembre 2022
@@ -502,7 +505,7 @@ from the European qualification tree.
 
 ## 10. Check on the allocation of roles
 
-**This section answers question `Q-162` of `INTEG`**, which asked this area for a compliance review
+**This section answers question [`Q-162`](../11_registri/02-questioni-aperte.md#q-162) of `INTEG`**, which asked this area for a compliance review
 of the allocation table between data controller and data processor, manufacturer, identity service
 provider and party obliged under the network security regime, before the publication of
 [07 §09](/07_integration/09-obblighi-di-chi-integra.md).
@@ -517,7 +520,7 @@ contradict it and complete it.
 | 2 | **The manufacturer role under the resilience regulation is distinct from the one under the device rules**, and may fall on someone who is not a device manufacturer: the artefact → regime table of § 5.1 is to be annexed to row 4.4 of that chapter | row 21 |
 | 3 | **The manufacturer role under the health data space regulation is a possible sixth role**, with a 2029–2031 horizon, and **is covered by no existing row**. It is to be added as an item to be watched, not as a current obligation | new row |
 | 4 | The row on **joint controllership** is to be strengthened: joint controllership **is not a convenient choice** between the two preceding options. It arises where two parties determine purposes and means *jointly*, and it entails the Article 26 arrangement with the designation of a point of contact and the essence made available to the data subject | row 8 |
-| 5 | The row on the **authentication level of assurance** is to be read together with constraint `V-165` of `INTEG` and `V-154` of `SEC`: **a level reported by an integrator does not satisfy a strong authentication obligation**. It is a compliance clarification, not an architectural one, and it belongs in this table because it is the point at which an error produces a breach of the law and not a defect | row 26 |
+| 5 | The row on the **authentication level of assurance** is to be read together with constraint [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165) of `INTEG` and [`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154) of `SEC`: **a level reported by an integrator does not satisfy a strong authentication obligation**. It is a compliance clarification, not an architectural one, and it belongs in this table because it is the point at which an error produces a breach of the law and not a defect | row 26 |
 
 **No row is removed and no attribution is reversed.** In particular, this area **confirms** the
 attribution of shared rows 7, 16, 19, 20, 23, 29, 32 and 37 and strengthens its warning: a shared
@@ -526,7 +529,7 @@ in the contract, not in the documentation.
 
 ## 11. The formulations no artefact of the project may use
 
-**This section establishes constraint `V-171`.** It has the same basis as constraint `V-133` of
+**This section establishes constraint [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171).** It has the same basis as constraint [`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133) of
 `PROTO` - which prohibits unfounded conformity claims about protocols - and extends its logic to
 the regulatory plane. The basis is Article 7 and Article 2(12) of Regulation (EU) 2017/745:
 promotional material **is** regulatory material, and a misleading statement about intended purpose,
@@ -540,8 +543,8 @@ safety or performance is prohibited **even where no marking exists**.
 | "class IIa" used as an attribute of the product | The class is the outcome of a formal determination referring to an intended purpose and to an exact revision. Outside that context it is a statement without an object | "the project's classification determination, referring to the intended purpose in revision *n*, concludes for class IIa" |
 | "GDPR compliant", "NIS2 compliant" | Compliance belongs to a controller or to an obliged party, not to software. A product **enables**, it is not compliant | "supplies the technical capabilities and the documentary evidence required by…" |
 | "clinical quality", "adequate for diagnosis" referring to the channel | It is a claim of clinical performance, and as such it must be demonstrated in the clinical evaluation | verifiable technical statements about resolution, frame rate and continuity, **without claiming diagnostic adequacy** (`D29`) |
-| "accredited" referring to the national identity channels | The service provider is whoever delivers the online service, that is, the deployer (`V-05`) | "conformant and verifiable in continuous integration, **not accredited**" |
-| "real-time monitoring", "continuous surveillance" | It shifts the classification and contradicts `V-144` | "**deferred** collection of parameters for **periodic review** by the professional" |
+| "accredited" referring to the national identity channels | The service provider is whoever delivers the online service, that is, the deployer ([`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05)) | "conformant and verifiable in continuous integration, **not accredited**" |
+| "real-time monitoring", "continuous surveillance" | It shifts the classification and contradicts [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144) | "**deferred** collection of parameters for **periodic review** by the professional" |
 
 **The register with which the intention is named, and why it is as binding as the table.** Since
 `D58` the project intends to assume the manufacturer role, and naming that intention is the
@@ -565,7 +568,7 @@ obligations.
 
 **The verification of this constraint is not documentary but procedural.** Every public text - page,
 `README`, section heading, interface description, error message, announcement - is material from
-which the intended purpose is derived. From this follows question `Q-174`, addressed to the product
+which the intended purpose is derived. From this follows question [`Q-174`](../11_registri/02-questioni-aperte.md#q-174), addressed to the product
 and guide areas: **a regulatory review step is needed before the publication of any outward-facing
 text**, with this table as the checklist.
 
@@ -576,9 +579,9 @@ position must be accompanied by the conditions of its revocation. They are in or
 
 | # | Threshold | What changes | Who decides |
 |---|---|---|---|
-| 1 | **Monetisation**: paid support, managed service, integration consultancy, recurring sponsorship | The condition "outside a commercial activity" falls away. From this follow: possible status as manufacturer under the resilience regulation; loss of the free and open-source software exemption in the product liability regime; approach to the notion of making available on the market | **Project owner** - question `Q-155` |
-| 2 | **Constitution of a legal person** providing systematic and sustained support to development | The position of **open-source software steward** opens up (Article 3(14) and Article 24 of the resilience regulation), with lightened obligations and no administrative fines. In terms of certainty it is a **better** position than the current one, not a worse one | **Project owner** - question `Q-155` |
-| 3 | **Distribution of a ready-to-use artefact** that a healthcare organisation could put into production without further work | It approaches the notion of **putting into service** (Article 2(29) of the MDR), which is the decisive threshold. There is a substantive difference between publishing sources requiring compilation, configuration and integration and publishing an immediately operational package. **`[NV]`** - no guidance dedicated to the open source distribution of healthcare software has been found: it is a real gap in the European framework | **Project owner**, with immediate effect on the distribution policy |
+| 1 | **Monetisation**: paid support, managed service, integration consultancy, recurring sponsorship | The condition "outside a commercial activity" falls away. From this follow: possible status as manufacturer under the resilience regulation; loss of the free and open-source software exemption in the product liability regime; approach to the notion of making available on the market | **Project owner** - question [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) |
+| 2 | **Constitution of a legal person** providing systematic and sustained support to development | The position of **open-source software steward** opens up (Article 3(14) and Article 24 of the resilience regulation), with lightened obligations and no administrative fines. In terms of certainty it is a **better** position than the current one, not a worse one | **Project owner** - question [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) |
+| 3 | **Distribution of a ready-to-use artefact** that a healthcare organisation could put into production without further work | It approaches the notion of **putting into service** (Article 2(29) of the MDR), which is the decisive threshold. There is a substantive difference between publishing sources requiring compilation, configuration and integration and publishing an immediately operational package. No guidance dedicated to the open source distribution of healthcare software has been found `[NV]` - to be requested from the Project owner, indicating a real gap in the European framework. | **Project owner**, with immediate effect on the distribution policy |
 
 **Threshold 3 is the one that gets crossed through inattention.** The other two are decisions; this
 one is the consequence of a choice of operational convenience - a pre-configured image, a "ready"
@@ -604,7 +607,7 @@ the evidence for it.
 | **26 March 2027** | General application of the European health data space regulation | Various |
 | **31 July 2027** | Baseline security measures for entities included in 2026 | Obliged party |
 | **11 December 2027** | General application of the resilience regulation: essential requirements, conformity assessment, marking | Manufacturer |
-| **26 March 2029** | Chapter III of the European health data space regulation - electronic health record systems. **`[NV]`** on the exact mapping | Manufacturer of the system |
+| **26 March 2029** | Chapter III of the European health data space regulation - electronic health record systems. The exact mapping is to be verified on EUR-Lex by `Compliance` at the date of application. **`[NV]`** on the mapping | Manufacturer of the system |
 
 **One date is deliberately missing from this table: that of the CE marking. The omission stands,
 and its reason has changed.**
@@ -625,7 +628,7 @@ than the previous one:
    the certification of the quality management system depend on the timescales of notified bodies
    with unmeasured queues: a date would be a commitment on an outcome the project does not
    determine.
-3. **`V-171` admits no exception for internal planning.** Planning of ours **does not become a
+3. **[`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) admits no exception for internal planning.** Planning of ours **does not become a
    promise because it is ours**, and it does not become publishable as a date because it is
    sincere. No date, no window, no "by".
 
@@ -637,16 +640,16 @@ the warning that opens that chapter.
 
 | Reference | Question | To whom |
 |---|---|---|
-| `Q-24` | Formal adoption as an architecture decision record of the artefact → regime table of § 5.1. **The table now exists; the act adopting it does not** | → Project owner, with architecture |
-| `Q-171` | Whether the project should also produce the Chapter III documentation package of the European health data space regulation | → Project owner |
-| `Q-174` | Regulatory review step for public texts before publication, with the table of § 11 as the checklist | Product, guide |
-| `Q-151` | Line-by-line reading of the detailed annexes of the security determination. **No specific citation before then** | Compliance |
-| `[NV]` | Texts of the DPCM on essential cybersecurity elements in public contracts and verification of whether the supply falls within the technological categories (§ 4.1) | Compliance, with a procurement adviser |
-| `[NV]` | Definitions and date mapping of the European health data space regulation (§ 7) | Compliance |
-| `[NV]` | Literal wording of the definition of product and of the relevant recitals in the liability directive (§ 6) | Compliance |
-| `[NV]` | Numbering of the Italian provision prohibiting the prior limitation of liability towards the injured person, after transposition (§ 6) | Compliance |
-| `[NV]` | Version of EN 301 549 cited in support of the Accessibility Act (§ 8) | Compliance |
-| `[NV]` | Qualification of video consultation as a number-independent interpersonal communications service (§ 8) | Compliance |
-| `[NV]` | Chapter of the technical tender specification incorporated by reference in Annex 4 of DM 19 novembre 2025 (§ 9) | Compliance |
-| `[NV]` | Precise article references of d.lgs. 5 agosto 2022, n. 137 (Legislative Decree no. 137 of 5 August 2022), on national obligations and on the Italian language requirement | Compliance |
-| `[NV]` | Harmonisation status of the standard on security activities in the healthcare software lifecycle | Compliance |
+| [`Q-24`](../11_registri/02-questioni-aperte.md#q-24) | Formal adoption as an architecture decision record of the artefact → regime table of § 5.1. **The table now exists; the act adopting it does not** | → Project owner, with architecture |
+| [`Q-171`](../11_registri/02-questioni-aperte.md#q-171) | Whether the project should also produce the Chapter III documentation package of the European health data space regulation | → Project owner |
+| [`Q-174`](../11_registri/02-questioni-aperte.md#q-174) | Regulatory review step for public texts before publication, with the table of § 11 as the checklist | Product, guide |
+| [`Q-151`](../11_registri/02-questioni-aperte.md#q-151) | Line-by-line reading of the detailed annexes of the security determination. **No specific citation before then** | Compliance |
+| `[NV]` | Texts of the DPCM on essential cybersecurity elements in public contracts and verification of whether the supply falls within the technological categories (§ 4.1) | `COMP`, with a procurement adviser |
+| `[NV]` | Definitions and date mapping of the European health data space regulation (§ 7) | `COMP` |
+| `[NV]` | Literal wording of the definition of product and of the relevant recitals in the liability directive (§ 6) | `COMP` |
+| `[NV]` | Numbering of the Italian provision prohibiting the prior limitation of liability towards the injured person, after transposition (§ 6) | `COMP` |
+| `[NV]` | Version of EN 301 549 cited in support of the Accessibility Act (§ 8) | `COMP` |
+| `[NV]` | Qualification of video consultation as a number-independent interpersonal communications service (§ 8) | `COMP` |
+| `[NV]` | Chapter of the technical tender specification incorporated by reference in Annex 4 of DM 19 novembre 2025 (§ 9) | `COMP` |
+| `[NV]` | Precise article references of d.lgs. 5 agosto 2022, n. 137 (Legislative Decree no. 137 of 5 August 2022), on national obligations and on the Italian language requirement | `COMP` |
+| `[NV]` | Harmonisation status of the standard on security activities in the healthcare software lifecycle | `COMP` |

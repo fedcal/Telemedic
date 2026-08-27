@@ -430,9 +430,9 @@ sistema ricevente**: idempotenza su un criterio di identità dichiarato (`RF-260
 obbligatoria dei due istanti (`RF-254`), verifica dell'unità di misura al confine (`RF-256`) e
 rilevazione dell'assenza indipendente dalla dichiarazione del gateway (`RF-293`). Il segnale di
 presenza periodico e la telemetria di stato del dispositivo sono richiesti al gateway, ma la loro
-assenza non può disattivare la sorveglianza: `[NV]` sulla capacità effettiva dei gateway di
-mercato di esporre un segnale di presenza indipendente dalla misura - questione aperta verso
-l'area integrazione.
+assenza non può disattivare la sorveglianza: sulla capacità effettiva dei gateway di
+mercato di esporre un segnale di presenza indipendente dalla misura pesa un'incertezza `[NV]` che
+`INTEG` deve risolvere nel dialogo con i fornitori e includere come requisito di contratto.
 
 ### ATT-19 - Sistema esterno di monitoraggio
 

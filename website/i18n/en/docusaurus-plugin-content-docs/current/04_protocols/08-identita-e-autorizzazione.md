@@ -26,7 +26,7 @@ statements follow that govern the whole chapter:
 2. **Delegation is used, never impersonation.** The audit trail must be able to answer the question
    «which system acted on behalf of which person». With impersonation that question has no answer.
 3. **The project is compliant and verifiable, not accredited.** On the national identity channels the
-   service provider is **the deployer**, never the project. This is constraint V-05, and it changes
+   service provider is **the deployer**, never the project. This is constraint [V-05](../11_registri/01-vincoli-in-vigore.md#v-05), and it changes
    what the documentation may assert.
 
 ## 2. The baseline posture
@@ -221,7 +221,7 @@ header **must never be followed blindly**, it must be compared with the one regi
 client, and if it does not match the request is refused. The key set cache has a lifetime, forced
 retrieval happens only on an unknown key identifier, and it is rate-limited so that a random
 identifier does not become a traffic amplifier towards third parties. It is the same single registry
-of question **Q-161**.
+of question **[Q-161](../11_registri/02-questioni-aperte.md#q-161)**.
 
 ### 5.4 Two mechanisms, and a release gate
 
@@ -245,7 +245,7 @@ external to an internal issuer **depends on the version of the federation produc
 > is written into the public documentation.
 >
 > **To be asked of**: the architecture area and the technical area, with empirical verification
-> against the version actually adopted. It is connected to question **Q-160** on the noticeboard,
+> against the version actually adopted. It is connected to question **[Q-160](../11_registri/02-questioni-aperte.md#q-160)** on the noticeboard,
 > which concerns another unverified behaviour of the same federation product.
 
 ### 5.5 When delegation is not used
@@ -325,7 +325,7 @@ Whoever reads the level from the response reads a constant value.
 > verified whether the federation product, acting as a client towards an external provider, forwards
 > the requested level parameter through the realm that acts as intermediary. If it does not forward
 > it, per-operation level step-up is not obtainable by configuration alone. This is question
-> **Q-160** on the noticeboard, and the empirical verification must be put on the critical path
+> **[Q-160](../11_registri/02-questioni-aperte.md#q-160)** on the noticeboard, and the empirical verification must be put on the critical path
 > **before** declaring in public documentation how the level propagates.
 > **To be asked of**: the architecture area and the technical area.
 
@@ -443,7 +443,7 @@ and versioned, for everyone else.
 **Project choice: opaque tokens towards the outside, translated into self-contained tokens by the
 gateway.** Advantages: effective revocation, no claims exposed, contained header size. Cost: the
 gateway becomes a critical component and must be made redundant. The decision has an impact on
-latency and topology and it is question **Q-135** opened towards the architecture area, which this
+latency and topology and it is question **[Q-135](../11_registri/02-questioni-aperte.md#q-135)** opened towards the architecture area, which this
 area does not decide.
 
 ### 8.2 Lifetime

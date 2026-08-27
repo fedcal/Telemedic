@@ -24,10 +24,9 @@ descrive il contenuto come processo iterativo per l'intero ciclo di vita del dis
 regolamento.
 
 `[NV]` - **Se il riferimento pubblicato sia `EN ISO 14971:2019` o `EN ISO 14971:2019+A11:2021`
-va verificato sull'elenco consolidato della Commissione**, e la differenza non è nominalistica:
-è l'emendamento A11 a contenere gli allegati che dichiarano le deviazioni fra la norma e il
-regolamento (§ 3.4). La verifica è a carico di chi compila la matrice dei requisiti generali di
-sicurezza e prestazione.
+va verificato sull'elenco consolidato della Commissione** da `COMP`, e la differenza non è
+nominalistica: è l'emendamento A11 a contenere gli allegati che dichiarano le deviazioni fra la
+norma e il regolamento (§ 3.4).
 
 **La ripartizione, che vale per tutto il capitolo.** Da `D58` il progetto intende
 assumere il ruolo di fabbricante, e con `D63` quell'assunzione è un **requisito di prodotto**; il
@@ -149,8 +148,8 @@ Il metodo adottato dal progetto, da recepire nel piano:
 `[NV]` - L'approccio è coerente con l'impianto di IEC 62304, che determina la classe di sicurezza
 sul **danno possibile** e non sulla probabilità del difetto, ed è indicato come praticabile dal
 rapporto tecnico che accompagna ISO 14971. **Il riferimento puntuale alla sezione di quel
-rapporto va verificato sul testo**, che è a pagamento e non è stato letto: fino ad allora la
-motivazione del piano poggia sull'argomento tecnico, non su una citazione.
+rapporto va verificato sul testo** da `COMP`, che è a pagamento e non è stato letto: fino ad
+allora la motivazione del piano poggia sull'argomento tecnico, non su una citazione.
 
 ### 3.4 «Per quanto possibile», non «fino alla cella verde»
 
@@ -162,7 +161,7 @@ dato. È il punto su cui gli allegati di raccordo dell'emendamento A11 alla norm
 il regolamento no.
 
 `[NV]` - **La formulazione letterale e la numerazione della sezione dell'Allegato I vanno
-verificate sul testo consolidato.** La sostanza - riduzione «per quanto possibile» senza
+verificate sul testo consolidato** da `COMP`. La sostanza - riduzione «per quanto possibile» senza
 considerazioni economiche, e non «fino a un livello ragionevolmente praticabile» - è pacifica e
 va recepita.
 
@@ -545,7 +544,7 @@ dichiarata. La sezione 1 dell'Allegato I impone che i rischi siano accettabili *
 benefici per il paziente**.
 
 `[NV]` - la numerazione puntuale del punto dell'art. 2 e delle sezioni dell'Allegato I va
-verificata sul testo consolidato.
+verificata sul testo consolidato da `COMP`.
 
 **Il punto che ha conseguenze organizzative.** Il beneficio è un fatto **clinico**. Il numeratore
 non è «il sistema funziona bene»: è «una persona ottiene un vantaggio sanitario misurabile». Ne
@@ -714,7 +713,7 @@ a mano è, a distanza di sei mesi, un documento falso.
 
 Da usare prima di considerare chiuso il file. `[NV]` - l'elenco deriva dalla letteratura di
 settore sui rilievi ricorrenti, non da un documento istituzionale, ed è ordinato per frequenza
-attesa.
+attesa, da verificare da `COMP` contro le linee guida pubblicate da organismi di notificazione.
 
 | # | Rilievo | Dove è trattato |
 |---|---|---|

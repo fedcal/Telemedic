@@ -40,15 +40,16 @@ documentale.
 
 ## 2. Avvertenza sulla forma di questa tabella
 
-**Questione Q-151.** Gli allegati di dettaglio della determinazione dell'autorità nazionale non
+**Questione [Q-151](../11_registri/02-questioni-aperte.md#q-151).** Gli allegati di dettaglio della determinazione dell'autorità nazionale non
 sono stati letti riga per riga. Ne discende che questa tabella:
 
 - riporta i **codici** delle 43 misure, che sono verificati, e la loro ripartizione fra soggetti
   importanti ed essenziali, che è verificata;
 - riporta una **descrizione tematica** di ciascuna misura, che segue la categoria del quadro
   nazionale di riferimento da cui i codici derivano;
-- **non riporta il testo dei singoli requisiti**: `[NV]`. La colonna «contributo del progetto»
-  descrive che cosa il prodotto fornisce, non che cosa il requisito prescrive.
+- **non riporta il testo dei singoli requisiti** - il testo completo è una lacuna `[NV]` che `COMP`
+  deve colmare leggendo gli allegati tecnici della determinazione nazionale. La colonna «contributo
+  del progetto» descrive che cosa il prodotto fornisce, non che cosa il requisito prescrive.
 
 Prima della pubblicazione della matrice di conformità definitiva, la tabella va completata con
 il testo dei 116 requisiti. Fino ad allora è **una ripartizione tematica affidabile e una
@@ -168,7 +169,7 @@ invisibili.
 | **Valutazione d'impatto sulla protezione dei dati** | Prima del trattamento | **Chi installa**, come titolare. Il progetto fornisce il materiale strutturale ([03](./03-protezione-dei-dati.md)) |
 | **Determinazione dei termini di conservazione** della documentazione sanitaria | Vigente | **Chi installa**; il prodotto li rende configurabili, non li decide |
 | **Definizione dei livelli di servizio attesi** ai fini della rilevazione | Entro il termine per le misure | **Chi installa**; il prodotto li misura ([10 §5](./10-risposta-agli-incidenti.md)) |
-| **Scelta del livello di garanzia** per i propri servizi e sua motivazione in sede di convenzione | All'adesione | **Chi installa**, che è il fornitore di servizi (V-05) |
+| **Scelta del livello di garanzia** per i propri servizi e sua motivazione in sede di convenzione | All'adesione | **Chi installa**, che è il fornitore di servizi ([V-05](../11_registri/01-vincoli-in-vigore.md#v-05)) |
 | Applicazione degli aggiornamenti rilasciati | Secondo la propria politica | **Chi installa** |
 | Esecuzione delle copie di sicurezza e **prova periodica di ripristino** | Programmata | **Chi installa** |
 | **Regole di rete** che negano l'uscita ai componenti applicativi e isolano il relay | All'installazione | **Chi installa**; il prodotto le documenta e le verifica all'avvio, **rifiutando l'avvio** se un componente applicativo scopre di avere rotta verso l'esterno; dove la verifica non è tecnicamente possibile, l'omissione si dichiara e non vale come verifica superata ([06 §8.5](./06-sicurezza-applicativa.md)) |
@@ -181,7 +182,7 @@ sono la traduzione operativa delle colonne «contributo del progetto»:
 1. **Fascicolo di conformità** per rilascio: distinta dei materiali firmata, dichiarazione di
    esposizione, elenco dei flussi di rete verso l'esterno con i cinque attributi, elenco dei
    sistemi accessibili da remoto, configurazioni di riferimento.
-2. **Questa tabella**, completata con il testo dei requisiti dopo la chiusura di Q-151.
+2. **Questa tabella**, completata con il testo dei requisiti dopo la chiusura di [Q-151](../11_registri/02-questioni-aperte.md#q-151).
 3. **Dichiarazione tecnica di deroga** sulla protezione degli endpoint, con le misure
    compensative native e la configurazione supportata.
 4. **Modello di accordo sul trattamento negoziabile**, con allegato tecnico delle misure.
@@ -194,7 +195,7 @@ sono la traduzione operativa delle colonne «contributo del progetto»:
 9. **Modello di rapporto di incidente** conforme al requisito sulla sequenza temporale degli
    eventi, e canale di notifica concordato.
 10. **Registro delle manutenzioni, dei collaudi e dei controlli** effettuati, esportabile.
-11. **Tabella artefatto → regime applicabile**, quando Q-10 sarà chiusa.
+11. **Tabella artefatto → regime applicabile**, quando [Q-10](../11_registri/02-questioni-aperte.md#q-10) sarà chiusa.
 12. **Documentazione di sviluppo sicuro**: ciclo di vita, modello delle minacce, esiti delle
     verifiche automatiche, esito dell'audit di terza parte.
 
@@ -202,6 +203,6 @@ sono la traduzione operativa delle colonne «contributo del progetto»:
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| Q-151 | Completamento della tabella con il testo dei 116 requisiti, dopo la lettura degli allegati di dettaglio (§2) | Conformità |
-| Q-20 | Revisione della ripartizione dei ruoli fra titolare, responsabile, fabbricante, fornitore di servizi di identità e soggetto obbligato, prima della pubblicazione | Conformità |
-| Q-154 | Se l'operatore del servizio gestito diventa soggetto obbligato in proprio, **le righe marcate D della tabella diventano sue**. È il cambiamento di perimetro più significativo che il progetto possa subire | → Committente |
+| [Q-151](../11_registri/02-questioni-aperte.md#q-151) | Completamento della tabella con il testo dei 116 requisiti, dopo la lettura degli allegati di dettaglio (§2) | Conformità |
+| [`Q-159`](../11_registri/02-questioni-aperte.md#q-159) | Revisione della ripartizione dei ruoli fra titolare, responsabile, fabbricante, fornitore di servizi di identità e soggetto obbligato, prima della pubblicazione | Conformità |
+| [Q-154](../11_registri/02-questioni-aperte.md#q-154) | Se l'operatore del servizio gestito diventa soggetto obbligato in proprio, **le righe marcate D della tabella diventano sue**. È il cambiamento di perimetro più significativo che il progetto possa subire | → Committente |

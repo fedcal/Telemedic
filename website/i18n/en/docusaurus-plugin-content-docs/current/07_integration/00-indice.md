@@ -18,7 +18,7 @@ not a portal to which you send users, not the electronic medical record, not the
 not the schedule.
 
 Three statements follow directly from the integrator profile on which the project is built
-(`00_PROJECT_BRIEF.md` §6.2) and must be read before everything else, because they determine the
+([`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) §6.2) and must be read before everything else, because they determine the
 form of every interface described in this area:
 
 1. **It does not impose its own interface.** Whoever integrates already has their own, and their
@@ -198,7 +198,7 @@ explains what that means for you in concrete terms.
 ### 6.2 The project is not accredited with the identity federation
 
 The project is **conformant and verifiable** on national digital identity, **not accredited**
-(constraint V-05, decision D36). The service provider towards the federation is **whoever
+(constraint [V-05](../11_registri/01-vincoli-in-vigore.md#v-05), decision D36). The service provider towards the federation is **whoever
 installs**, not the project: the agreement, the list of active services, the security levels
 declared and recurring obligations rest on you. Chapter [06 §6](06-identita-e-delega.md) lists
 what you need to do and which times are **not** declared by any source.

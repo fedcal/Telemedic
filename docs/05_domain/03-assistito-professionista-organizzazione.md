@@ -33,7 +33,7 @@ osservabili:
 
 | Difetto | Come si manifesta |
 |---|---|
-| **Impossibilità del contesto multiplo** | Il professionista vede in un'unica lista pazienti di organizzazioni diverse, che sono titolari del trattamento autonomi (`V-04`) |
+| **Impossibilità del contesto multiplo** | Il professionista vede in un'unica lista pazienti di organizzazioni diverse, che sono titolari del trattamento autonomi ([`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04)) |
 | **Perdita della storia** | Alla cessazione del rapporto con l'organizzazione A si cancella o si sovrascrive il ruolo, e i contatti storici perdono il contesto in cui furono erogati |
 | **Autorizzazione non rappresentabile** | «Può firmare referti di questa branca **presso questa struttura**» non è esprimibile con attributi sulla persona |
 | **Rendicontazione ambigua** | La prestazione va attribuita alla struttura erogante, che è una proprietà del ruolo, non della persona |
@@ -54,14 +54,14 @@ l'errore dal lato didattico; qui ne discende la struttura.
 > **[BASE]** Nel modello di integrazione l'anagrafica non è del progetto: pazienti,
 > professionisti e agende sono già gestiti altrove. Il sistema lavora **per riferimento** -
 > identificatori esterni con dominio di attribuzione esplicito - e non diventa il *master data*
-> (`00_PROJECT_BRIEF.md` § 6.2.3).
+> ([`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) § 6.2.3).
 
 Ne discendono quattro proprietà del modello, tutte verificabili.
 
 1. **L'identità di lavoro è la coppia `system` + `value`.** Un identificatore senza dominio di
    attribuzione è una stringa, non un identificatore. La coppia è unica per tenant (`RF-021`) e
    la creazione ripetuta con gli stessi valori non genera duplicati.
-2. **Nessun identificatore esterno è chiave primaria** (`04_BASELINE_ARCHITETTURALE.md` § 3). Il
+2. **Nessun identificatore esterno è chiave primaria** ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 3). Il
    codice fiscale è un identificatore con dominio esplicito, non una chiave: cambia, manca, è
    provvisorio, è affetto da omocodia. Il modulo 04 dei fondamenti, § 2.3 e § 2.9, ne dà i casi.
 3. **Il modello ammette più identificatori per la stessa persona**, ciascuno con il proprio
@@ -73,7 +73,7 @@ Ne discendono quattro proprietà del modello, tutte verificabili.
 
 ### 2.2 Il codice fiscale e i suoi due domini
 
-> **[NV] - Questione `Q-06` in bacheca, indirizzata alle aree `ARCH` e `TECH`.** Le guide di
+> **[NV] - Questione [`Q-06`](../11_registri/02-questioni-aperte.md#q-06) in bacheca, indirizzata alle aree `ARCH` e `TECH`.** Le guide di
 > implementazione italiane usano **due URI diversi** per il codice fiscale:
 > `http://hl7.it/sid/codiceFiscale` nelle famiglie *IT Base* e *Televisita*,
 > `http://hl7.it/fhir/itcore/CodeSystem/cs-codicefiscale` in *IT-Core*. Sono due domini di
@@ -120,7 +120,7 @@ di sensibilità, e la branca specialistica non compare nelle notifiche su canali
 
 ### 2.4 Nessun indice paziente globale
 
-> **[BASE] `V-04`** - Ogni entità porta l'identificativo di tenant. La stessa persona fisica
+> **[BASE] [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04)** - Ogni entità porta l'identificativo di tenant. La stessa persona fisica
 > presente in due tenant è rappresentata da **entità distinte e non correlabili** con alcuna
 > interrogazione della piattaforma (`RF-023`).
 
@@ -130,7 +130,7 @@ il prezzo corretto da pagare, perché due tenant sono tipicamente **due titolari
 autonomi**, e una correlazione fra i loro dati è una comunicazione di dati sanitari che nessuno
 ha autorizzato.
 
-Il progetto **non implementa un indice paziente principale** (`00_PROJECT_BRIEF.md` § 6.2.3):
+Il progetto **non implementa un indice paziente principale** ([`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) § 6.2.3):
 consuma l'identità del sistema di origine.
 
 ## 3. Il professionista
@@ -222,7 +222,7 @@ I due centri hanno responsabilità che il modello deve poter separare:
 
 Non tutti gli attori sono persone. L'**integratore** è un principal applicativo con proprie
 chiavi, propri webhook, propri limiti e propria configurazione di personalizzazione
-(`00_PROJECT_BRIEF.md` § 6.2.6).
+([`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) § 6.2.6).
 
 > **[BASE]** Le credenziali applicative di un integratore **non conferiscono da sole accesso a
 > dati clinici**: ogni operazione clinica richiede un contesto utente delegante verificabile
@@ -458,7 +458,7 @@ relazione di cura. Tre percorsi distinti, con tre trattamenti distinti (`R6` § 
 |---|---|
 | **Previsto in prenotazione** | consenso raccolto prima; collegamento di accesso proprio; comparsa nella lista dei partecipanti |
 | **Sopraggiunto in sessione** | il professionista lo dichiara; il sistema chiede all'assistito conferma **esplicita**, non silenzio-assenso; ingresso e uscita registrati |
-| **Presente ma non dichiarato** | il sistema **non esegue rilevazione automatica di volti** (vincolo `V2` e profilo di riservatezza). L'onere della domanda è del professionista; il sistema fornisce il campo per registrare la risposta |
+| **Presente ma non dichiarato** | il sistema **non esegue rilevazione automatica di volti** (vincolo [`V2`](../11_registri/03-vincoli-fondanti.md#v2) e profilo di riservatezza). L'onere della domanda è del professionista; il sistema fornisce il campo per registrare la risposta |
 
 La terza riga è una decisione di dominio che vale la pena rendere esplicita: **il sistema
 rinuncia deliberatamente a una capacità tecnica disponibile**. Introdurre il riconoscimento
@@ -508,12 +508,12 @@ produrre decisioni contraddittorie.
 - **La federazione dell'identità digitale** - realm, provider, livelli di garanzia, propagazione
   del contesto di autenticazione - è dell'area `SEC` e dell'area `INTEG`. Quest'area consuma il
   livello di garanzia come attributo del soggetto e non ne decide la produzione.
-- **La divergenza degli URI del codice fiscale** è la questione `Q-06`, indirizzata ad `ARCH` e
+- **La divergenza degli URI del codice fiscale** è la questione [`Q-06`](../11_registri/02-questioni-aperte.md#q-06), indirizzata ad `ARCH` e
   `TECH`. Quest'area vi contribuisce con `DM-31` e non la chiude.
 - **La ripartizione titolare/responsabile** nel modello a servizio e in installazione presso il
   cliente è dell'area `COMP` (`R6` § 11.2, voce Q14). Quest'area si limita a richiedere che il
   modello **possa rappresentare titolari diversi sulla stessa installazione**, che è un
-  requisito strutturale già soddisfatto da `V-04`.
+  requisito strutturale già soddisfatto da [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04).
 
 ## Cosa devi ricordare
 

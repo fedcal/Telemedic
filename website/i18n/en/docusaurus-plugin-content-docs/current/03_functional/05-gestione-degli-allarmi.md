@@ -24,7 +24,7 @@ One consequence must however be recalled, because it guides every decision in th
 
 ## 2. Thresholds are clinical configuration per patient
 
-This point admits no gradations and is the operational formulation of constraint **V-02**: the threshold and alert are configured by the professional, never deduced by the system.
+This point admits no gradations and is the operational formulation of constraint **[V-02](../11_registri/01-vincoli-in-vigore.md#v-02)**: the threshold and alert are configured by the professional, never deduced by the system.
 
 **Four cumulative reasons.** *Clinical*: normality is individual, and the clinically useful value in chronicity is often the deviation from that person's usual value, not a population interval. *Organisational*: the threshold determines the workload of the service, and is not configurable in the abstract but only in relation to declared response capacity. *Regulatory*: the threshold is the content of the telemonitoring plan, which is an individual signed health document with informative content defined by DM 19 November 2025, Annex 1, § 2.24 - a threshold in source code is a part of a health document written by a developer. *Responsibility*: if the threshold belongs to the system, the system has decided.
 
@@ -219,7 +219,7 @@ Techniques that reduce noise are necessary - without them alarm fatigue is guara
 
 ## 9. Patient silence
 
-**The absence of data is itself data** (constraint V-09). In a telemonitoring service the failure to transmit an expected measurement is a clinical event with the same informative dignity as a measurement outside threshold: it is not a gap in the series, not a data quality problem, not a case to ignore. Among its causes there is, with non-negligible probability, **precisely that which the service exists to intercept**.
+**The absence of data is itself data** (constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09)). In a telemonitoring service the failure to transmit an expected measurement is a clinical event with the same informative dignity as a measurement outside threshold: it is not a gap in the series, not a data quality problem, not a case to ignore. Among its causes there is, with non-negligible probability, **precisely that which the service exists to intercept**.
 
 An infrastructure monitoring system, faced with an interrupted series, concludes there are no anomalies: no measurement, no exceedance, no alarm. In a clinical service this behaviour is a safety defect.
 
@@ -302,7 +302,7 @@ The difference, in one line: **routing answers "is this channel adequate?", eval
 | Coverage configuration | versioned, because it determines whether non-response was expected |
 | Cold tests of the chain | marked, with outcome per link and per channel, outside clinical statistics |
 
-All this falls under the immutable auditability constraint (**V-04**), with the caveat already registered by the project: **versioning of entities is not immutability**. Non-alterability requires a hash chain and retention separate from the system generating events.
+All this falls under the immutable auditability constraint (**[V-04](../11_registri/01-vincoli-in-vigore.md#v-04)**), with the caveat already registered by the project: **versioning of entities is not immutability**. Non-alterability requires a hash chain and retention separate from the system generating events.
 
 ## 14. Safety indicators
 
@@ -324,5 +324,5 @@ Three quantities are **safety indicators** and must be exposed to service leader
 4. **Treating viewing as acknowledgement.** It removes from the queue alarms that no one is attending to.
 5. **Suppressing individual alarms during a failure.** It preserves the operator's calm and destroys information: qualification does both better.
 6. **Configuring global night silence.** It transfers to a choice of convenience a decision that belongs to severity and plan.
-7. **Treating silence as absence of anomalies.** It is the most frequent defect of telemonitoring products built by those coming from IT, and is precisely what constraint V-09 exists to prevent.
+7. **Treating silence as absence of anomalies.** It is the most frequent defect of telemonitoring products built by those coming from IT, and is precisely what constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) exists to prevent.
 8. **Declaring coverage broader than actually provided.** It produces false reassurance, and false reassurance produces delay.

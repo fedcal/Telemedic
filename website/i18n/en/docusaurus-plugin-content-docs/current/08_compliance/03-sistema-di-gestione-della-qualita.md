@@ -137,8 +137,8 @@ Article 61, post-market surveillance in the form of Articles 83–86, or the vig
 Articles 87–92. Additional procedures are needed, and that is block B of § 4.
 
 **`[NV]`** - the harmonisation status must be verified against the consolidated list published by
-the Commission **at the date of use**, not from memory: the list is amended frequently, and a
-presumption of conformity invoked on a version no longer cited is a presumption that does not
+the Commission **at the date of use**, not from memory, by `COMP`: the list is amended frequently,
+and a presumption of conformity invoked on a version no longer cited is a presumption that does not
 operate.
 
 ## 3. The quality management system as code
@@ -204,7 +204,7 @@ or with biological material; there is therefore no cleaning process to control" 
 
 One of the customary exclusions **must instead be reconsidered**, and it is the reason this section
 exists: the control of measuring devices. Should the position on the **measuring function**
-(question `Q-173`, [02 §12](./02-qualificazione-e-classificazione.md)) conclude that the
+(question [`Q-173`](../11_registri/02-questioni-aperte.md#q-173), [02 §12](./02-qualificazione-e-classificazione.md)) conclude that the
 presentation of parameters constitutes a measuring function, the exclusion falls and with it falls
 the justification already written. It is an example of how an apparently marginal open question has
 effects at a distance on the perimeter of the system.
@@ -262,12 +262,12 @@ because **there is nothing to audit**. It follows that the date on which operati
 determines, with a lag of around six months, the earliest date at which certification is possible.
 **From `D58` it follows that this start date is a decision of ours, not a wait**: it is a delay the
 project inflicts on itself if it does not start operating. This does not authorise writing a
-marking date anywhere - `V-171` prohibits it without exception, and internal planning does not
+marking date anywhere - [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) prohibits it without exception, and internal planning does not
 become a promise because it is ours - but it moves the cost of postponement from a third party's
 account to ours.
 
 **Third - and it concerns this area directly.** The procedures are **controlled documents**; the
-documentation published on these pages **is not**. This is constraint `V-174`: no chapter of this
+documentation published on these pages **is not**. This is constraint [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174): no chapter of this
 documentation is a quality management system procedure, and no area may present one of its chapters
 as such. The chapters are **inputs**: they contain the analysis from which a procedure is written,
 not the procedure.
@@ -275,8 +275,8 @@ not the procedure.
 ## 5. The identifiers of the regulatory documents
 
 The project adopts an identifier space for regulatory documents, distinct from that of the
-requirements (`RF-*`, `RNF-*`, `BR-*`, frozen by `V-120`) and from that of the architecture
-decision records. **This space is declared here and counts as constraint `V-172`:** no area may coin
+requirements (`RF-*`, `RNF-*`, `BR-*`, frozen by [`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)) and from that of the architecture
+decision records. **This space is declared here and counts as constraint [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172):** no area may coin
 an identifier in these prefixes without declaring it on the noticeboard.
 
 | Prefix | Scope |
@@ -327,7 +327,7 @@ guaranteed finding.
 score, a threshold defined by the system or the extension to unstable patients **takes the
 determination back to C**, with the obligation of detailed design at unit level (clause 5.4) and of
 verification of every unit. **It is an architectural decision, not a product choice**, and it is why
-constraint `V-170` exists.
+constraint [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170) exists.
 
 ### 6.2 What changes in class B, and what it really costs
 
@@ -389,7 +389,7 @@ believe it.
 
 Hence the two guards, both already in force:
 
-1. **the identifiers are frozen** and are never renumbered (`V-120`);
+1. **the identifiers are frozen** and are never renumbered ([`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120));
 2. **the matrix is generated**, not drafted. A hand-maintained matrix diverges from the code by the
    third release; a matrix generated from the references in the changes and in the tests is true by
    construction, and its generation **fails** when a reference is missing.
@@ -448,7 +448,7 @@ contains name, producer and version; it does not contain the function within the
 alternative, the risk impact, the update service level and the review date. These five fields live
 in a versioned annotations file, and **the build fails if a component appears in the bill and not in
 the annotations**: it is the mechanism preventing the entry of an unassessed dependency, and it has
-already been established by the technical area as the outcome of question `Q-17`.
+already been established by the technical area as the outcome of question [`Q-17`](../11_registri/02-questioni-aperte.md#q-17).
 
 ### 9.3 Why `latest` is prohibited
 
@@ -468,7 +468,7 @@ be uniquely identified by **title, producer and version**. A reference to a floa
 
 **The practical consequence is the simplest rule in the whole chapter, and the most breached:**
 every dependency, every base image, every build chain tool carries an exact version, and updating
-is **an act, with a date, a rationale and an assessment**. Constraint `V-173` makes it blocking.
+is **an act, with a date, a rationale and an assessment**. Constraint [`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173) makes it blocking.
 
 ### 9.4 Monitoring and remediation windows
 
@@ -476,7 +476,7 @@ Clause 7.1.2 requires each published anomaly relevant to the component to be **a
 always fixed. **A reasoned decision not to update is admitted if documented**, and it is often the
 right decision: an unassessed update introduces more risk than it removes.
 
-**This section answers question `Q-113`**, opened by the technical area, which asked for an update
+**This section answers question [`Q-113`](../11_registri/02-questioni-aperte.md#q-113)**, opened by the technical area, which asked for an update
 service level expressed in days from publication of the advisory and differentiated by severity.
 
 | Severity | Window from publication of the advisory, for L1 components | Note |
@@ -509,13 +509,13 @@ describes no behaviour at all.
 
 **What remains outside this section and belongs to the project owner:** the **declared support
 period** for each major release, a minimum of five years under the resilience rules. It is question
-`Q-155`, and while it is open **the project cannot publish an end-of-support date**, which is
+[`Q-155`](../11_registri/02-questioni-aperte.md#q-155), and while it is open **the project cannot publish an end-of-support date**, which is
 however a mandatory element of the documentation required by customers and by the lifecycle
 security standard.
 
 ### 9.5 A component's licence regime is not a detail of the component
 
-**This section answers question `Q-112`**, opened by the technical area about the time-series
+**This section answers question [`Q-112`](../11_registri/02-questioni-aperte.md#q-112)**, opened by the technical area about the time-series
 extension, whose advanced features are reported to be distributed not under an approved open source
 licence but under a source-available licence of its own, with restrictions on offering it as a
 managed service to third parties.
@@ -538,13 +538,13 @@ managed service to third parties.
    and the verification must be done **artefact by artefact**.
 
 **`[NV]`** - the reading of the text of the primary licence, artefact by artefact and version by
-version, **has not been carried out** and this area does not substitute a reconstruction for it.
-Until it is carried out, no document of the project may assert either that the component is open
-source or that it is not. The question therefore remains open in its verification part.
+version, **has not been carried out** by `COMP` and this area does not substitute a reconstruction
+for it. Until it is carried out, no document of the project may assert either that the component is
+open source or that it is not. The question therefore remains open in its verification part.
 
 ### 9.6 Clinical scales and questionnaires have licences of their own
 
-**This section partially answers question `Q-11`**, opened by the guide area, which asked for the
+**This section partially answers question [`Q-11`](../11_registri/02-questioni-aperte.md#q-11)**, opened by the guide area, which asked for the
 terminology policy to be formally extended to scales and scores **before** writing the first
 computation engine.
 
@@ -562,7 +562,7 @@ Three operating rules follow:
 
 1. **No item text, no scoring table and no interpretation threshold of a scale enters the
    repository before its regime has been ascertained and declared**;
-2. **the definition of the scale is data, not code**: as for care pathways (`V-147`), adding a scale
+2. **the definition of the scale is data, not code**: as for care pathways ([`V-147`](../11_registri/01-vincoli-in-vigore.md#v-147)), adding a scale
    must not require a software release. It also follows that a scale whose regime so requires may
    be **acquired at runtime by the deployer**, which is regime C;
 3. **the computation of the score must be kept distinct from its interpretation.** Summing the items
@@ -606,15 +606,15 @@ documentation, and its production requires the risk management plan with the acc
 that precedes it. But three questions from the noticeboard have produced **identified inputs** that,
 if not recorded now, would have to be reconstructed later.
 
-**This section answers questions `Q-13` and `Q-114`** and takes up the outcome of `Q-12`.
+**This section answers questions [`Q-13`](../11_registri/02-questioni-aperte.md#q-13) and [`Q-114`](../11_registri/02-questioni-aperte.md#q-114)** and takes up the outcome of [`Q-12`](../11_registri/02-questioni-aperte.md#q-12).
 
 | Origin | Input | What is to be determined in the risk file |
 |---|---|---|
-| `Q-13`, guide area | Two hazardous use scenarios identified in the patient safety module | Severity and probability, which this area **does not determine**: the estimate requires the acceptability criteria from the plan |
-| `Q-12`, functional area | **Ten hazardous use scenarios of remote monitoring**, mapped with **the risk introduced by the mitigation** | The risk introduced by the mitigation is the element ISO 14971 expressly requires and that is almost always omitted: it must be preserved in the form in which it was produced |
-| `Q-114`, technical area | **Quality thresholds and notice to the professional**: when the unsuitability threshold is breached the system informs and offers postponement | It is **a risk control measure**, not a convenience function. It follows that its effectiveness must be verified, not merely implemented (§ 7.1) |
-| `Q-114`, technical area | **Jitter buffer target**: lowering it reduces latency **at the cost of an increase in audible loss** | It is a trade-off with a clinical consequence: the choice must be recorded with its rationale, not left as a configuration parameter |
-| `Q-114`, technical area | **Degradation preference** between resolution and smoothness | The defensible formulation is a **rendering preference chosen by the user**, never automatic adaptation driven by clinical content: in the latter form it would be processing for clinical purposes |
+| [`Q-13`](../11_registri/02-questioni-aperte.md#q-13), guide area | Two hazardous use scenarios identified in the patient safety module | Severity and probability, which this area **does not determine**: the estimate requires the acceptability criteria from the plan |
+| [`Q-12`](../11_registri/02-questioni-aperte.md#q-12), functional area | **Ten hazardous use scenarios of remote monitoring**, mapped with **the risk introduced by the mitigation** | The risk introduced by the mitigation is the element ISO 14971 expressly requires and that is almost always omitted: it must be preserved in the form in which it was produced |
+| [`Q-114`](../11_registri/02-questioni-aperte.md#q-114), technical area | **Quality thresholds and notice to the professional**: when the unsuitability threshold is breached the system informs and offers postponement | It is **a risk control measure**, not a convenience function. It follows that its effectiveness must be verified, not merely implemented (§ 7.1) |
+| [`Q-114`](../11_registri/02-questioni-aperte.md#q-114), technical area | **Jitter buffer target**: lowering it reduces latency **at the cost of an increase in audible loss** | It is a trade-off with a clinical consequence: the choice must be recorded with its rationale, not left as a configuration parameter |
+| [`Q-114`](../11_registri/02-questioni-aperte.md#q-114), technical area | **Degradation preference** between resolution and smoothness | The defensible formulation is a **rendering preference chosen by the user**, never automatic adaptation driven by clinical content: in the latter form it would be processing for clinical purposes |
 
 **The rule this section establishes**, and which holds for all areas: **a technical trade-off with a
 clinical consequence is not resolved in a configuration. It is recorded as an entry in the risk
@@ -625,12 +625,12 @@ the decision is, for the notified body, a decision never taken.
 
 | Reference | Question | To whom |
 |---|---|---|
-| `Q-155` | **Declared support period**, a minimum of five years. While it is open, the project cannot publish an end-of-support date, which is however a mandatory element of the documentation for the customer (§ 9.4) | → Project owner |
-| `Q-11` | Ascertainment of the licence regime **scale by scale**. The rule is established (§ 9.6); the ascertainment has not been carried out for any scale | Compliance, domain |
-| `Q-112` | Reading of the text of the primary licence of the time-series component, artefact by artefact (§ 9.5) | Compliance, technical |
-| `Q-173` | Whether the presentation of parameters constitutes a measuring function: the validity of an already justified exclusion depends on it (§ 3.3) | Domain, functional |
-| `Q-13`, `Q-114` | Severity and probability of the inputs recorded in § 10: determinable **only after** the risk management plan with the acceptability criteria | Compliance, at the production of the risk file |
-| `[NV]` | Harmonisation status of ISO 13485 and of the lifecycle security standard, to be verified against the consolidated list **at the date of use** (§ 2) | Compliance |
-| `[NV]` | Precise numbering of the clauses of IEC 62304 and of ISO 13485 cited in this chapter: they derive from the project's research and must be re-verified against the text of the standards before appearing in a controlled document | Compliance |
+| [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) | **Declared support period**, a minimum of five years. While it is open, the project cannot publish an end-of-support date, which is however a mandatory element of the documentation for the customer (§ 9.4) | → Project owner |
+| [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) | Ascertainment of the licence regime **scale by scale**. The rule is established (§ 9.6); the ascertainment has not been carried out for any scale | Compliance, domain |
+| [`Q-112`](../11_registri/02-questioni-aperte.md#q-112) | Reading of the text of the primary licence of the time-series component, artefact by artefact (§ 9.5) | Compliance, technical |
+| [`Q-173`](../11_registri/02-questioni-aperte.md#q-173) | Whether the presentation of parameters constitutes a measuring function: the validity of an already justified exclusion depends on it (§ 3.3) | Domain, functional |
+| [`Q-13`](../11_registri/02-questioni-aperte.md#q-13), [`Q-114`](../11_registri/02-questioni-aperte.md#q-114) | Severity and probability of the inputs recorded in § 10: determinable **only after** the risk management plan with the acceptability criteria | Compliance, at the production of the risk file |
+| `[NV]` | Harmonisation status of ISO 13485 and of the lifecycle security standard, to be verified against the consolidated list **at the date of use** (§ 2) | `COMP` |
+| `[NV]` | Precise numbering of the clauses of IEC 62304 and of ISO 13485 cited in this chapter: they derive from the project's research and must be re-verified against the text of the standards before appearing in a controlled document | `COMP` |
 
 <!--TRAD-VERIFICATA: 02b1ce0325c38f1cb79bd562bc72efd2cc41c1e8-->

@@ -42,7 +42,7 @@ Every protocol is dealt with under six headings, always in the same order:
 |---|---|
 | *(none)* | Reference to a published normative document: the number identifies the text stably and it can be found on `rfc-editor.org`, on `w3.org`, on `hl7.org` or on the site of the body indicated |
 | **`[B6]` `[B7]` `[R5]`** | Verified against a primary source during the project's research phase, in the document indicated. These are the statements on which the project has already done the checking work |
-| **`[NV]`** | **Not verified** against a primary source while this module was being written. It does not mean «false»: it means «check before implementing» |
+| **`[NV]` `PROTO`** | **Not verified** against a primary source while this module was being written, with the indication of the recipient in one of three permitted forms: area code, question identifier, or external party. It does not mean «false»: it means «check with the recipient before implementing» |
 | **«project proposal»** | It is not a standard: it is a choice of Telemedic's. Header names, scope names, claim names and endpoint names marked this way **must never be presented as standards** |
 
 This discipline is not pedantry. A good part of integration errors comes from somebody who
@@ -201,7 +201,7 @@ In the project the contracts are three, and they are of different natures:
 | Clinical API | **FHIR `CapabilityStatement`** + `StructureDefinition` profiles | clinical resources, searches, operations |
 | Events | **CloudEvents schema** + registry of the payload schemas (§6.2) | what the system publishes towards the outside |
 
-The project's constraint **V3** («no functionality accessible only from the UI») has a direct
+The project's constraint **[V3](../11_registri/03-vincoli-fondanti.md#v3)** («no functionality accessible only from the UI») has a direct
 and often underestimated consequence: **if a capability does not appear in one of the three
 contracts, it does not exist**. The contract is not the documentation of the function: it is
 the function.
@@ -428,7 +428,7 @@ zero RTT in the case of resumption - with the not negligible caveat that data se
 are exposed to replay and must not therefore carry non-idempotent operations.
 
 **In the project.** It is the transport of HTTP/3 (§2.9). It is relevant above all for
-constraint **V6**: the typical patient is on a smartphone on a mobile network, and connection
+constraint **[V6](../11_registri/03-vincoli-fondanti.md#v6)**: the typical patient is on a smartphone on a mobile network, and connection
 migration is the function that saves them from losing the application session as they leave
 the house. The media does not use QUIC: it uses RTP over UDP as described in
 [08](08-webrtc-da-zero.md).
@@ -630,7 +630,7 @@ modern clients, and for internal traffic between services. Negotiation happens w
 hostnames) inherited from HTTP/1.1: with HTTP/2 it is counterproductive, because it prevents
 the single connection from being exploited. Forgetting that *server push*, much publicised at
 the start, has been **abandoned in practice** by the browsers: nothing that depends on it
-should be designed `[NV]`.
+should be designed `[NV]` `PROTO`.
 
 ### 2.9 HTTP/3
 
@@ -645,7 +645,7 @@ turn.
 
 **In the project.** Enabled on the public gateway, with **mandatory automatic fallback** to
 HTTP/2 when UDP is blocked. The benefit is concentrated where the project needs it most:
-patient on a smartphone, mobile network, variable quality - that is, constraint **V6**.
+patient on a smartphone, mobile network, variable quality - that is, constraint **[V6](../11_registri/03-vincoli-fondanti.md#v6)**.
 
 **Specification.** RFC 9114 (2022); QPACK in RFC 9204.
 
@@ -707,7 +707,7 @@ needed, because both parties generate events independently and unpredictably.
 
 **Specification.** **RFC 6455** (2011). Operation over HTTP/2 as a multiplexed stream is
 defined by **RFC 8441** and is not universally supported: the project does not rely on it
-`[NV]`. The browser-side `WebSocket API` is defined by the WHATWG's HTML standard, not by the
+`[NV]` `PROTO`. The browser-side `WebSocket API` is defined by the WHATWG's HTML standard, not by the
 IETF: they are two different documents for two different layers.
 
 **Typical errors.**
@@ -892,7 +892,7 @@ chooses the version in the path for a practical reason: it is visible in the log
 charts and in the support tickets, and an integrator can say «I am using v1» without having to
 inspect the headers.
 
-One last rule, which follows from constraint **V4** and §6.2.3 of the integration profile:
+One last rule, which follows from constraint **[V4](../11_registri/03-vincoli-fondanti.md#v4)** and §6.2.3 of the integration profile:
 **external identifiers never become internal identifiers**. The patient is identified by the
 integrator; Telemedic references them with the pair (identification system, value), as FHIR
 does with `Patient.identifier`. The project is not the master data and must not become it.
@@ -996,7 +996,7 @@ Project policy, in three points:
 
 **Specification.** OpenAPI Specification 3.1, published by the OpenAPI Initiative (Linux
 Foundation), on `spec.openapis.org`. **It is not an RFC.** The JSON Schema dialect is
-`2020-12`. Versions later than 3.1 exist `[NV]`: before adopting one, the support of the tools
+`2020-12`. Versions later than 3.1 exist `[NV]` `PROTO`: before adopting one, the support of the tools
 actually in use must be verified, which historically arrives with a great deal of delay.
 
 **Typical errors.** A single unnavigable file of six thousand lines: it is broken up by domain
@@ -1216,7 +1216,7 @@ sequenceDiagram
 ```
 
 The decisive step is the last one, and it is not technical: **what the interface shows when
-the `412` arrives**. A message «error 412» is unacceptable under constraint **V6**; silently
+the `412` arrives**. A message «error 412» is unacceptable under constraint **[V6](../11_registri/03-vincoli-fondanti.md#v6)**; silently
 discarding the user's work is worse. The required behaviour is: keep what the user has
 written, show what has changed in the meantime and who changed it, ask for an explicit
 decision.
@@ -1570,7 +1570,7 @@ appear in a URL and why the mechanisms binding a token to its holder exist (§4.
 | **Authorization Code + PKCE** | There is a human being in front of a browser | **The only interactive flow admitted in the project** |
 | **Client Credentials** | No user: system calling system | Admitted, with asymmetric authentication (§4.3) |
 | **Refresh Token** | Renewing access without interacting again | Admitted, with rotation |
-| **Device Authorization Grant** (RFC 8628) | Device with no browser | Out of the v1.0 perimeter `[NV]` |
+| **Device Authorization Grant** (RFC 8628) | Device with no browser | Out of the v1.0 perimeter `[NV]` `PROTO` |
 | **Implicit** | - | **Forbidden.** RFC 9700 §2.1.2: clients «SHOULD NOT use the implicit grant» `[R5]` |
 | **Resource Owner Password Credentials** | - | **Forbidden.** RFC 9700 §2.4: «MUST NOT be used» `[R5]` |
 
@@ -1801,11 +1801,11 @@ aligning with the explicit recommendation of SMART Backend Services `[R5]`.
 **Binding the token to its holder.** Since a stolen bearer token is usable by anybody, there
 are mechanisms binding it to a key of the client's: **DPoP** (RFC 9449), which attaches a
 signed proof to the request, and **mTLS-bound tokens** (RFC 8705). The project considers them
-hardenings applicable per tenant, not general requirements of v1.0 `[NV]`.
+hardenings applicable per tenant, not general requirements of v1.0 `[NV]` `ROAD`.
 
 **Specification.** RFC 7519 (JWT), RFC 7515 (JWS), RFC 7516 (JWE), RFC 7517 (JWK), RFC 7518
 (JWA), **RFC 8725** (BCP on JWTs). For access tokens in JWT form there is a dedicated profile
-defining among other things `typ: at+jwt` `[NV]`.
+defining among other things `typ: at+jwt` `[NV]` `PROTO`.
 
 ### 4.5 JWKS and key rotation
 
@@ -1927,7 +1927,7 @@ amounts to having revoked nothing.
 already authenticated in the integrator's system. They click «start specialist-to-specialist
 consultation (*teleconsulto*)». The video room must appear **with no second login and no
 visible redirections**. But Telemedic must know who the doctor is (for the non-repudiable
-audit trail, constraint **V5**), which tenant (**V4**), what permissions they have, and it
+audit trail, constraint **[V5](../11_registri/03-vincoli-fondanti.md#v5)**), which tenant (**[V4](../11_registri/03-vincoli-fondanti.md#v4)**), what permissions they have, and it
 must know it from a trusted source - not from the browser, which can be manipulated.
 
 **Mechanism.** RFC 8693 defines a type of OAuth grant that exchanges one token for another
@@ -1978,7 +1978,7 @@ two outcomes:
   The audit trail can answer the question «which system acted on behalf of which person».
 
 The project **always uses delegation, never impersonation** - this is decision D18, and it is
-a direct consequence of the auditability constraints (**V5**) and of the traceability
+a direct consequence of the auditability constraints (**[V5](../11_registri/03-vincoli-fondanti.md#v5)**) and of the traceability
 obligations in an MDR and GDPR context `[R5]`. Nested chains are preserved: if the integrator
 was in turn acting on behalf of a third party, the nested `act` records it.
 
@@ -2072,7 +2072,7 @@ Service Provider is whoever provides the service over the network, that is to sa
 never the project**. Telemedic is «SPID/CIE/TS-CNS ready», verifiable in continuous
 integration; it is not and cannot be «accredited».
 
-**Specification.** *OASIS Security Assertion Markup Language (SAML) V2.0*, an OASIS standard
+**Specification.** *OASIS Security Assertion Markup Language (SAML) [V2](../11_registri/03-vincoli-fondanti.md#v2).0*, an OASIS standard
 of 15 March 2005 (Core, Bindings, Profiles, Metadata are distinct documents). The Italian
 profile is in AgID's *Regole tecniche SPID* (the SPID technical rules), supplemented by the
 *avvisi* (the notices), which modify the base text and must be read together with it `[B7]`.
@@ -2119,7 +2119,7 @@ realizzazione dello SPID* (the regulation setting out the implementing arrangeme
    and one with card and PIN (CIE L3) produce **the same assertion**. The only lever is the
    *request*: the level must be imposed in `RequestedAuthnContext` `[B7]`. Hence the rule:
    **both `acr_requested` and `acr_asserted` are always recorded**, and it is the only way of
-   respecting **V5** without asserting something false.
+   respecting **[V5](../11_registri/03-vincoli-fondanti.md#v5)** without asserting something false.
 2. **The level does not travel in the `act` claim.** RFC 8693 §4.1 expresses delegation - *who
    is acting* - not the subject's authentication level. Putting it there is a semantic abuse.
    The level lives in `acr` `[B7]`.
@@ -2332,7 +2332,7 @@ deployment** to use it that way today.
 **Specification.** *HL7 Transport Specification: MLLP*, an HL7 standard distinct from the
 messaging standard. The hexadecimal values of the framing are confirmed by two independent
 sources citing the official specification; the primary document was not read directly in the
-research phase. `[NV]` Port 6660, often cited as conventional, does **not** appear to be
+research phase. `[NV]` `PROTO` Port 6660, often cited as conventional, does **not** appear to be
 registered for MLLP: in practice it is agreed between the parties.
 
 **Typical errors.** Looking for the framing bytes with a substring search without handling
@@ -2376,7 +2376,7 @@ prohibition:
 It follows that, where it is needed, the image is opened from a viewer that retrieves it over
 DICOMweb from its authoritative source, with its own authorisation and its own audit trail.
 The video channel remains a communication channel. It is also a boundary relevant to MDR
-qualification (constraint **V2**).
+qualification (constraint **[V2](../11_registri/03-vincoli-fondanti.md#v2)**).
 
 **Specification.** DICOM PS3.18, *Web Services*. The DICOM standard is published in parts and
 updated frequently: one cites the part, not «DICOM» in general.
@@ -2421,7 +2421,7 @@ problems of the project without proprietary extensions `[R5]`:
 |---|---|
 | `need_patient_banner` | Says whether the host system already displays the patient banner: it solves the problem of the double banner in the embeddable component |
 | `smart_style_url` | It is the **standard white-label mechanism** for SMART applications: the host publishes colours and typefaces, the application applies them. It must be treated as untrusted input - it is a URL controlled by a third party |
-| `tenant` | It maps directly onto constraint **V4** |
+| `tenant` | It maps directly onto constraint **[V4](../11_registri/03-vincoli-fondanti.md#v4)** |
 | `fhirContext` | It is the natural place for the reference to the `Appointment` that gave rise to the consultation |
 
 **Mechanism - Backend Services.** It is the pattern for **a backend calling a backend, with no
@@ -2631,7 +2631,7 @@ internal broker and towards the outside in the webhooks. Project conventions:
 - **a hierarchical and versioned `type`**: `telemedic.<domain>.<fact>.v<N>`. The version is
   part of the type, so that a consumer can ignore a version it does not know instead of
   failing on an unexpected field.
-- **`source` contains the tenant**, consistently with **V4**.
+- **`source` contains the tenant**, consistently with **[V4](../11_registri/03-vincoli-fondanti.md#v4)**.
 - **`subject` is the entity the event refers to**, which allows filtering without deserialising
   `data`.
 - **`dataschema` points to a published and versioned schema**: it is the third contract of
@@ -2818,7 +2818,7 @@ data channel:  SCTP  over  DTLS  over  ICE/UDP
 | Protocol | Problem it solves | Specification | In the project |
 |---|---|---|---|
 | **ICE** (*Interactive Connectivity Establishment*) | Two devices behind NAT do not know which path works between them. ICE does not choose: **it tries all the combinations** of candidates and keeps the one that works, with an order of priority | RFC 8445 | Every session. The ICE restart is the recovery mechanism when the network changes |
-| **STUN** (*Session Traversal Utilities for NAT*) | A device behind NAT does not know its own public address. It asks an external server, which answers «I see you as this address and this port» | RFC 8489 | Its own `coturn` server, in the deployment profiles provided for (constraint **V1**) |
+| **STUN** (*Session Traversal Utilities for NAT*) | A device behind NAT does not know its own public address. It asks an external server, which answers «I see you as this address and this port» | RFC 8489 | Its own `coturn` server, in the deployment profiles provided for (constraint **[V1](../11_registri/03-vincoli-fondanti.md#v1)**) |
 | **TURN** (*Traversal Using Relays around NAT*) | When no direct path works - symmetric NATs on both sides, restrictive firewall - a **relay** is needed to forward the traffic | RFC 8656 | The same server. It is the case in which the word «peer-to-peer» stops describing the path: see the reformulation of decision D19 |
 | **DTLS** (*Datagram TLS*) | TLS presupposes a reliable, ordered transport. Over UDP there is none: DTLS brings the handshake and the encryption back over datagrams | RFC 6347 (1.2); RFC 9147 (1.3) | Negotiation of the media keys and transport of the data channel |
 | **DTLS-SRTP** | Binding the DTLS handshake to the derivation of the SRTP keys, so that the media is encrypted with keys negotiated directly between the two ends | RFC 5764 | It is what allows the statement «end-to-end encrypted», **conditional on independent verification of the keys** (D19, D22) |
@@ -2858,7 +2858,7 @@ generate no errors:
    machines by comparing their timestamps is **incorrect**, and module
    [11 - Computing foundations](11-fondamenti-informatici.md) explains why in general terms.
    This is why the project uses sequence numbers per subject (§6.4).
-3. **Legal evidence.** The non-repudiable audit trail (**V5**, decision D42) has value only if
+3. **Legal evidence.** The non-repudiable audit trail (**[V5](../11_registri/03-vincoli-fondanti.md#v5)**, decision D42) has value only if
    its timestamps are reliable and their reliability is demonstrable.
 
 **Mechanism.** **NTP** estimates the local clock's offset and the network delay together,
@@ -2880,7 +2880,7 @@ network can move a system's clock - and with it the validity of the tokens. The 
   an NTP adjustment in between would produce negative durations;
 - for audit trails retained over the long term, the internal timestamp **is not a qualified
   timestamp**: if enforceability against third parties is required, a time-stamping service is
-  needed, and it is a decision to be taken explicitly `[NV]`.
+  needed, and it is a decision to be taken explicitly `[NV]` `PROTO`.
 
 **Specification.** NTP version 4: **RFC 5905**. NTS: **RFC 8915**. For much tighter
 synchronisation there is PTP (IEEE 1588), which the project does not use: it is not needed,
@@ -3028,13 +3028,13 @@ which is the worst way of breaking.
 
 **In the project.** **Not used in the public interfaces**, and the reason is deliberate: the
 archetypal integrator (§6.1 of the project profile) has neither the tools nor the skills to
-consume a binary format with a compiled schema, and constraint **V3** requires every capability
+consume a binary format with a compiled schema, and constraint **[V3](../11_registri/03-vincoli-fondanti.md#v3)** requires every capability
 to be reachable from a third-party system. A format requiring a compilation chain raises the
 barrier to entry more than the performance lowers it.
 
 It remains worth assessing for high-volume internal traffic - the session quality metrics
 towards TimescaleDB are the natural candidate - where both parties are controlled by the
-project `[NV]`.
+project `[NV]` `PROTO`.
 
 **Specification.** *Protocol Buffers Language Guide*, published by the project itself. It is
 not a standard of a standardisation body. The current version of the language is `proto3`.
@@ -3074,7 +3074,7 @@ specification is a draft, if it is expired or if it is superseded, it is said he
 | HTTP/1.1 | Textual syntax | Universal compatibility | RFC 9112 | Standards Track; replaces RFC 7230 and RFC 2616 |
 | HTTP/2 | Multiplexing, header compression | Default on the gateway and internal traffic | RFC 9113, RFC 7541 | Standards Track |
 | HTTP/3 | No head-of-line blocking, migration | Public gateway, with mandatory fallback | RFC 9114, RFC 9204 | Standards Track |
-| WebSocket | Bidirectional message channel | WebRTC signalling, interactive notifications | RFC 6455; over HTTP/2 RFC 8441 | Standards Track. RFC 8441 not universally supported `[NV]` |
+| WebSocket | Bidirectional message channel | WebRTC signalling, interactive notifications | RFC 6455; over HTTP/2 RFC 8441 | Standards Track. RFC 8441 not universally supported `[NV]` `PROTO` |
 | Server-Sent Events | One-way push towards the browser | State changes, progress, alerts | **WHATWG HTML Living Standard**, section *Server-sent events* | **It is not an RFC**: a living standard, with no version |
 
 ### 9.2 Application interfaces
@@ -3110,8 +3110,8 @@ specification is a draft, if it is expired or if it is superseded, it is said he
 | Introspection | Validity of the token now | High-impact operations | RFC 7662 | Standards Track |
 | Revocation | Invalidating a token | Logout, incidents | RFC 7009 | Standards Track |
 | Token Exchange | Delegation between organisations | Integrator's identity, `act` claim | **RFC 8693** | Standards Track. Delegation, never impersonation (D18) `[R5]` |
-| Binding to the holder | Token not reusable if stolen | Hardening per tenant | RFC 9449 (DPoP), RFC 8705 (mTLS) | Standards Track. Outside the v1.0 minimum `[NV]` |
-| SAML 2.0 | Federation with signed assertions | **SPID** | OASIS SAML V2.0, 15 March 2005 | OASIS standard. **Necessary: SPID is not operated over OIDC** `[B7]` |
+| Binding to the holder | Token not reusable if stolen | Hardening per tenant | RFC 9449 (DPoP), RFC 8705 (mTLS) | Standards Track. Outside the v1.0 minimum `[NV]` `PROTO` |
+| SAML 2.0 | Federation with signed assertions | **SPID** | OASIS SAML [V2](../11_registri/03-vincoli-fondanti.md#v2).0, 15 March 2005 | OASIS standard. **Necessary: SPID is not operated over OIDC** `[B7]` |
 | Levels of assurance | How strong the authentication is | `acr`, authorisation per operation | SPID / CIE technical rules; ISO/IEC 29115 | `SpidL1\|L2\|L3` = LoA2/3/4. **With CIE the assertion is always `SpidL3`** `[B7]` |
 
 ### 9.4 Healthcare integration, events, real time, cross-cutting
@@ -3192,7 +3192,7 @@ to polling for the status function alone.
 The profile of the archetypal integrator is a cloud healthcare management system in the SME
 bracket, with a small development team and no specialisation in healthcare interoperability. A
 protocol that requires a compilation chain, a specific library or a deep knowledge of a
-standard is a protocol that **will not be adopted**, and constraint **V3** would come out of it
+standard is a protocol that **will not be adopted**, and constraint **[V3](../11_registri/03-vincoli-fondanti.md#v3)** would come out of it
 satisfied only on paper.
 
 Hence three concrete choices already taken: JSON and not Protocol Buffers on the public
@@ -3303,7 +3303,7 @@ expectations.
 
 **10. Designing for the happy case of the network.** Broadband, low latency, no loss. The real
 patient is on a smartphone on a mobile network, in a corridor, with two bars of signal.
-Constraint **V6** says that degrading in an understandable way - audio before video, clear
+Constraint **[V6](../11_registri/03-vincoli-fondanti.md#v6)** says that degrading in an understandable way - audio before video, clear
 notices, resumption of the session - **is part of accessibility**, not an optimisation.
 
 **11. Building a proprietary protocol where one exists.** It costs the design, the

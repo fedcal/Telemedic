@@ -371,15 +371,14 @@ be entered into the risk file (§ 9.8).
 
 | Condition | Typical home parameters | Early signal of deterioration | Typical latency of the deterioration | What escapes home monitoring |
 |---|---|---|---|---|
-| Heart failure | weight, blood pressure, heart rate, saturation, symptoms | rapid weight gain, increasing breathlessness | days `[NV]` | intermittent arrhythmias, renal function |
-| Chronic obstructive pulmonary disease | saturation, respiratory rate, symptoms, use of the as-needed medicine | increase in cough and sputum, increased use of the as-needed medicine | days `[NV]` | real gas exchange (it requires blood gas analysis) |
+| Heart failure | weight, blood pressure, heart rate, saturation, symptoms | rapid weight gain, increasing breathlessness | days (to be verified by `GUIDA`) `[NV]` | intermittent arrhythmias, renal function |
+| Chronic obstructive pulmonary disease | saturation, respiratory rate, symptoms, use of the as-needed medicine | increase in cough and sputum, increased use of the as-needed medicine | days (to be verified by `GUIDA`) `[NV]` | real gas exchange (it requires blood gas analysis) |
 | Diabetes | blood glucose or continuous monitoring, context (meals, insulin), weight | swings, recurrent hypoglycaemia | **minutes** for hypoglycaemia; years for the complications | glycated haemoglobin, organ complications |
 | Hypertension | blood pressure, heart rate, adherence | rising average pressure over several readings | weeks-months | organ damage, acute cerebrovascular events |
-| Chronic renal failure | blood pressure, weight, urine output, dialysis parameters | fluid overload | days-weeks `[NV]` | **serum potassium**, renal function, anaemia |
+| Chronic renal failure | blood pressure, weight, urine output, dialysis parameters | fluid overload | days-weeks (to be verified by `GUIDA`) `[NV]` | **serum potassium**, renal function, anaemia |
 
-> `[NV]` The latencies given are orders of magnitude for didactic purposes, derived from
-> pathophysiological logic and not from primary sources verified in the course of this drafting.
-> They must not be used to size alarm windows: those are clinical decisions of the monitoring
+> The latencies given are orders of magnitude for didactic purposes, derived from
+> pathophysiological logic and not from primary sources verified in the course of this drafting; the `GUIDA` area must complete this verification. `[NV]` They must not be used to size alarm windows: those are clinical decisions of the monitoring
 > plan (§ 7.9).
 
 ### 2.8 Four design consequences that follow from here already
@@ -585,7 +584,7 @@ means seven things.
    new version. The instances in progress stay attached to the version with which they were born,
    and any migration to a later version is an explicit act, decided by a professional and traced.
 4. **Scope and tenancy.** Every pathway belongs to a tenant and to an organisational scope
-   (constraint **V4** of the project). The catalogue of pathways of one tenant is not visible to
+   (constraint **[V4](../11_registri/03-vincoli-fondanti.md#v4)** of the project). The catalogue of pathways of one tenant is not visible to
    the others, and a «national» pathway that applies to everyone is a configuration, not a
    premise.
 5. **Validation at load time, not at execution time.** An incoherent pathway - an unreachable
@@ -895,11 +894,10 @@ Its structure, which is what matters here:
   is to be alerted, within what time.
 
 > `[NV]` **The threshold values of the items, the weights, the cut-offs of the total score and
-> the levels of response of NEWS2 are not reported in this module**, because they have not been
-> verified against a primary source in the course of this drafting and because reporting them in
-> a technical training document would create the very risk the module intends to prevent: that
-> somebody copies them into a constant. Whoever has to implement them starts from the original
-> publication of the Royal College of Physicians and from checking the relevant licence of use.
+> the levels of response of NEWS2 are not reported in this module**: they must be requested from
+> the Royal College of Physicians (original publication) and verified against the relevant
+> licence of use. Reporting them in a technical training document would create the very risk the
+> module intends to prevent: that somebody copies them into a constant.
 
 Two elements of this structure are general design lessons.
 
@@ -1078,7 +1076,7 @@ be assessed after an apparently less serious person whose picture is worsening r
 
 Triage is expressed with a **priority code** on an ordinal scale. The Italian reference model for
 in-hospital triage has **five levels**, introduced by the national triage guidance that was the
-subject of the Accordo Stato-Regioni of 1 August 2019 `[NV]` on the exact particulars of the
+subject of the Accordo Stato-Regioni of 1 August 2019; the exact extremes of the act, the official denominations of the levels and the maximum waiting times associated with each one, not verified against primary sources in this drafting, must be confirmed by the `GUIDA` area. `[NV]` particulars of the
 instrument, on the official names of the levels and on the maximum waiting times associated with
 each, not verified against a primary source in this drafting.
 
@@ -1118,7 +1116,7 @@ telemedicine, and the reasoning is illuminating: directing someone towards the a
 pathway **is not delivering a service** (module
 [02, § 1.3](02-prestazioni-di-telemedicina.md)).
 
-This exclusion must be read together with the project's domain constraint **V2**: if the system
+This exclusion must be read together with the project's domain constraint **[V2](../11_registri/03-vincoli-fondanti.md#v2)**: if the system
 **calculates** the priority rather than **recording** it, it enters the perimeter of clinical
 interpretation. The correct formulation of the function is therefore: Telemedic records the
 outcome of the assessment decided by the professional, with its reason and its time, and does not
@@ -1484,7 +1482,7 @@ whoever writes the code.
 ### 7.9 Thresholds are clinical configuration per patient, not code constants
 
 This is the point on which the module admits no gradation, and it is the project's constraint
-**V2** in its operational formulation: **the threshold and the alerting are configured by the
+**[V2](../11_registri/03-vincoli-fondanti.md#v2)** in its operational formulation: **the threshold and the alerting are configured by the
 professional, never inferred by the system** (decision **D21**).
 
 The reasons are four, and they are cumulative.
@@ -1592,7 +1590,7 @@ wrong:
 | Closure | typed outcome, action taken, any link to the review of the plan |
 | Service-hours configuration | versioned, because it determines whether a failure to respond was expected or anomalous |
 
-All of this falls under the project's constraint **V5** - immutable auditability - with the caveat
+All of this falls under the project's constraint **[V5](../11_registri/03-vincoli-fondanti.md#v5)** - immutable auditability - with the caveat
 recorded in decision **D42**: the versioning of entities **is not** immutability, and
 non-alterability requires a hash chain and retention separate from the system that generates the
 events.
@@ -1958,7 +1956,7 @@ scenarios legitimately appear in both files. Module
 
 **IEC 62366-1** is the standard on **usability engineering** applied to medical devices. For the
 project it is mandatory for the same reason as ISO 14971, and it is invoked by the cross-cutting
-constraint **D25/V6**, which makes usability, accessibility and mobile-first design requirements of
+constraint **D25/[V6](../11_registri/03-vincoli-fondanti.md#v6)**, which makes usability, accessibility and mobile-first design requirements of
 the whole system.
 
 The definition that matters is this one, and it must be read carefully because it overturns common
@@ -2043,7 +2041,7 @@ not satisfied. The entries in **bold** are absolute prohibitions.
    author, reason and instant of effect.
 4. Deviation from the pathway is representable and can be given a reason. A system that prevents it
    is worked around, and with it the reason for the deviation is lost.
-5. The catalogue of pathways is per tenant and per organisational scope (V4). No pathway is global
+5. The catalogue of pathways is per tenant and per organisational scope ([V4](../11_registri/03-vincoli-fondanti.md#v4)). No pathway is global
    by construction.
 6. An incoherent pathway is rejected at publication, with a message comprehensible to whoever
    drafted it, not at the moment a patient passes through it.
@@ -2149,7 +2147,7 @@ not satisfied. The entries in **bold** are absolute prohibitions.
 
 50. Every relevant event is **immutable**; the current state is a projection. The versioning of
     entities is not immutability (decision **D42**).
-51. Every entity, event and audit row carries the tenant identifier (V4).
+51. Every entity, event and audit row carries the tenant identifier ([V4](../11_registri/03-vincoli-fondanti.md#v4)).
 52. There is a reporting channel inside the product, distinct from technical support, with a
     response time to the person reporting.
 53. Near misses - blocked attempts, validation rejections, successful escalations - are retained
@@ -2165,7 +2163,7 @@ not satisfied. The entries in **bold** are absolute prohibitions.
     and people with disabilities included. If it is not carried out, it must be declared that it has
     not been carried out.
 58. None of the capabilities described in this module is reachable from the interface alone: they
-    all have a documented API (V3).
+    all have a documented API ([V3](../11_registri/03-vincoli-fondanti.md#v3)).
 
 ---
 

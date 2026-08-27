@@ -7,7 +7,7 @@ description: "Why the informational content of health documents is modelled as c
 # ADR-0005 - Canonical dataset of documents and replaceable serialisations
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference constraints**: V-07 of noticeboard; D30
+**Reference constraints**: [V-07](../11_registri/01-vincoli-in-vigore.md#v-07) of noticeboard; D30
 
 ## Context
 
@@ -62,7 +62,7 @@ Document content is the composition, and the dataset is what the composition con
 - One more conversion at every issuance.
 - The dataset is a synchronisation point between the conformity area, which determines its content, and this area, which determines its form: requires explicit coordination.
 
-**Who else is constrained**: conformity areas, integration, domain, protocols. It is constraint V-07 of noticeboard.
+**Who else is constrained**: conformity areas, integration, domain, protocols. It is constraint [V-07](../11_registri/01-vincoli-in-vigore.md#v-07) of noticeboard.
 
 ## References
 

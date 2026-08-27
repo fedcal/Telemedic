@@ -126,7 +126,7 @@ stateDiagram-v2
 Two clarifications that follow from project constraints.
 
 **This is not the state machine of the service.** The service has its own life cycle on the clinical
-plane, and the two are correlated but distinct: that is constraint V-01. A service may span several
+plane, and the two are correlated but distinct: that is constraint [V-01](../11_registri/01-vincoli-in-vigore.md#v-01). A service may span several
 sessions; a session may exist for a technical test with no service at all.
 
 **Verification is a state, not a step.** The session **does not enter the active state** until
@@ -204,7 +204,7 @@ that belong to the protocol follow:
 - the consent notice **explicitly states** that the session is no longer end-to-end encrypted. It is
   not a footnote: it is the fact that changes the nature of the guarantee;
 - the **actual container** of the recording is negotiated at runtime, never assumed, and travels in
-  the availability event of chapter [07 §3](./07-eventi-e-webhook.md). This is constraint V-11, and
+  the availability event of chapter [07 §3](./07-eventi-e-webhook.md). This is constraint [V-11](../11_registri/01-vincoli-in-vigore.md#v-11), and
   it arises from a verified divergence between the containers produced by the different runtime
   environments.
 
@@ -266,7 +266,7 @@ lifetime has elapsed.
 
 Two operational constraints that this area records because they come from the foundations module and
 concern the protocol: the **minimum version of the relay server** is the one declared by constraint
-V-10 and is not negotiable; **outbound network isolation is the primary defence**, and lists of
+[V-10](../11_registri/01-vincoli-in-vigore.md#v-10) and is not negotiable; **outbound network isolation is the primary defence**, and lists of
 forbidden addresses are defence in depth, not the other way round.
 
 ## 8. Degradation
@@ -282,7 +282,7 @@ classified reason. Three rules:
    video that freezes with no explanation is indistinguishable from a fault.
 2. **Degradation is reversible** and the recovery is communicated in the same way.
 3. **The thresholds are a product specification, not compliance.** No technical threshold is imposed
-   by Italian legislation: that is constraint V-12, and the project's values are declared as its
+   by Italian legislation: that is constraint [V-12](../11_registri/01-vincoli-in-vigore.md#v-12), and the project's values are declared as its
    own, never presented as legal requirements.
 
 Resilience is here an **accessibility requirement**, not an optimisation: scarce bandwidth, an

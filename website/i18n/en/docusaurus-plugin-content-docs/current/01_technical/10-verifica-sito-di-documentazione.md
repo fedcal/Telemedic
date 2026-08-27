@@ -6,27 +6,27 @@ description: "How it is established, in an executable and repeatable way, that n
 
 # Verifying the documentation site
 
-Milestone `T-07` of the roadmap (`docs/09_roadmap/02-traguardi.md`) establishes that the published
+Milestone `T-07` of the roadmap ([`docs/09_roadmap/02-traguardi.md`](../09_roadmap/02-traguardi.md)) establishes that the published
 site actually works, not merely that it exists. Three of its criteria - navigation, search, the
 translation-in-progress notice - cannot be verified by eye: criterion 6 of the same milestone
 requires their verification to be **an executable and repeatable procedure**, with the outcome of
 the last execution **recorded and dated**. This chapter is that procedure, written in prose so
 that it is readable even by someone who does not run the script that automates it; the script is
-`scripts/esegui-verifica-sito.sh`, and it describes the same procedure in its own header comment,
-for the same reason `pipeline/README-COMPONENTI.md` does not merely point to the control it
+[`scripts/esegui-verifica-sito.sh`](https://github.com/fedcal/Telemedic/blob/main/scripts/esegui-verifica-sito.sh), and it describes the same procedure in its own header comment,
+for the same reason [`pipeline/README-COMPONENTI.md`](https://github.com/fedcal/Telemedic/blob/main/pipeline/README-COMPONENTI.md) does not merely point to the control it
 describes.
 
 ## 1. What the procedure establishes
 
 | Step | What it verifies | Tool |
 |---|---|---|
-| 1 | The site build does not fail: no broken links and no broken anchors (the four `onBroken*` parameters of `website/docusaurus.config.mjs` are set to `'throw'`) | `npm run build` in `website/` |
-| 2 | Every navigation entry (`to:` in the navbar and in the footer) leads to a page that is actually published - the half of criterion 1 that the link checker **does not cover**, because a menu entry is theme configuration, not prose walked by the docs plugin | `scripts/verifica-voci-di-menu.sh` |
-| 3 | Search is reachable from every page of both locales and returns results **in the active language**, without cross-contamination between the two | `scripts/verifica-ricerca.sh` |
-| 4 | Every page of the English locale whose source document has no translation yet carries the "translation in progress" notice and the link to the Italian page - never an error, never silence on the root | `scripts/verifica-avviso-traduzione.sh` |
+| 1 | The site build does not fail: no broken links and no broken anchors (the four `onBroken*` parameters of [`website/docusaurus.config.mjs`](https://github.com/fedcal/Telemedic/blob/main/website/docusaurus.config.mjs) are set to `'throw'`) | `npm run build` in `website/` |
+| 2 | Every navigation entry (`to:` in the navbar and in the footer) leads to a page that is actually published - the half of criterion 1 that the link checker **does not cover**, because a menu entry is theme configuration, not prose walked by the docs plugin | [`scripts/verifica-voci-di-menu.sh`](https://github.com/fedcal/Telemedic/blob/main/scripts/verifica-voci-di-menu.sh) |
+| 3 | Search is reachable from every page of both locales and returns results **in the active language**, without cross-contamination between the two | [`scripts/verifica-ricerca.sh`](https://github.com/fedcal/Telemedic/blob/main/scripts/verifica-ricerca.sh) |
+| 4 | Every page of the English locale whose source document has no translation yet carries the "translation in progress" notice and the link to the Italian page - never an error, never silence on the root | [`scripts/verifica-avviso-traduzione.sh`](https://github.com/fedcal/Telemedic/blob/main/scripts/verifica-avviso-traduzione.sh) |
 
 Criteria 4 and 5 of `T-07` - the link to the not-a-medical-device declaration and the notice on
-every page - are verified by a separate script, `scripts/verifica-dichiarazione-non-marcatura.sh`,
+every page - are verified by a separate script, [`scripts/verifica-dichiarazione-non-marcatura.sh`](https://github.com/fedcal/Telemedic/blob/main/scripts/verifica-dichiarazione-non-marcatura.sh),
 already in operation as a blocking publication control (criterion 7 of `T-01`) and not repeated
 here: criterion 6 of `T-07` asks for the procedure covering only criteria 1, 2 and 3.
 
@@ -42,7 +42,7 @@ outcome of each, and **appends a row** to
 [`registro/verifiche-sito-di-documentazione.tsv`](https://github.com/fedcal/Telemedic/blob/main/registro/verifiche-sito-di-documentazione.tsv)
 with the date, the commit examined, the outcome for each criterion, who ran the verification, and
 a note. The register is **append-only**: no existing row is ever modified, for the same reason
-already written in `registro/README.md` for the requirement identifier register - a state that
+already written in [`registro/README.md`](https://github.com/fedcal/Telemedic/blob/main/registro/README.md) for the requirement identifier register - a state that
 gets overwritten can no longer be verified after the fact.
 
 With `SALTA_COSTRUZIONE=1` the script reuses an artefact already present in `website/build`
@@ -53,7 +53,7 @@ register row states so.
 ## 3. Why the record is not the pipeline's artefact
 
 A more obvious alternative would be to record the outcome in the continuous-build job that
-already exists (`.github/workflows/docs.yml`). It was not chosen because **it is not a record**:
+already exists ([`.github/workflows/docs.yml`](https://github.com/fedcal/Telemedic/blob/main/.github/workflows/docs.yml)). It was not chosen because **it is not a record**:
 a pipeline's execution logs are not version-controlled, are not accessible without credentials on
 the platform, and the only artefact a related job (`distinta-dei-materiali`) keeps today expires
 after ninety days - before the 30 November 2026 release. The project already has a position on

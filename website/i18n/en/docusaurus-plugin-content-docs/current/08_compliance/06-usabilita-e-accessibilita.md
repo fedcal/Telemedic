@@ -41,10 +41,10 @@ description: "Two distinct obligations that meet on the same interface: usabilit
 > obligation and does not make an uncertified version usable. Whoever deploys or puts the software
 > into service today assumes in full the resulting obligations - including the service's
 > accessibility statement, which falls on them and **will not fall on the project even when the
-> manufacturer entity is constituted** (§ 9, `V-273`).
+> manufacturer entity is constituted** (§ 9, [`V-273`](../11_registri/01-vincoli-in-vigore.md#v-273)).
 >
 > **No date appears in this chapter, and none can appear in it.** § 8 speaks of sequence and of
-> conditions of validity, never of when: constraint `V-171` prohibits asserting or implying that the
+> conditions of validity, never of when: constraint [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) prohibits asserting or implying that the
 > product will be marked by a deadline - this is the only admitted occurrence of that word - and
 > internal planning does not become a promise merely because it is ours. The project's dates are
 > solely in [09](./09-percorso-e-calendario.md), and they are internal planning (`D57`).
@@ -140,7 +140,7 @@ management system procedure, not left to the sensitivity of whoever designs.
 
 **An example taken from this domain, and not a didactic one.** The field containing the individual
 threshold of a monitoring plan starts empty and mandatory, with no pre-filling, not even with the
-values of the pathway or of the last plan (constraint `V-123` of the functional area). The reason is
+values of the pathway or of the last plan (constraint [`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123) of the functional area). The reason is
 not preference: a pre-filled field is **impeccably accessible** and systematically produces
 confirmation out of inertia of a value nobody has assessed. It is row `RM-06` of the risk register
 and it is a **level 1** measure - inherently safe design: the error is not possible because there is
@@ -165,7 +165,7 @@ to the manufacturer role falls at different points for each of them.
 | 8 | **Formative evaluations** during development and **summative validation** before release | `UE-FORM-001`, `UE-SUM-001` | **Conducts the formative ones** | **Conducts or commissions the summative one and assumes its outcome** |
 
 The set, plus the traceability links to the risk register, constitutes the **usability engineering
-file** `UEF-001`. The identifiers belong to the space declared by constraint `V-172` in chapter
+file** `UEF-001`. The identifiers belong to the space declared by constraint [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172) in chapter
 [03 §5](./03-sistema-di-gestione-della-qualita.md).
 
 **What the fifth column names, now that that role will be ours.** It does not name a third party: it
@@ -175,7 +175,7 @@ the outcome are acts the standard reserves to that role, and **the reservation d
 because the role will be ours**: it falls away when the entity exists **and** document control is in
 operation, because without the latter what is signed is a signature on a text and not a declaration
 ([02 §5.2](./02-qualificazione-e-classificazione.md);
-[03 §4.1](./03-sistema-di-gestione-della-qualita.md), `V-174`). Reading that column as "somebody
+[03 §4.1](./03-sistema-di-gestione-della-qualita.md), [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174)). Reading that column as "somebody
 else's work" was correct before `D58` and is incorrect now: it is **our work, not yet performable**,
 which is a more onerous condition and not a less onerous one.
 
@@ -205,7 +205,7 @@ correspondence is as follows.
 | **Physician** | Professional under time pressure | Takes on the clinical act, drafts the clinical document, configures the individual threshold |
 | **Non-physician healthcare professional** | Professional under pressure, case manager | Takes on the alerts and works on the plan without drafting the clinical report: different tasks and different professional constraints |
 | **Lay user** | Elderly person with low digital literacy, carer | No training, no instruction, no on-site support |
-| **Non-clinical operator** | Front-office operator, technical operator of the service centre | The separation between the service centre and the delivering centre is an authorisation constraint (`V-125`): they do not access clinical content and see a different interface |
+| **Non-clinical operator** | Front-office operator, technical operator of the service centre | The separation between the service centre and the delivering centre is an authorisation constraint ([`V-125`](../11_registri/01-vincoli-in-vigore.md#v-125)): they do not access clinical content and see a different interface |
 
 **Four groups mean four cohorts**, and every cohort has its own recruitment, consents, conduct,
 observation and analysis. It is the variable that determines the order of magnitude of the cost of
@@ -251,7 +251,7 @@ flowchart TB
     UE --> NOACC --> RM
 ```
 
-**The central node is the only point at which the two obligations coincide, and constraint `V-175`
+**The central node is the only point at which the two obligations coincide, and constraint [`V-175`](../11_registri/01-vincoli-in-vigore.md#v-175)
 of § 6.3 governs exactly that node.** The two side nodes are the two directions in which they do not
 coincide, and they are the reason why neither of the two verifications replaces the other.
 
@@ -268,7 +268,7 @@ accessibility non-conformity and a use error with a consequence for safety or fo
 | Statement of the service coverage status | Insufficient contrast or concealed by a theme customisation | False reassurance: the person believes they are under surveillance and delays contacting the emergency services | `RM-12` |
 | Error message on a critical path | Technical code only, without cause, consequence and action | The user abandons the path or performs the wrong action | `RNF-054` |
 
-The row on customisation is what makes constraint `V-163` of the integration area a **regulatory
+The row on customisation is what makes constraint [`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163) of the integration area a **regulatory
 requirement and not a product choice**: the mandatory statements are neither themeable nor
 concealable, and a theme configuration degrading contrast is rejected on saving, not flagged as a
 warning.
@@ -299,7 +299,7 @@ but not necessary - does not merge them.
 
 ### 6.3 The bidirectional linking rule - constraint `V-175`
 
-> **`V-175`.** The usability engineering file states, for **every safety-related characteristic of
+> **[`V-175`](../11_registri/01-vincoli-in-vigore.md#v-175).** The usability engineering file states, for **every safety-related characteristic of
 > the interface**, which accessibility criteria make it perceivable and operable; the accessibility
 > conformance report states, for **every criterion verified on those characteristics**, that it is
 > also a risk control measure. The link is bidirectional and verifiable. **An accessibility
@@ -319,7 +319,7 @@ verification is mechanical once both lists are versioned.
 
 The project declares **one single non-conformity**, on criterion 1.2.4 concerning real-time captions
 for live audio-video content (`D24`), with the interpreter as an alternative measure. Applying
-`V-175`:
+[`V-175`](../11_registri/01-vincoli-in-vigore.md#v-175):
 
 - the unavailability of real-time captions **does not render inaccessible** any of the
   safety-related characteristics listed in § 6.1, which are all textual or status-based and remain
@@ -333,7 +333,7 @@ for live audio-video content (`D24`), with the interpreter as an alternative mea
   in one of the two forums.
 
 **A dependency to be flagged and not discovered.** The declared limit on session participants is
-deferred pending measurement (`Q-111`). Should the measurement exclude the third participant, **the
+deferred pending measurement ([`Q-111`](../11_registri/02-questioni-aperte.md#q-111)). Should the measurement exclude the third participant, **the
 interpreter would no longer be admissible in session** and the alternative measure would fall
 together with the declarability of the non-conformity. It is a link between an engineering decision
 and an accessibility obligation that is not visible from either side.
@@ -354,8 +354,8 @@ optimisations.
 1. **The reference device is not the developer's.** Until it is declared, the use specification
    cannot be completed and requirement `RNF-106` - nine participants out of ten complete the entry
    of a measurement at the first attempt, without assistance, on a low-end device and a limited
-   network - **cannot be verified**. The choice is a product one (`Q-115`); the regulatory
-   consequence belongs to this area and is question `Q-175`.
+   network - **cannot be verified**. The choice is a product one ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115)); the regulatory
+   consequence belongs to this area and is question [`Q-175`](../11_registri/02-questioni-aperte.md#q-175).
 2. **Resilience is accessibility, not optimisation.** Degrading in a comprehensible way - audio
    before video, a clear notice, session resumption, the measurement kept locally and transmitted on
    restoration - is what makes the service usable by those with fewer resources. The absence of
@@ -427,7 +427,7 @@ at all, and then a person encounters it.
 | Formative evaluations | **Conducts them and publishes the outcomes**, now, without waiting for the entity to be constituted | **The manufacturer** reviews them when compiling the file |
 | Summative validation protocol | Technical draft | **The manufacturer approves it before execution** |
 | Conduct of the summative validation | - | **The manufacturer** conducts or commissions it, and **assumes its outcome** |
-| Consolidated `UEF-001` file | Identified contributions, with version, date and verifiable hash (`V-179`) | **The manufacturer compiles and signs** |
+| Consolidated `UEF-001` file | Identified contributions, with version, date and verifiable hash ([`V-179`](../11_registri/01-vincoli-in-vigore.md#v-179)) | **The manufacturer compiles and signs** |
 | **Accessibility statement** for the service | Template and verified technical content | **The deployer issues it**: the obliged party is whoever delivers the online service, and **it is not the manufacturer** |
 
 **How the third column is to be read, and why it no longer names a third party.** Where it says "the
@@ -448,7 +448,7 @@ customisation, the content uploaded by the tenant and the deployment environment
 manufacturer of a device is not, for that reason alone, the provider of the online service, and the
 two roles have different sources, preconditions and addressees.
 
-> **`V-273`.** **The service's accessibility statement is never the project's**, and it does not
+> **[`V-273`](../11_registri/01-vincoli-in-vigore.md#v-273).** **The service's accessibility statement is never the project's**, and it does not
 > become so by virtue of `D58`. The obliged party is **whoever delivers the online service**, that
 > is, whoever deploys and operates it; the project is bound to the **accessibility properties of the
 > product**, which are a distinct thing and which no deployer can add downstream. No artefact of the
@@ -469,10 +469,10 @@ version against which the verification was actually conducted, not "EN 301 549" 
 
 | Reference | Question | To whom |
 |---|---|---|
-| `Q-175` | **The reference device and environment are part of the use specification, not a performance parameter.** Until they are declared, `UE-SPEC-001` cannot be completed and `RNF-106` cannot be verified. It re-raises `Q-115` with the regulatory consequence that question did not record: it is not a measurement delay, it is a gap in the file | Product, technical |
-| `[NV]` | Presence and wording of the reference to EN 62366-1:2015+A1:2020 in the list of harmonised standards under the regulation (§ 2) | Compliance |
-| `[NV]` | Precise numbering of the points of Annex I on risks from use error and from ergonomic features (§ 2) | Compliance |
-| `[NV]` | Legally effective version of EN 301 549, and the consequent wording of the statement (§ 9) | Compliance |
-| `Q-111` | If the measurement of the participant limit excluded the third participant, the alternative measure to the declared non-conformity would fall (§ 6.4) | Architecture, technical |
-| `Q-273` | **The formative evaluations with real users are now an activity of ours and cannot be deferred (§ 8), but they cannot be produced by one person alone.** Observing a representative user performing a task requires **persons distinct** from whoever designed the interface, exactly as for the internal audit and the release review (`D54`): it is not a matter of hours. It must be established whether the function is acquired externally or whether the absence of formative evaluations is accepted as a declared risk - knowing that it is the risk § 8 identifies as the most expensive | Product, → **ORCH** |
+| [`Q-175`](../11_registri/02-questioni-aperte.md#q-175) | **The reference device and environment are part of the use specification, not a performance parameter.** Until they are declared, `UE-SPEC-001` cannot be completed and `RNF-106` cannot be verified. It re-raises [`Q-115`](../11_registri/02-questioni-aperte.md#q-115) with the regulatory consequence that question did not record: it is not a measurement delay, it is a gap in the file | Product, technical |
+| `[NV]` | Presence and wording of the reference to EN 62366-1:2015+A1:2020 in the list of harmonised standards: to be verified in the Official Journal of the European Union (§ 2) | a request to the Commission, EU Official Journal |
+| `[NV]` | Precise numbering of the points of Annex I on risks from use error and from ergonomic features (§ 2) | `COMP` |
+| `[NV]` | Legally effective version of EN 301 549 for the Accessibility Act: to be verified in the Official Journal of the European Union (§ 9) | a request to the Commission, EU Official Journal |
+| [`Q-111`](../11_registri/02-questioni-aperte.md#q-111) | If the measurement of the participant limit excluded the third participant, the alternative measure to the declared non-conformity would fall (§ 6.4) | Architecture, technical |
+| [`Q-273`](../11_registri/02-questioni-aperte.md#q-273) | **The formative evaluations with real users are now an activity of ours and cannot be deferred (§ 8), but they cannot be produced by one person alone.** Observing a representative user performing a task requires **persons distinct** from whoever designed the interface, exactly as for the internal audit and the release review (`D54`): it is not a matter of hours. It must be established whether the function is acquired externally or whether the absence of formative evaluations is accepted as a declared risk - knowing that it is the risk § 8 identifies as the most expensive | Product, → **ORCH** |
 | - | **The number and composition of the summative cohorts** are not fixed and will not be until there is a notified body with which to agree them (§ 5), and engaging one presupposes the **manufacturer entity, to be constituted**. The project states the sufficiency criterion, not the number | **The manufacturer**, once the entity is constituted |

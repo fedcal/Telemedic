@@ -118,8 +118,8 @@ verificati **[V]**:
 Attenzione a due dettagli che si sbagliano quasi sempre. Primo: l'estensione richiede una
 sotto-estensione **obbligatoria** `_datatype` con valore fisso `VirtualServiceDetail`
 **[V]**; senza quella l'istanza non valida. Secondo: la sotto-estensione `address` è
-un'estensione **complessa**, non un valore semplice **[V]** - **[NV]** la sua forma esatta
-nelle istanze non è stata verificata e va accertata risolvendo il pacchetto alla versione
+un'estensione **complessa**, non un valore semplice **[V]** - la sua forma esatta
+nelle istanze rimane da accertare da parte dell'area `TECH` `[NV]` e va verificata risolvendo il pacchetto alla versione
 fissata prima di scrivere codice.
 
 Il livello di maturità 0 significa che l'estensione **può cambiare**. Va fissata la versione
@@ -655,7 +655,7 @@ organizzazioni, dispositivi censiti. Contenere un `Patient` significa creare una
 persona che nessuno potrà correlare con nient'altro - l'esatto opposto dello scopo di FHIR.
 
 **[V]** Il codice LOINC `8480-6` usato nell'esempio non è stato verificato nella fase di
-ricerca del progetto: **[NV]**, va confermato prima dell'uso reale.
+ricerca del progetto, rimane da accertare da parte dell'area `TECH` `[NV]`, va confermato prima dell'uso reale.
 
 ### 4.5 Riferimenti dentro un `Bundle`
 
@@ -962,7 +962,7 @@ Ha una gerarchia (`partOf`) che permette di rappresentare le articolazioni inter
 **Come la usa Telemedic.** È il perno del modello di tenant: l'organizzazione erogante è
 l'elemento che lega il contatto assistenziale al tenant.
 
-**[NV]** L'elenco puntuale degli elementi di `Organization` in R4 non è stato verificato
+L'elenco puntuale degli elementi di `Organization` in R4 rimane da accertare da parte dell'area `TECH` `[NV]`
 nella fase di ricerca del progetto; va letto sulla specifica prima di scrivere il profilo.
 
 ### 6.5 `Location`
@@ -973,8 +973,7 @@ nella fase di ricerca del progetto; va letto sulla specifica prima di scrivere i
 rappresentarla, ed è il modo naturale di dare un'identità stabile a uno spazio di sessione
 che non ha coordinate geografiche.
 
-**[NV]** Gli elementi puntuali di `Location` in R4 e il vocabolario dei tipi di luogo non
-sono stati verificati; vanno letti sulla specifica.
+Gli elementi puntuali di `Location` in R4 e il vocabolario dei tipi di luogo rimangono da accertare da parte dell'area `TECH` `[NV]`; vanno letti sulla specifica.
 
 ### 6.6 `Appointment`
 
@@ -1019,7 +1018,7 @@ un `Schedule`.
 modulo di agenda proprio è attivo. Quando l'agenda esiste già nel sistema
 dell'integratore, il progetto non le popola: riceve gli appuntamenti già formati.
 
-**[NV]** Gli elementi puntuali di `Schedule` e `Slot` in R4 non sono stati verificati nella
+Gli elementi puntuali di `Schedule` e `Slot` in R4 rimangono da accertare da parte dell'area `TECH` `[NV]` nella
 fase di ricerca; vanno letti sulla specifica prima di implementare.
 
 ### 6.9 `Encounter`
@@ -1147,7 +1146,7 @@ risorsa tipicamente usata nei sistemi di indicizzazione documentale.
    profilo IHE di pubblicazione documentale.
 2. **Registrazione video della sessione**: si modella su `DocumentReference` con
    `content.attachment.contentType` valorizzato al tipo del contenitore video **negoziato a
-   runtime e mai presunto** (vincolo `V-11`, [`04_protocols/02 §10.3`](../04_protocols/02-fhir.md)).
+   runtime e mai presunto** (vincolo [`V-11`](../11_registri/01-vincoli-in-vigore.md#v-11), [`04_protocols/02 §10.3`](../04_protocols/02-fhir.md)).
    **Mai** sulla
    risorsa rimossa in R5 **[V]**.
 
@@ -1254,8 +1253,8 @@ nel percorso di telemonitoraggio, e dei moduli di raccolta informazioni prima de
 sessione. La risorsa delle risposte può essere collegata alle osservazioni tramite gli
 elementi di derivazione e di appartenenza **[V]**.
 
-**[NV]** Gli elementi puntuali di `Questionnaire` e `QuestionnaireResponse` in R4 e il
-meccanismo di popolamento ed estrazione non sono stati verificati nella fase di ricerca del
+Gli elementi puntuali di `Questionnaire` e `QuestionnaireResponse` in R4 e il
+meccanismo di popolamento ed estrazione rimangono da accertare da parte dell'area `TECH` `[NV]` nella fase di ricerca del
 progetto: vanno letti sulla specifica prima di implementare.
 
 ### 6.17 `Device`
@@ -1267,7 +1266,7 @@ Il perimetro del progetto è preciso: **Telemedic non dialoga direttamente con i
 medici**, riceve le misure da un gateway di terze parti. La risorsa `Device` serve a
 tracciare *da dove viene* la misura, non a comandare l'apparecchio.
 
-**[NV]** Gli elementi puntuali di `Device` e `DeviceMetric` in R4 non sono stati verificati;
+Gli elementi puntuali di `Device` e `DeviceMetric` in R4 rimangono da accertare da parte dell'area `TECH` `[NV]`;
 vanno letti sulla specifica.
 
 ### 6.18 `AuditEvent`
@@ -1754,9 +1753,8 @@ validano sono peggio di nessun esempio, perché insegnano a sbagliare.
 Sul server, la validazione si invoca con `$validate` - ricordando che restituisce **200
 anche in caso di errori** **[V]**.
 
-**[NV]** I nomi, le versioni e le modalità di invocazione degli strumenti concreti di
-validazione (validatore da riga di comando, strumento di pubblicazione delle guide) non
-sono stati verificati nella fase di ricerca del progetto: vanno accertati e fissati nella
+I nomi, le versioni e le modalità di invocazione degli strumenti concreti di
+validazione (validatore da riga di comando, strumento di pubblicazione delle guide) rimangono da accertare da parte dell'area `TECH` `[NV]` nella fase di ricerca del progetto: vanno fissati nella
 configurazione di build.
 
 ### 8.4 I problemi noti delle guide italiane

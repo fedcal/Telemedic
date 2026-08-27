@@ -132,7 +132,7 @@ realizzazione.
 ancoraggi, cadenza delle verifiche di integrità, forma minima dell'origine della richiesta
 compatibile con la minimizzazione.
 
-**Chi decide**: area di sicurezza, con area di conformità per le implicazioni probatorie.
+**Chi decide**: area di sicurezza, con `COMP` per le implicazioni probatorie.
 
 **Che cosa quest'area ha già fissato**: la combinazione dei quattro strati, la catena per tenant,
 la conservazione separata, il carattere bloccante della scrittura, l'elenco chiuso di ciò che non
@@ -165,7 +165,7 @@ non è giustificato.
 **Non deciso**: se e come il sistema possa calcolare punteggi di scale e questionari clinici
 validati, che hanno licenze proprie distinte da quelle delle terminologie.
 
-**Chi decide**: area di conformità, con quest'area per le conseguenze strutturali.
+**Chi decide**: `COMP`, con quest'area per le conseguenze strutturali.
 
 **Perché è bloccante**: la questione va chiusa **prima** che venga scritto il primo motore di
 calcolo. Scriverlo e poi scoprire che lo strumento non è utilizzabile significa rimuovere una
@@ -217,7 +217,7 @@ di integrità del registro - perché la loro assenza rende invisibili guasti sil
 **Non deciso**: modelli di documento strutturato, codici documentali e metadati di indicizzazione
 per le tipologie documentali di telemedicina, non pubblicamente disponibili.
 
-**Chi decide**: area di conformità, che ha in carico l'interlocuzione.
+**Chi decide**: `COMP`, che ha in carico l'interlocuzione.
 
 **Perché quest'area può procedere comunque**: il contenuto informativo è modellato come **dataset
 canonico** e ogni serializzazione è sostituibile. L'arrivo del materiale sarà la scrittura di un
@@ -228,7 +228,7 @@ mappatore, non una migrazione del modello.
 **Non deciso**: se l'insieme chiuso dei costrutti adottati per le regole del piano di
 telemonitoraggio (ADR-0026) resti dentro la destinazione d'uso congelata.
 
-**Chi decide**: area di conformità.
+**Chi decide**: `COMP`.
 
 **Che cosa quest'area ha già fissato**: l'insieme è **chiuso**, ciascun costrutto ha semantica
 dichiarata e prove proprie, non esistono costrutti che deducano soglie da popolazione o storico né
@@ -241,11 +241,11 @@ funzionalità. Serve un criterio di conformità stabilito **prima** della prima 
 
 ### B-9 - Contratto minimo del gateway di misure di terze parti
 
-**Non deciso**: `[NV]` se i gateway di mercato espongano il **segnale di presenza periodico
+**Non deciso** (da verificare con `INTEG` `[NV]`): se i gateway di mercato espongano il **segnale di presenza periodico
 indipendente dalla misura** e la **telemetria di stato del dispositivo**.
 
-**Chi decide**: area di integrazione, con verifica di mercato; conseguenze di sicurezza a carico
-dell'area funzionale.
+**Chi decide**: `INTEG`, con verifica di mercato; conseguenze di sicurezza a carico
+dell'`FUNZ`.
 
 **Conseguenza architetturale**: senza quei due elementi la tassonomia del silenzio perde le
 categorie tecniche, e il sistema non distingue «il dispositivo non ha misurato» da «il dispositivo
@@ -254,11 +254,11 @@ comunque come entità, con la causa marcata come **non determinabile** invece ch
 
 ### B-8 - Propagazione del livello di garanzia attraverso l'intermediazione
 
-**Non deciso**: `[NV]` - se il prodotto di federazione, agendo verso un fornitore di identità
+**Non deciso** (questione `Q-160` `[NV]`): se il prodotto di federazione, agendo verso un fornitore di identità
 esterno, **inoltri il livello richiesto** attraverso il realm di intermediazione. Se non lo
 inoltra, l'innalzamento di livello per operazione non è ottenibile per sola configurazione.
 
-**Chi decide**: verifica empirica a carico dell'area di integrazione e dell'area tecnica.
+**Chi decide**: verifica empirica a carico dell'`INTEG` e dell'`TECH`.
 
 **Perché è sul percorso critico**: la documentazione pubblica non può descrivere come si propaga il
 livello di garanzia prima che la verifica sia stata fatta. Il costo della verifica è quasi nullo;

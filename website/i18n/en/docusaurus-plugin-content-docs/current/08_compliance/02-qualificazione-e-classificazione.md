@@ -162,7 +162,7 @@ worth more than any technological choice taken in the project:**
 | "**real-time** monitoring of **vital parameters**" | **IIb** | **C** | 12–18 months and an order of magnitude - **an industry estimate, not a price list** |
 | "**deferred** collection of **parameters** for **periodic review** by the professional" | **IIa** | **B** | - |
 
-The second formulation is the one on which the entire domain model is written (constraint `V-144`
+The second formulation is the one on which the entire domain model is written (constraint [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144)
 of `DOM`), and from which follows the prohibition, for any artefact of the project, on using the
 expressions "real-time monitoring", "continuous surveillance" or equivalents.
 
@@ -181,7 +181,7 @@ enough: the product must be built so that they are true.
 
 **The four exclusions are not equivalent in terms of how they are guarded.** `E1` and `E2` are
 architectural: they are guarded by the domain model and by the alert state machine. `E3` is
-communicative: it is guarded by the review of public texts (constraint `V-171`,
+communicative: it is guarded by the review of public texts (constraint [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171),
 [01 §11](./01-inquadramento-normativo.md)). `E4` is the one that **gets lost in an apparently
 innocuous feature request**, and it is the subject of § 6.
 
@@ -240,7 +240,7 @@ the extract is **more defensible from the wrong side**, because the project has 
 intention to assume the manufacturer role and the reader is not obliged to distinguish between an
 intention and a constituted entity. Why the outline remains an outline is set out in § 5.2; what
 counts here is the practical consequence, which does not change: **no extract of this outline may
-circulate on its own**. **Question `Q-170` takes this point to the orchestration**: the choice
+circulate on its own**. **Question [`Q-170`](../11_registri/02-questioni-aperte.md#q-170) takes this point to the orchestration**: the choice
 between publishing the outline in full, publishing it only as a structure without the text of the
 substantive sections, or supplying it on request to whoever states that they intend to use it, is a
 decision for the project owner and not for this area.
@@ -266,10 +266,10 @@ because it is the checklist against which the notified body verifies completenes
 
 **One thing must be said about section 10 that the technical area has already settled and that
 becomes regulatory here.** The thresholds are **product specification, never compliance**
-(constraint `V-12`): no Italian rule imposes values. But from the moment they are declared in the
+(constraint [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12)): no Italian rule imposes values. But from the moment they are declared in the
 intended purpose, they become **declared performance**, and the system must behave as declared.
 Declaring a threshold the product does not meet is more serious than declaring none. And the
-thresholds have not yet been measured: question `Q-115` of `TECH` is open on precisely this, and
+thresholds have not yet been measured: question [`Q-115`](../11_registri/02-questioni-aperte.md#q-115) of `TECH` is open on precisely this, and
 while it is open **section 10 cannot be completed**.
 
 ### 5.2 Why it remains an outline, now that the project intends to assume the manufacturer role
@@ -315,7 +315,7 @@ expensive part.**
 | Why it is not a declaration | The **party** who declares is missing | The **document control system** that makes a declaration what it is, is missing |
 | What would make it one | The arrival of a third-party manufacturer | The **manufacturer entity, to be constituted**, **plus** document control in operation, **plus** the person responsible for regulatory compliance |
 | Who must produce it | Somebody else | **Us**, once the entity is constituted |
-| When it can happen | Outside the project's control | After steps the project must take, each with a time of its own. **No date, no window** (`V-171`) |
+| When it can happen | Outside the project's control | After steps the project must take, each with a time of its own. **No date, no window** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)) |
 | Is the product closer to clinical use? | | **No.** What changes is who intends to walk the road, not the state of the product |
 
 **The corollary not to be lost sight of.** The new condition is **verifiable and ours to bear**,
@@ -323,13 +323,13 @@ whereas the old one was a wait. It is a difference that makes the document *more
 less: before, the absence of a declaration was an external fact to be recorded; now it is a **gap of
 ours** with a known remedy - instituting document control - and an already declared cost of
 omission, because a document born outside document control **must be reissued** and not simply
-approved afterwards ([03 §4.1](./03-sistema-di-gestione-della-qualita.md), `V-174`;
+approved afterwards ([03 §4.1](./03-sistema-di-gestione-della-qualita.md), [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174);
 [09 §5](./09-percorso-e-calendario.md), unrecoverable activity no. 3).
 
 **And the opening line, repeated because it is the one that gets lost.** The product **bears no CE
 marking** and is covered by no declaration of conformity. Whoever deploys it, integrates it or puts
 it into service assumes in full the resulting obligations, **and the fact that the project intends
-to certify transfers none of them to them**. No date is stated here, and none can be: `V-171`
+to certify transfers none of them to them**. No date is stated here, and none can be: [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)
 prohibits asserting or implying that the product will be marked by a deadline - that is the only
 admitted occurrence of that word, inside the statement of the prohibition - and internal planning
 does not become a promise merely because it is ours.
@@ -353,16 +353,16 @@ Every row is worded as one actually hears it worded: as a reasonable request.
 
 | # | The request, as it is worded | What really changes | Basis | Outcome |
 |---|---|---|---|---|
-| **1** | "Let's pre-fill the threshold field with the last value used for that pathway; the physician can always change it" | The threshold ceases to be defined by the professional for that patient and becomes **proposed by the system**. A physician confirming a proposed value is not performing the same operation as one who writes it | `E4`; constraints `V-02` and `V-123` | The field stays **empty and mandatory**. References are shown with their attribution, read-only, with an explicit copy action |
+| **1** | "Let's pre-fill the threshold field with the last value used for that pathway; the physician can always change it" | The threshold ceases to be defined by the professional for that patient and becomes **proposed by the system**. A physician confirming a proposed value is not performing the same operation as one who writes it | `E4`; constraints [`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02) and [`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123) | The field stays **empty and mandatory**. References are shown with their attribution, read-only, with an explicit copy action |
 | **2** | "Let's colour in red the values outside the laboratory's reference range" | The laboratory's reference range **is not that patient's threshold**. Colouring according to a range the system knows is a qualification of the data performed by the system | Rule 11a; `E4` | Only highlighting against the threshold **configured by the professional for that patient** is admitted, with the attribution visible |
 | **3** | "Let's sort the patient list by severity, so the physician sees the most critical ones first" | Sorting **is** a judgement: it establishes a clinical priority between people. It is decision support | Rule 11a, entry C6 of the table in [10 §15 §2.8](/10_fondamenti/15-regolatorio-da-zero.md) | Admitted sorts: chronological, alphabetical, by administrative status, by presence of alerts **not yet taken on** (which is a fact, not a judgement) |
-| **4** | "Let's fill the gaps in the series with the last known value, so the chart is readable" | Interpolation **creates data that does not exist**. And it deletes the most important information that series contains: that a measurement is missing | Rule 11a; constraints `V-09` and `V-148` | The gap stays a gap, and it is an entity: an unmet expected measurement is shown as such |
+| **4** | "Let's fill the gaps in the series with the last known value, so the chart is readable" | Interpolation **creates data that does not exist**. And it deletes the most important information that series contains: that a measurement is missing | Rule 11a; constraints [`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09) and [`V-148`](../11_registri/01-vincoli-in-vigore.md#v-148) | The gap stays a gap, and it is an entity: an unmet expected measurement is shown as such |
 | **5** | "Let's calculate the percentage of adherence to the plan" | It depends. The ratio between expected and received measurements is **arithmetic on facts**. An "adherence score" that is weighted, normalised or categorised into bands is **a summary index**, that is, new clinical information | Rule 11a | The count is admitted with its explicit definition and its denominators visible; the merit band is prohibited |
 | **6** | "In recording playback let's add zoom and contrast adjustment" | Image enhancement for clinical reading is **processing for diagnostic purposes**, not playback convenience | MDCG 2019-11 Rev.1 § 3.1; entry C3 | Out of scope. Playback is faithful to the original, and says so |
 | **7** | "Let's measure the lesion on the image with an on-screen ruler" | Measurement on an image: quantitative information produced by the system, with a possible **measuring function** within the meaning of Article 52 | Rule 11a and implementing rule 3.7; entry C4 | Out of scope |
 | **8** | "Let's suggest the diagnosis code while the physician types" | Automatic semantic coding of the clinical document: the system proposes clinical content | Rule 11a; entry C5 | Out of scope. Free-text search in a code catalogue, returning matches without ordering them by clinical relevance, remains plain search |
 | **9** | "Let's produce an automatic summary of the session to attach to the clinical report" | Automatic summarisation: **clinical content generated by the system** inside a clinical document. And, if implemented with generative models, it introduces a **second regulatory regime** on top of the device one | `E4`; Regulation (EU) 2024/1689 | Out of scope. It is one of the three functions "one user story away" of `D26` |
-| **10** | "Let's detect faces during the session to establish the presence of third parties" | Biometric processing on a clinical stream, with a regime of its own under the data protection framework and under the artificial intelligence one, and with an error rate that would fall back on a consent | Deliberate renunciation of `DOM`, question `Q-145` | Out of scope. The presence of third parties is **declared**, and the declaration is a separate consent (`V-146`) |
+| **10** | "Let's detect faces during the session to establish the presence of third parties" | Biometric processing on a clinical stream, with a regime of its own under the data protection framework and under the artificial intelligence one, and with an error rate that would fall back on a consent | Deliberate renunciation of `DOM`, question [`Q-145`](../11_registri/02-questioni-aperte.md#q-145) | Out of scope. The presence of third parties is **declared**, and the declaration is a separate consent ([`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)) |
 | **11** | "Let's state in the integration documentation that we are compatible with measuring device *X*" | **The accessory trap.** Article 2(2) defines an accessory as an item intended by the manufacturer to be used with one or more **specific** medical devices; implementing rule 3.3 drags software that drives or influences a device **into the same class as the device driven** | Article 2(2); Annex VIII, Chapter II, 3.3 | The integration documentation remains **device-agnostic**. A single sentence can import the class of somebody else's equipment |
 | **12** | "Let's add automatic translation of chat messages, it is only a convenience" | A translation error in a clinical channel is an error of clinical content. And the function is, by construction, an artificial intelligence system with obligations of its own | Rule 11a; Regulation (EU) 2024/1689 | Out of scope in version 1.0. Multilingual support belongs to the **interface**, not to the content written by users |
 
@@ -430,7 +430,7 @@ it from the notified body at the first comparison between the file and the inter
 
 ## 8. The declared perimeter
 
-**This section answers question `Q-01` on the noticeboard**, opened by the guide area, which asked
+**This section answers question [`Q-01`](../11_registri/02-questioni-aperte.md#q-01) on the noticeboard**, opened by the guide area, which asked
 for the perimeter boundaries to be aligned with the intended purpose declaration.
 
 **Outcome: the boundaries indicated are confirmed and made binding**, and they belong to the `E4`
@@ -441,9 +441,9 @@ block. No artefact of the project may contain:
 | **No interpretative judgement in notices** | A notice states a **measured fact** with its attribution: "the 08:14 measurement is 152, the threshold set by Dr *X* on *Y* is 140". It does not state an evaluation: "elevated value", "situation requiring attention", "deterioration" |
 | **No drug interaction checking** | Out of scope entirely, in every form, passive flagging included |
 | **No prognosis** | No projection, declared trend, prediction or estimate of progression. A time series is displayed; it is not extrapolated |
-| **No image enhancement** | Neither live nor in playback. The rendering is faithful to the source, and the degradation preference is **chosen by the user**, never driven by clinical content (question `Q-114` of `TECH`) |
+| **No image enhancement** | Neither live nor in playback. The rendering is faithful to the source, and the degradation preference is **chosen by the user**, never driven by clinical content (question [`Q-114`](../11_registri/02-questioni-aperte.md#q-114) of `TECH`) |
 
-**And the six deliberate renunciations** declared by `DOM` with question `Q-145` - automatic face
+**And the six deliberate renunciations** declared by `DOM` with question [`Q-145`](../11_registri/02-questioni-aperte.md#q-145) - automatic face
 detection, reliability weights applied automatically, risk scores and prognosis, interpolation of
 missing data, computation of clinical outcomes, inference of thresholds - are, from this area's
 point of view, **the six functions that would keep the product in Class IIa only by luck**. This
@@ -452,7 +452,7 @@ roadmap decision, it is a reclassification.
 
 ### 8.1 Local execution of clinical logic
 
-**This section answers question `Q-142`**, opened by `DOM`.
+**This section answers question [`Q-142`](../11_registri/02-questioni-aperte.md#q-142)**, opened by `DOM`.
 
 **Outcome: confirmed. Local execution of clinical logic is out of scope, and the distinction
 holds.** Annex 3, § 3.2, of DM 19 novembre 2025 (the Ministerial Decree of 19 November 2025)
@@ -507,7 +507,7 @@ service** to be delivered by telemedicine".
 
 **`[NV]`** - the formulations are reported from the project's research on the text published in the
 Gazzetta Ufficiale, but **literal verification against the official text must be redone before any
-contractual use**, because in this area the exact wording is decisive.
+contractual use** by `COMP`, because in this area the exact wording is decisive.
 
 **The operational consequence is clear-cut:** in the Italian public market the requirement of
 certification as a medical device **may come from the tender specification**, irrespective of the
@@ -526,7 +526,7 @@ wish to enter radiological or histopathological specialist-to-specialist consult
 
 Qualification is not defended with a document. It is defended with a **process that prevents a
 change proposal from crossing the boundary without anyone noticing**, and this is constraint
-`V-170`.
+[`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170).
 
 | Element of the guard | What it does | Where it lives |
 |---|---|---|
@@ -534,7 +534,7 @@ change proposal from crossing the boundary without anyone noticing**, and this i
 | **Scope review on change proposals** | A proposal introducing one of the functions listed **is not rejected on technical merit, but on scope policy**. The reason for the rejection is regulatory and is to be written as such | Contribution guide, mandatory review |
 | **Explicit prohibition on artificial intelligence components** | No function declared today is an artificial intelligence system. Introducing one in a change proposal **is a change of regulatory regime**, not a technical choice | Contribution guide and architecture decision record |
 | **Review of the determination at every major release** | Verification that the six conditions of § 7.2 have not occurred | Release procedure |
-| **Regulatory review of public texts** | The intended purpose is derived from promotional material as well: a text published without review is an uncontrolled change to the intended purpose | Question `Q-174` |
+| **Regulatory review of public texts** | The intended purpose is derived from promotional material as well: a text published without review is an uncontrolled change to the intended purpose | Question [`Q-174`](../11_registri/02-questioni-aperte.md#q-174) |
 
 **The last row is the one that surprises those coming from software.** A change to the public page
 does not go through code review, does not appear in a release manifest and makes no automated check
@@ -572,11 +572,11 @@ The item-by-item determination, with its rationale and its warning, is in chapte
 
 | Reference | Question | To whom |
 |---|---|---|
-| `Q-170` | Form of publication of the intended-purpose outline: in full, structure only, or supply on request. **It is a decision about the risk of being cited as the authors of an intended purpose** (§ 5) | → Project owner |
-| `Q-173` | Whether the presentation of measured parameters constitutes a **measuring function** within the meaning of the MDR, with the resulting metrological requirements of Annex I. It depends on a fact this area does not know: whether the system converts units, rounds or transforms the values received, or presents them as received | Domain, functional |
-| `Q-144` | **CLOSED by `D55`.** The intended purpose of remote monitoring is **frozen** on the formulation "deferred collection of parameters for periodic review by the professional": Class IIa, software safety class B. The real-time formulation is excluded. From this follows a permanent prohibition - no function may be added that moves the system towards clinical real time, and the assessment must be made **before** writing the function | **RESOLVED** |
-| `Q-145` | Confirmation of the six deliberate renunciations as product choices subject to change control. **This area confirms them as compliance boundaries** and awaits product confirmation | → Project owner |
-| `Q-115` | The operating environment thresholds have not been measured: until they are, section 10 of the intended purpose cannot be completed (§ 5.1) | Technical, product |
-| `V-270` | **The project intends to assume the manufacturer role (`D58`); the entity that would exercise it is not constituted.** Until it is, and until document control is in operation, the intended-purpose outline **cannot** be signed or presented as a declaration (§ 5.2) | Compliance, orchestration |
-| `[NV]` | Literal verification against the official text in the Gazzetta Ufficiale of the certification prescriptions of DM 21 settembre 2022 (§ 9) | Compliance |
-| `[NV]` | Numbers of the implementing rules of Annex VIII, Chapter II, cited in § 4.1 and § 6.1: they must be re-read against the consolidated text before appearing in a determination document | Compliance |
+| [`Q-170`](../11_registri/02-questioni-aperte.md#q-170) | Form of publication of the intended-purpose outline: in full, structure only, or supply on request. **It is a decision about the risk of being cited as the authors of an intended purpose** (§ 5) | → Project owner |
+| [`Q-173`](../11_registri/02-questioni-aperte.md#q-173) | Whether the presentation of measured parameters constitutes a **measuring function** within the meaning of the MDR, with the resulting metrological requirements of Annex I. It depends on a fact this area does not know: whether the system converts units, rounds or transforms the values received, or presents them as received | Domain, functional |
+| [`Q-144`](../11_registri/02-questioni-aperte.md#q-144) | **CLOSED by `D55`.** The intended purpose of remote monitoring is **frozen** on the formulation "deferred collection of parameters for periodic review by the professional": Class IIa, software safety class B. The real-time formulation is excluded. From this follows a permanent prohibition - no function may be added that moves the system towards clinical real time, and the assessment must be made **before** writing the function | **RESOLVED** |
+| [`Q-145`](../11_registri/02-questioni-aperte.md#q-145) | Confirmation of the six deliberate renunciations as product choices subject to change control. **This area confirms them as compliance boundaries** and awaits product confirmation | → Project owner |
+| [`Q-115`](../11_registri/02-questioni-aperte.md#q-115) | The operating environment thresholds have not been measured: until they are, section 10 of the intended purpose cannot be completed (§ 5.1) | Technical, product |
+| [`V-270`](../11_registri/01-vincoli-in-vigore.md#v-270) | **The project intends to assume the manufacturer role (`D58`); the entity that would exercise it is not constituted.** Until it is, and until document control is in operation, the intended-purpose outline **cannot** be signed or presented as a declaration (§ 5.2) | Compliance, orchestration |
+| `[NV]` | Literal verification against the official text in the Gazzetta Ufficiale of the certification prescriptions of DM 21 settembre 2022 (§ 9) | `COMP` |
+| `[NV]` | Numbers of the implementing rules of Annex VIII, Chapter II, cited in § 4.1 and § 6.1: they must be re-read against the consolidated text before appearing in a determination document | `COMP` |

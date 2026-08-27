@@ -186,8 +186,7 @@ determina chi è il committente del software (§ 11).
    riparto è deliberato dal CIPESS su proposta del Ministero della salute previa intesa in
    Conferenza Stato-Regioni. Le Regioni possono integrare con risorse proprie; se sforano
    senza copertura entrano in **piano di rientro**, un regime di vincoli sulla spesa che
-   include il blocco del turnover e l'obbligo di aumentare le addizionali fiscali. `[NV]`
-   sull'elenco aggiornato delle Regioni in piano di rientro alla data odierna.
+   include il blocco del turnover e l'obbligo di aumentare le addizionali fiscali. L'elenco aggiornato delle Regioni in piano di rientro alla data odierna è oggetto di verifica continua da parte dell'area `GUIDA` `[NV]`.
 2. **Dalla Regione alle aziende.** La Regione assegna a ciascuna azienda sanitaria un
    budget, in parte a **quota capitaria** (una somma per assistito residente, che finanzia
    le funzioni di tutela della popolazione) e in parte a **remunerazione delle prestazioni
@@ -232,8 +231,8 @@ La ASL ha una **doppia natura** che è la fonte di molte confusioni:
 Al suo interno il **distretto** è l'articolazione territoriale che organizza l'assistenza
 primaria e la specialistica ambulatoriale di base per un bacino di popolazione (il DM
 77/2022 fissa lo standard di riferimento in circa **100.000 abitanti** per distretto,
-con variazioni per densità e orografia `[NV]` sul valore esatto, da verificare
-sull'Allegato 1 del decreto).
+con variazioni per densità e orografia che l'area `GUIDA` `[NV]` deve verificare
+sull'Allegato 1 del decreto per il valore esatto).
 
 **La sigla non è uniforme.** A seconda della Regione lo stesso ente si chiama ASL, AUSL
 (Azienda unità sanitaria locale), ASP (Azienda sanitaria provinciale), AST (Azienda
@@ -322,8 +321,7 @@ ci sono flussi di rendicontazione al SSN. Ci sono però obblighi che restano:
   dichiarazione dei redditi precompilata (art. 3, c. 3, D.lgs. 175/2014 e decreti attuativi
   del Ministero dell'economia);
 - **fatturazione elettronica**, con il regime speciale che vieta la trasmissione al Sistema
-  di Interscambio delle fatture contenenti dati sanitari verso persone fisiche `[NV]` sulla
-  disciplina vigente alla data odierna, oggetto di proroghe annuali;
+  di Interscambio delle fatture contenenti dati sanitari verso persone fisiche è soggetta a disciplina che l'area `GUIDA` `[NV]` deve verificare, in quanto oggetto di proroghe annuali;
 - **alimentazione del FSE**, che il DM 7 settembre 2023, art. 12, c. 1 estende alle
   «strutture sanitarie autorizzate» e agli «esercenti le professioni sanitarie, anche
   convenzionati con il SSN, quando operano in autonomia».
@@ -488,8 +486,7 @@ Dire che una prestazione «è nei LEA» significa tre cose insieme:
   specialistica ambulatoriale e la protesica - una tariffa massima nazionale.
 
 Il rispetto dei LEA è misurato dal **Nuovo sistema di garanzia (NSG)**, un sistema di
-indicatori con cui il Ministero della salute valuta annualmente ciascuna Regione. `[NV]`
-sui punteggi e sulla soglia di adempienza vigenti.
+indicatori con cui il Ministero della salute valuta annualmente ciascuna Regione secondo criteri che l'area `GUIDA` `[NV]` deve verificare, in relazione ai punteggi e alla soglia di adempienza vigenti.
 
 ### 6.3 Il nomenclatore e la vicenda delle tariffe
 
@@ -503,15 +500,12 @@ tariffazione la incontra:
 - l'entrata in vigore slitta più volte; un decreto pubblicato il **25 novembre 2024** fissa
   nuove tariffe con applicazione dal **30 dicembre 2024**;
 - il **TAR del Lazio annulla il DM 25 novembre 2024**, differendo però gli effetti
-  dell'annullamento di 365 giorni per consentire la riadozione dell'atto. `[NV]` sugli
-  estremi della sentenza (sezione, numero, data), non accertati nella ricerca del progetto;
+  dell'annullamento di 365 giorni per consentire la riadozione dell'atto. Gli estremi della sentenza (sezione, numero, data) rimangono da accertare da parte dell'area `GUIDA` `[NV]` nella ricerca normativa;
 - il **D.L. 31 dicembre 2025, n. 200** (Milleproroghe), convertito con **L. 27 febbraio 2026,
-  n. 26**, differisce il termine di vigenza del regime tariffario previgente. `[NV]`
-  sull'articolo e sul comma;
+  n. 26**, differisce il termine di vigenza del regime tariffario previgente, con articolo e comma da verificare da parte dell'area `GUIDA` `[NV]`;
 - un nuovo decreto tariffe ottiene l'**intesa in Conferenza Stato-Regioni il 23 luglio 2026**,
   con decorrenza dichiarata dal **21 settembre 2026**, 448 prestazioni di specialistica
-  ambulatoriale e 222 codici di assistenza protesica. `[NV]` sugli estremi di pubblicazione
-  in Gazzetta Ufficiale, non accertati alla data di redazione.
+  ambulatoriale e 222 codici di assistenza protesica. Gli estremi di pubblicazione in Gazzetta Ufficiale sono oggetto di verifica da parte dell'area `GUIDA` `[NV]`, non accertati alla data di redazione.
 
 **Il dato che conta per questo progetto**: né le 448 prestazioni né i 222 codici protesici
 comprendono voci di telemedicina. **Non esiste, a oggi, una tariffa nazionale dedicata alla
@@ -571,8 +565,7 @@ Il **codice di priorità** merita una precisazione, perché è sistematicamente 
 esprime la gravità clinica del paziente, esprime **il tempo massimo entro cui la prestazione
 deve essere erogata**. Le classi nazionali sono U (urgente, entro 72 ore), B (breve, entro
 10 giorni), D (differibile, entro 30 giorni per le visite e 60 per gli accertamenti
-diagnostici), P (programmabile, entro 120 giorni). `[NV]` sui valori esatti vigenti, che
-sono oggetto dei Piani nazionali e regionali di governo delle liste d'attesa.
+diagnostici), P (programmabile, entro 120 giorni). I valori esatti vigenti sono oggetto di verifica continua da parte dell'area `GUIDA` `[NV]`, in quanto materia dei Piani nazionali e regionali di governo delle liste d'attesa.
 
 Alcune prestazioni sono ad **accesso diretto**: non richiedono impegnativa. L'elenco varia
 per Regione. Nel tracciato ministeriale la distinzione compare come campo «Tipologia Accesso»
@@ -609,7 +602,7 @@ via telematica senza consegna del promemoria fisico, misura poi stabilizzata.
 paziente o dell'ordine interno. È l'**identificativo della ricetta** e va conservato come
 `identifier` con un `system` dedicato. Il secondo: assumere che una ricetta corrisponda a
 una prestazione. Una ricetta può contenere più prestazioni, tipicamente fino a un massimo
-per ricetta se afferenti alla stessa branca `[NV]` sul limite vigente.
+per ricetta se afferenti alla stessa branca. Il limite vigente va verificato da parte dell'area `GUIDA` `[NV]`.
 
 ### 7.3 La prenotazione e il CUP
 
@@ -648,8 +641,7 @@ atto clinico riservato, che l'interfaccia non deve esporre all'operatore di fron
 Il **ticket** è la quota di compartecipazione alla spesa a carico dell'assistito. Non è il
 prezzo della prestazione: è una frazione, con un tetto massimo, di una tariffa che il sistema
 paga comunque. Si compone tipicamente di una quota commisurata alle prestazioni prescritte
-entro un massimale per ricetta, più eventuali **quote fisse aggiuntive regionali**. `[NV]`
-sugli importi vigenti, che variano per Regione e per anno.
+entro un massimale per ricetta, più eventuali **quote fisse aggiuntive regionali** che l'area `GUIDA` `[NV]` deve mantenere aggiornate, essendo oggetto di variazione per Regione e per anno.
 
 L'**esenzione** è il diritto a non corrispondere il ticket, in tutto o in parte. Le
 categorie principali:
@@ -712,7 +704,7 @@ valori `A` = ambulatorio e `D` = domicilio - con un valore `T` per telemedicina.
 
 **La ricerca del progetto non è riuscita ad accertare se e come questa estensione sia stata
 recepita nei disciplinari tecnici vigenti del flusso ex art. 50 e del flusso DEMA.** La
-verifica è dichiarata non risolta. `[NV]`
+verifica è dichiarata non risolta; rimane da accertare da parte dell'area `GUIDA` `[NV]`.
 
 La conseguenza operativa è vincolante e va rispettata da chiunque tocchi il modello dati:
 **la modalità di erogazione va esposta come attributo di dominio con codifica configurabile
@@ -745,19 +737,18 @@ di libera scelta, specialisti ambulatoriali, infermieri, assistenti sociali. È 
 unico di accesso ai servizi territoriali. Il decreto distingue CdC **hub** (con presenza
 medica h24 e infermieristica h12, punto prelievi, diagnostica di base, servizi
 specialistici) e CdC **spoke**, con dotazione ridotta e collegamento funzionale all'hub.
-Standard di riferimento: **una CdC hub ogni 40.000-50.000 abitanti** `[NV]` sul valore
-esatto, da verificare sull'Allegato 1 del decreto.
+Standard di riferimento: **una CdC hub ogni 40.000-50.000 abitanti**, con valore esatto da verificare dall'area `GUIDA` `[NV]` sull'Allegato 1 del decreto.
 
 **Ospedale di comunità (OdC).** Struttura di ricovero **a gestione prevalentemente
 infermieristica**, per pazienti che necessitano di interventi sanitari a bassa intensità
 clinica ma non gestibili a domicilio: post-acuzie, stabilizzazione, addestramento del
-caregiver. Standard di riferimento: **20 posti letto ogni 100.000 abitanti** `[NV]`. Non è
+caregiver. Standard di riferimento: **20 posti letto ogni 100.000 abitanti**, da verificare da parte dell'area `GUIDA` `[NV]`. Non è
 un ospedale in senso proprio e non è una residenza sanitaria assistenziale: è una struttura
 intermedia con una funzione precisa.
 
 **Centrale operativa territoriale (COT).** Servizio che coordina la presa in carico e
 raccorda i diversi setting assistenziali (domicilio, strutture territoriali, ospedale) e i
-soggetti coinvolti nel percorso. Standard: **una COT ogni 100.000 abitanti** `[NV]`. **È il
+soggetti coinvolti nel percorso. Standard: **una COT ogni 100.000 abitanti**, da verificare da parte dell'area `GUIDA` `[NV]`. **È il
 nodo che la telemedicina serve più direttamente**: la COT è il soggetto che attiva, coordina
 e monitora i percorsi a distanza.
 
@@ -768,7 +759,7 @@ soccorso.
 **Infermiere di famiglia o di comunità (IFoC).** Professionista di riferimento per la
 popolazione di un ambito territoriale, con funzioni di presa in carico proattiva, educazione
 terapeutica e collegamento fra domicilio e servizi. Standard: **un infermiere ogni 3.000
-abitanti** `[NV]`. È un attore centrale del telemonitoraggio.
+abitanti**, da verificare da parte dell'area `GUIDA` `[NV]`. È un attore centrale del telemonitoraggio.
 
 **Assistenza domiciliare integrata (ADI).** Erogazione di prestazioni sanitarie e
 sociosanitarie al domicilio del paziente, articolata in livelli di intensità. Il PNRR fissa
@@ -831,8 +822,7 @@ presa in carico domiciliare del 10% degli ultrasessantacinquenni (sub-investimen
 **telemedicina per il supporto dei pazienti cronici (1.2.3, 1.500 M€)**. Il dato aggiornato
 sulla dotazione del 1.2.3 proviene dal dossier della Camera dei deputati AS0477 del 6
 febbraio 2026: la ripartizione originaria del DM 1° aprile 2022 assegnava 1.000 M€ (250 per
-la piattaforma, 750 per i servizi), poi incrementati. `[NV]` sugli atti di revisione che
-hanno prodotto l'incremento.
+la piattaforma, 750 per i servizi), poi incrementati. Gli atti di revisione che hanno prodotto l'incremento rimangono da accertare da parte dell'area `GUIDA` `[NV]`.
 
 **Chi fa cosa**: titolarità del Ministero della salute, **AGENAS soggetto attuatore**
 (DM 6 agosto 2021), con il dipartimento per la trasformazione digitale della Presidenza del
@@ -862,7 +852,7 @@ assistiti presi in carico, non infrastrutture regionali operative e federate**. 
 include soluzioni regionali preesistenti, non necessariamente collegate all'infrastruttura
 nazionale. Alla data di redazione **non risulta un dato ufficiale, verificabile e aggiornato
 sul numero di infrastrutture regionali di telemedicina effettivamente in esercizio e
-agganciate all'infrastruttura nazionale**. `[NV]`
+agganciate all'infrastruttura nazionale**, da accertare da parte dell'area `GUIDA` `[NV]`.
 
 ### 9.4 Il dopo-PNRR
 
@@ -873,8 +863,7 @@ il 2026** ad AGENAS, in qualità di Agenzia nazionale per la sanità digitale, p
 potenziamento dei servizi di telemedicina, con particolare riferimento alla fornitura di
 dispositivi medici per il monitoraggio dei pazienti. Il comma 411 rinvia a un decreto
 ministeriale, da adottare entro 180 giorni, l'individuazione dei dispositivi e dei
-professionisti interessati: alla data di redazione **il decreto non risulta adottato**.
-`[NV]`
+professionisti interessati: alla data di redazione **il decreto non risulta adottato**. Rimane da accertare da parte dell'area `GUIDA` `[NV]`.
 
 > **Nota di citazione.** Diverse fonti secondarie citano questa disposizione come «art. 85».
 > È errato: l'art. 85 è la numerazione del **disegno di legge**, confluito nel
@@ -886,8 +875,7 @@ ottobre 2025**, in attuazione dell'art. 9, c. 2, del **D.lgs. 15 marzo 2024, n. 
 dell'assistenza agli anziani non autosufficienti), individua prestazioni di telemedicina -
 in particolare telemonitoraggio domiciliare - con prioritario riferimento agli
 ultraottantenni affetti da almeno una patologia cronica, con **150 milioni di euro**
-assegnati. `[NV]` sul testo integrale, non reperito in Gazzetta Ufficiale nella ricerca del
-progetto.
+assegnati. Il testo integrale rimane da reperire da parte dell'area `GUIDA` `[NV]` in Gazzetta Ufficiale.
 
 **La lettura strategica** che il progetto adotta: la finestra di adozione si è spostata dalla
 fase di costruzione (2022-2025) a quella di consolidamento, sostituzione ed estensione
@@ -976,7 +964,7 @@ Restano però due vincoli che valgono sempre:
 
 Per essere valutabile in questo quadro il progetto deve avere: licenza con identificatore
 SPDX (`Apache-2.0`), repository pubblico accessibile senza autenticazione, file
-**`publiccode.yml`** valido nella radice, indicizzazione nel catalogo **Developers Italia**,
+**[`publiccode.yml`](https://github.com/fedcal/Telemedic/blob/main/publiccode.yml)** valido nella radice, indicizzazione nel catalogo **Developers Italia**,
 documentazione pubblica, dichiarazione di accessibilità producibile.
 
 > **Precisazione necessaria e spesso omessa.** Un progetto open source di titolarità privata
@@ -997,7 +985,7 @@ documentazione pubblica, dichiarazione di accessibilità producibile.
    normativamente esplicita per una soluzione alternativa, ed è la più promettente per un
    progetto aperto. Resta da accertare in cosa consista operativamente il **Processo di
    Validazione** condotto dal «Gestore Soluzioni di Telemedicina» dell'infrastruttura
-   nazionale. `[NV]`
+   nazionale rimane da accertare da parte dell'area `GUIDA` `[NV]`.
 
 Il modulo [07](07-fse-e-infrastrutture-nazionali.md) sviluppa il terzo percorso, che è
 quello su cui il progetto punta.

@@ -275,7 +275,7 @@ Three consequences:
 2. **The propagated level is the requested one, not the asserted one**, and **both** are recorded in the access log. It is the only way to respect non-repudiable auditability without stating the false.
 3. **Level upgrade is not verifiable by the service provider side.** If the service requires a level and the user accesses with a lower one, the refusal must come from the issuer: the provider has no way to notice afterwards.
 
-> **`[NV]` - Recommended empirical verification.** Point 1 follows from the published technical rules and is verified on source, but has consequences relevant enough to merit **pre-production verification** before publicly declaring how the assurance level propagates. It is a verification at near-zero cost and goes on the critical path.
+> **`[NV]` - Recommended empirical verification by `TECH`.** Point 1 follows from the published technical rules and is verified on source, but has consequences relevant enough to merit **pre-production verification** before publicly declaring how the assurance level propagates. It is a verification at near-zero cost and goes on the critical path.
 
 ### 5.4 The authorisation rules that follow from it
 

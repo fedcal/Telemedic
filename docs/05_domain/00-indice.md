@@ -32,7 +32,7 @@ Ogni enunciato di quest'area è classificato in modo esplicito:
 | Marcatura | Significato |
 |---|---|
 | **[NORM]** | La norma o l'atto amministrativo lo stabilisce. Segue sempre la fonte esatta: atto, articolo, comma, allegato, paragrafo |
-| **[BASE]** | Discende da `04_BASELINE_ARCHITETTURALE.md` o da una decisione `D1`-`D52` del brief. Non è negoziabile in quest'area |
+| **[BASE]** | Discende da [`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) o da una decisione `D1`-`D52` del brief. Non è negoziabile in quest'area |
 | **[MOD]** | È una **decisione di modellazione di quest'area**, identificata con `DM-nn`. Adottabile o rigettabile, ma dichiarata come proposta e non come obbligo |
 | **[NV]** | Non verificato. Indica sempre a chi va chiesta la verifica e che cosa cambia se la risposta è diversa |
 
@@ -59,17 +59,17 @@ requisito.
 
 Sono in vigore per decisione dell'orchestrazione e non sono derogabili da questa area.
 
-1. **`V-01` - `Encounter` e `MediaSession` sono aggregati distinti.** La prestazione clinica e
+1. **[`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01) - `Encounter` e `MediaSession` sono aggregati distinti.** La prestazione clinica e
    la sessione media hanno cicli di vita indipendenti. Il capitolo 02 ne fa la spina dorsale.
-2. **`V-02` - nessuna soglia clinica cablata.** Le soglie sono configurazione per assistito,
+2. **[`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02) - nessuna soglia clinica cablata.** Le soglie sono configurazione per assistito,
    mai costanti del codice. Il capitolo 05 e il capitolo 08 lo rendono operativo.
-3. **`V-03` - il sistema è pienamente funzionale senza SNOMED CT.** Nessun percorso principale
+3. **[`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03) - il sistema è pienamente funzionale senza SNOMED CT.** Nessun percorso principale
    può richiederlo. Il capitolo 07 dichiara il costo esatto di questa scelta.
-4. **`V-04` - il registro immutabile è a catena di impronte e conservazione separata.** Il
+4. **[`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04) - il registro immutabile è a catena di impronte e conservazione separata.** Il
    versionamento delle entità non lo sostituisce. Ricade sui capitoli 04 e 06.
-5. **`V-07` - il contenuto dei documenti per il fascicolo si modella come dataset canonico**;
+5. **[`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07) - il contenuto dei documenti per il fascicolo si modella come dataset canonico**;
    le serializzazioni sono sostituibili. È l'architrave del capitolo 04.
-6. **`V-09` - l'assenza di dato è informazione clinica.** Il silenzio non è mai trattato come
+6. **[`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09) - l'assenza di dato è informazione clinica.** Il silenzio non è mai trattato come
    normalità. È l'architrave del capitolo 05, § sul dato mancante.
 7. **`R0` - riservatezza.** Nessun nome di azienda, marchio, prodotto commerciale o dominio di
    potenziale partner compare in quest'area. Si usano soltanto formule generiche: «un

@@ -1,7 +1,7 @@
 ---
 title: Area tecnica - indice
 sidebar_position: 1
-description: Come è realizzato il sistema. Indice dell'area tecnica, percorsi di lettura per profilo, confini rispetto alle altre aree, vincoli posti e questioni lasciate aperte.
+description: Come è realizzato il sistema. Indice dell'`TECH`, percorsi di lettura per profilo, confini rispetto alle altre aree, vincoli posti e questioni lasciate aperte.
 ---
 
 # Area tecnica
@@ -17,7 +17,7 @@ decisione non spetta a quest'area, è aperta in bacheca invece di essere inventa
 
 ---
 
-## I dieci capitoli
+## Gli undici capitoli
 
 | # | Capitolo | Che cosa risolve |
 |---|---|---|
@@ -31,6 +31,7 @@ decisione non spetta a quest'area, è aperta in bacheca invece di essere inventa
 | 8 | [Qualità e test](./08-qualita-e-test.md) | Piramide delle prove, prove a contratto, dati sintetici, accessibilità automatica e manuale, prove di carico, copertura minima e differenziata, tracciabilità requisito → prova |
 | 9 | [Integrazione continua e rilascio](./09-integrazione-continua-e-rilascio.md) | Pipeline a quattro fasce, tredici controlli obbligatori, versionamento a due cicli di vita, costruzione riproducibile, artefatti firmati, distinta dei materiali, periodo di supporto |
 | 10 | [Verifica del sito di documentazione](./10-verifica-sito-di-documentazione.md) | Criterio 6 di `T-07`: la procedura eseguibile e ripetibile che accerta navigazione, ricerca e avviso di traduzione in corso del sito pubblicato, e il registro datato delle sue esecuzioni |
+| 11 | [Allineamento delle traduzioni](./11-allineamento-delle-traduzioni.md) | Criterio 6 di `T-06`: che cosa rende completa una proposta di modifica, che cosa si fa quando la traduzione ritarda, come si distingue un'area prerequisito da un'area a segnalazione |
 
 ---
 
@@ -112,8 +113,8 @@ Sono scritti in bacheca e qui riassunti perché condizionano il lavoro altrui.
 | Dispositivo di riferimento per le soglie di prestazione dell'interfaccia | `PROD`, con misura a carico di quest'area |
 
 Il registro completo, con lo stato aggiornato, è in
-`.telemedic/context/05_BACHECA_INTERAGENTI.md`; il riepilogo del lavoro di quest'area è in
-`.telemedic/context/log-TECH.md`.
+[`.telemedic/context/05_BACHECA_INTERAGENTI.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/05_BACHECA_INTERAGENTI.md); il riepilogo del lavoro di quest'area è in
+[`.telemedic/context/log-TECH.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/log-TECH.md).
 
 ---
 
@@ -124,7 +125,7 @@ Il registro completo, con lo stato aggiornato, è in
 - **Nessun artefatto è marcato CE**, e ogni artefatto distribuito lo dichiara esplicitamente
   (D16, D49).
 - **Nessuna soglia tecnica di quest'area è conformità.** Sono specifiche di prodotto e limiti
-  dichiarati (vincolo V-12, capitolo 7 §0).
+  dichiarati (vincolo [V-12](../11_registri/01-vincoli-in-vigore.md#v-12), capitolo 7 §0).
 - **Nessun dato reale** compare in codice, prove, esempi, registri o documentazione. Tutti i
   frammenti di codice e di configurazione sono **illustrativi**, con linguaggio dichiarato, solo
   segnaposto per i segreti e solo dati sintetici.

@@ -122,7 +122,7 @@ giuridico ancora da costituire); e **chi immette sul mercato un prodotto derivat
 ciò stesso il ruolo di fabbricante per quel prodotto, indipendentemente da quanto scritto nella
 licenza. I due percorsi non si sovrappongono e non si sostituiscono.
 
-Per entrambi l'area di conformità è un **manuale operativo**, non un'informativa. Il percorso è
+Per entrambi l'`COMP` è un **manuale operativo**, non un'informativa. Il percorso è
 dichiarato in [`docs/08_compliance/00-indice.md`](../08_compliance/00-indice.md) §3.1 e comincia da
 qualificazione e classificazione, perché leggere qualunque altra cosa prima significa leggerla
 senza sapere quale regime si applichi.
@@ -251,7 +251,8 @@ una tabella. Dove manca il dato, c'è il marcatore.
 **Tre stati distinti, mai confusi.** «La norma stabilisce» introduce un obbligo con fonte citata;
 «è prassi» un uso diffuso senza obbligo; «è una scelta del progetto» una decisione che in quanto
 tale ha un registro di decisione e può essere cambiata. L'area di dominio usa la forma esplicita
-`[NORM]`, `[BASE]`, `[MOD]`, `[NV]`.
+`[NORM]`, `[BASE]`, `[MOD]`, `[NV]` - quest'ultimo marca un'affermazione non verificata e dichiara
+a chi va chiesta la verifica, secondo le tre forme ammesse descritte in `CONTRIBUTING.md`.
 
 **Identificativi congelati.** `RF-*` requisiti funzionali, `RNF-*` non funzionali, `BR-*` regole di
 business, `ATT-*` attori, `UC-*` casi d'uso, `OUT-*` esclusioni, `EX-*` esiti tipizzati, `DM-*`

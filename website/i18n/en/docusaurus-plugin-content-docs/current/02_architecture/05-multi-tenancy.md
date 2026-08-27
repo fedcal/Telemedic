@@ -102,7 +102,7 @@ sequenceDiagram
 
 **The context is verified at the boundary of each bounded context**, not only at the gateway. A context receiving an internal call without tenant context rejects it: this is the barrier that holds when a call originates from an internal process not from an external request.
 
-**The context is set inside the transaction, in the form that lapses at its closure, not in the form that persists on the connection.** This is the point at which this architecture incorporates constraint V-112 placed by the technical area, and the difference between the two forms is not stylistic: the persistent form leaves the tenant on the connection returned to the pool, and on the next request produces contamination between autonomous data controllers. This is a defect that produces no visible symptoms and manifests as someone else's data in a screen.
+**The context is set inside the transaction, in the form that lapses at its closure, not in the form that persists on the connection.** This is the point at which this architecture incorporates constraint [V-112](../11_registri/01-vincoli-in-vigore.md#v-112) placed by the technical area, and the difference between the two forms is not stylistic: the persistent form leaves the tenant on the connection returned to the pool, and on the next request produces contamination between autonomous data controllers. This is a defect that produces no visible symptoms and manifests as someone else's data in a screen.
 
 Three conditions flow from this, all verified together:
 
@@ -151,7 +151,7 @@ Since during the window some schemas are migrated and others are not, **the appl
 |---|---|
 | **Expansion** | The new form is added without removing the old. The schema accommodates both. Code is released that knows how to write to both and read from both |
 
-> **The method applies to every migration, not only non-backward-compatible ones** (constraint V-111 placed by the technical area). No release is both destructive and functional, and **two consecutive versions of the application must be able to coexist on the same database**: this is the condition necessary for zero-downtime updates and rollback to a previous version. A feature requiring a destructive migration in the same release **must be redesigned**, not approved as a waiver.
+> **The method applies to every migration, not only non-backward-compatible ones** (constraint [V-111](../11_registri/01-vincoli-in-vigore.md#v-111) placed by the technical area). No release is both destructive and functional, and **two consecutive versions of the application must be able to coexist on the same database**: this is the condition necessary for zero-downtime updates and rollback to a previous version. A feature requiring a destructive migration in the same release **must be redesigned**, not approved as a waiver.
 
 | **Data migration** | The new form is populated from the old, per tenant, with suspension and resumption possible |
 | **Switchover** | Code reads from the new form. The old remains populated |
@@ -302,9 +302,9 @@ The following verifications are blocking. Their absence renders tenancy a promis
 | MT-2 | A principal enabled on tenant A obtains no data from tenant B for any path, including search and export operations | Actual isolation |
 | MT-3 | Row policies are active and not bypassable by the application role | Defence in depth works |
 | MT-4 | The connection returned to the pool does not retain the context of the previous request | Absence of contamination from reuse |
-| MT-5 | Every domain table carries the tenant identifier | Constraint V4 |
-| MT-6 | Every published event carries the tenant identifier | Constraint V4 on events |
-| MT-7 | Every trail entry carries the tenant identifier | Constraint V4 on trail |
+| MT-5 | Every domain table carries the tenant identifier | Constraint [V4](../11_registri/03-vincoli-fondanti.md#v4) |
+| MT-6 | Every published event carries the tenant identifier | Constraint [V4](../11_registri/03-vincoli-fondanti.md#v4) on events |
+| MT-7 | Every trail entry carries the tenant identifier | Constraint [V4](../11_registri/03-vincoli-fondanti.md#v4) on trail |
 | MT-8 | Every migration is reversible and reversal is tested | §4.1 |
 | MT-9 | Tenant creation requires no manual steps | §7 |
 | MT-10 | No scheduled job operates on multiple tenants in a single query | §3.3 |

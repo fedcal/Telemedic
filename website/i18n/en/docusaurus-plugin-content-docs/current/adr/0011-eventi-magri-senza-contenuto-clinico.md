@@ -7,7 +7,7 @@ description: "Why events transport identifiers and references and not clinical c
 # ADR-0011 - Lean events: no clinical content in messages to the outside
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference constraints**: V-161 placed by integration area; V-135 placed by protocols area
+**Reference constraints**: [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) placed by integration area; [V-135](../11_registri/01-vincoli-in-vigore.md#v-135) placed by protocols area
 
 ## Context
 

@@ -26,14 +26,14 @@ piano tecnico: versioni, vincoli, trappole, sostituibilità.
 Tre livelli, da tenere distinti per tutta la lettura.
 
 **Vincolante per decisione del committente.** Lo stack dichiarato in
-`00_PROJECT_BRIEF.md` §2: Spring Boot 3.4 su Java 21, Angular 21 con componenti autonomi,
+[`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) §2: Spring Boot 3.4 su Java 21, Angular 21 con componenti autonomi,
 WebRTC con DTLS-SRTP, coturn come server di relay, FHIR R4 come modello di interoperabilità,
 Keycloak come prodotto di federazione delle identità, TimescaleDB per le serie temporali,
 versionamento delle entità per l'audit applicativo, Docker Compose per il confezionamento,
 Docusaurus per la documentazione. Non si discute *se* usarli: si discute *come*, con quale
 versione e con quale ripiego.
 
-**Vincolante per base architetturale.** `04_BASELINE_ARCHITETTURALE.md` aggiunge decisioni
+**Vincolante per base architetturale.** [`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) aggiunge decisioni
 che questo capitolo recepisce senza rinegoziare: outbox transazionale su PostgreSQL come unica
 sorgente degli eventi in uscita (§5), registro immutabile a catena di impronte separato dal sistema
 che genera gli eventi (§6), uno schema per tenant con sicurezza a livello di riga come difesa
@@ -54,7 +54,7 @@ fissati prima e applicati a tutti i componenti allo stesso modo.
 
 | # | Criterio | Perché è un criterio e non una preferenza |
 |---|---|---|
-| C1 | **Sostituibilità sotto vincolo di sovranità** | Il vincolo V1 impone che nessun componente obbligatorio del percorso principale dipenda da un servizio non sostituibile o stabilito fuori dall'Unione. Un componente si sceglie anche in base a quanto costa toglierlo. |
+| C1 | **Sostituibilità sotto vincolo di sovranità** | Il vincolo [V1](../11_registri/03-vincoli-fondanti.md#v1) impone che nessun componente obbligatorio del percorso principale dipenda da un servizio non sostituibile o stabilito fuori dall'Unione. Un componente si sceglie anche in base a quanto costa toglierlo. |
 | C2 | **Compatibilità di licenza con Apache-2.0** | D1 ha scartato un copyleft forte proprio per consentire l'integrazione in prodotti proprietari di terzi. Un componente con licenza incompatibile trasferisce quel problema a valle, sull'integratore, che è esattamente ciò che D1 voleva evitare. |
 | C3 | **Sorvegliabilità come componente di terze parti** | IEC 62304 §8.1.2 richiede, per ogni componente non sviluppato dal progetto, un piano di sorveglianza delle vulnerabilità. Un progetto senza canale di advisory pubblico, senza cadenza di rilascio e senza cronologia di correzioni non è sorvegliabile, quindi non è adottabile in un dispositivo medico, per quanto ne siano buone le prestazioni. |
 | C4 | **Omogeneità delle competenze** | Ogni linguaggio in più nello stack moltiplica la catena di costruzione, la superficie di dipendenze, gli strumenti di analisi statica, la distinta dei materiali e il numero di persone necessarie a mantenere il sistema. Un secondo linguaggio si paga per anni. |
@@ -128,9 +128,9 @@ v1.0 per due ragioni: la catena di strumenti regolatoria - analisi statica, gene
 distinta dei materiali, agenti di strumentazione - si stabilizza sulle versioni a supporto
 esteso con ritardo, e cambiare piattaforma a metà di un percorso di tracciabilità significa
 rieseguire la verifica su una base diversa. La migrazione è una voce di roadmap, non una scelta
-di v1.0. `[NV]` - la data esatta di fine supporto pubblico degli aggiornamenti gratuiti per la
-21 dipende dal distributore della piattaforma scelto da chi installa e va verificata sulla fonte
-del distributore, non assunta.
+di v1.0. La data esatta di fine supporto pubblico degli aggiornamenti gratuiti per la
+21 dipende dal distributore della piattaforma scelto da chi installa; va verificata da `TECH` sulla fonte
+del distributore al momento dell'installazione `[NV]`, non da assumersi qui.
 
 **Conseguenza vincolante**: la versione della piattaforma è fissata nella catena di costruzione
 (`maven.compiler.release=21`, immagine di base con la stessa versione maggiore) e non è un
@@ -156,9 +156,8 @@ guasto in fase di costruzione nativa e non in fase di esecuzione. Su un disposit
 una modalità di esecuzione che si comporta diversamente da quella su cui si è eseguita la
 verifica è una modalità che va verificata di nuovo per intero. Il profilo nativo esiste, è
 costruito in integrazione continua ed è provato dalla stessa suite, ma **la distribuzione di
-riferimento è quella su macchina virtuale**. `[NV]` - i guadagni di memoria e di tempo di avvio
-non sono stati misurati sul progetto: qualunque cifra pubblicata prima della misura sarebbe
-inventata.
+riferimento è quella su macchina virtuale**. I guadagni di memoria e di tempo di avvio `[NV]` vanno
+misurati dall'`TECH` sul progetto: qualunque cifra pubblicata prima della misura sarebbe inventata.
 
 ---
 
@@ -185,10 +184,10 @@ insieme a mano significa scrivere e mantenere codice di integrazione che non ha 
 - **Attuatore con endpoint di prontezza e di vivacità distinti**, requisito diretto del
   confezionamento su orchestratore di contenitori.
 
-`[NV]` - le date esatte di fine del supporto pubblico gratuito delle versioni minori vanno
-verificate sulla pagina di supporto del progetto a monte al momento del rilascio, e vanno
-registrate nel registro dei componenti di terze parti come data di riesame. Non si citano qui
-perché cambierebbero prima della pubblicazione.
+Le date esatte di fine del supporto pubblico gratuito delle versioni minori vanno verificate sulla
+pagina di supporto del progetto a monte al momento del rilascio; richiedono verifica da `COMP` `[NV]`
+nel registro dei componenti di terze parti come data di riesame. Non si citano qui perché
+cambierebbero prima della pubblicazione.
 
 ### 5.3 Alternative scartate
 
@@ -291,8 +290,8 @@ deve poter essere integrato in prodotti proprietari di terzi. Risulta che le fun
 avanzate dell'estensione - in particolare la compressione e le aggregazioni continue - non
 siano distribuite sotto una licenza open source approvata ma sotto una licenza propria di tipo
 sorgente disponibile, con restrizioni sull'offerta del componente come servizio gestito a terzi.
-**`[NV]` - questa affermazione va verificata sul testo della licenza primaria, artefatto per
-artefatto, prima di qualunque pubblicazione.** È esattamente il caso previsto da D34: una
+Questa affermazione **va verificata dall'`COMP`** `[NV]` **sul testo della licenza primaria,
+artefatto per artefatto, prima di qualunque pubblicazione.** È esattamente il caso previsto da D34: una
 dichiarazione permissiva apposta su un contenitore non dispone dei diritti sul contenuto
 ricompreso, e la verifica va fatta sulla licenza primaria.
 
@@ -384,7 +383,7 @@ dedicate, copertura di prova sostanzialmente totale sul percorso di validazione.
 | Alternativa | Motivo dello scarto |
 |---|---|
 | **Prodotti di identità open source più recenti e più leggeri** | Ergonomia migliore, ma il supporto SAML 2.0 come fornitore di servizi verso una federazione nazionale con requisiti di conformità stringenti, e l'esistenza di realizzazioni pubbliche del profilo italiano sotto licenza permissiva, sono il fattore decisivo. Riscrivere un fornitore di servizi SAML2 conforme a un profilo nazionale è il tipo di lavoro che si sottovaluta esattamente di un ordine di grandezza (vedi D38 sul lotto delle istanze multiple per fornitore di identità). |
-| **Servizio di identità gestito** | Violazione diretta di V1. Non è discutibile. |
+| **Servizio di identità gestito** | Violazione diretta di [V1](../11_registri/03-vincoli-fondanti.md#v1). Non è discutibile. |
 | **Identità gestita nell'applicazione** | Sposta dentro il perimetro del dispositivo medico la gestione delle credenziali, il che aumenta la superficie di rischio e il perimetro di verifica senza alcun beneficio. |
 
 ---
@@ -393,15 +392,15 @@ dedicate, copertura di prova sostanzialmente totale sul percorso di validazione.
 
 ### 9.1 Versione minima 4.17.2, e perché non è un'opinione
 
-La base architetturale §9 la fissa, il vincolo V-10 la ribadisce, e la verifica su fonte
-primaria che l'ha prodotta è documentata in `.telemedic/research/B3-verifica-coturn-webrtc.md`.
+La base architetturale §9 la fissa, il vincolo [V-10](../11_registri/01-vincoli-in-vigore.md#v-10) la ribadisce, e la verifica su fonte
+primaria che l'ha prodotta è documentata in [`.telemedic/research/B3-verifica-coturn-webrtc.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/B3-verifica-coturn-webrtc.md).
 Il fatto rilevante per questa area è la **forma della cronologia**: quattordici rilasci in poco
 più di sette mesi nel 2026, di cui cinque nel solo mese di agosto, e una famiglia di sei
 vulnerabilità distinte, in otto anni, tutte riconducibili allo stesso schema - l'aggiramento
 delle liste di indirizzi peer vietati per canonicalizzazione o confronto errato degli indirizzi
 IPv6, quattro delle quali negli ultimi otto mesi.
 
-Ne discende una conclusione tecnica che va scritta esplicitamente e che è il vincolo V-10:
+Ne discende una conclusione tecnica che va scritta esplicitamente e che è il vincolo [V-10](../11_registri/01-vincoli-in-vigore.md#v-10):
 **la lista di indirizzi vietati è difesa in profondità, non difesa primaria. La difesa primaria
 è l'isolamento di rete in uscita del nodo di relay**, applicato fuori dal processo - regole di
 rete dell'infrastruttura, non direttive del file di configurazione. È l'unica difesa che ha
@@ -418,7 +417,7 @@ proposta tecnica di questa area è in [`09-integrazione-continua-e-rilascio.md`]
 È l'implementazione di riferimento, è quella su cui sono verificati i comportamenti dei
 navigatori, espone metriche native, ha un canale di avvisi di sicurezza pubblico e una cronologia
 di correzioni verificabile - cioè soddisfa C3 meglio di qualunque alternativa. Le alternative
-gestite violano V1 senza eccezioni; le alternative in altri linguaggi violano C4 e hanno una
+gestite violano [V1](../11_registri/03-vincoli-fondanti.md#v1) senza eccezioni; le alternative in altri linguaggi violano C4 e hanno una
 base di utenti minore, quindi meno segnalazioni di sicurezza.
 
 ### 9.3 Che cosa il progetto **non** implementa
@@ -535,12 +534,12 @@ Elencare ciò che si è scartato è più informativo di elencare ciò che si è 
 
 | Componente | Perché non c'è |
 |---|---|
-| **Unità di inoltro selettivo del media** | Il consulto è da due a tre partecipanti. Un'unità di inoltro termina la cifratura e ha il media in chiaro: distruggerebbe la proprietà su cui poggia l'intero posizionamento del progetto, per un beneficio nullo a questa scala. Se un giorno servisse, la valutazione è già impostata in `.telemedic/research/R4-webrtc-media.md` §6.3, con l'esclusione di un candidato per incompatibilità di licenza con D1 e di un altro per abbandono documentato - tre anni senza modifiche rendono un componente non sorvegliabile ai sensi di IEC 62304 §8.1.2, il che è un fatto, non un giudizio. |
+| **Unità di inoltro selettivo del media** | Il consulto è da due a tre partecipanti. Un'unità di inoltro termina la cifratura e ha il media in chiaro: distruggerebbe la proprietà su cui poggia l'intero posizionamento del progetto, per un beneficio nullo a questa scala. Se un giorno servisse, la valutazione è già impostata in [`.telemedic/research/R4-webrtc-media.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/R4-webrtc-media.md) §6.3, con l'esclusione di un candidato per incompatibilità di licenza con D1 e di un altro per abbandono documentato - tre anni senza modifiche rendono un componente non sorvegliabile ai sensi di IEC 62304 §8.1.2, il che è un fatto, non un giudizio. |
 | **Archivio chiave-valore in memoria come diffusore del segnale** | Il protocollo di raccolta incrementale dei candidati richiede consegna esattamente una volta e nell'ordine. Un meccanismo di pubblicazione e sottoscrizione senza persistenza non garantisce nessuna delle due cose sotto riconnessione. Se serve un diffusore, la forma corretta è a flusso persistente con gruppi di consumatori; l'architettura preferita evita del tutto il diffusore. Vedi §15, questione aperta a `ARCH`. |
 | **Griglia di servizi** | Aggiunge un piano di controllo, un piano dati e un modello di certificati da gestire, per un sistema con un numero piccolo di servizi. Su installazione a tenant unico è insostenibile (C5). |
 | **Registro di scoperta dei servizi** | Stesso motivo. Il numero di servizi è noto e fisso. |
-| **Motore di regole cliniche di terze parti** | Le soglie sono configurazione per assistito (V-02) e la valutazione è deterministica e tracciabile. Un motore di regole generico introdurrebbe una logica non ispezionabile in un percorso che deve essere spiegabile riga per riga in caso di incidente. |
-| **Servizi gestiti di qualunque tipo sul percorso principale** | V1. Senza eccezioni e senza discussione. |
+| **Motore di regole cliniche di terze parti** | Le soglie sono configurazione per assistito ([V-02](../11_registri/01-vincoli-in-vigore.md#v-02)) e la valutazione è deterministica e tracciabile. Un motore di regole generico introdurrebbe una logica non ispezionabile in un percorso che deve essere spiegabile riga per riga in caso di incidente. |
+| **Servizi gestiti di qualunque tipo sul percorso principale** | [V1](../11_registri/03-vincoli-fondanti.md#v1). Senza eccezioni e senza discussione. |
 
 ---
 

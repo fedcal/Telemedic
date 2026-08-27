@@ -26,10 +26,10 @@ installs the system or receives it from an integrator and puts it into operation
 
 **A system that can be installed at its location, not only used.** Two setups are documented and supported - installation at customer location and multi-tenant managed service - with **the same code and same structure**: single-tenant installation is the degenerate case of the multi-tenant model, not a separate branch that diverges at the second version.
 
-**Isolation applied by the engine, not by code correctness.** One schema per tenant on a shared database, with row-level security as defence in depth and **default denial** in the absence of resolved tenant context: no data access happens outside a transaction with tenant set (constraint `V-112`).
+**Isolation applied by the engine, not by code correctness.** One schema per tenant on a shared database, with row-level security as defence in depth and **default denial** in the absence of resolved tenant context: no data access happens outside a transaction with tenant set (constraint [`V-112`](../11_registri/01-vincoli-in-vigore.md#v-112)).
 
 **An immutable register that withstands inquiry.** It is not entity versioning, which versions but does not make immutable: it is an append-only structure with a hash chain,
-archived with separated privileges, periodic anchoring of cumulative hash, integrity verification on request and scheduled, export in open format (constraint `V-04`). The register contains no clinical content: it contains who, what, when, on which subject, with what outcome and with what level of authentication guarantee (constraint `V-150`).
+archived with separated privileges, periodic anchoring of cumulative hash, integrity verification on request and scheduled, export in open format (constraint [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04)). The register contains no clinical content: it contains who, what, when, on which subject, with what outcome and with what level of authentication guarantee (constraint [`V-150`](../11_registri/01-vincoli-in-vigore.md#v-150)).
 
 **The division of responsibilities written line by line.** The document
 [`docs/06_security/09-ripartizione-delle-responsabilita.md`](../06_security/09-ripartizione-delle-responsabilita.md)
@@ -46,8 +46,8 @@ They are not recommendations: **whoever cannot satisfy them cannot install**, an
 
 | Assumption | Why it is not optional |
 |---|---|
-| **Relay node egress network isolation**, applied by infrastructure | It is the **primary defence** and does not depend on code correctness. Lists of forbidden addresses are defence in depth (constraint `V-10`) |
-| **Denial of outbound route to application components**, with sole exception of the mediator | It is an architectural requirement, not a coding rule: the defence must not depend on a programmer not making a mistake (constraint `V-157`) |
+| **Relay node egress network isolation**, applied by infrastructure | It is the **primary defence** and does not depend on code correctness. Lists of forbidden addresses are defence in depth (constraint [`V-10`](../11_registri/01-vincoli-in-vigore.md#v-10)) |
+| **Denial of outbound route to application components**, with sole exception of the mediator | It is an architectural requirement, not a coding rule: the defence must not depend on a programmer not making a mistake (constraint [`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)) |
 | **Separation of privileges between application archive and register archive** | In its absence the guarantee of non-alterability **reduces to trust in the operator**, which is precisely what the requirement excludes. The reduction must be declared |
 | **Custody of the root key** of the encryption hierarchy | The key that protects copies cannot reside in the system that produces them |
 | **Determination of the retention terms** of healthcare documentation | The product makes them configurable, **does not decide them**: determination is the data controller's |
@@ -63,7 +63,7 @@ and provides evidence, does not notify the authority in their place; the approva
 - **It does not give them compliant preservation**, and is not the facility's primary clinical archive
    (`OUT-23`).
 - **It does not give them a date for conformity to national security measures.** The term is
-   **subjective**: it runs from the insertion communication they have received **themselves**, and is not determinable by the supplier. The project declares **which evidence** it delivers and **from which release** each is available (constraint `V-186`).
+   **subjective**: it runs from the insertion communication they have received **themselves**, and is not determinable by the supplier. The project declares **which evidence** it delivers and **from which release** each is available (constraint [`V-186`](../11_registri/01-vincoli-in-vigore.md#v-186)).
 - **It does not give them service level values.** The product **measures** them and stores history by tenant and by service; the threshold is chosen by whoever installs.
 - **It does not give them legal or regulatory advice.** The legal qualification of a subject and
    of a product depends on factual elements that must be ascertained case by case by an authorised professional.
@@ -84,9 +84,9 @@ this system, and is composed of verifiable rules:
 - **no interpretative clinical content is pre-filled** on document opening: pre-filling covers demographic, administrative and temporal data (`OUT-07`);
 - **no threshold is deduced or suggested.** The field starts empty and mandatory, with no
    pre-filling even with values from the pathway or the last plan; references are shown
-   as assigned, read-only, with an explicit copy action (constraint `V-123`);
+   as assigned, read-only, with an explicit copy action (constraint [`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123));
 - **a network outage does not close the clinical act.** Service and average session are distinct
-   aggregates (constraint `V-01`), and the only transition the session triggers on the contact is
+   aggregates (constraint [`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01)), and the only transition the session triggers on the contact is
    suspension after a reconnection failure beyond the configured window.
 
 **Tools that reflect the reality of remote acts.** The waiting room has **two distinct controls
@@ -94,7 +94,7 @@ with separate and separately visible outcome** - technical and administrative - 
 light forces the operator to guess which one is missing. Admission to session is **always explicit**. The list of participants, with name and qualifications, is visible for the entire duration **without possibility of concealment**. The side room between professionals is a declared period, with start, end and announcement: no silent modality exists.
 
 **An emergency access that is a requirement, not a tolerated exception**: free motivation mandatory,
-limited window and scope, notification, review with recorded outcome (constraint `V-153`).
+limited window and scope, notification, review with recorded outcome (constraint [`V-153`](../11_registri/01-vincoli-in-vigore.md#v-153)).
 
 **An emergency procedure that gives them what they truly lack.** Not a severity assessment, but the
 logistical information they lack because the patient is not in the same room: **the address where
@@ -141,13 +141,13 @@ because automation intercepts only a minority of defects. The sole declared non-
 a mandatory typed outcome - with recording of the channel change, because it can affect the nature of the act.
 
 **Consents that are facts, not boxes.** Five distinct consent objects with independent lifecycles
-- healthcare act, data processing where applicable, recording, presence of third parties, transmission to external systems - and the revocation of one does not touch the others. **There does not exist, in the model, a «platform consent»** (constraint `V-146`).
+- healthcare act, data processing where applicable, recording, presence of third parties, transmission to external systems - and the revocation of one does not touch the others. **There does not exist, in the model, a «platform consent»** (constraint [`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)).
 
 **Key verification designed to be used by them.** The short code derived from session hash,
 compared voice with the interlocutor, is mandatory by default and is together what makes demonstrable end-to-end encryption and a traceable risk control. The accessibility requirements are binding: readable by a screen reader, **never conveyed by colour alone**, understandable to an elderly or digitally underskilled person, with a defined procedure in case of mismatch (`D22`).
 
 **Warnings that cannot be hidden.** The recording indicator while recording, consent notices,
-result of key verification, clinical error messages and encryption status indicator **are not themeable or hideable by any integrator** (constraint `V-163`). The asynchronous channel, phone fallback and manual measurement entry persistently and non-closably declare expected response times and **unsuitability for emergency**. Service hours are visible with **current state**, not with theoretical schedule, together with the alternative channel.
+result of key verification, clinical error messages and encryption status indicator **are not themeable or hideable by any integrator** (constraint [`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)). The asynchronous channel, phone fallback and manual measurement entry persistently and non-closably declare expected response times and **unsuitability for emergency**. Service hours are visible with **current state**, not with theoretical schedule, together with the alternative channel.
 
 **The caregiver exists in the model with its own role.** Not confused with the legal representative: **the caregiver does not give consent for a capable patient**. It is a participant with role,
 declared qualifications, entry instant and exit instant, because the presence of a third party is a fact with legal consequences.
@@ -184,14 +184,14 @@ describes them with the part that matters most: **when each is the wrong choice*
 impose its own interface; it does not impose its own authentication; **it does not become the reference data**. It works by reference on the identifiers of its attribution domain and returns to the system of origin what it produces.
 
 **A declared contractual scope.** It is contract - and changes only with twelve months' notice,
-with two scheduled obscurations at nine and eleven months - the documented application interface, the published profiles and capability document, the event types and their schemas, the authorisation scopes, the identifiers of problem types and outcome codes, the interfaces of replaceable modules, the protocol of the embeddable component and the closed set of theme properties. **Everything else is internal and can change without notice** (constraint `V-160`).
+with two scheduled obscurations at nine and eleven months - the documented application interface, the published profiles and capability document, the event types and their schemas, the authorisation scopes, the identifiers of problem types and outcome codes, the interfaces of replaceable modules, the protocol of the embeddable component and the closed set of theme properties. **Everything else is internal and can change without notice** (constraint [`V-160`](../11_registri/01-vincoli-in-vigore.md#v-160)).
 
 **Rules that protect it even when they cost it.** Outgoing events transport
-**references, never clinical content**: the content is re-read with an authenticated call under the recipient's authorisation (constraint `V-161`). Signature of outgoing messages is **asymmetric**,
-because a shared secret does not give non-repudiation and its rotation requires coordination with each integrator (constraint `V-162`). Identity coming from an external sender is always represented as **delegation, never as impersonation**: no supported configuration emits a token without the actor claim (constraint `V-132`).
+**references, never clinical content**: the content is re-read with an authenticated call under the recipient's authorisation (constraint [`V-161`](../11_registri/01-vincoli-in-vigore.md#v-161)). Signature of outgoing messages is **asymmetric**,
+because a shared secret does not give non-repudiation and its rotation requires coordination with each integrator (constraint [`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162)). Identity coming from an external sender is always represented as **delegation, never as impersonation**: no supported configuration emits a token without the actor claim (constraint [`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)).
 
 **Two sole representations of error**, with catalogue **generated** from a versioned file and the
-prohibition of emitting an uncatalogued error (constraints `V-110`, `V-130`).
+prohibition of emitting an uncatalogued error (constraints [`V-110`](../11_registri/01-vincoli-in-vigore.md#v-110), [`V-130`](../11_registri/01-vincoli-in-vigore.md#v-130)).
 
 ### 4.2 What it must provide
 
@@ -210,11 +210,11 @@ must be read **before** signing a contract, not after.
 - **It does not give them unlimited personalisation of the embeddable component.** Theme properties
    are a closed and versioned set, validated server-side with contrast verification: a configuration
    that degrades accessibility **is rejected on save**, not signalled as warning. No injection of
-   arbitrary stylesheets from outside (constraint `V-163`).
+   arbitrary stylesheets from outside (constraint [`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)).
 - **It does not give them an assurance level that counts as strong authentication.** The level
    propagated is the one **required**, not the one asserted, and is always qualified to distinguish
-   authentication **performed** by the project from that **referred** by them. An operation that regulation binds to strong authentication requires authentication performed (constraints `V-154`,
-   `V-165`).
+   authentication **performed** by the project from that **referred** by them. An operation that regulation binds to strong authentication requires authentication performed (constraints [`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154),
+   [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165)).
 - **It does not give them tokens inspectable from outside.** Tokens to the outside are opaque,
    translated to self-contained tokens by the gateway: the reason is **effective revocation**, because
    in a system treating healthcare data the question «from when could they no longer access?» must
@@ -224,7 +224,7 @@ must be read **before** signing a contract, not after.
    mutual or policy, the integration profile is **administrative by construction**:
    service identifier, administrative outcome, amount. No scope, event or module
    can constitute a pathway - direct or mediated by a professional - toward clinical content
-   (constraint `V-166`, `OUT-18`).
+   (constraint [`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166), `OUT-18`).
 - **It does not give them a development kit in the first release.** The versioned application interface
    is sufficient for the first integration; the kit is convenience, not capability.
 
@@ -269,17 +269,17 @@ And one thing often discovered too late: **regional catalogues are twenty-one in
 
 - **It does not give them a supplier accredited with the national identity federation.** Not
    because it does not want to: because **it cannot**. The service provider is whoever delivers the
-   service on the network (`D36`, constraint `V-05`, `OUT-22`). The project aims to be conformant and verifiable in continuous integration, and does not declare times that no primary source establishes.
+   service on the network (`D36`, constraint [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05), `OUT-22`). The project aims to be conformant and verifiable in continuous integration, and does not declare times that no primary source establishes.
 - **It does not give them, today, conferment to national and regional documentary repositories.** The
    document models, the typology codes and the indexing metadata of the ten telemedicine typologies
-   **are not publicly available** (question `Q-07`). The structural answer exists - canonical dataset and replaceable serialisation, with the adapter as an extension point to declared contract - but **the content is missing, not the project**, and no document model is hardcoded (constraint `V-136`).
+   **are not publicly available** (question [`Q-07`](../11_registri/02-questioni-aperte.md#q-07)). The structural answer exists - canonical dataset and replaceable serialisation, with the adapter as an extension point to declared contract - but **the content is missing, not the project**, and no document model is hardcoded (constraint [`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136)).
 - **It does not give them a date for an outcome that does not depend solely on the project.** For
    accreditation with the identity federation, for the term of adjustment to national security measures and for the availability of document models the reason is that the milestone
-   **is not the project's** (constraint `V-180`). For **CE marking** the reason is different and must
+   **is not the project's** (constraint [`V-180`](../11_registri/01-vincoli-in-vigore.md#v-180)). For **CE marking** the reason is different and must
    be stated with precision: planning is internal to the project (`D57`, `D58`), but **internal planning
    does not become a promise just because it is ours**, and the promise of a dated regulatory outcome produces an effect that the intention does not. Of each the project declares **the conditions** and **what it provides**; never the date.
 - **It does not give them an «INTENTION» entry presented as «COMMITMENT».** No project material
-   - documentation, website, response to tender, release note - can do this (constraint `V-184`). A queue item for the release after the first is **planned** only if it has together binary completion criterion, declared trigger and named owner: in the absence of even one of the three it is **desirable**, and must be marked as such also in a specification response (constraint `V-187`).
+   - documentation, website, response to tender, release note - can do this (constraint [`V-184`](../11_registri/01-vincoli-in-vigore.md#v-184)). A queue item for the release after the first is **planned** only if it has together binary completion criterion, declared trigger and named owner: in the absence of even one of the three it is **desirable**, and must be marked as such also in a specification response (constraint [`V-187`](../11_registri/01-vincoli-in-vigore.md#v-187)).
 
 ## 6. Two adjacent readers that this chapter does not address
 

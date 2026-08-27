@@ -1,7 +1,7 @@
 ---
 title: Conformità - indice e orientamento
 sidebar_position: 1
-description: "Come è organizzata l'area di conformità di Telemedic, che cosa contiene e che cosa rinvia altrove. Percorsi di lettura per chi intende certificare, per chi installa e per chi contribuisce; confini rispetto alla sicurezza e alla guida dei fondamenti; vincoli recepiti e imposti; ciò che quest'area deliberatamente non dice; e la nota su che cosa è cambiato con le decisioni D57 e D58 e su che cosa non è cambiato."
+description: "Come è organizzata l'`COMP` di Telemedic, che cosa contiene e che cosa rinvia altrove. Percorsi di lettura per chi intende certificare, per chi installa e per chi contribuisce; confini rispetto alla sicurezza e alla guida dei fondamenti; vincoli recepiti e imposti; ciò che quest'area deliberatamente non dice; e la nota su che cosa è cambiato con le decisioni D57 e D58 e su che cosa non è cambiato."
 ---
 
 # Conformità - indice e orientamento
@@ -21,7 +21,7 @@ diverse, e quasi tutte le fonti di quest'area si rivolgono alla seconda.
 Da qui discendono i tre fatti che nessun capitolo può contraddire.
 
 **Primo - il prodotto non reca marcatura CE, e il progetto non è oggi fabbricante** (`D28`,
-`D49` e `V-06`, come emendati da `D58`). Il progetto **intende** assumere il ruolo di fabbricante,
+`D49` e [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06), come emendati da `D58`). Il progetto **intende** assumere il ruolo di fabbricante,
 e **il soggetto giuridico che lo eserciterebbe non è ancora costituito**. Produce e pubblica il
 materiale regolatorio - fascicolo tecnico, ciclo di vita del software, gestione del rischio,
 ingegneria dell'usabilità - **per quel percorso**, e si ferma esattamente dove comincia un atto che
@@ -86,7 +86,7 @@ esiste più.
 3. **Chi installa, integra o mette in servizio assume comunque gli obblighi che ne derivano.**
    L'intenzione del progetto di certificare **non gliene trasferisce alcuno**, e lasciarlo
    intendere sarebbe più dannoso del silenzio.
-4. **Nessuna data di marcatura, da nessuna parte** (`V-171`). Non si scrive, e non si lascia
+4. **Nessuna data di marcatura, da nessuna parte** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)). Non si scrive, e non si lascia
    intendere, che il prodotto sarà marcato entro un termine: una pianificazione interna **non
    diventa una promessa perché è nostra**. Nessuna data, nessuna finestra, nessun «entro» -
    l'unica occorrenza ammessa di quella parola è dentro l'enunciato del divieto stesso.
@@ -101,7 +101,7 @@ da chi lo eserciti; **il soggetto fabbricante, da costituire** dove il passo pre
 giuridica che oggi manca; **chi installa** o **chi integra** dove il testo si riferisce a loro. Le
 regole di forma con cui l'intenzione va nominata - verbo «intende», assenza del soggetto ripetuta
 nella stessa frase, stato di fatto negativo in prima posizione, nessuna data - sono in
-[01 §11](./01-inquadramento-normativo.md) e sono parte di `V-171`.
+[01 §11](./01-inquadramento-normativo.md) e sono parte di [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171).
 
 ## 2. I capitoli
 
@@ -116,8 +116,10 @@ nella stessa frase, stato di fatto negativo in prima posizione, nessuna data - s
 | [07](./07-valutazione-clinica.md) | **Valutazione clinica** | Che cosa si deve dimostrare, con quali dati, in quanto tempo, e perché è il secondo percorso a tempo lungo dopo l'organismo notificato |
 | [08](./08-sorveglianza-post-commercializzazione.md) | **Sorveglianza post-commercializzazione** | I due processi distinti - sorveglianza e vigilanza -, i termini di segnalazione, le modifiche e quando richiedono l'intervento dell'organismo notificato |
 | [09](./09-percorso-e-calendario.md) | **Percorso e calendario** | Gli ottenimenti da conseguire, in quale ordine, con quali prerequisiti, e gli scenari temporali con i punti di decisione irreversibili. **È la sede unica delle date**, che sono **pianificazione interna del progetto** (`D57`) e mai una data di marcatura |
-| [10](./10-controllo-dei-documenti.md) | **Controllo dei documenti** | La definizione del controllo dei documenti: perimetro, regole di identificazione e versione, revisori per categoria, forma dell'approvazione, ritiro. Come la registrazione di approvazione funziona nel modello «documenti come codice» e la lacuna esplicita dichiarata: redattore e approvatore coincidono, è la prima voce di `Q-189` |
-| [PROC](/08_compliance/PROCEDURA-controllo-dei-documenti.md) | **Procedura di controllo dei documenti** | **Non è un capitolo, ed è l'unico artefatto di quest'area che non lo è.** È la procedura operativa che il criterio 1 di `T-01` esige: elenco nominale dei documenti controllati con il loro stato, regola di identificazione e di versione, revisore nominato per ciascuna categoria, forma dell'approvazione, regola di ritiro. È **essa stessa sotto controllo** e compare nel proprio elenco. Rinvia al capitolo 10 invece di ricopiarlo |
+| [10](./10-controllo-dei-documenti.md) | **Controllo dei documenti** | La definizione del controllo dei documenti: perimetro, regole di identificazione e versione, revisori per categoria, forma dell'approvazione, ritiro. Come la registrazione di approvazione funziona nel modello «documenti come codice» e la lacuna esplicita dichiarata: redattore e approvatore coincidono, è la prima voce di [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) |
+| [11](./11-richiesta-agli-organismi-notificati.md) | **Richiesta agli organismi notificati** | Che cosa si chiede a un organismo notificato e in quale forma: il testo versionato della richiesta di informazioni, in italiano e in inglese, con i campi da compilare all'invio; la ricognizione degli organismi designati con la fonte e la data di consultazione, e il codice di designazione dichiarato `[NV]`; il registro degli invii e la ragione per cui oggi non ha righe |
+| [PROC](/08_compliance/PROCEDURA-controllo-dei-documenti.md) | **Procedura di controllo dei documenti** | **Non è un capitolo**, ed è uno dei due artefatti di quest'area che non lo sono: l'altro è la bozza `CE-PLAN-001`. È la procedura operativa che il criterio 1 di `T-01` esige: elenco nominale dei documenti controllati con il loro stato, regola di identificazione e di versione, revisore nominato per ciascuna categoria, forma dell'approvazione, regola di ritiro. È **essa stessa sotto controllo** e compare nel proprio elenco. Rinvia al capitolo 10 invece di ricopiarlo |
+| [`CE-PLAN-001`](./CE-PLAN-001-piano-di-valutazione-clinica.md) | **Piano di valutazione clinica (bozza)** | **Non è un capitolo**: è la **bozza tecnica** del documento regolatorio che [07 §4](./07-valutazione-clinica.md) attribuisce al progetto, ed è il criterio 4 di `T-14`. Porta tutte le voci di contenuto che quel paragrafo elenca, ciascuna compilata oppure **dichiarata vuota con la ragione dell'assenza**; compila la strategia della validazione tecnica, nomina il fabbisogno di competenza clinica e le forme con cui si intende acquisirlo, e registra le due condizioni a monte non soddisfatte. **Non è approvata e non può esserlo**: approvazione e assunzione sono riservate al ruolo di fabbricante |
 
 **Una regola di collocazione che vale per tutta l'area: le date stanno solo nel capitolo 09.** Gli
 altri capitoli rinviano. Due calendari in due luoghi divergono al primo aggiornamento, e in
@@ -184,9 +186,9 @@ tutti e tre hanno una conseguenza immediata su una proposta di modifica.
 
 | Che cosa leggere | Perché una proposta può essere rifiutata per questo |
 |---|---|
-| [02 §6](./02-qualificazione-e-classificazione.md) - le dodici richieste che spostano la qualificazione | Una funzionalità dell'elenco **non viene respinta per merito tecnico, ma per politica di perimetro**. Il rifiuto è regolatorio e la motivazione va scritta come tale (vincolo `V-170`) |
-| [03 §§7, 9](./03-sistema-di-gestione-della-qualita.md) - tracciabilità e componenti di terze parti | Una modifica che non cita il requisito rompe la tracciabilità, che non si ricostruisce. Una dipendenza aggiunta senza scheda e senza versione esatta è un elemento di configurazione non identificato (`V-173`) |
-| [01 §11](./01-inquadramento-normativo.md) - le formule vietate | Una riga di documentazione, un messaggio di errore o un titolo di sezione che affermi una conformità inesistente è un difetto regolatorio (`V-171`), anche se il codice è impeccabile |
+| [02 §6](./02-qualificazione-e-classificazione.md) - le dodici richieste che spostano la qualificazione | Una funzionalità dell'elenco **non viene respinta per merito tecnico, ma per politica di perimetro**. Il rifiuto è regolatorio e la motivazione va scritta come tale (vincolo [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)) |
+| [03 §§7, 9](./03-sistema-di-gestione-della-qualita.md) - tracciabilità e componenti di terze parti | Una modifica che non cita il requisito rompe la tracciabilità, che non si ricostruisce. Una dipendenza aggiunta senza scheda e senza versione esatta è un elemento di configurazione non identificato ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)) |
+| [01 §11](./01-inquadramento-normativo.md) - le formule vietate | Una riga di documentazione, un messaggio di errore o un titolo di sezione che affermi una conformità inesistente è un difetto regolatorio ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)), anche se il codice è impeccabile |
 
 Chi non ha mai incontrato questa materia **non deve cominciare da qui**: il modulo
 [10 §15 - Il quadro regolatorio da zero](../10_fondamenti/15-regolatorio-da-zero.md) è scritto per
@@ -235,17 +237,17 @@ di decidere al loro posto, e le questioni sono registrate in fondo a ciascun cap
 
 ## 5. Vincoli recepiti e vincoli imposti
 
-**Recepiti da altre aree**, e vincolanti per ogni capitolo di quest'area: `V-05` (il fornitore di
-servizi di identità è chi installa, non il progetto) · `V-06`, **emendato da `D58`** (il prodotto
+**Recepiti da altre aree**, e vincolanti per ogni capitolo di quest'area: [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05) (il fornitore di
+servizi di identità è chi installa, non il progetto) · [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06), **emendato da `D58`** (il prodotto
 non reca marcatura CE e il progetto non è oggi fabbricante; il ruolo di fabbricante è quello che il
 progetto **intende** assumere, con il soggetto giuridico ancora da costituire, e gli atti riservati
 a quel ruolo restano riservati)
-· `V-07` (dataset canonico, serializzazioni sostituibili) · `V-12` (nessuna soglia tecnica è
-imposta dalla normativa italiana: i valori sono specifica di prodotto, mai conformità) · `V-120`
-(identificativi di requisito congelati) · `V-144` (la formulazione della destinazione d'uso del
+· [`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07) (dataset canonico, serializzazioni sostituibili) · [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12) (nessuna soglia tecnica è
+imposta dalla normativa italiana: i valori sono specifica di prodotto, mai conformità) · [`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)
+(identificativi di requisito congelati) · [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144) (la formulazione della destinazione d'uso del
 telemonitoraggio è «raccolta differita di parametri per la revisione periodica del professionista»)
-· `V-152` (termini di conservazione dei registri) · `V-154` e `V-165` (un livello di garanzia
-riferito da un integratore non soddisfa un obbligo di autenticazione forte) · `V-163` (i testi di
+· [`V-152`](../11_registri/01-vincoli-in-vigore.md#v-152) (termini di conservazione dei registri) · [`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154) e [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165) (un livello di garanzia
+riferito da un integratore non soddisfa un obbligo di autenticazione forte) · [`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163) (i testi di
 avvertenza e di consenso non sono tematizzabili né occultabili).
 
 **Imposti da quest'area a tutte le altre**, e non negoziabili senza contestazione motivata in
@@ -253,11 +255,11 @@ bacheca:
 
 | # | Vincolo | Dove è istituito |
 |---|---|---|
-| `V-170` | **Controllo delle modifiche come misura di conformità.** Una proposta che introduca una delle funzioni fuori perimetro non si valuta nel merito tecnico: si rifiuta per politica di perimetro, con motivazione regolatoria scritta | [02 §10](./02-qualificazione-e-classificazione.md) |
-| `V-171` | **Formule vietate in ogni artefatto pubblico.** Nessun testo del progetto può affermare o lasciare intendere una conformità, una marcatura o una certificazione che non esistono | [01 §11](./01-inquadramento-normativo.md) |
-| `V-172` | **Spazio degli identificativi dei documenti regolatori.** Nessuna area può coniare un identificativo nei prefissi riservati senza dichiararlo | [03 §5](./03-sistema-di-gestione-della-qualita.md) |
-| `V-173` | **Nessuna etichetta di versione mobile** su dipendenze, immagini di base e strumenti della catena di costruzione: è violazione diretta di una clausola, non una preferenza operativa | [03 §9.3](./03-sistema-di-gestione-della-qualita.md) |
-| `V-174` | **Questa documentazione non è un documento controllato.** Nessun capitolo è una procedura del sistema di gestione della qualità e nessuna area può presentarlo come tale: i capitoli sono ingressi | [03 §4.1](./03-sistema-di-gestione-della-qualita.md) |
+| [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170) | **Controllo delle modifiche come misura di conformità.** Una proposta che introduca una delle funzioni fuori perimetro non si valuta nel merito tecnico: si rifiuta per politica di perimetro, con motivazione regolatoria scritta | [02 §10](./02-qualificazione-e-classificazione.md) |
+| [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) | **Formule vietate in ogni artefatto pubblico.** Nessun testo del progetto può affermare o lasciare intendere una conformità, una marcatura o una certificazione che non esistono | [01 §11](./01-inquadramento-normativo.md) |
+| [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172) | **Spazio degli identificativi dei documenti regolatori.** Nessuna area può coniare un identificativo nei prefissi riservati senza dichiararlo | [03 §5](./03-sistema-di-gestione-della-qualita.md) |
+| [`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173) | **Nessuna etichetta di versione mobile** su dipendenze, immagini di base e strumenti della catena di costruzione: è violazione diretta di una clausola, non una preferenza operativa | [03 §9.3](./03-sistema-di-gestione-della-qualita.md) |
+| [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174) | **Questa documentazione non è un documento controllato.** Nessun capitolo è una procedura del sistema di gestione della qualità e nessuna area può presentarlo come tale: i capitoli sono ingressi | [03 §4.1](./03-sistema-di-gestione-della-qualita.md) |
 
 ## 6. Che cosa quest'area non dice
 
@@ -281,7 +283,7 @@ una risposta implicita. Quello che segue è ciò che non è stato scritto, e la 
    [procedura di controllo dei documenti](/08_compliance/PROCEDURA-controllo-dei-documenti.md) che
    il progetto esercita su sé stesso: è scritta, versionata e sotto il proprio controllo, perché il
    criterio 1 di `T-01` la esige in questa forma e perché senza di essa nessun altro documento
-   sarebbe controllato. `V-174` non ne è scalfito: continua a valere per i **capitoli**, che restano
+   sarebbe controllato. [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174) non ne è scalfito: continua a valere per i **capitoli**, che restano
    ingressi e non procedure. Che il ruolo di fabbricante sia quello che il progetto intende assumere
    non cambia questo punto: cambia soltanto a chi tocca istituire il resto.
 5. **Non stima costi e tariffe.** Le tariffe standard degli organismi notificati sono pubblicate
@@ -290,7 +292,7 @@ una risposta implicita. Quello che segue è ciò che non è stato scritto, e la 
    con `D58`: non è più che la data «non è del progetto», ma che **un'intenzione non è una promessa
    datata** e che l'esito dipende da organismi notificati con code non misurate. Una data
    pubblicata verrebbe letta come previsione dell'esito, che è esattamente l'affermazione vietata
-   da `V-171`. La motivazione per esteso è in [01 §13](./01-inquadramento-normativo.md).
+   da [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171). La motivazione per esteso è in [01 §13](./01-inquadramento-normativo.md).
 7. **Non decide al posto del committente.** Le decisioni che richiedono una scelta imprenditoriale
    - monetizzazione, costituzione di un soggetto giuridico, periodo di supporto dichiarato, forma
    di pubblicazione della traccia di destinazione d'uso - restano aperte e sono marcate come tali.
@@ -302,15 +304,15 @@ una risposta implicita. Quello che segue è ciò che non è stato scritto, e la 
 ## 7. Le questioni che quest'area tiene aperte
 
 Ciascun capitolo si chiude con la propria tabella; qui si registra soltanto lo spazio di
-numerazione, perché una questione senza numero non è rintracciabile. Quest'area usa `Q-170`…`Q-174`
-e ha aperto: `Q-170` forma di pubblicazione della traccia di destinazione d'uso · `Q-171` pacchetto
-documentale del regolamento sullo spazio europeo dei dati sanitari · `Q-172` struttura di
-versionamento della distribuzione identificata e rapporto con l'identificativo unico · `Q-173`
-se la presentazione di parametri costituisca funzione di misura · `Q-174` passaggio di revisione
+numerazione, perché una questione senza numero non è rintracciabile. Quest'area usa [`Q-170`](../11_registri/02-questioni-aperte.md#q-170)…[`Q-174`](../11_registri/02-questioni-aperte.md#q-174)
+e ha aperto: [`Q-170`](../11_registri/02-questioni-aperte.md#q-170) forma di pubblicazione della traccia di destinazione d'uso · [`Q-171`](../11_registri/02-questioni-aperte.md#q-171) pacchetto
+documentale del regolamento sullo spazio europeo dei dati sanitari · [`Q-172`](../11_registri/02-questioni-aperte.md#q-172) struttura di
+versionamento della distribuzione identificata e rapporto con l'identificativo unico · [`Q-173`](../11_registri/02-questioni-aperte.md#q-173)
+se la presentazione di parametri costituisca funzione di misura · [`Q-174`](../11_registri/02-questioni-aperte.md#q-174) passaggio di revisione
 regolatoria dei testi pubblici prima della pubblicazione. Le prime tre e la quinta richiedono una
 decisione che non è di quest'area; la quarta richiede un fatto tecnico che quest'area non conosce.
 
-**Lo spazio `Q-270`…`Q-279` e `V-270`…`V-279` è riservato alle voci aperte dalla riformulazione
+**Lo spazio dei numeri da 270 a 279, nelle famiglie `Q-` e `V-`, è riservato alle voci aperte dalla riformulazione
 imposta da `D57` e `D58`**, e le voci già aperte sono registrate in bacheca.
 
 ## 8. Come si mantiene quest'area
@@ -318,7 +320,8 @@ imposta da `D57` e `D58`**, e le voci già aperte sono registrate in bacheca.
 Tre regole, tutte con una conseguenza pratica.
 
 **Le fonti si citano, non si ricordano.** Un riferimento normativo che compare in un capitolo
-proviene dal testo o è marcato `[NV]`. Non esiste una terza possibilità, e la memoria di chi
+proviene dal testo o è marcato `[NV]` con l'indicazione di chi deve verificarlo secondo le tre forme
+ammesse descritte in `CONTRIBUTING.md`. Non esiste una terza possibilità, e la memoria di chi
 scrive non è una fonte.
 
 **Le date scadono.** Lo stato di armonizzazione di una norma, la versione di una guida, l'elenco

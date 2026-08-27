@@ -7,7 +7,7 @@ description: "How the system accesses clinical terminologies, why it remains ful
 # ADR-0016 - Single Terminology Gateway, Disableable, Without Persistent Cache and Without Identifiers
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference decisions**: D31, D32, D33; noticeboard constraint V-03; V-151 and V-157 set by the security area
+**Reference decisions**: D31, D32, D33; noticeboard constraint [V-03](../11_registri/01-vincoli-in-vigore.md#v-03); [V-151](../11_registri/01-vincoli-in-vigore.md#v-151) and [V-157](../11_registri/01-vincoli-in-vigore.md#v-157) set by the security area
 **Origin**: question raised by the foundational module, residual part assigned to this area
 
 ## Context

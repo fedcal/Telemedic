@@ -95,7 +95,7 @@ suppliers, by name**, with five fields: registered company name; tax identificat
 supplies used; the relevance criterion applied. `[NV]` on the text: the determination has not been
 read against a primary source and its citation details come from concordant qualified secondary
 sources and from the authority's institutional communications. It must be verified before its
-precise content is cited - this is question Q-151 in the part relating to this determination.
+precise content is cited - this is question [Q-151](../11_registri/02-questioni-aperte.md#q-151) in the part relating to this determination.
 
 Four direct consequences:
 
@@ -211,7 +211,7 @@ deadline, and it is daily: it is met with automation, not with a person.
 **The support period is declared for each major release, with an end date.** The regulation imposes
 a minimum of **five years** on the manufacturer; a project that declares less makes its integrator
 non-compliant. The decision on the actual period **belongs to the project owner** and is open as
-question Q-155.
+question [Q-155](../11_registri/02-questioni-aperte.md#q-155).
 
 ## 7. Classification of third-party components
 
@@ -234,21 +234,21 @@ documented and dated.
 
 ### 7.1 The case of the external terminology service - the answer to question Q-04
 
-Question Q-04 on the noticeboard asked for the external terminology service to be classified and
+Question [Q-04](../11_registri/02-questioni-aperte.md#q-04) on the noticeboard asked for the external terminology service to be classified and
 its compatibility with the sovereignty constraint to be verified. **The answer is closed by this
 area and is reproduced here in full.**
 
 > It is a **runtime** third-party component, not a build dependency: it falls within the supply
 > chain requirements and within supplier due diligence. Three consequences:
 >
-> **(a)** it cannot sit on the **main path**. This is constraint V-03: the system is fully
+> **(a)** it cannot sit on the **main path**. This is constraint [V-03](../11_registri/01-vincoli-in-vigore.md#v-03): the system is fully
 > functional without the code system that requires an external service, and no main path may
 > require it. The cost is declared - part of the codes of a binding will not be validated - and it
 > is not a fallback: it is a mandatory corollary.
 >
 > **(b)** if established outside the Union, it is a **transfer** the moment it receives data
 > referable to a patient. Therefore **the queries must never carry patient identifiers**, and
-> **sovereignty is satisfied by absence of the datum, not by location**. This is constraint V-151.
+> **sovereignty is satisfied by absence of the datum, not by location**. This is constraint [V-151](../11_registri/01-vincoli-in-vigore.md#v-151).
 > A query asking whether a code exists in a code system is not a transfer of personal data,
 > wherever the service answers from. It also follows that a **cache persisted to disk** is
 > forbidden, which would hold for the licensing reason alone: a persistent cache is an
@@ -280,8 +280,8 @@ receives, effect on the customer's declaration.
 
 | Reference | Question | To whom |
 |---|---|---|
-| Q-04 | **Closed by this area** with §7.1. The choice of the resolution point and of the gateway's contract remains with architecture | Architecture, for the residual part only |
-| Q-151 | Verification against a primary source of the determination introducing the relevant supplier declaration obligation, of the codes required and of the precise content of the requirements of the baseline measures | Compliance |
-| Q-155 | **Declared support period**, minimum five years: the project owner's decision. In the same question, the effect of monetisation on the manufacturer role | → Project owner |
+| [Q-04](../11_registri/02-questioni-aperte.md#q-04) | **Closed by this area** with §7.1. The choice of the resolution point and of the gateway's contract remains with architecture | Architecture, for the residual part only |
+| [Q-151](../11_registri/02-questioni-aperte.md#q-151) | Verification against a primary source of the determination introducing the relevant supplier declaration obligation, of the codes required and of the precise content of the requirements of the baseline measures | Compliance |
+| [Q-155](../11_registri/02-questioni-aperte.md#q-155) | **Declared support period**, minimum five years: the project owner's decision. In the same question, the effect of monetisation on the manufacturer role | → Project owner |
 | `[NV]` | Precise selection of the procurement vocabulary codes (§3) | Compliance, with a procurement adviser |
-| Q-17 | The summary table of protocols in the protocols area is in effect a **starting inventory** of third-party components: it should be used as a base instead of being rebuilt | Technical, compliance |
+| [Q-17](../11_registri/02-questioni-aperte.md#q-17) | The summary table of protocols in the protocols area is in effect a **starting inventory** of third-party components: it should be used as a base instead of being rebuilt | Technical, compliance |

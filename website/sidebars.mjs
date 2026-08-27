@@ -47,6 +47,7 @@ const sidebars = {
     area('Integrazione', '07_integration', 'Come un sistema di terze parti si integra con Telemedic, e quando una modalità è la scelta sbagliata.'),
     area('Conformità', '08_compliance', 'Inquadramento normativo, qualificazione, sistema qualità, gestione del rischio e percorso di certificazione.'),
     area('Roadmap', '09_roadmap', 'Traguardi datati, criteri di completamento verificabili, primo rilascio utilizzabile e registro dei rischi di programma.'),
+    area('Registri', '11_registri', 'I vincoli in vigore e le questioni aperte fra le aree, con la sigla che ciascuna documentazione cita e che qui trova il proprio bersaglio.'),
     {
       type: 'category',
       label: 'Decisioni architetturali',

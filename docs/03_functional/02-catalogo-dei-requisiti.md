@@ -522,7 +522,7 @@ traduce in requisiti.
 
 ## 6. Blocco 5.T - Silenzio, aderenza e sorveglianza del volume atteso (`RF-293` … `RF-306`)
 
-Il principio che ordina il blocco è il vincolo **V-09**: l'assenza di dato è informazione clinica e
+Il principio che ordina il blocco è il vincolo **[V-09](../11_registri/01-vincoli-in-vigore.md#v-09)**: l'assenza di dato è informazione clinica e
 il silenzio non è mai trattato come normalità. In un servizio di telemonitoraggio la mancata
 trasmissione di una misura attesa ha la stessa dignità informativa di una misura fuori soglia,
 perché fra le sue cause c'è, con probabilità non trascurabile, esattamente ciò che il servizio
@@ -942,8 +942,8 @@ prestazione a distanza. Il fondamento è nel modulo
 > canale effettivamente usato è riportato, e il medico deve confermare l'idoneità con un'azione
 > esplicita prima della firma.
 > *Il tracciato ministeriale non prevede un campo dedicato: la collocazione è oggetto di decisione
-> architetturale documentata.* `[NV]` *sul campo di destinazione definitivo - questione aperta verso
-> l'area conformità.*
+> architetturale documentata.* *La scelta del campo di destinazione finale resta un'incertezza* `[NV]`
+> *che* `COMP` *deve risolvere quando i template regionali saranno disponibili.*
 
 > **RF-351 · Canale alternativo sicuro per la consegna del referto** - *Paziente* · *S* · *Dip.: RF-131*
 > Quando l'assistito dichiara difficoltà di accesso al proprio fascicolo, il sistema deve consentire

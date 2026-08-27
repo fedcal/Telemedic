@@ -69,7 +69,7 @@ usabilità clinica: un professionista sotto pressione di tempo non deve interpre
 **Sul componente incorporabile, una nota che ha peso di sicurezza e non solo di prodotto.**
 Indicatore di registrazione in corso, avvisi e testi di consenso, esito della verifica delle
 chiavi, messaggi di errore clinico e indicatore dello stato di cifratura **non sono
-tematizzabili né occultabili** (vincolo V-23 dell'area di integrazione). Le proprietà di tema
+tematizzabili né occultabili** (vincolo [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) dell'`INTEG`). Le proprietà di tema
 ammesse sono un insieme chiuso e versionato, validate dal lato che riceve con verifica del
 contrasto, e una configurazione che degrada l'accessibilità **viene rifiutata al salvataggio**,
 non segnalata come avviso. Nessuna iniezione di fogli di stile arbitrari dall'esterno: un foglio
@@ -164,7 +164,7 @@ documenti. Le regole:
 | **Archiviazione fuori dal percorso servito**, con restituzione mediata dall'applicazione | Un file caricato che sia raggiungibile direttamente è un file servito senza autorizzazione |
 | **Restituzione con tipo dichiarato dal sistema e disposizione come allegato** dove il tipo non è di visualizzazione sicura | Impedisce l'esecuzione nel contesto dell'origine dell'applicazione |
 | **Scansione antimalware sul percorso di caricamento** | È requisito di chi installa, ma il prodotto deve **prevedere il punto di innesto** e comportarsi in modo definito quando la scansione non è disponibile: rifiuto, non accettazione silenziosa |
-| **Nessun contenuto di file nei log** | Vincolo V-150 |
+| **Nessun contenuto di file nei log** | Vincolo [V-150](../11_registri/01-vincoli-in-vigore.md#v-150) |
 | **Documenti strutturati analizzati con risoluzione delle entità esterne disattivata** | §4 |
 | **Archivi compressi**: limite al rapporto di espansione e al numero di elementi | Difesa contro l'espansione patologica |
 
@@ -188,14 +188,14 @@ configurazioni diverse: **proteggere la disponibilità** e **rallentare l'abuso*
 
 Una soglia troppo bassa su un servizio pubblico è una negazione di servizio a costo zero per chi
 attacca; una soglia troppo alta non protegge. **Le soglie sono configurazione di tenant, sono
-specifica di prodotto e mai conformità** (vincolo V-12), e sono osservabili: chi installa deve
+specifica di prodotto e mai conformità** (vincolo [V-12](../11_registri/01-vincoli-in-vigore.md#v-12)), e sono osservabili: chi installa deve
 poterle tarare su dati reali.
 
 ## 8. Il mediatore unico di uscita
 
 ### 8.1 Il principio
 
-**Vincolo V-157, e risposta alla questione Q-16.**
+**Vincolo [V-157](../11_registri/01-vincoli-in-vigore.md#v-157), e risposta alla questione [Q-16](../11_registri/02-questioni-aperte.md#q-16).**
 
 > **Nessun componente applicativo apre connessioni verso destinazioni derivate da un dato in
 > ingresso. Solo il mediatore ha rotta verso l'esterno; agli altri l'uscita è negata a livello
@@ -266,16 +266,16 @@ dall'elenco della federazione e non da quello del mediatore resterebbe raggiungi
 
 | Punto di uscita | Che cosa esce | Vincolo specifico |
 |---|---|---|
-| **Gateway terminologico** | Interrogazioni su codici e sistemi di codifica | **Nessun identificativo dell'assistito** (V-151); nessuna cache persistita su disco |
+| **Gateway terminologico** | Interrogazioni su codici e sistemi di codifica | **Nessun identificativo dell'assistito** ([V-151](../11_registri/01-vincoli-in-vigore.md#v-151)); nessuna cache persistita su disco |
 | **Interoperabilità verso infrastrutture nazionali e regionali** | Documenti e metadati secondo il profilo dell'infrastruttura | Destinazioni da elenco chiuso, configurate da chi installa |
-| **Messaggi in uscita verso l'integratore** | Identificativi e riferimenti | **Nessun contenuto clinico** (V-21); **firma asimmetrica** con identificativo di chiave risolvibile (V-22); destinazioni dal registro di fiducia del tenant |
+| **Messaggi in uscita verso l'integratore** | Identificativi e riferimenti | **Nessun contenuto clinico** ([V-161](../11_registri/01-vincoli-in-vigore.md#v-161)); **firma asimmetrica** con identificativo di chiave risolvibile ([V-162](../11_registri/01-vincoli-in-vigore.md#v-162)); destinazioni dal registro di fiducia del tenant |
 | **Risoluzione di riferimenti assoluti nelle risorse** | Richieste verso indirizzi contenuti nel dato ricevuto: riferimento, allegato, identificatore pieno di una voce di raccolta | **È il punto più pericoloso**, perché la destinazione è **letteralmente scritta dal chiamante**. Passa dal mediatore come tutti gli altri, e in aggiunta la risoluzione automatica è **disattivata per impostazione predefinita** |
 | **Recupero di metadata e materiale di chiavi pubbliche** | Richieste verso gli indirizzi di pubblicazione delle chiavi degli emittenti ammessi | Indirizzi dal **registro di fiducia**, mai dal token che si sta verificando: un token che indichi da dove prelevare la chiave con cui verificarlo è un token che si autoconvalida |
 
 **Il relay non è fra questi, e non deve esserlo.** Il relay inoltra pacchetti di trasporto verso
 una destinazione scelta dal client: non effettua richieste applicative, non ha un livello
 applicativo su cui applicare uno di questi quattro controlli, e la sua difesa è di altra natura
-- l'isolamento di rete in uscita del vincolo V-10, trattato in
+- l'isolamento di rete in uscita del vincolo [V-10](../11_registri/01-vincoli-in-vigore.md#v-10), trattato in
 [05 §4](./05-sicurezza-del-tempo-reale.md). Confonderli produrrebbe una progettazione sbagliata
 di entrambi.
 
@@ -302,7 +302,7 @@ progetto non può realizzare al suo posto:
   dell'installazione. Il progetto le documenta nella configurazione di riferimento e le
   **verifica all'avvio**: se il componente scopre di avere rotta verso l'esterno, **l'avvio è
   rifiutato**. È la stessa conseguenza che la tabella delle verifiche all'avvio di
-  `docs/02_architecture/08-viste-di-deployment.md` §8 assegna a questa riga, e non ammette qui
+  [`docs/02_architecture/08-viste-di-deployment.md`](../02_architecture/08-viste-di-deployment.md) §8 assegna a questa riga, e non ammette qui
   l'attenuazione che quella tabella riserva, motivandola, alla sola riga dell'archivio del
   registro. La ragione sta nel §8.1: il vincolo è architetturale **perché non dipende dalla
   diligenza di nessuno**, e un avvio che prosegue con un avviso rimette la proprietà nelle mani
@@ -321,7 +321,7 @@ Il tutto confluisce nella tabella di [09](./09-ripartizione-delle-responsabilita
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| Q-16 | **Chiusa da quest'area** con il §8: la protezione contro le richieste indirizzate a risorse interne è implementata **una volta sola** in un componente condiviso, come requisito architetturale con negazione di rotta a livello di rete, e non ripetuta a ogni punto di uscita | - |
-| Q-156 | Forma concreta del registro di fiducia unico, che alimenta anche l'elenco consentito del mediatore (§8.2) | Architettura |
+| [Q-16](../11_registri/02-questioni-aperte.md#q-16) | **Chiusa da quest'area** con il §8: la protezione contro le richieste indirizzate a risorse interne è implementata **una volta sola** in un componente condiviso, come requisito architetturale con negazione di rotta a livello di rete, e non ripetuta a ogni punto di uscita | - |
+| [Q-156](../11_registri/02-questioni-aperte.md#q-156) | Forma concreta del registro di fiducia unico, che alimenta anche l'elenco consentito del mediatore (§8.2) | Architettura |
 | - | Collocazione del mediatore: componente autonomo o funzione di un componente di bordo esistente. Quest'area ne fissa il comportamento, non la collocazione | Architettura |
 | - | Soglie di limitazione predefinite (§7): specifica di prodotto, mai conformità | Funzionale |

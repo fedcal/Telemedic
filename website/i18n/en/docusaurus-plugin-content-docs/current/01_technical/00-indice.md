@@ -12,7 +12,7 @@ The editorial criterion is a single one: **every choice is motivated and every l
 
 ---
 
-## The ten chapters
+## The eleven chapters
 
 | # | Chapter | What it resolves |
 |---|---|---|
@@ -26,6 +26,7 @@ The editorial criterion is a single one: **every choice is motivated and every l
 | 8 | [Quality and testing](./08-qualita-e-test.md) | Test pyramid, contract tests, synthetic data, automated and manual accessibility, load tests, minimum and differentiated coverage, requirement → test traceability |
 | 9 | [Continuous integration and release](./09-integrazione-continua-e-rilascio.md) | Pipeline at four tiers, thirteen mandatory checks, versioning at two lifetimes, reproducible build, signed artefacts, bill of materials, support period |
 | 10 | [Verifying the documentation site](./10-verifica-sito-di-documentazione.md) | Criterion 6 of `T-07`: the executable and repeatable procedure that establishes navigation, search and the translation-in-progress notice of the published site, and the dated register of its executions |
+| 11 | [Translation alignment](./11-allineamento-delle-traduzioni.md) | Criterion 6 of `T-06`: what makes a change proposal complete, what happens when the translation lags behind, how a prerequisite area is distinguished from a reporting-only area |
 
 ---
 
@@ -88,7 +89,7 @@ They are written on the noticeboard and summarised here because they condition t
 | Which system identifier to adopt for divergent demographic identifiers | `ARCH` and `DOM` |
 | Reference device for interface performance thresholds | `PROD`, with measurement the responsibility of this area |
 
-The complete register, with updated status, is in `.telemedic/context/05_BACHECA_INTERAGENTI.md`; the summary of this area's work is in `.telemedic/context/log-TECH.md`.
+The complete register, with updated status, is in [`.telemedic/context/05_BACHECA_INTERAGENTI.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/05_BACHECA_INTERAGENTI.md); the summary of this area's work is in [`.telemedic/context/log-TECH.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/log-TECH.md).
 
 ---
 
@@ -96,5 +97,5 @@ The complete register, with updated status, is in `.telemedic/context/05_BACHECA
 
 - **The repository is source code, not a medical device**, and it declares this. Distribution is a separate artefact, with its own name, version and lifetime cycle (D17, Chapter 9 §1).
 - **No artefact is marked CE**, and every distributed artefact declares this explicitly (D16, D49).
-- **No technical threshold in this area is compliance.** They are product specifications and declared limits (constraint V-12, Chapter 7 §0).
+- **No technical threshold in this area is compliance.** They are product specifications and declared limits (constraint [V-12](../11_registri/01-vincoli-in-vigore.md#v-12), Chapter 7 §0).
 - **No real data** appears in code, tests, examples, logs or documentation. All code and configuration fragments are **illustrative**, with declared language, only placeholders for secrets and only synthetic data.

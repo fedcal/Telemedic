@@ -93,7 +93,7 @@ way.
 ## 4. Audit trail and node authentication
 
 It is the profile with the highest relevance, because it is the one that gives standard form to
-constraint V5.
+constraint [V5](../11_registri/03-vincoli-fondanti.md#v5).
 
 ### 4.1 The actors and Telemedic's choice
 
@@ -173,9 +173,9 @@ audit model**, serialisable both as a FHIR resource, for the read-only exposure 
 in the XML format provided for by the transaction, for sending to the customer's repository.
 
 It must be said that **neither serialisation is the immutable audit trail**. The immutable audit
-trail required by constraint V-04 is append-only with a hash chain and retention separate from the
+trail required by constraint [V-04](../11_registri/01-vincoli-in-vigore.md#v-04) is append-only with a hash chain and retention separate from the
 system that generates the events. These are export forms. Confusing them is the error that
-constraint V-04 exists to prevent.
+constraint [V-04](../11_registri/01-vincoli-in-vigore.md#v-04) exists to prevent.
 
 ## 5. Consistent time
 

@@ -27,7 +27,7 @@ Ne discendono tre affermazioni che governano tutto il capitolo:
    «quale sistema ha agito per conto di quale persona». Con l'impersonificazione quella domanda
    non ha risposta.
 3. **Il progetto è conforme e verificabile, non accreditato.** Sui canali d'identità nazionali il
-   fornitore di servizi è **chi installa**, mai il progetto. È il vincolo V-05, e cambia ciò che
+   fornitore di servizi è **chi installa**, mai il progetto. È il vincolo [V-05](../11_registri/01-vincoli-in-vigore.md#v-05), e cambia ciò che
    la documentazione può affermare.
 
 ## 2. La postura di base
@@ -222,7 +222,7 @@ confusione di chiavi: il valore nell'intestazione **non va mai seguito ciecament
 confrontato con quello registrato per quel client, e se non coincide la richiesta è rifiutata. La
 cache dell'insieme di chiavi ha una durata, il recupero forzato avviene solo su identificativo di
 chiave sconosciuto, ed è limitato in frequenza perché un identificativo casuale non diventi un
-amplificatore di traffico verso terzi. È lo stesso registro unico della questione **Q-161**.
+amplificatore di traffico verso terzi. È lo stesso registro unico della questione **[Q-161](../11_registri/02-questioni-aperte.md#q-161)**.
 
 ### 5.4 Due meccanismi, e un cancello di rilascio
 
@@ -247,8 +247,8 @@ adottato**.
 > di vita del software, non una precauzione di stile. La verifica va condotta sulla versione
 > esattamente adottata **prima** di scriverlo nella documentazione pubblica.
 >
-> **Da chiedere a**: area di architettura e area tecnica, con verifica empirica sulla versione
-> effettivamente adottata. È connessa alla questione **Q-160** della bacheca, che riguarda un altro
+> **Da chiedere a**: area di architettura e `TECH`, con verifica empirica sulla versione
+> effettivamente adottata. È connessa alla questione **[Q-160](../11_registri/02-questioni-aperte.md#q-160)** della bacheca, che riguarda un altro
 > comportamento non verificato dello stesso prodotto di federazione.
 
 ### 5.5 Quando la delega non si usa
@@ -282,12 +282,13 @@ verbatim dalla fonte: *«Stringa separata da uno spazio, che specifica i valori 
 server di autorizzazione per l'elaborazione della richiesta di autenticazione, con i valori
 visualizzati in ordine di preferenza.»*
 
-> **`[NV]` - valori accettati dal fornitore dell'identità elettronica su documento.** Le regole
-> tecniche descrivono il parametro dei valori di contesto ma **rinviano ai metadati del fornitore**
-> per l'elenco effettivo. I valori vanno quindi **letti a runtime dai metadati**, non cablati. Se
+> **Valori accettati dal fornitore dell'identità elettronica su documento** `[NV]` da chiedere al
+> fornitore di identità. Le regole tecniche descrivono il parametro dei valori di contesto ma **rinviano ai
+> metadati del fornitore** per l'elenco effettivo. I valori vanno quindi **letti a runtime dai metadati**,
+> non cablati. Se
 > serve un elenco statico, va richiesto al gestore dell'identità e citato con il documento
 > contrattuale, non con una fonte tecnica pubblica.
-> **Da chiedere a**: area di integrazione, che ha in carico la federazione.
+> **Da chiedere a**: `INTEG`, che ha in carico la federazione.
 
 ### 6.2 Dove viaggia il livello
 
@@ -316,7 +317,7 @@ quale livello di garanzia, e su quale base, un'operazione è stata compiuta.
 Un fatto accertato che vincola l'architettura: il connettore verso il canale d'identità nazionale
 configura il contesto di autenticazione richiesto **staticamente sulla singola istanza di
 fornitore**. Un livello variabile per operazione richiede quindi **un'istanza per ciascuna coppia
-fornitore e livello**. La decisione di perimetro presa dall'area di integrazione riduce il fattore
+fornitore e livello**. La decisione di perimetro presa dall'`INTEG` riduce il fattore
 a due - un livello di base e uno superiore per le operazioni di amministrazione - invece che alla
 cardinalità dei livelli.
 
@@ -326,13 +327,14 @@ verificata: sul canale dell'identità elettronica su documento le regole tecnich
 il contesto restituito è **sempre il livello più alto**, quindi **il livello effettivo non è
 desumibile dall'asserzione**. Chi legge il livello dalla risposta legge un valore costante.
 
-> **`[NV]` - inoltro del livello richiesto attraverso il realm di intermediazione.** Non è
-> verificato se il prodotto di federazione, agendo da client verso un fornitore esterno, inoltri
+> **Inoltro del livello richiesto attraverso il realm di intermediazione** `[NV]` da chiedere al
+> fornitore di identità. Non è verificato se il prodotto di federazione, agendo da client verso un
+> fornitore esterno, inoltri
 > il parametro del livello richiesto attraverso il realm che fa da intermediario. Se non lo
 > inoltra, l'innalzamento di livello per operazione non è ottenibile per sola configurazione.
-> È la questione **Q-160** della bacheca, e la verifica empirica va messa sul percorso critico
+> È la questione **[Q-160](../11_registri/02-questioni-aperte.md#q-160)** della bacheca, e la verifica empirica va messa sul percorso critico
 > **prima** di dichiarare in documentazione pubblica come si propaga il livello.
-> **Da chiedere a**: area di architettura e area tecnica.
+> **Da chiedere a**: area di architettura e `TECH`.
 
 ## 7. L'avvio applicativo in contesto clinico
 
@@ -451,7 +453,7 @@ protocollo di messaggi proprio, documentato e versionato, per tutti gli altri.
 **Scelta di progetto: token opachi verso l'esterno, tradotti in token autoportanti dal gateway.**
 Vantaggi: revoca effettiva, nessun claim esposto, dimensione contenuta delle intestazioni. Costo:
 il gateway diventa componente critico e va reso ridondante. La decisione ha impatto su latenza e
-topologia ed è la questione **Q-135** aperta verso l'area di architettura, che quest'area non
+topologia ed è la questione **[Q-135](../11_registri/02-questioni-aperte.md#q-135)** aperta verso l'area di architettura, che quest'area non
 decide.
 
 ### 8.2 Durata

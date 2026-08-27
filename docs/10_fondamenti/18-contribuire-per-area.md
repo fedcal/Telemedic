@@ -27,7 +27,7 @@ posto suo. La sezione [§14](#14-i-contributi-che-non-sono-codice) esiste per qu
 
 **La terza.** Alcune modifiche non si valutano nel merito tecnico. Una funzione dell'elenco
 chiuso del perimetro regolatorio viene rifiutata **per politica**, con motivazione scritta, anche
-se è ben implementata e utile (vincolo `V-170`). Saperlo prima di scrivere il codice è la
+se è ben implementata e utile (vincolo [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)). Saperlo prima di scrivere il codice è la
 differenza fra una discussione di dieci minuti e due settimane buttate.
 
 > **Prerequisito.** Questo modulo presuppone che tu abbia già letto
@@ -133,17 +133,17 @@ pagina, titolo di sezione, descrizione di interfaccia, messaggio di errore, nota
 può affermare o lasciare intendere una conformità, una marcatura o una certificazione che non
 esistono. La tabella delle formule vietate e di quelle ammesse è in
 [`docs/08_compliance/01-inquadramento-normativo.md`](../08_compliance/01-inquadramento-normativo.md)
-§11, ed è un vincolo (`V-171`) con fondamento normativo: il materiale promozionale **è**
+§11, ed è un vincolo ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)) con fondamento normativo: il materiale promozionale **è**
 materiale regolatorio. L'elenco parallelo per i protocolli, che vieta di dichiarare conformità a
 specifiche informative o a bozze scadute, è in
 [`docs/04_protocols/10-conformita-e-prove.md`](../04_protocols/10-conformita-e-prove.md) §2
-(`V-133`).
+([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)).
 
 **Quarta - gli identificativi non si rinumerano.** `RF-*`, `RNF-*`, `BR-*`, `ATT-*`, `UC-*`,
 `OUT-*` e i codici di esito sono congelati. Un identificativo riusato per un requisito diverso
 rende inservibile l'intera matrice di tracciabilità, e mantenere la tracciabilità è una delle
 attività **retroattivamente irrecuperabili** della decisione `D45`. Gli intervalli liberi si chiedono in
-bacheca prima dell'uso (`V-120`).
+bacheca prima dell'uso ([`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)).
 
 **Quinta - una proposta che tocca il contenuto italiano non è completa finché non aggiorna
 l'inglese.** Il controllo `G8` blocca la divergenza. Non è un rischio di traduzione: è contenuto
@@ -154,7 +154,7 @@ documentale.
 giudizi di qualità: aggirarne uno produce un artefatto che non avrebbe potuto essere prodotto e
 che porta con sé una dichiarazione falsa. Se un controllo blocca legittimamente uno sviluppo
 legittimo, **si corregge il controllo con la procedura prevista**, non lo si disattiva per la
-propria proposta (`V-191`, [17 §9.4](17-ambiente-di-sviluppo.md)).
+propria proposta ([`V-191`](../11_registri/01-vincoli-in-vigore.md#v-191), [17 §9.4](17-ambiente-di-sviluppo.md)).
 
 ---
 
@@ -172,7 +172,7 @@ interni sono quelli.
 Il lavoro di cui c'è bisogno oggi non è distribuito uniformemente sui nove capitoli. Tre fronti
 sono aperti e concreti.
 
-Il primo è la **catena di costruzione**, che per vincolo `V-182` **precede** la prima riga di
+Il primo è la **catena di costruzione**, che per vincolo [`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182) **precede** la prima riga di
 codice applicativo: distinta dei materiali generata automaticamente, registro degli identificativi
 di requisito, controlli obbligatori eseguibili anche in locale. È lavoro poco appariscente e
 strutturalmente insostituibile, perché censire i componenti di terze parti a posteriori costa
@@ -186,8 +186,8 @@ schermata che viola uno dei criteri `A1`-`A10` non è completabile nel senso di
 schermata terminata.
 
 Il terzo è la **misura**: il piano media espone contatori grezzi che vanno differenziati fra
-campioni consecutivi prima di significare qualcosa (`V-113`), e il dispositivo di riferimento su
-cui misurare le soglie dell'interfaccia non è ancora dichiarato (`Q-115`). Chi ha un apparecchio
+campioni consecutivi prima di significare qualcosa ([`V-113`](../11_registri/01-vincoli-in-vigore.md#v-113)), e il dispositivo di riferimento su
+cui misurare le soglie dell'interfaccia non è ancora dichiarato ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115)). Chi ha un apparecchio
 di fascia media di qualche anno fa e sa misurare seriamente fa un lavoro che oggi nessuno sta
 facendo.
 
@@ -236,18 +236,18 @@ sembra burocratico e che, se non fatto ora, non si fa più.
 
 - **Usa un contatore cumulativo come indicatore di qualità.** Perdita, byte, durata dei
   congelamenti e ritardo del buffer crescono in modo monotono: la media corretta è un rapporto
-  fra differenze di campioni consecutivi, non un valore letto una volta (`V-113`). L'errore
+  fra differenze di campioni consecutivi, non un valore letto una volta ([`V-113`](../11_registri/01-vincoli-in-vigore.md#v-113)). L'errore
   produce cruscotti che sembrano funzionare e che mentono in modo crescente.
 - **Aggiunge un valore predefinito «ragionevole».** In un contesto clinico non esiste un valore
-  predefinito ragionevole per una soglia: il campo parte vuoto e obbligatorio (`V-123`). La
+  predefinito ragionevole per una soglia: il campo parte vuoto e obbligatorio ([`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123)). La
   precompilazione, anche con il valore dell'ultimo piano, è vietata.
 - **Tratta la migrazione dello schema come un atto unico.** Nessun rilascio è insieme distruttivo
   e funzionale: due versioni consecutive devono poter convivere sulla stessa base dati
-  (`V-111`). Una funzionalità che richieda una migrazione distruttiva nello stesso rilascio va
+  ([`V-111`](../11_registri/01-vincoli-in-vigore.md#v-111)). Una funzionalità che richieda una migrazione distruttiva nello stesso rilascio va
   riprogettata, non autorizzata in deroga.
 - **Imposta il contesto di tenant fuori dalla transazione.** Le politiche di sicurezza a livello
   di riga negano tutto in assenza di contesto: l'impostazione va fatta **dentro** la transazione
-  e con la forma locale, non con quella di sessione (`V-112`).
+  e con la forma locale, non con quella di sessione ([`V-112`](../11_registri/01-vincoli-in-vigore.md#v-112)).
 
 **Chi arriva dalla sanità.**
 
@@ -259,7 +259,7 @@ sembra burocratico e che, se non fatto ora, non si fa più.
   connessione peggiore, non dal desktop dello sviluppatore. Un requisito che non si completa su
   un apparecchio modesto in rete mobile **non è soddisfatto**, per criterio esplicito.
 - **Confonde una soglia tecnica con una conformità.** Nessuna soglia tecnica di quest'area è
-  imposta dalla normativa italiana: i valori del progetto sono specifica di prodotto (`V-12`).
+  imposta dalla normativa italiana: i valori del progetto sono specifica di prodotto ([`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12)).
   Presentarli come conformità è un difetto regolatorio.
 
 ### 4.5 Che cosa non si tocca senza discuterne prima
@@ -267,10 +267,10 @@ sembra burocratico e che, se non fatto ora, non si fa più.
 | Elemento | Perché è vincolato | Dove si discute |
 |---|---|---|
 | Sostituzione o aggiunta di una tecnologia dello stack | Ogni scelta ha versione minima motivata e classificazione come componente di terze parti | Segnalazione, poi decisione architetturale registrata |
-| Forma degli errori sulle interfacce pubbliche | Esistono **due sole** rappresentazioni ammesse, e un codice non catalogato non può essere emesso (`V-110`, `V-130`) | Bacheca, aree tecnica e protocolli |
-| Contenitore e codec della registrazione | Si negoziano a runtime e si registrano nei metadati: **nessun formato unico può essere dichiarato** (`V-11`, `V-115`) | Bacheca |
-| Indice di qualità della sessione | È proprietario e va dichiarato tale; non è un punteggio di opinione media secondo alcuna raccomandazione (`V-114`) | Bacheca |
-| Etichette di versione mobili su dipendenze o immagini di base | Violano una clausola sul controllo della configurazione, non una preferenza (`V-173`) | Area di conformità |
+| Forma degli errori sulle interfacce pubbliche | Esistono **due sole** rappresentazioni ammesse, e un codice non catalogato non può essere emesso ([`V-110`](../11_registri/01-vincoli-in-vigore.md#v-110), [`V-130`](../11_registri/01-vincoli-in-vigore.md#v-130)) | Bacheca, aree tecnica e protocolli |
+| Contenitore e codec della registrazione | Si negoziano a runtime e si registrano nei metadati: **nessun formato unico può essere dichiarato** ([`V-11`](../11_registri/01-vincoli-in-vigore.md#v-11), [`V-115`](../11_registri/01-vincoli-in-vigore.md#v-115)) | Bacheca |
+| Indice di qualità della sessione | È proprietario e va dichiarato tale; non è un punteggio di opinione media secondo alcuna raccomandazione ([`V-114`](../11_registri/01-vincoli-in-vigore.md#v-114)) | Bacheca |
+| Etichette di versione mobili su dipendenze o immagini di base | Violano una clausola sul controllo della configurazione, non una preferenza ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)) | Area di conformità |
 | Confini fra moduli del servizio | Sono la struttura del sistema; il controllo `G13` li verifica | Area architetturale |
 
 ### 4.6 Come si verifica il proprio lavoro
@@ -349,28 +349,28 @@ conseguenza avrebbe ciascuna opzione è lavoro utile e non richiede l'autorità 
 **Chi arriva dall'informatica gestionale.**
 
 - **Fonde la prestazione clinica e la sessione media.** Sono aggregati distinti con cicli di vita
-  indipendenti (`V-01`): fonderli fa sì che ogni disconnessione crei un contatto fantasma e che
+  indipendenti ([`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01)): fonderli fa sì che ogni disconnessione crei un contatto fantasma e che
   una caduta di rete chiuda un atto clinico. È l'errore numero due della casistica dell'area di
   dominio, ed è quello che sembra più ragionevole.
 - **Introduce una colonna di stato aggiornata sul posto.** L'allarme è una sequenza di eventi
-  immutabili e lo stato corrente è una proiezione (`V-121`). Una colonna aggiornata sul posto
+  immutabili e lo stato corrente è una proiezione ([`V-121`](../11_registri/01-vincoli-in-vigore.md#v-121)). Una colonna aggiornata sul posto
   cancella la storia proprio dove la storia è l'oggetto della prova.
 - **Usa un identificatore esterno come chiave primaria.** La normalizzazione degli identificatori
-  avviene al confine, mai nel dominio (`V-142`): il dominio conosce un identificativo canonico
+  avviene al confine, mai nel dominio ([`V-142`](../11_registri/01-vincoli-in-vigore.md#v-142)): il dominio conosce un identificativo canonico
   interno e una collezione di identificatori esterni qualificati da dominio di attribuzione.
 - **Confonde il versionamento delle entità con l'immutabilità.** Chi ha accesso in scrittura alla
   base dati può alterare anche le tabelle di versione: serve catena di impronte e conservazione
-  separata (`V-04`, decisione `D42`).
+  separata ([`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04), decisione `D42`).
 
 **Chi arriva dalla sanità.**
 
 - **Chiede che il sistema «sappia» qualcosa che nessuno gli ha detto.** Il sistema non deduce
   soglie, non interpreta silenzi come normalità e non calcola punteggi non richiesti. L'assenza di
-  dato è informazione clinica e va rappresentata come entità, non come assenza di riga (`V-09`,
-  `V-148`).
+  dato è informazione clinica e va rappresentata come entità, non come assenza di riga ([`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09),
+  [`V-148`](../11_registri/01-vincoli-in-vigore.md#v-148)).
 - **Descrive un percorso di cura come se fosse una funzionalità.** Nessun percorso di cura sta nel
   codice: aggiungerne uno deve richiedere una definizione caricata, validata e pubblicata con
-  versione, **mai** un rilascio del software (`V-147`). Un contributo che cabli un percorso viene
+  versione, **mai** un rilascio del software ([`V-147`](../11_registri/01-vincoli-in-vigore.md#v-147)). Un contributo che cabli un percorso viene
   rifiutato anche se il percorso è corretto.
 - **Sottovaluta la moltiplicazione territoriale.** Ventuno cicli amministrativi indipendenti
   diventano ventuno rami di codice se il modello non li tiene fuori. È la ragione per cui il
@@ -383,7 +383,7 @@ concreto, richiedono discussione preventiva e documento di decisione registrato:
 la separazione fra prestazione e sessione media; il modello di isolamento fra tenant; ciò che
 passa dall'outbox e ciò che non vi passa; la struttura del registro immutabile e il punto di
 ancoraggio esterno della sua impronta; l'identificativo canonico delle anagrafiche; il perimetro
-di ciò che è contratto verso terzi (`V-160`).
+di ciò che è contratto verso terzi ([`V-160`](../11_registri/01-vincoli-in-vigore.md#v-160)).
 
 Dove si discute: **bacheca inter-agenti** per il coordinamento fra aree, **documento di decisione
 architetturale** per l'atto. In caso di divergenza fra un documento di quest'area e un documento
@@ -422,9 +422,9 @@ Il lavoro aperto oggi è di due tipi. Il primo è la **copertura dei flussi di e
 principali sono descritti, i flussi alternativi e di errore lo sono in modo diseguale, e in questo
 dominio è nei flussi di errore che si annida il danno - il paziente che non riesce a collegarsi
 non è il paziente che non si è presentato, e i due casi hanno effetti amministrativi opposti
-(`V-141`). Il secondo è la **verifica dei criteri di accettazione contro utenti reali**, che oggi
+([`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)). Il secondo è la **verifica dei criteri di accettazione contro utenti reali**, che oggi
 non è stata fatta e che senza un dispositivo di riferimento dichiarato non è nemmeno
-completamente eseguibile (`Q-115`).
+completamente eseguibile ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115)).
 
 ### 6.2 Che cosa sapere prima
 
@@ -456,7 +456,7 @@ implicito.
 
 La forma del contributo è precisa: precondizioni, passi, esito tipizzato, effetto amministrativo,
 postcondizione. E la regola che lo rende accettabile: **un esito anomalo è un'operazione riuscita
-che registra un fatto sfavorevole**, non un errore di protocollo (`V-126`). Confondere le due cose
+che registra un fatto sfavorevole**, non un errore di protocollo ([`V-126`](../11_registri/01-vincoli-in-vigore.md#v-126)). Confondere le due cose
 fa sparire dai registri clinici ciò che deve restarci.
 
 ### 6.4 Errori tipici di chi arriva da un altro dominio
@@ -465,15 +465,15 @@ fa sparire dai registri clinici ciò che deve restarci.
 
 - **Collassa stato ed esito in un unico campo.** Lo stato dice dove si trova il contatto, l'esito
   che cosa è successo. Due esiti possono condividere lo stato terminale e avere effetti
-  amministrativi opposti (`V-141`).
+  amministrativi opposti ([`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)).
 - **Scrive un requisito non falsificabile.** «Il sistema deve essere affidabile» non produce un
   test che possa fallire, quindi non è un requisito. La formulazione va rifatta con metrica,
   soglia e condizione di misura.
 - **Mette un valore clinico in un documento tecnico.** Nessuna soglia clinica compare in questi
   documenti, nemmeno come esempio: un valore numerico scritto in una specifica finisce, prima o
-  poi, in una costante (`V-02`). Dove serve un esempio si usa una lettera.
+  poi, in una costante ([`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)). Dove serve un esempio si usa una lettera.
 - **Tratta il consenso come un booleano.** Esistono cinque oggetti di consenso distinti con cicli
-  di vita indipendenti, e la revoca di uno non tocca gli altri (`V-146`). Nessun «consenso alla
+  di vita indipendenti, e la revoca di uno non tocca gli altri ([`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)). Nessun «consenso alla
   piattaforma» esiste nel modello.
 
 **Chi arriva dalla sanità.**
@@ -484,23 +484,23 @@ fa sparire dai registri clinici ciò che deve restarci.
   destinatario non risponde.
 - **Presume che la copertura oraria sia un dettaglio contrattuale.** È un dato di runtime
   versionato che condiziona la validità del destinatario nella catena di escalation: un
-  destinatario fuori copertura non è un destinatario valido (`V-122`). È una misura di controllo
+  destinatario fuori copertura non è un destinatario valido ([`V-122`](../11_registri/01-vincoli-in-vigore.md#v-122)). È una misura di controllo
   del rischio, non una clausola di listino.
 - **Chiede una funzione che sposta la qualificazione del prodotto.** Soglia proposta dal sistema,
   ordinamento per gravità, interpolazione dei buchi, indice sintetico, miglioramento d'immagine,
   codifica automatica, sintesi automatica: sono in un elenco chiuso e si rifiutano **per politica
-  di perimetro**, non nel merito tecnico (`V-170`). Il rifiuto non è un giudizio sulla bontà
+  di perimetro**, non nel merito tecnico ([`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)). Il rifiuto non è un giudizio sulla bontà
   dell'idea.
 
 ### 6.5 Che cosa non si tocca senza discuterne prima
 
 | Elemento | Perché è vincolato | Dove si discute |
 |---|---|---|
-| Aggiungere una funzione dell'elenco fuori perimetro | Cambia la classe di rischio e la classe di sicurezza del software insieme (`V-170`) | Area di conformità, con motivazione regolatoria scritta |
-| Numerare un requisito nuovo | Gli intervalli sono congelati e quelli liberi si chiedono (`V-120`) | Bacheca |
-| Riformulare la destinazione d'uso del telemonitoraggio | «Raccolta differita per la revisione periodica» è formulazione vincolata: «monitoraggio in tempo reale» sposta la classe (`V-144`) | Area di conformità |
-| Presentare la copertura oraria come livello di servizio commerciale | È una misura di controllo del rischio del livello più debole della gerarchia | Prodotto, questione `Q-121` |
-| Esporre contenuto clinico a un pagatore | Esclusione normativa permanente, non configurabile (`V-08`, `V-166`) | Nessuna discussione possibile: è una fonte in vigore |
+| Aggiungere una funzione dell'elenco fuori perimetro | Cambia la classe di rischio e la classe di sicurezza del software insieme ([`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)) | Area di conformità, con motivazione regolatoria scritta |
+| Numerare un requisito nuovo | Gli intervalli sono congelati e quelli liberi si chiedono ([`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)) | Bacheca |
+| Riformulare la destinazione d'uso del telemonitoraggio | «Raccolta differita per la revisione periodica» è formulazione vincolata: «monitoraggio in tempo reale» sposta la classe ([`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144)) | Area di conformità |
+| Presentare la copertura oraria come livello di servizio commerciale | È una misura di controllo del rischio del livello più debole della gerarchia | Prodotto, questione [`Q-121`](../11_registri/02-questioni-aperte.md#q-121) |
+| Esporre contenuto clinico a un pagatore | Esclusione normativa permanente, non configurabile ([`V-08`](../11_registri/01-vincoli-in-vigore.md#v-08), [`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166)) | Nessuna discussione possibile: è una fonte in vigore |
 
 ### 6.6 Come si verifica il proprio lavoro
 
@@ -547,8 +547,8 @@ il ricontrollo.
 
 Il lavoro aperto è concentrato su due punti: l'**analisi degli scostamenti** fra il tracciato
 informativo cogente del referto di televisita e il profilo che dovrebbe rappresentarlo, che non è
-stata eseguita (`Q-132`); e gli **strumenti di validazione eseguibili in locale**, senza i quali
-la richiesta di validare le risorse prima di aprire una proposta non è eseguibile (`Q-193`).
+stata eseguita ([`Q-132`](../11_registri/02-questioni-aperte.md#q-132)); e gli **strumenti di validazione eseguibili in locale**, senza i quali
+la richiesta di validare le risorse prima di aprire una proposta non è eseguibile ([`Q-193`](../11_registri/02-questioni-aperte.md#q-193)).
 
 ### 7.2 Che cosa sapere prima
 
@@ -584,17 +584,17 @@ mancante è un divieto che esiste solo nella prosa.
 
 - **Chiama «standard» ciò che non lo è.** L'intestazione di idempotenza è una bozza scaduta e
   archiviata; quelle di limitazione del traffico sono una bozza attiva, e la forma a tre campi non
-  è mai stata standard. Presentarle come standard è vietato esplicitamente (`V-133`).
+  è mai stata standard. Presentarle come standard è vietato esplicitamente ([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)).
 - **Mette il contenuto clinico nell'evento.** Gli eventi trasportano riferimenti; il contenuto si
-  rilegge con una chiamata autenticata sotto l'autorizzazione del ricevente (`V-135`, `V-161`). È
+  rilegge con una chiamata autenticata sotto l'autorizzazione del ricevente ([`V-135`](../11_registri/01-vincoli-in-vigore.md#v-135), [`V-161`](../11_registri/01-vincoli-in-vigore.md#v-161)). È
   senza eccezioni, anche sul canale clinico.
 - **Usa l'impersonificazione invece della delega.** Quando l'identità proviene da un emittente
   esterno si usa sempre la delega, con il claim dell'attore: nessuna configurazione supportata
-  emette un token che ne sia privo (`V-132`). È criterio di rilascio bloccante.
+  emette un token che ne sia privo ([`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)). È criterio di rilascio bloccante.
 - **Assume la consegna ordinata da un meccanismo che non la garantisce.** Il protocollo che
   trasporta i candidati di connessione deve consegnarli esattamente una volta e nello stesso
   ordine; una diffusione senza persistenza non lo garantisce, e il difetto che ne deriva è
-  intermittente e dipendente dal carico (`V-131`).
+  intermittente e dipendente dal carico ([`V-131`](../11_registri/01-vincoli-in-vigore.md#v-131)).
 
 **Chi arriva dalla sanità.**
 
@@ -603,15 +603,15 @@ mancante è un divieto che esiste solo nella prosa.
   formati sono spesso documenti informativi che non fondano alcuna conformità.
 - **Presume che il documento italiano esista in forma tecnica.** I modelli documentali, i codici
   di tipologia e i metadati di indicizzazione delle tipologie della telemedicina non sono
-  pubblicamente disponibili (`Q-07`): l'adattatore esiste come punto di estensione con contratto
-  dichiarato, e l'implementazione è rinviata. Nessun modello è cablato (`V-136`).
+  pubblicamente disponibili ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07)): l'adattatore esiste come punto di estensione con contratto
+  dichiarato, e l'implementazione è rinviata. Nessun modello è cablato ([`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136)).
 - **Chiede che il sistema scriva nel documento un valore che ha misurato.** Il valore misurato
   entra nel documento **confermato dal professionista**, mai generato autonomamente: sarebbe
   informazione prodotta dal sistema dentro un documento clinico.
 
 ### 7.5 Che cosa non si tocca senza discuterne prima
 
-Il perimetro di ciò che è **contratto** verso terzi (`V-160`): percorsi, metodi, parametri e
+Il perimetro di ciò che è **contratto** verso terzi ([`V-160`](../11_registri/01-vincoli-in-vigore.md#v-160)): percorsi, metodi, parametri e
 schemi documentati; profili pubblicati e documento di capacità; tipi di evento e schemi del loro
 dato; ambiti di autorizzazione; identificatori dei tipi di problema e codici di esito; interfacce
 dei moduli sostituibili; protocollo di messaggistica del componente incorporabile. Tutto ciò è
@@ -619,8 +619,8 @@ soggetto a un processo di dismissione a dodici mesi, e una modifica non additiva
 versione maggiore dichiarata - il controllo `G6` la intercetta.
 
 Non si toccano senza discussione neppure: la versione fissata di una guida o di un profilo; il
-catalogo unico dei codici di errore, che è generato e non scritto a mano (`V-130`); la forma della
-firma dei messaggi in uscita, che è asimmetrica per scelta motivata (`V-162`).
+catalogo unico dei codici di errore, che è generato e non scritto a mano ([`V-130`](../11_registri/01-vincoli-in-vigore.md#v-130)); la forma della
+firma dei messaggi in uscita, che è asimmetrica per scelta motivata ([`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162)).
 
 Dove si discute: bacheca inter-agenti verso l'area competente, e - per ciò che è contratto -
 documento di decisione registrato, perché la modifica ha effetti su soggetti esterni al progetto.
@@ -632,8 +632,8 @@ costruzione e non scaricati al momento: un cambiamento a monte non può cambiare
 validazione già eseguita. Distinguere sempre, nel rapporto, la conformità al modello di base dalla
 conformità al profilo: è la distinzione che conta all'atto pratico.
 
-`[NV]` - nomi, versioni e modalità di invocazione degli strumenti non sono fissati (`Q-133`,
-`Q-193`). Finché non lo sono, la verifica minima è: citazione controllata sul testo primario,
+`[NV]` - nomi, versioni e modalità di invocazione degli strumenti non sono fissati ([`Q-133`](../11_registri/02-questioni-aperte.md#q-133),
+[`Q-193`](../11_registri/02-questioni-aperte.md#q-193)). Finché non lo sono, la verifica minima è: citazione controllata sul testo primario,
 prova negativa dove esiste un divieto, e dichiarazione esplicita di ciò che è scelta di progetto.
 
 ---
@@ -657,7 +657,7 @@ uno sviluppatore che l'ha saltato.
 Il lavoro aperto oggi è di tre tipi. Il primo è l'**allineamento terminologico** al glossario
 nazionale, che non è stato eseguito voce per voce e che va compiuto **prima** del congelamento del
 glossario del dominio e prima della traduzione, perché una divergenza scoperta dopo si propaga su
-due lingue (`Q-146`). Il secondo è la **verifica di copertura** fra il dataset canonico dei
+due lingue ([`Q-146`](../11_registri/02-questioni-aperte.md#q-146)). Il secondo è la **verifica di copertura** fra il dataset canonico dei
 documenti e il tracciato cogente. Il terzo, meno appariscente e più utile, è la **revisione
 clinica delle definizioni**: leggere il linguaggio ubiquo e dire dove una definizione operativa
 tradisce il concetto reale.
@@ -701,7 +701,7 @@ manca più spesso.
 - **Riduce la misura a valore più istante.** Senza contesto - chi ha misurato, con quale
   strumento, in quali condizioni, con quale unità, con quale affidabilità - la misura non è
   interpretabile. E istante di misura e istante di ricezione sono **due campi distinti
-  obbligatori**: le regole operano sul primo (`V-124`).
+  obbligatori**: le regole operano sul primo ([`V-124`](../11_registri/01-vincoli-in-vigore.md#v-124)).
 - **Tratta il ruolo come attributo della persona.** Lo stesso professionista opera in più
   organizzazioni, e i ruoli hanno validità temporale. Un ruolo-attributo perde la storia e rende
   indimostrabile chi aveva titolo di accedere quando.
@@ -710,7 +710,7 @@ manca più spesso.
 - **Costruisce l'oscuramento nei consumatori.** L'oscuramento è applicato dal motore di
   autorizzazione, in un unico punto che filtra e calcola i totali sull'insieme filtrato; i sei
   canali di inferenza - numerazione, conteggi, paginazione, notifiche, differenze fra
-  interrogazioni, messaggi d'errore - vanno chiusi tutti (`V-149`).
+  interrogazioni, messaggi d'errore - vanno chiusi tutti ([`V-149`](../11_registri/01-vincoli-in-vigore.md#v-149)).
 - **Crea un solo tipo di «prestazione» che copre richiesta, esecuzione e addebito.** Produce campi
   nulli, regole condizionali fragili e rendicontazione impossibile.
 
@@ -726,19 +726,19 @@ manca più spesso.
   escluse in via cautelativa anche per ragioni di licenza. Se hai una scala che vorresti vedere
   supportata, la prima domanda non è tecnica: è chi ne detiene i diritti.
 - **Dà per scontata la codifica.** Il sistema è **pienamente funzionale senza la terminologia
-  clinica onerosa** (`V-03`), e questo non è un ripiego: è un vincolo. Un contributo che renda un
+  clinica onerosa** ([`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)), e questo non è un ripiego: è un vincolo. Un contributo che renda un
   percorso principale dipendente da quella terminologia viene rifiutato.
 
 ### 8.5 Che cosa non si tocca senza discuterne prima
 
 | Elemento | Perché è vincolato | Dove si discute |
 |---|---|---|
-| Cablare un percorso di cura o un catalogo di prestazioni | Ventuno cicli amministrativi indipendenti; il progetto non distribuisce alcun catalogo (`V-147`) | Area architetturale |
-| Tipologia documentale del referto di televisita | Ha una tipologia propria del fascicolo; l'ipotesi alternativa è **errata** e non va usata in alcun artefatto (`V-143`) | Nessuna discussione: è una fonte in vigore |
-| Aggiungere contenuto terminologico al repository | Quattro regimi di licenza distinti, verificati sul testo primario; il controllo `G3` blocca | [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md), poi area di conformità |
+| Cablare un percorso di cura o un catalogo di prestazioni | Ventuno cicli amministrativi indipendenti; il progetto non distribuisce alcun catalogo ([`V-147`](../11_registri/01-vincoli-in-vigore.md#v-147)) | Area architetturale |
+| Tipologia documentale del referto di televisita | Ha una tipologia propria del fascicolo; l'ipotesi alternativa è **errata** e non va usata in alcun artefatto ([`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)) | Nessuna discussione: è una fonte in vigore |
+| Aggiungere contenuto terminologico al repository | Quattro regimi di licenza distinti, verificati sul testo primario; il controllo `G3` blocca | [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md), poi `COMP` |
 | Confondere stringhe di interfaccia ed etichette ufficiali | Le traduzioni delle terminologie sono opere derivate assegnate ai rispettivi titolari | Area architetturale, decisione già registrata |
-| Trattare l'assenza di misura come assenza di riga | L'attesa di rilevazione è un'entità (`V-148`) | Bacheca |
-| Separazione fra chi gestisce gli allarmi tecnici e chi accede al contenuto clinico | È vincolo di autorizzazione, non convenzione organizzativa (`V-125`) | Area di sicurezza |
+| Trattare l'assenza di misura come assenza di riga | L'attesa di rilevazione è un'entità ([`V-148`](../11_registri/01-vincoli-in-vigore.md#v-148)) | Bacheca |
+| Separazione fra chi gestisce gli allarmi tecnici e chi accede al contenuto clinico | È vincolo di autorizzazione, non convenzione organizzativa ([`V-125`](../11_registri/01-vincoli-in-vigore.md#v-125)) | Area di sicurezza |
 
 ### 8.6 Come si verifica il proprio lavoro
 
@@ -753,7 +753,7 @@ descrizioni e contenuti no.
 
 **Terza, di dati sintetici:** i dati di collaudo che accompagnano il contributo comprendono i casi
 scomodi? In particolare, per l'oscuramento, **devono comprendere documenti oscurati**: altrimenti
-nessuna prova esercita quel percorso (`V-149`).
+nessuna prova esercita quel percorso ([`V-149`](../11_registri/01-vincoli-in-vigore.md#v-149)).
 
 ---
 
@@ -780,9 +780,9 @@ l'impossibilità di accertare un accesso indebito.
 
 Il lavoro aperto oggi: il **registro immutabile a catena di impronte con conservazione separata**,
 che è lo sforzo maggiore dell'intero catalogo e va pianificato come tale, non come configurazione
-(decisione `D42`); il **mediatore unico di uscita** con la sua suite di prove di abuso (`V-157`);
+(decisione `D42`); il **mediatore unico di uscita** con la sua suite di prove di abuso ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157));
 e gli **intervalli di indirizzi vietati** per la prova di confinamento del nodo di relay, senza i
-quali la prova non è scrivibile e il vincolo resta una dichiarazione (`Q-196`).
+quali la prova non è scrivibile e il vincolo resta una dichiarazione ([`Q-196`](../11_registri/02-questioni-aperte.md#q-196)).
 
 ### 9.2 Che cosa sapere prima
 
@@ -815,28 +815,28 @@ nella prosa e non esiste nel codice.
 **Chi arriva dall'informatica gestionale.**
 
 - **Registra troppo.** Il registro immutabile e i log applicativi **non contengono contenuto
-  clinico**, e i log di diagnostica non portano identificativi diretti dell'assistito (`V-150`).
+  clinico**, e i log di diagnostica non portano identificativi diretti dell'assistito ([`V-150`](../11_registri/01-vincoli-in-vigore.md#v-150)).
   Un log verboso in questo dominio non è un aiuto alla diagnosi: è una seconda copia non protetta
   dei dati.
 - **Dichiara una proprietà crittografica statica.** Il progetto **non dichiara** versioni di
-  protocollo né suite negoziate: le misura per sessione e le registra (`V-156`). La negoziazione
+  protocollo né suite negoziate: le misura per sessione e le registra ([`V-156`](../11_registri/01-vincoli-in-vigore.md#v-156)). La negoziazione
   avviene fra due estremi che il progetto non controlla, e qualunque affermazione statica sarebbe
   falsa per una parte del parco installato.
 - **Apre una connessione verso una destinazione derivata da un dato in ingresso.** Solo il
   mediatore unico ha rotta verso l'esterno; agli altri l'uscita è negata a livello di rete
-  (`V-157`). È requisito architetturale proprio perché la difesa non deve dipendere dalla
+  ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)). È requisito architetturale proprio perché la difesa non deve dipendere dalla
   correttezza del codice.
 - **Etichetta una metrica infrastrutturale con l'identificativo di sessione.** Basta questo per
-  trasformare un cruscotto operativo in una fonte di dati sulla salute (`V-155`).
+  trasformare un cruscotto operativo in una fonte di dati sulla salute ([`V-155`](../11_registri/01-vincoli-in-vigore.md#v-155)).
 - **Confonde il livello di garanzia richiesto con quello asserito.** Un livello riferito da un
-  integratore va marcato come tale e **non** soddisfa un obbligo di autenticazione forte (`V-154`,
-  `V-165`).
+  integratore va marcato come tale e **non** soddisfa un obbligo di autenticazione forte ([`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154),
+  [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165)).
 
 **Chi arriva dalla sanità.**
 
 - **Chiede un accesso «per emergenza» senza tracciamento.** L'accesso d'emergenza è un requisito
   funzionale con forma precisa: motivazione libera obbligatoria, finestra e perimetro limitati,
-  notifica, riesame con esito registrato (`V-153`). Non è una scorciatoia, è un percorso.
+  notifica, riesame con esito registrato ([`V-153`](../11_registri/01-vincoli-in-vigore.md#v-153)). Non è una scorciatoia, è un percorso.
 - **Presume che la cifratura fino agli estremi sia sempre attiva.** Quando la registrazione è
   attiva la cifratura è terminata sul server e la sessione **non** è cifrata fino agli estremi:
   l'informativa deve dichiararlo e l'interfaccia deve segnalarlo in modo persistente e non
@@ -854,12 +854,12 @@ europee e nazionali vigenti, e ciò che non è stato letto sul testo si marca `[
 difetti si descrivono per meccanismo e versione di correzione, che è la forma utile a chi deve
 decidere la versione minima da distribuire. Nessun **requisito puntuale delle misure nazionali** si
 cita testualmente prima che gli allegati di dettaglio siano stati letti riga per riga: si citano i
-codici, che sono pubblici e verificati (`Q-151`).
+codici, che sono pubblici e verificati ([`Q-151`](../11_registri/02-questioni-aperte.md#q-151)).
 
 Non si toccano senza discussione: i termini di conservazione dei registri, che sono di fonte
-settoriale (`V-152`); la struttura del registro immutabile; la difesa primaria del nodo di relay,
-che è l'isolamento di rete in uscita e non la lista di indirizzi vietati (`V-10`); la separazione
-fra chi gestisce gli allarmi tecnici e chi accede al contenuto clinico (`V-125`).
+settoriale ([`V-152`](../11_registri/01-vincoli-in-vigore.md#v-152)); la struttura del registro immutabile; la difesa primaria del nodo di relay,
+che è l'isolamento di rete in uscita e non la lista di indirizzi vietati ([`V-10`](../11_registri/01-vincoli-in-vigore.md#v-10)); la separazione
+fra chi gestisce gli allarmi tecnici e chi accede al contenuto clinico ([`V-125`](../11_registri/01-vincoli-in-vigore.md#v-125)).
 
 Dove si discute: bacheca, e - per le vulnerabilità - **mai in una segnalazione pubblica**. La
 procedura riservata è in
@@ -897,9 +897,9 @@ integratore la stessa mezza giornata.
 
 Il lavoro aperto: la **suite di prove di integrazione che esercita almeno due tenant e due
 integratori distinti**, con configurazioni deliberatamente divergenti - una prova che passa con un
-solo integratore configurato non dimostra la proprietà multi-integratore (`V-188`); e il
+solo integratore configurato non dimostra la proprietà multi-integratore ([`V-188`](../11_registri/01-vincoli-in-vigore.md#v-188)); e il
 **contratto minimo del gateway di misure di terze parti**, di cui due elementi richiesti dal
-modello di sicurezza non è verificato che i gateway di mercato espongano (`Q-122`).
+modello di sicurezza non è verificato che i gateway di mercato espongano ([`Q-122`](../11_registri/02-questioni-aperte.md#q-122)).
 
 ### 10.2 Che cosa sapere prima
 
@@ -941,12 +941,12 @@ si scopre solo quando qualcuno ci perde una giornata.
   il 70 % del costo di un'integrazione tipica e non si aggira: aggirarla produce un percorso che
   funziona in dimostrazione e non è difendibile.
 - **Chiede il contenuto clinico dentro la notifica.** Non c'è, e non ci sarà: la notifica dice che
-  è successo qualcosa e dove trovarlo (`V-161`). Non è una limitazione da negoziare, è una regola
+  è successo qualcosa e dove trovarlo ([`V-161`](../11_registri/01-vincoli-in-vigore.md#v-161)). Non è una limitazione da negoziare, è una regola
   di progetto senza eccezioni.
 - **Tratta il pagatore come un consultatore.** Un fondo, una mutua o una polizza che paga la
   prestazione ottiene l'**esito amministrativo**, non il contenuto clinico, e nessun percorso -
-  diretto o mediato da un professionista - può costituire un accesso al fascicolo (`V-08`,
-  `V-166`). È un equivoco che si commette in buona fede, perché il pagatore è un soggetto
+  diretto o mediato da un professionista - può costituire un accesso al fascicolo ([`V-08`](../11_registri/01-vincoli-in-vigore.md#v-08),
+  [`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166)). È un equivoco che si commette in buona fede, perché il pagatore è un soggetto
   legittimo del percorso.
 - **Presenta come standard un nome di intestazione che è una scelta di progetto.** L'area marca
   esplicitamente ciò che è proposta di progetto, e la regola vale anche per la documentazione
@@ -954,7 +954,7 @@ si scopre solo quando qualcuno ci perde una giornata.
 - **Degrada l'accessibilità con il tema.** Indicatore di registrazione, avvisi e testi di
   consenso, esito della verifica delle chiavi, messaggi di errore clinico e indicatore dello stato
   di cifratura **non sono tematizzabili né occultabili**; una configurazione che degrada il
-  contrasto viene **rifiutata al salvataggio**, non segnalata come avviso (`V-163`).
+  contrasto viene **rifiutata al salvataggio**, non segnalata come avviso ([`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)).
 
 **Chi arriva dalla sanità.**
 
@@ -966,19 +966,19 @@ si scopre solo quando qualcuno ci perde una giornata.
   marcatura, il software **non è utilizzabile per l'erogazione di prestazioni sanitarie su
   pazienti reali**. Ogni artefatto lo dichiara, e nessun documento di integrazione può attenuarlo.
 - **Presume che il progetto sia accreditato presso la federazione delle identità.** Non lo è e non
-  può esserlo: il fornitore di servizi verso la federazione è **chi installa** (`V-05`).
+  può esserlo: il fornitore di servizi verso la federazione è **chi installa** ([`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05)).
 
 ### 10.5 Che cosa non si tocca senza discuterne prima
 
-Il perimetro del contratto pubblico (`V-160`) e le sue regole di dismissione: ampliarlo o
+Il perimetro del contratto pubblico ([`V-160`](../11_registri/01-vincoli-in-vigore.md#v-160)) e le sue regole di dismissione: ampliarlo o
 restringerlo richiede una dichiarazione in bacheca, perché ha effetti su soggetti esterni. Il
-limite invalicabile alla personalizzazione del componente incorporabile (`V-163`). L'insieme
+limite invalicabile alla personalizzazione del componente incorporabile ([`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)). L'insieme
 chiuso e versionato delle proprietà di tema. Il registro di fiducia verso gli integratori, che è
 unico e condiviso fra federazione, origini ammesse per l'incorporamento e destinazioni ammesse per
 le notifiche: tre registri separati divergono sempre.
 
 E il corollario che vale per tutte le aree: **una capacità nuova non è completa finché non è
-raggiungibile da un sistema terzo tramite interfaccia documentata e versionata** (`V-164`). L'area
+raggiungibile da un sistema terzo tramite interfaccia documentata e versionata** ([`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)). L'area
 che introduce la capacità introduce anche il contratto: non è lavoro rinviabile qui.
 
 ### 10.6 Come si verifica il proprio lavoro
@@ -989,7 +989,7 @@ stesso.
 
 **La prova di integrazione esercita due tenant e due integratori** con configurazioni divergenti:
 domini di attribuzione degli identificatori diversi, profili di uscita diversi, modalità di
-recapito diverse, insiemi di moduli sostituiti diversi (`V-188`).
+recapito diverse, insiemi di moduli sostituiti diversi ([`V-188`](../11_registri/01-vincoli-in-vigore.md#v-188)).
 
 **Il controllo `G6`** verifica che una modifica non additiva a un elemento del perimetro
 contrattuale sia dichiarata. Se scatta, la risposta non è aggirarlo: è rendere la modifica additiva
@@ -1068,20 +1068,20 @@ e nessuno la ricontrolla.
   indipendentemente da quanto scritto nella licenza.
 - **Aggiunge una dipendenza senza scheda e senza versione esatta.** È un elemento di
   configurazione non identificato, e le etichette di versione mobili sono vietate perché rendono
-  falsa la distinta dei materiali del rilascio precedente (`V-173`).
+  falsa la distinta dei materiali del rilascio precedente ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)).
 
 **Chi arriva dalla sanità.**
 
 - **Presume che il documento pubblicato sia un documento controllato.** Non lo è: nessun capitolo
   di `docs/` è una procedura del sistema di gestione della qualità né un documento del fascicolo
   tecnico. I capitoli sono **ingressi**, contengono l'analisi da cui un documento controllato si
-  scrive (`V-174`). È il punto di giunzione dell'intero modello.
+  scrive ([`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174)). È il punto di giunzione dell'intero modello.
 - **Cerca in quest'area una consulenza.** Non è consulenza legale né regolatoria: la
   qualificazione di un soggetto e di un prodotto dipende da elementi di fatto da accertare caso
   per caso da un professionista abilitato.
 - **Presume che una data pubblicata sia un impegno.** Le date stanno solo nel capitolo dedicato, e
   nessun documento del progetto dichiara una data per un traguardo che non è del progetto
-  (`V-180`).
+  ([`V-180`](../11_registri/01-vincoli-in-vigore.md#v-180)).
 
 ### 11.5 Che cosa non si tocca senza discuterne prima
 
@@ -1090,11 +1090,11 @@ la classe di rischio e la classe di sicurezza del software insieme, e la differe
 ordine di grandezza di costo. Non si modifica in una proposta ordinaria.
 
 Non si toccano senza discussione: lo spazio riservato degli identificativi dei documenti
-regolatori (`V-172`); la tabella delle formule vietate; il perimetro delle funzioni escluse per
-politica regolatoria (`V-170`); e qualunque affermazione sullo stato di armonizzazione di una
+regolatori ([`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172)); la tabella delle formule vietate; il perimetro delle funzioni escluse per
+politica regolatoria ([`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)); e qualunque affermazione sullo stato di armonizzazione di una
 norma, che va verificato **alla data d'uso** e non una volta per sempre.
 
-Dove si discute: bacheca verso l'area di conformità, e per le decisioni che richiedono una scelta
+Dove si discute: bacheca verso l'`COMP`, e per le decisioni che richiedono una scelta
 imprenditoriale - monetizzazione, costituzione di un soggetto giuridico, periodo di supporto
 dichiarato - la questione si porta alla persona, non si decide d'ufficio.
 
@@ -1112,7 +1112,7 @@ in tutta la documentazione.
 **Il testo che hai scritto contiene una delle formule vietate?** La tabella è la lista di
 controllo, e la verifica non è documentale ma di processo: una modifica a un testo pubblico non
 passa dalla revisione del codice e non fa fallire alcun controllo automatico. È l'unico presidio
-dell'area che nessuna verifica automatica intercetta (`Q-174`).
+dell'area che nessuna verifica automatica intercetta ([`Q-174`](../11_registri/02-questioni-aperte.md#q-174)).
 
 ---
 
@@ -1194,7 +1194,7 @@ paragrafo clinico stanno facendo, entrambi, esattamente il lavoro che serve.
 La **struttura dei moduli e la loro numerazione**: i moduli sono citati per numero da tutte le aree
 e da entrambe le lingue, e una rinumerazione rompe un numero elevato di rinvii. La **collocazione
 di un concetto**: spostare una spiegazione da un modulo all'altro è una modifica strutturale, non
-redazionale. La **posizione della guida come prerequisito** di `CONTRIBUTING.md`.
+redazionale. La **posizione della guida come prerequisito** di [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md).
 
 E una regola che vale per ogni modifica: **una proposta che tocca il contenuto italiano non è
 completa finché non aggiorna l'inglese** (`G8`). Vale anche per una correzione di una riga.
@@ -1223,7 +1223,7 @@ l'internazionalizzazione e la pubblicazione.
 La sequenza di lavoro approvata è netta: si completa **tutta** la documentazione, poi si
 costruisce il sito con internazionalizzazione, lo si pubblica e se ne **verifica il funzionamento
 reale** - navigazione, ricerca, cambio lingua, collegamenti interni, costruzione riproducibile.
-**Nessuna area si considera chiusa finché non è navigabile online nelle due lingue** (`V-183`).
+**Nessuna area si considera chiusa finché non è navigabile online nelle due lingue** ([`V-183`](../11_registri/01-vincoli-in-vigore.md#v-183)).
 
 Ne discende che il lavoro sul sito non è cosmesi finale: è la condizione di chiusura di tutto il
 resto. E ne discende un fatto operativo che vale la pena dire subito: **i collegamenti interni
@@ -1278,7 +1278,7 @@ consegnarli. È l'informazione che serve alle aree per chiudere, ed è bloccante
   decreto lo rende irreperibile.
 - **Costruisce il sito da una versione mobile di uno strumento.** La costruzione deve essere
   riproducibile: nessuna etichetta di versione mobile, nemmeno sugli strumenti della catena
-  (`V-173`).
+  ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)).
 
 **Chi arriva dalla sanità.**
 
@@ -1406,7 +1406,7 @@ significati, dove un esempio suggerisce una regola che il testo non enuncia.
 **Perché vale tanto, e più di quanto sembri.** Un errore si trova: qualcuno lo verifica e lo
 corregge. Un'ambiguità no: ciascuno la risolve a modo proprio, in silenzio, e il difetto emerge
 mesi dopo come divergenza fra due implementazioni che si credevano concordi. La formulazione
-proposta dall'area di integrazione è la più utile in assoluto: **«la cosa che avevo assunto e che
+proposta dall'`INTEG` è la più utile in assoluto: **«la cosa che avevo assunto e che
 si è rivelata falsa»**.
 
 **Come si fa in concreto.** Segnalazione con: il punto esatto, le due letture possibili, e quale
@@ -1464,7 +1464,7 @@ che diventano obbligatori a una condizione.
 | `interfaces/fhir-facade` | [06](06-fhir-da-zero.md) integrale, [05](05-standard-di-interoperabilita.md) | tocchi i documenti → [07](07-fse-e-infrastrutture-nazionali.md) |
 | `interfaces/signaling` | [08](08-webrtc-da-zero.md) integrale, [13](13-protocolli.md) | - |
 | `interfaces/webhooks` | [13](13-protocolli.md) | - |
-| `web/core`, `web/design-system` | [11](11-fondamenti-informatici.md) | **sempre** i criteri di accessibilità dell'area funzionale |
+| `web/core`, `web/design-system` | [11](11-fondamenti-informatici.md) | **sempre** i criteri di accessibilità dell'`FUNZ` |
 | `web/features` (consulto) | [08](08-webrtc-da-zero.md), [02](02-prestazioni-di-telemedicina.md) | - |
 | `web/features` (consenso, refertazione) | [03](03-il-dato-clinico.md), [09](09-fondamenti-clinici.md) | - |
 | `web/features` (monitoraggio) | [09](09-fondamenti-clinici.md), [10](10-percorsi-di-cura-e-sicurezza.md) | - |
@@ -1491,7 +1491,7 @@ causa più comune di frustrazione.
 e non richiede commenti.
 
 **Rifiuto di perimetro.** Il contributo introduce una funzione dell'elenco chiuso e **non si valuta
-nel merito tecnico**: si rifiuta per politica, con motivazione regolatoria scritta (`V-170`). Non
+nel merito tecnico**: si rifiuta per politica, con motivazione regolatoria scritta ([`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)). Non
 è un giudizio sulla qualità del lavoro, ed è la ragione per cui l'elenco è pubblicato: leggerlo
 prima costa dieci minuti.
 
@@ -1519,14 +1519,14 @@ Elencati qui perché una lacuna dichiarata è utilizzabile e una lacuna implicit
 
 | Riferimento | Che cosa manca | A chi spetta |
 |---|---|---|
-| `[NV]` | Il **comando aggregato** che esegue in locale i controlli obbligatori non è fissato: finché non lo è, la sezione «come si verifica» di ogni area si appoggia a una sequenza manuale (`Q-190`) | Area tecnica |
-| `[NV]` | Gli **strumenti di validazione dei profili clinici eseguibili in locale** non sono fissati per nome e versione: la verifica prescritta per l'area protocolli non è quindi eseguibile in forma riproducibile (`Q-133`, `Q-193`) | Aree protocolli e tecnica |
-| `[NV]` | Il **dispositivo di riferimento** per i criteri di resa su schermo piccolo non è dichiarato: due requisiti di accessibilità non sono verificabili finché non lo è (`Q-115`) | Prodotto |
-| `[NV]` | Gli **intervalli di indirizzi vietati** per la prova di confinamento del nodo di relay non sono elencati: senza l'elenco la prova non è scrivibile (`Q-196`) | Area sicurezza |
-| `[NV]` | Il **profilo minimo praticabile** di macchina per l'ambiente locale non è misurato: chi ha una macchina modesta non sa in anticipo se può partecipare (`Q-191`) | Aree tecnica e roadmap |
-| `Q-195` | Non esiste un **elenco pubblico e mantenuto dei contributi di primo ingresso** per area, coerente con le sezioni «il primo contributo sensato» di questo modulo. Senza di esso le indicazioni restano descrittive e non azionabili | → orchestrazione, con le aree |
-| `Q-197` | Non è definito **chi risponde alle segnalazioni non di codice** - revisione clinica, verifica delle fonti, prove di accessibilità - né entro quanto. È la condizione perché il §14 produca contributi ripetuti invece che singoli | → orchestrazione, con la governance |
-| `Q-198` | La **doppia denominazione di questo modulo** nei rinvii esistenti è risolta sul testo: `CONTRIBUTING.md` - nel blocco italiano e in quello inglese - il modulo 00 e il modulo 17 sono stati allineati al `title` del file, «Contribuire, area per area», che è la denominazione autorevole; il glossario vi era già allineato. Resta la parte non redazionale: la **verifica automatica di raggiungibilità** dei rinvii va inserita fra i controlli bloccanti prima del primo deploy (si salda con `Q-26`) | Guida e sito |
+| `[NV]` | Il **comando aggregato** che esegue in locale i controlli obbligatori non è fissato: finché non lo è, la sezione «come si verifica» di ogni area si appoggia a una sequenza manuale ([`Q-190`](../11_registri/02-questioni-aperte.md#q-190)) | Area tecnica |
+| `[NV]` | Gli **strumenti di validazione dei profili clinici eseguibili in locale** non sono fissati per nome e versione: la verifica prescritta per l'area protocolli non è quindi eseguibile in forma riproducibile ([`Q-133`](../11_registri/02-questioni-aperte.md#q-133), [`Q-193`](../11_registri/02-questioni-aperte.md#q-193)) | Aree protocolli e tecnica |
+| `[NV]` | Il **dispositivo di riferimento** per i criteri di resa su schermo piccolo non è dichiarato: due requisiti di accessibilità non sono verificabili finché non lo è ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115)) | Prodotto |
+| `[NV]` | Gli **intervalli di indirizzi vietati** per la prova di confinamento del nodo di relay non sono elencati: senza l'elenco la prova non è scrivibile ([`Q-196`](../11_registri/02-questioni-aperte.md#q-196)) | Area sicurezza |
+| `[NV]` | Il **profilo minimo praticabile** di macchina per l'ambiente locale non è misurato: chi ha una macchina modesta non sa in anticipo se può partecipare ([`Q-191`](../11_registri/02-questioni-aperte.md#q-191)) | Aree tecnica e roadmap |
+| [`Q-195`](../11_registri/02-questioni-aperte.md#q-195) | Non esiste un **elenco pubblico e mantenuto dei contributi di primo ingresso** per area, coerente con le sezioni «il primo contributo sensato» di questo modulo. Senza di esso le indicazioni restano descrittive e non azionabili | → orchestrazione, con le aree |
+| [`Q-197`](../11_registri/02-questioni-aperte.md#q-197) | Non è definito **chi risponde alle segnalazioni non di codice** - revisione clinica, verifica delle fonti, prove di accessibilità - né entro quanto. È la condizione perché il §14 produca contributi ripetuti invece che singoli | → orchestrazione, con la governance |
+| [`Q-198`](../11_registri/02-questioni-aperte.md#q-198) | La **doppia denominazione di questo modulo** nei rinvii esistenti è risolta sul testo: [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md) - nel blocco italiano e in quello inglese - il modulo 00 e il modulo 17 sono stati allineati al `title` del file, «Contribuire, area per area», che è la denominazione autorevole; il glossario vi era già allineato. Resta la parte non redazionale: la **verifica automatica di raggiungibilità** dei rinvii va inserita fra i controlli bloccanti prima del primo deploy (si salda con [`Q-26`](../11_registri/02-questioni-aperte.md#q-26)) | Guida e sito |
 
 ---
 

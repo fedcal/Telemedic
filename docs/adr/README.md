@@ -131,39 +131,39 @@ insieme allo stato provvisorio in vigore nel frattempo. È il caso di ADR-0023.
 
 | Vincolo | ADR che lo realizzano |
 |---|---|
-| **V1** - Sovranità del dato | 0016 (sovranità per assenza di dato) · 0009 (nessun componente aggiuntivo) |
-| **V2** - Separazione fra veicolo e interpretazione | 0004 · 0020 · 0024 |
-| **V3** - Integrabilità totale | 0006 · 0021 |
-| **V4** - Tenant-awareness | 0007 · 0008 (outbox per tenant) · 0010 (tenant obbligatorio nella busta) · 0013 (catena per tenant) |
-| **V5** - Auditabilità immutabile | 0013 · 0015 |
-| **V6** - Usabilità, accessibilità, mobile first | 0014 (indicatore non occultabile) · 0019 (stringhe adattabili) · 0028 (limite dichiarato invece di degrado silenzioso) |
+| **[V1](../11_registri/03-vincoli-fondanti.md#v1)** - Sovranità del dato | 0016 (sovranità per assenza di dato) · 0009 (nessun componente aggiuntivo) |
+| **[V2](../11_registri/03-vincoli-fondanti.md#v2)** - Separazione fra veicolo e interpretazione | 0004 · 0020 · 0024 |
+| **[V3](../11_registri/03-vincoli-fondanti.md#v3)** - Integrabilità totale | 0006 · 0021 |
+| **[V4](../11_registri/03-vincoli-fondanti.md#v4)** - Tenant-awareness | 0007 · 0008 (outbox per tenant) · 0010 (tenant obbligatorio nella busta) · 0013 (catena per tenant) |
+| **[V5](../11_registri/03-vincoli-fondanti.md#v5)** - Auditabilità immutabile | 0013 · 0015 |
+| **[V6](../11_registri/03-vincoli-fondanti.md#v6)** - Usabilità, accessibilità, mobile first | 0014 (indicatore non occultabile) · 0019 (stringhe adattabili) · 0028 (limite dichiarato invece di degrado silenzioso) |
 
 ## Vincoli di altre aree recepiti negli ADR
 
 | Vincolo | Da | Recepito in |
 |---|---|---|
-| V-111 espandi e contrai su ogni migrazione | `TECH` | 0007 |
-| V-112 contesto di tenant dentro la transazione | `TECH` | 0007 |
-| V-113 nessun contatore cumulativo grezzo come indicatore | `TECH` | 0020 |
-| V-121 l'allarme è una sequenza di eventi immutabili | `FUNZ` | 0026 |
-| V-123 il campo soglia parte vuoto e obbligatorio | `FUNZ` | 0026 |
-| V-124 istante di misura e di ricezione distinti | `FUNZ` | 0020 · 0026 |
-| V-126 gli esiti tipizzati non sono codici di errore | `FUNZ` | 0021 |
-| V-131 consegna dei candidati esattamente una volta e in ordine | `PROTO` | 0012 |
-| V-134 nessuna intestazione dedicata per il tipo di contenuto | `PROTO` | 0010 |
-| V-135 carico degli eventi con soli riferimenti | `PROTO` | 0011 |
-| V-136 nessun modello documentale cablato | `PROTO` | 0005 |
-| V-137 chiave di sessione e indirizzo della stanza sono credenziali | `PROTO` | 0025 |
-| V-142 normalizzazione degli identificatori al confine | `DOM` | 0017 |
-| V-144 formulazione della destinazione d'uso del telemonitoraggio | `DOM` | 0026 |
-| V-146 cinque oggetti di consenso distinti | `DOM` | 0014 |
-| V-147 nessun percorso di cura nel codice | `DOM` | 0026 |
-| V-149 oscuramento applicato dal motore di autorizzazione | `DOM` | 0027 |
-| V-151 nessun identificativo dell'assistito al servizio terminologico | `SEC` | 0016 |
-| V-156 nessuna dichiarazione statica di suite negoziate | `SEC` | 0014 |
-| V-157 mediatore unico di uscita | `SEC` | 0029 |
-| V-161 nessun contenuto clinico nei messaggi in uscita | `INTEG` | 0011 |
-| V-166 profilo del pagatore amministrativo per costruzione | `INTEG` | 0023 |
+| [V-111](../11_registri/01-vincoli-in-vigore.md#v-111) espandi e contrai su ogni migrazione | `TECH` | 0007 |
+| [V-112](../11_registri/01-vincoli-in-vigore.md#v-112) contesto di tenant dentro la transazione | `TECH` | 0007 |
+| [V-113](../11_registri/01-vincoli-in-vigore.md#v-113) nessun contatore cumulativo grezzo come indicatore | `TECH` | 0020 |
+| [V-121](../11_registri/01-vincoli-in-vigore.md#v-121) l'allarme è una sequenza di eventi immutabili | `FUNZ` | 0026 |
+| [V-123](../11_registri/01-vincoli-in-vigore.md#v-123) il campo soglia parte vuoto e obbligatorio | `FUNZ` | 0026 |
+| [V-124](../11_registri/01-vincoli-in-vigore.md#v-124) istante di misura e di ricezione distinti | `FUNZ` | 0020 · 0026 |
+| [V-126](../11_registri/01-vincoli-in-vigore.md#v-126) gli esiti tipizzati non sono codici di errore | `FUNZ` | 0021 |
+| [V-131](../11_registri/01-vincoli-in-vigore.md#v-131) consegna dei candidati esattamente una volta e in ordine | `PROTO` | 0012 |
+| [V-134](../11_registri/01-vincoli-in-vigore.md#v-134) nessuna intestazione dedicata per il tipo di contenuto | `PROTO` | 0010 |
+| [V-135](../11_registri/01-vincoli-in-vigore.md#v-135) carico degli eventi con soli riferimenti | `PROTO` | 0011 |
+| [V-136](../11_registri/01-vincoli-in-vigore.md#v-136) nessun modello documentale cablato | `PROTO` | 0005 |
+| [V-137](../11_registri/01-vincoli-in-vigore.md#v-137) chiave di sessione e indirizzo della stanza sono credenziali | `PROTO` | 0025 |
+| [V-142](../11_registri/01-vincoli-in-vigore.md#v-142) normalizzazione degli identificatori al confine | `DOM` | 0017 |
+| [V-144](../11_registri/01-vincoli-in-vigore.md#v-144) formulazione della destinazione d'uso del telemonitoraggio | `DOM` | 0026 |
+| [V-146](../11_registri/01-vincoli-in-vigore.md#v-146) cinque oggetti di consenso distinti | `DOM` | 0014 |
+| [V-147](../11_registri/01-vincoli-in-vigore.md#v-147) nessun percorso di cura nel codice | `DOM` | 0026 |
+| [V-149](../11_registri/01-vincoli-in-vigore.md#v-149) oscuramento applicato dal motore di autorizzazione | `DOM` | 0027 |
+| [V-151](../11_registri/01-vincoli-in-vigore.md#v-151) nessun identificativo dell'assistito al servizio terminologico | `SEC` | 0016 |
+| [V-156](../11_registri/01-vincoli-in-vigore.md#v-156) nessuna dichiarazione statica di suite negoziate | `SEC` | 0014 |
+| [V-157](../11_registri/01-vincoli-in-vigore.md#v-157) mediatore unico di uscita | `SEC` | 0029 |
+| [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) nessun contenuto clinico nei messaggi in uscita | `INTEG` | 0011 |
+| [V-166](../11_registri/01-vincoli-in-vigore.md#v-166) profilo del pagatore amministrativo per costruzione | `INTEG` | 0023 |
 
 ## Mappa fra decisioni e questioni di bacheca
 
@@ -207,7 +207,7 @@ insieme allo stato provvisorio in vigore nel frattempo. È il caso di ADR-0023.
 
 Le scelte di libreria, di struttura dei moduli di build e di convenzione di codice appartengono
 all'area tecnica; le misure di sicurezza e la loro configurazione all'area di sicurezza; i
-contratti verso i sistemi terzi all'area di integrazione. Entrano qui solo le decisioni che
+contratti verso i sistemi terzi all'`INTEG`. Entrano qui solo le decisioni che
 **vincolano più di un'area** o che **sono costose da cambiare**.
 
 Il criterio operativo: se la decisione può essere cambiata da una sola squadra in una sola pull

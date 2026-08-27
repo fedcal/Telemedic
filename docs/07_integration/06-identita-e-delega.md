@@ -197,7 +197,7 @@ Note sui campi:
 
 ### 3.5 Lo stato del supporto, dichiarato
 
-> **`[NV]` - Verifica sul percorso critico.** La disponibilità dello scambio di token nella
+> > **`[NV]` - Verifica empirica sul percorso critico da `TECH`.** La disponibilità dello scambio di token nella
 > variante *da emittente esterno a emittente interno*, e lo stato di maturità della concessione
 > per asserzione, **dipendono dalla versione del prodotto di federazione adottato** e vanno
 > verificate sulla versione effettivamente installata prima di dichiarare la funzione come
@@ -336,7 +336,7 @@ Tre conseguenze:
    servizio richiede un livello e l'utente accede con uno inferiore, il rifiuto deve venire
    dall'emittente: il fornitore non ha modo di accorgersene a posteriori.
 
-> **`[NV]` - Verifica empirica raccomandata.** Il punto 1 discende dalle regole tecniche pubblicate
+> **`[NV]` - Verifica empirica raccomandata da `TECH`.** Il punto 1 discende dalle regole tecniche pubblicate
 > ed è verificato su fonte primaria, ma ha conseguenze abbastanza rilevanti da meritare una
 > **verifica in preproduzione** prima di dichiarare in documentazione pubblica come si propaga il
 > livello di garanzia. È una verifica a costo quasi nullo e va messa sul percorso critico.
@@ -393,7 +393,7 @@ Conseguenze operative, verificate:
 **Perimetro adottato dal progetto: due soli livelli** - livello 2 come base, livello 3 per
 l'amministrazione del tenant e per le configurazioni che lo impongono. Il fattore è 2, non *n*.
 
-> **`[NV]`.** Non è verificato se il prodotto di federazione, agendo da client verso un emittente
+> **`[NV]` - Q-160.** Non è verificato se il prodotto di federazione, agendo da client verso un emittente
 > esterno, **inoltri il livello richiesto** attraverso il realm di intermediazione. Se non lo
 > inoltra, l'innalzamento per operazione non è ottenibile per sola configurazione e serve
 > un'estensione. Da verificare empiricamente sulla versione adottata.

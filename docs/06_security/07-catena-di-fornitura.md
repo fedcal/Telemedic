@@ -97,7 +97,7 @@ identificativo fiscale; **Paese della sede legale**; codici della nomenclatura e
 appalti relativi alle forniture utilizzate; criterio di rilevanza applicato. `[NV]` sul testo:
 la determinazione non è stata letta su fonte primaria e i suoi estremi provengono da fonti
 secondarie qualificate concordanti e dalla comunicazione istituzionale dell'autorità. Va
-verificata prima di citarne il contenuto puntuale - è la questione Q-151 nella sua parte
+verificata prima di citarne il contenuto puntuale - è la questione [Q-151](../11_registri/02-questioni-aperte.md#q-151) nella sua parte
 relativa a questa determinazione.
 
 Quattro conseguenze dirette:
@@ -219,7 +219,7 @@ persona.
 **Il periodo di supporto è dichiarato per ciascun rilascio maggiore, con data di fine.** Il
 regolamento impone al fabbricante un minimo di **cinque anni**; un progetto che ne dichiari meno
 rende il proprio integratore non conforme. La decisione sul periodo effettivo **è del
-committente** ed è aperta come questione Q-155.
+committente** ed è aperta come questione [Q-155](../11_registri/02-questioni-aperte.md#q-155).
 
 ## 7. Classificazione dei componenti di terze parti
 
@@ -242,7 +242,7 @@ medici. La verifica è documentata e datata.
 
 ### 7.1 Il caso del servizio esterno di terminologia - risposta alla questione Q-04
 
-La questione Q-04 della bacheca chiedeva di classificare il servizio esterno di terminologia e
+La questione [Q-04](../11_registri/02-questioni-aperte.md#q-04) della bacheca chiedeva di classificare il servizio esterno di terminologia e
 di verificarne la compatibilità con il vincolo di sovranità. **La risposta è chiusa da
 quest'area e si riporta qui per esteso.**
 
@@ -250,7 +250,7 @@ quest'area e si riporta qui per esteso.**
 > requisiti sulla catena di fornitura e nella diligenza dovuta verso i fornitori. Tre
 > conseguenze:
 >
-> **(a)** non può stare sul **percorso principale**. È il vincolo V-03: il sistema è pienamente
+> **(a)** non può stare sul **percorso principale**. È il vincolo [V-03](../11_registri/01-vincoli-in-vigore.md#v-03): il sistema è pienamente
 > funzionale senza il sistema di codifica che richiede un servizio esterno, e nessun percorso
 > principale può richiederlo. Il costo è dichiarato - una parte dei codici di un legame non si
 > valida - e non è un ripiego: è un corollario obbligato.
@@ -258,7 +258,7 @@ quest'area e si riporta qui per esteso.**
 > **(b)** se stabilito fuori dall'Unione, è un **trasferimento** nel momento in cui riceve dati
 > riferibili a un assistito. Quindi **le interrogazioni non devono mai portare identificativi
 > dell'assistito**, e **la sovranità si soddisfa per assenza di dato, non per collocazione**.
-> È il vincolo V-151. Un'interrogazione che chiede se un codice esista in un sistema di codifica
+> È il vincolo [V-151](../11_registri/01-vincoli-in-vigore.md#v-151). Un'interrogazione che chiede se un codice esista in un sistema di codifica
 > non è un trasferimento di dato personale, ovunque risponda il servizio. Ne discende inoltre il
 > divieto di **cache persistita su disco**, che varrebbe anche per la sola ragione di licenza:
 > una cache persistente è un archivio non inventariato.
@@ -289,8 +289,8 @@ del dato che riceve, effetto sulla dichiarazione del cliente.
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| Q-04 | **Chiusa da quest'area** con il §7.1. Resta all'architettura la scelta del punto di risoluzione e del contratto del gateway | Architettura, per la sola parte residua |
-| Q-151 | Verifica su fonte primaria della determinazione che introduce l'obbligo di dichiarazione dei fornitori rilevanti, dei codici richiesti e del contenuto puntuale dei requisiti delle misure di base | Conformità |
-| Q-155 | **Periodo di supporto dichiarato**, minimo cinque anni: decisione del committente. Nella stessa questione, l'effetto della monetizzazione sul ruolo di fabbricante | → Committente |
-| `[NV]` | Selezione puntuale dei codici della nomenclatura degli appalti (§3) | Conformità, con consulente di appalti |
-| Q-17 | La tabella riassuntiva dei protocolli dell'area protocolli è di fatto un **inventario di partenza** dei componenti di terze parti: va usata come base invece di ricostruirla | Tecnica, conformità |
+| [Q-04](../11_registri/02-questioni-aperte.md#q-04) | **Chiusa da quest'area** con il §7.1. Resta all'architettura la scelta del punto di risoluzione e del contratto del gateway | Architettura, per la sola parte residua |
+| [Q-151](../11_registri/02-questioni-aperte.md#q-151) | Verifica su fonte primaria della determinazione che introduce l'obbligo di dichiarazione dei fornitori rilevanti, dei codici richiesti e del contenuto puntuale dei requisiti delle misure di base | Conformità |
+| [Q-155](../11_registri/02-questioni-aperte.md#q-155) | **Periodo di supporto dichiarato**, minimo cinque anni: decisione del committente. Nella stessa questione, l'effetto della monetizzazione sul ruolo di fabbricante | → Committente |
+| `[NV]` | Selezione puntuale dei codici della nomenclatura degli appalti (§3) | `COMP` con consulente di appalti |
+| [Q-17](../11_registri/02-questioni-aperte.md#q-17) | La tabella riassuntiva dei protocolli dell'area protocolli è di fatto un **inventario di partenza** dei componenti di terze parti: va usata come base invece di ricostruirla | Tecnica, conformità |

@@ -47,7 +47,7 @@ The system accepts participants while the network holds.
 
 **Decided - the form of declaration.** The limit is **configuration with an imposed maximum**, not a code constant: a tenant can lower it, never raise it beyond the maximum. The imposed maximum is that derived from measurement.
 
-**Deferred - the number.** `[NV]` The maximum value depends on the transmission bandwidth budget of the worst-connected participant, and that budget is measured on a device and reference network that are not yet declared. Fixing the number before the measurement would mean writing it by preference. The criterion is declared: **the maximum is the number beyond which the reference participant does not sustain its own transmission budget with margin**, measured and not estimated.
+**Deferred - the number.** The maximum value depends on the transmission bandwidth budget of the worst-connected participant, and that budget must be measured by the technical and product areas on a device and reference network that are not yet declared, `[NV]`. Fixing the number before the measurement would mean writing it by preference. The criterion is declared: **the maximum is the number beyond which the reference participant does not sustain its own transmission budget with margin**, measured and not estimated.
 
 ## Consequences
 

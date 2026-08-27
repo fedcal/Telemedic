@@ -14,7 +14,7 @@ codice può contenere.
 
 Questo capitolo fa due cose. Stabilisce **quale codifica si usa per quale concetto del dominio**,
 e traduce il regime di licenza in **conseguenze sul modello dati e sul comportamento a
-esecuzione**. La trattazione completa delle licenze è in `B5-licenze-terminologie.md` e nella
+esecuzione**. La trattazione completa delle licenze è in [`B5-licenze-terminologie.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/B5-licenze-terminologie.md) e nella
 decisione `D31`; quest'area non la ripete e non la contraddice.
 
 ## 1. Il vincolo di partenza
@@ -24,14 +24,14 @@ decisione `D31`; quest'area non la ripete e non la contraddice.
 > vieti la ridistribuzione o i derivati **non può stare fra i sorgenti**, perché il progetto non
 > può concedere a valle diritti che non ha.
 
-> **[BASE] `V-03`** - Il sistema è **pienamente funzionale senza SNOMED CT**. Nessun percorso
+> **[BASE] [`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)** - Il sistema è **pienamente funzionale senza SNOMED CT**. Nessun percorso
 > principale può richiederlo.
 
 > **[BASE]** Gateway unico verso le terminologie, con disattivazione per sistema di codifica;
 > **nessuna cache persistita su disco** per i sistemi la cui licenza non consente derivati; ogni
 > concetto codificato porta il sistema esplicito; le stringhe di interfaccia del progetto sono
 > separate architetturalmente dal display ufficiale
-> (`04_BASELINE_ARCHITETTURALE.md` § 7).
+> ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 7).
 
 ## 2. Quale codifica per quale concetto
 
@@ -54,7 +54,7 @@ riferimento per identificatore e codice.
 | Vocabolari di struttura degli scambi | terminologia HL7 e sistemi di codifica del nucleo dello standard | **A** | rilascio in pubblico dominio |
 | Ruoli, tipi di contatto, stati | vocabolari del nucleo dello standard | **A** | idem |
 | Classificazioni internazionali delle malattie, decima e undicesima revisione | terminologia dell'organizzazione internazionale competente | **D** | licenza che vieta i derivati; solo riferimento per identificatore |
-| Scale e questionari clinici validati | titolari diversi, uno per scala | **da accertare** | questione `Q-11`; capitolo [05](05-parametri-e-osservazioni.md) § 9.3 |
+| Scale e questionari clinici validati | titolari diversi, uno per scala | **da accertare** | questione [`Q-11`](../11_registri/02-questioni-aperte.md#q-11); capitolo [05](05-parametri-e-osservazioni.md) § 9.3 |
 
 > **`DM-80` [MOD] - La colonna «regime» è un attributo del sistema di codifica nel modello, non
 > una nota di documentazione.** Il gateway conosce, per ciascun sistema, il proprio regime, e ne
@@ -105,7 +105,7 @@ flowchart LR
 > 3. **L'etichetta di interfaccia** è del progetto, vive nel catalogo di internazionalizzazione,
 >    è collegata al codice e non deriva dal display.
 >
-> **Questione `Q-03` in bacheca**, indirizzata all'area `ARCH`: come si realizza concretamente la
+> **Questione [`Q-03`](../11_registri/02-questioni-aperte.md#q-03) in bacheca**, indirizzata all'area `ARCH`: come si realizza concretamente la
 > separazione. Quest'area vi contribuisce con `DM-81` - che stabilisce **che cosa** va separato e
 > perché - e non ne decide la realizzazione tecnica.
 
@@ -153,7 +153,7 @@ poter distinguere.
 > tecnicamente più semplice e giuridicamente insostenibile.
 
 Due vincoli dell'area sicurezza si sovrappongono a questo e **prevalgono** dove sono più
-stringenti (`V-151` in bacheca):
+stringenti ([`V-151`](../11_registri/01-vincoli-in-vigore.md#v-151) in bacheca):
 
 1. **Nessuna cache persistita su disco**, senza distinzione per licenza. Il vincolo di licenza
    ne è un sottoinsieme: dove la licenza lo consentirebbe, il vincolo di sicurezza lo vieta
@@ -207,7 +207,7 @@ possibile l'esercizio senza quel sistema**, che è il punto successivo.
 
 ## 6. Il comportamento senza terminology server
 
-È il paragrafo che rende `V-03` verificabile invece che dichiarativo.
+È il paragrafo che rende [`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03) verificabile invece che dichiarativo.
 
 ### 6.1 Che cosa continua a funzionare
 
@@ -322,7 +322,7 @@ L'ultima parte è la più delicata dell'intero capitolo:
 
 Va notato che il glossario nazionale e il modulo di terminologia dell'infrastruttura nazionale
 sono componenti di cui il progetto è **consumatore**, non fornitore. Il vincolo di sovranità e la
-loro classificazione come componenti di terze parti sono oggetto della questione `Q-04` in
+loro classificazione come componenti di terze parti sono oggetto della questione [`Q-04`](../11_registri/02-questioni-aperte.md#q-04) in
 bacheca, indirizzata alle aree `SEC` e `ARCH`.
 
 ## 9. Le scale cliniche
@@ -339,7 +339,7 @@ Qui va aggiunto ciò che riguarda la policy terminologica:
 > attribuzione, e vanno collocati con lo stesso criterio, verificati con la stessa lista di
 > controllo e sorvegliati dallo stesso controllo automatico.
 >
-> **Questione `Q-11` in bacheca**, indirizzata a `COMP` e `ARCH`: la policy terminologica va
+> **Questione [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) in bacheca**, indirizzata a `COMP` e `ARCH`: la policy terminologica va
 > estesa formalmente a scale e punteggi **prima** di scrivere il primo motore di calcolo.
 > Quest'area concorre con `DM-65` e `DM-87` e non la chiude.
 
@@ -367,10 +367,10 @@ ricompreso**. La verifica è artefatto per artefatto.
 
 | Punto | Stato | A chi va chiesto |
 |---|---|---|
-| Regime di licenza delle singole scale e questionari clinici | **[NV]** | `COMP` - questione `Q-11` |
+| Regime di licenza delle singole scale e questionari clinici | **[NV]** | `COMP` - questione [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) |
 | Contenuto puntuale del glossario nazionale di telemedicina e allineamento voce per voce | **[NV]** | `COMP` - capitolo [01](01-linguaggio-ubiquo.md) § 1.2 |
-| Codici di tipologia documentale e metadati di indicizzazione delle dieci tipologie di telemedicina | **[NV]** | `COMP` - questione `Q-07` |
-| Compatibilità del servizio terminologico esterno con il vincolo di sovranità | **[NV]** | `SEC`, `ARCH` - questione `Q-04` |
+| Codici di tipologia documentale e metadati di indicizzazione delle dieci tipologie di telemedicina | **[NV]** | `COMP` - questione [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) |
+| Compatibilità del servizio terminologico esterno con il vincolo di sovranità | **[NV]** | `SEC`, `ARCH` - questione [`Q-04`](../11_registri/02-questioni-aperte.md#q-04) |
 | Valori puntuali degli insiemi di valori dedicati agli identificatori delle popolazioni non iscritte | **[NV]** | `ARCH` - segnalato nel modulo [04 dei fondamenti](../10_fondamenti/04-identita-e-anagrafiche.md) § 3.2 |
 
 ## Cosa devi ricordare

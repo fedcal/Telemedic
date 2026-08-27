@@ -8,7 +8,7 @@ description: "Latency balance decomposed by stage, percentiles instead of averag
 
 ## 0. Warning that applies to the entire chapter
 
-**No threshold contained in this document is a regulatory requirement.** Constraint V-12 is explicit: no technical threshold in this area is imposed by Italian regulation, and the project's values are **product specification**, never compliance. Whoever reads this chapter looking for a table to cite in a compliance declaration is looking for the wrong thing in the wrong place.
+**No threshold contained in this document is a regulatory requirement.** Constraint [V-12](../11_registri/01-vincoli-in-vigore.md#v-12) is explicit: no technical threshold in this area is imposed by Italian regulation, and the project's values are **product specification**, never compliance. Whoever reads this chapter looking for a table to cite in a compliance declaration is looking for the wrong thing in the wrong place.
 
 Three categories must be kept distinct, and confusion between them is the error this chapter exists to prevent:
 
@@ -65,7 +65,11 @@ flowchart LR
 | Decoding | Browser | |
 | Rendering | Device, refresh rate | At thirty frames per second, one frame is already a measurable contribution |
 
-`[NV]` - **the numerical values of each stage are not reported.** The project has not measured them, and reporting orders of magnitude taken from elsewhere in a technical document of a medical device means putting into circulation figures that someone will later cite as their own. Measurement is done with the automatic test described in [`05-media-e-tempo-reale.md`](./05-media-e-tempo-reale.md) §9.1, and results are published with the conditions under which they were obtained.
+The numerical values of each stage **must be measured by the technical area** `[NV]` and must not be
+reported from elsewhere, because reporting orders of magnitude in a technical document of a medical device
+means putting into circulation figures that someone will later cite as their own. Measurement is done with
+the automatic test described in [`05-media-e-tempo-reale.md`](./05-media-e-tempo-reale.md) §9.1, and results
+are published with the conditions under which they were obtained.
 
 ### 2.2 The tension that does not resolve
 
@@ -145,7 +149,7 @@ The system does not have a single capacity magnitude: it has four, with differen
 
 The factor is that established in [`05-media-e-tempo-reale.md`](./05-media-e-tempo-reale.md) §4.5: for a session with a single allocation, the node moves four times the bitrate per direction; with two allocations, eight times.
 
-Sizing is built on three parameters, **all to be measured and none to be assumed**: average bitrate per direction in your own installed base, quota of routed sessions, and peak of concurrent sessions. `[NV]` - none of the three is declared here, because the project has not measured them and third-party estimates are not citable as one's own.
+Sizing is built on three parameters, **all to be measured by the technical area and none to be assumed**: average bitrate per direction in your own installed base, quota of routed sessions, and peak of concurrent sessions. None of the three `[NV]` is declared here because they must be measured by the project; third-party estimates are not citable as one's own.
 
 What can be affirmed as a rule: **peak is dimensioned on the adverse case, not the average**, because the routed quota is not a product constant but a property of client network landscape, and can vary by an order of magnitude between an installation with home users and one with hospital users behind operator address translation.
 
@@ -201,7 +205,7 @@ Cross-cutting summary. Each row is a project boundary, not a promise.
 |---|---|---|---|
 | L1 | Participants in a media session | Mesh topology without central component | To declare; decision open to `ARCH` |
 | L2 | Objective-to-screen latency | Not guaranteeable, measured and declared per session | Defined |
-| L3 | Tenants per installation in schema-per-tenant model | Database catalogue growth | `[NV]` to measure; order of magnitude: hundreds |
+| L3 | Tenants per installation in schema-per-tenant model | Database catalogue growth | `[NV]` to be measured by the technical area; declared order of magnitude: hundreds |
 | L4 | Event delivery latency | Equal to outbox relay interrogation interval | Configurable, declared in contract |
 | L5 | Event ordering | **Conditional** within the partition chosen by key, never global | Architectural foundation §5. The three conditions under which per-key order holds, and the declaration that outside them it does not, are in [`02_architecture/06`](/02_architecture/06-eventi-e-integrazione-interna.md#41-what-is-guaranteed-and-what-is-not) §4.1. No functional requirement can depend on global order |
 | L6 | Delivery semantics | **At least once**; consumers are idempotent by construction | Architectural foundation §5 |

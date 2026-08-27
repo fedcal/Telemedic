@@ -31,7 +31,7 @@ aspettare una funzione o procurarsela altrove.
 | **Pianificato** | `OL-nn` | Una posizione in coda motivata, uno o più **criteri di completamento binari**, un **innesco** dichiarato, un **titolare** | «È in coda, in questa posizione, e si sblocca quando accade questo» |
 | **Desiderabile** | `DS-nn` | Una motivazione e **nulla di più**. Nessuna posizione, nessun criterio, nessun innesco | «Ci piacerebbe, e oggi manca **questo** perché diventi pianificato» |
 
-**La regola, posta come vincolo `V-187`**: una voce che non abbia insieme criterio di completamento
+**La regola, posta come vincolo [`V-187`](../11_registri/01-vincoli-in-vigore.md#v-187)**: una voce che non abbia insieme criterio di completamento
 binario, innesco dichiarato e titolare **non è pianificata**, e nessun materiale del progetto può
 presentarla come tale. Non è pedanteria redazionale: è ciò che impedisce a una risposta a un
 capitolato di trasformare un desiderio in un impegno contrattuale per il tramite di una tabella ben
@@ -40,7 +40,7 @@ formattata.
 ### 1.1 Che cosa sono le sigle, e che cosa non sono
 
 `OL-nn`, `DS-nn` e `TG-nn` sono **designazioni di pianificazione**, non identificativi di requisito.
-Non appartengono agli intervalli congelati da `V-120` (`RF-*`, `RNF-*`, `BR-*`, `ATT-*`, `UC-*`,
+Non appartengono agli intervalli congelati da [`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120) (`RF-*`, `RNF-*`, `BR-*`, `ATT-*`, `UC-*`,
 `OUT-*`), non entrano nella matrice di tracciabilità e non possono comparire in una prova. Valgono
 esattamente quanto la sigla `RU-1`: un modo per riferirsi a una riga di un documento senza doverla
 ricopiare.
@@ -135,12 +135,12 @@ sorpasso è una sola, ed è verificabile:
 
 | Pos. | Voce | Enunciato | Perché non è in `RU-1` | Innesco | Titolare |
 |:-:|---|:-:|---|---|---|
-| 1 | `OL-22` Funzioni a ruoli distinti acquisite all'esterno | `[INTENZIONE]` | **Taglio irreversibile `TG-20`, `TG-21`, `TG-22`**: richiedono soggetti distinti, non ore | Decisione su `Q-189` | Committente |
+| 1 | `OL-22` Funzioni a ruoli distinti acquisite all'esterno | `[INTENZIONE]` | **Taglio irreversibile `TG-20`, `TG-21`, `TG-22`**: richiedono soggetti distinti, non ore | Decisione su [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) | Committente |
 | 2 | `OL-15` Documentazione clinica e refertazione | `[INTENZIONE]` | Taglio `TG-01`, `TG-06`, `TG-07`: ampiezza | Nessuno esterno: capacità | Progetto |
 | 3 | `OL-21` Ancoraggio periodico firmato del registro | `[INTENZIONE]` | **Taglio `TG-23`**, irreversibile per il periodo | Nessuno esterno: capacità | Progetto |
-| 4 | `OL-02` Terzo partecipante alla sessione | `[INTENZIONE]` | Decisione sulla topologia dichiarata rinviata | Chiusura di `C-2` e misura di `Q-115` | Committente, poi progetto |
+| 4 | `OL-02` Terzo partecipante alla sessione | `[INTENZIONE]` | Decisione sulla topologia dichiarata rinviata | Chiusura di `C-2` e misura di [`Q-115`](../11_registri/02-questioni-aperte.md#q-115) | Committente, poi progetto |
 | 5 | `OL-16` Facciata di interoperabilità | `[INTENZIONE]` | Taglio `TG-02`: seconda superficie contrattuale | Nessuno esterno: capacità | Progetto |
-| 6 | `OL-01` Telemonitoraggio, percorso completo | `[INTENZIONE]` | Contesto più esteso del catalogo | Chiusura di `Q-120` | Progetto |
+| 6 | `OL-01` Telemonitoraggio, percorso completo | `[INTENZIONE]` | Contesto più esteso del catalogo | Chiusura di [`Q-120`](../11_registri/02-questioni-aperte.md#q-120) | Progetto |
 | 7 | `OL-17` Componente incorporabile white-label | `[INTENZIONE]` | Taglio `TG-03` | Nessuno esterno: capacità | Progetto |
 | 8 | `OL-03` Registrazione della sessione lato server | `[INTENZIONE]` | È una **seconda modalità di sicurezza**, non una funzione opzionale | Verifica sul contenitore e chiusura di `C-3` | Progetto |
 | 9 | `OL-19` Esercizio: amministrazione, secondo profilo, migrazioni non bloccanti | `[INTENZIONE]` | Tagli `TG-08`, `TG-10`, `TG-11` | Nessuno esterno: capacità | Progetto |
@@ -149,17 +149,17 @@ sorpasso è una sola, ed è verificabile:
 | 12 | `OL-05` Teleassistenza | `[INTENZIONE]` | Attori e artefatti diversi | Successiva a `OL-04` | Progetto |
 | 13 | `OL-18` Broker di eventi e consumatori multipli | `[INTENZIONE]` | Taglio `TG-04`: un componente in più da installare e sorvegliare | Secondo consumatore richiesto da un tenant reale | Progetto |
 | 14 | `OL-06` Canale asincrono e condivisione di documenti in sessione | `[INTENZIONE]` | Non attraversata dal percorso verticale scelto | Nessuno esterno: capacità | Progetto |
-| 15 | `OL-07` Conferimento alle infrastrutture documentali | `[IPOTESI]` | I modelli documentali non sono pubblicamente disponibili | Disponibilità del materiale (`Q-07`, `B-7`) | Terzo; il progetto attende |
+| 15 | `OL-07` Conferimento alle infrastrutture documentali | `[IPOTESI]` | I modelli documentali non sono pubblicamente disponibili | Disponibilità del materiale ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07), `B-7`) | Terzo; il progetto attende |
 | 16 | `OL-08` Conformità verificata sull'identità digitale nazionale | `[IPOTESI]` | Richiede ambienti di pre-produzione e credenziali | Accesso agli ambienti | Chi installa fornisce l'accesso |
 | 17 | `OL-09` Messaggistica ospedaliera, profili documentali, avvio applicativo | `[IPOTESI]` | Richiedono una controparte con un ambiente di prova | Disponibilità di una controparte | Integratore o ente |
 | 18 | `OL-10` Kit di sviluppo in due linguaggi | `[INTENZIONE]` | L'interfaccia versionata è sufficiente alla prima integrazione | Nessuno esterno: capacità | Progetto |
 | 19 | `OL-11` Moduli propri di agenda, fatturazione e rendicontazione | `[INTENZIONE]` | `RU-1` riceve l'appuntamento per riferimento | Un adottante privo di agenda propria | Progetto |
 | 20 | `OL-12` Contesto autonomo della rendicontazione | `[INTENZIONE]` | Decisione dichiarata rinviata al committente | Chiusura di `C-1` | Committente, poi progetto |
-| 21 | `OL-13` Punteggi di scale e questionari validati | `[IPOTESI]` | Regime di licenza non verificato | Chiusura di `B-3` e `Q-11` con esito favorevole | `COMP` |
-| 22 | `OL-14` Oscuramento selettivo del contenuto audio-video | `[INTENZIONE]` | Dichiarata non presente nella prima versione | Chiusura di `Q-157` | `COMP`, poi progetto |
+| 21 | `OL-13` Punteggi di scale e questionari validati | `[IPOTESI]` | Regime di licenza non verificato | Chiusura di `B-3` e [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) con esito favorevole | `COMP` |
+| 22 | `OL-14` Oscuramento selettivo del contenuto audio-video | `[INTENZIONE]` | Dichiarata non presente nella prima versione | Chiusura di [`Q-157`](../11_registri/02-questioni-aperte.md#q-157) | `COMP`, poi progetto |
 
 **Che cosa non è in questa tabella e va detto qui.** Il **periodo di supporto dichiarato** e il
-**piano di dismissione delle versioni** (`C-4`, `Q-186`) non sono voci di coda: sono
+**piano di dismissione delle versioni** (`C-4`, [`Q-186`](../11_registri/02-questioni-aperte.md#q-186)) non sono voci di coda: sono
 **prerequisiti della prima distribuzione**, criteri del traguardo `T-05` e criterio bloccante 18 di
 [03 §8](./03-primo-rilascio-utilizzabile.md). Metterli in coda significherebbe ammettere che si
 possa distribuire senza dichiarare per quanto tempo si sostiene ciò che si è distribuito.
@@ -199,7 +199,7 @@ posizione in coda serve a rendere quel «successivi» il più vicino possibile.
 **Criteri di completamento.**
 
 1. Esiste un soggetto, esterno a chi svolge l'attività, **nominato e registrato**, per ciascuna
-   delle funzioni per cui `Q-189` ne ha deciso l'acquisizione.
+   delle funzioni per cui [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) ne ha deciso l'acquisizione.
 2. Per ciascuna funzione **non** acquisita all'esterno, esiste la **registrazione formale
    dell'accettazione della lacuna**, con la motivazione, il titolare della decisione e la data: la
    lacuna accettata è una decisione registrata, non un silenzio.
@@ -208,7 +208,7 @@ posizione in coda serve a rendere quel «successivi» il più vicino possibile.
 4. L'elenco delle lacune dichiarate distingue, riga per riga, quelle **chiuse dal rilascio N in
    avanti** da quelle **datate a un periodo e non chiudibili**.
 
-**Da che cosa dipende.** Interamente da `Q-189`, che è decisione del committente con punto di
+**Da che cosa dipende.** Interamente da [`Q-189`](../11_registri/02-questioni-aperte.md#q-189), che è decisione del committente con punto di
 decisione al 30 settembre 2026, e da una decisione di spesa.
 
 **Rischi.** `R-02`, `R-22` (le figure specialistiche sono una risorsa scarsa), `R-29`.
@@ -219,14 +219,14 @@ decisione al 30 settembre 2026, e da una decisione di spesa.
 **Che cosa comprende.** Bozza, validazione, **firma**, immodificabilità del documento firmato,
 rettifica come nuova versione con catena mantenuta, contenuto modellato come **dataset canonico** sul
 set informativo della tipologia documentale propria della televisita, annotazione digitale in luogo
-del referto dove il setting di erogazione lo prevede (`V-145`), consegna del documento al sistema di
+del referto dove il setting di erogazione lo prevede ([`V-145`](../11_registri/01-vincoli-in-vigore.md#v-145)), consegna del documento al sistema di
 origine in forma canonica.
 
 **Comprende inoltre, e non per completezza ma per necessità**, i due presidi che il contenuto
 clinico persistente richiede e che sono usciti da `RU-1` con esso: l'**oscuramento applicato dal
-motore di autorizzazione** con i sei canali di inferenza chiusi (`TG-07`, `V-149`) e l'**accesso
+motore di autorizzazione** con i sei canali di inferenza chiusi (`TG-07`, [`V-149`](../11_registri/01-vincoli-in-vigore.md#v-149)) e l'**accesso
 d'emergenza** con motivazione obbligatoria, finestra limitata, notifica e riesame (`TG-06`,
-`V-153`). **Consegnare il contenuto clinico senza i suoi presidi sarebbe un difetto, non una
+[`V-153`](../11_registri/01-vincoli-in-vigore.md#v-153)). **Consegnare il contenuto clinico senza i suoi presidi sarebbe un difetto, non una
 consegna parziale**, ed è la ragione per cui le tre voci sono una sola voce di coda.
 
 **Perché non è in `RU-1`.** Taglio `TG-01`, per ampiezza: è il secondo contesto del percorso, e porta
@@ -243,7 +243,7 @@ installa può provare.
 1. Il documento firmato è **immodificabile**, e la rettifica produce una nuova versione con la
    catena mantenuta: una prova tenta la modifica in ogni percorso esposto e fallisce in tutti.
 2. Il contenuto è modellato come **dataset canonico**, e una prova verifica che la sostituzione della
-   serializzazione **non richieda modifiche al dominio** (`V-07`, `V-136`, `V-143`).
+   serializzazione **non richieda modifiche al dominio** ([`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07), [`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136), [`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)).
 3. **Nessuna precompilazione di contenuto clinico interpretativo**: si precompilano dati anagrafici,
    amministrativi e temporali, e la prova negativa corrispondente passa (`OUT-07`).
 4. L'**attestazione della qualità del collegamento** entra nel documento in forma strutturata,
@@ -253,7 +253,7 @@ installa può provare.
 6. L'**accesso d'emergenza** ha motivazione libera obbligatoria, finestra e perimetro limitati,
    notifica e riesame con esito registrato; una prova verifica che l'accesso senza motivazione
    fallisca.
-7. La consegna al sistema di origine avviene **passando dal mediatore unico di uscita** (`V-157`).
+7. La consegna al sistema di origine avviene **passando dal mediatore unico di uscita** ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)).
 
 **Rischi.** `R-23` (deriva verso l'interpretazione: la refertazione assistita è una delle tre
 funzionalità a una singola storia utente dall'innalzamento di classe), `R-24`.
@@ -301,7 +301,7 @@ dichiarata rinviata (`C-2`, con la parte di misura registrata come `A-5` in
 cifratura fino agli estremi, e superarne il limite significa introdurre un componente che **termina
 la cifratura**, cioè una terza modalità operativa con proprietà di sicurezza diverse. Il numero
 massimo, inoltre, dipende dal budget di trasmissione del partecipante peggio connesso, che si misura
-su un dispositivo e una rete di riferimento **non ancora dichiarati** (`Q-115`, `Q-175`).
+su un dispositivo e una rete di riferimento **non ancora dichiarati** ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115), [`Q-175`](../11_registri/02-questioni-aperte.md#q-175)).
 
 **Perché è alto in coda, davanti a voci più richieste.** Perché l'interprete è la **misura
 alternativa dichiarata** per l'unica non conformità di accessibilità che il progetto ammette, quella
@@ -318,7 +318,7 @@ direttamente**, e supera i criteri di sblocco e di valore.
 2. Il numero è stato **misurato** sul dispositivo e sulla rete di riferimento dichiarati, non
    stimato, e la misura è conservata come artefatto.
 3. La presenza di un terzo è un **oggetto di consenso distinto**, con ciclo di vita proprio, la cui
-   revoca non tocca gli altri (`V-146`). È il quarto dei cinque oggetti del modello, e il primo che
+   revoca non tocca gli altri ([`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)). È il quarto dei cinque oggetti del modello, e il primo che
    `RU-1` non esercitava.
 4. La verifica delle chiavi resta obbligatoria per impostazione predefinita e resta uno stato
    bloccante della macchina a stati anche con tre partecipanti.
@@ -354,7 +354,7 @@ numero di integratori e che nessuno di essi recupera.
    un cambiamento a monte non può cambiare l'esito di una validazione già eseguita.
 3. Il documento di capacità è **generato**, non scritto a mano, e una divergenza fra esso e il
    comportamento effettivo fa fallire la costruzione.
-4. Nessuna formula di conformità vietata compare nel materiale prodotto (`V-133`).
+4. Nessuna formula di conformità vietata compare nel materiale prodotto ([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)).
 
 ### `OL-01` - Telemonitoraggio, percorso completo
 *`[INTENZIONE]` · sesta posizione · titolare: **progetto***
@@ -371,7 +371,7 @@ professionista», mantiene Classe IIa e classe di sicurezza software B, ed esclu
 tempo reale. Il modello di dominio era già scritto così: **il lavoro non è più a rischio di
 riscrittura.** Restano due ragioni. **La prima**: è il contesto più esteso del catalogo dei
 requisiti, e sotto `D54` l'ampiezza è dirimente. **La seconda**: la rappresentazione delle regole è
-una decisione architetturale aperta (`Q-120`), e realizzare un motore prima di aver deciso quanto
+una decisione architetturale aperta ([`Q-120`](../11_registri/02-questioni-aperte.md#q-120)), e realizzare un motore prima di aver deciso quanto
 debba essere espressivo produce esattamente l'esito che quella questione vuole evitare - un
 linguaggio di programmazione arbitrario eseguito in produzione, che è insieme superficie di attacco e
 oggetto non validabile ai fini regolatori.
@@ -391,18 +391,18 @@ il costo della certificazione è ora **nostro**.
 
 1. Un piano individuale versionato è attivabile **solo** se esiste una copertura oraria dichiarata
    per il tenant e per il percorso, e il tentativo di attivarlo senza copertura fallisce in ogni
-   configurazione supportata (`V-122`).
+   configurazione supportata ([`V-122`](../11_registri/01-vincoli-in-vigore.md#v-122)).
 2. Il campo della soglia si presenta **vuoto e obbligatorio** in ogni percorso di redazione, e una
    prova negativa verifica che nessuna precompilazione avvenga, nemmeno con i valori del percorso o
-   dell'ultimo piano (`V-123`, `OUT-08`).
+   dell'ultimo piano ([`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123), `OUT-08`).
 3. Istante di misura e istante di ricezione sono due campi distinti obbligatori, e le regole operano
    sull'istante di misura; una prova con misure recapitate fuori ordine produce lo stesso esito di
-   una prova con misure in ordine (`V-124`).
+   una prova con misure in ordine ([`V-124`](../11_registri/01-vincoli-in-vigore.md#v-124)).
 4. L'assenza di misura è rappresentata come **entità**, con finestra attesa, istante di scadenza e
    causa quando nota; una prova verifica che l'assenza produca una riga e non l'assenza di una riga
-   (`V-148`).
+   ([`V-148`](../11_registri/01-vincoli-in-vigore.md#v-148)).
 5. L'allarme è una **sequenza di eventi immutabili** e lo stato corrente è una proiezione; nessuna
-   colonna di stato è aggiornata sul posto (`V-121`).
+   colonna di stato è aggiornata sul posto ([`V-121`](../11_registri/01-vincoli-in-vigore.md#v-121)).
 6. Un destinatario fuori copertura non è un destinatario valido nella catena di escalation: viene
    saltato con motivo registrato, e l'allarme **resta aperto** quando l'escalation fallisce.
 7. La valutazione è **deterministica e riproducibile** su vettori di prova versionati, con la
@@ -412,10 +412,10 @@ il costo della certificazione è ora **nostro**.
 9. **La valutazione di impatto sulla destinazione d'uso congelata da `D55` è eseguita e registrata
    prima della scrittura del motore**, non dopo.
 
-**Da che cosa dipende la data.** Da `Q-120` per la rappresentazione delle regole; da `Q-122` e `B-9`
+**Da che cosa dipende la data.** Da [`Q-120`](../11_registri/02-questioni-aperte.md#q-120) per la rappresentazione delle regole; da [`Q-122`](../11_registri/02-questioni-aperte.md#q-122) e `B-9`
 per il contratto minimo del gateway di misure, che è `[NV]` sulla disponibilità effettiva di due
-segnali; da `Q-125` per la codifica dei parametri, con il vincolo che il sistema resti operativo con
-il servizio terminologico esterno disattivato (`V-03`); da `Q-124` per la collocazione del registro
+segnali; da [`Q-125`](../11_registri/02-questioni-aperte.md#q-125) per la codifica dei parametri, con il vincolo che il sistema resti operativo con
+il servizio terminologico esterno disattivato ([`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)); da [`Q-124`](../11_registri/02-questioni-aperte.md#q-124) per la collocazione del registro
 degli allarmi nella modalità di esercizio senza conservazione del contenuto clinico.
 
 **Rischi.** `R-17`, `R-23` (è la voce con la maggiore pressione ad ampliarsi verso
@@ -426,7 +426,7 @@ l'interpretazione), `R-11`.
 
 **Che cosa comprende.** L'elemento personalizzato conforme allo standard dei componenti web, con
 insieme chiuso e versionato di proprietà di tema validate lato server con verifica del contrasto, e
-con gli elementi non tematizzabili né occultabili (`V-163`).
+con gli elementi non tematizzabili né occultabili ([`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)).
 
 **Perché non è in `RU-1`.** Taglio `TG-03`. L'avvio della sessione avviene per rinvio con token
 d'ingresso a uso singolo, che è una via di integrazione completa ma **non consente l'identità visiva
@@ -441,7 +441,7 @@ dell'integratore**.
 3. Il rispetto delle preferenze di sistema - movimento ridotto, contrasto elevato, dimensione del
    carattere - **non è disattivabile** dalla personalizzazione.
 4. Il componente consuma **le stesse interfacce applicative** offerte agli integratori: nessuna
-   capacità gli è riservata (`V-164`).
+   capacità gli è riservata ([`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)).
 
 ### `OL-03` - Registrazione della sessione lato server
 *`[INTENZIONE]` · ottava posizione · titolare: **progetto***
@@ -473,7 +473,7 @@ già in esercizio da un rilascio.
 3. La **revoca del consenso ha effetto immediato** sulla registrazione in corso, verificato da una
    prova che revoca a sessione aperta.
 4. Il contenitore è **negoziato a runtime** in funzione dei codec effettivamente negoziati, senza
-   ricodifica, e contenitore e codec effettivi sono registrati nei metadati (`V-11`, `V-115`).
+   ricodifica, e contenitore e codec effettivi sono registrati nei metadati ([`V-11`](../11_registri/01-vincoli-in-vigore.md#v-11), [`V-115`](../11_registri/01-vincoli-in-vigore.md#v-115)).
    **Nessun formato unico è dichiarato in alcun materiale**, e la regola resta in vigore anche ora
    che la verifica corrispondente è stata rinviata con la funzione.
 5. L'indicatore di registrazione non è occultabile: la prova che tenta di nasconderlo con ogni mezzo
@@ -506,7 +506,7 @@ e una **finestra di manutenzione** per gli aggiornamenti.
 1. L'interfaccia di amministrazione soddisfa i criteri di accessibilità **come criteri di
    accettazione**, al pari dei percorsi dell'assistito e del professionista: non è un pannello
    interno esente.
-2. Nessuna capacità è raggiungibile **solo** dall'interfaccia di amministrazione (`V-164`): la
+2. Nessuna capacità è raggiungibile **solo** dall'interfaccia di amministrazione ([`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)): la
    configurazione dichiarativa versionata resta una via completa e provata.
 3. Il secondo profilo di dispiegamento usa **lo stesso codice e la stessa struttura** del primo, e la
    suite funzionale completa gira su entrambi.
@@ -551,9 +551,9 @@ documentato, che è una variante asincrona del teleconsulto e non una funzione a
 
 **Perché non è in `RU-1`.** Perché ciascuna è **una macchina a stati propria** con attori ammessi
 diversi, artefatti obbligatori diversi, obbligo di presenza dell'assistito diverso e insieme di esiti
-diverso (`V-140`). Non sono varianti di configurazione della televisita: la tassonomia del progetto
+diverso ([`V-140`](../11_registri/01-vincoli-in-vigore.md#v-140)). Non sono varianti di configurazione della televisita: la tassonomia del progetto
 porta due attributi distinti - l'attività e il servizio minimo - che **non coincidono**, e il vincolo
-professionale si applica all'**attività**, non al servizio (`V-147`, `Q-147`).
+professionale si applica all'**attività**, non al servizio ([`V-147`](../11_registri/01-vincoli-in-vigore.md#v-147), [`Q-147`](../11_registri/02-questioni-aperte.md#q-147)).
 
 **Perché segue `OL-15`.** Perché il caso già documentato presuppone un documento: senza la
 refertazione, il parere ulteriore non ha su che cosa esercitarsi.
@@ -586,7 +586,7 @@ generalizzazione.
 
 **Criteri di completamento.** I quattro di `OL-04`, più la verifica che il **setting di erogazione
 discrimini le regole**: dove la fonte prevede l'annotazione digitale in luogo del referto, il sistema
-produce l'annotazione e non pretende un referto (`V-145`).
+produce l'annotazione e non pretende un referto ([`V-145`](../11_registri/01-vincoli-in-vigore.md#v-145)).
 
 ### `OL-18` - Broker di eventi e consumatori multipli
 *`[INTENZIONE]` · tredicesima posizione · titolare: **progetto***
@@ -633,17 +633,17 @@ dipende solo dal criterio di composizione.
 2. Il documento condiviso in sessione **non diventa documentazione clinica** per il solo fatto di
    essere stato condiviso: l'acquisizione è un atto esplicito e registrato.
 3. Nessun contenuto clinico è veicolato negli eventi in uscita generati dal canale: si trasmette il
-   riferimento, il contenuto si rilegge con chiamata autenticata (`V-135`, `V-161`).
-4. Il canale è raggiungibile da un sistema terzo tramite interfaccia documentata e versionata (`V-164`).
+   riferimento, il contenuto si rilegge con chiamata autenticata ([`V-135`](../11_registri/01-vincoli-in-vigore.md#v-135), [`V-161`](../11_registri/01-vincoli-in-vigore.md#v-161)).
+4. Il canale è raggiungibile da un sistema terzo tramite interfaccia documentata e versionata ([`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)).
 
 ### `OL-07` - Conferimento alle infrastrutture documentali nazionali e regionali
 *`[IPOTESI]` · quindicesima posizione, non databile dal progetto*
 
 **Perché non è in `RU-1` e perché resta `[IPOTESI]`.** Perché **manca il contenuto, non il progetto**.
 I modelli documentali, i codici di tipologia e i metadati di indicizzazione delle tipologie
-documentali della telemedicina non sono pubblicamente disponibili (`Q-07`, `B-7`), e la risposta
+documentali della telemedicina non sono pubblicamente disponibili ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07), `B-7`), e la risposta
 strutturale è già in vigore: il contenuto informativo è modellato come **dataset canonico** e ogni
-serializzazione è sostituibile (`V-07`, `V-136`, `V-143`).
+serializzazione è sostituibile ([`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07), [`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136), [`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)).
 
 **Che cosa il progetto ha già fatto perché l'attesa non costi niente.** Il dataset canonico è modellato
 campo per campo sul set informativo della fonte cogente, non sul profilo di rappresentazione. Quando
@@ -656,12 +656,12 @@ di dominio.
 
 1. La verifica di copertura campo per campo fra dataset canonico e profilo di rappresentazione è
    eseguita, con l'analisi degli scostamenti documentata; dove il profilo non ha posto per un campo
-   della fonte cogente esiste un'estensione dichiarata o una collocazione motivata (`Q-132`).
-2. Il conferimento avviene **passando dal mediatore unico di uscita** (`V-157`).
+   della fonte cogente esiste un'estensione dichiarata o una collocazione motivata ([`Q-132`](../11_registri/02-questioni-aperte.md#q-132)).
+2. Il conferimento avviene **passando dal mediatore unico di uscita** ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)).
 3. Nessun template è cablato: il mappatore è configurazione versionata, e una prova verifica che la
    sostituzione del mappatore non richieda modifiche al dominio.
 
-**Chi se ne fa carico.** L'interlocuzione per ottenere il materiale è dell'area di conformità (`Q-07`);
+**Chi se ne fa carico.** L'interlocuzione per ottenere il materiale è dell'`COMP` ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07));
 la realizzazione è del progetto. **La data dipende da un terzo** e il progetto non la dichiara.
 
 ### `OL-08` - Conformità verificata sull'identità digitale nazionale, su tutti i canali
@@ -673,13 +673,13 @@ l'accettazione di un'identità già autenticata dal sistema dell'integratore con
 **Che cosa manca, e perché non dipende dal progetto.** La **conformità verificata** sull'intero insieme
 dei fornitori richiede ambienti di pre-produzione, credenziali di prova e - per uno dei canali - **due
 istanze di fornitore di identità per ciascun fornitore**, perché il contesto di autenticazione
-richiesto è configurato staticamente sulla singola istanza (`Q-05`, `D38`). È il lotto di lavoro
+richiesto è configurato staticamente sulla singola istanza ([`Q-05`](../11_registri/02-questioni-aperte.md#q-05), `D38`). È il lotto di lavoro
 sistematicamente sottovalutato, e il moltiplicatore agisce su un insieme la cui cardinalità **si legge
 da un registro nazionale e non si cabla**. Ogni variazione delle istanze comporta un nuovo deposito del
 documento di metadata presso l'autorità: è costo di procedura, non di codice, e non è comprimibile.
 
 **Il limite che nessun rilascio rimuove.** Il progetto è **conforme e verificabile, non accreditato**
-(`V-05`, `D36`, `OUT-22`). Il fornitore di servizi verso la federazione è chi installa. **Questo non
+([`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05), `D36`, `OUT-22`). Il fornitore di servizi verso la federazione è chi installa. **Questo non
 cambia con `D58`**: il ruolo di fabbricante e il ruolo di fornitore di servizi sono cose diverse, e
 assumere il primo non avvicina il secondo. I tempi dell'accreditamento **non sono dichiarati da alcuna
 fonte primaria**: non compaiono in questa roadmap perché non esistono, non perché non siano stati
@@ -692,13 +692,13 @@ cercati.
    non una volta.
 2. Il livello di garanzia propagato è quello **richiesto** e non quello asserito, ed è sempre
    qualificato per distinguere l'autenticazione **eseguita** da quella **riferita** da un integratore
-   (`V-154`, `V-165`). Il marcatore corrispondente esiste già in `RU-1`.
+   ([`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154), [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165)). Il marcatore corrispondente esiste già in `RU-1`.
 3. I tre difetti noti del prodotto di federazione sono chiusi in configurazione **e** sorvegliati da
    una prova che fallisce se la configurazione regredisce. **Già soddisfatto** in `RU-1` (`T-04`
    criterio 3).
 4. L'esito della verifica sull'inoltro del contesto di autenticazione richiesto attraverso
    l'intermediazione è **registrato**, e fino a quel momento la documentazione pubblica **non descrive
-   il meccanismo** (`Q-160`, `B-8`).
+   il meccanismo** ([`Q-160`](../11_registri/02-questioni-aperte.md#q-160), `B-8`).
 5. Il canale privo di dipendenze esterne è completabile e completato senza attendere gli altri due: è
    l'unico su cui il progetto non dipende da nessuno.
 
@@ -722,7 +722,7 @@ reali di una controparte reale.
 
 1. Esiste almeno una controparte con cui la connettività è stata provata da estremo a estremo, con
    esito registrato e con la perdita informativa nella traduzione **misurata e dichiarata**.
-2. Nessuna formula di conformità vietata compare nel materiale prodotto (`V-133`).
+2. Nessuna formula di conformità vietata compare nel materiale prodotto ([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)).
 3. Il codice di tipo dell'identificatore nel canale legacy è **contrattuale con l'integratore** e
    documentato come tale, non presentato come conformità a una tabella.
 
@@ -745,7 +745,7 @@ ricorrente sottratta per sempre allo sviluppo ([01 §9](./01-principi-e-metodo.m
 2. Ogni esempio del kit è **verificato in integrazione continua**; un esempio che non si compila o non
    si esegue fa fallire la costruzione.
 3. Il kit non contiene logica di dominio: se una regola vive nel kit, la stessa regola non è applicata
-   dal server e il vincolo `V-164` è violato.
+   dal server e il vincolo [`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164) è violato.
 
 ### `OL-11` - Moduli propri di agenda, fatturazione e rendicontazione
 *`[INTENZIONE]` · diciannovesima posizione · titolare: **progetto***
@@ -776,7 +776,7 @@ decisione rinviata non si prende in una proposta di modifica**.
 
 **Perché è in coda e non fra i desiderabili.** Perché la sua assenza ha un costo dichiarato e non nullo:
 finché la rendicontazione non è un contesto autonomo, il divieto per cui il profilo del pagatore è
-amministrativo per costruzione (`V-166`, `OUT-18`) è una **convenzione di codice**, verificabile solo
+amministrativo per costruzione ([`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166), `OUT-18`) è una **convenzione di codice**, verificabile solo
 con una prova dedicata e soggetta all'erosione, invece di essere un **confine** verificabile
 automaticamente. Il rischio non è che il sistema oggi faccia la cosa sbagliata: è che in una versione
 futura un evento destinato alla liquidazione acquisisca un riferimento a un documento clinico senza che
@@ -794,7 +794,7 @@ nulla lo impedisca strutturalmente.
 *`[IPOTESI]` · ventunesima posizione · titolare: **`COMP`***
 
 **Perché non è in `RU-1`.** Per una misura cautelativa in vigore e motivata: il regime di licenza degli
-strumenti non è verificato (`B-3`, `Q-11`), le scale e i questionari validati hanno licenze proprie
+strumenti non è verificato (`B-3`, [`Q-11`](../11_registri/02-questioni-aperte.md#q-11)), le scale e i questionari validati hanno licenze proprie
 distinte da quelle delle terminologie, e la verifica va fatta **strumento per strumento sulla licenza
 primaria**, non sulla dichiarazione del contenitore che li ricomprende.
 
@@ -817,7 +817,7 @@ registrata. Senza quella, i criteri tecnici non si esaminano.
 *`[INTENZIONE]` · ventiduesima posizione · titolare: **`COMP`**, poi progetto*
 
 **Perché non è in `RU-1`.** Perché è dichiarata non presente nella prima versione ed è registrata come
-esclusione riapribile con il normale governo del prodotto (`Q-157`). **Dipende inoltre da `OL-03`**:
+esclusione riapribile con il normale governo del prodotto ([`Q-157`](../11_registri/02-questioni-aperte.md#q-157)). **Dipende inoltre da `OL-03`**:
 senza registrazione della sessione non esiste contenuto audio-video da oscurare.
 
 **Perché il problema è strutturalmente raro.** Due elementi del progetto ne riducono la frequenza alla
@@ -842,7 +842,7 @@ dichiara **che cosa manca perché diventi pianificata**, che è l'unica informaz
 dichiara, e renderebbe non necessaria la misura alternativa di `OL-02`.
 
 **Che cosa manca.** Un motore di trascrizione, che è un componente con tre implicazioni non risolte:
-**sovranità** - nessuna dipendenza obbligatoria fuori dall'Unione è ammessa (`V-01`), e i motori con la
+**sovranità** - nessuna dipendenza obbligatoria fuori dall'Unione è ammessa ([`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01)), e i motori con la
 qualità richiesta sono in prevalenza servizi remoti; **licenza** - un modello va collocato nei regimi
 della politica sui contenuti di terzi come qualunque altro contenuto; **qualificazione** - un
 sottotitolo è veicolo di comunicazione, ma una trascrizione che riassumesse, correggesse o
@@ -873,7 +873,7 @@ notifiche più affidabili.
 di distribuzione applicativa ha **un regime proprio**: due catene di distribuzione, due cicli di
 aggiornamento, due superfici da sorvegliare, e un intermediario che decide se e quando un aggiornamento
 di sicurezza raggiunge l'utilizzatore - il che è in tensione diretta con un livello di servizio di
-rimedio espresso in giorni (`V-185`). Il requisito del progetto è **mobile first sul web**, non
+rimedio espresso in giorni ([`V-185`](../11_registri/01-vincoli-in-vigore.md#v-185)). Il requisito del progetto è **mobile first sul web**, non
 un'applicazione nativa.
 
 ### `DS-04` - Firma grafometrica e lettura della tessera sanitaria da lettore locale
@@ -945,8 +945,8 @@ precisamente l'errore che il criterio 2 di [01 §3](./01-principi-e-metodo.md) e
 prodotto non reca marcatura CE**, non è coperto da alcuna dichiarazione di conformità, e non è
 utilizzabile per l'erogazione di prestazioni sanitarie su pazienti reali. Che il progetto intenda
 assumere il ruolo di fabbricante (`D58`) è pianificazione interna con un proprio calendario in
-[02 §5](./02-traguardi.md), **non è una data di marcatura e non va citata come tale** (`V-171`,
-`V-280`). Una coda di funzioni non è un percorso di conformità, e presentarla come tale sarebbe
+[02 §5](./02-traguardi.md), **non è una data di marcatura e non va citata come tale** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171),
+[`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). Una coda di funzioni non è un percorso di conformità, e presentarla come tale sarebbe
 l'errore più costoso di tutto il documento.
 
 ---
@@ -988,7 +988,7 @@ Le transizioni ammesse sono quattro, e ciascuna ha una condizione verificabile.
 
 | Da | A | Condizione | Chi la accerta |
 |---|---|---|---|
-| Desiderabile | Pianificata | Esistono insieme: criterio di completamento binario, innesco dichiarato, titolare nominato (`V-187`) | Revisione di [00 §8](./00-indice.md) |
+| Desiderabile | Pianificata | Esistono insieme: criterio di completamento binario, innesco dichiarato, titolare nominato ([`V-187`](../11_registri/01-vincoli-in-vigore.md#v-187)) | Revisione di [00 §8](./00-indice.md) |
 | Pianificata | Desiderabile | L'innesco è decaduto e non è sostituibile | Revisione, con la causa registrata |
 | Pianificata | Fuori perimetro | Una determinazione di conformità o una decisione del committente la esclude | `COMP` o committente, con voce `OUT-nn` nuova |
 | Fuori perimetro | Pianificata | La procedura di [`docs/03_functional/07-fuori-perimetro.md`](../03_functional/07-fuori-perimetro.md) §7, con il costo proporzionato alla categoria | Secondo la categoria |
@@ -1006,7 +1006,7 @@ perduto, e ciò che rendono disponibile vale **dai rilasci successivi in avanti*
 
 **Che cosa non è ammesso, ed è la parte che conta.** Una voce non passa da desiderabile a pianificata
 perché qualcuno l'ha chiesta con insistenza, perché compare in un capitolato o perché è stata citata in
-una presentazione. Passa quando ha i tre elementi di `V-187`. E **un taglio irreversibile non diventa
+una presentazione. Passa quando ha i tre elementi di [`V-187`](../11_registri/01-vincoli-in-vigore.md#v-187). E **un taglio irreversibile non diventa
 una voce di coda**: `OL-22` e `OL-21` non restituiscono il periodo perduto, e i loro testi lo dicono
 esplicitamente.
 

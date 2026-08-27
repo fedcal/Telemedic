@@ -126,7 +126,7 @@ stateDiagram-v2
 Due precisazioni che discendono da vincoli del progetto.
 
 **Questa non è la macchina a stati della prestazione.** La prestazione ha il proprio ciclo di vita
-sul piano clinico, e i due sono correlati ma distinti: è il vincolo V-01. Una prestazione può
+sul piano clinico, e i due sono correlati ma distinti: è il vincolo [V-01](../11_registri/01-vincoli-in-vigore.md#v-01). Una prestazione può
 attraversare più sessioni; una sessione può esistere per una prova tecnica senza alcuna
 prestazione.
 
@@ -208,7 +208,7 @@ obblighi che appartengono al protocollo:
 - l'informativa di consenso **dichiara esplicitamente** che la sessione non è più cifrata fino
   agli estremi. Non è una nota a piè di pagina: è il fatto che cambia la natura della garanzia;
 - il **contenitore effettivo** della registrazione è negoziato a runtime, mai assunto, e viaggia
-  nell'evento di disponibilità del capitolo [07 §3](./07-eventi-e-webhook.md). È il vincolo V-11,
+  nell'evento di disponibilità del capitolo [07 §3](./07-eventi-e-webhook.md). È il vincolo [V-11](../11_registri/01-vincoli-in-vigore.md#v-11),
   e nasce da una divergenza verificata fra i contenitori prodotti dai diversi ambienti di
   esecuzione.
 
@@ -254,9 +254,10 @@ standard vero per l'autorizzazione di terza parte tramite token è **RFC 7635**.
 descritto è però l'unico con supporto universale nei browser e nei server di relay: si adotta, e
 **lo si documenta per ciò che è - una convenzione di fatto**.
 
-> **`[NV]` - algoritmo di hash sottostante.** La documentazione del server di relay indica
-> genericamente la funzione di autenticazione del messaggio senza dichiarare l'algoritmo di hash.
-> **Il modo corretto di risolvere il dubbio non è una citazione documentale ma un collaudo di
+> **Algoritmo di hash sottostante** `[NV]` da chiedere al fornitore del server di relay. La
+> documentazione del server di relay indica genericamente la funzione di autenticazione del messaggio senza
+> dichiarare l'algoritmo di hash. **Il modo corretto di risolvere il dubbio non è una citazione
+> documentale ma un collaudo di
 > integrazione**: emettere una credenziale con l'implementazione del progetto, tentare
 > un'allocazione reale contro la versione del server effettivamente distribuita, e far fallire la
 > costruzione se l'autenticazione non riesce. Verifica il comportamento della versione in
@@ -272,7 +273,7 @@ durata massima.
 
 Due vincoli operativi che quest'area registra perché arrivano dal modulo dei fondamenti e
 riguardano il protocollo: la **versione minima del server di relay** è quella dichiarata dal
-vincolo V-10 e non è negoziabile; **l'isolamento di rete in uscita è la difesa primaria**, e le
+vincolo [V-10](../11_registri/01-vincoli-in-vigore.md#v-10) e non è negoziabile; **l'isolamento di rete in uscita è la difesa primaria**, e le
 liste di indirizzi vietati sono difesa in profondità, non il contrario.
 
 ## 8. Degradazione
@@ -288,7 +289,7 @@ un motivo classificato. Tre regole:
    perché. Un video che si irrigidisce senza spiegazione è indistinguibile da un guasto.
 2. **La degradazione è reversibile** e il ripristino è comunicato allo stesso modo.
 3. **Le soglie sono specifica di prodotto, non conformità.** Nessuna soglia tecnica è imposta dalla
-   normativa italiana: è il vincolo V-12, e i valori del progetto sono dichiarati come propri, mai
+   normativa italiana: è il vincolo [V-12](../11_registri/01-vincoli-in-vigore.md#v-12), e i valori del progetto sono dichiarati come propri, mai
    presentati come requisiti di legge.
 
 La resilienza è qui un **requisito di accessibilità**, non un'ottimizzazione: banda scarsa, rete

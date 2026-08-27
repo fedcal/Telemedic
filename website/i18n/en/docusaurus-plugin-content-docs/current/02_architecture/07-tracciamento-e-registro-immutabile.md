@@ -69,7 +69,10 @@ Two format decisions:
 
 At regular intervals, the digest of the chain tail is **signed and timestamped**, and the attestation is held separately from the chain itself. Anchoring is what makes rewriting history contradictory with an already-issued and dated attestation.
 
-`[NV]` - Anchoring interval, the choice between timestamping from a qualified service and other attestation forms, and preservation of anchors are decisions belonging to the security area and compliance area: this area fixes the necessity and architectural placement, not the parameters. The question is open on the noticeboard.
+Anchoring interval, the choice between timestamping from a qualified service and other attestation forms,
+and preservation of anchors `[NV]` are decisions that **must be made by the security and compliance areas**:
+this area fixes the necessity and architectural placement, not the parameters. The question is open on the
+noticeboard.
 
 ### 2.3 Separate preservation
 

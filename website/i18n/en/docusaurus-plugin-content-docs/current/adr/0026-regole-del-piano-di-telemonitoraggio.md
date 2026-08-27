@@ -8,7 +8,7 @@ description: "Why plan rules are a restricted and versioned declarative language
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
 **Origin**: question raised by the functional area to this area and the conformity area
-**Reference constraints**: V2; V-02, V-144 and V-147 from noticeboard; V-121, V-123, V-124 of the functional area
+**Reference constraints**: [V2](../11_registri/03-vincoli-fondanti.md#v2); [V-02](../11_registri/01-vincoli-in-vigore.md#v-02), [V-144](../11_registri/01-vincoli-in-vigore.md#v-144) and [V-147](../11_registri/01-vincoli-in-vigore.md#v-147) from noticeboard; [V-121](../11_registri/01-vincoli-in-vigore.md#v-121), [V-123](../11_registri/01-vincoli-in-vigore.md#v-123), [V-124](../11_registri/01-vincoli-in-vigore.md#v-124) of the functional area
 
 ## Context
 

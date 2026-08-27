@@ -50,7 +50,7 @@ No percentages exist in this register. A percentage on a project without deliver
 
 **Class `I5` is the reason this register exists in this position of the roadmap.** An `I5` risk with even merely medium probability is worth more than ten `I2` risks with high probability, and no weighted sum must be able to produce the contrary.
 
-**A clarification that `D54` renders necessary.** With the plan of chapter [02](./02-traguardi.md) lacking time margin, the scale must be read differently: **`I2` and `I3` no longer produce a slip, they produce a scope reduction**, because the date is fixed and the margin is in scope ([01 §10](./01-principi-e-metodo.md), constraint `V-282`). An `I2` risk that materialises consumes a line of the sacrifice order of [03 §6](./03-primo-rilascio-utilizzabile.md), and the order has seven lines.
+**A clarification that `D54` renders necessary.** With the plan of chapter [02](./02-traguardi.md) lacking time margin, the scale must be read differently: **`I2` and `I3` no longer produce a slip, they produce a scope reduction**, because the date is fixed and the margin is in scope ([01 §10](./01-principi-e-metodo.md), constraint [`V-282`](../11_registri/01-vincoli-in-vigore.md#v-282)). An `I2` risk that materialises consumes a line of the sacrifice order of [03 §6](./03-primo-rilascio-utilizzabile.md), and the order has seven lines.
 
 ### 1.4 The four admitted responses
 
@@ -62,7 +62,7 @@ On transfer holds a non-negotiable limit: **no risk transfers to whoever install
 
 ### 1.5 The form of an item, and the constraint governing it
 
-Each item carries: what it is, probability, impact on calendar, **anticipatory indicator**, response, owner. Posed as constraint `V-189`:
+Each item carries: what it is, probability, impact on calendar, **anticipatory indicator**, response, owner. Posed as constraint [`V-189`](../11_registri/01-vincoli-in-vigore.md#v-189):
 
 > **Every risk in the register has an observable anticipatory indicator and a named owner. A risk without an indicator is not monitored: it must be reformulated or closed.**
 
@@ -77,14 +77,14 @@ The **owner** is who has the authority to implement the response, not who suffer
 > **`R-01` - The project's capacity is not declared** · **CLOSED**
 > *Closed on 25 August 2026 by `D54`* · *Owner of closure* **contracting party**
 
-**Why it closes, and does not simply disappear.** The rule of §5.2 is that a risk closes only if the condition producing it has been removed and the removal is verifiable. `D54` declares capacity - **a single contributor, on a part-time basis** - and closes `Q-181`: the condition is removed and the removal is verifiable by reading the decision. The three hypotheses `H1`, `H2` and `H3` on which the roadmap produced dates have lapsed ([01 §11](./01-principi-e-metodo.md)).
+**Why it closes, and does not simply disappear.** The rule of §5.2 is that a risk closes only if the condition producing it has been removed and the removal is verifiable. `D54` declares capacity - **a single contributor, on a part-time basis** - and closes [`Q-181`](../11_registri/02-questioni-aperte.md#q-181): the condition is removed and the removal is verifiable by reading the decision. The three hypotheses `H1`, `H2` and `H3` on which the roadmap produced dates have lapsed ([01 §11](./01-principi-e-metodo.md)).
 
 **What does not close with it.** The capacity **declared** is not the capacity **sufficient**. The risk following from it is new, has a different form and a different indicator, and is `R-28`. Cancelling `R-01` without opening `R-28` would have produced the illusion that a decision resolves an arithmetic.
 
 > **`R-28` - Public approaching date with low declared capacity**
 > *Probability* **High** · *Impact* **I4** · *Owner* **contracting party**, with the single contributor for executing the sacrifice order
 
-**What it is, and it is the dominant risk of the entire plan until 30 November 2026.** `D53` fixes publicly a date ninety-seven days away; `D54` declares a capacity of a single contributor on a part-time basis, of which `[NV]` the number of weekly hours **is not declared**. The plan of chapter [02](./02-traguardi.md) allocates the entire remaining calendar to nine milestones and **has no time margin**: nine bars out of ten are critical.
+**What it is, and it is the dominant risk of the entire plan until 30 November 2026.** `D53` fixes publicly a date ninety-seven days away; `D54` declares a capacity of a single contributor on a part-time basis, and `D62` quantified its **number of weekly hours at ten to twenty** on 26 August 2026, which makes the arithmetic verifiable without attenuating the risk. The plan of chapter [02](./02-traguardi.md) allocates the entire remaining calendar to nine milestones and **has no time margin**: nine bars out of ten are critical.
 
 **What the risk is not**, and must be stated not to confuse it with something else. It is not that the decision is wrong: the decision is taken and is not relitigated. It is not that the work is impossible: scope has been reduced for it to be possible. **It is that the margin, being entirely in scope, is consumed silently**: every deviation consumes a line of the sacrifice order without anyone having to announce it, and when the order ends there remains nothing to cut that is not a blocking criterion.
 
@@ -100,7 +100,7 @@ Secondary indicator: **a milestone of chapter [02](./02-traguardi.md) that does 
 
 - **Scope is already reduced and the reduction is declared item by item** ([03 §5](./03-primo-rilascio-utilizzabile.md)), with the reversibility of each cut.
 - **The sacrifice order is written in advance** ([03 §6](./03-primo-rilascio-utilizzabile.md)), because writing it afterwards would mean choosing it under pressure.
-- **In the order enter only reversible cuts**, and the blocking release criteria and the list of forbidden debt do not enter it ever (`V-282`).
+- **In the order enter only reversible cuts**, and the blocking release criteria and the list of forbidden debt do not enter it ever ([`V-282`](../11_registri/01-vincoli-in-vigore.md#v-282)).
 - **The review shifts from monthly to weekly in the last six weeks**, from 19 October 2026, with content reduced to the count of remaining lines and closed criteria. A monthly review on a plan lacking margin observes the phenomenon when it is finished.
 
 *Accept* the residual, declaring it: with fixed date and capacity, a residual exists by construction and no planning measure eliminates it.
@@ -111,9 +111,9 @@ Secondary indicator: **a milestone of chapter [02](./02-traguardi.md) that does 
 **What it is.** `D54` declares a single contributor: project knowledge resides in one person, and their unavailability does not delay the project, **stops it**. It is no longer a hypothesis to monitor - it was `High` under `H1` and `H2` - it is a registered **fact**.
 
 **Anticipatory indicator.** The time that passes between publication of the foundations guide and **the first change proposal accepted by a person other than the single contributor**. Until that time has a terminus, the reduction measure has not been verified: it has only been published.
-Secondary indicator, and more immediate: the **absence of a minimal practicable profile declared** for the local environment (`Q-191`), without which the condition making possible the participation of an external contributor **is not verifiable**.
+Secondary indicator, and more immediate: the **absence of a minimal practicable profile declared** for the local environment ([`Q-191`](../11_registri/02-questioni-aperte.md#q-191)), without which the condition making possible the participation of an external contributor **is not verifiable**.
 
-**Response.** *Reduce*, with three measures in force or planned: the foundations guide `D35`, which exists to render the project learnable by a stranger; the "documents as code" model, which renders the chronology of decisions legible without asking anyone; a development environment bootable on a machine disconnected from everything (`V-190`). *Accept* the residual.
+**Response.** *Reduce*, with three measures in force or planned: the foundations guide `D35`, which exists to render the project learnable by a stranger; the "documents as code" model, which renders the chronology of decisions legible without asking anyone; a development environment bootable on a machine disconnected from everything ([`V-190`](../11_registri/01-vincoli-in-vigore.md#v-190)). *Accept* the residual.
 
 **What this risk no longer covers.** The part regarding **recordings with distinct roles**, which in the earlier version was a component of it, has been **extracted into `R-29`**. The reason is not redactional: they are risks of a different nature. `R-02` is a **continuity** risk - if the person remains, it does not materialise - while `R-29` is **already materialised every day the project works**, and its absence does not attenuate it.
 
@@ -126,25 +126,25 @@ Secondary indicator, and more immediate: the **absence of a minimal practicable 
 
 **Why it is the risk that worsens by itself.** Because **the loss repeats**: every release produced under the same conditions adds a line to the list of dated gaps, instead of leaving it constant. It is the sole item in the register with this property, and is the reason `OL-22` is in first position in the queue of [04 §3](./04-oltre-il-primo-rilascio.md).
 
-**Anticipatory indicator.** Passage of **30 September 2026** without a decision on `Q-189`. It is an irreversible decision point declared in [02 §6](./02-traguardi.md): beyond that date the default outcome is the declared gap. Continuous indicator, for subsequent releases: **the number of gaps dated in the release dossier**, which must stop growing.
+**Anticipatory indicator.** Passage of **30 September 2026** without a decision on [`Q-189`](../11_registri/02-questioni-aperte.md#q-189). It is an irreversible decision point declared in [02 §6](./02-traguardi.md): beyond that date the default outcome is the declared gap. Continuous indicator, for subsequent releases: **the number of gaps dated in the release dossier**, which must stop growing.
 
-**Response.** *Reduce* for the part that is acquired externally, according to the allocation that `Q-189` must decide. *Formally accept* for the rest - and "formally" is the binding word: an accepted gap is **a registered decision with reason, owner and date**, not a silence
+**Response.** *Reduce* for the part that is acquired externally, according to the allocation that [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) must decide. *Formally accept* for the rest - and "formally" is the binding word: an accepted gap is **a registered decision with reason, owner and date**, not a silence
 (criterion 2 of `OL-22`). What the project does anyway, and does not substitute independent verification but is what remains producible:
 
 - all criteria of `RU-1` remain **verifiable by anyone** with the procedure described ([01 §12.1](./01-principi-e-metodo.md));
 - the release dossier **explicitly states, in both languages, that no verification has been performed by a second subject** (blocking criterion 17 of [03 §8](./03-primo-rilascio-utilizzabile.md));
 - the verification procedure for whoever installs is published so **it is actually performed**: in `RU-1` it is the sole independent verification that will exist ([03 §10](./03-primo-rilascio-utilizzabile.md)).
 
-**The constraint it follows from**, posed as `V-281`: **no milestone enters the plan if it requires two distinct subjects and the second does not exist.** It is declared as a **gap, with the date it was born**, not planned as an activity - because planning an activity not producible is the quickest way to make it vanish from view.
+**The constraint it follows from**, posed as [`V-281`](../11_registri/01-vincoli-in-vigore.md#v-281): **no milestone enters the plan if it requires two distinct subjects and the second does not exist.** It is declared as a **gap, with the date it was born**, not planned as an activity - because planning an activity not producible is the quickest way to make it vanish from view.
 
 > **`R-12` - Recurring monitoring capacity consumes development capacity**
 > *Probability* **Registered** · *Impact* **I2 recurring** · *Owner* **project**
 
-**What it is.** The service level for updating third-party components is expressed in **days from announcement, differentiated by severity** (`V-185`), and consumes capacity **each month, forever**. The observation founding it is measured: the relay node has had fourteen releases in little more than seven months, five in August 2026 alone, with a critical vulnerability corrected midway.
+**What it is.** The service level for updating third-party components is expressed in **days from announcement, differentiated by severity** ([`V-185`](../11_registri/01-vincoli-in-vigore.md#v-185)), and consumes capacity **each month, forever**. The observation founding it is measured: the relay node has had fourteen releases in little more than seven months, five in August 2026 alone, with a critical vulnerability corrected midway.
 
 **Why under `D54` it weighs more than before.** Because recurring capacity is subtracted from a gross capacity that is **one person on a part-time basis**: the subtracted fraction is identical in absolute value and much larger in proportion. It is the reason `TG-04` - the broker cut - is the sole cut that eases the project too and not just whoever installs: one fewer exposed component is monitoring recurrence minus.
 
-**Quantification.** `[NV]` - not estimable without the project's own delivery history. What is declared is the **rule**: recurring capacity is subtracted **first** before calculating any date ([01 §9](./01-principi-e-metodo.md)).
+**Quantification.** `[NV]` - not estimable without the project's own delivery history, and the estimate falls to `ROAD` once that history exists. What is declared is the **rule**: recurring capacity is subtracted **first** before calculating any date ([01 §9](./01-principi-e-metodo.md)).
 
 **Anticipatory indicator.** The first security notice on an exposed component closed beyond the declared window.
 
@@ -220,9 +220,9 @@ For reporting-only areas, the indicator is growth of the divergence report.
 > **`R-05` - The documentary models of telemedicine typologies are not available**
 > *Probability* **Registered** · *Impact* **I0 on the project** · *Owner* **`COMP`**, for engagement
 
-**What it is.** Documentary models of structured document, typology codes and indexing metadata are not publicly available (`Q-07`, `B-7`, `V-136`).
+**What it is.** Documentary models of structured document, typology codes and indexing metadata are not publicly available ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07), `B-7`, [`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136)).
 
-**Why the impact on the project is null, and it is a result and not luck.** Because the content is modelled as a **canonical dataset** and every serialisation is substitutable (`V-07`). The risk existed, has been **avoided by design**, and the item remains in the register to monitor the sole thing that can still go wrong: that someone hardcodes a template for convenience - **and under calendar pressure convenience increases**, which is the reason the item does not close now.
+**Why the impact on the project is null, and it is a result and not luck.** Because the content is modelled as a **canonical dataset** and every serialisation is substitutable ([`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07)). The risk existed, has been **avoided by design**, and the item remains in the register to monitor the sole thing that can still go wrong: that someone hardcodes a template for convenience - **and under calendar pressure convenience increases**, which is the reason the item does not close now.
 
 **Anticipatory indicator.** The appearance, in a change proposal, of a documentary template inside the domain instead of behind the extension point.
 
@@ -235,16 +235,16 @@ For reporting-only areas, the indicator is growth of the divergence report.
 
 | Decision | Impact | Date |
 |---|---|---|
-| Legal form of the manufacturer subject and profile of the responsible person for regulatory compliance (`Q-280`) | `I3`, growing and not recoverable with more work | 19 September 2026 |
-| Allocation of recordings with distinct roles (`Q-189`) | `I5` for the `RU-1` period | 30 September 2026 |
-| Declared support period (`C-4`, `Q-186`) | `I2`, but is **prerequisite of `T-10`** | 15 October 2026 |
-| Correction of public material (`Q-185`) | `I5` in the proper sense: a period of publication cannot be annulled | 31 October 2026 |
-| Formulation of the difference between public material and what `RU-1` delivers (`Q-281`) | `I5`, same nature as the previous | 31 October 2026 |
+| Legal form of the manufacturer subject and profile of the responsible person for regulatory compliance ([`Q-280`](../11_registri/02-questioni-aperte.md#q-280)) | `I3`, growing and not recoverable with more work | 19 September 2026 |
+| Allocation of recordings with distinct roles ([`Q-189`](../11_registri/02-questioni-aperte.md#q-189)) | `I5` for the `RU-1` period | 30 September 2026 |
+| Declared support period (`C-4`, [`Q-186`](../11_registri/02-questioni-aperte.md#q-186)) | `I2`, but is **prerequisite of `T-10`** | 15 October 2026 |
+| Correction of public material ([`Q-185`](../11_registri/02-questioni-aperte.md#q-185)) | `I5` in the proper sense: a period of publication cannot be annulled | 31 October 2026 |
+| Formulation of the difference between public material and what `RU-1` delivers ([`Q-281`](../11_registri/02-questioni-aperte.md#q-281)) | `I5`, same nature as the previous | 31 October 2026 |
 | Licensing regime of scales and questionnaires (`B-3`) | `I2` | Before the first computation engine |
 
 **Anticipatory indicator.** The calendar itself. It is the sole risk in the register that has an explicit deadline for each of its components.
 
-**Response.** *Reduce*: the roadmap **poses** the decisions with the declared consequence alongside, and declares the default outcome in the absence of response - for `Q-189` it is the declared gap on `RU-1`. A plan that awaits in silence a decision that does not arrive has already chosen, without saying so.
+**Response.** *Reduce*: the roadmap **poses** the decisions with the declared consequence alongside, and declares the default outcome in the absence of response - for [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) it is the declared gap on `RU-1`. A plan that awaits in silence a decision that does not arrive has already chosen, without saying so.
 
 > **`R-18` - A declared deferred decision is taken de officio in a change proposal**
 > *Probability* **Medium** · *Impact* **I2, with tail `I5` on documentary coherence** · *Owner* **project**
@@ -260,16 +260,16 @@ For reporting-only areas, the indicator is growth of the divergence report.
 > **`R-19` - Public material is not aligned with approved claims**
 > *Probability* **Registered** · *Impact* **I5** · *Owner* **contracting party**, with `PROD`
 
-**What it is.** The reformulations approved with `D19` and `D29` are not shown to be received on the public page (`Q-185`). While they are not, each day of exposure is a day of unsustainable statement.
+**What it is.** The reformulations approved with `D19` and `D29` are not shown to be received on the public page ([`Q-185`](../11_registri/02-questioni-aperte.md#q-185)). While they are not, each day of exposure is a day of unsustainable statement.
 The impact is `I5` for the simplest of reasons: **a period of publication cannot be annulled**.
 
-**What `D53` and `D58` add, and they are two different things.** `D53` adds that public material declares capacity that `RU-1` **will not deliver**: at the release's publication the distance between the two becomes verifiable by anyone, and it is the question `Q-281`. `D58` adds a new and graver risk: **the temptation to announce the intention to certify as if it were a dated outcome.** It is precisely what `V-171` forbids, and the proximity between the two statements renders them easy to confuse in good faith.
+**What `D53` and `D58` add, and they are two different things.** `D53` adds that public material declares capacity that `RU-1` **will not deliver**: at the release's publication the distance between the two becomes verifiable by anyone, and it is the question [`Q-281`](../11_registri/02-questioni-aperte.md#q-281). `D58` adds a new and graver risk: **the temptation to announce the intention to certify as if it were a dated outcome.** It is precisely what [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) forbids, and the proximity between the two statements renders them easy to confuse in good faith.
 
 **Why it is graver than it seems.** The intended use of a device is determined **also by promotional material**. A commercial statement not aligned with the formal declaration does not modify the intended use: it is what is detected at the first comparison between the dossier and public channels.
 
 **Indicatore anticipatorio.** There is none anticipatory, because the risk is already present. What is monitored is the **duration**: each review records for how many days the condition persists.
 
-**Response.** *Avoid*, with a date. The structural safeguard is of process: **alignment between formal declaration and public communication must be verified at every modification of public material, and the verification must be recorded** - it is `Q-174` towards `COMP`. To it is added textual verification that no material contains a marking date, which is blocking criterion 15 of [03 §8](./03-primo-rilascio-utilizzabile.md) and criterion 5 of `T-14`.
+**Response.** *Avoid*, with a date. The structural safeguard is of process: **alignment between formal declaration and public communication must be verified at every modification of public material, and the verification must be recorded** - it is [`Q-174`](../11_registri/02-questioni-aperte.md#q-174) towards `COMP`. To it is added textual verification that no material contains a marking date, which is blocking criterion 15 of [03 §8](./03-primo-rilascio-utilizzabile.md) and criterion 5 of `T-14`.
 
 > **`R-23` - Scope drift towards class elevation**
 > *Probability* **Medium** · *Impact* **I4** · *Owner* **`COMP`**, with contracting party
@@ -291,7 +291,7 @@ The impact is `I5` for the simplest of reasons: **a period of publication cannot
 
 **Anticipatory indicator.** Publication of a new version of a fixed specification is a trigger of **unscheduled review** declared in [00 §8](./00-indice.md).
 
-**Response.** *Reduce*: **version-pinning policy** for every adopted specification, with the version declared alongside every conformity statement and prohibition of formulae that present as standard what is not (`V-133`); no hardcoded template (`V-136`). *Accept* the residual.
+**Response.** *Reduce*: **version-pinning policy** for every adopted specification, with the version declared alongside every conformity statement and prohibition of formulae that present as standard what is not ([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)); no hardcoded template ([`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136)). *Accept* the residual.
 
 ### 2.4 Technical risks on the critical path
 
@@ -318,7 +318,7 @@ The impact is `I5` for the simplest of reasons: **a period of publication cannot
 > **`R-15` - A security mechanism is documented before being verified**
 > *Probability* **Medium** · *Impact* **I5 reputational** · *Owner* **`INTEG`**, with `TECH`
 
-**What it is.** It is not verified whether the federation product forwards the required level through the intermediate realm (`Q-160`, `B-8`). The cost of verification is nearly zero; **the cost of having documented a non-existent behaviour on a security mechanism is not**, because it entails a public correction.
+**What it is.** It is not verified whether the federation product forwards the required level through the intermediate realm ([`Q-160`](../11_registri/02-questioni-aperte.md#q-160), `B-8`). The cost of verification is nearly zero; **the cost of having documented a non-existent behaviour on a security mechanism is not**, because it entails a public correction.
 
 **Why the risk has increased with scope reduction, and must be stated.** The corresponding verification has been **deferred with the function** (`T-04`, criterion 5): no longer on the calendar, the sole thing preventing description of the mechanism is **the rule**, not an imminent activity that would render it superfluous. A rule without an activity accompanying it is forgotten more easily.
 
@@ -353,7 +353,7 @@ The impact is `I5` for the simplest of reasons: **a period of publication cannot
 > **`R-08` - An embedded component has an incompatible licensing regime**
 > *Probability* **Medium** · *Impact* **from I2 to I4** · *Owner* **`COMP`**, with `TECH`
 
-**What it is.** A component enters the distinta with a licence not compatible with that of the project, or with a "source available" licence with restrictions on supply as a managed service to third parties. The case already detected concerns the advanced features of the time-series extension (`Q-112`), and is `[NV]` awaiting verification on the primary licence text.
+**What it is.** A component enters the distinta with a licence not compatible with that of the project, or with a "source available" licence with restrictions on supply as a managed service to third parties. The case already detected concerns the advanced features of the time-series extension ([`Q-112`](../11_registri/02-questioni-aperte.md#q-112)), and is `[NV]` awaiting verification on the primary licence text.
 
 **The principle that renders the risk recurring.** A licence declaration appended to a container **does not dispose of third-party rights on the content comprised**: verification must be done artefact by artefact, on the primary licence.
 
@@ -366,9 +366,9 @@ The impact is `I5` for the simplest of reasons: **a period of publication cannot
 
 **What it is.** Some clinical terminologies have licences incompatible with a public repository and with the project licence: access to the content itself perfects the constraint. The impact is `I5` because **content published once is not withdrawn**: it can be removed from the current branch, not from the history or others' copies.
 
-**Anticipatory indicator.** A request to add an entry to the terminology permit list that does not pass through the review provided for conformity material. Modification of that list **is a conformity matter**, not a configuration one (`V-191`).
+**Anticipatory indicator.** A request to add an entry to the terminology permit list that does not pass through the review provided for conformity material. Modification of that list **is a conformity matter**, not a configuration one ([`V-191`](../11_registri/01-vincoli-in-vigore.md#v-191)).
 
-**Response.** *Avoid*, with three cumulative measures: the project never downloads licenced content; the terminology check is **blocking from day one**; the system remains fully operational with those disabled (`V-03`). **A note of honesty on the third measure**: in `RU-1` the verification is **degenerate**, because the reduced perimeter contains no encoded content (`TG-05`). The property is declared, not yet proven on the case that counts, and `OL-20` returns it to real verification.
+**Response.** *Avoid*, with three cumulative measures: the project never downloads licenced content; the terminology check is **blocking from day one**; the system remains fully operational with those disabled ([`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)). **A note of honesty on the third measure**: in `RU-1` the verification is **degenerate**, because the reduced perimeter contains no encoded content (`TG-05`). The property is declared, not yet proven on the case that counts, and `OL-20` returns it to real verification.
 
 > **`R-25` - An exposed component has a release cadence exceeding update capacity**
 > *Probability* **High** · *Impact* **I1 recurring, with security consequence** · *Owner* **project**, for release; **whoever installs**, for application
@@ -377,11 +377,11 @@ The impact is `I5` for the simplest of reasons: **a period of publication cannot
 
 **Anticipatory indicator.** The distance between the minimum version declared by the project and the latest version published by the component, measured at each review.
 
-**Response.** *Reduce* and *transfer with declaration* in the already-written allocation. The defence that depends on neither of the two is though another, and is the reason the risk remains `I1`: **egress network isolation of the relay is primary defence** and does not depend on code correctness; forbidden-address lists are defence in depth (`V-10`, `V-157`). The corresponding verification is `T-04` criterion 4, **not cut**.
+**Response.** *Reduce* and *transfer with declaration* in the already-written allocation. The defence that depends on neither of the two is though another, and is the reason the risk remains `I1`: **egress network isolation of the relay is primary defence** and does not depend on code correctness; forbidden-address lists are defence in depth ([`V-10`](../11_registri/01-vincoli-in-vigore.md#v-10), [`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)). The corresponding verification is `T-04` criterion 4, **not cut**.
 
 ### 2.6 Conformity path - now project risks
 
-> **What has changed in this section.** With `D57` and `D58` the three items that follow **are no longer third-party risks with zero impact on the project**. They are ours, and the impact is recalculated on us. The state of fact remains unchanged: **today the product bears no CE marking**, is covered by no conformity declaration, and **no date in this register is a promise of marking** (`V-171`, `V-280`).
+> **What has changed in this section.** With `D57` and `D58` the three items that follow **are no longer third-party risks with zero impact on the project**. They are ours, and the impact is recalculated on us. The state of fact remains unchanged: **today the product bears no CE marking**, is covered by no conformity declaration, and **no date in this register is a promise of marking** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)).
 
 > **`R-30` - The role of manufacturer is not yet established**
 > *Probability* **Registered** · *Impact* **I3, growing** · *Owner* **contracting party**
@@ -392,7 +392,7 @@ The impact is `I5` for the simplest of reasons: **a period of publication cannot
 
 **What the risk is not.** It is not a risk on the product: `RU-1` is built and published without. It is a risk on planning beyond 2026.
 
-**Indicatore anticipatorio.** Passage of **19 September 2026** without a decision on `Q-280` and without the date of beginning of the constitution procedure being recorded (criterion 1 of `T-14`).
+**Indicatore anticipatorio.** Passage of **19 September 2026** without a decision on [`Q-280`](../11_registri/02-questioni-aperte.md#q-280) and without the date of beginning of the constitution procedure being recorded (criterion 1 of `T-14`).
 
 **Response.** *Reduce*, by anticipating what can be anticipated: **the request for information to notified bodies does not require the established subject** and is sent before (criterion 3 of `T-14`), because the queue is the actual constraint. *Accept* the duration of the procedure, which does not depend on us, and **declare it not estimable** instead of inventing it.
 
@@ -416,11 +416,11 @@ The impact is `I5` for the simplest of reasons: **a period of publication cannot
 
 **Why under `D54` and `D58` it is graver than before, and it is arithmetic.** In the earlier version it was work of an external manufacturer with indirect effect on the project. Now it is **our work**, performed by the same capacity that produces software, and the overlap is total: a non-conformity cycle **stops development**, it does not slow it.
 
-**Why it is not estimable.** Because the number and severity of findings depend on the quality of the dossier and the body. Two cycles or four is the same planning with costs differing by a factor of two. **It must be entered as a declared reserve, not omitted**: a plan lacking a reserve for non-conformity cycles assumes the best outcome as the expected one. It is the question `Q-188`.
+**Why it is not estimable.** Because the number and severity of findings depend on the quality of the dossier and the body. Two cycles or four is the same planning with costs differing by a factor of two. **It must be entered as a declared reserve, not omitted**: a plan lacking a reserve for non-conformity cycles assumes the best outcome as the expected one. It is the question [`Q-188`](../11_registri/02-questioni-aperte.md#q-188).
 
 **Anticipatory indicator.** The outcome of the completeness check of the application: a request for supplementation at that stage anticipates a number of cycles above the mean.
 
-**Response.** *Reduce*, with the measures the source indicates as effective: ask for the calculation not the price, ask for a preliminary review at cost when offered, **compare the total not the tariff**. *Accept* with declared reserve, according to the decision of `Q-188`.
+**Response.** *Reduce*, with the measures the source indicates as effective: ask for the calculation not the price, ask for a preliminary review at cost when offered, **compare the total not the tariff**. *Accept* with declared reserve, according to the decision of [`Q-188`](../11_registri/02-questioni-aperte.md#q-188).
 
 ### 2.7 Risks depending on counterparties
 
@@ -432,7 +432,7 @@ The risk is described at length in §4, because its treatment requires more spac
 > **`R-11` - Test environments and counterparties not available**
 > *Probability* **High** · *Impact* **I3 on the items depending on them, I0 on the rest** · *Owner* **contracting party**, for counterparty search
 
-**What it is.** Four capabilities require something the project does not possess: pre-production environments and credentials for national digital identity; a real integration engine for hospital messaging; a counterparty server for application launch in clinical context; a real measurement gateway to verify whether it exposes the two signals required by the security model (`Q-122`, `B-9`).
+**What it is.** Four capabilities require something the project does not possess: pre-production environments and credentials for national digital identity; a real integration engine for hospital messaging; a counterparty server for application launch in clinical context; a real measurement gateway to verify whether it exposes the two signals required by the security model ([`Q-122`](../11_registri/02-questioni-aperte.md#q-122), `B-9`).
 
 **The consequence that is not integration but security.** Without the periodic signal independent from measurement and without the device status telemetry, the taxonomy of silence loses two technical categories out of seven: the system does not distinguish "the device did not measure" from "the device did not transmit", the remaining silence dilutes, empty contacts grow and with them the operator's alarm fatigue.
 
@@ -448,12 +448,12 @@ An external dependency is not a risk: it is a **structural condition**. The risk
 
 | Family | Who controls it | What depends on it | How the project avoids being blocked |
 |---|---|---|---|
-| **Functions requiring a distinct subject** | The market for professional services, and a spending decision | Release review, internal audit, independent configuration verification, external review of critical security code | **It does not avoid it.** It is the sole family for which no degraded mode exists: it is acquired or the gap is declared. `R-29`, `Q-189`, `OL-22` |
+| **Functions requiring a distinct subject** | The market for professional services, and a spending decision | Release review, internal audit, independent configuration verification, external review of critical security code | **It does not avoid it.** It is the sole family for which no degraded mode exists: it is acquired or the gap is declared. `R-29`, [`Q-189`](../11_registri/02-questioni-aperte.md#q-189), `OL-22` |
 | **Administrative procedures of subject establishment** | Administration | Every step of the conformity path presupposing the manufacturer | Activities not requiring the established subject are anticipated: requests for information are sent before (`T-14` criterion 3). `R-30` |
 | **Notified bodies** | Third parties designated | The conformity calendar of [02 §5](./02-traguardi.md) | No **product** milestone depends on it: `RU-1` is built and published without. `R-06` |
-| **National and regional documentary infrastructures** | Administration | `OL-07`; submission of documents | Canonical dataset and substitutable serialisation (`V-07`, `V-136`). The wait costs zero |
-| **National digital identity federation** | Administration and providers | `OL-08`; the channel with no external dependencies is completable alone | Conformity **verifiable in continuous integration**, not accreditation (`V-05`). The service provider is whoever installs, **and `D58` does not change it** |
-| **Licenced terminology** | Rights holders | Validation of part of the bindings | The system is **fully operational without** (`V-03`). In `RU-1` the property is declared and verified only in degenerate form (`TG-05`) |
+| **National and regional documentary infrastructures** | Administration | `OL-07`; submission of documents | Canonical dataset and substitutable serialisation ([`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07), [`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136)). The wait costs zero |
+| **National digital identity federation** | Administration and providers | `OL-08`; the channel with no external dependencies is completable alone | Conformity **verifiable in continuous integration**, not accreditation ([`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05)). The service provider is whoever installs, **and `D58` does not change it** |
+| **Licenced terminology** | Rights holders | Validation of part of the bindings | The system is **fully operational without** ([`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)). In `RU-1` the property is declared and verified only in degenerate form (`TG-05`) |
 | **Third-party components** | Community and vendors | Every distributed artefact | Distinta generated, register annotated, fallbacks tested, network isolation as primary defence |
 | **Contributors** | None | Everything | Foundations guide, environment bootable on disconnected machine, documents as code |
 | **Integration counterparties** | Integrators and entities | `OL-09`, and measurement of informational loss in translation | Contracts and tests published in both directions; no conformity declaration without real test |
@@ -472,7 +472,7 @@ The last clause is what renders the rule effective instead of exhortatory. A deg
 
 **Contributors.** It is the sole family whose owner is "none", and it is the one that decides whether everything else happens - **and under `D54` is also the one that would resolve two risks at once**, `R-02` and `R-29`, because a second continuous contributor is together continuity and a second subject.
 
-The measures listed exist for a precise reason: a project requiring a powerful machine, access to a third-party service or unwritten prior knowledge **selects its own contributors** without declaring it. It is the reason the memory and disk consumption of the local environment, today not measured (`Q-191`), is not a technical curiosity but a **programme dependency**: without a declared minimal practicable profile, the condition enabling external contributor participation is not verifiable, and the objective of `D35` remains an intention.
+The measures listed exist for a precise reason: a project requiring a powerful machine, access to a third-party service or unwritten prior knowledge **selects its own contributors** without declaring it. It is the reason the memory and disk consumption of the local environment, today not measured ([`Q-191`](../11_registri/02-questioni-aperte.md#q-191)), is not a technical curiosity but a **programme dependency**: without a declared minimal practicable profile, the condition enabling external contributor participation is not verifiable, and the objective of `D35` remains an intention.
 
 ---
 
@@ -507,21 +507,21 @@ The project does not face this risk with a declaration of intent. It faces it wi
 | **Multi-tenancy by construction**, with single-tenant installation as the degenerate case of the same code | Tests of isolation that actively attempt unauthorised access, for every context and every interface |
 | **No logic hardcoded on an interlocutor**: multiple integrators coexist on the same installation, each with own keys, own event delivery and own traffic limits | Configuration per tenant; absence of conditional branches on counterparty identity |
 | **Sole trust register per tenant**, with explicit capabilities per entry | Operative lists **derived** from source, never drafted by hand |
-| **Work by reference** on the identifiers of the system of origin, with versioned registry of system identifiers | No external identifier is a primary key; normalisation at boundary, never in the domain (`V-142`) |
-| **Declared public contract**, with closed perimeter of what is contract and what is internal (`V-160`) | Contract tests in **both directions**; dismissal with declared notice |
-| **No capability reachable only from the interface** (`V3`, `V-164`) | The project's interface consumes the same application interfaces offered to integrators |
+| **Work by reference** on the identifiers of the system of origin, with versioned registry of system identifiers | No external identifier is a primary key; normalisation at boundary, never in the domain ([`V-142`](../11_registri/01-vincoli-in-vigore.md#v-142)) |
+| **Declared public contract**, with closed perimeter of what is contract and what is internal ([`V-160`](../11_registri/01-vincoli-in-vigore.md#v-160)) | Contract tests in **both directions**; dismissal with declared notice |
+| **No capability reachable only from the interface** ([`V3`](../11_registri/03-vincoli-fondanti.md#v3), [`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)) | The project's interface consumes the same application interfaces offered to integrators |
 
-To these the present chapter adds one verification measure, which is the sole one intercepting the drift **before** the fifth step, and is posed as constraint `V-188`:
+To these the present chapter adds one verification measure, which is the sole one intercepting the drift **before** the fifth step, and is posed as constraint [`V-188`](../11_registri/01-vincoli-in-vigore.md#v-188):
 
 > **The integration test suite always exercises at least two tenants and two distinct integrators**, with deliberately divergent configurations - different identifier attribution domains, different exit profiles, different event delivery modes. A test that passes with a single integrator configured does not demonstrate the property one wants to demonstrate.
 
-**`V-188` did not enter any cut, and it is deliberate.** It would have been an obvious candidate for reduction - two configurations cost more than one - and was excluded because it is the **sole automatic countermeasure** to §4.2, now that peer review does not exist.
+**[`V-188`](../11_registri/01-vincoli-in-vigore.md#v-188) did not enter any cut, and it is deliberate.** It would have been an obvious candidate for reduction - two configurations cost more than one - and was excluded because it is the **sole automatic countermeasure** to §4.2, now that peer review does not exist.
 
 ### 4.4 Anticipatory indicator, and what remains to be decided
 
 **The indicator, reformulated under `D54`.** In the earlier version it was "a change proposal that introduces a default value, a domain term or a test attributable to a sole interlocutor, observable in review". **Under `D54` review is self-review**, and an indicator depending on an independent reviewer is not observable. The indicator therefore becomes automatic, and is **the number of distinct configurations exercised by the integration test suite**: if it drops to one, the fifth step has already begun. It is measurable at every build and requires no one to look.
 
-**What remains to be decided, and it is the contracting party's.** To what degree of concentration the dependency is acceptable, and at what moment the project must procure itself a **second test counterparty** - which can be a second real integrator, an entity, or a reference implementation built for purpose. It is the question `Q-187`.
+**What remains to be decided, and it is the contracting party's.** To what degree of concentration the dependency is acceptable, and at what moment the project must procure itself a **second test counterparty** - which can be a second real integrator, an entity, or a reference implementation built for purpose. It is the question [`Q-187`](../11_registri/02-questioni-aperte.md#q-187).
 
 **A redactional rule following from rule `R0`.** No document, commit, report, change proposal or public material of the project names companies, commercial products, brands or domains of potential partners. This risk, in particular, is described **structurally** - "an integrator", "the counterparty", "the system of origin" - and never by name.
 
@@ -548,7 +548,7 @@ A risk closes **only** if the condition producing it has been removed, and the r
 
 ### 5.3 When a new risk enters
 
-A risk enters when it is formulated with all the elements of `V-189`: what it is, probability per the scale of §1.2, impact on calendar per the scale of §1.3, **observable anticipatory indicator**, response among the four admitted, named owner. A report lacking an indicator or lacking an owner is not a new risk: it is a concern, and must be reformulated.
+A risk enters when it is formulated with all the elements of [`V-189`](../11_registri/01-vincoli-in-vigore.md#v-189): what it is, probability per the scale of §1.2, impact on calendar per the scale of §1.3, **observable anticipatory indicator**, response among the four admitted, named owner. A report lacking an indicator or lacking an owner is not a new risk: it is a concern, and must be reformulated.
 
 **The triggers of unscheduled review** are those of [00 §8](./00-indice.md), and three regard this register directly: materialisation of a risk; passage of an irreversible decision point without decision; and - new with `D53` - **consumption of a line of the sacrifice order**, which forces review of `R-28` and the affected milestone.
 
@@ -574,34 +574,34 @@ A risk enters when it is formulated with all the elements of `V-189`: what it is
 
 | # | A | Constraint |
 |---|---|---|
-| `V-187` | all | An item is not **planned** if it lacks together binary completion criterion, declared trigger and named owner. In the absence of even one of the three it is **desirable**, and must be marked as such in every material |
-| `V-188` | `TECH`, `INTEG`, `ARCH` | The integration test suite always exercises **at least two tenants and two distinct integrators**, with deliberately divergent configurations |
-| `V-189` | all | Every programme risk has an **observable anticipatory indicator** and a **named owner** |
-| `V-280` | all | **Reformulation of `V-180` in light of `D57` and `D58`.** The roadmap is **project's internal planning** and the owner of milestones is the project, including those on the conformity path. The sole non-declarable dates are those the regulation places on a different subject - the individual user's adaptation term, the service provider's accreditation. **A date of internal planning is not a promise of outcome**: no material states that the product will be marked by a date (`V-171`) |
-| `V-281` | all, in particular `COMP` | **No milestone enters the plan if it requires two distinct subjects and the second does not exist.** The resulting recording is declared as a **gap, with the date it was born**, and is not planned as an activity |
-| `V-282` | all | **Scope is the sole free variable.** With date and capacity fixed by `D53` and `D54`, every deviation is absorbed **by reducing scope** per the sacrifice order declared in [03 §6](./03-primo-rilascio-utilizzabile.md), which contains **only reversible cuts**; never by shifting the date in silence, never by compressing a blocking release criterion. If the order is exhausted, **the date is declared missed with reason recorded** |
+| [`V-187`](../11_registri/01-vincoli-in-vigore.md#v-187) | all | An item is not **planned** if it lacks together binary completion criterion, declared trigger and named owner. In the absence of even one of the three it is **desirable**, and must be marked as such in every material |
+| [`V-188`](../11_registri/01-vincoli-in-vigore.md#v-188) | `TECH`, `INTEG`, `ARCH` | The integration test suite always exercises **at least two tenants and two distinct integrators**, with deliberately divergent configurations |
+| [`V-189`](../11_registri/01-vincoli-in-vigore.md#v-189) | all | Every programme risk has an **observable anticipatory indicator** and a **named owner** |
+| [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280) | all | **Reformulation of [`V-180`](../11_registri/01-vincoli-in-vigore.md#v-180) in light of `D57` and `D58`.** The roadmap is **project's internal planning** and the owner of milestones is the project, including those on the conformity path. The sole non-declarable dates are those the regulation places on a different subject - the individual user's adaptation term, the service provider's accreditation. **A date of internal planning is not a promise of outcome**: no material states that the product will be marked by a date ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)) |
+| [`V-281`](../11_registri/01-vincoli-in-vigore.md#v-281) | all, in particular `COMP` | **No milestone enters the plan if it requires two distinct subjects and the second does not exist.** The resulting recording is declared as a **gap, with the date it was born**, and is not planned as an activity |
+| [`V-282`](../11_registri/01-vincoli-in-vigore.md#v-282) | all | **Scope is the sole free variable.** With date and capacity fixed by `D53` and `D54`, every deviation is absorbed **by reducing scope** per the sacrifice order declared in [03 §6](./03-primo-rilascio-utilizzabile.md), which contains **only reversible cuts**; never by shifting the date in silence, never by compressing a blocking release criterion. If the order is exhausted, **the date is declared missed with reason recorded** |
 
 ### 7.2 The open questions from this area
 
 | # | A | Question |
 |---|---|---|
-| `Q-183` | `COMP` | Which evidences of the **regulatory package** are deliverable and which are not. Determines the scope of `T-12`, and with `D58` also determines what the **our** path dossier will contain |
-| `Q-184` | `SEC`, `ARCH` | Temporal coordination on expected service levels: the **measurement capability** is a first-release requirement, the **values** are determined before first operation |
-| `Q-185` | `PROD`, → **ORCH** | Public material not aligned to `D19` and `D29`; the impact is **irrecoverable**. Reconciles with `Q-174` and with `Q-281` |
-| `Q-186` | `COMP`, `TECH` | **Declared support period.** Prerequisite of first distribution and blocking criterion of `RU-1` |
-| `Q-187` | → **ORCH** | **Acceptable concentration on a sole integrator** and moment of the second test counterparty. Aggravated by `D53` and `D54` (§4.2) |
-| `Q-188` | `COMP`, → **ORCH** | **Declared reserve for non-estimable items.** With `D58` the response cycles to non-conformities are our work and occupy the same capacity that produces software: the reserve is no longer a chapter of someone else's plan |
-| `Q-189` | → **ORCH** | **Allocation of recordings with distinct roles.** Which subset is accepted as declared gap and which is covered by external acquisition. Decision point: **30 September 2026**; default outcome in absence of decision: declared gap on `RU-1`. `R-29`, `TG-20`, `OL-22` |
-| `Q-280` | → **ORCH** | **Establishment of the manufacturer subject** (`D58`): legal form, beginning of the procedure, profile and finding of the responsible person for regulatory compliance. It is **class `B`** - few hours and many months - and every week of delay transfers integrally to the end of the chain. Decision point: **19 September 2026**. `R-30`, `T-14` |
-| `Q-281` | `PROD`, → **ORCH** | **The difference between what public material states and what `RU-1` delivers.** At the release's publication the distance becomes verifiable by anyone: the approved formulation that declares it is needed, with the same prominence as the list of features. It applies in particular to capabilities cut by `TG-01`, `TG-02` and `TG-03`. Decision point: **31 October 2026**. `R-19` |
-| `Q-282` | `COMP` | **Form of the declaration of gaps dated in the dossier.** Which recordings are **dated to a period** and therefore irrecoverable - release review, internal audit, formative usability evaluation, register anchoring - and in what form their absence must be declared in the technical dossier so it is recognisable as a declared gap and not an omission. **`Q-189` decides the allocation, this question decides the form**: they are complementary and neither substitutes the other. `TG-20`…`TG-23` |
+| [`Q-183`](../11_registri/02-questioni-aperte.md#q-183) | `COMP` | Which evidences of the **regulatory package** are deliverable and which are not. Determines the scope of `T-12`, and with `D58` also determines what the **our** path dossier will contain |
+| [`Q-184`](../11_registri/02-questioni-aperte.md#q-184) | `SEC`, `ARCH` | Temporal coordination on expected service levels: the **measurement capability** is a first-release requirement, the **values** are determined before first operation |
+| [`Q-185`](../11_registri/02-questioni-aperte.md#q-185) | `PROD`, → **ORCH** | Public material not aligned to `D19` and `D29`; the impact is **irrecoverable**. Reconciles with [`Q-174`](../11_registri/02-questioni-aperte.md#q-174) and with [`Q-281`](../11_registri/02-questioni-aperte.md#q-281) |
+| [`Q-186`](../11_registri/02-questioni-aperte.md#q-186) | `COMP`, `TECH` | **Declared support period.** Prerequisite of first distribution and blocking criterion of `RU-1` |
+| [`Q-187`](../11_registri/02-questioni-aperte.md#q-187) | → **ORCH** | **Acceptable concentration on a sole integrator** and moment of the second test counterparty. Aggravated by `D53` and `D54` (§4.2) |
+| [`Q-188`](../11_registri/02-questioni-aperte.md#q-188) | `COMP`, → **ORCH** | **Declared reserve for non-estimable items.** With `D58` the response cycles to non-conformities are our work and occupy the same capacity that produces software: the reserve is no longer a chapter of someone else's plan |
+| [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) | → **ORCH** | **Allocation of recordings with distinct roles.** Which subset is accepted as declared gap and which is covered by external acquisition. Decision point: **30 September 2026**; default outcome in absence of decision: declared gap on `RU-1`. `R-29`, `TG-20`, `OL-22` |
+| [`Q-280`](../11_registri/02-questioni-aperte.md#q-280) | → **ORCH** | **Establishment of the manufacturer subject** (`D58`): legal form, beginning of the procedure, profile and finding of the responsible person for regulatory compliance. It is **class `B`** - few hours and many months - and every week of delay transfers integrally to the end of the chain. Decision point: **19 September 2026**. `R-30`, `T-14` |
+| [`Q-281`](../11_registri/02-questioni-aperte.md#q-281) | `PROD`, → **ORCH** | **The difference between what public material states and what `RU-1` delivers.** At the release's publication the distance becomes verifiable by anyone: the approved formulation that declares it is needed, with the same prominence as the list of features. It applies in particular to capabilities cut by `TG-01`, `TG-02` and `TG-03`. Decision point: **31 October 2026**. `R-19` |
+| [`Q-282`](../11_registri/02-questioni-aperte.md#q-282) | `COMP` | **Form of the declaration of gaps dated in the dossier.** Which recordings are **dated to a period** and therefore irrecoverable - release review, internal audit, formative usability evaluation, register anchoring - and in what form their absence must be declared in the technical dossier so it is recognisable as a declared gap and not an omission. **[`Q-189`](../11_registri/02-questioni-aperte.md#q-189) decides the allocation, this question decides the form**: they are complementary and neither substitutes the other. `TG-20`…`TG-23` |
 
 ### 7.3 Contribution to question `Q-191`, for the part of this area
 
 > *"Memory and disk consumption of the local environment: not measured. A measurement on a declared reference machine is needed and the declaration of the minimal practicable profile."* - `GUIDE` → `TECH`, `ROAD`
 
 **Response for the roadmap part.** This area **does not produce the measurement**, which is `TECH`'s, and does not choose the reference machine. It does declare though the placement: the measurement and the declaration of the **minimal practicable profile** are a criterion of the build chain (`T-03`) and not a later activity.
-Until the minimal profile is declared, the **contributors** dependency of §3.2 **has no verifiable condition**, and `R-02` has no anticipatory indicator for the component "entry of an external contributor" - a risk without an indicator violates `V-189`.
+Until the minimal profile is declared, the **contributors** dependency of §3.2 **has no verifiable condition**, and `R-02` has no anticipatory indicator for the component "entry of an external contributor" - a risk without an indicator violates [`V-189`](../11_registri/01-vincoli-in-vigore.md#v-189).
 
 **Under `D54` the question changes weight and must be stated.** An external contributor is no longer a sole accelerator: it is the **sole path by which two risks close together**, `R-02` for continuity and `R-29` for the second subject. The unmeasured entry barrier is not therefore a detail of development ergonomics: it is **the variable that holds open the risk with `I5` impact in this register**. **Remains open towards `TECH`** for the measurement.
 
@@ -609,8 +609,8 @@ Until the minimal profile is declared, the **contributors** dependency of §3.2 
 
 **End of area.** The reading path for the contracting party closes here:
 [01 §11](./01-principi-e-metodo.md) on declared capacity, [02 §§2 and 6](./02-traguardi.md) on the decision taken and irreversible decision points,
-[03 §5](./03-primo-rilascio-utilizzabile.md) on what has been cut and what will not return, and this chapter. The questions explicitly requiring a contracting party decision are `Q-185`, `Q-186`, `Q-187`, `Q-188`, `Q-189`, `Q-280` and `Q-281`.
+[03 §5](./03-primo-rilascio-utilizzabile.md) on what has been cut and what will not return, and this chapter. The questions explicitly requiring a contracting party decision are [`Q-185`](../11_registri/02-questioni-aperte.md#q-185), [`Q-186`](../11_registri/02-questioni-aperte.md#q-186), [`Q-187`](../11_registri/02-questioni-aperte.md#q-187), [`Q-188`](../11_registri/02-questioni-aperte.md#q-188), [`Q-189`](../11_registri/02-questioni-aperte.md#q-189), [`Q-280`](../11_registri/02-questioni-aperte.md#q-280) and [`Q-281`](../11_registri/02-questioni-aperte.md#q-281).
 
-> **Permanent caveat.** No risk in this register, however mitigated, and no milestone in this roadmap, however reached, changes the state of fact: **today the product bears no CE marking**, is covered by no conformity declaration, and **no distributed artefact is usable for the delivery of healthcare services to actual patients** (`D16`). The repository is source code under a permissive licence, **not a medical device**. That the project intends to assume the role of manufacturer (`D58`), with the entity still to be established, is **internal planning**: it is not a marking date (`V-171`, `V-280`), does not cover any current installation and does not remove any obligation from whoever installs, integrates or places into service the software. The liability towards the injured party **is not excludable by contract**. The statements that attest to the state of fact are published in
+> **Permanent caveat.** No risk in this register, however mitigated, and no milestone in this roadmap, however reached, changes the state of fact: **today the product bears no CE marking**, is covered by no conformity declaration, and **no distributed artefact is usable for the delivery of healthcare services to actual patients** (`D16`). The repository is source code under a permissive licence, **not a medical device**. That the project intends to assume the role of manufacturer (`D58`), with the entity still to be established, is **internal planning**: it is not a marking date ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)), does not cover any current installation and does not remove any obligation from whoever installs, integrates or places into service the software. The liability towards the injured party **is not excludable by contract**. The statements that attest to the state of fact are published in
 [`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md) and in
 [`DISTRIBUTION-POLICY.md`](https://github.com/fedcal/Telemedic/blob/main/DISTRIBUTION-POLICY.md).

@@ -169,7 +169,7 @@ The row on global order produces the most misunderstanding among integrators. **
 
 **Per-key order is conditional, and the conditions must be declared because the implementation alone does not produce them.** Stating it without conditions would promise a property the mechanism does not have, and a deviation of this kind does not show up in testing: it shows up in operation, intermittently, at an integrator's site. Order between events carrying the same partitioning key holds **if and only if** the following three conditions hold together.
 
-1. **A single worker at a time holds the rows of a given key.** The relay picks up outbox rows with a lock that **skips those already taken** (`03-persistenza.md` §7): it is what allows multiple instances to work in parallel without coordinator, and it is also what allows two instances to take two batches containing events of the same aggregate and publish them in inverted order. It is not an implementation defect: it is a property of the mechanism, and it is removed by assigning the key to the worker, not by hoping it does not happen.
+1. **A single worker at a time holds the rows of a given key.** The relay picks up outbox rows with a lock that **skips those already taken** ([`03-persistenza.md`](../01_technical/03-persistenza.md) §7): it is what allows multiple instances to work in parallel without coordinator, and it is also what allows two instances to take two batches containing events of the same aggregate and publish them in inverted order. It is not an implementation defect: it is a property of the mechanism, and it is removed by assigning the key to the worker, not by hoping it does not happen.
 2. **The producer toward the channel is idempotent and limits in-flight requests toward the same destination.** With multiple requests in flight, a failed and repeated attempt can slot in after a later successful one, and this happens **even with a single relay**.
 3. **The number of partitions does not change.** Increasing partitions in operation can break per-aggregate order during rebalancing: it is the `[NV]` point already declared in [ADR-0010](/adr/0010-buste-cloudevents-consegna-e-idempotenza.md) and in §4.2, and verification is the technical area's responsibility **before** any dimensioning.
 
@@ -185,7 +185,9 @@ Two mechanisms, complementary.
 
 **Sequence number per aggregate.** Each event carries a monotone increasing number per aggregate. The consumer that has already applied number `n` discards what arrives with a number less than or equal. It is the mechanism that makes arrival order **irrelevant** without forcing ordered queues, which are expensive and brittle - a blocked event blocks the entire key.
 
-A prudence note: `[NV]` - increasing the number of partitions of a topic in operation can change the assignment function and thus break per-aggregate order during rebalancing. Verification on the adopted broker is the technical area's responsibility **before** any dimensioning in operation.
+A prudence note: increasing the number of partitions of a topic in operation **can change the assignment
+function** `[NV]` and thus break per-aggregate order during rebalancing. Verification on the adopted broker
+is the technical area's responsibility **before** any dimensioning in operation.
 
 ### 4.3 Idempotence by construction
 
@@ -199,7 +201,7 @@ Three forms, in order of preference:
 | **Deduplication key persisted** | When the operation has cumulative effects | The key is `source` plus `id`. Must be preserved for a time **exceeding the maximum retry window**, else a late retry finds the key expired and duplicates |
 | **State verification before effect** | When the effect is external and non-retractable | "Has this event's message already been delivered?" before delivering |
 
-Two effects in this system **are non-retractable** and must be protected by the third form: delivery of a message to a person, and deposit of a document in external documentary infrastructure. A message sent twice to a patient is not an invisible technical defect: it is an experience generating doubt about clinical content. `[NV]` - the preservation window for deduplication keys must be set by the technical area in coherence with the maximum retry window of §5.1 and cannot be shorter than it.
+Two effects in this system **are non-retractable** and must be protected by the third form: delivery of a message to a person, and deposit of a document in external documentary infrastructure. A message sent twice to a patient is not an invisible technical defect: it is an experience generating doubt about clinical content. The preservation window for deduplication keys `[NV]` must be set by the technical area in coherence with the maximum retry window of §5.1 and cannot be shorter than it.
 
 ## 5. Retries and failure
 
@@ -283,7 +285,7 @@ Orchestrated processes identified: closure, reporting and transmission; enrolmen
 4. **Compensations are domain acts**, not technical annulments: correction of a transmitted document is a documentary correction with its evidence, not deletion.
 5. **The process has a deadline.** A process remaining indefinitely at an intermediate step is silent failure: after the declared duration it enters a manned queue.
 
-`[NV]` - The **mechanism** of orchestration realisation - dedicated workflow engine, state machine persisted in table with an application component, application component with time-based rescheduling - is not decided in this area: the decision is deferred with criteria in [09 - Deferred decisions](09-decisioni-rinviate.md). What is decided is the **strategy**, because it constrains other areas.
+The **mechanism** of orchestration realisation `[NV]` - dedicated workflow engine, state machine persisted in table with an application component, application component with time-based rescheduling - **is not decided by this area** and is deferred to architecture with criteria in [09 - Deferred decisions](09-decisioni-rinviate.md). What is decided is the **strategy**, because it constrains other areas.
 
 ## 7. Events to the outside
 
@@ -294,7 +296,7 @@ Delivery to integrators belongs to the boundary context and its contract to the 
 3. **Clinical content excluded** from messages to third-party systems.
 4. **Asymmetric signature** of outgoing messages, with key identifier resolvable from the project's public material. Shared secret is not the default mode: it provides no non-repudiation and its rotation requires coordination with each integrator.
 5. **Destinations are per tenant**, with their own keys, their own quotas and their own circuit-breakers.
-6. **The destination is an address supplied by a third party**, and as such an outgoing request toward an untrusted address. Protection is realised **once only in the sole exit mediator**, and is an **architectural requirement not a code rule**: application components have outgoing access **denied at network level**, so the defence does not depend on code correctness (constraint V-157 from the security area). Five exit points flow into it: terminological gateway, interoperability with infrastructures, messages to integrator, resolution of absolute references in resources, retrieval of key material. **The relay does not flow into it and must not**: separate network isolation applies to it. A single test suite of abuse tests, executed against the mediator.
+6. **The destination is an address supplied by a third party**, and as such an outgoing request toward an untrusted address. Protection is realised **once only in the sole exit mediator**, and is an **architectural requirement not a code rule**: application components have outgoing access **denied at network level**, so the defence does not depend on code correctness (constraint [V-157](../11_registri/01-vincoli-in-vigore.md#v-157) from the security area). Five exit points flow into it: terminological gateway, interoperability with infrastructures, messages to integrator, resolution of absolute references in resources, retrieval of key material. **The relay does not flow into it and must not**: separate network isolation applies to it. A single test suite of abuse tests, executed against the mediator.
 
 ## 8. The boundary with the real-time plane
 
@@ -333,9 +335,9 @@ The alternative - random routing with session affinity - is admitted only as dec
 | EV-1 | Writing data and writing the event are in the same transaction: if transaction fails, no event exists | Absence of phantom events |
 | EV-2 | Interrupting the process between consolidation and publishing, the event is published on restore | Absence of lost events |
 | EV-3 | Delivering the same event twice, consumer state is identical | Actual idempotence |
-| EV-4 | Every published event carries the tenant | Constraint V4 |
+| EV-4 | Every published event carries the tenant | Constraint [V4](../11_registri/03-vincoli-fondanti.md#v4) |
 | EV-5 | An event without tenant lands in the unprocessable message queue | §3.2 |
-| EV-6 | No event to the outside contains clinical content | Constraint V-161 from integration area |
+| EV-6 | No event to the outside contains clinical content | Constraint [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) from integration area |
 | EV-7 | Every event type has a registered and versioned schema | Public contract |
 | EV-8 | A non-backward-compatible schema change fails the build if not accompanied by a new type version | Governed evolution |
 | EV-9 | Re-execution of an unprocessable message reuses the same event identifier | Deduplication preserved |
@@ -351,4 +353,4 @@ The alternative - random routing with session affinity - is admitted only as dec
 | §4.2 | Effect of increasing partition count on per-aggregate order during rebalancing | Technical area, before any dimensioning |
 | §4.3 | Preservation window for deduplication keys, in coherence with maximum retry window | Technical area |
 | §2.4 | Effective limits of broker guarantees in the single-node configuration planned for customer-premises | Technical area |
-| §6.3 | Mechanism of orchestration realisation | Deferred decision, criteria in `09-decisioni-rinviate.md` |
+| §6.3 | Mechanism of orchestration realisation | Deferred decision, criteria in [`09-decisioni-rinviate.md`](../02_architecture/09-decisioni-rinviate.md) |

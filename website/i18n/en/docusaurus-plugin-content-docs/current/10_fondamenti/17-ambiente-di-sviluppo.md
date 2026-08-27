@@ -20,7 +20,7 @@ description: From the clone to a system that runs locally, and then to a system 
 > documentation and the governance documents; the build chain and the code are being produced.
 > From this follows an editorial rule that this module applies without exception: **where the
 > exact name of a command, of a script, of a variable or of a service has not yet been settled,
-> the module declares it `[NV]` and states whose job it is to settle it, instead of inventing
+> the module declares it `[NV]` `TECH` and states whose job it is to settle it, instead of inventing
 > it.** A module that promised non-existent commands would be worse than an incomplete module: it
 > would cost every reader an afternoon, and the first afternoon lost is the one on which most
 > people give up. The names of the general tools - the version control system, the container
@@ -66,7 +66,7 @@ somebody else's system - that is, an environment that violates the project's mos
 
 From this criterion follows a practical consequence useful to the reader: **if a procedure in this
 module asks you to register somewhere, the procedure is wrong.** Report it. This module states it
-as an explicit constraint on all areas (**V-190** on the noticeboard): a start-up procedure that
+as an explicit constraint on all areas (**[V-190](../11_registri/01-vincoli-in-vigore.md#v-190)** on the noticeboard): a start-up procedure that
 requires registration with a supplier is a defect, not a configuration.
 
 ### 1.2 What you install, and why
@@ -76,7 +76,7 @@ requires registration with a supplier is a defect, not a configuration.
 | **Version control system** | Recent and maintained | Cloning the repository, branches, sign-off of the origin of the contribution | Nothing starts |
 | **Java platform, long-term support release 21** | **21** | It is the service's platform. The threshold is not cosmetic: virtual threads and exhaustive pattern matching are finalised in 21 and are used by the clinical domain | The service does not compile |
 | **The project's build tool** | The one declared by the lock file | Compilation, running the tests, production of the artefacts. The project uses the **build tool embedded in the repository** (*wrapper*), so it is not to be installed separately: you use the versioned one | The build is not reproducible |
-| **Runtime for the user interface** | The one declared in the lock file of the user interface framework `[NV]` | Building and development server for the web application | The user interface does not start |
+| **Runtime for the user interface** | The one declared in the lock file of the user interface framework `[NV]` `TECH` | Building and development server for the web application | The user interface does not start |
 | **Container engine with local orchestration** | Composition specification v2 | Starts the database, the federation product, the broker and the relay node without installing them on the machine | Four services have to be installed by hand: practically impossible |
 | **Command-line database client** | Matching the engine's major version | Inspection, diagnosis, verification of the row-level security policies | You diagnose blind |
 | **Two distinct browser engines** | Current versions | The media tests **must** run on more than one engine: the behaviour diverges, and it is the most expensive source of defects in this area | You learn about the defects from the users |
@@ -116,14 +116,14 @@ value of the tool.
 - **You do not need any licence-bound terminology content**, and above all **it must not be
   downloaded** (§7.2 and [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md)). The
   system is designed to work without it, and the default configuration of the tests is precisely
-  the one without it (constraint **V-03**).
+  the one without it (constraint **[V-03](../11_registri/01-vincoli-in-vigore.md#v-03)**).
 - **You do not need a medical device, a health card reader or a real signing certificate.**
   Everything concerning those chains is tested with test doubles built on the published
   specification.
 
 ### 1.4 Memory and disk: the method, not an invented number
 
-`[NV]` - **the project has not measured the resource consumption of the local environment, and
+`[NV]` `TECH` - **the project has not measured the resource consumption of the local environment, and
 this module does not publish unmeasured figures.** What it does publish is the **method for
 calculating them on your own machine**, which is more useful than a wrong figure and remains
 valid when the number of services changes.
@@ -154,7 +154,7 @@ generated and in particular with the large dataset profiles (§5.8).
 on and an integration suite running, and write down the result. It is the only number that
 concerns you. If you want to contribute to this module, that number, together with the machine's
 model, is a valuable contribution: the question is open on the noticeboard to the technical area
-(**Q-191**).
+(**[Q-191](../11_registri/02-questioni-aperte.md#q-191)**).
 
 ### 1.5 If the machine is modest
 
@@ -164,9 +164,9 @@ reference case and not as an exception. Five strategies, in order of effectivene
 **Do not switch on what you do not need.** The first mistake is starting everything in order to
 work on a feature that touches a single context. The start-up profile ought to be **selective by
 groups of services** - database alone; database plus application service; the complete set with
-media and federation - and every group ought to be startable on its own. `[NV]` - the exact
+media and federation - and every group ought to be startable on its own. `[NV]` `TECH` - the exact
 definition of the groups and their names belong to the technical area together with the writing of
-the composition file: the question is open on the noticeboard (**Q-190**).
+the composition file: the question is open on the noticeboard (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**).
 
 **Work on the domain without switching anything on.** It is the most underrated practical benefit
 of dependency rule no. 5 of [`02-backend.md`](/01_technical/02-backend.md) §1: the domain does
@@ -250,9 +250,9 @@ that it is the **first** check to make.
 From this also follows the real problem of testing between **two different devices** on the same
 local network - the laptop and a telephone, which is the product's scenario: in that case the
 loopback address is of no use, and a certificate for the local origin is needed, obtained from a
-local certification authority created after the fact on the development machine. `[NV]` - the
+local certification authority created after the fact on the development machine. `[NV]` `TECH` - the
 exact procedure adopted by the project has not yet been settled, and it is open on the noticeboard
-to the technical area together with the rest of the local composition (**Q-190**).
+to the technical area together with the rest of the local composition (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**).
 
 ---
 
@@ -289,7 +289,7 @@ produce consequences that **cannot be cancelled by a later change**:
 | [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md) | What the project does not distribute and does not download, and why | The licence of some code systems **is perfected by downloading**: a single download «just to try» is enough |
 | [`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md) | That the repository is source code and not a medical device, and what may and may not be done with it | It determines what you can claim about the system you are about to start |
 
-If you have little time, read at least the five rules of `CONTRIBUTING.md`. They are less than two
+If you have little time, read at least the five rules of [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md). They are less than two
 pages and they are the only ones whose cost of violation is unrecoverable.
 
 ### 2.3 Step 1 - Clone and identity of the contribution
@@ -321,9 +321,9 @@ too are synthetic** (§5).
 
 ### 2.4 Step 2 - Verification of the prerequisites
 
-`[NV]` - the project provides for a **prerequisite verification script** that checks, in one go,
+`[NV]` `TECH` - the project provides for a **prerequisite verification script** that checks, in one go,
 the presence and the version of each component of §1.2 and states what is missing in
-understandable language. Name, location and form belong to the technical area (**Q-190**).
+understandable language. Name, location and form belong to the technical area (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**).
 
 The reason why it is worth having, and why it should be invoked **before** everything else, is
 that almost all the failures of the following steps come down to a missing prerequisite or to the
@@ -362,7 +362,7 @@ project:
 openssl rand -base64 32
 ```
 
-`[NV]` - the exact list of the variables, their names and their default values are defined by the
+`[NV]` `TECH` - the exact list of the variables, their names and their default values are defined by the
 example file once the composition is written. This module **does not anticipate them** and does
 not invent their names.
 
@@ -406,8 +406,8 @@ Two distinct operations, which must be kept distinct mentally too:
    migrations and must never become part of them: a migration that inserted example data would end
    up in live operation.
 
-`[NV]` - the exact commands depend on the migration tool chosen by the technical area and on the
-name of the generator, neither of which has yet been settled (**Q-190**). What is already decided
+`[NV]` `TECH` - the exact commands depend on the migration tool chosen by the technical area and on the
+name of the generator, neither of which has yet been settled (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**). What is already decided
 and does not change is the **semantics**: forward-only migrations, never modified after the fact,
 with the state recorded per tenant in `platform.migration_state`.
 
@@ -428,7 +428,7 @@ and a check query on the database shows the expected schemas.
 ```
 
 The command reflects the **project proposal** to adopt a declarative model-based build tool,
-argued in [`01-stack-e-motivazioni.md`](/01_technical/01-stack-e-motivazioni.md) §12; `[NV]` on
+argued in [`01-stack-e-motivazioni.md`](/01_technical/01-stack-e-motivazioni.md) §12; `[NV]` `TECH` on
 the final form of the invocation and on the profile activated for the local environment.
 
 **Expected outcome**: the service reaches the ready state and the two distinct **liveness** and
@@ -442,7 +442,7 @@ curl -s http://localhost:<port>/actuator/health/liveness
 curl -s http://localhost:<port>/actuator/health/readiness
 ```
 
-`[NV]` - the exact port and paths are defined by the application configuration, which has not yet
+`[NV]` `TECH` - the exact port and paths are defined by the application configuration, which has not yet
 been written.
 
 ### 2.9 Step 7 - Start-up of the user interface
@@ -591,7 +591,7 @@ Two orientation notes that save pointless searching:
   constraint, which limit*, go to the technical area. This module is the only one of the
   fundamentals that gives commands, and it gives them in order to put you in a position to read
   the others.
-- **`docs/07_integration/02-primo-avvio.md` is not this module.** That one describes the first
+- **[`docs/07_integration/02-primo-avvio.md`](../07_integration/02-primo-avvio.md) is not this module.** That one describes the first
   start-up of **whoever integrates Telemedic into another system**; this one describes the first
   start-up of **whoever develops Telemedic**. They are two paths with different recipients,
   prerequisites and objectives, and confusing them is an avoidable waste of time.
@@ -649,8 +649,8 @@ transaction; `infrastructure` is replaceable by definition.
 | The shape of an error returned to a caller | `platform/problem/` |
 | How the tenant is resolved and propagated | `platform/tenancy/` |
 | Why a call to the outside is refused | The single component for outgoing calls, in `platform/` |
-| The schema migrations | The migrations directory, ordered by version `[NV]` |
-| The test data factories | The synthetic generator module `[NV]` |
+| The schema migrations | The migrations directory, ordered by version `[NV]` `TECH` |
+| The test data factories | The synthetic generator module `[NV]` `TECH` |
 | The network profiles of the media tests | The shared constants of the media suite |
 | The configuration of the relay node | The versioned example file, never the real one |
 | The catalogue of the error codes | The versioned file from which the catalogue is **generated** |
@@ -800,7 +800,7 @@ persistence in miniature:
   19:00 is normal data in remote monitoring, and confusing them produces a clinically wrong
   assessment.
 - **The status may be «expected, not received».** The absence of data is clinical information
-  (constraint **V-09**): silence is never treated as normality, and in the schema this rule becomes
+  (constraint **[V-09](../11_registri/01-vincoli-in-vigore.md#v-09)**): silence is never treated as normality, and in the schema this rule becomes
   **a row that exists** instead of a row that is missing.
 - **The unit of measurement sits next to the value.** A number without a unit, in a clinical
   context, is not a datum: it is a risk.
@@ -864,7 +864,7 @@ in the generator**. Six properties, each with the technical reason why it exists
 The last property is the one that is always forgotten and that is worth the most on the day it is
 needed. A persisted synthetic attribute turns the question «does this environment contain real
 data?» from an investigation into a query. The project states it as a **constraint on the areas
-that define the data model** (noticeboard, **V-192**).
+that define the data model** (noticeboard, **[V-192](../11_registri/01-vincoli-in-vigore.md#v-192)**).
 
 ### 5.3 Consistent demographic records
 
@@ -924,7 +924,7 @@ real identifier in the sources, in the fixtures and in the examples. The generat
 produce identifiers that are both **syntactically valid** and **recognisably synthetic**, which is
 not a contradiction but a precise requirement: it is exactly what the unassigned municipality code
 technique achieves. Verification that the two needs are compatible in the implementation is open on
-the noticeboard (**Q-194**).
+the noticeboard (**[Q-194](../11_registri/02-questioni-aperte.md#q-194)**).
 
 ### 5.5 Parameter series with a plausible trend
 
@@ -951,7 +951,7 @@ isolated episode that resolves, a measurement off the scale due to a use error.
 
 **And above all the absences must be generated.** A complete series, with all the expected
 measurements punctually received, is the least realistic series there is and it does not bring out
-the behaviour that constraint **V-09** requires: *the absence of data is information*. The generator
+the behaviour that constraint **[V-09](../11_registri/01-vincoli-in-vigore.md#v-09)** requires: *the absence of data is information*. The generator
 must produce incomplete adherence, gaps of several days, resumptions, measurements entered in bulk
 after the fact. In the schema, let us remember, the measurement expected and not received **is a row
 with that status**, not a missing row.
@@ -1022,8 +1022,8 @@ covered.
 
 ### 5.8 How the generator is used
 
-`[NV]` - the name of the command, the form of the arguments and the names of the profiles belong to
-the technical area (**Q-190**). What this module does settle is **the semantics the generator must
+`[NV]` `TECH` - the name of the command, the form of the arguments and the names of the profiles belong to
+the technical area (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**). What this module does settle is **the semantics the generator must
 have**, because that is what concerns whoever uses it:
 
 | Element | Required behaviour |
@@ -1218,7 +1218,7 @@ the local configuration too: **the list of forbidden addresses is defence in dep
 defence is the node's egress network isolation**, applied by the infrastructure and not by the
 configuration file. Locally this means that the relay node **must not be left free to reach your
 machine's internal network**. The exact ranges to be forbidden are the responsibility of the
-security area (**Q-196** on the noticeboard).
+security area (**[Q-196](../11_registri/02-questioni-aperte.md#q-196)** on the noticeboard).
 
 There is then a fact about the configuration that surprises whoever reads it for the first time and
 that is worth knowing before making a mistake: **the default behaviour of the lists is to allow**,
@@ -1228,8 +1228,8 @@ line would cancel out any denial.
 
 ### 6.7 The verified traps
 
-**The recording container is negotiated at run time, it is not assumed.** It is constraint **V-11**,
-extended by constraint **V-115** to server-side recording too. The resulting container depends on the
+**The recording container is negotiated at run time, it is not assumed.** It is constraint **[V-11](../11_registri/01-vincoli-in-vigore.md#v-11)**,
+extended by constraint **[V-115](../11_registri/01-vincoli-in-vigore.md#v-115)** to server-side recording too. The resulting container depends on the
 **codecs actually negotiated in the session**, which vary by browser, by platform and by conditions:
 a container assumed in advance is a statement that will be false for part of the installed base. The
 correct implementation reads the negotiated codecs, chooses the compatible container **without
@@ -1301,10 +1301,10 @@ Two project rules govern local validation:
   traceability requirement, not a convenience. In practice: local validation uses the profiles
   pinned in the repository, it does not download them on the spot.
 - **The validation tool is itself a component to be qualified.** A tool that validates regulatory
-  artefacts enters the inventory of third-party components with its exact version. `[NV]` - name,
+  artefacts enters the inventory of third-party components with its exact version. `[NV]` `TECH` - name,
   version and mode of invocation **have not yet been settled** and this module does not invent them:
-  the question is open from the protocols area (**Q-163**) and taken up here as a need of the
-  contributor (**Q-193**).
+  the question is open from the protocols area (**[Q-163](../11_registri/02-questioni-aperte.md#q-163)**) and taken up here as a need of the
+  contributor (**[Q-193](../11_registri/02-questioni-aperte.md#q-193)**).
 
 ### 7.2 A terminology server for development
 
@@ -1338,7 +1338,7 @@ complete picture, terminology by terminology, is in the policy document.
 
 **It is the default configuration of the tests, and it is not a fallback.**
 
-Constraint **V-03** establishes that the system is fully functional without the licence-bound code
+Constraint **[V-03](../11_registri/01-vincoli-in-vigore.md#v-03)** establishes that the system is fully functional without the licence-bound code
 systems: no main path may require them. It is not a statement of principle, it is a property that
 must be **kept alive**, and the way the project keeps it alive is simple and effective: **the suite
 runs, at every execution, with the gateway in degraded mode for the systems that are not enabled**. A
@@ -1499,7 +1499,7 @@ They are not run on the development machine. The result would be meaningless - t
 saturated, shared with the development environment, and the numbers are not comparable - and the
 machine would be unusable for hours. They run in a dedicated environment, on a schedule, and they serve
 to determine limits that the project then **declares**, such as the number of tenants per installation
-or the partitioning interval of the time series, both today `[NV]` because not yet measured.
+or the partitioning interval of the time series, both today `[NV]` `TECH` because not yet measured.
 
 ### 8.8 How to write a test that is really of use
 
@@ -1624,7 +1624,7 @@ corrected through the review procedure provided for**, not switched off for one'
 allow-list of the terminologies check, for example, is versioned and modifying it requires the review
 provided for compliance material: it is not a file that is updated to let one's own change through. This
 module states as an explicit constraint, on the noticeboard, that **no documented procedure of the
-development environment may contain the circumvention of a mandatory check** (**V-191**).
+development environment may contain the circumvention of a mandatory check** (**[V-191](../11_registri/01-vincoli-in-vigore.md#v-191)**).
 
 ### 9.5 Running them locally, before proposing
 
@@ -1632,8 +1632,8 @@ The rule of thumb is simple: **everything that blocks in the pipeline must be ru
 Discovering a block after opening the proposal costs you a waiting cycle and the reviewer a
 notification.
 
-`[NV]` - the aggregate command that runs the set of mandatory checks locally is provided for but not yet
-settled (**Q-190**). In the meantime, the minimum sequence before proposing is: complete build, test
+`[NV]` `TECH` - the aggregate command that runs the set of mandatory checks locally is provided for but not yet
+settled (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**). In the meantime, the minimum sequence before proposing is: complete build, test
 suite of the perimeter touched, secrets check, terminologies check, automatic accessibility check if you
 have touched the user interface, and - if you have touched an Italian document - **the update of the
 corresponding English one**.
@@ -1902,21 +1902,21 @@ writes: **the only moment at which this problem is free is before the commit.**
 
 ## 12. Unverified points of this module
 
-A recap of the `[NV]`s, so that they do not have to be looked for in the text. Each indicates whose
+A recap of the `[NV]` `TECH`s, so that they do not have to be looked for in the text. Each indicates whose
 decision it is.
 
 | Reference | What is not settled | Whose it is |
 |---|---|---|
-| §1.2, §2.4-§2.9 | Names and form of the commands for verifying the prerequisites, for migration, for data generation and for selective start-up of the services | Technical area (**Q-190**) |
-| §1.4 | Real memory and disk consumption of the local environment: **not measured** | Technical area (**Q-191**) |
-| §1.6 | Procedure adopted for the local certificate in the test between two devices | Technical area (**Q-190**) |
+| §1.2, §2.4-§2.9 | Names and form of the commands for verifying the prerequisites, for migration, for data generation and for selective start-up of the services | Technical area (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**) |
+| §1.4 | Real memory and disk consumption of the local environment: **not measured** | Technical area (**[Q-191](../11_registri/02-questioni-aperte.md#q-191)**) |
+| §1.6 | Procedure adopted for the local certificate in the test between two devices | Technical area (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**) |
 | §2.5 | List and names of the variables of the local configuration | Defined by the example file, not yet written |
 | §2.8 | Exact ports and paths of the status endpoints | Application configuration |
-| §5.4 | Compatibility between syntactically valid identifiers and the check on non-synthetic data | Open on the noticeboard (**Q-194**) |
-| §6.6 | Ranges of forbidden addresses for the relay node confinement test | Security area (**Q-196**) |
-| §7.1 | Name, version and invocation of the tools for validating the clinical profiles | Opened by the protocols area (**Q-163**), taken up here (**Q-193**) |
+| §5.4 | Compatibility between syntactically valid identifiers and the check on non-synthetic data | Open on the noticeboard (**[Q-194](../11_registri/02-questioni-aperte.md#q-194)**) |
+| §6.6 | Ranges of forbidden addresses for the relay node confinement test | Security area (**[Q-196](../11_registri/02-questioni-aperte.md#q-196)**) |
+| §7.1 | Name, version and invocation of the tools for validating the clinical profiles | Opened by the protocols area (**[Q-163](../11_registri/02-questioni-aperte.md#q-163)**), taken up here (**[Q-193](../11_registri/02-questioni-aperte.md#q-193)**) |
 | §8.7 | Limits to be measured: number of tenants per installation, partitioning interval of the time series | Capacity tests, not yet performed |
-| §9.5 | Aggregate command for running the mandatory checks locally | Technical area (**Q-190**) |
+| §9.5 | Aggregate command for running the mandatory checks locally | Technical area (**[Q-190](../11_registri/02-questioni-aperte.md#q-190)**) |
 
 ---
 

@@ -27,7 +27,9 @@ reread through them, not applied mechanically.
 All the examples contain **synthetic data only**.
 
 Convention of this module: statements marked **`[NV]`** were not verified against a primary
-source while it was being written and must be confirmed before being turned into code or into
+source while it was being written and carry the indication of the recipient in one of three
+permitted forms (area code in backticks, question identifier, or external party named according
+to the rules in `CONTRIBUTING.md`); they must be confirmed before being turned into code or into
 a requirement. The project's decisions are cited with their identifier (`D15`, `V4`…) and are
 found in the project's *context pack*.
 
@@ -86,7 +88,7 @@ At Sun Microsystems, at the end of the nineteen-nineties, Peter Deutsch formulat
 assumptions that every programmer inexperienced in distributed systems makes without noticing,
 and that are all false; James Gosling added the eighth. The list circulates as «the eight
 fallacies of distributed computing». **`[NV]`** the exact authorship and the date of first
-formulation were not verified against a primary source while this module was being written;
+formulation were not verified against a primary source while this module was being written: **`[NV]`** `GUIDA` must verify Deutsch's and Gosling's original formulation;
 the technical content, by contrast, is amply borne out by operational experience.
 
 We take them one at a time with the example from the domain that refutes each.
@@ -222,8 +224,8 @@ recovered.
 ### 2.2 The CAP theorem, and above all what it does not say
 
 The **CAP theorem** - conjectured by Eric Brewer in 2000 and formally proved by Gilbert and
-Lynch in 2002 **`[NV]`** (attribution and dates not verified against a primary source in this
-drafting) - states that a distributed system replicating data cannot simultaneously guarantee
+Lynch in 2002; attribution and dates not verified against a primary source in this
+drafting: **`[NV]`** `GUIDA` must verify the original CAP theorem formulation by Brewer, Gilbert, and Lynch) - states that a distributed system replicating data cannot simultaneously guarantee
 all three of the following properties:
 
 - **C**onsistency, in the sense of linearisability;
@@ -434,8 +436,7 @@ coordinated with a saga.
 A **saga** is a sequence of local transactions. Every committed step is visible immediately; if
 a later step fails, the steps already carried out are neutralised not by undoing them, but by
 executing for each a **compensating transaction** that counteracts its effects. The concept was
-introduced by Hector Garcia-Molina and Kenneth Salem in a paper of 1987 **`[NV]`** (exact
-bibliographic reference not verified in this drafting).
+introduced by Hector Garcia-Molina and Kenneth Salem in a paper of 1987; the exact bibliographic reference has not been verified: **`[NV]`** `GUIDA` must verify the 1987 Garcia-Molina and Salem paper.
 
 There are two styles of orchestration.
 
@@ -914,7 +915,7 @@ legitimate, neither of which is what the name suggests.
 - **Exactly-once processing *within* the system**: if reading the message, updating the state and
   writing the result happen within the same broker transaction, the internal effect is unique even
   in the presence of transport duplicates. Kafka offers this for flows that stay inside Kafka.
-  **`[NV]`** the exact limits of this guarantee in the version adopted and in the single-node setup
+  the exact limits of this guarantee in the version adopted and in the single-node setup: **`[NV]`** `TECH` must verify the Kafka documentation
   provided for by `D15` must be verified against the documentation before relying on it.
 - **Deduplication at the receiver**: the receiver recognises that it has already seen that message
   and does not repeat the effect. This is *at least once* plus idempotency, and it produces an
@@ -1156,7 +1157,7 @@ enrichment, the computation of a statistic - and is forbidden for a security or 
 ## 7. Domain-Driven Design
 
 *Domain-Driven Design* - «design guided by the domain», formulated by Eric Evans in a book of
-2003 **`[NV]`** - is not a set of coding techniques. It is a thesis: **in a complex system the
+2003; the source has not been verified: **`[NV]`** `GUIDA` must verify Evans' Domain-Driven Design book (2003) - is not a set of coding techniques. It is a thesis: **in a complex system the
 principal difficulty is not technical but one of understanding the domain**, and the code must
 be organised so as to make that understanding explicit and verifiable by those who know the
 domain.
@@ -1618,8 +1619,8 @@ places, which happens regularly - a patient abroad, a professional reporting fro
 **Daylight saving creates instants that do not exist and instants that exist twice.** On the last
 Sunday in March, in the Italian time zone, 02:30 does not exist: the clock jumps from 02:00 to
 03:00. On the last Sunday in October, 02:30 exists twice. A diary that generates recurring slots at
-02:30 will produce, on those two days, a non-existent slot and a doubled slot. **`[NV]`** the
-specific behaviour of the date-handling library adopted on these two conditions must be verified
+02:30 will produce, on those two days, a non-existent slot and a doubled slot. The
+specific behaviour of the date-handling library adopted on these two: **`[NV]`** `TECH` must verify conditions must be verified
 with dedicated tests, not assumed.
 
 **A time zone is not an offset.** «+01:00» is an offset; «Europe/Rome» is a time zone, that is, a
@@ -1653,7 +1654,7 @@ post-incident investigation.
 Since the physical clock is not reliable for ordering, one uses a **logical clock**: a counter that
 does not measure time but captures the **relation of causal precedence**.
 
-The basic model is the Lamport counter **`[NV]`** (formulated by Leslie Lamport in a paper of 1978;
+The basic model is the Lamport counter, formulated by Leslie Lamport in a paper of 1978; the reference has not been verified: **`[NV]`** `GUIDA` must verify the 1978 Lamport paper;
 reference not verified in this drafting): every process keeps a counter, increments it at every
 local event, attaches it to every message sent, and on receipt raises it to the maximum between its
 own and the one received, plus one. The property that follows: if an event A caused an event B, then
@@ -2090,7 +2091,7 @@ excludes the network time of the patient on a mobile network, which is precisely
 requests a minute is computed on one request a minute: it is noise. And a load generator that waits
 for the response before sending the next request **does not measure** queueing delays, because it
 stops generating load precisely when the system slows down - a phenomenon known as coordinated
-omission, which makes saturated systems look good. **`[NV]`** the specific behaviour of the load
+omission, which makes saturated systems look good. The specific behaviour of the load
 testing tools adopted with respect to this phenomenon must be verified before the measurements are
 considered valid.
 
@@ -2115,7 +2116,7 @@ L = λ × W
 - **λ** = mean arrival rate (requests per second);
 - **W** = mean time spent in the system.
 
-The law was proved by John Little **`[NV]`** (1961; reference not verified in this drafting) and has
+The law was proved by John Little in 1961; the reference has not been verified: **`[NV]`** `GUIDA` must verify the 1961 Little paper and has
 a remarkable property: **it does not depend on the distribution of arrivals nor on the queue
 discipline**. It holds for any stable system.
 

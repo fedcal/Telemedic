@@ -35,8 +35,8 @@ correcting them afterwards is harder than not making them.
 | «Conformant with the standard rate limiting headers» | They are not a standard, and the three-field form is not even the current form of the draft |
 | «Conformant with the Italian guide» without stating the version | The guide is at 0.2.0, in *trial-use, draft* status. Without a version the claim is empty |
 | «Certified» on a revision in public comment | The adopted revision of the document profile is in *ballot*, not final text |
-| «CE-marked product» | The project neither affixes the marking nor signs declarations of conformity: constraint V-06. Not the project today; the manufacturing entity to be established |
-| «Accredited» on the national identity channels | The service provider is **the deployer**: constraint V-05. The project is compliant and verifiable |
+| «CE-marked product» | The project neither affixes the marking nor signs declarations of conformity: constraint [V-06](../11_registri/01-vincoli-in-vigore.md#v-06). Not the project today; the manufacturing entity to be established |
+| «Accredited» on the national identity channels | The service provider is **the deployer**: constraint [V-05](../11_registri/01-vincoli-in-vigore.md#v-05). The project is compliant and verifiable |
 | «End-to-end encrypted» with no qualification | True only in the default mode. With recording active it **is not** |
 | «Guaranteed latency» | It is a **metric that is measured, recorded and reported**, with thresholds declared as a product specification |
 
@@ -126,10 +126,10 @@ to an explicit negative obligation of a specification. None is hypothetical.
 
 ## 6. The tools
 
-> **`[NV]` - concrete tools.** The names, versions and invocation modes of the tools for clinical
-> validation, guide publication, static analysis of the interface descriptor, compatibility
-> comparison and legacy message parsing **have not been verified against primary sources** and are
-> not invented here.
+> **Concrete tools** `[NV]` to be established by the technical area: the names, versions and
+> invocation modes of the tools for clinical validation, guide publication, static analysis of the
+> interface descriptor, compatibility comparison and legacy message parsing **have not been verified
+> against primary sources** and are not invented here.
 > **To be asked of**: the technical area, which owns the build chain. The choice must then be pinned
 > to an exact version and inventoried among the third-party components, because a tool that
 > validates regulatory artefacts is itself a component to be qualified.
@@ -172,7 +172,7 @@ Rules of the gates:
 - **traceability is part of the chain's output**: every specification obligation covered is linked to
   the test that covers it, and the association is an artefact, not a convention. It is the
   traceability requirement that makes the material usable in our conformity assessment path, under constraint
-  V-06.
+  [V-06](../11_registri/01-vincoli-in-vigore.md#v-06).
 
 ## 8. The test environment and the data
 
@@ -249,39 +249,39 @@ a year.
 |---|---|---|
 | Exact form of the address sub-extension in the virtual service | [02 §4](./02-fhir.md) | Whoever implements the clinical adaptation layer, with validation against the pinned package |
 | Concrete validation and publication tools | [02 §8.1](./02-fhir.md), §6 of this chapter | Technical area |
-| Templates, document codes and metadata for the telemedicine types | [03 §4.2](./03-documenti-clinici.md), [03 §5](./03-documenti-clinici.md) | Compliance area - question **Q-07** |
+| Templates, document codes and metadata for the telemedicine types | [03 §4.2](./03-documenti-clinici.md), [03 §5](./03-documenti-clinici.md) | Compliance area - question **[Q-07](../11_registri/02-questioni-aperte.md#q-07)** |
 | Signature envelope formats, certificate and time stamp requirements | [03 §6.2](./03-documenti-clinici.md) | Compliance area and security area |
 | Format profile for long-term preservation | [03 §4.3](./03-documenti-clinici.md) | Compliance area |
 | Field-by-field coverage between the statutory information set and the clinical profile | [03 §4.1](./03-documenti-clinici.md) | Domain area and compliance area |
 | Direct reading of the legacy wrapping protocol specification | [04 §5.1](./04-hl7-v2.md) | Whoever implements the module |
 | Lengths, optionality and repeatability of the legacy error segment fields | [04 §7](./04-hl7-v2.md) | Whoever implements the module |
 | Authentication context values accepted by the document-based identity provider | [08 §6.1](./08-identita-e-autorizzazione.md) | Integration area |
-| Forwarding of the requested level through the intermediating realm | [08 §6.4](./08-identita-e-autorizzazione.md) | Architecture area and technical area - question **Q-160** |
+| Forwarding of the requested level through the intermediating realm | [08 §6.4](./08-identita-e-autorizzazione.md) | Architecture area and technical area - question **[Q-160](../11_registri/02-questioni-aperte.md#q-160)** |
 | Hash algorithm of the relay's temporary credentials | [09 §7.4](./09-tempo-reale.md) | Whoever implements the service, with an integration test |
 
 ### 11.2 The decisions this area does not take
 
-**Q-06 - divergence in the tax code URI.** This area documents the problem, measures its consequences
+**[Q-06](../11_registri/02-questioni-aperte.md#q-06) - divergence in the tax code URI.** This area documents the problem, measures its consequences
 and formulates a justified recommendation in [02 §9.3](./02-fhir.md), **without hard-coding any value
 in its own normative examples**. The decision belongs to the architecture area together with the
 technical one.
 
-**Q-15 - the ten choices stated as proposals.** This area formulates them, justifies them and
+**[Q-15](../11_registri/02-questioni-aperte.md#q-15) - the ten choices stated as proposals.** This area formulates them, justifies them and
 declares their cost in [01 §5](./01-principi-di-interoperabilita.md). The formal decision, with the
 corresponding architecture decision record, belongs to the architecture area.
 
-**Q-08 - the two session modes.** This area describes the protocol that governs them in
+**[Q-08](../11_registri/02-questioni-aperte.md#q-08) - the two session modes.** This area describes the protocol that governs them in
 [09 §6](./09-tempo-reale.md) and declares their inescapable consequence. The effects on the data
 model belong to the architecture area.
 
-**Q-16, Q-161 - the single registry of destinations and trusted origins, and the single control
+**[Q-16](../11_registri/02-questioni-aperte.md#q-16), [Q-161](../11_registri/02-questioni-aperte.md#q-161) - the single registry of destinations and trusted origins, and the single control
 point for outbound requests.** This area **supports** both questions and declares the justification in
 [07 §7](./07-eventi-e-webhook.md) and [06 §10](./06-api-di-progetto.md): separate registries diverge,
 and four implementations of the same protection produce four different behaviours, of which the
 weakest is the one that counts. The decisions belong to the security area and to the architecture
 area.
 
-**Q-163 - no disclosure capability towards a payer.** This area adopts it as a catalogue constraint in
+**[Q-163](../11_registri/02-questioni-aperte.md#q-163) - no disclosure capability towards a payer.** This area adopts it as a catalogue constraint in
 [07 §3](./07-eventi-e-webhook.md): the variant of the completion event intended for settlement carries
 only the service identifier, the administrative outcome and the amount. Functional confirmation
 belongs to the functional area.

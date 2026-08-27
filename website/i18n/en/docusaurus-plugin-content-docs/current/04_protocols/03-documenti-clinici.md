@@ -15,7 +15,7 @@ content.
 
 ## 1. The principle that governs the whole chapter
 
-> **Constraint V-07.** The information content of documents destined for the electronic health
+> **Constraint [V-07](../11_registri/01-vincoli-in-vigore.md#v-07).** The information content of documents destined for the electronic health
 > record (Fascicolo Sanitario Elettronico) is modelled as a **canonical dataset**. The
 > serialisations - structured document for the health record, FHIR representation, rendered
 > representation - are **substitutable** and must not be hard-coded.
@@ -41,7 +41,7 @@ flowchart TD
     N["Statutory information set<br/>(binding source)"]
     D["Telemedic's canonical dataset<br/>internal model, versioned"]
     S1["FHIR serialisation<br/>Composition in a document Bundle"]
-    S2["Structured serialisation for the health record<br/>template NOT available - [NV]"]
+    S2["Structured serialisation for the health record<br/>template NOT available - [NV] COMP"]
     S3["Rendered representation<br/>for human reading and signing"]
     S4["Compatibility projection<br/>diagnostic report, read-only"]
     N --> D
@@ -140,7 +140,7 @@ to the other technical figure involved and in the notes.
 > **A constraint this area sets in any case**: whichever field is chosen, the content is **measured
 > by the system and presented to the professional, who confirms it**. It is not generated
 > autonomously and inserted into the report without an act of the professional: that would be
-> system-produced information inside a clinical document, in direct tension with constraint V2.
+> system-produced information inside a clinical document, in direct tension with constraint [V2](../11_registri/03-vincoli-fondanti.md#v2).
 
 ### 3.2 The dataset is versioned
 
@@ -202,14 +202,14 @@ immutable**, and its content can no longer change; signatures apply to the assem
 > regional health record systems is declared to have been published, but **it has not been
 > established** that that version already contains the telemedicine templates.
 >
-> **To be asked of**: the compliance area, which owns question **Q-07** on the noticeboard. The
+> **To be asked of**: the compliance area, which owns question **[Q-07](../11_registri/02-questioni-aperte.md#q-07)** on the noticeboard. The
 > channel indicated is the technical area of the health record portal and, failing that, a formal
 > request to the body that operates the national interoperability infrastructure.
 >
 > **Until then the project hard-codes no template.** The adapter exists as an extension point with
 > a declared contract - it receives the canonical dataset and produces a signable artefact - and its
 > concrete implementation is deferred. This is not a gap: it is the literal application of
-> constraint V-07.
+> constraint [V-07](../11_registri/01-vincoli-in-vigore.md#v-07).
 
 ### 4.3 The rendered representation
 
@@ -234,7 +234,7 @@ Project rules:
 Many receiving systems can consume the report only in the form of a diagnostic report. The project
 offers it as a **read-only projection**, never as the primary artefact: the narrative part carries
 the text drafted by the doctor, the attachment carries the signed document. **No field of that
-projection is ever populated with system-generated text**: this is the boundary of constraint V2,
+projection is ever populated with system-generated text**: this is the boundary of constraint [V2](../11_registri/03-vincoli-fondanti.md#v2),
 and it must be verified with a dedicated test, not with a convention.
 
 ## 5. The indexing metadata
@@ -266,7 +266,7 @@ Project rules on metadata:
 > located in any public source, as already declared in §4.2. Without them the project **cannot**
 > publish to a national document sharing infrastructure, because it would produce unrecognised
 > metadata. Publication towards the integrator's system of origin, which uses its own codes, is not
-> blocked. **To be asked of**: the compliance area (Q-07).
+> blocked. **To be asked of**: the compliance area ([Q-07](../11_registri/02-questioni-aperte.md#q-07)).
 
 ## 6. The signature
 
@@ -456,7 +456,7 @@ year**; indication of first scheduling or rescheduling; unique device identifier
 
 Two project constraints follow directly from this layout.
 
-**The thresholds are data of the plan, not constants of the software.** Constraint V-02 requires it
+**The thresholds are data of the plan, not constants of the software.** Constraint [V-02](../11_registri/01-vincoli-in-vigore.md#v-02) requires it
 and the layout confirms it: threshold and rules are fields of the document, filled in by the
 professional. No clinical threshold is hard-coded, and no threshold is inferred by the system.
 
@@ -490,11 +490,11 @@ Project rules:
 |---|---|---|
 | It does not apply the submission signature to the national infrastructure | It is an act of the infrastructure, not of the producing system | The interoperability infrastructure |
 | It does not decide the document types or their information sets | They are established by decree | The ministry |
-| It does not generate clinical content | Constraint V2. The document is the persistence of what the professional drafted | The professional |
+| It does not generate clinical content | Constraint [V2](../11_registri/03-vincoli-fondanti.md#v2). The document is the persistence of what the professional drafted | The professional |
 | It does not judge the suitability of the connection | It measures and presents; the confirmation is an act of the professional | The professional |
 | It does not carry out statutory preservation on the controller's behalf, unless configured to do so | Preservation is a service with requirements of its own | The controller's preservation system |
 | It does not mediate a payer's access to the health record | It is **always** excluded by law. The payer is not a permitted consulting party | Nobody: it is forbidden |
 
-The last row is constraint V-08 and it holds across every interface of the project, not only this
+The last row is constraint [V-08](../11_registri/01-vincoli-in-vigore.md#v-08) and it holds across every interface of the project, not only this
 one: no feature of the system may mediate an insurance company's access to the health record,
 neither directly nor through a professional.

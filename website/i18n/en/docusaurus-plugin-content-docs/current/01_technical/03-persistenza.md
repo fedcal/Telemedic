@@ -18,7 +18,7 @@ The foundations - what is a transaction, what is isolation, why time must be mod
 2. **What is clinical is not updated: it is superseded.** The signed document, the measurement of a parameter, the consent given are facts. A correction is a new fact that rectifies the previous one, with the chain maintained and the reason recorded.
 3. **Time has two axes.** The instant the fact happened and the instant the system learned of it are different columns and not interchangeable. A measurement recorded at 8:00 and synchronised at 19:00 is normal data in telemonitoring, and confusing it with a measurement recorded at 19:00 produces a clinically wrong evaluation.
 4. **The tenant context is applied by the engine.** Not by code, not by discipline, not by reviews. See §3.
-5. **The absence of data is data.** A measurement expected and not received is not a missing row: it is a row that says "expected, not received". It is constraint V-09, and has direct consequences on the schema of the observation plan.
+5. **The absence of data is data.** A measurement expected and not received is not a missing row: it is a row that says "expected, not received". It is constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09), and has direct consequences on the schema of the observation plan.
 
 ---
 
@@ -87,7 +87,7 @@ The third argument of `current_setting` at `true` makes it return `NULL` instead
 
 The schema-per-tenant model **does not scale indefinitely**. The number of objects in the system catalogue grows with the product tenant × contexts × tables; above a certain threshold planning of queries degrades, logical export times degrade and maintenance operations, and memory consumption per connection increases.
 
-`[NV]` - **the threshold has not been measured by the project and is not invented here.** It must be determined with a capacity test on a representative installation, and the result must be published as a product limit, not as generic figure taken elsewhere. Until then the documentation declares: the model is designed for an order of magnitude of **hundreds** of tenants per installation; beyond that, the correct structure is partitioning across multiple databases, made possible without domain modifications by the tenant register of §2.1.
+The threshold **must be measured by `TECH`** `[NV]` with a capacity test on a representative installation, and the result must be published as a product limit, not as generic figure taken elsewhere. Until then the documentation declares: the model is designed for an order of magnitude of **hundreds** of tenants per installation; beyond that, the correct structure is partitioning across multiple databases, made possible without domain modifications by the tenant register of §2.1.
 
 Declaring the limit is part of the product. An undeclared limit is discovered in live operation.
 
@@ -203,7 +203,7 @@ CREATE TABLE t0001_monitoring.misura (
 CREATE INDEX ON t0001_monitoring.misura (soggetto_id, parametro_code, occurred_at DESC);
 ```
 
-Three choices worth noting. The `attesa_non_pervenuta` (expected not received) state **exists as a row**: it is the schematic translation of constraint V-09, and without it patient silence would be indistinguishable from normality. The `system` of the parameter is a column, not an assumption: it is architectural baseline §7. The unit of measurement is kept next to the value, because a number without unit in a clinical context is not data: it is a risk.
+Three choices worth noting. The `attesa_non_pervenuta` (expected not received) state **exists as a row**: it is the schematic translation of constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09), and without it patient silence would be indistinguishable from normality. The `system` of the parameter is a column, not an assumption: it is architectural baseline §7. The unit of measurement is kept next to the value, because a number without unit in a clinical context is not data: it is a risk.
 
 ### 5.3 Hyper-tables or native partitioning
 
@@ -217,11 +217,11 @@ As established in [`01-stack-e-motivazioni.md`](./01-stack-e-motivazioni.md) §7
 | Continuous aggregates | Available (ditto) | Summary tables updated by application |
 | Query | Identical | Identical |
 
-**The partition interval must be chosen on volume, not by habit.** Partitions too small multiply objects in the system catalogue - which, summed to the multiplier of tenants from §2.4, is the fastest way to reach the limit of the model. Partitions too large make retention coarse. `[NV]` - the reference interval must be determined with a capacity test, not assumed.
+**The partition interval must be chosen on volume, not by habit.** Partitions too small multiply objects in the system catalogue - which, summed to the multiplier of tenants from §2.4, is the fastest way to reach the limit of the model. Partitions too large make retention coarse. The reference interval `[NV]` must be determined by `TECH` with a capacity test, not assumed.
 
 ### 5.4 Retention
 
-Retention **is not automatic deletion**. Every policy has three declared elements: which family of data, for how long, and under which rule. For traceability data and for access and authentication data the terms are fixed by constraint V-15 of `SEC` and this area adopts them without reinterpretation. For clinical data the term is determined by the data controller and configured per tenant: it is not a product constant, and hard-coding it would be a regulatory error in addition to a technical one.
+Retention **is not automatic deletion**. Every policy has three declared elements: which family of data, for how long, and under which rule. For traceability data and for access and authentication data the terms are fixed by constraint [V-152](../11_registri/01-vincoli-in-vigore.md#v-152) of `SEC` and this area adopts them without reinterpretation. For clinical data the term is determined by the data controller and configured per tenant: it is not a product constant, and hard-coding it would be a regulatory error in addition to a technical one.
 
 What the product guarantees is **the mechanism**: the policy is declared, execution is traced, outcome is verifiable, and there are no unrecorded deletions.
 
@@ -286,7 +286,7 @@ The relay picks up with `SELECT ... FOR UPDATE SKIP LOCKED`, which allows multip
 
 Parallel pick-up that skips already locked rows has a consequence on ordering that must be read together with this page: two instances can publish two events of the same aggregate in inverted order. The conditions under which per-key order holds, and those under which it does not, are declared in [06 - Events and internal integration](/02_architecture/06-eventi-e-integrazione-interna.md#41-what-is-guaranteed-and-what-is-not) §4.1.
 
-**The envelope contains no clinical content.** It is constraint V-14 of `INTEG`, and is adopted here at schema level: the `busta` column carries identifiers and references, content is re-read with an authenticated call under the receiver's authorisation. The check that no envelope contains clinical fields is a test, not a convention.
+**The envelope contains no clinical content.** It is constraint [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) of `INTEG`, and is adopted here at schema level: the `busta` column carries identifiers and references, content is re-read with an authenticated call under the receiver's authorisation. The check that no envelope contains clinical fields is a test, not a convention.
 
 **Published rows are pruned.** They remain the time necessary for diagnostics - the horizon is configured - then are removed. Long-term traceability of what was sent lives in the immutable register, not in the outbox, which is a delivery mechanism and not an archive.
 
@@ -296,7 +296,7 @@ Parallel pick-up that skips already locked rows has a consequence on ordering th
 
 ### 8.1 What it is not
 
-Entity versioning offered by the persistence layer **is not an immutable register**. It produces revision tables that are tables like any other: whoever has write access to the database can alter them. D42 says so, constraint V-04 imposes it on all areas, and this area adopts it without mitigation.
+Entity versioning offered by the persistence layer **is not an immutable register**. It produces revision tables that are tables like any other: whoever has write access to the database can alter them. D42 says so, constraint [V-04](../11_registri/01-vincoli-in-vigore.md#v-04) imposes it on all areas, and this area adopts it without mitigation.
 
 Versioning remains, and serves: it gives the application history of entities, useful to understand *how we got* to a state. But it is not what demonstrates who accessed what.
 
@@ -328,7 +328,7 @@ The properties that make it a register and not a table:
 2. **Every row contains the fingerprint of the previous one.** Altering a row requires recalculating all subsequent ones, which makes tampering detectable with a linear verification.
 3. **Retention is separate**: separate database, separate credentials, separate backup. Separation is what makes alteration an operation on two systems instead of one.
 4. **The chain endpoint is periodically anchored** on a support that the system cannot rewrite. The form of anchoring and its frequency are decision of `SEC`; this area provides the hook point and the format.
-5. **No clinical content.** The register says who, what, when, on which subject, with which outcome and with which assurance level - not what was written. Constraint V-13 of `SEC`.
+5. **No clinical content.** The register says who, what, when, on which subject, with which outcome and with which assurance level - not what was written. Constraint [V-150](../11_registri/01-vincoli-in-vigore.md#v-150) of `SEC`.
 6. **Identifiers are pseudonyms per tenant.** The register is the system with the longest retention and the broadest readership: it is the last place where direct identifiers must appear.
 
 The verification of chain integrity is a periodically scheduled operation **and** an operation available on request, with outcome recorded. A chain that no one verifies is a chain that protects nothing.
@@ -339,7 +339,7 @@ The verification of chain integrity is a periodically scheduled operation **and*
 
 ### 9.1 What is declared and in what form
 
-Recovery point objectives and recovery time objectives are **product specification and installation capability, never compliance**. Constraint V-12 is explicit: no technical threshold is imposed by Italian regulation. The project declares which mechanisms it has and which objectives are achievable with which configuration; the actual objective is set by the data controller in their own analysis.
+Recovery point objectives and recovery time objectives are **product specification and installation capability, never compliance**. Constraint [V-12](../11_registri/01-vincoli-in-vigore.md#v-12) is explicit: no technical threshold is imposed by Italian regulation. The project declares which mechanisms it has and which objectives are achievable with which configuration; the actual objective is set by the data controller in their own analysis.
 
 ### 9.2 The mechanisms
 
@@ -371,7 +371,7 @@ Summary, because a persistence chapter without declared limits is incomplete.
 
 | Limit | Nature | Status |
 |---|---|---|
-| Number of tenants per installation in the schema model | Structural, due to catalogue growth | `[NV]` to be measured; declared order of magnitude: hundreds |
+| Number of tenants per installation in the schema model | Structural, due to catalogue growth | `[NV]` to be measured by the technical area; declared order of magnitude: hundreds |
 | Event delivery latency | Equal to relay polling interval | Declared in [`07-prestazioni-e-capacita.md`](./07-prestazioni-e-capacita.md) |
 | Compression and continuous aggregates of time series | Absent in fallback implementation | Declared, with replacement via summary tables |
 | Duration of migrations on many tenants | Grows linearly with number of tenants | Mitigated by per-tenant execution and advancement observability |

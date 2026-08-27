@@ -199,9 +199,9 @@ vulnerabilità; è un fatto.
 
 ### 4.3 Configurazione del nodo di relay
 
-Versione minima **4.17.2**, per vincolo V-10 e per base architetturale §9. La configurazione
+Versione minima **4.17.2**, per vincolo [V-10](../11_registri/01-vincoli-in-vigore.md#v-10) e per base architetturale §9. La configurazione
 completa e verificata su fonte primaria è in
-`.telemedic/research/B3-verifica-coturn-webrtc.md`; qui si riportano i punti che hanno
+[`.telemedic/research/B3-verifica-coturn-webrtc.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/B3-verifica-coturn-webrtc.md); qui si riportano i punti che hanno
 conseguenze architetturali, non l'intero file.
 
 ```ini
@@ -257,7 +257,7 @@ l'inoltro verso indirizzi interni o di ciclo locale, ottenuto aggirando le liste
 vietati con forme alternative o non normalizzate degli indirizzi. **Sei vulnerabilità distinte
 in otto anni, quattro delle quali negli ultimi otto mesi.**
 
-Ne discende il vincolo V-10 e la formulazione che questa area adotta senza attenuanti:
+Ne discende il vincolo [V-10](../11_registri/01-vincoli-in-vigore.md#v-10) e la formulazione che questa area adotta senza attenuanti:
 
 > **La lista di indirizzi peer vietati è difesa in profondità. La difesa primaria è l'isolamento
 > di rete in uscita del nodo di relay**, applicato dall'infrastruttura e non dal processo: il
@@ -284,8 +284,8 @@ Conseguenze operative:
   sovrabbondante di ordini di grandezza.
 - **Il picco va dimensionato sul caso avverso, non sulla media.** La quota di sessioni instradate
   dal relay dipende dal parco reti dei clienti e **non è nota a priori**: Telemedic la **misura**
-  sul proprio traffico (§6.4) e non cita stime di terzi. `[NV]` - nessuna percentuale è
-  dichiarata in questo documento perché nessuna è stata misurata dal progetto.
+  sul proprio traffico (§6.4) e non cita stime di terzi. Nessuna percentuale `[NV]` è dichiarata
+  in questo documento perché va misurata dall'`TECH` sul progetto.
 - **Il nodo è limitato dall'ingresso e uscita, non dal calcolo**, salvo il trasporto protetto su
   flusso, che aggiunge una cifratura del tunnel **oltre** a quella del flusso.
 
@@ -413,8 +413,8 @@ secondo alcuna raccomandazione internazionale**.
 
 La ragione è tecnica e va scritta: i modelli classici di stima della qualità vocale sono modelli
 di **pianificazione** di reti telefoniche a banda stretta, non modelli di misura di una sessione
-in tempo reale; i fattori di compromissione per la codifica audio moderna non sono
-standardizzati nelle tabelle classiche `[NV]`; e per il video non esiste nulla di paragonabile
+in tempo reale; i fattori di compromissione per la codifica audio moderna non sono standardizzati nelle
+tabelle classiche `[NV]` secondo l'`TECH`; e per il video non esiste nulla di paragonabile
 applicabile al tempo reale, perché i modelli esistenti assumono buffering e segmenti che qui non
 ci sono. Chi pubblica un punteggio di opinione media per una sessione di questo tipo sta usando
 un fattore di un altro codec, o un valore inventato.
@@ -439,7 +439,7 @@ consecutivi, senza bisogno di estensioni di reportistica che i navigatori non su
 
 ### 6.4 Soglie e conseguenza clinica
 
-Le soglie sono **specifica di prodotto, mai conformità**: il vincolo V-12 è esplicito e nessuna
+Le soglie sono **specifica di prodotto, mai conformità**: il vincolo [V-12](../11_registri/01-vincoli-in-vigore.md#v-12) è esplicito e nessuna
 soglia tecnica in questo ambito è imposta dalla normativa italiana. I valori sono configurabili,
 hanno un valore predefinito documentato, e la loro taratura avviene su dati misurati dal progetto,
 non su tabelle prese altrove.
@@ -481,7 +481,7 @@ chiede di non degradare né l'una né l'altra, scartando semmai frame: semantica
 interessante per questo dominio ed è anche il meno probabilmente realizzato, essendo il più
 recente. **Va verificato a runtime rileggendo il parametro, non assunto.**
 
-**L'esposizione di questa scelta ha un vincolo regolatorio**, dichiarato dal vincolo V2: la
+**L'esposizione di questa scelta ha un vincolo regolatorio**, dichiarato dal vincolo [V2](../11_registri/03-vincoli-fondanti.md#v2): la
 formulazione difendibile è che si tratta di una **preferenza di resa scelta dall'utente**, non di
 un adattamento automatico guidato dal contenuto clinico. Un sistema che adattasse la qualità in
 funzione di una finalità diagnostica dichiarata si avvicinerebbe alla soglia della regola di
@@ -531,13 +531,13 @@ Obblighi che ne discendono, tutti verificabili:
 5. **Il componente di registrazione è un servizio distinto**, con perimetro, credenziali,
    registri e sorveglianza propri. Non è una funzione del servizio applicativo.
 
-La questione Q-08 in bacheca - l'incompatibilità fra registrazione lato server e cifratura fino
+La questione [Q-08](../11_registri/02-questioni-aperte.md#q-08) in bacheca - l'incompatibilità fra registrazione lato server e cifratura fino
 agli estremi, e i suoi effetti sul modello dati - è indirizzata ad `ARCH` e resta aperta. Questa
 area **non la anticipa**: recepisce D23 e descrive le conseguenze tecniche.
 
 ### 8.2 Il contenitore si negozia, non si assume
 
-Il vincolo V-11 è esplicito e questa area lo applica anche alla registrazione lato server, dove
+Il vincolo [V-11](../11_registri/01-vincoli-in-vigore.md#v-11) è esplicito e questa area lo applica anche alla registrazione lato server, dove
 non è ovvio che si applichi.
 
 Il contenitore risultante **dipende dai codec effettivamente negoziati nella sessione**, che
@@ -632,7 +632,7 @@ Il dettaglio dell'organizzazione della suite è in
 | Rotazione delle chiavi durante la sessione | **Non esiste** nella tecnologia. Non si rivendica |
 | Cifratura fino agli estremi in modalità con registrazione | **Non sussiste**, per costruzione. Dichiarata nel consenso e nell'interfaccia |
 | Misura automatica della latenza da obiettivo a schermo | Realizzabile su un solo motore di navigazione |
-| Quota di sessioni instradate dal relay | `[NV]` - da misurare sul traffico proprio, mai citata da stime altrui |
+| Quota di sessioni instradate dal relay | `[NV]` - da misurare dall'`TECH` sul traffico proprio, mai citata da stime altrui |
 | Sottotitoli in tempo reale | Non conformità dichiarata su un criterio di accessibilità (D24), con misura alternativa e canale dati comunque definito nel protocollo |
 
 ---

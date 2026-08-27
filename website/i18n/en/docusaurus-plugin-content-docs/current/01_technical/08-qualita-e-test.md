@@ -49,7 +49,7 @@ Few and non-negotiable, because an unstable test is worse than an absent test: i
 
 ### 3.1 The scope
 
-Constraint V-13 of `INTEG` defines what is public contract. This area receives it entirely and derives the operational consequence: **what is contract has a contract test; what is not, does not have one and can change**. Extending contract tests beyond scope means accidentally freezing internal details.
+Constraint [V-160](../11_registri/01-vincoli-in-vigore.md#v-160) of `INTEG` defines what is public contract. This area receives it entirely and derives the operational consequence: **what is contract has a contract test; what is not, does not have one and can change**. Extending contract tests beyond scope means accidentally freezing internal details.
 
 Covered elements: API routes, methods, parameters and schemas; published clinical profiles and capability statement; event types and their schemas; authorisation scopes; problem type identifiers and outcome codes; interfaces of replaceable modules; messaging protocol of the embeddable component and closed set of theme properties.
 
@@ -65,8 +65,8 @@ The same applies to event schemas and clinical profiles: a schema that narrows i
 
 Messages outbound to third parties have their own suite, because they are the point where defects manifest on someone else's side:
 
-- **verifiable signature** with the public material declared by the project, according to constraint V-15 of `INTEG` - asymmetric signature with resolvable key identifier, not shared secret;
-- **no clinical content in the envelope**, according to constraint V-14 of `INTEG`: a test inspects every event type and fails if a clinical field appears;
+- **verifiable signature** with the public material declared by the project, according to constraint [V-162](../11_registri/01-vincoli-in-vigore.md#v-162) of `INTEG` - asymmetric signature with resolvable key identifier, not shared secret;
+- **no clinical content in the envelope**, according to constraint [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) of `INTEG`: a test inspects every event type and fails if a clinical field appears;
 - **retries with exponential backoff and jitter**, with verification that the recipient does not receive bursts;
 - **idempotency from the recipient side**: the same envelope delivered twice carries the same deduplication key;
 - **behaviour toward hostile addresses**: a destination address supplied by the user is an outbound request to an arbitrary address, and tests verify that internal addresses are rejected.
@@ -94,9 +94,9 @@ Factory requirements:
 
 ### 4.3 The terminology constraint
 
-Tests **cannot include content from licensed coding systems**. It is constraint V-03 and the policy of D31-D33: the repository does not receive concepts whose licence does not permit it, in any form, including test fixtures and caches.
+Tests **cannot include content from licensed coding systems**. It is constraint [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) and the policy of D31-D33: the repository does not receive concepts whose licence does not permit it, in any form, including test fixtures and caches.
 
-Operational consequence: the suite runs with the terminology gateway in **degraded mode for non-enabled systems**, and this is the default configuration of tests. A beneficial collateral follows: **the main path is continuously tested** in the configuration without licensed terminology, which is exactly what constraint V-03 requires to guarantee. A degraded mode that runs at every suite execution is a mode that actually works.
+Operational consequence: the suite runs with the terminology gateway in **degraded mode for non-enabled systems**, and this is the default configuration of tests. A beneficial collateral follows: **the main path is continuously tested** in the configuration without licensed terminology, which is exactly what constraint [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) requires to guarantee. A degraded mode that runs at every suite execution is a mode that actually works.
 
 ---
 
@@ -134,7 +134,7 @@ These are precisely the defects that render a service unusable for those who nee
 
 Criteria M1-M8 and A1-A10 of [`04-frontend.md`](./04-frontend.md) §§6–7 **are not a list of good intentions**: each has, in the right column, the way violation is tested. A criterion without a test that can fail is a criterion nobody respects.
 
-Two tests merit separate mention because they verify a prohibition instead of a capability: the test that attempts to **conceal the recording indicator** by every means provided by configuration and must fail in all; and the test that attempts to **save a theme configuration that degrades contrast** and must be rejected at save, not accepted with a warning (constraint V-16 of `INTEG`).
+Two tests merit separate mention because they verify a prohibition instead of a capability: the test that attempts to **conceal the recording indicator** by every means provided by configuration and must fail in all; and the test that attempts to **save a theme configuration that degrades contrast** and must be rejected at save, not accepted with a warning (constraint [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) of `INTEG`).
 
 ---
 

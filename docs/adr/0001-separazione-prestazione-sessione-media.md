@@ -7,7 +7,7 @@ description: Perché l'atto clinico a distanza e la connessione in tempo reale s
 # ADR-0001 - Separazione fra prestazione clinica e sessione media
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Vincoli di riferimento**: V-01 di bacheca; base architetturale §2
+**Vincoli di riferimento**: [V-01](../11_registri/01-vincoli-in-vigore.md#v-01) di bacheca; base architetturale §2
 
 ## Contesto
 
@@ -114,7 +114,7 @@ Regola operativa che ne discende, e che è la sostanza della decisione:
 - Nessun percorso in cui un evento della sessione media invochi una transizione di stato dell'atto.
 - Prova che, dopo caduta e riconnessione, esista una sola prestazione.
 
-**Chi altro è vincolato**: tutte le aree. È il vincolo V-01 di bacheca e nessuna area può unirli.
+**Chi altro è vincolato**: tutte le aree. È il vincolo [V-01](../11_registri/01-vincoli-in-vigore.md#v-01) di bacheca e nessuna area può unirli.
 
 ## Riferimenti
 

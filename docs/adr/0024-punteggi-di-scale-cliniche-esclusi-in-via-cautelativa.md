@@ -7,7 +7,7 @@ description: Perché il sistema conserva le risposte ai questionari strutturati 
 # ADR-0024 - Punteggi di scale e questionari clinici esclusi dal modello in via cautelativa
 
 **Stato**: accettata, provvisoria · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Origine**: questione posta dal modulo dei fondamenti all'area di conformità e a quest'area
+**Origine**: questione posta dal modulo dei fondamenti all'`COMP` e a quest'area
 
 ## Contesto
 
@@ -60,7 +60,7 @@ percepita come incompleta.
    - **non è incluso nella distribuzione**: è dato di configurazione per tenant, caricato da chi
    installa, che è il soggetto che ha o può ottenere la licenza d'uso. È la stessa scelta adottata
    per i cataloghi di dati di riferimento.
-4. La decisione è **provvisoria** e cade quando l'area di conformità chiude la questione,
+4. La decisione è **provvisoria** e cade quando l'`COMP` chiude la questione,
    estendendo formalmente la politica di licenza a scale e punteggi.
 
 **Criterio suggerito per la chiusura**: la stessa tassonomia a regimi già adottata per le

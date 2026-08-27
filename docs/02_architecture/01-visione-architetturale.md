@@ -53,7 +53,7 @@ risolti nell'ordine in cui compaiono.
 
 ### F1 - Dimostrabilità prima di ogni altra cosa
 
-Il vincolo **V5** e la decisione **D42** impongono un registro degli accessi **non ripudiabile e
+Il vincolo **[V5](../11_registri/03-vincoli-fondanti.md#v5)** e la decisione **D42** impongono un registro degli accessi **non ripudiabile e
 non alterabile**. La decisione è categorica su un punto che l'industria confonde
 sistematicamente: il versionamento delle entità applicative - la tabella di storico che il
 livello di persistenza mantiene in automatico - **versiona ma non rende immutabile**, perché chi
@@ -69,7 +69,7 @@ conseguenza integrale.
 
 ### F2 - Il confine fra veicolo e interpretazione
 
-Il vincolo **V2** e le decisioni **D26** e **D46** collocano il progetto su un crinale preciso: il
+Il vincolo **[V2](../11_registri/03-vincoli-fondanti.md#v2)** e le decisioni **D26** e **D46** collocano il progetto su un crinale preciso: il
 sistema **registra contenuto clinico redatto da un professionista** e **applica soglie definite
 da un professionista**, ma non genera informazione clinica propria e non deduce soglie. Il
 confine non è una postura comunicativa: è una proprietà strutturale che deve essere leggibile nel
@@ -84,7 +84,7 @@ codice. Da qui discendono, senza margine di discrezionalità:
 
 ### F3 - Sovranità e sostituibilità
 
-Il vincolo **V1**, la decisione **D24** e la decisione **D40** trasformano ciò che nasceva come
+Il vincolo **[V1](../11_registri/03-vincoli-fondanti.md#v1)**, la decisione **D24** e la decisione **D40** trasformano ciò che nasceva come
 argomento di posizionamento in un requisito verificabile: **nessun componente obbligatorio del
 percorso principale può dipendere da un servizio non sostituibile o stabilito fuori dall'Unione
 europea**, e i tre profili di distribuzione - Unione europea, territorio italiano, cloud
@@ -99,7 +99,7 @@ Dove il ripiego non esiste, il percorso non è principale.
 
 ### F4 - Integrabilità totale
 
-Il vincolo **V3** stabilisce che **nessuna capacità del sistema è raggiungibile solo
+Il vincolo **[V3](../11_registri/03-vincoli-fondanti.md#v3)** stabilisce che **nessuna capacità del sistema è raggiungibile solo
 dall'interfaccia utente**. La conseguenza non è «esporre tutto in REST»: è che il livello
 applicativo non può contenere logica di dominio, perché altrimenti la stessa capacità avrebbe due
 implementazioni divergenti - una per l'interfaccia e una per l'interfaccia applicativa. Il modello
@@ -108,7 +108,7 @@ adattatore sottile sopra di esso.
 
 ### F5 - Isolamento fra titolari autonomi
 
-Il vincolo **V4** impone che ogni entità, ogni evento e ogni riga di registro portino
+Il vincolo **[V4](../11_registri/03-vincoli-fondanti.md#v4)** impone che ogni entità, ogni evento e ogni riga di registro portino
 l'identificativo di tenant. La decisione **D8** impone il doppio modello: servizio gestito
 multi-tenant e installazione presso il cliente a tenant unico, **con lo stesso codice**. La forza
 strutturante non è la molteplicità dei clienti: è che nel servizio gestito i tenant sono
@@ -127,7 +127,7 @@ e ciò che nasce nell'uno entra nell'altro solo come fatto già accaduto.
 
 ### F7 - Accessibilità e uso reale come requisiti funzionali
 
-Il vincolo **V6** e la decisione **D25** rendono l'accessibilità, il metodo di progettazione a
+Il vincolo **[V6](../11_registri/03-vincoli-fondanti.md#v6)** e la decisione **D25** rendono l'accessibilità, il metodo di progettazione a
 partire dallo schermo piccolo e l'ingegneria dell'usabilità criteri di accettazione di ogni
 schermata, non rifiniture. L'impatto architetturale è meno ovvio di quanto sembri e riguarda tre
 punti: la **degradazione comprensibile** (audio prima del video, ripresa della sessione, ripiego
@@ -212,7 +212,7 @@ versione di uno standard esterno senza toccare le invarianti.
 
 **La sessione media non tocca il contenuto clinico.** Il collegamento fra il contesto della
 sessione media e quello della prestazione passa per soli identificativi ed eventi di stato. È la
-traduzione strutturale del vincolo **V2** e insieme la condizione che rende la sessione media
+traduzione strutturale del vincolo **[V2](../11_registri/03-vincoli-fondanti.md#v2)** e insieme la condizione che rende la sessione media
 sostituibile.
 
 **Il tracciamento riceve da tutti e non alimenta nessuno.** Nessun percorso applicativo legge dal
@@ -224,7 +224,7 @@ ciò che consente di conservarlo separatamente e di renderlo append-only senza c
 Un attributo di qualità enunciato come aggettivo non è verificabile. Quelli che seguono sono gli
 scenari con cui l'architettura di Telemedic si dichiara verificabile: sorgente dello stimolo,
 stimolo, ambiente, risposta attesa, misura della risposta. Sono **scenari architetturali**, non
-requisiti di prodotto: il catalogo dei requisiti sta nell'area funzionale e i due insiemi devono
+requisiti di prodotto: il catalogo dei requisiti sta nell'`FUNZ` e i due insiemi devono
 restare tracciabili l'uno all'altro.
 
 ### SQ-01 - Il registro regge alla manomissione
@@ -462,7 +462,7 @@ creerebbe una prestazione fantasma; una prova tecnica prima dell'appuntamento cr
 sanitario inesistente; una prestazione conclusa in fonia dopo il fallimento del video risulterebbe
 non erogata; il conteggio delle prestazioni erogate coinciderebbe con il conteggio delle
 connessioni riuscite, che è una grandezza diversa e serve ad altro. **Rifiutato senza
-eccezioni**; è il vincolo V-01 della bacheca inter-agenti.
+eccezioni**; è il vincolo [V-01](../11_registri/01-vincoli-in-vigore.md#v-01) della bacheca inter-agenti.
 
 ### R2 - Trattare il versionamento delle entità come registro immutabile
 
@@ -518,7 +518,7 @@ sempre attribuite a un professionista identificato, mai fornite come predefinito
 ### R9 - Una funzione raggiungibile solo dall'interfaccia
 
 Ricorre in ogni progetto sotto forma di «questa è solo una schermata di amministrazione».
-Produce un sistema non automatizzabile e non verificabile, e viola V3. **Rifiutato**: se una
+Produce un sistema non automatizzabile e non verificabile, e viola [V3](../11_registri/03-vincoli-fondanti.md#v3). **Rifiutato**: se una
 capacità esiste, esiste anche come interfaccia applicativa documentata.
 
 ### R10 - Aggiornare sul posto lo stato di allarmi, misure e piani
@@ -539,7 +539,7 @@ l'installazione presso il cliente è il caso degenere con un solo tenant, non un
 
 Un'architettura enunciata e non verificata degrada silenziosamente. Il progetto adotta un
 insieme di verifiche eseguite automaticamente e considerate bloccanti, che traducono i principi
-in controlli. L'elenco è architetturale; la loro realizzazione appartiene all'area tecnica.
+in controlli. L'elenco è architetturale; la loro realizzazione appartiene all'`TECH`.
 
 | Verifica | Che cosa impedisce |
 |---|---|
@@ -548,7 +548,7 @@ in controlli. L'elenco è architetturale; la loro realizzazione appartiene all'a
 | Nessuna interrogazione raggiunge la base dati senza contesto di tenant | Fuga di dati fra titolari autonomi |
 | Nessun contesto accede alle tabelle di un altro contesto | L'erosione silenziosa dei confini |
 | Ogni scrittura di dato che produce un evento lo scrive nella stessa transazione | Eventi persi ed eventi fantasma |
-| Nessun letterale numerico usato come soglia clinica nel codice | Lo scivolamento oltre il confine di V2 |
+| Nessun letterale numerico usato come soglia clinica nel codice | Lo scivolamento oltre il confine di [V2](../11_registri/03-vincoli-fondanti.md#v2) |
 | Nessun campo di documento popolato da testo generato dal sistema | Idem |
 | Ogni evento pubblicato ha uno schema versionato e registrato | Rotture non annunciate del contratto pubblico |
 | La connessione restituita al pool non conserva il tenant della richiesta precedente | Contaminazione fra tenant per riuso di connessione |

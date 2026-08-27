@@ -149,7 +149,7 @@ regge quando una chiamata nasce da un processo interno e non da una richiesta es
 
 **Il contesto si imposta dentro la transazione, con la forma che decade alla sua chiusura, non con
 quella che persiste sulla connessione.** È il punto in cui questa architettura recepisce il
-vincolo V-112 posto dall'area tecnica, e la differenza fra le due forme non è stilistica: la forma
+vincolo [V-112](../11_registri/01-vincoli-in-vigore.md#v-112) posto dall'`TECH`, e la differenza fra le due forme non è stilistica: la forma
 persistente lascia il tenant sulla connessione restituita al pool, e alla richiesta successiva
 produce una contaminazione fra titolari autonomi. È un difetto che non dà sintomi visibili e si
 manifesta come dato altrui in una schermata.
@@ -221,8 +221,8 @@ retrocompatibile:
 |---|---|
 | **Espansione** | Si aggiunge la nuova forma senza rimuovere la vecchia. Lo schema regge entrambe. Si rilascia il codice che sa scrivere in entrambe e leggere da entrambe |
 
-> **Il metodo si applica a ogni migrazione, non solo a quelle non retrocompatibili** (vincolo V-111
-> posto dall'area tecnica). Nessun rilascio è insieme distruttivo e funzionale, e **due versioni
+> **Il metodo si applica a ogni migrazione, non solo a quelle non retrocompatibili** (vincolo [V-111](../11_registri/01-vincoli-in-vigore.md#v-111)
+> posto dall'`TECH`). Nessun rilascio è insieme distruttivo e funzionale, e **due versioni
 > consecutive dell'applicazione devono poter convivere sulla stessa base dati**: è la condizione
 > necessaria all'aggiornamento senza interruzione e al ritorno a una versione precedente. Una
 > funzionalità che richieda una migrazione distruttiva nello stesso rilascio **va riprogettata**,
@@ -403,7 +403,7 @@ ha bisogno della separazione anche senza essere un servizio gestito.
 | Verifica dell'integrità delle catene | Per tenant | Uguale, con un solo tenant |
 
 **Il codice è identico in entrambe le colonne.** Ciò che cambia è la cardinalità e la ripartizione
-delle responsabilità giuridiche, che è materia dell'area di conformità.
+delle responsabilità giuridiche, che è materia dell'`COMP`.
 
 ### 8.3 Il vincolo che ne discende
 
@@ -424,9 +424,9 @@ Le seguenti verifiche sono bloccanti. La loro assenza rende la tenancy una prome
 | MT-2 | Un principale abilitato sul tenant A non ottiene alcun dato del tenant B, per nessun percorso, incluse le operazioni di ricerca e di esportazione | L'isolamento effettivo |
 | MT-3 | Le politiche di riga sono attive e non superabili dal ruolo applicativo | La difesa in profondità funziona davvero |
 | MT-4 | La connessione restituita al pool non conserva il contesto della richiesta precedente | Assenza di contaminazione per riuso |
-| MT-5 | Ogni tabella di dominio porta l'identificativo di tenant | Il vincolo V4 |
-| MT-6 | Ogni evento pubblicato porta l'identificativo di tenant | Il vincolo V4 sugli eventi |
-| MT-7 | Ogni voce di registro porta l'identificativo di tenant | Il vincolo V4 sul registro |
+| MT-5 | Ogni tabella di dominio porta l'identificativo di tenant | Il vincolo [V4](../11_registri/03-vincoli-fondanti.md#v4) |
+| MT-6 | Ogni evento pubblicato porta l'identificativo di tenant | Il vincolo [V4](../11_registri/03-vincoli-fondanti.md#v4) sugli eventi |
+| MT-7 | Ogni voce di registro porta l'identificativo di tenant | Il vincolo [V4](../11_registri/03-vincoli-fondanti.md#v4) sul registro |
 | MT-8 | Ogni migrazione è reversibile e la reversione è provata | §4.1 |
 | MT-9 | La creazione di un tenant non richiede passaggi manuali | §7 |
 | MT-10 | Nessun lavoro pianificato opera su più tenant in una sola interrogazione | §3.3 |
@@ -446,4 +446,4 @@ altro tenant deve fallire nella prova, non essere semplicemente evitato dal codi
 |---|---|---|
 | §2.2 | Il limite pratico di schemi gestibili nell'archivio adottato prima che il costo dei metadati diventi significativo | Area tecnica, con misura su dati sintetici prima della prima installazione a molti tenant |
 | §5.3 | Il costo in latenza effettivo della replica sincrona sull'operazione di firma nell'assetto adottato | Area tecnica, con misura |
-| §4.2 | La durata del periodo di sicurezza fra commutazione e contrazione | Area tecnica in accordo con l'area di conformità, che ne determina il minimo in base agli obblighi di conservazione |
+| §4.2 | La durata del periodo di sicurezza fra commutazione e contrazione | Area tecnica in accordo con l'`COMP`, che ne determina il minimo in base agli obblighi di conservazione |

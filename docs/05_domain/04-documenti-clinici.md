@@ -225,7 +225,7 @@ retroattivo sul contenuto già conferito.**
 
 ### 5.3 Il versionamento delle entità non è il registro degli accessi
 
-> **[BASE] `D42`, `V-04`** - Il versionamento automatico delle entità **versiona, non rende
+> **[BASE] `D42`, [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04)** - Il versionamento automatico delle entità **versiona, non rende
 > immutabile**: chi ha accesso in scrittura alla base dati può alterare anche le tabelle di
 > versionamento. Il registro degli accessi è a **catena di impronte e conservazione separata**.
 
@@ -238,7 +238,7 @@ sostituisce l'altro, e presentare il primo come «audit immutabile» è un claim
 
 ### 6.1 Il vincolo
 
-> **[BASE] `V-07`** - Il contenuto informativo dei documenti destinati al fascicolo si modella
+> **[BASE] [`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07)** - Il contenuto informativo dei documenti destinati al fascicolo si modella
 > come **dataset canonico**; le serializzazioni (CDA2, FHIR, altro) sono **sostituibili** e non
 > vanno cablate.
 
@@ -248,7 +248,7 @@ La ragione non è teorica. È accertata:
 > tipologia documentale e i metadati di indicizzazione** per le dieci nuove tipologie. È
 > pubblicata una versione 2.6.4 delle specifiche nazionali di interoperabilità fra sistemi
 > regionali di fascicolo, ma non è stato possibile accertare se contenga già i template di
-> telemedicina (`B1`, § V4, «Cosa resta aperto»). **Questione `Q-07` in bacheca, indirizzata
+> telemedicina (`B1`, § V4, «Cosa resta aperto»). **Questione [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) in bacheca, indirizzata
 > all'area `COMP`**: a chi si richiedono e con quali tempi.
 
 Un modello che avesse cablato il template CDA2 sarebbe oggi impossibile da scrivere: non c'è
@@ -344,7 +344,7 @@ Tre osservazioni di modellazione:
 > le note per i collaboratori.
 >
 > **La collocazione adottata da quest'area**, in accoglimento della proposta formulata dall'area
-> protocolli (questione `Q-161` in bacheca) e come contributo all'ADR richiesto da `REQ-46` di
+> protocolli (questione [`Q-161`](../11_registri/02-questioni-aperte.md#q-161) in bacheca) e come contributo all'ADR richiesto da `REQ-46` di
 > `B1`:
 >
 > | Contenuto obbligatorio | Campo del tracciato | Ruolo |
@@ -359,7 +359,7 @@ Tre osservazioni di modellazione:
 > 1. Il contenuto è prodotto **in forma strutturata e ripetibile**, non come prosa libera
 >    redatta a mano dal professionista. Deriva dal profilo di qualità della sessione e
 >    dall'atto di attestazione del medico.
-> 2. L'attestazione di idoneità resta **un atto del professionista** (vincolo `V2`): il valore è
+> 2. L'attestazione di idoneità resta **un atto del professionista** (vincolo [`V2`](../11_registri/03-vincoli-fondanti.md#v2)): il valore è
 >    **misurato dal sistema e confermato dal medico**, mai generato autonomamente e inserito nel
 >    documento. Un valore che il sistema scrivesse da sé in un documento clinico sarebbe
 >    informazione prodotta dal sistema dentro un atto sanitario.
@@ -371,7 +371,7 @@ Questa seconda condizione è la catena logica che rende difendibile l'intero imp
 metriche di qualità: la norma impone al medico di attestare l'idoneità del collegamento →
 l'attestazione richiede un'evidenza oggettiva → le metriche di sessione **sono** quell'evidenza →
 la soglia di allarme è una scelta del progetto, configurabile, e non una soglia di legge
-(`B1`, § «Che cosa ne discende per Telemedic», punto 2; vincolo `V-12` in bacheca).
+(`B1`, § «Che cosa ne discende per Telemedic», punto 2; vincolo [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12) in bacheca).
 
 ## 7. La relazione collaborativa del teleconsulto
 
@@ -554,7 +554,7 @@ Due vincoli discendono dal decreto e vanno tenuti presenti:
 Un capitolo sui documenti deve dire anche che cosa il sistema non produce, perché è la parte che
 determina la qualificazione regolatoria.
 
-> **[BASE] `V2`, `BR-040`, `RF-126`** - Il sistema **non genera, non deduce e non suggerisce
+> **[BASE] [`V2`](../11_registri/03-vincoli-fondanti.md#v2), `BR-040`, `RF-126`** - Il sistema **non genera, non deduce e non suggerisce
 > contenuto clinico interpretativo**. Può fornire modelli di documento e campi strutturati; può
 > precompilare dati anagrafici, amministrativi e temporali e dati precedentemente inseriti dal
 > professionista. **Nessun campo di valutazione clinica contiene testo generato.**

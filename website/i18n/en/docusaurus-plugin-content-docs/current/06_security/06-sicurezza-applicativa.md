@@ -68,7 +68,7 @@ requirement: a professional under time pressure must not have to interpret a cod
 **On the embeddable component, a note that carries security weight and not just product weight.**
 The recording-in-progress indicator, warnings and consent texts, the outcome of key verification,
 clinical error messages and the encryption status indicator **cannot be re-themed or hidden**
-(constraint V-23 of the integration area). The permitted theming properties are a closed and
+(constraint [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) of the integration area). The permitted theming properties are a closed and
 versioned set, validated by the receiving side with a contrast check, and a configuration that
 degrades accessibility **is rejected on save**, not flagged as a warning. No injection of arbitrary
 style sheets from outside: an arbitrary style sheet can hide a mandatory indicator, and hiding the
@@ -158,7 +158,7 @@ File upload is, in this domain, a clinical function: attachments, images, docume
 | **Storage outside the served path**, with download mediated by the application | An uploaded file that is directly reachable is a file served without authorisation |
 | **Download with a system-declared type and content disposition as an attachment** where the type is not one for safe display | Prevents execution in the context of the application's origin |
 | **Anti-malware scanning on the upload path** | It is the deployer's requirement, but the product must **provide the hook point** and behave in a defined way when the scan is unavailable: refusal, not silent acceptance |
-| **No file content in the logs** | Constraint V-150 |
+| **No file content in the logs** | Constraint [V-150](../11_registri/01-vincoli-in-vigore.md#v-150) |
 | **Structured documents parsed with external entity resolution switched off** | §4 |
 | **Compressed archives**: a limit on the expansion ratio and on the number of entries | Defence against pathological expansion |
 
@@ -182,14 +182,14 @@ configurations: **protecting availability** and **slowing down abuse**.
 
 A threshold that is too low on a public service is a zero-cost denial of service for the attacker;
 a threshold that is too high does not protect. **The thresholds are tenant configuration, they are
-a product specification and never compliance** (constraint V-12), and they are observable: the
+a product specification and never compliance** (constraint [V-12](../11_registri/01-vincoli-in-vigore.md#v-12)), and they are observable: the
 deployer must be able to tune them against real data.
 
 ## 8. The single egress broker
 
 ### 8.1 The principle
 
-**Constraint V-157, and the answer to question Q-16.**
+**Constraint [V-157](../11_registri/01-vincoli-in-vigore.md#v-157), and the answer to question [Q-16](../11_registri/02-questioni-aperte.md#q-16).**
 
 > **No application component opens connections towards destinations derived from an inbound datum.
 > Only the broker has a route to the outside; for the others, egress is denied at network level.**
@@ -257,16 +257,16 @@ reachable.
 
 | Egress point | What goes out | Specific constraint |
 |---|---|---|
-| **Terminology gateway** | Queries about codes and code systems | **No patient identifier** (V-151); no cache persisted to disk |
+| **Terminology gateway** | Queries about codes and code systems | **No patient identifier** ([V-151](../11_registri/01-vincoli-in-vigore.md#v-151)); no cache persisted to disk |
 | **Interoperability towards national and regional infrastructures** | Documents and metadata according to the infrastructure's profile | Destinations from a closed list, configured by the deployer |
-| **Outbound messages to the integrator** | Identifiers and references | **No clinical content** (V-21); **asymmetric signature** with a resolvable key identifier (V-22); destinations from the tenant's trust registry |
+| **Outbound messages to the integrator** | Identifiers and references | **No clinical content** ([V-161](../11_registri/01-vincoli-in-vigore.md#v-161)); **asymmetric signature** with a resolvable key identifier ([V-162](../11_registri/01-vincoli-in-vigore.md#v-162)); destinations from the tenant's trust registry |
 | **Resolution of absolute references in resources** | Requests towards addresses contained in the received datum: a reference, an attachment, the full identifier of a collection entry | **It is the most dangerous point**, because the destination is **literally written by the caller**. It goes through the broker like all the others, and in addition automatic resolution is **switched off by default** |
 | **Retrieval of metadata and public key material** | Requests towards the key publication addresses of the admitted issuers | Addresses from the **trust registry**, never from the token being verified: a token that says where to fetch the key to verify it with is a token that validates itself |
 
 **The relay is not among these, and must not be.** The relay forwards transport packets towards a
 destination chosen by the client: it makes no application requests, it has no application layer on
 which to apply any of these four checks, and its defence is of a different nature - the outbound
-network isolation of constraint V-10, dealt with in
+network isolation of constraint [V-10](../11_registri/01-vincoli-in-vigore.md#v-10), dealt with in
 [05 §4](./05-sicurezza-del-tempo-reale.md). Confusing them would produce a bad design of both.
 
 ### 8.4 A single abuse test suite
@@ -292,7 +292,7 @@ cannot implement on their behalf:
   configuration. The project documents them in the reference configuration and **checks them at
   start-up**: if the component discovers that it has a route to the outside, **start-up is
   refused**. It is the same consequence the start-up check table of
-  `docs/02_architecture/08-viste-di-deployment.md` §8 assigns to this row, and it admits none of
+  [`docs/02_architecture/08-viste-di-deployment.md`](../02_architecture/08-viste-di-deployment.md) §8 assigns to this row, and it admits none of
   the softening that table reserves, with a stated reason, to the log store row alone. The reason
   is in §8.1: the constraint is architectural **because it does not depend on anyone's
   diligence**, and a start-up that proceeds with a warning puts the property back into the hands
@@ -311,7 +311,7 @@ All of it converges on the table in [09](./09-ripartizione-delle-responsabilita.
 
 | Reference | Question | To whom |
 |---|---|---|
-| Q-16 | **Closed by this area** with §8: protection against requests directed at internal resources is implemented **once only** in a shared component, as an architectural requirement with route denial at network level, and not repeated at every egress point | - |
-| Q-156 | Concrete form of the single trust registry, which also feeds the broker's allow-list (§8.2) | Architecture |
+| [Q-16](../11_registri/02-questioni-aperte.md#q-16) | **Closed by this area** with §8: protection against requests directed at internal resources is implemented **once only** in a shared component, as an architectural requirement with route denial at network level, and not repeated at every egress point | - |
+| [Q-156](../11_registri/02-questioni-aperte.md#q-156) | Concrete form of the single trust registry, which also feeds the broker's allow-list (§8.2) | Architecture |
 | - | Placement of the broker: a standalone component or a function of an existing edge component. This area fixes its behaviour, not its placement | Architecture |
 | - | Default rate limiting thresholds (§7): a product specification, never compliance | Functional |

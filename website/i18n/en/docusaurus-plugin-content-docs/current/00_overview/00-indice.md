@@ -207,7 +207,7 @@ They serve only one case, but it is a case that occurs: two documents saying dif
 **Reliability markers.** `[NV]` signals a statement **not verified on primary source**,
 with the indication of who must close it. **Nothing is invented**: no RFC numbers, articles, dates, transaction identifiers or code values invented to complete a table exist. Where the datum is missing, there is the marker.
 
-**Three distinct states, never confused.** «The regulation establishes» introduces an obligation with cited source; «it is practice» a widespread use with no obligation; «it is a project choice» a decision which as such has a decision record and can be changed. The domain area uses the explicit form `[NORM]`, `[BASE]`, `[MOD]`, `[NV]`.
+**Three distinct states, never confused.** «The regulation establishes» introduces an obligation with cited source; «it is practice» a widespread use with no obligation; «it is a project choice» a decision which as such has a decision record and can be changed. The domain area uses the explicit form `[NORM]`, `[BASE]`, `[MOD]`, `[NV]` - the last one marks an unverified statement and declares to whom verification must be requested, according to the three admitted forms described in `CONTRIBUTING.md`.
 
 **Frozen identifiers.** `RF-*` functional requirements, `RNF-*` non-functional, `BR-*` business rules, `ATT-*` actors, `UC-*` use cases, `OUT-*` exclusions, `EX-*` typed outcomes, `DM-*` domain modelling decisions. **They are not renumbered, reassigned or changed in meaning**: the traceability required by IEC 62304 cannot be reconstructed afterwards, and an identifier reused for a different requirement renders the entire matrix unusable (`D45`).
 

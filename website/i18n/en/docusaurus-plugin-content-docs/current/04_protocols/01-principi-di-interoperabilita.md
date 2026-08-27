@@ -31,7 +31,7 @@ months of work saved on every integration.
 
 ### 1.2 It is compatible with data sovereignty
 
-The project's constraint V1 forbids a **mandatory component of the main path** from depending on a
+The project's constraint [V1](../11_registri/03-vincoli-fondanti.md#v1) forbids a **mandatory component of the main path** from depending on a
 service that is not substitutable or that is established outside the European Union. Applied to
 protocols, it produces three concrete consequences.
 
@@ -41,7 +41,7 @@ would require a third-party identity provider to host the proxy script - is excl
 its adoption status (chapter [09](./09-tempo-reale.md)).
 
 Second: an external terminology service is admitted only as an **optional** component, with the
-system fully functional when it is switched off. This is constraint V-03 on the noticeboard, and
+system fully functional when it is switched off. This is constraint [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) on the noticeboard, and
 chapter [02](./02-fhir.md) describes its exact cost.
 
 Third: **build-time** dependencies on external registries are admitted (the packages of the FHIR
@@ -87,7 +87,7 @@ precisely so as to have a single correlation chain.
 A protocol is adopted behind an adaptation boundary, never in the heart of the domain. The domain
 model does not import the types of the FHIR libraries, does not know the segments of HL7 v2, does
 not know what a `Bundle` is. It is what makes it possible to add a serialisation or a version
-without rewriting the clinical rules, and it is the precondition of constraint V-07 (canonical
+without rewriting the clinical rules, and it is the precondition of constraint [V-07](../11_registri/01-vincoli-in-vigore.md#v-07) (canonical
 dataset, substitutable serialisations).
 
 ## 2. The versions adopted, and why
@@ -152,7 +152,7 @@ relationship with `Sunset` is normative: the `Sunset` timestamp **MUST NOT** be 
 |---|---|---|---|
 | Clinical interoperability | FHIR R4 REST façade | GraphQL over FHIR | No counterparty in the domain asks for it; it would double the authorisation surface |
 | Product capabilities | REST API described in OpenAPI 3.1 | Modelling product capabilities as FHIR resources | A video session, a quota or a relay key are not clinical concepts: forcing them into FHIR produces a proprietary format in disguise |
-| Documents | Canonical dataset + serialisations | A hard-coded document template | Constraint V-07: the national templates for the new telemedicine types are not publicly available (chapter [03](./03-documenti-clinici.md)) |
+| Documents | Canonical dataset + serialisations | A hard-coded document template | Constraint [V-07](../11_registri/01-vincoli-in-vigore.md#v-07): the national templates for the new telemedicine types are not publicly available (chapter [03](./03-documenti-clinici.md)) |
 | Legacy messaging | HL7 v2.5/2.5.1 over protected MLLP, in a separate module | An embedded integration engine | The typical customer already has one; embedding it would widen the regulatory perimeter |
 | Document sharing | IHE MHD as a document source | IHE XDS.b as the primary interface | SOAP and ebXML are an entirely different technology stack. Anyone who requires it is reached through a gateway |
 | Business-to-business identity | IHE IUA as a documentary profiling over OAuth 2.1 | IHE XUA (SAML over WS-Security) | It is needed only in pre-existing SOAP domains; it would enter the core for a hypothetical requirement |
@@ -191,7 +191,7 @@ to a machine, two different identifiers. The consequences are searches that do n
 deduplication that fails, validation that fails, and a consumer reconciling on name and date of
 birth, that is to say in the worst possible way.
 
-> **Open question Q-06 - not decided in this area.**
+> **Open question [Q-06](../11_registri/02-questioni-aperte.md#q-06) - not decided in this area.**
 > The choice of the URI to write, and the point at which any translation takes place, are data model
 > decisions and belong to the architecture area, together with the technical area. This area
 > **documents the problem, its size and the recommendation**, and hard-codes no value in its own
@@ -251,7 +251,7 @@ numbers that have been obsoleted. The explanation of what they are is in the mod
 ## 5. The ten choices awaiting an architectural decision
 
 Module 13 of the guide found that ten choices in this area are today **justified proposals** and
-not formal decisions, and opened question Q-15 towards this area and towards the architecture area.
+not formal decisions, and opened question [Q-15](../11_registri/02-questioni-aperte.md#q-15) towards this area and towards the architecture area.
 This area answers for the part that falls to it: **it formulates the proposal, justifies it and
 declares its cost**; the formal decision, with the corresponding architecture decision record, is
 for the architecture area.
@@ -259,7 +259,7 @@ for the architecture area.
 | # | Choice | This area's proposal | Justification and declared cost | Where it is detailed |
 |---|---|---|---|---|
 | P-01 | Where the API version lives | **Major version in the path** (`/v1`), plus an optional dated version header for additions | It is visible in the logs, in the caches and in a command-line call; the media-type alternative is formally more correct but badly handled by real proxies and clients. Cost: duplication of the paths at every major version | [06 §7](./06-api-di-progetto.md) |
-| P-02 | Status code when the concurrency validator is missing on a clinical resource | **`428 Precondition Required`** on clinical writes, not silent last-writer-wins | An untracked overwrite of a clinical resource is undetectable data loss, incompatible with V5. The FHIR specification permits refusal but does not require it: it is a project choice. Cost: it breaks clients that do not send the validator | [06 §5](./06-api-di-progetto.md) |
+| P-02 | Status code when the concurrency validator is missing on a clinical resource | **`428 Precondition Required`** on clinical writes, not silent last-writer-wins | An untracked overwrite of a clinical resource is undetectable data loss, incompatible with [V5](../11_registri/03-vincoli-fondanti.md#v5). The FHIR specification permits refusal but does not require it: it is a project choice. Cost: it breaks clients that do not send the validator | [06 §5](./06-api-di-progetto.md) |
 | P-03 | Response when the resource exists but the caller is not authorised to see it | **Not found**, not forbidden, on resources referring to a patient | Distinguishing «it does not exist» from «you may not see it» is an enumeration oracle over a patient base. Cost: harder diagnosis for the integrator, mitigated by the error code in the body | [06 §6](./06-api-di-progetto.md) |
 | P-04 | Retention of idempotency keys | **Twenty-four hours**, scoped to `(tenant, client, operation, key)` | It covers the longest retry cycle provided for synchronous writes without turning the log into an archive. Cost: a retry after 24 hours creates a duplicate | [06 §4](./06-api-di-progetto.md) |
 | P-05 | Dual emission of the rate limiting headers | **No**: only headers in the current form are emitted | The historical form was never standard and is superseded; emitting a never-standardised form would legitimise it. Dual emission for compatibility is not adopted | [ADR-0021 §5](../adr/0021-convenzioni-delle-interfacce-pubbliche.md) |
@@ -359,7 +359,7 @@ opening a ticket.
 responsibility on a declared key. It is not exactly once and it will not be.
 
 **Guarantees of clinical correctness.** What the project emits as clinical content is **content
-drafted by a professional**, never generated by the system. This is constraint V2, and it is a
+drafted by a professional**, never generated by the system. This is constraint [V2](../11_registri/03-vincoli-fondanti.md#v2), and it is a
 statement about the regulatory perimeter before it is one about a protocol.
 
 **Non-guarantees, declared.** Global ordering of events is not guaranteed: only ordering per key,

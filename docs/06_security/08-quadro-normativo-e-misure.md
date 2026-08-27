@@ -35,7 +35,7 @@ meccanismi cumulativi:
 
 ## 2. Regola di citazione: che cosa questo capitolo non scrive
 
-**Questione Q-151.** Gli allegati di dettaglio della determinazione dell'autorità nazionale non
+**Questione [Q-151](../11_registri/02-questioni-aperte.md#q-151).** Gli allegati di dettaglio della determinazione dell'autorità nazionale non
 sono stati letti riga per riga. Ne discende una regola vincolante per quest'area e per ogni
 documento pubblico del progetto:
 
@@ -47,7 +47,7 @@ Ciò che questo capitolo cita, e che è verificato: i **codici** delle misure, l
 dell'art. 24, comma 2, del decreto, le **clausole di proporzionalità**, l'**aritmetica interna**
 del catalogo, e i passaggi della guida alla lettura dell'autorità che sono stati letti.
 
-Ciò che questo capitolo **non** cita, e marca `[NV]`: il **testo dei singoli requisiti**. Un
+Ciò che questo capitolo **non** cita: il **testo dei singoli requisiti**, che richiede verifica da `SEC` `[NV]`. Un
 fornitore che citi male un requisito produce, presso il cliente, un'evidenza documentale che
 non chiude - che è esattamente il danno che voleva evitare.
 
@@ -86,7 +86,7 @@ partire dal termine per l'adozione delle misure».
 **Conseguenza di prodotto, e la si scrive perché è la parte che si dimentica: la conformità va
 parametrizzata sul termine del singolo utilizzatore, non su una data cablata.** Il prodotto deve
 poter dichiarare quali evidenze fornisce; **non può dichiarare una data**, perché la data è del
-cliente. È la questione Q-09 della bacheca, indirizzata alla roadmap.
+cliente. È la questione [Q-09](../11_registri/02-questioni-aperte.md#q-09) della bacheca, indirizzata alla roadmap.
 
 ### 3.1 Le altre date che contano
 
@@ -187,7 +187,7 @@ distinti:
 **L'asimmetria va documentata**, perché il confine passa **dentro** il perimetro del progetto e
 coincide solo in parte con il confine già tracciato fra veicolo di comunicazione e supporto alla
 decisione clinica. Serve un documento di decisione architetturale con la tabella artefatto →
-regime applicabile: è la questione Q-10 della bacheca, e la Q-24 aperta dall'area di conformità.
+regime applicabile: è la questione [Q-10](../11_registri/02-questioni-aperte.md#q-10) della bacheca, e la [Q-24](../11_registri/02-questioni-aperte.md#q-24) aperta dall'`COMP`.
 
 Due punti ulteriori, che sono le domande che ogni integratore pone:
 
@@ -203,7 +203,7 @@ a una **persona giuridica**. Nessun obbligo sorge oggi in capo al progetto. **Tr
 cambierebbero il quadro**, in ordine di probabilità: il passaggio a una persona giuridica che
 fornisca sostegno sistematico e continuativo; la **monetizzazione**, che rende fabbricante chi
 monetizza; l'incorporazione da parte di un integratore commerciale, che rende fabbricante
-l'integratore. La prima e la seconda sono **decisioni del committente**: questione Q-155.
+l'integratore. La prima e la seconda sono **decisioni del committente**: questione [Q-155](../11_registri/02-questioni-aperte.md#q-155).
 
 Indipendentemente dall'obbligo, la strategia dichiarata è quella di **essere un buon
 componente**: adottare volontariamente l'insieme minimo che l'integratore-fabbricante chiederà
@@ -253,12 +253,12 @@ differenziazione che costa poco e che quasi nessun fornitore fornisce.
 | **Art. 25 del Regolamento (UE) 2016/679** | Titolare | Protezione fin dalla progettazione e per impostazione predefinita. Formalmente non si rivolge al produttore, ma il considerando 78 lo chiama in causa: va **documentata come processo**, non asserita |
 | **Regolamento (UE) 2017/745, All. I §§ 17.2 e 17.4** | Fabbricante | Sviluppo conforme allo **stato dell'arte** con gestione dei rischi comprensiva della sicurezza delle informazioni; **requisiti minimi di hardware, rete e misure di sicurezza** necessari al funzionamento previsto |
 | Guida sulla cibersicurezza dei dispositivi medici | Fabbricante | Processo di gestione del rischio di cibersicurezza distinto e raccordato con quello di sicurezza; sicurezza fin dalla progettazione e per impostazione predefinita; aspetti precedenti e successivi all'immissione |
-| **Norma sulle attività di sicurezza nel ciclo di vita del software sanitario** | Fabbricante | Ciclo di vita di sviluppo sicuro integrato nel sistema di gestione della qualità. **Lo stato di armonizzazione non è stato accertato: `[NV]`.** Anche se non armonizzata resta il riferimento di elezione per dimostrare lo stato dell'arte |
+| **Norma sulle attività di sicurezza nel ciclo di vita del software sanitario** | Fabbricante | Ciclo di vita di sviluppo sicuro integrato nel sistema di gestione della qualità. Lo stato di armonizzazione, da chiedere a un organismo notificato, non è stato accertato: `[NV]`. Anche se non armonizzata resta il riferimento di elezione per dimostrare lo stato dell'arte |
 | **Circolare sulle misure minime di sicurezza per le pubbliche amministrazioni** | Pubbliche amministrazioni | Il cliente pubblico deve dimostrare i controlli **anche sulla componente fornita**: inventario software, configurazioni sicure, gestione delle vulnerabilità, separazione delle utenze privilegiate, centralizzazione dei log, copie di sicurezza cifrate e verificate |
 | **Linee guida nazionali sulla sicurezza negli approvvigionamenti informatici** | Amministrazioni acquirenti | **Rese obbligatorie per le infrastrutture regionali di telemedicina** dal DM 21 settembre 2022 nella parte relativa alle azioni sulla scelta dello strumento, sui requisiti di capitolato, sulle competenze della commissione e alla protezione dei dati personali. È, di fatto, **il capitolato di sicurezza che il prodotto si troverà davanti** |
 | **Accordo Stato-Regioni del 17 dicembre 2020** | Erogatori di prestazioni in telemedicina | **Tutti i trasferimenti di voce, video, immagini e file devono essere crittografati**; registro delle manutenzioni e dei collaudi; prove di funzionamento dopo ogni aggiornamento rilevante |
-| **DM 19 novembre 2025, Allegato 4** | Titolari nel contesto della telemedicina | I **termini di conservazione**: 24 e 12 mesi (V-152) |
-| **Elementi essenziali di cybersicurezza nei contratti pubblici** | Stazioni appaltanti | Progettazione sicura e priva di vulnerabilità note; aggiornamenti automatici; autenticazione e controllo degli accessi; cifratura; gestione trasparente delle vulnerabilità; valutazione della catena. **Criteri di premialità geografica**. `[NV]` sul testo dei decreti attuativi |
+| **DM 19 novembre 2025, Allegato 4** | Titolari nel contesto della telemedicina | I **termini di conservazione**: 24 e 12 mesi ([V-152](../11_registri/01-vincoli-in-vigore.md#v-152)) |
+| **Elementi essenziali di cybersicurezza nei contratti pubblici** | Stazioni appaltanti | Progettazione sicura e priva di vulnerabilità note; aggiornamenti automatici; autenticazione e controllo degli accessi; cifratura; gestione trasparente delle vulnerabilità; valutazione della catena. Criteri di premialità geografica, da chiedere al Ministero della Funzione Pubblica, che emette i decreti attuativi: `[NV]` |
 
 Una nota sulle linee guida sugli approvvigionamenti che ha effetto diretto sulla forma della
 documentazione: le linee guida raccomandano alle amministrazioni di attingere all'appendice dei
@@ -329,10 +329,10 @@ ciascuno**. Sono la priorità assoluta:
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| Q-151 | Lettura riga per riga degli allegati di dettaglio e completamento della ripartizione delle responsabilità con il testo dei requisiti. **Nessuna citazione puntuale prima di allora** | Conformità |
-| Q-10, Q-24 | Tabella artefatto → regime applicabile come documento di decisione architetturale (§5) | Conformità, architettura |
-| Q-09 | Parametrizzazione della conformità sul termine del singolo utilizzatore (§3) | Roadmap |
-| Q-154 | Se l'operatore del servizio gestito supera le soglie della media impresa **diventa soggetto in proprio**, con tutti gli obblighi del capitolo [09](./09-ripartizione-delle-responsabilita.md) | → Committente |
-| Q-155 | Monetizzazione e ruolo di fabbricante; **periodo di supporto dichiarato**, minimo cinque anni (§5) | → Committente |
-| `[NV]` | Stato di armonizzazione della norma sulle attività di sicurezza nel ciclo di vita (§7) | Conformità |
-| `[NV]` | Testo dei decreti sugli elementi essenziali di cybersicurezza nei contratti pubblici e verifica se la fornitura ricada nelle categorie tecnologiche elencate (§7) | Conformità, con consulente di appalti |
+| [Q-151](../11_registri/02-questioni-aperte.md#q-151) | Lettura riga per riga degli allegati di dettaglio e completamento della ripartizione delle responsabilità con il testo dei requisiti. **Nessuna citazione puntuale prima di allora** | `COMP` |
+| [Q-10](../11_registri/02-questioni-aperte.md#q-10), [Q-24](../11_registri/02-questioni-aperte.md#q-24) | Tabella artefatto → regime applicabile come documento di decisione architetturale (§5) | Conformità, architettura |
+| [Q-09](../11_registri/02-questioni-aperte.md#q-09) | Parametrizzazione della conformità sul termine del singolo utilizzatore (§3) | Roadmap |
+| [Q-154](../11_registri/02-questioni-aperte.md#q-154) | Se l'operatore del servizio gestito supera le soglie della media impresa **diventa soggetto in proprio**, con tutti gli obblighi del capitolo [09](./09-ripartizione-delle-responsabilita.md) | → Committente |
+| [Q-155](../11_registri/02-questioni-aperte.md#q-155) | Monetizzazione e ruolo di fabbricante; **periodo di supporto dichiarato**, minimo cinque anni (§5) | → Committente |
+| `[NV]` | Stato di armonizzazione della norma sulle attività di sicurezza nel ciclo di vita (§7) | `COMP` |
+| `[NV]` | Testo dei decreti sugli elementi essenziali di cybersicurezza nei contratti pubblici e verifica se la fornitura ricada nelle categorie tecnologiche elencate (§7) | `COMP` con consulente di appalti |

@@ -71,7 +71,7 @@ FHIR né il formato dell'interfaccia applicativa.
 
 | Risorsa | Percorso | Operazioni | Che cos'è |
 |---|---|---|---|
-| Sessioni | `/v1/sessions` | crea, legge, elenca, termina | La sessione media, distinta dalla prestazione per vincolo V-01 |
+| Sessioni | `/v1/sessions` | crea, legge, elenca, termina | La sessione media, distinta dalla prestazione per vincolo [V-01](../11_registri/01-vincoli-in-vigore.md#v-01) |
 | Accessi alla sessione | `/v1/sessions/{id}/grants` | crea | Credenziale monouso di ingresso, vita brevissima |
 | Metriche di sessione | `/v1/sessions/{id}/metrics` | legge, elenca | Serie temporali di qualità |
 | Verifica tecnica | `/v1/readiness-checks` | crea, legge | Prova preventiva del dispositivo e della rete |
@@ -83,7 +83,7 @@ FHIR né il formato dell'interfaccia applicativa.
 | Consensi alla registrazione | `/v1/recording-consents` | crea, legge, revoca | Il flusso; lo stato vive sul piano clinico |
 | Piani di rilevazione | `/v1/monitoring-plans` | CRUD, versiona | Telemonitoraggio |
 | Rilevazioni | `/v1/measurements` | crea, elenca | Acquisizione da gateway di terzi o inserimento manuale |
-| Allerte | `/v1/alerts` | elenca, legge, prende in carico | Con la disciplina del vincolo V-02 |
+| Allerte | `/v1/alerts` | elenca, legge, prende in carico | Con la disciplina del vincolo [V-02](../11_registri/01-vincoli-in-vigore.md#v-02) |
 | Configurazione del tenant | `/v1/tenants/{id}/settings` | legge, aggiorna | Compresa la personalizzazione visiva |
 | Quote e consumi | `/v1/tenants/{id}/usage` | legge | Trasparenza sui limiti |
 | Catalogo degli errori | `/v1/problems/{code}` | legge | Ogni tipo di problema è un indirizzo risolvibile |
@@ -91,7 +91,7 @@ FHIR né il formato dell'interfaccia applicativa.
 Tre precisazioni.
 
 **Le sessioni non sono le prestazioni.** Creare una sessione non crea una prestazione, e
-terminare una sessione non conclude una prestazione. Sono aggregati distinti per vincolo V-01, e
+terminare una sessione non conclude una prestazione. Sono aggregati distinti per vincolo [V-01](../11_registri/01-vincoli-in-vigore.md#v-01), e
 l'interfaccia lo riflette: la sessione porta un riferimento alla prestazione, la prestazione può
 avere zero, una o molte sessioni.
 
@@ -222,7 +222,7 @@ mutabili, il client lo restituisce nella richiesta di modifica, il server confro
 L'ultimo punto è una **scelta di progetto**, elencata come P-02 fra quelle che attendono una
 decisione architetturale formale. La motivazione: una scrittura senza validatore è un
 ultimo-scrittore-vince silenzioso, che su una risorsa clinica è perdita di dato non tracciata,
-incompatibile con il vincolo V5. Il costo dichiarato: rompe i client che non inviano il
+incompatibile con il vincolo [V5](../11_registri/03-vincoli-fondanti.md#v5). Il costo dichiarato: rompe i client che non inviano il
 validatore. È l'effetto voluto - che si rompano in integrazione, non in produzione.
 
 Sulle risorse **non cliniche** del piano applicativo - configurazione, personalizzazione,
@@ -493,7 +493,7 @@ frontale dell'integratore e dal componente incorporato. Regole:
   produce librerie client che «perdono» intestazioni senza spiegazione;
 - **le origini ammesse sono lo stesso registro** usato per gli antenati ammessi
   all'incorporamento e per le destinazioni ammesse dei webhook. Tre registri separati divergono
-  sempre: è la questione **Q-161** aperta dall'area di integrazione, e quest'area la sostiene.
+  sempre: è la questione **[Q-161](../11_registri/02-questioni-aperte.md#q-161)** aperta dall'`INTEG`, e quest'area la sostiene.
 
 ## 11. Il descrittore dell'interfaccia
 

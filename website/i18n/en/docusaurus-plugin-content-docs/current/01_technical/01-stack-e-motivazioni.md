@@ -16,9 +16,9 @@ The foundations of the concepts cited - what is an event broker, what is a trans
 
 Three levels, to be kept distinct throughout the reading.
 
-**Binding by decision of the owner.** The stack declared in `00_PROJECT_BRIEF.md` §2: Spring Boot 3.4 on Java 21, Angular 21 with autonomous components, WebRTC with DTLS-SRTP, coturn as relay server, FHIR R4 as the interoperability model, Keycloak as the identity federation product, TimescaleDB for time series, entity versioning for application audit, Docker Compose for packaging, Docusaurus for documentation. It is not discussed *whether* to use them: it is discussed *how*, with which version and with which fallback.
+**Binding by decision of the owner.** The stack declared in [`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) §2: Spring Boot 3.4 on Java 21, Angular 21 with autonomous components, WebRTC with DTLS-SRTP, coturn as relay server, FHIR R4 as the interoperability model, Keycloak as the identity federation product, TimescaleDB for time series, entity versioning for application audit, Docker Compose for packaging, Docusaurus for documentation. It is not discussed *whether* to use them: it is discussed *how*, with which version and with which fallback.
 
-**Binding by architectural baseline.** `04_BASELINE_ARCHITETTURALE.md` adds decisions that this chapter adopts without renegotiating: transactional outbox on PostgreSQL as the sole source of outgoing events (§5), immutable register as a hash chain separate from the system that generates the events (§6), one schema per tenant with row-level security as defence in depth (§4), unique gateway to terminologies (§7), relay server in minimum version 4.17.2 (§9).
+**Binding by architectural baseline.** [`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) adds decisions that this chapter adopts without renegotiating: transactional outbox on PostgreSQL as the sole source of outgoing events (§5), immutable register as a hash chain separate from the system that generates the events (§6), one schema per tenant with row-level security as defence in depth (§4), unique gateway to terminologies (§7), relay server in minimum version 4.17.2 (§9).
 
 **Technical choice of this area.** Everything else: the minor version of each component, the schema migration tool, the project builder, the validation library, the mechanism by which the outbox feeds the broker, the log format. These choices are motivated here and are contestable on the noticeboard, not elsewhere.
 
@@ -30,7 +30,7 @@ A criterion declared after the choice is a justification, not a criterion. These
 
 | # | Criterion | Why it is a criterion and not a preference |
 |---|---|---|
-| C1 | **Replaceability under sovereignty constraint** | Constraint V1 imposes that no obligatory component of the main path depends on a non-replaceable service or established outside the Union. A component is chosen also based on how much it costs to remove. |
+| C1 | **Replaceability under sovereignty constraint** | Constraint [V1](../11_registri/03-vincoli-fondanti.md#v1) imposes that no obligatory component of the main path depends on a non-replaceable service or established outside the Union. A component is chosen also based on how much it costs to remove. |
 | C2 | **Licence compatibility with Apache-2.0** | D1 rejected a strong copyleft precisely to allow integration into third-party proprietary products. A component with incompatible licence transfers that problem downstream, to the integrator, which is exactly what D1 wanted to avoid. |
 | C3 | **Surveillability as a third-party component** | IEC 62304 §8.1.2 requires, for every component not developed by the project, a plan to monitor vulnerabilities. A project without a public advisory channel, without a release cadence and without a history of corrections is not surveillable, and therefore not adoptable in a medical device, however good its performance. |
 | C4 | **Homogeneity of skills** | Every additional language in the stack multiplies the build chain, the dependency surface, the static analysis tools, the bill of materials and the number of people needed to maintain the system. A second language is paid for years. |
@@ -79,7 +79,7 @@ Version 17 is still an extended support version and would be defensible. The ope
 
 ### 4.3 And the next extended support version
 
-There is a more recent extended support version than 21. The project **does not** adopt it in v1.0 for two reasons: the regulatory tooling chain - static analysis, bill of materials generator, instrumentation agents - stabilises on extended support versions with a delay, and changing platforms mid-traceability path means re-running verification on a different base. Migration is a roadmap item, not a v1.0 choice. `[NV]` - the exact date of end of public free updates support for 21 depends on the platform distributor chosen by whoever installs and must be verified against the distributor's source, not assumed.
+There is a more recent extended support version than 21. The project **does not** adopt it in v1.0 for two reasons: the regulatory tooling chain - static analysis, bill of materials generator, instrumentation agents - stabilises on extended support versions with a delay, and changing platforms mid-traceability path means re-running verification on a different base. Migration is a roadmap item, not a v1.0 choice. The exact date of end of public free updates support for 21 depends on the platform distributor chosen by whoever installs: `[NV]` to be verified against the distributor's source at the time of installation, not to be assumed here.
 
 **Consequent binding**: the platform version is fixed in the build chain (`maven.compiler.release=21`, base image with the same major version) and is not a detail of the environment. A compilation that accepts a different platform from the one declared makes the build non-reproducible, and reproducible build is a requirement of D17.
 
@@ -93,7 +93,7 @@ There is a more recent extended support version than 21. The project **does not*
 
 ### 4.5 Compilation to native image
 
-Ahead-of-time compilation to native image is **supported as an optional profile, not as the default mode**. Reason: reflection, dynamic proxies and dynamic resource loading used by the persistence layer and the profile validation engine require configuration metadata that must be maintained, and every dependency added is a potential failure in native build phase and not in execution phase. On a medical device, an execution mode that behaves differently from the one on which verification was performed is a mode that must be verified all over again. The native profile exists, is built in continuous integration and is tested by the same suite, but **the reference distribution is the one on virtual machine**. `[NV]` - the gains in memory and startup time have not been measured on the project: any figure published before measurement would be invented.
+Ahead-of-time compilation to native image is **supported as an optional profile, not as the default mode**. Reason: reflection, dynamic proxies and dynamic resource loading used by the persistence layer and the profile validation engine require configuration metadata that must be maintained, and every dependency added is a potential failure in native build phase and not in execution phase. On a medical device, an execution mode that behaves differently from the one on which verification was performed is a mode that must be verified all over again. The native profile exists, is built in continuous integration and is tested by the same suite, but **the reference distribution is the one on virtual machine**. The gains in memory and startup time must be measured by `TECH` on the project `[NV]`: any figure published before measurement would be invented.
 
 ---
 
@@ -110,7 +110,7 @@ Not "making APIs": anything makes APIs. The problem is having, in a single coher
 - **Declarative and synchronous HTTP client stabilised.** The code that calls the integrator's system, the health record or the identity federation product is blocking code that becomes readable and testable without reactivity.
 - **Actuator with distinct readiness and liveness endpoints**, a direct requirement of packaging on a container orchestrator.
 
-`[NV]` - the exact dates of end of free public support of minor versions must be verified on the upstream project's support page at the time of release, and must be recorded in the register of third-party components as review date. They are not cited here because they will change before publication.
+The exact dates of end of free public support of minor versions must be verified on the upstream project's support page at the time of release, and must be verified by `COMP` `[NV]` in the register in the register of third-party components as review date. They are not cited here because they will change before publication.
 
 ### 5.3 Discarded alternatives
 
@@ -161,7 +161,7 @@ The technical problem is real: telemonitoring parameters and media session metri
 
 TimescaleDB solves the problem by staying **inside** PostgreSQL: same transactions, same credentials, same row-level security, same migration tool, same backup. It is exactly the kind of component that satisfies C4 and C5, because it does not add a service: it adds an extension.
 
-**The problem is the licence, and it must be said now.** The project is distributed under Apache-2.0 (D1) and must be integrable into third-party proprietary products. It turns out that the advanced features of the extension - in particular compression and continuous aggregates - are not distributed under an approved open source licence but under a proprietary licence of the source-available type, with restrictions on offering the component as a managed service to third parties. **`[NV]` - this statement must be verified against the primary licence text, artefact by artefact, before any publication.** It is exactly the case provided by D34: a permissive statement on a container does not dispose of rights to the content within it, and verification must be done on the primary licence.
+**The problem is the licence, and it must be said now.** The project is distributed under Apache-2.0 (D1) and must be integrable into third-party proprietary products. It turns out that the advanced features of the extension - in particular compression and continuous aggregates - are not distributed under an approved open source licence but under a proprietary licence of the source-available type, with restrictions on offering the component as a managed service to third parties. This statement **must be verified by the compliance area** `[NV]` **against the primary licence text, artefact by artefact, before any publication.** It is exactly the case provided by D34: a permissive statement on a container does not dispose of rights to the content within it, and verification must be done on the primary licence.
 
 Operational consequences, which hold regardless of the outcome of verification:
 
@@ -217,7 +217,7 @@ D18 is clear: the token exchange function of the product is in preview state and
 | Alternative | Reason for rejection |
 |---|---|
 | **Newer and lighter open-source identity products** | Better ergonomics, but support for SAML 2.0 as a service provider to a national federation with stringent compliance requirements, and the existence of public implementations of the Italian profile under permissive licence, are the deciding factor. Rewriting a SAML2 service provider conformant to a national profile is the kind of work that you underestimate by exactly an order of magnitude (see D38 on the batch of multiple instances per identity provider). |
-| **Managed identity service** | Direct violation of V1. Not negotiable. |
+| **Managed identity service** | Direct violation of [V1](../11_registri/03-vincoli-fondanti.md#v1). Not negotiable. |
 | **Identity managed in the application** | Moves credential management into the perimeter of the medical device, which increases risk surface and verification perimeter without any benefit. |
 
 ---
@@ -226,15 +226,15 @@ D18 is clear: the token exchange function of the product is in preview state and
 
 ### 9.1 Minimum version 4.17.2, and why it is not an opinion
 
-The architectural baseline §9 fixes it, constraint V-10 reinforces it, and verification against primary source that produced it is documented in `.telemedic/research/B3-verifica-coturn-webrtc.md`. The relevant fact for this area is the **form of the changelog**: fourteen releases in just over seven months in 2026, of which five in August alone, and a family of six distinct vulnerabilities, over eight years, all reducible to the same schema - bypass of peer address lists through canonicalisation or wrong IPv6 address comparison, four of which in the last eight months.
+The architectural baseline §9 fixes it, constraint [V-10](../11_registri/01-vincoli-in-vigore.md#v-10) reinforces it, and verification against primary source that produced it is documented in [`.telemedic/research/B3-verifica-coturn-webrtc.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/B3-verifica-coturn-webrtc.md). The relevant fact for this area is the **form of the changelog**: fourteen releases in just over seven months in 2026, of which five in August alone, and a family of six distinct vulnerabilities, over eight years, all reducible to the same schema - bypass of peer address lists through canonicalisation or wrong IPv6 address comparison, four of which in the last eight months.
 
-This produces a technical conclusion that must be written explicitly and which is constraint V-10: **the list of forbidden addresses is defence in depth, not primary defence. The primary defence is the outbound network isolation of the relay node**, applied outside the process - infrastructure network rules, not configuration file directives. It is the only defence that has withstood all six vulnerabilities in the family.
+This produces a technical conclusion that must be written explicitly and which is constraint [V-10](../11_registri/01-vincoli-in-vigore.md#v-10): **the list of forbidden addresses is defence in depth, not primary defence. The primary defence is the outbound network isolation of the relay node**, applied outside the process - infrastructure network rules, not configuration file directives. It is the only defence that has withstood all six vulnerabilities in the family.
 
 Operational consequence on the update channel: with that release cadence, an obligation to update expressed in months is meaningless. The service level must be expressed in **days from publication of the advisory, differentiated by severity**, and must be measured. The technical proposal of this area is in [`09-integrazione-continua-e-rilascio.md`](./09-integrazione-continua-e-rilascio.md) §7; the formal decision belongs to post-market surveillance and therefore to `COMP`.
 
 ### 9.2 Why coturn and not something else
 
-It is the reference implementation, it is the one on which browser behaviours are verified, it exposes native metrics, it has a public security advisory channel and a verifiable correction history - that is it satisfies C3 better than any alternative. Managed alternatives violate V1 without exception; alternatives in other languages violate C4 and have a smaller user base, so fewer security reports.
+It is the reference implementation, it is the one on which browser behaviours are verified, it exposes native metrics, it has a public security advisory channel and a verifiable correction history - that is it satisfies C3 better than any alternative. Managed alternatives violate [V1](../11_registri/03-vincoli-fondanti.md#v1) without exception; alternatives in other languages violate C4 and have a smaller user base, so fewer security reports.
 
 ### 9.3 What the project **does not** implement
 
@@ -299,12 +299,12 @@ To list what was rejected is more informative than to list what was adopted.
 
 | Component | Why it is not there |
 |---|---|
-| **Selective media forwarding unit** | The consultation is two to three participants. A forwarding unit terminates encryption and has media in clear: it would destroy the property on which the entire project positioning rests, for no benefit at this scale. If one day it were needed, the evaluation is already set up in `.telemedic/research/R4-webrtc-media.md` §6.3, with exclusion of one candidate for incompatibility of licence with D1 and of another for documented abandonment - three years without changes make a component non-surveillable under IEC 62304 §8.1.2, which is a fact, not a judgment. |
+| **Selective media forwarding unit** | The consultation is two to three participants. A forwarding unit terminates encryption and has media in clear: it would destroy the property on which the entire project positioning rests, for no benefit at this scale. If one day it were needed, the evaluation is already set up in [`.telemedic/research/R4-webrtc-media.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/R4-webrtc-media.md) §6.3, with exclusion of one candidate for incompatibility of licence with D1 and of another for documented abandonment - three years without changes make a component non-surveillable under IEC 62304 §8.1.2, which is a fact, not a judgment. |
 | **In-memory key-value archive as signal diffuser** | The incremental candidate collection protocol requires exactly-once delivery and in order. A publish-subscribe mechanism without persistence guarantees neither under reconnection. If a diffuser is needed, the correct form is at persistent flow with consumer groups; the preferred architecture avoids the diffuser altogether. See §15, open question at `ARCH`. |
 | **Service mesh** | Adds a control plane, a data plane and a certificate model to manage, for a system with a small fixed number of services. On single-tenant installation it is unsustainable (C5). |
 | **Service discovery register** | Same reason. The number of services is known and fixed. |
-| **Third-party clinical rule engine** | The thresholds are configuration per patient (V-02) and evaluation is deterministic and traceable. A generic rule engine would introduce non-inspectable logic in a path that must be explainable line by line in case of incident. |
-| **Any managed service on the main path** | V1. Without exception and without discussion. |
+| **Third-party clinical rule engine** | The thresholds are configuration per patient ([V-02](../11_registri/01-vincoli-in-vigore.md#v-02)) and evaluation is deterministic and traceable. A generic rule engine would introduce non-inspectable logic in a path that must be explainable line by line in case of incident. |
+| **Any managed service on the main path** | [V1](../11_registri/03-vincoli-fondanti.md#v1). Without exception and without discussion. |
 
 ---
 

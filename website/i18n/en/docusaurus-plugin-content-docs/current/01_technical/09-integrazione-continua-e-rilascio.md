@@ -91,7 +91,7 @@ Deserves its own section because it is the most specific control of this project
 
 **The allow list is versioned and its modification requires the review provided for compliance material.** It is not a file updated to make your modification pass.
 
-**The runtime complement.** The pipeline control protects the repository; the terminology gateway protects live operation, with per-system deactivation, absence of persistent disk cache (constraint V-14 of `SEC`) and degraded mode that makes constraint V-03 true. Tests run in the configuration without licensed systems, which is exactly what makes that mode really functioning (see [`08-qualita-e-test.md`](./08-qualita-e-test.md) §4.3).
+**The runtime complement.** The pipeline control protects the repository; the terminology gateway protects live operation, with per-system deactivation, absence of persistent disk cache (constraint [V-151](../11_registri/01-vincoli-in-vigore.md#v-151) of `SEC`) and degraded mode that makes constraint [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) true. Tests run in the configuration without licensed systems, which is exactly what makes that mode really functioning (see [`08-qualita-e-test.md`](./08-qualita-e-test.md) §4.3).
 
 **The two warnings that the project must document without mitigation** - that interrogating an external service does not exempt whoever installs, and that whoever distributes Telemedic distributes a product subject to the licence even without containing a single concept - are in `COMP`'s remit and go in material for the integrator, not hidden in a technical note.
 
@@ -114,7 +114,8 @@ Deserves its own section because it is the most specific control of this project
 
 The policy is declared in the public contract: announcement with **twelve months** advance on major version dismissal, standard dismissal and termination headers, link to migration guide, at least two major versions active simultaneously, and telemetry by version - because without knowing who still uses the old version, you cannot contact anyone.
 
-`[NV]` - the regulatory status of one of the two headers must be verified before citing it as standard: one is defined by a published specification, the other is subject to work in progress.
+The regulatory status of one of the two headers `[NV]` must be verified by the protocols area before
+citing it as standard: one is defined by a published specification, the other is subject to work in progress.
 
 ### 5.3 Build identifier
 
@@ -176,6 +177,39 @@ Verification is **documented as an executable procedure** in the installation ma
 **Generated at every build**, in a standard machine-readable format, for **every** artefact - service, interface, images, charts - not just the main service. Base images contain system components that are third-party components in all respects, and a bill that ignores them is incomplete.
 
 Minimum content: identifier, exact version, licence, fingerprint, dependency relationship (direct or transitive). The link with the third-party component register described in [`01-stack-e-motivazioni.md`](./01-stack-e-motivazioni.md) §14 occurs by identifier, and it is the G5 control: **a component in the bill and absent from annotations makes the build fail**. It is the mechanism that prevents a dependency from entering without having been evaluated.
+
+### The component register, generated from the bill of materials
+
+The bill says what entered the artefact; the versioned annotations say what the project has assessed
+about each component. **The third-party component register is their join**, generated at every build
+by
+[`scripts/genera-registro-componenti.py`](https://github.com/fedcal/Telemedic/blob/main/scripts/genera-registro-componenti.py),
+and it is not written by hand: a manual edit would be lost at the next build.
+
+The distinction between the three objects is not terminological, and it is the reason the register
+exists as an artefact of its own. The register is the only one of the three that answers the
+question whoever installs actually asks: **what am I installing, under which licence, and who put
+it there.** That last part is the least obvious and the most useful: of the one thousand two
+hundred and thirty-six components of the documentation site, **nine** are dependencies the project
+chose and **one thousand two hundred and twenty-seven** are transitive, pulled in by those. The
+register declares, for each transitive one, **who pulls it**, because a dependency nobody chose
+still has to be assessed by someone, and knowing where it enters from is the first step in deciding
+its fate.
+
+The register comes out in two forms, and the reason for the second is that one thousand two hundred
+table rows are not readable: a tab-separated file with the **complete** list, one row per component,
+which accompanies the distribution and is the object automated questions are asked of; and a
+readable document carrying the aggregates by licence, the direct dependencies in full with the
+inclusion reason written by a person, and **in full every component whose compatibility is not
+ascertained** - which is the part the register exists for, and which would disappear in a list of
+one thousand two hundred rows.
+
+The generator **reports and does not judge**: compatibility comes from the annotations, which in
+turn derive it from the declared licence identifier and not from the text of the licence. Whatever
+is not in the reference list comes out "indeterminable" and stays indeterminable in the register, in
+plain view. A generator that guessed would produce a reassuring and false register.
+
+### Publication
 
 The bill is **published** along with the artefact. It serves whoever installs to meet their own obligations - including the supplier declaration provided for in D40, for which the project provides the sheet with the data the customer is required to communicate - and serves the project to correlate a security advisory to a released artefact in minutes instead of days.
 

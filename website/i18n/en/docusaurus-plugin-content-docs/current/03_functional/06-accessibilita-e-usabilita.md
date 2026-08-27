@@ -8,7 +8,7 @@ description: "Verifiable accessibility and usability requirements for Telemedic,
 
 ## 1. Why it is a requirements chapter and not intentions
 
-Accessibility and usability are, in this project, **functional requirements of the entire system**: patient interface, clinical interface, administration panels, embeddable components, documentation, error messages, notifications. They are not a final polish but an acceptance criterion for every single screen (decision D25, constraint V6).
+Accessibility and usability are, in this project, **functional requirements of the entire system**: patient interface, clinical interface, administration panels, embeddable components, documentation, error messages, notifications. They are not a final polish but an acceptance criterion for every single screen (decision D25, constraint [V6](../11_registri/03-vincoli-fondanti.md#v6)).
 
 There are three distinct reasons, and it is useful to keep them separate because they produce different obligations.
 

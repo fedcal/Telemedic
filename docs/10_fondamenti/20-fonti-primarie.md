@@ -30,10 +30,12 @@ in tutta la documentazione perché sembrano precisi e nessuno li ricontrolla. Il
 un'accortezza opzionale.
 
 > **Regola vincolante che governa questo modulo.** Ciò che non è verificabile con certezza si
-> marca `[NV]`, con l'indicazione di che cosa manca. **Non si inventano numeri, date o titoli di
-> norme.** In un documento che serve da riferimento per tutti gli altri, un estremo inventato è il
-> difetto più dannoso possibile: viene copiato, e nessuno risale alla fonte perché sembra già
-> verificato.
+> marca `[NV]`, con l'indicazione del destinatario in una delle tre forme ammesse (sigla d'area
+> fra backtick, identificativo di questione, oppure soggetto esterno nominato secondo le regole
+> di `CONTRIBUTING.md`) e l'indicazione di che cosa manca. **Non si inventano numeri, date o
+> titoli di norme.** In un documento che serve da riferimento per tutti gli altri, un estremo
+> inventato è il difetto più dannoso possibile: viene copiato, e nessuno risale alla fonte
+> perché sembra già verificato.
 
 ---
 
@@ -134,7 +136,7 @@ trattazione è in [01 - Il sistema sanitario italiano](01-sistema-sanitario-ital
 | **Decreto legislativo 15 marzo 2024, n. 29** | Disposizioni in materia di politiche in favore delle persone anziane | [01](01-sistema-sanitario-italiano.md) |
 | **Decreto legislativo 31 marzo 2023, n. 36** | Codice dei contratti pubblici: è la via d'accesso al mercato sanitario pubblico | [01](01-sistema-sanitario-italiano.md) |
 | **Legge 30 dicembre 2025, n. 199** | Legge di bilancio 2026. Due disposizioni distinte rilevano per il progetto: l'art. 1, **commi 405-406**, finanzia i servizi di scambio transfrontaliero dei documenti sanitari; l'art. 1, **commi 410-412**, assegna 20 milioni di euro per il 2026 ad AGENAS per il potenziamento dei servizi di telemedicina | [07 §10](07-fse-e-infrastrutture-nazionali.md) per i commi 405-406; [01 §9.4](01-sistema-sanitario-italiano.md) per i commi 410-412 |
-| **D.L. 31 dicembre 2025, n. 200**, convertito con modificazioni dalla **legge 27 febbraio 2026, n. 26** (Milleproroghe) | Differisce il termine di vigenza del regime tariffario previgente. `[NV]` sull'articolo e sul comma | [01](01-sistema-sanitario-italiano.md) |
+| **D.L. 31 dicembre 2025, n. 200**, convertito con modificazioni dalla **legge 27 febbraio 2026, n. 26** (Milleproroghe) | Differisce il termine di vigenza del regime tariffario previgente. La verifica di articolo e comma spetta a `GUIDA` `[NV]` | [01](01-sistema-sanitario-italiano.md) |
 
 **Come si legge questo blocco.** Non integralmente. Serve la struttura - chi programma, chi
 eroga, chi paga, chi controlla - e quella sta nel modulo 01, che è scritto per non doverli leggere.
@@ -213,8 +215,7 @@ visualizzazione e refertazione nei teleconsulti istopatologici e radiologici.
 [`docs/08_compliance/01`](../08_compliance/01-inquadramento-normativo.md),
 [`02`](../08_compliance/02-qualificazione-e-classificazione.md) e
 [`03`](../08_compliance/03-sistema-di-gestione-della-qualita.md).
-*Come si legge*: dopo l'Accordo 215/CSR, e con l'avvertenza che **rinvia a documenti metodologici
-non reperiti** `[NV]` ([07 §7.3](07-fse-e-infrastrutture-nazionali.md)).
+*Come si legge*: dopo l'Accordo 215/CSR, e con l'avvertenza che rinvia a **documenti metodologici non reperiti**, una lacuna da chiedere a una riunione tecnica presso il Ministero della salute ([07 §7.3](07-fse-e-infrastrutture-nazionali.md)) `[NV]`.
 
 **DM 30 settembre 2022** - GU n. 298 del 22 dicembre 2022, atto 22A07125.
 Disciplina la selezione delle soluzioni: piani operativi regionali, commissione tecnica, acquisto
@@ -289,7 +290,7 @@ comprensive delle librerie di terzi e open source**.
 [`08`](../06_security/08-quadro-normativo-e-misure.md).
 *Come si legge*: **gli allegati contano più del corpo.** E l'Allegato 4, § 7, **incorpora per
 rinvio il capitolo di un capitolato tecnico di gara regionale** ed estende le misure ivi previste a
-tutte le infrastrutture regionali. `[NV]` - quel capitolo **non è stato reperito**: finché non lo
+tutte le infrastrutture regionali. `[NV]` - quel capitolo **non è stato reperito**, un'assenza richiesta al Ministero della salute: finché non lo
 si legge, nessuna affermazione di conformità a quelle misure è sostenibile.
 
 ### 4.4 Come questi atti si compongono
@@ -328,7 +329,7 @@ ridistribuzione condizionata.
 Definisce il **fornitore di servizi** nella federazione delle identità come chi *eroga servizi in
 rete*. È la fonte da cui discende il vincolo per cui **il progetto non può essere accreditato**:
 il fornitore di servizi è chi installa.
-*Dove è usata*: [04](04-identita-e-anagrafiche.md), decisione `D36`, vincolo `V-05`,
+*Dove è usata*: [04](04-identita-e-anagrafiche.md), decisione `D36`, vincolo [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05),
 [`docs/07_integration/06`](../07_integration/06-identita-e-delega.md).
 
 **Regole tecniche dei canali nazionali di identità digitale** e **Avviso AgID n. 41, versione 2,
@@ -391,7 +392,7 @@ requisiti** per gli essenziali.
 *Come si legge*: **il termine non è una data.** «Il 31 ottobre 2026» non compare in alcun atto: è
 il limite esterno della prima ondata. Il termine è soggettivo per ciascun destinatario, e questo è
 il fatto che nessuna roadmap può cablare.
-`[NV]` - gli **allegati di dettaglio non sono stati letti riga per riga**: nessun documento del
+`[NV]` - gli **allegati di dettaglio non sono stati letti riga per riga**, la verifica spetta a `COMP`: nessun documento del
 progetto cita testualmente un requisito puntuale. Si citano i codici delle misure, che sono
 pubblici e verificati.
 
@@ -421,7 +422,7 @@ connessi alla tutela di interessi nazionali strategici.
 elementi essenziali di cybersicurezza nei contratti pubblici, con criteri di premialità anche
 geografici. `[NV]` - **i testi non sono stati letti su fonte primaria** in nessuna ricerca del
 progetto, e non è verificato se una fornitura di telemedicina ricada nelle categorie tecnologiche
-dell'allegato. Va verificato con un consulente di appalti prima di qualunque uso in gara.
+dell'allegato, una lacuna da chiudere con `COMP` in coordinamento con un consulente di appalti prima di qualunque uso in gara.
 *Dove è usata*: [`docs/08_compliance/01 §4.1`](../08_compliance/01-inquadramento-normativo.md).
 
 **Circolare AgID 18 aprile 2017, n. 2/2017** - misure minime di sicurezza per le
@@ -497,7 +498,7 @@ accessibilità**.
 [`06`](../08_compliance/06-usabilita-e-accessibilita.md).
 *Come si legge*: **la via diretta è la legge nazionale sul cliente pubblico**, non la direttiva
 sull'accessibilità dei prodotti e servizi, il cui ambito soggettivo per la telemedicina è
-controverso e `[NV]`.
+controverso e da verificare da `COMP` `[NV]`.
 
 ### 5.7 Terminologie e cataloghi nazionali
 
@@ -506,7 +507,7 @@ controverso e `[NV]`.
 | **DM 18 dicembre 2008** | Adozione della versione italiana 2007 della classificazione internazionale delle malattie, nona revisione, modificazione clinica | [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md), [`docs/05_domain/07`](../05_domain/07-terminologie-nel-dominio.md) |
 | **DM 23 giugno 2023** e **DM 26 novembre 2024** | Nomenclatore e catalogo nazionale delle prestazioni | idem |
 | **Art. 5 della L. 22 aprile 1941, n. 633** | Esclusione dalla protezione del diritto d'autore degli atti ufficiali dello Stato: è il fondamento del regime di ridistribuzione condizionata delle due voci precedenti, insieme all'art. 52, comma 2, del Codice dell'amministrazione digitale | decisione `D31`, [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md) |
-| **Glossario nazionale di telemedicina, versione 1.0.0 del 29 gennaio 2026** | Vocabolario nazionale di riferimento | [`docs/05_domain/09`](../05_domain/09-glossario-del-dominio.md). **L'allineamento voce per voce non è stato eseguito** e va compiuto prima del congelamento del glossario di dominio e prima della traduzione (`Q-146`) |
+| **Glossario nazionale di telemedicina, versione 1.0.0 del 29 gennaio 2026** | Vocabolario nazionale di riferimento | [`docs/05_domain/09`](../05_domain/09-glossario-del-dominio.md). **L'allineamento voce per voce non è stato eseguito** e va compiuto prima del congelamento del glossario di dominio e prima della traduzione ([`Q-146`](../11_registri/02-questioni-aperte.md#q-146)) |
 
 ---
 
@@ -521,11 +522,11 @@ usate nel repository:
 
 | Riferimento | Che cosa stabilisce | Dove è usato |
 |---|---|---|
-| **Art. 2, punto 12** | Definizione di destinazione d'uso, ricavabile anche dal materiale promozionale | `V-171`, [`08_compliance/01 §11`](../08_compliance/01-inquadramento-normativo.md) |
+| **Art. 2, punto 12** | Definizione di destinazione d'uso, ricavabile anche dal materiale promozionale | [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`08_compliance/01 §11`](../08_compliance/01-inquadramento-normativo.md) |
 | **Art. 2, punto 29** | Messa in servizio | [15 §3](15-regolatorio-da-zero.md), [`08_compliance/01 §12`](../08_compliance/01-inquadramento-normativo.md) |
 | **Art. 2, punto 30** | Definizione di fabbricante, con **due elementi cumulativi** | [15 §3](15-regolatorio-da-zero.md), [`08_compliance/01 §2`](../08_compliance/01-inquadramento-normativo.md) |
 | **Art. 5, paragrafo 5** | Esenzione per i dispositivi fabbricati e usati in istituzioni sanitarie - citata **solo per escluderla** | [`08_compliance/01 §2`](../08_compliance/01-inquadramento-normativo.md) |
-| **Art. 7** | Divieto di dichiarazioni fuorvianti: vale **già oggi** e **non presuppone la marcatura** | `V-171` |
+| **Art. 7** | Divieto di dichiarazioni fuorvianti: vale **già oggi** e **non presuppone la marcatura** | [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) |
 | **Art. 8** | Presunzione di conformità delle norme armonizzate | [15 §5.1](15-regolatorio-da-zero.md) |
 | **Art. 10** | Obblighi del fabbricante | [`08_compliance/01 §2`](../08_compliance/01-inquadramento-normativo.md) |
 | **Artt. 11, 13, 14, 16 par. 1 lett. a)** | Mandatario, importatore, distributore, e la fattispecie del **prodotto in marchio bianco** | [`08_compliance/01 §2`](../08_compliance/01-inquadramento-normativo.md) |
@@ -541,7 +542,7 @@ usate nel repository:
 `[NV]` - la **numerazione puntuale di alcune sezioni** degli Allegati I, IX e XI, i codici di
 designazione del regolamento di esecuzione, il numero del punto dell'art. 2 sull'incidente grave e
 la ripartizione fra i paragrafi degli artt. 86 e 87 in funzione della classe **non sono stati
-verificati sul testo**.
+verificati sul testo**, da verificare da `COMP`.
 *Dove si reperisce*: Gazzetta ufficiale dell'Unione europea, versione italiana.
 *Come si legge*: **non da solo.** L'Allegato VIII, Regola 11, senza la linea guida che segue è
 quasi illeggibile per un software.
@@ -559,9 +560,9 @@ discostarsene richiede una motivazione scritta, e questo le rende operativamente
 |---|---|---|
 | **MDCG 2019-11**, *Qualification and classification of software in Regulation (EU) 2017/745 and Regulation (EU) 2017/746*, **revisione 1 del giugno 2025** | L'albero decisionale di qualificazione in cinque passi; la casistica dell'Allegato I; la scomposizione della Regola 11 in tre sotto-regole al § 4.2.1; la **delimitazione dei moduli** al § 7; la matrice di orientamento dell'Allegato III | [10](10-percorsi-di-cura-e-sicurezza.md), [15](15-regolatorio-da-zero.md), [`08_compliance/01`](../08_compliance/01-inquadramento-normativo.md) e [`02`](../08_compliance/02-qualificazione-e-classificazione.md) |
 | **MDCG 2019-16**, revisione 1 | Come soddisfare i requisiti dell'Allegato I in materia di sicurezza informatica | [12](12-crittografia-e-sicurezza.md), [15 §5.7](15-regolatorio-da-zero.md), [`08_compliance/03`](../08_compliance/03-sistema-di-gestione-della-qualita.md) |
-| **MDCG 2020-1** | Valutazione clinica del software: le **tre componenti dell'evidenza** - validità dell'associazione scientifica, prestazione tecnica o analitica, prestazione clinica. `[NV]` sulla revisione corrente | [15 §7](15-regolatorio-da-zero.md), [`08_compliance/07`](../08_compliance/07-valutazione-clinica.md) |
+| **MDCG 2020-1** | Valutazione clinica del software: le **tre componenti dell'evidenza** - validità dell'associazione scientifica, prestazione tecnica o analitica, prestazione clinica. `[NV]` sulla revisione corrente, da verificare da `COMP` | [15 §7](15-regolatorio-da-zero.md), [`08_compliance/07`](../08_compliance/07-valutazione-clinica.md) |
 | **MDCG 2018-5** | Criterio di **revisione maggiore** e identificativi unici del software | [15 §§7, 9](15-regolatorio-da-zero.md) |
-| **MDCG 2020-3** | Modifiche significative. `[NV]` su ambito e revisione corrente: i diagrammi decisionali sono ampiamente usati anche per i dispositivi certificati sotto il regolamento, e la trasposizione va verificata | [`08_compliance/08`](../08_compliance/08-sorveglianza-post-commercializzazione.md) |
+| **MDCG 2020-3** | Modifiche significative. `[NV]` su ambito e revisione corrente, da verificare da `COMP`: i diagrammi decisionali sono ampiamente usati anche per i dispositivi certificati sotto il regolamento, e la trasposizione va verificata | [`08_compliance/08`](../08_compliance/08-sorveglianza-post-commercializzazione.md) |
 
 **Documenti dell'*International Medical Device Regulators Forum*.** Usati per la matrice di
 orientamento richiamata dall'Allegato III di MDCG 2019-11 Rev.1, che incrocia significato
@@ -628,7 +629,7 @@ danneggiato).
 persona che non ha accettato alcuna licenza. Le clausole di esclusione di garanzia della licenza
 del progetto valgono fra le parti, non verso il paziente.
 `[NV]` - la formulazione letterale dell'art. 4 e dei considerando sulla nozione di prodotto, e la
-numerazione della norma italiana equivalente dopo il recepimento, **non sono verificate**.
+numerazione della norma italiana equivalente dopo il recepimento, **non sono verificate** da `COMP`.
 
 ### 6.5 Accessibilità
 
@@ -637,7 +638,7 @@ il decreto legislativo 27 maggio 2022, n. 82. Si applica ai prodotti e servizi i
 dal **28 giugno 2025**.
 `[NV]` - **la telemedicina non è nominata** fra le categorie coperte; la qualificazione di un
 servizio di videoconsulto come servizio di comunicazione interpersonale indipendente dal numero è
-controversa e non accertata.
+controversa e non accertata da `COMP`.
 
 **Direttiva (UE) 2016/2102** - accessibilità dei siti web e delle applicazioni mobili degli enti
 pubblici. In Italia opera attraverso la legge 9 gennaio 2004, n. 4, e le linee guida AgID.
@@ -661,15 +662,15 @@ dati sanitari elettronici personali appartenenti alle categorie prioritarie.
 [`08_compliance/01 §7`](../08_compliance/01-inquadramento-normativo.md).
 *Come si legge*: **è il punto meno intuitivo dell'intero quadro**, perché un prodotto può ricadervi
 **pur non essendo un dispositivo medico**.
-`[NV]` - la **mappatura esatta delle date** per ciascuna disposizione e le definizioni dell'art. 2
-vanno confermate sul testo: le fonti secondarie consultate divergono. È inoltre aperta la questione
-se il progetto debba produrre anche il pacchetto documentale del capo III (`Q-171`).
+La **mappatura esatta delle date** per ciascuna disposizione e le definizioni dell'art. 2
+vanno confermate sul testo da `COMP`, perché le fonti secondarie consultate divergono `[NV]`. È inoltre aperta la questione
+se il progetto debba produrre anche il pacchetto documentale del capo III ([`Q-171`](../11_registri/02-questioni-aperte.md#q-171)).
 
 ### 6.7 Altre fonti europee di contesto
 
 | Fonte | Che cosa stabilisce | Dove è usata |
 |---|---|---|
-| **Regolamento (UE) 2024/1689** | Sistemi di intelligenza artificiale. **Nessuna funzione attuale vi rientra**; una sola aggiunta cambierebbe regime, ed è per questo che l'introduzione di un componente di intelligenza artificiale è trattata come cambio di regime normativo e non come scelta tecnica (`V-170`) | [15 §§2.8, 8.6](15-regolatorio-da-zero.md), [`08_compliance/02`](../08_compliance/02-qualificazione-e-classificazione.md) |
+| **Regolamento (UE) 2024/1689** | Sistemi di intelligenza artificiale. **Nessuna funzione attuale vi rientra**; una sola aggiunta cambierebbe regime, ed è per questo che l'introduzione di un componente di intelligenza artificiale è trattata come cambio di regime normativo e non come scelta tecnica ([`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)) | [15 §§2.8, 8.6](15-regolatorio-da-zero.md), [`08_compliance/02`](../08_compliance/02-qualificazione-e-classificazione.md) |
 | **Regolamento (UE) 2023/2854** | Dati generati da prodotti connessi; **cambio di fornitore di servizi cloud**; interoperabilità | [15 §8.6](15-regolatorio-da-zero.md) |
 | **Regolamento (UE) 2024/1183** | Quadro europeo dell'identità digitale | [03](03-il-dato-clinico.md), [12](12-crittografia-e-sicurezza.md) |
 | **Direttiva (UE) 2015/1535** | Procedura di informazione nel settore delle regolamentazioni tecniche: è la procedura seguita per l'adozione delle linee guida nazionali sull'interoperabilità | [07 §5.2](07-fse-e-infrastrutture-nazionali.md) |
@@ -725,13 +726,13 @@ in chiaro: il progetto lo usa **sempre** con mutua autenticazione a livello di t
 [`docs/04_protocols/04`](../04_protocols/04-hl7-v2.md).
 
 **HL7 CDA release 2** - architettura dei documenti clinici. Nel progetto la serializzazione
-documentale è **sostituibile** e il contenuto è modellato come dataset canonico (`V-07`): nessun
+documentale è **sostituibile** e il contenuto è modellato come dataset canonico ([`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07)): nessun
 modello documentale è cablato.
 *Dove è usato*: [05 §5](05-standard-di-interoperabilita.md),
 [`docs/04_protocols/03`](../04_protocols/03-documenti-clinici.md),
 [`docs/05_domain/04`](../05_domain/04-documenti-clinici.md).
-`[NV]` - i **modelli, i codici di tipologia e i metadati di indicizzazione** delle dieci tipologie
-documentali della telemedicina **non sono pubblicamente disponibili** (`Q-07`).
+I **modelli, i codici di tipologia e i metadati di indicizzazione** delle dieci tipologie
+documentali della telemedicina **non sono pubblicamente disponibili**, una lacuna segnalata in [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) che chiede verifica a `COMP` `[NV]`.
 
 ### 7.3 Profili di interoperabilità IHE
 
@@ -794,23 +795,23 @@ Le famiglie effettivamente usate dal progetto, con il modulo che le tratta:
 **Due riferimenti di questa famiglia che il progetto tratta come vincoli e non come citazioni.**
 Il primo: la specifica sulla raccolta incrementale dei candidati di connessione richiede la
 consegna **esattamente una volta e nello stesso ordine**, e questo determina l'architettura della
-segnalazione (`V-131`). Il secondo: la specifica sullo scambio di token definisce il claim che
-rappresenta la delega, e il progetto **non emette mai** un token che ne sia privo (`V-132`).
+segnalazione ([`V-131`](../11_registri/01-vincoli-in-vigore.md#v-131)). Il secondo: la specifica sullo scambio di token definisce il claim che
+rappresenta la delega, e il progetto **non emette mai** un token che ne sia privo ([`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)).
 
 ### 8.2 Specifiche di altri enti
 
 | Specifica | Ente | Versione | Ruolo nel progetto |
 |---|---|---|---|
-| **SAML V2.0**, 15 marzo 2005 | OASIS | 2.0 | Federazione con asserzioni firmate: è il protocollo **necessario** per il canale nazionale di identità più diffuso |
+| **SAML [V2](../11_registri/03-vincoli-fondanti.md#v2).0**, 15 marzo 2005 | OASIS | 2.0 | Federazione con asserzioni firmate: è il protocollo **necessario** per il canale nazionale di identità più diffuso |
 | **OpenID Connect Core 1.0** | OpenID Foundation | 1.0 | Autenticazione e identità. **Non è una richiesta di commento** |
 | **HTML Living Standard**, sezione sugli eventi inviati dal server | WHATWG | standard vivo, **senza versione** | Spinta a senso unico verso il browser |
 | **OpenAPI** | OpenAPI Initiative | 3.1 | Contratto verificabile da una macchina. Schema dei dati `2020-12` |
-| **CloudEvents** | CNCF | 1.0; binding sul protocollo web **1.0.2** | Busta comune degli eventi. Contiene un **obbligo negativo esplicito** su un'intestazione, codificato nel progetto come prova negativa (`V-134`) |
+| **CloudEvents** | CNCF | 1.0; binding sul protocollo web **1.0.2** | Busta comune degli eventi. Contiene un **obbligo negativo esplicito** su un'intestazione, codificato nel progetto come prova negativa ([`V-134`](../11_registri/01-vincoli-in-vigore.md#v-134)) |
 | **ECMA-404** | Ecma International | - | Sintassi di scambio dei dati, in parallelo alla richiesta di commento corrispondente |
 | **Raccomandazioni sul linguaggio di marcatura estensibile** | W3C | - | Vincolo esterno, non scelta: documenti firmabili in parte |
 | **Criteri di accessibilità dei contenuti web**, livello AA | W3C | **2.1** | Incorporati nella norma tecnica europea di accessibilità. Il progetto dichiara una sola non conformità, sul criterio **1.2.4** |
 | **Specifiche del protocollo del broker di eventi** | progetto a monte | - | Specifica di **un'implementazione**, non di un ente di normazione: è un componente di terze parti da qualificare |
-| **CycloneDX** | `[NV]` - ente pubblicatore e versione di riferimento non verificati | `[NV]` | Formato della distinta dei materiali software, pubblicata per ogni rilascio e validabile contro lo schema. È il formato adottato dal requisito `SEC-043` |
+| **CycloneDX** | Formato della distinta dei materiali software, pubblicata per ogni rilascio e validabile contro lo schema. È il formato adottato dal requisito `SEC-043`. `[NV]` su ente pubblicatore e versione di riferimento, da verificare da `COMP` | `COMP` | Distinta dei materiali software |
 
 *Come si legge questo blocco*: la colonna «ente» conta quanto la specifica. Una specifica di
 progetto o di implementazione non ha lo stesso valore di uno standard di un organismo riconosciuto,
@@ -828,7 +829,7 @@ catalogo dell'organismo di normazione nazionale o internazionale.
 | Norma | Oggetto | Domanda a cui risponde | Dove è usata |
 |---|---|---|---|
 | **ISO 13485:2016** | Sistema di gestione della qualità per i dispositivi medici | *Come è organizzato chi produce il software?* | [15 §5.3](15-regolatorio-da-zero.md), [`08_compliance/03`](../08_compliance/03-sistema-di-gestione-della-qualita.md), [`09`](../08_compliance/09-percorso-e-calendario.md) |
-| **IEC 62304:2006+A1:2015** | Ciclo di vita del software dei dispositivi medici. La clausola **8.1.2** richiede che ogni elemento di configurazione sia identificato per titolo, produttore e **versione** - è il fondamento del divieto di etichette di versione mobili (`V-173`); la clausola **5.1.1** riguarda la tracciabilità | *Come è stato costruito e verificato?* | [15 §5.4](15-regolatorio-da-zero.md), [`01_technical/01`](../01_technical/01-stack-e-motivazioni.md) e [`09`](../01_technical/09-integrazione-continua-e-rilascio.md), [`08_compliance/03`](../08_compliance/03-sistema-di-gestione-della-qualita.md) |
+| **IEC 62304:2006+A1:2015** | Ciclo di vita del software dei dispositivi medici. La clausola **8.1.2** richiede che ogni elemento di configurazione sia identificato per titolo, produttore e **versione** - è il fondamento del divieto di etichette di versione mobili ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)); la clausola **5.1.1** riguarda la tracciabilità | *Come è stato costruito e verificato?* | [15 §5.4](15-regolatorio-da-zero.md), [`01_technical/01`](../01_technical/01-stack-e-motivazioni.md) e [`09`](../01_technical/09-integrazione-continua-e-rilascio.md), [`08_compliance/03`](../08_compliance/03-sistema-di-gestione-della-qualita.md) |
 | **ISO 14971:2019** | Gestione del rischio per i dispositivi medici | *Quali danni può causare e che cosa si è fatto per evitarli?* | [09](09-fondamenti-clinici.md), [10](10-percorsi-di-cura-e-sicurezza.md), [12](12-crittografia-e-sicurezza.md), [15 §5.5](15-regolatorio-da-zero.md), [`08_compliance/05`](../08_compliance/05-gestione-del-rischio.md) |
 | **IEC 62366-1:2015+A1:2020** | Ingegneria dell'usabilità | *Come è stato progettato perché non lo si usi male?* | [04](04-identita-e-anagrafiche.md), [10](10-percorsi-di-cura-e-sicurezza.md), [15 §5.6](15-regolatorio-da-zero.md), [`01_technical/08`](../01_technical/08-qualita-e-test.md), [`08_compliance/06`](../08_compliance/06-usabilita-e-accessibilita.md) |
 | **IEC 82304-1:2016** | Prodotto software sanitario | *In quale ambiente funziona e con quali limiti?* | [15 §5.7](15-regolatorio-da-zero.md) |
@@ -848,9 +849,9 @@ catalogo dell'organismo di normazione nazionale o internazionale.
 
 **Prima, sull'armonizzazione.** Una norma **armonizzata** conferisce presunzione di conformità ai
 requisiti coperti (art. 8 del regolamento sui dispositivi medici); una norma non armonizzata resta
-utilizzabile come stato dell'arte ma non conferisce presunzione. `[NV]` - lo stato di
-armonizzazione di **EN IEC 62304, EN IEC 62366-1, EN IEC 82304-1 ed EN ISO/IEC 81001-5-1 non è
-univocamente accertato**: le fonti secondarie divergono. Risultano invece pacificamente armonizzate
+utilizzabile come stato dell'arte ma non conferisce presunzione. Lo stato di
+armonizzazione di **EN IEC 62304, EN IEC 62366-1, EN IEC 82304-1 ed EN ISO/IEC 81001-5-1** non è
+univocamente accertato da `COMP`, perché le fonti secondarie divergono `[NV]`. Risultano invece pacificamente armonizzate
 **EN ISO 13485:2016** ed **EN ISO 14971:2019**. Finché la verifica non è compiuta sull'elenco
 consolidato più recente pubblicato dalla Commissione, la formulazione corretta è «applicata come
 stato dell'arte», e la presenza nell'elenco va **verificata alla data d'uso**, non una volta per
@@ -914,7 +915,7 @@ permissiva e includere contenuto di terzi che quella licenza non copre. La verif
 *Avvertenza che nessuna documentazione può attenuare.* **Interrogare un servizio terminologico
 esterno gestito da terzi non esonera dall'obbligo di licenza**, perché un sistema che crea o
 analizza dati codificati è a sua volta un sistema di trattamento dei dati ai sensi dell'accordo. Il
-sistema è comunque **pienamente funzionale** con la terminologia onerosa disattivata (`V-03`), e il
+sistema è comunque **pienamente funzionale** con la terminologia onerosa disattivata ([`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)), e il
 costo di quella scelta è dichiarato, non taciuto.
 
 ---
@@ -1012,8 +1013,8 @@ indirizzo**.
 
 **Decima e undicesima revisione della classificazione internazionale delle malattie.** Escluse in
 ogni forma. Per l'undicesima il divieto discende dalla clausola che vieta i derivati e dalla
-manleva imposta; per la decima il regime **`[NV]`** non è accertato, ed è la ragione per cui la
-prudenza prevale. Nota verificata sull'identificatore: l'identificatore corretto della undicesima
+manleva imposta; per la decima il regime non è accertato da `COMP`, ed è la ragione per cui la
+prudenza prevale `[NV]`. Nota verificata sull'identificatore: l'identificatore corretto della undicesima
 revisione **non è** quello che molte fonti secondarie riportano.
 
 **Contenuto SNOMED CT.** Non scaricato, non incluso, non incorporato in esempi, prove o insiemi di
@@ -1027,8 +1028,8 @@ dei profili di interoperabilità, terminologia procedurale dell'associazione med
 Escluse come contenuto; ammesso l'uso per riferimento tramite identificatore di sistema e codice, e
 la citazione per indirizzo e revisione.
 
-**Codici delle vaccinazioni statunitensi**, esclusi nella versione 1.0 con regime di licenza
-`[NV]`: il rischio è azzerato escludendoli dal perimetro.
+**Codici delle vaccinazioni statunitensi**, esclusi nella versione 1.0 perché il regime di licenza
+non è accertato e va verificato da `COMP` `[NV]`: il rischio è azzerato escludendoli dal perimetro.
 
 ### 12.2 Fonti tecniche e di metodo escluse
 
@@ -1041,12 +1042,12 @@ progetto non ha e che non è quello pertinente nel contesto europeo.
 dell'indice di qualità della sessione. Motivo: i modelli classici sono di **pianificazione** di reti
 a banda stretta, i fattori per la codifica audio moderna non sono standardizzati e per il video non
 esiste nulla di applicabile al tempo reale. L'indice del progetto è **proprietario e dichiarato
-tale** (`V-114`).
+tale** ([`V-114`](../11_registri/01-vincoli-in-vigore.md#v-114)).
 
 **Bozze scadute o non standardizzate presentate come standard.** L'intestazione per la chiave di
 idempotenza è una **bozza scaduta e archiviata**; quelle per la limitazione del traffico sono una
 **bozza attiva**, e la forma a tre campi non è mai stata standard. Il progetto le usa e le dichiara
-per ciò che sono (`V-133`).
+per ciò che sono ([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)).
 
 **Mappe fra messaggistica ospedaliera e risorse cliniche come base di conformità.** Sono documenti
 **informativi**: si usano come riferimento di mappatura, mai per dichiarare conformità.
@@ -1056,7 +1057,7 @@ per ciò che sono (`V-133`).
 **Le fonti secondarie.** Riassunti, articoli divulgativi, note di studi professionali,
 presentazioni di convegno e risposte di sistemi automatici **non sono fonti** in questa
 documentazione. Possono servire a trovare la fonte primaria; non a citarla. La regola è enunciata
-senza attenuazioni nell'area di conformità: *le fonti si citano, non si ricordano*; un riferimento
+senza attenuazioni nell'`COMP`: *le fonti si citano, non si ricordano*; un riferimento
 proviene dal testo o è marcato come non verificato, e non esiste una terza possibilità.
 
 **Gli identificativi di vulnerabilità non letti sulla fonte che li pubblica.** Il progetto descrive
@@ -1067,10 +1068,10 @@ documento che li cablasse invecchierebbe peggio della descrizione del meccanismo
 
 **I requisiti puntuali delle misure nazionali di sicurezza, prima della lettura riga per riga degli
 allegati.** Si citano i **codici**, che sono pubblici e verificati, e si marca come non verificato
-il contenuto dei singoli requisiti (`Q-151`).
+il contenuto dei singoli requisiti ([`Q-151`](../11_registri/02-questioni-aperte.md#q-151)).
 
 **I documenti di gara e i documenti metodologici non pubblicati**, quando non reperiti. Sono citati
-come **rinvio esistente e non soddisfatto**, con marcatura `[NV]`, e mai come fonte di
+come **rinvio esistente e non soddisfatto**, con marcatura `[NV]` che va chiusa da `COMP`, e mai come fonte di
 un'affermazione di conformità. Riguarda almeno due casi documentati: il capitolo di capitolato
 tecnico incorporato per rinvio da un allegato ministeriale, e i documenti metodologici richiamati
 da un decreto del 2022.
@@ -1101,14 +1102,14 @@ segnalazione utile, non un difetto di questo elenco.
 modulo dice **dove guardare**, non **che cosa il testo dice**: quest'ultima è materia dei moduli e
 delle aree, che vi rinviano.
 
-**La condizione perché resti vero nel tempo, posta come vincolo (`V-195`).** Un inventario di
+**La condizione perché resti vero nel tempo, posta come vincolo ([`V-195`](../11_registri/01-vincoli-in-vigore.md#v-195)).** Un inventario di
 fonti si degrada in un modo solo: una nuova fonte entra in un capitolo e non entra qui, e da quel
 momento l'elenco è incompleto senza che nessuno se ne accorga. La regola che lo previene è
 semplice e verificabile: **nessuna area introduce nella documentazione una fonte primaria nuova
 senza inserirla in questo modulo con i suoi estremi completi e con la data alla quale è stata
 verificata.** Non è un adempimento redazionale: è ciò che rende possibile, quando una norma cambia,
 sapere in un solo passaggio quali documenti ne dipendono. Il meccanismo di registrazione della data
-è la questione `Q-199`.
+è la questione [`Q-199`](../11_registri/02-questioni-aperte.md#q-199).
 
 ---
 
@@ -1116,19 +1117,19 @@ sapere in un solo passaggio quali documenti ne dipendono. Il meccanismo di regis
 
 | Riferimento | Che cosa manca | A chi spetta |
 |---|---|---|
-| `[NV]` | Capitolo di capitolato tecnico incorporato per rinvio dall'Allegato 4 del DM 19 novembre 2025: **non reperito**. Finché non lo si legge, nessuna affermazione di conformità a quelle misure è sostenibile | Conformità |
-| `[NV]` | Documenti metodologici richiamati dal DM 21 settembre 2022 per i requisiti funzionali dei micro-servizi: **non reperiti** | Conformità |
-| `[NV]` | Allegati di dettaglio della determinazione sulle specifiche di sicurezza di base: non letti riga per riga (`Q-151`) | Conformità |
-| `[NV]` | Testi dei due decreti del Presidente del Consiglio sugli elementi essenziali di cybersicurezza nei contratti pubblici, e verifica dell'applicabilità alle categorie tecnologiche | Conformità, con consulente di appalti |
-| `[NV]` | Numerazione puntuale di alcune sezioni degli Allegati I, IX e XI del regolamento sui dispositivi medici; codici di designazione; numero del punto sull'incidente grave; ripartizione fra i paragrafi degli artt. 86 e 87 in funzione della classe | Conformità |
-| `[NV]` | Definizioni e mappatura delle date del regolamento sullo spazio europeo dei dati sanitari | Conformità |
-| `[NV]` | Stato di armonizzazione di quattro norme tecniche di processo e di due norme sulle informazioni fornite dal fabbricante | Conformità |
-| `[NV]` | Versione della norma tecnica europea di accessibilità citata a supporto della direttiva sui prodotti e servizi | Conformità |
-| `[NV]` | Formulazione letterale della nozione di prodotto nella direttiva sulla responsabilità, e numerazione della norma italiana di recepimento | Conformità |
-| `[NV]` | Modelli documentali, codici di tipologia e metadati di indicizzazione delle dieci tipologie della telemedicina (`Q-07`) | Conformità |
-| `[NV]` | Regime di licenza di due voci terminologiche e regime della decima revisione della classificazione delle malattie | Conformità |
-| `Q-146` | Allineamento voce per voce al glossario nazionale, da compiere **prima** del congelamento del glossario di dominio e prima della traduzione | Dominio |
-| `Q-199` | **Registro delle verifiche di vigenza**: oggi la data di consultazione è registrata in modo disuguale nei documenti. Serve una forma unica e un innesco periodico, altrimenti il §11 resta un metodo senza applicazione verificabile | → orchestrazione, con conformità |
+| `[NV]` | Capitolo di capitolato tecnico incorporato per rinvio dall'Allegato 4 del DM 19 novembre 2025: **non reperito**. Finché non lo si legge, nessuna affermazione di conformità a quelle misure è sostenibile | `COMP` |
+| `[NV]` | Documenti metodologici richiamati dal DM 21 settembre 2022 per i requisiti funzionali dei micro-servizi: **non reperiti** | `COMP` |
+| `[NV]` | Allegati di dettaglio della determinazione sulle specifiche di sicurezza di base: non letti riga per riga, questione aperta in [`Q-151`](../11_registri/02-questioni-aperte.md#q-151) | `COMP` |
+| `[NV]` | Testi dei due decreti del Presidente del Consiglio sugli elementi essenziali di cybersicurezza nei contratti pubblici, e verifica dell'applicabilità alle categorie tecnologiche | `COMP` con consulente di appalti |
+| `[NV]` | Numerazione puntuale di alcune sezioni degli Allegati I, IX e XI del regolamento sui dispositivi medici; codici di designazione; numero del punto sull'incidente grave; ripartizione fra i paragrafi degli artt. 86 e 87 in funzione della classe | `COMP` |
+| `[NV]` | Definizioni e mappatura delle date del regolamento sullo spazio europeo dei dati sanitari | `COMP` |
+| `[NV]` | Stato di armonizzazione di quattro norme tecniche di processo e di due norme sulle informazioni fornite dal fabbricante | `COMP` |
+| `[NV]` | Versione della norma tecnica europea di accessibilità citata a supporto della direttiva sui prodotti e servizi | `COMP` |
+| `[NV]` | Formulazione letterale della nozione di prodotto nella direttiva sulla responsabilità, e numerazione della norma italiana di recepimento | `COMP` |
+| `[NV]` | Modelli documentali, codici di tipologia e metadati di indicizzazione delle dieci tipologie della telemedicina, questione aperta in [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) | `COMP` |
+| `[NV]` | Regime di licenza di due voci terminologiche e regime della decima revisione della classificazione delle malattie | `COMP` |
+| [`Q-146`](../11_registri/02-questioni-aperte.md#q-146) | Allineamento voce per voce al glossario nazionale, da compiere **prima** del congelamento del glossario di dominio e prima della traduzione | Dominio |
+| [`Q-199`](../11_registri/02-questioni-aperte.md#q-199) | **Registro delle verifiche di vigenza**: oggi la data di consultazione è registrata in modo disuguale nei documenti. Serve una forma unica e un innesco periodico, altrimenti il §11 resta un metodo senza applicazione verificabile | → orchestrazione, con conformità |
 
 ---
 

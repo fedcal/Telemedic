@@ -166,7 +166,7 @@ scelta tecnologica presa nel progetto:**
 | «monitoraggio **in tempo reale** dei **parametri vitali**» | **IIb** | **C** | 12–18 mesi e un ordine di grandezza - **stima di settore, non listino** |
 | «raccolta **differita** di **parametri** per la **revisione periodica** del professionista» | **IIa** | **B** | - |
 
-La seconda formulazione è quella su cui è scritto l'intero modello di dominio (vincolo `V-144` di
+La seconda formulazione è quella su cui è scritto l'intero modello di dominio (vincolo [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144) di
 `DOM`), e da cui discende il divieto, per qualunque artefatto del progetto, di usare le espressioni
 «monitoraggio in tempo reale», «sorveglianza continua» o equivalenti.
 
@@ -185,7 +185,7 @@ prodotto deve essere costruito perché siano vere.
 
 **Le quattro esclusioni non sono equivalenti sul piano del presidio.** `E1` ed `E2` sono
 architetturali: si presidiano con il modello di dominio e con la macchina a stati dell'allarme.
-`E3` è comunicativa: si presidia con la revisione dei testi pubblici (vincolo `V-171`,
+`E3` è comunicativa: si presidia con la revisione dei testi pubblici (vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171),
 [01 §11](./01-inquadramento-normativo.md)). `E4` è quella che **si perde in una richiesta di
 funzionalità apparentemente innocua**, ed è il tema del § 6.
 
@@ -244,7 +244,7 @@ compie una scorrettezza, ma il danno è comunque prodotto - e ora l'estratto è 
 dalla parte sbagliata**, perché il progetto ha dichiarato l'intenzione di assumere il ruolo di
 fabbricante e il lettore non è tenuto a distinguere fra intenzione e soggetto costituito. Il
 perché la traccia resti tale è al § 5.2; qui conta la conseguenza pratica, che non cambia:
-**nessun estratto di questa traccia può circolare da solo**. **La questione `Q-170` porta questo
+**nessun estratto di questa traccia può circolare da solo**. **La questione [`Q-170`](../11_registri/02-questioni-aperte.md#q-170) porta questo
 punto all'orchestrazione**: la scelta fra pubblicare la traccia integralmente, pubblicarla solo
 come struttura senza il testo delle sezioni sostanziali, o consegnarla su richiesta a chi dichiara
 di volerla usare, è una decisione del committente e non di quest'area.
@@ -269,11 +269,11 @@ perché è la lista di controllo contro cui l'organismo notificato verifica la c
 | 10 | **Limiti d'uso e requisiti dell'ambiente operativo** | Le soglie di banda, latenza, perdita e variazione del ritardo sotto le quali il sistema segnala la degradazione e sconsiglia la prosecuzione. **Sono parte integrante della destinazione d'uso**, non un'appendice tecnica |
 
 **Sulla sezione 10 va detta una cosa che l'area tecnica ha già fissato e che qui diventa
-regolatoria.** Le soglie sono **specifica di prodotto, mai conformità** (vincolo `V-12`): nessuna
+regolatoria.** Le soglie sono **specifica di prodotto, mai conformità** (vincolo [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12)): nessuna
 norma italiana impone valori. Ma dal momento in cui sono dichiarate nella destinazione d'uso,
 diventano **prestazioni dichiarate**, e il sistema deve comportarsi come dichiarato. Dichiarare
 una soglia che il prodotto non rispetta è più grave che non dichiararne alcuna. E le soglie non
-sono ancora state misurate: la questione `Q-115` di `TECH` è aperta proprio su questo, e finché è
+sono ancora state misurate: la questione [`Q-115`](../11_registri/02-questioni-aperte.md#q-115) di `TECH` è aperta proprio su questo, e finché è
 aperta **la sezione 10 non è compilabile**.
 
 ### 5.2 Perché resta una traccia, ora che il progetto intende assumere il ruolo di fabbricante
@@ -318,7 +318,7 @@ corrispondenza con il fascicolo tecnico e con il rapporto di valutazione clinica
 | Perché non è una dichiarazione | Manca il **soggetto** che dichiara | Manca il **sistema di controllo dei documenti** che rende una dichiarazione tale |
 | Che cosa la renderebbe tale | L'ingresso di un fabbricante terzo | Il **soggetto fabbricante, da costituire**, **più** il controllo dei documenti in esercizio, **più** la persona responsabile del rispetto della normativa |
 | Chi deve produrlo | Un altro | **Noi**, una volta costituito il soggetto |
-| Quando può accadere | Fuori dal controllo del progetto | Dopo passi che il progetto deve compiere, ciascuno con un proprio tempo. **Nessuna data, nessuna finestra** (`V-171`) |
+| Quando può accadere | Fuori dal controllo del progetto | Dopo passi che il progetto deve compiere, ciascuno con un proprio tempo. **Nessuna data, nessuna finestra** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)) |
 | Il prodotto è più vicino all'uso clinico? | | **No.** Cambia chi intende percorrere la strada, non lo stato del prodotto |
 
 **Il corollario che non va perso di vista.** La condizione nuova è **verificabile e a nostro
@@ -326,14 +326,14 @@ carico**, mentre quella vecchia era un'attesa. È una differenza che rende il do
 oneroso, non meno: prima l'assenza di dichiarazione era un fatto esterno da registrare, ora è una
 **lacuna nostra** che ha un rimedio noto - istituire il controllo dei documenti - e un costo di
 omissione già dichiarato, perché un documento nato fuori dal controllo documentale **va riemesso**
-e non semplicemente approvato dopo ([03 §4.1](./03-sistema-di-gestione-della-qualita.md), `V-174`;
+e non semplicemente approvato dopo ([03 §4.1](./03-sistema-di-gestione-della-qualita.md), [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174);
 [09 §5](./09-percorso-e-calendario.md), attività irrecuperabile n. 3).
 
 **E la riga di apertura, ripetuta perché è quella che si perde.** Il prodotto **non reca marcatura
 CE** e non è coperto da alcuna dichiarazione di conformità. Chi lo installa, lo integra o lo mette
 in servizio assume per intero gli obblighi che ne derivano, **e il fatto che il progetto intenda
 certificare non gliene trasferisce alcuno**. Nessuna data è dichiarata qui, e nessuna può esserlo:
-`V-171` vieta di affermare o lasciare intendere che il prodotto sarà marcato entro un termine - è
+[`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) vieta di affermare o lasciare intendere che il prodotto sarà marcato entro un termine - è
 l'unica occorrenza ammessa di quella parola, dentro l'enunciato del divieto - e una pianificazione
 interna non diventa una promessa solo perché è nostra.
 
@@ -356,16 +356,16 @@ Ogni riga è formulata come la si sente formulare davvero: come una richiesta ra
 
 | # | La richiesta, come viene formulata | Che cosa cambia davvero | Fondamento | Esito |
 |---|---|---|---|---|
-| **1** | «Precompiliamo il campo della soglia con l'ultimo valore usato per quel percorso, tanto il medico può cambiarlo» | La soglia cessa di essere definita dal professionista per quel paziente e diventa **proposta dal sistema**. Il medico che conferma un valore proposto non compie la stessa operazione di chi lo scrive | `E4`; vincoli `V-02` e `V-123` | Il campo resta **vuoto e obbligatorio**. I riferimenti si mostrano attribuiti, in sola lettura, con azione esplicita di copia |
+| **1** | «Precompiliamo il campo della soglia con l'ultimo valore usato per quel percorso, tanto il medico può cambiarlo» | La soglia cessa di essere definita dal professionista per quel paziente e diventa **proposta dal sistema**. Il medico che conferma un valore proposto non compie la stessa operazione di chi lo scrive | `E4`; vincoli [`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02) e [`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123) | Il campo resta **vuoto e obbligatorio**. I riferimenti si mostrano attribuiti, in sola lettura, con azione esplicita di copia |
 | **2** | «Coloriamo di rosso i valori fuori dall'intervallo di riferimento del laboratorio» | L'intervallo di riferimento del laboratorio **non è la soglia di quel paziente**. Colorare secondo un intervallo che il sistema conosce è una qualificazione del dato compiuta dal sistema | Regola 11a; `E4` | Ammessa la sola evidenziazione rispetto alla soglia **configurata dal professionista per quell'assistito**, con l'attribuzione visibile |
 | **3** | «Ordiniamo la lista dei pazienti per gravità, così il medico vede prima i più critici» | L'ordinamento **è** un giudizio: stabilisce una priorità clinica fra persone. È supporto alla decisione | Regola 11a, voce C6 della tabella di [10 §15 §2.8](../10_fondamenti/15-regolatorio-da-zero.md) | Ordinamenti ammessi: cronologico, alfabetico, per stato amministrativo, per presenza di allarmi **non ancora presi in carico** (che è un fatto, non un giudizio) |
-| **4** | «Riempiamo i buchi della serie con l'ultimo valore noto, così il grafico è leggibile» | L'interpolazione **crea dati che non esistono**. E cancella l'informazione più importante che quella serie contiene: che una misura manca | Regola 11a; vincoli `V-09` e `V-148` | Il buco resta buco, ed è un'entità: l'attesa di rilevazione non soddisfatta si mostra come tale |
+| **4** | «Riempiamo i buchi della serie con l'ultimo valore noto, così il grafico è leggibile» | L'interpolazione **crea dati che non esistono**. E cancella l'informazione più importante che quella serie contiene: che una misura manca | Regola 11a; vincoli [`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09) e [`V-148`](../11_registri/01-vincoli-in-vigore.md#v-148) | Il buco resta buco, ed è un'entità: l'attesa di rilevazione non soddisfatta si mostra come tale |
 | **5** | «Calcoliamo la percentuale di aderenza al piano» | Dipende. Il rapporto fra misure attese e misure ricevute è **aritmetica su fatti**. Un «punteggio di aderenza» pesato, normalizzato o categorizzato in fasce è **un indice sintetico**, cioè informazione clinica nuova | Regola 11a | Ammesso il conteggio con la sua definizione esplicita e i suoi denominatori visibili; vietata la fascia di merito |
 | **6** | «Nella riproduzione della registrazione aggiungiamo zoom e regolazione del contrasto» | Il miglioramento dell'immagine per la lettura clinica è **elaborazione a fini diagnostici**, non comodità di riproduzione | MDCG 2019-11 Rev.1 § 3.1; voce C3 | Fuori perimetro. La riproduzione è fedele all'originale, e lo dichiara |
 | **7** | «Misuriamo la lesione sull'immagine con un righello a schermo» | Misurazione su immagine: informazione quantitativa prodotta dal sistema, con possibile **funzione di misura** ai sensi dell'art. 52 | Regola 11a e regola di applicazione 3.7; voce C4 | Fuori perimetro |
 | **8** | «Suggeriamo il codice della diagnosi mentre il medico scrive» | Codifica semantica automatica del documento clinico: il sistema propone contenuto clinico | Regola 11a; voce C5 | Fuori perimetro. La ricerca testuale in un catalogo di codici, che restituisce corrispondenze senza ordinarle per pertinenza clinica, resta ricerca semplice |
 | **9** | «Facciamo un riepilogo automatico della sessione da allegare al referto» | Sintesi automatica: **contenuto clinico generato dal sistema** dentro un documento clinico. E introduce, se realizzata con modelli generativi, un **secondo regime normativo** oltre a quello dei dispositivi | `E4`; Regolamento (UE) 2024/1689 | Fuori perimetro. È una delle tre funzioni «a una storia utente» di `D26` |
-| **10** | «Rileviamo i volti in sessione per accertare la presenza di terzi» | Elaborazione biometrica su un flusso clinico, con un proprio regime nel quadro sulla protezione dei dati e in quello sull'intelligenza artificiale, e con un tasso di errore che ricadrebbe su un consenso | Rinuncia deliberata di `DOM`, questione `Q-145` | Fuori perimetro. La presenza di terzi è **dichiarata**, e la dichiarazione è un consenso distinto (`V-146`) |
+| **10** | «Rileviamo i volti in sessione per accertare la presenza di terzi» | Elaborazione biometrica su un flusso clinico, con un proprio regime nel quadro sulla protezione dei dati e in quello sull'intelligenza artificiale, e con un tasso di errore che ricadrebbe su un consenso | Rinuncia deliberata di `DOM`, questione [`Q-145`](../11_registri/02-questioni-aperte.md#q-145) | Fuori perimetro. La presenza di terzi è **dichiarata**, e la dichiarazione è un consenso distinto ([`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)) |
 | **11** | «Dichiariamo nella documentazione di integrazione che siamo compatibili con il dispositivo di misura *X*» | **Trappola dell'accessorio.** L'art. 2, punto 2, definisce accessorio ciò che è destinato dal fabbricante a essere usato con uno o più dispositivi medici **specifici**; la regola di applicazione 3.3 trascina il software che fa funzionare o influenza un dispositivo **nella stessa classe del dispositivo pilotato** | art. 2, punto 2; All. VIII, Capo II, 3.3 | La documentazione di integrazione resta **agnostica rispetto al dispositivo**. Una frase può importare la classe di un apparecchio di terzi |
 | **12** | «Aggiungiamo la traduzione automatica dei messaggi in chat, è solo comodità» | Un errore di traduzione in un canale clinico è un errore di contenuto clinico. E la funzione è, per costruzione, un sistema di intelligenza artificiale con obblighi propri | Regola 11a; Regolamento (UE) 2024/1689 | Fuori perimetro nella versione 1.0. Il multilingua è dell'**interfaccia**, non del contenuto scritto dagli utenti |
 
@@ -433,7 +433,7 @@ dall'organismo notificato al primo confronto fra il fascicolo e l'interfaccia.
 
 ## 8. Il perimetro dichiarato
 
-**Questa sezione risponde alla questione `Q-01` della bacheca**, aperta dall'area della guida, che
+**Questa sezione risponde alla questione [`Q-01`](../11_registri/02-questioni-aperte.md#q-01) della bacheca**, aperta dall'area della guida, che
 chiedeva l'allineamento dei confini di perimetro alla dichiarazione di destinazione d'uso.
 
 **Esito: i confini indicati sono confermati e resi vincolanti**, e appartengono al blocco `E4`.
@@ -444,9 +444,9 @@ Nessun artefatto del progetto può contenere:
 | **Nessun giudizio interpretativo negli avvisi** | Un avviso enuncia un **fatto misurato** con la sua attribuzione: «la misura delle 08:14 è 152, la soglia impostata dal dott. *X* il giorno *Y* è 140». Non enuncia una valutazione: «valore elevato», «situazione da attenzionare», «peggioramento» |
 | **Nessuna verifica di interazioni farmacologiche** | Fuori perimetro integralmente, in ogni forma, compresa la segnalazione passiva |
 | **Nessuna prognosi** | Nessuna proiezione, tendenza dichiarata, previsione o stima di evoluzione. Una serie storica si mostra; non si estrapola |
-| **Nessun miglioramento d'immagine** | Né in diretta né in riproduzione. La resa è fedele alla sorgente, e la preferenza di degradazione è **scelta dall'utente**, mai guidata dal contenuto clinico (questione `Q-114` di `TECH`) |
+| **Nessun miglioramento d'immagine** | Né in diretta né in riproduzione. La resa è fedele alla sorgente, e la preferenza di degradazione è **scelta dall'utente**, mai guidata dal contenuto clinico (questione [`Q-114`](../11_registri/02-questioni-aperte.md#q-114) di `TECH`) |
 
-**E le sei rinunce deliberate** dichiarate da `DOM` con la questione `Q-145` - rilevazione
+**E le sei rinunce deliberate** dichiarate da `DOM` con la questione [`Q-145`](../11_registri/02-questioni-aperte.md#q-145) - rilevazione
 automatica dei volti, pesi di attendibilità applicati automaticamente, punteggi di rischio e
 prognosi, interpolazione dei dati mancanti, calcolo di esiti clinici, deduzione delle soglie -
 sono, dal punto di vista di quest'area, **le sei funzioni che manterrebbero il prodotto in
@@ -455,7 +455,7 @@ di prodotto: la loro revoca non è una decisione di roadmap, è una riclassifica
 
 ### 8.1 L'esecuzione locale di logica clinica
 
-**Questa sezione risponde alla questione `Q-142`**, aperta da `DOM`.
+**Questa sezione risponde alla questione [`Q-142`](../11_registri/02-questioni-aperte.md#q-142)**, aperta da `DOM`.
 
 **Esito: confermato. L'esecuzione locale di logica clinica è fuori perimetro, e la distinzione
 regge.** L'Allegato 3, § 3.2, del DM 19 novembre 2025 prevede che la piattaforma consumi dal
@@ -510,7 +510,7 @@ prestazione** che si intende effettuare in telemedicina».
 
 **`[NV]`** - le formulazioni sono riportate dalla ricerca del progetto sul testo pubblicato in
 Gazzetta Ufficiale, ma **la verifica letterale sul testo ufficiale va rifatta prima di qualunque
-uso contrattuale**, perché in questa materia la formulazione esatta è determinante.
+uso contrattuale** da `COMP`, perché in questa materia la formulazione esatta è determinante.
 
 **La conseguenza operativa è netta:** nel mercato pubblico italiano la richiesta di certificazione
 come dispositivo medico **può arrivare dal capitolato di gara**, indipendentemente dall'esito
@@ -529,7 +529,7 @@ richiede una nuova valutazione dell'organismo notificato, non di un aggiornament
 
 La qualificazione non si difende con un documento. Si difende con un **processo che impedisce a
 una proposta di modifica di attraversare il confine senza che qualcuno se ne accorga**, e questo è
-il vincolo `V-170`.
+il vincolo [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170).
 
 | Elemento del presidio | Che cosa fa | Dove vive |
 |---|---|---|
@@ -537,7 +537,7 @@ il vincolo `V-170`.
 | **Revisione di perimetro sulle proposte di modifica** | Una proposta che introduca una delle funzioni elencate **non viene respinta per merito tecnico, ma per politica di perimetro**. La motivazione del rifiuto è regolatoria e va scritta come tale | Guida ai contributi, revisione obbligatoria |
 | **Divieto esplicito sui componenti di intelligenza artificiale** | Nessuna funzione dichiarata oggi è un sistema di intelligenza artificiale. Introdurne una in una proposta di modifica **è un cambio di regime normativo**, non una scelta tecnica | Guida ai contributi e documento di decisione architetturale |
 | **Riesame della determinazione a ogni rilascio maggiore** | Verifica che le sei condizioni del § 7.2 non si siano verificate | Procedura di rilascio |
-| **Revisione regolatoria dei testi pubblici** | La destinazione d'uso si ricava anche dal materiale promozionale: un testo pubblicato senza revisione è una modifica non controllata della destinazione d'uso | Questione `Q-174` |
+| **Revisione regolatoria dei testi pubblici** | La destinazione d'uso si ricava anche dal materiale promozionale: un testo pubblicato senza revisione è una modifica non controllata della destinazione d'uso | Questione [`Q-174`](../11_registri/02-questioni-aperte.md#q-174) |
 
 **L'ultima riga è quella che sorprende chi viene dal software.** Una modifica alla pagina pubblica
 non passa dalla revisione del codice, non compare in una distinta di rilascio e non fa fallire
@@ -573,11 +573,11 @@ La determinazione item per item, con la sua motivazione e la sua avvertenza, è 
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| `Q-170` | Forma di pubblicazione della traccia di destinazione d'uso: integrale, solo struttura, o consegna su richiesta. **È una decisione sul rischio di essere citati come autori di una destinazione d'uso** (§ 5) | → Committente |
-| `Q-173` | Se la presentazione di parametri misurati costituisca **funzione di misura** ai sensi dell'MDR, con i requisiti metrologici dell'Allegato I che ne discendono. Dipende da un fatto che quest'area non conosce: se il sistema converta unità, arrotondi o trasformi i valori ricevuti, o li presenti come ricevuti | Dominio, funzionale |
-| `Q-144` | **CHIUSA da `D55`.** La destinazione d'uso del telemonitoraggio è **congelata** sulla formulazione «raccolta differita di parametri per la revisione periodica del professionista»: Classe IIa, classe di sicurezza software B. La formulazione in tempo reale è esclusa. Ne discende un divieto permanente - nessuna funzione può essere aggiunta se sposta il sistema verso il tempo reale clinico, e la valutazione va fatta **prima** di scrivere la funzione | **RISOLTA** |
-| `Q-145` | Conferma delle sei rinunce deliberate come scelte di prodotto sottoposte a controllo delle modifiche. **Quest'area le conferma come confini di conformità** e attende la conferma di prodotto | → Committente |
-| `Q-115` | Le soglie dell'ambiente operativo non sono state misurate: finché non lo sono, la sezione 10 della destinazione d'uso non è compilabile (§ 5.1) | Tecnica, prodotto |
-| `V-270` | **Il progetto intende assumere il ruolo di fabbricante (`D58`); il soggetto che lo eserciterebbe non è costituito.** Finché non lo è, e finché il controllo dei documenti non è in esercizio, la traccia di destinazione d'uso **non può** essere firmata né presentata come dichiarazione (§ 5.2) | Conformità, orchestrazione |
-| `[NV]` | Verifica letterale sul testo ufficiale in Gazzetta Ufficiale delle prescrizioni di certificazione del DM 21 settembre 2022 (§ 9) | Conformità |
-| `[NV]` | Numeri delle regole di applicazione dell'Allegato VIII, Capo II, citate al § 4.1 e § 6.1: vanno riletti sul testo consolidato prima di comparire in un documento di determinazione | Conformità |
+| [`Q-170`](../11_registri/02-questioni-aperte.md#q-170) | Forma di pubblicazione della traccia di destinazione d'uso: integrale, solo struttura, o consegna su richiesta. **È una decisione sul rischio di essere citati come autori di una destinazione d'uso** (§ 5) | → Committente |
+| [`Q-173`](../11_registri/02-questioni-aperte.md#q-173) | Se la presentazione di parametri misurati costituisca **funzione di misura** ai sensi dell'MDR, con i requisiti metrologici dell'Allegato I che ne discendono. Dipende da un fatto che quest'area non conosce: se il sistema converta unità, arrotondi o trasformi i valori ricevuti, o li presenti come ricevuti | Dominio, funzionale |
+| [`Q-144`](../11_registri/02-questioni-aperte.md#q-144) | **CHIUSA da `D55`.** La destinazione d'uso del telemonitoraggio è **congelata** sulla formulazione «raccolta differita di parametri per la revisione periodica del professionista»: Classe IIa, classe di sicurezza software B. La formulazione in tempo reale è esclusa. Ne discende un divieto permanente - nessuna funzione può essere aggiunta se sposta il sistema verso il tempo reale clinico, e la valutazione va fatta **prima** di scrivere la funzione | **RISOLTA** |
+| [`Q-145`](../11_registri/02-questioni-aperte.md#q-145) | Conferma delle sei rinunce deliberate come scelte di prodotto sottoposte a controllo delle modifiche. **Quest'area le conferma come confini di conformità** e attende la conferma di prodotto | → Committente |
+| [`Q-115`](../11_registri/02-questioni-aperte.md#q-115) | Le soglie dell'ambiente operativo non sono state misurate: finché non lo sono, la sezione 10 della destinazione d'uso non è compilabile (§ 5.1) | Tecnica, prodotto |
+| [`V-270`](../11_registri/01-vincoli-in-vigore.md#v-270) | **Il progetto intende assumere il ruolo di fabbricante (`D58`); il soggetto che lo eserciterebbe non è costituito.** Finché non lo è, e finché il controllo dei documenti non è in esercizio, la traccia di destinazione d'uso **non può** essere firmata né presentata come dichiarazione (§ 5.2) | Conformità, orchestrazione |
+| `[NV]` | Verifica letterale sul testo ufficiale in Gazzetta Ufficiale delle prescrizioni di certificazione del DM 21 settembre 2022 (§ 9) | `COMP` |
+| `[NV]` | Numeri delle regole di applicazione dell'Allegato VIII, Capo II, citate al § 4.1 e § 6.1: vanno riletti sul testo consolidato prima di comparire in un documento di determinazione | `COMP` |

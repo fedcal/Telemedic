@@ -7,7 +7,7 @@ description: Perché la registrazione lato server e la cifratura fino agli estre
 # ADR-0014 - Due modalità di sessione media e i loro effetti sul modello
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Decisioni di riferimento**: D22, D23; vincolo V-11 di bacheca
+**Decisioni di riferimento**: D22, D23; vincolo [V-11](../11_registri/01-vincoli-in-vigore.md#v-11) di bacheca
 
 ## Contesto
 

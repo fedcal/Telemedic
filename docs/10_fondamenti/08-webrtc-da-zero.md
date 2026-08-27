@@ -21,9 +21,11 @@ copiare righe di cui non conosce la ragione, ed è esattamente il modo in cui si
 una vulnerabilità in questa area.
 
 Convenzioni: ogni affermazione tecnica cita il documento normativo con numero e sezione.
-Ciò che non è stato verificato su fonte primaria è marcato `[NV]`. Tutti gli esempi
-contengono esclusivamente dati sintetici e indirizzi di documentazione; **nessun segreto
-reale compare in questa guida**, solo segnaposto di variabili d'ambiente.
+Ciò che non è stato verificato su fonte primaria è marcato `[NV]` con l'indicazione del
+destinatario in una delle tre forme ammesse: la sigla di un'area fra backtick, un identificativo
+di questione, oppure un soggetto esterno nominato secondo le regole di `CONTRIBUTING.md`. Tutti
+gli esempi contengono esclusivamente dati sintetici e indirizzi di documentazione; **nessun
+segreto reale compare in questa guida**, solo segnaposto di variabili d'ambiente.
 
 Il modello di minaccia complessivo del sistema, gli obblighi di tracciamento e la gestione
 dell'identità sono trattati nel [modulo su crittografia e sicurezza](12-crittografia-e-sicurezza.md); ogni
@@ -1067,21 +1069,21 @@ Totale movimentato: **2B in ingresso + 2B in uscita = 4B**. Se **entrambi** i la
 candidato relayed - possibile con due reti ostili - il traffico **raddoppia ancora**, a `8B`.
 
 Con un video a definizione media intorno a 1,5 Mbit/s per direzione più audio, e un
-sovraccarico di intestazioni dell'ordine del 10 % `[NV]` sulla percentuale esatta:
+sovraccarico di intestazioni dell'ordine del 10 % sulla percentuale esatta; la cifra va confermata dall'area `TECH`: `[NV]`
 
 | Scenario | Traffico aggregato sul relay per sessione |
 |---|---|
-| Definizione media, una allocazione di relay | ~6,8 Mbit/s `[NV]` |
-| Definizione media, entrambi i lati sul relay | ~13,6 Mbit/s `[NV]` |
-| Solo audio | ~0,18 Mbit/s `[NV]` |
+| Definizione media, una allocazione di relay | ~6,8 Mbit/s (misura da verificare da `TECH`) `[NV]` |
+| Definizione media, entrambi i lati sul relay | ~13,6 Mbit/s (misura da verificare da `TECH`) `[NV]` |
+| Solo audio | ~0,18 Mbit/s (misura da verificare da `TECH`) `[NV]` |
 
 Ne discende un fatto che va detto senza attenuazioni: **cento consulti in definizione media
 tutti instradati sul relay saturano un collegamento da un gigabit al secondo.** Il
 dimensionamento va fatto sul caso avverso, non sulla media.
 
 **Quale quota di sessioni finisce sul relay?** Le cifre di settore comunemente riportate
-oscillano fra il 5 % e il 20 %, ma **`[NV]`**: non sono verificate su fonte primaria e non
-vanno citate. Il progetto la misura sul proprio traffico leggendo il tipo del candidato
+oscillano fra il 5 % e il 20 %, ma non sono verificate su fonte primaria e non
+vanno citate; questa valutazione va confermata dall'area `TECH` del progetto. `[NV]` Il progetto la misura sul proprio traffico leggendo il tipo del candidato
 selezionato (§9.4), e pubblica il proprio dato.
 
 ### 5.10 La conseguenza sulla parola «peer-to-peer»
@@ -1183,7 +1185,7 @@ preferenza non è direttamente controllabile dall'interfaccia, ma è **osservabi
 **Sulla versione di DTLS**: verificato che la libreria crittografica di uno dei due maggiori
 motori ha **DTLS 1.3 come versione massima predefinita**, e che Firefox ha abilitato DTLS 1.3
 per WebRTC su rilascio e beta a partire dalla versione **127**. Il milestone esatto dell'altro
-motore principale e lo stato di Safari/WebKit sono **`[NV]`**. Conseguenza operativa: **il
+motore principale e lo stato di Safari/WebKit vanno confermati dall'area `TECH`. `[NV]` Conseguenza operativa: **il
 progetto non dichiara una versione DTLS, la misura per sessione** leggendo `tlsVersion` e la
 registra nell'audit. Qualunque affermazione statica sarebbe falsa per una parte del parco
 installato.
@@ -1290,7 +1292,7 @@ C'è un secondo argomento, indipendente e altrettanto dirimente per questo proge
 ipotizzando un supporto universale, quell'interfaccia richiederebbe **un fornitore di
 identità terzo** che ospita lo script di verifica. Introdurlo significherebbe creare una
 dipendenza di esecuzione da un soggetto esterno - in tensione diretta con il vincolo di
-sovranità del dato del progetto (V1) - e **spostare il punto di ancoraggio della fiducia dal
+sovranità del dato del progetto ([V1](../11_registri/03-vincoli-fondanti.md#v1)) - e **spostare il punto di ancoraggio della fiducia dal
 server di segnalazione al fornitore di identità, senza eliminarlo**.
 
 ### 6.6 La Short Authentication String, e perché è obbligatoria
@@ -1357,7 +1359,7 @@ di una determinata struttura è già un dato relativo alla salute** ai sensi del
 Regolamento generale sulla protezione dei dati. Il relay va quindi trattato come sistema che
 tratta dati personali: registrazione minimizzata, conservazione breve e documentata,
 inserimento nel registro dei trattamenti, e collocazione nell'Unione europea per il vincolo
-V1.
+[V1](../11_registri/03-vincoli-fondanti.md#v1).
 
 **Caso C - attraverso un server che compone i flussi.** Un server di inoltro selettivo o di
 composizione **termina la cifratura**: esegue un handshake proprio con ciascun partecipante,
@@ -1464,7 +1466,7 @@ tre caratteristiche che contano clinicamente:
 - **Correzione d'errore incorporata** (`useinbandfec=1`): ogni pacchetto porta una versione
   a bassa fedeltà del precedente, così una perdita isolata si recupera **senza chiedere
   nulla e senza attendere un tempo di andata e ritorno**. Costa un incremento di bitrate
-  dell'ordine del 10–30 % `[NV]` sulla cifra esatta. **RFC 8854 §4.1 lo raccomanda
+  dell'ordine del 10–30 %; la cifra esatta va verificata dall'area `TECH`. `[NV]` **RFC 8854 §4.1 lo raccomanda
   esplicitamente**, e il progetto lo attiva: l'intelligibilità della voce dell'assistito è
   funzionalmente critica.
 - **Trasmissione discontinua** (`usedtx=1`): sospende l'invio durante il silenzio. Risparmia
@@ -1501,7 +1503,7 @@ apparato di videoconferenza tradizionale, quello è il terreno d'incontro.
 > specialità in cui il suono ha valore semeiologico la disattivazione va offerta e
 > documentata - ma se il suono viene usato per una valutazione diagnostica si entra nel
 > perimetro della regola 11 del regolamento sui dispositivi medici, che è precisamente il
-> confine che il vincolo V2 impone di rendere esplicito.
+> confine che il vincolo [V2](../11_registri/03-vincoli-fondanti.md#v2) impone di rendere esplicito.
 
 ### 7.3 Video
 
@@ -1518,14 +1520,14 @@ quello di RFC 6184 e **la modalità di impacchettamento 1 deve essere supportata
 | Codec | Standard | Brevetti | Valutazione |
 |---|---|---|---|
 | **VP8** | RFC 6386; trasporto RFC 7741 | Dichiarato esente da royalty | Obbligatorio. Base sicura, efficienza inferiore ai successori. |
-| **VP9** | Specifica di progetto aperta | Dichiarato esente da royalty | Migliore efficienza di VP8 `[NV]` sulla percentuale; supporto ampio ma non universale; supporta nativamente la codifica a strati. |
+| **VP9** | Specifica di progetto aperta | Dichiarato esente da royalty | Migliore efficienza di VP8 (percentuale da verificare da `TECH`) `[NV]`; supporto ampio ma non universale; supporta nativamente la codifica a strati. |
 | **H.264** | ITU-T H.264 / ISO 14496-10; trasporto RFC 6184 | **Coperto da un consorzio di brevetti**, con costi e condizioni di licenza | Obbligatorio, quindi presente ovunque, e con **accelerazione hardware quasi universale**. Sui dispositivi mobili significa meno batteria e meno ritardo di codifica: in una televisita da smartphone è spesso la scelta migliore in pratica. |
 | **AV1** | AOMedia; formato di trasporto non ancora RFC | Dichiarato esente da royalty | Efficienza superiore, ma **la codifica software in tempo reale costa molta CPU** e l'accelerazione hardware in codifica è ancora rara. |
 
 **Stato di AV1, verificato**: la codifica AV1 per WebRTC è presente in uno dei motori
 principali dal 2021, e in Firefox è **attiva per impostazione predefinita dalla versione 136**
-(invio e ricezione, anche in modalità a più flussi). Lo stato su Safari e iOS è **`[NV]`**:
-non è stata trovata una nota di rilascio che lo dichiari per WebRTC, e le cifre di adozione
+(invio e ricezione, anche in modalità a più flussi). Lo stato su Safari e iOS va confermato dall'area `TECH`. `[NV]`
+Non è stata trovata una nota di rilascio che lo dichiari per WebRTC, e le cifre di adozione
 reperibili provengono da fonti commerciali e **non vanno citate**.
 
 > **Regola del progetto sui codec: non forzare, misurare.** Nella versione 1.0 non si impone
@@ -1611,8 +1613,7 @@ di ritardo del buffer. Va usata con cognizione: **abbassarla riduce la latenza e
 perdita audio sotto jitter elevato**. È un compromesso clinico, e come tale va documentato
 nel file di gestione dei rischi, non deciso in silenzio da chi scrive il codice.
 
-Il bilancio complessivo del ritardo, dalla telecamera al display remoto - tutti valori
-**`[NV]`**, ordini di grandezza da sostituire con misure proprie:
+Il bilancio complessivo del ritardo, dalla telecamera al display remoto - tutti valori che vanno confermati dall'area `TECH`, ordini di grandezza da sostituire con misure proprie. `[NV]`
 
 | Stadio | Contributo tipico |
 |---|---|
@@ -1725,7 +1726,7 @@ separato per il video. Costa banda **sempre**, anche quando non c'è alcuna perd
 che chiedere un fotogramma completo: indicazione di perdita d'immagine (`PLI`, RFC 4585,
 tipo 206 formato 1) o richiesta esplicita di fotogramma intra (`FIR`, RFC 5104, tipo 206
 formato 4). **Un fotogramma completo è costoso** - dell'ordine di 5–10 volte un fotogramma
-differenziale `[NV]` - e una raffica di richieste può innescare una spirale: congestione →
+differenziale; la proporzione esatta va confermata dall'area `TECH`. `[NV]` Una raffica di richieste può innescare una spirale: congestione →
 perdita → richiesta → fotogramma pesante → più congestione. Le implementazioni limitano la
 frequenza di queste richieste proprio per questo.
 
@@ -1890,11 +1891,9 @@ la formula dell'Annex B.
 1. **G.107 è un modello di pianificazione di reti telefoniche a banda stretta**, non un
    modello di misura di una sessione WebRTC.
 2. **I coefficienti di degrado per Opus non sono standardizzati** nella tabella dell'Appendice
-   I di ITU-T G.113, che copre codec telefonici di generazione precedente `[NV]` sul fatto
-   che siano stati aggiunti in revisioni recenti. Chi calcola un punteggio «Opus» con
+   I di ITU-T G.113, che copre codec telefonici di generazione precedente; il fatto che siano stati aggiunti in revisioni recenti va confermato dall'area `TECH`. `[NV]` Chi calcola un punteggio «Opus» con
    l'E-model sta usando i coefficienti di un altro codec o un valore inventato.
-3. Esistono varianti a banda larga e a banda piena (G.107.1 e G.107.2), più appropriate, ma
-   **`[NV]`** sulla loro copertura effettiva di Opus.
+3. Esistono varianti a banda larga e a banda piena (G.107.1 e G.107.2), più appropriate, ma la loro copertura effettiva di Opus va confermata dall'area `TECH`. `[NV]`
 4. **Per il video non esiste nulla di paragonabile applicabile al tempo reale.** I modelli
    ITU-T P.1203 e P.1204 riguardano lo streaming adattivo su HTTP, con assunzioni - segmenti,
    riempimento del buffer, interruzioni - che qui non valgono.
@@ -1912,8 +1911,8 @@ catena finché qualcuno la scambia per un obbligo.
 
 > **Nessuna soglia tecnica di risoluzione, frequenza dei fotogrammi o latenza è imposta alla
 > telemedicina dalla normativa italiana, per quanto risulta dalla ricerca condotta.** `[NV]`
-> sull'esistenza di requisiti tecnici minimi nelle indicazioni nazionali per l'erogazione di
-> prestazioni in telemedicina: la verifica non è stata completata, e se tali requisiti
+> Va verificato presso il Ministero della Salute se esistano requisiti tecnici minimi nelle
+> sue indicazioni nazionali per l'erogazione di prestazioni in telemedicina; se tali requisiti
 > esistessero **prevarrebbero** su qualunque valore proposto qui.
 
 I valori obiettivo del progetto sono quindi **specifica di prodotto**: scelte ingegneristiche
@@ -2147,7 +2146,7 @@ Il progetto usa **coturn**, un'implementazione open source di STUN e TURN. Fa du
 risponde alle domande «che indirizzo vedi arrivare da me?» (STUN, §5.3) e presta un proprio
 indirizzo per instradare i pacchetti quando nessun percorso diretto funziona (TURN, §5.3).
 
-Il vincolo di sovranità del dato (V1) impone che sia **ospitato dal progetto o dal
+Il vincolo di sovranità del dato ([V1](../11_registri/03-vincoli-fondanti.md#v1)) impone che sia **ospitato dal progetto o dal
 distributore, nell'Unione europea**. Nessun servizio gestito di terzi.
 
 ### 11.2 Autenticazione a credenziali temporanee
@@ -2193,7 +2192,7 @@ Due precisazioni di onestà normativa, entrambe verificate:
   Il meccanismo qui descritto è però l'unico con supporto universale nei browser e nel
   server: si adotta, e **lo si documenta per ciò che è - una convenzione di fatto**.
 - **L'algoritmo di hash sottostante all'HMAC** è genericamente indicato come `hmac(...)`
-  nella documentazione del server: `[NV]` che sia SHA-1. Il modo corretto di risolvere il
+  nella documentazione del server; l'identificazione dell'algoritmo va confermata dall'area `TECH`. `[NV]` Il modo corretto di risolvere il
   dubbio non è una citazione documentale ma **un test di integrazione**: emettere una
   credenziale con l'implementazione del progetto, tentare un'allocazione reale contro il
   server effettivamente distribuito, e far fallire la costruzione se l'autenticazione non
@@ -2420,7 +2419,7 @@ quadro è meno rassicurante di quanto si assuma comunemente:
 | Motore | `video/mp4` in registrazione | `video/webm` in registrazione |
 |---|---|---|
 | Chrome, Edge e derivati (desktop e Android) | **Sì**, dalla versione 126, attivo per impostazione predefinita (H.264 + AAC) | Sì |
-| Chrome su iOS | **No** | `[NV]` |
+| Chrome su iOS | **No** | Da verificare da `TECH` `[NV]` |
 | Safari e Safari iOS | **Sì**, dall'introduzione dell'interfaccia (H.264 + AAC) | **Sì, ma solo dalla versione 18.4** |
 | Firefox e Firefox Android | **No.** Segnalazione aperta senza risoluzione; commento del produttore: *«We don't support an mp4 muxer.»* | Sì |
 

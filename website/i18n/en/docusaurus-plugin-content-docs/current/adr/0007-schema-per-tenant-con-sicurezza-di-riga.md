@@ -7,7 +7,7 @@ description: "Why isolation between autonomous data controllers is realised with
 # ADR-0007 - One schema per tenant with row-level security as defence in depth
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference decisions**: D8; constraint V4; architectural foundation §4
+**Reference decisions**: D8; constraint [V4](../11_registri/03-vincoli-fondanti.md#v4); architectural foundation §4
 
 ## Context
 
@@ -67,7 +67,7 @@ The decision approved by the client explicitly allows two realisations - row-lev
 - Explicit iteration over tenants for every process not born from a request: costs more cycles and makes impossible the class of defects where an operation intended for one tenant touches others.
 - `[NV]` - the practical limit of manageable schemas before metadata cost becomes significant must be measured by the technical area before the first multi-tenant installation.
 
-**Who else is constrained**: all areas, for constraint V4.
+**Who else is constrained**: all areas, for constraint [V4](../11_registri/03-vincoli-fondanti.md#v4).
 
 ## References
 

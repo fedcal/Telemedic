@@ -26,7 +26,7 @@ A term in this domain can have definition from four sources, which do not have e
 | Level | Source | Example term | What it entails |
 |---|---|---|---|
 | **1** | **Italian regulation or administrative act** | *televisita*, *teleconsulto*, *data with greater anonymity protection*, *suppression* | The definition is binding. The project cannot narrow it, extend it or rename it |
-| **2** | **National implementation guide** | *`EncounterTelemedicina`*, *`CompositionRefertoTelevisita`* | Prevails over the generic model in case of divergence **[BASE]**, `04_BASELINE_ARCHITETTURALE.md` § 3 |
+| **2** | **National implementation guide** | *`EncounterTelemedicina`*, *`CompositionRefertoTelevisita`* | Prevails over the generic model in case of divergence **[BASE]**, [`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 3 |
 | **3** | **Adopted international standard** | *`Encounter`*, *`Observation`*, *`Consent`*, *`Provenance`* | Defines structure, not clinical meaning. Adopted unless it diverges from levels 1 and 2 |
 | **4** | **Operative definition of the project** | *media session*, *pre-technical verification*, *consultation scope*, *reporting window* | Permitted **only** where the three higher levels are silent, and always declared as such |
 
@@ -51,7 +51,7 @@ refers for the rest.
 ### 1.2 The national glossary
 
 AGENAS has published a **National Glossary of Telemedicine, v. 1.0.0 of 29 January 2026** (source:
-`B1-verifiche-documentali-italiane.md`, § 14). The **Business Glossary** is moreover a declared
+[`B1-verifiche-documentali-italiane.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/B1-verifiche-documentali-italiane.md), § 14). The **Business Glossary** is moreover a declared
 module of the National Telemedicine Infrastructure (DM 19 November 2025, art. 2).
 
 > **`DM-02` [MOD]** - The project glossary ([chapter 09](09-glossario-del-dominio.md)) declares for
@@ -96,7 +96,7 @@ translation of them is a **derivative work** which, in LOINC's case, is assigned
 (decision `D34`).
 
 > **[BASE]** The project's internationalisation strings are **architecturally separate** from
-> `Coding.display` (`04_BASELINE_ARCHITETTURALE.md` § 7). The label that the user reads is
+> `Coding.display` ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 7). The label that the user reads is
 > never the official translated display: it is a project string, linked to the code, with its
 > own lifecycle.
 
@@ -184,7 +184,7 @@ necessity is noise in the vocabulary.
 
 | Project term | Operative definition | Why a specific term is needed |
 |---|---|---|
-| **Media session** | Instance of real-time connection between act participants, with own negotiation, quality and lifecycle | "Session" alone is ambiguous between clinical act, connection and billable unit (`R6` § 8.1). The compound term makes the `V-01` boundary visible in the language |
+| **Media session** | Instance of real-time connection between act participants, with own negotiation, quality and lifecycle | "Session" alone is ambiguous between clinical act, connection and billable unit (`R6` § 8.1). The compound term makes the [`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01) boundary visible in the language |
 | **Pre-technical verification** | Checking of device, permissions, bandwidth and relay reachability performed **before** entry into the waiting area, with recorded outcome | The regulation does not name it, but Agreement 215/CSR 2020 imposes on the doctor the attestation of connection adequacy: the attestation needs a registered fact to refer to |
 | **Digital compliance of the beneficiary** | Ascertainment of the person's ability to interact with digital systems, distinct from technical verification of the device | Introduced by the AGENAS *Orientative Model of remote consultation delivery*, v. 1.0.25 of 16 April 2026, as a phase of "executability verification" **[RECOMMENDED, not binding]**. It is a **property of the person**, not the device: confusing them produces a green pre-check on a patient who does not know how to use the system |
 | **Consultation scope** | Closed and ephemeral set of documents to which a consultant accesses by force of a specialist-to-specialist consultation request, with expiry | The consultant has no title to the record: an object is needed that represents *what* was shown to them and *for how long* (`BR-014`) |
@@ -192,9 +192,9 @@ necessity is noise in the vocabulary.
 | **Contact outcome** | Structured code that declares how the act concluded, distinct from contact state | State says *where* the contact is; outcome says *what happened*. `EX-NOSHOW` and `EX-TECH-PATIENT` are two outcomes of the same terminal state, with opposite administrative effects (`BR-024`) |
 | **Channel fallback** | Declared passage from one channel to another during the act, with recorded motivation | "Fallback" is a technical term; here it is a clinical-administrative fact that can affect the nature of the act (`BR-006`) and must be named as such |
 | **Declared service hours** | Time band and days on which the service guarantees picking up alarms and response, made explicit to the beneficiary | It is a **safety requirement**, not a commercial parameter: a poorly declared service produces false reassurance (module [10 of the
-foundations](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 4.5; question `Q-14` on the board) |
-| **Canonical dataset** | Representation of the information content of a document, independent of serialisation format | Imposed by `V-07`. Without its own term the tendency is to say "the CDA" and in three months the model depends on the template |
-| **Access register** | Append-only chain with hashes, conserved separately, that records who did what to which subject | "Audit" in current Italian also means accounting review and compliance verification. The compound term prevents `V-04` from being satisfied with entity versioning (`D42`) |
+foundations](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 4.5; question [`Q-14`](../11_registri/02-questioni-aperte.md#q-14) on the board) |
+| **Canonical dataset** | Representation of the information content of a document, independent of serialisation format | Imposed by [`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07). Without its own term the tendency is to say "the CDA" and in three months the model depends on the template |
+| **Access register** | Append-only chain with hashes, conserved separately, that records who did what to which subject | "Audit" in current Italian also means accounting review and compliance verification. The compound term prevents [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04) from being satisfied with entity versioning (`D42`) |
 
 ## 5. False synonyms
 
@@ -292,7 +292,7 @@ Three containers at three scales, with three different access regimes: the **ele
 record** is national-regional and under the beneficiary's control; the **healthcare record** is
 the set of data at a single structure; the **local electronic health record** is the repository
 of the single delivering party. In the integration model the record remains with the partner
-system (`00_PROJECT_BRIEF.md` § 6.2.5).
+system ([`00_PROJECT_BRIEF.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/00_PROJECT_BRIEF.md) § 6.2.5).
 
 ### 5.10 Slot and appointment
 
@@ -304,9 +304,9 @@ double booking (`BR-020`).
 
 A **technical threshold** concerns the channel (packet loss, delay, bandwidth) and is a
 product specification configurable per tenant. A **clinical threshold** concerns a patient
-parameter and is configuration **per beneficiary**, decided by the professional (`V-02`).
+parameter and is configuration **per beneficiary**, decided by the professional ([`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)).
 
-Neither is imposed by Italian regulation: the constraint `V-12` on the board declares it as a
+Neither is imposed by Italian regulation: the constraint [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12) on the board declares it as a
 fact verified in `B1`, § "Minimum technical requirements". Calling them both "threshold" in a
 single configuration module is the error that leads to exposing to a tenant administrator a
 field that is individual clinical decision.
@@ -330,7 +330,7 @@ foundations](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 8.3 gives t
 ### 5.14 Tenant, organisation, delivering structure, integrator
 
 Four concepts that coincide in simple cases and diverge in real ones. The **tenant** is the
-isolation boundary (`V-04`); the **organisation** is a legal subject; the **delivering
+isolation boundary ([`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04)); the **organisation** is a legal subject; the **delivering
 structure** is who answers for delivery; the **integrator** is an application principal, not a
 user. A tenant can contain multiple delivering structures; an integrator can operate on multiple
 tenants.

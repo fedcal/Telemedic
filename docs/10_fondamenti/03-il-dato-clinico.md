@@ -119,8 +119,8 @@ novellato dal **D.lgs. 10 agosto 2018, n. 101**. Due articoli contano qui:
 
 - **art. 2-*septies*** - il Garante per la protezione dei dati personali adotta **misure di
   garanzia** per il trattamento dei dati genetici, biometrici e relativi alla salute. Sono
-  prescrizioni ulteriori e vincolanti, aggiornate periodicamente. `[NV]` sull'elenco delle
-  misure vigenti alla data odierna: vanno verificate sul sito del Garante prima di derivarne
+  prescrizioni ulteriori e vincolanti, aggiornate periodicamente. L'elenco delle
+  misure vigenti alla data odierna rimane da verificare da parte dell'area `GUIDA` `[NV]` sul sito del Garante prima di derivarne
   requisiti;
 - **art. 2-*sexies*** - individua i motivi di interesse pubblico rilevante che consentono il
   trattamento di categorie particolari da parte di soggetti pubblici, richiedendo che siano
@@ -292,8 +292,8 @@ Garante italiano, **amministratore di sistema**, e la sua posizione è soggetta 
 specifiche: designazione individuale, elenco aggiornato, verifica periodica dell'operato,
 registrazione degli accessi con caratteristiche di completezza, inalterabilità e conservazione
 minima. La fonte storica è il provvedimento generale del Garante del 27 novembre 2008 e
-successive modificazioni. `[NV]` sulla formulazione e sulla piena vigenza post-GDPR delle
-singole prescrizioni: va verificata prima di derivarne requisiti puntuali.
+successive modificazioni. La formulazione e la piena vigenza post-GDPR delle
+singole prescrizioni rimangono da verificare da parte dell'area `GUIDA` `[NV]` prima di derivarne requisiti puntuali.
 
 Indipendentemente dalla verifica, il progetto adotta una postura più stringente e
 architetturalmente esplicita: **l'amministratore di sistema è progettato come ruolo senza
@@ -395,23 +395,23 @@ diversi.
 | **Sotto il controllo di chi** | La struttura, che ne è depositaria | La struttura | La struttura | **L'assistito**, che consente, oscura e revoca |
 | **Accesso di terzi** | Su richiesta motivata, secondo la disciplina della documentazione sanitaria | Interno alla struttura, con profilazione | Interno | Subordinato a **consenso esplicito** dell'assistito, per profili di accesso normati |
 | **Base di formazione** | Obbligo di legge legato all'atto sanitario | Trattamento per finalità di cura interne | Obblighi documentali, fiscali, di conservazione | D.L. 179/2012, art. 12; DM 7 settembre 2023 |
-| **Conservazione** | Illimitata secondo la prassi consolidata `[NV]` | Secondo le finalità dichiarate | Secondo l'obbligo di riferimento | Indice e documenti cancellati **trent'anni dopo il decesso**, eccettuata la cartella clinica |
+| **Conservazione** | Illimitata secondo la prassi consolidata, da verificare da parte dell'area `GUIDA` `[NV]` | Secondo le finalità dichiarate | Secondo l'obbligo di riferimento | Indice e documenti cancellati **trent'anni dopo il decesso**, eccettuata la cartella clinica |
 
 Alcune precisazioni che meritano di essere esplicite.
 
 **La cartella clinica** è il complesso della documentazione formata durante un episodio di
 ricovero. La giurisprudenza le riconosce natura di atto pubblico quando redatta da personale
 di struttura pubblica, con la conseguenza che l'alterazione successiva integra una fattispecie
-penale e non un mero errore amministrativo. `[NV]` sull'esatta qualificazione e sulle
-pronunce di riferimento, non verificate nelle fonti consultate dal progetto. La conseguenza
+penale e non un mero errore amministrativo. L'esatta qualificazione e le
+pronunce di riferimento rimangono da verificare da parte dell'area `GUIDA` `[NV]` nelle fonti normative. La conseguenza
 pratica che il progetto adotta in ogni caso: **una correzione non è una sovrascrittura**. Ogni
 modifica successiva alla chiusura è un'aggiunta tracciata, con autore, istante e motivo,
 mentre la versione precedente resta leggibile.
 
 **Il dossier sanitario** è l'insieme dei dati del paziente presso una singola struttura,
 costruito per garantire continuità di cura al suo interno. Il Garante ne ha disciplinato
-formazione, consenso e profilazione degli accessi con linee guida dedicate. `[NV]` sugli
-estremi e sulla vigenza aggiornata del provvedimento.
+formazione, consenso e profilazione degli accessi con linee guida dedicate. Gli
+estremi e la vigenza aggiornata del provvedimento rimangono da accertare da parte dell'area `GUIDA` `[NV]`.
 
 **L'archivio dell'erogatore** è la nozione più prosaica e più trascurata: è tutto ciò che una
 struttura conserva perché obbligata da norme non sanitarie - obblighi fiscali, contabili,
@@ -518,9 +518,8 @@ l'efficacia prevista dall'art. 2702 del codice civile.
 
 **Che livello serve per un referto?** L'Accordo 215/CSR 2020 richiede la «sottoscrizione
 digitale» e, per la telerefertazione, la «firma digitale validata del medico responsabile».
-`[NV]` sull'individuazione puntuale del livello richiesto dall'ordinamento per ciascuna
-tipologia documentale sanitaria: non è stato verificato nelle fonti consultate, e la scelta
-va documentata come decisione con la relativa motivazione, non assunta implicitamente.
+L'individuazione puntuale del livello richiesto dall'ordinamento per ciascuna
+tipologia documentale sanitaria rimane da accertare da parte dell'area `ARCH` `[NV]`, in quanto comporta una scelta architetturale che va documentata come decisione con motivazione, non assunta implicitamente.
 
 **Formati.** Le firme si applicano al documento in formati normalizzati: **PAdES** per i
 documenti PDF, **CAdES** per file generici (estensione `.p7m`), **XAdES** per XML. Lo standard
@@ -549,7 +548,7 @@ integrità, affidabilità, leggibilità e reperibilità del documento informatic
 con un responsabile della conservazione, un manuale, pacchetti di versamento, archiviazione e
 distribuzione, e - nel contesto pubblico - regole tecniche puntuali. Le linee guida AgID sulla
 formazione, gestione e conservazione del documento informatico sono la fonte tecnica di
-riferimento. `[NV]` su versione e data di ultimo aggiornamento delle linee guida vigenti.
+riferimento. La versione e la data di ultimo aggiornamento delle linee guida vigenti rimangono da accertare da parte dell'area `TECH` `[NV]`.
 
 **Tempi di conservazione.** Il quadro è frammentato e va conosciuto nella sua frammentazione:
 
@@ -559,8 +558,8 @@ riferimento. `[NV]` su versione e data di ultimo aggiornamento delle linee guida
 | Dati di autenticazione e accesso ai servizi minimi di telemedicina | **Dodici mesi** | DM 19 novembre 2025, art. 12 |
 | Log delle operazioni | **Ventiquattro mesi**, con cancellazione alla scadenza | DM 19 novembre 2025, All. 4, § 6 |
 | Documenti e dati generati dalle infrastrutture regionali | **Non conservati** dalla IRT | DM 19 novembre 2025, artt. 4, c. 4 e 12 |
-| Cartella clinica ospedaliera | Illimitata secondo la prassi consolidata | `[NV]` - la fonte comunemente citata è una circolare ministeriale del 1986, la cui vigenza e portata non sono state verificate |
-| Referti e documentazione diagnostica | Termini pluriennali, differenziati per tipologia | `[NV]` - non verificato nelle fonti consultate |
+| Cartella clinica ospedaliera | Illimitata secondo la prassi consolidata, da verificare da parte dell'area `GUIDA` `[NV]` - la fonte comunemente citata è una circolare ministeriale del 1986, la cui vigenza e portata rimangono non verificate |
+| Referti e documentazione diagnostica | Termini pluriennali, differenziati per tipologia | I termini rimangono da verificare da parte dell'area `GUIDA` `[NV]` - non accertati nelle fonti consultate |
 
 Dalla frammentazione discende un requisito che non ammette scorciatoie: **ogni categoria di
 dato ha un periodo di conservazione dichiarato, applicato da un processo automatico
@@ -660,8 +659,7 @@ imponendo un «*processo ricorrente di analisi del rischio finalizzato anche all
 della DPIA***».
 
 Il Garante italiano ha inoltre adottato l'elenco delle tipologie di trattamento soggette al
-requisito di valutazione d'impatto ai sensi dell'art. 35, par. 4. `[NV]` sugli estremi e
-sull'eventuale aggiornamento del provvedimento.
+requisito di valutazione d'impatto ai sensi dell'art. 35, par. 4. Gli estremi e l'eventuale aggiornamento del provvedimento rimangono da accertare da parte dell'area `GUIDA` `[NV]`.
 
 **Cosa significa per chi scrive codice.** La DPIA è un artefatto di progetto, non un documento
 di runtime. Ma **alcune sue misure diventano requisiti** e vanno tracciate come tali: se la

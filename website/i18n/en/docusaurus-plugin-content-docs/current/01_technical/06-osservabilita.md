@@ -20,7 +20,7 @@ The list is exhaustive and its violation is a defect, not an imprecision.
 
 | Category | Examples | Why |
 |---|---|---|
-| **Clinical content** | Report text, history, value of a measurement, outcome of assessment, reason for consultation | Constraint V-13 of `SEC`. A diagnostic log is replicated, exported, read by operations staff and retained with criteria different from clinical data |
+| **Clinical content** | Report text, history, value of a measurement, outcome of assessment, reason for consultation | Constraint [V-150](../11_registri/01-vincoli-in-vigore.md#v-150) of `SEC`. A diagnostic log is replicated, exported, read by operations staff and retained with criteria different from clinical data |
 | **Direct patient identifiers** | Tax ID, name, date of birth, contact details, identifier from system of origin | Idem. Pseudonyms per tenant are used in logs (§1.2) |
 | **Request and response bodies** | Document sent, clinical resource received | They contain both previous categories by definition |
 | **Addresses with identifiers** | Paths containing a patient or document identifier | Addresses end up in access logs, in proxies, in origin headers and in history |
@@ -93,11 +93,11 @@ Levels are useless if each person uses them at their own judgment. These are the
 | `INFO` | Relevant lifecycle fact: startup, shutdown, migration applied, configuration loaded, session started or ended | Low volume and predictable. An `INFO` per request is an `INFO` nobody will read |
 | `DEBUG` | Detail useful for investigation | See §1.4. Not active in ordinary live operation |
 
-**The rule that holds the system together**: an `ERROR` is **actionable**. If a condition recurs regularly and there is nothing to do, it is not an error: it is a feature of reality, and must be downgraded and measured. Proliferation of non-actionable errors is how an alert system stops being read, and an alert system nobody reads is worse than no alert system, because it produces false reassurance - the same reasoning that constraint V-14 of `GUIDA` applies to declared service hours coverage.
+**The rule that holds the system together**: an `ERROR` is **actionable**. If a condition recurs regularly and there is nothing to do, it is not an error: it is a feature of reality, and must be downgraded and measured. Proliferation of non-actionable errors is how an alert system stops being read, and an alert system nobody reads is worse than no alert system, because it produces false reassurance - the same reasoning that question [`Q-14`](../11_registri/02-questioni-aperte.md#q-14) of `GUIDA` applies to declared service hours coverage.
 
 ### 2.3 Retention
 
-Terms for traceability data and for access and authentication data are fixed by constraint V-15 of `SEC` and this area receives them without reinterpreting them. For application diagnostics logs, which are neither one nor the other, retention is **brief and declared**, dimensioned on incident investigation time and no more. A log retained longer than necessary is an archive of personal data without a justifying basis.
+Terms for traceability data and for access and authentication data are fixed by constraint [V-152](../11_registri/01-vincoli-in-vigore.md#v-152) of `SEC` and this area receives them without reinterpreting them. For application diagnostics logs, which are neither one nor the other, retention is **brief and declared**, dimensioned on incident investigation time and no more. A log retained longer than necessary is an archive of personal data without a justifying basis.
 
 ---
 
@@ -112,7 +112,7 @@ Terms for traceability data and for access and authentication data are fixed by 
 | **Domain** | Facts of the system, not the machine | Sessions started, sessions ended by outcome, key verifications with negative outcome, alerts generated, alerts acknowledged, alerts **not** acknowledged within window |
 | **Media quality** | Synthesis of session measurements | Quality index distribution, quota of sessions routed by relay, quota of sessions with inadequacy warning |
 
-The domain family is the one most often missing and most valuable. "The service responds in 40 milliseconds" does not say whether clinical alerts are being acknowledged. Constraint V-09 - the absence of data is information - translates here to a concrete rule: **events expected and not occurring are measured**, not only events occurring. A measurement expected and not received, an unconfirmed notification, a scheduled session never started are first-class metrics.
+The domain family is the one most often missing and most valuable. "The service responds in 40 milliseconds" does not say whether clinical alerts are being acknowledged. Constraint [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) - the absence of data is information - translates here to a concrete rule: **events expected and not occurring are measured**, not only events occurring. A measurement expected and not received, an unconfirmed notification, a scheduled session never started are first-class metrics.
 
 ### 3.2 Cardinality
 
@@ -182,7 +182,7 @@ The immutable audit trail carries the trace identifier **as an attribute**, but 
 | Recipient | Whoever operates the system | Whoever investigates, whoever supervises, the subject |
 | Mutability | Rotates, is pruned, is lost | Append-only, hash-chained |
 | Location | Observability system | Separate archive with own credentials |
-| Retention | Brief | Fixed by constraint V-15 of `SEC` |
+| Retention | Brief | Fixed by constraint [V-152](../11_registri/01-vincoli-in-vigore.md#v-152) of `SEC` |
 | Content | No clinical data, pseudonyms | No clinical data, pseudonyms, plus higher level of assurance and outcome |
 | Loss | Inconvenient | **Incident** |
 
@@ -233,7 +233,7 @@ flowchart TB
 
 ### 8.2 What is not available, and how to cope
 
-**Content is not available.** By design. When investigation requires knowing what a document contained, the way forward is deliberate access to the data in the application boundary, with authorisation, motivation and **recording in the immutable audit trail**. It is the same mechanism as emergency access (constraint V-16 of `SEC`): free motivation mandatory, limited scope and window, notification, review with recorded outcome.
+**Content is not available.** By design. When investigation requires knowing what a document contained, the way forward is deliberate access to the data in the application boundary, with authorisation, motivation and **recording in the immutable audit trail**. It is the same mechanism as emergency access (constraint [V-153](../11_registri/01-vincoli-in-vigore.md#v-153) of `SEC`): free motivation mandatory, limited scope and window, notification, review with recorded outcome.
 
 **This makes some investigations slower.** It must be declared instead of being discovered: it is the price of minimisation, and it is a price that has been chosen to pay. What can be done to reduce it is to design the signals to be **sufficient to localise** the problem even without the content: stable event identifier, explicit outcome, point in the pathway, artefact version, and - where needed - a **form** of the data instead of the data: length, presence, structure, validation outcome. Knowing that a document was rejected because a mandatory element was absent, and which one, does not require knowing its content.
 

@@ -7,7 +7,7 @@ description: Perché un'operazione compiuta da un sistema per conto di una perso
 # ADR-0015 - Delega esplicita, mai impersonificazione
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Decisioni di riferimento**: D18; vincoli V-165 dell'area integrazione e V-154 dell'area sicurezza
+**Decisioni di riferimento**: D18; vincoli [V-165](../11_registri/01-vincoli-in-vigore.md#v-165) dell'area integrazione e [V-154](../11_registri/01-vincoli-in-vigore.md#v-154) dell'area sicurezza
 
 ## Contesto
 

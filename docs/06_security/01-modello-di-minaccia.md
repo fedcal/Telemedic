@@ -175,7 +175,7 @@ difese efficaci sono quattro, e sono tutte funzionalità del prodotto:
   l'abuso ([04 §7](./04-tracciamento.md));
 - **accesso d'emergenza come percorso dichiarato**, con motivazione libera obbligatoria e
   riesame a posteriori: rendere l'eccezione una funzione tracciata invece di lasciarla come
-  privilegio silenzioso ([02 §10](./02-identita-e-accessi.md), vincolo V-153).
+  privilegio silenzioso ([02 §10](./02-identita-e-accessi.md), vincolo [V-153](../11_registri/01-vincoli-in-vigore.md#v-153)).
 
 ### 3.2 L'attaccante esterno non mirato
 
@@ -240,7 +240,7 @@ terminologia vede le interrogazioni.
 *Conseguenza progettuale.* La difesa non è contrattuale ma **architetturale, per assenza di
 dato**: se al servizio esterno di terminologia non arriva mai un identificativo dell'assistito,
 la sua collocazione geografica diventa irrilevante ai fini del trasferimento. È il ragionamento
-con cui la questione Q-04 della bacheca è stata chiusa e che il capitolo
+con cui la questione [Q-04](../11_registri/02-questioni-aperte.md#q-04) della bacheca è stata chiusa e che il capitolo
 [07 §7](./07-catena-di-fornitura.md) riporta per esteso.
 
 ### 3.6 L'errore, che non è un avversario ma produce gli stessi effetti
@@ -297,7 +297,7 @@ flowchart TB
 | **B** - integratore → ingresso | Token di identità delegata, chiamate applicative, riferimenti | Emittente ammesso per quel tenant, firma, algoritmo ammesso, destinatario atteso, ambito, **marcatura del livello come riferito e non eseguito** |
 | **C** - ingresso → applicazione | Contesto della richiesta | Tenant risolto: **nessuna interrogazione senza tenant**; identità propagata in forma non falsificabile |
 | **D** - applicazione → mediatore | Richiesta di uscita con destinazione | Schema, porta, dimensione, tempo, numero di salti in elenchi chiusi; **indirizzo risolto verificato** |
-| **E** - mediatore → esterno | Interrogazioni, notifiche, recupero di materiale | Nessun contenuto clinico ([V-21](./06-sicurezza-applicativa.md)); nessun identificativo dell'assistito verso la terminologia ([V-151](./03-protezione-dei-dati.md)); firma asimmetrica in uscita ([V-22](./06-sicurezza-applicativa.md)) |
+| **E** - mediatore → esterno | Interrogazioni, notifiche, recupero di materiale | Nessun contenuto clinico ([V-161](./06-sicurezza-applicativa.md)); nessun identificativo dell'assistito verso la terminologia ([V-151](./03-protezione-dei-dati.md)); firma asimmetrica in uscita ([V-162](./06-sicurezza-applicativa.md)) |
 | **media** - browser → relay | Pacchetti di trasporto cifrati | Credenziale effimera valida; destinazione non appartenente agli spazi vietati; **isolamento di rete in uscita come difesa primaria** ([05 §4](./05-sicurezza-del-tempo-reale.md)) |
 
 Due osservazioni che la tabella non rende da sola.
@@ -308,7 +308,7 @@ Ogni controllo che conta si esegue lato server; i controlli lato client sono erg
 
 **Il confine più sottile è il B.** L'identità che arriva da un integratore è un'identità di cui
 il progetto conosce solo l'asserzione. È il tema del capitolo
-[02 §4](./02-identita-e-accessi.md) e la ragione del vincolo V-154.
+[02 §4](./02-identita-e-accessi.md) e la ragione del vincolo [V-154](../11_registri/01-vincoli-in-vigore.md#v-154).
 
 ## 5. Dalla minaccia alla conseguenza clinica
 
@@ -325,7 +325,7 @@ una persona**.
 | M-05 | Registrazione avviata senza consenso, o consenso non revocabile | Contenuto clinico | Trattamento privo di base giuridica | Danno alla persona; **effetto inibitorio** sul colloquio se l'assistito sospetta di essere registrato |
 | M-06 | Alterazione di un documento clinico firmato | Contenuto clinico | Perdita di integrità | **Decisione terapeutica su dato falso.** È la minaccia con il peggior esito potenziale dell'intero elenco |
 | M-07 | Alterazione di una misura di parametro o della sua marcatura temporale | Contenuto clinico | Perdita di integrità | Valutazione della soglia su dato falso; allerta mancata o allerta ingiustificata |
-| M-08 | Perdita di un allarme o di una notifica di superamento di soglia | Disponibilità | Messaggio perso | **Mancato intervento** su un deterioramento clinico. Il vincolo V-09 - il silenzio non è mai normalità - nasce qui |
+| M-08 | Perdita di un allarme o di una notifica di superamento di soglia | Disponibilità | Messaggio perso | **Mancato intervento** su un deterioramento clinico. Il vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) - il silenzio non è mai normalità - nasce qui |
 | M-09 | Copertura oraria del servizio dichiarata in modo difforme dall'effettiva | Integrità dell'informazione | Nessuna, sul piano informatico | **Falsa rassicurazione.** Una persona che crede di essere sorvegliata e non lo è si trova in una condizione peggiore dell'assenza dichiarata di servizio |
 | M-10 | Confusione fra assistiti: dato attribuito alla persona sbagliata | Contenuto clinico | Perdita di integrità | Referto o misura nella cartella sbagliata: **due persone danneggiate** con un solo errore |
 | M-11 | Fuga di dati fra tenant | Contenuto clinico, metadati | Perdita di riservatezza | Come M-01, con esposizione di massa e senza un attore identificabile |

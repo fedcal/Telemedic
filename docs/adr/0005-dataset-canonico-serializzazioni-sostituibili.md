@@ -7,7 +7,7 @@ description: Perché il contenuto informativo dei documenti sanitari si modella 
 # ADR-0005 - Dataset canonico dei documenti e serializzazioni sostituibili
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Vincoli di riferimento**: V-07 di bacheca; D30
+**Vincoli di riferimento**: [V-07](../11_registri/01-vincoli-in-vigore.md#v-07) di bacheca; D30
 
 ## Contesto
 
@@ -80,11 +80,11 @@ la rappresentazione impaginata e quella strutturata derivano dalla stessa sorgen
 
 - Un artefatto in più, che va mantenuto allineato alla normativa.
 - Una conversione in più a ogni emissione.
-- Il dataset è un punto di sincronizzazione fra area di conformità, che ne determina il contenuto, e
+- Il dataset è un punto di sincronizzazione fra `COMP`, che ne determina il contenuto, e
   quest'area, che ne determina la forma: richiede coordinamento esplicito.
 
 **Chi altro è vincolato**: aree di conformità, integrazione, dominio, protocolli. È il vincolo
-V-07 di bacheca.
+[V-07](../11_registri/01-vincoli-in-vigore.md#v-07) di bacheca.
 
 ## Riferimenti
 

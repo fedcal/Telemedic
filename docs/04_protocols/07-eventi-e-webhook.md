@@ -204,13 +204,13 @@ sono emesse verso i destinatari che le hanno sottoscritte.
 
 Tre osservazioni sul catalogo.
 
-**L'evento di rilevazione mancante è un evento.** Il vincolo V-09 impone che l'assenza di dato sia
+**L'evento di rilevazione mancante è un evento.** Il vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) impone che l'assenza di dato sia
 informazione clinica e che il silenzio non sia trattato come normalità. Un piano di rilevazione
 che prevede due misure al giorno e non ne riceve nessuna per tre giorni **produce un evento**: non
 tacere è la funzione.
 
 **Il contenitore della registrazione è nel contenuto dell'evento, non assunto.** È il vincolo
-V-11: il contenitore è negoziato a runtime e il valore effettivo viaggia nella notifica, perché
+[V-11](../11_registri/01-vincoli-in-vigore.md#v-11): il contenitore è negoziato a runtime e il valore effettivo viaggia nella notifica, perché
 il ricevente non deve dedurlo.
 
 **Gli eventi critici hanno un trattamento distinto.** La mancata consegna di un evento critico non
@@ -221,8 +221,8 @@ esibirlo a un professionista che prende decisioni.
 **Gli eventi non trasportano capacità di divulgazione a chi non ne ha diritto.** In particolare
 la variante di un evento di completamento destinata alla liquidazione economica porta soltanto
 l'identificativo della prestazione, l'esito amministrativo e l'importo, **mai riferimenti a
-documenti clinici**: è il corollario del vincolo V-08, sollevato come questione **Q-163**
-dall'area di integrazione e che quest'area recepisce come vincolo di catalogo.
+documenti clinici**: è il corollario del vincolo [V-08](../11_registri/01-vincoli-in-vigore.md#v-08), sollevato come questione **[Q-163](../11_registri/02-questioni-aperte.md#q-163)**
+dall'`INTEG` e che quest'area recepisce come vincolo di catalogo.
 
 ## 4. La firma
 
@@ -275,7 +275,7 @@ distinti e vanno citati distintamente.
 | Costo per l'integratore di fascia PMI | Basso | Medio-alto |
 
 **Scelta di progetto: entrambi configurabili per destinazione, con l'asimmetrico predefinito**
-(`V-162`). La ragione è che quando la notifica trasporta l'esito di un atto sanitario e alimenta un
+([`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162)). La ragione è che quando la notifica trasporta l'esito di un atto sanitario e alimenta un
 registro di tracciamento, la differenza fra «posso verificare» e «posso dimostrare a un terzo» è
 sostanziale: con un segreto condiviso il ricevente non può provare a nessuno che il messaggio
 venisse da Telemedic, perché avrebbe potuto forgiarlo lui.
@@ -285,7 +285,7 @@ per cui non è stato eliminato è che l'integratore tipico di fascia PMI sa cons
 sempre sa consumare RFC 9421. **Il costo di questa scelta non si nasconde**: attivare lo schema
 simmetrico verso una destinazione significa rinunciare al non ripudio per quella destinazione, e la
 rinuncia va registrata insieme alla configurazione, non lasciata implicita. Nel perimetro di `RU-1`
-il segreto condiviso **non è offerto come modalità predefinita** (`V-162`,
+il segreto condiviso **non è offerto come modalità predefinita** ([`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162),
 [`09_roadmap/03 §3.7`](../09_roadmap/03-primo-rilascio-utilizzabile.md)), e l'ordine di sacrificio
 dell'ambito dichiara che, se la firma asimmetrica dovesse cadere, **il segreto condiviso non ne è
 il sostituto ammesso**: o la firma asimmetrica, o l'evento non esce verso terzi.
@@ -396,7 +396,7 @@ la riguardano direttamente:
 3. **Il controllo va implementato una volta sola**, in un componente condiviso da tutti i punti di
    uscita - consegna degli eventi, risoluzione di insiemi di chiavi pubbliche, recupero di
    documenti, chiamate verso il sistema di origine - e non ripetuto per ciascuno. È la questione
-   **Q-16** aperta verso l'area di sicurezza e l'area tecnica, e quest'area la sostiene: quattro
+   **[Q-16](../11_registri/02-questioni-aperte.md#q-16)** aperta verso l'area di sicurezza e l'`TECH`, e quest'area la sostiene: quattro
    implementazioni della stessa protezione producono quattro comportamenti diversi, e il più
    debole è quello che conta.
 
@@ -455,7 +455,7 @@ dati dopo la revoca delle sue credenziali.
 tenant. La revoca delle credenziali del client, la sospensione del tenant e la scadenza del
 rapporto disattivano automaticamente le sottoscrizioni collegate, con notifica all'amministratore.
 Le destinazioni ammesse sono su **elenco esplicito**, condiviso con quello delle destinazioni dei
-webhook (questione **Q-161**).
+webhook (questione **[Q-161](../11_registri/02-questioni-aperte.md#q-161)**).
 
 ## 9. Il canale di estrazione
 

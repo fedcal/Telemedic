@@ -21,7 +21,7 @@ legal positions, and almost every source in this area addresses the second.
 Three facts follow, and no chapter may contradict them.
 
 **First - the product bears no CE marking, and the project is not today a manufacturer** (`D28`,
-`D49` and `V-06`, as amended by `D58`). The project **intends** to assume the manufacturer role,
+`D49` and [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06), as amended by `D58`). The project **intends** to assume the manufacturer role,
 and **the legal entity that would exercise it has not yet been constituted**. It produces and
 publishes the regulatory material - technical file, software lifecycle, risk management, usability
 engineering - **for that path**, and it stops exactly where an act begins that presupposes a legal
@@ -84,7 +84,7 @@ it is the part that gets lost in rewordings.
 3. **Whoever deploys, integrates or puts the software into service assumes the resulting
    obligations all the same.** The project's intention to certify **transfers none of them**, and
    allowing that to be inferred would be more harmful than silence.
-4. **No marking date, anywhere** (`V-171`). It is not written, and it is not implied, that the
+4. **No marking date, anywhere** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)). It is not written, and it is not implied, that the
    product will be marked by a deadline: internal planning **does not become a promise because it
    is ours**. No date, no window, no "by" - the only admitted occurrence of that word is inside the
    statement of the prohibition itself.
@@ -100,7 +100,7 @@ step presupposes the legal existence that is missing today; **the deployer** or 
 where the text refers to them. The formal rules by which the intention is to be named - the verb
 "intends", the absence of the entity repeated in the same sentence, the negative statement of fact
 in first position, no dates - are in
-[01 §11](./01-inquadramento-normativo.md) and are part of `V-171`.
+[01 §11](./01-inquadramento-normativo.md) and are part of [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171).
 
 ## 2. The chapters
 
@@ -115,8 +115,10 @@ in first position, no dates - are in
 | [07](./07-valutazione-clinica.md) | **Clinical evaluation** | What must be demonstrated, with what data, in what time, and why it is the second long-lead path after the notified body |
 | [08](./08-sorveglianza-post-commercializzazione.md) | **Post-market surveillance** | The two distinct processes - surveillance and vigilance -, the reporting deadlines, changes and when they require the notified body's intervention |
 | [09](./09-percorso-e-calendario.md) | **Path and schedule** | The attainments to be achieved, in what order, with what prerequisites, and the time scenarios with the irreversible decision points. **It is the single home of the dates**, which are **the project's internal planning** (`D57`) and never a marking date |
-| [10](./10-controllo-dei-documenti.md) | **Document control** | The definition of document control: perimeter, rules for identification and versioning, reviewers by category, form of approval, withdrawal. How the approval record works in the «documents as code» model, and the explicit declared gap: author and approver coincide, and it is the first entry of `Q-189` |
-| [PROC](/08_compliance/PROCEDURA-controllo-dei-documenti.md) | **Document control procedure** | **Not a chapter, and the only artefact in this area that is not one.** It is the operational procedure criterion 1 of `T-01` requires: named list of controlled documents with their status, rule for identification and versioning, nominated reviewer for each category, form of approval, rule for withdrawal. It is **itself under control** and appears in its own list. It refers to chapter 10 rather than copying it |
+| [10](./10-controllo-dei-documenti.md) | **Document control** | The definition of document control: perimeter, rules for identification and versioning, reviewers by category, form of approval, withdrawal. How the approval record works in the «documents as code» model, and the explicit declared gap: author and approver coincide, and it is the first entry of [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) |
+| [11](./11-richiesta-agli-organismi-notificati.md) | **Request to the notified bodies** | What is asked of a notified body and in what form: the versioned text of the request for information, in Italian and in English, with the fields to be filled in at sending; the survey of the designated bodies with the source and the date of consultation, and the designation code declared `[NV]`; the register of what has been sent and the reason it has no rows today |
+| [PROC](/08_compliance/PROCEDURA-controllo-dei-documenti.md) | **Document control procedure** | **Not a chapter**, and one of the two artefacts in this area that are not: the other is the `CE-PLAN-001` draft. It is the operational procedure criterion 1 of `T-01` requires: named list of controlled documents with their status, rule for identification and versioning, nominated reviewer for each category, form of approval, rule for withdrawal. It is **itself under control** and appears in its own list. It refers to chapter 10 rather than copying it |
+| [`CE-PLAN-001`](./CE-PLAN-001-piano-di-valutazione-clinica.md) | **Clinical evaluation plan (draft)** | **Not a chapter**: it is the **technical draft** of the regulatory document [07 §4](./07-valutazione-clinica.md) assigns to the project, and it is criterion 4 of `T-14`. It carries every content item that paragraph lists, each one filled in or **declared empty with the reason for the absence**; it fills in the technical validation strategy, names the need for clinical competence and the forms in which the project intends to acquire it, and records the two upstream conditions that are not satisfied. **It is not approved and cannot be**: approval and assumption are reserved to the manufacturer role |
 
 **A placement rule that holds for the whole area: dates live only in chapter 09.** The other
 chapters refer to it. Two schedules in two places diverge at the first update, and in regulatory
@@ -182,9 +184,9 @@ and all three have an immediate consequence for a change proposal.
 
 | What to read | Why a proposal may be rejected for it |
 |---|---|
-| [02 §6](./02-qualificazione-e-classificazione.md) - the twelve requests that shift the qualification | A feature on the list **is not rejected on technical merit, but on scope policy**. The rejection is regulatory and the reason is to be written as such (constraint `V-170`) |
-| [03 §§7, 9](./03-sistema-di-gestione-della-qualita.md) - traceability and third-party components | A change that does not cite the requirement breaks traceability, which cannot be reconstructed. A dependency added without a record and without an exact version is an unidentified configuration item (`V-173`) |
-| [01 §11](./01-inquadramento-normativo.md) - the prohibited formulations | A line of documentation, an error message or a section heading asserting a compliance that does not exist is a regulatory defect (`V-171`), even if the code is impeccable |
+| [02 §6](./02-qualificazione-e-classificazione.md) - the twelve requests that shift the qualification | A feature on the list **is not rejected on technical merit, but on scope policy**. The rejection is regulatory and the reason is to be written as such (constraint [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)) |
+| [03 §§7, 9](./03-sistema-di-gestione-della-qualita.md) - traceability and third-party components | A change that does not cite the requirement breaks traceability, which cannot be reconstructed. A dependency added without a record and without an exact version is an unidentified configuration item ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)) |
+| [01 §11](./01-inquadramento-normativo.md) - the prohibited formulations | A line of documentation, an error message or a section heading asserting a compliance that does not exist is a regulatory defect ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)), even if the code is impeccable |
 
 Anyone who has never encountered this material **should not start here**: module
 [10 §15 - The regulatory framework from scratch](/10_fondamenti/15-regolatorio-da-zero.md) is
@@ -234,17 +236,17 @@ deciding in their place, and the questions are recorded at the end of each chapt
 
 ## 5. Constraints received and constraints imposed
 
-**Received from other areas**, and binding for every chapter of this area: `V-05` (the identity
-service provider is the deployer, not the project) · `V-06`, **amended by `D58`** (the product
+**Received from other areas**, and binding for every chapter of this area: [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05) (the identity
+service provider is the deployer, not the project) · [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06), **amended by `D58`** (the product
 bears no CE marking and the project is not today a manufacturer; the manufacturer role is the one
 the project **intends** to assume, with the legal entity still to be constituted, and the acts
 reserved to that role remain reserved)
-· `V-07` (canonical dataset, replaceable serialisations) · `V-12` (no technical threshold is
-imposed by Italian legislation: the values are product specification, never compliance) · `V-120`
-(frozen requirement identifiers) · `V-144` (the formulation of the intended purpose of remote
+· [`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07) (canonical dataset, replaceable serialisations) · [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12) (no technical threshold is
+imposed by Italian legislation: the values are product specification, never compliance) · [`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)
+(frozen requirement identifiers) · [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144) (the formulation of the intended purpose of remote
 monitoring is "deferred collection of parameters for periodic review by the professional")
-· `V-152` (log retention periods) · `V-154` and `V-165` (a level of assurance reported by an
-integrator does not satisfy a strong authentication obligation) · `V-163` (warning and consent
+· [`V-152`](../11_registri/01-vincoli-in-vigore.md#v-152) (log retention periods) · [`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154) and [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165) (a level of assurance reported by an
+integrator does not satisfy a strong authentication obligation) · [`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163) (warning and consent
 texts are neither themeable nor concealable).
 
 **Imposed by this area on all the others**, and not negotiable without a reasoned challenge on the
@@ -252,11 +254,11 @@ noticeboard:
 
 | # | Constraint | Where it is established |
 |---|---|---|
-| `V-170` | **Change control as a compliance measure.** A proposal introducing one of the out-of-scope functions is not assessed on technical merit: it is rejected on scope policy, with a written regulatory rationale | [02 §10](./02-qualificazione-e-classificazione.md) |
-| `V-171` | **Prohibited formulations in every public artefact.** No text of the project may assert or imply a compliance, a marking or a certification that does not exist | [01 §11](./01-inquadramento-normativo.md) |
-| `V-172` | **Identifier space of regulatory documents.** No area may coin an identifier in the reserved prefixes without declaring it | [03 §5](./03-sistema-di-gestione-della-qualita.md) |
-| `V-173` | **No floating version tags** on dependencies, base images and build chain tools: it is a direct breach of a clause, not an operational preference | [03 §9.3](./03-sistema-di-gestione-della-qualita.md) |
-| `V-174` | **This documentation is not a controlled document.** No chapter is a quality management system procedure and no area may present it as such: the chapters are inputs | [03 §4.1](./03-sistema-di-gestione-della-qualita.md) |
+| [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170) | **Change control as a compliance measure.** A proposal introducing one of the out-of-scope functions is not assessed on technical merit: it is rejected on scope policy, with a written regulatory rationale | [02 §10](./02-qualificazione-e-classificazione.md) |
+| [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) | **Prohibited formulations in every public artefact.** No text of the project may assert or imply a compliance, a marking or a certification that does not exist | [01 §11](./01-inquadramento-normativo.md) |
+| [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172) | **Identifier space of regulatory documents.** No area may coin an identifier in the reserved prefixes without declaring it | [03 §5](./03-sistema-di-gestione-della-qualita.md) |
+| [`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173) | **No floating version tags** on dependencies, base images and build chain tools: it is a direct breach of a clause, not an operational preference | [03 §9.3](./03-sistema-di-gestione-della-qualita.md) |
+| [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174) | **This documentation is not a controlled document.** No chapter is a quality management system procedure and no area may present it as such: the chapters are inputs | [03 §4.1](./03-sistema-di-gestione-della-qualita.md) |
 
 ## 6. What this area does not say
 
@@ -279,7 +281,7 @@ answer. What follows is what has not been written, and why.
    [document control procedure](/08_compliance/PROCEDURA-controllo-dei-documenti.md) the project
    operates on itself: it is written, versioned and under its own control, because criterion 1 of
    `T-01` requires it in that form and because without it no other document would be controlled.
-   `V-174` is untouched by this: it continues to hold for the **chapters**, which remain inputs and
+   [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174) is untouched by this: it continues to hold for the **chapters**, which remain inputs and
    not procedures. That the manufacturer role is the one the project intends to assume does not
    change this point: it changes only whose task it is to institute the rest.
 5. **It does not estimate costs and fees.** Notified bodies' standard fees are published as a legal
@@ -288,7 +290,7 @@ answer. What follows is what has not been written, and why.
    changed with `D58`: it is no longer that the date "is not the project's", but that **an
    intention is not a dated promise** and that the outcome depends on notified bodies with
    unmeasured queues. A published date would be read as a forecast of the outcome, which is exactly
-   the statement prohibited by `V-171`. The full rationale is in
+   the statement prohibited by [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171). The full rationale is in
    [01 §13](./01-inquadramento-normativo.md).
 7. **It does not decide in the project owner's place.** The decisions that require an
    entrepreneurial choice - monetisation, constitution of a legal entity, declared support period,
@@ -302,15 +304,15 @@ answer. What follows is what has not been written, and why.
 ## 7. The questions this area keeps open
 
 Each chapter closes with its own table; here only the numbering space is recorded, because a
-question without a number cannot be traced. This area uses `Q-170`…`Q-174` and has opened: `Q-170`
-form of publication of the intended-purpose outline · `Q-171` documentation package of the
-regulation on the European health data space · `Q-172` versioning structure of the identified
-distribution and its relationship with the unique identifier · `Q-173` whether the presentation of
-parameters constitutes a measuring function · `Q-174` regulatory review step for public texts
+question without a number cannot be traced. This area uses [`Q-170`](../11_registri/02-questioni-aperte.md#q-170)…[`Q-174`](../11_registri/02-questioni-aperte.md#q-174) and has opened: [`Q-170`](../11_registri/02-questioni-aperte.md#q-170)
+form of publication of the intended-purpose outline · [`Q-171`](../11_registri/02-questioni-aperte.md#q-171) documentation package of the
+regulation on the European health data space · [`Q-172`](../11_registri/02-questioni-aperte.md#q-172) versioning structure of the identified
+distribution and its relationship with the unique identifier · [`Q-173`](../11_registri/02-questioni-aperte.md#q-173) whether the presentation of
+parameters constitutes a measuring function · [`Q-174`](../11_registri/02-questioni-aperte.md#q-174) regulatory review step for public texts
 before publication. The first three and the fifth require a decision that is not this area's; the
 fourth requires a technical fact that this area does not know.
 
-**The space `Q-270`…`Q-279` and `V-270`…`V-279` is reserved for the entries opened by the rewording
+**The space of numbers from 270 to 279, in the `Q-` and `V-` families, is reserved for the entries opened by the rewording
 imposed by `D57` and `D58`**, and the entries already opened are recorded on the noticeboard.
 
 ## 8. How this area is maintained
@@ -318,7 +320,8 @@ imposed by `D57` and `D58`**, and the entries already opened are recorded on the
 Three rules, all with a practical consequence.
 
 **Sources are cited, not recalled.** A regulatory reference appearing in a chapter comes from the
-text or is marked `[NV]`. There is no third possibility, and the writer's memory is not a source.
+text or is marked `[NV]` with an indication of who must verify it according to the three admitted forms
+described in `CONTRIBUTING.md`. There is no third possibility, and the writer's memory is not a source.
 
 **Dates expire.** The harmonisation status of a standard, the version of a guidance document, the
 list of designated bodies and the adaptation deadlines all change. Every time-dependent entry is to

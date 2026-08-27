@@ -259,7 +259,7 @@ component designed to be embedded:
 Translated: if one day somebody - an integrator, a third party, a *fork* - builds a module with a
 medical purpose on top of this platform, **our user interface and our multimedia pipeline enter the
 scope of the usability and clinical performance evaluation of that module**, while themselves
-remaining non-device. That is why the architectural constraint **V2** - an explicit separation
+remaining non-device. That is why the architectural constraint **[V2](../11_registri/03-vincoli-fondanti.md#v2)** - an explicit separation
 between «communication vehicle» and «clinical decision support» - is not a design preference: it is
 a documentary requirement imposed by the guidance, and it is what makes our work usable by the
 manufacturer in the conformity assessment pathway.
@@ -460,7 +460,7 @@ a series of constraints that keep the class at **IIa** instead of letting it ris
 all code constraints, not prose:
 
 - **no clinical threshold is hard-coded**: thresholds are configuration in the hands of the
-  professional, for the individual patient (constraint **V2**);
+  professional, for the individual patient (constraint **[V2](../11_registri/03-vincoli-fondanti.md#v2)**);
 - **no score, prognostic index or risk classification is computed by the system**;
 - **collection is deferred**, intended for the professional's periodic review, not for continuous
   real-time monitoring;
@@ -1519,7 +1519,7 @@ There is then an effect that bears directly on whoever writes code, and it comes
 **D40**: ACN determination no. 127437/2026, Art. 18, obliges the NIS entity to **declare its
 «relevant suppliers» by name to the authority**, with company name, tax code (codice fiscale),
 **country of the registered office**, classification codes and criterion of relevance. The project's
-constraint **V1** - no mandatory component hosted outside the Union, no runtime dependency on
+constraint **[V1](../11_registri/03-vincoli-fondanti.md#v1)** - no mandatory component hosted outside the Union, no runtime dependency on
 non-EU services - therefore ceases to be a positioning argument and becomes **a fact that the
 customer is obliged to communicate to an authority**. Introducing a runtime dependency on a non-EU
 service is not a technical choice: it is a fact that ends up in somebody else's official
@@ -1988,7 +1988,7 @@ Area by area, the practical consequences.
 - the technical documentation is managed like code, versioned, with designated reviewers;
 - never declare a standard «harmonised» without having checked the consolidated list: the prudent
   wording is «applied as state of the art»;
-- mark `[NV]` whatever you have not verified against a primary source. It is a practice of honesty,
+- mark `[NV]` `COMP` whatever you have not verified against a primary source. It is a practice of honesty,
   but it is also the thing that makes the document usable by whoever will have to verify it.
 
 ---
@@ -2017,7 +2017,7 @@ Area by area, the practical consequences.
    practicable, not to replace it.
 8. **Traceability is lost for ever if it is not built from the start.** Frozen identifiers, SOUP
    inventory from the first build, document control before producing documents. It is the reason for
-   the rules in `CONTRIBUTING.md`.
+   the rules in [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md).
 9. **The risk chain is hazard → hazardous situation → harm**, and the hierarchy of controls is
    mandatory: design first, then protective measures, and only last information for safety.
 10. **Use error is not the user's fault**: it is a defect in the design of the interface. And

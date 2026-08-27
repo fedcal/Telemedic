@@ -38,7 +38,7 @@ Il modello concettuale degli aggregati sta nella base architetturale §2 e in
 4. **Il contesto di tenant è applicato dal motore.** Non dal codice, non dalla disciplina, non
    dalle revisioni. Vedi §3.
 5. **L'assenza di dato è un dato.** Una misura attesa e non arrivata non è una riga mancante: è
-   una riga che dice «attesa, non pervenuta». È il vincolo V-09, e ha conseguenze dirette sullo
+   una riga che dice «attesa, non pervenuta». È il vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09), e ha conseguenze dirette sullo
    schema del piano di rilevazione.
 
 ---
@@ -148,11 +148,10 @@ di sistema cresce con il prodotto tenant × contesti × tabelle; oltre una certa
 degradano la pianificazione delle interrogazioni, i tempi di esportazione logica e le operazioni
 di manutenzione, e il consumo di memoria per connessione aumenta.
 
-`[NV]` - **la soglia non è stata misurata dal progetto e non viene inventata qui.** Va
-determinata con una prova di capacità su un'installazione rappresentativa, e il risultato va
-pubblicato come limite di prodotto, non come cifra generica presa altrove. Fino ad allora la
-documentazione dichiara: il modello è progettato per un ordine di grandezza di **centinaia** di
-tenant per installazione; oltre, la struttura corretta è la ripartizione su più basi dati, resa
+La soglia va misurata da `TECH` `[NV]` con una prova di capacità su un'installazione
+rappresentativa, e il risultato va pubblicato come limite di prodotto, non come cifra generica presa altrove.
+Fino ad allora la documentazione dichiara: il modello è progettato per un ordine di grandezza di
+**centinaia** di tenant per installazione; oltre, la struttura corretta è la ripartizione su più basi dati, resa
 possibile senza modifiche al dominio dal registro dei tenant di §2.1.
 
 Dichiarare il limite è parte del prodotto. Un limite non dichiarato si scopre in esercizio.
@@ -309,7 +308,7 @@ CREATE INDEX ON t0001_monitoring.misura (soggetto_id, parametro_code, occurred_a
 ```
 
 Tre scelte da notare. Lo stato `attesa_non_pervenuta` **esiste come riga**: è la traduzione
-schematica del vincolo V-09, e senza di essa il silenzio del paziente sarebbe indistinguibile
+schematica del vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09), e senza di essa il silenzio del paziente sarebbe indistinguibile
 dalla normalità. Il `system` del parametro è una colonna, non un'assunzione: è la base
 architetturale §7. L'unità di misura è conservata accanto al valore, perché un numero senza
 unità in un contesto clinico non è un dato: è un rischio.
@@ -330,14 +329,14 @@ realizzazioni dietro la stessa interfaccia.
 **L'intervallo delle partizioni va scelto sul volume, non per abitudine.** Partizioni troppo
 piccole moltiplicano gli oggetti del catalogo - che, sommandosi al moltiplicatore dei tenant di
 §2.4, è il modo più rapido di raggiungere il limite del modello. Partizioni troppo grandi
-rendono la conservazione grossolana. `[NV]` - l'intervallo di riferimento va determinato con una
-prova di capacità, non assunto.
+rendono la conservazione grossolana. L'intervallo di riferimento va determinato da `TECH` `[NV]`
+con una prova di capacità, non assunto.
 
 ### 5.4 Conservazione
 
 La conservazione **non è cancellazione automatica**. Ogni politica ha tre elementi dichiarati:
 quale famiglia di dati, per quanto tempo, e in forza di quale regola. Per i dati di tracciabilità
-e per i dati di accesso e autenticazione i termini sono fissati dal vincolo V-15 di `SEC` e
+e per i dati di accesso e autenticazione i termini sono fissati dal vincolo [V-152](../11_registri/01-vincoli-in-vigore.md#v-152) di `SEC` e
 questa area li recepisce senza reinterpretarli. Per i dati clinici il termine è determinato dal
 titolare del trattamento e configurato per tenant: non è una costante del prodotto, e cablarlo
 sarebbe un errore normativo oltre che tecnico.
@@ -442,7 +441,7 @@ sono dichiarate in
 [06 - Eventi e integrazione interna](../02_architecture/06-eventi-e-integrazione-interna.md#41-ciò-che-si-garantisce-e-ciò-che-non-si-garantisce)
 §4.1.
 
-**La busta non contiene contenuto clinico.** È il vincolo V-14 di `INTEG`, ed è recepito qui a
+**La busta non contiene contenuto clinico.** È il vincolo [V-161](../11_registri/01-vincoli-in-vigore.md#v-161) di `INTEG`, ed è recepito qui a
 livello di schema: la colonna `busta` porta identificativi e riferimenti, il contenuto si rilegge
 con una chiamata autenticata sotto l'autorizzazione del ricevente. Il controllo che nessuna
 busta contenga campi clinici è una prova, non una convenzione.
@@ -459,7 +458,7 @@ sta nel registro immutabile, non nell'outbox, che è un meccanismo di consegna e
 
 Il versionamento delle entità offerto dal livello di persistenza **non è un registro
 immutabile**. Produce tabelle di revisione che sono tabelle come le altre: chi ha accesso in
-scrittura alla base dati le può alterare. D42 lo dice, il vincolo V-04 lo impone a tutte le aree,
+scrittura alla base dati le può alterare. D42 lo dice, il vincolo [V-04](../11_registri/01-vincoli-in-vigore.md#v-04) lo impone a tutte le aree,
 e questa area lo recepisce senza attenuanti.
 
 Il versionamento resta, e serve: dà la cronologia applicativa delle entità, utile per capire
@@ -501,7 +500,7 @@ Le proprietà che lo rendono un registro e non una tabella:
    riscrivere. La forma dell'ancoraggio e la sua periodicità sono decisione di `SEC`; questa area
    fornisce il punto di aggancio e il formato.
 5. **Nessun contenuto clinico.** Il registro dice chi, cosa, quando, su quale soggetto, con quale
-   esito e con quale livello di garanzia - non che cosa c'era scritto. Vincolo V-13 di `SEC`.
+   esito e con quale livello di garanzia - non che cosa c'era scritto. Vincolo [V-150](../11_registri/01-vincoli-in-vigore.md#v-150) di `SEC`.
 6. **Gli identificativi sono pseudonimi per tenant.** Il registro è il sistema con la
    conservazione più lunga e la platea di lettura più ampia: è l'ultimo posto in cui debbano
    comparire identificativi diretti.
@@ -517,7 +516,7 @@ non protegge nulla.
 ### 9.1 Che cosa si dichiara e in che forma
 
 Gli obiettivi di punto di ripristino e di tempo di ripristino sono **specifica di prodotto e
-capacità dell'installazione, mai conformità**. Il vincolo V-12 è esplicito: nessuna soglia
+capacità dell'installazione, mai conformità**. Il vincolo [V-12](../11_registri/01-vincoli-in-vigore.md#v-12) è esplicito: nessuna soglia
 tecnica è imposta dalla normativa italiana. Il progetto dichiara di quali meccanismi dispone e
 quali obiettivi sono raggiungibili con quale configurazione; l'obiettivo effettivo lo fissa il
 titolare del trattamento nella propria analisi.
@@ -572,7 +571,7 @@ Riepilogo, perché un capitolo di persistenza senza limiti dichiarati è incompl
 
 | Limite | Natura | Stato |
 |---|---|---|
-| Numero di tenant per installazione nel modello a schema | Strutturale, dovuto alla crescita del catalogo | `[NV]` da misurare; ordine di grandezza dichiarato: centinaia |
+| Numero di tenant per installazione nel modello a schema | Strutturale, dovuto alla crescita del catalogo | da misurare da `TECH` `[NV]`; ordine di grandezza dichiarato: centinaia |
 | Latenza di consegna degli eventi | Pari all'intervallo di interrogazione del relay | Dichiarata in [`07-prestazioni-e-capacita.md`](./07-prestazioni-e-capacita.md) |
 | Compressione e aggregazioni continue delle serie temporali | Assenti nella realizzazione di ripiego | Dichiarato, con sostituzione tramite tabelle di sintesi |
 | Durata delle migrazioni su molti tenant | Cresce linearmente con il numero di tenant | Mitigata dall'esecuzione per tenant e dall'osservabilità dell'avanzamento |

@@ -106,9 +106,8 @@ cancellazione; rettifica di un documento già trasmesso.
 - Un componente in più, con il rischio permanente di accumulo di logica: va presidiato con revisione
   esplicita, perché la degenerazione è graduale e non produce sintomi immediati.
 - Quattro processi orchestrati sono pochi: il costo fisso dell'orchestrazione si ammortizza poco.
-- `[NV]` - Il **meccanismo** di realizzazione - motore dedicato, macchina a stati persistita in
-  tabella, componente applicativo - **non è deciso** ed è una decisione rinviata con criteri
-  dichiarati. La strategia è decisa perché vincola le altre aree; il meccanismo no.
+- Il **meccanismo** di realizzazione - motore dedicato, macchina a stati persistita in
+  tabella, componente applicativo - **va deciso da `ARCH`** con i criteri dichiarati `[NV]`. La strategia è decisa perché vincola le altre aree; il meccanismo no.
 
 ## Riferimenti
 

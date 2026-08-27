@@ -430,9 +430,9 @@ introduce wrong meaning or a commitment the product cannot maintain.
 | «Immutable audit» referring to versioning of entities | Versioning does not render immutable (`D42`) | *access log with fingerprint chain* |
 | «Teleconsultation report» | Teleconsultation does not give rise to independent report | *collaborative report* |
 | «Platform consent» | Does not exist: consents are five distinct objects | the specific type of consent |
-| «Legal threshold» referring to technical parameters | No technical threshold is imposed by Italian regulations (`V-12`) | *configurable product specification* |
+| «Legal threshold» referring to technical parameters | No technical threshold is imposed by Italian regulations ([`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12)) | *configurable product specification* |
 | «Clinical quality» as claim | Has no verifiable definition (`D29`) | verifiable technical statements on resolution, continuity, outcome |
-| «Automatic diagnosis», «clinical suggestion» | Out of scope (`V2`) | *recording of professional's decision* |
+| «Automatic diagnosis», «clinical suggestion» | Out of scope ([`V2`](../11_registri/03-vincoli-fondanti.md#v2)) | *recording of professional's decision* |
 | «The authenticated patient is identified» | Authentication and identification are distinct acts | *identification recorded by professional* |
 | Names of companies, products, trade marks, domains of potential partners | Rule `R0`, prevailing over any other | *the integrator*, *a third-party EHR system* |
 

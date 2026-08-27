@@ -1,0 +1,173 @@
+#!/usr/bin/env bash
+# Ogni marcatura «non verificato» dichiara a chi va chiesta la verifica.
+#
+# PERCHE' ESISTE. Nove dei tredici indici di area dichiarano la STESSA regola, ciascuno con parole
+# proprie: una marcatura di non verificato porta l'indicazione di a chi va chiesta la verifica.
+# «Non si inventa», dice l'area di sicurezza; «indica sempre a chi va chiesta la verifica e che
+# cosa cambia se la risposta e' diversa», dice l'area di dominio. La regola non e' stata inventata
+# qui: e' stata LETTA nel corpus, ed era gia' unanime. Mancava solo il presidio, ed e' la voce
+# D-18 del runbook - una regola non presidiata da un controllo non e' una regola.
+#
+# E' anche il criterio 3 di T-02, che chiede due cose: zero marcature prive di destinatario, e un
+# RAPPORTO PUBBLICATO delle occorrenze ammesse. Questo script produce entrambe: il rapporto a ogni
+# esecuzione, e il conteggio delle prive di destinatario.
+#
+# IN SOLA MISURA FINO AL 2026-10-10, POI BLOCCANTE. Alla prima esecuzione, il 27 agosto 2026, le
+# marcature prive di destinatario riconoscibile sono 366 su 503. Portarlo bloccante subito
+# significherebbe un cancello rosso a ogni invio, e un cancello sempre rosso smette di essere
+# letto - e' la questione Q-288, gia' registrata. La data non e' arbitraria: e' il termine del
+# criterio 3 di T-02, quindi anche il termine entro cui quelle 366 vanno chiuse. La disciplina che
+# impone la data e' il criterio 4 di T-03: un controllo in sola segnalazione senza una data
+# dichiarata non e' ammesso, perche' e' il modo in cui una riduzione temporanea diventa permanente.
+#
+# CIO' CHE NON PUO' VERIFICARE, e va detto invece di lasciarlo intendere. Il destinatario si
+# riconosce per FORMA - una sigla d'area, un rinvio a una questione aperta, una formula esplicita,
+# il nome di un ente - non per senso, e l'unita' di analisi e' il CAPOVERSO. Da qui due errori di
+# segno opposto, ed e' importante che siano dichiarati entrambi:
+#
+#   IN ECCESSO. Un capoverso che dica «la misura spetta a chi installera' il sistema» esprime un
+#   destinatario che il controllo non riconosce, e viene contato fra le mancanze. Parte del numero
+#   si chiude rendendo esplicito cio' che il testo gia' dice a parole.
+#
+#   IN DIFETTO. Il predicato scatta se un destinatario compare IN QUALUNQUE PUNTO del capoverso,
+#   anche quando riguarda un'altra affermazione: un capoverso con una marcatura su un dato e la
+#   menzione di un ente su un altro argomento e' contato come dotato di destinatario. Se un
+#   capoverso porta due marcature e il testo indica il destinatario per una sola, entrambe sono
+#   contate come coperte.
+#
+# LA PRIMA STESURA DI QUESTO COMMENTO DICHIARAVA che il numero e' «una soglia superiore delle
+# mancanze». E' FALSO, e la revisione del 27 agosto 2026 lo ha dimostrato con due tenute: il
+# controllo puo' anche SOTTOSTIMARE. Il numero e' una stima con errore nei due versi, e va usato
+# per misurare l'ordine di grandezza del lavoro residuo, mai per dichiarare un criterio chiuso.
+# Legare ciascun destinatario alla singola marcatura richiederebbe di capire il testo, non di
+# leggerlo: non e' presidiabile da uno script, ed e' registrato come tale invece di essere
+# promesso.
+#
+# Uscita: 0 in sola misura (sempre), 1 quando bloccante e con rilievi, 2 errore d'uso.
+set -uo pipefail
+
+cd "$(dirname "$0")/.."
+
+RADICE_CORPUS="${RADICE_CORPUS:-docs}"
+BLOCCANTE_DAL="${BLOCCANTE_DAL:-2026-10-10}"
+RAPPORTO="${RAPPORTO:-}"
+
+if [ ! -d "$RADICE_CORPUS" ]; then
+  printf 'Errore d'\''uso: la radice del corpus «%s» non esiste.\n' "$RADICE_CORPUS" >&2
+  printf 'Percorso configurabile con RADICE_CORPUS.\n' >&2
+  exit 2
+fi
+
+VERDE=$'\033[32m'; ROSSO=$'\033[31m'; GIALLO=$'\033[33m'; FINE_COLORE=$'\033[0m'
+
+misura=$(gawk '
+  BEGIN {
+    AREE = "ARCH|COMP|SEC|TECH|INTEG|GUIDA|ROAD|FUNZ|DOM|ORCH|PROTO|OVER|AVV"
+    # LE FORME SI SONO LETTE NEL CORPUS, NON DEDOTTE. Misurate il 27 agosto 2026 contando le
+    # occorrenze: «spetta a» 30, «richiesta a» 37, «da chiedere a» 29, «a cura di» 20, «va
+    # confermato da» 19, «va richiesto a» 19. Le prime quattro NON erano riconosciute, e le
+    # marcature che le usavano risultavano prive di destinatario pur avendone uno leggibile.
+    #
+    # UNA DISTINZIONE CHE VA TENUTA, e che ha fatto scartare la famiglia piu'\'' numerosa. «Va
+    # verificato» compare 36 volte ed e'\'' la forma piu'\'' frequente del corpus, MA NON NOMINA
+    # NESSUNO: dice che cosa fare, non a chi tocca. Aggiungerla avrebbe alzato il conteggio delle
+    # marcature «con destinatario» di oltre settanta unita'\'' senza che una sola di esse dichiari
+    # chi deve chiudere la lacuna. Si riconoscono soltanto le forme che reggono un complemento di
+    # destinazione: «va verificato PRESSO», «va confermato DA», «va richiesto A».
+    DEST = "`(" AREE ")`|Q-[0-9]+|presso chi|chi deve chiuderla|chi decide|destinatari" \
+           "|va(nno)? chiest[oaie] a|va(nno)? richiest[oaie] a|va(nno)? confermat[oaie] da" \
+           "|va(nno)? verificat[oaie] presso|da chiedere a|richiesta a|interlocuzione con" \
+           "|spetta(no)? a|a cura d[ei]|compet(e|ono) a|deve (chiuderl|colmarl|risolverl)" \
+           "|Ministero|AgID|organismo notificato|Garante|garante|Commissione"
+    # UNA MARCATURA NOMINATA NON E'\'' UNA MARCATURA. «Chiude il [NV] che quest'\''area portava» parla
+    # DI una marcatura, non ne pone una: chiedergli un destinatario e'\'' chiedere a chi vada
+    # attribuita una frase che racconta. Sono otto occorrenze su cinquecento, misurate il 27
+    # agosto 2026, e non e'\'' la loro quantita'\'' a renderle importanti: e'\'' che NON POTRANNO MAI
+    # ricevere un destinatario, quindi resterebbero rilievi per sempre e il criterio 3 di T-02
+    # non potrebbe chiudersi nemmeno con il corpus interamente bonificato.
+    # La distinzione e'\'' di forma e non di senso, ed e'\'' quindi presidiabile: una marcatura POSTA
+    # non e'\'' mai preceduta da un articolo o da una preposizione articolata. «il [NV]» racconta,
+    # «[NV] - la soglia non e'\'' stata misurata» pone.
+    MENZIONE = "(^|[^[:alnum:]])((il|lo|la|i|gli|le|un|uno|una|del|dello|della|dei|degli|delle" \
+               "|nel|nello|nella|nei|negli|nelle|quel|quei|questo|questi|ogni|due|tre" \
+               "|the|a|an|each|every|those|these)[ ]+" \
+               "|(l|un|dell|nell|quell|all|dall)'\''[ ]*)`?\\[NV\\]"
+  }
+  # L'\''UNITA'\'' DI ANALISI E'\'' IL CAPOVERSO, non la riga: in markdown un capoverso occupa piu'\'' righe,
+  # e il destinatario di una marcatura sta spesso nella riga successiva a quella che la porta.
+  # Misurato il 27 agosto 2026: contando per riga le marcature con destinatario risultavano 52,
+  # contando per capoverso 137. La differenza non e'\'' un dettaglio di implementazione: e'\'' la
+  # differenza fra accusare il corpus di 451 mancanze e di 366.
+  # Una riga di tabella fa eccezione e vale da sola, perche'\'' una tabella e'\'' un capoverso unico
+  # solo per il markdown, mai per chi la legge.
+  FNR == 1 {
+    if (accumulo != "") valuta(accumulo, file_corrente, riga_capoverso)
+    accumulo = ""
+    file_corrente = FILENAME
+    area_corrente = FILENAME; sub(/^[^\/]*\//, "", area_corrente); sub(/\/.*$/, "", area_corrente)
+  }
+  {
+    if ($0 ~ /^[[:space:]]*\|/) {            # riga di tabella: unita'\'' a se'\'' stante
+      if (accumulo != "") { valuta(accumulo, file_corrente, riga_capoverso); accumulo = "" }
+      valuta($0, FILENAME, FNR)
+      next
+    }
+    if ($0 ~ /^[[:space:]]*$/) {             # riga vuota: chiude il capoverso
+      if (accumulo != "") { valuta(accumulo, file_corrente, riga_capoverso); accumulo = "" }
+      next
+    }
+    if (accumulo == "") riga_capoverso = FNR
+    accumulo = accumulo " " $0
+  }
+  END {
+    if (accumulo != "") valuta(accumulo, file_corrente, riga_capoverso)
+    for (a in con) printf "CON\t%s\t%d\n", a, con[a]
+    for (a in senza) printf "AREA\t%s\t%d\n", a, senza[a]
+    printf "TOTALI\t%d\t%d\n", totale_con + 0, totale_senza + 0
+  }
+  function valuta(testo, dove, numero,   n, area, copia, menzioni) {
+    n = gsub(/\[NV\]/, "[NV]", testo)
+    if (n == 0) return
+    copia = testo
+    menzioni = gsub(MENZIONE, "", copia)
+    n = n - menzioni
+    if (n <= 0) return
+    area = dove; sub(/^[^\/]*\//, "", area); sub(/\/.*$/, "", area)
+    if (testo ~ DEST) { con[area] += n; totale_con += n }
+    else {
+      senza[area] += n; totale_senza += n
+      printf "SENZA\t%s\t%d\t%s\n", dove, numero, substr(testo, 1, 150)
+    }
+  }
+' $(find "$RADICE_CORPUS" -type f -name '*.md' | sort))
+
+con=$(printf '%s\n' "$misura" | gawk -F'\t' '$1=="TOTALI"{print $2}')
+senza=$(printf '%s\n' "$misura" | gawk -F'\t' '$1=="TOTALI"{print $3}')
+
+printf '== Rapporto sulle marcature «non verificato» - criterio 3 di T-02 ==\n\n'
+printf 'Con destinatario riconoscibile: %s\n' "$con"
+printf 'Prive di destinatario:          %s\n\n' "$senza"
+printf 'Prive di destinatario, per area:\n'
+printf '%s\n' "$misura" | gawk -F'\t' '$1=="AREA"{printf "  %-18s %s\n", $2, $3}' | sort -k2 -rn
+
+if [ -n "$RAPPORTO" ]; then
+  printf '%s\n' "$misura" | gawk -F'\t' '$1=="SENZA"{printf "%s:%s\t%s\n", $2, $3, $4}' > "$RAPPORTO"
+  printf '\nElenco puntuale scritto in %s\n' "$RAPPORTO"
+fi
+
+oggi=$(date -u +%Y-%m-%d)
+if [ "$oggi" \< "$BLOCCANTE_DAL" ]; then
+  printf '\n%sIn sola misura fino al %s, poi bloccante. Criterio 3 di T-02.%s\n' \
+    "$GIALLO" "$BLOCCANTE_DAL" "$FINE_COLORE"
+  exit 0
+fi
+
+if [ "$senza" -gt 0 ]; then
+  printf '\n%s✗ %s marcature «non verificato» prive di destinatario dichiarato.%s\n' "$ROSSO" "$senza" "$FINE_COLORE" >&2
+  printf '%sNove indici di area dichiarano la stessa regola: una marcatura di non verificato porta%s\n' "$ROSSO" "$FINE_COLORE" >&2
+  printf '%sl'\''indicazione di a chi va chiesta la verifica. «Non si inventa».%s\n' "$ROSSO" "$FINE_COLORE" >&2
+  exit 1
+fi
+
+printf '\n%s✓ Ogni marcatura «non verificato» dichiara a chi va chiesta la verifica.%s\n' "$VERDE" "$FINE_COLORE"
+exit 0

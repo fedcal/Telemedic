@@ -29,7 +29,7 @@ formalizzare**, la costituzione è un prerequisito interno con un proprio tempo,
 modifica lo stato di fatto del prodotto. **In nessun documento del progetto è scritta una data
 entro cui il prodotto sarà marcato**, e non lo sarà: una pianificazione interna non diventa una
 promessa solo perché è del progetto, e la promessa di un esito regolatorio datato produce un
-effetto che l'intenzione non produce (vincolo `V-171`).
+effetto che l'intenzione non produce (vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)).
 
 Il limite ha tre proprietà che chi valuta il prodotto tende a sottovalutare:
 
@@ -54,7 +54,7 @@ stesura di questo capitolo.
 
 | Ambito | Stato |
 |---|---|
-| **Dichiarazioni pubbliche obbligatorie** (`D51`) | **Presenti**: `NOT-A-MEDICAL-DEVICE.md`, `DISTRIBUTION-POLICY.md`, `THIRD-PARTY-TERMINOLOGY.md`, `LICENSE`, `NOTICE`, `CONTRIBUTING.md`, `GOVERNANCE.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md` |
+| **Dichiarazioni pubbliche obbligatorie** (`D51`) | **Presenti**: [`NOT-A-MEDICAL-DEVICE.md`](https://github.com/fedcal/Telemedic/blob/main/NOT-A-MEDICAL-DEVICE.md), [`DISTRIBUTION-POLICY.md`](https://github.com/fedcal/Telemedic/blob/main/DISTRIBUTION-POLICY.md), [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md), [`LICENSE`](https://github.com/fedcal/Telemedic/blob/main/LICENSE), [`NOTICE`](https://github.com/fedcal/Telemedic/blob/main/NOTICE), [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md), [`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md), [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md), [`CODE_OF_CONDUCT.md`](https://github.com/fedcal/Telemedic/blob/main/CODE_OF_CONDUCT.md) |
 | **Guida dei fondamenti** (`D35`, ventuno moduli) | **Diciassette moduli presenti**. Mancano i moduli `16` (architettura del progetto), `18` (matrice area → conoscenze), `19` (glossario), `20` (fonti primarie) |
 | **Panoramica** (`docs/00_overview/`) | Quest'area |
 | **Area tecnica** (`docs/01_technical/`) | **Completa**: dieci capitoli |
@@ -76,20 +76,20 @@ stesura di questo capitolo.
 
 > **Nota di lettura.** La tabella dello stato di fatto in
 > [`docs/09_roadmap/00-indice.md`](../09_roadmap/00-indice.md) §4 fotografa un momento anteriore
-> alla stesura di quest'area e riporta come assenti la panoramica e l'area di conformità, e come
+> alla stesura di quest'area e riporta come assenti la panoramica e l'`COMP`, e come
 > ventiquattro le voci del registro delle decisioni. Le due fotografie non si contraddicono: sono
 > datate diversamente. Ma **una fotografia senza data invecchia in silenzio**, ed è la forma di
 > errore che quest'area si è imposta di non produrre: la sede unica e la sua generazione automatica
-> sono aperte come questione `Q-202`.
+> sono aperte come questione [`Q-202`](../11_registri/02-questioni-aperte.md#q-202).
 
 ### 2.1 Le due letture che contano
 
 **La prima.** Il progetto ha un corpo documentale di dimensione ragguardevole e **nessuna riga di
 software**. I registri delle aree dichiarano conteggi che vanno da circa ventunomila a circa
 cinquantamila parole per area, per un totale dell'ordine delle centinaia di migliaia di parole.
-`[NV]` - il conteggio esatto non è stato eseguito, e i valori dichiarati nei registri sono stime
-da densità di riga. Il conteggio esatto è a sua volta un'attività da mettere a piano, perché è il
-moltiplicatore dell'obbligo di traduzione integrale imposto da `D50`.
+Il conteggio esatto non è stato eseguito, e i valori dichiarati nei registri sono stime da densità
+di riga; richiede verifica da `OVER` `[NV]`. Il conteggio esatto è a sua volta un'attività da
+mettere a piano, perché è il moltiplicatore dell'obbligo di traduzione integrale imposto da `D50`.
 
 **La seconda.** La sequenza originaria (`D52`) imponeva di completare tutta la documentazione,
 costruire il sito bilingue e pubblicarlo prima di ogni riga di software. È stata **emendata**:
@@ -99,7 +99,7 @@ un controllo automatico di divergenza fra italiano e inglese. Restano prerequisi
 perché il loro costo di omissione è irrecuperabile: le avvertenze pubbliche obbligatorie, la guida
 dei fondamenti e le aree di conformità e sicurezza.
 
-L'emendamento **non attenua** il vincolo `V-183` per le aree che restano prerequisito, e non
+L'emendamento **non attenua** il vincolo [`V-183`](../11_registri/01-vincoli-in-vigore.md#v-183) per le aree che restano prerequisito, e non
 elimina la conseguenza che conta: **con la capacità dichiarata da `D54` - un contributore unico a
 tempo parziale - l'ambito del primo rilascio si riduce a ciò che quella capacità può costruire e
 verificare nel tempo disponibile.** Non esiste una terza via, e un ambito non ridotto sotto questa
@@ -125,7 +125,7 @@ questa documentazione su prestazioni, capacità e comportamento è **specifica v
 attestazione. La distinzione è dichiarata in ogni area.
 
 **La catena di costruzione.** Deve **precedere** la prima riga di codice applicativo, non
-accompagnarla (vincolo `V-182`): è ciò che genera la distinta dei materiali e il registro degli
+accompagnarla (vincolo [`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182)): è ciò che genera la distinta dei materiali e il registro degli
 identificativi di requisito, e senza di essa la tracciabilità richiesta da IEC 62304 non è
 ricostruibile a posteriori (`D45`). L'unica eccezione ammessa è il codice usa-e-getta delle
 verifiche empiriche, dichiarato tale, in un'area separata, che non entra in alcun artefatto
@@ -143,12 +143,12 @@ lasciarlo permanentemente indulgente è il modo più rapido per abituarsi a igno
 **Quattro moduli della guida dei fondamenti** - il `16` sull'architettura del progetto, il `18`
 sulla matrice area del codice → conoscenze richieste, il `19` glossario, il `20` sulle fonti
 primarie. Non è una lacuna come le altre: la guida è **prerequisito dichiarato di
-`CONTRIBUTING.md`** e `D56` la colloca fra i tre prerequisiti non negoziabili della traduzione,
+[`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md)** e `D56` la colloca fra i tre prerequisiti non negoziabili della traduzione,
 quindi i quattro moduli stanno sul percorso critico di due impegni distinti. Due pesano più degli
 altri: il **glossario**, perché è citato da più aree e perché il suo allineamento al glossario
 nazionale di telemedicina va compiuto **prima** della traduzione - una divergenza scoperta dopo si
-propaga su due lingue (questione `Q-146`) -; e il **18**, perché è il documento che dice a un
-contributore che cosa deve sapere prima di toccare un'area. Questione `Q-201`.
+propaga su due lingue (questione [`Q-146`](../11_registri/02-questioni-aperte.md#q-146)) -; e il **18**, perché è il documento che dice a un
+contributore che cosa deve sapere prima di toccare un'area. Questione [`Q-201`](../11_registri/02-questioni-aperte.md#q-201).
 
 ## 4. I limiti dichiarati del primo rilascio
 
@@ -176,26 +176,26 @@ arrivo:
 | **Nessun referto**: il percorso restituisce un esito strutturato, non un documento firmato | Perimetro di rilascio. È il taglio `TG-01`, reversibile: refertazione e consegna del documento al sistema di origine rientrano subito dopo `RU-1` |
 | **Due partecipanti** alla sessione | La topologia oltre due partecipanti è decisione dichiarata rinviata, e non è marginale: l'interprete è la misura alternativa dichiarata per la non conformità di accessibilità nota |
 | **Nessuna registrazione della sessione** | Perimetro di rilascio. L'indicatore e i suoi divieti esistono già nel modello |
-| **Nessun conferimento alle infrastrutture documentali** | Dipendenza esterna non disponibile: mancano i modelli documentali, non il progetto (`Q-07`) |
+| **Nessun conferimento alle infrastrutture documentali** | Dipendenza esterna non disponibile: mancano i modelli documentali, non il progetto ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07)) |
 | **Latenza da obiettivo a schermo non garantibile** | Dipende da telecamera, calcolo, schermo, rete e stato del buffer. Il sistema la **misura**, la registra e ne informa: non la promette |
 | **Nessuna modalità fuori linea per il contenuto clinico** | Scelta dichiarata, motivata dal rischio di contenuto clinico su un dispositivo che il titolare non controlla |
 | **Nessuna rotazione delle chiavi durante la sessione** | **Non esiste nella tecnologia.** Non si rivendica |
 | **Sottotitoli in tempo reale assenti** | Non conformità dichiarata su un criterio di accessibilità, con misura alternativa e canale dati comunque definito nel protocollo |
 | **Ordinamento degli eventi garantito solo dentro la partizione** | Nessun requisito funzionale può dipendere da un ordine globale |
 | **Consegna degli eventi almeno una volta** | I consumatori sono idempotenti per costruzione, con chiave di deduplicazione esplicita |
-| **Numero di tenant per installazione** | `[NV]` - non misurato. Ordine di grandezza dichiarato: centinaia. La misura è un'attività di rilascio, non una stima |
+| **Numero di tenant per installazione** | Non misurato, ordinanza di grandezza dichiarata: centinaia. La misura, da verificare da `TECH` `[NV]`, è un'attività di rilascio, non una stima |
 | **Nessuna ridondanza del broker** nell'assetto a nodo singolo | La perdita del broker significa **ritardo nella consegna, non perdita di eventi**: la sorgente di verità è l'outbox transazionale |
 
 Due voci meritano una nota, perché è dove si concentrano i fraintendimenti.
 
 **Le soglie di prestazione dell'interfaccia non sono dichiarate.** Non per reticenza: perché il
-**dispositivo di riferimento non è ancora dichiarato** (questione `Q-115`), e senza dispositivo il
+**dispositivo di riferimento non è ancora dichiarato** (questione [`Q-115`](../11_registri/02-questioni-aperte.md#q-115)), e senza dispositivo il
 requisito non è verificabile. Il dispositivo non è quello di chi sviluppa: è un apparecchio di
 fascia media di alcuni anni prima, che è ciò che ha in mano la popolazione di riferimento.
 Pubblicare una soglia non misurata sarebbe scriverla per preferenza.
 
 **Nessuna soglia tecnica del progetto è conformità.** Nessuna fonte italiana impone soglie
-tecniche: i valori del progetto sono specifica di prodotto e limiti dichiarati (vincolo `V-12`).
+tecniche: i valori del progetto sono specifica di prodotto e limiti dichiarati (vincolo [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12)).
 Chi legge una cifra in questa documentazione non deve leggerla come un requisito di legge
 soddisfatto.
 
@@ -241,7 +241,7 @@ organismi notificati, con code documentate e organico in contrazione.
 
 La contropartita, altrettanto dichiarata: **le esclusioni di perimetro tengono insieme la classe di
 rischio a IIa e la classe di sicurezza del software a B. Cadono insieme, e il costo si somma**
-(vincolo `V-170`). È la ragione per cui una funzionalità dell'elenco fuori perimetro non si valuta
+(vincolo [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)). È la ragione per cui una funzionalità dell'elenco fuori perimetro non si valuta
 nel merito tecnico.
 
 ### 5.3 Intenzione di certificare contro stato di fatto del prodotto
@@ -332,7 +332,7 @@ attrito documentato **con la motivazione**, altrimenti viene letto come limitazi
 ### 5.9 Piena funzionalità senza SNOMED CT, con il costo scritto
 
 Il sistema è pienamente funzionale con il sistema terminologico oneroso disattivato, e nessun
-percorso principale può richiederlo (vincolo `V-03`). Il costo è dichiarato: alcune migliaia di
+percorso principale può richiederlo (vincolo [`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)). Il costo è dichiarato: alcune migliaia di
 codici del vincolo di valore sul motivo del contatto **non si validano**. La verifica non è una
 dichiarazione: si esegue la suite funzionale completa con la disattivazione attiva.
 
@@ -353,7 +353,7 @@ esiste il modulo regionale. La tensione è evidente: un prodotto le cui parti po
 sostituite ha più superficie di contratto, più combinazioni da provare e meno controllo sul
 risultato finale. La risposta è la suite di prove che esercita sempre **almeno due tenant e due
 integratori distinti** con configurazioni deliberatamente divergenti, compresi insiemi di moduli
-sostituiti diversi (vincolo `V-188`).
+sostituiti diversi (vincolo [`V-188`](../11_registri/01-vincoli-in-vigore.md#v-188)).
 
 ### 5.11 Un contributore unico contro registrazioni che richiedono soggetti distinti
 
@@ -364,39 +364,39 @@ Alcune registrazioni richieste da un sistema di gestione della qualità - audit 
 rilascio, verifica di configurazione eseguita da chi non ha scritto il codice - **presuppongono
 soggetti distinti e non sono producibili internamente** da un contributore unico. La conseguenza va
 accettata formalmente e non aggirata: va stabilito quale sottoinsieme si accetta come rischio
-dichiarato e quale si copre acquisendo la funzione all'esterno. È la questione `Q-189`, aperta verso
+dichiarato e quale si copre acquisendo la funzione all'esterno. È la questione [`Q-189`](../11_registri/02-questioni-aperte.md#q-189), aperta verso
 il committente.
 
-Va detto in questa sede e non solo nell'area di conformità, perché è un'informazione che cambia la
+Va detto in questa sede e non solo nell'`COMP`, perché è un'informazione che cambia la
 valutazione di chi adotta: un progetto che dichiara di voler certificare con un contributore unico
 sta dichiarando insieme un'intenzione e un vincolo strutturale al suo compimento.
 
 ## 6. Le questioni aperte che pesano di più
 
 Una questione aperta dichiarata vale più di una risposta inventata. Il registro completo è in
-`.telemedic/context/05_BACHECA_INTERAGENTI.md`; queste sono quelle il cui esito cambia qualcosa per
+[`.telemedic/context/05_BACHECA_INTERAGENTI.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/05_BACHECA_INTERAGENTI.md); queste sono quelle il cui esito cambia qualcosa per
 chi valuta.
 
 **Quattro questioni che pesavano molto sono state chiuse dal committente il 25 agosto 2026** e non
-figurano più fra quelle aperte: `Q-180` (traguardo del 30 novembre 2026, chiusa da `D53`), `Q-181`
-(capacità dichiarata, chiusa da `D54`), `Q-144` (congelamento della destinazione d'uso del
-telemonitoraggio, chiusa da `D55`), `Q-182` (modello di produzione della versione inglese, chiusa
+figurano più fra quelle aperte: [`Q-180`](../11_registri/02-questioni-aperte.md#q-180) (traguardo del 30 novembre 2026, chiusa da `D53`), [`Q-181`](../11_registri/02-questioni-aperte.md#q-181)
+(capacità dichiarata, chiusa da `D54`), [`Q-144`](../11_registri/02-questioni-aperte.md#q-144) (congelamento della destinazione d'uso del
+telemonitoraggio, chiusa da `D55`), [`Q-182`](../11_registri/02-questioni-aperte.md#q-182) (modello di produzione della versione inglese, chiusa
 da `D56`). Le conseguenze di ciascuna sono recepite nei paragrafi precedenti.
 
 | Questione | Perché pesa |
 |---|---|
-| `Q-189` - continuità dei contributori e registrazioni a ruoli distinti | Determina quale parte del sistema qualità è producibile internamente e quale va acquisita all'esterno (§5.11) |
-| `Q-185` - allineamento della pagina pubblica alle riformulazioni approvate | Ogni giorno di esposizione è un giorno di affermazione non sostenibile, e **un periodo di pubblicazione non si annulla**: l'impatto è irrecuperabile, non ritardabile |
-| `Q-07` - modelli documentali delle tipologie del fascicolo | Non pubblicamente disponibili. Blocca il conferimento, non la progettazione |
-| `Q-115` - dispositivo e viewport di riferimento | Senza di esso nessuna soglia di prestazione dell'interfaccia è verificabile |
-| `Q-170` - forma di pubblicazione della traccia di destinazione d'uso | Un documento intitolato «destinazione d'uso» pubblicato sotto il nome del progetto è precisamente il materiale da cui un terzo può ricavarla |
-| `Q-172` - versionamento della distribuzione identificata | Va deciso **prima** del primo rilascio: una rinumerazione successiva è una discontinuità di identificazione, e in un dispositivo registrato non si sana con una nota di rilascio. Con `D58` diventa una decisione del progetto, non di un terzo |
-| `Q-186` - periodo di supporto dichiarato | Senza la durata, il piano di dismissione delle versioni non è pubblicabile ed è **prerequisito della prima distribuzione**, non voce di coda |
-| `Q-187` - concentrazione ammessa su un solo integratore | Il vincolo sulle prove presidia la **forma**, non la **deriva delle priorità**, che si compie in passi ciascuno localmente ragionevole ed è osservabile solo in revisione |
-| `Q-11` - licenze di scale e questionari clinici validati | Finché è aperta, il sistema conserva le risposte e **non calcola punteggi**, in via cautelativa e reversibile |
-| `Q-200` - recepimento di `D57` e `D58` nei vincoli e nelle aree | Due vincoli in vigore e diverse aree portano ancora l'attribuzione anteriore. Una riscrittura parziale produrrebbe **due attribuzioni coesistenti**, che è peggio di una attribuzione superata |
-| `Q-201` - i quattro moduli mancanti della guida dei fondamenti | Stanno sul percorso critico di due impegni distinti: il prerequisito di contribuzione e i prerequisiti di traduzione di `D56` |
-| `Q-202` - sede unica della fotografia dello stato di fatto | Una fotografia scritta a mano in due sedi diverge, e queste due hanno già cominciato |
+| [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) - continuità dei contributori e registrazioni a ruoli distinti | Determina quale parte del sistema qualità è producibile internamente e quale va acquisita all'esterno (§5.11) |
+| [`Q-185`](../11_registri/02-questioni-aperte.md#q-185) - allineamento della pagina pubblica alle riformulazioni approvate | Ogni giorno di esposizione è un giorno di affermazione non sostenibile, e **un periodo di pubblicazione non si annulla**: l'impatto è irrecuperabile, non ritardabile |
+| [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) - modelli documentali delle tipologie del fascicolo | Non pubblicamente disponibili. Blocca il conferimento, non la progettazione |
+| [`Q-115`](../11_registri/02-questioni-aperte.md#q-115) - dispositivo e viewport di riferimento | Senza di esso nessuna soglia di prestazione dell'interfaccia è verificabile |
+| [`Q-170`](../11_registri/02-questioni-aperte.md#q-170) - forma di pubblicazione della traccia di destinazione d'uso | Un documento intitolato «destinazione d'uso» pubblicato sotto il nome del progetto è precisamente il materiale da cui un terzo può ricavarla |
+| [`Q-172`](../11_registri/02-questioni-aperte.md#q-172) - versionamento della distribuzione identificata | Va deciso **prima** del primo rilascio: una rinumerazione successiva è una discontinuità di identificazione, e in un dispositivo registrato non si sana con una nota di rilascio. Con `D58` diventa una decisione del progetto, non di un terzo |
+| [`Q-186`](../11_registri/02-questioni-aperte.md#q-186) - periodo di supporto dichiarato | Senza la durata, il piano di dismissione delle versioni non è pubblicabile ed è **prerequisito della prima distribuzione**, non voce di coda |
+| [`Q-187`](../11_registri/02-questioni-aperte.md#q-187) - concentrazione ammessa su un solo integratore | Il vincolo sulle prove presidia la **forma**, non la **deriva delle priorità**, che si compie in passi ciascuno localmente ragionevole ed è osservabile solo in revisione |
+| [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) - licenze di scale e questionari clinici validati | Finché è aperta, il sistema conserva le risposte e **non calcola punteggi**, in via cautelativa e reversibile |
+| [`Q-200`](../11_registri/02-questioni-aperte.md#q-200) - recepimento di `D57` e `D58` nei vincoli e nelle aree | Due vincoli in vigore e diverse aree portano ancora l'attribuzione anteriore. Una riscrittura parziale produrrebbe **due attribuzioni coesistenti**, che è peggio di una attribuzione superata |
+| [`Q-201`](../11_registri/02-questioni-aperte.md#q-201) - i quattro moduli mancanti della guida dei fondamenti | Stanno sul percorso critico di due impegni distinti: il prerequisito di contribuzione e i prerequisiti di traduzione di `D56` |
+| [`Q-202`](../11_registri/02-questioni-aperte.md#q-202) - sede unica della fotografia dello stato di fatto | Una fotografia scritta a mano in due sedi diverge, e queste due hanno già cominciato |
 
 ## 7. Che cosa chi adotta deve sapere prima di decidere
 
@@ -423,11 +423,11 @@ Otto punti. Se uno solo di essi è incompatibile con il contesto di chi legge, �
 7. **Nessuna data è dichiarata per un esito regolatorio.** Chi cerca una data di marcatura CE, di
    accreditamento presso la federazione delle identità o di conformità alle misure nazionali di
    sicurezza non la troverà, e la sua assenza è deliberata: per gli ultimi due perché il traguardo
-   **non è del progetto** (vincolo `V-180`); per la marcatura perché una pianificazione interna non
+   **non è del progetto** (vincolo [`V-180`](../11_registri/01-vincoli-in-vigore.md#v-180)); per la marcatura perché una pianificazione interna non
    diventa una promessa solo perché è nostra (`D57`, `D58`).
 8. **Questa documentazione non è documentazione controllata.** Nessun capitolo è una procedura di
    un sistema di gestione della qualità né un documento di un fascicolo tecnico: i capitoli sono
-   **ingressi** (vincolo `V-174`).
+   **ingressi** (vincolo [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174)).
 
 ## 8. Come questo capitolo resta vero
 
@@ -436,7 +436,7 @@ Tre regole, tutte con una conseguenza pratica.
 **La fotografia si aggiorna, non si abbellisce.** Una data mancata resta nella cronologia con la
 sua causa: è l'unica base su cui la stima successiva può essere migliore della precedente. Non si
 sposta una data senza spostare il criterio o dichiarare la causa; non si dichiara «completato al
-novanta per cento», perché i criteri di completamento sono binari per costruzione (vincolo `V-181`).
+novanta per cento», perché i criteri di completamento sono binari per costruzione (vincolo [`V-181`](../11_registri/01-vincoli-in-vigore.md#v-181)).
 
 **Ciò che non è verificato resta marcato.** `[NV]` indica un'affermazione non verificata su fonte
 primaria, con l'indicazione di chi deve chiuderla. Nessun `[NV]` sopravvive al traguardo che ne
@@ -447,7 +447,7 @@ codice.** È il rischio che nessuna verifica automatica intercetta: una modifica
 pubblica non passa dalla revisione del codice, non compare in una distinta di rilascio e non fa
 fallire alcun controllo. Per questo è prevista una revisione regolatoria dei testi pubblici prima
 della pubblicazione, con la tabella delle formule vietate come lista di controllo (questione
-`Q-174`, vincolo `V-171`).
+[`Q-174`](../11_registri/02-questioni-aperte.md#q-174), vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)).
 
 ## Dove continuare
 
@@ -459,6 +459,6 @@ della pubblicazione, con la tabella delle formule vietate come lista di controll
   esclusioni con identificativo, categoria di riapribilità e verifica.
 - [`docs/08_compliance/09-percorso-e-calendario.md`](../08_compliance/09-percorso-e-calendario.md):
   gli ottenimenti da conseguire per chi certifica, in quale ordine e con quali prerequisiti. **È la
-  sede unica delle date** dell'area di conformità.
+  sede unica delle date** dell'`COMP`.
 - [`docs/02_architecture/09-decisioni-rinviate.md`](../02_architecture/09-decisioni-rinviate.md):
   ciò che **non** è deciso, con i criteri per deciderlo e l'indicazione di chi decide.

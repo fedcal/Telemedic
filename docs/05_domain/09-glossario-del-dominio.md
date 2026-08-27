@@ -430,9 +430,9 @@ introducono un significato sbagliato o un impegno che il prodotto non può mante
 | «Audit immutabile» riferito al versionamento delle entità | Il versionamento non rende immutabile (`D42`) | *registro degli accessi a catena di impronte* |
 | «Referto di teleconsulto» | Il teleconsulto non dà luogo a referto autonomo | *relazione collaborativa* |
 | «Consenso alla piattaforma» | Non esiste: i consensi sono cinque oggetti distinti | il tipo di consenso specifico |
-| «Soglia di legge» riferita a parametri tecnici | Nessuna soglia tecnica è imposta dalla normativa italiana (`V-12`) | *specifica di prodotto configurabile* |
+| «Soglia di legge» riferita a parametri tecnici | Nessuna soglia tecnica è imposta dalla normativa italiana ([`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12)) | *specifica di prodotto configurabile* |
 | «Qualità clinica» come claim | Non ha definizione verificabile (`D29`) | enunciati tecnici verificabili su risoluzione, continuità, esito |
-| «Diagnosi automatica», «suggerimento clinico» | Fuori perimetro (`V2`) | *registrazione della decisione del professionista* |
+| «Diagnosi automatica», «suggerimento clinico» | Fuori perimetro ([`V2`](../11_registri/03-vincoli-fondanti.md#v2)) | *registrazione della decisione del professionista* |
 | «Il paziente autenticato è identificato» | Autenticazione e identificazione sono atti distinti | *identificazione registrata dal professionista* |
 | Nomi di aziende, prodotti, marchi, domini di potenziali partner | Regola `R0`, prevalente su ogni altra | *l'integratore*, *un sistema EHR di terze parti* |
 

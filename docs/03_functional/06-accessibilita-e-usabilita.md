@@ -11,7 +11,7 @@ description: Requisiti verificabili di accessibilità e usabilità di Telemedic,
 Accessibilità e usabilità sono, in questo progetto, **requisiti funzionali di tutto il sistema**:
 interfaccia dell'assistito, interfaccia clinica, pannelli di amministrazione, componenti
 incorporabili, documentazione, messaggi di errore, notifiche. Non sono una rifinitura finale ma un
-criterio di accettazione di ogni singola schermata (decisione D25, vincolo V6).
+criterio di accettazione di ogni singola schermata (decisione D25, vincolo [V6](../11_registri/03-vincoli-fondanti.md#v6)).
 
 Ci sono tre ragioni distinte, e conviene tenerle separate perché producono obblighi diversi.
 

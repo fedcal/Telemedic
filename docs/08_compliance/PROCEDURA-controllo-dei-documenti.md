@@ -1,6 +1,6 @@
 ---
 title: "Procedura di controllo dei documenti"
-sidebar_position: 12
+sidebar_position: 14
 description: "La procedura operativa di controllo dei documenti del progetto: elenco nominale dei documenti sottoposti a controllo con il proprio stato, regola di identificazione e di versione, revisore nominato per ciascuna categoria, forma dell'approvazione, regola di ritiro. È essa stessa un documento sottoposto a controllo e compare nel proprio elenco. Non è un capitolo divulgativo: dice chi fa che cosa, quando, e quale traccia resta."
 ---
 
@@ -12,11 +12,15 @@ description: "La procedura operativa di controllo dei documenti del progetto: el
 > l'autore, quella riga è difettosa e va segnalata.
 >
 > **Rapporto con il capitolo divulgativo.** Il ragionamento, la norma di riferimento, la ripartizione
-> fra le funzioni del fabbricante e quelle di chi installa, la validazione degli strumenti e - punto
-> più importante di tutti - la lacuna per cui redattore e approvatore coincidono stanno in
+> fra le funzioni del fabbricante e quelle di chi installa, e - punto più importante di tutti - la
+> lacuna per cui redattore e approvatore coincidono stanno in
 > [08/10 - Controllo dei documenti](/08_compliance/10-controllo-dei-documenti.md). Questa procedura
 > **vi rinvia e non lo ricopia**: due testi che dicono la stessa cosa in due luoghi divergono al
-> primo aggiornamento, e in materia regolatoria una divergenza è una dichiarazione doppia.
+> primo aggiornamento, e in materia regolatoria una divergenza è una dichiarazione doppia. I quattro
+> strumenti su cui poggia la registrazione dell'approvazione sono **git** (versionamento distribuito),
+> **GitHub** (piattaforma di ospitalità), **controlli automatici di costruzione** (linter, sintassi,
+> link checker, identificativi) e **firma crittografica dei commit** (adottata il 26 agosto 2026,
+> firma obbligatoria sul ramo in sospeso); la loro **validazione** è descritta al § 8 del capitolo 10.
 >
 > **Questo documento non dichiara alcuna conformità.** Non afferma che il progetto sia conforme a
 > ISO 13485 né ad altro. Non può: la lacuna dichiarata al § 10 lo impedisce, e resta.
@@ -27,16 +31,16 @@ description: "La procedura operativa di controllo dei documenti del progetto: el
 
 | Voce | Valore |
 |---|---|
-| **Identificativo** | Il percorso assoluto nel repository: `docs/08_compliance/PROCEDURA-controllo-dei-documenti.md`. È la regola di identificazione del § 4, applicata a questo stesso documento |
-| **Gemello inglese** | `website/i18n/en/docusaurus-plugin-content-docs/current/08_compliance/PROCEDURA-controllo-dei-documenti.md`. Le due versioni sono **lo stesso documento controllato in due lingue**, non due documenti |
+| **Identificativo** | Il percorso assoluto nel repository: [`docs/08_compliance/PROCEDURA-controllo-dei-documenti.md`](../08_compliance/PROCEDURA-controllo-dei-documenti.md). È la regola di identificazione del § 4, applicata a questo stesso documento |
+| **Gemello inglese** | [`website/i18n/en/docusaurus-plugin-content-docs/current/08_compliance/PROCEDURA-controllo-dei-documenti.md`](https://github.com/fedcal/Telemedic/blob/main/website/i18n/en/docusaurus-plugin-content-docs/current/08_compliance/PROCEDURA-controllo-dei-documenti.md). Le due versioni sono **lo stesso documento controllato in due lingue**, non due documenti |
 | **Identificativo `QMS-*`** | **Nessuno assegnato.** La ragione, che è una lacuna e non una dimenticanza, è al § 10, voce `c` |
 | **Categoria** | Procedure del sistema di gestione della qualità che il progetto esercita su sé stesso |
 | **Versione** | L'impronta del commit che ha modificato per ultimo il file, leggibile con `git log -1 --format=%H -- docs/08_compliance/PROCEDURA-controllo-dei-documenti.md`. **Non è trascritta in questo campo**: un'impronta scritta qui sarebbe falsa dal commit successivo, e un campo di versione che mente è peggio di un campo assente |
 | **Revisore nominato** | Federico Calò (`@fedcal`), per la riga `/docs/08_compliance/` di [`.github/CODEOWNERS`](https://github.com/fedcal/Telemedic/blob/main/.github/CODEOWNERS) |
 | **Chi deve approvarla** | Il **Committente**. Non è una scelta di questa procedura: è il titolare dell'approvazione dichiarato da `T-01` in [09/02 - I traguardi](/09_roadmap/02-traguardi.md), che assegna al contributore unico la produzione e al Committente l'approvazione della procedura |
 | **Forma dell'approvazione** | Revisione favorevole («Approved») sulla proposta di modifica che introduce questo file, secondo il § 6 |
-| **Data di approvazione** | **Nessuna. La procedura è in attesa di approvazione.** Non si scrive una data che non è avvenuta, e non si presume l'approvazione dalla circostanza che il file sia stato unito nel ramo principale |
-| **Stato** | **In attesa di approvazione.** Fino all'approvazione il documento è versionato ma non in vigore, e la riga corrispondente del § 3 riporta lo stesso stato |
+| **Data di approvazione** | **27 agosto 2026.** Approvazione della lacuna dichiarata senza attenuazione, registrata come prima voce di [`Q-189`](../11_registri/02-questioni-aperte.md#q-189): redattore e approvatore coincidono. La lacuna resta aperta |
+| **Stato** | **In vigore.** Il documento è approvato dal Committente il 27 agosto 2026 con la lacuna dichiarata, che resta aperta come prima voce di [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) |
 | **Riesame** | Alle condizioni del § 12 |
 
 **Come si legge il campo «Stato», e perché conta.** «In attesa di approvazione» non significa «bozza
@@ -64,8 +68,8 @@ gestione della qualità del soggetto fabbricante, che sarà costituito e che le 
 sistema documentale; le questioni e le proposte di modifica, la cui immutabilità per costruzione
 **è** il loro controllo; la documentazione interna di lavoro in `.telemedic/`.
 
-**Rapporto con `V-174`, che va detto per esteso perché è il punto in cui questa procedura e il resto
-del corpus sembrano contraddirsi.** Il vincolo `V-174`, istituito in
+**Rapporto con [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174), che va detto per esteso perché è il punto in cui questa procedura e il resto
+del corpus sembrano contraddirsi.** Il vincolo [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174), istituito in
 [08/03 § 4.1](/08_compliance/03-sistema-di-gestione-della-qualita.md), dice che **nessun capitolo**
 di questa documentazione è una procedura del sistema di gestione della qualità e che nessuna area può
 presentare un proprio capitolo come tale: i capitoli sono ingressi, contengono l'analisi da cui una
@@ -117,7 +121,7 @@ testi che divergono in silenzio esattamente dove la divergenza costa di più.
 
 | Documento | Revisore nominato | Stato | Quando si riesamina |
 |---|---|---|---|
-| `docs/08_compliance/PROCEDURA-controllo-dei-documenti.md` e il suo gemello inglese | `@fedcal` | **In attesa di approvazione** | Alle condizioni del § 12 |
+| [`docs/08_compliance/PROCEDURA-controllo-dei-documenti.md`](../08_compliance/PROCEDURA-controllo-dei-documenti.md) e il suo gemello inglese | `@fedcal` | **In vigore** | Alle condizioni del § 12 |
 
 **Documentazione pubblicata.** Ogni area compare per intero, **nelle due lingue**. La versione
 inglese di un documento controllato è lo stesso documento controllato, non un artefatto accessorio:
@@ -153,9 +157,9 @@ invece di pubblicarla come pagina orfana.
   costruzione. L'immutabilità **è** il controllo, e aggiungervene un altro non aggiungerebbe nulla.
 - La documentazione interna di lavoro in `.telemedic/`: brief, bacheca inter-agenti, registri di
   sessione, ricerche. Non è pubblicata e non dichiara obblighi verso nessuno.
-- `CLAUDE.md`: sono istruzioni operative per chi lavora nel repository. **La tensione va detta invece
+- [`CLAUDE.md`](https://github.com/fedcal/Telemedic/blob/main/CLAUDE.md): sono istruzioni operative per chi lavora nel repository. **La tensione va detta invece
   di essere risolta d'ufficio**: quel file enuncia le regole non negoziabili del progetto, che
-  compaiono anche in `CONTRIBUTING.md`, che è controllato. Una divergenza fra i due non sarebbe
+  compaiono anche in [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md), che è controllato. Una divergenza fra i due non sarebbe
   intercettata da nulla. È registrata al § 10, voce `h`.
 - `.editorconfig`, `.gitignore` e la configurazione del sito: non dichiarano obblighi e non
   contengono affermazioni normative.
@@ -205,10 +209,10 @@ Da questa scelta discende ciò che va saputo prima di dire «qual è la versione
 
 **Identificativi dei documenti regolatori.** Gli spazi `MDR-*`, `QMS-*`, `SW-*`, `RM-*`, `UE-*`,
 `CE-*`, `PMS-*`, `ON-*` sono dichiarati e congelati in
-[08/03 § 5](/08_compliance/03-sistema-di-gestione-della-qualita.md) e valgono come vincolo `V-172`:
+[08/03 § 5](/08_compliance/03-sistema-di-gestione-della-qualita.md) e valgono come vincolo [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172):
 nessuna area vi conia un identificativo senza dichiararlo. Non si rinumerano e non si riusano dopo un
-ritiro. Lo stesso vale per gli identificativi di requisito, congelati da `V-120` e registrati in
-`registro/identificativi-requisiti.tsv`.
+ritiro. Lo stesso vale per gli identificativi di requisito, congelati da [`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120) e registrati in
+[`registro/identificativi-requisiti.tsv`](https://github.com/fedcal/Telemedic/blob/main/registro/identificativi-requisiti.tsv).
 
 ---
 
@@ -229,7 +233,7 @@ riga assegna `@fedcal`, perché il progetto ha un solo manutentore
 
 | Categoria | Revisore nominato | Riga di `CODEOWNERS` che lo assegna | Competenza richiesta |
 |---|---|---|---|
-| Dichiarazioni pubbliche e avvertenze | Federico Calò (`@fedcal`) | `/NOT-A-MEDICAL-DEVICE.md`, `/DISTRIBUTION-POLICY.md`, `/THIRD-PARTY-TERMINOLOGY.md`, `/publiccode.yml`, `/CONTRIBUTING.md`, `/CODE_OF_CONDUCT.md`, `/GOVERNANCE.md`; `README.md`, `SUPPORT.md`, `LICENSE` e `NOTICE` per la riga di riserva `*` | Autorità sulla rappresentazione pubblica del progetto e sulle avvertenze regolative |
+| Dichiarazioni pubbliche e avvertenze | Federico Calò (`@fedcal`) | `/NOT-A-MEDICAL-DEVICE.md`, `/DISTRIBUTION-POLICY.md`, `/THIRD-PARTY-TERMINOLOGY.md`, `/publiccode.yml`, `/CONTRIBUTING.md`, `/CODE_OF_CONDUCT.md`, `/GOVERNANCE.md`; [`README.md`](https://github.com/fedcal/Telemedic/blob/main/README.md), [`SUPPORT.md`](https://github.com/fedcal/Telemedic/blob/main/SUPPORT.md), `LICENSE` e `NOTICE` per la riga di riserva `*` | Autorità sulla rappresentazione pubblica del progetto e sulle avvertenze regolative |
 | Specifiche regolatorie | Federico Calò (`@fedcal`) | `/docs/08_compliance/` | Conoscenza della norma applicabile e capacità di mapparla sulla soluzione tecnica |
 | Sicurezza | Federico Calò (`@fedcal`) | `/docs/06_security/`, `/SECURITY.md` | Modello di minaccia, identità, protezione dei dati, risposta agli incidenti |
 | Requisiti e traguardi | Federico Calò (`@fedcal`) | `/docs/03_functional/`, `/docs/09_roadmap/` | Destinazione d'uso, perimetro funzionale, pianificazione e capacità dichiarata |
@@ -243,7 +247,7 @@ riga assegna `@fedcal`, perché il progetto ha un solo manutentore
 
 **La conseguenza, dichiarata e non attenuata.** Che il revisore nominato coincida per ogni categoria
 con l'unica persona che redige **è esattamente la lacuna** descritta in
-[08/10 § 9](/08_compliance/10-controllo-dei-documenti.md), prima voce di `Q-189`. Questa procedura
+[08/10 § 9](/08_compliance/10-controllo-dei-documenti.md), prima voce di [`Q-189`](../11_registri/02-questioni-aperte.md#q-189). Questa procedura
 non la risolve e non pretende di risolverla: la rende **nominale invece che astratta**, perché un
 revisore che ha un nome è un revisore di cui si può dire che cosa non poteva fare. Non è detto che la
 redazione sia di bassa qualità; è detto che nessun terzo lo accerta.
@@ -258,7 +262,7 @@ non provata da una registrazione**. La circostanza è già dichiarata in
 cui una procedura scritta per un solo revisore diventa pericolosa: si aggiorna
 [`.github/CODEOWNERS`](https://github.com/fedcal/Telemedic/blob/main/.github/CODEOWNERS), si aggiorna
 questa tabella, si riconsidera `require_code_owner_reviews` secondo il § 6, e la regola di
-`GOVERNANCE.md` che impone l'approvazione di un manutentore diverso dall'autore torna applicabile
+[`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md) che impone l'approvazione di un manutentore diverso dall'autore torna applicabile
 **senza bisogno di alcuna nuova decisione**.
 
 ---
@@ -304,7 +308,7 @@ che qualcuno chiede «e chi lo garantisce?».
   `require_code_owner_reviews` non sarà riconsiderata, e un'approvazione data dalla persona sbagliata
   verrebbe accettata dal sistema senza alcuna segnalazione.
 
-**La regola di `GOVERNANCE.md`, e perché oggi non è applicabile.**
+**La regola di [`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md), e perché oggi non è applicabile.**
 [`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md), «Come entrano le
 modifiche», prescrive l'approvazione di **almeno un manutentore che non sia l'autore**. Sotto la
 capacità dichiarata da `D54` quella regola non è rispettabile da nessuno: i manutentori sono uno, e
@@ -427,15 +431,15 @@ qui invece di essere lasciato dedurre da un silenzio.
 
 | | Lacuna | Stato |
 |---|---|---|
-| `a` | **Redattore e approvatore coincidono.** Sotto `D54` chi redige è chi approva, e il controllo che solo l'indipendenza garantisce non esiste. Non è risolvibile con più ore: serve una seconda persona. Il testo integrale è in [08/10 § 9](/08_compliance/10-controllo-dei-documenti.md) | Prima voce di `Q-189`. **Lacuna dichiarata, non conformità** |
+| `a` | **Redattore e approvatore coincidono.** Sotto `D54` chi redige è chi approva, e il controllo che solo l'indipendenza garantisce non esiste. Non è risolvibile con più ore: serve una seconda persona. Il testo integrale è in [08/10 § 9](/08_compliance/10-controllo-dei-documenti.md) | Prima voce di [`Q-189`](../11_registri/02-questioni-aperte.md#q-189). **Lacuna dichiarata, non conformità** |
 | `b` | **Il dossier di competenza dei revisori non esiste.** La competenza dichiarata al § 5 è asserita, non provata da una registrazione | Dichiarata in [08/10 § 4](/08_compliance/10-controllo-dei-documenti.md). Legata alla costituzione del soggetto fabbricante (`T-14`) |
-| `c` | **Nessun identificativo `QMS-*` è assegnato a questa procedura.** Lo spazio è congelato da `V-172`, che impone di dichiarare in bacheca ogni identificativo coniato; coniarlo qui senza quella dichiarazione violerebbe il vincolo che questa procedura dovrebbe far rispettare. L'identificazione resta quindi il percorso assoluto, secondo il § 4 | Aperta. Da chiudere con la dichiarazione, non con l'assegnazione unilaterale |
+| `c` | **Nessun identificativo `QMS-*` è assegnato a questa procedura.** Lo spazio è congelato da [`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172), che impone di dichiarare in bacheca ogni identificativo coniato; coniarlo qui senza quella dichiarazione violerebbe il vincolo che questa procedura dovrebbe far rispettare. L'identificazione resta quindi il percorso assoluto, secondo il § 4 | Aperta. Da chiudere con la dichiarazione, non con l'assegnazione unilaterale |
 | `d` | **La corrispondenza fra revisore effettivo e revisore nominato non è presidiata.** `require_code_owner_reviews` è a `false` per la ragione del § 6 | Dichiarata. Da riconsiderare all'ingresso del secondo manutentore, non prima |
-| `e` | **La firma crittografica obbligatoria sul ramo non è attuata.** La configurazione locale è adottata dal 26 agosto 2026; l'obbligo sul ramo attende il caricamento della chiave pubblica. Il `Signed-off-by` resta obbligatorio e attivo | `Q-284`, con innesco dichiarato e nessuna data |
-| `f` | **Gli strumenti su cui poggia la registrazione di approvazione non sono stati validati formalmente.** Finché la validazione non esiste, i controlli sono asserzioni di funzionamento e non prove | `[NV]`. Prerequisito dei criteri 5 e 7 di `T-01` e di `T-03` |
+| `e` | **La firma crittografica obbligatoria sul ramo non è attuata.** La configurazione locale è adottata dal 26 agosto 2026; l'obbligo sul ramo attende il caricamento della chiave pubblica. Il `Signed-off-by` resta obbligatorio e attivo | [`Q-284`](../11_registri/02-questioni-aperte.md#q-284), con innesco dichiarato e nessuna data |
+| `f` | **Gli strumenti su cui poggia la registrazione di approvazione non sono stati validati formalmente.** Finché la validazione non esiste, i controlli sono asserzioni di funzionamento e non prove. **`[NV]`** - la validazione è prerequisito dei criteri 5 e 7 di `T-01` e di `T-03`, da compiere da `TECH` |  |
 | `g` | **I documenti prodotti prima di questa procedura non sono stati riemessi sotto controllo.** Il volume da riemettere cresce ogni giorno | Lacuna dichiarata, non pianificata. È la ragione per cui `T-01` è il primo traguardo |
-| `h` | **Nessun controllo automatico verifica che l'elenco del § 3 corrisponda ai file che esistono davvero.** Un documento aggiunto alla radice e non elencato qui resterebbe fuori controllo senza che nulla lo segnali; lo stesso vale per una divergenza fra `CLAUDE.md` e `CONTRIBUTING.md`. Una tabella che asserisce un fatto sul repository va confrontata con il repository, e oggi il confronto è manuale | Debito dichiarato. È la lacuna più facile da chiudere e la più facile da dimenticare |
-| `i` | **La procedura non è ancora approvata.** Lo stato è al § 1 e nella riga del § 3 | In attesa del Committente |
+| `h` | **Nessun controllo automatico verifica che l'elenco del § 3 corrisponda ai file che esistono davvero.** Un documento aggiunto alla radice e non elencato qui resterebbe fuori controllo senza che nulla lo segnali; lo stesso vale per una divergenza fra [`CLAUDE.md`](https://github.com/fedcal/Telemedic/blob/main/CLAUDE.md) e [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md). Una tabella che asserisce un fatto sul repository va confrontata con il repository, e oggi il confronto è manuale | Debito dichiarato. È la lacuna più facile da chiudere e la più facile da dimenticare |
+| `i` | **La procedura è approvata il 27 agosto 2026.** Lo stato è al § 1 e nella riga del § 3. La lacuna di cui alla voce `a` non è chiusa dall'approvazione | Approvazione registrata, lacuna dichiarata non attenuata |
 
 ---
 
@@ -446,8 +450,8 @@ registrano qui perché chi le incontrerà sappia che sono note, e perché la sce
 corpus e emendare la regola non appartiene a chi redige.
 
 1. **L'elenco del capitolo 10, § 1, è incompleto.** Fra le dichiarazioni pubbliche cita tre file su
-   tredici: mancano `README.md`, `GOVERNANCE.md`, `SECURITY.md`, `SUPPORT.md`,
-   `THIRD-PARTY-TERMINOLOGY.md`, `CODE_OF_CONDUCT.md`, `publiccode.yml`, `LICENSE`, `NOTICE` e
+   tredici: mancano [`README.md`](https://github.com/fedcal/Telemedic/blob/main/README.md), [`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md), [`SECURITY.md`](https://github.com/fedcal/Telemedic/blob/main/SECURITY.md), [`SUPPORT.md`](https://github.com/fedcal/Telemedic/blob/main/SUPPORT.md),
+   [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md), [`CODE_OF_CONDUCT.md`](https://github.com/fedcal/Telemedic/blob/main/CODE_OF_CONDUCT.md), [`publiccode.yml`](https://github.com/fedcal/Telemedic/blob/main/publiccode.yml), `LICENSE`, `NOTICE` e
    `.github/CODEOWNERS`. Il § 3 di questa procedura li elenca tutti. La divergenza è **sanata
    nell'elenco operativo e non nel capitolo**, che resta come è.
 2. **Tre aree della documentazione non compaiono nell'elenco del capitolo 10**: `docs/00_overview/`,
@@ -465,11 +469,11 @@ corpus e emendare la regola non appartiene a chi redige.
 6. **Il capitolo 10, § 2 punto 4, postula un registro dello stato dei documenti che non esisteva.**
    `registro/` contiene soltanto il registro degli identificativi di requisito. La tabella del § 3 di
    questa procedura è quel registro, ed è la ragione per cui porta una colonna «Stato».
-7. **`GOVERNANCE.md` prescrive una regola che sotto `D54` nessuno può rispettare.** Trattata al § 6.
+7. **[`GOVERNANCE.md`](https://github.com/fedcal/Telemedic/blob/main/GOVERNANCE.md) prescrive una regola che sotto `D54` nessuno può rispettare.** Trattata al § 6.
 8. **Il capitolo 10 elenca `CHANGELOG.md` fra i documenti non controllati, e quel file non esiste.**
-9. **`V-174` e il criterio 1 di `T-01` si toccano.** Il vincolo dice che questa documentazione non è
+9. **[`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174) e il criterio 1 di `T-01` si toccano.** Il vincolo dice che questa documentazione non è
    un documento controllato; il criterio esige una procedura che lo sia. La composizione è al § 2:
-   `V-174` vale per i **capitoli**, che restano divulgativi; questa procedura non è un capitolo. La
+   [`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174) vale per i **capitoli**, che restano divulgativi; questa procedura non è un capitolo. La
    composizione è dichiarata, non nascosta in una riformulazione.
 
 ---

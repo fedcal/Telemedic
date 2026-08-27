@@ -22,7 +22,7 @@ description: "Due processi con logiche opposte: la sorveglianza che rileva e la 
 > capitolo parte, e nessuna riga di ciò che segue lo attenua.
 >
 > **La titolarità degli obblighi non cambia; cambia chi sarà titolare.** Sorveglianza e vigilanza
-> gravano sul **fabbricante della distribuzione identificata marcata CE** - è il vincolo `V-06`, e
+> gravano sul **fabbricante della distribuzione identificata marcata CE** - è il vincolo [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06), e
 > `D58` non lo tocca in questa parte. Ciò che `D58` cambia è che quel ruolo **il progetto intende
 > assumerlo**, e **il soggetto giuridico che lo eserciterebbe è ancora da costituire**: gli
 > obblighi dei §§ 2–7 non gravano oggi sul progetto perché non esiste né il soggetto né la
@@ -36,7 +36,7 @@ description: "Due processi con logiche opposte: la sorveglianza che rileva e la 
 > righe del registro dei rischi - smettono di essere un servizio reso a un terzo e diventano
 > **infrastruttura del nostro percorso**. Vanno perciò **costruite, non soltanto documentate**, e
 > vanno costruite prima di servire: nessuna di esse è recuperabile a posteriori, perché contano
-> eventi che nel frattempo sono già accaduti o non accaduti (§ 5.2, `V-178`; § 3).
+> eventi che nel frattempo sono già accaduti o non accaduti (§ 5.2, [`V-178`](../11_registri/01-vincoli-in-vigore.md#v-178); § 3).
 >
 > **E il varco che questa avvertenza potrebbe aprire, chiuso qui.** Chi legge che il progetto
 > intende assumere il ruolo di fabbricante e ne conclude che esista una sorveglianza a coprirlo
@@ -51,7 +51,7 @@ description: "Due processi con logiche opposte: la sorveglianza che rileva e la 
 >
 > **Sui termini che questo capitolo contiene.** Sono **termini normativi del regime di vigilanza**
 > - ore e giorni dalla conoscenza di un evento - e obblighi contrattuali verso l'utilizzatore:
-> non sono date del progetto e non ne implicano alcuna. Il vincolo `V-171` vieta di affermare o
+> non sono date del progetto e non ne implicano alcuna. Il vincolo [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) vieta di affermare o
 > lasciare intendere che il prodotto sarà marcato entro un termine, e questa è l'unica occorrenza
 > ammessa di quella parola in tal senso. Le date del progetto stanno unicamente in
 > [09](./09-percorso-e-calendario.md) e sono pianificazione interna (`D57`).
@@ -128,9 +128,9 @@ rischio**.
 **Due vincoli che l'area tecnica ha già posto e che valgono qui senza attenuazioni.** Nessun
 contatore cumulativo grezzo può essere citato come indicatore: perdita, byte, durata dei
 congelamenti e ritardo del buffer crescono in modo monotono e vanno differenziati fra campioni
-consecutivi (`V-113`). E l'indice sintetico di qualità della sessione è proprietario e va
-dichiarato tale (`V-114`): usarlo in un rapporto periodico presentandolo come una misura
-riconosciuta sarebbe una dichiarazione infondata ai sensi di `V-171`.
+consecutivi ([`V-113`](../11_registri/01-vincoli-in-vigore.md#v-113)). E l'indice sintetico di qualità della sessione è proprietario e va
+dichiarato tale ([`V-114`](../11_registri/01-vincoli-in-vigore.md#v-114)): usarlo in un rapporto periodico presentandolo come una misura
+riconosciuta sarebbe una dichiarazione infondata ai sensi di [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171).
 
 **Una soglia superata non è un allarme operativo: è la riapertura di un file.** La conseguenza
 dichiarata deve essere scritta nel piano per ciascun indicatore, e deve essere un'attività con un
@@ -162,7 +162,7 @@ cui la tracciabilità delle versioni dell'Allegato III è soddisfacibile. Se la 
 certificata fosse ottenibile in modo anonimo, due voci obbligatorie del rapporto resterebbero
 vuote e la lacuna non sarebbe sanabile a posteriori.
 
-È la questione `Q-177`, indirizzata al committente, e va tenuta distinta da una scelta di
+È la questione [`Q-177`](../11_registri/02-questioni-aperte.md#q-177), indirizzata al committente, e va tenuta distinta da una scelta di
 licenza: **il repository resta pubblico e aperto** (`D51`); ciò che si decide è se la
 **distribuzione marcata** - che è un altro artefatto, con un altro nome e un altro ciclo di vita -
 sia disponibile solo attraverso un canale che identifica il destinatario.
@@ -218,13 +218,13 @@ Due istituti che si confondono e servono a cose opposte.
 - Il **rapporto riassuntivo periodico** è invece una **modalità alternativa di segnalazione** di
   incidenti gravi simili e ricorrenti, di cui sia stata individuata la causa radice e per i quali
   sia stata attuata un'azione correttiva, o che siano comuni e ben documentati: si concorda con
-  l'autorità competente la trasmissione in forma aggregata invece che singola. `[NV]` sul
-  paragrafo che lo prevede e sulle condizioni esatte.
+  l'autorità competente la trasmissione in forma aggregata invece che singola. Il paragrafo che lo prevede
+  e le condizioni esatte `[NV]` vanno verificati su `COMP`.
 
 **Il primo è una capacità di prodotto, il secondo è un accordo con l'autorità.** Ed è il primo che
 impone un requisito al progetto oggi.
 
-> **`V-178`.** Due capacità senza le quali l'obbligo di vigilanza **non è materialmente
+> **[`V-178`](../11_registri/01-vincoli-in-vigore.md#v-178).** Due capacità senza le quali l'obbligo di vigilanza **non è materialmente
 > soddisfacibile**, e che vanno costruite prima di servire perché non sono recuperabili a
 > posteriori.
 >
@@ -232,18 +232,18 @@ impone un requisito al progetto oggi.
 > modo confrontabile fra installazioni e nel tempo**. Ne discende che la tassonomia degli esiti e
 > degli eventi si definisce ora e **non si riscrive a ogni versione**: rinominare o accorpare una
 > categoria rende la serie storica incomparabile e fa sparire l'aumento significativo invece di
-> rilevarlo. È l'applicazione, sul piano della vigilanza, di ciò che `V-126` già impone sul piano
+> rilevarlo. È l'applicazione, sul piano della vigilanza, di ciò che [`V-126`](../11_registri/01-vincoli-in-vigore.md#v-126) già impone sul piano
 > del dominio.
 >
 > **(b) Conservazione dei segnali di diagnostica pari almeno alla finestra di vigilanza.** Se un
 > incidente può emergere a distanza di settimane e i registri di diagnostica durano giorni, la
 > ricostruzione è impossibile e l'obbligo non è soddisfacibile. **Il termine di conservazione
 > della diagnostica è quindi determinato dagli obblighi di vigilanza, non dal fabbisogno
-> operativo**, ed è **distinto** dai termini di `V-152` - ventiquattro mesi per i registri di
+> operativo**, ed è **distinto** dai termini di [`V-152`](../11_registri/01-vincoli-in-vigore.md#v-152) - ventiquattro mesi per i registri di
 > tracciabilità, dodici per i dati di accesso e autenticazione - che rispondono ad altra fonte e
 > ad altra finalità.
 
-**Determinazione del valore, che è ciò che la questione `Q-116` chiedeva.** Il termine minimo si
+**Determinazione del valore, che è ciò che la questione [`Q-116`](../11_registri/02-questioni-aperte.md#q-116) chiedeva.** Il termine minimo si
 ricava per composizione, non per scelta: latenza massima realistica fra evento e segnalazione
 dell'utilizzatore, più il termine contrattuale entro cui l'utilizzatore è tenuto a segnalare al
 fabbricante, più il tempo di indagine necessario a integrare la segnalazione iniziale. Il progetto
@@ -281,11 +281,11 @@ due uscite**, non due valutazioni parallele che divergono: due valutazioni della
 vulnerabilità che concludono diversamente sono, davanti a un'autorità, una prova di disordine
 organizzativo.
 
-**Riscontro parziale alla questione `Q-113`.** L'impegno di aggiornamento dei componenti di terze
+**Riscontro parziale alla questione [`Q-113`](../11_registri/02-questioni-aperte.md#q-113).** L'impegno di aggiornamento dei componenti di terze
 parti va espresso **in giorni dalla pubblicazione dell'avviso, differenziato per gravità**, e non
 in mesi: un impegno mensile è privo di significato per un componente che riceve quattordici
 rilasci in sette mesi. La collocazione formale di quell'impegno è **qui**, nel piano di
-sorveglianza, e nel **periodo di supporto dichiarato**, che è la questione `Q-155` e resta al
+sorveglianza, e nel **periodo di supporto dichiarato**, che è la questione [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) e resta al
 committente. Ciò che quest'area può fissare senza invadere è la struttura: valutazione avviata
 entro il giorno lavorativo successivo alla pubblicazione, decisione motivata registrata anche
 quando è di non aggiornare, e finestra di rimedio differenziata per gravità con il valore
@@ -313,8 +313,8 @@ significative sono ampiamente usati anche per i dispositivi certificati sotto il
 il loro **ambito proprio è la disciplina transitoria dei dispositivi preesistenti**: applicarli
 per analogia è prassi diffusa e ragionevole, **non è un fondamento normativo**. Vanno presentati
 per ciò che sono - metodo adottato dal fabbricante, motivato - e le condizioni concrete vanno
-**concordate per iscritto con l'organismo** in sede contrattuale. `[NV]` sull'ambito dichiarato e
-sulla revisione corrente del documento.
+**concordate per iscritto con l'organismo** in sede contrattuale. L'ambito dichiarato e
+la revisione corrente del documento `[NV]` da concordare con l'organismo notificato.
 
 **Conseguenza sulla politica di rilascio, che condiziona il versionamento e la struttura dei rami
 e va progettata ora.**
@@ -337,7 +337,7 @@ non resti ambigua per nessuno dei soggetti coinvolti.
 
 **Il titolare degli obblighi di sorveglianza e di vigilanza è il fabbricante della distribuzione
 identificata marcata CE.** Non il repository, non il titolare del progetto, non i contributori,
-non l'autore di una copia derivata che non immette nulla sul mercato. È il vincolo `V-06`, e i
+non l'autore di una copia derivata che non immette nulla sul mercato. È il vincolo [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06), e i
 §§ 2–7 di questo capitolo descrivono obblighi che **oggi non gravano sul progetto**, perché non
 esiste né una distribuzione marcata né il soggetto che potrebbe esserne fabbricante.
 
@@ -375,13 +375,13 @@ obbligo regolatorio**, che non è disponibile per contratto. È la stessa strutt
 Va risolto con **tre misure combinate**, e nessuna delle tre da sola è sufficiente:
 
 1. distribuzione della versione certificata attraverso un **canale che identifica il destinatario**
-   (§ 4.1, questione `Q-177`);
+   (§ 4.1, questione [`Q-177`](../11_registri/02-questioni-aperte.md#q-177));
 2. **obbligo contrattuale dell'utilizzatore** di segnalare gli incidenti al fabbricante entro un
    termine compatibile con quelli dell'art. 87 - cioè **inferiore** ad essi, perché il termine del
    fabbricante decorre dalla sua conoscenza e un utilizzatore che segnala al quattordicesimo
    giorno lascia un giorno per valutare, indagare e segnalare;
 3. **capacità del prodotto** di produrre l'evidenza tecnica necessaria a ricostruire una sequenza
-   a distanza di settimane (`V-178`).
+   a distanza di settimane ([`V-178`](../11_registri/01-vincoli-in-vigore.md#v-178)).
 
 ### 8.3 La responsabilità civile non si esclude per contratto verso il danneggiato
 
@@ -435,7 +435,7 @@ costruirle.
 | **Distinta dei materiali software firmata** per ogni rilascio | È l'ingresso dell'inventario dei componenti di terze parti del fabbricante - **di chi integra oggi, nostro poi** - ed è la seconda delle attività retroattivamente irrecuperabili di `D45` |
 | Comunicazione tempestiva delle vulnerabilità nei componenti di terze parti | Il fabbricante non sorveglia i componenti del progetto: **sorveglia il progetto**. La sorveglianza a monte resta un'attività a monte anche quando le due vesti coincidono nello stesso soggetto, e va tenuta distinta nelle registrazioni |
 | Artefatti di ciclo di vita pubblicati e identificabili per versione | Senza di essi il fabbricante deve ricostruirli, e ciò che è retroattivamente irrecuperabile **non lo può ricostruire affatto** (`D45`). Con `D58` il fabbricante che si troverebbe a doverlo fare **siamo noi**, il che rende l'omissione un danno diretto e non un'ipotesi |
-| **Capacità di prodotto del § 5.2** - tassonomia stabile degli eventi contati e conservazione della diagnostica pari alla finestra di vigilanza (`V-178`) | Riga aggiunta perché con `D58` non è più una fornitura ma un **prerequisito nostro**: sono capacità che **contano eventi**, quindi non si accendono retroattivamente. Non figurano fra le quattro attività irrecuperabili di `D45` e hanno la stessa proprietà - è la questione `Q-276` |
+| **Capacità di prodotto del § 5.2** - tassonomia stabile degli eventi contati e conservazione della diagnostica pari alla finestra di vigilanza ([`V-178`](../11_registri/01-vincoli-in-vigore.md#v-178)) | Riga aggiunta perché con `D58` non è più una fornitura ma un **prerequisito nostro**: sono capacità che **contano eventi**, quindi non si accendono retroattivamente. Non figurano fra le quattro attività irrecuperabili di `D45` e hanno la stessa proprietà - è la questione [`Q-276`](../11_registri/02-questioni-aperte.md#q-276) |
 
 ### 8.5 Il caso che nessuna delle misure precedenti copre
 
@@ -463,7 +463,7 @@ perché il malinteso disponibile è aumentato di uno.
 Resta aperta la questione simmetrica: **come il progetto viene a sapere** di un incidente occorso
 in un'installazione derivata di cui ignora l'esistenza. Non esiste un canale in ingresso, e la
 sua assenza non è neutra: un difetto che il progetto non conosce resta nel codice di tutti. È la
-questione `Q-178`.
+questione [`Q-178`](../11_registri/02-questioni-aperte.md#q-178).
 
 ## 9. Il raccordo con la risposta agli incidenti di sicurezza
 
@@ -511,10 +511,10 @@ osservabilità.
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| `Q-177` | **Se la distribuzione identificata marcata sia disponibile solo attraverso un canale che identifica il destinatario** (§ 4.1). Da questa decisione dipende la compilabilità di due voci obbligatorie del rapporto periodico e la soddisfacibilità della tracciabilità delle versioni. Non tocca l'apertura del repository, che resta invariata | → Committente |
-| `Q-178` | **Come il progetto viene a sapere di un incidente occorso in un'installazione derivata di cui ignora l'esistenza** (§ 8.5). Non esiste oggi un canale in ingresso, e la sua assenza non è neutra: un difetto che il progetto non conosce resta nel codice di chiunque lo usi | Sicurezza, → Committente |
-| `Q-276` | **Le capacità di prodotto della vigilanza sono retroattivamente irrecuperabili quanto le quattro attività di `D45`, e non figurano in quell'elenco** (§ 5.2, `V-178`; § 8.4, ultima riga). Tassonomia stabile degli eventi contati e conservazione della diagnostica pari alla finestra di vigilanza **contano eventi**: non si accendono a posteriori, e la serie storica mancante non si ricostruisce. Finché l'obbligo era di un terzo la lacuna era un problema suo; con `D58` è **nostra**, e va valutato se le due capacità vadano aggiunte all'elenco delle attività irrecuperabili del capitolo [09 §5](./09-percorso-e-calendario.md) | Tecnica, → **ORCH** |
-| `Q-155` | **Periodo di supporto dichiarato**, da cui dipendono le finestre di rimedio del § 6 | → Committente |
-| `Q-116` | **Riscontrata** al § 5.2: la conservazione della diagnostica è determinata dagli obblighi di vigilanza, con proposta di dodici mesi configurabili e determinazione finale del fabbricante | Tecnica |
-| `Q-113` | **Riscontrata parzialmente** al § 6: struttura dell'impegno fissata, valore rinviato al periodo di supporto dichiarato | Tecnica, roadmap |
-| `[NV]` | Ripartizione fra i paragrafi degli artt. 86 e 87 in funzione della classe; numero del punto dell'art. 2 sull'incidente grave; ambito e revisione corrente di MDCG 2020-3 | Conformità |
+| [`Q-177`](../11_registri/02-questioni-aperte.md#q-177) | **Se la distribuzione identificata marcata sia disponibile solo attraverso un canale che identifica il destinatario** (§ 4.1). Da questa decisione dipende la compilabilità di due voci obbligatorie del rapporto periodico e la soddisfacibilità della tracciabilità delle versioni. Non tocca l'apertura del repository, che resta invariata | → Committente |
+| [`Q-178`](../11_registri/02-questioni-aperte.md#q-178) | **Come il progetto viene a sapere di un incidente occorso in un'installazione derivata di cui ignora l'esistenza** (§ 8.5). Non esiste oggi un canale in ingresso, e la sua assenza non è neutra: un difetto che il progetto non conosce resta nel codice di chiunque lo usi | Sicurezza, → Committente |
+| [`Q-276`](../11_registri/02-questioni-aperte.md#q-276) | **Le capacità di prodotto della vigilanza sono retroattivamente irrecuperabili quanto le quattro attività di `D45`, e non figurano in quell'elenco** (§ 5.2, [`V-178`](../11_registri/01-vincoli-in-vigore.md#v-178); § 8.4, ultima riga). Tassonomia stabile degli eventi contati e conservazione della diagnostica pari alla finestra di vigilanza **contano eventi**: non si accendono a posteriori, e la serie storica mancante non si ricostruisce. Finché l'obbligo era di un terzo la lacuna era un problema suo; con `D58` è **nostra**, e va valutato se le due capacità vadano aggiunte all'elenco delle attività irrecuperabili del capitolo [09 §5](./09-percorso-e-calendario.md) | Tecnica, → **ORCH** |
+| [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) | **Periodo di supporto dichiarato**, da cui dipendono le finestre di rimedio del § 6 | → Committente |
+| [`Q-116`](../11_registri/02-questioni-aperte.md#q-116) | **Riscontrata** al § 5.2: la conservazione della diagnostica è determinata dagli obblighi di vigilanza, con proposta di dodici mesi configurabili e determinazione finale del fabbricante | Tecnica |
+| [`Q-113`](../11_registri/02-questioni-aperte.md#q-113) | **Riscontrata parzialmente** al § 6: struttura dell'impegno fissata, valore rinviato al periodo di supporto dichiarato | Tecnica, roadmap |
+| `[NV]` | Ripartizione fra i paragrafi degli artt. 86 e 87 in funzione della classe; numero del punto dell'art. 2 sull'incidente grave; ambito e revisione corrente di MDCG 2020-3 | `COMP` |

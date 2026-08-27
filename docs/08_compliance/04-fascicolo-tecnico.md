@@ -48,8 +48,8 @@ dall'**Allegato II** del Regolamento (UE) 2017/745, integrata dall'**Allegato II
 di sorveglianza post-commercializzazione. L'**art. 10, paragrafo 4** impone di redigerlo e di
 **tenerlo aggiornato**: non è un adempimento di consegna, è un obbligo continuativo che dura
 quanto il dispositivo. Il regolamento impone inoltre di tenerlo a disposizione delle autorità per
-un periodo di anni successivo all'immissione sul mercato dell'ultimo dispositivo `[NV]` - la
-durata esatta e il paragrafo che la stabilisce vanno riverificati sul testo consolidato.
+un periodo di anni successivo all'immissione sul mercato dell'ultimo dispositivo - durata esatta e
+paragrafo che la stabilisce `[NV]` da verificare su `COMP`.
 
 Tre equivoci vanno tolti di mezzo subito, perché tutti e tre sono frequenti in un gruppo di
 sviluppo che si affaccia per la prima volta a questo materiale.
@@ -208,9 +208,9 @@ di un costo che il progetto può azzerare **oggi**, a costo quasi nullo, e che d
 e, da `D58`, è un costo che ricadrebbe **su di noi**.
 
 **La lingua non è una scelta editoriale.** Le istruzioni per l'uso destinate al mercato italiano
-devono essere in italiano `[NV]` - l'obbligo discende dal decreto legislativo di adeguamento
-nazionale, e il riferimento puntuale all'articolo va verificato sul testo pubblicato prima di
-comparire in un documento controllato. Il progetto adotta comunque italiano e inglese integrali
+devono essere in italiano `[NV]` da verificare su `COMP` - l'obbligo discende dal decreto legislativo
+di adeguamento nazionale, e il riferimento puntuale all'articolo va verificato sul testo pubblicato
+prima di comparire in un documento controllato. Il progetto adotta comunque italiano e inglese integrali
 (`D50`), il che copre la condizione minima ma non esaurisce l'obbligo: gli Stati membri in cui la
 distribuzione sarà commercializzata li conosce solo il fabbricante, e con essi le lingue richieste.
 
@@ -282,8 +282,8 @@ elettronici programmabili**: ripetibilità, affidabilità e prestazioni conformi
 sviluppo secondo lo stato dell'arte con ciclo di vita, gestione del rischio, verifica e
 validazione; requisiti minimi di hardware e di rete; misure di sicurezza informatica compresa la
 protezione contro l'accesso non autorizzato. La seconda è quella della **riduzione dei rischi
-legati all'errore d'uso**. `[NV]` - la numerazione puntuale delle sezioni dell'Allegato I va
-riletta sul testo consolidato prima di comparire nella matrice.
+legati all'errore d'uso**. La numerazione puntuale delle sezioni dell'Allegato I `[NV]` da verificare
+su `COMP` prima di comparire nella matrice.
 
 **Il limite strutturale del contributo del progetto, e va detto senza attenuazioni.** La colonna
 «identificazione precisa dei documenti controllati» **non è compilabile dal progetto**, perché
@@ -486,8 +486,8 @@ soggetto giuridico, un atto di volontà o una responsabilità che **oggi non esi
 | 10 | **Apposizione della marcatura CE** con il numero dell'organismo notificato | Artt. 20 e 52(6) |
 | 11 | **Domanda all'organismo notificato**, comprensiva della dichiarazione che la stessa domanda non è stata presentata ad altro organismo | Requisito espresso dell'Allegato IX. È una dichiarazione, non un documento tecnico |
 | 12 | **Manuale e procedure del sistema di gestione della qualità**, con le evidenze del ciclo: audit interno, riesame della direzione, azioni correttive | Art. 10, par. 9; Allegato IX, sez. 2. Presuppone un'organizzazione che eserciti il sistema per almeno un ciclo completo |
-| 13 | **Elenco dei siti, dei fornitori e dei subappaltatori critici**, e i relativi contratti | Allegato IX, sez. 2.2; art. 10, par. 9, lett. d) `[NV]` sui riferimenti puntuali |
-| 14 | **Copertura assicurativa** per la responsabilità da prodotto difettoso | Art. 10, par. 16 `[NV]`. È un contratto, e nessun documento tecnico lo sostituisce |
+| 13 | **Elenco dei siti, dei fornitori e dei subappaltatori critici**, e i relativi contratti | Allegato IX, sez. 2.2; art. 10, par. 9, lett. d) `[NV]` da verificare su `COMP` |
+| 14 | **Copertura assicurativa** per la responsabilità da prodotto difettoso | Art. 10, par. 16 `[NV]` da verificare su `COMP`. È un contratto, e nessun documento tecnico lo sostituisce |
 | 15 | **Sottoposizione all'audit in sito** dei propri locali e della propria infrastruttura | L'organismo ispeziona l'ambiente di sviluppo e la catena di costruzione **del fabbricante**, non quelli di un repository pubblico |
 
 **La riga 15 merita di essere sviluppata, perché è quella che sorprende.** Un organismo notificato
@@ -536,9 +536,9 @@ l'organismo svolge quattro attività distinte.
 | 1 | **Valutazione del sistema di gestione della qualità**, con audit in sito | All. IX, sez. 2 | I «locali» sono l'ambiente di sviluppo e l'infrastruttura di costruzione e rilascio |
 | 2 | **Valutazione della documentazione tecnica** | All. IX, sez. 4 | Con un solo prodotto significa: il fascicolo è esaminato integralmente |
 | 3 | **Sorveglianza** almeno annuale, con audit anche senza preavviso | All. IX, sez. 3 | Verifica dell'attuazione, dei dati di sorveglianza, delle azioni correttive e dell'aggiornamento del fascicolo |
-| 4 | **Approvazione preventiva delle modifiche sostanziali** al sistema e al dispositivo | All. IX, sez. 2.4 e 4.10 `[NV]` | È il punto in cui il ciclo di rilascio del software e il regime regolatorio entrano in conflitto |
+| 4 | **Approvazione preventiva delle modifiche sostanziali** al sistema e al dispositivo | All. IX, sez. 2.4 e 4.10 `[NV]` da verificare su `COMP` | È il punto in cui il ciclo di rilascio del software e il regime regolatorio entrano in conflitto |
 
-**Il certificato ha durata massima di cinque anni** `[NV]` sul riferimento puntuale di sezione, con
+**Il certificato ha durata massima di cinque anni** `[NV]` da verificare su `COMP` sul riferimento puntuale di sezione, con
 rinnovo su nuova valutazione.
 
 **Ciò che l'organismo non fa, e che va saputo prima di cercarne uno.** Non redige, non corregge e
@@ -557,7 +557,7 @@ dispositivo medico autonomo è un dispositivo attivo e ricade in un codice della
 corrispondente alla funzione clinica, affiancato da un codice orizzontale della famiglia `MDS`
 relativo ai dispositivi che incorporano software.
 
-> **`[NV]` - I codici esatti non sono stati confermati su fonte primaria.** Il numero del codice
+> **I codici esatti `[NV]` da chiedere agli organismi candidati non sono stati confermati su fonte primaria.** Il numero del codice
 > `MDA` applicabile a un software di telemedicina e telemonitoraggio e la formulazione letterale
 > del codice orizzontale vanno ricavati dall'allegato al regolamento di esecuzione. In ogni caso,
 > e indipendentemente da quella verifica, la strada affidabile è **chiedere a ciascun organismo
@@ -685,5 +685,5 @@ tecnica del prodotto. Vanno verificate prima della consegna, e la verifica costa
 | `Q-155` | Periodo di supporto dichiarato e data di fine supporto, elemento di `MDR-LIFE-001` (§ 9) | → Committente |
 | `Q-07` | Modelli documentali, codici di tipologia e metadati delle tipologie del fascicolo sanitario: non pubblicamente disponibili. Condiziona la voce 6.1 per la parte documentale | Conformità, con ente terzo |
 | `Q-24` | Adozione formale come documento di decisione architetturale della tabella artefatto → regime ([01 §5.1](./01-inquadramento-normativo.md)): incide sul perimetro del fascicolo, perché stabilisce quali artefatti sono coperti dalla marcatura e quali no | → Committente, con architettura |
-| `[NV]` | Numerazione puntuale delle sezioni dell'Allegato I e dell'Allegato IX citate ai §§ 7 e 13, e durata dell'obbligo di conservazione al § 1: da riverificare sul testo consolidato prima di comparire in un documento controllato | Conformità |
-| `[NV]` | Codici di designazione applicabili al dispositivo (§ 13) e stato di armonizzazione delle norme sulle informazioni fornite dal fabbricante e sui simboli (§ 5) | Conformità |
+| `[NV]` | Numerazione puntuale delle sezioni dell'Allegato I e dell'Allegato IX citate ai §§ 7 e 13, e durata dell'obbligo di conservazione al § 1: da riverificare sul testo consolidato prima di comparire in un documento controllato | `COMP` |
+| `[NV]` | Codici di designazione applicabili al dispositivo (§ 13): da verificare nel registro europeo NANDO della Commissione; stato di armonizzazione delle norme sulle informazioni fornite dal fabbricante e sui simboli (§ 5): da verificare sull'elenco consolidato della Commissione | richiesta a Commissione, NANDO |

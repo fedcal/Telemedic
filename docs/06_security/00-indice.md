@@ -106,7 +106,7 @@ specificamente per evitare che tu creda di essere coperto dove non lo sei.
 **Se sei un integratore** che incorpora Telemedic nel proprio prodotto:
 [02](./02-identita-e-accessi.md) - in particolare la distinzione fra autenticazione eseguita e
 riferita -, [06](./06-sicurezza-applicativa.md), [07](./07-catena-di-fornitura.md),
-[09](./09-ripartizione-delle-responsabilita.md), e l'area di integrazione per il contratto
+[09](./09-ripartizione-delle-responsabilita.md), e l'`INTEG` per il contratto
 delle interfacce.
 
 **Se stai valutando un'offerta in una procedura di gara**: [09](./09-ripartizione-delle-responsabilita.md)
@@ -130,7 +130,7 @@ nulla**, e in particolare:
   pubblica**. Il capitolo [05](./05-sicurezza-del-tempo-reale.md) descrive i difetti del server
   di relay per **meccanismo e versione di correzione** - che è la forma utile a chi deve decidere
   la versione minima da distribuire - e rinvia per gli identificativi puntuali alla verifica
-  documentata in `.telemedic/research/B3-verifica-coturn-webrtc.md`, condotta su banca dati
+  documentata in [`.telemedic/research/B3-verifica-coturn-webrtc.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/B3-verifica-coturn-webrtc.md), condotta su banca dati
   pubblica delle vulnerabilità e su avvisi del progetto a monte. Gli identificativi cambiano
   stato e valutazione nel tempo: un documento che li cablasse invecchierebbe peggio della
   descrizione del meccanismo;
@@ -138,7 +138,7 @@ nulla**, e in particolare:
   citato testualmente** prima che gli allegati di dettaglio siano stati letti riga per riga.
   Il capitolo [08](./08-quadro-normativo-e-misure.md) cita i **codici** delle misure, che sono
   pubblici e verificati, e marca `[NV]` il contenuto dei singoli requisiti. È la questione
-  Q-151 della bacheca inter-agenti.
+  [Q-151](../11_registri/02-questioni-aperte.md#q-151) della bacheca inter-agenti.
 
 **Nessun segreto negli esempi.** Ogni esempio di configurazione, token o chiave usa
 segnaposto espliciti nella forma `${NOME_DELLA_VARIABILE}` o `<descrizione>`. Nessun valore
@@ -156,20 +156,20 @@ non ignorarle.
 
 | # | Vincolo | Dove è motivato |
 |---|---|---|
-| **V-150** | Il registro immutabile e i log applicativi **non contengono contenuto clinico**; i log di diagnostica non portano identificativi diretti dell'assistito | [04 §3](./04-tracciamento.md) |
-| **V-151** | Il servizio esterno di terminologia **non riceve identificativi dell'assistito**; nessuna cache persistita su disco | [03 §6](./03-protezione-dei-dati.md), [07 §7](./07-catena-di-fornitura.md) |
-| **V-152** | Conservazione: **24 mesi** per i log di tracciabilità, **12 mesi** per i dati di accesso e autenticazione | [04 §5](./04-tracciamento.md) |
-| **V-153** | L'**accesso d'emergenza è requisito funzionale**: motivazione libera obbligatoria, finestra e perimetro limitati, notifica, riesame con esito registrato | [02 §10](./02-identita-e-accessi.md) |
-| **V-154** | Un livello di autenticazione **riferito da un integratore** va marcato come tale e **non** soddisfa i requisiti di autenticazione forte ex art. 64 CAD | [02 §4](./02-identita-e-accessi.md) |
-| **V-155** | Nessuna metrica infrastrutturale del relay può essere etichettata con l'identificativo di sessione | [05 §7](./05-sicurezza-del-tempo-reale.md) |
-| **V-156** | Il progetto **non dichiara** versioni di protocollo né suite crittografiche negoziate: le **misura per sessione e le registra** | [03 §2](./03-protezione-dei-dati.md), [05 §2](./05-sicurezza-del-tempo-reale.md) |
-| **V-157** | **Mediatore unico di uscita**: nessun componente applicativo apre connessioni verso destinazioni derivate da un dato in ingresso; l'uscita è negata a livello di rete a tutti tranne che al mediatore | [06 §8](./06-sicurezza-applicativa.md) |
+| **[V-150](../11_registri/01-vincoli-in-vigore.md#v-150)** | Il registro immutabile e i log applicativi **non contengono contenuto clinico**; i log di diagnostica non portano identificativi diretti dell'assistito | [04 §3](./04-tracciamento.md) |
+| **[V-151](../11_registri/01-vincoli-in-vigore.md#v-151)** | Il servizio esterno di terminologia **non riceve identificativi dell'assistito**; nessuna cache persistita su disco | [03 §6](./03-protezione-dei-dati.md), [07 §7](./07-catena-di-fornitura.md) |
+| **[V-152](../11_registri/01-vincoli-in-vigore.md#v-152)** | Conservazione: **24 mesi** per i log di tracciabilità, **12 mesi** per i dati di accesso e autenticazione | [04 §5](./04-tracciamento.md) |
+| **[V-153](../11_registri/01-vincoli-in-vigore.md#v-153)** | L'**accesso d'emergenza è requisito funzionale**: motivazione libera obbligatoria, finestra e perimetro limitati, notifica, riesame con esito registrato | [02 §10](./02-identita-e-accessi.md) |
+| **[V-154](../11_registri/01-vincoli-in-vigore.md#v-154)** | Un livello di autenticazione **riferito da un integratore** va marcato come tale e **non** soddisfa i requisiti di autenticazione forte ex art. 64 CAD | [02 §4](./02-identita-e-accessi.md) |
+| **[V-155](../11_registri/01-vincoli-in-vigore.md#v-155)** | Nessuna metrica infrastrutturale del relay può essere etichettata con l'identificativo di sessione | [05 §7](./05-sicurezza-del-tempo-reale.md) |
+| **[V-156](../11_registri/01-vincoli-in-vigore.md#v-156)** | Il progetto **non dichiara** versioni di protocollo né suite crittografiche negoziate: le **misura per sessione e le registra** | [03 §2](./03-protezione-dei-dati.md), [05 §2](./05-sicurezza-del-tempo-reale.md) |
+| **[V-157](../11_registri/01-vincoli-in-vigore.md#v-157)** | **Mediatore unico di uscita**: nessun componente applicativo apre connessioni verso destinazioni derivate da un dato in ingresso; l'uscita è negata a livello di rete a tutti tranne che al mediatore | [06 §8](./06-sicurezza-applicativa.md) |
 
-E i vincoli altrui che quest'area recepisce senza discuterli: **V-04** (il registro immutabile
+E i vincoli altrui che quest'area recepisce senza discuterli: **[V-04](../11_registri/01-vincoli-in-vigore.md#v-04)** (il registro immutabile
 è a catena di impronte e conservazione separata; il versionamento delle entità non lo sostituisce),
-**V-05** (il progetto è conforme e verificabile, **non accreditato**), **V-06** (il progetto non
-appone marcatura CE; il ruolo di fabbricante sarà assunto dal soggetto da costituire), **V-10** (server di relay: versione minima 4.17.2 e isolamento di rete in
-uscita come difesa primaria), **V-11** (contenitore di registrazione negoziato a runtime),
-**V-12** (nessuna soglia tecnica è imposta dalla normativa italiana), **V-21** (nessun contenuto
-clinico nei messaggi in uscita), **V-22** (firma asimmetrica dei messaggi in uscita), **V-25**
+**[V-05](../11_registri/01-vincoli-in-vigore.md#v-05)** (il progetto è conforme e verificabile, **non accreditato**), **[V-06](../11_registri/01-vincoli-in-vigore.md#v-06)** (il progetto non
+appone marcatura CE; il ruolo di fabbricante sarà assunto dal soggetto da costituire), **[V-10](../11_registri/01-vincoli-in-vigore.md#v-10)** (server di relay: versione minima 4.17.2 e isolamento di rete in
+uscita come difesa primaria), **[V-11](../11_registri/01-vincoli-in-vigore.md#v-11)** (contenitore di registrazione negoziato a runtime),
+**[V-12](../11_registri/01-vincoli-in-vigore.md#v-12)** (nessuna soglia tecnica è imposta dalla normativa italiana), **[V-161](../11_registri/01-vincoli-in-vigore.md#v-161)** (nessun contenuto
+clinico nei messaggi in uscita), **[V-162](../11_registri/01-vincoli-in-vigore.md#v-162)** (firma asimmetrica dei messaggi in uscita), **[V-165](../11_registri/01-vincoli-in-vigore.md#v-165)**
 (il livello di garanzia propagato è quello richiesto, non quello asserito).

@@ -30,7 +30,7 @@ Every statement in this area is explicitly classified:
 | Marker | Meaning |
 |---|---|
 | **[NORM]** | The regulation or administrative act establishes it. The exact source always follows: act, article, section, annex, paragraph |
-| **[BASE]** | It derives from `04_BASELINE_ARCHITETTURALE.md` or from a decision `D1`-`D52` of the brief. It is not negotiable in this area |
+| **[BASE]** | It derives from [`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) or from a decision `D1`-`D52` of the brief. It is not negotiable in this area |
 | **[MOD]** | It is a **modelling decision of this area**, identified with `DM-nn`. Adoptable or rejectable, but declared as a proposal and not as an obligation |
 | **[NV]** | Not verified. It always indicates who the verification should be asked from and what changes if the answer is different |
 
@@ -57,17 +57,17 @@ identifiers.
 
 They are in force by decision of the orchestration and are not waivable by this area.
 
-1. **`V-01` - `Encounter` and `MediaSession` are distinct aggregates.** The clinical service and
+1. **[`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01) - `Encounter` and `MediaSession` are distinct aggregates.** The clinical service and
    the media session have independent lifecycles. Chapter 02 makes it the backbone.
-2. **`V-02` - no clinical threshold hardcoded.** Thresholds are configuration per beneficiary,
+2. **[`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02) - no clinical threshold hardcoded.** Thresholds are configuration per beneficiary,
    never code constants. Chapters 05 and 08 make it operative.
-3. **`V-03` - the system is fully functional without SNOMED CT.** No main pathway can require it.
+3. **[`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03) - the system is fully functional without SNOMED CT.** No main pathway can require it.
    Chapter 07 declares the exact cost of this choice.
-4. **`V-04` - the immutable register is a hash chain with separate conservation.** Versioning of
+4. **[`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04) - the immutable register is a hash chain with separate conservation.** Versioning of
    entities does not replace it. It affects chapters 04 and 06.
-5. **`V-07` - the content of documents for the record is modelled as a canonical dataset**;
+5. **[`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07) - the content of documents for the record is modelled as a canonical dataset**;
    serialisations are replaceable. It is the linchpin of chapter 04.
-6. **`V-09` - the absence of data is clinical information.** Silence is never treated as
+6. **[`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09) - the absence of data is clinical information.** Silence is never treated as
    normality. It is the linchpin of chapter 05, the section on missing data.
 7. **`R0` - confidentiality.** No company name, brand, commercial product or domain of a
    potential partner appears in this area. Only generic formulas are used: "a cloud healthcare

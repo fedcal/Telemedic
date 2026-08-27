@@ -8,7 +8,7 @@ description: "Why admitted issuers, origins for embedding, origins for cross-ori
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
 **Origin**: converging questions raised by the integration area and the security area
-**Reference constraints**: V-157 of the security area; V-160 of the integration area
+**Reference constraints**: [V-157](../11_registri/01-vincoli-in-vigore.md#v-157) of the security area; [V-160](../11_registri/01-vincoli-in-vigore.md#v-160) of the integration area
 
 ## Context
 

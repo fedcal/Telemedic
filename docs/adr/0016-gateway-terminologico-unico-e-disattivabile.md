@@ -7,7 +7,7 @@ description: Come il sistema accede alle terminologie cliniche, perché resta pi
 # ADR-0016 - Gateway terminologico unico, disattivabile, senza cache persistita e senza identificativi
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Decisioni di riferimento**: D31, D32, D33; vincolo V-03 di bacheca; V-151 e V-157 posti dall'area di sicurezza
+**Decisioni di riferimento**: D31, D32, D33; vincolo [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) di bacheca; [V-151](../11_registri/01-vincoli-in-vigore.md#v-151) e [V-157](../11_registri/01-vincoli-in-vigore.md#v-157) posti dall'area di sicurezza
 **Origine**: questione posta dal modulo dei fondamenti, parte residua assegnata a quest'area
 
 ## Contesto

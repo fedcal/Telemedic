@@ -34,14 +34,14 @@ determinato da terzi, `C` sul percorso critico altrui, `D` comprimibile) sono de
 > un'unità che attraversi lavori eterogenei. Ciò che protegge la data del 30 novembre 2026 non è
 > quindi una previsione di sforzo: è **l'ordine di sacrificio dell'ambito**, dichiarato in
 > anticipo in [03 §6](./03-primo-rilascio-utilizzabile.md) ed eseguito dall'alto quando
-> un'allocazione si rivela insufficiente ([01 §10](./01-principi-e-metodo.md), vincolo `V-282`).
+> un'allocazione si rivela insufficiente ([01 §10](./01-principi-e-metodo.md), vincolo [`V-282`](../11_registri/01-vincoli-in-vigore.md#v-282)).
 
 > **Avvertenza sull'attribuzione.** Questa è la **pianificazione interna del progetto** (`D57`).
 > Nessun traguardo è attribuito a «terzi» o a «chi certifica». Dove un passo presuppone
 > formalmente il ruolo di fabbricante, il ruolo **va costituito e formalizzato** (`D58`), ed è
 > esso stesso un traguardo con un proprio tempo. **Nessuna data di questo capitolo è una promessa
 > di esito**: in particolare, in nessun punto si scrive che il prodotto sarà marcato entro una
-> data (`V-171`, `V-280`). Oggi il prodotto **non reca marcatura CE**, non è coperto da alcuna
+> data ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). Oggi il prodotto **non reca marcatura CE**, non è coperto da alcuna
 > dichiarazione di conformità, e chi lo installa, integra o mette in servizio assume comunque gli
 > obblighi che ne derivano.
 
@@ -74,8 +74,8 @@ questo comporta, e il §4 dice a quale prezzo il traguardo del 30 novembre resta
 
 | # | Decisione | Effetto su questo capitolo |
 |---|---|---|
-| **`D53`** | Il **30 novembre 2026 resta il primo rilascio installabile**. La decisione è presa dopo che l'orchestrazione aveva esposto la tensione e raccomandato l'alternativa. Chiude `Q-180` | La data è **fissa** e non si negozia in questo documento |
-| **`D54`** | Capacità dichiarata: **contributore unico, a tempo parziale**. Chiude `Q-181` | La capacità è **fissa** e non si aumenta in questo documento |
+| **`D53`** | Il **30 novembre 2026 resta il primo rilascio installabile**. La decisione è presa dopo che l'orchestrazione aveva esposto la tensione e raccomandato l'alternativa. Chiude [`Q-180`](../11_registri/02-questioni-aperte.md#q-180) | La data è **fissa** e non si negozia in questo documento |
+| **`D54`** | Capacità dichiarata: **contributore unico, a tempo parziale**. Chiude [`Q-181`](../11_registri/02-questioni-aperte.md#q-181) | La capacità è **fissa** e non si aumenta in questo documento |
 | **`D56`** | Traduzione **assistita, area per area**, con controllo di divergenza. **Emenda `D52`**: la traduzione integrale non è più prerequisito di ogni riga di codice | La sequenza «tutta la documentazione, poi il sito, poi il codice» **decade**. Restano prerequisiti non negoziabili le avvertenze pubbliche, la guida dei fondamenti e le aree di conformità e sicurezza |
 
 ### 2.2 L'unica variabile libera è l'ambito
@@ -103,12 +103,12 @@ distinti**: audit interno, riesame del rilascio, verifica di configurazione eseg
 scritto il codice, revisione esterna indipendente del codice di sicurezza critico (`D18`).
 
 **Non sono producibili internamente, e non per mancanza di ore** ([01 §9-bis](./01-principi-e-metodo.md)).
-Ne discende il vincolo `V-281`: **non entrano nel piano come attività**, perché pianificare
+Ne discende il vincolo [`V-281`](../11_registri/01-vincoli-in-vigore.md#v-281): **non entrano nel piano come attività**, perché pianificare
 un'attività non producibile è il modo più efficace di farla sparire dalla vista. Entrano come
 **lacune dichiarate con la data in cui nascono**, sono elencate fra i tagli irreversibili di
 [03 §5](./03-primo-rilascio-utilizzabile.md), e la loro ripartizione - quale sottoinsieme si
 accetta come lacuna e quale si copre acquisendo la funzione all'esterno - è decisione del
-committente e resta aperta come `Q-189`.
+committente e resta aperta come [`Q-189`](../11_registri/02-questioni-aperte.md#q-189).
 
 ### 2.4 Che cosa `D58` aggiunge, e perché va davanti e non in fondo
 
@@ -126,7 +126,7 @@ nella prima parte del calendario, come traguardo `T-14`, e non dopo il primo ril
 ## 3. I traguardi fino al 30 novembre 2026
 
 ### `T-01` - Artefatti retroattivamente irrecuperabili in esercizio
-*Classe `A`* · `[IMPEGNO]` · **12 settembre 2026**
+*Classe `A`* · `[IMPEGNO]` · **CHIUSO il 27 agosto 2026**, previsto per il 12 settembre
 **Innesco.** Immediato: nessuna dipendenza, e il costo di ometterlo cresce ogni giorno.
 **Titolare.** Contributore unico, per la produzione. Committente per l'approvazione della
 procedura.
@@ -147,7 +147,7 @@ ma in impossibilità.
    costituisce la registrazione di approvazione** nel modello «documenti come codice», ed elenca
    gli strumenti su cui si appoggia in vista della loro validazione. **Dichiara inoltre, in modo
    esplicito e non in nota, che sotto `D54` redattore e approvatore coincidono**, e che questa è
-   una **lacuna dichiarata** e non una conformità: è la prima voce di `Q-189`.
+   una **lacuna dichiarata** e non una conformità: è la prima voce di [`Q-189`](../11_registri/02-questioni-aperte.md#q-189).
 3. Esiste il **registro degli identificativi di requisito** (`RF-*`, `RNF-*`, `BR-*`, `ATT-*`,
    `UC-*`, `OUT-*`, `EX-*`, `DM-*`), in **sola aggiunta**, con lo stato di ciascun identificativo
    (in vigore / ritirato) e il divieto esplicito di riuso di un identificativo ritirato.
@@ -167,7 +167,7 @@ ma in impossibilità.
    alcuna avvertenza esistente** - resta scritto con la stessa evidenza di prima che oggi il
    prodotto non reca marcatura CE, che non è coperto da alcuna dichiarazione di conformità e che
    chi installa o mette in servizio assume comunque gli obblighi che ne derivano. Il testo **non
-   contiene alcuna data di marcatura** (`V-171`, `V-280`). Vale per la dichiarazione di non
+   contiene alcuna data di marcatura** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). Vale per la dichiarazione di non
    dispositivo medico, per la politica di distribuzione e per il richiamo in evidenza del
    documento di presentazione del repository, **in entrambe le lingue**.
 
@@ -231,13 +231,13 @@ quelle attività sono in §5 e sono **pianificazione interna, non promesse**.
 ---
 
 ### `T-03` - Catena di costruzione minima bloccante, con distinta generata
-*Classe `A`* · `[IMPEGNO]` · **26 settembre 2026**
+*Classe `A`* · `[IMPEGNO]` · **5 settembre 2026**, anticipato dal 26 settembre il 27 agosto ([00 §ritaratura](./00-indice.md))
 **Innesco.** Chiusura dei criteri 3 e 4 di `T-01`, che le forniscono il registro su cui appoggiare
 il primo controllo.
 **Titolare.** Contributore unico.
 
 **Obiettivo.** Esistere come catena di costruzione **prima** di esistere come software. È la
-traduzione operativa del vincolo `V-182` e della prescrizione di `D45` secondo cui la distinta dei
+traduzione operativa del vincolo [`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182) e della prescrizione di `D45` secondo cui la distinta dei
 materiali si genera dalla prima pipeline.
 
 **La riduzione rispetto alla versione precedente di questo traguardo, dichiarata.** La versione
@@ -283,7 +283,7 @@ proprietà irrecuperabile o un divieto pubblico**, perché il costo di ometterlo
 ammissione versionata, che è prodotto delle aree di dominio e di conformità.
 
 **Che cosa non comprende.** Non comprende il codice applicativo: **nessuna riga di codice
-applicativo precede questo traguardo** (`V-182`), con la sola eccezione del codice usa-e-getta
+applicativo precede questo traguardo** ([`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182)), con la sola eccezione del codice usa-e-getta
 delle verifiche di `T-04`, dichiarato tale, residente in un'area separata e non incluso in alcun
 artefatto distribuito. **Non comprende la verifica di riproducibilità della costruzione**, che è
 stata spostata a `T-10` con perimetro ridotto e dichiarato ([03 §5](./03-primo-rilascio-utilizzabile.md)).
@@ -294,7 +294,7 @@ sorveglianza), `R-27` (costruzione riproducibile non ottenuta), `R-28`.
 ---
 
 ### `T-07` - Sito di documentazione con i controlli bloccanti attivi e la verifica registrata
-*Classe `D`* · `[IMPEGNO]` · **26 settembre 2026**
+*Classe `D`* · `[IMPEGNO]` · **CHIUSO il 27 agosto 2026**, anticipato dal 26 settembre il 27 agosto e chiuso lo stesso giorno ([00 §ritaratura](./00-indice.md))
 **Innesco.** Immediato: il sito è già costruito e pubblicato, e ciò che resta è verifica.
 **Titolare.** Contributore unico.
 
@@ -312,7 +312,7 @@ le proprietà siano bloccanti.
    la traduzione è in corso e rinvia alla pagina italiana - **mai su un errore e mai in silenzio
    sulla radice**.
 4. Il collegamento alla dichiarazione «questo repository non è un dispositivo medico» è
-   **raggiungibile dal sito**, con indirizzo assoluto verso il repository. Chiude `Q-26`.
+   **raggiungibile dal sito**, con indirizzo assoluto verso il repository. Chiude [`Q-26`](../11_registri/02-questioni-aperte.md#q-26).
 5. Ogni pagina pubblicata reca l'avvertenza di non marcatura, **in entrambe le lingue**, nel testo
    riallineato a `D58` prodotto da `T-01` criterio 8.
 6. La verifica dei criteri 1, 2 e 3 è **descritta come procedura eseguibile e ripetibile**, con
@@ -352,7 +352,7 @@ dimenticare il divieto insieme a essa.
 **Criteri di completamento.** Ciascuna verifica produce un esito registrato - riuscita, fallita, o
 riuscita con condizioni - e la conseguenza sulla progettazione è scritta.
 
-1. **Scambio di token nel gateway con delega esplicita** (`D18`, `V-132`): è dimostrato che il
+1. **Scambio di token nel gateway con delega esplicita** (`D18`, [`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)): è dimostrato che il
    gateway valida integralmente il token dell'integratore ed emette un token interno con il claim
    dell'attore, e che **nessuna configurazione supportata** produce un token privo di quel claim.
    Prova negativa inclusa.
@@ -405,24 +405,24 @@ rilasciato, più due nuove che `D58` introduce.
 decisione architetturale corrispondente, oppure **esplicitamente confermata come aperta con la sua
 conseguenza dichiarata**.
 
-1. `C-4` / `Q-186` - **periodo di supporto dichiarato**. Senza la durata, il piano di dismissione
+1. `C-4` / [`Q-186`](../11_registri/02-questioni-aperte.md#q-186) - **periodo di supporto dichiarato**. Senza la durata, il piano di dismissione
    non è pubblicabile e il numero di versioni maggiori da mantenere non è determinabile. **È
    prerequisito della prima distribuzione**, quindi di `T-10`, e non è rinviabile oltre.
-2. `Q-110` - topologia del segnale su più istanze. È decisione strutturale con effetti su
+2. [`Q-110`](../11_registri/02-questioni-aperte.md#q-110) - topologia del segnale su più istanze. È decisione strutturale con effetti su
    distribuzione e aggiornamento senza interruzione.
-3. `Q-111` - limite dichiarato di partecipanti alla sessione media. Nel perimetro ridotto il
+3. [`Q-111`](../11_registri/02-questioni-aperte.md#q-111) - limite dichiarato di partecipanti alla sessione media. Nel perimetro ridotto il
    limite è **due**, e va dichiarato come limite del rilascio e non come proprietà del prodotto.
-4. `Q-145` - conferma delle sei rinunce deliberate a capacità tecniche disponibili. Con `D55` che
+4. [`Q-145`](../11_registri/02-questioni-aperte.md#q-145) - conferma delle sei rinunce deliberate a capacità tecniche disponibili. Con `D55` che
    congela la destinazione d'uso, la conferma di queste rinunce è ciò che la rende difendibile:
    sono le funzioni che sposterebbero il sistema verso il tempo reale clinico.
-5. `Q-280` - **forma giuridica del soggetto fabbricante e profilo della persona responsabile del
+5. [`Q-280`](../11_registri/02-questioni-aperte.md#q-280) - **forma giuridica del soggetto fabbricante e profilo della persona responsabile del
    rispetto della normativa** (`D58`). È la voce di questo elenco con il tempo di attraversamento
    più lungo e il costo in ore più basso.
-6. `Q-189` - **ripartizione delle registrazioni a ruoli distinti**: quale sottoinsieme si accetta
+6. [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) - **ripartizione delle registrazioni a ruoli distinti**: quale sottoinsieme si accetta
    come lacuna dichiarata e quale si copre acquisendo la funzione all'esterno. Senza questa
    decisione, `T-10` si pubblica con la lacuna dichiarata, che è l'esito predefinito e va detto in
    anticipo.
-7. `Q-185` - correzione della pagina pubblica ai sensi di `D19` e `D29`. **Ogni giorno di
+7. [`Q-185`](../11_registri/02-questioni-aperte.md#q-185) - correzione della pagina pubblica ai sensi di `D19` e `D29`. **Ogni giorno di
    esposizione è irrecuperabile**, e la sua conseguenza non si annulla decidendo dopo.
 
 **Voci rinviate con le funzioni che governano, e la regola che resta in vigore.** `B-3` (regime di
@@ -463,7 +463,7 @@ traguardo chiedeva la chiusura integrale del corpus prima di ogni riga di codice
    l'`[NV]` sul volume del corpus e determina il piano di traduzione di `T-06`.
 6. È definita e versionata la **lista dei termini vietati** che alimenta il controllo della regola
    `R0`, e il controllo gira su tutto il corpus senza rilievi.
-7. I rinvii testuali all'area di conformità, scritti come testo quando quell'area non esisteva,
+7. I rinvii testuali all'`COMP`, scritti come testo quando quell'area non esisteva,
    sono **trasformati in collegamenti**.
 
 **Che cosa non comprende, ed è la riduzione.** Non comprende il **modulo delle fonti primarie**
@@ -575,7 +575,7 @@ rischio con impatto più alto dell'intero registro, e la riduzione di ambito di 
 *Classe `D`* · `[IMPEGNO]` · **30 novembre 2026**
 **Innesco.** Chiusura di `T-08` e di `T-06`.
 **Titolare.** Contributore unico per la produzione. **Il riesame del rilascio non ha titolare
-interno**: è la lacuna di `Q-189`, dichiarata e non pianificata.
+interno**: è la lacuna di [`Q-189`](../11_registri/02-questioni-aperte.md#q-189), dichiarata e non pianificata.
 
 **Obiettivo.** Il primo artefatto che una struttura può installare, configurare e usare in
 esercizio di prova, formazione e integrazione - **non su pazienti reali**. Il perimetro esatto, ciò
@@ -601,7 +601,7 @@ nell'ordine di sacrificio dell'ambito.** A essi si aggiungono i tre criteri prop
 l'ambito è stato ridotto di conseguenza: il traguardo è quindi un impegno **sull'ambito
 dichiarato**, non sull'ambito che il progetto avrebbe voluto consegnare. Presentarlo come impegno
 senza il capitolo [03 §5](./03-primo-rilascio-utilizzabile.md) accanto sarebbe una violazione di
-`V-184`.
+[`V-184`](../11_registri/01-vincoli-in-vigore.md#v-184).
 
 **Rischi.** `R-28` (rischio dominante), `R-02`, `R-20`, `R-24`.
 
@@ -668,7 +668,7 @@ chi installa deve poterlo sapere prima di installare, non dopo.
 
 Le date di questo paragrafo sono **pianificazione interna del progetto** (`D57`). Non sono
 attribuite a terzi e non sono promesse di esito. **In nessun punto si scrive che il prodotto sarà
-marcato entro una data** (`V-171`, `V-280`).
+marcato entro una data** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)).
 
 ### `T-09` - Traduzione integrale del corpus residuo
 *Classe `D`* · `[INTENZIONE]` · **2027, in parallelo allo sviluppo**
@@ -703,7 +703,7 @@ dell'esecuzione. Non dipende dalla velocità del progetto.
 
 ### `T-12` - Pacchetto regolatorio consegnabile
 *Classe `D` con componenti `A` già chiuse* · `[INTENZIONE]` · **2027**
-**Innesco.** Chiusura di `Q-183` verso l'area di conformità. **Titolare.** Progetto.
+**Innesco.** Chiusura di [`Q-183`](../11_registri/02-questioni-aperte.md#q-183) verso l'`COMP`. **Titolare.** Progetto.
 
 **Obiettivo.** Rendere disponibile il materiale che, con `D58`, il progetto produce **per sé** nel
 ruolo di fabbricante da costituire, e che resta comunque utile a chiunque integri: fascicolo
@@ -718,7 +718,7 @@ sarebbe peggiore della lacuna stessa ([01 §8.2](./01-principi-e-metodo.md)).
 
 ### `T-13` - Il percorso di certificazione, come pianificazione interna
 *Classe `B`* · `[INTENZIONE]` · **date di pianificazione interna, mai promesse di esito**
-**Innesco.** Costituzione del soggetto fabbricante (`T-14` criterio 1, e `Q-280`).
+**Innesco.** Costituzione del soggetto fabbricante (`T-14` criterio 1, e [`Q-280`](../11_registri/02-questioni-aperte.md#q-280)).
 **Titolare.** Progetto, nel ruolo di fabbricante **ancora da costituire**.
 
 Con `D57` e `D58` questo traguardo non riporta più «traguardi di terzi»: riporta **la nostra
@@ -726,7 +726,7 @@ pianificazione**. Cambia l'attribuzione, non lo stato di fatto del prodotto.
 
 | Passo | Riferimento temporale di pianificazione interna | Su che cosa poggia |
 |---|---|---|
-| Costituzione del soggetto fabbricante e nomina della persona responsabile del rispetto della normativa | **Non stimabile dal progetto**: dipende da procedimenti amministrativi e dalla disponibilità di una figura con qualifica documentabile. `[NV]` | `D58`, `Q-280` |
+| Costituzione del soggetto fabbricante e nomina della persona responsabile del rispetto della normativa | **Non stimabile dal progetto**: dipende da procedimenti amministrativi e dalla disponibilità di una figura con qualifica documentabile. `[NV]` | `D58`, [`Q-280`](../11_registri/02-questioni-aperte.md#q-280) |
 | Firma del contratto con un organismo notificato | Dicembre 2026 nello scenario di riferimento | `D44`, scenario B della ricerca sul percorso di certificazione |
 | Certificato del sistema di gestione della qualità | Luglio 2027 nello scenario di riferimento | *ibidem* |
 | Fascicolo tecnico completo e sottomesso | Giugno 2027 nello scenario di riferimento | *ibidem* |
@@ -735,7 +735,7 @@ pianificazione**. Cambia l'attribuzione, non lo stato di fatto del prodotto.
 **Tre avvertenze che accompagnano questa tabella e non si separano da essa.**
 
 1. **Sono date di pianificazione, non di esito.** Nessuna di esse autorizza a scrivere, in alcun
-   materiale, che il prodotto sarà marcato entro una data (`V-171`, `V-280`). La differenza fra
+   materiale, che il prodotto sarà marcato entro una data ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). La differenza fra
    l'intenzione di certificare e la promessa di un esito datato non è formale: la seconda produce
    un effetto regolatorio che la prima non produce.
 2. **Il primo passo non esiste ancora.** Finché il soggetto fabbricante non è costituito, i passi
@@ -751,8 +751,8 @@ Una sola famiglia di date non è del progetto, e non lo diventa con `D57`: **il 
 utilizzatore deve aver adottato le misure nazionali di sicurezza**. È soggettivo - decorre dalla
 comunicazione di inserimento ricevuta dal singolo soggetto (`D39`) - e il fornitore non lo
 conosce. Il prodotto dichiara **le evidenze e la data di disponibilità di ciascuna**, mai il
-termine (`V-186`). Lo stesso vale per l'**accreditamento come fornitore di servizi** verso la
-federazione nazionale delle identità, che è di chi installa (`D36`, `V-05`, `OUT-22`) e i cui tempi
+termine ([`V-186`](../11_registri/01-vincoli-in-vigore.md#v-186)). Lo stesso vale per l'**accreditamento come fornitore di servizi** verso la
+federazione nazionale delle identità, che è di chi installa (`D36`, [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05), `OUT-22`) e i cui tempi
 **non sono dichiarati da alcuna fonte primaria**.
 
 ---
@@ -764,13 +764,13 @@ una decisione**, e produce una conseguenza che non si annulla decidendo dopo.
 
 | Data | Decisione | Chi | Se non presa entro quella data |
 |---|---|---|---|
-| **19 settembre 2026** | Forma giuridica del soggetto fabbricante e profilo della persona responsabile del rispetto della normativa (`Q-280`, `D58`) | Committente | Il passo iniziale del §5 slitta, e con esso **integralmente** tutto ciò che vi poggia. È di classe `B`: il ritardo non si recupera lavorando di più |
-| **30 settembre 2026** | Ripartizione delle registrazioni a ruoli distinti (`Q-189`) | Committente | `T-10` si pubblica con la **lacuna dichiarata**, che è l'esito predefinito. Le registrazioni relative al periodo di `RU-1` non sono producibili in seguito |
-| **15 ottobre 2026** | Periodo di supporto dichiarato (`C-4`, `Q-186`) | Committente, `COMP` | Il piano di dismissione non è pubblicabile e il numero di versioni maggiori da mantenere non è determinabile. **È prerequisito di `T-10`** |
-| **31 ottobre 2026** | Correzione della pagina pubblica ai sensi di `D19` e `D29` (`Q-185`) | Committente, `PROD` | Il rischio di affermazione non sostenibile prosegue e **non è recuperabile a posteriori**: un periodo di pubblicazione non si annulla |
-| **31 ottobre 2026** | Formulazione della differenza fra ciò che il materiale pubblico dichiara e ciò che `RU-1` consegna (`Q-281`) | `PROD`, committente | `RU-1` viene pubblicato mentre il materiale pubblico dichiara capacità che il rilascio non contiene: è la stessa aggravante di `Q-185`, su un artefatto in più |
+| **19 settembre 2026** | Forma giuridica del soggetto fabbricante e profilo della persona responsabile del rispetto della normativa ([`Q-280`](../11_registri/02-questioni-aperte.md#q-280), `D58`) | Committente | Il passo iniziale del §5 slitta, e con esso **integralmente** tutto ciò che vi poggia. È di classe `B`: il ritardo non si recupera lavorando di più |
+| **30 settembre 2026** | Ripartizione delle registrazioni a ruoli distinti ([`Q-189`](../11_registri/02-questioni-aperte.md#q-189)) | Committente | `T-10` si pubblica con la **lacuna dichiarata**, che è l'esito predefinito. Le registrazioni relative al periodo di `RU-1` non sono producibili in seguito |
+| **15 ottobre 2026** | Periodo di supporto dichiarato (`C-4`, [`Q-186`](../11_registri/02-questioni-aperte.md#q-186)) | Committente, `COMP` | Il piano di dismissione non è pubblicabile e il numero di versioni maggiori da mantenere non è determinabile. **È prerequisito di `T-10`** |
+| **31 ottobre 2026** | Correzione della pagina pubblica ai sensi di `D19` e `D29` ([`Q-185`](../11_registri/02-questioni-aperte.md#q-185)) | Committente, `PROD` | Il rischio di affermazione non sostenibile prosegue e **non è recuperabile a posteriori**: un periodo di pubblicazione non si annulla |
+| **31 ottobre 2026** | Formulazione della differenza fra ciò che il materiale pubblico dichiara e ciò che `RU-1` consegna ([`Q-281`](../11_registri/02-questioni-aperte.md#q-281)) | `PROD`, committente | `RU-1` viene pubblicato mentre il materiale pubblico dichiara capacità che il rilascio non contiene: è la stessa aggravante di [`Q-185`](../11_registri/02-questioni-aperte.md#q-185), su un artefatto in più |
 | **Prima di ogni ulteriore riduzione** | Esecuzione dell'ordine di sacrificio di [03 §6](./03-primo-rilascio-utilizzabile.md) | Contributore unico, con registrazione nella revisione | Una riduzione non registrata è un taglio non deciso, e la scelta di che cosa sacrificare **smette di essere leggibile** - che è precisamente ciò che `D53` obbliga a evitare |
-| **Prima della documentazione pubblica del meccanismo** | Esito della verifica sull'inoltro del livello di garanzia (`B-8`, `Q-160`) | `INTEG`, `TECH` | Rettifica di documentazione pubblica su un meccanismo di sicurezza |
+| **Prima della documentazione pubblica del meccanismo** | Esito della verifica sull'inoltro del livello di garanzia (`B-8`, [`Q-160`](../11_registri/02-questioni-aperte.md#q-160)) | `INTEG`, `TECH` | Rettifica di documentazione pubblica su un meccanismo di sicurezza |
 
 **Quattro punti sono decaduti** perché le decisioni sono state prese: la dichiarazione della
 capacità (`D54`), la riformulazione del traguardo del 30 novembre (`D53`), la modalità di
@@ -788,23 +788,23 @@ gantt
     axisFormat %d %b
 
     section Classe A - irrecuperabili
-    T-01 Artefatti irrecuperabili in esercizio      :crit, t01, 2026-08-25, 2026-09-12
-    T-03 Catena di costruzione minima bloccante     :crit, t03, 2026-08-27, 2026-09-26
+    T-01 Artefatti irrecuperabili in esercizio      :crit, t01, 2026-08-25, 2026-08-27
+    T-03 Catena di costruzione minima bloccante     :crit, t03, 2026-08-27, 2026-09-05
 
     section Classe B - tempo di terzi
     T-14 Percorso di fabbricante avviato            :crit, t14, 2026-08-25, 2026-09-19
 
     section Classe C - percorso critico
-    T-04 Verifiche empiriche ridotte                :crit, t04, 2026-09-26, 2026-10-03
+    T-04 Verifiche empiriche ridotte                :crit, t04, 2026-09-05, 2026-10-03
     T-05 Decisioni con scadenza anteriore al codice :t05, 2026-08-25, 2026-10-03
 
     section Classe D - documentazione
-    T-07 Sito con controlli bloccanti e verifica    :t07, 2026-09-12, 2026-09-26
-    T-02 Corpo documentale al minimo prerequisito   :t02, 2026-09-26, 2026-10-10
+    T-07 Sito con controlli bloccanti e verifica    :t07, 2026-08-25, 2026-08-27
+    T-02 Corpo documentale al minimo prerequisito   :t02, 2026-09-05, 2026-10-10
     T-06 Traduzione delle aree prerequisito         :crit, t06, 2026-11-07, 2026-11-21
 
     section Classe D - software
-    T-08 Scheletro e percorso verticale ridotto     :crit, t08, 2026-10-03, 2026-11-14
+    T-08 Scheletro e percorso verticale ridotto     :crit, t08, 2026-09-12, 2026-11-14
     T-10 RU-1 primo rilascio installabile           :crit, t10, 2026-11-14, 2026-11-30
 
     section Punti di decisione
@@ -818,6 +818,19 @@ gantt
 **Come si legge il diagramma.** Le barre marcate come critiche sono quelle il cui slittamento si
 trasferisce integralmente alla fine della catena. **Sono nove su dieci**, ed è la rappresentazione
 grafica del fatto dichiarato al §4.1: il piano non ha margine, e il margine sta nell'ambito.
+
+**Il diagramma è ritarato al 27 agosto 2026**, insieme alla tabella del §7.1 e alle schede dei
+traguardi, e le tre rappresentazioni vanno lette come una sola: sono la stessa data scritta tre
+volte, e quando divergono la scheda del traguardo prevale, perché è l'unica delle tre che porta con
+sé la motivazione. La coerenza fra le tre non è affidata all'attenzione di chi modifica:
+[`scripts/verifica-coerenza-delle-date.sh`](https://github.com/fedcal/Telemedic/blob/main/scripts/verifica-coerenza-delle-date.sh)
+la verifica a ogni costruzione, e la ragione per cui esiste è che il 27 agosto la ritaratura aveva
+toccato le schede e **non** queste due copie, in entrambe le lingue.
+
+**`T-02` anticipa l'inizio al 5 settembre e non la fine.** Il suo innesco dichiarato è `T-01`, che è
+chiuso dal 27 agosto: la barra non poteva più cominciare il 26 settembre senza contraddire il
+proprio innesco. La fine resta al 10 ottobre, per la stessa ragione per cui resta quella di `T-08` -
+l'anticipo dell'inizio è margine contro il rischio, non un lavoro che si accorcia.
 
 **La sovrapposizione fra `T-01` e `T-03` è voluta, e va letta bene.** La barra di `T-03` comincia il
 **27 agosto** e non il 12 settembre, perché l'innesco dichiarato del traguardo è la chiusura dei
@@ -834,10 +847,10 @@ possa creare senza toccare l'ambito.
 
 | # | Traguardo | Classe | Enunciato | Data | Innesco | Titolare |
 |---|---|:-:|:-:|---|---|---|
-| `T-01` | Artefatti retroattivamente irrecuperabili in esercizio | `A` | `[IMPEGNO]` | 12 set. 2026 | Immediato | Contributore unico |
+| `T-01` | Artefatti retroattivamente irrecuperabili in esercizio | `A` | `[IMPEGNO]` | **chiuso il 27 ago. 2026** | Immediato | Contributore unico |
 | `T-14` | Percorso di fabbricante avviato | `B` | `[IMPEGNO]` | 19 set. 2026 | Immediato (`D58`) | Committente |
-| `T-03` | Catena di costruzione minima bloccante | `A` | `[IMPEGNO]` | 26 set. 2026 | `T-01` criteri 3–4 | Contributore unico |
-| `T-07` | Sito con controlli bloccanti e verifica registrata | `D` | `[IMPEGNO]` | 26 set. 2026 | Immediato | Contributore unico |
+| `T-03` | Catena di costruzione minima bloccante | `A` | `[IMPEGNO]` | 5 set. 2026 | `T-01` criteri 3–4 | Contributore unico |
+| `T-07` | Sito con controlli bloccanti e verifica registrata | `D` | `[IMPEGNO]` | **chiuso il 27 ago. 2026** | Immediato | Contributore unico |
 | `T-04` | Verifiche empiriche sul percorso critico ridotto | `C` | `[IMPEGNO]` | 3 ott. 2026 | `T-03` | Contributore unico |
 | `T-05` | Decisioni con scadenza anteriore al primo codice | `C` | `[INTENZIONE]` | 3 ott. 2026 | Immediato | Committente |
 | `T-02` | Corpo documentale al minimo prerequisito | `D` | `[IMPEGNO]` | 10 ott. 2026 | `T-01` | Contributore unico |
@@ -846,7 +859,7 @@ possa creare senza toccare l'ambito.
 | `T-10` | **`RU-1`, primo rilascio installabile** | `D` | `[IMPEGNO]` | **30 nov. 2026** | `T-08`, `T-06` | Contributore unico; **riesame senza titolare interno** |
 | `T-09` | Traduzione integrale del corpus residuo | `D` | `[INTENZIONE]` | 2027 | `T-06` | Contributore unico |
 | `T-11` | Validazione sommativa di usabilità | `B` | `[INTENZIONE]` | Dopo il congelamento dell'interfaccia | Congelamento | Committente, per l'ingaggio |
-| `T-12` | Pacchetto regolatorio consegnabile | `D` | `[INTENZIONE]` | 2027 | `Q-183` | Progetto |
+| `T-12` | Pacchetto regolatorio consegnabile | `D` | `[INTENZIONE]` | 2027 | [`Q-183`](../11_registri/02-questioni-aperte.md#q-183) | Progetto |
 | `T-13` | Percorso di certificazione, pianificazione interna | `B` | `[INTENZIONE]` | Vedi §5 | `T-14` criterio 1 | Progetto, nel ruolo da costituire |
 
 ---
@@ -857,14 +870,14 @@ L'elenco è la parte più utile del capitolo per chi deve fidarsi di questa road
 
 | Voce | Perché non è datata | Da che cosa dipenderebbe la data |
 |---|---|---|
-| **Costituzione del soggetto fabbricante** (`T-14` criterio 1) | Dipende da procedimenti amministrativi esterni e dalla disponibilità di una figura con qualifica documentabile. `[NV]` | `Q-280`; i tempi non sono dichiarati da una fonte che il progetto possa citare |
-| **Interoperabilità in uscita verso il fascicolo** | I modelli documentali, i codici di tipologia e i metadati di indicizzazione delle tipologie di telemedicina **non sono pubblicamente disponibili** (`Q-07`) | Disponibilità del materiale |
+| **Costituzione del soggetto fabbricante** (`T-14` criterio 1) | Dipende da procedimenti amministrativi esterni e dalla disponibilità di una figura con qualifica documentabile. `[NV]` | [`Q-280`](../11_registri/02-questioni-aperte.md#q-280); i tempi non sono dichiarati da una fonte che il progetto possa citare |
+| **Interoperabilità in uscita verso il fascicolo** | I modelli documentali, i codici di tipologia e i metadati di indicizzazione delle tipologie di telemedicina **non sono pubblicamente disponibili** ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07)) | Disponibilità del materiale |
 | **Profili di interoperabilità documentale e messaggistica ospedaliera** | Richiedono una controparte con un ambiente di prova | Disponibilità di un integratore o di un ente |
 | **Conformità verificata sull'identità digitale nazionale** | Richiede ambienti di pre-produzione e credenziali di prova non sotto il controllo del progetto | Accesso agli ambienti; il lotto delle istanze multiple per fornitore di identità è quello sistematicamente sottovalutato (`D38`) |
-| **Soglie di prestazione dell'interfaccia** | Il dispositivo di riferimento non è dichiarato (`Q-115`, `Q-175`), e senza dispositivo il requisito corrispondente non è verificabile | Decisione di prodotto |
-| **Livelli di servizio attesi** | La soglia la sceglie il cliente; il prodotto fornisce la misura | `Q-152`, `Q-184` |
-| **Termine di adeguamento alle misure nazionali di sicurezza** | Soggettivo per ciascun utilizzatore (`V-186`) | Della comunicazione ricevuta dal singolo soggetto |
-| **Accreditamento come fornitore di servizi verso la federazione nazionale** | È di chi installa, e i tempi **non sono dichiarati da alcuna fonte primaria** | `D36`, `V-05`, `OUT-22` |
+| **Soglie di prestazione dell'interfaccia** | Il dispositivo di riferimento non è dichiarato ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115), [`Q-175`](../11_registri/02-questioni-aperte.md#q-175)), e senza dispositivo il requisito corrispondente non è verificabile | Decisione di prodotto |
+| **Livelli di servizio attesi** | La soglia la sceglie il cliente; il prodotto fornisce la misura | [`Q-152`](../11_registri/02-questioni-aperte.md#q-152), [`Q-184`](../11_registri/02-questioni-aperte.md#q-184) |
+| **Termine di adeguamento alle misure nazionali di sicurezza** | Soggettivo per ciascun utilizzatore ([`V-186`](../11_registri/01-vincoli-in-vigore.md#v-186)) | Della comunicazione ricevuta dal singolo soggetto |
+| **Accreditamento come fornitore di servizi verso la federazione nazionale** | È di chi installa, e i tempi **non sono dichiarati da alcuna fonte primaria** | `D36`, [`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05), `OUT-22` |
 
 > **La regola che questo elenco applica.** Una data che dipende interamente da un terzo non è una
 > data del progetto: è una speranza con un formato. Con `D57` la roadmap **assume la

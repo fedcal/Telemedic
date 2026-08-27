@@ -190,8 +190,8 @@ because it determines who the project owner for the software is (§ 11).
    subject to an *Intesa* in the State-Regions Conference. The Regions may top it up with
    their own resources; if they overshoot without cover they enter a **deficit recovery plan**
    (piano di rientro), a regime of spending constraints that includes a freeze on staff
-   replacement and the obligation to raise regional tax surcharges. `[NV]` on the up-to-date
-   list of Regions under a recovery plan as at today's date.
+   replacement and the obligation to raise regional tax surcharges. The up-to-date
+   list of Regions under a recovery plan as at today's date is subject to continuous verification by the `GUIDA` `[NV]` area.
 2. **From the Region to the health authorities.** The Region assigns each health authority a
    budget, partly by **capitation** (a sum per resident person entitled to care, which funds
    the functions of protecting the population) and partly by **payment for services
@@ -239,7 +239,7 @@ The ASL has a **dual nature** that is the source of much confusion:
 Within it, the **district** is the territorial subdivision that organises primary care and
 basic outpatient specialist care for a catchment population (DM 77/2022 sets the reference
 standard at around **100,000 inhabitants** per district, with variations for density and
-terrain `[NV]` on the exact value, to be verified against Annex 1 of the decree).
+terrain that the `GUIDA` `[NV]` area must verify against Annex 1 of the decree for the exact value).
 
 **The acronym is not uniform.** Depending on the Region the same body is called ASL, AUSL
 (Azienda unità sanitaria locale), ASP (Azienda sanitaria provinciale), AST (Azienda sanitaria
@@ -500,7 +500,7 @@ Saying that a service «is in the LEA» means three things at once:
 
 Compliance with the LEA is measured by the **Nuovo sistema di garanzia (NSG, the new
 guarantee system)**, a set of indicators with which the Ministry of Health assesses each
-Region annually. `[NV]` on the scores and the compliance threshold in force.
+Region annually according to criteria that the `GUIDA` `[NV]` area must verify, in relation to the scores and the compliance threshold in force.
 
 ### 6.3 The fee schedule and the tariff saga
 
@@ -664,8 +664,7 @@ clinical act, which the interface must not expose to the front-office operator.
 The **ticket** (co-payment) is the share of cost borne by the patient. It is not the price of
 the service: it is a fraction, with a ceiling, of a tariff that the system pays in any case.
 It is typically made up of a share proportionate to the services prescribed, up to a maximum
-per prescription, plus any **additional regional fixed charges**. `[NV]` on the amounts in
-force, which vary by Region and by year.
+per prescription, plus any **additional regional fixed charges** that the `GUIDA` `[NV]` area must keep up to date, being subject to variation by Region and by year.
 
 The **exemption** is the right not to pay the co-payment, in whole or in part. The main
 categories:
@@ -728,7 +727,7 @@ historically has the values `A` = clinic and `D` = home - with a value `T` for t
 
 **The project's research was unable to ascertain whether and how this extension has been taken
 up in the technical specifications in force for the art. 50 flow and the DEMA flow.** The
-check is declared unresolved. `[NV]`
+check is declared unresolved; it remains to be ascertained by the `GUIDA` `[NV]` area.
 
 The operational consequence is binding and must be respected by anyone touching the data
 model: **the delivery mode must be exposed as a domain attribute with a coding configurable
@@ -760,19 +759,18 @@ practitioners, freely chosen paediatricians, outpatient specialists, nurses, soc
 It is the single point of access to territorial services. The decree distinguishes **hub** CdC
 (with 24-hour medical presence and 12-hour nursing presence, a blood-sampling point, basic
 diagnostics, specialist services) and **spoke** CdC, with reduced provision and a functional
-link to the hub. Reference standard: **one hub CdC per 40,000-50,000 inhabitants** `[NV]` on
-the exact value, to be verified against Annex 1 of the decree.
+link to the hub. Reference standard: **one hub CdC per 40,000-50,000 inhabitants**, with exact value to be verified by the `GUIDA` `[NV]` area against Annex 1 of the decree.
 
 **Ospedale di comunità (OdC, community hospital).** An inpatient facility **predominantly
 nurse-led**, for patients who need health interventions of low clinical intensity that cannot
 be managed at home: post-acute care, stabilisation, training of the carer. Reference standard:
-**20 beds per 100,000 inhabitants** `[NV]`. It is not a hospital in the proper sense and it is
+**20 beds per 100,000 inhabitants**, to be verified by the `GUIDA` `[NV]` area. It is not a hospital in the proper sense and it is
 not a nursing home: it is an intermediate facility with a precise function.
 
 **Centrale operativa territoriale (COT, territorial operations centre).** A service that
 coordinates enrolment into care and links the various care settings (home, territorial
 facilities, hospital) and the actors involved in the pathway. Standard: **one COT per 100,000
-inhabitants** `[NV]`. **It is the node that telemedicine serves most directly**: the COT is
+inhabitants**, to be verified by the `GUIDA` `[NV]` area. **It is the node that telemedicine serves most directly**: the COT is
 the actor that activates, coordinates and monitors remote pathways.
 
 **116117 operations centre.** The harmonised European number for non-urgent medical care,
@@ -782,7 +780,7 @@ departments.
 **Infermiere di famiglia o di comunità (IFoC, family and community nurse).** The reference
 professional for the population of a territorial area, with functions of proactive enrolment
 into care, therapeutic education and linkage between home and services. Standard: **one nurse
-per 3,000 inhabitants** `[NV]`. It is a central actor in remote monitoring.
+per 3,000 inhabitants**, to be verified by the `GUIDA` `[NV]` area. It is a central actor in remote monitoring.
 
 **Assistenza domiciliare integrata (ADI, integrated home care).** Delivery of health and
 health-and-social care services at the patient's home, articulated into levels of intensity.
@@ -846,7 +844,7 @@ least 480 territorial operations centres (1.2.2, €280m) and **telemedicine for
 chronic patients (1.2.3, €1,500m)**. The updated figure for the endowment of 1.2.3 comes from
 the Chamber of Deputies briefing paper AS0477 of 6 February 2026: the original allocation of
 DM 1° aprile 2022 assigned €1,000m (250 for the platform, 750 for the services), later
-increased. `[NV]` on the revision acts that produced the increase.
+increased. The revision acts that produced the increase remain to be ascertained by the `GUIDA` `[NV]` area.
 
 **Who does what**: the Ministry of Health holds ownership, **AGENAS is the implementing body**
 (DM 6 agosto 2021), with the department for digital transformation of the Presidency of the
@@ -876,7 +874,7 @@ people enrolled into care, not regional infrastructures that are operational and
 The count includes pre-existing regional solutions, not necessarily connected to the national
 infrastructure. As at the date of writing **there is no official, verifiable and up-to-date
 figure for the number of regional telemedicine infrastructures actually in service and hooked
-up to the national infrastructure**. `[NV]`
+up to the national infrastructure**, to be ascertained by the `GUIDA` `[NV]` area.
 
 ### 9.4 The post-NRRP period
 
@@ -887,7 +885,7 @@ agency for digital health, for strengthening telemedicine services, with particu
 to the supply of medical devices for patient monitoring. Subsection 411 refers the
 identification of the devices and of the professionals concerned to a ministerial decree, to be
 adopted within 180 days: as at the date of writing **the decree does not appear to have been
-adopted**. `[NV]`
+adopted**. It remains to be ascertained by the `GUIDA` `[NV]` area.
 
 > **Note on citation.** Several secondary sources cite this provision as «art. 85». That is
 > wrong: art. 85 is the numbering of the **bill**, which was merged into the omnibus amendment
@@ -990,7 +988,7 @@ Two constraints do, however, always apply:
 
 To be assessable within this framework the project must have: a licence with an SPDX identifier
 (`Apache-2.0`), a public repository accessible without authentication, a valid
-**`publiccode.yml`** file at the root, indexing in the **Developers Italia** catalogue, public
+**[`publiccode.yml`](https://github.com/fedcal/Telemedic/blob/main/publiccode.yml)** file at the root, indexing in the **Developers Italia** catalogue, public
 documentation, and an accessibility statement that can be produced.
 
 > **A necessary and often omitted clarification.** A privately owned open-source project **is
@@ -1012,7 +1010,7 @@ documentation, and an accessibility statement that can be produced.
    is the route that legislation makes explicit for an alternative solution, and it is the most
    promising for an open project. What the **Validation Process** carried out by the «Telemedicine
    Solutions Manager» of the national infrastructure operationally consists of remains to be
-   ascertained. `[NV]`
+   ascertained to be ascertained by the `GUIDA` `[NV]` area.
 
 Module [07](07-fse-e-infrastrutture-nazionali.md) develops the third route, which is the one
 the project is banking on.

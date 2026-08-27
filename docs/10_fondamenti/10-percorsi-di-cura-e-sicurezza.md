@@ -377,14 +377,14 @@ pericoloso da inserire nel file di rischio (§ 9.8).
 
 | Condizione | Parametri domiciliari tipici | Segnale precoce di deterioramento | Latenza tipica del deterioramento | Ciò che sfugge al monitoraggio domiciliare |
 |---|---|---|---|---|
-| Scompenso cardiaco | peso, pressione, frequenza cardiaca, saturazione, sintomi | incremento ponderale rapido, affanno crescente | giorni `[NV]` | aritmie intermittenti, funzione renale |
-| Broncopneumopatia cronica ostruttiva | saturazione, frequenza respiratoria, sintomi, uso del farmaco al bisogno | aumento della tosse e dell'espettorato, incremento del farmaco al bisogno | giorni `[NV]` | scambi gassosi reali (richiedono emogasanalisi) |
+| Scompenso cardiaco | peso, pressione, frequenza cardiaca, saturazione, sintomi | incremento ponderale rapido, affanno crescente | giorni (da verificare da `GUIDA`) `[NV]` | aritmie intermittenti, funzione renale |
+| Broncopneumopatia cronica ostruttiva | saturazione, frequenza respiratoria, sintomi, uso del farmaco al bisogno | aumento della tosse e dell'espettorato, incremento del farmaco al bisogno | giorni (da verificare da `GUIDA`) `[NV]` | scambi gassosi reali (richiedono emogasanalisi) |
 | Diabete | glicemia o monitoraggio continuo, contesto (pasti, insulina), peso | oscillazioni, ipoglicemie ricorrenti | **minuti** per l'ipoglicemia; anni per le complicanze | emoglobina glicata, complicanze d'organo |
 | Ipertensione | pressione, frequenza cardiaca, aderenza | media pressoria in salita su più rilevazioni | settimane-mesi | danno d'organo, eventi cerebrovascolari acuti |
-| Insufficienza renale cronica | pressione, peso, diuresi, parametri dialitici | sovraccarico di liquidi | giorni-settimane `[NV]` | **potassiemia**, funzione renale, anemia |
+| Insufficienza renale cronica | pressione, peso, diuresi, parametri dialitici | sovraccarico di liquidi | giorni-settimane (da verificare da `GUIDA`) `[NV]` | **potassiemia**, funzione renale, anemia |
 
-> `[NV]` Le latenze indicate sono ordini di grandezza a fini didattici, ricavati dalla logica
-> fisiopatologica e non da fonti primarie verificate nel corso di questa redazione. Non vanno
+> Le latenze indicate sono ordini di grandezza a fini didattici, ricavati dalla logica
+> fisiopatologica e non da fonti primarie verificate nel corso di questa redazione; l'area `GUIDA` deve completare questa verifica. `[NV]` Non vanno
 > usate per dimensionare finestre di allarme: quelle sono decisioni cliniche del piano di
 > monitoraggio (§ 7.9).
 
@@ -590,7 +590,7 @@ sette cose.
    e l'eventuale migrazione a una versione successiva è un atto esplicito, deciso da un
    professionista e tracciato.
 4. **Ambito e tenancy.** Ogni percorso appartiene a un tenant e a un ambito organizzativo
-   (vincolo **V4** del progetto). Il catalogo dei percorsi di un tenant non è visibile agli
+   (vincolo **[V4](../11_registri/03-vincoli-fondanti.md#v4)** del progetto). Il catalogo dei percorsi di un tenant non è visibile agli
    altri, e un percorso «nazionale» che valga per tutti è una configurazione, non un
    presupposto.
 5. **Validazione al caricamento, non all'esecuzione.** Un percorso incoerente - un nodo
@@ -901,11 +901,10 @@ struttura, che è ciò che interessa qui:
   chi va allertato, entro quanto.
 
 > `[NV]` **Non sono riportati in questo modulo i valori di soglia degli item, i pesi, i cut-off
-> del punteggio totale né i livelli di risposta di NEWS2**, perché non sono stati verificati su
-> fonte primaria nel corso di questa redazione e perché riportarli in un documento formativo
-> tecnico creerebbe l'esatto rischio che il modulo intende prevenire: che qualcuno li copi in
-> una costante. Chi deve implementarli parte dalla pubblicazione originale del Royal College of
-> Physicians e dalla verifica della relativa licenza d'uso.
+> del punteggio totale né i livelli di risposta di NEWS2**: vanno richiesti al Royal College of
+> Physicians (pubblicazione originale) e verificati con la relativa licenza d'uso. Riportarli in
+> un documento formativo tecnico creerebbe l'esatto rischio che il modulo intende prevenire: che
+> qualcuno li copi in una costante.
 
 Due elementi di questa struttura sono lezioni progettuali generali.
 
@@ -945,8 +944,8 @@ supporto grafico e una capacità di astrazione maggiore.
 cognitivo, pazienti non collaboranti, bambini molto piccoli. In questi casi il punteggio deriva
 dall'osservazione di comportamenti - espressione del volto, vocalizzazione, postura, movimenti
 corporei, consolabilità - da parte di un operatore addestrato o di un caregiver istruito. Sono
-scale **eterosomministrate**, con proprietà diverse dalle autosomministrate. `[NV]` sui nomi,
-sulle versioni e sui cut-off delle singole scale osservazionali.
+scale **eterosomministrate**, con proprietà diverse dalle autosomministrate; i nomi,
+le versioni e i cut-off delle singole scale osservazionali vanno verificati dall'area `GUIDA`. `[NV]`
 
 **Il punto che conta per il progetto.** La scala del dolore è il caso in cui la distinzione fra
 autosomministrato ed eterosomministrato ha effetti immediati sul modello dati:
@@ -980,8 +979,8 @@ Le famiglie principali:
   punteggio in base al grado di indipendenza anziché a una risposta binaria, ottenendo una
   misura più fine dell'evoluzione.
 
-`[NV]` su denominazioni ufficiali, item esatti, pesi e fasce interpretative delle singole scale
-di questa famiglia.
+Le denominazioni ufficiali, gli item esatti, i pesi e le fasce interpretative delle singole scale
+di questa famiglia vanno verificati dall'area `GUIDA`. `[NV]`
 
 **Perché è direttamente rilevante per il telemonitoraggio.** Fra le attività strumentali ce ne
 sono due che sono precondizioni del servizio: **gestire i farmaci** e **usare il telefono**.
@@ -1091,9 +1090,9 @@ apparentemente meno grave il cui quadro peggiora rapidamente.
 Il triage si esprime con un **codice di priorità** su una scala ordinale. Il modello italiano
 di riferimento per il triage intraospedaliero è a **cinque livelli**, introdotto dalle Linee di
 indirizzo nazionali sul triage intraospedaliero oggetto dell'Accordo Stato-Regioni del 1º
-agosto 2019 `[NV]` sugli estremi esatti dell'atto, sulle denominazioni ufficiali dei livelli e
-sui tempi massimi di attesa associati a ciascuno, non verificati su fonte primaria in questa
-redazione.
+agosto 2019; gli estremi esatti dell'atto, le denominazioni ufficiali dei livelli e
+i tempi massimi di attesa associati a ciascuno, non verificati su fonte primaria in questa
+redazione, vanno confermati dall'area `GUIDA`. `[NV]`
 
 La struttura generale, comune a tutti i sistemi a cinque livelli:
 
@@ -1130,7 +1129,7 @@ perimetro della telemedicina il *triage telefonico*, e la motivazione è illumin
 verso il percorso appropriato **non è erogare una prestazione** (modulo
 [02, § 1.3](02-prestazioni-di-telemedicina.md)).
 
-Questa esclusione va letta insieme al vincolo di dominio **V2** del progetto: se il sistema
+Questa esclusione va letta insieme al vincolo di dominio **[V2](../11_registri/03-vincoli-fondanti.md#v2)** del progetto: se il sistema
 **calcola** la priorità anziché **registrarla**, entra nel perimetro dell'interpretazione
 clinica. La formulazione corretta della funzione è quindi: Telemedic registra l'esito della
 valutazione deciso dal professionista, con la sua motivazione e la sua ora, e non lo deduce.
@@ -1167,11 +1166,7 @@ scritta in chat, da qualcosa che il paziente dice durante una televisita, da un 
 dal caregiver. Il sistema deve poterlo intercettare da più punti d'ingresso con la stessa
 conseguenza.
 
-`[NV]` **Questo modulo non elenca segnali d'allarme specifici per patologia.** Non perché non
-esistano - sono contenuto standard delle linee guida e dei materiali di educazione terapeutica
-- ma perché il loro elenco è contenuto clinico che appartiene al percorso e al piano, redatto e
-firmato da un professionista, non a un documento tecnico. Il sistema li **configura**, non li
-**contiene**.
+`[NV]` **Questo modulo non elenca segnali d'allarme specifici per patologia**: vanno definiti dal professionista nel percorso e nel piano di cura. Non perché non esistano - sono contenuto standard delle linee guida e dei materiali di educazione terapeutica - ma perché il loro elenco appartiene a un documento clinico redatto e firmato da un professionista, non a un documento tecnico. Il sistema li **configura**, non li **contiene**.
 
 ### 6.5 Perché un sistema di telemedicina deve saper dire «questo non è il canale giusto»
 
@@ -1325,13 +1320,13 @@ come indicazione di ordine di grandezza e non come dati verificati:
 
 - la **grande maggioranza degli allarmi** generati dai sistemi di monitoraggio in ambito
   ospedaliero non corrisponde a una condizione che richieda intervento; le stime pubblicate si
-  collocano in un intervallo molto ampio, generalmente ben oltre l'80% `[NV]` sui valori
-  puntuali e sulle fonti primarie;
+  collocano in un intervallo molto ampio, generalmente ben oltre l'80%; i valori
+  puntuali e le fonti primarie vanno verificati dall'area `GUIDA`. `[NV]`
 - l'affaticamento da allarme è stato oggetto di uno specifico avviso della **Joint Commission**
-  dedicato alla sicurezza degli allarmi dei dispositivi medici `[NV]` sugli estremi esatti del
+  dedicato alla sicurezza degli allarmi dei dispositivi medici; gli estremi esatti dello standard vanno confermati dall'area `COMP`. `[NV]`
   documento;
 - i **pericoli legati agli allarmi** compaiono stabilmente nelle graduatorie annuali dei rischi
-  tecnologici sanitari pubblicate da organismi indipendenti `[NV]` sui riferimenti puntuali.
+  tecnologici sanitari pubblicate da organismi indipendenti; i riferimenti puntuali vanno verificati dall'area `GUIDA`. `[NV]`
 
 **Il punto che conta non richiede alcuna cifra**: un allarme che suona spesso a vuoto riduce la
 capacità di risposta all'allarme che conta. Aggiungere un allarme non è mai un'operazione a
@@ -1497,7 +1492,7 @@ costante decisa da chi scrive il codice.
 
 ### 7.9 Le soglie sono configurazione clinica per paziente, non costanti di codice
 
-Questo è il punto su cui il modulo non ammette gradazioni, ed è il vincolo **V2** del progetto
+Questo è il punto su cui il modulo non ammette gradazioni, ed è il vincolo **[V2](../11_registri/03-vincoli-fondanti.md#v2)** del progetto
 nella sua formulazione operativa: **la soglia e l'allerta sono configurate dal professionista,
 mai dedotte dal sistema** (decisione **D21**).
 
@@ -1563,9 +1558,9 @@ cronica ipercapnica l'obiettivo è **deliberatamente più basso**, perché sommi
 fino a raggiungere valori «normali» può peggiorare la ritenzione di anidride carbonica. La
 scala di allerta precoce citata al § 5.3 arriva a prevedere una **scala di punteggio
 alternativa** proprio per questa sottopopolazione: lo strumento riconosce esplicitamente che la
-soglia di popolazione è inapplicabile a un sottogruppo identificabile. `[NV]` su valori
-numerici, criteri di identificazione della sottopopolazione e riferimenti alle linee guida
-respiratorie.
+soglia di popolazione è inapplicabile a un sottogruppo identificabile. I valori
+numerici, i criteri di identificazione della sottopopolazione e i riferimenti alle linee guida
+respiratorie vanno verificati dall'area `GUIDA`. `[NV]`
 
 Esempi analoghi si ripetono in tutte e cinque le condizioni del § 2:
 
@@ -1609,7 +1604,7 @@ irreversibile:
 | Chiusura | esito tipizzato, azione intrapresa, eventuale collegamento alla revisione del piano |
 | Configurazione della copertura | versionata, perché determina se un mancato riscontro era atteso o anomalo |
 
-Tutto questo ricade sotto il vincolo **V5** del progetto - auditabilità immutabile - con
+Tutto questo ricade sotto il vincolo **[V5](../11_registri/03-vincoli-fondanti.md#v5)** del progetto - auditabilità immutabile - con
 l'avvertenza registrata nella decisione **D42**: il versionamento delle entità **non è**
 immutabilità, e la non alterabilità richiede catena di impronte e conservazione separata dal
 sistema che genera gli eventi.
@@ -1828,7 +1823,7 @@ Tre nozioni che vanno tenute distinte, perché hanno destini organizzativi diver
 |---|---|---|
 | **Evento avverso** | un danno subito dal paziente causato dalla gestione sanitaria e non dalla sua condizione clinica | analisi, segnalazione secondo le procedure dell'organizzazione, azioni correttive |
 | **Quasi evento** (*near miss*) | un evento che avrebbe potuto causare un danno ma non lo ha causato, per intercettazione o per caso | **è la fonte di apprendimento più preziosa**: stessa dinamica, nessun danno, nessuna pressione difensiva |
-| **Evento sentinella** | evento avverso di particolare gravità, potenzialmente indicativo di un grave malfunzionamento del sistema, tale da richiedere un'indagine immediata | avvia un'indagine strutturata e, nell'ordinamento italiano, un obbligo di segnalazione secondo il sistema nazionale di riferimento `[NV]` sugli estremi normativi e sull'elenco ufficiale degli eventi |
+| **Evento sentinella** | evento avverso di particolare gravità, potenzialmente indicativo di un grave malfunzionamento del sistema, tale da richiedere un'indagine immediata | avvia un'indagine strutturata e, nell'ordinamento italiano, un obbligo di segnalazione secondo il sistema nazionale di riferimento (estremi normativi ed elenco ufficiale da verificare da `GUIDA`) `[NV]` |
 
 **Il quasi evento è la categoria che il software può moltiplicare.** Un sistema che registra i
 tentativi bloccati - la firma rifiutata perché il documento non era completo, l'allarme non
@@ -1977,7 +1972,7 @@ persona e alcuni scenari compaiono legittimamente in entrambi i file. Il modulo
 
 **IEC 62366-1** è la norma sull'**ingegneria dell'usabilità** applicata ai dispositivi medici.
 Per il progetto è obbligatoria per la stessa ragione di ISO 14971, ed è richiamata dal vincolo
-trasversale **D25/V6** che rende usabilità, accessibilità e progettazione mobile first requisiti
+trasversale **D25/[V6](../11_registri/03-vincoli-fondanti.md#v6)** che rende usabilità, accessibilità e progettazione mobile first requisiti
 di tutto il sistema.
 
 La definizione che conta è questa, e va letta con attenzione perché ribalta il senso comune:
@@ -2062,7 +2057,7 @@ dimostrarla, non è soddisfatta. Le voci in **grassetto** sono divieti assoluti.
    versione con autore, motivazione e istante di efficacia.
 4. La deviazione dal percorso è rappresentabile e motivabile. Un sistema che la impedisce viene
    aggirato, e con esso si perde la motivazione della deviazione.
-5. Il catalogo dei percorsi è per tenant e per ambito organizzativo (V4). Nessun percorso è
+5. Il catalogo dei percorsi è per tenant e per ambito organizzativo ([V4](../11_registri/03-vincoli-fondanti.md#v4)). Nessun percorso è
    globale per costruzione.
 6. Un percorso incoerente è rifiutato alla pubblicazione, con un messaggio comprensibile a chi
    lo ha redatto, non al momento in cui un paziente ci passa dentro.
@@ -2170,7 +2165,7 @@ dimostrarla, non è soddisfatta. Le voci in **grassetto** sono divieti assoluti.
 
 50. Ogni evento rilevante è **immutabile**; lo stato corrente è una proiezione. Il versionamento
     delle entità non è immutabilità (decisione **D42**).
-51. Ogni entità, evento e riga di audit porta l'identificativo di tenant (V4).
+51. Ogni entità, evento e riga di audit porta l'identificativo di tenant ([V4](../11_registri/03-vincoli-fondanti.md#v4)).
 52. Esiste un canale di segnalazione dentro il prodotto, distinto dall'assistenza tecnica, con
     un tempo di risposta al segnalante.
 53. I quasi eventi - tentativi bloccati, rifiuti di validazione, escalation riuscite - sono
@@ -2186,7 +2181,7 @@ dimostrarla, non è soddisfatta. Le voci in **grassetto** sono divieti assoluti.
     anziani e persone con disabilità compresi. Se non viene svolta, va dichiarato che non è
     stata svolta.
 58. Nessuna delle capacità descritte in questo modulo è raggiungibile dalla sola interfaccia:
-    tutte hanno un'API documentata (V3).
+    tutte hanno un'API documentata ([V3](../11_registri/03-vincoli-fondanti.md#v3)).
 
 ---
 
@@ -2283,7 +2278,7 @@ dimostrarla, non è soddisfatta. Le voci in **grassetto** sono divieti assoluti.
 | **Sensibilità** | Quota di casi realmente positivi correttamente individuati; alta sensibilità significa pochi falsi negativi |
 | **Situazione pericolosa** (ISO 14971) | Circostanza in cui persone, beni o ambiente sono esposti a uno o più pericoli |
 | **Specificità** | Quota di casi realmente negativi correttamente esclusi; alta specificità significa pochi falsi positivi |
-| **Triage** | Processo di assegnazione della priorità temporale di valutazione in base al rischio di deterioramento nell'attesa; in Italia a cinque livelli `[NV]` |
+| **Triage** | Processo di assegnazione della priorità temporale di valutazione in base al rischio di deterioramento nell'attesa; in Italia a cinque livelli (da verificare da `GUIDA`) `[NV]` |
 | **Uso anomalo** (*abnormal use*, IEC 62366-1) | Violazione intenzionale e ingiustificabile dell'uso previsto; fuori dal perimetro della norma, dentro quello della gestione del rischio |
 | **Valore predittivo positivo** | Probabilità che, dato un allarme, l'evento sia realmente in corso; dipende dalla prevalenza e non dalla sola sensibilità |
 

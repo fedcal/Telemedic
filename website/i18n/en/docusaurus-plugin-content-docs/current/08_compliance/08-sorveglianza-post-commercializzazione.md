@@ -22,7 +22,7 @@ description: "Two processes with opposite logics: surveillance, which detects, a
 >
 > **The holding of the obligations does not change; who will hold them changes.** Surveillance and
 > vigilance fall on the **manufacturer of the CE-marked identified distribution** - it is
-> constraint `V-06`, and `D58` does not touch it in this part. What `D58` changes is that the
+> constraint [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06), and `D58` does not touch it in this part. What `D58` changes is that the
 > project **intends to assume** that role, and that **the legal entity that would exercise it is
 > still to be constituted**: the obligations of §§ 2–7 do not fall on the project today because
 > neither the entity nor the marked distribution exists, not because they concern somebody else.
@@ -35,7 +35,7 @@ description: "Two processes with opposite logics: surveillance, which detects, a
 > risk register - cease to be a service rendered to a third party and become **infrastructure of
 > our own path**. They must therefore be **built, not merely documented**, and they must be built
 > before they are needed: none of them is recoverable after the fact, because they count events
-> that in the meantime have already happened or not happened (§ 5.2, `V-178`; § 3).
+> that in the meantime have already happened or not happened (§ 5.2, [`V-178`](../11_registri/01-vincoli-in-vigore.md#v-178); § 3).
 >
 > **And the gap this warning could open, closed here.** Whoever reads that the project intends to
 > assume the manufacturer role and concludes from it that there is a surveillance covering it
@@ -50,7 +50,7 @@ description: "Two processes with opposite logics: surveillance, which detects, a
 >
 > **On the deadlines this chapter contains.** They are **regulatory deadlines of the vigilance
 > regime** - hours and days from becoming aware of an event - and contractual obligations towards
-> the user: they are not the project's dates and they imply none. Constraint `V-171` prohibits
+> the user: they are not the project's dates and they imply none. Constraint [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171) prohibits
 > asserting or implying that the product will be marked by a deadline, and this is the only
 > admitted occurrence of that word in that sense. The project's dates are solely in
 > [09](./09-percorso-e-calendario.md) and are internal planning (`D57`).
@@ -125,10 +125,10 @@ risk**.
 
 **Two constraints the technical area has already laid down and that hold here without
 attenuation.** No raw cumulative counter may be cited as an indicator: loss, bytes, freeze duration
-and buffer delay grow monotonically and must be differenced between consecutive samples (`V-113`).
-And the composite session quality index is proprietary and must be declared as such (`V-114`):
+and buffer delay grow monotonically and must be differenced between consecutive samples ([`V-113`](../11_registri/01-vincoli-in-vigore.md#v-113)).
+And the composite session quality index is proprietary and must be declared as such ([`V-114`](../11_registri/01-vincoli-in-vigore.md#v-114)):
 using it in a periodic report while presenting it as a recognised measure would be an unfounded
-statement within the meaning of `V-171`.
+statement within the meaning of [`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171).
 
 **A threshold exceeded is not an operational alarm: it is the reopening of a file.** The declared
 consequence must be written into the plan for each indicator, and it must be an activity with a
@@ -160,7 +160,7 @@ compiled** and under which the version traceability of Annex III can be satisfie
 distribution were obtainable anonymously, two mandatory items of the report would remain empty and
 the gap would not be remediable after the fact.
 
-It is question `Q-177`, addressed to the project owner, and it must be kept distinct from a
+It is question [`Q-177`](../11_registri/02-questioni-aperte.md#q-177), addressed to the project owner, and it must be kept distinct from a
 licensing choice: **the repository remains public and open** (`D51`); what is being decided is
 whether the **marked distribution** - which is a different artefact, with a different name and a
 different lifecycle - is available only through a channel that identifies the recipient.
@@ -218,13 +218,13 @@ Two instruments that get confused and that serve opposite purposes.
 - The **periodic summary report** is instead an **alternative mode of reporting** similar and
   recurrent serious incidents whose root cause has been identified and for which a corrective
   action has been implemented, or which are common and well documented: transmission in aggregate
-  rather than individual form is agreed with the competent authority. `[NV]` on the paragraph
-  providing for it and on the exact conditions.
+  rather than individual form is agreed with the competent authority. The paragraph providing for it
+  and the exact conditions `[NV]` must be verified by `Compliance`.
 
 **The first is a product capability, the second is an agreement with the authority.** And it is the
 first that imposes a requirement on the project today.
 
-> **`V-178`.** Two capabilities without which the vigilance obligation **is not materially
+> **[`V-178`](../11_registri/01-vincoli-in-vigore.md#v-178).** Two capabilities without which the vigilance obligation **is not materially
 > satisfiable**, and which must be built before they are needed because they are not recoverable
 > after the fact.
 >
@@ -232,17 +232,17 @@ first that imposes a requirement on the project today.
 > across deployments and over time**. It follows that the taxonomy of outcomes and events is
 > defined now and **is not rewritten at every version**: renaming or merging a category makes the
 > historical series incomparable and makes the significant increase disappear instead of detecting
-> it. It is the application, on the vigilance plane, of what `V-126` already requires on the domain
+> it. It is the application, on the vigilance plane, of what [`V-126`](../11_registri/01-vincoli-in-vigore.md#v-126) already requires on the domain
 > plane.
 >
 > **(b) Retention of diagnostic signals at least equal to the vigilance window.** If an incident
 > can emerge weeks later and the diagnostic logs last days, the reconstruction is impossible and
 > the obligation is not satisfiable. **The retention period for diagnostics is therefore determined
 > by the vigilance obligations, not by operational need**, and it is **distinct** from the periods
-> in `V-152` - twenty-four months for the traceability logs, twelve for access and authentication
+> in [`V-152`](../11_registri/01-vincoli-in-vigore.md#v-152) - twenty-four months for the traceability logs, twelve for access and authentication
 > data - which answer to a different source and a different purpose.
 
-**Determination of the value, which is what question `Q-116` asked for.** The minimum period is
+**Determination of the value, which is what question [`Q-116`](../11_registri/02-questioni-aperte.md#q-116) asked for.** The minimum period is
 derived by composition, not by choice: the maximum realistic latency between the event and the
 user's report, plus the contractual period within which the user is bound to report to the
 manufacturer, plus the investigation time needed to supplement the initial report. The project
@@ -279,11 +279,11 @@ in days. The process must produce **a single assessment with two outputs**, not 
 assessments that diverge: two assessments of the same vulnerability reaching different conclusions
 are, before an authority, evidence of organisational disorder.
 
-**Partial response to question `Q-113`.** The commitment to update third-party components must be
+**Partial response to question [`Q-113`](../11_registri/02-questioni-aperte.md#q-113).** The commitment to update third-party components must be
 expressed **in days from the publication of the advisory, differentiated by severity**, and not in
 months: a monthly commitment is meaningless for a component that receives fourteen releases in
 seven months. The formal home of that commitment is **here**, in the surveillance plan, and in the
-**declared support period**, which is question `Q-155` and remains with the project owner. What
+**declared support period**, which is question [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) and remains with the project owner. What
 this area can fix without trespassing is the structure: assessment started by the working day
 following publication, a reasoned decision recorded even when it is a decision not to update, and a
 remediation window differentiated by severity with the value declared by the manufacturer and not
@@ -311,8 +311,8 @@ significant changes are widely used for devices certified under the regulation a
 **proper scope is the transitional regime for pre-existing devices**: applying them by analogy is a
 widespread and reasonable practice, **it is not a regulatory basis**. They must be presented for
 what they are - a method adopted by the manufacturer, with a rationale - and the concrete
-conditions must be **agreed in writing with the body** at the contractual stage. `[NV]` on the
-declared scope and on the current revision of the document.
+conditions must be **agreed in writing with the body** at the contractual stage. The declared scope and
+the current revision of the document `[NV]` to be agreed with the notified body.
 
 **Consequence for the release policy, which conditions versioning and the structure of the branches
 and must be designed now.**
@@ -335,7 +335,7 @@ that it remains ambiguous for none of the parties involved.
 
 **The holder of the surveillance and vigilance obligations is the manufacturer of the CE-marked
 identified distribution.** Not the repository, not whoever holds the project, not the contributors,
-not the author of a derived copy that places nothing on the market. It is constraint `V-06`, and
+not the author of a derived copy that places nothing on the market. It is constraint [`V-06`](../11_registri/01-vincoli-in-vigore.md#v-06), and
 §§ 2–7 of this chapter describe obligations that **do not fall on the project today**, because
 neither a marked distribution nor the party that could be its manufacturer exists.
 
@@ -376,13 +376,13 @@ It must be resolved with **three combined measures**, and none of the three is s
 own:
 
 1. distribution of the certified version through a **channel that identifies the recipient**
-   (§ 4.1, question `Q-177`);
+   (§ 4.1, question [`Q-177`](../11_registri/02-questioni-aperte.md#q-177));
 2. **contractual obligation on the user** to report incidents to the manufacturer within a period
    compatible with those of Article 87 - that is, **shorter** than them, because the manufacturer's
    period runs from its own becoming aware, and a user who reports on the fourteenth day leaves one
    day in which to assess, investigate and report;
 3. **product capability** to produce the technical evidence needed to reconstruct a sequence weeks
-   later (`V-178`).
+   later ([`V-178`](../11_registri/01-vincoli-in-vigore.md#v-178)).
 
 ### 8.3 Civil liability cannot be excluded by contract towards the injured person
 
@@ -436,7 +436,7 @@ to build them.
 | **Signed software bill of materials** for every release | It is the input to the manufacturer's inventory of third-party components - **the integrator's today, ours later** - and it is the second of the retroactively unrecoverable activities of `D45` |
 | Timely communication of vulnerabilities in third-party components | The manufacturer does not surveil the project's components: **it surveils the project**. Upstream surveillance remains an upstream activity even when the two capacities coincide in the same party, and it must be kept distinct in the records |
 | Lifecycle artefacts published and identifiable by version | Without them the manufacturer has to reconstruct them, and what is retroactively unrecoverable **it cannot reconstruct at all** (`D45`). With `D58` the manufacturer that would find itself having to do so **is us**, which makes the omission a direct harm and not a hypothesis |
-| **The product capabilities of § 5.2** - a stable taxonomy of the events counted and retention of diagnostics equal to the vigilance window (`V-178`) | A row added because with `D58` it is no longer a supply but a **prerequisite of ours**: they are capabilities that **count events**, and therefore cannot be switched on retroactively. They do not appear among the four unrecoverable activities of `D45` and they have the same property - it is question `Q-276` |
+| **The product capabilities of § 5.2** - a stable taxonomy of the events counted and retention of diagnostics equal to the vigilance window ([`V-178`](../11_registri/01-vincoli-in-vigore.md#v-178)) | A row added because with `D58` it is no longer a supply but a **prerequisite of ours**: they are capabilities that **count events**, and therefore cannot be switched on retroactively. They do not appear among the four unrecoverable activities of `D45` and they have the same property - it is question [`Q-276`](../11_registri/02-questioni-aperte.md#q-276) |
 
 ### 8.5 The case that none of the preceding measures covers
 
@@ -464,7 +464,7 @@ increased by one.
 The symmetrical question remains open: **how the project comes to know** of an incident occurring
 in a derived deployment whose existence it is unaware of. There is no inbound channel, and its
 absence is not neutral: a defect the project does not know about stays in everybody's code. It is
-question `Q-178`.
+question [`Q-178`](../11_registri/02-questioni-aperte.md#q-178).
 
 ## 9. The connection with security incident response
 
@@ -511,10 +511,10 @@ acquisition of the evidence is itself a compliance artefact, and not an observab
 
 | Reference | Question | To whom |
 |---|---|---|
-| `Q-177` | **Whether the marked identified distribution is to be available only through a channel that identifies the recipient** (§ 4.1). On this decision depend the compilability of two mandatory items of the periodic report and the satisfiability of version traceability. It does not touch the openness of the repository, which remains unchanged | → Project owner |
-| `Q-178` | **How the project comes to know of an incident occurring in a derived deployment whose existence it is unaware of** (§ 8.5). There is no inbound channel today, and its absence is not neutral: a defect the project does not know about stays in the code of everyone who uses it | Security, → Project owner |
-| `Q-276` | **The product capabilities of vigilance are as retroactively unrecoverable as the four activities of `D45`, and they do not appear in that list** (§ 5.2, `V-178`; § 8.4, last row). A stable taxonomy of the events counted and retention of diagnostics equal to the vigilance window **count events**: they cannot be switched on after the fact, and the missing historical series cannot be reconstructed. As long as the obligation was a third party's the gap was that party's problem; with `D58` it is **ours**, and it must be assessed whether the two capabilities should be added to the list of unrecoverable activities of chapter [09 §5](./09-percorso-e-calendario.md) | Technical, → **ORCH** |
-| `Q-155` | **Declared support period**, on which the remediation windows of § 6 depend | → Project owner |
-| `Q-116` | **Answered** at § 5.2: the retention of diagnostics is determined by the vigilance obligations, with a proposal of twelve configurable months and final determination by the manufacturer | Technical |
-| `Q-113` | **Partially answered** at § 6: the structure of the commitment is fixed, the value deferred to the declared support period | Technical, roadmap |
+| [`Q-177`](../11_registri/02-questioni-aperte.md#q-177) | **Whether the marked identified distribution is to be available only through a channel that identifies the recipient** (§ 4.1). On this decision depend the compilability of two mandatory items of the periodic report and the satisfiability of version traceability. It does not touch the openness of the repository, which remains unchanged | → Project owner |
+| [`Q-178`](../11_registri/02-questioni-aperte.md#q-178) | **How the project comes to know of an incident occurring in a derived deployment whose existence it is unaware of** (§ 8.5). There is no inbound channel today, and its absence is not neutral: a defect the project does not know about stays in the code of everyone who uses it | Security, → Project owner |
+| [`Q-276`](../11_registri/02-questioni-aperte.md#q-276) | **The product capabilities of vigilance are as retroactively unrecoverable as the four activities of `D45`, and they do not appear in that list** (§ 5.2, [`V-178`](../11_registri/01-vincoli-in-vigore.md#v-178); § 8.4, last row). A stable taxonomy of the events counted and retention of diagnostics equal to the vigilance window **count events**: they cannot be switched on after the fact, and the missing historical series cannot be reconstructed. As long as the obligation was a third party's the gap was that party's problem; with `D58` it is **ours**, and it must be assessed whether the two capabilities should be added to the list of unrecoverable activities of chapter [09 §5](./09-percorso-e-calendario.md) | Technical, → **ORCH** |
+| [`Q-155`](../11_registri/02-questioni-aperte.md#q-155) | **Declared support period**, on which the remediation windows of § 6 depend | → Project owner |
+| [`Q-116`](../11_registri/02-questioni-aperte.md#q-116) | **Answered** at § 5.2: the retention of diagnostics is determined by the vigilance obligations, with a proposal of twelve configurable months and final determination by the manufacturer | Technical |
+| [`Q-113`](../11_registri/02-questioni-aperte.md#q-113) | **Partially answered** at § 6: the structure of the commitment is fixed, the value deferred to the declared support period | Technical, roadmap |
 | `[NV]` | Allocation across the paragraphs of Articles 86 and 87 by class; number of the point of Article 2 on serious incidents; scope and current revision of MDCG 2020-3 | Compliance |

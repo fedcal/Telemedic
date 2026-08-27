@@ -221,7 +221,7 @@ operations on content already conferred.**
 
 ### 5.3 Entity versioning is not the access register
 
-> **[BASE] `D42`, `V-04`** - Automatic versioning of entities **versions, does not make
+> **[BASE] `D42`, [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04)** - Automatic versioning of entities **versions, does not make
 > immutable**: whoever has write access to the database can also alter versioning tables. The
 > access register is a **hash chain with separate conservation**.
 
@@ -234,7 +234,7 @@ the first as "immutable audit" is an unsustainable claim.
 
 ### 6.1 The constraint
 
-> **[BASE] `V-07`** - The information content of documents destined for the record is modelled
+> **[BASE] [`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07)** - The information content of documents destined for the record is modelled
 > as **canonical dataset**; serialisations (CDA2, FHIR, other) are **replaceable** and must not
 > be hardcoded.
 
@@ -244,7 +244,7 @@ The reason is not theoretical. It is ascertained:
 > metadata** for the ten new typologies were not found. Version 2.6.4 of the national
 > interoperability specifications between regional record systems is published, but it was not
 > possible to ascertain if it already contains telemedicine templates (`B1`, § V4, "What remains
-> open"). **Question `Q-07` on the board, addressed to area `COMP`**: from whom they are requested
+> open"). **Question [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) on the board, addressed to area `COMP`**: from whom they are requested
 > and in what timeframe.
 
 A model that had hardcoded the CDA2 template would be impossible to write today: there is no
@@ -335,7 +335,7 @@ Three modelling observations:
 > and **"other technical figure involved in procedure execution"** plus notes for collaborators.
 >
 > **The placement adopted by this area**, accepting the proposal formulated by the protocols area
-> (question `Q-161` on the board) and as contribution to the ADR required by `REQ-46` of `B1`:
+> (question [`Q-161`](../11_registri/02-questioni-aperte.md#q-161) on the board) and as contribution to the ADR required by `REQ-46` of `B1`:
 >
 > | Mandatory content | Template field | Role |
 > |---|---|---|
@@ -349,7 +349,7 @@ Three modelling observations:
 > 1. The content is produced **in structured and repeatable form**, not as free prose drafted by
 >    hand by the professional. It derives from the session quality profile and the medical
 >    adequacy attestation act.
-> 2. Adequacy attestation remains **a professional act** (constraint `V2`): the value is
+> 2. Adequacy attestation remains **a professional act** (constraint [`V2`](../11_registri/03-vincoli-fondanti.md#v2)): the value is
 >    **measured by the system and confirmed by the doctor**, never generated autonomously and
 >    inserted in the document. A value that the system wrote by itself in a clinical document
 >    would be information produced by the system inside a healthcare act.
@@ -361,7 +361,7 @@ This second condition is the logical chain that makes defensible the entire fram
 metrics: the regulation imposes on the doctor to attest connection adequacy → attestation requires
 objective evidence → session metrics **are** that evidence → the alarm threshold is a project
 choice, configurable, and not a regulatory threshold (`B1`, § "What follows from this", point
-2; constraint `V-12` on board).
+2; constraint [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12) on board).
 
 ## 7. The collaborative relation of the specialist-to-specialist consultation
 
@@ -541,7 +541,7 @@ Two constraints follow from the decree and must be kept in mind:
 A chapter on documents must also state what the system does not produce, because it is the part
 that determines regulatory qualification.
 
-> **[BASE] `V2`, `BR-040`, `RF-126`** - The system **does not generate, infer or suggest
+> **[BASE] [`V2`](../11_registri/03-vincoli-fondanti.md#v2), `BR-040`, `RF-126`** - The system **does not generate, infer or suggest
 > interpretive clinical content**. It can provide document templates and structured fields; can
 > pre-fill demographic, administrative and temporal data and data previously entered by the
 > professional. **No field of clinical evaluation contains generated text.**

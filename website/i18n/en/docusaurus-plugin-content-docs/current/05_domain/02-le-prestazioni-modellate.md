@@ -31,7 +31,7 @@ Three decisions govern the entire chapter and must be stated before the diagrams
 > are **attributes of the service type in the catalogue**, not `if` conditions scattered in the
 > code. Adding a service must be a catalogue row plus a state machine, not a diffuse modification.
 
-> **[BASE] `V-01` - `Encounter` and `MediaSession` are distinct aggregates.** A service can occur
+> **[BASE] [`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01) - `Encounter` and `MediaSession` are distinct aggregates.** A service can occur
 > without media (asynchronous teleconsulto), with multiple sessions (dropped and reconnected),
 > or with failed sessions; a media session can exist without service (technical test). Uniting
 > them is the costliest modelling error in this domain.
@@ -120,7 +120,7 @@ adjustment in course, anamnestic evaluation for test prescription, verification 
 results). The full text is in module
 [02 of the foundations](../10_fondamenti/02-prestazioni-di-telemedicina.md) § 4.1.
 
-The model **does not decide appropriateness**: it records it (`BR-004`, constraint `V2` of MDR
+The model **does not decide appropriateness**: it records it (`BR-004`, constraint [`V2`](../11_registri/03-vincoli-fondanti.md#v2) of MDR
 separation). Concretely:
 
 - the **catalogue** marks the service type as deliverable by remote consultation and, where applicable, as
@@ -192,7 +192,7 @@ stateDiagram-v2
    concluded with an outcome that declares its incompleteness. Allowing cancellation of a started
    act means being able to erase the trace of a clinical interaction that occurred.
 2. **`In progress → Concluded` automatic** does not exist. Closure with outcome is **always an
-   act of the professional** (`BR-032`, constraint `V2`): in its absence, the contact remains
+   act of the professional** (`BR-032`, constraint [`V2`](../11_registri/03-vincoli-fondanti.md#v2)): in its absence, the contact remains
    suspended and is flagged. A system that closes by itself attributes a clinical outcome, and
    attributing clinical outcomes moves it in classification.
 3. **`Documented → In reporting`** does not exist. The signed document is immutable (`BR-044`):
@@ -201,7 +201,7 @@ stateDiagram-v2
 
 ### 2.4 Suspension and recovery: the invariant
 
-The most important invariant of the chapter, and the reason for `V-01`:
+The most important invariant of the chapter, and the reason for [`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01):
 
 > **`DM-13` [MOD] - The state of the contact does not depend on the state of the media session.**
 > A network failure does not modify contact state. The contact moves from `In progress` to
@@ -210,7 +210,7 @@ The most important invariant of the chapter, and the reason for `V-01`:
 
 The recovery window is a configuration parameter per tenant and service type. `R6` § 3.4
 proposes ten minutes as default: it is a **project proposal**, not a normative requirement -
-no Italian source establishes technical thresholds (`B1`, additional mandate; constraint `V-12`).
+no Italian source establishes technical thresholds (`B1`, additional mandate; constraint [`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12)).
 
 ### 2.5 The outcomes
 
@@ -540,9 +540,9 @@ closed loop), **alarm threshold** and **behaviour rules in case of threshold vio
 > **`DM-21` [MOD] - The plan is versioned and the version is part of the measurement identity.**
 > A measurement acquired under version 2 of the plan is not compared to version 3 thresholds.
 > Without versioning, every plan modification retroactively rewrites the meaning of the history.
-> It is question `Q-12` on the board, for the part "versioned remote monitoring plan".
+> It is question [`Q-12`](../11_registri/02-questioni-aperte.md#q-12) on the board, for the part "versioned remote monitoring plan".
 
-> **[BASE] `V-02`** - The threshold is **configuration per beneficiary**, decided by the
+> **[BASE] [`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)** - The threshold is **configuration per beneficiary**, decided by the
 > professional, and is never a code constant nor a "reasonable" default value. Module
 > [10 of the foundations](../10_fondamenti/10-percorsi-di-cura-e-sicurezza.md) § 7.10 explains
 > why a reasonable default can be clinically wrong for the person to whom it applies.
@@ -571,7 +571,7 @@ stateDiagram-v2
     Mancata --> Ricevuta : late arrival within tolerance window
 ```
 
-The state `Missed` is the model translation of constraint `V-09`: **absence of data is
+The state `Missed` is the model translation of constraint [`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09): **absence of data is
 information**. It is not absence of a row; it is **a row that declares the absence**, with the
 expected window, the instant in which the expectation expired and the cause when known. Chapter
 [05](05-parametri-e-osservazioni.md) gives the structure and taxonomy of causes.
@@ -612,13 +612,13 @@ Three properties of this state machine are decisions, not details:
 2. **`Not responded` is a state, not an absence.** The failure to respond is a fact to be
    recorded, measured and subjected to review.
 3. **Escalation can fail, and failure is declared.** An escalation that exhausts without recipient
-   must not terminate in silence: it is question `Q-12`, voce "escalation with declared
+   must not terminate in silence: it is question [`Q-12`](../11_registri/02-questioni-aperte.md#q-12), voce "escalation with declared
    failure".
 
 > **[BASE] `D26`** - Automatic evaluation of thresholds in remote monitoring is the element that
 > constitutes *interpretation* and founds the qualification as medical device. The model isolates
 > it in an identifiable component, with traceability of the calculation - plan version, rule
-> version, input values, outcome - so it is verifiable after the fact (question `Q-12`, voce
+> version, input values, outcome - so it is verifiable after the fact (question [`Q-12`](../11_registri/02-questioni-aperte.md#q-12), voce
 > "traceability of calculation").
 
 ### 6.3 What remote monitoring produces
@@ -767,7 +767,7 @@ exceptions.
 > **[BASE]** Server-side recording mode and encryption to endpoints are incompatible: `D23`
 > imposes two distinct modes, declared in consent and persistently signalled. On the domain level
 > it follows that **session mode is an attribute of the fact**, not infrastructure configuration:
-> the passage between the two modes is traced and has effects on required consent. Question `Q-08`
+> the passage between the two modes is traced and has effects on required consent. Question [`Q-08`](../11_registri/02-questioni-aperte.md#q-08)
 > on the board remains open toward the `ARCH` area for effects on the data model.
 
 ### 8.3 Media session without contact
@@ -775,7 +775,7 @@ exceptions.
 It exists and is deliberate: **technical test**. A media session can be started to verify device,
 permissions and relay reachability without there being a healthcare act. If the model required a
 contact for every media session, every technical test would create a phantom contact to filter in
-every report - which is exactly the defect `V-01` prevents, observed from the opposite side.
+every report - which is exactly the defect [`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01) prevents, observed from the opposite side.
 
 ## 9. The virtual waiting room
 
@@ -803,7 +803,7 @@ event, without possibility of direct intervention.
 
 The model has a single task, and it is **logistic, not clinical**:
 
-> **[BASE] `V2`** - The system **does not evaluate severity and does not suggest clinical
+> **[BASE] [`V2`](../11_registri/03-vincoli-fondanti.md#v2)** - The system **does not evaluate severity and does not suggest clinical
 > conduct**. It makes immediately available to the professional the information they lack because
 > the patient is not in the same room: **address where the person is at that moment**, contacts,
 > declared emergency contact.
@@ -835,7 +835,7 @@ conclude a healthcare act. Concluding an act is always a declaration by a qualif
 ## 12. Mapping to the standard and national profiles
 
 > **[BASE]** The canonical model is FHIR R4 (4.0.1) profiled per Italian implementation guides,
-> which **prevail** in case of divergence (`04_BASELINE_ARCHITETTURALE.md` § 3).
+> which **prevail** in case of divergence ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 3).
 
 | Contact domain state | `Encounter.status` | Note |
 |---|---|---|
@@ -875,7 +875,7 @@ required technical thresholds, **temporal validity**.
 Temporal validity is not a detail: a catalogue without it makes historical billing irrecoverable,
 because you can no longer know what rules were in force at the date of delivery.
 
-> **Question `Q-02` on the board** - Is the catalogue reference data included in the product or
+> **Question [`Q-02`](../11_registri/02-questioni-aperte.md#q-02) on the board** - Is the catalogue reference data included in the product or
 > only referred by the tenant? Regional catalogues are twenty-one independent update cycles.
 > The question is addressed to the `ARCH` area; this area contributes with a proposal and does
 > not close it:

@@ -130,7 +130,7 @@ invented**, and in particular:
   it**. Chapter [05](./05-sicurezza-del-tempo-reale.md) describes the defects of the relay server
   by **mechanism and fix version** - which is the form that is useful to someone who has to decide
   the minimum version to deploy - and, for the individual identifiers, refers to the verification
-  documented in `.telemedic/research/B3-verifica-coturn-webrtc.md`, carried out against a public
+  documented in [`.telemedic/research/B3-verifica-coturn-webrtc.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/B3-verifica-coturn-webrtc.md), carried out against a public
   vulnerability database and upstream project advisories. Identifiers change state and assessment
   over time: a document that hard-coded them would age worse than the description of the
   mechanism;
@@ -138,7 +138,7 @@ invented**, and in particular:
   verbatim** before the detailed annexes have been read line by line. Chapter
   [08](./08-quadro-normativo-e-misure.md) cites the **codes** of the measures, which are public
   and verified, and marks `[NV]` the content of the individual requirements. This is question
-  Q-151 on the inter-agent noticeboard.
+  [Q-151](../11_registri/02-questioni-aperte.md#q-151) on the inter-agent noticeboard.
 
 **No secrets in the examples.** Every example of a configuration, token or key uses explicit
 placeholders in the form `${NAME_OF_THE_VARIABLE}` or `<description>`. No example value is a
@@ -156,20 +156,20 @@ noticeboard, not ignore them.
 
 | # | Constraint | Where it is justified |
 |---|---|---|
-| **V-150** | The immutable audit trail and the application logs **contain no clinical content**; diagnostic logs carry no direct patient identifiers | [04 §3](./04-tracciamento.md) |
-| **V-151** | The external terminology service **receives no patient identifiers**; no cache persisted to disk | [03 §6](./03-protezione-dei-dati.md), [07 §7](./07-catena-di-fornitura.md) |
-| **V-152** | Retention: **24 months** for traceability logs, **12 months** for access and authentication data | [04 §5](./04-tracciamento.md) |
-| **V-153** | **Emergency access is a functional requirement**: mandatory free-text justification, limited window and perimeter, notification, review with the outcome recorded | [02 §10](./02-identita-e-accessi.md) |
-| **V-154** | An authentication level **reported by an integrator** must be marked as such and does **not** satisfy the strong authentication requirements under Article 64 of the CAD (Codice dell'Amministrazione Digitale, the Italian Digital Administration Code) | [02 §4](./02-identita-e-accessi.md) |
-| **V-155** | No infrastructure metric of the relay may be labelled with the session identifier | [05 §7](./05-sicurezza-del-tempo-reale.md) |
-| **V-156** | The project **does not declare** protocol versions or negotiated cipher suites: it **measures them per session and records them** | [03 §2](./03-protezione-dei-dati.md), [05 §2](./05-sicurezza-del-tempo-reale.md) |
-| **V-157** | **Single egress broker**: no application component opens connections towards destinations derived from an inbound datum; egress is denied at network level to everything except the broker | [06 §8](./06-sicurezza-applicativa.md) |
+| **[V-150](../11_registri/01-vincoli-in-vigore.md#v-150)** | The immutable audit trail and the application logs **contain no clinical content**; diagnostic logs carry no direct patient identifiers | [04 §3](./04-tracciamento.md) |
+| **[V-151](../11_registri/01-vincoli-in-vigore.md#v-151)** | The external terminology service **receives no patient identifiers**; no cache persisted to disk | [03 §6](./03-protezione-dei-dati.md), [07 §7](./07-catena-di-fornitura.md) |
+| **[V-152](../11_registri/01-vincoli-in-vigore.md#v-152)** | Retention: **24 months** for traceability logs, **12 months** for access and authentication data | [04 §5](./04-tracciamento.md) |
+| **[V-153](../11_registri/01-vincoli-in-vigore.md#v-153)** | **Emergency access is a functional requirement**: mandatory free-text justification, limited window and perimeter, notification, review with the outcome recorded | [02 §10](./02-identita-e-accessi.md) |
+| **[V-154](../11_registri/01-vincoli-in-vigore.md#v-154)** | An authentication level **reported by an integrator** must be marked as such and does **not** satisfy the strong authentication requirements under Article 64 of the CAD (Codice dell'Amministrazione Digitale, the Italian Digital Administration Code) | [02 §4](./02-identita-e-accessi.md) |
+| **[V-155](../11_registri/01-vincoli-in-vigore.md#v-155)** | No infrastructure metric of the relay may be labelled with the session identifier | [05 §7](./05-sicurezza-del-tempo-reale.md) |
+| **[V-156](../11_registri/01-vincoli-in-vigore.md#v-156)** | The project **does not declare** protocol versions or negotiated cipher suites: it **measures them per session and records them** | [03 §2](./03-protezione-dei-dati.md), [05 §2](./05-sicurezza-del-tempo-reale.md) |
+| **[V-157](../11_registri/01-vincoli-in-vigore.md#v-157)** | **Single egress broker**: no application component opens connections towards destinations derived from an inbound datum; egress is denied at network level to everything except the broker | [06 §8](./06-sicurezza-applicativa.md) |
 
-And the constraints of others that this area adopts without arguing them: **V-04** (the immutable
+And the constraints of others that this area adopts without arguing them: **[V-04](../11_registri/01-vincoli-in-vigore.md#v-04)** (the immutable
 audit trail is hash-chained and separately retained; entity versioning does not replace it),
-**V-05** (the project is compliant and verifiable, **not accredited**), **V-06** (the project does
-not affix the CE marking; the role of manufacturer will be assumed by the entity to be established), **V-10** (relay server: minimum version 4.17.2 and outbound network
-isolation as the primary defence), **V-11** (recording container negotiated at runtime), **V-12**
-(no technical threshold is imposed by Italian legislation), **V-21** (no clinical content in
-outbound messages), **V-22** (asymmetric signature of outbound messages), **V-25** (the level of
+**[V-05](../11_registri/01-vincoli-in-vigore.md#v-05)** (the project is compliant and verifiable, **not accredited**), **[V-06](../11_registri/01-vincoli-in-vigore.md#v-06)** (the project does
+not affix the CE marking; the role of manufacturer will be assumed by the entity to be established), **[V-10](../11_registri/01-vincoli-in-vigore.md#v-10)** (relay server: minimum version 4.17.2 and outbound network
+isolation as the primary defence), **[V-11](../11_registri/01-vincoli-in-vigore.md#v-11)** (recording container negotiated at runtime), **[V-12](../11_registri/01-vincoli-in-vigore.md#v-12)**
+(no technical threshold is imposed by Italian legislation), **[V-161](../11_registri/01-vincoli-in-vigore.md#v-161)** (no clinical content in
+outbound messages), **[V-162](../11_registri/01-vincoli-in-vigore.md#v-162)** (asymmetric signature of outbound messages), **[V-165](../11_registri/01-vincoli-in-vigore.md#v-165)** (the level of
 assurance propagated is the one required, not the one asserted).

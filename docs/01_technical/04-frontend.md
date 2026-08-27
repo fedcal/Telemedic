@@ -85,7 +85,7 @@ ragioni sono di contratto: non imporre un quadro di lavoro (implicazione progett
 profilo dell'integratore archetipo) e non lasciare che gli stili del contenitore alterino il
 componente.
 
-Vincoli di realizzazione, che recepiscono il vincolo V-16 di `INTEG`:
+Vincoli di realizzazione, che recepiscono il vincolo [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) di `INTEG`:
 
 - **Isolamento degli stili** con radice d'ombra. Nessuna iniezione di fogli di stile esterni,
   in nessuna forma.
@@ -193,7 +193,7 @@ consolidata fra realizzazioni, non uno standard**. La bozza che la definiva è s
 archiviata (correzione C-02 in bacheca), e citarla come standard sarebbe un errore che si nota.
 
 La coda è **limitata e visibile**. Se un'operazione non riesce dopo i tentativi previsti,
-l'utente lo sa e sa che cosa fare; non resta un'icona che gira. Il vincolo V-09 vale anche qui:
+l'utente lo sa e sa che cosa fare; non resta un'icona che gira. Il vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) vale anche qui:
 un'operazione clinica in stato ignoto è un rischio, non un dettaglio di esperienza d'uso.
 
 ### 4.3 Degrado
@@ -229,10 +229,10 @@ Il bilancio è un vincolo di progetto, verificato in integrazione continua, non 
 | Tempo alla prima interazione utile su dispositivo di riferimento e rete mobile simulata | Soglia dichiarata | Prova sintetica su profilo di rete e di CPU dichiarati |
 | Numero di richieste bloccanti prima della prima schermata utile | Il minimo necessario, dichiarato per percorso | Prova |
 
-`[NV]` - **i valori numerici delle soglie non sono fissati in questo documento.** Vanno
-determinati su un dispositivo di riferimento scelto e dichiarato, con una misura, e pubblicati
-come specifica di prodotto. Fissarli qui a priori produrrebbe cifre non verificate, e il vincolo
-V-12 vale anche in senso opposto: una soglia inventata non diventa vera perché è scritta.
+I valori numerici delle soglie **vanno misurati e fissati dall'`TECH`** da verificare da `TECH` `[NV]` su un
+dispositivo di riferimento scelto e dichiarato, e pubblicati come specifica di prodotto. Fissarli qui a
+priori produrrebbe cifre non verificate, e il vincolo [V-12](../11_registri/01-vincoli-in-vigore.md#v-12)
+vale anche in senso opposto: una soglia inventata non diventa vera perché è scritta.
 
 Il **dispositivo di riferimento va scelto e dichiarato**: non l'apparecchio dello sviluppatore,
 ma un dispositivo di fascia media di alcuni anni prima, che è ciò che ha in mano la popolazione
@@ -317,7 +317,7 @@ Quando la registrazione è attiva, l'indicatore è **persistente e non occultabi
 durata, per entrambi i partecipanti. Sul piano tecnico questo significa: sempre nel flusso del
 documento, mai in un elemento che possa uscire dal viewport, annunciato all'attivazione e alla
 disattivazione, presente anche nelle viste a schermo intero e nel componente incorporabile, e
-non tematizzabile (V-16 di `INTEG`). La verifica è una prova che tenta di nasconderlo con ogni
+non tematizzabile ([V-163](../11_registri/01-vincoli-in-vigore.md#v-163) di `INTEG`). La verifica è una prova che tenta di nasconderlo con ogni
 mezzo previsto dalla configurazione e deve fallire in tutti.
 
 ### 7.5 Automatico e manuale
@@ -375,7 +375,7 @@ abilitato per quel tenant, gateway in modalità degradata - si mostra il codice 
 sistema, mai una traduzione di comodo scritta dal progetto: sarebbe un derivato non autorizzato
 e, peggio, un'affermazione clinica non tracciabile.
 
-La questione Q-03 in bacheca chiede esattamente «come si realizza concretamente» questa
+La questione [Q-03](../11_registri/02-questioni-aperte.md#q-03) in bacheca chiede esattamente «come si realizza concretamente» questa
 separazione ed è indirizzata ad `ARCH`. Ciò che questa area può affermare senza invadere è la
 **forma tecnica**: due canali distinti, due licenze, nessuna sostituzione, e comportamento
 dichiarato in assenza dell'etichetta ufficiale. Il modello dei dati che ne discende è di `ARCH`.
@@ -409,7 +409,7 @@ Il modello di minaccia è in `docs/06_security/`; qui stanno i vincoli di realiz
 - **Non decide.** Nessuna valutazione clinica avviene nel client. Una soglia valutata nel client
   sarebbe una soglia non tracciabile e manipolabile.
 - **Non conserva.** Vedi §9.
-- **Non è l'unico modo di fare le cose.** Il vincolo V3 e il vincolo V-17 di `INTEG` impongono
+- **Non è l'unico modo di fare le cose.** Il vincolo [V3](../11_registri/03-vincoli-fondanti.md#v3) e il vincolo [V-164](../11_registri/01-vincoli-in-vigore.md#v-164) di `INTEG` impongono
   che ogni capacità sia raggiungibile da un sistema terzo tramite interfaccia documentata.
   L'interfaccia è un consumatore delle stesse interfacce applicative offerte agli integratori,
   senza percorsi privilegiati: è anche il modo più efficace di accorgersi se un contratto è

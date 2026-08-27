@@ -15,7 +15,7 @@ documentale.
 
 ## 1. Il principio che governa tutto il capitolo
 
-> **Vincolo V-07.** Il contenuto informativo dei documenti destinati al fascicolo si modella
+> **Vincolo [V-07](../11_registri/01-vincoli-in-vigore.md#v-07).** Il contenuto informativo dei documenti destinati al fascicolo si modella
 > come **dataset canonico**. Le serializzazioni - documento strutturato per il fascicolo,
 > rappresentazione FHIR, rappresentazione impaginata - sono **sostituibili** e non vanno
 > cablate.
@@ -41,7 +41,7 @@ flowchart TD
     N["Set informativo normativo<br/>(fonte cogente)"]
     D["Dataset canonico di Telemedic<br/>modello interno, versionato"]
     S1["Serializzazione FHIR<br/>Composition in Bundle documento"]
-    S2["Serializzazione strutturata per il fascicolo<br/>template NON disponibile - [NV]"]
+    S2["Serializzazione strutturata per il fascicolo<br/>template NON disponibile - [NV] COMP"]
     S3["Rappresentazione impaginata<br/>per la lettura umana e la firma"]
     S4["Proiezione di compatibilità<br/>referto diagnostico, sola lettura"]
     N --> D
@@ -140,7 +140,7 @@ trova posto nel campo dedicato all'altra figura tecnica coinvolta e nelle note.
 > **Vincolo che quest'area pone comunque**: qualunque sia il campo scelto, il contenuto è
 > **misurato dal sistema e presentato al professionista, che lo conferma**. Non è generato
 > autonomamente e inserito nel referto senza atto del professionista: sarebbe informazione
-> prodotta dal sistema dentro un documento clinico, in tensione diretta con il vincolo V2.
+> prodotta dal sistema dentro un documento clinico, in tensione diretta con il vincolo [V2](../11_registri/03-vincoli-fondanti.md#v2).
 
 ### 3.2 Il dataset è versionato
 
@@ -194,24 +194,24 @@ documento assemblato.
 > informativo del paragrafo 2.20 e il profilo della guida italiana non è stata eseguita. Il set
 > informativo è la fonte cogente; il profilo è una rappresentazione. Dove il profilo non ha
 > posto per un campo del set, serve un'estensione dichiarata o una collocazione motivata.
-> **Da chiedere a**: area di dominio per la semantica, area di conformità per l'obbligatorietà.
+> **Da chiedere a**: area di dominio per la semantica, `COMP` per l'obbligatorietà.
 
 ### 4.2 La serializzazione strutturata per il fascicolo
 
-> **`[NV]` - non disponibile pubblicamente.** Il template della serializzazione strutturata, i
-> codici di tipologia documentale e i metadati di indicizzazione per le dieci tipologie della
-> telemedicina **non sono stati reperiti su fonte pubblica**. È dichiarata pubblicata una nuova
-> versione delle specifiche tecniche di interoperabilità fra i sistemi regionali del fascicolo,
-> ma **non è stato accertato** che quella versione contenga già i template della telemedicina.
+> **Non disponibile pubblicamente** `[NV]` - richiesta al Ministero della Salute. Il template della
+> serializzazione strutturata, i codici di tipologia documentale e i metadati di indicizzazione per le dieci
+> tipologie della telemedicina **non sono stati reperiti su fonte pubblica**. È dichiarata pubblicata una nuova
+> versione delle specifiche tecniche di interoperabilità fra i sistemi regionali del fascicolo, ma **non è
+> stato accertato** che quella versione contenga già i template della telemedicina.
 >
-> **Da chiedere a**: area di conformità, che ha in carico la questione **Q-07** della bacheca.
-> Il canale indicato è l'area tecnica del portale del fascicolo e, in subordine, una richiesta
+> **Da chiedere a**: `COMP`, che ha in carico la questione **[Q-07](../11_registri/02-questioni-aperte.md#q-07)** della bacheca.
+> Il canale indicato è l'`TECH` del portale del fascicolo e, in subordine, una richiesta
 > formale all'ente che gestisce l'infrastruttura nazionale di interoperabilità.
 >
 > **Fino ad allora il progetto non cabla alcun template.** L'adattatore esiste come punto di
 > estensione con un contratto dichiarato - riceve il dataset canonico, produce un artefatto
 > firmabile - e la sua implementazione concreta è rinviata. Questa non è una lacuna: è
-> l'applicazione letterale del vincolo V-07.
+> l'applicazione letterale del vincolo [V-07](../11_registri/01-vincoli-in-vigore.md#v-07).
 
 ### 4.3 La rappresentazione impaginata
 
@@ -228,9 +228,9 @@ Regole di progetto:
   e ciò che il sistema comunica;
 - la sua impronta crittografica è calcolata e conservata insieme al documento, così che
   l'identità fra ciò che è stato firmato e ciò che viene esibito sia dimostrabile;
-- il formato di conservazione è idoneo alla conservazione a lungo termine. **`[NV]`** - il
-  profilo esatto del formato e i requisiti del sistema di conservazione sono materia dell'area di
-  conformità, non di quest'area.
+- il formato di conservazione è idoneo alla conservazione a lungo termine. Il profilo esatto del
+  formato `[NV]` e i requisiti del sistema di conservazione **vanno fissati dall'`COMP`**, non
+  sono materia di quest'area.
 
 ### 4.4 La proiezione di compatibilità
 
@@ -238,7 +238,7 @@ Molti sistemi riceventi sanno consumare solo il referto in forma di rapporto dia
 progetto la offre come **proiezione in sola lettura**, mai come artefatto primario: la parte
 narrativa porta il testo redatto dal medico, l'allegato porta il documento firmato. **Nessun
 campo di quella proiezione è mai popolato con testo generato dal sistema**: è il confine del
-vincolo V2, e va verificato con una prova dedicata, non con una convenzione.
+vincolo [V2](../11_registri/03-vincoli-fondanti.md#v2), e va verificato con una prova dedicata, non con una convenzione.
 
 ## 5. I metadati di indicizzazione
 
@@ -266,12 +266,12 @@ Regole di progetto sui metadati:
 4. **Lo stato di disponibilità segue il ciclo di vita del documento**, compresa la
    deprecazione a seguito di una sostituzione (§7).
 
-> **`[NV]` - codici di tipologia documentale e insiemi di valori dei metadati per le dieci
-> tipologie della telemedicina.** Non reperiti su fonte pubblica, come già dichiarato in §4.2.
-> Senza di essi il progetto **non può** pubblicare verso un'infrastruttura di condivisione
+> **Codici di tipologia documentale e insiemi di valori dei metadati per le dieci tipologie della
+> telemedicina** `[NV]` - richiesta al Ministero della Salute. Non reperiti su fonte pubblica, come già
+> dichiarato in §4.2. Senza di essi il progetto **non può** pubblicare verso un'infrastruttura di condivisione
 > documentale nazionale, perché produrrebbe metadati non riconosciuti. La pubblicazione verso il
 > sistema di origine dell'integratore, che usa i propri codici, non è invece bloccata.
-> **Da chiedere a**: area di conformità (Q-07).
+> **Da chiedere a**: `COMP` ([Q-07](../11_registri/02-questioni-aperte.md#q-07)).
 
 ## 6. La firma
 
@@ -312,10 +312,10 @@ Regole di progetto:
 - l'esito della verifica è registrato: un documento la cui firma non verifica non viene
   silenziosamente accettato né silenziosamente scartato.
 
-> **`[NV]` - formati di busta di firma, requisiti del certificato e requisiti della marca
-> temporale.** I formati ammessi per la firma di un documento destinato al fascicolo, e la
-> disciplina della firma di conferimento apposta dall'infrastruttura, sono materia normativa
-> puntuale che quest'area **non** ricostruisce a memoria. **Da chiedere a**: area di conformità e
+> **Formati di busta di firma, requisiti del certificato e requisiti della marca temporale** `[NV]` da
+> definire dall'`COMP`. I formati ammessi per la firma di un documento destinato al fascicolo,
+> e la disciplina della firma di conferimento apposta dall'infrastruttura, sono materia normativa
+> puntuale che quest'area **non** ricostruisce a memoria. **Da chiedere a**: `COMP` e
 > area di sicurezza. Il modulo
 > [«FSE e infrastrutture nazionali», §4](../10_fondamenti/07-fse-e-infrastrutture-nazionali.md)
 > descrive il ciclo di vita e i punti in cui le firme intervengono.
@@ -463,7 +463,7 @@ violazione delle soglie.
 
 Due vincoli di progetto discendono direttamente da questo tracciato.
 
-**Le soglie sono dati del piano, non costanti del software.** Il vincolo V-02 lo impone e il
+**Le soglie sono dati del piano, non costanti del software.** Il vincolo [V-02](../11_registri/01-vincoli-in-vigore.md#v-02) lo impone e il
 tracciato lo conferma: soglia e regole sono campi del documento, valorizzati dal professionista.
 Nessuna soglia clinica è cablata nel codice, e nessuna soglia è dedotta dal sistema.
 
@@ -497,11 +497,11 @@ Regole di progetto:
 |---|---|---|
 | Non appone la firma di conferimento all'infrastruttura nazionale | È un atto dell'infrastruttura, non del sistema che produce | L'infrastruttura di interoperabilità |
 | Non decide le tipologie documentali né i loro set informativi | Sono stabiliti per decreto | Il ministero |
-| Non genera contenuto clinico | Vincolo V2. Il documento è persistenza di ciò che il professionista ha redatto | Il professionista |
+| Non genera contenuto clinico | Vincolo [V2](../11_registri/03-vincoli-fondanti.md#v2). Il documento è persistenza di ciò che il professionista ha redatto | Il professionista |
 | Non giudica l'idoneità del collegamento | Misura e presenta; la conferma è un atto del professionista | Il professionista |
 | Non conserva a norma per conto del titolare, se non configurato per farlo | La conservazione è un servizio con requisiti propri | Il sistema di conservazione del titolare |
 | Non media l'accesso di un pagatore al fascicolo | È **sempre** escluso dalla norma. Il pagatore non è un consultatore | Nessuno: è vietato |
 
-L'ultima riga è il vincolo V-08 e vale su ogni interfaccia del progetto, non solo su questa:
+L'ultima riga è il vincolo [V-08](../11_registri/01-vincoli-in-vigore.md#v-08) e vale su ogni interfaccia del progetto, non solo su questa:
 nessuna funzionalità del sistema può mediare l'accesso di una compagnia assicurativa al fascicolo,
 né direttamente né per il tramite di un professionista.

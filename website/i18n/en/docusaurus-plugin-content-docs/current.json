@@ -123,6 +123,18 @@
     "message": "Dated milestones, verifiable completion criteria, first usable release and the programme risk register.",
     "description": "The generated-index page description for category 'Roadmap' in sidebar 'progettoSidebar'"
   },
+  "sidebar.progettoSidebar.category.Registri": {
+    "message": "Registers",
+    "description": "The label for category 'Registri' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Registri.link.generated-index.title": {
+    "message": "Registers",
+    "description": "The generated-index page title for category 'Registri' in sidebar 'progettoSidebar'"
+  },
+  "sidebar.progettoSidebar.category.Registri.link.generated-index.description": {
+    "message": "The constraints in force and the open questions between the project areas, with the sigla each document cites and which here finds its target.",
+    "description": "The generated-index page description for category 'Registri' in sidebar 'progettoSidebar'"
+  },
   "sidebar.progettoSidebar.category.Decisioni architetturali": {
     "message": "Architecture decisions",
     "description": "The label for category 'Decisioni architetturali' in sidebar 'progettoSidebar'"

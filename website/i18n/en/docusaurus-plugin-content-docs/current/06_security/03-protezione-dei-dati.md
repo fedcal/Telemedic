@@ -74,7 +74,7 @@ protection of confidentiality by means of state-of-the-art encryption in transit
 | Session signalling | Session descriptors, connectivity candidates, identifiers | Same channel as the application interfaces |
 | Peer-to-peer media | Voice, video, session data | End-to-end encryption with material derived from the handshake ([05](./05-sicurezza-del-tempo-reale.md)) |
 | Media through the relay | Already-encrypted packets | The relay forwards already-protected packets: **it does not decrypt them** ([05 §4](./05-sicurezza-del-tempo-reale.md)) |
-| Outbound messages to the integrator | Identifiers and references, **never clinical content** (V-21) | Encrypted transport, **asymmetric signature** of the message (V-22) |
+| Outbound messages to the integrator | Identifiers and references, **never clinical content** ([V-161](../11_registri/01-vincoli-in-vigore.md#v-161)) | Encrypted transport, **asymmetric signature** of the message ([V-162](../11_registri/01-vincoli-in-vigore.md#v-162)) |
 | Towards national and regional infrastructures | Documents and metadata | According to the infrastructure's profile, through the single egress broker |
 | Between internal components | Everything | Encrypted transport inside the perimeter too: the internal network is not a trust boundary |
 | Remote administration | Commands and configurations | Exclusively over secure channels, with named accounts and a second factor |
@@ -91,7 +91,7 @@ stays true after the first library update.
 
 ### 2.3 The negotiated version is not declared: it is measured
 
-**Constraint V-156.** The project **does not declare** in documentation which protocol version or
+**Constraint [V-156](../11_registri/01-vincoli-in-vigore.md#v-156).** The project **does not declare** in documentation which protocol version or
 which cipher suite is in use on a session. **It measures them per session and records them.**
 
 The reason is that part of the negotiation takes place between two ends the project does not
@@ -159,8 +159,8 @@ retention; backups, **without exception**; the key material, held in a vault dis
 data it protects.
 
 What must **not** be found in an encrypted archive because it must not exist at all: test data
-that are real data; clinical content inside the application logs (V-150); clinical content inside
-outbound messages (V-21).
+that are real data; clinical content inside the application logs ([V-150](../11_registri/01-vincoli-in-vigore.md#v-150)); clinical content inside
+outbound messages ([V-161](../11_registri/01-vincoli-in-vigore.md#v-161)).
 
 ## 4. Key management and rotation
 
@@ -199,7 +199,7 @@ held the key; a finding from a security assessment.
 artefacts and the key with which the installation signs outbound messages do not rotate by the
 same mechanism, because their rotation requires the verifiers to acquire the new public key before
 the old one ceases. It follows that the key identifier must be **resolvable from the public
-material** (V-22) and that the two keys must be able to coexist during a declared overlap window.
+material** ([V-162](../11_registri/01-vincoli-in-vigore.md#v-162)) and that the two keys must be able to coexist during a declared overlap window.
 A shared secret is not offered as the default mode: it gives no non-repudiation and its rotation
 requires coordination with each integrator, which is to say it does not happen.
 
@@ -225,12 +225,12 @@ does not have be inferred.**
 | Point | What it sees | What it does not see | Mitigation |
 |---|---|---|---|
 | **Session signalling** | Who takes part, when, for how long, with which tenant; the session descriptors and the connectivity candidates, **including local network addresses** | The audio-video content | Encrypted transport; **short retention** of the candidates; no candidate in diagnostic logs; declaration in the privacy notice |
-| **Relay server** | **The network addresses of both parties**, the volume and pattern of the traffic, the duration of the allocation | The content: it forwards already-encrypted packets | Relay **operated by the deployer, within the Union**; no labelling of the metrics with the session identifier (V-155); short retention of the relay logs |
+| **Relay server** | **The network addresses of both parties**, the volume and pattern of the traffic, the duration of the allocation | The content: it forwards already-encrypted packets | Relay **operated by the deployer, within the Union**; no labelling of the metrics with the session identifier ([V-155](../11_registri/01-vincoli-in-vigore.md#v-155)); short retention of the relay logs |
 | **Recording component** (only in the mode with recording) | **Everything**: encryption terminates at the component | - | The mode is **distinct, declared in the consent and persistently indicated**: [05 §5](./05-sicurezza-del-tempo-reale.md) |
 | **The two devices** | Everything the user sees and hears | - | Outside the project's control: **declared residual risk** ([01 §6](./01-modello-di-minaccia.md)) |
 | **Database engine** | The application content that passes through it | What is encrypted at application level | Per-artefact encryption; separation of accounts; separate audit trail |
-| **Single egress broker** | The destinations and the content of outbound requests | - | No clinical content (V-21); no patient identifier towards terminology (V-151); [06 §8](./06-sicurezza-applicativa.md) |
-| **Observability and metrics** | What the application decides to send them | What the application does not send | **Prohibition** on clinical content and on direct identifiers in diagnostic logs (V-150) |
+| **Single egress broker** | The destinations and the content of outbound requests | - | No clinical content ([V-161](../11_registri/01-vincoli-in-vigore.md#v-161)); no patient identifier towards terminology ([V-151](../11_registri/01-vincoli-in-vigore.md#v-151)); [06 §8](./06-sicurezza-applicativa.md) |
+| **Observability and metrics** | What the application decides to send them | What the application does not send | **Prohibition** on clinical content and on direct identifiers in diagnostic logs ([V-150](../11_registri/01-vincoli-in-vigore.md#v-150)) |
 
 Two points deserve to be written out in full, because they are the ones that get softened.
 
@@ -257,7 +257,7 @@ because it works **by absence of the datum** and does not depend on the third pa
 runtime, not a build dependency. If it is established outside the Union, it becomes a transfer
 **the moment it receives data referable to a patient**. Contractual defence would be fragile and
 verifiable only after the fact; the architectural defence is definitive: **the queries never carry
-patient identifiers** (constraint V-151). A query that asks «does code X exist in system Y» is not
+patient identifiers** (constraint [V-151](../11_registri/01-vincoli-in-vigore.md#v-151)). A query that asks «does code X exist in system Y» is not
 a transfer of personal data, regardless of where the service answers from. **Sovereignty is
 satisfied by absence of the datum, not by location.** A related consequence: **no cache persisted
 to disk**, both for the licensing reason and because a persistent cache is an uninventoried
@@ -268,9 +268,9 @@ The other applications of the principle, each with its verification:
 | Application | Rule | Verification |
 |---|---|---|
 | Demographic data | **Not duplicated**: work by reference, using the identifiers of the integrating party's domain | Inspection of the data model: absence of unnecessary demographic attributes |
-| Outbound messages | They carry identifiers and references, **never clinical content**; the content is re-read with an authenticated call under the recipient's authorisation (V-21) | Inspection of the schemas of the published events |
-| Diagnostic logs | No direct patient identifier, no clinical content (V-150) | Automated analysis of the logs of a test run against a dictionary of patterns |
-| Infrastructure metrics | No label with the session identifier (V-155) | Inspection of the exporter's configuration |
+| Outbound messages | They carry identifiers and references, **never clinical content**; the content is re-read with an authenticated call under the recipient's authorisation ([V-161](../11_registri/01-vincoli-in-vigore.md#v-161)) | Inspection of the schemas of the published events |
+| Diagnostic logs | No direct patient identifier, no clinical content ([V-150](../11_registri/01-vincoli-in-vigore.md#v-150)) | Automated analysis of the logs of a test run against a dictionary of patterns |
+| Infrastructure metrics | No label with the session identifier ([V-155](../11_registri/01-vincoli-in-vigore.md#v-155)) | Inspection of the exporter's configuration |
 | Attributes requested from the federation | Only those that are necessary, for the reason in §3.1 of [02](./02-identita-e-accessi.md) - which also has a price | Comparison between the attributes declared and those actually used |
 | Biometric recognition | **Excluded by design.** The video stream contains the face but is not for that reason alone biometric data within the meaning of Article 4(14): the qualification requires specific technical processing aimed at unique identification. Introducing it would open a **second** route into Article 9 with autonomous requirements | The exclusion is documented, not implicit |
 | Defaults | Recording **switched off**; minimum retention; opt-in telemetry; logs without clinical content | Test on the initial configuration |
@@ -287,7 +287,7 @@ individual customer**: `[NV]`.
 
 The two periods the project **does impose** as a default, because they have a determinate source,
 are the audit ones, and they are in [04 §5](./04-tracciamento.md): **24 months** for traceability
-logs, **12 months** for access and authentication data (constraint V-152).
+logs, **12 months** for access and authentication data (constraint [V-152](../11_registri/01-vincoli-in-vigore.md#v-152)).
 
 ### 7.2 The session recording is a case of its own
 
@@ -295,7 +295,7 @@ It is not mandatory health documentation: it is **optional processing founded on
 consent**. Consequences follow that no other artefact has:
 
 - retention must be **short and justified**. The project proposes a conservative and configurable
-  default value; the value is a **product specification, never compliance** (constraint V-12);
+  default value; the value is a **product specification, never compliance** (constraint [V-12](../11_registri/01-vincoli-in-vigore.md#v-12));
 - **consent is withdrawable as easily as it was given** (Article 7(3) of Regulation (EU) 2016/679)
   and **separate** from acceptance of the service: the prohibition on bundling in Article 7(4)
   rules out consent to recording being a condition for accessing the consultation;
@@ -365,8 +365,8 @@ useful time.
 
 | Reference | Question | To whom |
 |---|---|---|
-| `[NV]` | Citation and current revision of the European and national cryptographic recommendations to be cited in the compliance matrix (§1) | Compliance |
-| `[NV]` | Applicable retention periods for health documentation, by document type and by regional rules (§7.1) | Domain, compliance |
-| `[NV]` | Support status of the most recent version of the datagram transport protocol on the third engine (§2.3) | Empirical verification |
+| `[NV]` | Citation and current revision of the European and national cryptographic recommendations to be cited in the compliance matrix (§1) | `COMP` |
+| `[NV]` | Applicable retention periods for health documentation, by document type and by regional rules (§7.1) | `DOM`, `COMP` |
+| `[NV]` | Support status of the most recent version of the datagram transport protocol on the third engine (§2.3) | `TECH` |
 | - | Location of the key vault and its interface: a component of the installation itself or a service of the infrastructure (§4) | Architecture |
-| Q-157 | Selective redaction of video for the purposes of the right of access: a capability to be designed or an exclusion to be justified (§7.5) | Functional, compliance |
+| [Q-157](../11_registri/02-questioni-aperte.md#q-157) | Selective redaction of video for the purposes of the right of access: a capability to be designed or an exclusion to be justified (§7.5) | Functional, compliance |

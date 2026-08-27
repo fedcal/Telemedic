@@ -28,9 +28,11 @@ consultabile.** Chi scrive questa guida non l'ha vista. Non la inventeremo: la d
 mancante ogni volta che manca, indicando dove va richiesta.
 
 > **Convenzione di lettura.** `[NV]` significa «non verificato o non pubblicamente
-> disponibile alla data di redazione». Non è una scusa: è un'indicazione operativa. Ogni
-> `[NV]` di questo modulo è raccolto nel § 11, con il soggetto a cui l'informazione va
-> richiesta.
+> disponibile alla data di redazione» e dichiara a chi va chiesta la verifica. Ogni `[NV]` di questo
+> modulo porta, nello stesso capoverso, l'indicazione del destinatario in una delle tre forme
+> ammesse: la sigla di un'area fra backtick, un identificativo di questione, oppure un soggetto
+> esterno nominato secondo le regole di `CONTRIBUTING.md`. Il § 11 raccoglie i punti così marcati,
+> con il soggetto a cui l'informazione va richiesta.
 
 ---
 
@@ -379,7 +381,8 @@ prorogato:
 | **Fase III** | Piena operatività: alimentazione entro cinque giorni, documenti erogati fuori SSN, abilitazione delle strutture private autorizzate | 31 marzo 2026 | **31 marzo 2026** (invariata) |
 
 Alla data di redazione la Fase III è formalmente scaduta. **Lo stato di attuazione effettivo,
-Regione per Regione, non è stato accertato su fonte ufficiale aggiornata.** `[NV]`
+Regione per Regione, non è stato accertato su fonte ufficiale aggiornata,** e va chiesto al
+Ministero della Salute che pubblica i decreti di proroga. `[NV]`
 
 **Un dato di scala, per capire di cosa stiamo parlando.** Al 31 dicembre 2025 il portale
 nazionale del fascicolo dichiarava **29 tipologie documentali** gestite e **33 tipologie di
@@ -515,9 +518,9 @@ assistiti, con il proprio indice e il proprio o i propri repository. Chi non dis
 un'infrastruttura propria operativa **si avvale in sussidiarietà del FSE-INI**. La conseguenza
 pratica è che **non esiste una singola interfaccia di alimentazione**: esiste il percorso
 nazionale e ne esistono venti declinazioni regionali, con differenze reali di endpoint,
-autenticazione, formati accettati e regole di validazione. `[NV]` sulla mappa aggiornata delle
-differenze regionali, che non è pubblicata in forma consolidata e che chiunque installi deve
-ricostruire per la propria Regione.
+autenticazione, formati accettati e regole di validazione. La mappa aggiornata delle
+differenze regionali non è pubblicata in forma consolidata e va chiesto a AGENAS `[NV]`;
+chiunque installi deve ricostruire il dettaglio per la propria Regione.
 
 **Il ruolo delle Regioni nel controllo dei documenti.** L'art. 13 del DM 7 settembre 2023
 stabilisce che **le Regioni sono titolari dei trattamenti di verifica formale e semantica** e
@@ -565,8 +568,8 @@ flowchart LR
 > **Avvertenza sul diagramma.** È una rappresentazione **logica** dei ruoli, ricostruita dai
 > testi normativi citati. **Non è uno schema di integrazione**: gli endpoint reali, i
 > protocolli di trasporto e la sequenza esatta delle chiamate dipendono dalle specifiche
-> tecniche di interoperabilità e dalle declinazioni regionali, che il § 4.8 dichiara non
-> integralmente verificate. `[NV]`
+> tecniche di interoperabilità e dalle declinazioni regionali; lo stato di verifica integrale di
+> queste specifiche va confermato dall'area `PROTO` del progetto. `[NV]`
 
 ---
 
@@ -615,9 +618,9 @@ servizio di firma remota, verificarne l'esito - ma non può firmare al posto del
 **Il formato documentale nazionale del fascicolo è HL7 CDA Rel. 2 («CDA2»)**, veicolato dentro
 un **PDF firmato digitalmente**. È l'impostazione delle specifiche nazionali di
 interoperabilità («*Affinity Domain Italia*»), pubblicate nell'area tecnica del portale del
-fascicolo. La versione dichiarata come pubblicata è la **2.6.4**. **Non è stato verificato se
-tale versione contenga già i template CDA2 delle dieci tipologie documentali di telemedicina.**
-`[NV]`
+fascicolo. La versione dichiarata come pubblicata è la **2.6.4**, e va confermato dall'area
+tecnica del portale se contenga già i template CDA2 delle dieci tipologie documentali di
+telemedicina `[NV]`.
 
 Da questa incertezza discende una regola di progetto che va rispettata senza eccezioni,
 perché protegge da una riscrittura costosa: **il contenuto informativo dell'Allegato 1 si
@@ -648,11 +651,11 @@ Due proprietà di questo stadio hanno effetti diretti sull'architettura del prod
   gestito come stato di dominio: documento prodotto, conferimento respinto, motivo,
   rilavorazione. Non come eccezione tecnica.
 
-`[NV]` - **Non sono pubblicamente disponibili le specifiche di interfaccia delle soluzioni
-tecnologiche AGENAS** (endpoint, formato dei messaggi di esito, tassonomia degli errori di
-validazione). Vanno richieste ad AGENAS o alla Regione di riferimento. Il progetto non deve
-inventarne una: deve prevedere un **adattatore con contratto interno stabile** e un'unica
-implementazione sostituibile.
+**Le specifiche di interfaccia delle soluzioni tecnologiche AGENAS** (endpoint, formato dei
+messaggi di esito, tassonomia degli errori di validazione) non sono pubblicamente disponibili.
+`[NV]` Va richiesto ad AGENAS o alla Regione di riferimento il dettaglio di tali specifiche.
+Il progetto non deve inventarne una: deve prevedere un **adattatore con contratto interno stabile**
+e un'unica implementazione sostituibile.
 
 ### 4.4 Firma di conferimento e indicizzazione tramite INI
 
@@ -666,13 +669,13 @@ Questo trasferimento è un dettaglio che vale la pena registrare: **l'indice si 
 documento no**. Un modello che assuma la stabilità della sede dell'indice per tutta la vita
 dell'assistito è sbagliato.
 
-`[NV]` - **I metadati di indicizzazione IHE XDS e i codici di tipologia documentale
-(`typeCode`, `classCode`, e la corrispondente codifica LOINC) per le dieci nuove tipologie di
-telemedicina non sono stati reperiti.** Sono l'informazione che serve per costruire il
-`SubmissionSet` e il `DocumentEntry`. Vanno cercati nell'area tecnica del portale del
-fascicolo, nei documenti di specifica CDA2 per singola tipologia; in subordine richiesti a
-Sogei o all'INI. Il modulo [05](05-standard-di-interoperabilita.md) spiega cosa siano IHE XDS,
-`SubmissionSet` e `DocumentEntry`.
+**I metadati di indicizzazione IHE XDS e i codici di tipologia documentale** (`typeCode`,
+`classCode`, e la corrispondente codifica LOINC) per le dieci nuove tipologie di telemedicina
+non sono stati reperiti. `[NV]` Va richiesto all'area tecnica del portale del fascicolo
+(nei documenti di specifica CDA2 per singola tipologia), e in subordine a Sogei o all'INI.
+Sono l'informazione che serve per costruire il `SubmissionSet` e il `DocumentEntry`. Il modulo
+[05](05-standard-di-interoperabilita.md) spiega cosa siano IHE XDS, `SubmissionSet` e
+`DocumentEntry`.
 
 ### 4.5 Termine e responsabilità
 
@@ -747,21 +750,21 @@ sequenceDiagram
 > **sequenza dei ruoli e delle responsabilità** come ricostruita dalle fonti citate. I
 > passaggi 7-12 avvengono, nella realtà, attraverso interfacce la cui specifica tecnica non è
 > integralmente pubblica: **numero, ordine e granularità delle chiamate effettive possono
-> differire**, e differiscono fra Regioni. `[NV]`
+> differire tra Regioni**, e va confermato da ciascuna Regione singolarmente `[NV]`.
 
 ### 4.9 Cosa resta non verificato in questo flusso
 
 Riassunto dei punti su cui il progetto **non deve inventare specifiche**:
 
-| Elemento | Stato | Dove va richiesto |
-|---|---|---|
-| Template CDA2 delle dieci tipologie di telemedicina | `[NV]` | Area tecnica del portale del fascicolo (documenti di specifica CDA2 per tipologia); in subordine Sogei / INI |
-| Codici di tipologia documentale e metadati IHE XDS delle stesse | `[NV]` | Come sopra |
-| Specifiche di interfaccia delle soluzioni tecnologiche AGENAS (comma 15-*quater*) | `[NV]` | AGENAS; Regione di riferimento |
-| Contenuto della versione 2.6.4 di «*Affinity Domain Italia*» rispetto alla telemedicina | `[NV]` | Portale del fascicolo, area tecnica |
-| Differenze regionali di endpoint, autenticazione e validazione | `[NV]` | Ciascuna Regione, singolarmente |
-| Codifica della modalità di erogazione a distanza nei flussi di rendicontazione (il valore «telemedicina» nel campo «luogo di erogazione») | `[NV]` | Specifiche tecniche del Sistema Tessera Sanitaria; disciplinari regionali del flusso di specialistica ambulatoriale |
-| Contenuto operativo del **Processo di Validazione** AGENAS ex art. 3, c. 4 DM 19 novembre 2025 | `[NV]` | AGENAS |
+| Elemento | Stato e destinatario |
+|---|---|
+| Template CDA2 delle dieci tipologie di telemedicina | `[NV]` va richiesto all'area tecnica del portale del fascicolo (documenti di specifica CDA2 per tipologia); in subordine a Sogei o INI |
+| Codici di tipologia documentale e metadati IHE XDS delle stesse | `[NV]` va richiesto all'area tecnica del portale del fascicolo (documenti di specifica CDA2 per tipologia); in subordine a Sogei o INI |
+| Specifiche di interfaccia delle soluzioni tecnologiche AGENAS (comma 15-*quater*) | `[NV]` va richiesto a AGENAS; Regione di riferimento |
+| Contenuto della versione 2.6.4 di «*Affinity Domain Italia*» rispetto alla telemedicina | `[NV]` va richiesto al portale del fascicolo, area tecnica |
+| Differenze regionali di endpoint, autenticazione e validazione | `[NV]` va richiesto a ciascuna Regione singolarmente |
+| Codifica della modalità di erogazione a distanza nei flussi di rendicontazione (il valore «telemedicina» nel campo «luogo di erogazione») | `[NV]` va richiesto alle specifiche tecniche del Sistema Tessera Sanitaria; disciplinari regionali del flusso di specialistica ambulatoriale |
+| Contenuto operativo del **Processo di Validazione** AGENAS ex art. 3, c. 4 DM 19 novembre 2025 | `[NV]` va richiesto a AGENAS |
 
 **Conseguenza di prodotto, da tenere ferma.** Ogni voce di questa tabella è un punto di
 variabilità che va isolato dietro un'interfaccia di progetto, con implementazione
@@ -921,12 +924,11 @@ erogatore né fruitore**: può fornire l'implementazione tecnica che consente a 
 esserlo. È esattamente lo stesso principio che vale per SPID (§ 8) e che ritorna nella tabella
 del § 9.
 
-`[NV]` - **Le specifiche operative di dettaglio della PDND** (formato esatto del voucher, la
-sua durata, gli algoritmi ammessi, la procedura di *onboarding* dell'ente, gli ambienti di
-collaudo) **non sono state verificate in questa guida.** Sono documentate nelle linee guida
-AgID v2 di maggio 2025 e nella documentazione tecnica della piattaforma, e vanno lette
-direttamente prima di scrivere codice. Il progetto **non deve derivare da questa pagina alcuna
-assunzione implementativa** su PDND.
+**Le specifiche operative di dettaglio della PDND** (formato esatto del voucher, la sua durata,
+gli algoritmi ammessi, la procedura di *onboarding* dell'ente, gli ambienti di collaudo) non
+sono state verificate in questa guida, e vanno richieste direttamente ad AgID nelle sue linee
+guida v2 di maggio 2025 e nella documentazione tecnica della piattaforma `[NV]`. Il progetto
+**non deve derivare da questa pagina alcuna assunzione implementativa** su PDND.
 
 ---
 
@@ -1002,8 +1004,9 @@ tecnici certificati da Agenas e alimentino il Fascicolo Sanitario Elettronico*»
 svolta dal **Gestore Soluzioni di Telemedicina** della INT, che assiste gli erogatori nel
 **Processo di Validazione**. È la porta d'ingresso più interessante per una soluzione
 alternativa a quelle delle gare capofila, e il modulo
-[02](02-prestazioni-di-telemedicina.md), § 6.2, ne discute la portata strategica. **In cosa
-consista operativamente il Processo di Validazione non è pubblicamente documentato.** `[NV]`
+[02](02-prestazioni-di-telemedicina.md), § 6.2, ne discute la portata strategica. Come il
+Processo di Validazione funzioni operativamente non è pubblicamente documentato, e va chiesto
+a AGENAS `[NV]`.
 
 **4. Valutazione della conformità come dispositivo medico - autorità: un Organismo
 Notificato.** È tutt'altra cosa: riguarda la sicurezza e le prestazioni del dispositivo ai
@@ -1087,8 +1090,8 @@ L'Allegato 4, § 7, impone a **tutte** le infrastrutture regionali di telemedici
 incluse quelle che non sono state parte della suddetta procedura*» - le misure di sicurezza
 previste dal **capitolo 5 del capitolato tecnico di una specifica gara regionale**. Un decreto
 ministeriale, cioè, rende cogente per l'intero territorio nazionale un documento **di gara**,
-non pubblicato in Gazzetta Ufficiale. **Quel capitolo non è stato reperito** nelle ricerche
-condotte dal progetto. `[NV]`
+non pubblicato in Gazzetta Ufficiale. Quel capitolo non è stato reperito nelle ricerche
+condotte dal progetto, e va chiesto alla Regione di riferimento `[NV]`.
 
 Non è un caso isolato: il DM 21 settembre 2022 rinvia a sua volta, per i requisiti funzionali
 dei micro-servizi, a documenti metodologici pubblicati da AGENAS in allegato a un avviso del
@@ -1286,8 +1289,8 @@ integratore compie diverse di quelle operazioni.
 **La valutazione del progetto - dichiarata come tale e non come certezza - è che Telemedic
 ricadrà con elevata probabilità nell'ambito del capo III**, e che ciò potrebbe comportare una
 marcatura CE ai sensi dell'EHDS **anche indipendentemente dalla disciplina dei dispositivi
-medici**. `[NV]` sulla conclusione, che richiede la lettura diretta delle definizioni
-dell'art. 2 e del capo III.
+medici**, valutazione che va confermato dall'area `COMP` leggendo direttamente le definizioni
+dell'art. 2 e del capo III `[NV]`.
 
 Va inoltre conosciuto il raccordo con il regolamento sui dispositivi medici, che la guida
 europea sulla qualificazione del software riporta testualmente: se si dichiara

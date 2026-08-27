@@ -69,13 +69,13 @@ Conseguenze da scrivere per esteso:
 
 ### 2.3 Non si dichiara la versione negoziata: la si misura
 
-**Vincolo V-156**, già enunciato in [03 §2.3](./03-protezione-dei-dati.md) e qui declinato sul
+**Vincolo [V-156](../11_registri/01-vincoli-in-vigore.md#v-156)**, già enunciato in [03 §2.3](./03-protezione-dei-dati.md) e qui declinato sul
 media.
 
 Il quadro accertato: la libreria crittografica di due dei tre motori di riferimento adotta come
 massima predefinita la **versione più recente** del protocollo di trasporto per il datagramma;
 il terzo motore ha abilitato quella versione in una release identificata; per il rimanente lo
-stato **non è verificabile** su fonte primaria: `[NV]`. Il ripiego alla versione precedente resta
+stato **non è verificabile da `TECH`** su fonte primaria: `[NV]`. Il ripiego alla versione precedente resta
 attivo per compatibilità su tutti.
 
 In queste condizioni **qualunque affermazione statica sarebbe falsa per una parte del parco
@@ -138,7 +138,7 @@ di rischio tracciabile** ai sensi della norma sulla gestione del rischio dei dis
 Il rischio corrispondente va classificato come privo di mitigazione alternativa standard: non
 esiste un'altra strada.
 
-**Requisiti di accessibilità, vincolanti** (decisione D22 e vincolo trasversale V6):
+**Requisiti di accessibilità, vincolanti** (decisione D22 e vincolo trasversale [V6](../11_registri/03-vincoli-fondanti.md#v6)):
 
 - **leggibile da lettore di schermo**: il codice ha una rappresentazione testuale accessibile,
   non è un'immagine;
@@ -150,7 +150,7 @@ esiste un'altra strada.
   interrompere. Un controllo di sicurezza senza procedura di fallimento è un controllo che, al
   primo fallimento, viene ignorato;
 - l'esito della verifica **non è tematizzabile né occultabile** da chi incorpora il componente
-  (vincolo V-23 dell'area di integrazione).
+  (vincolo [V-163](../11_registri/01-vincoli-in-vigore.md#v-163) dell'`INTEG`).
 
 L'esito della verifica - eseguita, non eseguita, non corrispondente - è **registrato fra i
 metadati della sessione**.
@@ -159,7 +159,7 @@ metadati della sessione**.
 
 ### 4.1 Il vincolo, alla lettera
 
-**Vincolo V-10: versione minima 4.17.2 e isolamento di rete in uscita come difesa primaria.**
+**Vincolo [V-10](../11_registri/01-vincoli-in-vigore.md#v-10): versione minima 4.17.2 e isolamento di rete in uscita come difesa primaria.**
 
 La versione minima non è una preferenza. Al di sotto restano aperte vulnerabilità note e
 verificate su banca dati pubblica: una versione 4.16.0 resta esposta a difetti di esaurimento
@@ -174,7 +174,7 @@ post-commercializzazione.
 
 ### 4.2 Perché la lista di indirizzi vietati non è la difesa primaria
 
-Questa è la parte controintuitiva, ed è la ragione per cui il vincolo V-10 è formulato come è
+Questa è la parte controintuitiva, ed è la ragione per cui il vincolo [V-10](../11_registri/01-vincoli-in-vigore.md#v-10) è formulato come è
 formulato.
 
 La direttiva di diniego dei peer è la difesa che tutti configurano. **È stata aggirata quattro
@@ -220,7 +220,7 @@ scritto nella configurazione di riferimento come divieto, non come preferenza.
 nell'avviso del difetto di confronto: l'avviso raccomanda testualmente di evitare confini
 arbitrari e di affidarsi a indirizzi esatti o a intervalli allineati a un prefisso,
 **imponendo le restrizioni di uscita del relay attraverso meccanismi esterni**. L'ultima parte è
-la conferma, dalla fonte a monte, del vincolo V-10.
+la conferma, dalla fonte a monte, del vincolo [V-10](../11_registri/01-vincoli-in-vigore.md#v-10).
 
 **Quarto - nessun servizio co-locato, e il servizio di metadati dell'infrastruttura deve essere
 irraggiungibile.** Nessuna base dati, nessun agente di gestione in ascolto sull'interfaccia di
@@ -303,14 +303,14 @@ Tutti obbligatori, tutti verificabili.
 3. **Il consenso è bilaterale.** Anche il professionista è interessato rispetto alla propria
    immagine e voce, e la sua base giuridica può essere diversa ma deve esistere.
 4. **L'indicatore di registrazione in corso è persistente e non occultabile** per tutta la
-   durata. Non è tematizzabile né rimovibile da chi incorpora il componente (vincolo V-23
-   dell'area di integrazione). È leggibile da lettore di schermo e non è veicolato dal solo
+   durata. Non è tematizzabile né rimovibile da chi incorpora il componente (vincolo [V-163](../11_registri/01-vincoli-in-vigore.md#v-163)
+   dell'`INTEG`). È leggibile da lettore di schermo e non è veicolato dal solo
    colore.
 5. **Il passaggio fra le due modalità è tracciato nel registro**, con l'istante, l'attore e il
    riferimento al consenso.
 6. **Il file è cifrato a riposo con chiave di tenant**, la conservazione è configurabile e la
    revoca produce cancellazione effettiva ([03 §7](./03-protezione-dei-dati.md)).
-7. **Il contenitore è negoziato a runtime, mai assunto** (vincolo V-11). Il quadro accertato è
+7. **Il contenitore è negoziato a runtime, mai assunto** (vincolo [V-11](../11_registri/01-vincoli-in-vigore.md#v-11)). Il quadro accertato è
    che nessuno dei due contenitori diffusi è universale: il primo è supportato da due motori su
    tre, il secondo dal terzo e - solo da una versione recente - anche da uno degli altri. Il
    contenitore effettivo è **registrato fra i metadati della registrazione**, come si fa per la
@@ -341,11 +341,11 @@ Requisiti che ne discendono:
 - esiste un **ripiego dichiarato** - il canale telefonico - e la procedura è nota all'assistito
   prima della sessione, non comunicata durante il guasto;
 - l'interruzione della sessione è un **esito registrato**, non un'assenza di dato: il vincolo
-  V-09 vale anche qui.
+  [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) vale anche qui.
 
 ## 7. Metriche e osservabilità
 
-**Vincolo V-155: nessuna metrica infrastrutturale del relay può essere etichettata con
+**Vincolo [V-155](../11_registri/01-vincoli-in-vigore.md#v-155): nessuna metrica infrastrutturale del relay può essere etichettata con
 l'identificativo di sessione.**
 
 La ragione è nella tabella dei metadati di [01 §2.2](./01-modello-di-minaccia.md). La credenziale
@@ -380,8 +380,8 @@ mescolano con le metriche infrastrutturali**: sono due archivi con due regimi.
 
 | Riferimento | Questione | A chi |
 |---|---|---|
-| Q-08 | Conferma della soluzione a due modalità e dei suoi effetti sul modello dati | Architettura |
-| `[NV]` | Stato del supporto della versione più recente del protocollo di trasporto per il datagramma sul motore per cui non è stato accertato (§2.3) | Verifica empirica |
-| `[NV]` | Algoritmo di sintesi sottostante al calcolo delle credenziali effimere del relay: la documentazione a monte scrive genericamente «hmac». Va **verificato empiricamente** con una prova di integrazione contro la versione effettivamente distribuita, che è più solida di qualunque citazione documentale | Tecnica |
-| `[NV]` | Supporto della notazione a prefisso nelle direttive di diniego: non verificato a monte, quindi la configurazione di riferimento usa esclusivamente la forma con intervallo, che è documentata (§4.3) | Tecnica |
-| - | Soglia minima di versione di protocollo negoziata sotto la quale la sessione è rifiutata: è **specifica di prodotto, mai conformità** (V-12) | Funzionale |
+| [Q-08](../11_registri/02-questioni-aperte.md#q-08) | Conferma della soluzione a due modalità e dei suoi effetti sul modello dati | Architettura |
+| `[NV]` | Stato del supporto della versione più recente del protocollo di trasporto per il datagramma sul motore per cui non è stato accertato (§2.3) | `TECH` |
+| `[NV]` | Algoritmo di sintesi sottostante al calcolo delle credenziali effimere del relay: la documentazione a monte scrive genericamente «hmac». Va **verificato empiricamente** con una prova di integrazione contro la versione effettivamente distribuita, che è più solida di qualunque citazione documentale | `TECH` |
+| `[NV]` | Supporto della notazione a prefisso nelle direttive di diniego: non verificato a monte, quindi la configurazione di riferimento usa esclusivamente la forma con intervallo, che è documentata (§4.3) | `TECH` |
+| - | Soglia minima di versione di protocollo negoziata sotto la quale la sessione è rifiutata: è **specifica di prodotto, mai conformità** ([V-12](../11_registri/01-vincoli-in-vigore.md#v-12)) | Funzionale |

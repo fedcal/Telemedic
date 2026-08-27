@@ -26,18 +26,18 @@ The language of the domain is defined in the domain research with over a hundred
 | Ambiguous word | The senses that must be separated | Consequence on the model |
 |---|---|---|
 | **Session** | Health act · real-time connection · billable unit | Three distinct types: `Performance`, `MediaSession`, billable event |
-| **Consent** | **Five distinct objects**: health act · data processing where applicable · recording · presence of third parties · transmission to external systems | A single `Consent` aggregate with an explicit type and **five independent instances** with separate life cycles, never a boolean value. **No "consent to the platform" exists in the model** (constraint V-146 of the domain area) |
+| **Consent** | **Five distinct objects**: health act · data processing where applicable · recording · presence of third parties · transmission to external systems | A single `Consent` aggregate with an explicit type and **five independent instances** with separate life cycles, never a boolean value. **No "consent to the platform" exists in the model** (constraint [V-146](../11_registri/01-vincoli-in-vigore.md#v-146) of the domain area) |
 | **Performance** | Request · execution · charge | Three concepts: request is an external reference, execution is `Performance`, charge is an event |
 | **Patient** | Clinical qualification · administrative qualification (patient) | A single demographic reference, with administrative coverage as a separate and temporal attribute |
 | **Recording** | Audiovisual capture · act of registering a fact in the system | In code, `SessionRecording` for the first, `trace` or `event` for the second: the collision is real and produces defects |
-| **Outcome** | Where the encounter is (state) · what happened (outcome) | **Two distinct attributes**, never collapsible: two outcomes can share the terminal state and have **opposite** administrative effects (constraint V-141 of the domain area). Outcome is **domain value, not error code**: an unfavourable outcome is a **successful** operation that registers a fact (constraint V-126 of the functional area) |
+| **Outcome** | Where the encounter is (state) · what happened (outcome) | **Two distinct attributes**, never collapsible: two outcomes can share the terminal state and have **opposite** administrative effects (constraint [V-141](../11_registri/01-vincoli-in-vigore.md#v-141) of the domain area). Outcome is **domain value, not error code**: an unfavourable outcome is a **successful** operation that registers a fact (constraint [V-126](../11_registri/01-vincoli-in-vigore.md#v-126) of the functional area) |
 | **Available** | Published · bookable by a channel · not yet occupied | Three distinct attributes of the interval, never a single boolean value |
 
 A rule that flows from this and holds for all code: **no type in the domain is named with an ambiguous word without qualification**. `Session` alone is not an admitted name.
 
 ## 3. The separation between clinical performance and media session
 
-It is the most important modelling decision of the system. The architectural baseline imposes it as a constraint, the inter-agent noticeboard registers it as V-01, and domain research defines it as "the most costly modelling error in this domain" when violated. This section reconstructs its full motivation, because an imposed decision not understood is skirted at the first opportunity.
+It is the most important modelling decision of the system. The architectural baseline imposes it as a constraint, the inter-agent noticeboard registers it as [V-01](../11_registri/01-vincoli-in-vigore.md#v-01), and domain research defines it as "the most costly modelling error in this domain" when violated. This section reconstructs its full motivation, because an imposed decision not understood is skirted at the first opportunity.
 
 ### 3.1 Why the temptation exists
 
@@ -164,10 +164,10 @@ stateDiagram-v2
     }
 ```
 
-> **Two clarifications imposed by domain constraints.** The machine represented is that of telehealth: **every performance type is its own state machine**, selected by type, and allowed actors, obligatory presence of the patient, asynchrony, obligatory artefacts, allowed outcomes, recordability and windows are **attributes of the performance catalogue**, not conditions scattered in the code (constraint V-140 of the domain area). Adding a performance is a catalogue row plus a state machine, never a domain modification.
+> **Two clarifications imposed by domain constraints.** The machine represented is that of telehealth: **every performance type is its own state machine**, selected by type, and allowed actors, obligatory presence of the patient, asynchrony, obligatory artefacts, allowed outcomes, recordability and windows are **attributes of the performance catalogue**, not conditions scattered in the code (constraint [V-140](../11_registri/01-vincoli-in-vigore.md#v-140) of the domain area). Adding a performance is a catalogue row plus a state machine, never a domain modification.
 > Furthermore **state and outcome are distinct attributes**: state says where the encounter is,
 > outcome what happened. Two outcomes can share the terminal state and have opposite administrative effects - non-attendance and technical failure attributable to the patient are the canonical case - and collapsing them into a single field is forbidden
-> (constraint V-141).
+> (constraint [V-141](../11_registri/01-vincoli-in-vigore.md#v-141)).
 
 The two machines have different cardinality - one performance, from zero to many sessions - different duration, different granularity and different rhythm. The second changes state dozens of times in one performance; the first a few times in hours or days. They are the same thing only in the happy case, and the happy case is not what you design for.
 
@@ -253,12 +253,12 @@ The **measurement is an autonomous aggregate**, not an entity of the plan. They 
 
 Three constraints placed by the domain and functional areas govern this context and must be stated here because they condition the shape of the types.
 
-**The alarm is a sequence of immutable events; current state is a projection.** No state column updated in place, neither for the alarm nor for the measure nor for the plan (constraint V-121 of the functional area). The reason is probative: the question the system must answer is not "in what state is the alarm", but "what happened, in which order, and who did what". A column updated in place erases the answer every time it writes it.
+**The alarm is a sequence of immutable events; current state is a projection.** No state column updated in place, neither for the alarm nor for the measure nor for the plan (constraint [V-121](../11_registri/01-vincoli-in-vigore.md#v-121) of the functional area). The reason is probative: the question the system must answer is not "in what state is the alarm", but "what happened, in which order, and who did what". A column updated in place erases the answer every time it writes it.
 
 **The identity of the measure, for idempotence purposes, is the quintuple** source, subject,
-parameter, instant of measure, value; **instant of measure and instant of receipt are two distinct mandatory fields** and evaluation rules operate **on the instant of measure** (constraint V-124). Evaluating on receipt instant would produce alarms with the wrong time and adherences calculated on a window that is not the one prescribed.
+parameter, instant of measure, value; **instant of measure and instant of receipt are two distinct mandatory fields** and evaluation rules operate **on the instant of measure** (constraint [V-124](../11_registri/01-vincoli-in-vigore.md#v-124)). Evaluating on receipt instant would produce alarms with the wrong time and adherences calculated on a window that is not the one prescribed.
 
-**Measurement expectation is an entity**, not the absence of a row (constraint V-148 of the domain area). It is the operative form of the principle that silence is never normality, and is the condition for adherence to be a defined quantity: without a row declaring that a measurement was expected, "not received" and "never foreseen" are indistinguishable.
+**Measurement expectation is an entity**, not the absence of a row (constraint [V-148](../11_registri/01-vincoli-in-vigore.md#v-148) of the domain area). It is the operative form of the principle that silence is never normality, and is the condition for adherence to be a defined quantity: without a row declaring that a measurement was expected, "not received" and "never foreseen" are indistinguishable.
 
 ### 4.8 Consent context
 
@@ -268,9 +268,9 @@ parameter, instant of measure, value; **instant of measure and instant of receip
 | **Notice** | `Notice` | Text, version, validity, languages | Immutable once published |
 | **Obscuring** | `Obscuring` | Scope, recipients, start date | The existence of the obscured is not inferable; **application belongs to the authorisation engine**, not to consumers |
 
-The **five consent objects** are, with independent life cycles (constraint V-146 of the domain area): adhesion to the health act; data processing where the consent is the applicable legal basis; session recording; presence of third parties in session; transmission to external systems. **Revocation of one does not touch the others**, and **no "consent to the platform" exists in the model**: an object that aggregated them would make revocation of one a revocation of all, which is both incorrect and harmful to care.
+The **five consent objects** are, with independent life cycles (constraint [V-146](../11_registri/01-vincoli-in-vigore.md#v-146) of the domain area): adhesion to the health act; data processing where the consent is the applicable legal basis; session recording; presence of third parties in session; transmission to external systems. **Revocation of one does not touch the others**, and **no "consent to the platform" exists in the model**: an object that aggregated them would make revocation of one a revocation of all, which is both incorrect and harmful to care.
 
-The **obscuring is applied by the authorisation engine in a single point**, which filters and calculates totals on the filtered set (constraint V-149 of the domain area). Applying it in consumers would mean closing it in some and leaving it open in others. The channels of inference to close are six and must all be closed: numbering, counts, pagination, notifications, differences between successive queries, error messages. **Test data for acceptance must include obscured documents**, otherwise no test path exercises the route.
+The **obscuring is applied by the authorisation engine in a single point**, which filters and calculates totals on the filtered set (constraint [V-149](../11_registri/01-vincoli-in-vigore.md#v-149) of the domain area). Applying it in consumers would mean closing it in some and leaving it open in others. The channels of inference to close are six and must all be closed: numbering, counts, pagination, notifications, differences between successive queries, error messages. **Test data for acceptance must include obscured documents**, otherwise no test path exercises the route.
 
 ### 4.9 Remaining contexts
 
@@ -366,7 +366,7 @@ The distinction must be **explicit in code**, not entrusted to memory: an intern
 ### 7.3 Rules on events
 
 1. **Immutable and versioned.** Every event carries the version of its schema. An event modified without version increment is a defect.
-2. **No clinical content in events exiting towards third-party systems** (constraint V-161
+2. **No clinical content in events exiting towards third-party systems** (constraint [V-161](../11_registri/01-vincoli-in-vigore.md#v-161)
    of the integration area): identifiers and references; content is reread with an authenticated call under the recipient's authorisation.
 3. **Named in the past.** `PerformanceConcluded`, not `ConcludePerformance`. An event named in the imperative is a command in disguise and produces coupling between producer and consumer.
 4. **Emitted after transaction consolidation**, never before. A consumer that fails does not make the clinical act fail: the failure goes into a retry queue, not propagated to the user.

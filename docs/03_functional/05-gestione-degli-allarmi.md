@@ -35,7 +35,7 @@ misurare l'esito degli allarmi (`RF-290`) e il tetto configurabile per destinata
 
 ## 2. Le soglie sono configurazione clinica per assistito
 
-Questo punto non ammette gradazioni ed è la formulazione operativa del vincolo **V-02**: la soglia e
+Questo punto non ammette gradazioni ed è la formulazione operativa del vincolo **[V-02](../11_registri/01-vincoli-in-vigore.md#v-02)**: la soglia e
 l'allerta sono configurate dal professionista, mai dedotte dal sistema.
 
 **Quattro ragioni cumulative.** *Clinica*: la normalità è individuale, e il valore clinicamente utile
@@ -292,7 +292,7 @@ un'operazione a costo zero, perché degrada tutti gli altri.
 
 ## 9. Il silenzio del paziente
 
-**L'assenza di dato è essa stessa un dato** (vincolo V-09). In un servizio di telemonitoraggio la
+**L'assenza di dato è essa stessa un dato** (vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09)). In un servizio di telemonitoraggio la
 mancata trasmissione di una misura attesa è un evento clinico con la stessa dignità informativa di
 una misura fuori soglia: non è un vuoto nella serie, non è un problema di qualità dei dati, non è un
 caso da ignorare. Fra le sue cause c'è, con probabilità non trascurabile, **esattamente ciò che il
@@ -439,7 +439,7 @@ conoscere. La seconda è un atto clinico riservato (`BR-163`).
 | Configurazione della copertura | versionata, perché determina se un mancato riscontro era atteso |
 | Prove a freddo della catena | marcate, con esito per anello e per canale, fuori dalle statistiche cliniche |
 
-Tutto questo ricade sotto il vincolo di auditabilità immutabile (**V-04**), con l'avvertenza già
+Tutto questo ricade sotto il vincolo di auditabilità immutabile (**[V-04](../11_registri/01-vincoli-in-vigore.md#v-04)**), con l'avvertenza già
 registrata dal progetto: **il versionamento delle entità non è immutabilità**. La non alterabilità
 richiede catena di impronte e conservazione separata dal sistema che genera gli eventi.
 
@@ -476,6 +476,6 @@ proposta al professionista responsabile del piano (`RF-290`).
    che appartiene alla severità e al piano.
 7. **Trattare il silenzio come assenza di anomalie.** È il difetto più frequente dei prodotti di
    telemonitoraggio realizzati da chi arriva dall'informatica, ed è precisamente ciò che il vincolo
-   V-09 esiste per impedire.
+   [V-09](../11_registri/01-vincoli-in-vigore.md#v-09) esiste per impedire.
 8. **Dichiarare una copertura più ampia di quella effettivamente presidiata.** Produce falsa
    rassicurazione, e la falsa rassicurazione produce ritardo.

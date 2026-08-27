@@ -124,9 +124,9 @@ Le organizzazioni che contano per Telemedic sono queste.
 | **CEN/TC 251** (*Health informatics*, comitato europeo) | Standard europei di informatica sanitaria, spesso adottati in parallelo con ISO | Rilevante per il contesto europeo di conformità |
 | **IETF** e **W3C** | Gli standard della rete su cui tutto poggia: HTTP, TLS, OAuth, JSON, WebRTC | Sono il livello sotto: senza questi, nessuno standard sanitario funziona |
 
-**[NV]** I mandati puntuali di ISO/TC 215 e CEN/TC 251, i loro cataloghi di standard e le
-relazioni formali di adozione fra i due comitati non sono stati verificati su fonte
-primaria nella fase di ricerca del progetto. Vanno accertati prima di citarli come base
+I mandati puntuali di ISO/TC 215 e CEN/TC 251, i loro cataloghi di standard e le
+relazioni formali di adozione fra i due comitati rimangono da accertare da parte dell'area `TECH` `[NV]` su fonte
+primaria nella fase di ricerca del progetto, prima di citarli come base
 normativa in documentazione regolatoria.
 
 ### 2.2 Specifica, profilo, Implementation Guide, guida nazionale
@@ -264,8 +264,8 @@ dati che le ignora va rifatto, non adattato.
 
 Dire che «due sistemi sono interoperabili» non significa nulla finché non si specifica *a
 quale livello*. La suddivisione che segue è di uso corrente nella letteratura di
-informatica sanitaria e nei quadri di riferimento europei; **[NV]** la sua formulazione
-puntuale e la fonte normativa esatta non sono state verificate nella fase di ricerca del
+informatica sanitaria e nei quadri di riferimento europei; la sua formulazione
+puntuale e la fonte normativa esatta rimangono da accertare da parte dell'area `TECH` `[NV]` nella fase di ricerca del
 progetto, e va quindi usata come strumento didattico, non citata come definizione
 normativa.
 
@@ -485,7 +485,7 @@ Riga per riga:
 separatore di campo. `^~\&` sono gli altri quattro separatori. Segue chi invia
 (`GESTIONALE` presso `STRUTTURA_A`) e chi riceve (`TELEMEDIC` presso `TENANT_A`): il
 secondo elemento della coppia ricevente è il modo naturale di veicolare l'informazione di
-tenant, che il vincolo V4 del progetto impone su ogni entità. `20260914073000` è la data e
+tenant, che il vincolo [V4](../11_registri/03-vincoli-fondanti.md#v4) del progetto impone su ogni entità. `20260914073000` è la data e
 ora del messaggio nel formato compatto dello standard. `SIU^S12^SIU_S12` è il tipo:
 messaggio SIU, evento S12, struttura `SIU_S12`. `MSG00001` è l'identificativo univoco: è il
 valore che l'ACK di ritorno citerà. `P` indica ambiente di produzione. `2.5.1` è la
@@ -568,8 +568,7 @@ verificati includono `101` (campo obbligatorio mancante), `102` (tipo di dato er
 `103` (valore non presente in tabella), `204` (identificativo sconosciuto), `205`
 (identificativo duplicato) e `207` (errore applicativo generico) **[V]**.
 
-**[NV]** Le colonne di lunghezza massima e di obbligatorietà del segmento `ERR` non sono
-state verificate su fonte primaria: tre estrazioni indipendenti della stessa pagina hanno
+Le colonne di lunghezza massima e di obbligatorietà del segmento `ERR` rimangono da accertare da parte dell'area `TECH` `[NV]` su fonte primaria: tre estrazioni indipendenti della stessa pagina hanno
 prodotto valori incompatibili. Non vanno pubblicate.
 
 ### 4.6 Il trasporto: MLLP, e perché va incapsulato in TLS
@@ -586,8 +585,7 @@ incornicia ogni messaggio fra un byte di inizio e una coppia di byte di fine **[
 
 **[V-sec]** I valori esadecimali sono confermati da due fonti indipendenti che citano la
 specifica ufficiale di trasporto; il documento primario non è stato letto direttamente
-nella fase di ricerca. **[NV]** La porta 6660, spesso citata come convenzionale, non
-risulta essere una porta registrata per MLLP: nella pratica si usa quella concordata fra
+nella fase di ricerca. La porta 6660, spesso citata come convenzionale, rimane da verificare da parte dell'area `TECH` `[NV]` se sia una porta registrata per MLLP: nella pratica si usa quella concordata fra
 le parti.
 
 Ora il punto che conta davvero:
@@ -640,7 +638,7 @@ proprietà che la letteratura di settore attribuisce a un documento clinico - e 
 distinguono la natura da quella di un messaggio - sono la persistenza nel tempo, la
 riferibilità a un custode responsabile, la possibilità di essere autenticato da chi ne
 risponde, l'autosufficienza rispetto al contesto, l'integrità come unità inscindibile e la
-leggibilità da parte di un essere umano. **[NV]** Questa formulazione non è stata verificata
+leggibilità da parte di un essere umano. Questa formulazione rimane da verificare da parte dell'area `TECH` `[NV]`
 sul testo della specifica CDA nella fase di ricerca del progetto: va confermata prima di
 essere citata come definizione normativa.
 
@@ -668,8 +666,8 @@ all'elaborazione automatica.
 Ne discende la nozione di **livello di strutturazione**, che nel gergo di settore si
 esprime così: un documento è di livello 1 quando il corpo è sostanzialmente narrativo, di
 livello 2 quando le sezioni sono identificate e codificate, di livello 3 quando anche il
-contenuto delle sezioni è codificato in entry elaborabili. **[NV]** Questa tripartizione è
-di uso corrente ma non è stata verificata sul testo della specifica: va confermata.
+contenuto delle sezioni è codificato in entry elaborabili. Questa tripartizione è
+di uso corrente ma rimane da verificare da parte dell'area `TECH` `[NV]` sul testo della specifica: va confermata.
 
 ### 5.3 I template
 
@@ -756,8 +754,8 @@ Il prefisso è il **dominio** IHE che ha definito la transazione. `ITI` sta per 
 Infrastructure* ed è il dominio delle funzioni trasversali: condivisione di documenti,
 gestione delle identità, tracciamento, autorizzazione, sincronizzazione del tempo. Esistono
 altri domini (radiologia, cardiologia, laboratorio, sanità pubblica, farmacia), ciascuno
-con la propria numerazione. **[NV]** L'elenco completo dei domini IHE e le rispettive sigle
-non sono stati verificati nella fase di ricerca.
+con la propria numerazione. L'elenco completo dei domini IHE e le rispettive sigle
+rimangono da accertare da parte dell'area `TECH` `[NV]` nella fase di ricerca.
 
 Il numero è progressivo dentro il dominio e **non ha significato semantico**: `ITI-65` non è
 «più avanzato» di `ITI-41`, è semplicemente stato definito dopo. Il numero è però stabile
@@ -1033,8 +1031,8 @@ Le regole che il progetto si dà, e la ragione di ciascuna:
 4. **TLS con autenticazione reciproca** verso l'archivio, coerentemente con il profilo di
    autenticazione di nodo.
 
-**[NV]** Le regole di autorizzazione specifiche per DICOMweb - in particolare l'uso di
-token OAuth sui servizi di recupero - non sono state verificate nella fase di ricerca del
+Le regole di autorizzazione specifiche per DICOMweb - in particolare l'uso di
+token OAuth sui servizi di recupero - rimangono da accertare da parte dell'area `TECH` `[NV]` nella fase di ricerca del
 progetto.
 
 ---
@@ -1333,8 +1331,8 @@ La soluzione è architetturale ed è comunque la pratica corretta:
 
 Questa separazione va tenuta con disciplina e formalizzata in una decisione architetturale.
 
-**[NV]** Non è stato verificato se esista una variante linguistica italiana ufficiale di
-LOINC pubblicata dal titolare. Se esiste, è la soluzione preferibile: si usa quella.
+L'esistenza di una variante linguistica italiana ufficiale di
+LOINC pubblicata dal titolare rimane da accertare da parte dell'area `TECH` `[NV]`. Se esiste, è la soluzione preferibile: si usa quella.
 
 ### 8.6 Il principio generale che vale oltre questi casi
 
@@ -1451,8 +1449,8 @@ prassi delle specifiche della rete. I termini chiave, in maiuscolo nel testo ori
 | **SHOULD NOT** | Sconsigliato, con la stessa disciplina. |
 | **MAY** | Facoltativo. Nessuna implicazione se non lo fai. |
 
-**[NV]** La definizione formale di questi termini è nelle specifiche di riferimento della
-comunità Internet (RFC 2119, integrata da RFC 8174), che non sono state lette nella fase di
+La definizione formale di questi termini è nelle specifiche di riferimento della
+comunità Internet (RFC 2119, integrata da RFC 8174), rimangono da verificare da parte dell'area `TECH` `[NV]` nella fase di
 ricerca del progetto: la tabella riflette l'uso corrente e va confermata sul testo prima di
 citarla come fonte normativa.
 

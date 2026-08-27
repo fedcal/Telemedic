@@ -7,7 +7,7 @@ description: Perché Telemedic espone una facciata clinica nel formato di scambi
 # ADR-0006 - Due piani di esposizione sopra un unico modello di dominio
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Vincoli di riferimento**: V3; V-160 e V-164 di bacheca
+**Vincoli di riferimento**: [V3](../11_registri/03-vincoli-fondanti.md#v3); [V-160](../11_registri/01-vincoli-in-vigore.md#v-160) e [V-164](../11_registri/01-vincoli-in-vigore.md#v-164) di bacheca
 
 ## Contesto
 

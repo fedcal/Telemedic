@@ -24,11 +24,14 @@ This last point must be said at once and without mitigation, because it is the r
 module contains many `[NV]` markers: **a non-negligible part of the technical documentation
 needed to integrate with the electronic health record is not freely consultable.** Whoever
 writes this guide has not seen it. We shall not invent it: we shall declare it missing every
-time it is missing, indicating where it must be requested.
+time it is missing, indicating where it must be asked of.
 
 > **Reading convention.** `[NV]` means «not verified or not publicly available at the date of
-> writing». It is not an excuse: it is an operational indication. Every `[NV]` in this module
-> is collected in § 11, together with the party from whom the information must be requested.
+> writing» and declares to whom verification must be requested. Every `[NV]` in this module carries,
+> within the same paragraph, the indication of the recipient in one of three permitted forms: the
+> code of an area in backticks, a question identifier, or an external party named according to the
+> rules in `CONTRIBUTING.md`. § 11 collects the points so marked, together with the party from whom
+> the information must be requested.
 
 ---
 
@@ -383,7 +386,8 @@ extended:
 | **Phase III** | Full operation: feeding within five days, documents delivered outside the SSN, enablement of authorised private organisations | 31 March 2026 | **31 March 2026** (unchanged) |
 
 At the date of writing Phase III has formally expired. **The actual state of implementation,
-Region by Region, has not been ascertained against an updated official source.** `[NV]`
+Region by Region, has not been ascertained against an updated official source,** and must be
+requested from the Ministry of Health that issues the postponement decrees. `[NV]`
 
 **A figure of scale, to understand what we are talking about.** As at 31 December 2025 the
 national health record portal declared **29 document types** managed and **33 types of citizen
@@ -523,9 +527,9 @@ patients, with its own index and its own repository or repositories. Whoever doe
 operational infrastructure of their own **avails themselves of FSE-INI on a subsidiary basis**.
 The practical consequence is that **there is no single feeding interface**: there is the
 national path and there are twenty regional declensions of it, with real differences in
-endpoints, authentication, accepted formats and validation rules. `[NV]` on the updated map of
-regional differences, which is not published in consolidated form and which every deployer
-must reconstruct for their own Region.
+endpoints, authentication, accepted formats and validation rules. The updated map of
+regional differences is not published in consolidated form and must be asked of from AGENAS
+`[NV]`; every deployer must reconstruct the details for their own Region.
 
 **The role of the Regions in checking documents.** Article 13 of DM 7 settembre 2023
 establishes that **the Regions are the controllers of the formal and semantic verification
@@ -574,7 +578,7 @@ flowchart LR
 > **Warning about the diagram.** It is a **logical** representation of the roles, reconstructed
 > from the statutory texts cited. **It is not an integration schema**: the real endpoints, the
 > transport protocols and the exact sequence of calls depend on the technical interoperability
-> specifications and on the regional declensions, which § 4.8 declares not integrally verified.
+> specifications and on the regional declensions; the status of integral verification of these specifications must be confirmed by the `PROTO` area of the project.
 > `[NV]`
 
 ---
@@ -624,9 +628,9 @@ place.
 **The national document format of the health record is HL7 CDA Rel. 2 («CDA2»)**, carried
 inside a **digitally signed PDF**. This is the arrangement of the national interoperability
 specifications («*Affinity Domain Italia*»), published in the technical area of the health
-record portal. The version declared as published is **2.6.4**. **It has not been verified
-whether that version already contains the CDA2 templates for the ten telemedicine document
-types.** `[NV]`
+record portal. The version declared as published is **2.6.4**, and it must be confirmed by
+the technical area of the health record portal whether it already contains the CDA2 templates
+for the ten telemedicine document types `[NV]`.
 
 From this uncertainty descends a project rule to be observed without exceptions, because it
 protects against a costly rewrite: **the information content of Annex 1 is modelled as a
@@ -656,11 +660,11 @@ Two properties of this stage have direct effects on the producer's architecture:
   outcome**, and it must be handled as a domain state: document produced, transmission
   rejected, reason, rework. Not as a technical exception.
 
-`[NV]` - **The interface specifications of the AGENAS technological solutions are not publicly
-available** (endpoints, format of outcome messages, taxonomy of validation errors). They must
-be requested from AGENAS or from the Region concerned. The project must not invent one: it
-must provide for an **adapter with a stable internal contract** and a single replaceable
-implementation.
+**The interface specifications of the AGENAS technological solutions** (endpoints, format of
+outcome messages, taxonomy of validation errors) are not publicly available.
+`[NV]` Must be requested from AGENAS or from the Region concerned their full details.
+The project must not invent one: it must provide for an **adapter with a stable internal contract**
+and a single replaceable implementation.
 
 ### 4.4 Transmission signature and indexing through the INI
 
@@ -674,13 +678,13 @@ This transfer is a detail worth recording: **the index moves, the document does 
 that assumes the stability of the index's location for the whole of the patient's life is
 wrong.
 
-`[NV]` - **The IHE XDS indexing metadata and the document type codes (`typeCode`, `classCode`,
-and the corresponding LOINC coding) for the ten new telemedicine types have not been
-located.** They are the information needed to build the `SubmissionSet` and the
-`DocumentEntry`. They are to be looked for in the technical area of the health record portal,
-in the CDA2 specification documents for each individual type; failing that, requested from
-Sogei or from the INI. Module [05](05-standard-di-interoperabilita.md) explains what IHE XDS,
-`SubmissionSet` and `DocumentEntry` are.
+**The IHE XDS indexing metadata and the document type codes** (`typeCode`, `classCode`, and
+the corresponding LOINC coding) for the ten new telemedicine types have not been located.
+`[NV]` Must be requested of the technical area of the health record portal (in the CDA2 specification
+documents for each individual type), and failing that from Sogei or from the INI. They are
+the information needed to build the `SubmissionSet` and the `DocumentEntry`. Module
+[05](05-standard-di-interoperabilita.md) explains what IHE XDS, `SubmissionSet` and
+`DocumentEntry` are.
 
 ### 4.5 Deadline and responsibility
 
@@ -754,22 +758,22 @@ sequenceDiagram
 > **What this diagram is not.** It is not an integration contract. It represents the
 > **sequence of roles and responsibilities** as reconstructed from the sources cited. Steps
 > 7-12 take place, in reality, through interfaces whose technical specification is not
-> integrally public: **the number, order and granularity of the actual calls may differ**, and
-> they do differ between Regions. `[NV]`
+> integrally public: **the number, order and granularity of the actual calls may differ between
+> Regions**, and must be confirmed by each Region individually `[NV]`.
 
 ### 4.9 What remains unverified in this flow
 
 Summary of the points on which the project **must not invent specifications**:
 
-| Element | Status | Where it must be requested |
-|---|---|---|
-| CDA2 templates for the ten telemedicine types | `[NV]` | Technical area of the health record portal (CDA2 specification documents by type); failing that Sogei / INI |
-| Document type codes and IHE XDS metadata for the same | `[NV]` | As above |
-| Interface specifications of the AGENAS technological solutions (paragraph 15-*quater*) | `[NV]` | AGENAS; the Region concerned |
-| Content of version 2.6.4 of «*Affinity Domain Italia*» with respect to telemedicine | `[NV]` | Health record portal, technical area |
-| Regional differences in endpoints, authentication and validation | `[NV]` | Each Region, individually |
-| Coding of the at-a-distance mode of delivery in the reimbursement reporting flows (the value «telemedicine» in the «place of delivery» field) | `[NV]` | Technical specifications of the Sistema Tessera Sanitaria; regional rulebooks for the outpatient specialist flow |
-| Operational content of the AGENAS **Validation Process** under Article 3(4) of DM 19 novembre 2025 | `[NV]` | AGENAS |
+| Element | Status and To whom |
+|---|---|
+| CDA2 templates for the ten telemedicine types | `[NV]` must be requested from the technical area of the health record portal (CDA2 specification documents by type); failing that from Sogei or INI |
+| Document type codes and IHE XDS metadata for the same | `[NV]` must be requested from the technical area of the health record portal (CDA2 specification documents by type); failing that from Sogei or INI |
+| Interface specifications of the AGENAS technological solutions (paragraph 15-*quater*) | `[NV]` must be requested from AGENAS; the Region concerned |
+| Content of version 2.6.4 of «*Affinity Domain Italia*» with respect to telemedicine | `[NV]` must be requested from the health record portal, technical area |
+| Regional differences in endpoints, authentication and validation | `[NV]` must be requested from each Region, individually |
+| Coding of the at-a-distance mode of delivery in the reimbursement reporting flows (the value «telemedicine» in the «place of delivery» field) | `[NV]` must be requested from the technical specifications of the Sistema Tessera Sanitaria; regional rulebooks for the outpatient specialist flow |
+| Operational content of the AGENAS **Validation Process** under Article 3(4) of DM 19 novembre 2025 | `[NV]` must be requested from AGENAS |
 
 **Product consequence, to be held firm.** Every entry in this table is a point of variability
 that must be isolated behind a project interface, with an implementation configurable per
@@ -928,12 +932,11 @@ provider nor consumer**: it can supply the technical implementation that allows 
 be one. It is exactly the same principle that holds for SPID (§ 8) and that returns in the
 table of § 9.
 
-`[NV]` - **The detailed operational specifications of the PDND** (the exact format of the
-voucher, its lifetime, the permitted algorithms, the *onboarding* procedure for a body, the
-test environments) **have not been verified in this guide.** They are documented in the AgID
-guidelines v2 of May 2025 and in the platform's technical documentation, and must be read
-directly before writing code. The project **must not derive from this page any implementation
-assumption** about the PDND.
+**The detailed operational specifications of the PDND** (the exact format of the voucher, its
+lifetime, the permitted algorithms, the *onboarding* procedure for a body, the test
+environments) have not been verified in this guide, and must be asked of directly from AgID
+in its guidelines v2 of May 2025 and in the platform's technical documentation `[NV]`. The
+project **must not derive from this page any implementation assumption** about the PDND.
 
 ---
 
@@ -1009,8 +1012,8 @@ standards certified by Agenas and feed the Fascicolo Sanitario Elettronico*». T
 carried out by the **Gestore Soluzioni di Telemedicina** of the INT, which assists providers in
 the **Validation Process**. It is the most interesting way in for a solution alternative to
 those of the lead-Region tenders, and module [02](02-prestazioni-di-telemedicina.md), § 6.2,
-discusses its strategic significance. **What the Validation Process consists of operationally
-is not publicly documented.** `[NV]`
+discusses its strategic significance. What the Validation Process consists of operationally
+is not publicly documented, and must be asked of from AGENAS `[NV]`.
 
 **4. Conformity assessment as a medical device - authority: a Notified Body.** This is an
 entirely different matter: it concerns the safety and performance of the device within the
@@ -1094,8 +1097,8 @@ Annex 4, § 7, imposes on **all** regional telemedicine infrastructures - «*inc
 were not party to the aforesaid procedure*» - the security measures provided for by **chapter 5
 of the tender specification of a specific regional procurement**. That is to say, a ministerial
 decree makes binding for the entire national territory a **tender** document that was not
-published in the *Gazzetta Ufficiale*. **That chapter has not been located** in the searches
-conducted by the project. `[NV]`
+published in the *Gazzetta Ufficiale*. That chapter has not been located in the searches
+conducted by the project, and must be asked of from the Region concerned `[NV]`.
 
 It is not an isolated case: DM 21 settembre 2022 in turn refers, for the functional
 requirements of the micro-services, to methodological documents published by AGENAS as annexes
@@ -1287,8 +1290,9 @@ those operations.
 
 **The project's assessment - declared as such and not as a certainty - is that Telemedic will
 with high probability fall within the scope of Chapter III**, and that this could entail a CE
-marking under the EHDS **even independently of the medical devices regime**. `[NV]` on the
-conclusion, which requires direct reading of the definitions in Article 2 and of Chapter III.
+marking under the EHDS **even independently of the medical devices regime**, an assessment
+that must be confirmed by the area `COMP` by directly reading the definitions in Article 2 and
+of Chapter III `[NV]`.
 
 The linkage with the medical devices regulation must also be known, which the European guidance
 on the qualification of software reports verbatim: if interoperability is declared between a

@@ -122,7 +122,7 @@ usable in both formats.
 | | |
 |---|---|
 | **Recipient** | The competent authorities of the Member States |
-| **Obliged entity** | The **manufacturer** of the device. It is not the project **today** (constraint V-06): it is the **manufacturing entity to be established**, for our distribution, and whoever places each derivation on the market |
+| **Obliged entity** | The **manufacturer** of the device. It is not the project **today** (constraint [V-06](../11_registri/01-vincoli-in-vigore.md#v-06)): it is the **manufacturing entity to be established**, for our distribution, and whoever places each derivation on the market |
 | **Deadlines** | **2 days** in the case of a serious public health threat; **10 days** in the case of death or an unanticipated serious deterioration in a person's state of health; **15 days** for other serious incidents (Article 87 of Regulation (EU) 2017/745) |
 
 **Why it appears in a security chapter.** Because a security incident can **also be** a vigilance
@@ -136,7 +136,7 @@ them requires establishing a link between the technical event and the clinical c
 the point at which the table of clinical consequences in [01 §5](./01-modello-di-minaccia.md) stops
 being a modelling exercise and becomes an operational triage instrument.
 
-**Declaration of `Q-276`.** The rewrite of the obliged entity row makes the project the holder of two vigilance obligations that require technical capabilities not yet engineered: the **stable taxonomy of counted events** and the **retention of diagnostics to match the vigilance window**. Both obligations count events; they do not activate retroactively; the missing historical series cannot be reconstructed. With the role of manufacturer, the ownership of this gap will be ours, and must be declared explicitly as a relevant risk in the register of missing enabling capabilities.
+**Declaration of [`Q-276`](../11_registri/02-questioni-aperte.md#q-276).** The rewrite of the obliged entity row makes the project the holder of two vigilance obligations that require technical capabilities not yet engineered: the **stable taxonomy of counted events** and the **retention of diagnostics to match the vigilance window**. Both obligations count events; they do not activate retroactively; the missing historical series cannot be reconstructed. With the role of manufacturer, the ownership of this gap will be ours, and must be declared explicitly as a relevant risk in the register of missing enabling capabilities.
 
 ### 2.5 The fifth - Cyber resilience, from 11 September 2026
 
@@ -264,7 +264,7 @@ point on a daily basis, with configurable thresholds and an alarm when they are 
 
 The expected service levels under the monitoring measure and the contractual agreements provided
 for by the decree on regional infrastructures **are not the same thing**, but the customer will
-tend to calibrate one against the other. Defining the reference values to propose is question Q-152,
+tend to calibrate one against the other. Defining the reference values to propose is question [Q-152](../11_registri/02-questioni-aperte.md#q-152),
 addressed to architecture and to the roadmap.
 
 ## 6. The process, from signal to closure
@@ -315,8 +315,8 @@ procedure, not during the event.
   exercised is not a procedure: it is a document. The exercise also verifies the notification
   channels towards the customer, which is the part that is found to be broken on first real use.
 - **The procedure is connected** with the process model of the national guidelines on incident
-  management published at the end of 2025. **The document has not been obtained in full: `[NV]`**,
-  it must be obtained before the procedure is consolidated.
+  management published at the end of 2025. **The guidelines are not yet available in their complete
+  form**: a gap `[NV]` that `SEC` must close by obtaining them before the procedure is consolidated.
 - **The register of the maintenance, acceptance tests and security checks** carried out on the
   installation is maintained and exportable: it is documentary evidence required both by the
   baseline specifications and by the national telemedicine indications.
@@ -340,8 +340,8 @@ procedure, not during the event.
 
 | Reference | Question | To whom |
 |---|---|---|
-| Q-152 | Reference values for the expected service levels to be proposed, distinct from the contractual agreements provided for by the decree on regional infrastructures (§5) | Architecture, roadmap |
-| `[NV]` | Obtaining in full the national guidelines on the incident management process and aligning the procedure (§7) | Security, compliance |
-| `[NV]` | Precise deadline for the final report in the cyber resilience regime (§2.5) | Compliance |
-| Q-154 | If the managed service operator becomes an obliged entity in its own right, **clocks 2 and 3 become its own**, not just the customer's | → Project owner |
-| Q-20 | Allocation of roles between data controller, data processor, manufacturer and obliged entity, which determines who counts which clock | Compliance |
+| [Q-152](../11_registri/02-questioni-aperte.md#q-152) | Reference values for the expected service levels to be proposed, distinct from the contractual agreements provided for by the decree on regional infrastructures (§5) | Architecture, roadmap |
+| `[NV]` | Obtaining in full the national guidelines on the incident management process and aligning the procedure (§7) | `SEC`, `COMP` |
+| `[NV]` | Precise deadline for the final report in the cyber resilience regime (§2.5) | `COMP` |
+| [Q-154](../11_registri/02-questioni-aperte.md#q-154) | If the managed service operator becomes an obliged entity in its own right, **clocks 2 and 3 become its own**, not just the customer's | → Project owner |
+| [`Q-159`](../11_registri/02-questioni-aperte.md#q-159) | Allocation of roles between data controller, data processor, manufacturer and obliged entity, which determines who counts which clock | `COMP` |

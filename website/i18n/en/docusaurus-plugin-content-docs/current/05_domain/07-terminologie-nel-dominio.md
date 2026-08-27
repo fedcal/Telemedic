@@ -14,7 +14,7 @@ contain.
 
 This chapter does two things. It establishes **which coding is used for which domain concept**,
 and translates the licensing regime into **consequences for the data model and runtime behaviour**.
-The full treatment of licences is in `B5-licenze-terminologie.md` and in decision `D31`; this
+The full treatment of licences is in [`B5-licenze-terminologie.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/research/B5-licenze-terminologie.md) and in decision `D31`; this
 area does not repeat it and does not contradict it.
 
 ## 1. The starting constraint
@@ -24,13 +24,13 @@ area does not repeat it and does not contradict it.
 > forbids redistribution or derivatives **cannot be among the sources**, because the project
 > cannot grant downstream rights it does not have.
 
-> **[BASE] `V-03`** - The system is **fully functional without SNOMED CT**. No main pathway can
+> **[BASE] [`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)** - The system is **fully functional without SNOMED CT**. No main pathway can
 > require it.
 
 > **[BASE]** Single gateway to terminologies, with disablement per coding system; **no persistent
 > disk cache** for systems whose licence does not permit derivatives; every coded concept carries
 > the system explicit; project interface strings are architecturally separate from the official
-> display (`04_BASELINE_ARCHITETTURALE.md` § 7).
+> display ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 7).
 
 ## 2. Which coding for which concept
 
@@ -53,7 +53,7 @@ and code only.
 | Vocabularies of exchange structure | HL7 terminology and core standard coding systems | **A** | public domain release |
 | Roles, encounter types, states | core standard vocabularies | **A** | idem |
 | International classifications of diseases, tenth and eleventh revisions | terminology of the international competent organisation | **D** | licence that forbids derivatives; reference by identifier only |
-| Validated clinical scales and questionnaires | different titleholders, one per scale | **to be ascertained** | question `Q-11`; chapter [05](05-parametri-e-osservazioni.md) § 9.3 |
+| Validated clinical scales and questionnaires | different titleholders, one per scale | **to be ascertained** | question [`Q-11`](../11_registri/02-questioni-aperte.md#q-11); chapter [05](05-parametri-e-osservazioni.md) § 9.3 |
 
 > **`DM-80` [MOD] - The «regime» column is an attribute of the coding system in the model, not a
 > note of documentation.** The gateway knows, for each system, its own regime, and derives its
@@ -103,7 +103,7 @@ flowchart LR
 > 3. **The interface label** is of the project, lives in the internationalisation catalogue, is
 >    linked to the code and does not derive from the display.
 >
-> **Question `Q-03` on the noticeboard**, addressed to the `ARCH` area: how the separation is
+> **Question [`Q-03`](../11_registri/02-questioni-aperte.md#q-03) on the noticeboard**, addressed to the `ARCH` area: how the separation is
 > concretely realised. This area contributes `DM-81` - which establishes **what** is to be
 > separated and why - and does not decide its technical implementation.
 
@@ -150,7 +150,7 @@ be able to distinguish.
 > unsustainable.
 
 Two constraints from the security area overlay this and **prevail** where they are more stringent
-(`V-151` on the noticeboard):
+([`V-151`](../11_registri/01-vincoli-in-vigore.md#v-151) on the noticeboard):
 
 1. **No persistent disk cache**, without distinction per licence. The licence constraint is a
    subset of this: where licence would permit it, the security constraint forbids it anyway.
@@ -204,7 +204,7 @@ to operate without that system**, which is the next point.
 
 ## 6. Behaviour without terminology server
 
-It is the paragraph that makes `V-03` verifiable instead of merely declarative.
+It is the paragraph that makes [`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03) verifiable instead of merely declarative.
 
 ### 6.1 What continues to work
 
@@ -316,7 +316,7 @@ The last part is the most delicate of the entire chapter:
 
 Note that the national glossary and the terminology module of the national infrastructure are
 components of which the project is a **consumer**, not a provider. The sovereignty constraint and
-their classification as third-party components are the subject of question `Q-04` on the
+their classification as third-party components are the subject of question [`Q-04`](../11_registri/02-questioni-aperte.md#q-04) on the
 noticeboard, addressed to the `SEC` and `ARCH` areas.
 
 ## 9. Clinical scales
@@ -333,7 +333,7 @@ Here must be added what concerns the terminology policy:
 > attribution obligations, and are to be placed with the same criterion, verified with the same
 > checklist and supervised by the same automatic check.
 >
-> **Question `Q-11` on the noticeboard**, addressed to `COMP` and `ARCH`: the terminology policy
+> **Question [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) on the noticeboard**, addressed to `COMP` and `ARCH`: the terminology policy
 > is to be formally extended to scales and scores **before** writing the first calculation engine.
 > This area contributes with `DM-65` and `DM-87` and does not close it.
 
@@ -361,10 +361,10 @@ parties on the content comprised**. Verification is per artefact.
 
 | Point | State | To be asked to |
 |---|---|---|
-| Licensing regime of individual clinical scales and questionnaires | **[NV]** | `COMP` - question `Q-11` |
+| Licensing regime of individual clinical scales and questionnaires | **[NV]** | `COMP` - question [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) |
 | Specific content of the national telemedicine glossary and alignment entry by entry | **[NV]** | `COMP` - chapter [01](01-linguaggio-ubiquo.md) § 1.2 |
-| Codes of document type and indexing metadata of the ten telemedicine types | **[NV]** | `COMP` - question `Q-07` |
-| Compatibility of the external terminology service with the sovereignty constraint | **[NV]** | `SEC`, `ARCH` - question `Q-04` |
+| Codes of document type and indexing metadata of the ten telemedicine types | **[NV]** | `COMP` - question [`Q-07`](../11_registri/02-questioni-aperte.md#q-07) |
+| Compatibility of the external terminology service with the sovereignty constraint | **[NV]** | `SEC`, `ARCH` - question [`Q-04`](../11_registri/02-questioni-aperte.md#q-04) |
 | Specific values of value sets dedicated to identifiers of non-enrolled populations | **[NV]** | `ARCH` - noted in module [04 of the foundations guide](../10_fondamenti/04-identita-e-anagrafiche.md) § 3.2 |
 
 ## What you need to remember

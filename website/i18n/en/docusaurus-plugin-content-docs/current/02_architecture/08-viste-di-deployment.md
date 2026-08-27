@@ -150,10 +150,10 @@ the project or with the package for a container orchestrator, according to the c
 capabilities. Tenancy active with a single tenant, or a few.
 
 The **broker in a single-node configuration** is the choice adopted to contain the operational
-weight. It is a conscious choice with a declared consequence: `[NV]` - the actual limits of the
-broker's guarantees in that configuration must be verified by the technical area, and every
-guarantee that depends on replication is not available. No functional requirement may depend on
-guarantees unavailable in the minimal configuration.
+weight. It is a conscious choice with a declared consequence: the actual limits of the broker's guarantees
+in that configuration `[NV]` must be verified by the technical area, and every guarantee that depends on
+replication is not available. No functional requirement may depend on guarantees unavailable in the minimal
+configuration.
 
 ### 3.2 What the customer must provide
 
@@ -357,18 +357,18 @@ them can be severely faulty and appear healthy.
 Two warnings on the exposed quantities. **No raw cumulative counter may be cited as a quality
 indicator**: packet loss, bytes, freeze duration and jitter-buffer delay grow monotonically and
 must be differentiated between consecutive samples; correct averages are ratios between
-differences (constraint V-113 of the technical area). And **the session's synthetic quality index
+differences (constraint [V-113](../11_registri/01-vincoli-in-vigore.md#v-113) of the technical area). And **the session's synthetic quality index
 is proprietary and must be declared as such**: it is not a mean opinion score under any
-international recommendation (constraint V-114).
+international recommendation (constraint [V-114](../11_registri/01-vincoli-in-vigore.md#v-114)).
 
-`[NV]` - The expected service levels for operational surveillance, distinct from those provided
-for by legislation on regional infrastructures, are the subject of an open question on the
-noticeboard addressed to the security area and the roadmap. This area fixes **what** must be
-surveilled, not **at what threshold**.
+The expected service levels for operational surveillance `[NV]`, distinct from those provided
+for by legislation on regional infrastructures, **must be decided by the security area and the roadmap**
+according to an open question on the noticeboard. This area fixes **what** must be surveilled, not **at
+what threshold**.
 
 > **Binding terminological note.** Throughout the documentation, «surveillance» referring to
 > components indicates operational observability. Referring to the patient, the formulas
-> «real-time monitoring» and «continuous surveillance» **are forbidden** (constraint V-144 of the
+> «real-time monitoring» and «continuous surveillance» **are forbidden** (constraint [V-144](../11_registri/01-vincoli-in-vigore.md#v-144) of the
 > domain area): the perimeter of telemonitoring is the deferred collection of parameters for the
 > professional's periodic review, and the difference between the two formulations is worth a risk
 > class.

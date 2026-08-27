@@ -7,7 +7,7 @@ description: Perché la forma eseguibile del piano e la forma documentale destin
 # ADR-0030 - Le due proiezioni del piano di telemonitoraggio derivano da un'unica fonte
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Origine**: questione posta dall'area di dominio a quest'area e all'area di integrazione
+**Origine**: questione posta dall'area di dominio a quest'area e all'`INTEG`
 
 ## Contesto
 

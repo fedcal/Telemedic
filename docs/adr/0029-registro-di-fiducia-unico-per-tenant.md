@@ -7,8 +7,8 @@ description: Perché emittenti ammessi, origini per l'incorporamento, origini pe
 # ADR-0029 - Registro di fiducia unico per tenant
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Origine**: questioni convergenti poste dall'area di integrazione e dall'area di sicurezza
-**Vincoli di riferimento**: V-157 dell'area di sicurezza; V-160 dell'area di integrazione
+**Origine**: questioni convergenti poste dall'`INTEG` e dall'area di sicurezza
+**Vincoli di riferimento**: [V-157](../11_registri/01-vincoli-in-vigore.md#v-157) dell'area di sicurezza; [V-160](../11_registri/01-vincoli-in-vigore.md#v-160) dell'`INTEG`
 
 ## Contesto
 

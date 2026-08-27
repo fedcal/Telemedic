@@ -480,7 +480,7 @@ Line by line:
 the field separator. `^~\&` are the other four separators. Then comes who is sending
 (`GESTIONALE` at `STRUTTURA_A`) and who is receiving (`TELEMEDIC` at `TENANT_A`): the second
 element of the receiving pair is the natural way of conveying the tenant information, which
-the project's constraint V4 imposes on every entity. `20260914073000` is the date and time
+the project's constraint [V4](../11_registri/03-vincoli-fondanti.md#v4) imposes on every entity. `20260914073000` is the date and time
 of the message in the standard's compact format. `SIU^S12^SIU_S12` is the type: SIU message,
 event S12, structure `SIU_S12`. `MSG00001` is the unique identifier: it is the value the
 returning ACK will quote. `P` indicates a production environment. `2.5.1` is the version of

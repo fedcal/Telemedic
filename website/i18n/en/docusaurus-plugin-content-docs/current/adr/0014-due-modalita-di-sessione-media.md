@@ -7,7 +7,7 @@ description: "Why server-side recording and end-to-end encryption are incompatib
 # ADR-0014 - Two media session modes and their effects on the model
 
 **Status**: accepted · **Date**: 25 August 2026 · **Area**: ARCH
-**Reference decisions**: D22, D23; constraint V-11 of noticeboard
+**Reference decisions**: D22, D23; constraint [V-11](../11_registri/01-vincoli-in-vigore.md#v-11) of noticeboard
 
 ## Context
 

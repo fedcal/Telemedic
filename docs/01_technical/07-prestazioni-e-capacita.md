@@ -8,7 +8,7 @@ description: Bilancio di latenza scomposto per stadio, percentili invece di medi
 
 ## 0. Avvertenza che vale per tutto il capitolo
 
-**Nessuna soglia contenuta in questo documento è un requisito normativo.** Il vincolo V-12 è
+**Nessuna soglia contenuta in questo documento è un requisito normativo.** Il vincolo [V-12](../11_registri/01-vincoli-in-vigore.md#v-12) è
 esplicito: nessuna soglia tecnica in questo ambito è imposta dalla normativa italiana, e i valori
 del progetto sono **specifica di prodotto**, mai conformità. Chi legge questo capitolo cercando
 una tabella da citare in una dichiarazione di conformità sta cercando la cosa sbagliata nel posto
@@ -84,11 +84,11 @@ flowchart LR
 | Decodifica | Il navigatore | |
 | Resa | Il dispositivo, la frequenza di aggiornamento | A trenta fotogrammi al secondo, un fotogramma è già un contributo misurabile |
 
-`[NV]` - **i valori numerici di ciascuno stadio non sono riportati.** Il progetto non li ha
-misurati, e riportare ordini di grandezza presi da altrove in un documento tecnico di un
-dispositivo medico significa mettere in circolazione cifre che qualcuno citerà come proprie. La
-misura si fa con la prova automatica descritta in
-[`05-media-e-tempo-reale.md`](./05-media-e-tempo-reale.md) §9.1, e i risultati si pubblicano con
+I valori numerici di ciascuno stadio **vanno misurati dall'`TECH`** `[NV]` e non si riportano
+presi da altrove, perché riportare ordini di grandezza in un documento tecnico di un dispositivo medico
+significa mettere in circolazione cifre che qualcuno citerà come proprie. La misura si fa con la prova
+automatica descritta in [`05-media-e-tempo-reale.md`](./05-media-e-tempo-reale.md) §9.1, e i risultati si
+pubblicano con
 le condizioni in cui sono stati ottenuti.
 
 ### 2.2 La tensione che non si risolve
@@ -201,10 +201,10 @@ Il fattore è quello stabilito in [`05-media-e-tempo-reale.md`](./05-media-e-tem
 per una sessione con una sola allocazione, il nodo movimenta quattro volte il bitrate per
 direzione; con due allocazioni, otto volte.
 
-Il dimensionamento si costruisce su tre parametri, **tutti da misurare e nessuno da assumere**:
-il bitrate medio per direzione nel proprio parco installato, la quota di sessioni instradate, e il
-picco di sessioni concorrenti. `[NV]` - nessuno dei tre è dichiarato qui, perché il progetto non
-li ha misurati e le stime di terzi non sono citabili come proprie.
+Il dimensionamento si costruisce su tre parametri, **tutti da misurare dall'`TECH` e nessuno
+da assumere**: il bitrate medio per direzione nel proprio parco installato, la quota di sessioni
+instradate, e il picco di sessioni concorrenti. Nessuno dei tre `[NV]` è dichiarato qui perché vanno
+misurati dal progetto; le stime di terzi non sono citabili come proprie.
 
 Ciò che si può affermare come regola: **il picco si dimensiona sul caso avverso, non sulla
 media**, perché la quota instradata non è una costante del prodotto ma una proprietà del parco
@@ -288,7 +288,7 @@ Riepilogo trasversale. Ogni riga è un confine di progetto, non una promessa.
 |---|---|---|---|
 | L1 | Partecipanti a una sessione media | Topologia a maglia senza componente centrale | Da dichiarare; decisione aperta ad `ARCH` |
 | L2 | Latenza da obiettivo a schermo | Non garantibile, misurata e dichiarata per sessione | Definito |
-| L3 | Tenant per installazione nel modello a schema | Crescita del catalogo della base dati | `[NV]` da misurare; ordine di grandezza: centinaia |
+| L3 | Tenant per installazione nel modello a schema | Crescita del catalogo della base dati | `[NV]` da misurare dall'`TECH`; ordine di grandezza dichiarato: centinaia |
 | L4 | Latenza di consegna degli eventi | Pari all'intervallo di interrogazione del relay dell'outbox | Configurabile, dichiarato nel contratto |
 | L5 | Ordinamento degli eventi | **Condizionato** all'interno della partizione scelta per chiave, mai globale | Base architetturale §5. Le tre condizioni alle quali l'ordine per chiave vale, e la dichiarazione che fuori da esse non vale, sono in [`02_architecture/06`](../02_architecture/06-eventi-e-integrazione-interna.md#41-ciò-che-si-garantisce-e-ciò-che-non-si-garantisce) §4.1. Nessun requisito funzionale può dipendere da un ordine globale |
 | L6 | Semantica di consegna | **Almeno una volta**; i consumatori sono idempotenti per costruzione | Base architetturale §5 |

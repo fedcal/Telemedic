@@ -124,7 +124,7 @@ dell'attività specialistica ambulatoriale deve sempre concludersi con un refert
 televisita programmata ed erogata direttamente da medico di medicina generale o pediatra di libera
 scelta **non richiede prescrizione** e prevede **annotazione digitale in luogo del referto**.
 Cablare l'obbligo di referto come incondizionato è un errore che si manifesta al primo cliente che
-sia una medicina di gruppo (vincolo `V-145`).
+sia una medicina di gruppo (vincolo [`V-145`](../11_registri/01-vincoli-in-vigore.md#v-145)).
 
 **Contenuti obbligatori propri del referto.** L'Accordo 215/CSR 2020 impone che il referto della
 televisita riporti gli eventuali **collaboratori partecipanti** - caregiver, altro medico - e la
@@ -133,12 +133,12 @@ tracciato ministeriale del referto di televisita (DM 19 novembre 2025, All. 1, �
 prevede un campo dedicato** a quest'ultima: il progetto ne propone la collocazione fra i
 «parametri descrittivi della procedura», con il vincolo che **il valore è misurato dal sistema e
 confermato dal professionista**, mai generato autonomamente e inserito nel documento. La verifica
-di conformità di questa scelta è una questione ancora aperta (`Q-131`).
+di conformità di questa scelta è una questione ancora aperta ([`Q-131`](../11_registri/02-questioni-aperte.md#q-131)).
 
 **Tipologia documentale propria.** Il referto di televisita ha una tipologia documentale FSE
 dedicata (DM 19 novembre 2025, art. 7, lett. p, e All. 1 § 2.20). L'ipotesi «referto di
 specialistica ambulatoriale» è **errata** e non va usata in alcun documento, esempio, profilo o
-materiale pubblico (vincolo `V-143`).
+materiale pubblico (vincolo [`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)).
 
 **Esclusione dall'urgenza.** Il DM 30 settembre 2022, All. B, esclude la televisita dai contesti
 di urgenza-emergenza, perché «non deve costituire ragione per ritardare interventi in presenza».
@@ -161,7 +161,7 @@ effetti economici **opposti**: la mancata presentazione, rilevabile per assenza 
 tentativo di connessione, e il fallimento tecnico attribuibile all'assistito, rilevabile per
 telemetria, che **non è** mancata presentazione e comporta riprogrammazione senza addebito.
 Addebitare una mancata presentazione a chi ha tentato e non è riuscito a collegarsi è un difetto
-di dominio, non un caso limite (vincolo `V-141`).
+di dominio, non un caso limite (vincolo [`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)).
 
 ## 5. Teleconsulto e teleconsulenza
 
@@ -319,7 +319,7 @@ La formulazione della destinazione d'uso è **congelata per decisione del commit
 classe di sicurezza del software, mesi e un ordine di grandezza di costo (`D46`). Nel modello **non
 esiste** alcun concetto di «sorveglianza continua», «allarme in tempo reale» o «monitoraggio attivo
 del paziente»: esistono un piano di rilevazione, misure differite, una valutazione rispetto a
-soglie configurate dal professionista e una **coda di revisione clinica** (vincolo `V-144`).
+soglie configurate dal professionista e una **coda di revisione clinica** (vincolo [`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144)).
 
 Dal congelamento discende un **divieto permanente**, che vale come criterio di ammissibilità di
 ogni proposta futura: **nessuna funzione può essere aggiunta se sposta il sistema verso il tempo
@@ -335,8 +335,8 @@ rischio superiore alla IIa».
 L'elemento che fonda la qualificazione è la **valutazione automatica delle soglie**: nel momento in
 cui il sistema confronta una misura con una soglia e genera un'allerta, sta *interpretando* un dato
 clinico. Il progetto lo accetta, lo dichiara e ne trae il perimetro: la soglia e la regola di
-allerta sono **configurate dal professionista, mai dedotte dal sistema** (vincolo `V-02`), il campo
-della soglia **parte vuoto e obbligatorio** senza alcuna precompilazione (vincolo `V-123`), e il
+allerta sono **configurate dal professionista, mai dedotte dal sistema** (vincolo [`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)), il campo
+della soglia **parte vuoto e obbligatorio** senza alcuna precompilazione (vincolo [`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123)), e il
 calcolo è tracciabile a posteriori con versione del piano, versione della regola, valori in
 ingresso ed esito.
 
@@ -355,15 +355,15 @@ retroattivamente il significato dello storico.
 **La misura.** È immutabile e porta con sé il proprio contesto: strumento, metodo, **istante di
 rilevazione e istante di ricezione come due campi distinti obbligatori**, soggetto che l'ha
 inserita, unità esplicita mai presunta. Le regole operano sull'istante di misura, non su quello di
-ricezione (vincolo `V-124`).
+ricezione (vincolo [`V-124`](../11_registri/01-vincoli-in-vigore.md#v-124)).
 
 **L'assenza di misura.** È un'entità, non l'assenza di una riga: è una riga che dichiara l'assenza,
-con la finestra attesa, l'istante di scadenza e la causa quando è nota (vincolo `V-148`). È la
-forma operativa di `V-09` e la condizione perché l'aderenza sia una grandezza definita. Senza di
+con la finestra attesa, l'istante di scadenza e la causa quando è nota (vincolo [`V-148`](../11_registri/01-vincoli-in-vigore.md#v-148)). È la
+forma operativa di [`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09) e la condizione perché l'aderenza sia una grandezza definita. Senza di
 essa, il peggioramento clinico che impedisce la misura resta invisibile.
 
 A queste si aggiunge l'**allarme**, che è una sequenza di eventi immutabili con lo stato corrente
-come proiezione (vincolo `V-121`), e che ha tre proprietà che sono decisioni e non dettagli:
+come proiezione (vincolo [`V-121`](../11_registri/01-vincoli-in-vigore.md#v-121)), e che ha tre proprietà che sono decisioni e non dettagli:
 «recapitato» non è «preso in carico»; il mancato riscontro è uno stato da registrare e misurare,
 non un'assenza; **l'escalation può fallire, e il fallimento è dichiarato** - un'escalation che si
 esaurisce senza destinatario non deve terminare in silenzio.
@@ -378,7 +378,7 @@ Nel modello la copertura oraria è un dato di runtime versionato, per cliente e 
 nessuna configurazione supera il controllo; è visibile in modo persistente all'assistito e al
 caregiver **con lo stato corrente**, non con l'orario teorico, e non è occultabile per
 personalizzazione; **condiziona la validità del destinatario nella catena di escalation** - un
-destinatario fuori copertura non è un destinatario valido (vincolo `V-122`); e la sua riduzione su
+destinatario fuori copertura non è un destinatario valido (vincolo [`V-122`](../11_registri/01-vincoli-in-vigore.md#v-122)); e la sua riduzione su
 un servizio attivo è un evento di sicurezza con motivazione, elenco dei piani coinvolti e notifica
 agli arruolati.
 
@@ -457,8 +457,8 @@ Assistenza fornita da un medico a distanza a un altro operatore impegnato **in u
 tipicamente in emergenza-urgenza territoriale. La sincronia è vincolante e la latenza tollerabile
 è molto più bassa che in televisita: gli obiettivi di servizio non sono riusabili. La fattispecie
 non compare nell'elenco delle prestazioni dell'Accordo 215/CSR 2020 ed è trattata dal progetto
-come contesto d'uso **fuori perimetro** della versione corrente. `[NV]` su una definizione
-normativa nazionale autonoma.
+come contesto d'uso **fuori perimetro** della versione corrente, in attesa di verifica da `COMP`
+di una definizione normativa nazionale autonoma `[NV]`.
 
 ### 8.6 Che cosa non è telemedicina affatto
 
@@ -493,7 +493,7 @@ deciso, con l'identità di chi lo ha deciso e il criterio dichiarato (`OUT-03`).
 |---|---|
 | «Teleconsulto e televisita sono la stessa cosa con un partecipante in più» | Un modello che non sa chi è l'erogante, chi documenta e chi risponde; e che tenta di produrre un referto dove la norma lo vieta |
 | «Il telemonitoraggio è raccogliere dati da un dispositivo» | Un prodotto privo di piano versionato, di attesa di rilevazione, di copertura oraria dichiarata e di escalation con fallimento dichiarato - cioè privo di tutto ciò che lo rende un servizio sanitario invece di un archivio di numeri |
-| «Basta un `enum` con i tipi di prestazione» | Campi nulli, regole condizionali fragili, rendicontazione impossibile. Ogni prestazione è la propria macchina a stati, e il tipo la seleziona invece di aggiungere un campo (vincolo `V-140`) |
+| «Basta un `enum` con i tipi di prestazione» | Campi nulli, regole condizionali fragili, rendicontazione impossibile. Ogni prestazione è la propria macchina a stati, e il tipo la seleziona invece di aggiungere un campo (vincolo [`V-140`](../11_registri/01-vincoli-in-vigore.md#v-140)) |
 | «Il telecontrollo è telemonitoraggio con una videochiamata» | Un errore di rendicontazione: il telecontrollo è tariffato, il telemonitoraggio da solo no |
 | «Un attributo booleano basta per l'uso in urgenza» | Due regole diverse collassate in una: la televisita è esclusa dall'urgenza, la teleconsulenza vi è ammessa ma non può surrogare il soccorso |
 

@@ -139,7 +139,7 @@ tecnico i punti non negoziabili sono quattro.
    conto di Y», l'impersonificazione dice «era Y», e cancella la responsabilità reale.
 3. **Il livello di garanzia dell'autenticazione viaggia nel claim dedicato ed è qualificato con
    un marcatore proprio del progetto** che distingue l'autenticazione **eseguita** da Telemedic
-   da quella **riferita** dall'integratore. Il vincolo V-18 di `INTEG` e il vincolo V-17 di `SEC`
+   da quella **riferita** dall'integratore. Il vincolo [V-165](../11_registri/01-vincoli-in-vigore.md#v-165) di `INTEG` e il vincolo [V-154](../11_registri/01-vincoli-in-vigore.md#v-154) di `SEC`
    convergono su questo punto e questa area li recepisce: un'operazione che la norma lega
    all'autenticazione forte richiede un livello **eseguito**, e la verifica avviene nel punto di
    decisione, non nel gateway.
@@ -236,7 +236,7 @@ public class ChiudiSessioneMediaUseCase {
         sessioni.salva(sessione);
 
         // Stessa transazione del dato: è la regola R1.
-        // La busta non trasporta contenuto clinico: è il vincolo V-14 di INTEG.
+        // La busta non trasporta contenuto clinico: è il vincolo V-161 di INTEG.
         outbox.accoda(EventoDominio.di(
                 "dev.telemedic.mediasession.chiusa.v1",
                 sessione.id(),
@@ -341,11 +341,11 @@ risoluzione dei codici. Il pacchetto è **fissato per versione** e conservato co
 costruzione: una validazione che cambia esito perché a monte è cambiato un pacchetto è una
 validazione non riproducibile, il che è inaccettabile in un sistema tracciabile.
 
-**Il gateway delle terminologie deve poter essere assente.** Il vincolo V-03 impone che nessun
+**Il gateway delle terminologie deve poter essere assente.** Il vincolo [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) impone che nessun
 percorso principale richieda una terminologia a licenza vincolata. Sul piano tecnico questo
 significa: il gateway ha una modalità degradata dichiarata per sistema di codifica, in cui la
 struttura si valida e il codice si accetta con esito «non verificato» registrato sul dato, non
-con un rifiuto. Il vincolo V-14 di `SEC` aggiunge che al gateway esterno non transitano
+con un rifiuto. Il vincolo [V-151](../11_registri/01-vincoli-in-vigore.md#v-151) di `SEC` aggiunge che al gateway esterno non transitano
 identificativi dell'assistito e che non esiste cache persistita su disco: entrambi sono vincoli
 di realizzazione di questo componente e vanno provati.
 
@@ -387,7 +387,7 @@ Struttura di progetto, con i membri di estensione ammessi:
 1. **`detail` non contiene mai contenuto clinico né identificativi diretti dell'assistito.**
    Finisce nei registri del chiamante, che il progetto non controlla. Nell'esempio sopra il
    messaggio dice *che cosa* non va senza dire *chi* e *quando*: l'informazione specifica si
-   ritrova con `traceId`, dentro il perimetro. Questo recepisce il vincolo V-13 di `SEC` e lo
+   ritrova con `traceId`, dentro il perimetro. Questo recepisce il vincolo [V-150](../11_registri/01-vincoli-in-vigore.md#v-150) di `SEC` e lo
    estende al canale degli errori, che è il punto in cui la fuga avviene più spesso.
 2. **`type` è un indirizzo risolvibile** che porta alla pagina di documentazione dell'errore, con
    le cause tipiche e la risoluzione. È ciò che trasforma un errore in un'istruzione.
@@ -403,7 +403,7 @@ Struttura di progetto, con i membri di estensione ammessi:
    La distinzione vive nell'identificativo del tipo di problema e nella classificazione interna.
 5. **Nessun errore clinico è silenzioso.** Se un'allerta non è stata recapitata, il fallimento è
    un fatto registrato e sottoposto a riscontro, non una riga di registro. Discende direttamente
-   dal vincolo V-09: l'assenza di dato è informazione.
+   dal vincolo [V-09](../11_registri/01-vincoli-in-vigore.md#v-09): l'assenza di dato è informazione.
 
 ### 7.3 Gerarchia delle eccezioni
 
@@ -486,7 +486,7 @@ I profili sono ortogonali e si combinano; non sono un elenco piatto.
 |---|---|---|
 | **Ambiente** | `dev` · `test` · `staging` · `prod` | Verbosità dei registri, generazione dei dati sintetici, esposizione degli endpoint di diagnostica, rigidità dei controlli di avvio |
 | **Modello di installazione** | `single-tenant` · `multi-tenant` | Risoluzione del tenant (fissa contro derivata dal token), presenza dei pannelli di amministrazione multi-tenant |
-| **Persistenza serie temporali** | `timeseries-extension` · `timeseries-native` | Realizzazione del repositorio delle serie temporali (vedi `01-stack-e-motivazioni.md` §7.3) |
+| **Persistenza serie temporali** | `timeseries-extension` · `timeseries-native` | Realizzazione del repositorio delle serie temporali (vedi [`01-stack-e-motivazioni.md`](../01_technical/01-stack-e-motivazioni.md) §7.3) |
 | **Moduli sostituibili** | per modulo: `internal` · `external` · `disabled` | Refertazione, agenda, fatturazione: D14 impone che siano disattivabili e sostituibili per configurazione |
 | **Registrazione** | `off` · `server-side` | Presenza del componente di registrazione. Vedi [`05-media-e-tempo-reale.md`](./05-media-e-tempo-reale.md) §8 |
 
@@ -508,9 +508,9 @@ gestore. Sono controlli di avvio, con messaggi che dicono che cosa correggere.
 Elenco breve, ma è quello che tiene i confini.
 
 - **Non genera contenuto clinico.** Persiste ciò che il professionista ha redatto. È il vincolo
-  V2 e vale fino in fondo: nessuna precompilazione che produca affermazioni cliniche, nessuna
+  [V2](../11_registri/03-vincoli-fondanti.md#v2) e vale fino in fondo: nessuna precompilazione che produca affermazioni cliniche, nessuna
   sintesi automatica presentata come contenuto del referto.
-- **Non deduce soglie.** Le soglie sono configurate dal professionista per assistito (V-02). Il
+- **Non deduce soglie.** Le soglie sono configurate dal professionista per assistito ([V-02](../11_registri/01-vincoli-in-vigore.md#v-02)). Il
   sistema le applica e traccia il calcolo; non le propone e non le adatta.
 - **Non decifra il media.** Nella modalità predefinita non ne ha le chiavi e non le può avere.
   Nella modalità con registrazione il componente di registrazione è un servizio distinto, con un
@@ -518,8 +518,8 @@ Elenco breve, ma è quello che tiene i confini.
   persistente.
 - **Non è il padrone dei dati anagrafici.** Lavora per riferimento verso gli identificativi
   esterni del sistema di origine, come impone il profilo dell'integratore archetipo.
-- **Non ha funzionalità raggiungibili solo dall'interfaccia.** È il vincolo V3, ribadito dal
-  vincolo V-17 di `INTEG`: la capacità e il suo contratto nascono insieme.
+- **Non ha funzionalità raggiungibili solo dall'interfaccia.** È il vincolo [V3](../11_registri/03-vincoli-fondanti.md#v3), ribadito dal
+  vincolo [V-164](../11_registri/01-vincoli-in-vigore.md#v-164) di `INTEG`: la capacità e il suo contratto nascono insieme.
 
 ---
 

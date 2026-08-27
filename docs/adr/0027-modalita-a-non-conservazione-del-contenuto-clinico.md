@@ -7,7 +7,7 @@ description: Come il sistema opera quando l'installazione non deve conservare i 
 # ADR-0027 - Modalità di esercizio a non conservazione del contenuto clinico
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Origine**: questioni poste dall'area di dominio e dall'area funzionale
+**Origine**: questioni poste dall'area di dominio e dall'`FUNZ`
 
 ## Contesto
 
@@ -19,7 +19,7 @@ L'area di dominio prevede questo come **modalità di esercizio**: dopo il confer
 identificativo, metadati minimi e prova della presa in carico, e la lettura passa sempre da
 un'asserzione verso l'archivio esterno.
 
-L'area funzionale pone però una domanda che la modalità non risolve da sé: **dove vive la storia
+L'`FUNZ` pone però una domanda che la modalità non risolve da sé: **dove vive la storia
 degli allarmi**? Il registro degli allarmi - soglia vigente, regola applicata, dati che l'hanno
 prodotto, consegne, prese in carico, inoltri, esiti - è **documentazione di un atto**. Senza di
 esso non è ricostruibile perché un allarme non è scattato, e gli indicatori di sicurezza non sono
@@ -111,7 +111,7 @@ conservare contenuto clinico.
 - La storia degli allarmi senza i valori delle misure è meno leggibile per chi la consulta: va
   spiegato, altrimenti viene letto come una perdita di dati.
 
-**Rinviato all'area di conformità**: la conferma della tassonomia rispetto agli obblighi
+**Rinviato all'`COMP`**: la conferma della tassonomia rispetto agli obblighi
 applicabili, e la determinazione delle durate per le categorie non già fissate.
 
 ## Riferimenti

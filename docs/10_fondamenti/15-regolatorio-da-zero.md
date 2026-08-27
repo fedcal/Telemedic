@@ -13,7 +13,7 @@ description: Perché il codice di questo progetto ha vincoli che altrove non esi
 > decisioni regolatorie appartengono al soggetto fabbricante, da costituire (sezione 3) e vanno
 > confermate sui testi normativi originali. Dove un dato è stimato, incerto o proveniente da
 > fonte secondaria, è dichiarato tale; ciò che non è stato verificato su fonte primaria è
-> marcato **[NV]**.
+> marcato **[NV]`COMP`**.
 
 Ci sono progetti in cui una funzionalità nasce da una conversazione, si scrive in un
 pomeriggio e si rilascia il giorno dopo. Questo non è uno di quelli, e non per pignoleria
@@ -268,7 +268,7 @@ Tradotto: se un giorno qualcuno - un integratore, un terzo, un *fork* - costruis
 piattaforma un modulo con finalità medica, **la nostra interfaccia utente e la nostra pipeline
 multimediale entrano nel perimetro di valutazione dell'usabilità e delle prestazioni cliniche di
 quel modulo**, pur restando esse stesse non-dispositivo. Ecco perché il vincolo architetturale
-**V2** - separazione esplicita fra «veicolo di comunicazione» e «supporto alla decisione
+**[V2](../11_registri/03-vincoli-fondanti.md#v2)** - separazione esplicita fra «veicolo di comunicazione» e «supporto alla decisione
 clinica» - non è una preferenza di design: è un requisito documentale imposto dalla linea guida,
 ed è ciò che rende il nostro lavoro utilizzabile dal fabbricante nel percorso di conformità.
 
@@ -472,7 +472,7 @@ esso una serie di vincoli che mantengono la classe a **IIa** anziché farla sali
 tutti vincoli di codice, non di prosa:
 
 - **nessuna soglia clinica è cablata nel codice**: le soglie sono configurazione a cura del
-  professionista, per il singolo assistito (vincolo **V2**);
+  professionista, per il singolo assistito (vincolo **[V2](../11_registri/03-vincoli-fondanti.md#v2)**);
 - **nessun punteggio, indice prognostico o classificazione di rischio è calcolato dal sistema**;
 - **la raccolta è differita**, destinata alla revisione periodica del professionista, non al
   monitoraggio continuo in tempo reale;
@@ -636,7 +636,7 @@ Tre conseguenze operative, distinte e non intercambiabili:
    2(29), fra pubblicare sorgenti che richiedono compilazione, configurazione e integrazione, e
    pubblicare un artefatto «pronto per l'uso» che un'organizzazione sanitaria può mettere in
    produzione senza ulteriore lavoro. Il secondo caso è molto più vicino alla messa in servizio.
-   **[NV]** Non risultano linee guida MDCG dedicate specificamente alla distribuzione open source
+   **[NV]`COMP`** Non risultano linee guida MDCG dedicate specificamente alla distribuzione open source
    di software sanitario: è una lacuna reale del quadro europeo.
 
 ### 3.5 La posizione di questo progetto
@@ -793,7 +793,7 @@ alternative:
   un dispositivo rappresentativo per ciascuna categoria.
 - **Strada 2** - documentazione tecnica degli Allegati II e III unita a una valutazione ai sensi
   dell'**Allegato XI**, nella variante «garanzia di qualità della produzione» (parte A) o
-  «verifica del prodotto» (parte B). **[NV]** i numeri di sezione dell'Allegato XI applicabili
+  «verifica del prodotto» (parte B). **[NV]`COMP`** i numeri di sezione dell'Allegato XI applicabili
   alla Classe IIa vanno riletti sul testo consolidato prima di essere citati in un documento di
   progetto.
 
@@ -816,7 +816,7 @@ che identificano i tipi di dispositivo, stabiliti dal **Regolamento di esecuzion
 Le famiglie di codici sono `MDA` (dispositivi attivi), `MDN` (non attivi), `MDT` (tecnologie e
 processi) e `MDS` (codici orizzontali). Un software autonomo è un dispositivo attivo e ricade in
 un codice `MDA` corrispondente alla funzione clinica, affiancato da un codice orizzontale `MDS`
-relativo ai dispositivi che incorporano software. **[NV]** i numeri esatti dei codici applicabili
+relativo ai dispositivi che incorporano software. **[NV]`COMP`** i numeri esatti dei codici applicabili
 a un software di telemedicina e telemonitoraggio non sono stati confermati su fonte primaria: la
 verifica affidabile consiste nel chiedere a ciascun organismo candidato di dichiarare per iscritto
 sotto quali codici tratterebbe il dispositivo.
@@ -912,7 +912,7 @@ contenuto minimo è fissato dall'**Allegato IV**: nome e indirizzo del fabbrican
 mandatario, **Basic UDI-DI**, identificazione del dispositivo, classe di rischio, dichiarazione di
 conformità al regolamento e all'eventuale altra legislazione applicabile, riferimenti alle
 specifiche comuni utilizzate, ove pertinente nome e numero dell'Organismo Notificato e certificato
-emesso, luogo e data, nome e funzione del firmatario. **[NV]** l'elenco letterale dei punti
+emesso, luogo e data, nome e funzione del firmatario. **[NV]`COMP`** l'elenco letterale dei punti
 dell'Allegato IV non è stato verificato su testo primario.
 
 È un atto **del fabbricante**, non dell'Organismo Notificato. Nessun ente «certifica il prodotto»
@@ -954,7 +954,7 @@ comportamento. La politica di versionamento va mappata esplicitamente su questa 
 Gli **artt. 29 e 31** disciplinano la registrazione: il fabbricante si registra come operatore
 economico in **EUDAMED** e ottiene un **numero di registrazione unico** (*Single Registration
 Number*, SRN) **prima** di immettere un dispositivo sul mercato; poi registra il dispositivo. I
-primi moduli di EUDAMED sono diventati obbligatori nel 2026. **[NV]** il riferimento normativo
+primi moduli di EUDAMED sono diventati obbligatori nel 2026. **[NV]`COMP`** il riferimento normativo
 puntuale che ha attivato l'obbligo va confermato su fonte primaria prima di citarlo in un
 documento ufficiale.
 
@@ -1003,7 +1003,7 @@ requisiti coperti (art. 8 MDR): chi la applica non deve dimostrare autonomamente
 quei requisiti. Le norme non armonizzate restano utilizzabili e restano «stato dell'arte», ma non
 conferiscono presunzione: la copertura dei requisiti va dimostrata caso per caso.
 
-**[NV]** Lo stato di armonizzazione sotto MDR di EN IEC 62304, EN IEC 62366-1, EN IEC 82304-1 ed
+**[NV]`COMP`** Lo stato di armonizzazione sotto MDR di EN IEC 62304, EN IEC 62366-1, EN IEC 82304-1 ed
 EN ISO/IEC 81001-5-1 non è univocamente accertato: le fonti secondarie sono discordanti. Risultano
 invece pacificamente armonizzate **EN ISO 13485:2016** ed **EN ISO 14971:2019**. Prima di
 dichiarare l'applicazione di una norma armonizzata in un documento tecnico va consultata la lista
@@ -1550,7 +1550,7 @@ i soggetti importanti, 43 misure e 116 requisiti per gli essenziali.
 C'è poi un effetto che riguarda direttamente chi scrive codice, e viene dalla decisione **D40**:
 la Determinazione ACN n. 127437/2026, art. 18, obbliga il soggetto NIS a **dichiarare
 nominativamente all'autorità i «fornitori rilevanti»**, con ragione sociale, codice fiscale,
-**Paese della sede legale**, codici di classificazione e criterio di rilevanza. Il vincolo **V1**
+**Paese della sede legale**, codici di classificazione e criterio di rilevanza. Il vincolo **[V1](../11_registri/03-vincoli-fondanti.md#v1)**
 del progetto - nessun componente obbligatorio ospitato fuori dall'Unione, nessuna dipendenza di
 esecuzione da servizi extra-UE - cessa quindi di essere un argomento di posizionamento e diventa
 **un dato che il cliente è tenuto a comunicare a un'autorità**. Introdurre una dipendenza di
@@ -1604,7 +1604,7 @@ tale data. In pratica, questo progetto nasce dentro il nuovo regime.
 
 **Il software è un prodotto.** La direttiva lo include espressamente nella definizione,
 indipendentemente dalla modalità di fornitura: autonomo, incorporato, in cloud, come servizio. Il
-file sorgente in quanto tale è invece considerato informazione e non prodotto. **[NV]** la
+file sorgente in quanto tale è invece considerato informazione e non prodotto. **[NV]`COMP`** la
 formulazione letterale dell'art. 4 e dei considerando 12–17 non è stata verificata su fonte
 primaria.
 
@@ -1648,7 +1648,7 @@ Direttiva (UE) 2024/2853** stabilisce che gli Stati membri assicurano che la res
 operatore economico non sia, **nei confronti della persona danneggiata**, limitata o esclusa da una
 disposizione contrattuale o dal diritto nazionale. Nel diritto italiano vigente la regola
 equivalente è la nullità di ogni patto di esclusione o limitazione preventiva della responsabilità
-verso il danneggiato prevista dal Codice del consumo. **[NV]** la numerazione applicabile dopo il
+verso il danneggiato prevista dal Codice del consumo. **[NV]`COMP`** la numerazione applicabile dopo il
 recepimento della nuova direttiva è da verificare.
 
 La ragione è strutturale, prima ancora che testuale: la responsabilità da prodotto è
@@ -1696,7 +1696,7 @@ d.lgs. 82/2022 · legge 4/2004 (Italia)       ─┘   (clausole 9, 10, 11 di EN
   Italia dalla **legge 9 gennaio 2004, n. 4** e dalle linee guida dell'agenzia nazionale. Quando il
   cliente è una pubblica amministrazione, l'obbligo è diretto;
 - **EN 301 549** è la norma europea sui requisiti di accessibilità per prodotti e servizi ICT e
-  incorpora **WCAG 2.1 livello AA**. **[NV]** la versione citata in *Gazzetta ufficiale
+  incorpora **WCAG 2.1 livello AA**. **[NV]`COMP`** la versione citata in *Gazzetta ufficiale
   dell'Unione europea* a supporto dell'Accessibility Act va verificata: fino a quel momento il
   riferimento giuridicamente efficace resta la versione effettivamente citata.
 
@@ -1722,7 +1722,7 @@ controllo accessibile con qualche difficoltà: è un controllo che, per quell'ut
 
 | Norma | Cosa disciplina | Perché ci riguarda |
 |---|---|---|
-| **Regolamento (UE) 2025/327** (*EHDS*, spazio europeo dei dati sanitari) | Uso primario e secondario dei dati sanitari; regime di conformità per i **sistemi di cartella clinica elettronica** con documentazione tecnica, dichiarazione di conformità e marcatura CE, di regola senza organismo notificato | Un sistema che archivia, esporta, importa e converte dati sanitari delle categorie prioritarie potrebbe ricadere nel capo III **pur non essendo un dispositivo medico**. Orizzonte 2029–2031. **[NV]** definizioni e date esatte da verificare sul testo |
+| **Regolamento (UE) 2025/327** (*EHDS*, spazio europeo dei dati sanitari) | Uso primario e secondario dei dati sanitari; regime di conformità per i **sistemi di cartella clinica elettronica** con documentazione tecnica, dichiarazione di conformità e marcatura CE, di regola senza organismo notificato | Un sistema che archivia, esporta, importa e converte dati sanitari delle categorie prioritarie potrebbe ricadere nel capo III **pur non essendo un dispositivo medico**. Orizzonte 2029–2031. **[NV]`COMP`** definizioni e date esatte da verificare sul testo |
 | **Regolamento (UE) 2024/1689** (*AI Act*) | Sistemi di intelligenza artificiale | Nessuna funzione attuale vi rientra; una sola aggiunta cambierebbe regime (sezione 2.8) |
 | **Regolamento (UE) 2023/2854** (*Data Act*) | Dati generati da prodotti connessi; **cambio di fornitore di servizi cloud**; interoperabilità | Il capo sul cambio di fornitore premia esattamente ciò che il progetto già offre: installazione presso il cliente come alternativa al servizio gestito, formati standard, esportazione completa via API |
 
@@ -1755,7 +1755,7 @@ servizio minimo di **telemonitoraggio** deve essere **certificata come dispositi
 nella **televisita** siano usati dispositivi medici, anche il software e l'hardware per
 l'erogazione del servizio devono essere certificati con adeguata classe di rischio; per il
 **teleconsulto** in specialità quali istologia e radiologia vale la stessa prescrizione.
-**[NV]** la formulazione letterale va verificata sul testo ufficiale in *Gazzetta Ufficiale* prima
+**[NV]`COMP`** la formulazione letterale va verificata sul testo ufficiale in *Gazzetta Ufficiale* prima
 di qualunque uso contrattuale, perché la formulazione esatta ha valore determinante.
 
 La conseguenza pratica: nel mercato pubblico italiano **la richiesta di certificazione come
@@ -1777,7 +1777,7 @@ funzionalità del progetto può mediare quell'accesso, né direttamente né tram
 
 **Gli adempimenti nazionali sui dispositivi.** Il **d.lgs. 5 agosto 2022, n. 137** adegua la
 normativa nazionale all'MDR e disciplina gli adempimenti verso il Ministero della salute e
-l'obbligo di **lingua italiana** per le informazioni fornite dal fabbricante. **[NV]** i riferimenti
+l'obbligo di **lingua italiana** per le informazioni fornite dal fabbricante. **[NV]`COMP`** i riferimenti
 puntuali di articolo non sono stati verificati su fonte primaria.
 
 ---
@@ -2026,7 +2026,7 @@ Area per area, le conseguenze pratiche.
 - la documentazione tecnica si gestisce come codice, versionata, con revisori designati;
 - non dichiarare mai una norma come «armonizzata» senza aver verificato la lista consolidata: la
   formulazione prudente è «applicata come stato dell'arte»;
-- marca `[NV]` ciò che non hai verificato su fonte primaria. È una pratica di onestà, ma è anche la
+- marca `[NV]`COMP`` ciò che non hai verificato su fonte primaria. È una pratica di onestà, ma è anche la
   cosa che rende il documento utilizzabile da chi dovrà verificarlo.
 
 ---
@@ -2056,7 +2056,7 @@ Area per area, le conseguenze pratiche.
    praticabile, non per sostituirlo.
 8. **La tracciabilità si perde per sempre se non la si costruisce dall'inizio.** Identificativi
    congelati, inventario dei SOUP dalla prima compilazione, controllo dei documenti prima di
-   produrre documenti. È il motivo delle regole di `CONTRIBUTING.md`.
+   produrre documenti. È il motivo delle regole di [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md).
 9. **La catena del rischio è pericolo → situazione pericolosa → danno**, e la gerarchia dei
    controlli è obbligatoria: prima la progettazione, poi le protezioni, solo in ultimo le
    informazioni per la sicurezza.

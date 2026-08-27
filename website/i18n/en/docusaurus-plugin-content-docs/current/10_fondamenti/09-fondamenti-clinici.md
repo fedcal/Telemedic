@@ -615,7 +615,7 @@ string is not comparable, is not aggregable and has no unit.
 
 #### 3.1.4 Reference ranges and dependence on context
 
-The reference values commonly cited for the healthy adult sit around 120/80 mm[Hg] `[NV]`, but
+The reference values commonly cited for the healthy adult sit around 120/80 mm[Hg]; this figure must be verified by the `GUIDA` area of the foundations. `[NV]` But
 this figure is didactic and cannot be used as a rule. The reasons why it cannot:
 
 - the diagnostic thresholds for hypertension **differ according to the guideline** adopted and
@@ -1009,7 +1009,7 @@ It is a laboratory test reflecting the average exposure to glucose over the prec
 cited here because it is the case in which the conversion of units is most insidious. It is
 expressed as a **percentage** under one convention and in **millimoles per mole** under another.
 The numerical values are of different orders of magnitude, but there are reports that carry both,
-and the relationship between the two is affine, not proportional `[NV]` on the exact
+and the relationship between the two is affine, not proportional; the exact coefficients must be established by the `GUIDA` area. `[NV]`
 coefficients.
 
 Rule: **the value is retained with its unit as it was reported**, and the conversion, if needed,
@@ -1072,12 +1072,13 @@ the professional must report without softening them.
 
 **None of the codes reported has been verified by the project against a pinned LOINC release.**
 They are the codes commonly cited in the standard's documentation and in the FHIR profiles for
-vital signs, reported here for didactic purposes and marked `[NV]` as a block. Verification item
-by item, with a declaration of the LOINC version adopted and the attribution required by the
-licence, is a separate activity: LOINC is placed in regime A of the project's terminology policy
-- full coexistence in the sources with attribution. It should also be recalled that **the Italian
-translations of LOINC are derivative works assigned to the body that maintains it**: the
-project's interface strings must be kept architecturally separate from the code's display field.
+vital signs, reported here for didactic purposes. `[NV]` Verification item by item, with a
+declaration of the LOINC version adopted and the attribution required by the licence, must be
+requested of the `PROTO` area: it is a separate activity. LOINC is placed in regime A of the
+project's terminology policy - full coexistence in the sources with attribution. It should also
+be recalled that **the Italian translations of LOINC are derivative works assigned to the body
+that maintains it**: the project's interface strings must be kept architecturally separate from
+the code's display field.
 
 :::
 
@@ -1681,8 +1682,8 @@ the non-vocal sounds. A breath sound, a wheeze, a heart sound - which lie largel
 frequencies and have modest amplitude - are exactly what the noise suppressor removes. **It
 follows that one does not auscultate through the microphone of a smartphone, and it is not a
 question of the microphone's quality: it is the processing chain that removes the signal by
-design.** `[NV]` on the exact band limits, which depend on the encoder and on the configuration;
-the qualitative point does not depend on the figures.
+design.** `[NV]` The exact band limits must be requested of the `TECH` area (they depend on
+the encoder and on the configuration); the qualitative point does not depend on the figures.
 
 **The professional's screen.** It is not calibrated, it has an unknown colour profile, a
 brightness adjusted to taste, and it sits in a room with arbitrary lighting. The last link in the

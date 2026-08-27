@@ -27,7 +27,7 @@ issue about an imprecise definition does work that no developer can do in their 
 
 **The third.** Some changes are not assessed on technical merit. A function from the closed list
 of the regulatory scope is rejected **on policy**, with written reasons, even if it is well
-implemented and useful (constraint `V-170`). Knowing this before writing the code is the
+implemented and useful (constraint [`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)). Knowing this before writing the code is the
 difference between a ten-minute discussion and two wasted weeks.
 
 > **Prerequisite.** This module assumes you have already read
@@ -133,17 +133,17 @@ title, interface description, error message, release note - may assert or imply 
 marking or a certification that does not exist. The table of prohibited and permitted formulations
 is in
 [`docs/08_compliance/01-inquadramento-normativo.md`](/08_compliance/01-inquadramento-normativo.md)
-§11, and it is a constraint (`V-171`) with a regulatory basis: promotional material **is**
+§11, and it is a constraint ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171)) with a regulatory basis: promotional material **is**
 regulatory material. The parallel list for the protocols, which prohibits declaring conformity to
 informative specifications or to expired drafts, is in
 [`docs/04_protocols/10-conformita-e-prove.md`](/04_protocols/10-conformita-e-prove.md) §2
-(`V-133`).
+([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)).
 
 **Fourth - identifiers are not renumbered.** `RF-*`, `RNF-*`, `BR-*`, `ATT-*`, `UC-*`,
 `OUT-*` and the outcome codes are frozen. An identifier reused for a different requirement makes
 the entire traceability matrix unusable, and maintaining traceability is one of the
 **retroactively unrecoverable** activities of decision `D45`. Free ranges are requested on the noticeboard before
-use (`V-120`).
+use ([`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)).
 
 **Fifth - a proposal that touches the Italian content is not complete until it updates the
 English.** Check `G8` blocks the divergence. It is not a translation risk: it is different
@@ -153,7 +153,7 @@ normative content in two languages, which in a medical device context is a docum
 quality judgements: circumventing one produces an artefact that could not have been produced and
 that carries a false declaration with it. If a check legitimately blocks a legitimate development,
 **the check is corrected through the prescribed procedure**, it is not disabled for your own
-proposal (`V-191`, [17 §9.4](17-ambiente-di-sviluppo.md)).
+proposal ([`V-191`](../11_registri/01-vincoli-in-vigore.md#v-191), [17 §9.4](17-ambiente-di-sviluppo.md)).
 
 ---
 
@@ -171,7 +171,7 @@ internal boundaries are the ones they are.
 The work needed today is not evenly distributed across the nine chapters. Three fronts are open
 and concrete.
 
-The first is the **build chain**, which by constraint `V-182` **precedes** the first line of
+The first is the **build chain**, which by constraint [`V-182`](../11_registri/01-vincoli-in-vigore.md#v-182) **precedes** the first line of
 application code: an automatically generated bill of materials, a register of requirement
 identifiers, mandatory checks executable locally as well. It is unshowy and structurally
 irreplaceable work, because taking stock of third-party components after the fact costs several
@@ -185,8 +185,8 @@ screen that violates one of the `A1`-`A10` criteria is not completable in the se
 finished screen.
 
 The third is **measurement**: the media plane exposes raw counters that must be differenced
-between consecutive samples before they mean anything (`V-113`), and the reference device on
-which to measure the interface thresholds has not yet been declared (`Q-115`). Anyone who has a
+between consecutive samples before they mean anything ([`V-113`](../11_registri/01-vincoli-in-vigore.md#v-113)), and the reference device on
+which to measure the interface thresholds has not yet been declared ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115)). Anyone who has a
 mid-range handset a few years old and knows how to measure seriously is doing work that nobody is
 doing today.
 
@@ -235,18 +235,18 @@ looks bureaucratic and that, if it is not done now, never gets done.
 
 - **Use a cumulative counter as a quality indicator.** Loss, bytes, freeze duration and buffer
   delay grow monotonically: the correct average is a ratio between differences of consecutive
-  samples, not a value read once (`V-113`). The mistake produces dashboards that look as if they
+  samples, not a value read once ([`V-113`](../11_registri/01-vincoli-in-vigore.md#v-113)). The mistake produces dashboards that look as if they
   work and that lie by an increasing margin.
 - **Add a «reasonable» default value.** In a clinical context there is no reasonable default value
-  for a threshold: the field starts empty and mandatory (`V-123`). Pre-filling, even with the
+  for a threshold: the field starts empty and mandatory ([`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123)). Pre-filling, even with the
   value from the previous plan, is prohibited.
 - **Treat the schema migration as a single act.** No release is both destructive and functional:
   two consecutive versions must be able to coexist on the same database
-  (`V-111`). A feature requiring a destructive migration in the same release is to be
+  ([`V-111`](../11_registri/01-vincoli-in-vigore.md#v-111)). A feature requiring a destructive migration in the same release is to be
   redesigned, not authorised by way of exception.
 - **Set the tenant context outside the transaction.** Row-level security policies deny
   everything in the absence of a context: the setting must be made **inside** the transaction
-  and in the local form, not the session one (`V-112`).
+  and in the local form, not the session one ([`V-112`](../11_registri/01-vincoli-in-vigore.md#v-112)).
 
 **Those coming from healthcare.**
 
@@ -258,7 +258,7 @@ looks bureaucratic and that, if it is not done now, never gets done.
   connection, not from the developer's desktop. A requirement that cannot be completed on a
   modest handset on a mobile network **is not satisfied**, by explicit criterion.
 - **Confuse a technical threshold with a conformity.** No technical threshold of this area is
-  imposed by Italian law: the project's values are product specification (`V-12`).
+  imposed by Italian law: the project's values are product specification ([`V-12`](../11_registri/01-vincoli-in-vigore.md#v-12)).
   Presenting them as conformity is a regulatory defect.
 
 ### 4.5 What is not touched without discussing it first
@@ -266,10 +266,10 @@ looks bureaucratic and that, if it is not done now, never gets done.
 | Element | Why it is bound | Where it is discussed |
 |---|---|---|
 | Replacing or adding a technology in the stack | Every choice has a minimum version with a reason and a classification as a third-party component | Issue, then a recorded architecture decision |
-| The form of errors on the public interfaces | There are **only two** permitted representations, and an uncatalogued code cannot be emitted (`V-110`, `V-130`) | Noticeboard, technical and protocols areas |
-| Container and codec of the recording | They are negotiated at runtime and recorded in the metadata: **no single format can be declared** (`V-11`, `V-115`) | Noticeboard |
-| Session quality index | It is proprietary and must be declared as such; it is not a mean opinion score under any recommendation (`V-114`) | Noticeboard |
-| Floating version tags on dependencies or base images | They breach a clause on configuration control, not a preference (`V-173`) | Compliance area |
+| The form of errors on the public interfaces | There are **only two** permitted representations, and an uncatalogued code cannot be emitted ([`V-110`](../11_registri/01-vincoli-in-vigore.md#v-110), [`V-130`](../11_registri/01-vincoli-in-vigore.md#v-130)) | Noticeboard, technical and protocols areas |
+| Container and codec of the recording | They are negotiated at runtime and recorded in the metadata: **no single format can be declared** ([`V-11`](../11_registri/01-vincoli-in-vigore.md#v-11), [`V-115`](../11_registri/01-vincoli-in-vigore.md#v-115)) | Noticeboard |
+| Session quality index | It is proprietary and must be declared as such; it is not a mean opinion score under any recommendation ([`V-114`](../11_registri/01-vincoli-in-vigore.md#v-114)) | Noticeboard |
+| Floating version tags on dependencies or base images | They breach a clause on configuration control, not a preference ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)) | Compliance area |
 | Boundaries between service modules | They are the structure of the system; check `G13` verifies them | Architecture area |
 
 ### 4.6 How you check your own work
@@ -350,28 +350,28 @@ authority to choose.
 **Those coming from enterprise IT.**
 
 - **Merge the clinical service and the media session.** They are distinct aggregates with
-  independent life cycles (`V-01`): merging them means that every disconnection creates a phantom
+  independent life cycles ([`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01)): merging them means that every disconnection creates a phantom
   encounter and that a network drop closes a clinical act. It is mistake number two in the
   casuistry of the domain area, and it is the one that looks most reasonable.
 - **Introduce a status column updated in place.** The alert is a sequence of immutable events and
-  the current state is a projection (`V-121`). A column updated in place erases the history
+  the current state is a projection ([`V-121`](../11_registri/01-vincoli-in-vigore.md#v-121)). A column updated in place erases the history
   precisely where the history is the object of proof.
 - **Use an external identifier as a primary key.** The normalisation of identifiers
-  happens at the boundary, never in the domain (`V-142`): the domain knows one internal canonical
+  happens at the boundary, never in the domain ([`V-142`](../11_registri/01-vincoli-in-vigore.md#v-142)): the domain knows one internal canonical
   identifier and a collection of external identifiers qualified by assigning authority.
 - **Confuse the versioning of entities with immutability.** Whoever has write access to the
   database can also alter the version tables: a hash chain and separate retention are required
-  (`V-04`, decision `D42`).
+  ([`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04), decision `D42`).
 
 **Those coming from healthcare.**
 
 - **Ask the system to «know» something nobody has told it.** The system does not infer
   thresholds, does not interpret silences as normality and does not compute scores that have not
   been requested. The absence of a datum is clinical information and must be represented as an
-  entity, not as the absence of a row (`V-09`, `V-148`).
+  entity, not as the absence of a row ([`V-09`](../11_registri/01-vincoli-in-vigore.md#v-09), [`V-148`](../11_registri/01-vincoli-in-vigore.md#v-148)).
 - **Describe a care pathway as if it were a feature.** No care pathway lives in the
   code: adding one must require a definition loaded, validated and published with a version,
-  **never** a software release (`V-147`). A contribution that hard-codes a pathway is
+  **never** a software release ([`V-147`](../11_registri/01-vincoli-in-vigore.md#v-147)). A contribution that hard-codes a pathway is
   rejected even if the pathway is correct.
 - **Underestimate the territorial multiplication.** Twenty-one independent administrative cycles
   become twenty-one code branches if the model does not keep them out. It is the reason why the
@@ -384,7 +384,7 @@ concrete terms, the following require prior discussion and a recorded decision r
 the separation between the service and the media session; the model of isolation between tenants;
 what passes through the outbox and what does not; the structure of the immutable audit trail and
 the external anchoring point of its hash; the canonical identifier of the demographic registries;
-the scope of what is contract towards third parties (`V-160`).
+the scope of what is contract towards third parties ([`V-160`](../11_registri/01-vincoli-in-vigore.md#v-160)).
 
 Where it is discussed: the **inter-agent noticeboard** for coordination between areas, the
 **architecture decision record** for the act itself. In the event of a divergence between a
@@ -425,9 +425,9 @@ The work open today is of two kinds. The first is the **coverage of the error fl
 flows are described, the alternative and error flows unevenly so, and in this domain it is in the
 error flows that harm lurks - the patient who cannot connect is not the patient who did not
 attend, and the two cases have opposite administrative effects
-(`V-141`). The second is the **verification of the acceptance criteria against real users**, which
+([`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)). The second is the **verification of the acceptance criteria against real users**, which
 has not been done to date and which, without a declared reference device, is not even fully
-executable (`Q-115`).
+executable ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115)).
 
 ### 6.2 What to know first
 
@@ -459,7 +459,7 @@ while the session is in progress. Every error flow added is a behaviour that sto
 
 The form of the contribution is precise: preconditions, steps, typed outcome, administrative
 effect, postcondition. And the rule that makes it acceptable: **an anomalous outcome is a
-successful operation that records an unfavourable fact**, not a protocol error (`V-126`).
+successful operation that records an unfavourable fact**, not a protocol error ([`V-126`](../11_registri/01-vincoli-in-vigore.md#v-126)).
 Confusing the two makes what must stay in the clinical records disappear from them.
 
 ### 6.4 Typical mistakes of those coming from another domain
@@ -468,15 +468,15 @@ Confusing the two makes what must stay in the clinical records disappear from th
 
 - **Collapse state and outcome into a single field.** The state says where the encounter is, the
   outcome what happened. Two outcomes can share the terminal state and have opposite
-  administrative effects (`V-141`).
+  administrative effects ([`V-141`](../11_registri/01-vincoli-in-vigore.md#v-141)).
 - **Write an unfalsifiable requirement.** «The system must be reliable» does not produce a
   test that can fail, so it is not a requirement. The wording must be redone with a metric, a
   threshold and a measurement condition.
 - **Put a clinical value in a technical document.** No clinical threshold appears in these
   documents, not even as an example: a numeric value written into a specification ends up, sooner
-  or later, in a constant (`V-02`). Where an example is needed, a letter is used.
+  or later, in a constant ([`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)). Where an example is needed, a letter is used.
 - **Treat consent as a boolean.** There are five distinct consent objects with independent
-  life cycles, and the withdrawal of one does not touch the others (`V-146`). No «consent to the
+  life cycles, and the withdrawal of one does not touch the others ([`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)). No «consent to the
   platform» exists in the model.
 
 **Those coming from healthcare.**
@@ -487,23 +487,23 @@ Confusing the two makes what must stay in the clinical records disappear from th
   recipient does not answer.
 - **Assume that service hours are a contractual detail.** They are versioned runtime data that
   condition the validity of the recipient in the escalation chain: a recipient outside the
-  service hours is not a valid recipient (`V-122`). It is a risk control measure, not a
+  service hours is not a valid recipient ([`V-122`](../11_registri/01-vincoli-in-vigore.md#v-122)). It is a risk control measure, not a
   price-list clause.
 - **Ask for a function that shifts the product's qualification.** A threshold proposed by the
   system, ordering by severity, interpolation of gaps, a summary index, image enhancement,
   automatic coding, automatic summarisation: they are on a closed list and are rejected **on
-  scope policy**, not on technical merit (`V-170`). The rejection is not a judgement on the
+  scope policy**, not on technical merit ([`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)). The rejection is not a judgement on the
   merit of the idea.
 
 ### 6.5 What is not touched without discussing it first
 
 | Element | Why it is bound | Where it is discussed |
 |---|---|---|
-| Adding a function from the out-of-scope list | It changes the risk class and the software safety class together (`V-170`) | Compliance area, with written regulatory reasons |
-| Numbering a new requirement | The ranges are frozen and free ones are requested (`V-120`) | Noticeboard |
-| Rewording the intended purpose of remote monitoring | «Deferred collection for periodic review» is a bound formulation: «real-time monitoring» shifts the class (`V-144`) | Compliance area |
-| Presenting service hours as a commercial service level | It is a risk control measure of the weakest level of the hierarchy | Product, question `Q-121` |
-| Exposing clinical content to a payer | Permanent regulatory exclusion, not configurable (`V-08`, `V-166`) | No discussion possible: it is a source in force |
+| Adding a function from the out-of-scope list | It changes the risk class and the software safety class together ([`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)) | Compliance area, with written regulatory reasons |
+| Numbering a new requirement | The ranges are frozen and free ones are requested ([`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120)) | Noticeboard |
+| Rewording the intended purpose of remote monitoring | «Deferred collection for periodic review» is a bound formulation: «real-time monitoring» shifts the class ([`V-144`](../11_registri/01-vincoli-in-vigore.md#v-144)) | Compliance area |
+| Presenting service hours as a commercial service level | It is a risk control measure of the weakest level of the hierarchy | Product, question [`Q-121`](../11_registri/02-questioni-aperte.md#q-121) |
+| Exposing clinical content to a payer | Permanent regulatory exclusion, not configurable ([`V-08`](../11_registri/01-vincoli-in-vigore.md#v-08), [`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166)) | No discussion possible: it is a source in force |
 
 ### 6.6 How you check your own work
 
@@ -550,8 +550,8 @@ recheck.
 
 The open work is concentrated on two points: the **gap analysis** between the binding information
 layout of the televisita report and the profile that ought to represent it, which has not been
-carried out (`Q-132`); and the **validation tools executable locally**, without which the
-requirement to validate the resources before opening a proposal cannot be carried out (`Q-193`).
+carried out ([`Q-132`](../11_registri/02-questioni-aperte.md#q-132)); and the **validation tools executable locally**, without which the
+requirement to validate the resources before opening a proposal cannot be carried out ([`Q-193`](../11_registri/02-questioni-aperte.md#q-193)).
 
 ### 7.2 What to know first
 
@@ -587,17 +587,17 @@ that exists only in the prose.
 
 - **Call «standard» what is not.** The idempotency header is an expired and archived draft; those
   for rate limiting are an active draft, and the three-field form has never been a standard.
-  Presenting them as standards is explicitly prohibited (`V-133`).
+  Presenting them as standards is explicitly prohibited ([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)).
 - **Put the clinical content in the event.** Events carry references; the content is re-read with
-  an authenticated call under the recipient's authorisation (`V-135`, `V-161`). It is without
+  an authenticated call under the recipient's authorisation ([`V-135`](../11_registri/01-vincoli-in-vigore.md#v-135), [`V-161`](../11_registri/01-vincoli-in-vigore.md#v-161)). It is without
   exceptions, on the clinical channel too.
 - **Use impersonation instead of delegation.** When the identity comes from an external issuer,
   delegation is always used, with the actor claim: no supported configuration issues a token
-  lacking it (`V-132`). It is a blocking release criterion.
+  lacking it ([`V-132`](../11_registri/01-vincoli-in-vigore.md#v-132)). It is a blocking release criterion.
 - **Assume ordered delivery from a mechanism that does not guarantee it.** The protocol that
   carries the connectivity candidates must deliver them exactly once and in the same order; a
   broadcast without persistence does not guarantee this, and the resulting defect is
-  intermittent and load-dependent (`V-131`).
+  intermittent and load-dependent ([`V-131`](../11_registri/01-vincoli-in-vigore.md#v-131)).
 
 **Those coming from healthcare.**
 
@@ -606,15 +606,15 @@ that exists only in the prose.
   formats are often informative documents that found no conformity at all.
 - **Assume that the Italian document exists in technical form.** The document templates, the type
   codes and the indexing metadata of the telemedicine document types are not publicly
-  available (`Q-07`): the adapter exists as an extension point with a declared contract, and the
-  implementation is deferred. No template is hard-coded (`V-136`).
+  available ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07)): the adapter exists as an extension point with a declared contract, and the
+  implementation is deferred. No template is hard-coded ([`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136)).
 - **Ask the system to write into the document a value it has measured.** The measured value enters
   the document **confirmed by the professional**, never generated autonomously: it would be
   information produced by the system inside a clinical document.
 
 ### 7.5 What is not touched without discussing it first
 
-The scope of what is **contract** towards third parties (`V-160`): paths, methods, parameters and
+The scope of what is **contract** towards third parties ([`V-160`](../11_registri/01-vincoli-in-vigore.md#v-160)): paths, methods, parameters and
 schemas documented; profiles published and the capability statement; event types and the schemas
 of their data; authorisation scopes; problem type identifiers and outcome codes; interfaces
 of the replaceable modules; messaging protocol of the embeddable component. All of this is
@@ -622,8 +622,8 @@ subject to a twelve-month deprecation process, and a non-additive change require
 version - check `G6` catches it.
 
 Nor are the following touched without discussion: the pinned version of a guide or of a profile;
-the single catalogue of error codes, which is generated and not hand-written (`V-130`); the form of
-the signature on outbound messages, which is asymmetric by a reasoned choice (`V-162`).
+the single catalogue of error codes, which is generated and not hand-written ([`V-130`](../11_registri/01-vincoli-in-vigore.md#v-130)); the form of
+the signature on outbound messages, which is asymmetric by a reasoned choice ([`V-162`](../11_registri/01-vincoli-in-vigore.md#v-162)).
 
 Where it is discussed: the inter-agent noticeboard towards the competent area, and - for what is
 contract - a recorded decision record, because the change has effects on parties external to the
@@ -636,8 +636,8 @@ artefact and not downloaded on the fly: an upstream change cannot change the out
 validation already performed. Always distinguish, in the report, conformity to the base model from
 conformity to the profile: it is the distinction that counts in practice.
 
-`[NV]` - the names, versions and invocation modes of the tools are not fixed (`Q-133`,
-`Q-193`). Until they are, the minimum check is: a citation checked against the primary text,
+`[NV]` - the names, versions and invocation modes of the tools are not fixed ([`Q-133`](../11_registri/02-questioni-aperte.md#q-133),
+[`Q-193`](../11_registri/02-questioni-aperte.md#q-193)). Until they are, the minimum check is: a citation checked against the primary text,
 a negative test where a prohibition exists, and an explicit declaration of what is a project
 choice.
 
@@ -662,7 +662,7 @@ that of a developer who skipped it.
 The work open today is of three kinds. The first is the **terminological alignment** with the
 national glossary, which has not been carried out entry by entry and which must be completed
 **before** the domain glossary is frozen and before the translation, because a divergence
-discovered afterwards propagates across two languages (`Q-146`). The second is the **coverage
+discovered afterwards propagates across two languages ([`Q-146`](../11_registri/02-questioni-aperte.md#q-146)). The second is the **coverage
 check** between the canonical dataset of the documents and the binding record layout. The third,
 less showy and more useful, is the **clinical review of the definitions**: reading the ubiquitous
 language and saying where an operational definition betrays the real concept.
@@ -706,7 +706,7 @@ most often missing.
 - **Reduce the measurement to a value plus an instant.** Without context - who measured, with
   which instrument, under what conditions, with which unit, with what reliability - the
   measurement is not interpretable. And the instant of measurement and the instant of receipt are
-  **two distinct mandatory fields**: the rules operate on the first (`V-124`).
+  **two distinct mandatory fields**: the rules operate on the first ([`V-124`](../11_registri/01-vincoli-in-vigore.md#v-124)).
 - **Treat the role as an attribute of the person.** The same professional works in more than one
   organisation, and roles have temporal validity. A role-as-attribute loses the history and makes
   it impossible to demonstrate who was entitled to access and when.
@@ -716,7 +716,7 @@ most often missing.
 - **Build obscuring into the consumers.** Obscuring is applied by the authorisation
   engine, at a single point that filters and computes the totals on the filtered set; the six
   inference channels - numbering, counts, pagination, notifications, differences between
-  queries, error messages - must all be closed (`V-149`).
+  queries, error messages - must all be closed ([`V-149`](../11_registri/01-vincoli-in-vigore.md#v-149)).
 - **Create a single type of «service» covering request, delivery and charging.** It produces null
   fields, fragile conditional rules and impossible reporting.
 
@@ -732,19 +732,19 @@ most often missing.
   are excluded as a precaution for licensing reasons too. If you have a scale you would like to
   see supported, the first question is not technical: it is who holds the rights to it.
 - **Take coding for granted.** The system is **fully functional without the costly clinical
-  terminology** (`V-03`), and this is not a fallback: it is a constraint. A contribution that makes
+  terminology** ([`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)), and this is not a fallback: it is a constraint. A contribution that makes
   a main pathway dependent on that terminology is rejected.
 
 ### 8.5 What is not touched without discussing it first
 
 | Element | Why it is bound | Where it is discussed |
 |---|---|---|
-| Hard-coding a care pathway or a service catalogue | Twenty-one independent administrative cycles; the project distributes no catalogue (`V-147`) | Architecture area |
-| Document type of the televisita report | It has a document type of its own in the health record; the alternative hypothesis is **wrong** and must not be used in any artefact (`V-143`) | No discussion: it is a source in force |
+| Hard-coding a care pathway or a service catalogue | Twenty-one independent administrative cycles; the project distributes no catalogue ([`V-147`](../11_registri/01-vincoli-in-vigore.md#v-147)) | Architecture area |
+| Document type of the televisita report | It has a document type of its own in the health record; the alternative hypothesis is **wrong** and must not be used in any artefact ([`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)) | No discussion: it is a source in force |
 | Adding terminological content to the repository | Four distinct licensing regimes, verified against the primary text; check `G3` blocks | [`THIRD-PARTY-TERMINOLOGY.md`](https://github.com/fedcal/Telemedic/blob/main/THIRD-PARTY-TERMINOLOGY.md), then compliance area |
 | Confusing interface strings with official labels | The translations of the terminologies are derivative works assigned to the respective rights holders | Architecture area, decision already recorded |
-| Treating the absence of a measurement as the absence of a row | The measurement expectation is an entity (`V-148`) | Noticeboard |
-| Separation between those who handle technical alerts and those who access clinical content | It is an authorisation constraint, not an organisational convention (`V-125`) | Security area |
+| Treating the absence of a measurement as the absence of a row | The measurement expectation is an entity ([`V-148`](../11_registri/01-vincoli-in-vigore.md#v-148)) | Noticeboard |
+| Separation between those who handle technical alerts and those who access clinical content | It is an authorisation constraint, not an organisational convention ([`V-125`](../11_registri/01-vincoli-in-vigore.md#v-125)) | Security area |
 
 ### 8.6 How you check your own work
 
@@ -759,7 +759,7 @@ permitted, descriptions and content are not.
 
 **Third, of synthetic data:** do the test data accompanying the contribution include the awkward
 cases? In particular, for obscuring, **they must include obscured documents**: otherwise no test
-exercises that pathway (`V-149`).
+exercises that pathway ([`V-149`](../11_registri/01-vincoli-in-vigore.md#v-149)).
 
 ---
 
@@ -787,8 +787,8 @@ altered audit trail is the impossibility of establishing an improper access.
 The work open today: the **immutable audit trail with a hash chain and separate retention**,
 which is the largest effort in the whole catalogue and must be planned as such, not as
 configuration (decision `D42`); the **single egress broker** with its suite of abuse tests
-(`V-157`); and the **ranges of forbidden addresses** for the relay node confinement test, without
-which the test cannot be written and the constraint remains a declaration (`Q-196`).
+([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)); and the **ranges of forbidden addresses** for the relay node confinement test, without
+which the test cannot be written and the constraint remains a declaration ([`Q-196`](../11_registri/02-questioni-aperte.md#q-196)).
 
 ### 9.2 What to know first
 
@@ -821,28 +821,28 @@ in the prose and does not exist in the code.
 **Those coming from enterprise IT.**
 
 - **Log too much.** The immutable audit trail and the application logs **do not contain clinical
-  content**, and the diagnostic logs do not carry direct identifiers of the patient (`V-150`).
+  content**, and the diagnostic logs do not carry direct identifiers of the patient ([`V-150`](../11_registri/01-vincoli-in-vigore.md#v-150)).
   A verbose log in this domain is not an aid to diagnosis: it is a second, unprotected copy
   of the data.
 - **Declare a cryptographic property statically.** The project **does not declare** protocol
-  versions or negotiated suites: it measures them per session and records them (`V-156`). The
+  versions or negotiated suites: it measures them per session and records them ([`V-156`](../11_registri/01-vincoli-in-vigore.md#v-156)). The
   negotiation takes place between two endpoints the project does not control, and any static
   assertion would be false for part of the installed base.
 - **Open a connection towards a destination derived from an incoming datum.** Only the single
   broker has a route to the outside; for the others, egress is denied at the network level
-  (`V-157`). It is an architectural requirement precisely because the defence must not depend on
+  ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)). It is an architectural requirement precisely because the defence must not depend on
   the correctness of the code.
 - **Label an infrastructure metric with the session identifier.** That alone is enough to turn an
-  operational dashboard into a source of data concerning health (`V-155`).
+  operational dashboard into a source of data concerning health ([`V-155`](../11_registri/01-vincoli-in-vigore.md#v-155)).
 - **Confuse the level of assurance required with the one asserted.** A level reported by an
   integrator must be marked as such and does **not** satisfy an obligation of strong
-  authentication (`V-154`, `V-165`).
+  authentication ([`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154), [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165)).
 
 **Those coming from healthcare.**
 
 - **Ask for an «emergency» access without an audit trail.** Emergency access is a functional
   requirement with a precise form: a mandatory free-text reason, a limited window and scope,
-  notification, review with a recorded outcome (`V-153`). It is not a shortcut, it is a pathway.
+  notification, review with a recorded outcome ([`V-153`](../11_registri/01-vincoli-in-vigore.md#v-153)). It is not a shortcut, it is a pathway.
 - **Assume that end-to-end encryption is always on.** When recording is active the encryption is
   terminated at the server and the session is **not** end-to-end encrypted: the privacy notice
   must declare it and the interface must signal it persistently and non-concealably.
@@ -859,13 +859,13 @@ recommendations in force, and whatever has not been read in the text is marked `
 defects are described by mechanism and by fix version, which is the form useful to whoever has to
 decide the minimum version to distribute. No **specific requirement of the national measures** is
 cited verbatim before the detailed annexes have been read line by line: the codes are cited,
-which are public and verified (`Q-151`).
+which are public and verified ([`Q-151`](../11_registri/02-questioni-aperte.md#q-151)).
 
 The following are not touched without discussion: the retention terms of the audit records, which
-are of sectoral source (`V-152`); the structure of the immutable audit trail; the primary defence
+are of sectoral source ([`V-152`](../11_registri/01-vincoli-in-vigore.md#v-152)); the structure of the immutable audit trail; the primary defence
 of the relay node, which is outbound network isolation and not the list of forbidden addresses
-(`V-10`); the separation between those who handle technical alerts and those who access clinical
-content (`V-125`).
+([`V-10`](../11_registri/01-vincoli-in-vigore.md#v-10)); the separation between those who handle technical alerts and those who access clinical
+content ([`V-125`](../11_registri/01-vincoli-in-vigore.md#v-125)).
 
 Where it is discussed: the noticeboard, and - for vulnerabilities - **never in a public issue**.
 The confidential procedure is in
@@ -903,9 +903,9 @@ integrator the same half day.
 
 The open work: the **integration test suite that exercises at least two tenants and two distinct
 integrators**, with deliberately divergent configurations - a test that passes with a single
-integrator configured does not demonstrate the multi-integrator property (`V-188`); and the
+integrator configured does not demonstrate the multi-integrator property ([`V-188`](../11_registri/01-vincoli-in-vigore.md#v-188)); and the
 **minimum contract of the third-party measurement gateway**, of which two elements required by the
-security model have not been verified to be exposed by the gateways on the market (`Q-122`).
+security model have not been verified to be exposed by the gateways on the market ([`Q-122`](../11_registri/02-questioni-aperte.md#q-122)).
 
 ### 10.2 What to know first
 
@@ -948,19 +948,19 @@ only when somebody loses a day over it.
   back ends. It is 70 % of the cost of a typical integration and it is not circumvented:
   circumventing it produces a pathway that works in a demonstration and is not defensible.
 - **Ask for the clinical content inside the notification.** It is not there, and it will not be:
-  the notification says that something has happened and where to find it (`V-161`). It is not a
+  the notification says that something has happened and where to find it ([`V-161`](../11_registri/01-vincoli-in-vigore.md#v-161)). It is not a
   limitation to be negotiated, it is a project rule without exceptions.
 - **Treat the payer as a consulting party.** A fund, a mutual society or an insurance policy that
   pays for the service obtains the **administrative outcome**, not the clinical content, and no
   pathway - direct or mediated by a professional - may constitute an access to the health record
-  (`V-08`, `V-166`). It is a misunderstanding made in good faith, because the payer is a
+  ([`V-08`](../11_registri/01-vincoli-in-vigore.md#v-08), [`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166)). It is a misunderstanding made in good faith, because the payer is a
   legitimate party in the pathway.
 - **Present as a standard a header name that is a project choice.** The area explicitly marks what
   is a project proposal, and the rule holds for the integrator's internal documentation too.
 - **Degrade accessibility with the theme.** The recording indicator, the warnings and consent
   texts, the outcome of key verification, clinical error messages and the encryption status
   indicator **are neither themeable nor concealable**; a configuration that degrades the contrast
-  is **rejected on saving**, not flagged as a warning (`V-163`).
+  is **rejected on saving**, not flagged as a warning ([`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)).
 
 **Those coming from healthcare.**
 
@@ -972,19 +972,19 @@ only when somebody loses a day over it.
   software **is not usable for delivering health services to real patients**. Every artefact
   declares it, and no integration document may soften it.
 - **Assume that the project is accredited with the identity federation.** It is not and cannot be:
-  the service provider towards the federation is **the deployer** (`V-05`).
+  the service provider towards the federation is **the deployer** ([`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05)).
 
 ### 10.5 What is not touched without discussing it first
 
-The scope of the public contract (`V-160`) and its deprecation rules: widening or narrowing it
+The scope of the public contract ([`V-160`](../11_registri/01-vincoli-in-vigore.md#v-160)) and its deprecation rules: widening or narrowing it
 requires a declaration on the noticeboard, because it has effects on external parties. The
-impassable limit on the customisation of the embeddable component (`V-163`). The closed and
+impassable limit on the customisation of the embeddable component ([`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)). The closed and
 versioned set of theme properties. The trust registry towards integrators, which is single and
 shared between federation, origins permitted for embedding and destinations permitted for
 notifications: three separate registries always diverge.
 
 And the corollary that holds for all the areas: **a new capability is not complete until it is
-reachable by a third-party system through a documented and versioned interface** (`V-164`). The
+reachable by a third-party system through a documented and versioned interface** ([`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)). The
 area that introduces the capability also introduces the contract: it is not work that can be
 deferred here.
 
@@ -996,7 +996,7 @@ itself.
 
 **The integration test exercises two tenants and two integrators** with divergent configurations:
 different assigning authorities for the identifiers, different outbound profiles, different
-delivery modes, different sets of replaced modules (`V-188`).
+delivery modes, different sets of replaced modules ([`V-188`](../11_registri/01-vincoli-in-vigore.md#v-188)).
 
 **Check `G6`** verifies that a non-additive change to an element of the contractual scope is
 declared. If it trips, the answer is not to circumvent it: it is to make the change additive
@@ -1074,20 +1074,20 @@ it.
   manufacturer by law, regardless of what is written in the licence.
 - **Add a dependency without a record and without an exact version.** It is an unidentified
   configuration item, and floating version tags are prohibited because they make the bill of
-  materials of the previous release false (`V-173`).
+  materials of the previous release false ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)).
 
 **Those coming from healthcare.**
 
 - **Assume that a published document is a controlled document.** It is not: no chapter of `docs/`
   is a quality management system procedure or a document of the technical file. The chapters are
-  **inputs**, they contain the analysis from which a controlled document is written (`V-174`). It
+  **inputs**, they contain the analysis from which a controlled document is written ([`V-174`](../11_registri/01-vincoli-in-vigore.md#v-174)). It
   is the junction point of the whole model.
 - **Look for advice in this area.** It is neither legal nor regulatory advice: the qualification of
   a party and of a product depends on elements of fact to be established case by case by a
   qualified professional.
 - **Assume that a published date is a commitment.** The dates appear only in the dedicated
   chapter, and no document of the project declares a date for a milestone that is not the
-  project's (`V-180`).
+  project's ([`V-180`](../11_registri/01-vincoli-in-vigore.md#v-180)).
 
 ### 11.5 What is not touched without discussing it first
 
@@ -1096,8 +1096,8 @@ risk class and the software safety class together, and the difference is worth m
 of magnitude of cost. It is not changed in an ordinary proposal.
 
 The following are not touched without discussion: the reserved space of the regulatory document
-identifiers (`V-172`); the table of prohibited formulations; the scope of the functions excluded on
-regulatory policy (`V-170`); and any assertion about the harmonisation status of a standard, which
+identifiers ([`V-172`](../11_registri/01-vincoli-in-vigore.md#v-172)); the table of prohibited formulations; the scope of the functions excluded on
+regulatory policy ([`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)); and any assertion about the harmonisation status of a standard, which
 must be checked **at the date of use** and not once and for all.
 
 Where it is discussed: the noticeboard towards the compliance area, and for the decisions that
@@ -1118,7 +1118,7 @@ through the whole documentation.
 **Does the text you have written contain one of the prohibited formulations?** The table is the
 checklist, and the verification is not documentary but procedural: a change to a public text does
 not go through code review and does not make any automated check fail. It is the only safeguard
-of the area that no automated verification catches (`Q-174`).
+of the area that no automated verification catches ([`Q-174`](../11_registri/02-questioni-aperte.md#q-174)).
 
 ---
 
@@ -1201,7 +1201,7 @@ not understand a clinical paragraph are both doing exactly the work that is need
 The **structure of the modules and their numbering**: the modules are cited by number by all the
 areas and by both languages, and a renumbering breaks a large number of cross-references. The
 **placement of a concept**: moving an explanation from one module to another is a structural
-change, not an editorial one. The **position of the guide as a prerequisite** of `CONTRIBUTING.md`.
+change, not an editorial one. The **position of the guide as a prerequisite** of [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md).
 
 And a rule that holds for every change: **a proposal that touches the Italian content is not
 complete until it updates the English** (`G8`). It holds for a one-line correction too.
@@ -1231,7 +1231,7 @@ the internationalisation and the publication.
 The approved sequence of work is clear-cut: **all** the documentation is completed, then the site
 is built with internationalisation, published, and its **real functioning verified** - navigation,
 search, language switching, internal links, reproducible build.
-**No area is considered closed until it is navigable online in both languages** (`V-183`).
+**No area is considered closed until it is navigable online in both languages** ([`V-183`](../11_registri/01-vincoli-in-vigore.md#v-183)).
 
 From this it follows that work on the site is not final cosmetics: it is the closing condition of
 everything else. And from it follows an operational fact worth stating straight away: **internal
@@ -1285,7 +1285,7 @@ over. It is the information the areas need in order to close, and it is blocking
   their original form, with the explanation in the language. Translating the title of a decree
   makes it impossible to find.
 - **Build the site from a floating version of a tool.** The build must be reproducible: no
-  floating version tag, not even on the tools of the chain (`V-173`).
+  floating version tag, not even on the tools of the chain ([`V-173`](../11_registri/01-vincoli-in-vigore.md#v-173)).
 
 **Those coming from healthcare.**
 
@@ -1497,7 +1497,7 @@ them is the commonest cause of frustration.
 ordinary case and requires no comment.
 
 **Scope rejection.** The contribution introduces a function from the closed list and **is not
-assessed on technical merit**: it is rejected on policy, with written regulatory reasons (`V-170`).
+assessed on technical merit**: it is rejected on policy, with written regulatory reasons ([`V-170`](../11_registri/01-vincoli-in-vigore.md#v-170)).
 It is not a judgement on the quality of the work, and it is the reason why the list is published:
 reading it beforehand costs ten minutes.
 
@@ -1525,14 +1525,14 @@ Listed here because a declared gap is usable and an implicit one is not.
 
 | Reference | What is missing | Whose responsibility it is |
 |---|---|---|
-| `[NV]` | The **aggregate command** that runs the mandatory checks locally is not fixed: until it is, the «how you check your own work» section of each area relies on a manual sequence (`Q-190`) | Technical area |
-| `[NV]` | The **validation tools for the clinical profiles executable locally** are not fixed by name and version: the verification prescribed for the protocols area is therefore not executable in reproducible form (`Q-133`, `Q-193`) | Protocols and technical areas |
-| `[NV]` | The **reference device** for the small-screen rendering criteria is not declared: two accessibility requirements are not verifiable until it is (`Q-115`) | Product |
-| `[NV]` | The **ranges of forbidden addresses** for the relay node confinement test are not listed: without the list the test cannot be written (`Q-196`) | Security area |
-| `[NV]` | The **minimum workable machine profile** for the local environment has not been measured: whoever has a modest machine does not know in advance whether they can take part (`Q-191`) | Technical and roadmap areas |
-| `Q-195` | There is no **public and maintained list of first-entry contributions** per area, consistent with the «the first sensible contribution» sections of this module. Without it the indications remain descriptive and not actionable | → orchestration, with the areas |
-| `Q-197` | It is not defined **who answers the issues that are not code** - clinical review, verification of sources, accessibility testing - nor within what time. It is the condition for §14 to produce repeated rather than one-off contributions | → orchestration, with the governance |
-| `Q-198` | The **double naming of this module** in the existing cross-references is resolved in the text: `CONTRIBUTING.md` - in both the Italian and the English block - module 00 and module 17 have been aligned to the file's `title`, «Contribuire, area per area» / *Contributing, area by area*, which is the authoritative naming; the glossary was already aligned to it. What remains is the non-editorial part: the **automated reachability check** on the cross-references must be added to the blocking checks before the first deploy (it settles together with `Q-26`) | Guide and site |
+| `[NV]` | The **aggregate command** that runs the mandatory checks locally is not fixed: until it is, the «how you check your own work» section of each area relies on a manual sequence ([`Q-190`](../11_registri/02-questioni-aperte.md#q-190)) | Technical area |
+| `[NV]` | The **validation tools for the clinical profiles executable locally** are not fixed by name and version: the verification prescribed for the protocols area is therefore not executable in reproducible form ([`Q-133`](../11_registri/02-questioni-aperte.md#q-133), [`Q-193`](../11_registri/02-questioni-aperte.md#q-193)) | Protocols and technical areas |
+| `[NV]` | The **reference device** for the small-screen rendering criteria is not declared: two accessibility requirements are not verifiable until it is ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115)) | Product |
+| `[NV]` | The **ranges of forbidden addresses** for the relay node confinement test are not listed: without the list the test cannot be written ([`Q-196`](../11_registri/02-questioni-aperte.md#q-196)) | Security area |
+| `[NV]` | The **minimum workable machine profile** for the local environment has not been measured: whoever has a modest machine does not know in advance whether they can take part ([`Q-191`](../11_registri/02-questioni-aperte.md#q-191)) | Technical and roadmap areas |
+| [`Q-195`](../11_registri/02-questioni-aperte.md#q-195) | There is no **public and maintained list of first-entry contributions** per area, consistent with the «the first sensible contribution» sections of this module. Without it the indications remain descriptive and not actionable | → orchestration, with the areas |
+| [`Q-197`](../11_registri/02-questioni-aperte.md#q-197) | It is not defined **who answers the issues that are not code** - clinical review, verification of sources, accessibility testing - nor within what time. It is the condition for §14 to produce repeated rather than one-off contributions | → orchestration, with the governance |
+| [`Q-198`](../11_registri/02-questioni-aperte.md#q-198) | The **double naming of this module** in the existing cross-references is resolved in the text: [`CONTRIBUTING.md`](https://github.com/fedcal/Telemedic/blob/main/CONTRIBUTING.md) - in both the Italian and the English block - module 00 and module 17 have been aligned to the file's `title`, «Contribuire, area per area» / *Contributing, area by area*, which is the authoritative naming; the glossary was already aligned to it. What remains is the non-editorial part: the **automated reachability check** on the cross-references must be added to the blocking checks before the first deploy (it settles together with [`Q-26`](../11_registri/02-questioni-aperte.md#q-26)) | Guide and site |
 
 ---
 

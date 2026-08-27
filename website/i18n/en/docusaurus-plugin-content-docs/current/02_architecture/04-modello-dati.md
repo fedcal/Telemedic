@@ -330,13 +330,13 @@ The persistence model is private to each context and its form belongs to the tec
 
 | # | Constraint | Motivation |
 |---|---|---|
-| PD-1 | Every table containing domain data carries the tenant identifier | Constraint V4, defence in depth of isolation |
+| PD-1 | Every table containing domain data carries the tenant identifier | Constraint [V4](../11_registri/03-vincoli-fondanti.md#v4), defence in depth of isolation |
 | PD-2 | No foreign key crosses the boundary of a context | Rule 1 of boundary crossing |
 | PD-3 | No external identifier is a primary key or part of one | §5.1 |
 | PD-4 | Resources of the exchange format are not persisted as such | §1, rule on projection |
 | PD-5 | The outbox table is in the schema of the context that produces the event | Atomicity between datum and event |
 | PD-6 | Time series are in dedicated structures, not in generic relational tables | §4.2 |
-| PD-7 | The immutable register shares no archive with application data | Separate storage, constraint V-04 |
+| PD-7 | The immutable register shares no archive with application data | Separate storage, constraint [V-04](../11_registri/01-vincoli-in-vigore.md#v-04) |
 | PD-8 | What has temporal validity is not overwritten: it is versioned | §6 of domain model |
 | PD-9 | Migrations are reversible and tested on every tenant schema | Selective restore, scenario SQ-08 |
 | PD-10 | No real data in any environment, including development | Cross-cutting constraint of architectural baseline |

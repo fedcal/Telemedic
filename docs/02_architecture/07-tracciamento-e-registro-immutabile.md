@@ -99,9 +99,9 @@ A intervalli regolari, l'impronta della testa della catena è **firmata e marcat
 e l'attestazione è conservata separatamente dalla catena stessa. L'ancoraggio è ciò che rende la
 riscrittura della storia contraddittoria con un'attestazione già emessa e datata.
 
-`[NV]` - L'intervallo di ancoraggio, la scelta fra marcatura temporale da un servizio qualificato
-e altre forme di attestazione, e la conservazione degli ancoraggi sono decisioni che appartengono
-all'area di sicurezza e all'area di conformità: quest'area ne fissa la necessità e la collocazione
+L'intervallo di ancoraggio, la scelta fra marcatura temporale da un servizio qualificato e altre
+forme di attestazione, e la conservazione degli ancoraggi sono decisioni che vanno prese dalle
+aree di sicurezza e conformità (`SEC`, `COMP`) `[NV]`: quest'area ne fissa la necessità e la collocazione
 architetturale, non i parametri. La domanda è aperta in bacheca.
 
 ### 2.3 La conservazione separata
@@ -308,7 +308,7 @@ segmento rimosso resta e attesta ciò che c'era.
 
 | Riferimento | Che cosa non è deciso o verificato | A chi spetta |
 |---|---|---|
-| §2.2 | Intervallo di ancoraggio, forma dell'attestazione temporale, conservazione degli ancoraggi | Area di sicurezza con area di conformità; questione aperta in bacheca |
+| §2.2 | Intervallo di ancoraggio, forma dell'attestazione temporale, conservazione degli ancoraggi | Area di sicurezza con `COMP`; questione aperta in bacheca |
 | §2.3 | Requisiti minimi di separazione dei privilegi esigibili nell'installazione presso il cliente | Area di sicurezza, per la documentazione destinata a chi installa |
 | §3.3 | Forma minima dell'origine della richiesta compatibile con la minimizzazione | Area di sicurezza |
 | §5.1 | Cadenza delle tre profondità di verifica | Area di sicurezza, in coerenza con gli obiettivi di sorveglianza |

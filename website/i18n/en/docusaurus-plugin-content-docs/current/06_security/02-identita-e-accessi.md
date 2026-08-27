@@ -27,7 +27,7 @@ assertion that will not stand up in an investigation.
 
 ## 2. The project is not accredited, and this changes the perimeter
 
-**Constraint V-05, which governs the whole chapter.** A software project cannot be accredited
+**Constraint [V-05](../11_registri/01-vincoli-in-vigore.md#v-05), which governs the whole chapter.** A software project cannot be accredited
 with the national digital identity federation. The service provider, under DPCM 24 ottobre 2014
 (the Prime Ministerial Decree of 24 October 2014), Article 1(1)(i), is whoever **provides online
 services**, and the agreement with the agency commits them to declaring the list of active
@@ -66,8 +66,8 @@ federation.
 
 The correspondence with the European levels - substantial and high under Article 8(2) of
 Regulation (EU) 910/2014 - is the one commonly assumed, **but it is not stated verbatim in the
-implementing regulation**: `[NV]`. If a formal declaration is needed, it must be verified against
-the notification documentation of the scheme at European level. It must not be asserted here.
+implementing regulation**: `[NV]`. If a formal declaration is needed, it must be verified by `COMP`
+against the notification documentation of the scheme at European level. It must not be asserted here.
 
 ### 3.1 Which level for health data: the uncomfortable answer
 
@@ -89,7 +89,7 @@ simplified it in either direction would be incorrect:
   has not been located**: `[NV]`, it must be requested from the agency;
 - level 3 requires the patient to have a cryptographic device. Imposing it in order to access a
   remote consultation (televisita) would produce **mass exclusion**, in direct tension with the
-  accessibility constraint V6 and with the equity purpose of the service. This is a patient safety
+  accessibility constraint [V6](../11_registri/03-vincoli-fondanti.md#v6) and with the equity purpose of the service. This is a patient safety
   consideration, not one of convenience: a service that is inaccessible to the population that
   needs it most is not a safer service.
 
@@ -187,7 +187,7 @@ For comparison, the token issued when it is the project that authenticated the p
 }
 ```
 
-**The four authorisation rules that follow** - a project proposal, published as constraint V-154:
+**The four authorisation rules that follow** - a project proposal, published as constraint [V-154](../11_registri/01-vincoli-in-vigore.md#v-154):
 
 1. An operation that legislation ties to **strong authentication** under Article 64 of the Codice
    dell'Amministrazione Digitale (the Italian Digital Administration Code) - access to the health
@@ -203,7 +203,7 @@ For comparison, the token issued when it is the project that authenticated the p
    minimum needed to answer the question «which system acted on behalf of which person, with what
    identity assurance».
 
-**The level propagated is the one requested, not the one asserted** (constraint V-25 of the
+**The level propagated is the one requested, not the one asserted** (constraint [V-165](../11_registri/01-vincoli-in-vigore.md#v-165) of the
 integration area, which this area adopts). A double-recording obligation follows:
 `acr_requested` and `acr_asserted` are **both** retained, always. The reason is in §5.
 
@@ -214,7 +214,7 @@ authentication context element **in the response is always set to level 3**, «s
 provides the highest level of reliability at European level».
 
 If this wording is the current one - and it must be verified empirically in pre-production before
-declaring in public documentation how the project propagates the level: `[NV]`, question Q-153 on
+declaring in public documentation how the project propagates the level: `[NV]`, question [Q-153](../11_registri/02-questioni-aperte.md#q-153) on
 the noticeboard - three consequences follow that are not cosmetic:
 
 1. **The service provider cannot deduce from the response with which factor the person actually
@@ -230,8 +230,8 @@ the noticeboard - three consequences follow that are not cosmetic:
 A further check remains open, of almost zero cost and on the critical path: **it is not verified**
 whether the federation product, acting as a client towards an external identity provider, forwards
 the requested level parameter through the intermediating realm. If it does not forward it, per-operation
-level step-up is not obtainable by configuration alone. This is question Q-18 on the noticeboard,
-opened by the integration area, and Q-153 opened by this area.
+level step-up is not obtainable by configuration alone. This is question [`Q-160`](../11_registri/02-questioni-aperte.md#q-160) on the noticeboard,
+opened by the integration area, and [Q-153](../11_registri/02-questioni-aperte.md#q-153) opened by this area.
 
 ## 6. The broker realm
 
@@ -316,7 +316,7 @@ expected audience, claim mapping. The **same** set must also feed:
 Three separate registries diverge, always, and **the divergence is systematically in the
 attacker's favour**: an origin removed from one list and not from the other remains valid on the
 second. The concrete form of the registry - a single table, a single configuration, a single
-verification point - is an **architecture decision**, and this area opens it as a question (Q-156)
+verification point - is an **architecture decision**, and this area opens it as a question ([Q-156](../11_registri/02-questioni-aperte.md#q-156))
 instead of deciding it.
 
 ## 7. The three defects of the federation product, treated as risks
@@ -443,7 +443,7 @@ Three further rules, all with an effect on the authorisation model:
 
 ## 10. Emergency access is a requirement, not an exception
 
-**Constraint V-153.** In healthcare there are situations in which access to the datum is necessary
+**Constraint [V-153](../11_registri/01-vincoli-in-vigore.md#v-153).** In healthcare there are situations in which access to the datum is necessary
 and the care relationship is not yet formalised: a subject in a critical condition, an unrecorded
 replacement shift, a fault in the component that manages episodes of care.
 
@@ -493,11 +493,11 @@ Requirements, all mandatory and all verifiable:
 
 | Reference | Question | To whom |
 |---|---|---|
-| Q-153 | Empirical verification that the requested authentication context is forwarded through the broker and translated into the federation protocol. **Blocking before publicly declaring how the level propagates** | Integration, architecture |
-| Q-156 | Concrete form of the single per-tenant trust registry (§6.2): a single configuration feeding federation, embedding origins, cross-origin sharing, outbound message destinations and the broker's allow-list | Architecture |
-| `[NV]` | Agency document associating the level of assurance with the category of health services (§3.1) | To be requested from the agency |
-| `[NV]` | Formal mapping between the national levels and the European levels, which the regulation does not state verbatim (§3) | To be verified against the notification documentation |
-| `[NV]` | Confirmation that the level in the response of the document-based scheme really is always the highest (§5) | Empirical verification in pre-production |
+| [Q-153](../11_registri/02-questioni-aperte.md#q-153) | Empirical verification that the requested authentication context is forwarded through the broker and translated into the federation protocol. **Blocking before publicly declaring how the level propagates** | Integration, architecture |
+| [Q-156](../11_registri/02-questioni-aperte.md#q-156) | Concrete form of the single per-tenant trust registry (§6.2): a single configuration feeding federation, embedding origins, cross-origin sharing, outbound message destinations and the broker's allow-list | Architecture |
+| `[NV]` | Agency document associating the level of assurance with the category of health services (§3.1) | To be asked from SPID agency |
+| `[NV]` | Formal mapping between the national levels and the European levels, which the regulation does not state verbatim (§3) | `COMP` to verify against the notification documentation |
+| `[NV]` | Confirmation that the level in the response of the document-based scheme really is always the highest (§5) | Q-153 - empirical verification in pre-production |
 | - | Choice between revocation list and point-in-time certificate status query (§8.1) | Architecture |
 
 <!--TRAD-VERIFICATA: 7750d38c1f12c0ccd23abb40c7b95a3cae5bd7c2-->

@@ -7,8 +7,8 @@ description: Perché le regole del piano sono un linguaggio dichiarativo ristret
 # ADR-0026 - Rappresentazione ed esecuzione delle regole del piano di telemonitoraggio
 
 **Stato**: accettata · **Data**: 25 agosto 2026 · **Area**: ARCH
-**Origine**: questione posta dall'area funzionale a quest'area e all'area di conformità
-**Vincoli di riferimento**: V2; V-02, V-144 e V-147 di bacheca; V-121, V-123, V-124 dell'area funzionale
+**Origine**: questione posta dall'`FUNZ` a quest'area e all'`COMP`
+**Vincoli di riferimento**: [V2](../11_registri/03-vincoli-fondanti.md#v2); [V-02](../11_registri/01-vincoli-in-vigore.md#v-02), [V-144](../11_registri/01-vincoli-in-vigore.md#v-144) e [V-147](../11_registri/01-vincoli-in-vigore.md#v-147) di bacheca; [V-121](../11_registri/01-vincoli-in-vigore.md#v-121), [V-123](../11_registri/01-vincoli-in-vigore.md#v-123), [V-124](../11_registri/01-vincoli-in-vigore.md#v-124) dell'`FUNZ`
 
 ## Contesto
 
@@ -98,7 +98,7 @@ un interprete da scrivere e da provare.
   una decisione con implicazioni di perimetro e va trattata come tale, non come richiesta di
   funzionalità.
 
-**Rinviato all'area di conformità**: la conferma che l'insieme dei costrutti adottati resti dentro
+**Rinviato all'`COMP`**: la conferma che l'insieme dei costrutti adottati resti dentro
 la destinazione d'uso congelata.
 
 ## Riferimenti

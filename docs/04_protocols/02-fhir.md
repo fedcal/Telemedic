@@ -101,7 +101,7 @@ Tre righe di questa tabella sono decisioni, non descrizioni.
 
 **Il referto è una `Composition`, non un `DiagnosticReport`.** La guida italiana modella il
 referto di televisita come `CompositionRefertoTelevisita` dentro un `Bundle` di tipo documento,
-e il vincolo V2 impone che ciò che Telemedic persiste sia contenuto redatto dal professionista,
+e il vincolo [V2](../11_registri/03-vincoli-fondanti.md#v2) impone che ciò che Telemedic persiste sia contenuto redatto dal professionista,
 non informazione generata dal sistema. `DiagnosticReport` resta esposto **in sola lettura**
 come proiezione di compatibilità per gli integratori che sanno consumare solo quello, con la
 parte narrativa popolata dal testo redatto dal medico e l'allegato firmato nel campo dedicato.
@@ -118,7 +118,7 @@ tipi di servizio che il professionista può erogare per un'organizzazione. Refer
 registro falsificabile. La sorgente degli eventi di tracciamento è interna; l'API li espone per
 la consultazione e l'esportazione, mai per la scrittura. Il registro immutabile in senso proprio
 - catena di impronte e conservazione separata - è cosa diversa dalla risorsa FHIR e non è
-sostituito da essa: è il vincolo V-04, e appartiene all'area di sicurezza.
+sostituito da essa: è il vincolo [V-04](../11_registri/01-vincoli-in-vigore.md#v-04), e appartiene all'area di sicurezza.
 
 ### 3.2 La classe del contatto assistenziale
 
@@ -181,7 +181,7 @@ stateDiagram-v2
 ```
 
 Il diagramma descrive la prestazione, **non** la sessione media. Sono aggregati distinti per
-vincolo V-01: una prestazione può avvenire senza media, con più sessioni o con sessioni fallite;
+vincolo [V-01](../11_registri/01-vincoli-in-vigore.md#v-01): una prestazione può avvenire senza media, con più sessioni o con sessioni fallite;
 una sessione media può esistere per una prova tecnica senza alcuna prestazione. Il ciclo di vita
 della sessione è nel capitolo [09](./09-tempo-reale.md) e vive sul piano applicativo, non su
 quello FHIR.
@@ -269,9 +269,9 @@ Esempio di istanza, con dati sintetici:
 }
 ```
 
-> **`[NV]` - forma esatta della sotto-estensione dell'indirizzo.** La definizione pubblicata
-> espone `address` come **estensione complessa** su un tipo di contatto esteso, non come valore
-> semplice. La forma puntuale delle sue sotto-estensioni non è stata verificata elemento per
+> **Forma esatta della sotto-estensione dell'indirizzo** va verificata da `PROTO` `[NV]`: la definizione pubblicata espone `address` come **estensione complessa** su un tipo
+> di contatto esteso, non come valore semplice. La forma puntuale delle sue sotto-estensioni non è
+> stata verificata elemento per
 > elemento. Prima di scrivere un indirizzo in quella sotto-estensione va risolto il pacchetto
 > alla versione fissata e validata l'istanza. **Da chiedere a**: chi implementa lo strato di
 > adattamento FHIR, con verifica in integrazione continua contro il pacchetto fissato.
@@ -438,7 +438,7 @@ sono quelli della versione fissata, compresi quelli introdotti dalla 3.0.0.
 ## 7. Il documento di capacità
 
 Il documento di capacità è il **contratto leggibile da una macchina** verso qualunque
-integratore, e soddisfa direttamente il vincolo V3 di integrabilità totale. Regole di progetto:
+integratore, e soddisfa direttamente il vincolo [V3](../11_registri/03-vincoli-fondanti.md#v3) di integrabilità totale. Regole di progetto:
 
 - è **generato nella catena di costruzione a partire dal codice**, mai scritto a mano. Un
   documento di capacità scritto a mano diverge dal comportamento reale entro poche settimane,
@@ -473,7 +473,7 @@ documento di capacità emessa solo per compatibilità con client datati e marcat
 
 Il terzo livello porta un costo dichiarato dalla politica terminologica del progetto. Con la
 funzione della terminologia clinica internazionale disattivata - che è la configurazione
-predefinita e pienamente supportata per vincolo V-03 - **i legami che dipendono da quella
+predefinita e pienamente supportata per vincolo [V-03](../11_registri/01-vincoli-in-vigore.md#v-03) - **i legami che dipendono da quella
 terminologia non si validano**. La misura è nota: il legame sui motivi del contatto assistenziale
 ha forza *preferred* e si espande su circa quattromila codici. Il progetto lo dichiara invece di
 scoprirlo: un motivo di contatto espresso con quella terminologia viene accettato senza verifica
@@ -488,10 +488,11 @@ In integrazione continua la validazione è un **gate**: se un esempio del reposi
 contro il profilo che dichiara, la costruzione fallisce. Un esempio che non valida è peggio di
 nessun esempio, perché insegna a sbagliare.
 
-> **`[NV]` - strumenti concreti di validazione.** I nomi, le versioni e le modalità di
-> invocazione degli strumenti di validazione e di pubblicazione delle guide non sono stati
+> **Strumenti concreti di validazione** `[NV]` da fissare dall'`TECH`: i nomi, le versioni e
+> le modalità di invocazione degli strumenti di validazione e di pubblicazione delle guide non sono
+> stati
 > verificati su fonte primaria. Vanno accertati e fissati nella configurazione di costruzione.
-> **Da chiedere a**: chi cura la catena di costruzione, in raccordo con l'area tecnica.
+> **Da chiedere a**: chi cura la catena di costruzione, in raccordo con l'`TECH`.
 
 ### 8.2 La gestione degli errori
 
@@ -548,7 +549,7 @@ che il server possa rifiutare, ma non lo impone: è quindi una scelta di progett
 P-02 fra quelle che attendono una decisione architetturale formale.
 
 La motivazione è che un aggiornamento senza validatore è un ultimo-scrittore-vince silenzioso.
-Su una risorsa clinica significa perdita di dato non tracciata, incompatibile con il vincolo V5.
+Su una risorsa clinica significa perdita di dato non tracciata, incompatibile con il vincolo [V5](../11_registri/03-vincoli-fondanti.md#v5).
 Il costo è che rompe i client che non inviano il validatore, ed è esattamente ciò che si vuole:
 che si rompano in fase di integrazione invece che in produzione.
 
@@ -644,7 +645,7 @@ fallisce, perché un'istanza valida per una guida non lo è per l'altra; il cons
 riconosce l'identificatore e finisce per riconciliare su nome e data di nascita, cioè nel modo
 peggiore possibile.
 
-> **Q-06 - questione aperta verso l'area di architettura e l'area tecnica. Quest'area non
+> **[Q-06](../11_registri/02-questioni-aperte.md#q-06) - questione aperta verso l'area di architettura e l'`TECH`. Quest'area non
 > decide e non cabla.**
 >
 > Gli esempi normativi di questo capitolo **non contengono l'identificatore del codice fiscale**,
@@ -732,7 +733,7 @@ sostituiti dal riferimento documentale. Modellarvi la registrazione significhere
 oggi una struttura che non esiste domani, e sarebbe l'unico debito R4 davvero irrecuperabile.
 
 Telemedic modella la registrazione su `DocumentReference`, con il tipo di contenuto
-dell'allegato **negoziato a runtime e mai assunto** - è il vincolo V-11, e la ragione tecnica
+dell'allegato **negoziato a runtime e mai assunto** - è il vincolo [V-11](../11_registri/01-vincoli-in-vigore.md#v-11), e la ragione tecnica
 sta nella divergenza verificata del contenitore prodotto dai diversi ambienti di esecuzione
 (modulo [«WebRTC da zero», §12](../10_fondamenti/08-webrtc-da-zero.md)).
 

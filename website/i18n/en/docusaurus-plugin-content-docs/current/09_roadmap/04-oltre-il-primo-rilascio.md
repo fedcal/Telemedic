@@ -21,11 +21,11 @@ The three classes of project statement - `[COMMITMENT]`, `[INTENTION]`, `[CONDIT
 | **Planned** | `OL-nn` | A position in the queue motivated, one or more **binary completion criteria**, a **trigger** declared, an **owner** | "It is in the queue, in this position, and unblocks when this happens" |
 | **Desirable** | `DS-nn` | A motivation and **nothing more**. No position, no criterion, no trigger | "We would like it, and today this is missing for it to become planned" |
 
-**The rule, posed as constraint `V-187`**: an item that does not have together binary completion criterion, declared trigger and named owner **is not planned**, and no project material can present it as such. It is not redactional pedantry: it is what prevents an answer to a specification from transforming a desire into a contractual commitment for the project through the medium of a well-formatted table.
+**The rule, posed as constraint [`V-187`](../11_registri/01-vincoli-in-vigore.md#v-187)**: an item that does not have together binary completion criterion, declared trigger and named owner **is not planned**, and no project material can present it as such. It is not redactional pedantry: it is what prevents an answer to a specification from transforming a desire into a contractual commitment for the project through the medium of a well-formatted table.
 
 ### 1.1 What the designations are, and what they are not
 
-`OL-nn`, `DS-nn` and `TG-nn` are **planning designations**, not requirement identifiers. They do not belong to the intervals frozen by `V-120` (`RF-*`, `RNF-*`, `BR-*`, `ATT-*`, `UC-*`, `OUT-*`), do not enter the traceability matrix and cannot appear in a test. They are worth exactly what the designation `RU-1` is: a way to refer to a line of a document without having to retype it.
+`OL-nn`, `DS-nn` and `TG-nn` are **planning designations**, not requirement identifiers. They do not belong to the intervals frozen by [`V-120`](../11_registri/01-vincoli-in-vigore.md#v-120) (`RF-*`, `RNF-*`, `BR-*`, `ATT-*`, `UC-*`, `OUT-*`), do not enter the traceability matrix and cannot appear in a test. They are worth exactly what the designation `RU-1` is: a way to refer to a line of a document without having to retype it.
 
 **The number of an `OL-nn` item is not its position in the queue.** It is the order in which the item was introduced. The position is declared in the table of §3 and changes; the number no, because renumbering would cause every existing reference to diverge. Items `OL-15`…`OL-22` are the latest introduced and are in some of them at the head of the queue: **it is normal and must be read that way.**
 
@@ -72,12 +72,12 @@ The priority criteria are those of [01 §3](./01-principi-e-metodo.md), in lexic
 
 | Pos. | Item | Statement | Why not in `RU-1` | Trigger | Owner |
 |:-:|---|:-:|---|---|---|
-| 1 | `OL-22` Functions with distinct roles acquired externally | `[INTENTION]` | **Irreversible cut `TG-20`, `TG-21`, `TG-22`**: require distinct subjects, not hours | Decision on `Q-189` | Contracting party |
+| 1 | `OL-22` Functions with distinct roles acquired externally | `[INTENTION]` | **Irreversible cut `TG-20`, `TG-21`, `TG-22`**: require distinct subjects, not hours | Decision on [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) | Contracting party |
 | 2 | `OL-15` Clinical documentation and reporting | `[INTENTION]` | Cut `TG-01`, `TG-06`, `TG-07`: breadth | None external: capacity | Project |
 | 3 | `OL-21` Periodic signed anchoring of the register | `[INTENTION]` | **Cut `TG-23`**, irreversible for the period | None external: capacity | Project |
-| 4 | `OL-02` Third participant to the session | `[INTENTION]` | Topology decision declared deferred | Closure of `C-2` and measurement of `Q-115` | Contracting party, then project |
+| 4 | `OL-02` Third participant to the session | `[INTENTION]` | Topology decision declared deferred | Closure of `C-2` and measurement of [`Q-115`](../11_registri/02-questioni-aperte.md#q-115) | Contracting party, then project |
 | 5 | `OL-16` Interoperability facade | `[INTENTION]` | Cut `TG-02`: second contractual surface | None external: capacity | Project |
-| 6 | `OL-01` Telemonitoring, complete path | `[INTENTION]` | Broadest context in the catalogue | Closure of `Q-120` | Project |
+| 6 | `OL-01` Telemonitoring, complete path | `[INTENTION]` | Broadest context in the catalogue | Closure of [`Q-120`](../11_registri/02-questioni-aperte.md#q-120) | Project |
 | 7 | `OL-17` White-label embeddable component | `[INTENTION]` | Cut `TG-03` | None external: capacity | Project |
 | 8 | `OL-03` Server-side session recording | `[INTENTION]` | It is a **second security mode**, not an optional function | Verification on container and closure of `C-3` | Project |
 | 9 | `OL-19` Operations: administration, second profile, non-blocking migrations | `[INTENTION]` | Cuts `TG-08`, `TG-10`, `TG-11` | None external: capacity | Project |
@@ -86,16 +86,16 @@ The priority criteria are those of [01 §3](./01-principi-e-metodo.md), in lexic
 | 12 | `OL-05` teleassistenza | `[INTENTION]` | Actors and artefacts are different | Subsequent to `OL-04` | Project |
 | 13 | `OL-18` Event broker and multiple consumers | `[INTENTION]` | Cut `TG-04`: one more component to install and monitor | Second consumer requested by a real tenant | Project |
 | 14 | `OL-06` Asynchronous channel and document sharing in session | `[INTENTION]` | Not crossed by the chosen vertical path | None external: capacity | Project |
-| 15 | `OL-07` Submission to national and regional documentary infrastructures | `[CONDITIONAL]` | Documentary models are not publicly available | Material availability (`Q-07`, `B-7`) | Third party; project awaits |
+| 15 | `OL-07` Submission to national and regional documentary infrastructures | `[CONDITIONAL]` | Documentary models are not publicly available | Material availability ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07), `B-7`) | Third party; project awaits |
 | 16 | `OL-08` Conformity verified on national digital identity | `[CONDITIONAL]` | Requires pre-production environments and credentials | Access to environments | Whoever installs provides access |
 | 17 | `OL-09` Hospital messaging, documentary interoperability profiles, application launch in clinical context | `[CONDITIONAL]` | All three require a counterparty with a test environment | Availability of a counterparty | Integrator or entity |
 | 18 | `OL-10` Development kit in two languages | `[INTENTION]` | Versioned interface is sufficient for first integration | None external: capacity | Project |
 | 19 | `OL-11` Own modules for agenda, invoicing and invoicing | `[INTENTION]` | `RU-1` receives the appointment by reference | An adopter without their own agenda | Project |
 | 20 | `OL-12` Autonomous invoicing context | `[INTENTION]` | Decision declared deferred to the contracting party | Closure of `C-1` | Contracting party, then project |
-| 21 | `OL-13` Scores of validated scales and questionnaires | `[CONDITIONAL]` | Licensing regime not verified | Closure of `B-3` and `Q-11` with favourable outcome | `COMP` |
-| 22 | `OL-14` Selective concealment of audio-video content | `[INTENTION]` | Declared not present in the first version | Closure of `Q-157` | `COMP`, then project |
+| 21 | `OL-13` Scores of validated scales and questionnaires | `[CONDITIONAL]` | Licensing regime not verified | Closure of `B-3` and [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) with favourable outcome | `COMP` |
+| 22 | `OL-14` Selective concealment of audio-video content | `[INTENTION]` | Declared not present in the first version | Closure of [`Q-157`](../11_registri/02-questioni-aperte.md#q-157) | `COMP`, then project |
 
-**What is not in this table and must be said here.** The **declared support period** and the **version dismissal plan** (`C-4`, `Q-186`) are not queue items: they are **prerequisites of the first distribution**, criteria of milestone `T-05` and blocking criterion 18 of [03 §8](./03-primo-rilascio-utilizzabile.md). Putting them in the queue would mean admitting that one could distribute without declaring for how long one sustains what one has distributed.
+**What is not in this table and must be said here.** The **declared support period** and the **version dismissal plan** (`C-4`, [`Q-186`](../11_registri/02-questioni-aperte.md#q-186)) are not queue items: they are **prerequisites of the first distribution**, criteria of milestone `T-05` and blocking criterion 18 of [03 §8](./03-primo-rilascio-utilizzabile.md). Putting them in the queue would mean admitting that one could distribute without declaring for how long one sustains what one has distributed.
 
 ---
 
@@ -116,21 +116,21 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 
 **Completion criteria.**
 
-1. There exists a subject, external to whoever performs the activity, **named and registered**, for each of the functions which `Q-189` has decided its acquisition.
+1. There exists a subject, external to whoever performs the activity, **named and registered**, for each of the functions which [`Q-189`](../11_registri/02-questioni-aperte.md#q-189) has decided its acquisition.
 2. For each function **not** acquired externally, there exists the **formal recording of acceptance of the gap**, with the reason, the owner of the decision and the date: accepted gap is a registered decision, not a silence.
 3. The **first release subsequent** to acquisition carries the corresponding recording actually produced, not just the availability of the subject.
 4. The list of declared gaps distinguishes, line by line, those **closed from release N onwards** from those **dated to a period and not closeable**.
 
-**Depends on.** Entirely on `Q-189`, which is a contracting party decision with decision point on 30 September 2026, and on a spending decision.
+**Depends on.** Entirely on [`Q-189`](../11_registri/02-questioni-aperte.md#q-189), which is a contracting party decision with decision point on 30 September 2026, and on a spending decision.
 
 **Risks.** `R-02`, `R-22` (specialist figures are a scarce resource), `R-29`.
 
 ### `OL-15` - Clinical documentation and reporting
 *`[INTENTION]` · second position · owner: **project***
 
-**What it comprises.** Draft, validation, **signature**, immutability of the signed document, rectification as a new version with chain maintained, content modelled as a **canonical dataset** on the information set of the typology proper to the remote consultation (televisita), digital notation in place of the report where the service setting provides for it (`V-145`), delivery of the document to the system of origin in canonical form.
+**What it comprises.** Draft, validation, **signature**, immutability of the signed document, rectification as a new version with chain maintained, content modelled as a **canonical dataset** on the information set of the typology proper to the remote consultation (televisita), digital notation in place of the report where the service setting provides for it ([`V-145`](../11_registri/01-vincoli-in-vigore.md#v-145)), delivery of the document to the system of origin in canonical form.
 
-**It comprises moreover, and not for completeness but out of necessity**, the two safeguards that persistent clinical content requires and which exited `RU-1` with it: the **concealment applied by the authorisation engine** with the six inference channels closed (`TG-07`, `V-149`) and the **emergency access** with mandatory reason, limited window, notification and review (`TG-06`, `V-153`). **Delivering clinical content without its safeguards would be a defect, not a partial delivery**, and is the reason the three items are a single queue item.
+**It comprises moreover, and not for completeness but out of necessity**, the two safeguards that persistent clinical content requires and which exited `RU-1` with it: the **concealment applied by the authorisation engine** with the six inference channels closed (`TG-07`, [`V-149`](../11_registri/01-vincoli-in-vigore.md#v-149)) and the **emergency access** with mandatory reason, limited window, notification and review (`TG-06`, [`V-153`](../11_registri/01-vincoli-in-vigore.md#v-153)). **Delivering clinical content without its safeguards would be a defect, not a partial delivery**, and is the reason the three items are a single queue item.
 
 **Why it is not in `RU-1`.** Cut `TG-01`, for breadth: it is the second context of the path, and brings with it electronic signature, timestamp, rectification chain and information set modelling.
 
@@ -139,12 +139,12 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 **Completion criteria.**
 
 1. The signed document is **immutable**, and rectification produces a new version with chain maintained: a test attempts modification on every exposed path and fails on all.
-2. The content is modelled as a **canonical dataset**, and a test verifies that substitution of the serialisation **requires no domain modifications** (`V-07`, `V-136`, `V-143`).
+2. The content is modelled as a **canonical dataset**, and a test verifies that substitution of the serialisation **requires no domain modifications** ([`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07), [`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136), [`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)).
 3. **No pre-fill of clinical interpretive content**: demographic, administrative and temporal data are pre-filled, and the corresponding negative test passes (`OUT-07`).
 4. The **attestation of connection quality** enters the document in structured form, **measured by the system and confirmed by the professional**, never autonomously generated.
 5. The **concealment is applied by the authorisation engine and not by consumers**, with the six inference channels closed and with synthetic test data comprising concealed documents.
 6. The **emergency access** has free mandatory reason, limited window and perimeter, notification and review with outcome recorded; a test verifies that access without reason fails.
-7. Delivery to the system of origin occurs **via the sole outbound mediator** (`V-157`).
+7. Delivery to the system of origin occurs **via the sole outbound mediator** ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)).
 
 **Risks.** `R-23` (drift towards interpretation: assisted reporting is one of the three features a single story from class elevation), `R-24`.
 
@@ -171,7 +171,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 
 **What it comprises.** The presence in session of a third subject: interpreter, carer assisting the care recipient, second professional, healthcare operator at the home.
 
-**Why it is not in `RU-1`.** Because the topology of the session beyond two participants is a declared deferred decision (`C-2`, with the measurement part recorded as `A-5` in [`docs/02_architecture/09-decisioni-rinviate.md`](../02_architecture/09-decisioni-rinviate.md)), and is not a technical decision: the mesh topology without central component is the sole one preserving encryption to the endpoints, and exceeding its limit means introducing a component that **terminates encryption**, that is a third operating mode with different security properties. The maximum number, moreover, depends on the transmission budget of the worst-connected participant, which is measured on a device and a network of reference **not yet declared** (`Q-115`, `Q-175`).
+**Why it is not in `RU-1`.** Because the topology of the session beyond two participants is a declared deferred decision (`C-2`, with the measurement part recorded as `A-5` in [`docs/02_architecture/09-decisioni-rinviate.md`](../02_architecture/09-decisioni-rinviate.md)), and is not a technical decision: the mesh topology without central component is the sole one preserving encryption to the endpoints, and exceeding its limit means introducing a component that **terminates encryption**, that is a third operating mode with different security properties. The maximum number, moreover, depends on the transmission budget of the worst-connected participant, which is measured on a device and a network of reference **not yet declared** ([`Q-115`](../11_registri/02-questioni-aperte.md#q-115), [`Q-175`](../11_registri/02-questioni-aperte.md#q-175)).
 
 **Why it is high in the queue, ahead of more requested items.** Because the interpreter is the **declared alternative measure** for the sole accessibility non-conformity the project admits, that on real-time subtitles (`D24`). Until the third participant exists, the alternative measure does not exist, and a declared non-conformity with a non-existent alternative measure is a non-conformity without alternative measure. **Criterion 3 - legality of use - applies directly to it**, and supersedes the unblocking and value criteria.
 
@@ -179,7 +179,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 
 1. The participant limit is **declared in the documentation and applied by the code**, with an understandable error to the exceeding participant explaining the reason and indicating the alternative; it is configuration with an imposed maximum, and a tenant can lower it but never raise it.
 2. The number has been **measured** on the declared device and network of reference, not estimated, and the measurement is conserved as an artefact.
-3. The presence of a third is a **distinct consent object**, with its own lifecycle, whose withdrawal does not touch the others (`V-146`). It is the fourth of five objects in the model, and the first that `RU-1` does not exercise.
+3. The presence of a third is a **distinct consent object**, with its own lifecycle, whose withdrawal does not touch the others ([`V-146`](../11_registri/01-vincoli-in-vigore.md#v-146)). It is the fourth of five objects in the model, and the first that `RU-1` does not exercise.
 4. Key verification remains mandatory by default and remains a blocking state of the state machine even with three participants.
 5. The third party's presence is reported in the outcome and, when `OL-15` is available, in the clinical document in the field provided by the record layout, in structured form.
 
@@ -201,14 +201,14 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 1. The facade is a **projection of the canonical dataset**, not a second modelling: a test verifies that adding a canonical field requires no domain modifications.
 2. Profiles are **fixed for version as a build artefact**, not downloaded at the moment: an upstream change cannot change the outcome of a validation already performed.
 3. The capacity document is **generated**, not written by hand, and a divergence between it and actual behaviour causes build to fail.
-4. No forbidden conformity formula appears in the produced material (`V-133`).
+4. No forbidden conformity formula appears in the produced material ([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)).
 
 ### `OL-01` - Telemonitoring, complete path
 *`[INTENTION]` · sixth position · owner: **project***
 
 **What it comprises.** Enrolment in a pathway, versioned individual plan, measurement acquisition from a third-party gateway, manual entry by care recipient or carer, structured questionnaires, evaluation of measurements against the rules of the active plan at the instant of measurement, alarms, escalation chain, measurement expectation, adherence and monitoring of expected volume.
 
-**Why it is not in `RU-1`, and what has changed.** The reason for the intended use **has fallen**: `D55` has frozen the formulation on "deferred collection of parameters for the professional's periodic review", maintains Class IIa and software safety class B, and excludes the real-time formulation. The domain model was already written that way: **the work is no longer at risk of rewrite.** Two reasons remain. **The first**: it is the broadest context in the requirements catalogue, and under `D54` breadth is deciding. **The second**: the representation of the rules is an open architectural decision (`Q-120`), and building an engine before deciding how expressive it must be produces exactly the outcome that decision seeks to avoid - an arbitrary programming language executed in production, which is both an attack surface and an object not validatable for regulatory purposes.
+**Why it is not in `RU-1`, and what has changed.** The reason for the intended use **has fallen**: `D55` has frozen the formulation on "deferred collection of parameters for the professional's periodic review", maintains Class IIa and software safety class B, and excludes the real-time formulation. The domain model was already written that way: **the work is no longer at risk of rewrite.** Two reasons remain. **The first**: it is the broadest context in the requirements catalogue, and under `D54` breadth is deciding. **The second**: the representation of the rules is an open architectural decision ([`Q-120`](../11_registri/02-questioni-aperte.md#q-120)), and building an engine before deciding how expressive it must be produces exactly the outcome that decision seeks to avoid - an arbitrary programming language executed in production, which is both an attack surface and an object not validatable for regulatory purposes.
 
 **The permanent prohibition that `D55` brings with it.** No function in this item can be written in a way that shifts the system towards **clinical real-time**, and **the assessment must be made before the function is written, not after**. It is not a recommendation: it is the condition under which the assumed classification remains valid.
 
@@ -216,24 +216,24 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 
 **Completion criteria.**
 
-1. An individual versioned plan is activatable **only** if there exists a declared service hours coverage for the tenant and for the pathway, and the attempt to activate without coverage fails in every supported configuration (`V-122`).
-2. The threshold field presents **empty and mandatory** in every authoring path, and a negative test verifies that no pre-fill occurs, not even with pathway or plan values (`V-123`, `OUT-08`).
-3. Measurement instant and reception instant are two distinct mandatory fields, and rules operate on the measurement instant; a test with measurements delivered out of order produces the same outcome as a test with measurements in order (`V-124`).
-4. The absence of a measurement is represented as an **entity**, with expected window, deadline instant and reason when known; a test verifies that absence produces a row and not the absence of a row (`V-148`).
-5. An alarm is a **sequence of immutable events** and current state is a projection; no state column is updated in place (`V-121`).
+1. An individual versioned plan is activatable **only** if there exists a declared service hours coverage for the tenant and for the pathway, and the attempt to activate without coverage fails in every supported configuration ([`V-122`](../11_registri/01-vincoli-in-vigore.md#v-122)).
+2. The threshold field presents **empty and mandatory** in every authoring path, and a negative test verifies that no pre-fill occurs, not even with pathway or plan values ([`V-123`](../11_registri/01-vincoli-in-vigore.md#v-123), `OUT-08`).
+3. Measurement instant and reception instant are two distinct mandatory fields, and rules operate on the measurement instant; a test with measurements delivered out of order produces the same outcome as a test with measurements in order ([`V-124`](../11_registri/01-vincoli-in-vigore.md#v-124)).
+4. The absence of a measurement is represented as an **entity**, with expected window, deadline instant and reason when known; a test verifies that absence produces a row and not the absence of a row ([`V-148`](../11_registri/01-vincoli-in-vigore.md#v-148)).
+5. An alarm is a **sequence of immutable events** and current state is a projection; no state column is updated in place ([`V-121`](../11_registri/01-vincoli-in-vigore.md#v-121)).
 6. A recipient outside coverage is not a valid recipient in the escalation chain: they are skipped with reason recorded, and the alarm **remains open** when escalation fails.
 7. Evaluation is **deterministic and reproducible** on versioned test vectors, with the rule version recorded on the alarm.
 8. The system **does not infer** thresholds from population or from history, does not interpolate series, does not calculate scores: the negative tests of the corresponding exclusions pass.
 9. **Impact assessment on the intended use frozen by `D55` is performed and recorded before the engine is written**, not after.
 
-**Depends on the date.** On `Q-120` for the representation of rules; on `Q-122` and `B-9` for the minimum contract of the measurement gateway, which is `[NV]` on the actual availability of two signals; on `Q-125` for the encoding of parameters, with the constraint that the system remains operational with the external terminology service disabled (`V-03`); on `Q-124` for the location of the alarm register in the mode of operation without retention of clinical content.
+**Depends on the date.** On [`Q-120`](../11_registri/02-questioni-aperte.md#q-120) for the representation of rules; on [`Q-122`](../11_registri/02-questioni-aperte.md#q-122) and `B-9` for the minimum contract of the measurement gateway, which is `[NV]` on the actual availability of two signals; on [`Q-125`](../11_registri/02-questioni-aperte.md#q-125) for the encoding of parameters, with the constraint that the system remains operational with the external terminology service disabled ([`V-03`](../11_registri/01-vincoli-in-vigore.md#v-03)); on [`Q-124`](../11_registri/02-questioni-aperte.md#q-124) for the location of the alarm register in the mode of operation without retention of clinical content.
 
 **Risks.** `R-17`, `R-23` (the item with the greatest pressure to expand towards interpretation), `R-11`.
 
 ### `OL-17` - White-label embeddable component
 *`[INTENTION]` · seventh position · owner: **project***
 
-**What it comprises.** The personalised element conforming to the web components standard, with a closed and versioned set of theme properties validated server-side with contrast verification, and with elements neither themeable nor hideable (`V-163`).
+**What it comprises.** The personalised element conforming to the web components standard, with a closed and versioned set of theme properties validated server-side with contrast verification, and with elements neither themeable nor hideable ([`V-163`](../11_registri/01-vincoli-in-vigore.md#v-163)).
 
 **Why it is not in `RU-1`.** Cut `TG-03`. Session initiation occurs by referral with single-use input token, which is a complete integration path but **does not permit the integrator's visual identity**.
 
@@ -242,7 +242,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 1. The set of theme properties is **closed and versioned**, and a configuration that degrades contrast is **rejected on save**, not accepted with a warning: negative test.
 2. Non-themeable and non-hideable elements remain such in every supported configuration, and amongst them the recording indicator: negative test that attempts to hide it with every means.
 3. Respect of system preferences - reduced motion, high contrast, character size - **is not disableable** by personalisation.
-4. The component consumes **the same application interfaces** offered to integrators: no capability is reserved for it (`V-164`).
+4. The component consumes **the same application interfaces** offered to integrators: no capability is reserved for it ([`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)).
 
 ### `OL-03` - Server-side session recording
 *`[INTENTION]` · eighth position · owner: **project***
@@ -258,7 +258,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 1. The mode is a **state of the session aggregate**, not a boolean attribute of the recorded material, and the transition between the two modes is logged with instant and attribution.
 2. No recorded material exists **without current consent and without valued expiration**: both conditions are invariants verified by test.
 3. **Withdrawal of consent has immediate effect** on recording in progress, verified by a test that withdraws at an open session.
-4. The container is **negotiated at runtime** based on effectively negotiated codecs, without transcoding, and effective container and codecs are recorded in metadata (`V-11`, `V-115`). **No single format is declared in any material**, and the rule remains in force even now that the corresponding verification has been deferred with the function.
+4. The container is **negotiated at runtime** based on effectively negotiated codecs, without transcoding, and effective container and codecs are recorded in metadata ([`V-11`](../11_registri/01-vincoli-in-vigore.md#v-11), [`V-115`](../11_registri/01-vincoli-in-vigore.md#v-115)). **No single format is declared in any material**, and the rule remains in force even now that the corresponding verification has been deferred with the function.
 5. The recording indicator is not hideable: the test that attempts to hide it with every configured means fails in all.
 6. Recorded material **is not clinical documentation** and enters the documentary context only on explicit acquisition decided by the professional and recorded.
 7. The consent informative explicitly states the loss of the end-to-end encryption property, in both languages, with versioned text and consent referred to the text version.
@@ -275,7 +275,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 **Completion criteria.**
 
 1. The administration interface satisfies the accessibility criteria **as acceptance criteria**, like the care recipient and professional paths: it is not an internal panel exempt.
-2. No capability is reachable **only** from the administration interface (`V-164`): the declared configuration remains a complete and tested path.
+2. No capability is reachable **only** from the administration interface ([`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)): the declared configuration remains a complete and tested path.
 3. The second deployment profile uses **the same code and structure** as the first, and the complete functional suite runs on both.
 4. Non-blocking migrations have **observable progress** and failure on one tenant **does not block the others**: a test causes failure on a tenant and verifies that the others complete.
 
@@ -298,7 +298,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 
 **What it comprises.** The services amongst professionals: specialist-to-specialist consultation (teleconsulto) between physicians, teleconsulenza between different healthcare professions, and further opinion requested on an already-documented case, which is an asynchronous variant of specialist-to-specialist consultation and not a standalone function.
 
-**Why it is not in `RU-1`.** Because each is **its own state machine** with distinct permitted actors, distinct mandatory artefacts, distinct obligation of care recipient presence and distinct set of outcomes (`V-140`). They are not variants of configuration of the remote consultation: the project's taxonomy bears two distinct attributes - the activity and the minimum service - which **do not coincide**, and the professional constraint applies to the **activity**, not to the service (`V-147`, `Q-147`).
+**Why it is not in `RU-1`.** Because each is **its own state machine** with distinct permitted actors, distinct mandatory artefacts, distinct obligation of care recipient presence and distinct set of outcomes ([`V-140`](../11_registri/01-vincoli-in-vigore.md#v-140)). They are not variants of configuration of the remote consultation: the project's taxonomy bears two distinct attributes - the activity and the minimum service - which **do not coincide**, and the professional constraint applies to the **activity**, not to the service ([`V-147`](../11_registri/01-vincoli-in-vigore.md#v-147), [`Q-147`](../11_registri/02-questioni-aperte.md#q-147)).
 
 **Why it follows `OL-15`.** Because the already-documented case presupposes a document: without reporting, further opinion has nothing on which to exercise itself.
 
@@ -318,7 +318,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 
 **Why it follows `OL-04`.** The same structural reason - it is its own state machine - with an additional sequencing consideration: much of the work of `OL-04` is the generalisation of the services catalogue and selection of the state machine by type. Once done, `OL-05` is largely catalogue content. Delivering them in the reverse order would mean doing the generalisation twice.
 
-**Completion criteria.** The four of `OL-04`, plus the verification that the **delivery setting discriminates the rules**: where the source provides for digital notation in place of the report, the system produces the notation and does not demand a report (`V-145`).
+**Completion criteria.** The four of `OL-04`, plus the verification that the **delivery setting discriminates the rules**: where the source provides for digital notation in place of the report, the system produces the notation and does not demand a report ([`V-145`](../11_registri/01-vincoli-in-vigore.md#v-145)).
 
 ### `OL-18` - Event broker and multiple consumers
 *`[INTENTION]` · thirteenth position · owner: **project***
@@ -347,13 +347,13 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 
 1. The channel declares **persistently and non-closably** the expected response times and its unsuitability for emergency, with the approved formulation and tested with representative users.
 2. A document shared in session **does not become clinical documentation** by virtue of having been shared: acquisition is an explicit and recorded act.
-3. No clinical content is conveyed in the outgoing events generated by the channel: the reference is transmitted, the content is re-read with an authenticated call (`V-135`, `V-161`).
-4. The channel is reachable by a third-party system via documented and versioned interface (`V-164`).
+3. No clinical content is conveyed in the outgoing events generated by the channel: the reference is transmitted, the content is re-read with an authenticated call ([`V-135`](../11_registri/01-vincoli-in-vigore.md#v-135), [`V-161`](../11_registri/01-vincoli-in-vigore.md#v-161)).
+4. The channel is reachable by a third-party system via documented and versioned interface ([`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164)).
 
 ### `OL-07` - Submission to national and regional documentary infrastructures
 *`[CONDITIONAL]` · fifteenth position, not datable by the project*
 
-**Why it is not in `RU-1` and why it remains `[CONDITIONAL]`.** Because **the content is missing, not the project**. Documentary models, typology codes and indexing metadata for telemedicine typologies are not publicly available (`Q-07`, `B-7`), and the structural response is already in force: the informational content is modelled as a **canonical dataset** and every serialisation is substitutable (`V-07`, `V-136`, `V-143`).
+**Why it is not in `RU-1` and why it remains `[CONDITIONAL]`.** Because **the content is missing, not the project**. Documentary models, typology codes and indexing metadata for telemedicine typologies are not publicly available ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07), `B-7`), and the structural response is already in force: the informational content is modelled as a **canonical dataset** and every serialisation is substitutable ([`V-07`](../11_registri/01-vincoli-in-vigore.md#v-07), [`V-136`](../11_registri/01-vincoli-in-vigore.md#v-136), [`V-143`](../11_registri/01-vincoli-in-vigore.md#v-143)).
 
 **What the project has already done because waiting costs nothing.** The canonical dataset is modelled field by field on the information set of the binding source, not on the representation profile. When the material arrives, the work will be **writing a mapper**, not a migration of the domain model.
 
@@ -361,27 +361,27 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 
 **Completion criteria.**
 
-1. Field-by-field coverage verification between canonical dataset and representation profile is performed, with gap analysis documented; where the profile has no place for a field from the binding source there exists a declared extension or motivated placement (`Q-132`).
-2. Submission occurs **via the sole outbound mediator** (`V-157`).
+1. Field-by-field coverage verification between canonical dataset and representation profile is performed, with gap analysis documented; where the profile has no place for a field from the binding source there exists a declared extension or motivated placement ([`Q-132`](../11_registri/02-questioni-aperte.md#q-132)).
+2. Submission occurs **via the sole outbound mediator** ([`V-157`](../11_registri/01-vincoli-in-vigore.md#v-157)).
 3. No template is hardcoded: the mapper is versioned configuration, and a test verifies that mapper substitution requires no domain modifications.
 
-**Who is responsible.** Engagement for material acquisition is the conformity area (`Q-07`); realisation is the project. **The date depends on a third party** and the project does not declare it.
+**Who is responsible.** Engagement for material acquisition is the conformity area ([`Q-07`](../11_registri/02-questioni-aperte.md#q-07)); realisation is the project. **The date depends on a third party** and the project does not declare it.
 
 ### `OL-08` - Conformity verified on national digital identity, on all channels
 *`[CONDITIONAL]` · sixteenth position, not datable by the project*
 
 **What `RU-1` already contains.** Distinct realms for clinical context and care recipient context, and acceptance of an identity already authenticated by the integrator's system with explicit delegation.
 
-**What is missing, and why it does not depend on the project.** The **conformity verified** on the full set of providers requires pre-production environments, test credentials and - for one channel - **two provider instances per provider**, because the required authentication context is statically configured on the single instance (`Q-05`, `D38`). The workstream multiplier acts on a set whose cardinality is read from a national register and not hardcoded. Each variation of instances entails a new submission of the metadata document to the authority: it is procedural cost, not code cost, and is not compressible.
+**What is missing, and why it does not depend on the project.** The **conformity verified** on the full set of providers requires pre-production environments, test credentials and - for one channel - **two provider instances per provider**, because the required authentication context is statically configured on the single instance ([`Q-05`](../11_registri/02-questioni-aperte.md#q-05), `D38`). The workstream multiplier acts on a set whose cardinality is read from a national register and not hardcoded. Each variation of instances entails a new submission of the metadata document to the authority: it is procedural cost, not code cost, and is not compressible.
 
-**The limit that no release removes.** The project is **conformity-verifiable, not accredited** (`V-05`, `D36`, `OUT-22`). The provider of services towards the federation is whoever installs. **This does not change with `D58`**: the role of manufacturer and the role of service provider are different things, and assuming the first does not bring the second closer. The times of accreditation **are not stated by any primary source**: they do not appear in this roadmap because they do not exist, not because they were not sought.
+**The limit that no release removes.** The project is **conformity-verifiable, not accredited** ([`V-05`](../11_registri/01-vincoli-in-vigore.md#v-05), `D36`, `OUT-22`). The provider of services towards the federation is whoever installs. **This does not change with `D58`**: the role of manufacturer and the role of service provider are different things, and assuming the first does not bring the second closer. The times of accreditation **are not stated by any primary source**: they do not appear in this roadmap because they do not exist, not because they were not sought.
 
 **Completion criteria.**
 
 1. The compliance suite of the channel that provides for it is passed **in its entirety**, including tests of signed assertion tampering, and is executed in continuous integration at every build, not once.
-2. The level of assurance propagated is the **required** one and not the asserted one, and is always qualified to distinguish authentication **performed** from that **asserted** by an integrator (`V-154`, `V-165`). The corresponding marker already exists in `RU-1`.
+2. The level of assurance propagated is the **required** one and not the asserted one, and is always qualified to distinguish authentication **performed** from that **asserted** by an integrator ([`V-154`](../11_registri/01-vincoli-in-vigore.md#v-154), [`V-165`](../11_registri/01-vincoli-in-vigore.md#v-165)). The corresponding marker already exists in `RU-1`.
 3. The three known defects of the federation product are closed in configuration **and** monitored by a test that fails if the configuration regresses. **Already satisfied** in `RU-1` (`T-04` criterion 3).
-4. The outcome of verification on forwarding of the required authentication context through intermediation is **recorded**, and until then the public documentation **does not describe the mechanism** (`Q-160`, `B-8`).
+4. The outcome of verification on forwarding of the required authentication context through intermediation is **recorded**, and until then the public documentation **does not describe the mechanism** ([`Q-160`](../11_registri/02-questioni-aperte.md#q-160), `B-8`).
 5. The channel with no external dependencies is completable and completed without awaiting the other two: it is the sole one on which the project depends on no one.
 
 **Risks.** `R-13`, `R-14`, `R-15`, `R-11`.
@@ -396,7 +396,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 **Completion criteria.**
 
 1. There exists at least one counterparty with which connectivity has been tested end-to-end, with outcome recorded and the informational loss in the translation **measured and declared**.
-2. No forbidden conformity formula appears in the produced material (`V-133`).
+2. No forbidden conformity formula appears in the produced material ([`V-133`](../11_registri/01-vincoli-in-vigore.md#v-133)).
 3. The identifier type code in the legacy channel is **contractual with the integrator** and documented as such, not presented as conformity to a table.
 
 ### `OL-10` - Development kit in two languages
@@ -410,7 +410,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 
 1. The kit is **generated** from the versioned interface descriptor, not written by hand: a divergence between kit and interface is impossible by construction, not avoided by discipline.
 2. Every example in the kit is **verified in continuous integration**; an example that does not compile or does not run causes build to fail.
-3. The kit contains no domain logic: if a rule lives in the kit, the same rule is not applied by the server and constraint `V-164` is violated.
+3. The kit contains no domain logic: if a rule lives in the kit, the same rule is not applied by the server and constraint [`V-164`](../11_registri/01-vincoli-in-vigore.md#v-164) is violated.
 
 ### `OL-11` - Own modules for agenda, invoicing and invoicing
 *`[INTENTION]` · nineteenth position · owner: **project***
@@ -430,7 +430,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 
 **Why it is not in `RU-1`.** Because it is a declared deferred decision to the contracting party (`C-1`) and **a deferred decision is not taken in a change proposal**.
 
-**Why it is in the queue and not amongst the desirable.** Because its absence has a declared and non-zero cost: while invoicing is not an autonomous context, the prohibition that the payer profile is administrative by construction (`V-166`, `OUT-18`) is a **code convention**, verifiable only with a dedicated test and subject to erosion, instead of being a **boundary** verifiable automatically. The risk is not that the system today does the wrong thing: it is that in a future version an event destined for settlement acquires a reference to a clinical document without anything preventing it structurally.
+**Why it is in the queue and not amongst the desirable.** Because its absence has a declared and non-zero cost: while invoicing is not an autonomous context, the prohibition that the payer profile is administrative by construction ([`V-166`](../11_registri/01-vincoli-in-vigore.md#v-166), `OUT-18`) is a **code convention**, verifiable only with a dedicated test and subject to erosion, instead of being a **boundary** verifiable automatically. The risk is not that the system today does the wrong thing: it is that in a future version an event destined for settlement acquires a reference to a clinical document without anything preventing it structurally.
 
 **Completion criteria.**
 
@@ -440,7 +440,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 ### `OL-13` - Scores of validated scales and questionnaires
 *`[CONDITIONAL]` · twenty-first position · owner: **`COMP`***
 
-**Why it is not in `RU-1`.** For a precautionary measure in force and motivated: the licensing regime of the instruments is not verified (`B-3`, `Q-11`), validated scales and questionnaires have their own distinct licences from those of the terminologies, and verification must be done **instrument by instrument on the primary licence**, not on the declaration of the container that comprises them.
+**Why it is not in `RU-1`.** For a precautionary measure in force and motivated: the licensing regime of the instruments is not verified (`B-3`, [`Q-11`](../11_registri/02-questioni-aperte.md#q-11)), validated scales and questionnaires have their own distinct licences from those of the terminologies, and verification must be done **instrument by instrument on the primary licence**, not on the declaration of the container that comprises them.
 
 **Why the precautionary measure is in the right direction.** Because it is **reversible without migration**: the system conserves the questionnaire response, with reference to an immutable version of the instrument; adding the calculation later on already-conserved responses is possible. The reverse order is not.
 
@@ -451,7 +451,7 @@ Each item has the same form. **Completion criteria are binary**: they are satisf
 ### `OL-14` - Selective concealment of audio-video content
 *`[INTENTION]` · twenty-second position · owner: **`COMP`**, then project*
 
-**Why it is not in `RU-1`.** Because it is declared not present in the first version and is registered as a reopenable exclusion with normal product governance (`Q-157`). **It depends moreover on `OL-03`**: without session recording there is no audio-video content to conceal.
+**Why it is not in `RU-1`.** Because it is declared not present in the first version and is registered as a reopenable exclusion with normal product governance ([`Q-157`](../11_registri/02-questioni-aperte.md#q-157)). **It depends moreover on `OL-03`**: without session recording there is no audio-video content to conceal.
 
 **Why the problem is structurally rare.** Two elements of the project reduce its frequency at the root: recording is **an exception and not a rule**, disabled by default at every level and with specific consent per session; and for service types marked non-recordable the function is **absent and not disableable even by an administrator**.
 
@@ -467,7 +467,7 @@ None of the items that follow is planned. None has a position, a criterion or a 
 
 **Why it would be desirable.** It would remove the sole accessibility non-conformity the project declares, and would render unnecessary the alternative measure of `OL-02`.
 
-**What is missing.** A transcription engine, which is a component with three unresolved implications: **sovereignty** - no mandatory dependency outside the Union is admitted (`V-01`), and engines with the required quality are predominantly remote services; **licence** - a model must be placed in the regimes of the policy on third-party content like any other content; **qualification** - a subtitle is a vehicle of communication, but a transcription that summarised, corrected or normalised clinical content would not be, and `D55` renders the boundary tighter, not wider.
+**What is missing.** A transcription engine, which is a component with three unresolved implications: **sovereignty** - no mandatory dependency outside the Union is admitted ([`V-01`](../11_registri/01-vincoli-in-vigore.md#v-01)), and engines with the required quality are predominantly remote services; **licence** - a model must be placed in the regimes of the policy on third-party content like any other content; **qualification** - a subtitle is a vehicle of communication, but a transcription that summarised, corrected or normalised clinical content would not be, and `D55` renders the boundary tighter, not wider.
 
 **What the project has done anyway.** The subtitles data channel is **defined and versioned in the protocol**, as `D24` requires. Inserting an engine in future requires no redesign of the session.
 
@@ -481,7 +481,7 @@ None of the items that follow is planned. None has a position, a criterion or a 
 
 **Why it would be desirable.** Access to device capabilities not available to the browser, and more reliable notifications.
 
-**What is missing, and why it is not a technical decision.** An artefact distributed through an application distribution channel has **its own regime**: two distribution chains, two update cycles, two surfaces to monitor, and an intermediary that decides whether and when a security update reaches the user - which is in direct tension with a remedy service level expressed in days (`V-185`). The project's requirement is **mobile first on the web**, not a native application.
+**What is missing, and why it is not a technical decision.** An artefact distributed through an application distribution channel has **its own regime**: two distribution chains, two update cycles, two surfaces to monitor, and an intermediary that decides whether and when a security update reaches the user - which is in direct tension with a remedy service level expressed in days ([`V-185`](../11_registri/01-vincoli-in-vigore.md#v-185)). The project's requirement is **mobile first on the web**, not a native application.
 
 ### `DS-04` - Graphometric signature and reading of the health card from a local reader
 
@@ -515,7 +515,7 @@ None of the items that follow is planned. None has a position, a criterion or a 
 
 **Second - the first three positions are not functions.** `OL-22`, `OL-15` and `OL-21`: the first is the acquisition of roles, the third is a layer of assurance of an already-present component. They stand there because their absence produces a **loss that repeats at each release**, and no other function has this property. A queue ordered by visible functional value would have placed them at the bottom, and that is precisely the error that criterion 2 of [01 §3](./01-principi-e-metodo.md) exists to avoid.
 
-**Third - no item in this queue removes the limit of use.** Not even all together. **Today the product bears no CE marking**, is covered by no conformity declaration, and is not usable for the delivery of healthcare services to actual patients. That the project intends to assume the role of manufacturer (`D58`) is internal planning with its own calendar in [02 §5](./02-traguardi.md), **it is not a marking date and must not be cited as such** (`V-171`, `V-280`). A queue of functions is not a conformity path, and presenting it as such would be the costliest error in the entire document.
+**Third - no item in this queue removes the limit of use.** Not even all together. **Today the product bears no CE marking**, is covered by no conformity declaration, and is not usable for the delivery of healthcare services to actual patients. That the project intends to assume the role of manufacturer (`D58`) is internal planning with its own calendar in [02 §5](./02-traguardi.md), **it is not a marking date and must not be cited as such** ([`V-171`](../11_registri/01-vincoli-in-vigore.md#v-171), [`V-280`](../11_registri/01-vincoli-in-vigore.md#v-280)). A queue of functions is not a conformity path, and presenting it as such would be the costliest error in the entire document.
 
 ---
 
@@ -540,7 +540,7 @@ The transitions admitted are four, and each has a verifiable condition.
 
 | From | To | Condition | Who ascertains it |
 |---|---|---|---|
-| Desirable | Planned | There exist together: binary completion criterion, declared trigger, named owner (`V-187`) | Review of [00 §8](./00-indice.md) |
+| Desirable | Planned | There exist together: binary completion criterion, declared trigger, named owner ([`V-187`](../11_registri/01-vincoli-in-vigore.md#v-187)) | Review of [00 §8](./00-indice.md) |
 | Planned | Desirable | The trigger has lapsed and is not replaceable | Review, with reason recorded |
 | Planned | Out of scope | A conformity determination or a decision by the contracting party excludes it | `COMP` or contracting party, with new `OUT-nn` item |
 | Out of scope | Planned | The procedure of [`docs/03_functional/07-fuori-perimetro.md`](../03_functional/07-fuori-perimetro.md) §7, with cost proportionate to category | According to category |
@@ -553,7 +553,7 @@ To these is added, after `D53`, a fifth transition that did not exist before and
 
 The other two new items - `OL-21` and `OL-22` - **do not follow this transition**, and the difference is the one §9 repeats: they follow from **irreversible** cuts, do not restore the lost period, and what they render available counts **from subsequent releases onwards**.
 
-**What is not admitted, and is the part that counts.** An item does not pass from desirable to planned because someone has requested it insistently, because it appears in a specification or because it was cited in a presentation. It passes when it has the three elements of `V-187`. And **an irreversible cut does not become a queue item**: `OL-22` and `OL-21` do not restore the lost period, and their texts say so explicitly.
+**What is not admitted, and is the part that counts.** An item does not pass from desirable to planned because someone has requested it insistently, because it appears in a specification or because it was cited in a presentation. It passes when it has the three elements of [`V-187`](../11_registri/01-vincoli-in-vigore.md#v-187). And **an irreversible cut does not become a queue item**: `OL-22` and `OL-21` do not restore the lost period, and their texts say so explicitly.
 
 ---
 

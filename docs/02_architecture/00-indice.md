@@ -11,8 +11,8 @@ invarianti regge, quali dati custodisce e in che forma, come propaga il contesto
 si scambiano messaggi le sue parti, come si dimostra ciò che è accaduto e in quali assetti si
 installa.
 
-Non descrive *cosa fa* il sistema - quello è l'area funzionale - né *come si scrive il codice* -
-quello è l'area tecnica. Descrive la struttura che rende possibili l'una e l'altra, e le ragioni
+Non descrive *cosa fa* il sistema - quello è l'`FUNZ` - né *come si scrive il codice* -
+quello è l'`TECH`. Descrive la struttura che rende possibili l'una e l'altra, e le ragioni
 per cui quella struttura è com'è invece che in un altro modo.
 
 ## 1. Perché quest'area viene prima delle altre
@@ -31,7 +31,7 @@ Ne discende una regola di precedenza che vale per l'intera documentazione del pr
 > d'ufficio, ma la porta sulla bacheca inter-agenti.
 
 Sopra quest'area sta soltanto la base architetturale vincolante
-(`.telemedic/context/04_BASELINE_ARCHITETTURALE.md`) e le decisioni approvate dal committente
+([`.telemedic/context/04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md)) e le decisioni approvate dal committente
 (D1-D52). Dove un documento di quest'area si discosta dalla base, lo dichiara esplicitamente e
 rinvia all'ADR che motiva lo scostamento: non esistono scostamenti taciti.
 

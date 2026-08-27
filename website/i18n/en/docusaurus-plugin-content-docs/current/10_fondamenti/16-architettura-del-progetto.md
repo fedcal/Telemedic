@@ -210,7 +210,7 @@ impossible.
 - **No clinical threshold is hard-coded.** There is no numeric value written by a programmer that
   decides when a measurement is abnormal. Thresholds are configuration **per patient**, always
   attributed to an identified professional, with a temporal validity. It is the project's
-  constraint **V-02**.
+  constraint **[V-02](../11_registri/01-vincoli-in-vigore.md#v-02)**.
 - **No field of a clinical document is populated by text produced by the system.** No automatic
   summary, no conclusion, no inferred diagnostic code. The system structures and preserves what the
   professional writes.
@@ -238,7 +238,7 @@ host. An integrator that already has its own interface will not use ours; an int
 automate a flow cannot do it by clicking.
 
 **The rule.** **No capability of the system is reachable only from the user interface.** It is the
-project's constraint **V3**.
+project's constraint **[V3](../11_registri/03-vincoli-fondanti.md#v3)**.
 
 **What follows, and it is not obvious.** The consequence is not «expose everything in REST». It is
 that the **application layer cannot contain domain logic**. If it contained a rule - say, «a
@@ -453,7 +453,7 @@ dependency and privilege separation would become impossible.
 
 **The terminology service is dashed.** It is the only external dependency in the drawing that the
 system must be able to **lose while remaining fully operational**. This is not a kindness towards
-whoever installs it: it is the project's constraint **V-03**, and §9.4 explains why it matters so
+whoever installs it: it is the project's constraint **[V-03](../11_registri/01-vincoli-in-vigore.md#v-03)**, and §9.4 explains why it matters so
 much.
 
 ### 2.11 What this shape costs
@@ -936,7 +936,7 @@ and who decides. §11 returns to the subject.
 This section is longer than the others in proportion to its technical complexity, and the reason is
 that it describes **a decision that will be challenged**. Not «might be»: it will. Every person who
 joins the project meets it, finds it needlessly complicated, and proposes in good faith to simplify
-it. It is the project's constraint **V-01**, and no area may violate it.
+it. It is the project's constraint **[V-01](../11_registri/01-vincoli-in-vigore.md#v-01)**, and no area may violate it.
 
 A decision that is imposed and not understood gets worked around at the first opportunity. So here
 it is reconstructed from the beginning.
@@ -1056,7 +1056,7 @@ owning context.
 | Orderly termination | No effect: closing the act is an act of the professional |
 
 **No row of this table produces an automatic state change.** If you are writing code and find
-yourself making a row of this table change the state of the service, you have run into V-01: stop
+yourself making a row of this table change the state of the service, you have run into [V-01](../11_registri/01-vincoli-in-vigore.md#v-01): stop
 and ask.
 
 ### 5.5 The two state machines
@@ -1128,7 +1128,7 @@ share the terminal state and have opposite administrative effects. Collapsing th
 
 ### 5.6 How to recognise an attempt to merge them
 
-A violation of V-01 almost never presents itself in the form «let us merge the two entities». It
+A violation of [V-01](../11_registri/01-vincoli-in-vigore.md#v-01) almost never presents itself in the form «let us merge the two entities». It
 presents itself in these forms, all apparently innocuous:
 
 - «Let us add a *connected* field to the service, so the interface knows whether to show the
@@ -1484,7 +1484,7 @@ nothing that states how many rows there **ought** to have been. The audit trail 
 and its positivity means nothing.
 
 In the project this distinction **must not be attenuated in any document**: it is constraint
-**V-04**. Entity versioning remains useful - for reconstructing past application state - and is not,
+**[V-04](../11_registri/01-vincoli-in-vigore.md#v-04)**. Entity versioning remains useful - for reconstructing past application state - and is not,
 and is never presented as, the access audit trail.
 
 ### 7.3 Four layers, not four alternatives
@@ -2451,7 +2451,7 @@ reasoning has a flaw, and that is exactly how you discover it.
 5. **The column «what is none of its business» is the most useful in the contexts map.** Boundaries
    erode through the accumulation of reasonable exceptions, and the dangerous moment is when someone
    proposes adding «just one field».
-6. **Clinical service and media session never merge.** It is constraint V-01. The session may
+6. **Clinical service and media session never merge.** It is constraint [V-01](../11_registri/01-vincoli-in-vigore.md#v-01). The session may
    **inform**, never **decide**; the reverse direction is one of **command**.
 7. **The transactional outbox is the sole source of outbound events.** It eliminates by construction
    the lost event and the phantom event. No application path writes directly to the broker.

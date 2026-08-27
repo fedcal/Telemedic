@@ -86,7 +86,7 @@ Translation into model requirements of § 3.7 of the foundations module.
 | 3 | **Versioning with immutability** | § 1 |
 | 4 | **Scope and tenancy** | Every definition belongs to a tenant and to an organisational scope; a «national» pathway is a configuration, not a presupposition |
 | 5 | **Validation on loading** | Unreachable node, cadence without unit, threshold without parameter, loop without exit: rejected at publication, with message intelligible to whoever drafted it |
-| 6 | **No individual threshold in definition** | The pathway proposes, the individual plan disposes (`V-02`) |
+| 6 | **No individual threshold in definition** | The pathway proposes, the individual plan disposes ([`V-02`](../11_registri/01-vincoli-in-vigore.md#v-02)) |
 | 7 | **Traceability of the why** | For every activity executed, from which node it derived; for every activity not executed, whether it was foreseen |
 
 ### 3.2 The boundary of the engine
@@ -190,7 +190,7 @@ at least one role marked as responsible for taking the case on.
 
 ### 4.4 Declared service hours
 
-> **Question `Q-14` on the noticeboard**, addressed to areas `PROD` and `FUNZ`: **declared service
+> **Question [`Q-14`](../11_registri/02-questioni-aperte.md#q-14) on the noticeboard**, addressed to areas `PROD` and `FUNZ`: **declared service
 > hours is a safety requirement**, not a commercial parameter. A poorly declared service is more
 > dangerous than absence of service, because it produces false reassurance.
 
@@ -308,7 +308,7 @@ Outcomes of a pathway are not a system judgement. They are **recorded facts**, o
 
 > **`DM-99` [MOD]** - The system **does not calculate clinical outcomes** and does not produce any
 > synthetic index of clinical result. It aggregates declared facts and counts recorded events. The
-> distinction is the boundary of `V2` applied to outcomes, and must be watched because it is
+> distinction is the boundary of [`V2`](../11_registri/03-vincoli-fondanti.md#v2) applied to outcomes, and must be watched because it is
 > where product pressure is strongest.
 
 ### 7.2 Pathway indicators
@@ -356,10 +356,10 @@ intervention of whoever wrote the engine.
 
 | Point | State | To be asked to |
 |---|---|---|
-| Requirement identifiers for six areas uncovered on chronicity, alarms and patient safety: versioned plan, expectation window, escalation with declared failure, monitoring of expected volume, declared service hours, calculation traceability | **open** | `FUNZ` - question `Q-12` |
-| Formulation towards user of service hours and corresponding requirement | **open** | `PROD`, `FUNZ` - question `Q-14` |
-| Licensing regime of scales used in enrolment evaluation and in person-reported outcomes | **[NV]** | `COMP` - question `Q-11` |
-| Scope boundaries with respect to intended purpose: no interpretive judgement in notices, no prognosis | **open** | `COMP` - question `Q-01` |
+| Requirement identifiers for six areas uncovered on chronicity, alarms and patient safety: versioned plan, expectation window, escalation with declared failure, monitoring of expected volume, declared service hours, calculation traceability | **open** | `FUNZ` - question [`Q-12`](../11_registri/02-questioni-aperte.md#q-12) |
+| Formulation towards user of service hours and corresponding requirement | **open** | `PROD`, `FUNZ` - question [`Q-14`](../11_registri/02-questioni-aperte.md#q-14) |
+| Licensing regime of scales used in enrolment evaluation and in person-reported outcomes | **[NV]** | `COMP` - question [`Q-11`](../11_registri/02-questioni-aperte.md#q-11) |
+| Scope boundaries with respect to intended purpose: no interpretive judgement in notices, no prognosis | **open** | `COMP` - question [`Q-01`](../11_registri/02-questioni-aperte.md#q-01) |
 
 ## What you need to remember
 

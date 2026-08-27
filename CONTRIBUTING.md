@@ -168,6 +168,37 @@ all'utente sono internazionalizzati, mai cablati.
 Puoi contribuire in inglese: se non scrivi in italiano, apri comunque la pull request e ci
 occuperemo noi della versione italiana.
 
+## Come si marca un'affermazione non verificata
+
+`[NV]` marca un'affermazione che il progetto **non ha verificato su fonte primaria**. Non è una
+riserva di stile: è la dichiarazione che un numero, una data, un articolo di legge o il
+comportamento di un prodotto di terze parti non sono stati accertati, e che chi legge non deve
+citarli come se lo fossero.
+
+**Ogni `[NV]` porta, nello stesso capoverso, l'indicazione di chi deve chiuderlo.** Senza di essa
+la marcatura ammette una lacuna e non offre alcuna via d'uscita: resta lì finché qualcuno non la
+riscopre. Le forme ammesse sono tre, e sono soltanto queste.
+
+1. **La sigla di un'area fra apici inversi** - `ARCH`, `COMP`, `SEC`, `TECH`, `INTEG`, `GUIDA`,
+   `ROAD`, `FUNZ`, `DOM`, `ORCH`, `PROTO`, `OVER`, `AVV` - quando un'area del progetto può
+   chiuderlo con il lavoro che già le compete.
+2. **Un identificativo di questione `Q-nnn`**, quando chiuderlo richiede una decisione da
+   registrare in bacheca prima che il lavoro sia possibile.
+3. **Un soggetto esterno nominato** - un ministero, un'autorità, un organismo notificato, la
+   Commissione - preceduto da una formula esplicita: «va chiesto a», «da chiedere a»,
+   «richiesta a», «interlocuzione con», «va confermato da».
+
+**Se nessuna area può chiuderlo e nessuna questione lo copre, si apre una questione.** Non si
+sceglie un destinatario perché il controllo diventi verde: un'attribuzione falsa è peggiore
+dell'assenza, perché ha l'aspetto di una responsabilità assegnata e nessuno la rimette più in
+discussione.
+
+L'unità di lettura è il **capoverso**; una riga di tabella vale da sola. Il presidio è
+`scripts/verifica-marcature-non-verificate.sh`, in sola misura fino al **10 ottobre 2026** e
+bloccante da quella data. Il controllo riconosce il destinatario **per forma, non per senso**:
+sbaglia nei due versi, il suo commento in testa dichiara come, e superarlo è un pavimento, mai
+una prova.
+
 ## Codice di condotta
 
 Vale il [Codice di Condotta](CODE_OF_CONDUCT.md) in ogni spazio del progetto.
@@ -336,6 +367,34 @@ hardcoded.
 
 You may contribute in English: if you do not write Italian, open the pull request anyway and
 we will handle the Italian version.
+
+## How an unverified statement is marked
+
+`[NV]` marks a statement the project has **not verified against a primary source**. It is not a
+stylistic hedge: it declares that a figure, a date, a statutory article or the behaviour of a
+third party product has not been established, and that a reader must not quote it as if it had.
+
+**Every `[NV]` carries, within the same paragraph, the indication of who must close it.**
+Without that, the marking admits a gap and offers no way out of it: it stays there until someone
+rediscovers it. Three forms are admitted, and only these.
+
+1. **An area code in backticks** - `ARCH`, `COMP`, `SEC`, `TECH`, `INTEG`, `GUIDA`, `ROAD`,
+   `FUNZ`, `DOM`, `ORCH`, `PROTO`, `OVER`, `AVV` - when an area of the project can close it with
+   work already within its remit.
+2. **A question identifier `Q-nnn`**, when closing it requires a decision recorded on the
+   inter-agent board before the work is possible at all.
+3. **A named external party** - a ministry, an authority, a notified body, the Commission -
+   introduced by an explicit formula: «va chiesto a», «da chiedere a», «richiesta a»,
+   «interlocuzione con», «va confermato da».
+
+**If no area can close it and no question covers it, you open a question.** You do not pick a
+recipient to turn the check green: a false attribution is worse than none, because it looks like
+an assigned responsibility and nobody questions it again.
+
+The unit of reading is the **paragraph**; a table row counts on its own. The guard is
+`scripts/verifica-marcature-non-verificate.sh`, measure-only until **10 October 2026** and
+blocking from that date. It recognises the recipient **by form, not by sense**: it errs in both
+directions, its header comment says how, and passing it is a floor, never a proof.
 
 ## Code of conduct
 

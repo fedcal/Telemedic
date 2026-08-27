@@ -159,7 +159,7 @@ Un fatto verificato che va segnalato e non nascosto: il profilo nazionale dell'a
 valori. Il progetto adotta il valore che rappresenta la modalità virtuale e lo dichiara nel
 proprio profilo di interfaccia. `[NV]` - la conferma che il realm italiano attenda esattamente
 quel valore va richiesta all'ente di normazione nazionale; il destinatario della richiesta è
-l'area di conformità, che ha già in carico l'interlocuzione per le tipologie documentali.
+l'`COMP`, che ha già in carico l'interlocuzione per le tipologie documentali.
 
 ### 2.5 Il codice della prestazione e il canale di erogazione
 
@@ -186,7 +186,7 @@ sua correzione a posteriori richiede di ricodificare lo storico.
 I documenti destinati all'infrastruttura documentale nazionale hanno un **set informativo definito
 da fonte normativa**. Le rappresentazioni tecniche - i modelli di documento strutturato, i codici
 documentali, i metadati di indicizzazione - **non sono pubblicamente disponibili** alla data di
-stesura, e la loro acquisizione è una questione aperta indirizzata all'area di conformità.
+stesura, e la loro acquisizione è una questione aperta indirizzata all'`COMP`.
 
 Costruire il modello sulla serializzazione significherebbe attendere quel materiale per iniziare, e
 poi legare il modello a una forma tecnica che può cambiare. Il progetto fa il contrario: **modella
@@ -349,7 +349,7 @@ tutti dentro il livello anticorruzione del contesto di interoperabilità e **mai
 Lo stesso registro gestisce gli altri identificatori nazionali per cui esistono rappresentazioni
 multiple. **Punto collegato ma distinto**, che questa decisione non risolve: il codice di tipo
 dell'identificatore nel canale legacy resta contrattuale con l'integratore. `[NV]` - la questione è da sollevare con l'ente di normazione
-nazionale; il destinatario della richiesta è l'area di conformità, che ha già in carico
+nazionale; il destinatario della richiesta è l'`COMP`, che ha già in carico
 l'interlocuzione.
 
 ### 5.3 Struttura di un identificatore nel modello
@@ -472,13 +472,13 @@ tecnica. Quest'area fissa solo i vincoli che attraversano i contesti.
 
 | # | Vincolo | Motivazione |
 |---|---|---|
-| PD-1 | Ogni tabella che contiene dato di dominio porta l'identificativo di tenant | Vincolo V4, difesa in profondità dell'isolamento |
+| PD-1 | Ogni tabella che contiene dato di dominio porta l'identificativo di tenant | Vincolo [V4](../11_registri/03-vincoli-fondanti.md#v4), difesa in profondità dell'isolamento |
 | PD-2 | Nessuna chiave esterna attraversa il confine di un contesto | Regola 1 di attraversamento dei confini |
 | PD-3 | Nessun identificatore esterno è chiave primaria o parte di essa | §5.1 |
 | PD-4 | Le risorse del formato di scambio non sono persistite come tali | §1, regola sulla proiezione |
 | PD-5 | La tabella dell'outbox sta nello schema del contesto che produce l'evento | Atomicità fra dato ed evento |
 | PD-6 | Le serie temporali stanno in strutture dedicate, non in tabelle relazionali generiche | §4.2 |
-| PD-7 | Il registro immutabile non condivide l'archivio con i dati applicativi | Conservazione separata, vincolo V-04 |
+| PD-7 | Il registro immutabile non condivide l'archivio con i dati applicativi | Conservazione separata, vincolo [V-04](../11_registri/01-vincoli-in-vigore.md#v-04) |
 | PD-8 | Ciò che ha validità temporale non si sovrascrive: si versiona | §6 del modello di dominio |
 | PD-9 | Le migrazioni sono reversibili e provate su ogni schema di tenant | Ripristino selettivo, scenario SQ-08 |
 | PD-10 | Nessun dato reale in alcun ambiente, incluso lo sviluppo | Vincolo trasversale della base architetturale |
@@ -492,7 +492,7 @@ essere attenuata in nessun documento del progetto.
 
 ## 8. Conservazione e cancellazione
 
-Le politiche puntuali appartengono all'area di conformità e all'area di sicurezza; qui si fissa la
+Le politiche puntuali appartengono all'`COMP` e all'area di sicurezza; qui si fissa la
 struttura che le rende applicabili.
 
 **Ogni categoria di dato ha una politica di conservazione dichiarata.** Non esiste dato senza

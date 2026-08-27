@@ -14,7 +14,7 @@ A Boolean does not answer any of the four parts of the question. It is discovere
 moment, when the question comes from someone who has the authority to pose it.
 
 > **[BASE]** Consent is a **time-bounded fact**, not a Boolean flag
-> (`04_BASELINE_ARCHITETTURALE.md` § 2).
+> ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 2).
 
 Module [03 of the foundations guide](../10_fondamenti/03-il-dato-clinico.md) § 2 explains why, for
 the purpose of care, consent is not typically the legal basis for processing, and why confusing
@@ -60,7 +60,7 @@ that of the author.
 
 ### 1.2 Who never accesses
 
-> **[BASE] `V-08`, `D48`** - Art. 15, c. 4 of DM 7 settembre 2023 **always** excludes from the
+> **[BASE] [`V-08`](../11_registri/01-vincoli-in-vigore.md#v-08), `D48`** - Art. 15, c. 4 of DM 7 settembre 2023 **always** excludes from the
 > record: experts, insurance companies, employers, associations and scientific organisations,
 > administrative bodies even operating in the healthcare sphere, and medical personnel in the
 > exercise of medico-legal activities.
@@ -88,7 +88,7 @@ is a case in which the model must make the operation **impossible**, not simply 
 > | **Validity** | yes | start and, where applicable, end |
 > | **State** | yes | active, revoked, expired, superseded by new manifestation |
 > | **Who recorded** | yes | the act of recording has an author, even when it is the system |
-> | **Tenant** | yes | `V-04` |
+> | **Tenant** | yes | [`V-04`](../11_registri/01-vincoli-in-vigore.md#v-04) |
 
 Two components deserve a note, because they are the ones that are omitted.
 
@@ -321,7 +321,7 @@ with instant and author, not a configuration change.
 ### 9.1 It is not an exception: it is a requirement
 
 > **[BASE]** The procedure of emergency access is traced **as a requirement, not as an
-> exception** (`04_BASELINE_ARCHITETTURALE.md` § 8).
+> exception** ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 8).
 
 A system that does not provide for it is not more secure: it forces solutions outside the
 system, which leave no trace. Security lies in making it **costly and visible**, not in not
@@ -468,13 +468,13 @@ Two properties of the diagram are decisions:
    to be retained with the same care as successful access.
 2. **The order of conditions is not freely optimisable.** The verification of tenant is last in
    the diagram for readability, but in execution it is first: no query occurs without resolved
-   tenant (`04_BASELINE_ARCHITETTURALE.md` § 4).
+   tenant ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 4).
 
 ## 13. What the access record contains, and what it does not
 
 > **[BASE]** The record does not contain clinical content: it contains who, what, when, on which
 > subject, with which outcome and with which level of authentication guarantee
-> (`04_BASELINE_ARCHITETTURALE.md` § 6).
+> ([`04_BASELINE_ARCHITETTURALE.md`](https://github.com/fedcal/Telemedic/blob/main/.telemedic/context/04_BASELINE_ARCHITETTURALE.md) § 6).
 
 Additions that follow from Italian regulation and that the model must provide for:
 
