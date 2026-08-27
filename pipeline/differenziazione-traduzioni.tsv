@@ -1,0 +1,95 @@
+# Differenziazione del controllo di divergenza fra italiano e inglese - traguardo T-03, criterio 3.
+#
+# Formato dichiarato in pipeline/README-DIFFERENZIAZIONE-TRADUZIONI.md. Dati separati da
+# tabulazione, righe di commento con «#». Il controllo scripts/verifica-divergenza-traduzioni.sh
+# legge questo file per sapere QUALI aree di docs/ esigono la traduzione, QUALI avvertenze
+# pubbliche e QUALI altre dichiarazioni alla radice sorveglia, e CON QUALE FORZA - bloccante o
+# sola segnalazione, con la relativa data. Il criterio 3 di T-03 lo dice testualmente: quella
+# differenziazione è «versionata in un file di configurazione, non cablata». Prima del 27 agosto
+# 2026 viveva in quattro variabili bash dentro lo script (AREE_ESIGITE, AVVERTENZE_PUBBLICHE,
+# DICHIARAZIONI_PUBBLICHE_RADICE e le rispettive date di bloccanza): modificare la differenziazione
+# significava modificare il controllo, e chi voleva saperla doveva leggere lo script riga per riga.
+#
+# QUESTO FILE NON HA COPIA DI RISERVA NELLO SCRIPT (voce D-10 del runbook degli errori). Se manca
+# o non è leggibile, il controllo non decide da solo che cosa sorvegliare: esce 2.
+#
+# Cinque colonne.
+#
+#   tipo            «area» (una cartella numerata sotto docs/, o «adr»), «avvertenza_pubblica»
+#                   (uno degli otto documenti bilingui alla radice, sottoinsieme che porta anche
+#                   il controllo di contenuto su marcatura CE e dichiarazione di conformità) oppure
+#                   «dichiarazione_pubblica_radice» (gli altri cinque documenti bilingui di D51)
+#   valore          per «area»: il nome della cartella sotto docs/. Per le altre due righe: il nome
+#                   del file alla radice del repository
+#   stato           per «area»: «esigita» (un originale senza traduzione fa fallire il controllo) o
+#                   «pianificata» (l'assenza si annota, non blocca). Per le altre due righe:
+#                   «bloccante» (un rilievo su questo documento fa fallire il controllo) o
+#                   «segnalazione» (il rilievo si stampa, non blocca)
+#   bloccante_dal   data ISO AAAA-MM-GG. Vuota quando lo stato è già la forma forte («esigita» o
+#                   «bloccante»). **Obbligatoria quando lo stato è «segnalazione»** per le righe di
+#                   avvertenza o dichiarazione, con la stessa regola già in uso in
+#                   pipeline/collocazione-dei-controlli.tsv: una riduzione temporanea senza data di
+#                   scadenza non è temporanea, è una rinuncia che nessuno ha dichiarato. Le righe di
+#                   «area» non la usano: non esiste, per le aree, un meccanismo di promozione
+#                   automatica legato a una data, solo la decisione «esigita o pianificata»
+#   motivo          perché quella riga ha quello stato, con la fonte
+#
+tipo	valore	stato	bloccante_dal	motivo
+#
+# --- Le tredici aree di docs/. Tutte esigite dal 27 agosto 2026. ---
+#
+# Fino al 26 agosto 2026 solo tre aree (fondamenti, conformità, sicurezza) più i registri di
+# decisione erano prerequisiti non negoziabili (decisione D56, emendando D52): il resto era
+# pianificato e non bloccante. Il 27 agosto 2026 la misura sul corpus mostra lo specchio inglese
+# completo - dodici aree numerate su dodici con lo stesso numero di file dell'italiano, 32 ADR su
+# 32, 905.997 parole inglesi contro 890.136 italiane, nessun file inglese sotto il 60% delle parole
+# del proprio gemello (soglia 200 parole) - e il criterio di completamento di T-09 («il traguardo è
+# chiuso quando nessuna area è più in sola segnalazione») è soddisfatto: tutte le aree passano da
+# «pianificata» a «esigita» nella stessa riga che registra la data, com'è prescritto lì.
+area	00_overview	esigita		Transizione del 27 agosto 2026 (misura sul corpus: vedi il blocco di commento sopra)
+area	01_technical	esigita		Transizione del 27 agosto 2026
+area	02_architecture	esigita		Transizione del 27 agosto 2026
+area	03_functional	esigita		Transizione del 27 agosto 2026
+area	04_protocols	esigita		Transizione del 27 agosto 2026
+area	05_domain	esigita		Transizione del 27 agosto 2026
+area	06_security	esigita		Transizione del 27 agosto 2026
+area	07_integration	esigita		Transizione del 27 agosto 2026
+area	08_compliance	esigita		Transizione del 27 agosto 2026
+area	09_roadmap	esigita		Transizione del 27 agosto 2026
+area	10_fondamenti	esigita		Transizione del 27 agosto 2026 (già prerequisito non negoziabile da D56, ora esigito anche qui)
+area	11_registri	esigita		Transizione del 27 agosto 2026 (già prerequisito non negoziabile da D56, ora esigito anche qui)
+area	adr	esigita		Già esigita dal 26 agosto 2026 (voce D51/T-01 §8, riga G8 di collocazione-dei-controlli.tsv); qui riconfermata dalla transizione del 27 agosto 2026
+#
+# --- Le tre avvertenze pubbliche di T-01, criterio 8. ---
+#
+# Il criterio 8 nomina per nome tre file: la dichiarazione di non dispositivo medico, la politica
+# di distribuzione, il richiamo in evidenza del documento di presentazione del repository. Portano
+# ANCHE il controllo di contenuto specifico (marcatura CE, dichiarazione di conformità), che le
+# altre cinque dichiarazioni di D51 non portano: nessuna delle altre cinque parla di marcatura CE
+# per propria natura (verificato leggendole il 26 agosto 2026; sola eccezione redazionale
+# GOVERNANCE.md, che la nomina per una ragione propria e non generalizza il controllo).
+#
+# Erano in sola segnalazione con bloccante_dal 2026-09-12 (scadenza letterale del criterio 8).
+# ANTICIPATE al 27 agosto 2026 su decisione del committente: verificato eseguendo
+# scripts/verifica-divergenza-traduzioni.sh sul repository reale sia PRIMA sia DOPO l'anticipo,
+# zero rilievi in entrambi i casi (le tre avvertenze sono già allineate in entrambe le lingue) -
+# quindi l'anticipo non introduce alcuna regressione osservabile.
+avvertenza_pubblica	NOT-A-MEDICAL-DEVICE.md	bloccante		Anticipato dal 2026-09-12 al 2026-08-27 (T-01, criterio 8; verificato zero rilievi prima e dopo)
+avvertenza_pubblica	DISTRIBUTION-POLICY.md	bloccante		Anticipato dal 2026-09-12 al 2026-08-27 (T-01, criterio 8; verificato zero rilievi prima e dopo)
+avvertenza_pubblica	README.md	bloccante		Anticipato dal 2026-09-12 al 2026-08-27 (T-01, criterio 8; verificato zero rilievi prima e dopo)
+#
+# --- Le altre cinque dichiarazioni pubbliche obbligatorie di D51. ---
+#
+# Nessun criterio numerato le nomina per nome: la sola fonte scritta che le lega a una data è
+# docs/09_roadmap/00-indice.md §4, riga «Dichiarazioni pubbliche obbligatorie (D51)», che colloca
+# l'intero elenco - guida ai contributi, governance, politica di sicurezza e codice di condotta
+# compresi - sotto «il criterio 8 di T-01». È un riuso motivato della stessa data, non
+# un'estensione letterale del criterio, e resta dichiarato come tale.
+#
+# Stessa transizione delle tre avvertenze e per lo stesso motivo: anticipate al 27 agosto 2026,
+# verificato zero rilievi strutturali prima e dopo sul repository reale.
+dichiarazione_pubblica_radice	CONTRIBUTING.md	bloccante		Anticipato dal 2026-09-12 al 2026-08-27 (riuso motivato di T-01/8 via 00-indice.md §4; verificato zero rilievi prima e dopo)
+dichiarazione_pubblica_radice	GOVERNANCE.md	bloccante		Anticipato dal 2026-09-12 al 2026-08-27 (riuso motivato di T-01/8 via 00-indice.md §4; verificato zero rilievi prima e dopo)
+dichiarazione_pubblica_radice	SECURITY.md	bloccante		Anticipato dal 2026-09-12 al 2026-08-27 (riuso motivato di T-01/8 via 00-indice.md §4; verificato zero rilievi prima e dopo)
+dichiarazione_pubblica_radice	CODE_OF_CONDUCT.md	bloccante		Anticipato dal 2026-09-12 al 2026-08-27 (riuso motivato di T-01/8 via 00-indice.md §4; verificato zero rilievi prima e dopo)
+dichiarazione_pubblica_radice	THIRD-PARTY-TERMINOLOGY.md	bloccante		Anticipato dal 2026-09-12 al 2026-08-27 (riuso motivato di T-01/8 via 00-indice.md §4; verificato zero rilievi prima e dopo)

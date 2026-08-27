@@ -1,0 +1,2 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Controllo con criterio di traguardo senza lista numerata	completa	bloccante		T-10/1	scripts/finto.sh	caso sintetico citato nella tabella	Riga sintetica: «T-10» esiste ma non ha alcun criterio numerato.

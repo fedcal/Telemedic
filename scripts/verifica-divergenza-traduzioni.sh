@@ -19,60 +19,129 @@ cd "$(dirname "$0")/.."
 SORGENTE="docs"
 TRADOTTO="website/i18n/en/docusaurus-plugin-content-docs/current"
 
-# Le avvertenze pubbliche alla radice del repository sono nel criterio 8 di T-01 e nel criterio 1
-# di T-06, che le esigono "in entrambe le lingue". Non stanno sotto docs/ e quindi sfuggivano
-# interamente a questo controllo: un criterio impegnato senza una prova che possa fallire.
+# La differenziazione del controllo - quali aree esigono la traduzione, quali avvertenze pubbliche
+# e quali altre dichiarazioni alla radice sono sorvegliate, e con quale forza (bloccante o sola
+# segnalazione, con la relativa data) - è il criterio 3 di T-03, testualmente: «La differenziazione
+# è versionata in un file di configurazione, non cablata». Fino al 27 agosto 2026 viveva in quattro
+# variabili bash proprio in questo punto dello script (AREE_ESIGITE calcolata con un glob,
+# AVVERTENZE_PUBBLICHE, DICHIARAZIONI_PUBBLICHE_RADICE e le rispettive date di bloccanza): vive ora
+# in pipeline/differenziazione-traduzioni.tsv, dichiarato in
+# pipeline/README-DIFFERENZIAZIONE-TRADUZIONI.md, dove sta anche il ragionamento per esteso su
+# perché ciascuna area, avvertenza e dichiarazione ha oggi lo stato che ha.
 #
-# Sono verificate qui in SOLA SEGNALAZIONE, perché la versione inglese non esiste ancora e la
-# riscrittura degli originali su D58 e' essa stessa il criterio 8 di T-01. La data in cui questo
-# controllo diventa bloccante e' dichiarata, come impone il criterio 4 di T-03: un controllo senza
-# quella data non e' ammesso, perche' e' il modo in cui una riduzione temporanea diventa permanente.
-# Le avvertenze pubbliche alla radice sono BILINGUI IN UN FILE SOLO: il blocco
-# italiano, poi un separatore, poi il blocco inglese, richiamato in testa da un
-# rimando «English version below». Non esistono file .en.md separati, e non
-# devono esistere: due file significherebbero due testi che divergono in
-# silenzio proprio dove la divergenza è più costosa.
-# Il controllo verifica quindi che il blocco inglese esista dentro il file.
-AVVERTENZE_PUBBLICHE="NOT-A-MEDICAL-DEVICE.md DISTRIBUTION-POLICY.md README.md"
-AVVERTENZE_BLOCCANTI_DAL="2026-09-12"   # scadenza di T-01, criterio 8 letterale (02-traguardi.md)
+# Il percorso è sovrascrivibile con DIFFERENZIAZIONE_TRADUZIONI, con la stessa convenzione già in
+# uso altrove (LISTA di verifica-terminologie.sh, TABELLA di verifica-collocazione-dei-controlli.sh):
+# esiste per il collaudo, mai come sorgente alternativa in esercizio (voce D-17 del runbook).
+#
+# QUESTO SCRIPT NON CONTIENE UNA COPIA DI RISERVA (voce D-10 del runbook): se il file manca o non
+# è leggibile, il controllo non decide da solo che cosa sorvegliare e non prosegue con valori di
+# ripiego cablati - esce 2, la convenzione di questo repository per «il controllo non può nemmeno
+# partire» (la stessa di scripts/verifica-terminologie.sh con LISTA).
+#
+# Era anche la correzione di una trappola già pagata: il vecchio AREE_ESIGITE si calcolava con un
+# glob su docs/[0-9]*/, e sotto «set -e» un glob che non trova nulla - il caso delle sandbox del
+# banco, che non hanno aree numerate - faceva uscire l'intero script, con nove casi del banco che
+# cadevano per una ragione estranea alla divergenza. Leggere righe da un file statico non ha questo
+# problema per costruzione: zero righe di un dato tipo producono zero voci, mai un errore di shell.
+DIFFERENZIAZIONE_TRADUZIONI="${DIFFERENZIAZIONE_TRADUZIONI:-pipeline/differenziazione-traduzioni.tsv}"
 
-# Non sono solo tre. CONTRIBUTING.md, GOVERNANCE.md, SECURITY.md, CODE_OF_CONDUCT.md e
-# THIRD-PARTY-TERMINOLOGY.md - le altre dichiarazioni pubbliche obbligatorie di D51 - seguono LA
-# STESSA convenzione bilingue-in-un-file-solo: accertato leggendoli il 26 agosto 2026, non
-# presunto dall'elenco. CODE_OF_CONDUCT.md usa una VARIANTE: non un secondo titolo di primo
-# livello, ma due ancore esplicite `<a id="italiano"></a>` e `<a id="english"></a>`, con lo
-# stesso rimando «English version below» in testa che punta a `#english`. Nessuno di questi
-# cinque file era sorvegliato: chi riscriveva la metà italiana e dimenticava quella inglese non
-# produceva un file mancante - produceva due testi che divergono nello stesso file, e nessun
-# controllo se ne accorgeva.
-#
-# La data di bloccanza propria di T-01 (12 settembre 2026) nomina per nome, nel testo letterale
-# del criterio 8, SOLO tre file: «la dichiarazione di non dispositivo medico, ... la politica di
-# distribuzione e ... il richiamo in evidenza del documento di presentazione del repository». I
-# cinque file qui sotto non vi compaiono. Ma docs/09_roadmap/00-indice.md §4, riga
-# "Dichiarazioni pubbliche obbligatorie (D51)", colloca l'INTERO elenco - guida ai contributi,
-# governance, politica di sicurezza e codice di condotta compresi - sotto "il criterio 8 di
-# T-01": è l'unico rinvio scritto che leghi questi cinque file a una data qualunque, e in questo
-# repository le date non si inventano. La tensione fra le due fonti non si smussa qui, si
-# dichiara: si riusa la stessa data (12 settembre 2026) perché è l'unica lettura che abbia una
-# fonte scritta a sostegno - non perché sia certa che si applichi per nome - e perché darsi una
-# data più comoda senza un criterio che la scriva sarebbe esattamente l'invenzione che la
-# convenzione del progetto vieta.
-DICHIARAZIONI_PUBBLICHE_RADICE="CONTRIBUTING.md GOVERNANCE.md SECURITY.md CODE_OF_CONDUCT.md THIRD-PARTY-TERMINOLOGY.md"
-DICHIARAZIONI_BLOCCANTI_DAL="2026-09-12"   # riuso motivato sopra: 00-indice.md §4, riga D51
+if [ ! -f "$DIFFERENZIAZIONE_TRADUZIONI" ]; then
+  printf '\033[31m✗ File di configurazione della differenziazione inesistente: %s\033[0m\n' \
+    "$DIFFERENZIAZIONE_TRADUZIONI" >&2
+  printf 'Il controllo non può eseguire senza quel file: ripristinalo, oppure indica un percorso\n' >&2
+  printf 'diverso con DIFFERENZIAZIONE_TRADUZIONI. Vedi pipeline/README-DIFFERENZIAZIONE-TRADUZIONI.md.\n' >&2
+  exit 2
+fi
+if [ ! -r "$DIFFERENZIAZIONE_TRADUZIONI" ]; then
+  printf '\033[31m✗ File di configurazione della differenziazione illeggibile: %s\033[0m\n' \
+    "$DIFFERENZIAZIONE_TRADUZIONI" >&2
+  printf 'Verifica i permessi del file.\n' >&2
+  exit 2
+fi
+
+# Estrae il campo N di una riga separata da tabulazione con «cut», non con
+# «IFS=$'\t' read -r a b c …»: la tabulazione è per bash un carattere di IFS *bianco*, e due
+# tabulazioni consecutive - il caso normale quando «bloccante_dal» è vuoto - vengono fuse in una
+# sola, facendo scalare di uno i campi successivi. Stesso accorgimento già in
+# scripts/verifica-terminologie.sh e scripts/verifica-collocazione-dei-controlli.sh.
+_campo_differenziazione() { printf '%s' "$1" | cut -f"$2"; }
+
+AREE_ESIGITE=""
+AVVERTENZE_PUBBLICHE=""
+DICHIARAZIONI_PUBBLICHE_RADICE=""
+declare -A STATO_RADICE=()
+declare -A DATA_RADICE=()
+
+_intestazione_differenziazione_vista=0
+while IFS= read -r _riga_diff || [ -n "$_riga_diff" ]; do
+  case "$_riga_diff" in ''|'#'*) continue;; esac
+
+  _tipo=$(_campo_differenziazione "$_riga_diff" 1)
+  if [ "$_intestazione_differenziazione_vista" -eq 0 ]; then
+    if [ "$_tipo" != "tipo" ]; then
+      printf '\033[31m✗ intestazione inattesa in %s\033[0m\n' "$DIFFERENZIAZIONE_TRADUZIONI" >&2
+      exit 2
+    fi
+    _intestazione_differenziazione_vista=1
+    continue
+  fi
+
+  _valore=$(_campo_differenziazione "$_riga_diff" 2)
+  _stato=$(_campo_differenziazione "$_riga_diff" 3)
+  _bloccante_dal=$(_campo_differenziazione "$_riga_diff" 4)
+
+  if [ -z "$_tipo" ] || [ -z "$_valore" ] || [ -z "$_stato" ]; then
+    printf '\033[31m✗ riga malformata in %s: %s\033[0m\n' "$DIFFERENZIAZIONE_TRADUZIONI" "$_riga_diff" >&2
+    exit 2
+  fi
+
+  case "$_tipo" in
+    area)
+      case "$_stato" in
+        esigita) AREE_ESIGITE="$AREE_ESIGITE $_valore" ;;
+        pianificata) : ;;
+        *)
+          printf '\033[31m✗ stato sconosciuto per l'"'"'area «%s»: «%s»\033[0m\n' "$_valore" "$_stato" >&2
+          exit 2
+          ;;
+      esac
+      ;;
+    avvertenza_pubblica)
+      if [ "$_stato" = "segnalazione" ] && [ -z "$_bloccante_dal" ]; then
+        printf '\033[31m✗ «%s» è in segnalazione senza bloccante_dal in %s\033[0m\n' \
+          "$_valore" "$DIFFERENZIAZIONE_TRADUZIONI" >&2
+        exit 2
+      fi
+      AVVERTENZE_PUBBLICHE="$AVVERTENZE_PUBBLICHE $_valore"
+      STATO_RADICE["avvertenza:$_valore"]="$_stato"
+      DATA_RADICE["avvertenza:$_valore"]="$_bloccante_dal"
+      ;;
+    dichiarazione_pubblica_radice)
+      if [ "$_stato" = "segnalazione" ] && [ -z "$_bloccante_dal" ]; then
+        printf '\033[31m✗ «%s» è in segnalazione senza bloccante_dal in %s\033[0m\n' \
+          "$_valore" "$DIFFERENZIAZIONE_TRADUZIONI" >&2
+        exit 2
+      fi
+      DICHIARAZIONI_PUBBLICHE_RADICE="$DICHIARAZIONI_PUBBLICHE_RADICE $_valore"
+      STATO_RADICE["dichiarazione:$_valore"]="$_stato"
+      DATA_RADICE["dichiarazione:$_valore"]="$_bloccante_dal"
+      ;;
+    *)
+      printf '\033[31m✗ tipo sconosciuto in %s: «%s»\033[0m\n' "$DIFFERENZIAZIONE_TRADUZIONI" "$_tipo" >&2
+      exit 2
+      ;;
+  esac
+done < "$DIFFERENZIAZIONE_TRADUZIONI"
 
 mancanti=0
 divergenti=0
 allineati=0
 avvertenze_assenti=0
+avvertenze_bloccanti=0
 radice_avvertenze_rilievi=0
+radice_avvertenze_bloccanti=0
 radice_dichiarazioni_rilievi=0
-
-# Aree di cui si esige la traduzione. La decisione D56, emendando D52, rende
-# prerequisiti non negoziabili soltanto queste: le avvertenze pubbliche, la
-# guida dei fondamenti, la conformità, la sicurezza e i registri di decisione.
-# Il resto è pianificato e non bloccante, quindi l'assenza si annota ma non fa fallire.
-AREE_ESIGITE="adr 10_fondamenti 06_security 08_compliance"
+radice_dichiarazioni_bloccanti=0
 
 for src in $(find "$SORGENTE" -name '*.md' | sort); do
   rel="${src#$SORGENTE/}"
@@ -231,10 +300,13 @@ PY
 }
 
 _verifica_struttura_bilingue_radice() {
-  local doc="$1"
+  # $2 = codice colore ANSI (31 rosso per una riga bloccante, 33 giallo per una in sola
+  # segnalazione): quale dei due dipende dallo stato che pipeline/differenziazione-traduzioni.tsv
+  # dichiara per QUESTO documento, non da una scelta fissa dello script.
+  local doc="$1" colore="${2:-33}"
 
   if ! grep -qi 'English version below' "$doc"; then
-    printf '\033[33m· documento radice senza rimando al blocco inglese: %s\033[0m\n' "$doc"
+    printf '\033[%sm· documento radice senza rimando al blocco inglese: %s\033[0m\n' "$colore" "$doc"
     return 1
   fi
 
@@ -242,7 +314,7 @@ _verifica_struttura_bilingue_radice() {
   titoli=$(grep -c '^# ' "$doc" || true)
   ancore_esplicite=$(grep -c '<a id="' "$doc" || true)
   if [ "$titoli" -lt 2 ] && [ "$ancore_esplicite" -lt 2 ]; then
-    printf '\033[33m· documento radice con il rimando ma senza blocco inglese: %s\033[0m\n' "$doc"
+    printf '\033[%sm· documento radice con il rimando ma senza blocco inglese: %s\033[0m\n' "$colore" "$doc"
     return 1
   fi
 
@@ -250,41 +322,70 @@ _verifica_struttura_bilingue_radice() {
   riga_rimando=$(grep -im1 'English version below' "$doc")
   ancora_richiesta=$(printf '%s' "$riga_rimando" | grep -oE '\(#[^)]+\)' | head -1 | tr -d '()#')
   if [ -z "$ancora_richiesta" ]; then
-    printf '\033[33m· documento radice con rimando privo di ancora: %s\033[0m\n' "$doc"
+    printf '\033[%sm· documento radice con rimando privo di ancora: %s\033[0m\n' "$colore" "$doc"
     return 1
   fi
   if ! _ancora_valida_radice "$doc" "$ancora_richiesta"; then
-    printf '\033[33m· documento radice con rimando a un\047ancora inesistente: %s - punta a «#%s»\033[0m\n' \
-      "$doc" "$ancora_richiesta"
+    printf '\033[%sm· documento radice con rimando a un\047ancora inesistente: %s - punta a «#%s»\033[0m\n' \
+      "$colore" "$doc" "$ancora_richiesta"
     return 1
   fi
 
   return 0
 }
 
+# Dal 27 agosto 2026 un rilievo su un documento «bloccante» concorre alla condizione di uscita
+# finale, esattamente come mancanti/divergenti/orfani: è il criterio 3 di T-03 applicato, non solo
+# dichiarato («blocca sulle aree prerequisito, avvertenze pubbliche comprese»). Su un documento
+# ancora in «segnalazione» il rilievo resta informativo, con la propria data.
 for doc in $AVVERTENZE_PUBBLICHE; do
   [ -f "$doc" ] || continue
-  _verifica_struttura_bilingue_radice "$doc" || radice_avvertenze_rilievi=$((radice_avvertenze_rilievi+1))
+  _stato_doc="${STATO_RADICE["avvertenza:$doc"]}"
+  _colore_doc=33; [ "$_stato_doc" = "bloccante" ] && _colore_doc=31
+  if ! _verifica_struttura_bilingue_radice "$doc" "$_colore_doc"; then
+    radice_avvertenze_rilievi=$((radice_avvertenze_rilievi+1))
+    if [ "$_stato_doc" = "bloccante" ]; then
+      radice_avvertenze_bloccanti=$((radice_avvertenze_bloccanti+1))
+    else
+      printf '  (in sola segnalazione, bloccante dal %s - %s)\n' \
+        "${DATA_RADICE["avvertenza:$doc"]}" "$DIFFERENZIAZIONE_TRADUZIONI"
+    fi
+  fi
 done
 
 for doc in $DICHIARAZIONI_PUBBLICHE_RADICE; do
   [ -f "$doc" ] || continue
-  _verifica_struttura_bilingue_radice "$doc" || radice_dichiarazioni_rilievi=$((radice_dichiarazioni_rilievi+1))
+  _stato_doc="${STATO_RADICE["dichiarazione:$doc"]}"
+  _colore_doc=33; [ "$_stato_doc" = "bloccante" ] && _colore_doc=31
+  if ! _verifica_struttura_bilingue_radice "$doc" "$_colore_doc"; then
+    radice_dichiarazioni_rilievi=$((radice_dichiarazioni_rilievi+1))
+    if [ "$_stato_doc" = "bloccante" ]; then
+      radice_dichiarazioni_bloccanti=$((radice_dichiarazioni_bloccanti+1))
+    else
+      printf '  (in sola segnalazione, bloccante dal %s - %s)\n' \
+        "${DATA_RADICE["dichiarazione:$doc"]}" "$DIFFERENZIAZIONE_TRADUZIONI"
+    fi
+  fi
 done
 
 for doc in $AVVERTENZE_PUBBLICHE; do
   [ -f "$doc" ] || continue
+  _stato_doc="${STATO_RADICE["avvertenza:$doc"]}"
+  _colore_doc=33; [ "$_stato_doc" = "bloccante" ] && _colore_doc=31
+  _bloccante_doc=0; [ "$_stato_doc" = "bloccante" ] && _bloccante_doc=1
   if ! grep -qi 'English version below' "$doc"; then
-    printf '\033[33m· avvertenza pubblica senza rimando al blocco inglese: %s\033[0m\n' "$doc"
+    printf '\033[%sm· avvertenza pubblica senza rimando al blocco inglese: %s\033[0m\n' "$_colore_doc" "$doc"
     avvertenze_assenti=$((avvertenze_assenti+1))
+    [ "$_bloccante_doc" -eq 1 ] && avvertenze_bloccanti=$((avvertenze_bloccanti+1))
     continue
   fi
   # Il blocco inglese comincia al secondo titolo di primo livello. Se ce n'è uno
   # solo, il file è monolingue e l'inglese manca del tutto.
   titoli=$(grep -c '^# ' "$doc")
   if [ "$titoli" -lt 2 ]; then
-    printf '\033[33m· avvertenza pubblica senza blocco inglese: %s\033[0m\n' "$doc"
+    printf '\033[%sm· avvertenza pubblica senza blocco inglese: %s\033[0m\n' "$_colore_doc" "$doc"
     avvertenze_assenti=$((avvertenze_assenti+1))
+    [ "$_bloccante_doc" -eq 1 ] && avvertenze_bloccanti=$((avvertenze_bloccanti+1))
     continue
   fi
   # Le due avvertenze che non possono mancare in inglese, quali che siano le
@@ -296,8 +397,9 @@ for doc in $AVVERTENZE_PUBBLICHE; do
   printf '%s' "$blocco_en" | grep -qi 'CE marking' || avvertenze_incomplete="$avvertenze_incomplete marcatura-CE"
   printf '%s' "$blocco_en" | grep -qi 'declaration of conformity' || avvertenze_incomplete="$avvertenze_incomplete dichiarazione-di-conformita"
   if [ -n "$avvertenze_incomplete" ]; then
-    printf '\033[33m· blocco inglese incompleto in %s:%s\033[0m\n' "$doc" "$avvertenze_incomplete"
+    printf '\033[%sm· blocco inglese incompleto in %s:%s\033[0m\n' "$_colore_doc" "$doc" "$avvertenze_incomplete"
     avvertenze_assenti=$((avvertenze_assenti+1))
+    [ "$_bloccante_doc" -eq 1 ] && avvertenze_bloccanti=$((avvertenze_bloccanti+1))
   fi
 done
 
@@ -305,21 +407,23 @@ printf '\nAllineati: %d · Divergenti: %d · Assenti ed esigiti: %d · Orfani: %
   "$allineati" "$divergenti" "$mancanti" "$orfani"
 
 if [ "$avvertenze_assenti" -gt 0 ]; then
-  printf 'Avvertenze pubbliche non allineate: %d - in sola segnalazione, bloccanti dal %s (T-01)\n' \
-    "$avvertenze_assenti" "$AVVERTENZE_BLOCCANTI_DAL"
+  printf 'Avvertenze pubbliche non allineate (contenuto): %d, di cui %d bloccanti - vedi %s\n' \
+    "$avvertenze_assenti" "$avvertenze_bloccanti" "$DIFFERENZIAZIONE_TRADUZIONI"
 fi
 
 if [ "$radice_avvertenze_rilievi" -gt 0 ]; then
-  printf 'Struttura bilingue non allineata (avvertenze pubbliche): %d - in sola segnalazione, bloccante dal %s (T-01, criterio 8)\n' \
-    "$radice_avvertenze_rilievi" "$AVVERTENZE_BLOCCANTI_DAL"
+  printf 'Struttura bilingue non allineata (avvertenze pubbliche): %d, di cui %d bloccanti - vedi %s\n' \
+    "$radice_avvertenze_rilievi" "$radice_avvertenze_bloccanti" "$DIFFERENZIAZIONE_TRADUZIONI"
 fi
 
 if [ "$radice_dichiarazioni_rilievi" -gt 0 ]; then
-  printf 'Struttura bilingue non allineata (altre dichiarazioni D51): %d - in sola segnalazione, bloccante dal %s (00-indice.md §4, riuso motivato della data di T-01)\n' \
-    "$radice_dichiarazioni_rilievi" "$DICHIARAZIONI_BLOCCANTI_DAL"
+  printf 'Struttura bilingue non allineata (altre dichiarazioni D51): %d, di cui %d bloccanti - vedi %s\n' \
+    "$radice_dichiarazioni_rilievi" "$radice_dichiarazioni_bloccanti" "$DIFFERENZIAZIONE_TRADUZIONI"
 fi
 
-if [ "$divergenti" -gt 0 ] || [ "$mancanti" -gt 0 ] || [ "$orfani" -gt 0 ]; then
+if [ "$divergenti" -gt 0 ] || [ "$mancanti" -gt 0 ] || [ "$orfani" -gt 0 ] \
+   || [ "$avvertenze_bloccanti" -gt 0 ] || [ "$radice_avvertenze_bloccanti" -gt 0 ] \
+   || [ "$radice_dichiarazioni_bloccanti" -gt 0 ]; then
   cat <<'NOTA'
 
 Che cosa fare. Una divergenza si risolve ritraducendo il documento, non
@@ -336,6 +440,11 @@ fermata a metà: si completa, non si pareggia togliendo sezioni all'italiano. Se
 in modo puramente redazionale e la traduzione resta corretta, si tocca comunque
 il file tradotto nello stesso commit, così la relazione fra i due resta vera e
 il controllo non impara a mentire.
+
+Un rilievo BLOCCANTE su un'avvertenza pubblica o su un'altra dichiarazione di D51 si risolve
+riallineando il blocco inglese del documento, mai abbassando il suo stato in
+pipeline/differenziazione-traduzioni.tsv per farlo tacere: quel file dichiara una decisione presa,
+non un interruttore per far passare la costruzione.
 NOTA
   exit 1
 fi

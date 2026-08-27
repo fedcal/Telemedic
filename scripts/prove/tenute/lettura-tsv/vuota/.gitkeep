@@ -1,0 +1,3 @@
+Cartella deliberatamente priva di script, per il caso «nessuno script da esaminare - esce 2».
+Senza questo file git non traccerebbe la cartella, e il caso passerebbe in locale e cadrebbe in
+corsia con un messaggio che non nomina la causa reale.

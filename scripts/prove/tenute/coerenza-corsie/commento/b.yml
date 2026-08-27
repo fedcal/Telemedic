@@ -1,0 +1,11 @@
+name: Corsia B di prova
+# Nota: fino al 27 agosto 2026 questa corsia dichiarava actions/setup-node@v4 e node-version: 24.x,
+# divergendo dalle altre due. Il commento NOMINA le versioni vecchie per spiegare la correzione e
+# non le usa: un controllo che leggesse i commenti segnalerebbe la propria spiegazione.
+jobs:
+  prova:
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22

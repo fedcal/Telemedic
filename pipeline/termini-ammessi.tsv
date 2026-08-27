@@ -228,3 +228,6 @@ coordinata	riuso	Chiavi del formato publiccode.yml della pubblica amministrazion
 coordinata	conforme	Chiavi del formato publiccode.yml della pubblica amministrazione italiana
 coordinata	example	Segnaposto degli esempi, sotto dominio riservato dalla RFC 2606
 coordinata	fornitore	Segnaposto generico degli esempi: e' la categoria, non un nome
+dominio	rekor.sigstore.dev	Registro pubblico di trasparenza di Sigstore. E' infrastruttura tecnica citata da VERIFICA-DELL-ARTEFATTO.md, che senza il nome dell'endpoint non sarebbe eseguibile da chi installa: una procedura di verifica che non dice dove verificare non e' una procedura. Nessun rapporto commerciale, progetto della Linux Foundation ad accesso pubblico
+dominio	fulcio.sigstore.dev	Autorita' di certificazione a breve durata di Sigstore, per la stessa ragione della riga sopra: e' l'emittente del certificato effimero che la procedura di verifica deve poter controllare
+dominio	slsa.dev	Sito della specifica SLSA, citata da scripts/firma-artefatto.sh come riferimento del livello di provenienza dichiarato. E' una specifica pubblica, non un fornitore

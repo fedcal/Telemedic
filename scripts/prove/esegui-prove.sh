@@ -25,6 +25,18 @@ cd "$(dirname "$0")"
 TENUTE="$PWD/tenute"
 RADICE_REPO="$PWD/../.."
 
+# scripts/verifica-divergenza-traduzioni.sh non accetta variabili d'ambiente per SORGENTE/TRADOTTO
+# (vedi il commento al Controllo 3): i collaudi lo copiano in un repository sintetico temporaneo e
+# vi girano dentro, con «cd» che risolve alla radice di quel sandbox. Da quando la differenziazione
+# vive in pipeline/differenziazione-traduzioni.tsv (D-10, D-17), lo script la esige e non ne
+# contiene più una copia: senza DIFFERENZIAZIONE_TRADUZIONI uscirebbe 2 in ogni sandbox, perché
+# nessuna di esse porta con sé una copia della tabella. Esportata QUI, una volta sola, punta ogni
+# invocazione sandboxata alla tabella VERA del repository - un percorso assoluto, che «cd» dentro
+# il sandbox non altera - così i collaudi provano lo stesso comportamento che provavano quando le
+# liste erano cablate nello script, senza portare una copia propria che potrebbe divergere da
+# quella vera (sarebbe di nuovo D-10, spostato nel banco).
+export DIFFERENZIAZIONE_TRADUZIONI="$RADICE_REPO/pipeline/differenziazione-traduzioni.tsv"
+
 esito=0
 totale=0
 attese_rispettate=0
@@ -690,25 +702,32 @@ COLLOCAZIONE_BANCO_FITTIZIO="$COLLOCAZIONE_TENUTE/banco-fittizio.txt"
 # e i casi qui sotto proverebbero lo stato delle corsie reali invece del comportamento del
 # controllo: passerebbero o fallirebbero per ragioni che non sono le loro.
 COLLOCAZIONE_CORSIE="$COLLOCAZIONE_TENUTE/corsie"
+# Registro dei traguardi SINTETICO per la regola 6 (D-17: sovrascrivibile per il collaudo, mai
+# come sorgente alternativa in esercizio). Senza TRAGUARDI il controllo leggerebbe
+# docs/09_roadmap/02-traguardi.md reale, e le tenute qui sotto - che citano tutte «T-09/n» come
+# placeholder fuori dalla numerazione reale, per non collidere mai con un traguardo vero -
+# smetterebbero di risolvere non appena la regola 6 esistesse, per una ragione che non è la loro:
+# proverebbero lo stato del registro reale, non il comportamento del controllo.
+COLLOCAZIONE_TRAGUARDI="$COLLOCAZIONE_TENUTE/traguardi-sintetici.md"
 
 esegui_caso "collocazione: tabella valida, tutte le regole rispettate" passa \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-valida.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-valida.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: segnalazione senza data (regola 2 del README: una riduzione senza scadenza è una rinuncia non dichiarata)" fallisce \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-segnalazione-senza-data.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-segnalazione-senza-data.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: prova negativa vuota (regola 3 del README: un controllo che nessuno ha visto fallire non è un controllo)" fallisce \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-prova-vuota.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-prova-vuota.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: prova negativa che cita un caso inesistente (regola 4 del README)" fallisce \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-prova-inesistente.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-prova-inesistente.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: fascia non ammessa (regola 1 del README: una fascia fuori dalle quattro dichiarate è quasi sempre un refuso)" fallisce \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-fascia-non-ammessa.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-fascia-non-ammessa.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 # Difetto già trovato e corretto (vedi il commento sopra a campo() nello script collaudato):
@@ -726,7 +745,7 @@ esegui_caso "collocazione: fascia non ammessa (regola 1 del README: una fascia f
 # (motivo_collocazione), che nel banco fittizio NON compare, facendo scattare a torto la regola 4.
 # La prova di mutazione nel rapporto conferma che questa riga cambia esito fra le due letture.
 esegui_caso "collocazione: riga bloccante con bloccante_dal vuota non fa collassare i campi successivi (regressione lettura per posizione vs. read)" passa \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-regressione-lettura.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-regressione-lettura.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 # REGOLA 5 - la corsia dichiarata esegue davvero il controllo.
@@ -742,36 +761,97 @@ esegui_caso "collocazione: riga bloccante con bloccante_dal vuota non fa collass
 # orologeria.
 
 esegui_caso "collocazione: la corsia dichiarata non esegue lo script (regola 5: una collocazione dichiarata e non esistente)" fallisce \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-corsia-non-esegue.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-corsia-non-esegue.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: la fascia dichiarata non ha alcun flusso (regola 5: una corsia che non esiste non esegue niente)" fallisce \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-corsia-senza-flusso.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-corsia-senza-flusso.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: il flusso esiste ma non ha il lavoro dichiarato (regola 5)" fallisce \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-lavoro-inesistente.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-lavoro-inesistente.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: la fascia dichiarata non è quella in cui l'eseguibile vive (regola 5)" fallisce \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-fascia-incoerente.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-fascia-incoerente.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: bloccante ma «da collocare» (regola 5: chi blocca senza un luogo in cui girare non blocca nulla)" fallisce \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-bloccante-da-collocare.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-bloccante-da-collocare.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: «da collocare» oltre la data di esigibilità (regola 5)" fallisce \
-  env OGGI=2026-08-26 CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-da-collocare-scaduta.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env OGGI=2026-08-26 CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-da-collocare-scaduta.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: «da collocare» entro la data dichiarata è debito visibile, non un errore (regola 5)" passa \
-  env OGGI=2026-08-26 CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-da-collocare-in-corso.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env OGGI=2026-08-26 CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-da-collocare-in-corso.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 esegui_caso "collocazione: un controllo che vive in due luoghi con la prima metà nella corsia dichiarata (regola 5, forma «A + B» di G9)" passa \
-  env CORSIE="$COLLOCAZIONE_CORSIE" TABELLA="$COLLOCAZIONE_TENUTE/tabella-due-luoghi.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-due-luoghi.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
   "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
+
+# REGOLA 6 - il criterio nella forma «T-NN/M» deve risolvere: «T-NN» deve esistere nel registro
+# dei traguardi e avere almeno «M» criteri di completamento numerati. Difetto corretto il 27
+# agosto 2026: T01-C8 citava «T-01/8», criterio che riguarda le avvertenze pubbliche e non la
+# conformità redazionale che quella riga verifica davvero, e SIG-C1 citava «T-01/5», già di
+# T01-C5 per un oggetto diverso (regola 7, sotto). Nessuno dei due era visibile a chi non aprisse
+# docs/09_roadmap/02-traguardi.md e contasse. TRAGUARDI punta al registro SINTETICO sopra: «T-09»
+# vi ha due criteri numerati, «T-10» esiste ma non ne ha alcuno.
+
+esegui_caso "collocazione: il criterio non risolve, il traguardo non esiste nel registro (regola 6)" fallisce \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-criterio-inesistente.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
+
+esegui_caso "collocazione: il criterio non risolve, il traguardo esiste ma non ha quel numero di criteri (regola 6)" fallisce \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-criterio-numero-eccede.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
+
+esegui_caso "collocazione: il criterio non risolve, il traguardo esiste ma non ha alcun criterio numerato (regola 6)" fallisce \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-criterio-traguardo-senza-criteri.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" \
+  "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
+
+# REGOLA 7 - un criterio datato («T-NN/M») citato da due righe diverse è un errore SALVO che il
+# criterio sia dichiarato collettivo in pipeline/criteri-collettivi.tsv.
+#
+# La prima formulazione di questa regola, il 27 agosto 2026, vietava il duplicato senza eccezioni,
+# ed era una generalizzazione da due soli casi. Applicata al repository reale segnalava diciannove
+# righe legittime: i criteri T-03/2 e T-03/4 ENUMERANO PIU' CONTROLLI NEL PROPRIO TESTO, e la forma
+# «A + B» non li rappresenta perché ammette una fascia sola mentre quei controlli stanno in fasce
+# diverse. La regola è stata riscritta invece di essere disattivata, e l'eccezione vive in un file
+# versionato e non in una lista dentro lo script (voce D-10 del runbook).
+#
+# I quattro casi sotto provano le quattro combinazioni che contano: duplicato non dichiarato (deve
+# fallire), duplicato dichiarato (deve passare), «N/D» ripetuto (deve passare, o la regola punirebbe
+# precisamente la dichiarazione onesta che RD-C1, CR-C1 e SIG-C1 fanno nella tabella reale), e
+# dichiarazione assente (deve uscire 2, che è errore d'uso e non violazione: senza quel file la
+# regola non sa e non deve indovinare).
+
+esegui_caso "collocazione: lo stesso criterio T-NN/M citato da due righe, e non è dichiarato collettivo (regola 7)" fallisce \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-criterio-duplicato.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" CRITERI_COLLETTIVI="$COLLOCAZIONE_TENUTE/collettivi-vuoto.tsv" \
+  "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
+
+esegui_caso "collocazione: lo stesso criterio citato da due righe, ma dichiarato collettivo (regola 7, il caso di T-03/2)" passa \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-criterio-duplicato.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" CRITERI_COLLETTIVI="$COLLOCAZIONE_TENUTE/collettivi-t09-1.tsv" \
+  "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
+
+esegui_caso "collocazione: due righe «N/D» non fanno scattare la regola 7 (N/D non è un criterio numerato)" passa \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-criterio-nd-non-duplicato.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" CRITERI_COLLETTIVI="$COLLOCAZIONE_TENUTE/collettivi-vuoto.tsv" \
+  "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
+
+# Questo caso NON usa «fallisce»: quell'attesa accetta qualunque uscita diversa da zero e
+# confonderebbe l'errore d'uso con la violazione. Verifica il codice esatto.
+# La regola 5 accetta anche «.py» dal 27 agosto 2026, perche' il criterio 6 di T-03 e' presidiato
+# per meta' da un generatore Python. La forma nuova non deve pero' essere una porta aperta: un
+# eseguibile che nessuna corsia nomina resta un errore, qualunque sia il suo linguaggio.
+esegui_caso "collocazione: un eseguibile «.py» che nessuna corsia nomina resta un errore (regola 5)" fallisce \
+  env CORSIE="$COLLOCAZIONE_CORSIE" TRAGUARDI="$COLLOCAZIONE_TRAGUARDI" TABELLA="$COLLOCAZIONE_TENUTE/tabella-py-non-eseguito.tsv" BANCO="$COLLOCAZIONE_BANCO_FITTIZIO" CRITERI_COLLETTIVI="$COLLOCAZIONE_TENUTE/collettivi-vuoto.tsv" \
+  "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
+
+esegui_caso "collocazione: dichiarazione dei criteri collettivi assente - esce 2, errore d'uso e non violazione (regola 7)" passa \
+  bash -c 'env CORSIE="$1" TRAGUARDI="$2" TABELLA="$3" BANCO="$4" CRITERI_COLLETTIVI=/percorso/che/non/esiste.tsv "$5" >/dev/null 2>&1; [ $? -eq 2 ]' _ \
+  "$COLLOCAZIONE_CORSIE" "$COLLOCAZIONE_TRAGUARDI" "$COLLOCAZIONE_TENUTE/tabella-valida.tsv" "$COLLOCAZIONE_BANCO_FITTIZIO" "$RADICE_REPO/scripts/verifica-collocazione-dei-controlli.sh"
 
 printf '\n== Controllo 6bis - G1, ricerca di segreti (gitleaks) ==\n\n'
 
@@ -1185,14 +1265,14 @@ verifica_terminologie_lista_assente_fallisce_con_uscita_2() {
 esegui_caso "terminologie: lista di ammissione assente (nessuna riserva)" fallisce \
   verifica_terminologie_lista_assente_fallisce_con_uscita_2
 
-printf '\n== Controllo 9 - verifica-conformita-redazionale.sh (T01-C8: frontmatter e rinvii relativi) ==\n\n'
+printf '\n== Controllo 9 - verifica-conformita-redazionale.sh (CR-C1: frontmatter e rinvii relativi) ==\n\n'
 
 # Lo script collaudato promette tre cose nel suo commento di testa, ma implementa solo DUE
-# controlli che corrispondono a T01-C8 come descritto in pipeline/collocazione-dei-controlli.tsv
+# controlli che corrispondono a CR-C1 come descritto in pipeline/collocazione-dei-controlli.tsv
 # («formule di conformità vietate, rinvii relativi che escono da docs/, frontmatter»):
 #   1. frontmatter YAML non quotato con due punti seguiti da spazio (la trappola in CLAUDE.md);
 #   2. rinvii relativi che escono da docs/ (l'altra trappola in CLAUDE.md).
-# Il TERZO controllo presente nello script (segnaposto di segreti) non è ciò che T01-C8 descrive:
+# Il TERZO controllo presente nello script (segnaposto di segreti) non è ciò che CR-C1 descrive:
 # è una ricerca di segreti in chiaro, competenza già dichiarata di G1. NESSUN controllo, in questo
 # script, cerca le «formule di conformità vietate» elencate in
 # docs/04_protocols/10-conformita-e-prove.md §2 (es. «Conforme alla guida italiana» senza versione,
@@ -1319,6 +1399,31 @@ esegui_caso "dati palesemente sintetici: deve passare" passa \
   env RADICE_SORGENTI="$DATI_SINTETICI_TENUTE/sintetica" "$SCRIPT_DATI_SINTETICI"
 esegui_caso "recapito ammesso con marcatore dichiarato: deve passare" passa \
   env RADICE_SORGENTI="$DATI_SINTETICI_TENUTE/ammissione-dichiarata" "$SCRIPT_DATI_SINTETICI"
+
+# --- Esclusione derivata da git. Stessa tecnica, stessa motivazione della sezione omonima dei
+# --- controlli 20 e 21: un albero git VERO costruito al volo, con un .gitignore proprio, non una
+# --- tenuta statica sotto scripts/prove/tenute/dati/.
+dati_git_ignorato_passa() {
+  local sandbox uscita
+  set +e
+  trap 'set -e' RETURN
+  sandbox=$(mktemp -d) || return 1
+  git -C "$sandbox" init -q -b main >/dev/null 2>&1
+  printf 'graphify-out/\n' > "$sandbox/.gitignore"
+  mkdir -p "$sandbox/graphify-out/cache"
+  # documento.md e' TRACCIATO e pulito: senza di esso l'insieme esaminato si svuoterebbe e il
+  # caso passerebbe per la ragione sbagliata - l'insieme vuoto, non l'esclusione.
+  printf 'Documento tracciato, senza alcun recapito.\n' > "$sandbox/documento.md"
+  printf 'Contatto del paziente: mario.rossi@libero.it\n' \
+    > "$sandbox/graphify-out/cache/stat-index.json"
+  env RADICE_SORGENTI="$sandbox" "$SCRIPT_DATI_SINTETICI" >/dev/null 2>&1
+  uscita=$?
+  rm -rf "$sandbox"
+  return "$uscita"
+}
+
+esegui_caso "dati sintetici: recapito reale dentro un file ignorato da git, deve passare" passa \
+  dati_git_ignorato_passa
 
 printf '\n== Controllo 11 - verifica-ancore.sh (rinvii con ancora, entrambe le lingue) ==\n\n'
 
@@ -2417,6 +2522,31 @@ termini_insieme_vuoto() {
 esegui_caso "termini vietati: nessun file di testo sotto la radice, insieme vuoto, deve passare" passa \
   termini_insieme_vuoto
 
+# --- Esclusione derivata da git. Stessa tecnica, stessa motivazione della sezione omonima del
+# --- controllo dei trattini piu' sotto: un albero git VERO costruito al volo, con un .gitignore
+# --- proprio, non una tenuta statica.
+termini_git_ignorato_passa() {
+  local sandbox uscita
+  set +e
+  trap 'set -e' RETURN
+  sandbox=$(mktemp -d) || return 1
+  git -C "$sandbox" init -q -b main >/dev/null 2>&1
+  printf 'graphify-out/\n' > "$sandbox/.gitignore"
+  mkdir -p "$sandbox/graphify-out"
+  # documento.md e' TRACCIATO e pulito: senza di esso l'insieme esaminato si svuoterebbe e il
+  # caso passerebbe per la ragione sbagliata - l'insieme vuoto, non l'esclusione.
+  printf 'Documento tracciato, senza alcun nome commerciale.\n' > "$sandbox/documento.md"
+  printf '# Report generato\n\nUn estremo di prova su https://gestionale-fittizio-eta.cloud/fhir/r4.\n' \
+    > "$sandbox/graphify-out/GRAPH_REPORT.md"
+  env RADICE_SORGENTI="$sandbox" "$TERMINI_CONTROLLO" >/dev/null 2>&1
+  uscita=$?
+  rm -rf "$sandbox"
+  return "$uscita"
+}
+
+esegui_caso "termini vietati: dominio non ammesso dentro un file ignorato da git, deve passare" passa \
+  termini_git_ignorato_passa
+
 # --- Convenzione tipografica dei trattini: scripts/verifica-trattini.sh. ---
 #
 # Tre caratteri, due dei quali sorvegliati: il medio (U+2013) e' ammesso SOLO fra due cifre, il
@@ -2450,6 +2580,59 @@ esegui_caso "trattini: trattino medio fuori da un intervallo fra cifre" fallisce
 
 esegui_caso "trattini: trattino lungo, vietato in ogni ruolo" fallisce \
   env RADICE_SORGENTI="$TRATTINI_TENUTE/lungo" "$TRATTINI_CONTROLLO"
+
+# --- Esclusione derivata da git: un percorso che git ignora non e' nel repository, e questo
+# --- controllo non deve piu' esaminarlo. Le due tenute sotto sono ALBERI GIT VERI, costruiti al
+# --- volo con "git init" e un .gitignore proprio - non le tenute statiche di sopra - perche' solo
+# --- un albero di lavoro vero prova la regola e non il ripiego. Il trattino lungo non compare mai
+# --- in forma letterale in questo file, per la stessa disciplina della voce D-15 del runbook: si
+# --- compone dai suoi byte UTF-8 con printf, e si scrive per intero solo dentro la cartella
+# --- temporanea, mai qui.
+trattini_git_ignorato_passa() {
+  local sandbox uscita lungo
+  set +e
+  trap 'set -e' RETURN
+  sandbox=$(mktemp -d) || return 1
+  git -C "$sandbox" init -q -b main >/dev/null 2>&1
+  printf 'graphify-out/\n' > "$sandbox/.gitignore"
+  mkdir -p "$sandbox/graphify-out"
+  lungo=$(printf '\xe2\x80\x94')
+  # documento.md e' TRACCIATO e pulito: senza di esso l'insieme esaminato si svuoterebbe e il
+  # caso passerebbe per la ragione sbagliata - l'insieme vuoto, non l'esclusione - come ammonisce
+  # la voce D-9 del runbook a proposito delle prove che non isolano cio' che dichiarano di provare.
+  printf 'Documento tracciato, senza alcun trattino scorretto.\n' > "$sandbox/documento.md"
+  printf 'Un intervallo scritto in modo scorretto: gennaio%smarzo\n' "$lungo" \
+    > "$sandbox/graphify-out/nota.md"
+  env RADICE_SORGENTI="$sandbox" "$TRATTINI_CONTROLLO" >/dev/null 2>&1
+  uscita=$?
+  rm -rf "$sandbox"
+  return "$uscita"
+}
+
+esegui_caso "trattini: trattino lungo dentro un file ignorato da git, deve passare" passa \
+  trattini_git_ignorato_passa
+
+# Il complemento, e vale quanto lui: la STESSA forma scorretta, fuori dalla cartella ignorata,
+# deve continuare a far fallire il controllo. Senza questo caso la prova non distinguerebbe
+# «esclude i file ignorati da git» da «non guarda piu' niente».
+trattini_git_non_ignorato_fallisce() {
+  local sandbox uscita lungo
+  set +e
+  trap 'set -e' RETURN
+  sandbox=$(mktemp -d) || return 1
+  git -C "$sandbox" init -q -b main >/dev/null 2>&1
+  printf 'graphify-out/\n' > "$sandbox/.gitignore"
+  lungo=$(printf '\xe2\x80\x94')
+  printf 'Un intervallo scritto in modo scorretto: gennaio%smarzo\n' "$lungo" \
+    > "$sandbox/nota.md"
+  env RADICE_SORGENTI="$sandbox" "$TRATTINI_CONTROLLO" >/dev/null 2>&1
+  uscita=$?
+  rm -rf "$sandbox"
+  return "$uscita"
+}
+
+esegui_caso "trattini: stesso trattino lungo, file NON ignorato da git, deve fallire" fallisce \
+  trattini_git_non_ignorato_fallisce
 
 # Un'asserzione sul solo codice di uscita non basterebbe: il controllo usa 1 per il RILIEVO e 2 per
 # l'ERRORE D'USO, e sono cose diverse. Una radice inesistente che uscisse 1 dichiarerebbe una
@@ -2502,6 +2685,675 @@ trattini_insieme_vuoto() {
 
 esegui_caso "trattini: nessun file di testo sotto la radice, insieme vuoto, deve passare" passa \
   trattini_insieme_vuoto
+
+printf '\n== Controllo 22 - verifica-registri-di-vincoli-e-questioni.sh (le sigle citate risolvono) ==\n\n'
+
+# Le tenute sono sette alberi minimi sotto scripts/prove/tenute/registri-sigle, ciascuno con
+# una bacheca sintetica, la propria proiezione, un capitolo italiano e uno inglese, e una
+# traduzione sintetica. Il controllo non contiene alcun elenco di sigle: le definite le legge
+# dai registri, le citate dal corpus, le tradotte dal file di traduzione. Perche' la prova
+# valga, le sigle delle tenute sono sintetiche - V-01, V-02, Q-01 in una bacheca che dichiara
+# di non essere quella del progetto - e nessuna tenuta si trova sotto docs, che e' il corpus
+# che il controllo esamina in esercizio.
+
+SIGLE_TENUTE="$RADICE_REPO/scripts/prove/tenute/registri-sigle"
+SIGLE_GENERATORE="$RADICE_REPO/scripts/genera-registri-di-vincoli-e-questioni.py"
+
+sigle_caso() {  # $1 = nome della tenuta
+  env REPO="$SIGLE_TENUTE/$1" CORPUS_IT="docs" CORPUS_EN="en" GENERATORE="$SIGLE_GENERATORE" \
+    FONDANTI_IT="docs/11_registri/03-vincoli-fondanti.md" \
+    FONDANTI_EN="en/11_registri/03-vincoli-fondanti.md" \
+    "$RADICE_REPO/scripts/verifica-registri-di-vincoli-e-questioni.sh"
+}
+
+esegui_caso "sigle: bacheca, proiezione e corpus coerenti, deve passare" passa \
+  sigle_caso valido
+
+esegui_caso "sigle: la fonte e' cambiata e la proiezione e' rimasta ferma" fallisce \
+  sigle_caso proiezione-vecchia
+
+esegui_caso "sigle: il corpus cita una sigla che nessun registro definisce" fallisce \
+  sigle_caso sigla-orfana
+
+esegui_caso "sigle: una sola delle due lingue cita una sigla" fallisce \
+  sigle_caso lingue-divergenti
+
+esegui_caso "sigle: la bacheca ha una riga senza colonna di stato, la proiezione si rifiuta" fallisce \
+  sigle_caso bacheca-malformata
+
+esegui_caso "sigle: una sigla definita nei registri non ha traduzione inglese" fallisce \
+  sigle_caso traduzione-mancante
+
+esegui_caso "sigle: la traduzione nomina una sigla che nessun registro definisce" fallisce \
+  sigle_caso traduzione-orfana
+
+# I registri veri del progetto: il controllo deve passare sul repository, non solo sulle tenute.
+# E' la distinzione fra banco e cancello - un banco verde non dice che i cancelli siano verdi.
+# I QUATTRO CASI CHE SEGUONO CHIUDONO LA VOCE D-22 DEL RUNBOOK. I sei vincoli fondanti erano
+# citati duecento volte e dichiarati in nessun file pubblicato; sono stati pubblicati il 27 agosto
+# 2026, e la voce registrava per iscritto che il presidio NON li copriva, perche' le altre regole
+# cercano la forma «V-<numero>» col trattino e i fondanti si scrivono senza.
+#
+# IL CASO «settimo» E' QUELLO CHE PROVA LA PROPRIETA' CHE CONTA: l'elenco dei vincoli ammessi si
+# LEGGE dal capitolo che li dichiara e non e' scritto nel controllo (D-10). Aggiungerne uno al
+# capitolo lo rende citabile senza toccare una riga di codice; se il numero sei fosse cablato,
+# questo caso fallirebbe.
+#
+# IL CASO «falso positivo» E' UN DIFETTO REALE, NON UN'IPOTESI: la prima stesura leggeva «VXU_V04»
+# - un tipo di messaggio HL7 v2 presente nel corpus - come citazione del vincolo V04, e produceva
+# due rilievi su un repository conforme.
+esegui_caso "vincoli fondanti: il corpus cita un vincolo che il capitolo non dichiara" fallisce \
+  sigle_caso fondante-orfano
+
+esegui_caso "vincoli fondanti: il capitolo che li dichiara non esiste" fallisce \
+  sigle_caso fondanti-assenti
+
+esegui_caso "vincoli fondanti: un settimo vincolo dichiarato e citato - l'elenco si legge, non si cabla" passa \
+  sigle_caso fondante-settimo
+
+esegui_caso "vincoli fondanti: un tipo di messaggio con sottolineatura non e' una citazione" passa \
+  sigle_caso fondante-falso-positivo
+
+esegui_caso "sigle: il repository reale supera il controllo" passa \
+  "$RADICE_REPO/scripts/verifica-registri-di-vincoli-e-questioni.sh"
+
+printf '\n== Controllo 23 - verifica-date-di-marcatura.sh (criterio 8 di T-01 e criterio 5 di T-14) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE, E CHE COSA HA GIA' COLTO.
+#
+# Fino al 27 agosto 2026 nessuno script del repository falliva se un documento pubblico affermava
+# una data di marcatura. La tabella di collocazione faceva credere il contrario (voce D-24 del
+# runbook). Il controllo nasce qui, e il banco lo ha subito ripagato: alla PRIMA esecuzione sulle
+# tenute il controllo passava anche su quelle deliberatamente non conformi, perche' i confini di
+# parola erano scritti con «\b», sintassi PCRE che gawk non riconosce. Ogni alternativa della
+# famiglia temporale ne conteneva uno, quindi nessuna corrispondeva mai: il controllo era verde
+# sempre. Nessuna lettura del codice se n'era accorta.
+#
+# Le tenute stanno in scripts/prove/tenute/date-di-marcatura/. Ciascun caso ha il proprio elenco,
+# perche' e' l'elenco a dire al controllo che cosa guardare: puntarlo su una tenuta senza toccare
+# pipeline/documenti-senza-data-di-marcatura.tsv e' possibile solo cosi' (voce D-17).
+
+DATE_TENUTE="$TENUTE/date-di-marcatura"
+
+date_caso() {
+  env DOCUMENTI_SENZA_DATA="$DATE_TENUTE/elenco-$1.tsv" \
+    "$RADICE_REPO/scripts/verifica-date-di-marcatura.sh"
+}
+
+esegui_caso "date di marcatura: documento conforme - nomina la marcatura e non porta riferimenti temporali" passa \
+  date_caso conforme
+
+esegui_caso "date di marcatura: una data nello stesso capoverso della marcatura" fallisce \
+  date_caso con-data
+
+esegui_caso "date di marcatura: un mese in inglese, senza anno, nello stesso capoverso" fallisce \
+  date_caso con-mese
+
+# L'unica eccezione che il §11 ammette: il capoverso che ENUNCIA il divieto deve nominare sia la
+# marcatura sia la forma temporale, o non enuncerebbe nulla.
+esegui_caso "date di marcatura: l'enunciato del divieto si dichiara con il marcatore e la sua ragione" passa \
+  date_caso marcatore-con-ragione
+
+esegui_caso "date di marcatura: marcatore senza ragione - un'esenzione senza motivo non è un'esenzione" fallisce \
+  date_caso marcatore-nudo
+
+# Il numero di un atto normativo non e' una data: «Regolamento (UE) 2017/745» contiene «2017», e
+# alla prima esecuzione sul repository reale undici rilievi su quindici erano esattamente questo.
+esegui_caso "date di marcatura: il numero di un atto normativo non è un riferimento temporale" passa \
+  date_caso numero-di-atto
+
+esegui_caso "date di marcatura: l'elenco nomina un documento che non esiste" fallisce \
+  date_caso documento-assente
+
+# Errore d'uso, non violazione: senza l'elenco il controllo non sa che cosa guardare e non lo
+# indovina. L'attesa «fallisce» accetterebbe qualunque uscita diversa da zero: qui si verifica il 2.
+esegui_caso "date di marcatura: elenco assente - esce 2, errore d'uso e non violazione" passa \
+  bash -c 'env DOCUMENTI_SENZA_DATA=/percorso/che/non/esiste.tsv "$1" >/dev/null 2>&1; [ $? -eq 2 ]' _ \
+  "$RADICE_REPO/scripts/verifica-date-di-marcatura.sh"
+
+# Il repository reale: un banco verde non dice che i cancelli siano verdi.
+esegui_caso "date di marcatura: il repository reale supera il controllo" passa \
+  "$RADICE_REPO/scripts/verifica-date-di-marcatura.sh"
+
+printf '\n== Controllo 24 - genera-registro-componenti.py (criterio 6 di T-03, prima metà) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. Il criterio 6 di T-03 chiede due cose e ne esisteva una: il
+# confronto fra distinta e annotazioni (G5, Controllo 7). Mancava il registro come artefatto
+# GENERATO, che e' l'unico dei tre oggetti a rispondere alla domanda di chi installa - che cosa sto
+# installando, con quale licenza, e chi ce l'ha messo.
+#
+# CHE COSA IL BANCO HA GIA' COLTO. Alla prima esecuzione sulla distinta reale il generatore ha
+# dichiarato «0 dipendenze dirette, 1236 transitive». E' falso - sono 9 e 1227 - e sarebbe passato
+# inosservato, perche' un aggregato sbagliato ha lo stesso aspetto di un aggregato giusto. La causa:
+# il grafo di CycloneDX si percorre su «bom-ref», che identifica il NODO DELL'ALBERO e porta il
+# percorso, non su «purl», che identifica il PACCHETTO. Lo stesso pacchetto tirato da due percorsi
+# ha un purl e due bom-ref. Il caso «distingue diretta da transitiva» esiste per questo.
+
+RC_TENUTE="$TENUTE/registro-componenti"
+
+rc_caso() {
+  local distinta="$1" uscita
+  uscita=$(mktemp -d)
+  env ANNOTAZIONI_COMPONENTI="$RC_TENUTE/annotazioni.tsv" \
+    python3 "$RADICE_REPO/scripts/genera-registro-componenti.py" "$RC_TENUTE/$distinta" "$uscita"
+  local esito=$?
+  rm -rf "$uscita"
+  return $esito
+}
+
+esegui_caso "registro dei componenti: distinta valida, il registro si genera" passa \
+  rc_caso distinta-valida.json
+
+# Il caso che coglie il difetto della prima stesura: non basta che il registro si generi, deve
+# distinguere cio' che il progetto ha scelto da cio' che qualcun altro gli ha tirato dentro.
+esegui_caso "registro dei componenti: distingue la dipendenza diretta dalla transitiva" passa \
+  bash -c '
+    uscita=$(mktemp -d)
+    env ANNOTAZIONI_COMPONENTI="$1/annotazioni.tsv" python3 "$2" "$1/distinta-valida.json" "$uscita" >/dev/null 2>&1 || { rm -rf "$uscita"; exit 1; }
+    reg="$uscita/componenti-di-terze-parti.tsv"
+    d=$(grep -c "^prova-diretta	1.0.0.*	diretta	" "$reg" || true)
+    tr=$(grep -c "^prova-transitiva	2.0.0.*	transitiva	" "$reg" || true)
+    rm -rf "$uscita"
+    [ "$d" = "1" ] && [ "$tr" = "1" ]
+  ' _ "$RC_TENUTE" "$RADICE_REPO/scripts/genera-registro-componenti.py"
+
+esegui_caso "registro dei componenti: la distinta non esiste - esce 2, errore d'uso" passa \
+  bash -c 'env ANNOTAZIONI_COMPONENTI="$1/annotazioni.tsv" python3 "$2" "$1/distinta-che-non-esiste.json" "$(mktemp -d)" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$RC_TENUTE" "$RADICE_REPO/scripts/genera-registro-componenti.py"
+
+esegui_caso "registro dei componenti: distinta senza componenti - una distinta vuota non è un registro vuoto" fallisce \
+  rc_caso distinta-senza-componenti.json
+
+esegui_caso "registro dei componenti: metadata senza «bom-ref» - il grafo non è percorribile" fallisce \
+  rc_caso distinta-senza-bom-ref.json
+
+printf '\n== Controllo 25 - verifica-coerenza-delle-date.sh (le tre copie della stessa data) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. Il 27 agosto 2026 la ritaratura del calendario ha spostato T-03 e
+# T-07 dal 26 settembre al 5 settembre. Ha toccato le SCHEDE dei traguardi e non le altre due
+# rappresentazioni della stessa data - il diagramma di Gantt e la tabella di sintesi del paragrafo
+# 7.1 - in ENTRAMBE le lingue. Per un giorno il capitolo ha detto due date diverse di sé stesso, e
+# nessuno dei ventiquattro controlli allora esistenti se ne e' accorto, perche' nessuno guardava
+# la coerenza interna di un documento con sé stesso. E' la voce D-28 del runbook degli errori.
+#
+# LE TENUTE NON SONO IL CAPITOLO VERO. Sono capitoli minimi con tre traguardi fittizi (T-91, T-92,
+# T-93), per la ragione gia' imparata altrove: un caso di prova che legge il repository reale cade
+# quando il repository cambia per motivi che non hanno nulla a che vedere con il controllo.
+
+CD_TENUTE="$TENUTE/coerenza-date"
+
+cd_caso() {
+  local it="$1" en="${2:-traguardi-en-coerente.md}"
+  env TRAGUARDI_IT="$CD_TENUTE/$it" TRAGUARDI_EN="$CD_TENUTE/$en" \
+    bash "$RADICE_REPO/scripts/verifica-coerenza-delle-date.sh"
+}
+
+esegui_caso "coerenza delle date: le tre rappresentazioni concordano" passa \
+  cd_caso traguardi-it-coerente.md
+
+esegui_caso "coerenza delle date: il diagramma dissente dalla scheda" fallisce \
+  cd_caso traguardi-it-gantt-divergente.md
+
+esegui_caso "coerenza delle date: la tabella di sintesi dissente dalla scheda" fallisce \
+  cd_caso traguardi-it-tabella-divergente.md
+
+# Una data di calendario nella scheda senza barra nel diagramma non e' un'omissione innocua: il
+# quadro d'insieme e' il solo punto in cui si legge la catena, e un traguardo assente dal quadro
+# non ha una posizione nella catena.
+esegui_caso "coerenza delle date: traguardo datato e assente dal diagramma" fallisce \
+  cd_caso traguardi-it-gantt-mancante.md
+
+esegui_caso "coerenza delle date: l'inglese dissente dall'italiano" fallisce \
+  cd_caso traguardi-it-coerente.md traguardi-en-divergente.md
+
+# Una scheda senza data di calendario - «2027», «successiva al congelamento» - non e' confrontabile
+# e viene saltata. Il salto e' DICHIARATO a ogni esecuzione: un salto silenzioso e' indistinguibile
+# da una verifica riuscita, ed e' il difetto che questo caso presidia.
+esegui_caso "coerenza delle date: la data non di calendario e' saltata, e il salto e' dichiarato" passa \
+  bash -c '
+    uscita=$(env TRAGUARDI_IT="$1/traguardi-it-coerente.md" TRAGUARDI_EN="$1/traguardi-en-coerente.md" \
+      bash "$2" 2>&1) || exit 1
+    printf "%s" "$uscita" | grep -q "T-93"
+  ' _ "$CD_TENUTE" "$RADICE_REPO/scripts/verifica-coerenza-delle-date.sh"
+
+esegui_caso "coerenza delle date: capitolo dei traguardi assente - esce 2, errore d'uso" passa \
+  bash -c 'env TRAGUARDI_IT="$1/non-esiste.md" TRAGUARDI_EN="$1/traguardi-en-coerente.md" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$CD_TENUTE" "$RADICE_REPO/scripts/verifica-coerenza-delle-date.sh"
+
+esegui_caso "coerenza delle date: capitolo senza schede - esce 2, non 0" passa \
+  bash -c 'env TRAGUARDI_IT="$1/traguardi-it-senza-schede.md" TRAGUARDI_EN="$1/traguardi-en-coerente.md" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$CD_TENUTE" "$RADICE_REPO/scripts/verifica-coerenza-delle-date.sh"
+
+printf '\n== Controllo 26 - verifica-registro-di-velocity.sh (il registro accorda con la roadmap) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. registro/velocity-dei-traguardi.tsv misura due cose che la roadmap
+# da sola non dice: la velocita' reale, e lo scarto sistematico fra previsione e realta'. Serve a
+# nulla se diverge dal capitolo che descrive - un registro che dicesse una data e la roadmap
+# un'altra darebbe l'apparenza di una misura a un'affermazione non verificata.
+#
+# IL CASO «motivo vuoto» HA OTTO COLONNE, DELIBERATAMENTE. La prima stesura di quella tenuta ne
+# aveva nove, e il controllo la respingeva per il conteggio delle colonne senza mai arrivare alla
+# regola sul motivo: un caso che passa per la ragione sbagliata non prova nulla.
+
+VEL_TENUTE="$TENUTE/velocity"
+
+vel_caso() {
+  env VELOCITY="$VEL_TENUTE/$1" TRAGUARDI_IT="$VEL_TENUTE/traguardi.md" \
+    bash "$RADICE_REPO/scripts/verifica-registro-di-velocity.sh"
+}
+
+esegui_caso "velocita': il registro accorda con il capitolo dei traguardi" passa \
+  vel_caso velocity-coerente.tsv
+
+esegui_caso "velocita': l'ultimo evento dissente dalla data della scheda" fallisce \
+  vel_caso velocity-data-divergente.tsv
+
+esegui_caso "velocita': un traguardo dichiarato chiuso e senza evento di chiusura" fallisce \
+  vel_caso velocity-chiusura-non-registrata.tsv
+
+# Un anticipo per lavoro svolto e un anticipo per misura hanno lo stesso aspetto nei numeri, e la
+# differenza sta tutta nella colonna «motivo». Senza motivo il registro non registra: annota.
+esegui_caso "velocita': un evento di ritaratura senza motivo" fallisce \
+  vel_caso velocity-motivo-vuoto.tsv
+
+esegui_caso "velocita': un evento dopo la chiusura - un traguardo chiuso non si ritara" fallisce \
+  vel_caso velocity-dopo-la-chiusura.tsv
+
+# L'evento «misurato» registra un avanzamento dei criteri SENZA spostare la data: senza di esso il
+# registro misurerebbe solo le date, e la velocita' - quanti criteri si chiudono per giornata - non
+# sarebbe leggibile, che e' la meta' del motivo per cui il registro esiste.
+esegui_caso "velocita': un evento di misura senza spostamento di data" passa \
+  vel_caso velocity-con-misura.tsv
+
+esegui_caso "velocita': un traguardo che esiste nel registro e non nel capitolo" fallisce \
+  vel_caso velocity-traguardo-fantasma.tsv
+
+esegui_caso "velocita': un valore di evento non ammesso" fallisce \
+  vel_caso velocity-evento-non-ammesso.tsv
+
+esegui_caso "velocita': un traguardo datato e senza alcun evento nel registro" fallisce \
+  vel_caso velocity-traguardo-scoperto.tsv
+
+esegui_caso "velocita': registro senza eventi - esce 2, errore d'uso" passa \
+  bash -c 'env VELOCITY="$1/velocity-senza-eventi.tsv" TRAGUARDI_IT="$1/traguardi.md" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$VEL_TENUTE" "$RADICE_REPO/scripts/verifica-registro-di-velocity.sh"
+
+printf '\n== Controllo 27 - verifica-lettura-dei-tsv.sh (la voce C-1 diventa un cancello) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE, ed e' la ragione piu' istruttiva del banco. La regola C-1 - «i
+# campi di un file separato da tabulazioni si estraggono per posizione con cut -f, mai con read» -
+# era scritta nel runbook dal 26 agosto 2026, con tre commenti di avvertimento sparsi in tre
+# script. Il 27 agosto e' stata RIVIOLATA dallo stesso repository che l'aveva scritta, in due
+# script nuovi, e nello stesso momento e' emerso che la correzione del 26 agosto aveva lasciato in
+# piedi una seconda occorrenza nello script gia' corretto - latente, perche' nessuna riga del
+# registro aveva ancora la casella vuota che l'avrebbe fatta cadere.
+#
+# La tenuta «commento» esiste per la sola distinzione che il controllo deve fare e che una ricerca
+# testuale ingenua sbaglierebbe: una riga che NOMINA la forma vietata per spiegarla non la usa.
+
+LT_TENUTE="$TENUTE/lettura-tsv"
+
+lt_caso() {
+  env RADICE_SCRIPT="$LT_TENUTE/$1" bash "$RADICE_REPO/scripts/verifica-lettura-dei-tsv.sh"
+}
+
+esegui_caso "lettura dei tsv: uno script che estrae per posizione con cut" passa \
+  lt_caso conforme
+
+esegui_caso "lettura dei tsv: uno script che legge con read" fallisce \
+  lt_caso violazione
+
+esegui_caso "lettura dei tsv: un commento che nomina la forma vietata non la usa" passa \
+  lt_caso commento
+
+esegui_caso "lettura dei tsv: nessuno script da esaminare - esce 2, non 0" passa \
+  bash -c 'env RADICE_SCRIPT="$1/vuota" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$LT_TENUTE" "$RADICE_REPO/scripts/verifica-lettura-dei-tsv.sh"
+
+esegui_caso "lettura dei tsv: cartella inesistente - esce 2, errore d'uso" passa \
+  bash -c 'env RADICE_SCRIPT="$1/non-esiste" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$LT_TENUTE" "$RADICE_REPO/scripts/verifica-lettura-dei-tsv.sh"
+
+printf '\n== Controllo 28 - verifica-rinvii-testuali.sh (criterio 7 di T-02) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. Il criterio 7 di T-02 chiede che i rinvii all'area di conformita'
+# scritti come testo diventino collegamenti. La ragione vera non e' la comodita' del lettore: un
+# rinvio testuale NON E' VERIFICABILE. Un collegamento rotto lo trova la costruzione del sito, che
+# ha i quattro parametri onBroken* a 'throw'; un percorso dentro un frammento di codice non lo
+# guarda nessuno, e resta corretto solo finche' nessuno rinomina il file.
+#
+# CHE COSA LA CONVERSIONE HA TROVATO IL 27 AGOSTO 2026. Trentasette rinvii della traduzione inglese
+# citavano nomi di file TRADOTTI - «docs/00_overview/02-the-four-services.md» - mentre il
+# repository non traduce i nomi dei file. Puntavano tutti al nulla, ed erano invisibili perche'
+# erano testo. Convertirli in collegamenti li ha resi verificabili, e la verifica li ha bocciati
+# nello stesso minuto.
+#
+# I DUE CASI CHE CONTANO SONO QUELLI CHE NON DEVONO SCATTARE. La regola distingue un rinvio da un
+# argomento di comando guardando se il percorso occupa TUTTO il frammento di codice o solo una
+# parte: «git log -1 --format=%H -- docs/…» non e' un rinvio. Senza quella distinzione il controllo
+# chiederebbe di trasformare in collegamento un pezzo di riga di comando.
+
+RT_TENUTE="$TENUTE/rinvii-testuali"
+
+rt_caso() {
+  env RADICI_CORPUS="$RT_TENUTE/$1" bash "$RADICE_REPO/scripts/verifica-rinvii-testuali.sh"
+}
+
+esegui_caso "rinvii testuali: un rinvio scritto come collegamento" passa \
+  rt_caso conforme/docs
+
+esegui_caso "rinvii testuali: un rinvio scritto come testo" fallisce \
+  rt_caso violazione/docs
+
+esegui_caso "rinvii testuali: un percorso argomento di un comando non è un rinvio" passa \
+  rt_caso comando/docs
+
+esegui_caso "rinvii testuali: dentro un blocco di codice recintato non è un rinvio" passa \
+  rt_caso recinto/docs
+
+esegui_caso "rinvii testuali: nessun documento da esaminare - esce 2, non 0" passa \
+  bash -c 'env RADICI_CORPUS="$1/vuota" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$RT_TENUTE" "$RADICE_REPO/scripts/verifica-rinvii-testuali.sh"
+
+esegui_caso "rinvii testuali: radice inesistente - esce 2, errore d'uso" passa \
+  bash -c 'env RADICI_CORPUS="$1/non-esiste" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$RT_TENUTE" "$RADICE_REPO/scripts/verifica-rinvii-testuali.sh"
+
+printf '\n== Controllo 29 - verifica-marcature-non-verificate.sh (criterio 3 di T-02) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. Nove dei tredici indici di area dichiarano la STESSA regola con
+# parole proprie: una marcatura di non verificato porta l'indicazione di a chi va chiesta la
+# verifica. «Non si inventa», scrive l'area di sicurezza. La regola non e' stata inventata dal
+# controllo: e' stata LETTA nel corpus, dove era gia' unanime, e le mancava solo il presidio.
+#
+# IL CASO «capoverso» ESISTE PER UN DIFETTO REALE DELLA PRIMA STESURA. Il controllo contava per
+# RIGA, e un destinatario scritto nella riga successiva a quella che porta la marcatura gli
+# sfuggiva: le marcature con destinatario risultavano 52 invece di 137. Non e' un dettaglio di
+# implementazione - e' la differenza fra accusare il corpus di 451 mancanze e di 366, e un
+# controllo che accusa in eccesso perde credito esattamente come uno che tace.
+
+MNV_TENUTE="$TENUTE/marcature-non-verificate"
+
+mnv_caso() {
+  env RADICE_CORPUS="$MNV_TENUTE/$1" BLOCCANTE_DAL="${2:-2020-01-01}" \
+    bash "$RADICE_REPO/scripts/verifica-marcature-non-verificate.sh"
+}
+
+esegui_caso "marcature non verificate: ogni marcatura dichiara il destinatario" passa \
+  mnv_caso con-destinatario
+
+esegui_caso "marcature non verificate: una marcatura priva di destinatario" fallisce \
+  mnv_caso senza-destinatario
+
+esegui_caso "marcature non verificate: il destinatario nella riga successiva dello stesso capoverso" passa \
+  mnv_caso capoverso
+
+# In sola segnalazione il controllo misura e NON blocca: il criterio 4 di T-03 esige che quella
+# condizione sia dichiarata con una data, mai indefinita, e il banco verifica che la data conti.
+esegui_caso "marcature non verificate: in sola misura non blocca, e lo dichiara" passa \
+  bash -c '
+    uscita=$(env RADICE_CORPUS="$1/senza-destinatario" BLOCCANTE_DAL=2099-01-01 bash "$2" 2>&1) || exit 1
+    printf "%s" "$uscita" | grep -q "2099-01-01"
+  ' _ "$MNV_TENUTE" "$RADICE_REPO/scripts/verifica-marcature-non-verificate.sh"
+
+# I DUE CASI CHE SEGUONO DISTINGUONO UNA MARCATURA NOMINATA DA UNA MARCATURA POSTA. «Chiude il
+# [NV] che quest'area portava» parla DI una marcatura e non ne pone una: non potra' MAI ricevere un
+# destinatario, quindi senza questa distinzione resterebbe un rilievo per sempre e il criterio 3 di
+# T-02 non si chiuderebbe nemmeno con il corpus interamente bonificato. Sono quattordici occorrenze
+# su cinquecento, misurate il 27 agosto 2026: e' la loro permanenza a contare, non il loro numero.
+# Il secondo caso e' quello che si dimentica: sottrarre le nominate e fermarsi li' renderebbe
+# invisibile ogni marcatura posta ACCANTO a una citazione, che e' un difetto peggiore di quello che
+# la sottrazione corregge.
+esegui_caso "marcature non verificate: una marcatura NOMINATA non chiede un destinatario" passa \
+  mnv_caso nominata
+
+esegui_caso "marcature non verificate: nominata e posta nello stesso capoverso - la posta si vede" fallisce \
+  mnv_caso nominata-e-posta
+
+# I DUE CASI CHE SEGUONO PROTEGGONO UNA DISTINZIONE, non una forma. Il 27 agosto 2026 le formule
+# riconosciute sono state allargate LEGGENDOLE nel corpus e contandole: «spetta a» 30 volte,
+# «richiesta a» 37, «da chiedere a» 29, «a cura di» 20. Quattro forme in uso quotidiano che il
+# controllo non vedeva, e le marcature che le usavano risultavano prive di destinatario pur
+# avendone uno leggibile da chiunque.
+#
+# LA FAMIGLIA PIU' NUMEROSA E' STATA SCARTATA, ed e' il caso che conta. «Va verificato» compare 36
+# volte ed e' la formula piu' frequente del corpus, ma NON NOMINA NESSUNO: dice che cosa fare, non
+# a chi tocca. Riconoscerla avrebbe alzato il conteggio delle marcature conformi di oltre settanta
+# unita' senza che una sola dichiari chi deve chiudere la lacuna - un controllo che si compiace.
+# Si riconoscono soltanto le forme che reggono un complemento di destinazione.
+esegui_caso "marcature non verificate: «va verificato» dice che cosa, non a chi - va segnalata" fallisce \
+  mnv_caso dice-cosa-non-chi
+
+esegui_caso "marcature non verificate: le quattro forme piu' usate dal corpus reggono un destinatario" passa \
+  mnv_caso forme-lette-nel-corpus
+
+esegui_caso "marcature non verificate: radice inesistente - esce 2, errore d'uso" passa \
+  bash -c 'env RADICE_CORPUS="$1/non-esiste" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$MNV_TENUTE" "$RADICE_REPO/scripts/verifica-marcature-non-verificate.sh"
+
+printf '\n== Controllo 29-bis - genera-capitoli-dei-registri.py, conversione dei rinvii ==\n\n'
+
+# PERCHE' QUESTO CASO ESISTE, ED E' LA VOCE D-32 DEL RUNBOOK. Il 27 agosto 2026 centoventi rinvii
+# testuali erano stati convertiti in collegamenti DENTRO i due capitoli generati di 11_registri.
+# La rigenerazione della sera li ha annullati tutti in un colpo solo: la bonifica era stata
+# applicata al PRODOTTO invece che al GENERATORE, e un file generato non ha memoria di cio' che
+# qualcuno gli ha scritto sopra. La conversione ora vive in collega_rinvii() dentro il generatore,
+# e questo caso cade se qualcuno la riporta fuori.
+#
+# IL CASO PROVA ANCHE IL CONFINE, che e' la meta' che si dimentica: un percorso che occupa solo
+# PARTE di un tratto di codice - «git log --follow docs/...» - e' un argomento di comando e deve
+# restare com'e'. Un generatore che collegasse anche quello produrrebbe un comando non eseguibile.
+
+RG_TENUTE="$TENUTE/registri-generati"
+
+esegui_caso "registri generati: un rinvio testuale esce come collegamento, un comando resta comando" passa \
+  bash -c '
+    radice=$(mktemp -d)
+    cp -r "$1/registro" "$1/docs" "$radice/"
+    env REGISTRI_RADICE="$radice" python3 "$2" >/dev/null 2>&1 || { rm -rf "$radice"; exit 1; }
+    prodotto="$radice/docs/11_registri/01-vincoli-in-vigore.md"
+    esito=0
+    grep -q "\[\`docs/01_technical/01-stack-e-motivazioni.md\`\](../01_technical/01-stack-e-motivazioni.md)" "$prodotto" || esito=1
+    grep -q "git log --follow docs/01_technical/01-stack-e-motivazioni.md" "$prodotto" || esito=1
+    rm -rf "$radice"
+    exit $esito
+  ' _ "$RG_TENUTE" "$RADICE_REPO/scripts/genera-capitoli-dei-registri.py"
+
+printf '\n== Controllo 30 - verifica-bacheca.sh (criterio 4 di T-02, entrambe le meta' "'" ') ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. Una questione senza destinatario non e' una questione aperta: e'
+# un'osservazione. Nessuno la chiudera', perche' nessuno sa che tocchi a lui. Il costo non e' la
+# voce persa - e' che il registro delle questioni aperte, che dovrebbe dire che cosa manca, si
+# riempie di righe che non chiedono nulla a nessuno e smette di essere letto.
+#
+# LA PRIMA META' ERA GIA' SODDISFATTA quando il controllo e' nato - 85 voci aperte, zero senza
+# destinatario - e questo e' il caso normale di un presidio che arriva dopo la disciplina, non
+# prima: blocca da subito perche' non ha debito da scadenzare.
+#
+# LA SECONDA META' E' L'OPPOSTO, e i quattro casi che la provano lo mostrano. Quando e' nata,
+# ZERO voci su 85 portavano la nota che dichiara perche' restano aperte: e' un presidio che
+# arriva prima della disciplina, quindi ha un debito, quindi ha una data - il 10 ottobre 2026,
+# scadenza del criterio 4 di T-02. I quattro casi provano le quattro combinazioni che contano:
+# nota presente da bloccante (passa), nota assente da bloccante (fallisce), nota assente in sola
+# misura (passa, ed e' la condizione di oggi), formula presente e ragione assente da bloccante
+# (fallisce). L'ultimo e' quello che si dimentica sempre: un titolo senza testo supera una
+# lettura distratta ed e' peggio dell'assenza, perche' chi cerca le voci prive di nota non lo
+# trova.
+#
+# IL CASO «forma rotta» ESISTE PER UN DIFETTO CHE NON SI VEDE LEGGENDO. Una barra verticale dentro
+# il testo di una voce spezza la tabella markdown, e le colonne successive scalano: lo stato
+# finirebbe nella colonna del testo e il controllo leggerebbe come stato una frase. E' lo stesso
+# difetto della voce C-1 - un separatore che compare nel dato - visto su un altro separatore.
+
+BAC_TENUTE="$TENUTE/bacheca"
+
+bac_caso() {
+  env BACHECA="$BAC_TENUTE/$1" bash "$RADICE_REPO/scripts/verifica-bacheca.sh"
+}
+
+esegui_caso "bacheca: ogni voce aperta ha destinatario e stato" passa \
+  bac_caso conforme.md
+
+esegui_caso "bacheca: una voce aperta senza destinatario" fallisce \
+  bac_caso senza-destinatario.md
+
+esegui_caso "bacheca: una voce senza stato - non è né aperta né risolta, è illeggibile" fallisce \
+  bac_caso senza-stato.md
+
+esegui_caso "bacheca: una barra verticale nel testo spezza la tabella" fallisce \
+  bac_caso forma-rotta.md
+
+esegui_caso "bacheca: nessuna voce riconosciuta - esce 2, non 0" passa \
+  bash -c 'env BACHECA="$1/senza-questioni.md" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$BAC_TENUTE" "$RADICE_REPO/scripts/verifica-bacheca.sh"
+
+esegui_caso "bacheca: file assente - esce 2, errore d'uso" passa \
+  bash -c 'env BACHECA="$1/non-esiste.md" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$BAC_TENUTE" "$RADICE_REPO/scripts/verifica-bacheca.sh"
+
+bac_caso_datato() {
+  env BACHECA="$BAC_TENUTE/$1" NOTA_BLOCCANTE_DAL="$2" bash "$RADICE_REPO/scripts/verifica-bacheca.sh"
+}
+
+esegui_caso "bacheca: ogni voce aperta dichiara perché resta aperta - passa anche da bloccante" passa \
+  bac_caso_datato nota-completa.md 2020-01-01
+
+esegui_caso "bacheca: una voce aperta senza la nota, a controllo bloccante" fallisce \
+  bac_caso_datato conforme.md 2020-01-01
+
+esegui_caso "bacheca: la stessa voce senza nota, in sola misura - passa e lo dichiara" passa \
+  bac_caso_datato conforme.md 2099-01-01
+
+esegui_caso "bacheca: la formula della nota senza la ragione dietro - un titolo senza testo" fallisce \
+  bac_caso_datato nota-vuota.md 2020-01-01
+
+printf '\n== Controllo 31 - i falsi negativi trovati in revisione il 27 agosto 2026 ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE, ED E' SEPARATO DAGLI ALTRI. I sei controlli scritti il 27 agosto
+# 2026 erano tutti verdi sul repository e tutti provati per mutazione: 248 casi, nessuno rosso. Una
+# revisione indipendente, condotta lo stesso giorno con il mandato esplicito di cercare cio' che il
+# banco NON aveva colto, ha trovato CINQUE FALSI NEGATIVI riproducibili - casi in cui una
+# violazione reale e ben formata viene ignorata e lo script dichiara «conforme» con uscita zero.
+#
+# Il banco non li aveva colti perche' le tenute erano state scritte da chi aveva scritto i
+# controlli, e riproducevano la forma che i controlli si aspettavano. E' il limite strutturale di
+# una prova costruita dallo stesso autore, e la contromisura non e' scrivere piu' casi: e' far
+# cercare i casi a qualcuno che non ha scritto il codice.
+#
+# I casi stanno qui e non nei blocchi dei rispettivi controlli deliberatamente: raggruppati, dicono
+# che classe di errore rappresentano - la forma legittima ma diversa da quella prevista - e
+# ricordano di cercarla per ogni controllo nuovo.
+
+FN_TENUTE="$TENUTE"
+
+# --- 1. La scheda di un traguardo scritta con il mese abbreviato ---
+# La libreria riconosceva i mesi per esteso nella scheda e le abbreviazioni nella tabella. Una
+# scheda «1 ago. 2026» contro un diagramma che finiva il 1 settembre - un mese intero di
+# divergenza - finiva fra i SALTATI, e il controllo diceva «coerenti».
+esegui_caso "falsi negativi: scheda con mese abbreviato, la divergenza si vede" fallisce \
+  bash -c 'env TRAGUARDI_IT="$1/coerenza-date/traguardi-it-mese-abbreviato.md" TRAGUARDI_EN="$1/coerenza-date/traguardi-en-coerente.md" bash "$2"' \
+  _ "$FN_TENUTE" "$RADICE_REPO/scripts/verifica-coerenza-delle-date.sh"
+
+# Un mese inesistente in una data di forma completa non e' una data non di calendario: e' una data
+# che il controllo non sa leggere, ed e' una cosa diversa. Confonderle significa saltare in
+# silenzio proprio i casi anomali.
+esegui_caso "falsi negativi: mese non riconosciuto - illeggibile non è non-calendariale" fallisce \
+  bash -c 'env TRAGUARDI_IT="$1/coerenza-date/traguardi-it-mese-illeggibile.md" TRAGUARDI_EN="$1/coerenza-date/traguardi-en-coerente.md" bash "$2"' \
+  _ "$FN_TENUTE" "$RADICE_REPO/scripts/verifica-coerenza-delle-date.sh"
+
+# --- 2. IFS impostato lontano da «read» ---
+# La prima stesura esigeva IFS e read sulla STESSA riga. Impostare IFS su una riga e leggere sulla
+# successiva e' peggio della forma vietata, perche' IFS resta impostato per il resto dello script.
+esegui_caso "falsi negativi: IFS su una riga e read su quella dopo" fallisce \
+  bash -c 'env RADICE_SCRIPT="$1/lettura-tsv/riga-separata" bash "$2"' \
+  _ "$FN_TENUTE" "$RADICE_REPO/scripts/verifica-lettura-dei-tsv.sh"
+
+esegui_caso "falsi negativi: la tabulazione arriva a IFS attraverso una variabile" fallisce \
+  bash -c 'env RADICE_SCRIPT="$1/lettura-tsv/indiretta" bash "$2"' \
+  _ "$FN_TENUTE" "$RADICE_REPO/scripts/verifica-lettura-dei-tsv.sh"
+
+# --- 3. Recinto di codice aperto indentato e chiuso a colonna 1 ---
+# Due difetti in uno: il blocco indentato non veniva saltato, e il suo recinto di chiusura a
+# colonna 1 invertiva lo stato per TUTTO IL RESTO DEL FILE, rendendo invisibile ogni rinvio
+# successivo. Un elenco numerato con dentro un blocco di comandi e' markdown del tutto ordinario.
+esegui_caso "falsi negativi: recinto indentato, i rinvii dopo restano visibili" fallisce \
+  bash -c 'env RADICI_CORPUS="$1/rinvii-testuali/recinto-indentato" bash "$2"' \
+  _ "$FN_TENUTE" "$RADICE_REPO/scripts/verifica-rinvii-testuali.sh"
+
+# --- 5. Riga di bacheca senza spazi attorno alla sigla ---
+# «|Q-99|» e «| Q-99 |» sono resi identici dal markdown. La prima forma era completamente
+# invisibile: non contata, non segnalata, non dichiarata fra i salti.
+esegui_caso "falsi negativi: riga di bacheca senza spazi attorno alla sigla" fallisce \
+  bash -c 'env BACHECA="$1/bacheca/senza-spazi.md" bash "$2"' \
+  _ "$FN_TENUTE" "$RADICE_REPO/scripts/verifica-bacheca.sh"
+
+# --- 4. Il limite che NON si corregge, e che il banco documenta invece di nascondere ---
+# Questo caso ATTENDE ESITO POSITIVO, e il suo valore sta tutto nel nome. Il controllo delle
+# marcature riconosce un destinatario ovunque compaia nel capoverso, anche quando riguarda
+# un'altra affermazione: qui il Ministero e' nominato a proposito della classe, non della
+# marcatura, e la marcatura viene contata come coperta. Legare un destinatario alla singola
+# marcatura richiederebbe di capire il testo e non di leggerlo. Il limite e' dichiarato nel
+# commento dello script e nella riga NV-C1; questo caso lo rende OSSERVABILE, cosi' che chi un
+# giorno lo correggera' veda il caso cambiare esito invece di doverlo scoprire.
+esegui_caso "falsi negativi: LIMITE NOTO - destinatario di un'altra affermazione, contato come coperto" passa \
+  bash -c 'env RADICE_CORPUS="$1/marcature-non-verificate/destinatario-di-un-altro" BLOCCANTE_DAL=2020-01-01 bash "$2"' \
+  _ "$FN_TENUTE" "$RADICE_REPO/scripts/verifica-marcature-non-verificate.sh"
+
+printf '\n== Controllo 32 - verifica-coerenza-delle-corsie.sh e verifica-pipefail.sh (D-27 e D-30) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. Due voci del runbook erano registrate come DEBITO - descritte,
+# capite, e senza alcun controllo che le presidiasse. Entrambe erano presidiabili, ed entrambe
+# nascevano da un falso verde reale.
+#
+# D-27: la fascia di rilascio dichiarava «actions/setup-node@v4» e «node 24.x» mentre le altre due
+# dichiaravano «@v5» e «node 22». La corsia che FIRMA costruiva l'artefatto con un interprete
+# diverso da quella che PUBBLICA, e nessuno poteva accorgersene perche' quella corsia non era mai
+# stata eseguita. Il caso «commento» esiste perche' la misura di quel giorno fu ingannata dai
+# commenti appena scritti, che nominavano la versione vecchia per spiegare la correzione.
+#
+# D-30: «npm run build | tail -25» esce zero anche quando la costruzione fallisce, perche' l'esito
+# di una catena e' quello dell'ULTIMO comando. Un falso verde durato un'ora su una costruzione che
+# non aveva prodotto affatto la locale inglese. Il caso «libreria» prova la sola eccezione: un file
+# non eseguibile e' sorgente per un altro script, le sue catene girano con le impostazioni del
+# chiamante, e imporgli un «set» proprio altererebbe l'ambiente di chi lo include.
+
+CO_TENUTE="$TENUTE/coerenza-corsie"
+PF_TENUTE="$TENUTE/pipefail"
+
+esegui_caso "corsie: tutte dichiarano le stesse versioni" passa \
+  bash -c 'env CORSIE="$1/conforme" bash "$2"' _ "$CO_TENUTE" "$RADICE_REPO/scripts/verifica-coerenza-delle-corsie.sh"
+
+esegui_caso "corsie: una dichiara un'azione e un interprete diversi dalle altre" fallisce \
+  bash -c 'env CORSIE="$1/divergente" bash "$2"' _ "$CO_TENUTE" "$RADICE_REPO/scripts/verifica-coerenza-delle-corsie.sh"
+
+esegui_caso "corsie: un commento che nomina la versione vecchia non la dichiara" passa \
+  bash -c 'env CORSIE="$1/commento" bash "$2"' _ "$CO_TENUTE" "$RADICE_REPO/scripts/verifica-coerenza-delle-corsie.sh"
+
+esegui_caso "corsie: nessuna dichiarazione di versione - esce 2, non 0" passa \
+  bash -c 'env CORSIE="$1/vuota" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$CO_TENUTE" "$RADICE_REPO/scripts/verifica-coerenza-delle-corsie.sh"
+
+esegui_caso "corsie: cartella inesistente - esce 2, errore d'uso" passa \
+  bash -c 'env CORSIE="$1/non-esiste" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$CO_TENUTE" "$RADICE_REPO/scripts/verifica-coerenza-delle-corsie.sh"
+
+esegui_caso "pipefail: uno script con catene lo dichiara" passa \
+  bash -c 'env RADICE_SCRIPT="$1/conforme" bash "$2"' _ "$PF_TENUTE" "$RADICE_REPO/scripts/verifica-pipefail.sh"
+
+esegui_caso "pipefail: uno script con catene e senza dichiarazione" fallisce \
+  bash -c 'env RADICE_SCRIPT="$1/senza" bash "$2"' _ "$PF_TENUTE" "$RADICE_REPO/scripts/verifica-pipefail.sh"
+
+# Uno script senza catene non e' tenuto a dichiarare pipefail: imporglielo sarebbe una regola senza
+# oggetto, e le regole senza oggetto insegnano che le regole si possono ignorare.
+esegui_caso "pipefail: uno script senza catene non è tenuto a dichiararlo" passa \
+  bash -c 'env RADICE_SCRIPT="$1/senza-catene" bash "$2"' _ "$PF_TENUTE" "$RADICE_REPO/scripts/verifica-pipefail.sh"
+
+esegui_caso "pipefail: una libreria non eseguibile, con catene, non è segnalata" passa \
+  bash -c 'env RADICE_SCRIPT="$1/libreria" bash "$2"' _ "$PF_TENUTE" "$RADICE_REPO/scripts/verifica-pipefail.sh"
+
+esegui_caso "pipefail: cartella inesistente - esce 2, errore d'uso" passa \
+  bash -c 'env RADICE_SCRIPT="$1/non-esiste" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$PF_TENUTE" "$RADICE_REPO/scripts/verifica-pipefail.sh"
 
 printf "\n%d/%d casi con esito conforme all'atteso.\n" "$attese_rispettate" "$totale"
 

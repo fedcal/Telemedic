@@ -1,0 +1,5 @@
+# Tenuta di prova - registro della velocita', coerente con traguardi.md della stessa cartella.
+data	traguardo	evento	data_dichiarata	criteri	scarto_giorni	motivo	nota
+2026-08-25	T-91	previsto	2026-09-26	0/4		Allocazione iniziale	
+2026-08-25	T-92	previsto	2026-09-12	0/3		Allocazione iniziale	
+2026-08-27	T-91	ritarato	2026-09-05	2/4	21	Due criteri erano gia' soddisfatti	

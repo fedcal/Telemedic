@@ -1,0 +1,3 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Primo controllo N/D	completa	bloccante		N/D	scripts/finto.sh	caso sintetico citato nella tabella	Riga sintetica: N/D non e' un criterio numerato e piu' righe possono condividerlo.
+G-TEST-2	Secondo controllo N/D	completa	bloccante		N/D	scripts/finto.sh	caso sintetico citato nella tabella	Riga sintetica: seconda riga N/D, non deve far scattare la regola 7.

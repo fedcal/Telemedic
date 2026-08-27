@@ -1,0 +1,13 @@
+# Traduzione inglese sintetica di collaudo - tenuta di verifica-registri-di-vincoli-e-questioni.sh
+#
+# Non e' la traduzione del progetto. Questa tenuta aggiunge deliberatamente una riga per V-99,
+# sigla che nessun registro definisce, per far vedere fallire la regola 4 sul lato «traduzione
+# di una voce che non esiste».
+#
+# Formato: separato da TAB, UTF-8. Colonne: sigla, destinatarie, testo, stato.
+
+sigla	destinatarie	testo	stato
+V-01	all areas	First synthetic constraint for testing	IN FORCE
+V-02	all areas	Second synthetic constraint for testing	IN FORCE
+Q-01	`SEC`	Synthetic open question for testing	OPEN
+V-99	all areas	Translation of a constraint that does not exist in any register	IN FORCE

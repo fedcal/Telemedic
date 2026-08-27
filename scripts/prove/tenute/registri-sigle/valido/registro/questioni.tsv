@@ -1,0 +1,15 @@
+# Questioni aperte
+#
+# GENERATO. Non si modifica a mano: si modifica la bacheca inter-agenti
+# .telemedic/context/05_BACHECA_INTERAGENTI.md e si riesegue
+# scripts/genera-registri-di-vincoli-e-questioni.py.
+#
+# Formato: file di testo separato da carattere TAB, codifica UTF-8. Le righe che
+# iniziano con # sono commenti. Segue l'intestazione delle colonne e poi una riga
+# per voce. Nessuna cella contiene un carattere TAB.
+#
+# Colonne: sigla, emittente, destinatarie, testo, stato
+# Voci: 1
+
+sigla	emittente	destinatarie	testo	stato
+Q-01	`ORCH`	`SEC`	Questione sintetica di collaudo	APERTA

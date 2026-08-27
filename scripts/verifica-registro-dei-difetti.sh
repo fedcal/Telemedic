@@ -350,7 +350,21 @@ done
 # per leggibilità (raggruppato per famiglia), non per cronologia.
 if [ -n "$righe_valide" ]; then
   proiezione=$(printf '%s' "$righe_valide" | grep -v '^$' | LC_ALL=C sort -t "$(printf '\t')" -k1,1 -k2,2 -k5,5n)
-  while IFS=$'\t' read -r voce data stato bloccante_dal riga; do
+  # Per POSIZIONE con «cut -f» e non con «IFS=$'\t' read -r a b c d e»: la casella
+  # «bloccante_dal» e' vuota su ogni voce ancora bloccante, e due tabulazioni consecutive per bash
+  # si fondono - «bloccante_dal» avrebbe letto il NUMERO DI RIGA e «riga» sarebbe rimasta vuota.
+  # E' la voce C-1 del runbook, gia' trovata una volta in questo stesso script: la correzione di
+  # allora aveva lasciato in piedi questa seconda occorrenza, che oggi non cade solo perche'
+  # nessuna riga del registro ha quella casella vuota. Trovata il 27 agosto 2026 dal controllo
+  # scripts/verifica-lettura-dei-tsv.sh, che esiste perche' una regola scritta e non presidiata
+  # viene riviolata - dallo stesso repository che l'aveva scritta.
+  while IFS= read -r _proiezione_riga || [ -n "$_proiezione_riga" ]; do
+    [ -z "$_proiezione_riga" ] && continue
+    voce=$(printf '%s' "$_proiezione_riga" | cut -f1)
+    data=$(printf '%s' "$_proiezione_riga" | cut -f2)
+    stato=$(printf '%s' "$_proiezione_riga" | cut -f3)
+    bloccante_dal=$(printf '%s' "$_proiezione_riga" | cut -f4)
+    riga=$(printf '%s' "$_proiezione_riga" | cut -f5)
     [ -z "$voce" ] && continue
     ultimo_stato["$voce"]="$stato"
     ultimo_bloccante["$voce"]="$bloccante_dal"

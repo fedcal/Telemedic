@@ -1,0 +1,2 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Controllo con criterio di traguardo inesistente	completa	bloccante		T-77/1	scripts/finto.sh	caso sintetico citato nella tabella	Riga sintetica: «T-77» non esiste nel registro dei traguardi sintetico.

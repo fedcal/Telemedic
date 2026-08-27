@@ -1,0 +1,5 @@
+name: Corsia senza dichiarazioni di versione
+jobs:
+  prova:
+    steps:
+      - run: echo ciao

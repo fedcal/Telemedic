@@ -83,6 +83,24 @@
 #     di R0 che lo strato 1 non presidia.
 #   - La cronologia dei messaggi di commit non e' esaminata per difetto: solo l'intervallo che si
 #     indica in ${TERMINI_VIETATI_COMMIT}.
+#   - .telemedic/ e' escluso dal perimetro esaminato dal 27 agosto 2026: R0 presidia cio' che il
+#     progetto PUBBLICA, e .telemedic/ e' il contesto di lavoro interno, non il prodotto
+#     pubblicato - anche se versionato nello stesso repository. Decisione del committente, con la
+#     misura che l'ha motivata (124 rilievi al 26 agosto 2026, 118 dentro .telemedic/) nel
+#     commento accanto all'esclusione stessa, piu' sotto.
+#
+# CIO' CHE GIT IGNORA NON E' SORVEGLIATO, ED E' UN'ESCLUSIONE DERIVATA E NON COPIATA.
+# Un artefatto generato e mai versionato - come graphify-out/, presente nel .gitignore dal 27
+# agosto 2026 ma assente dal repository - non e' cio' che questo controllo sorveglia, e un
+# rilievo su un file che il repository non contiene sarebbe un allarme permanente a ogni nuovo
+# artefatto. L'esclusione si ricava da una sola invocazione di
+# «git ls-files --others --ignored --exclude-standard --directory» sulla radice esaminata:
+# interrogare git file per file sarebbe inaccettabile su un corpus di questa dimensione. Quando
+# git non e' disponibile, oppure la radice esaminata non e' (dentro) un albero di lavoro git - il
+# caso delle tenute del banco, che vivono in cartelle temporanee fuori da qualunque repository -
+# il controllo NON fallisce e NON esce con errore: prosegue con le sole esclusioni statiche
+# dichiarate piu' sotto, perche' quel ripiego e' precisamente la condizione in cui il collaudo
+# stesso deve poter girare.
 #
 # COLLAUDABILITA'. Tutto e' pilotabile da variabili d'ambiente, con la convenzione gia' in uso in
 # scripts/verifica-dati-sintetici.sh e scripts/verifica-dichiarazione-non-marcatura.sh:
@@ -272,6 +290,19 @@ if [ -n "$TERMINI_VIETATI_COMMIT" ]; then
   done <"$TEMPORANEA/sha"
 fi
 
+# --- Esclusione di cio' che git ignora, derivata e non copiata. ---
+#
+# Vedi il commento in testa a questo file per la motivazione. Una sola invocazione di git per
+# l'intero controllo. «--directory» fa si' che una directory interamente ignorata compaia una
+# volta sola, con la barra finale (p.es. «graphify-out/»); un file ignorato dentro una directory
+# altrimenti tracciata compare per conto proprio, senza barra finale - i due casi si trattano
+# diversamente nel filtro applicato piu' sotto all'elenco prodotto da find.
+IGNORATI_GIT=""
+if command -v git >/dev/null 2>&1 \
+   && git -C "$RADICE_SORGENTI" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  IGNORATI_GIT=$(git -C "$RADICE_SORGENTI" ls-files --others --ignored --exclude-standard --directory 2>/dev/null || true)
+fi
+
 # --- I file da esaminare. ---
 #
 # Stesse esclusioni di scripts/verifica-dati-sintetici.sh, e per le stesse ragioni: i binari non
@@ -282,12 +313,24 @@ fi
 # disegno vettoriale sta nel titolo o nei metadati, dove si legge. Un logo di terze parti che
 # entrasse fra le immagini del sito e' esattamente la violazione di R0 che nessun altro controllo
 # vedrebbe, e questa e' la sola forma di immagine in cui si puo' vedere qualcosa.
+#
+# .telemedic/ E' ESCLUSO, ED E' UNA DECISIONE E NON UNA LACUNA. R0 presidia cio' che il progetto
+# PUBBLICA nel proprio percorso principale; .telemedic/ e' il contesto di lavoro interno -
+# appunti di ricerca, piani, bacheca inter-agenti - non materiale che il progetto distribuisce
+# come proprio prodotto, anche se versionato nello stesso repository pubblico. Decisione del
+# committente del 27 agosto 2026: al 26 agosto 2026 il controllo produceva 124 rilievi, 118 dei
+# quali dentro .telemedic/ - citazioni di fonti nei documenti di ricerca, non nomi che il
+# progetto sceglie di scrivere nel proprio materiale pubblicato. Restano sorvegliati tutti i
+# percorsi che il progetto pubblica davvero: docs/, website/, la radice del repository, pipeline/,
+# scripts/, .github/. In questo repository le esclusioni sono decisioni dichiarate, non lacune, e
+# stanno scritte qui con la loro ragione.
 file_esaminati=$(
   find "$RADICE_SORGENTI" \
     \( -name '.git' -o -name 'node_modules' \
        -o -path "$RADICE_SORGENTI/website/build" \
        -o -path "$RADICE_SORGENTI/website/.docusaurus" \
-       -o -path "$RADICE_SORGENTI/scripts/prove" \) -prune -o \
+       -o -path "$RADICE_SORGENTI/scripts/prove" \
+       -o -path "$RADICE_SORGENTI/.telemedic" \) -prune -o \
     -type f \
     ! -name '*.png' ! -name '*.jpg' ! -name '*.jpeg' ! -name '*.gif' ! -name '*.ico' \
     ! -name '*.pdf' ! -name '*.woff' ! -name '*.woff2' ! -name '*.ttf' \
@@ -295,6 +338,32 @@ file_esaminati=$(
     ! -name '*.bz2' ! -name '*.mp4' ! -name '*.webm' ! -name '*.mp3' ! -name '*.wav' \
     -print | sort
 )
+
+# Il filtro sull'elenco di find, non un'aggiunta al comando: applicato PRIMA dell'aggiunta dei
+# messaggi di commit qui sotto, che vivono in $TEMPORANEA, fuori da $RADICE_SORGENTI, e non sono
+# mai ignorati da git.
+if [ -n "$IGNORATI_GIT" ] && [ -n "$file_esaminati" ]; then
+  file_esaminati=$(
+    printf '%s\n' "$file_esaminati" | awk -v prefisso_radice="$RADICE_SORGENTI/" -v ignorati="$IGNORATI_GIT" '
+      BEGIN {
+        n = split(ignorati, righe, "\n")
+        for (i = 1; i <= n; i++) if (righe[i] != "") IGNORATO[righe[i]] = 1
+        lp = length(prefisso_radice)
+      }
+      {
+        relativo = (substr($0, 1, lp) == prefisso_radice) ? substr($0, lp + 1) : $0
+        if (relativo in IGNORATO) next
+        prefisso = ""; resto = relativo; escludi = 0
+        while ((p = index(resto, "/")) > 0) {
+          prefisso = prefisso substr(resto, 1, p)
+          if (prefisso in IGNORATO) { escludi = 1; break }
+          resto = substr(resto, p + 1)
+        }
+        if (!escludi) print
+      }'
+  )
+fi
+
 if [ -n "$TEMPORANEA" ] && [ "$N_COMMIT" -gt 0 ]; then
   file_esaminati=$(printf '%s\n%s\n' "$file_esaminati" "$(find "$TEMPORANEA/commit" -type f | sort)")
 fi

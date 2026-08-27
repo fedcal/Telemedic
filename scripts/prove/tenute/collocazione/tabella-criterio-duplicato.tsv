@@ -1,0 +1,3 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Primo controllo che cita il criterio sintetico	completa	bloccante		T-09/1	scripts/finto.sh	caso sintetico citato nella tabella	Riga sintetica: prima citazione di T-09/1.
+G-TEST-2	Secondo controllo che cita lo stesso criterio sintetico	completa	bloccante		T-09/1	scripts/finto.sh	caso sintetico citato nella tabella	Riga sintetica: seconda citazione di T-09/1, deliberatamente duplicata.

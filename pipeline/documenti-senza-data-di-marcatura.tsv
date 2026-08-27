@@ -1,0 +1,31 @@
+# Documenti sottoposti alla regola 4 del §11 di docs/08_compliance/01-inquadramento-normativo.md:
+# «nessuna data, nessuna finestra temporale, nessun "entro"» riferiti alla marcatura o a una
+# dichiarazione di conformita'.
+#
+# Formato dichiarato in pipeline/README.md. Dati separati da tabulazione, righe di commento con
+# «#». Il controllo scripts/verifica-date-di-marcatura.sh legge questo file per sapere QUALI
+# documenti sorveglia. Serve al criterio 8 di T-01, al criterio 5 di T-14 e al criterio bloccante
+# di rilascio n. 15 di docs/09_roadmap/03-primo-rilascio-utilizzabile.md §8.
+#
+# PERCHE' UN ELENCO E NON «TUTTO IL CORPUS». La regola non vieta di scrivere date: la
+# pianificazione interna ne contiene, deve contenerne, e docs/08_compliance/09-percorso-e-calendario.md
+# esiste per portarle. Vieta di scriverle nei documenti che una persona esterna legge per sapere
+# che cosa il progetto e' oggi - le avvertenze pubbliche - e in quelli che escono dal repository
+# verso un terzo. Applicare la regola a tutto il corpus la renderebbe falsa e la farebbe
+# disattivare; applicarla a un elenco dichiarato la rende vera e la lascia in piedi.
+#
+# QUESTO FILE NON HA COPIA DI RISERVA NELLO SCRIPT (voce D-10 del runbook degli errori). Se manca
+# o non e' leggibile, il controllo esce 2.
+#
+# COME SI AGGIUNGE UNA RIGA. Un documento entra qui quando e' pubblico e descrive lo stato
+# regolatorio del prodotto, oppure quando e' destinato a un terzo esterno. Un documento di
+# pianificazione NON entra: le sue date sono il suo contenuto.
+#
+percorso	motivo
+NOT-A-MEDICAL-DEVICE.md	Avvertenza pubblica. E' il documento che chi valuta apre per primo per sapere se il prodotto reca marcatura. Bilingue in un file solo: la regola vale su entrambi i blocchi
+DISTRIBUTION-POLICY.md	Avvertenza pubblica. Descrive che cosa il progetto distribuisce e a quali condizioni, e una data qui si legge come impegno verso chi ridistribuisce
+README.md	Porta il richiamo in evidenza del repository, che il criterio 8 di T-01 nomina esplicitamente accanto alle altre due avvertenze
+docs/08_compliance/11-richiesta-agli-organismi-notificati.md	Documento prodotto da T-14 e destinato a un terzo esterno: contiene il testo che viene spedito, e la destinazione d'uso si ricava anche dal materiale che si spedisce
+docs/08_compliance/CE-PLAN-001-piano-di-valutazione-clinica.md	Documento prodotto da T-14. E' una bozza tecnica destinata a essere assunta dal ruolo di fabbricante: una data qui sopravvivrebbe all'assunzione
+website/i18n/en/docusaurus-plugin-content-docs/current/08_compliance/11-richiesta-agli-organismi-notificati.md	Gemello inglese della riga sopra. La regola vale nelle due lingue o non vale
+website/i18n/en/docusaurus-plugin-content-docs/current/08_compliance/CE-PLAN-001-piano-di-valutazione-clinica.md	Gemello inglese della riga sopra

@@ -1,0 +1,31 @@
+# Criteri collettivi - i criteri di traguardo che un solo controllo non può presidiare.
+#
+# Formato dichiarato in pipeline/README.md, regola 7. Dati separati da tabulazione, righe di
+# commento con «#». Il controllo scripts/verifica-collocazione-dei-controlli.sh legge questo file
+# per sapere quali criteri possono essere citati da più righe della tabella di collocazione.
+#
+# PERCHE' QUESTO FILE ESISTE. La regola 7 nasce il 27 agosto 2026 da un difetto reale: due righe
+# della tabella citavano un criterio che non presidiavano, e una di esse rivendicava un criterio
+# che un'altra riga citava già per un oggetto diverso. La prima formulazione della regola vietava
+# a due righe di citare lo stesso criterio, e quella formulazione era una generalizzazione da due
+# soli casi. Applicata al repository reale ha segnalato diciannove righe, e tutte e diciannove
+# erano legittime: i criteri T-03/2 e T-03/4 ENUMERANO PIU' CONTROLLI NEL PROPRIO TESTO, quindi
+# più righe li citano perche' il criterio stesso lo prevede.
+#
+# La forma «A + B» della colonna «eseguibile» non risolve quel caso e non e' pensata per farlo:
+# descrive UN controllo che vive in due luoghi, e ammette una sola fascia. I controlli che
+# presidiano T-03/2 stanno in fasce diverse - la ricerca di segreti in rapida, le licenze dei
+# componenti in completa - e comprimerli in una riga sola renderebbe falsa la colonna «fascia»,
+# che e' esattamente il difetto che la regola 5 esiste per impedire.
+#
+# QUESTO FILE NON HA COPIA DI RISERVA NELLO SCRIPT (voce D-10 del runbook degli errori). Se manca
+# o non e' leggibile, il controllo non decide da solo quali criteri siano collettivi: esce 2.
+#
+# COME SI AGGIUNGE UNA RIGA. Si apre il criterio in docs/09_roadmap/02-traguardi.md e si verifica
+# che il suo TESTO enumeri piu' controlli o si applichi per definizione a un insieme. Se il criterio
+# nomina una cosa sola, la riga non va aggiunta qui: due controlli su un criterio singolo
+# significano che almeno uno dei due sta parlando d'altro, ed e' il difetto che la regola 7 cerca.
+#
+criterio	motivo
+T-03/2	Il criterio enumera per nome piu' controlli distinti - licenze dei componenti, terminologie a licenza vincolata, completezza della distinta, collegamenti interni, identificativi sintetici e assenza di dati reali, termini vietati di R0, e i due controlli di T-01 - e chiede che ciascuno blocchi da subito. Un solo controllo non puo' presidiarlo, e i controlli che lo presidiano stanno in fasce diverse.
+T-03/4	Il criterio si applica per definizione a un insieme: «i controlli non compresi nel criterio 2», ciascuno con la propria data di bloccanza. E' un criterio sul complemento di un insieme, quindi lo cita ogni riga che appartiene a quel complemento.

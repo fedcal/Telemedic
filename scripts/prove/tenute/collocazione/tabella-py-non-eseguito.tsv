@@ -1,0 +1,2 @@
+# Tabella sintetica valida, usata come caso "passa" del banco che collauda
+PY-TEST	Controllo sintetico valido	completa	bloccante		T-09/1	scripts/generatore-che-nessuna-corsia-esegue.py	caso sintetico citato nella tabella	Riga sintetica di collaudo: tutte le regole del README sono rispettate.

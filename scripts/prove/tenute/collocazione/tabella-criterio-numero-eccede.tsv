@@ -1,0 +1,2 @@
+controllo	nome	fascia	stato	bloccante_dal	criterio	eseguibile	prova_negativa	motivo_collocazione
+G-TEST	Controllo con criterio oltre il numero disponibile	completa	bloccante		T-09/3	scripts/finto.sh	caso sintetico citato nella tabella	Riga sintetica: «T-09» nel registro sintetico ha solo due criteri numerati.

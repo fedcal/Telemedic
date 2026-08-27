@@ -1,0 +1,6 @@
+# Tenuta - un vincolo il cui testo porta un rinvio testuale a un documento del corpus.
+#
+# Il rinvio deve uscire dal generatore COME COLLEGAMENTO. Se la conversione venisse tolta dal
+# generatore e riportata sul file prodotto - la voce D-32 del runbook - questo caso cadrebbe.
+sigla	emittente	destinatarie	testo	stato
+V-901	`ORCH`	`TECH`	Il vincolo di prova rinvia a `docs/01_technical/01-stack-e-motivazioni.md` e il rinvio va reso collegamento. Un percorso dentro un comando, come `git log --follow docs/01_technical/01-stack-e-motivazioni.md`, resta comando.	IN VIGORE

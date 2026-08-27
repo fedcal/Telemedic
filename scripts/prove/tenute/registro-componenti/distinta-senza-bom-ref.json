@@ -1,0 +1,3 @@
+{ "bomFormat": "CycloneDX", "specVersion": "1.6",
+  "metadata": { "component": { "name": "radice-di-collaudo", "purl": "pkg:npm/radice-di-collaudo@0.0.0" } },
+  "components": [ { "type": "library", "name": "prova-diretta", "version": "1.0.0", "bom-ref": "x", "purl": "pkg:npm/prova-diretta@1.0.0" } ] }

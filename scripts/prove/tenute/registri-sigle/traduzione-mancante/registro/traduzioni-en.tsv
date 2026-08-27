@@ -1,0 +1,10 @@
+# Traduzione inglese sintetica di collaudo - tenuta di verifica-registri-di-vincoli-e-questioni.sh
+#
+# Non e' la traduzione del progetto. Questa tenuta lascia deliberatamente la questione Q-01
+# senza traduzione, per far vedere fallire la regola 4 sul lato «voce definita e non tradotta».
+#
+# Formato: separato da TAB, UTF-8. Colonne: sigla, destinatarie, testo, stato.
+
+sigla	destinatarie	testo	stato
+V-01	all areas	First synthetic constraint for testing	IN FORCE
+V-02	all areas	Second synthetic constraint for testing	IN FORCE

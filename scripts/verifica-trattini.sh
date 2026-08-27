@@ -52,6 +52,19 @@
 # scripts/verifica-termini-vietati.sh e da scripts/verifica-dati-sintetici.sh. E' un LIMITE
 # dichiarato, non una copertura: un trattino scorretto scritto dentro una tenuta non viene visto.
 #
+# CIO' CHE GIT IGNORA NON E' SORVEGLIATO, ED E' UN'ESCLUSIONE DERIVATA E NON COPIATA.
+# Un artefatto generato e mai versionato - come graphify-out/, presente nel .gitignore dal 27
+# agosto 2026 ma assente dal repository - non e' cio' che questo controllo sorveglia, e un
+# rilievo su un file che il repository non contiene sarebbe un allarme permanente a ogni nuovo
+# artefatto. L'esclusione si ricava da una sola invocazione di
+# «git ls-files --others --ignored --exclude-standard --directory» sulla radice esaminata:
+# interrogare git file per file sarebbe inaccettabile su un corpus di questa dimensione. Quando
+# git non e' disponibile, oppure la radice esaminata non e' (dentro) un albero di lavoro git - il
+# caso delle tenute del banco, che vivono in cartelle temporanee fuori da qualunque repository -
+# il controllo NON fallisce e NON esce con errore: prosegue con le sole esclusioni statiche di
+# sopra, perche' quel ripiego e' precisamente la condizione in cui il collaudo stesso deve poter
+# girare.
+#
 # VARIABILE D'AMBIENTE.
 #   RADICE_SORGENTI   radice da esaminare, per difetto la directory corrente.
 #
@@ -89,10 +102,20 @@ command -v python3 >/dev/null 2>&1 || errore_configurazione \
   "python3 non e' disponibile." \
 "Questo controllo esamina i file carattere per carattere e richiede python3."
 
-python3 - "$RADICE_SORGENTI" <<'PY'
+# Derivata da git, una sola volta: vedi il commento in testa a questo file. IGNORATI_GIT resta
+# vuota - e con essa il comportamento del controllo torna a dipendere solo dalle esclusioni
+# statiche - quando git manca o quando RADICE_SORGENTI non e' dentro un albero di lavoro git.
+IGNORATI_GIT=""
+if command -v git >/dev/null 2>&1 \
+   && git -C "$RADICE_SORGENTI" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  IGNORATI_GIT=$(git -C "$RADICE_SORGENTI" ls-files --others --ignored --exclude-standard --directory 2>/dev/null || true)
+fi
+
+python3 - "$RADICE_SORGENTI" "$IGNORATI_GIT" <<'PY'
 import os, sys
 
 radice = sys.argv[1]
+ignorati_git = sys.argv[2] if len(sys.argv) > 2 else ''
 
 # Per punto di codice, mai in forma letterale: vedi il commento in testa allo script.
 MEDIO = '\u2013'
@@ -113,17 +136,32 @@ ESTENSIONI_ESCLUSE = {
     '.eot', '.zip', '.gz', '.tgz', '.xz', '.bz2', '.mp4', '.webm', '.mp3', '.wav',
 }
 
+# L'esclusione derivata da git: vedi il commento in testa allo script. Una directory interamente
+# ignorata compare, per come e' invocato «git ls-files», una volta sola con la barra finale
+# ('graphify-out/'); un file ignorato dentro una directory altrimenti tracciata compare per conto
+# proprio, senza barra finale. I due insiemi si trattano diversamente: il primo pota un intero
+# ramo di os.walk, il secondo scarta un solo file.
+IGNORATI_DIR_GIT = {r for r in ignorati_git.splitlines() if r.endswith('/')}
+IGNORATI_FILE_GIT = {r for r in ignorati_git.splitlines() if r and not r.endswith('/')}
+
+def percorso_relativo_posix(percorso):
+    return os.path.relpath(percorso, radice).replace(os.sep, '/')
+
 def file_da_esaminare():
     for cartella, sottocartelle, nomi in os.walk(radice):
         sottocartelle[:] = sorted(
             s for s in sottocartelle
             if s not in CARTELLE_ESCLUSE
             and os.path.normpath(os.path.join(cartella, s)) not in PERCORSI_ESCLUSI
+            and (percorso_relativo_posix(os.path.join(cartella, s)) + '/') not in IGNORATI_DIR_GIT
         )
         for nome in sorted(nomi):
             if os.path.splitext(nome)[1].lower() in ESTENSIONI_ESCLUSE:
                 continue
-            yield os.path.join(cartella, nome)
+            percorso = os.path.join(cartella, nome)
+            if percorso_relativo_posix(percorso) in IGNORATI_FILE_GIT:
+                continue
+            yield percorso
 
 def frammento(riga, colonna):
     """Il contorno del rilievo, per far vedere di che cosa si parla senza stampare la riga intera."""

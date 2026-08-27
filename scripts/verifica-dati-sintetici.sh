@@ -73,6 +73,19 @@
 # scripts/verifica-identificativi-requisiti.sh e ha la stessa ragione - le tenute del banco
 # contengono forme preparate apposta per far fallire i controlli, e non vanno confuse con il
 # corpus reale.
+#
+# CIÒ CHE GIT IGNORA NON È SORVEGLIATO, ED È UN'ESCLUSIONE DERIVATA E NON COPIATA.
+# Un artefatto generato e mai versionato - come graphify-out/, presente nel .gitignore dal 27
+# agosto 2026 ma assente dal repository - non è ciò che questo controllo sorveglia, e un rilievo
+# su un file che il repository non contiene sarebbe un allarme permanente a ogni nuovo artefatto.
+# L'esclusione si ricava da una sola invocazione di
+# «git ls-files --others --ignored --exclude-standard --directory» sulla radice esaminata:
+# interrogare git file per file sarebbe inaccettabile su un corpus di questa dimensione. Quando
+# git non è disponibile, oppure la radice esaminata non è (dentro) un albero di lavoro git - il
+# caso delle tenute del banco, che vivono in cartelle temporanee fuori da qualunque repository -
+# il controllo NON fallisce e NON esce con errore: prosegue con le sole esclusioni statiche
+# dichiarate più sopra, perché quel ripiego è precisamente la condizione in cui il collaudo stesso
+# deve poter girare.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -97,6 +110,19 @@ if [ ! -d "$RADICE_SORGENTI" ]; then
   exit 2
 fi
 
+# --- 0bis. Esclusione di ciò che git ignora, derivata e non copiata. ---
+#
+# Vedi il commento in testa a questo file per la motivazione. Una sola invocazione di git per
+# l'intero controllo. «--directory» fa sì che una directory interamente ignorata compaia una
+# volta sola, con la barra finale (p.es. «graphify-out/»); un file ignorato dentro una directory
+# altrimenti tracciata compare per conto proprio, senza barra finale - i due casi si trattano
+# diversamente nel filtro applicato più sotto all'elenco prodotto da find.
+IGNORATI_GIT=""
+if command -v git >/dev/null 2>&1 \
+   && git -C "$RADICE_SORGENTI" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  IGNORATI_GIT=$(git -C "$RADICE_SORGENTI" ls-files --others --ignored --exclude-standard --directory 2>/dev/null || true)
+fi
+
 # --- 1. I file da esaminare. ---
 #
 # L'esclusione per estensione tiene fuori ciò che non è testo: un file binario non contiene
@@ -116,6 +142,28 @@ file_esaminati=$(
     ! -name '*.mp4' ! -name '*.webm' ! -name '*.mp3' ! -name '*.wav' \
     -print | sort
 )
+
+if [ -n "$IGNORATI_GIT" ] && [ -n "$file_esaminati" ]; then
+  file_esaminati=$(
+    printf '%s\n' "$file_esaminati" | awk -v prefisso_radice="$RADICE_SORGENTI/" -v ignorati="$IGNORATI_GIT" '
+      BEGIN {
+        n = split(ignorati, righe, "\n")
+        for (i = 1; i <= n; i++) if (righe[i] != "") IGNORATO[righe[i]] = 1
+        lp = length(prefisso_radice)
+      }
+      {
+        relativo = (substr($0, 1, lp) == prefisso_radice) ? substr($0, lp + 1) : $0
+        if (relativo in IGNORATO) next
+        prefisso = ""; resto = relativo; escludi = 0
+        while ((p = index(resto, "/")) > 0) {
+          prefisso = prefisso substr(resto, 1, p)
+          if (prefisso in IGNORATO) { escludi = 1; break }
+          resto = substr(resto, p + 1)
+        }
+        if (!escludi) print
+      }'
+  )
+fi
 
 if [ -z "$file_esaminati" ]; then
   printf '\033[33m· Nessun file di testo sotto %s: controllo corretto a insieme vuoto, nulla da verificare.\033[0m\n' "$RADICE_SORGENTI"

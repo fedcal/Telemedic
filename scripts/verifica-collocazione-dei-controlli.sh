@@ -17,6 +17,17 @@ cd "$(dirname "$0")/.."
 TABELLA="${TABELLA:-pipeline/collocazione-dei-controlli.tsv}"
 BANCO="${BANCO:-scripts/prove/esegui-prove.sh}"
 CORSIE="${CORSIE:-.github/workflows}"
+# Registro dei traguardi, per la regola 6: sovrascrivibile per il collaudo, con la stessa
+# disciplina di TABELLA, BANCO e CORSIE (voce D-17 del runbook) - non si può puntare questo
+# controllo su docs/09_roadmap/02-traguardi.md sintetico senza un modo di sostituirlo, e non si
+# deve toccare quel file reale solo per collaudare una regola.
+TRAGUARDI="${TRAGUARDI:-docs/09_roadmap/02-traguardi.md}"
+# Criteri collettivi, per la regola 7: quelli che il proprio testo affida a piu' controlli. Sta in
+# un file versionato e non in una lista qui dentro, per la voce D-10 del runbook - un controllo che
+# porta dentro di se' una copia di cio' che sorveglia non sorveglia piu'. Se il file manca, il
+# controllo non decide da solo quali criteri siano collettivi: esce 2, che e' errore d'uso e non
+# violazione.
+CRITERI_COLLETTIVI="${CRITERI_COLLETTIVI:-pipeline/criteri-collettivi.tsv}"
 FASCE_AMMESSE="rapida completa estesa rilascio"
 STATI_AMMESSI="bloccante segnalazione"
 
@@ -27,6 +38,64 @@ if [ ! -f "$TABELLA" ]; then
   printf '\033[31m✗ tabella assente: %s\033[0m\n' "$TABELLA"
   exit 1
 fi
+if [ ! -f "$TRAGUARDI" ]; then
+  printf '\033[31m✗ registro dei traguardi assente: %s\033[0m\n' "$TRAGUARDI"
+  exit 1
+fi
+if [ ! -r "$CRITERI_COLLETTIVI" ]; then
+  printf '\033[31m✗ dichiarazione dei criteri collettivi assente o illeggibile: %s\033[0m\n' "$CRITERI_COLLETTIVI"
+  printf '  Senza di essa la regola 7 non sa quali criteri il proprio testo affidi a piu\x27 controlli,\n'
+  printf '  e non lo indovina: si ripristina il file, non si disattiva la regola.\n'
+  exit 2
+fi
+
+declare -A COLLETTIVO=()
+# Per posizione con «cut -f», mai con «read»: voce C-1 del runbook. Qui le colonne sono due e il
+# collasso sarebbe innocuo, ma la regola non ammette eccezioni «innocue» - e' cosi' che tornano.
+while IFS= read -r _riga_collettivo || [ -n "$_riga_collettivo" ]; do
+  _criterio=$(printf '%s' "$_riga_collettivo" | cut -f1)
+  _motivo=$(printf '%s' "$_riga_collettivo" | cut -f2)
+  case "$_criterio" in ''|'#'*|criterio) continue ;; esac
+  COLLETTIVO["$_criterio"]=1
+done < "$CRITERI_COLLETTIVI"
+
+# Regola 6, preparazione - quanti criteri di completamento numerati ha ciascun traguardo.
+#
+# Difetto corretto il 27 agosto 2026: due righe della tabella citavano un criterio che il proprio
+# testo non verifica affatto (T01-C8 citava T-01/8, che riguarda le avvertenze pubbliche e non la
+# conformità redazionale) o che un'altra riga citava già per un oggetto diverso (SIG-C1 citava
+# T-01/5, già di T01-C5). Nessuno dei due errori era visibile a una lettura sola della tabella:
+# serviva aprire docs/09_roadmap/02-traguardi.md e contare. Questa regola lo fa da sola.
+#
+# Ogni traguardo elenca i propri criteri come lista numerata «1. », «2. », … che RIPARTE da 1 a
+# ogni traguardo (verificato leggendo l'intero file il 27 agosto 2026: nessun'altra lista
+# numerata di primo livello compare nelle sezioni dei traguardi, e i titoli «### » che non sono un
+# traguardo - «### 2.1 …», «### 4.1 …» eccetera - interrompono la sezione corrente prima che
+# inizi il testo che li segue). Contare quelle righe, sezione per sezione, e' quindi sufficiente
+# a sapere quanti criteri un dato «T-NN» ha davvero, senza portare dentro questo script una copia
+# del loro numero (sarebbe di nuovo D-10: una copia diverge dal testo la prima volta che qualcuno
+# aggiunge o toglie un criterio e dimentica di aggiornare lo script).
+declare -A TRAGUARDO_CRITERI=()
+while IFS= read -r _riga_trg || [ -n "$_riga_trg" ]; do
+  _trg=$(printf '%s' "$_riga_trg" | cut -f1)
+  _n=$(printf '%s' "$_riga_trg" | cut -f2)
+  [ -n "$_trg" ] || continue
+  TRAGUARDO_CRITERI["$_trg"]="$_n"
+done < <(awk '
+  /^### `T-[0-9]+`/ {
+    match($0, /T-[0-9]+/)
+    corrente = substr($0, RSTART, RLENGTH)
+    next
+  }
+  /^### / { corrente = ""; next }
+  corrente != "" && /^[0-9]+\. / { CONTA[corrente]++ }
+  END { for (t in CONTA) printf "%s\t%d\n", t, CONTA[t] }
+' "$TRAGUARDI")
+
+# Regola 7, preparazione - nessun criterio datato citato da due righe diverse. Lo stato attraversa
+# l'intero ciclo sulle righe, non è locale a una riga come le regole 1-6: per questo vive qui,
+# dichiarato prima del ciclo, e si popola dentro di esso.
+declare -A VISTO_CRITERIO=()
 
 segnala() {
   printf '\033[31m✗ riga %s (%s): %s\033[0m\n' "$1" "$2" "$3"
@@ -75,6 +144,30 @@ while IFS= read -r linea || [ -n "$linea" ]; do
       segnala "$numero" "$controllo" "in sola segnalazione senza «bloccante_dal»: una riduzione senza data di scadenza è una rinuncia non dichiarata"
     elif ! printf '%s' "$bloccante_dal" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
       segnala "$numero" "$controllo" "«bloccante_dal» non è una data ISO: «$bloccante_dal»"
+    fi
+  fi
+
+  # Regole 6 e 7 - il criterio citato risolve, e nessun criterio datato è citato da due righe.
+  #
+  # Si applicano solo alla forma «T-NN/M»: «N/D» e le forme come «CLAUDE.md/…» (CV-C1) dichiarano
+  # apertamente di non presidiare un criterio numerato di un traguardo, e più righe possono
+  # legittimamente essere «N/D» insieme - lo sono, oggi, CR-C1, RD-C1 e SIG-C1, ciascuna per un
+  # motivo proprio dichiarato nella propria colonna «motivo». Applicare la regola 7 anche a «N/D»
+  # trasformerebbe quella dichiarazione onesta in un difetto.
+  if printf '%s' "$criterio" | grep -qE '^T-[0-9]+/[0-9]+$'; then
+    traguardo_criterio="${criterio%%/*}"
+    numero_criterio="${criterio##*/}"
+    conta_traguardo="${TRAGUARDO_CRITERI[$traguardo_criterio]:-0}"
+    if [ "$conta_traguardo" -eq 0 ]; then
+      segnala "$numero" "$controllo" "il criterio «$criterio» non risolve: «$traguardo_criterio» non esiste in $TRAGUARDI, o non ha criteri di completamento numerati"
+    elif [ "$numero_criterio" -gt "$conta_traguardo" ]; then
+      segnala "$numero" "$controllo" "il criterio «$criterio» non risolve: «$traguardo_criterio» ha solo $conta_traguardo criteri di completamento"
+    fi
+
+    if [ -n "${VISTO_CRITERIO[$criterio]:-}" ] && [ -z "${COLLETTIVO[$criterio]:-}" ]; then
+      segnala "$numero" "$controllo" "criterio «$criterio» già citato dalla riga «${VISTO_CRITERIO[$criterio]}», e non è dichiarato collettivo in $CRITERI_COLLETTIVI: due controlli su un criterio che ne nomina uno solo significano che almeno uno dei due sta parlando d'altro. Se il criterio davvero ne prevede più d'uno, si dichiara là con la ragione"
+    else
+      VISTO_CRITERIO["$criterio"]="$controllo"
     fi
   fi
 
@@ -129,7 +222,12 @@ while IFS= read -r linea || [ -n "$linea" ]; do
               segnala "$numero" "$controllo" "«da collocare» dal $bloccante_dal: la data e' arrivata, la collocazione e' esigibile"
             fi
             ;;
-          *.sh)
+          # Dal 27 agosto 2026 anche «.py»: il criterio 6 di T-03 e' presidiato per meta' da un
+          # GENERATORE, non da un controllo, e quel generatore e' in Python come gli altri due del
+          # progetto. La verifica e' identica - la corsia dichiarata deve nominare il file - e non
+          # cambia con il linguaggio: cio' che la regola 5 accerta e' che la collocazione esista,
+          # non in che cosa sia scritta.
+          *.sh|*.py)
             if [ -n "$bersaglio" ]; then
               grep -qF "$m" "$bersaglio" || segnala "$numero" "$controllo" "la corsia «$fascia» non esegue «$m»: $(basename "$bersaglio") non lo nomina"
             else

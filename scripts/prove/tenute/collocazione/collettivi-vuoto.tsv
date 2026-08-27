@@ -1,0 +1,5 @@
+# Tenuta di collaudo: nessun criterio dichiarato collettivo.
+#
+# Serve al caso della regola 7 in cui due righe citano lo stesso criterio e quel criterio NON e'
+# dichiarato collettivo: il controllo deve fallire. Dati sintetici, nessun criterio reale.
+criterio	motivo

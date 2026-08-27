@@ -1,0 +1,13 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "metadata": { "component": { "type": "application", "name": "radice-di-collaudo", "version": "0.0.0", "bom-ref": "radice@0.0.0", "purl": "pkg:npm/radice-di-collaudo@0.0.0" } },
+  "components": [
+    { "type": "library", "name": "prova-diretta", "version": "1.0.0", "bom-ref": "radice@0.0.0|prova-diretta@1.0.0", "purl": "pkg:npm/prova-diretta@1.0.0", "licenses": [ { "license": { "id": "MIT" } } ] },
+    { "type": "library", "name": "prova-transitiva", "version": "2.0.0", "bom-ref": "radice@0.0.0|prova-diretta@1.0.0|prova-transitiva@2.0.0", "purl": "pkg:npm/prova-transitiva@2.0.0", "licenses": [ { "license": { "id": "MPL-1.1" } } ] }
+  ],
+  "dependencies": [
+    { "ref": "radice@0.0.0", "dependsOn": [ "radice@0.0.0|prova-diretta@1.0.0" ] },
+    { "ref": "radice@0.0.0|prova-diretta@1.0.0", "dependsOn": [ "radice@0.0.0|prova-diretta@1.0.0|prova-transitiva@2.0.0" ] }
+  ]
+}
