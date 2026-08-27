@@ -309,6 +309,73 @@ Un percorso relativo che esce da `docs/` funziona su GitHub e **non** sul sito p
 produce un 404 silenzioso. **Il presidio:** `scripts/verifica-conformita-redazionale.sh`, con caso
 nel banco.
 
+### C-8. Un avviso di sicurezza senza versione corretta - il componente a monte è archiviato
+
+**Che cosa è successo.** Il 27 agosto 2026 la sorveglianza automatica del repository segnalava due
+vulnerabilità di gravità alta sul ramo principale, `GHSA-w3rx-r6r6-pgpr` (CVE-2025-71330, parser
+ICNS) e `GHSA-5p2g-fcmc-qvqq` (CVE-2025-71329, parser JXL e HEIF). Stesso componente in entrambe:
+`image-size@2.0.2`, dipendenza transitiva del sito di documentazione, tirata da
+`@docusaurus/mdx-loader@3.10.2` e da nessun altro. In tutte e due il difetto è un ciclo infinito
+nel lettore del formato quando un campo di lunghezza vale zero: chi fornisce l'immagine blocca per
+sempre il ciclo di eventi di Node. La classificazione dice l'essenziale, `C:N/I:N/A:H` - nessuna
+perdita di riservatezza, nessuna alterazione di integrità, solo indisponibilità.
+
+**Perché non si chiude con un aggiornamento.** Non esiste la versione che lo corregge, e non è una
+questione di attesa. Il campo `first_patched_version` degli avvisi è nullo, l'intervallo vulnerabile
+è `<= 2.0.2` e `npm audit` risponde `range: "*"` con `fixAvailable: false`: sono vulnerabili tutte
+le versioni pubblicate. La `2.0.2` del 2 aprile 2025 è l'ultima, e il progetto a monte risulta
+archiviato in sola lettura - verificato il 27 agosto 2026 sull'interfaccia di GitHub, `archived:
+true`. Un componente archiviato non pubblicherà mai la versione successiva: attendere non è una
+strategia, è una rinuncia non dichiarata. Nemmeno salire di versione su chi lo tira serve, perché
+`@docusaurus/mdx-loader@3.10.2` è già l'ultima pubblicata e dichiara `image-size: ^2.0.2`. A monte
+il tema è aperto e tracciato nella segnalazione `facebook/docusaurus#12231`, con due proposte di
+sostituzione ancora non unite, `#12235` e `#12388`.
+
+**Perché non si forza la sostituzione, che è la parte importante.** La tentazione, davanti a due
+righe rosse, è dirottare il nome con un `overrides` verso un altro pacchetto. Le due strade
+disponibili sono entrambe peggiori del difetto che rimuoverebbero. La prima è `image-dimensions`,
+quella che una delle proposte a monte adotta: è però un modulo di soli ESM, espone un unico punto
+di ingresso e funzioni con altro nome, mentre `mdx-loader` fa `require("image-size/fromFile")` e
+invoca `imageSizeFromFile`; il dirottamento del nome non produce un avviso, produce una costruzione
+rotta. La seconda sono le diramazioni comparse su npm dopo l'archiviazione - `image-size-next` è la
+più visibile, tre versioni pubblicate, un solo manutentore, nessuna attestazione di provenienza,
+diciottomila installazioni la settimana contro i trentacinque milioni dell'originale. Sostituire
+significherebbe scambiare un blocco del ciclo di eventi, che non tocca l'integrità di nulla, con
+l'esecuzione di codice arbitrario di ignoti dentro la catena che costruisce e **firma** ciò che il
+progetto pubblica. È lo spostamento di rischio che una riga verde nel cruscotto non racconta.
+
+**L'esposizione reale, misurata e non stimata.** `image-size` è caricato soltanto dal trasformatore
+delle immagini di `mdx-loader`, che lo invoca su file letti dal disco quando un documento Markdown
+rinvia a un'immagine. Il sito ne contiene due, `favicon.svg` e `logo.svg`, entrambe vettoriali e
+sotto `static/`, e nessun documento delle due lingue rinvia a un'immagine raster: il percorso
+vulnerabile oggi non viene eseguito nemmeno una volta. Dopo la costruzione, la ricerca di
+`image-size` e dei nomi dei suoi lettori negli 880 file dell'artefatto pubblicato non trova nulla:
+è un componente di sola costruzione, non arriva al browser di chi legge. Chi potrebbe attivarlo è
+solo chi riesce a far entrare nel repository un file ICNS, JXL o HEIF costruito apposta, e
+l'effetto sarebbe un lavoro di pipeline appeso fino al proprio `timeout-minutes: 20` - che tutti i
+lavori che eseguono `npm run build` dichiarano già - senza alcun artefatto prodotto e quindi senza
+nulla da firmare.
+
+**La regola.** Davanti a un avviso su una dipendenza transitiva si accertano tre cose, in
+quest'ordine, prima di toccare qualunque file: se esiste davvero una versione corretta
+(`first_patched_version`, e `fixAvailable` di `npm audit`, non l'impressione che «basta
+aggiornare»); se il componente a monte è ancora vivo, perché un archivio non pubblicherà altro; e
+se il percorso vulnerabile è raggiungibile dall'artefatto che il progetto pubblica. Quando la
+versione corretta non esiste, **una vulnerabilità dichiarata e motivata vale più di una
+sostituzione forzata**: il rimedio che introduce nella catena di costruzione un componente senza
+provenienza verificabile non chiude il rischio, lo sposta dove nessuno lo sta guardando. Il
+sostituto si accetta solo se ha provenienza verificabile e interfaccia compatibile, e le due
+condizioni si verificano prima, non dopo aver visto fallire la costruzione.
+
+**Il presidio.** Nessuno, e va detto invece di lasciarlo intendere. L'attività che coprirebbe il
+caso - analisi delle dipendenze contro le banche dati di vulnerabilità, `SEC-C2` in
+`pipeline/collocazione-dei-controlli.tsv` - è in sola segnalazione e diventa bloccante il 26
+settembre 2026; fino a quel giorno l'unico presidio è la sorveglianza automatica del repository, che
+avvisa e non blocca. La dichiarazione di esposizione prescritta dal §4 di
+`docs/06_security/07-catena-di-fornitura.md` è la sede in cui questa valutazione andrà scritta in
+forma leggibile da una macchina e firmata: oggi quell'artefatto non esiste, e questa voce non lo
+sostituisce.
+
 ---
 
 ## D. Trappole del progetto
