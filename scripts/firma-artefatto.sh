@@ -48,21 +48,42 @@ echo "Firma dell'artefatto: $artefatto"
 nome_artefatto="$(basename "$artefatto")"
 hash_artefatto=""
 
-# Se l'artefatto è una cartella, comprimila per la firma
-# Calcola l'hash PRIMA della compressione per l'attestazione
+# SE L'ARTEFATTO È UNA CARTELLA, SI FIRMA L'ARCHIVIO - E L'ARCHIVIO SI CONSERVA.
+#
+# La prima stesura scriveva l'archivio in /tmp con un nome che conteneva l'istante in nanosecondi
+# e lo RIMUOVEVA con una trappola sull'uscita. Ne discendevano due difetti che rendevano la firma
+# inverificabile da chiunque, ed è il punto in cui una firma smette di essere una firma:
+#
+#   1. NESSUNO POTEVA OTTENERE CIÒ CHE ERA STATO FIRMATO. La firma è sull'archivio, l'archivio
+#      spariva alla fine dello script, e la corsia pubblicava soltanto la distinta dei materiali.
+#      Il criterio 8 di T-03 chiede che la procedura di verifica sia DIMOSTRATA su un artefatto
+#      firmato: non è dimostrabile su un file che non esiste più.
+#   2. L'IMPRONTA NELL'ATTESTAZIONE NON ERA QUELLA DELL'ARCHIVIO FIRMATO. Il flusso veniva
+#      compresso DUE volte - una per calcolare l'impronta, una per scrivere il file - e due
+#      compressioni gzip successive differiscono nell'intestazione. L'attestazione dichiarava
+#      quindi l'impronta di un flusso che non è mai stato firmato e che nessuno può riprodurre.
+#
+# L'archivio è ora deterministico e si conserva accanto alla firma: ordine dei nomi fissato,
+# tempi e proprietari azzerati, e `gzip -n` perché altrimenti il nome e l'istante del file finiscono
+# nell'intestazione compressa e due archivi dello stesso contenuto hanno impronte diverse. Chi
+# verifica scarica l'archivio, la firma e l'attestazione, e i tre si corrispondono.
 artefatto_per_firma="$artefatto"
+archivio_conservato=""
 if [ -d "$artefatto" ]; then
-  echo "L'artefatto è una cartella: compressione in tar.gz per la firma"
-  # Calcola l'hash della cartella per l'attestazione
-  hash_artefatto=$(tar --gzip --create --to-stdout --directory "$(dirname "$artefatto")" "$(basename "$artefatto")" | sha256sum | cut -d' ' -f1)
-
-  artefatto_per_firma="/tmp/artefatto-$(date +%s%N).tar.gz"
-  tar --gzip --create --file "$artefatto_per_firma" --directory "$(dirname "$artefatto")" "$(basename "$artefatto")"
-  trap "rm -f '$artefatto_per_firma'" EXIT
-else
-  # Se è un file, calcola l'hash del file
-  hash_artefatto=$(sha256sum "$artefatto" | cut -d' ' -f1)
+  archivio_conservato="${artefatto}.tar.gz"
+  echo "L'artefatto è una cartella: si firma l'archivio deterministico $archivio_conservato"
+  tar --create \
+      --sort=name \
+      --mtime=@0 \
+      --owner=0 --group=0 --numeric-owner \
+      --directory "$(dirname "$artefatto")" \
+      "$(basename "$artefatto")" \
+    | gzip -n > "$archivio_conservato"
+  artefatto_per_firma="$archivio_conservato"
 fi
+# L'impronta è SEMPRE quella del file che viene firmato, mai di un flusso calcolato a parte.
+hash_artefatto=$(sha256sum "$artefatto_per_firma" | cut -d' ' -f1)
+nome_firmato="$(basename "$artefatto_per_firma")"
 
 # Firma dell'artefatto con cosign e identità effimera
 # --identity-token è il token OIDC fornito da GitHub Actions
@@ -91,10 +112,11 @@ cat > "$output_att" <<EOF
   "attestationType": "https://slsa.dev/provenance/v0.2",
   "subject": [
     {
-      "name": "$nome_artefatto",
+      "name": "$nome_firmato",
       "digest": {
         "sha256": "$hash_artefatto"
-      }
+      },
+      "contenuto": "$nome_artefatto"
     }
   ],
   "predicate": {
@@ -127,4 +149,8 @@ cat > "$output_att" <<EOF
 EOF
 
 echo "Attestazione di provenienza salvata in: $output_att"
+if [ -n "$archivio_conservato" ]; then
+  echo "Archivio firmato conservato in: $archivio_conservato"
+  echo "  impronta sha256: $hash_artefatto"
+fi
 echo "✓ Firma e provenienza completate. Nessun segreto né chiave privata custodita."

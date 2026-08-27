@@ -166,3 +166,29 @@ jobs:
         env:
           WORKFLOW_FILE: .github/workflows/fascia-di-rilascio.yml
           REPO: ${{ github.repository }}
+
+      # UNA FIRMA CHE NESSUNO PUÒ SCARICARE NON È UNA FIRMA.
+      #
+      # Fino alla prima esecuzione riuscita del 27 agosto 2026 questa corsia produceva quattro file
+      # di firma e attestazione e li lasciava morire con la macchina virtuale: pubblicava soltanto
+      # la distinta dei materiali. Il difetto non si vedeva perché la corsia non era mai arrivata
+      # fin qui, e non è dell'ordine del refuso: il criterio 8 di T-03 chiede che la procedura di
+      # VERIFICA-DELL-ARTEFATTO.md sia dimostrata su un artefatto firmato, e non è dimostrabile su
+      # un file che non esiste più.
+      #
+      # Si pubblicano tutti e tre gli elementi che la verifica richiede, insieme: l'ARCHIVIO che è
+      # stato firmato - non la cartella, che nessuno potrebbe ricomprimere ottenendo gli stessi
+      # byte -, la FIRMA e l'ATTESTAZIONE di provenienza. Chi verifica non deve ricostruire nulla.
+      - name: Pubblicazione degli artefatti firmati
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: artefatti-firmati
+          path: |
+            website/build.tar.gz
+            website/build.sig
+            website/build.att
+            website/build/en.tar.gz
+            website/build-en.sig
+            website/build-en.att
+          retention-days: 90
