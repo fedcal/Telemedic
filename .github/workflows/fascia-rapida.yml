@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - uses: gitleaks/gitleaks-action@v2
@@ -69,7 +69,7 @@ jobs:
     # finché i trentasette casi non sono corretti è il comportamento CORRETTO di questo lavoro, non
     # un suo difetto.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-dati-sintetici.sh
 
   ancore:
@@ -98,7 +98,7 @@ jobs:
     # dal primo giorno: non presuppone codice applicativo (V-182 non lo tocca, e' documentazione),
     # quindi non c'e' ragione per farlo aspettare.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-ancore.sh
 
   dco:
@@ -117,7 +117,7 @@ jobs:
     # impossibile da soddisfare, e un cancello impossibile non e' un cancello - e' un cancello
     # che qualcuno finira' per aggirare.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       # L'intervallo si dichiara qui invece di lasciarlo dedurre allo script, perche' i due
@@ -175,7 +175,7 @@ jobs:
     # necessario al collaudo di verifica-ancore.sh. E' un limite dichiarato, non una copertura: un
     # trattino sbagliato scritto dentro una tenuta non viene visto.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-trattini.sh
 
   termini-vietati:
@@ -240,7 +240,7 @@ jobs:
     # segnala e non blocca accumula rilievi fino al giorno in cui diventa bloccante, e quel giorno
     # arriva sempre mentre l'attenzione e' altrove.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-termini-vietati.sh
 
   date-di-marcatura:
@@ -251,7 +251,7 @@ jobs:
     # pubblico», e questo li presidia entrambi. Sta anche in docs.yml, prima della pubblicazione,
     # perche' la fascia dice dove il controllo gira ANCHE, non dove basta che giri (voce D-23).
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-date-di-marcatura.sh
 
   coerenza-delle-date:
@@ -268,7 +268,7 @@ jobs:
     # copie creda. La fascia rapida gira sull'invio, che e' quando quella falsa affermazione entra
     # nella cronologia.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-coerenza-delle-date.sh
 
   registro-di-velocity:
@@ -277,7 +277,7 @@ jobs:
     # Bloccante dal primo giorno, per la stessa ragione di CD-C1: il repository e' gia' conforme
     # quando il controllo entra, e un controllo che nasce verde non ha debito da scadenzare.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-registro-di-velocity.sh
 
   lettura-dei-tsv:
@@ -288,7 +288,7 @@ jobs:
     # riviolata due volte dallo stesso repository che l'aveva scritta. Un commento non e' un
     # cancello: chi scrive uno script nuovo non legge i commenti degli script vecchi.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-lettura-dei-tsv.sh
 
   bacheca:
@@ -300,7 +300,7 @@ jobs:
     # di non verificare la seconda, che dipende da una definizione di «area chiusa» non ancora
     # versionata.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-bacheca.sh
 
   decisioni-con-scadenza:
@@ -313,7 +313,7 @@ jobs:
     # esito - dipende da decisioni del committente, e nessuno la puo' soddisfare scrivendo: e' in
     # sola segnalazione fino al 3 ottobre 2026, che e' la scadenza di T-05, e poi blocca.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-decisioni-con-scadenza.sh
 
   rinvii-di-t04:
@@ -326,7 +326,7 @@ jobs:
     # scadenzare. Il controllo dichiara a ogni esecuzione la propria parte scoperta: il terzo
     # divieto si viola per omissione, e nessuno script la vede.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-rinvii-di-t04.sh
 
   esiti-di-t04:
@@ -338,7 +338,7 @@ jobs:
     # verifica resti senza esito, non e' soddisfacibile finche' la finestra non si apre: e' in
     # sola segnalazione fino al 3 ottobre 2026, scadenza di T-04, e poi blocca.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-esiti-di-t04.sh
 
   coerenza-delle-corsie:
@@ -348,7 +348,7 @@ jobs:
     # corsie che pubblicano, e nessuno poteva accorgersene perche' quella corsia non era mai stata
     # eseguita. Una corsia che non gira non e' rossa: e' assente.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-coerenza-delle-corsie.sh
 
   pipefail:
@@ -357,5 +357,5 @@ jobs:
     # Chiude la voce D-30: in una catena l'esito e' quello dell'ultimo comando, e «npm run build |
     # tail» esce zero anche quando la costruzione fallisce.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-pipefail.sh
