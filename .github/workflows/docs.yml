@@ -45,7 +45,7 @@ jobs:
         with:
           fetch-depth: 0 # serve a showLastUpdateTime: senza storia, la data è falsa
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
