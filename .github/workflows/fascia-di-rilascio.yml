@@ -104,7 +104,7 @@ jobs:
       - name: Verifica del registro dei componenti (G2, G5)
         run: ./scripts/verifica-registro-componenti.sh
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         # if: always() e non il default, per la stessa ragione del lavoro gemello in
         # fascia-completa.yml: se la verifica sopra fallisce, l'artefatto che ha fatto fallire il
         # controllo resta comunque scaricabile per l'indagine.
@@ -180,7 +180,7 @@ jobs:
       # stato firmato - non la cartella, che nessuno potrebbe ricomprimere ottenendo gli stessi
       # byte -, la FIRMA e l'ATTESTAZIONE di provenienza. Chi verifica non deve ricostruire nulla.
       - name: Pubblicazione degli artefatti firmati
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: artefatti-firmati

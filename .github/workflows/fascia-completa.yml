@@ -131,7 +131,7 @@ jobs:
         # (sbom-website.json alla radice del repository), coerente con --output-file ../sbom-website.json
         # del passo precedente.
         run: ./scripts/verifica-registro-componenti.sh
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         # if: always() e non il default: se la verifica sopra fallisce, l'artefatto che ha fatto
         # fallire il controllo resta comunque scaricabile per l'indagine. Non pesa sull'esito del
         # lavoro, che resta rosso per il passo precedente.
@@ -493,7 +493,7 @@ jobs:
       - uses: actions/checkout@v5
       - name: Rapporto sulle marcature non verificate
         run: RAPPORTO=marcature-non-verificate.tsv ./scripts/verifica-marcature-non-verificate.sh
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: marcature-non-verificate
           path: marcature-non-verificate.tsv
