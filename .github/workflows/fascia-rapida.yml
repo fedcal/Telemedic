@@ -329,6 +329,18 @@ jobs:
       - uses: actions/checkout@v5
       - run: ./scripts/verifica-rinvii-di-t04.sh
 
+  esiti-di-t04:
+    name: EST-C1 - ogni verifica di T-04 ha un esito e la sua conseguenza
+    runs-on: ubuntu-latest
+    # Due velocita'. La FORMA blocca da subito - valori ammessi, condizioni dove e solo dove
+    # l'esito le ammette, conseguenza su ogni esito, tutte e cinque le verifiche con una riga -
+    # perche' chi tiene il registro la puo' soddisfare oggi. La SOSTANZA, cioe' che nessuna
+    # verifica resti senza esito, non e' soddisfacibile finche' la finestra non si apre: e' in
+    # sola segnalazione fino al 3 ottobre 2026, scadenza di T-04, e poi blocca.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-esiti-di-t04.sh
+
   coerenza-delle-corsie:
     name: CORSIE-C1 - le corsie dichiarano le stesse versioni
     runs-on: ubuntu-latest

@@ -1,0 +1,5 @@
+# tenuta sintetica
+criterio	verifica	esito	condizioni	conseguenza	data
+1	Prima verifica sintetica	riuscita			2026-09-27
+2	Seconda verifica sintetica	fallita		il canale posteriore non regge, quindi la modalita di avvio va riprogettata	2026-09-28
+3	Terza verifica sintetica	riuscita con condizioni	vale finche la configurazione resta quella di riferimento	la sorveglianza va aggiunta alla corsia, non basta la configurazione	2026-09-29

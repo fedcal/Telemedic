@@ -3256,6 +3256,16 @@ esegui_caso "marcature non verificate: «destinatario» come parola comune non e
 esegui_caso "marcature non verificate: un capoverso che DEFINISCE il marcatore non ne pone uno" passa \
   mnv_caso definizione-non-marcatura
 
+# LA TERZA FORMA DELLA STESSA DISTINZIONE, trovata il 28 agosto 2026 sugli artefatti di T-04. «e'
+# marcato `[NV]` altrove», «non lo descrive marcandolo `[NV]`», «e' segnata `[NV]`»: il participio o
+# il gerundio del verbo che NOMINA l'atto di marcare. Come l'articolo e come il verbo di
+# definizione, non potra' mai ricevere un destinatario - chiedere a chi vada attribuita una frase
+# che racconta di una marcatura posta altrove non ha senso. Tre occorrenze reali su nove artefatti
+# nuovi: la forma non e' rara, era solo assente dal corpus finche' nessuno aveva scritto documenti
+# che PARLANO delle marcature invece di porne.
+esegui_caso "marcature non verificate: «e' marcato [NV]» racconta, non pone" passa \
+  mnv_caso marcatura-nominata-al-participio
+
 # TERZO. Una riga fatta del solo «>» separa due paragrafi dentro una citazione, e una riga di
 # recinto apre o chiude un blocco di codice: per chi legge sono confini evidenti, per l'espressione
 # «riga vuota» non lo erano, perche' contengono un carattere. Senza la regola, il destinatario
@@ -3648,6 +3658,67 @@ esegui_caso "rinvii T-04: i testi dei rinvii assenti - esce 2, non 1" passa \
 
 esegui_caso "rinvii T-04: il repository reale supera il controllo" passa \
   bash "$RADICE_REPO/scripts/verifica-rinvii-di-t04.sh"
+
+
+printf '\n== Controllo 36 - verifica-esiti-di-t04.sh (criterio di completamento di T-04) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. Il criterio di completamento di T-04 chiede, per ciascuna delle
+# cinque verifiche, un esito PIU' la conseguenza sulla progettazione scritta accanto. La seconda
+# meta' e' quella che si perde: un progetto che registri solo la prima si ritrova fra sei mesi con
+# cinque verifiche riuscite e nessuna traccia di che cosa gli abbiano insegnato.
+#
+# I CASI PROTEGGONO TRE DISTINZIONI, e nessuna e' formale.
+#   «riuscita con condizioni» SENZA le condizioni e' un «riuscita» scritto in modo da sembrare
+#   prudente, ed e' peggio di entrambi: chi legge crede che qualcuno abbia pesato qualcosa.
+#   «riuscita» CON delle condizioni scritte nasconde un esito che non e' quello dichiarato.
+#   «fallita» senza conseguenza e' la verifica sprecata, perche' l'unica cosa che un fallimento
+#   produce e' l'informazione su come non farlo - ed e' il caso che si dimentica, perche' davanti a
+#   un fallimento la tentazione e' passare oltre.
+#
+# LE TENUTE HANNO TRE CRITERI INVECE DI CINQUE, dichiarato da CRITERI_ATTESI: un banco che
+# ricopiasse i cinque veri porterebbe dentro di se' una copia del traguardo e resterebbe verde il
+# giorno in cui la roadmap ne aggiungesse un sesto.
+
+ET4_TENUTE="$TENUTE/esiti-t04"
+
+et4_caso() {
+  env REGISTRO_ESITI="$ET4_TENUTE/$1.tsv" CRITERI_ATTESI=3 \
+      ESITO_BLOCCANTE_DAL="${2:-2020-01-01}" OGGI="${3:-2026-08-28}" \
+      bash "$RADICE_REPO/scripts/verifica-esiti-di-t04.sh"
+}
+
+esegui_caso "esiti T-04: ogni verifica ha un esito e la conseguenza sulla progettazione" passa \
+  et4_caso conforme
+
+esegui_caso "esiti T-04: un esito «riuscita» senza la conseguenza" fallisce \
+  et4_caso riuscita-senza-conseguenza
+
+esegui_caso "esiti T-04: «riuscita con condizioni» senza le condizioni" fallisce \
+  et4_caso condizioni-mancanti
+
+esegui_caso "esiti T-04: condizioni scritte su un esito che non le ammette" fallisce \
+  et4_caso condizioni-dove-non-vanno
+
+esegui_caso "esiti T-04: una verifica del traguardo senza alcuna riga" fallisce \
+  et4_caso criterio-mancante
+
+esegui_caso "esiti T-04: «non eseguita» con data e conseguenza compilate" fallisce \
+  et4_caso non-eseguita-con-dati
+
+# I DUE CASI CHE SEGUONO SONO LA STESSA TENUTA A DUE DATE, e provano che la sola segnalazione ha
+# davvero un termine invece di essere indefinita - criterio 4 di T-03.
+esegui_caso "esiti T-04: una verifica senza esito, prima della scadenza, misura e non blocca" passa \
+  et4_caso una-senza-esito 2026-10-03 2026-08-28
+
+esegui_caso "esiti T-04: la stessa verifica senza esito, alla scadenza, blocca" fallisce \
+  et4_caso una-senza-esito 2026-10-03 2026-10-03
+
+esegui_caso "esiti T-04: registro inesistente - esce 2, errore di uso" passa \
+  bash -c 'env REGISTRO_ESITI="$1/non-esiste.tsv" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$ET4_TENUTE" "$RADICE_REPO/scripts/verifica-esiti-di-t04.sh"
+
+esegui_caso "esiti T-04: il registro reale supera il controllo" passa \
+  bash "$RADICE_REPO/scripts/verifica-esiti-di-t04.sh"
 
 printf '\n== Controllo 33 - costruzione del sito, collegamento rotto (criterio 2 di T-02, terza istanza di Q-288) ==\n\n'
 

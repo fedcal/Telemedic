@@ -48,12 +48,18 @@ set -uo pipefail
 
 cd "$(dirname "$0")/.."
 
-RADICE_CORPUS="${RADICE_CORPUS:-docs}"
+# IL PERIMETRO ACCETTA PIU' RADICI, e non ne accettava. Il 28 agosto 2026 i nove artefatti
+# preparatori di T-04 sono nati sotto verifiche/ e ne sono restati fuori: non per una decisione
+# di perimetro, ma per l'assenza di una decisione, che e' peggio perche' non si vede. Ogni
+# cartella nuova nasceva fuori dalla sorveglianza per il solo fatto di essere nuova.
+RADICE_CORPUS="${RADICE_CORPUS:-docs verifiche}"
 BLOCCANTE_DAL="${BLOCCANTE_DAL:-2026-10-10}"
 RAPPORTO="${RAPPORTO:-}"
 
-if [ ! -d "$RADICE_CORPUS" ]; then
-  printf 'Errore d'\''uso: la radice del corpus «%s» non esiste.\n' "$RADICE_CORPUS" >&2
+radici_mancanti=""
+for r in $RADICE_CORPUS; do [ -d "$r" ] || radici_mancanti="$radici_mancanti $r"; done
+if [ -n "$radici_mancanti" ]; then
+  printf 'Errore d'\''uso: radice/i del corpus inesistente/i:%s\n' "$radici_mancanti" >&2
   printf 'Percorso configurabile con RADICE_CORPUS.\n' >&2
   exit 2
 fi
@@ -113,6 +119,7 @@ misura=$(gawk '
                "|nel|nello|nella|nei|negli|nelle|quel|quei|questo|questi|ogni|due|tre" \
                "|the|a|an|each|every|those|these)[ ]+" \
                "|(marcator[ei]|marcatur[ae])[ ]+`?" \
+               "|(marcat[oaie]|marcand[oa]l[oaie]|marcare|segnat[oaie])[ ]+`?" \
                "|(l|un|dell|nell|quell|all|dall)'\''[ ]*)`?\\[NV\\]"
     # LA FORMA DEFINITORIA E'\'''\'' L'\'''\''ALTRA META'\'''\'' DELLA STESSA DISTINZIONE. «`[NV]` segnala
     # un'\'''\''informazione non verificata» non pone una marcatura: la DEFINISCE, ed e'\'''\'' il modo in cui
@@ -180,7 +187,7 @@ misura=$(gawk '
       printf "SENZA\t%s\t%d\t%s\n", dove, numero, substr(testo, 1, 150)
     }
   }
-' $(find "$RADICE_CORPUS" -type f -name '*.md' | sort))
+' $(find $RADICE_CORPUS -type f -name '*.md' | sort))
 
 con=$(printf '%s\n' "$misura" | gawk -F'\t' '$1=="TOTALI"{print $2}')
 senza=$(printf '%s\n' "$misura" | gawk -F'\t' '$1=="TOTALI"{print $3}')

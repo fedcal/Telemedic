@@ -1,0 +1,157 @@
+# Enumerazione versionata delle configurazioni supportate del confine di autorizzazione
+#
+# Che cos'è. È l'artefatto P1 del piano .telemedic/piani/T-04-verifiche-empiriche.md § 3, e serve
+# il criterio 1 del traguardo T-04 (docs/09_roadmap/02-traguardi.md), che chiede sia dimostrato
+# che «nessuna configurazione supportata produce un token privo del claim dell'attore». Lo stesso
+# enunciato è criterio di rilascio bloccante di RU-1 (docs/09_roadmap/03-primo-rilascio-utilizzabile.md
+# § 8, criterio 2) e vincolo V-132. Questo file è l'insieme su cui quella dimostrazione corre.
+#
+# PERCHE' ESISTE, e la ragione è l'unica che conta. «Nessuna configurazione supportata» è un
+# quantificatore universale, e un quantificatore universale senza il suo insieme non è
+# dimostrabile: si prova sui casi che si sono pensati e si conclude su tutti. È tautologia con
+# l'aspetto di una prova negativa, ed è il modo esatto in cui questo criterio fallirebbe senza
+# accorgersene. Il piano lo registra fra i rischi propri del traguardo: «l'insieme delle
+# configurazioni supportate viene enumerato dopo la prova». Enumerarlo prima è la sola cosa che
+# rende il criterio binario.
+#
+# L'INSIEME E' CHIUSO. Una configurazione che non compare in una riga di questo file NON E'
+# SUPPORTATA. Non è «non ancora provata», non è «da verificare», non è «presumibilmente
+# funzionante»: non è supportata, e metterla in esercizio esce dal perimetro dichiarato del
+# prodotto. La differenza fra le due formulazioni non è di tono. «Non ancora provata» promette un
+# lavoro futuro e lascia credere che il comportamento sia quello atteso; «non supportata» dice che
+# nessuno ha promesso nulla, ed è la sola affermazione che questo progetto può fare sul suo
+# confine di autorizzazione prima che il codice esista.
+#
+# Formato: file di testo separato da carattere TAB, codifica UTF-8. Le righe che iniziano con #
+# sono commenti e vanno ignorate da un lettore automatico. Segue l'intestazione delle colonne e
+# poi una riga per configurazione. Nessuna cella contiene un carattere TAB.
+#
+# Colonne: configurazione, meccanismo, soggetto, autenticazione_del_client,
+#          provenienza_del_livello, sintassi_degli_ambiti, assetto_di_tenant, claim_attore,
+#          prova_negativa, fonte, nota
+#
+# Valori ammessi, uno per colonna. Un valore fuori da questi elenchi è un errore del file, non
+# una configurazione nuova: una configurazione nuova è una riga nuova, con la sua prova.
+#
+#   meccanismo                  concessione-con-asserzione | scambio-di-token |
+#                               credenziali-di-client | accesso-diretto
+#   soggetto                    professionista-dell-integratore |
+#                               professionista-dell-integratore-con-catena-annidata |
+#                               assistito-sul-realm-dell-assistito |
+#                               professionista-sul-realm-clinico | nessuno
+#   autenticazione_del_client   asserzione-firmata | mutua-di-trasporto | non-applicabile
+#   provenienza_del_livello     riferita | eseguita | assente
+#   sintassi_degli_ambiti       corrente | precedente-convertita | non-applicabile
+#   assetto_di_tenant           multi-tenant | tenant-unico
+#   claim_attore                obbligatorio | non-applicabile
+#   prova_negativa              assenza-del-claim | irraggiungibilita-da-emittente-esterno
+#
+# Regole che non si negoziano su questo file.
+#
+#   1. L'insieme è chiuso, e la chiusura si dichiara qui e non altrove. Chi aggiunge una
+#      configurazione aggiunge una riga PRIMA di metterla in esercizio, mai dopo. Una riga
+#      aggiunta dopo che la prova è girata non è coperta dalla prova, e il criterio torna a essere
+#      tautologico esattamente come se il file non esistesse.
+#
+#   2. «Versionata» ha un significato operativo, non decorativo. L'esito del criterio 1 nel
+#      registro verifiche/P8-registro-degli-esiti.tsv riporta, nella colonna condizioni,
+#      L'IMPRONTA DEL COMMIT DI QUESTO FILE contro cui la prova negativa è girata; se in seguito
+#      P8 acquisisse una colonna propria per l'impronta, va lì. Una modifica di una qualunque riga
+#      invalida l'esito registrato in precedenza: non lo degrada, lo invalida, perché l'insieme su
+#      cui il quantificatore correva non è più lo stesso. Un esito che non dica su quale versione
+#      dell'insieme è girato non è verificabile da nessuno che non fosse presente.
+#
+#   3. claim_attore vale «obbligatorio» quando l'identità proviene da un emittente esterno, e in
+#      quel caso il token interno emesso porta SEMPRE il claim dell'attore di RFC 8693 § 4.1.
+#      Vale «non-applicabile» quando non esiste alcun soggetto esterno per conto del quale si
+#      agisca: non c'è delega da rappresentare, e imporre il claim significherebbe fabbricare un
+#      attore che non esiste.
+#
+#   4. LE RIGHE «non-applicabile» NON SONO RIGHE ESENTI: portano la prova negativa più pericolosa
+#      delle due. Ciascuna deve dimostrare la propria IRRAGGIUNGIBILITA' DA UN EMITTENTE ESTERNO,
+#      cioè che nessun percorso consente di ottenere un token per quella configurazione
+#      presentando un'identità che proviene da un emittente esterno. Senza quella dimostrazione
+#      una riga «non-applicabile» è la via d'uscita da V-132: basterebbe far transitare l'identità
+#      dell'integratore per la configurazione a identità di sistema o per quella ad accesso
+#      diretto, e il claim dell'attore sparirebbe legittimamente. È lo scenario che questo file
+#      esiste per rendere visibile, ed è la ragione per cui le righe «non-applicabile» sono
+#      ENUMERATE invece di essere omesse come fuori tema.
+#
+#   5. Nessun dato reale, in nessuna cella e in nessuna esecuzione della prova. Tenant, client,
+#      emittenti e soggetti usati sono sintetici e riconoscibili come tali: domini riservati
+#      (.example, .invalid) e identificativi opachi costruiti, mai un'anagrafica.
+#
+#   6. Nessun segreto qui e nella configurazione che questo file descrive: soli segnaposto nella
+#      forma ${VARIABILE_AMBIENTE}. Vale per il materiale di chiave privata dei client di prova
+#      come per qualunque credenziale dell'istanza effimera.
+#
+#   7. Nessuna cella afferma conformità. Questo file dichiara che cosa il prodotto SUPPORTA e su
+#      che cosa sarà giudicato, non che il prodotto sia conforme a qualcosa.
+#
+# UNA DIVERGENZA FRA DUE TESTI DEL PROGETTO, DICHIARATA E NON APPIANATA. Il vincolo V-132
+# (registro/vincoli.tsv) enuncia la regola con una qualificazione: «QUANDO L'IDENTITA' PROVIENE DA
+# UN EMITTENTE ESTERNO si usa sempre la delega [...] nessuna configurazione supportata emette un
+# token privo del claim dell'attore». Il criterio 1 di T-04 e il criterio 2 di RU-1 § 8 la
+# riportano SENZA quella qualificazione. Letto alla lettera, il secondo enunciato è falso su
+# sette righe di questo file, perché in esse un attore non esiste; letto con la qualificazione,
+# il quantificatore corre su dieci righe e non su diciassette. Questo file adotta la lettura di
+# V-132, che è la fonte normativa del vincolo, ed enumera comunque le sette righe residue con la
+# loro prova negativa propria, così che nessuna configurazione resti fuori dall'insieme. La
+# riformulazione dei due criteri di roadmap spetta a `PROTO`, che possiede il vincolo, e a `ROAD`,
+# che possiede il testo dei traguardi: finché non avviene, chi esegue la prova deve sapere che sta
+# dimostrando l'enunciato qualificato e non quello letterale, e l'esito registrato in P8 lo deve
+# dire.
+#
+# PERCHE' LE RIGHE «tenant-unico» SONO ENUMERATE, benché il codice sia lo stesso. RU-1 § 3.1
+# dichiara che «l'installazione a tenant unico è il caso degenere dello stesso codice, non una
+# variante»: sul piano del percorso di esecuzione le righe multi-tenant e quelle a tenant unico
+# non differiscono. Sono enumerate lo stesso, e per una ragione che non è di simmetria: il profilo
+# di dispiegamento effettivamente rilasciato da RU-1 è quello a tenant unico (taglio TG-08), e una
+# prova negativa che non sia mai girata sul profilo rilasciato non dice nulla sul rilascio. Il
+# corollario è a sua volta un'asserzione da scrivere: se una riga a tenant unico si comportasse
+# diversamente dalla riga multi-tenant corrispondente, l'affermazione «caso degenere dello stesso
+# codice» sarebbe falsa, e sarebbe un difetto di architettura prima che di prova.
+#
+# CHE COSA SIGNIFICA «eseguita» IN QUESTO FILE, e vale la precisazione perché altrove significa
+# altro. In docs/06_security/02-identita-e-accessi.md § 4 l'autenticazione «eseguita» è
+# esemplificata con la federazione nazionale delle identità. Nel perimetro di RU-1 la federazione
+# nazionale NON c'è (docs/09_roadmap/03-primo-rilascio-utilizzabile.md § 7.1: il presupposto è un
+# «fornitore di identità proprio, o federazione con il sistema dell'integratore»), e la
+# qualificazione del livello resta comunque nel perimetro perché è «il marcatore che impedisce di
+# scambiare le due cose quando arriverà». Qui «eseguita» significa dunque: autenticazione svolta
+# dal fornitore di identità proprio dell'installazione. La qualificazione della provenienza si
+# prova adesso; il canale nazionale che la renderà interessante arriva dopo.
+#
+# CHE COSA QUESTO FILE NON COPRE, e dove sta invece.
+#   - Il token d'ingresso a uso singolo con cui l'integratore avvia la sessione: è il criterio 2
+#     di T-04 e il suo protocollo è P4. Non è una configurazione del confine di autorizzazione: è
+#     una credenziale di ingresso a una sessione già autorizzata.
+#   - L'ordine e l'esito dei cinque controlli sul token in ingresso: è P2.
+#   - I sette casi di abuso e ciò che ciascuno produce: è P3.
+#   - La decisione di autorizzazione a valle - relazione di cura, ruolo, livello minimo per
+#     operazione - che avviene nel punto di decisione e non nel confine
+#     (docs/01_technical/02-backend.md § 3, punto 3).
+#   - La forma del token interno, opaco o autoportante, che è la questione aperta Q-135 verso
+#     l'area di architettura e che questo file non decide: le righe qui elencate valgono
+#     identiche nelle due ipotesi, perché riguardano che cosa il token porta e non come è fatto.
+#
+# Voci: 17
+
+configurazione	meccanismo	soggetto	autenticazione_del_client	provenienza_del_livello	sintassi_degli_ambiti	assetto_di_tenant	claim_attore	prova_negativa	fonte	nota
+CA-01	concessione-con-asserzione	professionista-dell-integratore	asserzione-firmata	riferita	corrente	multi-tenant	obbligatorio	assenza-del-claim	docs/04_protocols/08-identita-e-autorizzazione.md § 5.4	Modalità primaria documentata: l'integratore presenta al punto di emissione un'asserzione firmata dal proprio emittente. È la riga di riferimento, e le successive nove ne sono variazioni su un asse solo alla volta
+CA-02	concessione-con-asserzione	professionista-dell-integratore	asserzione-firmata	riferita	precedente-convertita	multi-tenant	obbligatorio	assenza-del-claim	docs/04_protocols/08-identita-e-autorizzazione.md § 4.1	Ambiti presentati nella sintassi precedente e convertiti con la conversione normata dalla specifica. È un percorso di codice distinto e va esercitato: la conversione tocca lo scopo concesso, non il claim dell'attore, e la prova deve mostrare che non lo tocca
+CA-03	concessione-con-asserzione	professionista-dell-integratore	mutua-di-trasporto	riferita	corrente	multi-tenant	obbligatorio	assenza-del-claim	docs/04_protocols/08-identita-e-autorizzazione.md § 8.4	Autenticazione del client per mutua di trasporto, opzione raccomandata da servizio a servizio. Cambia chi autentica il client, non chi è l'attore: la prova deve mostrare che l'attore resta il client autenticato e non l'identità del certificato interpretata a parte
+CA-04	concessione-con-asserzione	professionista-dell-integratore-con-catena-annidata	asserzione-firmata	riferita	corrente	multi-tenant	obbligatorio	assenza-del-claim	docs/04_protocols/08-identita-e-autorizzazione.md § 5.2	L'integratore agiva a sua volta per conto di un terzo. La catena annidata è preservata e l'attore più esterno resta il client autenticato: è il caso in cui l'appiattimento della catena somiglia a una semplificazione innocua e non lo è
+CA-05	concessione-con-asserzione	professionista-dell-integratore	asserzione-firmata	riferita	corrente	tenant-unico	obbligatorio	assenza-del-claim	docs/09_roadmap/03-primo-rilascio-utilizzabile.md § 3.1	Profilo di dispiegamento effettivamente rilasciato da RU-1 (taglio TG-08). Il percorso di codice è quello di CA-01: se differisse, l'affermazione «caso degenere dello stesso codice» sarebbe falsa
+CA-06	scambio-di-token	professionista-dell-integratore	asserzione-firmata	riferita	corrente	multi-tenant	obbligatorio	assenza-del-claim	docs/04_protocols/08-identita-e-autorizzazione.md § 5.4	Modalità alternativa, scambio di token puro secondo RFC 8693. Lo scambio è realizzato nel gateway del progetto e non nel prodotto di federazione, la cui funzione corrispondente è in stato di anteprima e su cui D18 vieta di dipendere
+CA-07	scambio-di-token	professionista-dell-integratore	asserzione-firmata	riferita	precedente-convertita	multi-tenant	obbligatorio	assenza-del-claim	docs/04_protocols/08-identita-e-autorizzazione.md § 4.1	Come CA-02 sul meccanismo di scambio
+CA-08	scambio-di-token	professionista-dell-integratore	mutua-di-trasporto	riferita	corrente	multi-tenant	obbligatorio	assenza-del-claim	docs/04_protocols/08-identita-e-autorizzazione.md § 8.4	Come CA-03 sul meccanismo di scambio
+CA-09	scambio-di-token	professionista-dell-integratore-con-catena-annidata	asserzione-firmata	riferita	corrente	multi-tenant	obbligatorio	assenza-del-claim	docs/04_protocols/08-identita-e-autorizzazione.md § 5.2	Come CA-04 sul meccanismo di scambio
+CA-10	scambio-di-token	professionista-dell-integratore	asserzione-firmata	riferita	corrente	tenant-unico	obbligatorio	assenza-del-claim	docs/09_roadmap/03-primo-rilascio-utilizzabile.md § 3.1	Come CA-05 sul meccanismo di scambio
+CA-11	credenziali-di-client	nessuno	asserzione-firmata	assente	corrente	multi-tenant	non-applicabile	irraggiungibilita-da-emittente-esterno	docs/04_protocols/08-identita-e-autorizzazione.md § 5.5	Identità di sistema, non di utente: si usa questa configurazione proprio per NON aggiungere un soggetto fittizio. La prova negativa asserisce che questa concessione rifiuta qualunque parametro di asserzione o di token del soggetto, e che il soggetto del token emesso è sempre e solo il client autenticato
+CA-12	credenziali-di-client	nessuno	mutua-di-trasporto	assente	corrente	multi-tenant	non-applicabile	irraggiungibilita-da-emittente-esterno	docs/04_protocols/08-identita-e-autorizzazione.md § 5.5	Come CA-11 con autenticazione del client per mutua di trasporto
+CA-13	credenziali-di-client	nessuno	asserzione-firmata	assente	corrente	tenant-unico	non-applicabile	irraggiungibilita-da-emittente-esterno	docs/04_protocols/08-identita-e-autorizzazione.md § 5.5	Come CA-11 sul profilo di dispiegamento rilasciato
+CA-14	accesso-diretto	assistito-sul-realm-dell-assistito	non-applicabile	eseguita	non-applicabile	multi-tenant	non-applicabile	irraggiungibilita-da-emittente-esterno	docs/06_security/02-identita-e-accessi.md § 6.1	Autenticazione svolta dal fornitore di identità proprio dell'installazione, non dalla federazione nazionale, che è fuori dal perimetro di RU-1. Nessun emittente esterno, nessuna delega. La prova negativa asserisce che nessun soggetto derivato da un emittente esterno può comparire su questo percorso
+CA-15	accesso-diretto	professionista-sul-realm-clinico	non-applicabile	eseguita	non-applicabile	multi-tenant	non-applicabile	irraggiungibilita-da-emittente-esterno	docs/06_security/02-identita-e-accessi.md § 6.1	Come CA-14 sul realm clinico. È la riga più esposta delle quattro: il professionista è anche il soggetto che l'integratore delega, e un percorso che confondesse le due provenienze produrrebbe un livello riferito presentato come eseguito
+CA-16	accesso-diretto	professionista-sul-realm-clinico	non-applicabile	eseguita	non-applicabile	tenant-unico	non-applicabile	irraggiungibilita-da-emittente-esterno	docs/06_security/02-identita-e-accessi.md § 6.1	Come CA-15 sul profilo di dispiegamento rilasciato
+CA-17	accesso-diretto	assistito-sul-realm-dell-assistito	non-applicabile	eseguita	non-applicabile	tenant-unico	non-applicabile	irraggiungibilita-da-emittente-esterno	docs/06_security/02-identita-e-accessi.md § 6.1	Come CA-14 sul profilo di dispiegamento rilasciato

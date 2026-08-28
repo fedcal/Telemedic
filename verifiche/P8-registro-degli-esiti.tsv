@@ -1,0 +1,68 @@
+# Registro degli esiti delle verifiche empiriche - traguardo T-04
+#
+# CHE COS'E'. Il criterio di completamento di T-04 nella sua lettera: per ciascuna delle cinque
+# verifiche, un esito fra «riuscita», «fallita» e «riuscita con condizioni», PIU' la conseguenza
+# sulla progettazione scritta accanto. Un esito senza conseguenza scritta non chiude il criterio, e
+# non e' una formalita': l'esito dice che cosa e' successo, la conseguenza dice che cosa cambia. Un
+# progetto che registri solo il primo si ritrova fra sei mesi con cinque verifiche riuscite e
+# nessuna traccia di che cosa gli abbiano insegnato.
+#
+# PERCHE' «NON ESEGUITA» E' SCRITTO PER ESTESO. Una cella vuota e' indistinguibile da una
+# dimenticanza; la parola scritta dice che qualcuno ha guardato quella riga. Il controllo la conta
+# pero' come assenza di esito, esattamente come conterebbe il vuoto: la leggibilita' e' per chi
+# legge, non uno sconto sul criterio.
+#
+# LA REGOLA CHE VALE PIU' DI TUTTE, e che questo file esiste per far rispettare: un esito si scrive
+# MENTRE la verifica gira, non dopo. Il piano lo dice della sola cosa parallelizzabile del
+# traguardo - «un esito registrato il giorno dopo e' un esito ricostruito» -, e la ricostruzione ha
+# una direzione sola: si ricorda cio' che ha funzionato e si dimentica la condizione che lo rendeva
+# vero. Le condizioni sono la parte che si perde per prima, e sono la parte che serve.
+#
+# CHE COSA UN ESITO «RIUSCITA» NON AUTORIZZA. Una verifica riuscita autorizza a progettare; non e'
+# progettazione. Il codice usa-e-getta che l'ha prodotta non diventa il componente di T-08 - il
+# piano lo prescrive del gateway del criterio 1 e vale per tutti - e nessuna di queste verifiche
+# sostituisce la revisione esterna indipendente del codice di sicurezza critico, che e' attivita' a
+# se' e irreversibile per il periodo. Qui si verifica IL COMPORTAMENTO, non si rivede il codice.
+#
+# Formato: file di testo separato da carattere TAB, codifica UTF-8. Le righe che iniziano con #
+# sono commenti e vanno ignorate da un lettore automatico. Segue l'intestazione delle colonne e poi
+# una riga per verifica.
+#
+# Colonne: criterio, verifica, esito, condizioni, conseguenza, data
+#
+# Regole che non si negoziano su questo file.
+#
+#   1. criterio e' il numero del criterio di T-04, da 1 a 5. Ci sono tutti e cinque, sempre: una
+#      verifica dimenticata non produce alcuna riga e quindi nessun rilievo riga per riga la
+#      troverebbe. Il controllo li conta.
+#
+#   2. esito vale «riuscita», «fallita», «riuscita con condizioni» oppure «non eseguita». I primi
+#      tre sono esiti; il quarto e' l'assenza di un esito.
+#
+#   3. condizioni e' obbligatoria - e solo ammessa - quando esito vale «riuscita con condizioni».
+#      Dice SOTTO QUALI condizioni la verifica e' riuscita, cioe' che cosa deve restare vero perche'
+#      l'esito valga. Un «riuscita con condizioni» senza le condizioni e' un «riuscita» scritto in
+#      modo da sembrare prudente, ed e' peggio di entrambi.
+#
+#   4. conseguenza e' obbligatoria per ogni esito che non sia «non eseguita», e dichiara CHE COSA
+#      cambia nella progettazione. Vale anche - e soprattutto - per «fallita»: un fallimento senza
+#      conseguenza scritta e' la verifica sprecata, perche' l'unica cosa che il fallimento produce
+#      e' l'informazione su come non farlo.
+#
+#   5. data e' la data ISO AAAA-MM-GG in cui la verifica e' stata eseguita, mai una data
+#      programmata. Obbligatoria quando esito non vale «non eseguita».
+#
+#   6. Nessuna riga si cancella. Questo file dichiara lo STATO corrente; la cronologia sta nella
+#      storia di git.
+#
+# Presidiato da scripts/verifica-esiti-di-t04.sh.
+#
+# Stato al 28 agosto 2026: cinque righe, zero esiti. La finestra di esecuzione va dal 26 settembre
+# al 3 ottobre 2026, e nessuna delle cinque verifiche e' ancora stata eseguita: il traguardo T-03
+# che ne era l'innesco si e' chiuso il 27 agosto, undici giorni prima della propria scadenza.
+criterio	verifica	esito	condizioni	conseguenza	data
+1	Scambio di token nel gateway con delega esplicita	non eseguita			
+2	Token d'ingresso a uso singolo, scadenza brevissima, canale posteriore	non eseguita			
+3	Tre difetti noti del prodotto di federazione chiusi e sorvegliati	non eseguita			
+4	Isolamento di rete in uscita del nodo di relay	non eseguita			
+5	I rinvii registrati, con la regola che resta in vigore per ciascuno	non eseguita			

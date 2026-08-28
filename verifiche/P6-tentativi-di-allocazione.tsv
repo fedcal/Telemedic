@@ -1,0 +1,78 @@
+# Elenco chiuso e versionato dei sei tentativi di allocazione - criterio 4 di T-04
+#
+# Che cos'è. Il criterio 4 di T-04 (docs/09_roadmap/02-traguardi.md, tramite il piano
+# .telemedic/piani/T-04-verifiche-empiriche.md §5) verifica che il tentativo di creare un
+# permesso di inoltro verso destinazioni interne sul nodo di relay non riesca, e che una
+# qualunque riuscita faccia fallire la costruzione. Questo file è l'artefatto P6 previsto dal
+# piano al §3: l'elenco dei sei tentativi con cui, in integrazione continua, una credenziale
+# valida tenta l'allocazione. La fonte primaria dei sei tentativi e della loro motivazione è
+# docs/06_security/05-sicurezza-del-tempo-reale.md §4.5, che li dichiara «requisito, non
+# raccomandazione».
+#
+# PERCHE' L'ELENCO E' CHIUSO E VERSIONATO, E NON LASCIATO AL GIUDIZIO DI CHI SCRIVERA' LA PROVA.
+# I sei tentativi corrispondono, uno per uno, alla famiglia di sei difetti distinti in otto anni
+# accertata su banca dati pubblica delle vulnerabilità e sugli avvisi del progetto a monte
+# (docs/06_security/05-sicurezza-del-tempo-reale.md §4.2): ciascun tentativo è il caso di
+# regressione di uno di quei difetti. GLI ULTIMI DUE - l'indirizzo pubblico del nodo stesso e
+# l'indirizzo dentro un intervallo IPv6 non allineato a un prefisso - sono quelli che
+# corrispondono ai due difetti più recenti della famiglia, e sono esattamente i due che una
+# suite di prove scritta prima di questa verifica, senza questo elenco davanti, non
+# conterrebbe: il primo perché non sembra intuitivamente un bersaglio - è l'indirizzo del nodo
+# stesso, non un indirizzo altrui - il secondo perché richiede di conoscere come
+# l'implementazione confronta gli indirizzi, non solo quali vieta. Per questo l'elenco si fissa
+# qui, prima che il codice usa-e-getta della verifica sia scritto, e non si riduce né si integra
+# a discrezione di chi lo esegue.
+#
+# CHE COSA QUESTO FILE NON FA. Non contiene codice, nemmeno usa-e-getta: descrive l'intento di
+# ciascun tentativo, non l'implementazione del client che lo eseguirà. Non è la configurazione
+# contro cui si verifica - quella è l'artefatto P7,
+# verifiche/P7-configurazione-di-riferimento-relay.md e il file di configurazione allegato. Un
+# tentativo di questo elenco che non trova riscontro in una riga esplicita di P7 è un difetto di
+# P7, non di questo file.
+#
+# NESSUN INDIRIZZO REALE DI ALCUNA INFRASTRUTTURA IN ESERCIZIO. Ogni indirizzo o intervallo di
+# questo file appartiene a un blocco riservato alla documentazione o generico per definizione -
+# RFC 5737 per la documentazione IPv4, RFC 3849 per la documentazione IPv6, RFC 1918 per la rete
+# privata, RFC 3927 per il link-local - oppure è un indirizzo di uso universale come
+# l'interfaccia di ritorno stessa. La colonna bersaglio_sintetico lo dichiara caso per caso.
+#
+# Formato: file di testo separato da tabulazione (TAB), codifica UTF-8. Le righe che iniziano
+# con # sono commenti e vanno ignorate da un lettore automatico. Segue l'intestazione delle
+# colonne e poi una riga per tentativo, nello stesso ordine con cui il piano e
+# 05-sicurezza-del-tempo-reale.md §4.5 li elencano: l'ordine non è significativo per l'esito -
+# la costruzione fallisce se anche uno solo dei sei riceve risposta positiva - ma cambiarlo
+# senza ragione renderebbe più difficile confrontare questo file con la fonte.
+#
+# Colonne: numero, tentativo, bersaglio_sintetico, cosa_esercita, regola_p7, esito_atteso, nota
+#
+#   numero              Posizione nell'elenco, da 1 a 6. Fissa, non un identificativo libero.
+#   tentativo           Nome breve del tentativo, come dichiarato dal piano.
+#   bersaglio_sintetico L'indirizzo o l'intervallo usato nel tentativo, con la dichiarazione del
+#                       blocco riservato o generico a cui appartiene. Mai un indirizzo reale di
+#                       infrastruttura in esercizio.
+#   cosa_esercita       Il comportamento o il difetto di classe che il tentativo mette alla
+#                       prova, con il rinvio alla versione del progetto a monte in cui il
+#                       difetto storico corrispondente fu corretto, quando esiste.
+#   regola_p7           Il corollario e la riga della configurazione di riferimento P7 che deve
+#                       intercettare il tentativo.
+#   esito_atteso        Sempre «negativo» in questo elenco: nessuno dei sei deve ricevere
+#                       risposta positiva. La colonna esiste comunque, esplicita, perché un
+#                       elenco di soli esiti negativi taciuti è indistinguibile da un elenco che
+#                       nessuno ha ancora verificato.
+#   nota                Per i tentativi 5 e 6, la dichiarazione che sono i due assenti da una
+#                       suite scritta prima di questa verifica. Per gli altri, il precedente già
+#                       noto che li giustifica.
+#
+# Nessun segreto in questo file: la credenziale con cui i tentativi vengono eseguiti è generata
+# dal codice usa-e-getta della verifica, non scritta qui.
+#
+# Presidiato, insieme a ogni file separato da tabulazioni del repository, da
+# scripts/verifica-lettura-dei-tsv.sh (nessuno script legge un file di questo tipo con «read») e
+# da scripts/verifica-trattini.sh (convenzione dei trattini).
+numero	tentativo	bersaglio_sintetico	cosa_esercita	regola_p7	esito_atteso	nota
+1	interfaccia di ritorno in forma diretta	127.0.0.1, indirizzo di loopback IPv4 di uso universale (IANA IPv4 Special-Purpose Address Registry), non attribuibile ad alcuna infrastruttura specifica	se il diniego dell'interfaccia di ritorno regge quando espresso in forma diretta; è il caso corretto dal progetto a monte nella versione 4.5.0.9, dove l'inoltro verso l'interfaccia di ritorno era consentito per impostazione predefinita	corollario primo (comportamento predefinito permissivo, enumerazione degli intervalli): riga dedicata all'intero blocco di loopback 127.0.0.0-127.255.255.255	negativo	corrisponde al difetto più vecchio della famiglia; presente in qualunque suite scritta prima di questa verifica
+2	la stessa interfaccia di ritorno in forma mappata in IPv6	::ffff:127.0.0.1, forma IPv4-mapped-in-IPv6 dello stesso indirizzo di loopback universale del tentativo 1	il difetto di canonicalizzazione delle forme IPv4-mapped-in-IPv6, che nella famiglia accertata ha aggirato due volte la stessa classe di protezione con codice diverso: prima le regole di diniego esplicite (corretto nella versione 4.9.0), poi la protezione predefinita dell'interfaccia di ritorno, difetto distinto dal precedente (corretto nella versione 4.13.0)	riga dedicata all'intero intervallo mappato ::ffff:0.0.0.0-::ffff:255.255.255.255, indipendente dalle righe IPv4 del tentativo 1: la canonicalizzazione fra le due forme non si presume, si nega esplicitamente in entrambe	negativo	verifica che la forma mappata non aggiri, per canonicalizzazione insufficiente, ciò che il tentativo 1 verifica in forma diretta
+3	indirizzo del servizio di metadati dell'infrastruttura	un indirizzo entro il blocco link-local locale 169.254.0.0/16, riservato da RFC 3927; l'indirizzo puntuale con cui, per convenzione diffusa nel settore e non per riserva IANA specifica a quello scopo, numerose infrastrutture espongono il proprio servizio di metadati cade in questo blocco e non è attribuibile a un'infrastruttura specifica	il corollario quarto: che nessun servizio di metadati dell'infrastruttura sia raggiungibile dal nodo di relay, a prescindere da dove sia effettivamente co-locato	corollario quarto (nessun servizio co-locato raggiungibile): enumerazione del blocco link-local locale fra gli intervalli negati, e assenza dichiarata di qualunque servizio co-locato in ascolto su quell'interfaccia	negativo	il blocco è generico, incluso per completezza nella stessa famiglia degli intervalli non instradabili pubblicamente; nessun precedente distinto lo isola dagli altri indirizzi non instradabili della famiglia
+4	indirizzo di rete privata	un indirizzo entro uno dei tre blocchi RFC 1918; questo elenco usa 10.0.0.1 come illustrativo, generico per definizione e non un indirizzo di alcuna rete interna reale	l'enumerazione dei blocchi di rete privata fra gli intervalli negati, in assenza della quale il relay diventerebbe un punto d'appoggio verso la rete interna dell'installazione che lo ospita (M-13, docs/06_security/01-modello-di-minaccia.md)	corollario primo (comportamento predefinito permissivo, enumerazione degli intervalli): righe dedicate ai tre blocchi RFC 1918	negativo	è il caso di manuale del rischio che l'intero vincolo V-10 esiste per prevenire: il relay come vettore verso la rete del cliente
+5	indirizzo pubblico del nodo stesso	203.0.113.10, dal blocco di documentazione RFC 5737 (TEST-NET-3); nella configurazione di riferimento P7 questo stesso indirizzo è quello dichiarato come indirizzo pubblico del nodo, così che il tentativo e la riga che deve intercettarlo restino coerenti fra loro. In un'esecuzione reale va sostituito con l'indirizzo pubblico effettivo del nodo sotto verifica, mai lasciato come indirizzo di comodo	il corollario quarto per intero: senza una riga di diniego dedicata, il relay può raggiungere i servizi del proprio nodo passando dal proprio indirizzo pubblico invece che dall'interfaccia di ritorno, aggirando l'intera logica di protezione dei tentativi 1 e 2	corollario quarto (indirizzo pubblico del nodo negato): riga esplicita dedicata all'indirizzo pubblico dichiarato del nodo, distinta da qualunque intervallo generico	negativo	assente da una suite di prove scritta prima di questa verifica, perché non è intuitivamente un bersaglio: è l'indirizzo del nodo stesso, non un indirizzo altrui. Corrisponde al penultimo difetto della famiglia per data di correzione
+6	indirizzo dentro un intervallo IPv6 non allineato a un prefisso	un indirizzo entro il prefisso di documentazione 2001:db8::/32 (RFC 3849), scelto in modo da cadere dentro un confine di diniego eventualmente espresso come intervallo minimo-massimo non allineato a un limite di parola da 16 bit; l'indirizzo esatto entro il prefisso è un dettaglio del codice usa-e-getta della verifica e non è fissato qui, perché fissarlo con precisione di bit senza il codice che lo consuma sarebbe una precisione inventata	il corollario terzo: che gli intervalli di diniego IPv6 siano espressi come prefissi allineati e non come confini arbitrari, poiché il difetto storico della famiglia confronta gli indirizzi IPv6 componente per componente anziché numericamente, e un intervallo non allineato a un prefisso viene aggirato da quel confronto (corretto nella versione 4.16.0)	corollario terzo (intervalli IPv6 allineati a un prefisso): ogni intervallo IPv6 della configurazione di riferimento è scritto come prefisso allineato; l'assenza strutturale di confini non allineati è la contromisura, non una riga singola da puntare	negativo	assente da una suite di prove scritta prima di questa verifica, perché richiede di conoscere come l'implementazione confronta gli indirizzi, non solo quali vieta. Corrisponde all'ultimo difetto della famiglia per data di correzione, quello con cui la famiglia è dichiarata chiusa in docs/06_security/05-sicurezza-del-tempo-reale.md

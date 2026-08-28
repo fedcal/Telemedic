@@ -1,0 +1,121 @@
+# Casi di abuso del confine di autorizzazione - criterio 1 del traguardo T-04
+#
+# Che cos'è. È l'artefatto P3 del piano .telemedic/piani/T-04-verifiche-empiriche.md § 3. Elenca i
+# sette casi di abuso già dichiarati dall'area tecnica e dice, per ciascuno, quale dei cinque
+# controlli lo intercetta, in quale momento, quale esito strutturato produce e che cosa deve
+# comparire nel tracciamento. Il protocollo dei cinque controlli è
+# verifiche/P2-protocollo-validazione-del-token.md; l'insieme chiuso delle configurazioni su cui
+# i casi si eseguono è verifiche/P1-configurazioni-supportate.tsv.
+#
+# PERCHE' ESISTE, ed è la ragione che il piano scrive per esteso: scriverli prima impedisce di
+# scrivere poi solo quelli che passano. Un elenco di casi di abuso redatto dopo che il codice
+# esiste è un elenco dei comportamenti che il codice ha, non dei comportamenti che deve avere: la
+# selezione avviene senza che nessuno la compia, perché il caso scomodo non viene in mente a chi
+# guarda un'implementazione funzionante. I sette non si riducono. Si possono articolare in più
+# righe, come qui accade per il sesto, mai togliere.
+#
+# Formato: file di testo separato da carattere TAB, codifica UTF-8. Le righe che iniziano con #
+# sono commenti e vanno ignorate da un lettore automatico. Segue l'intestazione delle colonne e
+# poi una riga per caso. Nessuna cella contiene un carattere TAB.
+#
+# Colonne: caso, denominazione, controllo, momento, esito_verso_il_chiamante, codice_interno,
+#          riga_di_tracciamento, asserzione_negativa, fonte, nota
+#
+# Valori ammessi per le colonne a insieme chiuso.
+#
+#   controllo    1-firma | 2-emittente | 3-destinatario | 4-finestra-temporale |
+#                5-identificativo-di-chiave | nessuno-dei-cinque
+#   momento      precrittografico | verifica-della-firma | dopo-la-firma | emissione
+#   esito_verso_il_chiamante   rifiuto-uniforme
+#
+# Regole che non si negoziano su questo file.
+#
+#   1. L'ESITO VERSO IL CHIAMANTE E' LO STESSO PER TUTTI I CASI, e la colonna ha per questo un
+#      solo valore ammesso. Non è ridondanza: è l'affermazione che la risposta non dichiara quale
+#      controllo abbia respinto la richiesta. Un errore che distingue è un oracolo, e consente di
+#      ricostruire per tentativi successivi l'emittente atteso, il destinatario atteso, l'insieme
+#      di chiavi consentito e la finestra temporale ammessa di un tenant. La colonna esiste
+#      proprio perché la sua uniformità sia verificabile riga per riga invece di essere affidata a
+#      un capoverso che nessuno rilegge, e l'asserzione corrispondente è che i corpi di risposta
+#      dei sette casi siano identici a meno dell'identificativo di correlazione.
+#
+#   2. codice_interno è il codice che compare NELLA RIGA DI TRACCIAMENTO e mai nella risposta.
+#      I codici qui elencati sono PROPOSTI: il vincolo V-130 stabilisce che un codice non
+#      catalogato non può essere emesso e che la catena di costruzione lo verifica. Ciascuno di
+#      questi codici va quindi inserito nel catalogo unico PRIMA della finestra, altrimenti il
+#      caso corrispondente non è eseguibile - non «è eseguibile con un codice provvisorio»: non è
+#      eseguibile, perché il codice provvisorio è precisamente ciò che il vincolo vieta. La
+#      redazione delle voci di catalogo appartiene a `PROTO`, che possiede il catalogo.
+#
+#   3. Due casi condividono un codice quando condividono il fallimento, e la condivisione si
+#      dichiara nella nota invece di essere mascherata con un codice distinto. Un codice inventato
+#      per dare a ogni riga il suo produce un catalogo in cui due voci descrivono lo stesso fatto,
+#      e chi legge il registro crede di vedere due fenomeni.
+#
+#   4. La riga di tracciamento non contiene mai il token, nemmeno troncato, né alcuna chiave. Un
+#      token in un registro è un token compromesso, e un frammento di token è un segreto parziale
+#      la cui utilità diagnostica non giustifica il rischio. Vale il vincolo V-150, che non ammette
+#      eccezioni per le righe di errore.
+#
+#   5. I descrittori PRESENTATI dal chiamante - emittente, destinatario, identificativo di chiave -
+#      compaiono nella riga marcati come NON VERIFICATI, e la marcatura deve essere leggibile da
+#      chi consulta il registro e non solo da chi ne conosce la convenzione. Un emittente scritto
+#      accanto a un tentativo respinto e non qualificato è un'affermazione falsa in un registro
+#      immutabile: dice che quell'emittente ha emesso quel token, mentre l'unica cosa accertata è
+#      che qualcuno ha scritto quel valore in un campo.
+#
+#   6. Nessun dato reale. I token, i tenant, i client, gli emittenti e i soggetti dei casi sono
+#      sintetici e riconoscibili come tali: domini riservati (.example, .invalid) e identificativi
+#      opachi costruiti. Nessun segreto: soli segnaposto nella forma ${VARIABILE_AMBIENTE} per il
+#      materiale di chiave dei client di prova e per le credenziali dell'istanza effimera.
+#
+#   7. Ogni caso si esegue su TUTTE le righe di P1 con claim dell'attore obbligatorio, non su una
+#      scelta. Un caso di abuso provato su una configurazione sola dimostra qualcosa di quella
+#      configurazione, e il criterio 1 non parla di una configurazione.
+#
+# LA COSA CHE QUESTO FILE HA TROVATO, E CHE VA LETTA PRIMA DELLE RIGHE. Il piano chiede, per
+# ciascun caso, «quale dei cinque controlli lo intercetta». Per sei casi su sette la risposta
+# esiste. Per il sesto - la delega falsificata - esiste per una variante e NON esiste per l'altra,
+# e la seconda è quella che conta.
+#
+# La variante innocua è quella in cui il chiamante fabbrica un'asserzione e la firma con materiale
+# proprio: cade sul controllo 5 o sul controllo 1, come una qualunque asserzione non firmata
+# dall'ancora di fiducia, e non aggiunge nulla ai casi già coperti.
+#
+# La variante che conta è quella in cui il token è VALIDAMENTE FIRMATO dall'ancora di fiducia del
+# tenant, supera tutti e cinque i controlli, e porta al proprio interno un claim di attore che il
+# chiamante ha scelto: una delega che nessuno gli ha conferito, oppure un soggetto sostituito
+# all'attore, che è impersonificazione con l'aspetto della delega. NESSUNO DEI CINQUE CONTROLLI LA
+# INTERCETTA, perché i cinque accertano che il token sia autentico, non che il suo contenuto sia
+# legittimo. Ciò che la intercetta è una REGOLA DI EMISSIONE, non di validazione: l'attore del
+# token interno è calcolato dall'identità del client autenticato e non è mai copiato da un claim
+# del token in ingresso, e un attore presente in ingresso da un emittente che l'ancora di fiducia
+# non dichiara abilitato ad asserire catene di delega fa rifiutare la richiesta invece di essere
+# rimosso in silenzio.
+#
+# La conseguenza operativa è che il criterio 1 di T-04 non è dimostrato dalla sola prova dei cinque
+# controlli, e chi eseguisse i sette casi verificando soltanto la catena di validazione otterrebbe
+# sette esiti verdi con la variante decisiva del sesto non provata. La riga ABU-06.2 esiste per
+# rendere quella lacuna visibile in un file invece che in una memoria. La regola di emissione è una
+# proposta di P2 § 5 e va confermata da `SEC` e `PROTO` prima della finestra: se venisse respinta,
+# il progetto resterebbe senza alcun presidio contro la variante, e sarebbe un esito da registrare
+# come tale e non da lasciare implicito.
+#
+# CHE COSA QUESTO FILE NON COPRE. Non copre i casi di abuso del token d'ingresso a uso singolo, che
+# appartengono al criterio 2 di T-04 e al protocollo P4 - fra questi il secondo uso dello stesso
+# token e la sua comparsa in un indirizzo. Non copre l'abuso del punto di decisione a valle:
+# accesso senza relazione di cura, ruolo scaduto, livello riferito presentato a un'operazione che
+# richiede autenticazione forte. Non copre i tentativi di allocazione verso destinazioni interne
+# del nodo di relay, che sono l'elenco P6 del criterio 4.
+#
+# Voci: 8 righe per 7 casi
+
+caso	denominazione	controllo	momento	esito_verso_il_chiamante	codice_interno	riga_di_tracciamento	asserzione_negativa	fonte	nota
+ABU-01	Token manomesso	1-firma	verifica-della-firma	rifiuto-uniforme	inbound-token-signature-invalid	istante; tenant del client autenticato, o l'indicazione esplicita che non era risolvibile; identificativo del client autenticato; controllo che ha respinto, in forma di codice; emittente, destinatario e identificativo di chiave PRESENTATI e marcati come non verificati; identificativo di correlazione; esito negativo; nessun dettaglio della manomissione, che si ricostruisce dal token e il token non si registra	nessun token interno emesso; nessuna registrazione di accesso; esattamente una riga di tentativo respinto; nessuna identità interna creata o risolta per il soggetto presentato; nessun token e nessuna chiave nella riga	docs/01_technical/02-backend.md § 3	Il carico è modificato dopo la firma. La prova va costruita in tre forme, perché una sola coglie una classe sola: alterazione del carico, alterazione dell'intestazione, sostituzione dell'algoritmo con quello nullo. La terza è la più insidiosa, perché una libreria invocata con i valori predefiniti può considerarla una firma verificata; l'algoritmo si prende da un elenco esplicito e mai dal token
+ABU-02	Token scaduto	4-finestra-temporale	dopo-la-firma	rifiuto-uniforme	inbound-token-outside-time-window	istante; tenant del client autenticato, o l'indicazione esplicita che non era risolvibile; identificativo del client autenticato; controllo che ha respinto, in forma di codice; emittente, destinatario e identificativo di chiave PRESENTATI e marcati come non verificati; identificativo di correlazione; esito negativo; distanza dalla finestra espressa in secondi, che non è un segreto e serve a distinguere uno scarto di orologio da un rigioco	nessun token interno emesso; nessuna registrazione di accesso; esattamente una riga di tentativo respinto; nessuna identità interna creata o risolta per il soggetto presentato; nessun token e nessuna chiave nella riga	verifiche/P2-protocollo-validazione-del-token.md § 2.4	Si esegue in tre punti e non in uno: scaduto oltre la tolleranza, scaduto entro la tolleranza (che deve essere ACCETTATO, altrimenti la tolleranza non è quella dichiarata), e non ancora valido oltre la tolleranza. La prova imposta il parametro in entrambi i sensi per dimostrare che il rifiuto dipende dalla finestra e non da altro, e si esegue anche con tolleranza a zero, che è un valore supportato
+ABU-03	Emittente errato	2-emittente	dopo-la-firma	rifiuto-uniforme	inbound-token-issuer-unknown	istante; tenant del client autenticato, o l'indicazione esplicita che non era risolvibile; identificativo del client autenticato; controllo che ha respinto, in forma di codice; emittente, destinatario e identificativo di chiave PRESENTATI e marcati come non verificati; identificativo di correlazione; esito negativo	nessun token interno emesso; nessuna registrazione di accesso; esattamente una riga di tentativo respinto; nessuna identità interna creata o risolta per il soggetto presentato; nessun token e nessuna chiave nella riga	docs/04_protocols/08-identita-e-autorizzazione.md § 5.3	L'emittente presentato non è ancora di fiducia per alcun tenant. È il caso facile della coppia: quello difficile è ABU-07, in cui l'emittente è ancora di fiducia ma di un altro tenant
+ABU-04	Destinatario errato	3-destinatario	dopo-la-firma	rifiuto-uniforme	inbound-token-audience-mismatch	istante; tenant del client autenticato, o l'indicazione esplicita che non era risolvibile; identificativo del client autenticato; controllo che ha respinto, in forma di codice; emittente, destinatario e identificativo di chiave PRESENTATI e marcati come non verificati; identificativo di correlazione; esito negativo	nessun token interno emesso; nessuna registrazione di accesso; esattamente una riga di tentativo respinto; nessuna identità interna creata o risolta per il soggetto presentato; nessun token e nessuna chiave nella riga	docs/04_protocols/08-identita-e-autorizzazione.md § 7.1	Token genuino, firmato dall'ancora di fiducia corretta, ma emesso per un altro destinatario. È il caso che dimostra la fuga di un token valido verso un server di risorse contraffatto: un sistema che accetti qualunque token emesso dal proprio emittente non lo intercetta. Va provato anche nella forma in cui il destinatario è un insieme che CONTIENE il valore atteso insieme ad altri, che è la variante che una realizzazione permissiva accetta
+ABU-05	Chiave non consentita	5-identificativo-di-chiave	precrittografico	rifiuto-uniforme	inbound-token-key-not-allowed-for-tenant	istante; tenant del client autenticato, o l'indicazione esplicita che non era risolvibile; identificativo del client autenticato; controllo che ha respinto, in forma di codice; emittente, destinatario e identificativo di chiave PRESENTATI e marcati come non verificati; identificativo di correlazione; esito negativo; identificativo di chiave presentato, che non è un segreto	nessun token interno emesso; nessuna registrazione di accesso; esattamente una riga di tentativo respinto; nessuna identità interna creata o risolta per il soggetto presentato; nessun token e nessuna chiave nella riga; NESSUNA OPERAZIONE CRITTOGRAFICA ESEGUITA; nessun recupero di materiale di chiave verso l'esterno provocato dalla richiesta	verifiche/P2-protocollo-validazione-del-token.md § 2.5	Il rifiuto avviene prima di qualunque verifica di firma: l'identificativo di chiave è ingresso non fidato e serve a scegliere fra le chiavi già consentite, non a indicare quale andare a prendere. Due varianti da provare entrambe: identificativo sconosciuto, e identificativo consentito per un altro tenant. La seconda asserzione negativa è quella che presidia l'amplificazione di traffico verso l'infrastruttura di un terzo, ed è la ragione per cui il recupero forzato è limitato in frequenza (Q-161)
+ABU-06.1	Delega falsificata - asserzione fabbricata dal chiamante	5-identificativo-di-chiave	precrittografico	rifiuto-uniforme	inbound-token-key-not-allowed-for-tenant	istante; tenant del client autenticato, o l'indicazione esplicita che non era risolvibile; identificativo del client autenticato; controllo che ha respinto, in forma di codice; emittente, destinatario e identificativo di chiave PRESENTATI e marcati come non verificati; identificativo di correlazione; esito negativo	nessun token interno emesso; nessuna registrazione di accesso; esattamente una riga di tentativo respinto; nessuna identità interna creata o risolta per il soggetto presentato; nessun token e nessuna chiave nella riga; nessuna operazione crittografica eseguita	docs/04_protocols/08-identita-e-autorizzazione.md § 5.2	Il chiamante fabbrica un'asserzione per un soggetto che non è autorizzato a rappresentare e la firma con materiale proprio. Cade come ABU-05, e CONDIVIDE CON ESSO IL CODICE perché condivide il fallimento: non c'è un secondo fenomeno da nominare. La riga esiste comunque, perché il caso «delega falsificata» va provato in entrambe le varianti e la sola presenza di questa darebbe l'impressione che il caso sia coperto
+ABU-06.2	Delega falsificata - attore scelto dentro un token autentico	nessuno-dei-cinque	emissione	rifiuto-uniforme	inbound-token-actor-claim-not-permitted	istante; tenant del client autenticato, o l'indicazione esplicita che non era risolvibile; identificativo del client autenticato; controllo che ha respinto, in forma di codice; emittente, destinatario e identificativo di chiave PRESENTATI e marcati come non verificati; identificativo di correlazione; esito negativo; il fatto che un attore sia stato ASSERITO dal chiamante e da quale emittente, perché è precisamente l'evento da registrare	nessun token interno emesso; nessuna registrazione di accesso; esattamente una riga di tentativo respinto; nessuna identità interna creata o risolta per il soggetto presentato; nessun token e nessuna chiave nella riga; e per il percorso che invece riesce: l'attore del token emesso è il client autenticato e NON il valore asserito in ingresso; il soggetto del token emesso è la derivazione deterministica del soggetto in ingresso; attore e soggetto hanno valori DIVERSI	verifiche/P2-protocollo-validazione-del-token.md § 5	IL CASO CHE I CINQUE CONTROLLI NON INTERCETTANO. Il token supera tutti e cinque: è autentico. Ciò che è falso è il suo contenuto. Lo intercetta una regola di emissione - l'attore si calcola dall'identità del client autenticato e non si copia mai da un claim in ingresso; un attore asserito da un emittente non abilitato dall'ancora di fiducia fa rifiutare invece di essere rimosso in silenzio, perché la rimozione silenziosa cancella l'evento da registrare. La regola è una PROPOSTA di P2 § 5 da confermare da `SEC` e `PROTO` prima della finestra: se respinta, il progetto resta senza presidio su questa variante e l'esito va registrato come tale
+ABU-07	Token riusato fra tenant	2-emittente	dopo-la-firma	rifiuto-uniforme	inbound-token-issuer-not-anchored-to-caller-tenant	istante; tenant del client autenticato, o l'indicazione esplicita che non era risolvibile; identificativo del client autenticato; controllo che ha respinto, in forma di codice; emittente, destinatario e identificativo di chiave PRESENTATI e marcati come non verificati; identificativo di correlazione; esito negativo; tenant del client chiamante e tenant per cui l'emittente presentato è ancora di fiducia, che sono due fatti distinti e vanno registrati distinti	nessun token interno emesso; nessuna registrazione di accesso; esattamente una riga di tentativo respinto; nessuna identità interna creata o risolta per il soggetto presentato; nessun token e nessuna chiave nella riga; nessun dato del tenant di origine del token è letto o restituito	docs/04_protocols/08-identita-e-autorizzazione.md § 5.3	Il token è genuino, firmato da un'ancora di fiducia reale, valido nella sua finestra, con il destinatario giusto: è valido per un ALTRO tenant. Lo intercetta il controllo 2 solo perché «emittente atteso» significa «ancora di fiducia registrata per il tenant del CLIENT CHIAMANTE» e non «emittente presente in un elenco di fidati»: con un elenco globale - la forma che una realizzazione ragionevole produce per prima - questo caso passa. Il controllo 5 lo intercetta in seconda battuta quando gli insiemi di chiavi sono per tenant, e la prova va costruita in modo da esercitare entrambi i presidi separatamente, disattivando l'uno per volta: se cadesse solo grazie al secondo, il controllo 2 sarebbe globale senza che nessuno se ne accorga

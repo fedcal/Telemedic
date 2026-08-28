@@ -1,0 +1,272 @@
+# ============================================================================================
+# P5 - Configurazione di riferimento del prodotto di federazione, con i tre difetti chiusi
+# ============================================================================================
+#
+# Artefatto P5 del piano .telemedic/piani/T-04-verifiche-empiriche.md, §3.
+# Criterio attuato: T-04/3.
+# Il documento che spiega ogni scelta di questo file, e le dichiara,
+# e' P5-configurazione-di-riferimento-federazione.md, accanto a questo.
+#
+# TRE COSE VANNO LETTE PRIMA DI USARE QUESTO FILE.
+#
+# 1. QUESTO PROFILO NON E' APPLICABILE COSI' COM'E', ED E' UNA SCELTA DICHIARATA.
+#    Ogni chiusura e' espressa come PROPRIETA' OSSERVABILE piu' una CHIAVE DI PROGETTO. Il
+#    legame fra la chiave di progetto e l'impostazione effettiva del prodotto di federazione
+#    e' marcato [NV] e va completato da `TECH` sulla documentazione della versione
+#    effettivamente installata. La ragione e' doppia e sta per esteso al §3 del documento
+#    che accompagna: nominare le impostazioni del prodotto violerebbe la regola R0, e
+#    scriverle a memoria significherebbe inventare nomi che nessuno qui ha verificato.
+#    Il costo e' dichiarato: finche' la colonna del legame e' vuota, questo profilo e' un
+#    contratto, non una configurazione eseguibile.
+#
+# 2. NESSUN SEGRETO. Ogni valore d'ambiente e' un segnaposto ${VARIABILE_AMBIENTE}, risolto
+#    all'esecuzione. Non esiste alcun valore letterale di credenziale in questo file, e non
+#    ne va introdotto alcuno per comodita' di collaudo.
+#
+# 3. ISTANZA EFFIMERA, SEMPRE. Questo profilo si applica a un'istanza creata per la singola
+#    esecuzione e distrutta al termine. Mai a un ambiente condiviso: la suite del criterio 3
+#    tenta deliberatamente scalate di privilegio e monta una configurazione regredita.
+#
+# QUESTO FILE NON CONTIENE UN PROFILO REGREDITO APPLICABILE. La sezione
+# «mutazioni_di_regressione» DESCRIVE le mutazioni; non e' un profilo alternativo che si
+# possa applicare per errore. E' una precauzione deliberata: un profilo insicuro pronto
+# all'uso, versionato accanto a quello sicuro, e' un incidente che aspetta un percorso di
+# rilascio distratto.
+# ============================================================================================
+
+versione_del_profilo: 1
+data_di_redazione: "2026-08-28"
+criterio_attuato: "T-04/3"
+stato: "redatto prima della finestra, non ancora applicato ad alcuna istanza"
+
+vincoli_di_esecuzione:
+  istanza: effimera
+  ambiente_condiviso: vietato
+  dati: sintetici_e_riconoscibili_come_tali
+  segreti: soli_segnaposto_di_ambiente
+  distruzione_al_termine: obbligatoria
+
+# --------------------------------------------------------------------------------------------
+# Ambiente. Soli segnaposto.
+# --------------------------------------------------------------------------------------------
+ambiente:
+  url_base: "${FEDERAZIONE_URL_BASE}"
+  realm_broker: "${FEDERAZIONE_REALM_BROKER}"
+  realm_applicativo_del_professionista: "${FEDERAZIONE_REALM_PROFESSIONISTA}"
+  realm_applicativo_dell_assistito: "${FEDERAZIONE_REALM_ASSISTITO}"
+  basedati_indirizzo: "${FEDERAZIONE_BASEDATI_INDIRIZZO}"
+  basedati_utente: "${FEDERAZIONE_BASEDATI_UTENTE}"
+  basedati_credenziale: "${FEDERAZIONE_BASEDATI_CREDENZIALE}"
+  credenziale_amministrativa_iniziale: "${FEDERAZIONE_CREDENZIALE_AMMINISTRATIVA_INIZIALE}"
+  # La credenziale amministrativa iniziale esiste solo per il tempo di vita dell'istanza
+  # effimera e non sopravvive all'esecuzione. Nessuna credenziale predefinita e' ammessa in
+  # alcun componente distribuito: e' regola gia' in vigore, non una precauzione di questo file.
+
+# --------------------------------------------------------------------------------------------
+# Soggetti sintetici usati dalla suite. Nessun dato di persona reale, in alcuna forma.
+# --------------------------------------------------------------------------------------------
+soggetti_sintetici:
+  fornitore_di_identita:
+    alias: "idp-sintetico-l2"
+    natura: "fornitore federato di prova, non un fornitore reale"
+    indirizzo_dei_metadata: "${FORNITORE_IDENTITA_SINTETICO_INDIRIZZO_METADATA}"
+    nome_host_di_prova: "idp-sintetico.example"   # dominio riservato dalla RFC 2606
+  utente_federato:
+    nome_utente: "utente-federato-sintetico-01"
+    recapito_di_posta: "utente-federato-sintetico-01@esempio.invalid"
+    provenienza: "idp-sintetico-l2"
+  tenant:
+    identificativo: "${TENANT_SINTETICO_DI_PROVA}"
+
+# --------------------------------------------------------------------------------------------
+# LE TRE CHIUSURE.
+#
+# Ogni voce dichiara: il difetto, la proprieta' osservabile che la chiusura deve produrre, le
+# impostazioni che la producono (chiave di progetto + valore + legame [NV] al prodotto), la
+# prova che la sorveglia, e cio' che la chiusura NON copre.
+# --------------------------------------------------------------------------------------------
+chiusure:
+
+  - difetto: "R-IAM-01"
+    enunciato: "l'utente federato puo' modificare i propri attributi"
+    fonte: "docs/06_security/02-identita-e-accessi.md §7"
+    proprieta_osservabile: >
+      Un'identita' federata, autenticata e in possesso del proprio token, non ottiene la
+      modifica di alcun attributo anagrafico: ne' dalla superficie di autoservizio dell'utente,
+      ne' invocando direttamente le interfacce di amministrazione con quel token. Il tentativo
+      riceve un rifiuto e l'attributo, riletto, e' invariato.
+    impostazioni:
+      - chiave_di_progetto: "console_di_autoservizio_dell_utente"
+        valore: "disabilitata"
+        ambito: "realm broker"
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+      - chiave_di_progetto: "modifica_del_nome_utente"
+        valore: "disattivata"
+        ambito: "realm broker"
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+      - chiave_di_progetto: "attributi_anagrafici_del_profilo_utente"
+        valore: "sola_lettura_per_l_utente"
+        ambito: "realm broker"
+        nota: >
+          E' questa la chiusura vera. Le prime due riducono la superficie; questa e' l'unica
+          che regge quando le interfacce di amministrazione vengono invocate direttamente,
+          che e' il caso che il difetto dichiara.
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+      - chiave_di_progetto: "sincronizzazione_degli_attributi_dai_fornitori_federati"
+        valore: "forzata_a_ogni_accesso"
+        ambito: "tutti i fornitori di identita' del realm broker"
+        nota: >
+          MISURA COMPENSATIVA, NON CHIUSURA. Ripristina i dati al PROSSIMO accesso, non nel
+          frattempo: fra l'alterazione e l'accesso successivo l'attributo alterato e' quello
+          in uso. Va applicata, e non va contata come la chiusura del difetto.
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+    prova_che_la_sorveglia: "VP3-1"
+    cio_che_non_copre: >
+      Non copre la finestra fra un'alterazione riuscita e la sincronizzazione successiva, se
+      la chiusura per sola lettura venisse meno. Non copre gli attributi diversi da quelli
+      anagrafici, il cui elenco chiuso e' [NV] e spetta a `SEC`.
+
+  - difetto: "R-IAM-02"
+    enunciato: "l'utente federato puo' cambiare l'indirizzo di posta senza verifica"
+    fonte: "docs/06_security/02-identita-e-accessi.md §7"
+    proprieta_osservabile: >
+      Un'identita' federata non ottiene la modifica del proprio recapito di posta per alcuna
+      via disponibile all'utente. Il recapito e' un attributo di provenienza federata, riscritto
+      dalla fonte autoritativa a ogni accesso.
+    modo_della_chiusura: "per divieto, non per verifica del possesso"
+    nota_sul_modo: >
+      Il prodotto non offre una verifica del possesso del nuovo recapito - e' il difetto
+      stesso - quindi non esiste una configurazione che ammetta il cambio e lo verifichi.
+      L'unica chiusura disponibile e' il divieto. IL COSTO E' REALE E VA DICHIARATO A CHI
+      INSTALLA: un cambio legittimo di recapito richiede un percorso amministrativo, oppure
+      il cambio alla fonte federata. Un servizio che non preveda ne' l'uno ne' l'altro
+      produrra' utenti irraggiungibili.
+    impostazioni:
+      - chiave_di_progetto: "attributo_di_recapito_di_posta"
+        valore: "sola_lettura_per_l_utente"
+        ambito: "realm broker"
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+      - chiave_di_progetto: "percorso_di_recupero_della_credenziale_per_posta"
+        valore: "disabilitato"
+        ambito: "realm broker"
+        nota: >
+          Discende dalla chiusura di R-IAM-03: senza credenziale locale non esiste credenziale
+          da recuperare. E' elencato a parte perche' e' il percorso che rende R-IAM-02 una via
+          di appropriazione dell'account e non un fastidio anagrafico.
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+      - chiave_di_progetto: "azioni_richieste_all_utente_al_primo_accesso"
+        valore: "nessuna_che_richieda_o_consenta_la_modifica_del_recapito"
+        ambito: "realm broker"
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+    prova_che_la_sorveglia: "VP3-2"
+    cio_che_non_copre: >
+      Non copre il recapito conservato dai realm applicativi, se questi ne conservassero uno
+      proprio. Che lo conservino o no e' [NV] e va confermato da `ARCH`.
+
+  - difetto: "R-IAM-03"
+    enunciato: "l'utente federato puo' impostarsi una credenziale locale aggirando la federazione"
+    fonte: "docs/06_security/02-identita-e-accessi.md §7"
+    proprieta_osservabile: >
+      Nel realm broker non esiste alcun modo di autenticarsi che non sia un fornitore di
+      identita' federato o l'autenticatore a certificato. Un tentativo di impostare una
+      credenziale locale fallisce; un tentativo di autenticarsi con una credenziale locale
+      fallisce; e una sessione priva del marcatore di provenienza federata e' rifiutata dalla
+      politica di autorizzazione anche se le due condizioni precedenti venissero aggirate.
+    impostazioni:
+      - chiave_di_progetto: "flusso_di_concessione_diretta"
+        valore: "assente"
+        ambito: "realm broker"
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+      - chiave_di_progetto: "flusso_di_navigazione_con_modulo_di_nome_utente_e_parola_d_accesso"
+        valore: "assente"
+        ambito: "realm broker"
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+      - chiave_di_progetto: "registrazione_autonoma_dell_utente"
+        valore: "disabilitata"
+        ambito: "realm broker"
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+      - chiave_di_progetto: "tipi_di_credenziale_locale_ammessi"
+        valore: "insieme_vuoto"
+        ambito: "realm broker"
+        legame_con_il_prodotto: "[NV] - da completare da `TECH` sulla versione installata"
+      - chiave_di_progetto: "marcatore_di_provenienza_propagato_come_claim"
+        valore: "attivo"
+        ambito: "realm broker verso i realm applicativi"
+        nota: >
+          E' il SECONDO STRATO, e delle tre chiusure e' l'unica che ne abbia uno. Sopravvive
+          a un aggiornamento che riporti le impostazioni ai valori predefiniti, perche' vive
+          nella politica di autorizzazione del prodotto di progetto e non nella configurazione
+          del prodotto di federazione.
+        legame_con_il_prodotto: "non applicabile: e' del prodotto di progetto, non del prodotto di federazione"
+      - chiave_di_progetto: "politica_di_autorizzazione_sulle_sessioni_prive_di_fornitore_federato"
+        valore: "rifiuto"
+        ambito: "prodotto di progetto"
+        legame_con_il_prodotto: "non applicabile: e' del prodotto di progetto"
+    prova_che_la_sorveglia: "VP3-3"
+    cio_che_non_copre: >
+      Non copre l'autenticatore a certificato, che e' l'altro canale ammesso e ha una verifica
+      propria: che le intestazioni del certificato client iniettate dall'esterno non vengano
+      onorate. Quella verifica e' dichiarata dal corpus e non ha oggi un traguardo assegnato:
+      [NV], da chiedere a `SEC`.
+
+# --------------------------------------------------------------------------------------------
+# LE MUTAZIONI DI REGRESSIONE.
+#
+# Questa sezione NON e' un profilo applicabile: descrive, in forma dichiarativa, la singola
+# mutazione da cui la configurazione deliberatamente regredita si ottiene. La suite la applica
+# a runtime sull'istanza effimera, una per volta, e verifica che la prova corrispondente - e
+# SOLO quella - fallisca. E' la stessa disciplina con cui il progetto collauda i propri
+# controlli: si guasta la regola, si verifica che solo il caso corrispondente cada, si
+# ripristina, si confronta l'impronta SHA-256 prima e dopo.
+# --------------------------------------------------------------------------------------------
+mutazioni_di_regressione:
+
+  - identificativo: "MR-1"
+    difetto_riaperto: "R-IAM-01"
+    chiave_mutata: "attributi_anagrafici_del_profilo_utente"
+    da: "sola_lettura_per_l_utente"
+    a: "modificabile_dall_utente"
+    esito_atteso_del_tentativo: "riesce"
+    esito_atteso_della_suite: "VP3-1 fallisce; VP3-2 e VP3-3 restano verdi"
+
+  - identificativo: "MR-2"
+    difetto_riaperto: "R-IAM-02"
+    chiave_mutata: "attributo_di_recapito_di_posta"
+    da: "sola_lettura_per_l_utente"
+    a: "modificabile_dall_utente"
+    esito_atteso_del_tentativo: "riesce"
+    esito_atteso_della_suite: "VP3-2 fallisce; VP3-1 e VP3-3 restano verdi"
+    nota: >
+      Se MR-2 facesse fallire anche VP3-1, le due prove non sono indipendenti: entrambe
+      starebbero misurando la sola lettura del profilo invece delle due proprieta' distinte.
+      E' un difetto della suite, non della configurazione, e va corretto prima di dichiarare
+      chiuso il criterio.
+
+  - identificativo: "MR-3"
+    difetto_riaperto: "R-IAM-03, primo strato"
+    chiave_mutata: "flusso_di_concessione_diretta"
+    da: "assente"
+    a: "presente"
+    esito_atteso_del_tentativo: "l'autenticazione locale riesce presso il prodotto di federazione"
+    esito_atteso_della_suite: "VP3-3 fallisce; VP3-1 e VP3-2 restano verdi"
+
+  - identificativo: "MR-4"
+    difetto_riaperto: "R-IAM-03, secondo strato"
+    chiave_mutata: "politica_di_autorizzazione_sulle_sessioni_prive_di_fornitore_federato"
+    da: "rifiuto"
+    a: "ammissione"
+    esito_atteso_del_tentativo: "la sessione priva di provenienza federata viene accettata"
+    esito_atteso_della_suite: "VP3-3 fallisce"
+    nota: >
+      MR-4 va eseguita ANCHE da sola, senza MR-3. Se VP3-3 restasse verde con MR-4 applicata e
+      MR-3 non applicata, la prova sta misurando solo il primo strato e il secondo non e'
+      sorvegliato: sarebbe il difetto peggiore dei quattro, perche' il secondo strato e' quello
+      che deve reggere dopo un aggiornamento del prodotto.
+
+regole_di_esecuzione_delle_mutazioni:
+  - "Una mutazione per volta. Due mutazioni insieme non dicono quale prova sorveglia che cosa."
+  - "Ogni mutazione fa fallire esattamente una prova. Zero prove che falliscono significa che la
+     chiusura non e' sorvegliata; due o piu' significa che le prove non sono indipendenti."
+  - "Ripristino dopo ogni mutazione, con confronto dell'impronta SHA-256 del profilo prima e dopo."
+  - "Le mutazioni girano solo sull'istanza effimera, che viene distrutta al termine."
+  - "Nessuna mutazione viene mai versionata come profilo applicabile."

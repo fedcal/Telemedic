@@ -10,6 +10,15 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 esito=0
 
+# IL PERIMETRO E' CONFIGURABILE, E NON LO ERA. La radice «docs» era cablata dentro il ciclo, e il
+# 28 agosto 2026 questo ha prodotto un effetto che nessuno aveva scelto: i nove artefatti
+# preparatori di T-04, nati sotto verifiche/, sono entrati nel repository con DUE presidi in meno
+# di quanti ne abbia il resto del corpus. Non e' stata una decisione di perimetro - e' stata
+# l'assenza di una decisione, che e' peggio, perche' non si vede. Un perimetro cablato dichiara
+# «questo controllo vale qui» senza che nessuno lo abbia mai deciso, e ogni cartella nuova nasce
+# fuori dalla sorveglianza per il solo fatto di essere nuova.
+RADICI_REDAZIONALI="${RADICI_REDAZIONALI:-docs verifiche}"
+
 segnala() {
   printf '\n\033[31m✗ %s\033[0m\n%s\n' "$1" "$2"
   esito=1
@@ -19,7 +28,7 @@ segnala() {
 #    Fanno fallire la costruzione del sito con un errore che indica
 #    l'indentazione e non ha nulla a che vedere con l'indentazione.
 trovati=""
-for f in $(find docs -name '*.md'); do
+for f in $(find $RADICI_REDAZIONALI -name '*.md' 2>/dev/null); do
   head -1 "$f" | grep -q '^---$' || continue
   fine=$(awk 'NR>1 && /^---$/{print NR; exit}' "$f")
   [ -n "$fine" ] || continue
