@@ -303,6 +303,19 @@ jobs:
       - uses: actions/checkout@v5
       - run: ./scripts/verifica-bacheca.sh
 
+  decisioni-con-scadenza:
+    name: DEC-C1 - ogni voce di T-05 ha un esito registrato
+    runs-on: ubuntu-latest
+    # Due velocita' nello stesso controllo, e la ragione della differenza. Le regole di FORMA del
+    # registro - valori ammessi, rinvio presente quando la voce e' decisa e file esistente, voce
+    # presente in bacheca, nessun criterio del traguardo senza riga - sono soddisfacibili oggi da
+    # chi tiene il registro, e bloccano da subito. La regola di SOSTANZA - nessun criterio senza
+    # esito - dipende da decisioni del committente, e nessuno la puo' soddisfare scrivendo: e' in
+    # sola segnalazione fino al 3 ottobre 2026, che e' la scadenza di T-05, e poi blocca.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-decisioni-con-scadenza.sh
+
   coerenza-delle-corsie:
     name: CORSIE-C1 - le corsie dichiarano le stesse versioni
     runs-on: ubuntu-latest

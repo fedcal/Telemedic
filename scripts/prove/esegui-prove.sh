@@ -3514,6 +3514,74 @@ esegui_caso "pipefail: cartella inesistente - esce 2, errore d'uso" passa \
   bash -c 'env RADICE_SCRIPT="$1/non-esiste" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
   _ "$PF_TENUTE" "$RADICE_REPO/scripts/verifica-pipefail.sh"
 
+
+printf '\n== Controllo 34 - verifica-decisioni-con-scadenza.sh (criterio di fonte di T-05) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. Il traguardo T-05 ha un criterio di fonte unico - ciascuna delle sue
+# sette voci ha un esito registrato, decisa con il rinvio al registro di decisione oppure confermata
+# aperta con la conseguenza dichiarata - e il piano di esecuzione ne prescriveva la forma binaria fin
+# dal 25 agosto 2026: un registro versionato, chiuso quando nessuna riga ha una colonna vuota. Il
+# registro non esisteva, e un cancello prescritto in un piano e non eseguito da uno script non e' un
+# cancello. Il controllo ha due velocita': la FORMA blocca da subito, perche' chi tiene il registro
+# la puo' soddisfare oggi; la SOSTANZA - nessun criterio senza esito - e' in sola segnalazione fino
+# alla scadenza del traguardo, perche' nessuno puo' soddisfarla scrivendo.
+#
+# LE TENUTE HANNO TRE CRITERI INVECE DI SETTE, e la variabile CRITERI_ATTESI lo dichiara: un banco
+# che ricopiasse i sette veri porterebbe dentro di se' una copia del traguardo, e resterebbe verde
+# il giorno in cui la roadmap ne aggiungesse un ottavo. Cio' che le tenute provano e' la REGOLA, non
+# il contenuto di oggi.
+
+DEC_TENUTE="$TENUTE/decisioni-con-scadenza"
+
+dec_caso() {
+  env REGISTRO_DECISIONI="$DEC_TENUTE/$1.tsv" BACHECA="$DEC_TENUTE/bacheca-sintetica.md" \
+      RADICE_RINVII="$DEC_TENUTE/rinvii" CRITERI_ATTESI=3 \
+      ESITO_BLOCCANTE_DAL="${2:-2020-01-01}" OGGI="${3:-2026-08-28}" \
+      bash "$RADICE_REPO/scripts/verifica-decisioni-con-scadenza.sh"
+}
+
+esegui_caso "decisioni T-05: ogni criterio ha un esito, con rinvio o conseguenza" passa \
+  dec_caso conforme
+
+esegui_caso "decisioni T-05: «decisa» senza il rinvio al registro di decisione" fallisce \
+  dec_caso decisa-senza-rinvio
+
+# Un rinvio che nomina un file inesistente afferma piu' di quanto esista, ed e' il difetto peggiore
+# fra i due: «decisa» senza rinvio si vede a occhio, «decisa» con un rinvio rotto no.
+esegui_caso "decisioni T-05: il rinvio nomina un registro di decisione che non esiste" fallisce \
+  dec_caso rinvio-inesistente
+
+esegui_caso "decisioni T-05: «confermata aperta» senza la conseguenza dichiarata" fallisce \
+  dec_caso confermata-senza-conseguenza
+
+# L'ERRORE PER OMISSIONE, che nessun controllo riga per riga puo' vedere: una voce dimenticata non
+# produce alcuna riga, quindi non produce alcun rilievo. Il solo modo di accorgersene e' CONTARE i
+# criteri coperti, ed e' la ragione per cui il controllo lo fa alla fine invece di limitarsi a
+# validare cio' che trova.
+esegui_caso "decisioni T-05: un criterio del traguardo senza alcuna riga nel registro" fallisce \
+  dec_caso criterio-mancante
+
+esegui_caso "decisioni T-05: due voci sullo stesso criterio del traguardo" fallisce \
+  dec_caso criterio-doppio
+
+# Le voci si verificano contro la BACHECA, che ne e' la fonte, e non contro un elenco scritto dentro
+# il controllo: voce D-10 del runbook.
+esegui_caso "decisioni T-05: una voce che nomina una questione inesistente in bacheca" fallisce \
+  dec_caso voce-fuori-bacheca
+
+# I DUE CASI CHE SEGUONO SONO LA STESSA TENUTA A DUE DATE, e provano che la sola segnalazione ha
+# davvero un termine invece di essere indefinita - criterio 4 di T-03. Prima della data il criterio
+# senza esito si misura e non blocca; dal giorno della scadenza blocca.
+esegui_caso "decisioni T-05: un criterio senza esito, prima della scadenza, misura e non blocca" passa \
+  dec_caso in-attesa 2026-10-03 2026-08-28
+
+esegui_caso "decisioni T-05: lo stesso criterio senza esito, alla scadenza, blocca" fallisce \
+  dec_caso in-attesa 2026-10-03 2026-10-03
+
+esegui_caso "decisioni T-05: registro inesistente - esce 2, errore di uso" passa \
+  bash -c 'env REGISTRO_DECISIONI="$1/non-esiste.tsv" BACHECA="$1/bacheca-sintetica.md" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$DEC_TENUTE" "$RADICE_REPO/scripts/verifica-decisioni-con-scadenza.sh"
+
 printf '\n== Controllo 33 - costruzione del sito, collegamento rotto (criterio 2 di T-02, terza istanza di Q-288) ==\n\n'
 
 # PERCHE' QUESTO BLOCCO ESISTE. onBrokenLinks, onBrokenAnchors e onBrokenMarkdownLinks sono a

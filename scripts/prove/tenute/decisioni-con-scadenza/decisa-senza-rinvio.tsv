@@ -1,0 +1,5 @@
+# tenuta sintetica
+voce	criterio	scadenza	esito	rinvio	data	conseguenza
+Q-901	1	2026-10-03	decisa		2026-08-01	
+Q-902	2	2026-10-03	confermata aperta		2026-08-01	resta aperta e il rilascio non dichiara il periodo di supporto
+Q-903	3	in corso	decisa	docs/adr/0001-sintetico.md	2026-08-02	

@@ -1,0 +1,80 @@
+# Registro delle decisioni con scadenza anteriore al primo codice - traguardo T-05
+#
+# Che cos'è. Il traguardo T-05 di docs/09_roadmap/02-traguardi.md ha un criterio di fonte unico,
+# che vale per ciascuna delle sue sette voci: «ciascuna voce ha un esito registrato - decisa, con
+# il registro di decisione architetturale corrispondente, oppure esplicitamente confermata come
+# aperta con la sua conseguenza dichiarata». Questo file è quel registro, ed è la forma binaria in
+# cui il criterio si dimostra: il traguardo è chiuso quando NESSUNA riga con un numero di criterio
+# ha una colonna vuota. Il piano di esecuzione è .telemedic/piani/T-05-decisioni-con-scadenza.md.
+#
+# PERCHE' ESISTE COME FILE E NON COME PARAGRAFO. Un traguardo fatto di decisioni si chiude quando
+# qualcuno decide, e chi legge un piano in prosa non può dire in quale punto si trovi senza
+# rileggerlo tutto. Peggio: «la decisione è in corso» è indistinguibile da «nessuno ci ha più
+# pensato», e la differenza fra le due si vede soltanto quando la scadenza è passata. Un registro
+# a colonne rende la seconda visibile il giorno stesso.
+#
+# CHE COSA QUESTO FILE NON FA, e va detto invece di lasciarlo intendere. Non decide nulla. Le
+# decisioni delle sette voci sono del committente, e nemmeno «confermata aperta» è un esito che
+# qualcun altro possa scrivere al posto suo: confermare che una decisione resta aperta è a sua
+# volta una decisione, e accettarne la conseguenza dichiarata è accettarla. Le righe che oggi
+# portano «in attesa» nella colonna esito sono quindi righe VUOTE nel senso del criterio, non
+# righe compilate con un valore neutro, e il controllo le conta come tali.
+#
+# Formato: file di testo separato da carattere TAB, codifica UTF-8. Le righe che iniziano con #
+# sono commenti e vanno ignorate da un lettore automatico. Segue l'intestazione delle colonne e
+# poi una riga per voce. Nessuna cella contiene un carattere TAB.
+#
+# Colonne: voce, criterio, scadenza, esito, rinvio, data, conseguenza
+#
+# Regole che non si negoziano su questo file.
+#
+#   1. criterio è il numero del criterio di T-05 che la voce soddisfa, da 1 a 7, oppure la
+#      parola «proposta». Le voci «proposta» sono quelle che il piano di esecuzione ha AGGIUNTO
+#      al §3 e che il traguardo non elenca: sono proposte di ampliamento, e un ampliamento è una
+#      modifica della roadmap che appartiene al suo titolare. Stanno qui perché perderle sarebbe
+#      peggio, e NON contano per la chiusura del traguardo. Chi le promuovesse a criterio dovrebbe
+#      prima modificare docs/09_roadmap/02-traguardi.md, non questa colonna.
+#
+#   2. esito vale «decisa», «confermata aperta» oppure «in attesa». I primi due sono esiti; il
+#      terzo è l'assenza di un esito, scritta per esteso perché una cella vuota è indistinguibile
+#      da una dimenticanza. Una riga «in attesa» con un numero di criterio rende il traguardo non
+#      soddisfatto, ed è esattamente ciò che deve fare.
+#
+#   3. rinvio è obbligatorio quando esito vale «decisa»: contiene il percorso del registro di
+#      decisione architetturale che porta la decisione. Un esito «decisa» senza il rinvio afferma
+#      che qualcuno ha deciso senza dire dove, che è la forma peggiore di una decisione presa -
+#      chi la cercherà non la troverà, e la riprenderà da capo.
+#
+#   4. conseguenza è obbligatoria quando esito vale «confermata aperta», e dichiara CHE COSA
+#      accade perché la voce resta aperta. Senza di essa «confermata aperta» è un silenzio con
+#      una casella intorno: il criterio del traguardo lo dice testualmente, ed è la ragione per
+#      cui questa colonna esiste separata da rinvio invece di condividerne una sola.
+#
+#   5. data è la data ISO AAAA-MM-GG in cui l'esito è stato registrato, mai una data prevista.
+#      Obbligatoria quando esito non vale «in attesa».
+#
+#   6. scadenza è la data oltre la quale la decisione non è più recuperabile - non la data in cui
+#      si vorrebbe deciderla. Per tre voci quella data è già passata o è in corso ogni giorno, e
+#      il piano lo dichiara: si scrive «in corso» in quel caso, mai una data comoda.
+#
+#   7. Nessuna riga si cancella. Quando un esito cambia si modifica la riga esistente, perché
+#      questo file dichiara lo STATO corrente e non la cronologia: la cronologia sta nella storia
+#      di git e nella bacheca inter-agenti, che è la fonte di ciascuna voce.
+#
+# Presidiato da scripts/verifica-decisioni-con-scadenza.sh.
+voce	criterio	scadenza	esito	rinvio	data	conseguenza
+Q-186	1	2026-10-15	in attesa			
+Q-110	2	2026-10-03	decisa	docs/adr/0012-segnalamento-fuori-dal-piano-degli-eventi.md	2026-08-25	
+Q-111	3	2026-10-03	in attesa	docs/adr/0028-limite-dichiarato-di-partecipanti.md		
+Q-145	4	2026-10-03	in attesa			
+Q-280	5	2026-09-19	in attesa			
+Q-189	6	2026-09-30	in attesa			
+Q-185	7	in corso	in attesa			
+Q-146	proposta	in corso	in attesa			
+Q-284	proposta	in corso	in attesa			
+Q-112	proposta	2026-09-26	in attesa			
+Q-191	proposta	2026-09-26	in attesa			
+Q-192	proposta	2026-09-26	in attesa			
+Q-190	proposta	2026-09-26	in attesa			
+Q-115	proposta	2026-10-03	in attesa			
+Q-281	proposta	2026-10-31	in attesa			

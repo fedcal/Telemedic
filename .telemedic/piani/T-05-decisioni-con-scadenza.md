@@ -282,6 +282,50 @@ essere attraversata dentro la finestra di `T-08`.
 
 ---
 
+## 3.1 Avanzamento del 28 agosto 2026 - il registro esiste, e dice che cosa manca
+
+**Il registro prescritto dal §4 esisteva solo come prescrizione.** Ora è
+`registro/decisioni-con-scadenza.tsv`, presidiato da `scripts/verifica-decisioni-con-scadenza.sh`
+ed eseguito dalla fascia rapida a ogni invio. Non cambia nulla di ciò che va deciso: cambia che lo
+stato del traguardo si legge in una riga invece che rileggendo questo piano, e che una decisione
+dimenticata smette di essere indistinguibile da una in corso.
+
+| | |
+|---|---|
+| Voci registrate | 15 - le sette del traguardo più le otto che questo piano ha proposto al §3 |
+| Criteri del traguardo coperti | **7 su 7**: nessuno è privo di riga |
+| Criteri con un esito | **1 su 7** - `Q-110`, decisa da `ADR 0012` |
+| Criteri ancora senza esito | **6**, tutti in attesa di una decisione del committente |
+
+**Perché le proposte del §3 stanno nello stesso file ma non contano.** La colonna `criterio` porta
+il numero da 1 a 7 per le voci del traguardo e la parola `proposta` per le altre, e il controllo
+conta soltanto le prime. Tenerle fuori le avrebbe perdute; contarle avrebbe **ampliato il traguardo
+senza passare da chi lo possiede**, ed è la precisazione 3 del §4 applicata alla lettera. Chi volesse
+promuoverne una dovrebbe prima modificare `docs/09_roadmap/02-traguardi.md`, non quella colonna.
+
+**Che cosa il presidio non può fare, e va detto.** Non può scrivere «confermata aperta» al posto di
+nessuno. Confermare che una decisione resta aperta **è a sua volta una decisione**, e accettarne la
+conseguenza dichiarata è accettarla: il controllo tratta quindi `in attesa` come assenza di esito,
+esattamente come tratterebbe una cella vuota. La parola è scritta per esteso solo perché una cella
+vuota è indistinguibile da una dimenticanza.
+
+**Due velocità, con la data dichiarata.** Le regole di forma - valori ammessi, rinvio presente ed
+esistente quando la voce è decisa, voce presente in bacheca, nessun criterio privo di riga - bloccano
+da subito, perché chi tiene il registro le può soddisfare oggi. La regola di sostanza è in sola
+segnalazione fino al **3 ottobre 2026**, che è la scadenza del traguardo, e da quel giorno blocca:
+una riduzione senza data dichiarata è il modo in cui diventa permanente, ed è il criterio 4 di
+`T-03`.
+
+**Un difetto pagato scrivendo il controllo, che vale la pena registrare.** La prima stesura leggeva
+il registro con `IFS=$'\t' read`, e la voce `C-1` del runbook dice da tempo perché non si fa: la
+tabulazione appartiene agli spazi di `IFS`, quindi le occorrenze consecutive collassano e i campi
+vuoti spariscono spostando a sinistra tutti quelli che seguono. Il danno qui era **esatto e
+silenzioso**: su una riga `confermata aperta`, che ha il rinvio vuoto per costruzione, il controllo
+accusava di non aver dichiarato la conseguenza proprio la riga che la dichiarava. I campi si
+estraggono con `cut -f`, che conta i separatori invece di saltarli.
+
+---
+
 ## 4. I criteri di completamento, e come si dimostrano
 
 Il criterio di fonte è uno solo e vale per ogni voce: *«ciascuna voce ha un esito registrato -
