@@ -49,7 +49,7 @@ jobs:
     # atteso finché quelle prove non vengono scritte, e nel frattempo la costruzione lo segnala e
     # resta bloccata, non silenziata.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-collocazione-dei-controlli.sh
 
   terminologie:
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-terminologie.sh
 
   redazionale:
@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-conformita-redazionale.sh
 
   distinta-dei-materiali:
@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -153,7 +153,7 @@ jobs:
     # in questa stessa fascia), che legge quella tabella, a sorvegliare che una futura riduzione
     # non diventi permanente senza una data dichiarata - non più un commento in questo file.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0 # il controllo confronta le date registrate in git
       - run: ./scripts/verifica-divergenza-traduzioni.sh
@@ -166,7 +166,7 @@ jobs:
     # assente dal registro, o il cui ultimo evento è "ritirato", o quando il registro stesso è
     # malformato. Non è continue-on-error: è il senso stesso del criterio.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-identificativi-requisiti.sh
       # Il banco di prova del controllo: dimostra che i casi deliberatamente errati lo fanno
       # davvero fallire, non soltanto che il caso valido passa.
@@ -201,7 +201,7 @@ jobs:
     # tabella dichiarava «fascia completa, bloccante» mentre nessuna corsia invocava lo script, e
     # nulla se ne accorgeva. Da oggi la tabella e la corsia si sorvegliano a vicenda.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-registro-dei-difetti.sh
 
   registri-delle-sigle:
@@ -217,7 +217,7 @@ jobs:
     # ha designato un vincolo che nessuna tabella definiva. Nessun controllo poteva accorgersene,
     # perche' i vincoli vivevano in una tabella di prosa che nessuno proiettava.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-registri-di-vincoli-e-questioni.sh
 
   dichiarazione-non-marcatura:
@@ -295,7 +295,7 @@ jobs:
     # seguono. Nessuno di essi ha continue-on-error: sono dichiarati bloccanti in tabella, e un
     # passo attenuato qui renderebbe falsa quella colonna.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -479,7 +479,7 @@ jobs:
     # convertiti il 27 agosto 2026, trentasette nella traduzione inglese puntavano a nomi di file
     # tradotti che non esistono, invisibili finche' erano testo.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - run: ./scripts/verifica-rinvii-testuali.sh
 
   marcature-non-verificate:
@@ -490,7 +490,7 @@ jobs:
     # smette di essere letto (Q-288). Il 10 ottobre 2026 e' il termine del criterio 3 di T-02,
     # quindi anche il termine entro cui quelle 372 vanno chiuse.
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Rapporto sulle marcature non verificate
         run: RAPPORTO=marcature-non-verificate.tsv ./scripts/verifica-marcature-non-verificate.sh
       - uses: actions/upload-artifact@v4
