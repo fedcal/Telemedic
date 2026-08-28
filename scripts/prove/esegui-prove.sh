@@ -3582,6 +3582,73 @@ esegui_caso "decisioni T-05: registro inesistente - esce 2, errore di uso" passa
   bash -c 'env REGISTRO_DECISIONI="$1/non-esiste.tsv" BACHECA="$1/bacheca-sintetica.md" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
   _ "$DEC_TENUTE" "$RADICE_REPO/scripts/verifica-decisioni-con-scadenza.sh"
 
+
+printf '\n== Controllo 35 - verifica-rinvii-di-t04.sh (criterio 5 di T-04) ==\n\n'
+
+# PERCHE' QUESTO BLOCCO ESISTE. Il criterio 5 di T-04 registra tre verifiche rinviate e, per
+# ciascuna, il divieto che sopravvive al rinvio. La seconda meta' del criterio e' un CONTROLLO DI
+# ASSENZA sul corpus pubblicato, ed e' l'unico modo in cui un divieto si dimostra: non esiste una
+# prova positiva del fatto che qualcosa non sia stato scritto.
+#
+# IL CONTROLLO USA UN ELENCO DI AMMISSIONE, e le tenute provano soprattutto quello. La ragione e'
+# che il divieto riguarda il SENSO - «descrive il meccanismo» - e nessuna espressione distingue un
+# capoverso che descrive da uno che dichiara di non voler descrivere: le due frasi condividono le
+# stesse parole, e la seconda e' il testo del divieto nella fonte del traguardo. L'espressione resta
+# larga, ogni occorrenza esistente e' letta una volta e ammessa con la ragione scritta, e una
+# occorrenza NUOVA fa fallire il controllo finche' qualcuno non l'ha guardata.
+
+RT4_TENUTE="$TENUTE/rinvii-t04"
+
+# I PERCORSI SI PASSANO RELATIVI ALLA RADICE DEL REPOSITORY, e non e' un dettaglio: il controllo
+# vi si sposta con «cd» e confronta i percorsi che trova con quelli scritti nell'elenco di
+# ammissione. Passando una radice ASSOLUTA, i percorsi trovati sono assoluti e quelli ammessi
+# relativi, nessuno dei due corrisponde all'altro e OGNI occorrenza risulta non ammessa - il
+# controllo direbbe che il corpus viola il divieto quando a non corrispondere sono le due forme
+# dello stesso percorso.
+RT4_RELATIVO="scripts/prove/tenute/rinvii-t04"
+
+rt4_caso() {
+  env RADICE_IT="$RT4_RELATIVO/$1" RADICE_EN="$RT4_RELATIVO/non-esiste-en" \
+      AMMESSE="$RT4_RELATIVO/$2" TESTI_RINVII="${3:-$RT4_RELATIVO/P9-sintetico.md}" \
+      bash "$RADICE_REPO/scripts/verifica-rinvii-di-t04.sh"
+}
+
+esegui_caso "rinvii T-04: un'occorrenza ammessa con la sua ragione non e' una violazione" passa \
+  rt4_caso corpus ammesse-conforme.tsv
+
+esegui_caso "rinvii T-04: un'occorrenza che nessuna ammissione copre" fallisce \
+  rt4_caso corpus ammesse-non-copre.tsv
+
+# LA TENUTA CHE SEGUE E' LA VOCE D-33 DEL RUNBOOK PROVATA SUL CAMPO. La prima misura del corpus
+# reale, fatta a mano con grep in minuscolo, aveva contato quindici occorrenze; il controllo, che
+# rende indifferente l'iniziale, ne ha trovate DICIASSETTE - le due mancanti erano a inizio di cella
+# di tabella e portavano la maiuscola. Se qualcuno riportasse l'espressione a sola minuscola, questa
+# tenuta smetterebbe di segnalare e il divieto avrebbe un varco largo quanto una riga di tabella.
+esegui_caso "rinvii T-04: l'occorrenza a inizio di cella, con la maiuscola, si vede" fallisce \
+  rt4_caso corpus-maiuscola ammesse-conforme.tsv
+
+# I TRE CASI CHE SEGUONO RIFIUTANO DI GIRARE A VUOTO, ciascuno con uscita 2 e non 1: un errore di
+# configurazione non e' una violazione, e confonderli fa credere che il corpus sia sporco quando e'
+# il controllo a non poter partire. Un elenco di ammissione VUOTO renderebbe violazione ogni
+# menzione, compresa quella del divieto stesso; un'ammissione senza motivo passerebbe il controllo
+# rendendo pero' illeggibile a chi rivede la ragione per cui qualcuno ha ammesso; i testi dei rinvii
+# assenti significano che la PRIMA meta' del criterio non e' soddisfatta, e non c'e' nulla da
+# presidiare.
+esegui_caso "rinvii T-04: elenco di ammissione vuoto - esce 2, non 1" passa \
+  bash -c 'env RADICE_IT="$1/corpus" RADICE_EN="$1/non-esiste-en" AMMESSE="$1/ammesse-vuoto.tsv" TESTI_RINVII="$1/P9-sintetico.md" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$RT4_RELATIVO" "$RADICE_REPO/scripts/verifica-rinvii-di-t04.sh"
+
+esegui_caso "rinvii T-04: un'ammissione senza motivo - esce 2, non 1" passa \
+  bash -c 'env RADICE_IT="$1/corpus" RADICE_EN="$1/non-esiste-en" AMMESSE="$1/ammesse-senza-motivo.tsv" TESTI_RINVII="$1/P9-sintetico.md" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$RT4_RELATIVO" "$RADICE_REPO/scripts/verifica-rinvii-di-t04.sh"
+
+esegui_caso "rinvii T-04: i testi dei rinvii assenti - esce 2, non 1" passa \
+  bash -c 'env RADICE_IT="$1/corpus" RADICE_EN="$1/non-esiste-en" AMMESSE="$1/ammesse-conforme.tsv" TESTI_RINVII="$1/non-esiste.md" bash "$2" >/dev/null 2>&1; [ $? -eq 2 ]' \
+  _ "$RT4_RELATIVO" "$RADICE_REPO/scripts/verifica-rinvii-di-t04.sh"
+
+esegui_caso "rinvii T-04: il repository reale supera il controllo" passa \
+  bash "$RADICE_REPO/scripts/verifica-rinvii-di-t04.sh"
+
 printf '\n== Controllo 33 - costruzione del sito, collegamento rotto (criterio 2 di T-02, terza istanza di Q-288) ==\n\n'
 
 # PERCHE' QUESTO BLOCCO ESISTE. onBrokenLinks, onBrokenAnchors e onBrokenMarkdownLinks sono a

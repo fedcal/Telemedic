@@ -316,6 +316,19 @@ jobs:
       - uses: actions/checkout@v5
       - run: ./scripts/verifica-decisioni-con-scadenza.sh
 
+  rinvii-di-t04:
+    name: RIN-C1 - i divieti che sopravvivono ai rinvii di T-04
+    runs-on: ubuntu-latest
+    # Controllo di ASSENZA, che e' l'unico modo in cui un divieto si dimostra: non esiste una prova
+    # positiva del fatto che qualcosa non sia stato scritto. Bloccante da subito, perche' la
+    # proprieta' era gia' vera quando il controllo e' nato - diciassette occorrenze, nessuna che
+    # descriva un meccanismo - e un presidio che arriva dopo la disciplina non ha debito da
+    # scadenzare. Il controllo dichiara a ogni esecuzione la propria parte scoperta: il terzo
+    # divieto si viola per omissione, e nessuno script la vede.
+    steps:
+      - uses: actions/checkout@v5
+      - run: ./scripts/verifica-rinvii-di-t04.sh
+
   coerenza-delle-corsie:
     name: CORSIE-C1 - le corsie dichiarano le stesse versioni
     runs-on: ubuntu-latest

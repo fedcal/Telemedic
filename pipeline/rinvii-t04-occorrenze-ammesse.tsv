@@ -1,0 +1,65 @@
+# Occorrenze ammesse dei tre divieti del criterio 5 di T-04.
+#
+# CHE COS'E'. Il criterio 5 di T-04 registra tre verifiche rinviate e, per ciascuna, il divieto che
+# sopravvive al rinvio: nessuna documentazione pubblica descrive il meccanismo di inoltro del
+# contesto di autenticazione; nessun materiale dichiara un formato unico di contenitore; nessun
+# requisito funzionale dipende da garanzie del broker non verificate. I testi sono in
+# verifiche/P9-rinvii-e-regole-in-vigore.md. Questo file elenca le occorrenze del corpus che le
+# espressioni del controllo intercettano e che sono state LETTE e ammesse.
+#
+# PERCHE' UN ELENCO DI AMMISSIONE INVECE DI UN'ESPRESSIONE PIU' STRETTA. Il divieto riguarda il
+# SENSO - «descrive il meccanismo» - e nessuna espressione regolare distingue un capoverso che
+# descrive da uno che dichiara di non voler descrivere. Le due frasi condividono le stesse parole,
+# e la seconda e' proprio il testo del divieto. Un controllo con la sola espressione sarebbe rosso
+# sul divieto stesso: un controllo sempre rosso smette di essere letto, ed e' la questione Q-288.
+#
+# La scelta e' quindi la stessa gia' adottata per la regola R0 in pipeline/termini-ammessi.tsv:
+# l'espressione resta LARGA e intercetta ogni menzione; ciascuna occorrenza esistente e' stata
+# letta una volta e ammessa con la ragione scritta; una occorrenza NUOVA fa fallire il controllo
+# finche' qualcuno non l'ha letta. Il costo e' una riga a ogni menzione legittima nuova; il
+# beneficio e' che nessuna descrizione del meccanismo puo' entrare nel corpus senza che qualcuno
+# l'abbia guardata.
+#
+# CIO' CHE QUESTO FILE NON PUO' FARE. Non impedisce a chi aggiunge una riga di ammettere
+# un'occorrenza che invece viola il divieto. Il presidio accerta che qualcuno abbia GUARDATO, non
+# che abbia guardato bene: e' un cambio di natura del rischio, da omissione a decisione sbagliata,
+# ed e' il massimo ottenibile da uno script su un divieto di senso. La ragione scritta serve
+# esattamente a questo - rende la decisione leggibile da chi rivede.
+#
+# Formato: file di testo separato da carattere TAB, codifica UTF-8. Le righe che iniziano con #
+# sono commenti. Segue l'intestazione delle colonne e poi una riga per occorrenza ammessa.
+#
+# Colonne: divieto, percorso, motivo
+#
+#   divieto  «inoltro», «contenitore» oppure «broker»: quale dei tre divieti l'espressione che ha
+#            intercettato l'occorrenza sorveglia.
+#   percorso percorso del file, relativo alla radice del repository. L'ammissione vale per il FILE
+#            e non per la riga: i numeri di riga si spostano a ogni modifica, e un elenco che li
+#            contenesse sarebbe rosso il giorno dopo per ragioni che non riguardano il divieto.
+#   motivo   perche' quell'occorrenza non viola il divieto. Mai vuoto, mai una formula: chi rivede
+#            deve poter dissentire, e per dissentire deve sapere che cosa si e' pensato.
+#
+# Misurato il 28 agosto 2026: DICIASSETTE occorrenze, nessuna delle quali descrive un meccanismo.
+#
+# Il numero e' diciassette e non quindici, ed e' istruttivo come ci si e' arrivati. La prima misura,
+# fatta a mano con grep in minuscolo, ne aveva trovate quindici; il controllo, che rende
+# indifferente l'iniziale, ne ha trovate due in piu' - «Inoltro del contesto...» e «Forwarding of
+# authentication context...», entrambe a inizio di cella di tabella e quindi con la maiuscola. E' la
+# voce D-33 del runbook che si ripresenta il giorno dopo essere stata scritta, sullo stesso gesto:
+# misurare il corpus in minuscolo e non misurare anche il verso che si sta per escludere.
+divieto	percorso	motivo
+inoltro	docs/09_roadmap/02-traguardi.md	La fonte del traguardo enuncia il rinvio e il divieto stesso: nomina il meccanismo per dire che non va descritto
+inoltro	docs/09_roadmap/04-oltre-il-primo-rilascio.md	Elenca l esito della verifica fra le cose attese dopo il primo rilascio: nomina la verifica, non il meccanismo
+inoltro	docs/06_security/02-identita-e-accessi.md	Riga di tabella che rinvia alla questione Q-153 e la dichiara bloccante: e il riferimento a una lacuna aperta
+inoltro	docs/11_registri/02-questioni-aperte.md	Capitolo GENERATO dalla bacheca: riporta il testo della questione Q-153, che e la registrazione del rinvio
+inoltro	website/i18n/en/docusaurus-plugin-content-docs/current/09_roadmap/02-traguardi.md	Gemello inglese della fonte del traguardo, stesso contenuto
+inoltro	website/i18n/en/docusaurus-plugin-content-docs/current/09_roadmap/04-oltre-il-primo-rilascio.md	Gemello inglese
+inoltro	website/i18n/en/docusaurus-plugin-content-docs/current/06_security/02-identita-e-accessi.md	Gemello inglese
+inoltro	website/i18n/en/docusaurus-plugin-content-docs/current/11_registri/02-questioni-aperte.md	Gemello inglese del capitolo generato
+contenitore	docs/09_roadmap/02-traguardi.md	La fonte del traguardo enuncia il divieto: la sola occorrenza dell espressione nel corpus e il divieto stesso
+broker	docs/09_roadmap/02-traguardi.md	La fonte del traguardo enuncia il divieto
+broker	docs/02_architecture/08-viste-di-deployment.md	Dichiara i LIMITI delle garanzie del broker nell assetto a nodo singolo, che e il contrario di dipenderne
+broker	docs/02_architecture/06-eventi-e-integrazione-interna.md	Riga di tabella che rinvia ai limiti effettivi delle garanzie nell assetto previsto: dichiara la lacuna
+broker	website/i18n/en/docusaurus-plugin-content-docs/current/02_architecture/06-eventi-e-integrazione-interna.md	Gemello inglese
+inoltro	docs/09_roadmap/01-principi-e-metodo.md	Riga della tabella dei rinvii: nomina la verifica rinviata e RIPETE il divieto, che la documentazione pubblica non descrive il meccanismo
+inoltro	website/i18n/en/docusaurus-plugin-content-docs/current/09_roadmap/01-principi-e-metodo.md	Gemello inglese della tabella dei rinvii
