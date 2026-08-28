@@ -61,7 +61,7 @@ jobs:
       #    QUESTA corsia sarebbe quindi fallito alla prima esecuzione, e questa corsia non e' mai
       #    stata eseguita: zero esecuzioni, zero rilasci.
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: 'npm'
